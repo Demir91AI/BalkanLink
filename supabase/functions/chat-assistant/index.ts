@@ -68,6 +68,7 @@ Auth: /login, /register
 type SiteTopic = { url: string; label: string; category: string };
 
 const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
+  // Legal
   "agb": { url: "/mitgliedschaft", label: "Uslovi članstva", category: "legal" },
   "uslovi": { url: "/mitgliedschaft", label: "Uslovi članstva", category: "legal" },
   "mitgliedschaft": { url: "/mitgliedschaft", label: "Mitgliedschaftsbedingungen", category: "legal" },
@@ -77,22 +78,30 @@ const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
   "impressum": { url: "/impressum", label: "Impressum", category: "legal" },
   "disclaimer": { url: "/disclaimer", label: "Haftungsausschluss", category: "legal" },
   "haftung": { url: "/disclaimer", label: "Haftungsausschluss", category: "legal" },
-  "ki-hinweis": { url: "/ki-hinweis", label: "KI-Hinweis", category: "legal" },
+  "ki-hinweis": { url: "/ki-hinweis", label: "Napomena o asistentu", category: "legal" },
+  // Premium
   "premium": { url: "/premium", label: "Premium", category: "premium" },
   "članstvo": { url: "/premium", label: "Premium", category: "premium" },
   "clanstvo": { url: "/premium", label: "Premium", category: "premium" },
-  "cijena": { url: "/premium", label: "Premium cijena", category: "premium" },
+  "cijena": { url: "/paketi", label: "Paketi i cijene", category: "premium" },
+  "cijene": { url: "/paketi", label: "Paketi i cijene", category: "premium" },
+  "paketi": { url: "/paketi", label: "Paketi i cijene", category: "premium" },
   "pretplata": { url: "/premium", label: "Premium", category: "premium" },
+  // Ads
   "oglas": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
   "oglasi": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
   "nudim": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
   "tražim": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
   "trazim": { url: "/nudim-trazim", label: "Nudim / Tražim", category: "ads" },
-  "dolazak": { url: "/dolazak", label: "Dolazak", category: "arrival" },
+  // Arrival
+  "dolazak": { url: "/nach-deutschland", label: "Dolazak u Njemačku", category: "arrival" },
+  "preseljenje": { url: "/nach-deutschland", label: "Dolazak u Njemačku", category: "arrival" },
   "prvi koraci": { url: "/dolazak/prvi-koraci", label: "Prvi koraci", category: "arrival" },
   "prijava adrese": { url: "/dolazak/prijava-prebivalista", label: "Anmeldung", category: "arrival" },
   "prijava prebivalista": { url: "/dolazak/prijava-prebivalista", label: "Anmeldung", category: "arrival" },
+  "anmeldung": { url: "/dolazak/prijava-prebivalista", label: "Anmeldung", category: "arrival" },
   "zdravstveno": { url: "/dolazak/zdravstveno-osiguranje", label: "Zdravstveno", category: "arrival" },
+  "krankenkasse": { url: "/dolazak/zdravstveno-osiguranje", label: "Krankenkasse", category: "arrival" },
   "bankovni": { url: "/dolazak/bankovni-racun", label: "Bankovni račun", category: "arrival" },
   "vozačka": { url: "/dolazak/fuehrerschein", label: "Vozačka dozvola", category: "arrival" },
   "vozacka": { url: "/dolazak/fuehrerschein", label: "Vozačka dozvola", category: "arrival" },
@@ -100,32 +109,97 @@ const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
   "auto anmelden": { url: "/dolazak/auto-anmelden", label: "Auto registracija", category: "arrival" },
   "uvoz auta": { url: "/dolazak/auto-anmelden", label: "Uvoz auta", category: "arrival" },
   "sozialversicherung": { url: "/dolazak/sozialversicherung", label: "Sozialversicherung", category: "arrival" },
+  // Visa (always /viza, never legacy)
+  "viza": { url: "/viza", label: "Visa Navigator", category: "visa" },
+  "vize": { url: "/viza", label: "Visa Navigator", category: "visa" },
+  "visa": { url: "/viza", label: "Visa Navigator", category: "visa" },
+  "boravišn": { url: "/viza", label: "Visa Navigator", category: "visa" },
+  "boravisn": { url: "/viza", label: "Visa Navigator", category: "visa" },
+  "aufenthalt": { url: "/viza", label: "Visa Navigator", category: "visa" },
+  "aufenthaltstitel": { url: "/viza", label: "Visa Navigator", category: "visa" },
+  // Search
   "posao": { url: "/stellenangebote", label: "Pretraga poslova", category: "search" },
   "poslovi": { url: "/stellenangebote", label: "Pretraga poslova", category: "search" },
   "job": { url: "/stellenangebote", label: "Pretraga poslova", category: "search" },
+  "stellenangebot": { url: "/stellenangebote", label: "Pretraga poslova", category: "search" },
   "stan": { url: "/wohnungen", label: "Pretraga stanova", category: "search" },
   "stanovi": { url: "/wohnungen", label: "Pretraga stanova", category: "search" },
   "wohnung": { url: "/wohnungen", label: "Pretraga stanova", category: "search" },
+  // Life / family
   "porodica": { url: "/familie", label: "Porodica", category: "life" },
   "familie": { url: "/familie", label: "Porodica", category: "life" },
   "djeca": { url: "/familie", label: "Porodica", category: "life" },
-  "kalkulator": { url: "/brutto-netto-rechner", label: "Kalkulator", category: "tools" },
-  "brutto": { url: "/brutto-netto-rechner", label: "Kalkulator", category: "tools" },
-  "netto": { url: "/brutto-netto-rechner", label: "Kalkulator", category: "tools" },
-  "plata": { url: "/brutto-netto-rechner", label: "Kalkulator", category: "tools" },
+  // Tools
+  "kalkulator": { url: "/kalkulatori", label: "Kalkulatori", category: "tools" },
+  "kalkulatori": { url: "/kalkulatori", label: "Kalkulatori", category: "tools" },
+  "brutto": { url: "/brutto-netto-rechner", label: "Brutto-Netto", category: "tools" },
+  "netto": { url: "/brutto-netto-rechner", label: "Brutto-Netto", category: "tools" },
+  "plata": { url: "/brutto-netto-rechner", label: "Brutto-Netto", category: "tools" },
+  "rechner": { url: "/kalkulatori", label: "Kalkulatori", category: "tools" },
   "dokumenten-check": { url: "/dokumenten-check", label: "Dokumenten-Check", category: "tools" },
+  "analiza pisma": { url: "/dokumenten-check", label: "Dokumenten-Check", category: "tools" },
+  // Templates
+  "vorlage": { url: "/vorlagen", label: "Šabloni", category: "templates" },
+  "vorlagen": { url: "/vorlagen", label: "Šabloni", category: "templates" },
+  "šabloni": { url: "/vorlagen", label: "Šabloni", category: "templates" },
+  "sabloni": { url: "/vorlagen", label: "Šabloni", category: "templates" },
+  "predložak": { url: "/vorlagen", label: "Šabloni", category: "templates" },
+  "predlozak": { url: "/vorlagen", label: "Šabloni", category: "templates" },
+  // Community
   "direktorij": { url: "/directory", label: "Direktorij", category: "community" },
   "biznisi": { url: "/directory", label: "Direktorij", category: "community" },
   "ambasad": { url: "/ambasade-konzulati", label: "Ambasade", category: "community" },
   "konzulat": { url: "/ambasade-konzulati", label: "Konzulati", category: "community" },
   "faq": { url: "/qa", label: "Pitanja i odgovori", category: "community" },
   "pitanja": { url: "/qa", label: "FAQ", category: "community" },
+  // Finance / förder
   "subvencij": { url: "/foerderungen", label: "Subvencije", category: "finance" },
   "förderung": { url: "/foerderungen", label: "Förderungen", category: "finance" },
   "pomoći": { url: "/foerderungen", label: "Pomoći", category: "finance" },
+  // Forms
   "smart guide": { url: "/formulari", label: "Smart Guide", category: "forms" },
   "formular": { url: "/formulari", label: "Formulari", category: "forms" },
   "formulari": { url: "/formulari", label: "Formulari", category: "forms" },
+  // POREZI — Tax Smart Guide hub (NEW)
+  "porez": { url: "/porezi", label: "Porezi vodič", category: "tax" },
+  "porezi": { url: "/porezi", label: "Porezi vodič", category: "tax" },
+  "porezna prijava": { url: "/porezi", label: "Porezi vodič", category: "tax" },
+  "steuererklärung": { url: "/porezi", label: "Porezi vodič", category: "tax" },
+  "steuererklarung": { url: "/porezi", label: "Porezi vodič", category: "tax" },
+  "steuer": { url: "/porezi", label: "Porezi vodič", category: "tax" },
+  "finanzamt": { url: "/porezi", label: "Porezi vodič", category: "tax" },
+  "porezna klasa": { url: "/porezi/porodica-i-klase", label: "Porodica i porezne klase", category: "tax" },
+  "steuerklasse": { url: "/porezi/porodica-i-klase", label: "Porodica i porezne klase", category: "tax" },
+  "elster": { url: "/porezi/elster-vodic", label: "ELSTER vodič", category: "tax" },
+  "rok prijave": { url: "/porezi/rokovi-i-kazne", label: "Rokovi i kazne", category: "tax" },
+  "porezni rok": { url: "/porezi/rokovi-i-kazne", label: "Rokovi i kazne", category: "tax" },
+  "verspätungszuschlag": { url: "/porezi/rokovi-i-kazne", label: "Rokovi i kazne", category: "tax" },
+  "doppelte haushalt": { url: "/porezi/dvostruko-domacinstvo", label: "Dvostruko domaćinstvo", category: "tax" },
+  "doppelhaushalt": { url: "/porezi/dvostruko-domacinstvo", label: "Dvostruko domaćinstvo", category: "tax" },
+  "werbungskosten": { url: "/porezi/sta-mogu-odbiti", label: "Šta mogu odbiti", category: "tax" },
+  "odbitak": { url: "/porezi/sta-mogu-odbiti", label: "Šta mogu odbiti", category: "tax" },
+  // Anerkennung (Recognition Navigator)
+  "anerkennung": { url: "/anerkennung", label: "Anerkennung Navigator", category: "career" },
+  "priznavanje diplome": { url: "/anerkennung", label: "Anerkennung Navigator", category: "career" },
+  "nostrifikacija": { url: "/anerkennung", label: "Anerkennung Navigator", category: "career" },
+  // Mietrecht
+  "mietrecht": { url: "/mietrecht", label: "Mietrecht", category: "rent" },
+  "stanarsko pravo": { url: "/mietrecht", label: "Mietrecht", category: "rent" },
+  "mietvertrag": { url: "/mietrecht", label: "Mietrecht", category: "rent" },
+  // Radno pravo / Biznis
+  "radno pravo": { url: "/radno-pravo", label: "Radno pravo", category: "career" },
+  "arbeitsrecht": { url: "/radno-pravo", label: "Radno pravo", category: "career" },
+  "kündigung": { url: "/radno-pravo", label: "Radno pravo", category: "career" },
+  "biznis": { url: "/biznis", label: "Biznis u Njemačkoj", category: "business" },
+  "gewerbe": { url: "/biznis", label: "Biznis u Njemačkoj", category: "business" },
+  "samozaposlenje": { url: "/biznis", label: "Biznis u Njemačkoj", category: "business" },
+  "selbständig": { url: "/biznis", label: "Biznis u Njemačkoj", category: "business" },
+  "freiberufler": { url: "/biznis", label: "Biznis u Njemačkoj", category: "business" },
+  // Deutsch trainer
+  "deutsch trainer": { url: "/deutsch-trainer", label: "BalkanLink Deutsch", category: "learning" },
+  "balkanlink deutsch": { url: "/deutsch-trainer", label: "BalkanLink Deutsch", category: "learning" },
+  "njemački": { url: "/deutsch-trainer", label: "BalkanLink Deutsch", category: "learning" },
+  "njemacki": { url: "/deutsch-trainer", label: "BalkanLink Deutsch", category: "learning" },
 };
 
 function detectSiteTopics(text: string): SiteTopic[] {
@@ -707,8 +781,20 @@ Dokumenten-Check → [Dokumenten-Check](/dokumenten-check)
 Nudim/Tražim oglasi → [Oglasi](/nudim-trazim)
 Dolazak u Njemačku → [Dolazak](/nach-deutschland)
 Premium / Paketi i cijene → [Paketi](/paketi)
-Šabloni / Vorlagen → [Šabloni](/sabloni)
+Šabloni / Vorlagen → [Šabloni](/vorlagen)
 Rechner / Kalkulatori → [Kalkulatori](/kalkulatori)
+Porez / Steuererklärung / Finanzamt → [Porezi vodič](/porezi)
+Porezni rokovi i kazne / Verspätungszuschlag → [Rokovi i kazne](/porezi/rokovi-i-kazne)
+Werbungskosten / Šta mogu odbiti → [Šta mogu odbiti](/porezi/sta-mogu-odbiti)
+ELSTER vodič → [ELSTER vodič](/porezi/elster-vodic)
+Steuerklasse / porezne klase → [Porodica i klase](/porezi/porodica-i-klase)
+Doppelte Haushaltsführung → [Dvostruko domaćinstvo](/porezi/dvostruko-domacinstvo)
+Da li moram poreznu prijavu → [Da li moram](/porezi/da-li-moram)
+Najčešće greške u Steuererklärung → [Najčešće greške](/porezi/najcesce-greske)
+Anerkennung diplome / kvalifikacija → [Anerkennung Navigator](/anerkennung)
+Mietrecht / stanarsko pravo → [Mietrecht](/mietrecht)
+Radno pravo / Kündigung → [Radno pravo](/radno-pravo)
+Biznis / Gewerbe / samozaposlenje → [Biznis u Njemačkoj](/biznis)
 
 ═══════════════════════════════════════
 VIZA PO ZEMLJAMA
@@ -770,7 +856,7 @@ Kundenservice / Verträge:
 - Vertragskündigung (Internet, Handy etc.) — Otkaz ugovora
 - Reklamation — Reklamacija
 - Widerruf — Opoziv ugovora
-Link: 👉 [Šabloni / Vorlagen](/sabloni)
+Link: 👉 [Šabloni / Vorlagen](/vorlagen)
 
 ═══════════════════════════════════════
 DOKUMENTEN-CHECK
@@ -1128,16 +1214,42 @@ function buildContextualPremiumRedirect(userText: string, lang: string): { text:
     };
   }
 
-  // Visa
+  // Visa — always points to /viza (Visa Navigator), never legacy /formulari/aufenthaltstitel
   if (/viza|visa|aufenthalt|boravišn|boravisn|residence|permit|blue.?card|radna\s+dozvola|work\s+permit/i.test(lower)) {
     return {
       text: l === "de"
         ? "Für personalisierte Visa-Beratung nutze den Visa Navigator."
         : l === "en"
         ? "For personalized visa guidance, use the Visa Navigator."
-        : "Za personalizirani vizni vodič otvori [Visa Navigator](/formulari/aufenthaltstitel). Tamo dobiješ tačne korake za tvoju situaciju.",
-      redirectUrl: "/formulari/aufenthaltstitel",
+        : "Za personalizirani vizni vodič otvori [Visa Navigator](/viza). Tamo dobiješ tačne korake za tvoju situaciju.",
+      redirectUrl: "/viza",
       redirectLabel: l === "de" ? "Visa Navigator öffnen" : l === "en" ? "Open Visa Navigator" : "Otvori Visa Navigator",
+    };
+  }
+
+  // Steuer / Porezi — points to new /porezi hub (10 modules)
+  if (/steuer(erkl[äa]rung)?|finanzamt|porez|elster|werbungskosten|doppelt[ae]?\s*haushalt/i.test(lower)) {
+    return {
+      text: l === "de"
+        ? "Für deine Steuerfragen nutze den Porezi-Hub mit 10 Modulen — Fristen, Abzüge, ELSTER und mehr."
+        : l === "en"
+        ? "For tax questions, use the Porezi hub with 10 modules — deadlines, deductions, ELSTER and more."
+        : "Za sve oko poreza koristi [Porezi vodič](/porezi) — 10 modula sa rokovima, odbicima, ELSTER vodičem i više.",
+      redirectUrl: "/porezi",
+      redirectLabel: l === "de" ? "Porezi öffnen" : l === "en" ? "Open Porezi" : "Otvori Porezi vodič",
+    };
+  }
+
+  // Anerkennung — recognition of foreign qualifications
+  if (/anerkennung|nostrifikacij|priznavanje\s+(diplome|kvalifikacij)/i.test(lower)) {
+    return {
+      text: l === "de"
+        ? "Für die Anerkennung deiner Qualifikationen nutze den Anerkennung Navigator."
+        : l === "en"
+        ? "For recognition of your qualifications, use the Anerkennung Navigator."
+        : "Za priznavanje tvoje diplome ili kvalifikacije koristi [Anerkennung Navigator](/anerkennung).",
+      redirectUrl: "/anerkennung",
+      redirectLabel: l === "de" ? "Anerkennung Navigator" : l === "en" ? "Open Anerkennung" : "Otvori Anerkennung",
     };
   }
 
@@ -1187,7 +1299,8 @@ serve(async (req) => {
     const userText = typeof lastUserMsg?.content === "string" ? lastUserMsg.content : 
       Array.isArray(lastUserMsg?.content) ? lastUserMsg.content.find((c: any) => c.type === "text")?.text || "" : "";
 
-    const lang = ["bs", "hr", "sr", "me"].includes(language) ? "bs" : language === "de" ? "de" : "en";
+    // Default to BS — system prompt forces BS replies regardless. EN only if explicitly "en".
+    const lang = language === "de" ? "de" : language === "en" ? "en" : "bs";
 
     // ── SAFETY CHECK (highest priority) ──
     const safety = checkSafety(userText);
@@ -1265,7 +1378,8 @@ serve(async (req) => {
 
     // ── DB search for local business queries ──
     const dbResults = await searchDatabase(userText);
-    const systemPrompt = buildSystemPrompt(isPremium, language || "de", dbResults, pageContext);
+    // Default language for system prompt = "bs" (system prompt itself forces BS replies anyway)
+    const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext);
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",

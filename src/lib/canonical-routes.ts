@@ -86,6 +86,10 @@ export const VALID_PRODUCTION_ROUTES = new Set([
   "/bussgeld", "/generatoren",
   "/radno-pravo",
   "/biznis",
+  "/mietrecht",
+  "/anerkennung",
+  "/porezi", "/steuern",
+  "/profil", "/historija-placanja",
 ]);
 
 export function isValidProductionRoute(path: string): boolean {
@@ -98,5 +102,11 @@ export function isValidProductionRoute(path: string): boolean {
   if (path.startsWith("/firma/")) return true;
   if (path.startsWith("/radno-pravo/")) return true;
   if (path.startsWith("/biznis/")) return true;
+  if (path.startsWith("/porezi/")) return true;
+  if (path.startsWith("/steuern/")) return true;
+  if (path.startsWith("/mietrecht/")) return true;
+  if (path.startsWith("/anerkennung/")) return true;
+  // Localized prefixes (de, hr, sr) — accept any of them as well
+  if (/^\/(de|hr|sr)\/(porezi|steuern|formulari|viza|anerkennung|mietrecht|radno-pravo|biznis|nach-deutschland|deutsch-trainer)/.test(path)) return true;
   return false;
 }

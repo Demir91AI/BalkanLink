@@ -127,6 +127,20 @@ const KEYWORD_LINKS: [RegExp, string][] = [
   [/\b(dolazak u njemačku|dolazak u njemacku|preseljenje)\b/gi, "/nach-deutschland"],
   // PAKETI
   [/\b(paketi i opcije|Paketi i opcije)\b/gi, "/paketi"],
+  // POREZI (new tax hub)
+  [/\b(Steuererklärung|steuererklarung|porezna prijava)\b/gi, "/porezi"],
+  [/\b(Finanzamt|finanzamt)\b/g, "/porezi"],
+  [/\b(ELSTER|elster)\b/g, "/porezi/elster-vodic"],
+  [/\b(Werbungskosten|werbungskosten)\b/g, "/porezi/sta-mogu-odbiti"],
+  [/\b(Verspätungszuschlag|verspatungszuschlag)\b/gi, "/porezi/rokovi-i-kazne"],
+  [/\b(Doppelte Haushaltsführung|doppelhaushalt|dvostruko domaćinstvo)\b/gi, "/porezi/dvostruko-domacinstvo"],
+  // ANERKENNUNG
+  [/\b(Anerkennung|anerkennung|nostrifikacija|priznavanje diplome)\b/gi, "/anerkennung"],
+  // MIETRECHT
+  [/\b(Mietrecht|mietrecht|stanarsko pravo)\b/gi, "/mietrecht"],
+  // RADNO PRAVO / BIZNIS
+  [/\b(Arbeitsrecht|arbeitsrecht|radno pravo)\b/gi, "/radno-pravo"],
+  [/\b(Gewerbe|gewerbeanmeldung|samozaposlenje|biznis u Njemačkoj)\b/gi, "/biznis"],
 ];
 
 function autoLinkKeywords(text: string): string {
