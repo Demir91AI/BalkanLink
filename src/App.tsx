@@ -54,6 +54,7 @@ const Generatoren = lazy(() => import("./pages/Generatoren"));
 const Wohnungen = lazy(() => import("./pages/Wohnungen"));
 const Stellenangebote = lazy(() => import("./pages/Stellenangebote"));
 const DokumentenCheck = lazy(() => import("./pages/DokumentenCheck"));
+const NebenkostenScan = lazy(() => import("./pages/NebenkostenScan"));
 const AdminForms = lazy(() => import("./pages/AdminForms"));
 const AdminFormMapper = lazy(() => import("./pages/AdminFormMapper"));
 const BruttoNettoRechner = lazy(() => import("./pages/BruttoNettoRechner"));
