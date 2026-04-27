@@ -25,7 +25,7 @@ serve(async (req) => {
     const user = data.user;
     if (!user?.email) throw new Error("User not authenticated");
 
-    const { priceId, mode, formSlug } = await req.json();
+    const { priceId, mode, formSlug, returnTo } = await req.json();
     if (!priceId) throw new Error("Missing priceId");
 
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
@@ -40,16 +40,20 @@ serve(async (req) => {
 
     const checkoutMode = mode === "subscription" ? "subscription" : "payment";
     const origin = req.headers.get("origin") || "https://balkanlink.de";
+    const safeReturnTo = typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//")
+      ? returnTo
+      : "/";
 
     const sessionParams: Stripe.Checkout.SessionCreateParams = {
       customer: customerId,
       customer_email: customerId ? undefined : user.email,
       line_items: [{ price: priceId, quantity: 1 }],
       mode: checkoutMode,
-      success_url: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}&return_to=${encodeURIComponent(safeReturnTo)}`,
       cancel_url: `${origin}/placanje-otkazano`,
       metadata: {
         user_id: user.id,
+        return_to: safeReturnTo,
         ...(formSlug ? { form_slug: formSlug } : {}),
       },
     };

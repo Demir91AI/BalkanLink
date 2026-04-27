@@ -656,10 +656,7 @@ export default function DokumentenCheck() {
                   <div className="flex-1 h-px bg-primary-foreground/10" />
                 </div>
                 <button
-                  onClick={() => {
-                    if (!user) { localizedNavigate("/login"); return; }
-                    initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
-                  }}
+                  onClick={startOneOffCheckout}
                   className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/20 text-primary-foreground/70 hover:text-primary-foreground hover:border-primary-foreground/40 transition-all text-center"
                 >
                   {t("documentCheck.paywall.oneTimeCta")}
