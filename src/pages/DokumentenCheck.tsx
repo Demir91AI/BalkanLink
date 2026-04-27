@@ -479,6 +479,25 @@ export default function DokumentenCheck() {
             </div>
           </motion.div>
 
+          {/* ── Confirm checkbox ── */}
+          <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
+            <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
+            <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
+              {t("documentCheck.confirm")}
+            </label>
+          </div>
+
+          {/* ── Actions ── */}
+          <div className="flex gap-3">
+            <Button onClick={handleAnalyze} disabled={loading || !confirmed || files.length === 0} className="gap-2 rounded-xl px-6">
+              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
+              {loading ? t("documentCheck.buttons.checking") : t("documentCheck.buttons.checkDocument")}
+            </Button>
+            {(analysis || files.length > 0 || error) && (
+              <Button variant="outline" onClick={handleClear} className="rounded-xl">{t("documentCheck.buttons.reset")}</Button>
+            )}
+          </div>
+
           {/* ── Error ── */}
           {error && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
