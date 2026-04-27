@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageMEB";
 
 const STEPS: StepData[] = [
   {
@@ -51,23 +54,26 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage MEB — Mehrbedarf Ernährung",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage MEB + Ärztliche Bescheinigung",
+    whoCanApply: "Bürgergeld-primaoci sa medicinskom potrebom za posebnu ishranu",
+    processingTime: "3–6 sedmica",
+  },
+  steps: STEPS,
+};
+
 export default function AnlageMEBGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Anlage MEB — Mehrbedarf Ernährung"
-        source="Jobcenter (SGB II)"
-        formName="Anlage MEB + Ärztliche Bescheinigung"
-        whoCanApply="Bürgergeld-primaoci sa medicinskom potrebom za posebnu ishranu"
-        processingTime="3–6 sedmica"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Anlage MEB</strong> — zahtjev za doplatak zbog skuplje ishrane
-          uzrokovane medicinskom dijagnozom. Uključuje ljekarsku potvrdu u zatvorenom kovertu.
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Anlage MEB</strong> — zahtjev za doplatak zbog skuplje ishrane
+                uzrokovane medicinskom dijagnozom. Uključuje ljekarsku potvrdu u zatvorenom kovertu.
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageUH3";
 
 const STEPS: StepData[] = [
   {
@@ -41,37 +44,33 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageUH3GuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage UH3 — Kindesunterhalt"
-        source="Jobcenter (SGB II)"
-        formName="Anlage UH3"
-        whoCanApply="Za djecu/osobe do 25 god. kada jedan roditelj ne živi u Bedarfsgemeinschaft."
-        processingTime="Obrađuje se uz Hauptantrag"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage UH3 — Kindesunterhalt",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage UH3",
+    whoCanApply: "Za djecu/osobe do 25 god. kada jedan roditelj ne živi u Bedarfsgemeinschaft.",
+    processingTime: "Obrađuje se uz Hauptantrag",
+    requirements: [
           "Rodilišni list djeteta",
           "Posljednja poznata adresa alimentacijskog obveznika",
           "Unterhaltstitel / sporazum (ako postoji)",
           "Bescheid Jugendamta (Unterhaltsvorschuss)",
           "Vaterschaftsanerkennung (ako roditelji nikad nisu bili vjenčani)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Jedna UH3 za više djece — svako dijete treba vlastitu!",
           "Unterhaltsvorschuss ne zatražiti → Jobcenter pita zašto",
           "Nepoznat otac bez objašnjenja → uvijek kratko obrazloži",
-        ]}
-      />
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageUH3GuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
+
+    </LocalizedGuide>
   );
 }

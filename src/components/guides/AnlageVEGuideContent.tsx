@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageVE";
 
 const STEPS: StepData[] = [
   {
@@ -45,23 +48,26 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage VE — Einstehensgemeinschaft",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage VE",
+    whoCanApply: "Bürgergeld-primaoci koji žive sa nesrodnom osobom",
+    processingTime: "2–4 sedmice",
+  },
+  steps: STEPS,
+};
+
 export default function AnlageVEGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Anlage VE — Einstehensgemeinschaft"
-        source="Jobcenter (SGB II)"
-        formName="Anlage VE"
-        whoCanApply="Bürgergeld-primaoci koji žive sa nesrodnom osobom"
-        processingTime="2–4 sedmice"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Anlage VE</strong> — utvrđuje da li živiš u „eheähnliche Gemeinschaft"
-          sa nesrodnom osobom (cimer, partner). Utiče na izračun Bürgergeld-a.
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Anlage VE</strong> — utvrđuje da li živiš u „eheähnliche Gemeinschaft"
+                sa nesrodnom osobom (cimer, partner). Utiče na izračun Bürgergeld-a.
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

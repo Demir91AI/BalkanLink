@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "krankenkasse";
 
 const STEPS: StepData[] = [
   {
@@ -41,35 +44,48 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function KrankenkasseGuideContent() {
-  return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Zdravstveno osiguranje (Krankenkasse)"
-        source="Gesetzliche Krankenversicherung"
-        formName="Mitgliedsantrag Krankenkasse"
-        whoCanApply="Svaka zaposlena osoba u Njemačkoj mora imati zdravstveno osiguranje."
-        processingTime="Odmah nakon prijave kod poslodavca"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Zdravstveno osiguranje (Krankenkasse)",
+    source: "Gesetzliche Krankenversicherung",
+    formName: "Mitgliedsantrag Krankenkasse",
+    whoCanApply: "Svaka zaposlena osoba u Njemačkoj mora imati zdravstveno osiguranje.",
+    processingTime: "Odmah nakon prijave kod poslodavca",
+    requirements: [
           "Ugovor o radu",
           "Odabir Krankenkasse (npr. TK, AOK, Barmer)",
           "Pasoš ili lična karta",
           "Meldebescheinigung",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Ne odabrati Krankenkasse na vrijeme",
           "Plaćati zasebno osiguranje za porodicu kad postoji Familienversicherung",
           "Ići direktno u bolnicu umjesto kod Hausarzt",
           "Ne znati za privremenu potvrdu (Bescheinigung) dok čekaš karticu",
-        ]}
-      />
-      <SmartGuideWizardShared steps={STEPS} />
-      <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
-        <p className="text-[13px] text-gray-400">Više informacija o zdravstvenom osiguranju</p>
-        <a href="https://www.krankenkassen.de" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-sm font-medium" style={{ color: "#3B82F6" }}>
-          🔗 Pregled Krankenkassen
-        </a>
-      </div>
-    </div>
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function KrankenkasseGuideContent() {
+  return (
+    <LocalizedGuide
+      guideKey={GUIDE_KEY}
+      base={BASE}
+      footer={
+        <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
+          <p className="text-[13px] text-gray-400">Više informacija o zdravstvenom osiguranju</p>
+          <a
+            href="https://www.krankenkassen.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm font-medium"
+            style={{ color: "#3B82F6" }}
+          >
+            🔗 Pregled Krankenkassen
+          </a>
+        </div>
+      }
+    />
   );
 }

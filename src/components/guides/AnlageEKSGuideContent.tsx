@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageEKS";
 
 const STEPS: StepData[] = [
   {
@@ -47,43 +50,38 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageEKSGuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage EKS — Einkommen Selbständige"
-        source="Jobcenter (SGB II)"
-        formName="Anlage EKS"
-        whoCanApply="Svaka samozaposlena ili freelance osoba u Bedarfsgemeinschaft."
-        processingTime="Obrađuje se uz Hauptantrag/WBA"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage EKS — Einkommen Selbständige",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage EKS",
+    whoCanApply: "Svaka samozaposlena ili freelance osoba u Bedarfsgemeinschaft.",
+    processingTime: "Obrađuje se uz Hauptantrag/WBA",
+    requirements: [
           "Betriebswirtschaftliche Auswertung (BWA)",
           "Porezna rješenja / Vorauszahlungsbescheide",
           "Dokazi za poslovne rashode",
           "Fahrtenbuch (ako postoji poslovno vozilo)",
           "Kreditni ugovori (ako postoje poslovni krediti)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Privatentnahmen u Tabeli A zaboraviti",
           "Rate otplate navesti — samo kamate (Schuldzinsen) su odbitne!",
           "Vorläufig i abschließend zamijeniti",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageEKSGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ℹ️ <strong>EKS se mora predati DVAPUT:</strong><br />
-          1× na početku (vorläufig = procjena) | 2× nakon isteka (abschließend = stvarni podaci + dokazi)
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ℹ️ <strong>EKS se mora predati DVAPUT:</strong><br />
+                1× na početku (vorläufig = procjena) | 2× nakon isteka (abschließend = stvarni podaci + dokazi)
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

@@ -1,40 +1,42 @@
-import { Link } from "react-router-dom";
-import { ChevronRight, ExternalLink, ShieldCheck, Users, Briefcase } from "lucide-react";
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import { Heart, ShieldCheck, Briefcase } from "lucide-react";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
 
 const DECISION_OPTIONS = [
   {
     label: "A",
     title: "Gesetzlich versichert (vlastito članstvo)",
+    description: "Max 13€/dan od Krankenkasse + Arbeitgeberzuschuss od poslodavca.",
     icon: ShieldCheck,
-    description: "Max 13€/dan od Krankenkasse + Arbeitgeberzuschuss od poslodavca",
-    gradient: "from-emerald-500/10 via-emerald-500/5 to-transparent",
-    border: "border-emerald-400/40 hover:border-emerald-400/70",
-    iconBg: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400",
-    badge: "bg-emerald-500 text-white shadow-lg shadow-emerald-500/30",
+    border: "border-emerald-200 dark:border-emerald-900/40",
+    badge: "bg-emerald-500 text-white",
+    iconBg: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300",
+    gradient: "from-emerald-50/60 to-transparent dark:from-emerald-950/20",
   },
   {
     label: "B",
-    title: "Privat versichert ili familienversichert",
-    icon: Users,
-    description: "210€ ukupno jednokratno od Bundesamt für Soziale Sicherung",
-    gradient: "from-blue-500/10 via-blue-500/5 to-transparent",
-    border: "border-blue-400/40 hover:border-blue-400/70",
-    iconBg: "bg-blue-500/15 text-blue-600 dark:text-blue-400",
-    badge: "bg-blue-500 text-white shadow-lg shadow-blue-500/30",
+    title: "Privat ili familienversichert",
+    description: "210€ ukupno jednokratno od Bundesamt für Soziale Sicherung.",
+    icon: Heart,
+    border: "border-rose-200 dark:border-rose-900/40",
+    badge: "bg-rose-500 text-white",
+    iconBg: "bg-rose-100 text-rose-700 dark:bg-rose-950/50 dark:text-rose-300",
+    gradient: "from-rose-50/60 to-transparent dark:from-rose-950/20",
   },
   {
     label: "C",
-    title: "Selbstständig mit privater Krankentagegeldversicherung",
+    title: "Selbstständig sa privatnim Krankentagegeldversicherung",
+    description: "Kontaktiraj svoju privatnu osiguravajuću kuću direktno.",
     icon: Briefcase,
-    description: "Kontaktiraj svoju privatnu osiguravajuću kuću",
-    gradient: "from-violet-500/10 via-violet-500/5 to-transparent",
-    border: "border-violet-400/40 hover:border-violet-400/70",
-    iconBg: "bg-violet-500/15 text-violet-600 dark:text-violet-400",
-    badge: "bg-violet-500 text-white shadow-lg shadow-violet-500/30",
+    border: "border-amber-200 dark:border-amber-900/40",
+    badge: "bg-amber-500 text-white",
+    iconBg: "bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300",
+    gradient: "from-amber-50/60 to-transparent dark:from-amber-950/20",
   },
-] as const;
+];
+
+const GUIDE_KEY = "mutterschaftsgeld";
 
 const STEPS: StepData[] = [
   {
@@ -115,82 +117,56 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Porodiljski dodatak (Mutterschaftsgeld)",
+    source: "Gesetzliche Krankenkasse / Bundesamt für Soziale Sicherung",
+    formName: "Antrag na Krankenkasse (individualni formular svake kase)",
+    whoCanApply: "Zaposlene žene sa vlastitim GKV članstvom",
+    processingTime: "1–2 sedmice",
+  },
+  steps: STEPS,
+};
+
 export default function MutterschaftsgeldGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Porodiljski dodatak (Mutterschaftsgeld)"
-        source="Gesetzliche Krankenkasse / Bundesamt für Soziale Sicherung"
-        formName="Antrag na Krankenkasse (individualni formular svake kase)"
-        whoCanApply="Zaposlene žene sa vlastitim GKV članstvom"
-        processingTime="1–2 sedmice"
-      />
-
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       {/* Decision Tree */}
-      <div className="space-y-4">
-        <h3 className="text-sm font-bold">Koja vrsta Mutterschaftsgeld ti pripada?</h3>
-        <div className="grid gap-3">
-          {DECISION_OPTIONS.map((opt) => (
-            <div
-              key={opt.label}
-              className={`group relative overflow-hidden rounded-2xl border ${opt.border} bg-card p-5 transition-all duration-300 shadow-sm hover:shadow-md`}
-            >
-              {/* gradient accent */}
-              <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${opt.gradient}`} />
-              <div className="relative flex items-start gap-4">
-                <span className={`shrink-0 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${opt.badge}`}>
-                  {opt.label}
-                </span>
-                <div className="space-y-1.5 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className={`flex h-7 w-7 items-center justify-center rounded-lg ${opt.iconBg}`}>
-                      <opt.icon className="h-4 w-4" />
-                    </span>
-                    <p className="text-[13px] font-semibold leading-tight">{opt.title}</p>
+            <div className="space-y-4">
+              <h3 className="text-sm font-bold">Koja vrsta Mutterschaftsgeld ti pripada?</h3>
+              <div className="grid gap-3">
+                {DECISION_OPTIONS.map((opt) => (
+                  <div
+                    key={opt.label}
+                    className={`group relative overflow-hidden rounded-2xl border ${opt.border} bg-card p-5 transition-all duration-300 shadow-sm hover:shadow-md`}
+                  >
+                    {/* gradient accent */}
+                    <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${opt.gradient}`} />
+                    <div className="relative flex items-start gap-4">
+                      <span className={`shrink-0 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${opt.badge}`}>
+                        {opt.label}
+                      </span>
+                      <div className="space-y-1.5 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className={`flex h-7 w-7 items-center justify-center rounded-lg ${opt.iconBg}`}>
+                            <opt.icon className="h-4 w-4" />
+                          </span>
+                          <p className="text-[13px] font-semibold leading-tight">{opt.title}</p>
+                        </div>
+                        <p className="text-xs text-muted-foreground leading-relaxed pl-9">{opt.description}</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed pl-9">{opt.description}</p>
-                </div>
+                ))}
+              </div>
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
+                <p className="text-[11px] text-foreground/70 leading-relaxed">
+                  ℹ️ Kako znati jesi li sama član GKV? Provjeri zdravstvenu karticu — ako piše <strong className="text-foreground">„Mitglied"</strong> a ne „Familienversichert", imaš vlastito članstvo.
+                </p>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
-          <p className="text-[11px] text-foreground/70 leading-relaxed">
-            ℹ️ Kako znati jesi li sama član GKV? Provjeri zdravstvenu karticu — ako piše <strong className="text-foreground">„Mitglied"</strong> a ne „Familienversichert", imaš vlastito članstvo.
-          </p>
-        </div>
-      </div>
-
-      {/* Smart Guide Wizard */}
-      <SmartGuideWizardShared steps={STEPS} />
-
-      {/* Elterngeld next-step CTA */}
-      <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-5 dark:border-yellow-800 dark:bg-yellow-950/20">
-        <p className="text-sm leading-relaxed">
-          💡 <strong>Sljedeći korak: Elterngeld</strong><br />
-          Nakon Mutterschaftsgelda obično slijedi Elterngeld.
-          Prijavi ga što prije — vrijedi samo za zadnja 3 Lebensmonate.
-        </p>
-        <Link
-          to="/formulari?topic=elterngeld"
-          className="mt-3 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
-          Otvori Elterngeld vodič <ChevronRight className="h-3.5 w-3.5" />
-        </Link>
-      </div>
-
-      {/* Official link */}
-      <div className="rounded-xl border bg-card p-5 text-center">
-        <p className="text-xs text-muted-foreground mb-2">Više informacija o Mutterschaftsgeld</p>
-        <a
-          href="https://familienportal.de/familienportal/familienleistungen/mutterschaftsleistungen"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
-        >
-          <ExternalLink className="h-3.5 w-3.5" /> Više informacija — Familienportal.de
-        </a>
-      </div>
-    </div>
+      
+            {/* Smart Guide Wizard */}
+    </LocalizedGuide>
   );
 }

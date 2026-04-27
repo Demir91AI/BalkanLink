@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageUH1";
 
 const STEPS: StepData[] = [
   {
@@ -35,41 +38,36 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageUH1GuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage UH1 — Trennungsunterhalt"
-        source="Jobcenter (SGB II)"
-        formName="Anlage UH1"
-        whoCanApply="Osobe u BG koje su razdvojene, razvedene ili čije je životno partnerstvo raskinuto."
-        processingTime="Obrađuje se uz Hauptantrag"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage UH1 — Trennungsunterhalt",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage UH1",
+    whoCanApply: "Osobe u BG koje su razdvojene, razvedene ili čije je životno partnerstvo raskinuto.",
+    processingTime: "Obrađuje se uz Hauptantrag",
+    requirements: [
           "Presuda o razvodu / sporazum o rastavi",
           "Unterhaltstitel ili pismeni dogovor",
           "Kontoauszüge (dokaz o primanjima alimentacije)",
           "Posljednja poznata adresa bivšeg partnera",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Adresu bivšeg partnera ne navesti — i 'nepoznato' je validno",
           "Alimentaciju prešutjeti → smatra se prihodom",
           "Materijalne usluge (korištenje auta itd.) ne navesti",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageUH1GuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ⚠️ <strong>Alimentacijski zahtjevi moraju biti pokrenuti!</strong> Jobcenter može preuzeti alimentacijski zahtjev na sebe (§ 33 SGB II) i sam tražiti od obveznika.
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ⚠️ <strong>Alimentacijski zahtjevi moraju biti pokrenuti!</strong> Jobcenter može preuzeti alimentacijski zahtjev na sebe (§ 33 SGB II) i sam tražiti od obveznika.
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageUF";
 
 const STEPS: StepData[] = [
   {
@@ -50,24 +53,27 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage UF — Unfallfragebogen",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage UF (7 stranica)",
+    whoCanApply: "Bürgergeld-primaoci čija potreba je nastala zbog nesreće/štete od treće osobe",
+    processingTime: "4–8 sedmica",
+  },
+  steps: STEPS,
+};
+
 export default function AnlageUFGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Anlage UF — Unfallfragebogen"
-        source="Jobcenter (SGB II)"
-        formName="Anlage UF (7 stranica)"
-        whoCanApply="Bürgergeld-primaoci čija potreba je nastala zbog nesreće/štete od treće osobe"
-        processingTime="4–8 sedmica"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Anlage UF</strong> — upitnik o nesreći/šteti od treće osobe.
-          Jobcenter provjerava da li pravo na naknadu štete prelazi na Jobcenter (§ 116 SGB X).
-          Uvijek priložiti i Anlage SE!
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Anlage UF</strong> — upitnik o nesreći/šteti od treće osobe.
+                Jobcenter provjerava da li pravo na naknadu štete prelazi na Jobcenter (§ 116 SGB X).
+                Uvijek priložiti i Anlage SE!
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

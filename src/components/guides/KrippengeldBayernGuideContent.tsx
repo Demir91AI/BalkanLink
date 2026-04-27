@@ -1,6 +1,9 @@
 import { AlertTriangle } from "lucide-react";
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "krippengeldBayern";
 
 const STEPS: StepData[] = [
   {
@@ -73,52 +76,53 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function KrippengeldBayernGuideContent() {
-  return (
-    <div className="space-y-8">
-      {/* Header */}
-      <GuideInfoHeader
-        title="Krippengeld (Bayern)"
-        source="ZBFS Bayern (Zentrum Bayern Familie und Soziales)"
-        formName="Online zahtjev ili pismeno"
-        whoCanApply="Roditelji u Bayernu s djecom od 1-3 godine koja pohađaju vrtić"
-        processingTime="4–8 sedmica"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Krippengeld (Bayern)",
+    source: "ZBFS Bayern (Zentrum Bayern Familie und Soziales)",
+    formName: "Online zahtjev ili pismeno",
+    whoCanApply: "Roditelji u Bayernu s djecom od 1-3 godine koja pohađaju vrtić",
+    processingTime: "4–8 sedmica",
+    requirements: [
           "Dijete između 1 i 3 godine, pohađa Kinderkrippe ili Tagespflege",
           "Prebivalište u Bayernu",
           "Ugovor s vrtićem i plaćanje Betreuungskosten",
           "Godišnji prihod do 60.000€ (+5.000€ po dodatnom djetetu)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Kasna prijava — nema retroaktivne isplate",
           "Misliti da vrijedi u cijeloj Njemačkoj — SAMO Bayern",
           "Misliti da ide automatski uz Kindergeld — odvojen zahtjev",
           "Pogrešno prijavljen prihod porodice",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
 
+export default function KrippengeldBayernGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       {/* Bayern-only warning */}
-      <div className="rounded-xl border border-red-300 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80 flex items-start gap-2">
-          <AlertTriangle className="h-4 w-4 shrink-0 text-red-500 mt-0.5" />
-          <span>
-            <strong>VAŽNO:</strong> Krippengeld (Kita Zuschuss) postoji SAMO u Bayernu.
-            Ako živiš u drugom Bundeslandu, ovaj program se NE odnosi na tebe.
-          </span>
-        </p>
-      </div>
-
-      {/* Info box */}
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Krippengeld (Bayern)</strong> — finansijska pomoć
-          roditeljima za troškove vrtića (Kinderkrippe / Tagespflege)
-          za djecu mlađu od 3 godine.
-        </p>
-      </div>
-
-      {/* Smart Guide Wizard */}
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+            <div className="rounded-xl border border-red-300 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950/20">
+              <p className="text-xs leading-relaxed text-foreground/80 flex items-start gap-2">
+                <AlertTriangle className="h-4 w-4 shrink-0 text-red-500 mt-0.5" />
+                <span>
+                  <strong>VAŽNO:</strong> Krippengeld (Kita Zuschuss) postoji SAMO u Bayernu.
+                  Ako živiš u drugom Bundeslandu, ovaj program se NE odnosi na tebe.
+                </span>
+              </p>
+            </div>
+      
+            {/* Info box */}
+            <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Krippengeld (Bayern)</strong> — finansijska pomoć
+                roditeljima za troškove vrtića (Kinderkrippe / Tagespflege)
+                za djecu mlađu od 3 godine.
+              </p>
+            </div>
+      
+            {/* Smart Guide Wizard */}
+    </LocalizedGuide>
   );
 }
