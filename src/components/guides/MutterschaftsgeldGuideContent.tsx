@@ -1,6 +1,40 @@
+import { Heart, ShieldCheck, Briefcase } from "lucide-react";
 import LocalizedGuide from "./LocalizedGuide";
 import type { GuideContent } from "@/lib/guide-i18n";
 import type { StepData } from "./SmartGuideWizardShared";
+
+const DECISION_OPTIONS = [
+  {
+    label: "A",
+    title: "Gesetzlich versichert (vlastito članstvo)",
+    description: "Max 13€/dan od Krankenkasse + Arbeitgeberzuschuss od poslodavca.",
+    icon: ShieldCheck,
+    border: "border-emerald-200 dark:border-emerald-900/40",
+    badge: "bg-emerald-500 text-white",
+    iconBg: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300",
+    gradient: "from-emerald-50/60 to-transparent dark:from-emerald-950/20",
+  },
+  {
+    label: "B",
+    title: "Privat ili familienversichert",
+    description: "210€ ukupno jednokratno od Bundesamt für Soziale Sicherung.",
+    icon: Heart,
+    border: "border-rose-200 dark:border-rose-900/40",
+    badge: "bg-rose-500 text-white",
+    iconBg: "bg-rose-100 text-rose-700 dark:bg-rose-950/50 dark:text-rose-300",
+    gradient: "from-rose-50/60 to-transparent dark:from-rose-950/20",
+  },
+  {
+    label: "C",
+    title: "Selbstständig sa privatnim Krankentagegeldversicherung",
+    description: "Kontaktiraj svoju privatnu osiguravajuću kuću direktno.",
+    icon: Briefcase,
+    border: "border-amber-200 dark:border-amber-900/40",
+    badge: "bg-amber-500 text-white",
+    iconBg: "bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300",
+    gradient: "from-amber-50/60 to-transparent dark:from-amber-950/20",
+  },
+];
 
 const GUIDE_KEY = "mutterschaftsgeld";
 

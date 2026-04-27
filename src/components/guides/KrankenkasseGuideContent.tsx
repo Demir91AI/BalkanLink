@@ -69,8 +69,23 @@ const BASE: GuideContent = {
 
 export default function KrankenkasseGuideContent() {
   return (
-    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
-
-    </LocalizedGuide>
+    <LocalizedGuide
+      guideKey={GUIDE_KEY}
+      base={BASE}
+      footer={
+        <div className="rounded-lg p-4 text-center" style={{ backgroundColor: "#1F2937" }}>
+          <p className="text-[13px] text-gray-400">Više informacija o zdravstvenom osiguranju</p>
+          <a
+            href="https://www.krankenkassen.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-sm font-medium"
+            style={{ color: "#3B82F6" }}
+          >
+            🔗 Pregled Krankenkassen
+          </a>
+        </div>
+      }
+    />
   );
 }
