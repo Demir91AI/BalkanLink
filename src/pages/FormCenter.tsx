@@ -379,10 +379,10 @@ export default function FormCenter() {
     );
   }
 
-  // ─── INDEX VIEW: no form selected → Vault Accordion (full width) ───
+  // ─── INDEX VIEW: no form selected → Vault Accordion (full width, dark theme) ───
   if (!activeSlug || isRemovedFormSlug) {
     return (
-      <div className="mx-auto max-w-5xl px-4 py-6 min-h-screen" style={{ background: "hsl(var(--background))" }}>
+      <div className="min-h-screen" style={{ background: "#020617" }}>
         <SEO title="Musterformulari — Njemački Obrasci" description="Popuni njemačke formulare na svom jeziku — Kindergeld, Bürgergeld, Wohngeld, BAföG i još 15+ obrazaca." path="/formulari" />
         <BuergergeldInfoModal
           open={showBgInfo}
@@ -390,16 +390,18 @@ export default function FormCenter() {
           onOpenForm={() => { setShowBgInfo(false); handleSelect("hauptantrag"); }}
         />
 
-        <div className="mb-2">
+        <div className="mx-auto max-w-6xl px-5 sm:px-10 lg:px-20 pt-4">
           <PageNavBar onBack={handleBack} />
         </div>
 
-        <FormCatalogVault
-          onSelect={handleSelect}
-          onShowBuergergeldInfo={() => setShowBgInfo(true)}
-        />
+        <div className="mx-auto max-w-6xl">
+          <FormCatalogVault
+            onSelect={handleSelect}
+            onShowBuergergeldInfo={() => setShowBgInfo(true)}
+          />
+        </div>
 
-        <div className="mt-10">
+        <div className="mx-auto max-w-6xl px-5 sm:px-10 lg:px-20 pb-10">
           <PremiumBenefitsSection />
         </div>
       </div>
