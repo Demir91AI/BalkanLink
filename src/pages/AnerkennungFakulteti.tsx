@@ -320,12 +320,12 @@ const ZAB_STEPS = [
     linkLabel: "ZAB: Gebühren & Bezahlung",
   },
   {
-    n: 5,
+    n: 6,
     title: "Sačekaj rješenje (Bewertung)",
     body: "Obrada traje 3–5 mjeseci (službeno do 6 mj). Dobivaš službeni dokument 'Zeugnisbewertung für ausländische Hochschulqualifikationen' — prikazuje koji je njemački ekvivalent tvoje diplome (npr. 'entspricht einem deutschen Bachelor of Science').",
   },
   {
-    n: 6,
+    n: 7,
     title: "Koristi Bewertung",
     body: "Dokument je trajno važeći. Koristiš ga: u CV-u, prilažeš uz aplikaciju za posao, prilažeš uz zahtjev za Blue Card EU, prilažeš pri upisu na njemački Master/PhD, prilažeš pri javnim natječajima.",
   },
