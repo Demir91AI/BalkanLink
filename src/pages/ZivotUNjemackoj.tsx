@@ -664,7 +664,7 @@ const SOURCES = [
 export default function ZivotUNjemackoj() {
   const navigate = useNavigate();
   const { i18n } = useTranslation();
-  const lang = (["bs", "hr", "sr", "de"].includes(i18n.language) ? i18n.language : "bs") as keyof typeof T;
+  const lang = (["bs", "hr", "sr", "de"].includes(i18n.language) ? i18n.language : "bs");
   const t = (key: string) => T[lang]?.[key] ?? T.bs[key] ?? key;
   const countries = COUNTRIES_I18N[lang] ?? COUNTRIES_I18N.bs;
 
