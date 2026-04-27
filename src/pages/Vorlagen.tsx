@@ -6,6 +6,7 @@ import { navigateBackOrHome } from "@/lib/navigation";
 import { VORLAGEN_TEMPLATES, getTemplate } from "@/lib/vorlagen-templates";
 import VorlagenGenerator from "@/components/vorlagen/VorlagenGenerator";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useTranslation } from "react-i18next";
 import type { LucideIcon } from "lucide-react";
 
 const ICON_MAP: Record<string, LucideIcon> = {
@@ -22,46 +23,49 @@ const ICON_MAP: Record<string, LucideIcon> = {
 /** Slugs that are free (no premium required) */
 const FREE_TEMPLATE_SLUGS = new Set(["kuendigung", "mietkuendigung"]);
 
-const SECTIONS = [
-  { id: "work" as const, titleDe: "Arbeitsrecht & Karriere", titleBs: "Radno pravo i karijera" },
-  { id: "service" as const, titleDe: "Kundenservice / Verträge", titleBs: "Ugovori i reklamacije" },
-  { id: "health" as const, titleDe: "Gesundheit & Versicherung", titleBs: "Zdravstvo i osiguranje" },
-];
 
-function FreeBadge() {
+function FreeBadge({ label }: { label: string }) {
   return (
     <span className="shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-2 py-0.5 text-[9px] font-bold uppercase text-emerald-700 dark:text-emerald-400">
-      Besplatno
+      {label}
     </span>
   );
 }
 
-function PremiumBadge() {
+function PremiumBadge({ label }: { label: string }) {
   return (
     <span className="shrink-0 flex items-center gap-0.5 rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold uppercase text-[hsl(var(--gold))]">
-      <Lock className="h-2.5 w-2.5" /> Premium
+      <Lock className="h-2.5 w-2.5" /> {label}
     </span>
   );
 }
 
 function TemplatePremiumPaywall({ templateName }: { templateName: string }) {
   const navigate = useNavigate();
+  const { t } = useTranslation("pages");
+  const benefits = [
+    t("vorlagen.ui.benefit1"),
+    t("vorlagen.ui.benefit2"),
+    t("vorlagen.ui.benefit3"),
+    t("vorlagen.ui.benefit4"),
+    t("vorlagen.ui.benefit5"),
+    t("vorlagen.ui.benefit6"),
+  ];
   return (
     <div className="flex flex-col items-center justify-center py-10 text-center gap-5 max-w-md mx-auto">
       <div className="h-14 w-14 rounded-2xl bg-[hsl(var(--gold))]/10 flex items-center justify-center ring-1 ring-[hsl(var(--gold))]/20">
         <Lock className="h-7 w-7 text-[hsl(var(--gold))]" />
       </div>
       <div>
-        <h2 className="text-lg font-bold">Otključaj {templateName}</h2>
-        <p className="mt-3 text-sm text-muted-foreground font-semibold">Šta dobijaš:</p>
+        <h2 className="text-lg font-bold">{t("vorlagen.ui.unlock", { name: templateName })}</h2>
+        <p className="mt-3 text-sm text-muted-foreground font-semibold">{t("vorlagen.ui.whatYouGet")}</p>
       </div>
       <ul className="text-left text-xs text-muted-foreground space-y-2 w-full">
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Profesionalni njemački tekst (pravno ispravan)</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Forma s pitanjima na tvom jeziku</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Automatsko popunjavanje tvojih podataka</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Preuzimanje kao PDF spreman za slanje</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Savjeti šta treba priložiti uz dokument</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Primjer pravilno popunjenog dokumenta</li>
+        {benefits.map((b, i) => (
+          <li key={i} className="flex items-start gap-2">
+            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> {b}
+          </li>
+        ))}
       </ul>
       <div className="w-full space-y-2 mt-2">
         <button
@@ -70,10 +74,8 @@ function TemplatePremiumPaywall({ templateName }: { templateName: string }) {
           style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
         >
           <Crown className="inline-block mr-1.5 h-4 w-4" />
-          Otključaj Premium — 9.99€/mj.
+          {t("vorlagen.ui.ctaUnlock")}
         </button>
-
-
       </div>
     </div>
   );
@@ -83,6 +85,20 @@ export default function Vorlagen() {
   const navigate = useNavigate();
   const { slug } = useParams();
   const { isPremium } = useSubscription();
+  const { t } = useTranslation("pages");
+
+  const SECTIONS = [
+    { id: "work" as const, titleDe: t("vorlagen.ui.sectionWork"), titleLocal: t("vorlagen.ui.sectionWorkLocal") },
+    { id: "service" as const, titleDe: t("vorlagen.ui.sectionService"), titleLocal: t("vorlagen.ui.sectionServiceLocal") },
+    { id: "health" as const, titleDe: t("vorlagen.ui.sectionHealth"), titleLocal: t("vorlagen.ui.sectionHealthLocal") },
+  ];
+
+  /** Get localized title for a template (falls back to DE) */
+  const tplTitle = (slug: string, fallback: string): string => {
+    const k = `vorlagen.templates.${slug}.title`;
+    const v = t(k);
+    return v === k ? fallback : v;
+  };
 
   /* ── Individual template detail/generator view ── */
   if (slug) {
@@ -92,7 +108,7 @@ export default function Vorlagen() {
       return (
         <div className="container max-w-3xl py-8 px-4">
           <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
-          <p className="text-muted-foreground">Vorlage nicht gefunden.</p>
+          <p className="text-muted-foreground">{t("vorlagen.ui.notFound")}</p>
         </div>
       );
     }
@@ -100,6 +116,7 @@ export default function Vorlagen() {
     const Icon = ICON_MAP[tpl.icon] ?? FileCheck;
     const isFree = FREE_TEMPLATE_SLUGS.has(tpl.slug);
     const canAccess = isPremium || isFree;
+    const localTitle = tplTitle(tpl.slug, tpl.titleBs);
 
     return (
       <div className="container max-w-3xl py-8 px-4">
@@ -112,9 +129,9 @@ export default function Vorlagen() {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-bold sm:text-2xl">{tpl.titleDe}</h1>
-              {isFree ? <FreeBadge /> : <PremiumBadge />}
+              {isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />}
             </div>
-            <p className="text-sm text-muted-foreground">{tpl.titleBs}</p>
+            <p className="text-sm text-muted-foreground">{localTitle}</p>
           </div>
         </div>
         {canAccess ? (
@@ -129,11 +146,11 @@ export default function Vorlagen() {
   /* ── Overview listing ── */
   return (
     <div className="container max-w-3xl py-8 px-4">
-      <SEO title="Vorlagen — Pisma i Dopisi" description="Gotovi šabloni za njemačka pisma — otkaz ugovora, zahtjevi, molbe. Na bosanskom i njemačkom." path="/vorlagen" />
+      <SEO title={t("vorlagen.ui.seoTitle")} description={t("vorlagen.ui.seoDescription")} path="/vorlagen" />
       <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
-      <h1 className="text-2xl font-bold mb-1 text-foreground">Šabloni / Vorlagen</h1>
+      <h1 className="text-2xl font-bold mb-1 text-foreground">{t("vorlagen.ui.pageTitle")}</h1>
       <p className="text-sm text-muted-foreground mb-8">
-        Profesionalni njemački dokumenti — popuni i preuzmi u 2 minute
+        {t("vorlagen.ui.pageSubtitle")}
       </p>
 
       <div className="space-y-8">
@@ -145,7 +162,7 @@ export default function Vorlagen() {
               <h2 className="text-lg font-semibold mb-4">
                 {section.titleDe}{" "}
                 <span className="text-muted-foreground font-normal text-sm">
-                  — {section.titleBs}
+                  — {section.titleLocal}
                 </span>
               </h2>
               <div className="grid gap-3">
@@ -164,10 +181,10 @@ export default function Vorlagen() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <p className="font-semibold text-foreground">{item.titleDe}</p>
-                          {isFree ? <FreeBadge /> : <PremiumBadge />}
+                          {isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />}
                         </div>
                         <p className="text-xs text-muted-foreground mt-0.5">
-                          {item.titleBs}
+                          {tplTitle(item.slug, item.titleBs)}
                         </p>
                       </div>
                     </Link>
