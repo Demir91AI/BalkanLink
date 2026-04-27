@@ -46,6 +46,7 @@ export default function SmartGuideWizardShared({
   const [step, setStep] = useState(0);
   const navigate = useNavigate();
   const { isPremium } = useSubscription();
+  const { t } = useTranslation("forms");
 
   const current = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
@@ -57,37 +58,37 @@ export default function SmartGuideWizardShared({
   const cardConfig = [
     {
       key: "whatToWrite" as const,
-      label: "Šta tačno upisati",
+      label: t("guide.card.whatToWrite"),
       icon: <Pencil className="h-3.5 w-3.5" />,
       color: "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20",
     },
     {
       key: "whereToFind" as const,
-      label: "Gdje pronaći",
+      label: t("guide.card.whereToFind"),
       icon: <MapPin className="h-3.5 w-3.5" />,
       color: "border-emerald-200 bg-emerald-50 dark:border-emerald-900/40 dark:bg-emerald-950/20",
     },
     {
       key: "format" as const,
-      label: "Format",
+      label: t("guide.card.format"),
       icon: <Hash className="h-3.5 w-3.5" />,
       color: "border-violet-200 bg-violet-50 dark:border-violet-900/40 dark:bg-violet-950/20",
     },
     {
       key: "commonMistake" as const,
-      label: "Česte greške",
+      label: t("guide.card.commonMistake"),
       icon: <XCircle className="h-3.5 w-3.5" />,
       color: "border-red-200 bg-red-50 dark:border-red-900/40 dark:bg-red-950/20",
     },
     {
       key: "whenToLeaveEmpty" as const,
-      label: "Kada ostaviti prazno",
+      label: t("guide.card.whenToLeaveEmpty"),
       icon: <MinusCircle className="h-3.5 w-3.5" />,
       color: "border-amber-200 bg-amber-50 dark:border-amber-900/40 dark:bg-amber-950/20",
     },
     {
       key: "example" as const,
-      label: "Popunjeni primjer",
+      label: t("guide.card.example"),
       icon: <FileCheck className="h-3.5 w-3.5" />,
       color: "border-cyan-200 bg-cyan-50 dark:border-cyan-900/40 dark:bg-cyan-950/20",
     },
