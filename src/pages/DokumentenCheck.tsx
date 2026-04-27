@@ -145,7 +145,7 @@ function extractSummaryFromSections(sections: AnalysisSection[], t: (k: string, 
 
   let docType = t("documentCheck.results.fallbackDoc");
   if (firstSection) {
-    const tipMatch = firstSection.content.match(/(?:typ|art)\s*(?:des\s*)?dokument[es]*[:\s]*([^\n]+)/i);
+    const tipMatch = firstSection.content.match(/(?:tip\s+dokumenta|typ|art)\s*(?:des\s*)?dokument[aes]*[:\s]*([^\n]+)/i);
     if (tipMatch) docType = tipMatch[1].replace(/\*\*/g, "").trim().slice(0, 50);
     else docType = extractFirstLine(firstSection.content);
   }
