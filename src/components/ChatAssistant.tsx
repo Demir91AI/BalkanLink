@@ -322,15 +322,13 @@ export default function ChatAssistant() {
   }
 
   const [messages, setMessages] = useState<Msg[]>(() => {
-    if (user?.id) {
-      const restored = loadMessagesForUser(user.id);
-      if (restored.length > 0) {
-        restoredRef.current = true;
-        // Mark all locally-restored as already synced (best-effort) to avoid spam re-inserts.
-        // The remote fetch on mount will reconcile.
-        restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-        return restored;
-      }
+    const restored = loadActiveMessages(user?.id);
+    if (restored.length > 0) {
+      restoredRef.current = true;
+      // Mark all locally-restored as already synced (best-effort) to avoid spam re-inserts.
+      // The remote fetch on mount will reconcile.
+      restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+      return restored;
     }
     return [];
   });
@@ -352,9 +350,9 @@ export default function ChatAssistant() {
 
   // Persist messages to localStorage (fast cache)
   useEffect(() => {
-    if (!chatStorageKey) return;
     if (messages.length > 0) {
       localStorage.setItem(chatStorageKey, JSON.stringify(messages));
+      localStorage.setItem(ACTIVE_CHAT_STORAGE_KEY, JSON.stringify(messages));
     }
   }, [messages, chatStorageKey]);
 
