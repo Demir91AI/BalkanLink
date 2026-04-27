@@ -1,0 +1,508 @@
+{
+  "seo": {
+    "title": "Anerkennung Navigator — Priznavanje diplome u Njemačkoj",
+    "description": "Asistent za priznavanje diplome iz BiH, Hrvatske, Srbije, Crne Gore, Sjeverne Makedonije i Kosova. Anabin baza, roadmap po profesiji, Anerkennungszuschuss."
+  },
+  "ui": {
+    "headerTitle": "Anerkennung Navigator",
+    "headerSubtitle": "Priznavanje diplome i zanimanja iz BiH, HR, SR, CG, MK, XK",
+    "headerSubtitleShort": "Priznavanje diplome iz zemalja bivše Jugoslavije u Njemačkoj",
+    "premiumBadge": "Premium",
+    "disclaimerTitle": "Informativni alat — nije pravni savjet",
+    "disclaimerBody": "Sve informacije su preuzete iz javno dostupnih službenih njemačkih izvora (Anabin, BIBB, BMFTR, ZAB) i orijentacijskog su karaktera. Konačnu odluku o priznavanju donosi isključivo nadležna ustanova tvog Bundeslanda. Stand: 2026.",
+    "step1of3": "Korak 1 od 3",
+    "step2of3": "Korak 2 od 3",
+    "step3of4": "Korak 3 od 4",
+    "step4of4": "Korak 4 od 4 — Rezultat",
+    "step1Title": "Iz koje zemlje je tvoja diploma?",
+    "step1Sub": "Procedura se razlikuje za EU i ne-EU diplome.",
+    "euMember": "🇪🇺 EU članica",
+    "thirdCountry": "Treća zemlja",
+    "step2Title": "Tvoja profesija",
+    "step2Sub": "Top 10 najtraženijih zanimanja prema ZAB statistici 2024.",
+    "changeCountry": "Promijeni zemlju",
+    "changeProfession": "Promijeni profesiju",
+    "changeBundesland": "promijeni",
+    "newCheck": "Nova provjera",
+    "step3Title": "U kojem Bundeslandu želiš raditi?",
+    "step3Sub": "Nadležna ustanova ovisi o Bundeslandu. Birajte gdje planirate raditi (a ne gdje trenutačno živite, ako se razlikuje).",
+    "yourCase": "Tvoj slučaj",
+    "euDiploma": "🇪🇺 EU diploma",
+    "regBadge": "Reglementovano",
+    "partialBadge": "Djelomično",
+    "nregBadge": "Nicht-reglementiert",
+    "regWarning": "OBAVEZNO:",
+    "regWarningBody": "Bez formalnog priznavanja NE smiješ obavljati ovo zanimanje u Njemačkoj.",
+    "nregInfo": "DOBRA VIJEST:",
+    "nregInfoBody": "Možeš odmah početi raditi i bez priznavanja. Priznavanje je preporučljivo za bolji status i plaću.",
+    "statDuration": "Trajanje",
+    "statCost": "Troškovi",
+    "statLanguage": "Jezik",
+    "langRequired": "Obavezna provjera (B2/C1)",
+    "langNotRequired": "Nije obavezna",
+    "stepsTitle": "Koraci postupka",
+    "documentsTitle": "Potrebni dokumenti",
+    "apostilleNote": "📌 Apostille:",
+    "apostilleBody": "Sva originalna dokumenta iz BiH/HR/SR/CG/MK/XK moraju biti opremljena Haškim apostille-om prije prijevoda. Apostille se dobiva na sudu / ministarstvu pravosuđa zemlje podrijetla.",
+    "translationNote": "📌 Prevod:",
+    "translationBody": "Prijevode mogu raditi SAMO sudski tumači (vereidigte/öffentlich bestellte Übersetzer) registrirani u Njemačkoj. Popis je javan na justiz.de.",
+    "anabinTitle": "Kako koristiti Anabin bazu",
+    "anabinIntro": "Anabin (anabin.kmk.org) je službena baza za vrednovanje stranih diploma u Njemačkoj. Dostupna je samo na njemačkom — evo vodiča na hrvatskom.",
+    "anabinInstitutions": "📚 Statusi institucija (univerziteta / škola)",
+    "anabinDiplomas": "🎓 Statusi diploma (vrednovanje)",
+    "anabinOpen": "Otvori Anabin bazu",
+    "zuschussTitle": "Anerkennungszuschuss — državna pomoć",
+    "zuschussEligibility": "✅ Imaš pravo ako:",
+    "zuschussCovers": "💰 Šta pokriva:",
+    "zuschussHowTo": "📋 Kako podnijeti zahtjev:",
+    "authorityTitle": "Nadležna ustanova — {{bundesland}}",
+    "authorityOpen": "Otvori službenu stranicu",
+    "authorityHint": "💡 Savjet: koristi i službeni",
+    "authorityHintLink": "Profi-Filter (BIBB)",
+    "authorityHintAfter": "za dodatnu provjeru i kontakt podatke (telefon, email).",
+    "emailTitle": "Email šablon — prvi kontakt sa ustanovom",
+    "emailIntro": "Spreman email na njemačkom jeziku za slanje nadležnoj ustanovi. Unesi svoje ime i klikni",
+    "emailIntroBold": "Generiraj",
+    "emailNamePlaceholder": "Tvoje ime i prezime",
+    "emailGenerate": "Generiraj email",
+    "emailSubjectLabel": "Betreff (naslov)",
+    "emailBodyLabel": "Tekst (njemački — kopiraj i pošalji)",
+    "emailTranslationToggle": "📖 Prikaži prevod (samo za tvoje razumijevanje)",
+    "emailCopy": "Kopiraj email",
+    "emailDownload": "Preuzmi (.txt)",
+    "emailWarning": "Šablon je informativni alat — prilagodi ga svojoj situaciji. Provjeri kontakt-email nadležne ustanove na njihovoj službenoj stranici prije slanja.",
+    "emailCopiedToast": "Email kopiran u međuspremnik",
+    "emailDownloadedToast": "Email preuzet",
+    "officialSourcesTitle": "Službeni izvori za ovu profesiju",
+    "allPortalsTitle": "📚 Svi službeni izvori (uvijek aktuelno)"
+  },
+  "paywall": {
+    "title": "Anerkennung Navigator",
+    "subtitle": "Asistent za priznavanje diplome iz BiH, Hrvatske, Srbije, Crne Gore, Sjeverne Makedonije i Kosova",
+    "feature1": "Dijagnostika tvog slučaja po zemlji, profesiji i Bundeslandu",
+    "feature2": "Roadmap za 10 najtraženijih zanimanja (medicina, inženjeri, učitelji…)",
+    "feature3": "Vodič za Anabin bazu na hrvatskom — šta znače H+, H−, gleichwertig",
+    "feature4": "Popis svih dokumenata + Apostille + sudski tumač",
+    "feature5": "Procijenjeno trajanje i troškovi po profesiji",
+    "feature6": "Anerkennungszuschuss — kako dobiti državnu finansijsku pomoć",
+    "feature7": "Direktni linkovi na nadležne ustanove (Profi-Filter)",
+    "cta": "Otključaj Premium — 9.99 €/mj.",
+    "footnote": "Pravno siguran informativni alat — sve informacije bazirane na službenim njemačkim izvorima (Anabin, BIBB, BMFTR, ZAB)."
+  },
+  "countries": {
+    "BA": {
+      "name": "Bosna i Hercegovina",
+      "notes": "Treća zemlja. Diplome se priznaju individualno preko Anabin baze i nadležne ustanove. Često potreban Anpassungslehrgang ili Kenntnisprüfung za reglementovana zanimanja."
+    },
+    "HR": {
+      "name": "Hrvatska",
+      "notes": "EU članica od 2013. Za većinu reglementovanih zanimanja primjenjuje se EU direktiva 2005/36/EG — automatsko ili olakšano priznavanje."
+    },
+    "RS": {
+      "name": "Srbija",
+      "notes": "Treća zemlja. Postupak sličan kao za BiH — preko Anabin baze i nadležne ustanove po profesiji i Bundeslandu."
+    },
+    "ME": {
+      "name": "Crna Gora",
+      "notes": "Treća zemlja. Postupak preko Anabin baze."
+    },
+    "MK": {
+      "name": "Sjeverna Makedonija",
+      "notes": "Treća zemlja. Postupak preko Anabin baze."
+    },
+    "XK": {
+      "name": "Kosovo",
+      "notes": "Treća zemlja. Postupak preko Anabin baze."
+    }
+  },
+  "professions": {
+    "pflegefachperson": {
+      "name": "Medicinska sestra / Tehničar",
+      "description": "Najtraženije reglementovano zanimanje u Njemačkoj. Postupak vodi nadležna ustanova u Bundeslandu gdje želiš raditi (npr. Regierungspräsidium, Landesamt für Gesundheit).",
+      "durationRange": "6–18 mjeseci (zavisi od Bundeslanda i kompletnosti dokumentacije)",
+      "costRange": "200–600 € (administrativne takse) + troškovi prevoda i Anpassungslehrgang/Kenntnisprüfung",
+      "notes": "Od 2020. spojeni su Krankenpflege, Altenpflege i Kinderkrankenpflege u jedno zanimanje 'Pflegefachperson' (generalistische Pflegeausbildung).",
+      "steps": [
+        "Provjeri svoju ustanovu i diplomu u Anabin bazi",
+        "Predaj zahtjev za Anerkennung kod nadležne ustanove tvog Bundeslanda",
+        "Prilaže se dosije: diploma, transkript ocjena, opis sadržaja školovanja",
+        "Ustanova ocjenjuje ekvivalentnost (Gleichwertigkeitsprüfung)",
+        "Ako se utvrdi razlika: Anpassungslehrgang (do 3 god) ILI Kenntnisprüfung (ispit znanja)",
+        "Položena Fachsprachprüfung (B2 medicinski njemački)",
+        "Konačno priznavanje (Berufsurkunde)"
+      ],
+      "documents": [
+        "Diploma srednje medicinske škole / fakulteta (ovjerena kopija)",
+        "Transkript ocjena sa satnicom predmeta",
+        "Opis kurikuluma (Stundennachweis / Curriculum)",
+        "Apostille (Haški) na originalnim dokumentima",
+        "Ovlašteni prevod sudskog tumača na njemački",
+        "Pasoš / lična karta",
+        "Potvrda o radnom iskustvu (ako postoji)",
+        "Uvjerenje o nekažnjavanju (Führungszeugnis)",
+        "Potvrda zdravstvene sposobnosti",
+        "Certifikat njemačkog jezika (B2)"
+      ]
+    },
+    "arzt": {
+      "name": "Doktor medicine",
+      "description": "Strogo reglementovano. Bez Approbacije (Approbation) ili dozvole (Berufserlaubnis) ne smije se obavljati ljekarska djelatnost u Njemačkoj.",
+      "durationRange": "12–36 mjeseci (Kenntnisprüfung produžava postupak)",
+      "costRange": "350–1.100 € administrativne takse + troškovi ispita i pripremnih kurseva",
+      "notes": "Specijalizacije se priznaju odvojeno od osnovne diplome. Za EU diplome postoji automatsko priznavanje prema EU direktivi 2005/36/EG.",
+      "steps": [
+        "Provjeri svoj fakultet u Anabin bazi (status H+ je obavezan)",
+        "Predaj zahtjev za Approbation kod Landesprüfungsamt-a u Bundeslandu",
+        "Gleichwertigkeitsprüfung diplome",
+        "Ako utvrde 'wesentliche Unterschiede': Kenntnisprüfung (državni ispit) ili Anpassungslehrgang",
+        "Fachsprachenprüfung (medicinski njemački C1, organizuje Ärztekammer)",
+        "Dozvola za rad: Berufserlaubnis (privremena, do 2 god) ILI Approbation (trajna)"
+      ],
+      "documents": [
+        "Diploma medicinskog fakulteta + ocjene",
+        "Apostille",
+        "Ovlašteni prevod",
+        "Curriculum vitae sa profesionalnom životopisom",
+        "Uvjerenje o radu kao ljekar (ako postoji)",
+        "Führungszeugnis",
+        "Lekarska potvrda o zdravstvenoj sposobnosti",
+        "Certifikat njemačkog jezika (B2/C1)",
+        "Izjava da nema oduzimanja prava na rad u drugim zemljama"
+      ]
+    },
+    "ingenieur": {
+      "name": "Inženjer (građevina, mašinstvo, elektro)",
+      "description": "Naziv 'Ingenieur' je zaštićen u Njemačkoj. Za korištenje titule potrebno je priznavanje preko Ingenieurkammer-a Bundeslanda. Sam rad inženjera (nicht-reglementiert) često ne zahtijeva priznavanje.",
+      "durationRange": "3–6 mjeseci (Zeugnisbewertung) / 6–12 mjeseci (Ingenieurkammer)",
+      "costRange": "200 € (Zeugnisbewertung ZAB) / 100–500 € (Ingenieurkammer, varira po Bundeslandu)",
+      "notes": "Razlika: 'Beruf des Ingenieurs' (slobodno) vs 'Titel Ingenieur' (zaštićeno). Za većinu poslova dovoljan je Zeugnisbewertung od ZAB.",
+      "steps": [
+        "Provjeri fakultet u Anabin bazi (status institucije)",
+        "Provjeri točan studij u listi diploma",
+        "Ako želiš nositi titulu 'Ingenieur' — predaj zahtjev kod Ingenieurkammer-a",
+        "Ako samo želiš raditi inženjerske poslove — često nije potrebno formalno priznavanje, dovoljno je Zeugnisbewertung od ZAB",
+        "Za reglementovane podsektore (Statik, Brückenbau, itd.) potrebne su dodatne kvalifikacije"
+      ],
+      "documents": [
+        "Diploma fakulteta + transkript ocjena",
+        "Apostille + ovlašteni prevod",
+        "Sadržaj studija (Modulhandbuch)",
+        "Diplomski rad (sažetak)",
+        "Lebenslauf",
+        "Pasoš"
+      ]
+    },
+    "lehrer": {
+      "name": "Učitelj / Profesor",
+      "description": "Strogo reglementovano. Svaki Bundesland ima svoja pravila. Postupak vodi Kultusministerium ili obrazovna agencija u tom Bundeslandu.",
+      "durationRange": "8–24 mjeseca (jako varira po Bundeslandu)",
+      "costRange": "100–500 € administrativne takse + Anpassungsmaßnahmen",
+      "notes": "Za EU diplome važi direktiva 2005/36/EG, ali se i tu obično traže dodatne mjere prilagodbe.",
+      "steps": [
+        "Provjeri fakultet u Anabin bazi",
+        "Predaj zahtjev kod Kultusministerium-a Bundeslanda gdje želiš raditi",
+        "Gleichwertigkeitsprüfung — ocjenjuje se ekvivalentnost s njemačkim Lehramt-om",
+        "Tipično se utvrdi razlika u predmetima ili pedagoškoj praksi",
+        "Anpassungsmaßnahmen (dopunski kursevi / pripravnički staž)",
+        "Položena jezična provjera (C1/C2)"
+      ],
+      "documents": [
+        "Diploma + ocjene + transkript predmeta",
+        "Detaljan opis pedagoškog dijela studija",
+        "Potvrda o radu kao učitelj (ako postoji)",
+        "Apostille + prevod",
+        "Pasoš",
+        "Führungszeugnis",
+        "Erweitertes Führungszeugnis (za rad s djecom)"
+      ]
+    },
+    "physiotherapeut": {
+      "name": "Fizioterapeut",
+      "description": "Reglementovano zanimanje u zdravstvu. Postupak vodi nadležna ustanova u Bundeslandu (Landesprüfungsamt ili Regierungspräsidium).",
+      "durationRange": "6–18 mjeseci",
+      "costRange": "200–500 € + troškovi Anpassungslehrgang-a",
+      "steps": [
+        "Provjeri školu/fakultet u Anabin bazi",
+        "Predaj zahtjev za Erlaubnis zur Führung der Berufsbezeichnung",
+        "Gleichwertigkeitsprüfung",
+        "Ako se utvrdi razlika: Anpassungslehrgang (do 3 god) ili Kenntnisprüfung",
+        "Položena jezična provjera (B2)",
+        "Berufserlaubnis"
+      ],
+      "documents": [
+        "Diploma + ocjene",
+        "Opis sadržaja školovanja (Stundennachweis)",
+        "Apostille + prevod",
+        "Führungszeugnis",
+        "Zdravstvena potvrda",
+        "B2 njemački certifikat"
+      ]
+    },
+    "erzieher": {
+      "name": "Odgojitelj u vrtiću",
+      "description": "Reglementovano po Bundeslandima. Postupak vodi obrazovna agencija u Bundeslandu (npr. Senatsverwaltung u Berlinu, Bezirksregierung u NRW).",
+      "durationRange": "6–18 mjeseci",
+      "costRange": "100–400 € + troškovi prilagodbe",
+      "steps": [
+        "Provjeri školu u Anabin bazi",
+        "Predaj zahtjev kod nadležne ustanove tvog Bundeslanda",
+        "Gleichwertigkeitsprüfung",
+        "Tipično se traži Anpassungslehrgang (često uključuje praksu u vrtiću)",
+        "B2 njemački",
+        "Berufsurkunde"
+      ],
+      "documents": [
+        "Diploma + ocjene",
+        "Opis sadržaja školovanja",
+        "Apostille + prevod",
+        "Führungszeugnis (proširen za rad s djecom)",
+        "Zdravstvena potvrda"
+      ]
+    },
+    "apotheker": {
+      "name": "Farmaceut",
+      "description": "Strogo reglementovano. Approbation se traži za rad u apoteci.",
+      "durationRange": "12–24 mjeseca",
+      "costRange": "350–1.000 €",
+      "steps": [
+        "Provjeri fakultet u Anabin bazi",
+        "Zahtjev za Approbation kod Landesprüfungsamt-a",
+        "Gleichwertigkeitsprüfung",
+        "Kenntnisprüfung ili Anpassungslehrgang ako se utvrdi razlika",
+        "Fachsprachenprüfung (C1)",
+        "Approbation"
+      ],
+      "documents": [
+        "Diploma farmacije + ocjene",
+        "Apostille + prevod",
+        "Praktikum potvrda",
+        "Führungszeugnis",
+        "Zdravstvena potvrda",
+        "Certifikat njemačkog (C1)"
+      ]
+    },
+    "zahnarzt": {
+      "name": "Stomatolog",
+      "description": "Strogo reglementovano. Approbation za rad u stomatologiji.",
+      "durationRange": "12–30 mjeseci",
+      "costRange": "350–1.100 €",
+      "steps": [
+        "Provjeri fakultet u Anabin bazi",
+        "Zahtjev za Approbation",
+        "Gleichwertigkeitsprüfung",
+        "Kenntnisprüfung ako se utvrdi razlika",
+        "Fachsprachenprüfung (C1)",
+        "Approbation"
+      ],
+      "documents": [
+        "Diploma stomatologije + ocjene",
+        "Apostille + prevod",
+        "Lekarska potvrda",
+        "Führungszeugnis",
+        "Certifikat njemačkog (C1)"
+      ]
+    },
+    "koch": {
+      "name": "Kuhar",
+      "description": "Nicht-reglementiert! Možeš raditi kao kuhar bez formalnog priznavanja. Priznavanje je dobrovoljno, ali korisno za bolju platu i trajni ugovor.",
+      "durationRange": "3–4 mjeseca (IHK postupak)",
+      "costRange": "100–600 € (zavisi od IHK)",
+      "notes": "Bez priznavanja možeš odmah početi raditi. S priznavanjem dobiješ status 'Fachkraft' što povlači viši Tarif (često +300-500 €/mj).",
+      "steps": [
+        "OPCIJSKI: predaj zahtjev za Anerkennung kod Industrie- und Handelskammer (IHK)",
+        "Gleichwertigkeitsprüfung sa njemačkim Ausbildung-om",
+        "Bescheid: 'gleichwertig' / 'wesentliche Unterschiede'",
+        "Ako se utvrdi razlika — možeš birati Anpassungsqualifizierung"
+      ],
+      "documents": [
+        "Diploma kuvarske škole / svjedočanstvo zanata",
+        "Opis sadržaja školovanja",
+        "Apostille + prevod",
+        "Potvrde o radu (ako postoje)",
+        "Lebenslauf"
+      ]
+    },
+    "elektroniker": {
+      "name": "Električar / Elektroniker",
+      "description": "Djelomično reglementovano. Za samostalan rad u zanatu (Selbstständigkeit) potreban je Meister ili priznavanje preko Handwerkskammer-a.",
+      "durationRange": "3–8 mjeseci",
+      "costRange": "100–600 € (HWK takse)",
+      "notes": "Kao zaposlenik (Angestellter) često nije obavezno priznavanje. Za samostalnost (Selbstständige Tätigkeit) je obavezno.",
+      "steps": [
+        "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
+        "Gleichwertigkeitsprüfung sa njemačkim Ausbildung-om Elektroniker",
+        "Ako želiš otvoriti vlastitu firmu — često se traži Meister-Anerkennung",
+        "Ako se utvrdi razlika — Anpassungslehrgang ili Kenntnisprüfung"
+      ],
+      "documents": [
+        "Svjedočanstvo zanata / fakulteta elektrotehnike",
+        "Opis sadržaja školovanja + sati prakse",
+        "Apostille + prevod",
+        "Potvrde o radu",
+        "Lebenslauf"
+      ]
+    },
+    "maurer": {
+      "name": "Zidar / Građevinar",
+      "description": "Zanat sa zaštićenim zvanjem za samostalan rad. Kao zaposlenik (Angestellter) ne treba formalno priznavanje. Za otvaranje firme — Meister-Anerkennung kod HWK.",
+      "durationRange": "3–6 mjeseci (obična provjera) / 6–12 mjeseci (Meister)",
+      "costRange": "100–600 € (HWK takse) + dodatno za Meister-postupak",
+      "notes": "Iskustvo na gradilištima u Njemačkoj (potvrde poslodavca) puno znači — često važnije od formalnog priznavanja.",
+      "steps": [
+        "Provjeri ustanovu / školu u Anabin bazi",
+        "Kao zaposlenik: dovoljno svjedočanstvo + prevod (bez priznavanja)",
+        "Za samostalan rad: zahtjev kod Handwerkskammer (HWK)",
+        "Gleichwertigkeitsprüfung sa njemačkim Maurer Ausbildung-om",
+        "Ako se utvrdi razlika: Anpassungslehrgang ili Eignungsprüfung",
+        "Eintrag in die Handwerksrolle nakon Meister-priznavanja"
+      ],
+      "documents": [
+        "Svjedočanstvo zanata / SSS / fakulteta građevine",
+        "Opis sadržaja školovanja + sati prakse",
+        "Apostille + ovlašteni prevod",
+        "Potvrde o radu (Arbeitszeugnisse) — što više to bolje",
+        "Lebenslauf (CV) na njemačkom",
+        "Pasoš"
+      ]
+    },
+    "kfz_mechatroniker": {
+      "name": "Auto-mehaničar (KFZ)",
+      "description": "Reglementovano za samostalan rad. Kao zaposlenik u radionici nije obavezno priznavanje, ali olakšava bolju platu i status Fachkraft.",
+      "durationRange": "3–6 mjeseci",
+      "costRange": "100–600 €",
+      "notes": "Veliki nedostatak radne snage u Njemačkoj — često radionice direktno zapošljavaju i pomažu oko Anerkennung-a.",
+      "steps": [
+        "Provjeri školu u Anabin bazi",
+        "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
+        "Gleichwertigkeitsprüfung",
+        "Ako razlika: Anpassungslehrgang ili Eignungsprüfung",
+        "Za samostalan rad: Meister-Anerkennung"
+      ],
+      "documents": [
+        "Svjedočanstvo zanata / SSS automehaničar",
+        "Opis sadržaja školovanja",
+        "Apostille + prevod",
+        "Potvrde o radu",
+        "Lebenslauf"
+      ]
+    },
+    "schweisser": {
+      "name": "Zavarivač",
+      "description": "Nicht-reglementiert! Možeš odmah početi raditi. Ono što stvarno vrijedi su DIN/EN ISO certifikati zavarivanja (npr. EN ISO 9606-1) — njih izdaju SLV (Schweißtechnische Lehr- und Versuchsanstalten) i priznaju se širom EU.",
+      "durationRange": "1–3 mjeseca (ako trebaš preispit u SLV)",
+      "costRange": "200–800 € (po vrsti certifikata) / 100–400 € (priznavanje svjedočanstva)",
+      "notes": "Top zanimanje za brzo zapošljavanje. Procedura preispitivanja u SLV traje par dana, certifikat važi 6 mjeseci–3 god (zavisno od vrste).",
+      "steps": [
+        "Donesi sve postojeće zavarivačke certifikate (DIN/EN, ISO 9606)",
+        "Ako su iz BiH/HR/SR/CG/MK/XK po EN normama — često se priznaju direktno",
+        "Ako nisu po EN — položi praktični ispit u SLV centru u Njemačkoj",
+        "OPCIJSKI: priznaj svjedočanstvo zanata kod IHK / HWK za Fachkraft status"
+      ],
+      "documents": [
+        "Svi zavarivački certifikati (originalni + prevod)",
+        "Svjedočanstvo zanata (ako postoji)",
+        "Potvrde o radu",
+        "Lebenslauf",
+        "Pasoš"
+      ]
+    },
+    "it_fachkraft": {
+      "name": "IT specijalist (programer / sistem-administrator)",
+      "description": "Nicht-reglementiert! IT je u Njemačkoj otvoreno tržište. Ne treba ti priznavanje za rad. Za vizu (Blue Card / §19c AufenthG) često je dovoljno radno iskustvo + ugovor o radu.",
+      "durationRange": "0 mjeseci za rad / 2–4 mjeseca za ZAB Zeugnisbewertung",
+      "costRange": "0 € za rad / 200 € za ZAB / 100–400 € za IHK",
+      "notes": "Mnoge firme u Njemačkoj traže IT specijaliste i nude vize + Umzugskosten. Engleski je često dovoljan.",
+      "steps": [
+        "Ne treba formalno priznavanje za rad",
+        "Za vizu (Blue Card EU): minimum 3 god relevantnog iskustva ILI fakultetska diploma",
+        "OPCIJSKI: ZAB Zeugnisbewertung (200 €) za bolji prikaz diplome poslodavcu",
+        "OPCIJSKI: priznavanje kod IHK kao 'Fachinformatiker' za Tarif-status"
+      ],
+      "documents": [
+        "Diploma fakulteta (ako postoji) + prevod",
+        "Potvrde o radu sa opisom poslova",
+        "Portfolio / GitHub / certifikati (Microsoft, AWS, Cisco…)",
+        "Lebenslauf na njemačkom ili engleskom",
+        "Pasoš"
+      ]
+    }
+  },
+  "anabin": {
+    "instH+": {
+      "title": "H+ (priznata)",
+      "description": "Ustanova je državno priznata u zemlji podrijetla i diplome se mogu vrednovati u Njemačkoj. NAJBOLJI status."
+    },
+    "instH-": {
+      "title": "H− (nije priznata)",
+      "description": "Ustanova nije priznata kao visokoškolska u zemlji podrijetla. Diplome se uglavnom NE mogu priznati u Njemačkoj."
+    },
+    "instH+/-": {
+      "title": "H+/− (uslovno)",
+      "description": "Status nije definitivan — postoje različiti slučajevi. Potrebna je individualna provjera."
+    },
+    "dipEntspricht": {
+      "title": "entspricht (odgovara)",
+      "description": "Diploma odgovara odgovarajućoj njemačkoj diplomi — ekvivalentna."
+    },
+    "dipGleichwertig": {
+      "title": "gleichwertig (jednakovrijedna)",
+      "description": "Diploma je jednakovrijedna njemačkoj — priznaje se."
+    },
+    "dipNicht": {
+      "title": "nicht gleichwertig (nije jednakovrijedna)",
+      "description": "Diploma se ne smatra ekvivalentnom — možda je potreban dodatni postupak ili nadogradnja."
+    }
+  },
+  "zuschuss": {
+    "description": "Anerkennungszuschuss je državna finansijska pomoć Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR) za osobe s niskim primanjima koje žele priznati svoju stranu kvalifikaciju.",
+    "eligibility": [
+      "Imaš stranu profesionalnu kvalifikaciju",
+      "Niska primanja (granica se utvrđuje individualno)",
+      "Plaćaš sam troškove postupka priznavanja",
+      "Ne dobijaš već drugu državnu finansijsku pomoć za isti postupak"
+    ],
+    "covers": [
+      "Administrativne takse postupka priznavanja",
+      "Troškovi prevoda dokumenata kod sudskog tumača",
+      "Troškovi ovjera i Apostille-a",
+      "Putni troškovi do nadležne ustanove",
+      "Troškovi Kenntnisprüfung-a / Eignungsprüfung-a",
+      "U pojedinim slučajevima i kvalifikacijske mjere (Anpassungsqualifizierung)"
+    ],
+    "howToApply": [
+      "Kontaktiraj IQ-Beratungsstelle (besplatno savjetovanje) u svom gradu",
+      "Savjetnik utvrđuje da li imaš pravo",
+      "Predaješ zahtjev preko savjetnika ili direktno",
+      "Sredstva se isplaćuju po prilaganju računa"
+    ],
+    "important": "NAPOMENA: Pravo na Anerkennungszuschuss ne postoji automatski — svaki zahtjev se ocjenjuje individualno. Tačan iznos se utvrđuje od slučaja do slučaja."
+  },
+  "portals": {
+    "anabin": "Službena baza za vrednovanje stranih obrazovnih kvalifikacija. Vodi je Kultusministerkonferenz (KMK).",
+    "anerkennung": "Službeni portal Bundesinstituta za stručno obrazovanje (BIBB) s detaljima o postupku priznavanja po profesiji i Bundeslandu.",
+    "bqPortal": "Portal za priznavanje obrtničkih i strukovnih kvalifikacija (orijentiran na poslodavce i komore).",
+    "profiFilter": "Pretraga nadležne ustanove po profesiji i Bundeslandu s kontakt podacima.",
+    "zab": "Centralna ustanova KMK za vrednovanje stranih obrazovnih dokumenata. Izdaje Zeugnisbewertung.",
+    "makeIt": "Službeni vladin portal za priznavanje, vize i život u Njemačkoj."
+  },
+  "email": {
+    "translationHeader": "📝 PRIJEVOD (samo za tvoje razumijevanje — NE šalji ovo s emailom):",
+    "translationSubject": "Naslov: Zahtjev za priznavanje stručne kvalifikacije {{profession}} ({{country}})",
+    "translationGreeting": "Poštovani,",
+    "translationIntro": "Moje ime je {{name}}. Stekao/la sam stručnu kvalifikaciju {{profession}} u {{country}} i namjeravam raditi u ovom zanimanju u {{bundesland}}.",
+    "translationRegREG": "Budući da je riječ o reglementiranom zanimanju, podnosim zahtjev za formalno priznavanje moje kvalifikacije.",
+    "translationRegPARTIAL": "Budući da je zanimanje djelomično reglementirano, molim za informaciju koji put priznavanja u mom slučaju dolazi u obzir.",
+    "translationRegNREG": "Budući da zanimanje nije reglementirano, želim podnijeti zahtjev za utvrđivanje ekvivalentnosti.",
+    "translationQuestionsLead": "Ljubazno molim za sljedeće informacije:",
+    "translationQ1": "1. Koji dokumenti su potrebni za podnošenje zahtjeva?",
+    "translationQ2": "2. U kakvoj formi (original, ovjerena kopija, prevod, apostille)?",
+    "translationQ3": "3. Koji su troškovi postupka i kako se plaćaju?",
+    "translationQ4": "4. Koliko obično traje obrada zahtjeva?",
+    "translationQ5": "5. Postoji li formular koji mogu unaprijed popuniti?",
+    "translationQ6": "6. Koji su zahtjevi za njemački jezik i Fachsprachenprüfung?",
+    "translationLangNote": "Svjestan/na sam da je za konačno priznavanje potreban B2/C1 njemački i Fachsprachenprüfung.",
+    "translationOutro": "Ako vaša ustanova nije nadležna, molim da me uputite na pravu adresu.",
+    "translationThanks": "Hvala unaprijed na podršci.",
+    "translationRegards": "Srdačan pozdrav"
+  }
+}
