@@ -56,10 +56,10 @@ export const DEFAULT_LANGUAGE: SupportedLanguage = "bs";
 export const LANG_STORAGE_KEY = "balkanlink-lang";
 
 const resources = {
-  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi },
-  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi },
-  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi },
-  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi },
+  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi, legal: bsLegal },
+  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi, legal: deLegal },
+  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi, legal: hrLegal },
+  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi, legal: srLegal },
 };
 
 i18n
