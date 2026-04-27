@@ -105,6 +105,21 @@ serve(async (req) => {
             else log("Form access granted", { userId, formSlug });
           }
 
+          const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 10 });
+          const isDocCheck = lineItems.data.some(
+            (li) => li.price?.id === "price_1TQDc3R9oGwbVekBYppvp6Y7"
+          );
+          if (isDocCheck) {
+            const { error: creditErr } = await supabase.rpc("grant_doc_check_credit", {
+              uid: userId,
+              session_id: session.id,
+              amt_cents: session.amount_total ?? 299,
+              curr: (session.currency ?? "eur").toUpperCase(),
+            });
+            if (creditErr) log("ERROR granting doc-check credit", { userId, error: creditErr.message });
+            else log("Doc-check credit granted", { userId, sessionId: session.id });
+          }
+
           // Record one-time payment in payments table
           const amountTotal = session.amount_total ?? 0;
           const currency = (session.currency ?? "eur").toUpperCase();
