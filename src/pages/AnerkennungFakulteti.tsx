@@ -445,7 +445,7 @@ export default function AnerkennungFakulteti() {
           ))}
         </div>
         <a
-          href="https://anabin.kmk.org/anabin/hochschulinstitutionen.html"
+          href="https://anabin.kmk.org/rechercheanleitung-hochschule"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(var(--gold))] hover:underline"
