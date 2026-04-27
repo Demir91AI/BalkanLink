@@ -34,7 +34,10 @@ export async function initiateCheckout(priceId: string, _userId: string, mode: "
     });
     if (error) throw error;
     if (data?.url) {
-      window.open(data.url, "_blank");
+      // Same-tab redirect ensures Stripe's success_url returns the user back to BalkanLink
+      // in the same window. Opening in _blank caused users to lose context (the original tab
+      // stayed on the app while the new tab redirected — they had to manually switch back).
+      window.location.href = data.url;
     } else {
       throw new Error("No checkout URL returned");
     }

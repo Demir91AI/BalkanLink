@@ -66,6 +66,15 @@ export function useSubscription(): SubscriptionState {
     fetchSubscription();
   }, [fetchSubscription]);
 
+  // Listen for subscription refresh events (fired after Stripe checkout / verify-payment).
+  // Without this, useSubscription would only refetch on mount, so the just-purchased
+  // Premium status was invisible until a manual page reload.
+  useEffect(() => {
+    const handler = () => { fetchSubscription(); };
+    window.addEventListener("bl:subscription-refreshed", handler);
+    return () => window.removeEventListener("bl:subscription-refreshed", handler);
+  }, [fetchSubscription]);
+
   const tierActive = subscriptionTier === "premium";
   const effectivePremium = DEV_MODE || isAdmin || authPremium || tierActive;
 
