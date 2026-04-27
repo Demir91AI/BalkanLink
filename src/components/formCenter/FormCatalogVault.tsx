@@ -272,7 +272,7 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
 
   return (
     <div
-      className="relative -mx-5 sm:-mx-10 lg:-mx-20 -mt-6 sm:-mt-8"
+      className="relative"
       style={{
         background: "linear-gradient(180deg, #0f172a 0%, #020617 100%)",
       }}
