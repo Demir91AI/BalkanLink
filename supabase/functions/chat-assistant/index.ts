@@ -259,9 +259,9 @@ function checkSafety(text: string): SafetyResult {
 }
 
 const SAFETY_BLOCK_MSG: Record<string, string> = {
-  bs: "Ne mogu pomoći s tim. Ako imaš pitanje vezano za život u Njemačkoj, slobodno pitaj.",
-  de: "Damit kann ich leider nicht helfen. Wenn du eine Frage zum Leben in Deutschland hast, frag gerne.",
-  en: "I can't help with that. If you have a question about life in Germany, feel free to ask.",
+  bs: "Ne mogu pomoći s tim — BalkanLink Asistent daje informacije isključivo o legalnim temama (vize, formulari, porezi, posao, stanovanje u Njemačkoj). Ako imaš pitanje iz tih oblasti, slobodno pitaj. 🙂",
+  de: "Damit kann ich nicht helfen — der BalkanLink Assistent informiert ausschließlich zu legalen Themen (Visa, Formulare, Steuern, Arbeit, Wohnen in Deutschland). Bei Fragen dazu bin ich gerne da.",
+  en: "I can't help with that — BalkanLink Assistant only covers legal topics (visas, forms, taxes, work, housing in Germany). Happy to help with those!",
 };
 
 const SEXUAL_REDIRECT_MSG: Record<string, string> = {
