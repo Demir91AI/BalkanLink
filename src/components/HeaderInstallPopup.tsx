@@ -17,6 +17,7 @@
  * the Lovable preview iframe (it just won't trigger the native prompt there).
  */
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { Smartphone, X, Download, Apple, Share2, PlusSquare } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
