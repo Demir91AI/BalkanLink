@@ -10,11 +10,13 @@ interface Props {
   base: GuideContent;
   /** Optional extra content rendered between header and wizard. */
   children?: React.ReactNode;
+  /** Optional content rendered below the wizard. */
+  footer?: React.ReactNode;
   /** Forward to wizard. */
   free?: boolean;
 }
 
-export default function LocalizedGuide({ guideKey, base, children, free }: Props) {
+export default function LocalizedGuide({ guideKey, base, children, footer, free }: Props) {
   const { i18n } = useTranslation();
   const lang = (i18n.language?.split("-")[0] ?? "bs") as "bs" | "de" | "hr" | "sr";
   const safeLang: "bs" | "de" | "hr" | "sr" = ["bs", "de", "hr", "sr"].includes(lang) ? lang : "bs";
