@@ -103,6 +103,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setProfileData(null);
           setProfileLoading(false);
 
+          // Fire explicit sign-out event (only on real SIGNED_OUT, not initial hydration)
+          if (event === "SIGNED_OUT") {
+            try { window.dispatchEvent(new CustomEvent("bl:user-signed-out")); } catch {}
+          }
+
           // Show "session expired" toast ONLY on a real SIGNED_OUT event
           // triggered by inactivity timeout — never on INITIAL_SESSION
           // (which fires on every page load before login).
