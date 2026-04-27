@@ -345,7 +345,6 @@ export function HeaderInstallPopup() {
             {t("install.footerHint", "Ovaj prozor se opet pojavljuje pri svakoj prijavi.")}
           </p>
         </div>
-      </div>
           </div>,
           document.body
         )}
