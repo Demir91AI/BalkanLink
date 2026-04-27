@@ -1372,6 +1372,7 @@
     "result": {
       "title": "Tvoja analiza",
       "newScan": "Nova provjera",
+      "newScanCta": "Učitaj novi obračun",
       "premiumLockTitle": "Detaljan izvještaj — Premium",
       "premiumLockSub": "U Premium verziji vidiš sve sumnjive stavke s pravnom osnovom, procjenu spornog iznosa i gotov tekst za upit gazdi.",
       "premiumCta": "Otključaj za 9,99 €/mj",
