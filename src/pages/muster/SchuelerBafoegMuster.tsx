@@ -2,7 +2,7 @@ import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "schueler-bafoeg-muster-data";
-const PDF_URL = "https://www.bafög.de/bafoeg/de/antrag-stellen/alle-antragsformulare/alle-antragsformulare_node.html";
+const PDF_URL = "https://www.xn--bafg-7qa.de/bafoeg/de/antrag-stellen/alle-antragsformulare/alle-antragsformulare_node.html";
 
 const Info = ({ children }: { children: React.ReactNode }) => (
   <div style={{ background: "#eff6ff", border: "1px solid #bfdbfe", borderRadius: 8, padding: 10, margin: "8px 0", fontSize: 10, color: "#1e3a5f", lineHeight: 1.5 }}>{children}</div>
