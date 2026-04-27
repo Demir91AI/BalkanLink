@@ -1352,18 +1352,22 @@
     },
     "upload": {
       "title": "Pošalji Nebenkostenabrechnung",
-      "subtitle": "PDF, JPG ili PNG — do 10 MB. Dokument se ne čuva nakon analize.",
-      "dropzone": "Klikni ili prevuci fajl ovdje",
-      "dropzoneHint": "PDF, JPG, PNG (max 10 MB)",
+      "subtitle": "PDF, JPG ili PNG — do 10 MB po fajlu, do 10 fajlova (25 MB ukupno). Ako obračun ima više stranica, dodaj sve. Dokument se ne čuva nakon analize.",
+      "dropzone": "Klikni ili prevuci fajlove ovdje",
+      "dropzoneHint": "PDF, JPG, PNG — više fajlova dozvoljeno (max 10 MB po fajlu)",
       "selected": "Izabrano:",
       "remove": "Ukloni",
+      "addMore": "Dodaj još stranica",
+      "filesCount": "{{count}} od {{max}} fajlova",
       "analyze": "Pokreni analizu",
-      "analyzing": "Analiziram… (do 30 sekundi)",
+      "analyzing": "Analiziram… (do 60 sekundi)",
       "consent": "Razumijem da ovo nije pravni savjet i da se za obavezujuću provjeru obraćam Mieterbund-u ili odvjetniku.",
-      "errorTooLarge": "Fajl je prevelik (max 10 MB).",
+      "errorTooLarge": "Fajl je prevelik (max 10 MB po fajlu).",
+      "errorTotalTooLarge": "Ukupna veličina prelazi 25 MB. Ukloni neki fajl.",
+      "errorTooMany": "Možeš dodati najviše {{max}} fajlova.",
       "errorWrongType": "Dozvoljeni su samo PDF, JPG i PNG.",
       "errorConsent": "Molimo prihvati napomenu prije analize.",
-      "errorEmpty": "Molimo izaberi fajl."
+      "errorEmpty": "Molimo izaberi barem jedan fajl."
     },
     "result": {
       "title": "Tvoja analiza",
