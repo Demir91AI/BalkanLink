@@ -781,7 +781,7 @@ Dokumenten-Check → [Dokumenten-Check](/dokumenten-check)
 Nudim/Tražim oglasi → [Oglasi](/nudim-trazim)
 Dolazak u Njemačku → [Dolazak](/nach-deutschland)
 Premium / Paketi i cijene → [Paketi](/paketi)
-Šabloni / Vorlagen → [Šabloni](/sabloni)
+Šabloni / Vorlagen → [Šabloni](/vorlagen)
 Rechner / Kalkulatori → [Kalkulatori](/kalkulatori)
 
 ═══════════════════════════════════════
@@ -844,7 +844,7 @@ Kundenservice / Verträge:
 - Vertragskündigung (Internet, Handy etc.) — Otkaz ugovora
 - Reklamation — Reklamacija
 - Widerruf — Opoziv ugovora
-Link: 👉 [Šabloni / Vorlagen](/sabloni)
+Link: 👉 [Šabloni / Vorlagen](/vorlagen)
 
 ═══════════════════════════════════════
 DOKUMENTEN-CHECK
