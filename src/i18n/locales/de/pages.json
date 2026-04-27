@@ -1352,18 +1352,22 @@
     },
     "upload": {
       "title": "Nebenkostenabrechnung hochladen",
-      "subtitle": "PDF, JPG oder PNG — bis 10 MB. Das Dokument wird nach der Analyse nicht gespeichert.",
-      "dropzone": "Klicke oder ziehe die Datei hierher",
-      "dropzoneHint": "PDF, JPG, PNG (max. 10 MB)",
+      "subtitle": "PDF, JPG oder PNG — bis 10 MB pro Datei, bis zu 10 Dateien (25 MB gesamt). Bei mehrseitiger Abrechnung alle Seiten hochladen. Das Dokument wird nach der Analyse nicht gespeichert.",
+      "dropzone": "Klicke oder ziehe Dateien hierher",
+      "dropzoneHint": "PDF, JPG, PNG — mehrere Dateien erlaubt (max. 10 MB pro Datei)",
       "selected": "Ausgewählt:",
       "remove": "Entfernen",
+      "addMore": "Weitere Seite hinzufügen",
+      "filesCount": "{{count}} von {{max}} Dateien",
       "analyze": "Analyse starten",
-      "analyzing": "Analysiere… (bis zu 30 Sekunden)",
+      "analyzing": "Analysiere… (bis zu 60 Sekunden)",
       "consent": "Mir ist bewusst, dass dies keine Rechtsberatung ist und ich mich für eine verbindliche Prüfung an Mieterbund oder Anwalt wende.",
-      "errorTooLarge": "Datei zu groß (max. 10 MB).",
+      "errorTooLarge": "Datei zu groß (max. 10 MB pro Datei).",
+      "errorTotalTooLarge": "Gesamtgröße überschreitet 25 MB. Bitte eine Datei entfernen.",
+      "errorTooMany": "Maximal {{max}} Dateien erlaubt.",
       "errorWrongType": "Nur PDF, JPG und PNG erlaubt.",
       "errorConsent": "Bitte bestätige den Hinweis vor der Analyse.",
-      "errorEmpty": "Bitte wähle eine Datei aus."
+      "errorEmpty": "Bitte wähle mindestens eine Datei aus."
     },
     "result": {
       "title": "Deine Analyse",
