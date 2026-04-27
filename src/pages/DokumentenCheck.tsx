@@ -186,10 +186,7 @@ export default function DokumentenCheck() {
   const navigate = useNavigate();
   const localizedNavigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
-  const [file, setFile] = useState<File | null>(null);
-  const [filePreviewUrl, setFilePreviewUrl] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
-  const [previewName, setPreviewName] = React.useState<string>('');
+  const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const [analysis, setAnalysis] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -202,30 +199,41 @@ export default function DokumentenCheck() {
   const { isPremium } = useSubscription();
   const { user } = useAuth();
 
-  const clearFile = useCallback(() => {
-    setFile(null);
-    if (filePreviewUrl) {
-      URL.revokeObjectURL(filePreviewUrl);
-      setFilePreviewUrl(null);
-    }
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  }, [filePreviewUrl]);
+  const totalSize = useMemo(() => files.reduce((s, f) => s + f.size, 0), [files]);
 
-  const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const selected = e.target.files?.[0];
-    if (!selected) return;
-    if (!isFileAllowed(selected)) {
-      setError(t("documentCheck.errors.unsupportedFormat"));
-      return;
-    }
-    if (selected.size > MAX_FILE_SIZE) {
-      setError(t("documentCheck.errors.fileTooLarge"));
-      return;
-    }
+  const clearFiles = useCallback(() => {
+    setFiles([]);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }, []);
+
+  const removeFile = useCallback((idx: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== idx));
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }, []);
+
+  const addFiles = useCallback((list: FileList | null) => {
+    if (!list || list.length === 0) return;
     setError(null);
-    setFile(selected);
+    setFiles((prev) => {
+      const next = [...prev];
+      for (const f of Array.from(list)) {
+        if (next.length >= MAX_FILES) {
+          setError(t("documentCheck.errors.tooManyFiles", { max: MAX_FILES }));
+          break;
+        }
+        if (!isFileAllowed(f)) { setError(t("documentCheck.errors.unsupportedFormat")); continue; }
+        if (f.size > MAX_FILE_SIZE) { setError(t("documentCheck.errors.fileTooLarge")); continue; }
+        const newTotal = next.reduce((s, x) => s + x.size, 0) + f.size;
+        if (newTotal > MAX_TOTAL_SIZE) {
+          setError(t("documentCheck.errors.totalTooLarge"));
+          break;
+        }
+        if (next.some((x) => x.name === f.name && x.size === f.size)) continue;
+        next.push(f);
+      }
+      return next;
+    });
     setAnalysis(null);
-    setFilePreviewUrl(selected.type.startsWith("image/") ? URL.createObjectURL(selected) : null);
   }, [t]);
 
   const handleAnalyze = useCallback(async () => {
