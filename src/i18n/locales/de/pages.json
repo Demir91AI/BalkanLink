@@ -378,7 +378,7 @@
     },
     "upload": {
       "label": "Dokument hochladen",
-      "hint": "PDF, JPG, PNG — max. 10 MB",
+      "hint": "PDF, JPG, PNG — max. 25 MB gesamt",
       "deletedAfter": "Das Dokument wird unmittelbar nach der Analyse gelöscht. Es wird nichts gespeichert.",
       "multiPageTitle": "Mehrseitiges Dokument?",
       "multiPageHint": "Lade alle Seiten auf einmal hoch (bis zu 10 Dateien) — wir analysieren sie als ein Dokument. Du kannst jede Seite mit dem Handy fotografieren oder als PDF hochladen.",
@@ -394,7 +394,7 @@
     },
     "errors": {
       "unsupportedFormat": "Es werden nur PDF, JPG und PNG unterstützt.",
-      "fileTooLarge": "Die Datei ist zu groß für die Analyse. Bitte versuchen Sie es mit einer kleineren Datei (max. 10 MB).",
+      "fileTooLarge": "Die Datei ist zu groß für die Analyse. Bitte versuchen Sie es mit einer kleineren Datei (max. 25 MB).",
       "confirmRequired": "Bitte bestätigen Sie das Kontrollkästchen vor der Analyse.",
       "noFile": "Es wurde kein Dokument ausgewählt.",
       "serverError": "Serverfehler bei der Dokumentenanalyse. Bitte versuchen Sie es in wenigen Augenblicken erneut.",
