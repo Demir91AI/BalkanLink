@@ -66,7 +66,6 @@
     "body": "Die Inhalte dieses Bereichs sind rein informativ und stellen keine Steuer- oder Rechtsberatung dar. BalkanLink ist kein Steuerberater und kein Lohnsteuerhilfeverein. Für konkrete Entscheidungen wenden Sie sich an einen befugten Steuerberater oder anerkannten Verein.",
     "sources": "Hauptquellen: §§ EStG, R LStR, BMF-Schreiben, BFH-Rechtsprechung. Stand: Januar 2026."
   },
-
   "wizard": {
     "seo": {
       "title": "Muss ich eine Steuererklärung abgeben? — BalkanLink",
@@ -102,80 +101,176 @@
         "title": "Für welches Steuerjahr fragen Sie?",
         "help": "Der Wizard schätzt Ihre Lage im Kontext des gewählten Jahres ein. Die Regeln sind aktuell auf 2024 und 2025 abgestimmt.",
         "options": {
-          "2024": { "label": "Steuerjahr 2024", "desc": "Erklärung wird üblicherweise 2025 abgegeben." },
-          "2025": { "label": "Steuerjahr 2025", "desc": "Erklärung wird üblicherweise 2026 abgegeben." }
+          "2024": {
+            "label": "Steuerjahr 2024",
+            "desc": "Erklärung wird üblicherweise 2025 abgegeben."
+          },
+          "2025": {
+            "label": "Steuerjahr 2025",
+            "desc": "Erklärung wird üblicherweise 2026 abgegeben."
+          }
         }
       },
       "residency": {
         "title": "Waren Sie in diesem Jahr in Deutschland steuerlich ansässig?",
         "help": "Steuerlich ansässig sind Sie, wenn Sie Wohnsitz oder gewöhnlichen Aufenthalt in Deutschland hatten. Wer hier arbeitet, aber das ganze Jahr im Ausland lebte, gilt meist als nicht ansässig.",
         "options": {
-          "yesFullYear": { "label": "Ja, das ganze Jahr", "desc": "Ganzjährig Wohnsitz in Deutschland." },
-          "yesPartial": { "label": "Ja, teilweise", "desc": "Zu- oder Wegzug innerhalb des Jahres." },
-          "no": { "label": "Nein, nicht ansässig", "desc": "Beschränkte Steuerpflicht — Sonderregeln." }
+          "yesFullYear": {
+            "label": "Ja, das ganze Jahr",
+            "desc": "Ganzjährig Wohnsitz in Deutschland."
+          },
+          "yesPartial": {
+            "label": "Ja, teilweise",
+            "desc": "Zu- oder Wegzug innerhalb des Jahres."
+          },
+          "no": {
+            "label": "Nein, nicht ansässig",
+            "desc": "Beschränkte Steuerpflicht — Sonderregeln."
+          }
         }
       },
       "employer": {
         "title": "Wie viele Arbeitgeber hatten Sie in diesem Jahr?",
         "help": "Gemeint sind Beschäftigungen mit Lohnsteuerabzug (klassische Anstellung, kein reiner Minijob).",
         "options": {
-          "singleEmployer": { "label": "Ein Arbeitgeber", "desc": "Das ganze Jahr beim selben Arbeitgeber." },
-          "multipleEmployers": { "label": "Zwei oder mehr Arbeitgeber", "desc": "Wechsel oder mehrere parallele Anstellungen." },
-          "noEmployment": { "label": "Keine Anstellung", "desc": "Kein Lohnsteuer-Einkommen aus Anstellung." }
+          "singleEmployer": {
+            "label": "Ein Arbeitgeber",
+            "desc": "Das ganze Jahr beim selben Arbeitgeber."
+          },
+          "multipleEmployers": {
+            "label": "Zwei oder mehr Arbeitgeber",
+            "desc": "Wechsel oder mehrere parallele Anstellungen."
+          },
+          "noEmployment": {
+            "label": "Keine Anstellung",
+            "desc": "Kein Lohnsteuer-Einkommen aus Anstellung."
+          }
         }
       },
       "wageReplacement": {
         "title": "Haben Sie Lohnersatzleistungen erhalten?",
         "help": "Leistungen, die dem Progressionsvorbehalt unterliegen — sie erhöhen den Steuersatz, sind aber selbst steuerfrei.",
         "options": {
-          "none": { "label": "Nein, nichts davon", "desc": "Reguläres Gehalt ohne diese Leistungen." },
-          "kurzarbeit": { "label": "Kurzarbeitergeld", "desc": "Leistung bei reduzierter Arbeitszeit." },
-          "elterngeld": { "label": "Elterngeld", "desc": "Leistung für Eltern." },
-          "krankengeld": { "label": "Krankengeld", "desc": "Über die Krankenkasse." },
-          "arbeitslosengeld": { "label": "Arbeitslosengeld I", "desc": "Nicht Bürgergeld." }
+          "none": {
+            "label": "Nein, nichts davon",
+            "desc": "Reguläres Gehalt ohne diese Leistungen."
+          },
+          "kurzarbeit": {
+            "label": "Kurzarbeitergeld",
+            "desc": "Leistung bei reduzierter Arbeitszeit."
+          },
+          "elterngeld": {
+            "label": "Elterngeld",
+            "desc": "Leistung für Eltern."
+          },
+          "krankengeld": {
+            "label": "Krankengeld",
+            "desc": "Über die Krankenkasse."
+          },
+          "arbeitslosengeld": {
+            "label": "Arbeitslosengeld I",
+            "desc": "Nicht Bürgergeld."
+          }
         }
       },
       "maritalStatus": {
         "title": "Ihre Steuerklasse / Familienstand",
         "help": "Die Steuerklasse stand auf Ihrer Lohnsteuerbescheinigung. Ehepartner wählen eine Kombination.",
         "options": {
-          "single": { "label": "Ledig (Klasse I) oder Alleinerziehend (II)", "desc": "Standardsituation für Unverheiratete." },
-          "marriedClass3or5": { "label": "Verheiratet, Kombination III / V", "desc": "Ein Partner III, der andere V." },
-          "marriedClass4Faktor": { "label": "Verheiratet, IV / IV mit Faktor", "desc": "Beide Partner IV mit eingetragenem Faktor." },
-          "marriedClass4": { "label": "Verheiratet, IV / IV ohne Faktor", "desc": "Klassische Kombi ohne Faktor." }
+          "single": {
+            "label": "Ledig (Klasse I) oder Alleinerziehend (II)",
+            "desc": "Standardsituation für Unverheiratete."
+          },
+          "marriedClass3or5": {
+            "label": "Verheiratet, Kombination III / V",
+            "desc": "Ein Partner III, der andere V."
+          },
+          "marriedClass4Faktor": {
+            "label": "Verheiratet, IV / IV mit Faktor",
+            "desc": "Beide Partner IV mit eingetragenem Faktor."
+          },
+          "marriedClass4": {
+            "label": "Verheiratet, IV / IV ohne Faktor",
+            "desc": "Klassische Kombi ohne Faktor."
+          }
         }
       },
       "sideIncome": {
         "title": "Hatten Sie weitere Einkünfte neben dem Gehalt?",
         "help": "Z. B. Honorare, selbstständige Tätigkeit, Kapitaleinkünfte über dem Sparer-Pauschbetrag, Vermietung, Auslandseinkünfte.",
         "options": {
-          "none": { "label": "Nein, nur Gehalt", "desc": "Keine weiteren Einkünfte." },
-          "minor": { "label": "Geringe gelegentliche Einkünfte", "desc": "Kleine Beträge — z. B. Honorar wenige Male im Jahr." },
-          "significant": { "label": "Bedeutende Nebeneinkünfte", "desc": "Vermietung, regelmäßige Freelance-Tätigkeit, Auslandseinkünfte." }
+          "none": {
+            "label": "Nein, nur Gehalt",
+            "desc": "Keine weiteren Einkünfte."
+          },
+          "minor": {
+            "label": "Geringe gelegentliche Einkünfte",
+            "desc": "Kleine Beträge — z. B. Honorar wenige Male im Jahr."
+          },
+          "significant": {
+            "label": "Bedeutende Nebeneinkünfte",
+            "desc": "Vermietung, regelmäßige Freelance-Tätigkeit, Auslandseinkünfte."
+          }
         }
       },
       "freibetrag": {
         "title": "Wurde ein Lohnsteuer-Freibetrag eingetragen?",
         "help": "Ein Freibetrag wird vom Finanzamt vorab eingetragen, damit monatlich weniger Lohnsteuer einbehalten wird (z. B. wegen langer Pendlerstrecke).",
         "options": {
-          "yes": { "label": "Ja, Freibetrag war eingetragen", "desc": "Monatlich wurde weniger Steuer einbehalten." },
-          "no": { "label": "Nein oder weiß nicht", "desc": "Kein besonderer Freibetrag eingetragen." }
+          "yes": {
+            "label": "Ja, Freibetrag war eingetragen",
+            "desc": "Monatlich wurde weniger Steuer einbehalten."
+          },
+          "no": {
+            "label": "Nein oder weiß nicht",
+            "desc": "Kein besonderer Freibetrag eingetragen."
+          }
         }
       },
       "deductibles": {
         "title": "Was davon trifft auf Sie zu (Mehrfachauswahl)?",
         "help": "Diese Posten erhöhen typischerweise die Wahrscheinlichkeit, dass sich die Erklärung lohnt. Wir fragen keine Beträge ab — nur Relevanz.",
         "options": {
-          "commute": { "label": "Pendeln zur Arbeit (Pendlerpauschale)", "desc": "Sie pendeln täglich mehr als ein paar Kilometer." },
-          "homeOffice": { "label": "Homeoffice", "desc": "Tage im Homeoffice (Homeoffice-Pauschale)." },
-          "doppelHaushalt": { "label": "Doppelte Haushaltsführung", "desc": "Zweitwohnung wegen Arbeit am anderen Ort." },
-          "workClothing": { "label": "Arbeitsmittel / Kleidung / Werkzeug", "desc": "Werkzeug, Bücher, Arbeitsausrüstung gekauft." },
-          "training": { "label": "Fortbildung / Kurse", "desc": "Kurse, Zertifikate, Prüfungen mit Berufsbezug." },
-          "donations": { "label": "Spenden / Beiträge", "desc": "An anerkannte Organisationen, Gewerkschaft, Kirche." },
-          "childcare": { "label": "Kinderbetreuung", "desc": "Kita, Tagesmutter, Hort." },
-          "healthExtras": { "label": "Höhere Gesundheitsausgaben", "desc": "Brille, Zahnersatz, Medikamente außerhalb der Grundversorgung." },
-          "householdServices": { "label": "Haushaltsnahe Dienstleistungen / Handwerker", "desc": "Reinigung, Reparaturen, Umzug." },
-          "none": { "label": "Nichts davon", "desc": "Keiner der Posten trifft zu." }
+          "commute": {
+            "label": "Pendeln zur Arbeit (Pendlerpauschale)",
+            "desc": "Sie pendeln täglich mehr als ein paar Kilometer."
+          },
+          "homeOffice": {
+            "label": "Homeoffice",
+            "desc": "Tage im Homeoffice (Homeoffice-Pauschale)."
+          },
+          "doppelHaushalt": {
+            "label": "Doppelte Haushaltsführung",
+            "desc": "Zweitwohnung wegen Arbeit am anderen Ort."
+          },
+          "workClothing": {
+            "label": "Arbeitsmittel / Kleidung / Werkzeug",
+            "desc": "Werkzeug, Bücher, Arbeitsausrüstung gekauft."
+          },
+          "training": {
+            "label": "Fortbildung / Kurse",
+            "desc": "Kurse, Zertifikate, Prüfungen mit Berufsbezug."
+          },
+          "donations": {
+            "label": "Spenden / Beiträge",
+            "desc": "An anerkannte Organisationen, Gewerkschaft, Kirche."
+          },
+          "childcare": {
+            "label": "Kinderbetreuung",
+            "desc": "Kita, Tagesmutter, Hort."
+          },
+          "healthExtras": {
+            "label": "Höhere Gesundheitsausgaben",
+            "desc": "Brille, Zahnersatz, Medikamente außerhalb der Grundversorgung."
+          },
+          "householdServices": {
+            "label": "Haushaltsnahe Dienstleistungen / Handwerker",
+            "desc": "Reinigung, Reparaturen, Umzug."
+          },
+          "none": {
+            "label": "Nichts davon",
+            "desc": "Keiner der Posten trifft zu."
+          }
         }
       }
     },
@@ -228,6 +323,120 @@
         },
         "legalRef": "Rechtsgrundlage: §§ 1, 49, 50 EStG sowie das Doppelbesteuerungsabkommen mit dem konkreten Staat."
       }
+    }
+  },
+  "dhf": {
+    "seo": {
+      "title": "Doppelte Haushaltsführung — steuerlich absetzen | BalkanLink",
+      "description": "Was ist die doppelte Haushaltsführung, wer kann sie geltend machen, welche Kosten zählen und welche Nachweise sind nötig — verständlich erklärt."
+    },
+    "gate": {
+      "title": "Das DHF-Modul ist Premium",
+      "body": "Der ausführliche Leitfaden zur doppelten Haushaltsführung steht Premium-Mitgliedern zur Verfügung.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "hero": {
+      "badge": "Premium · Werbungskosten",
+      "title": "Doppelte Haushaltsführung",
+      "subtitle": "Wenn Sie an einem Ort arbeiten, Ihr Lebensmittelpunkt aber woanders liegt — kann das Finanzamt einen Teil der Kosten der Zweitwohnung anerkennen. Dieser Leitfaden zeigt Voraussetzungen, Nachweise und typische Fehler."
+    },
+    "intro": {
+      "heading": "Was ist die doppelte Haushaltsführung",
+      "p1": "Eine doppelte Haushaltsführung (DHF) liegt vor, wenn ein Arbeitnehmer aus beruflichen Gründen zwei getrennte Haushalte führt: den Hauptwohnsitz (Lebensmittelpunkt) und eine Zweitwohnung am Arbeitsort.",
+      "p2": "Bei Erfüllung der Voraussetzungen können Teile der Kosten für Zweitwohnung, Heimfahrten und Umzug als Werbungskosten in der Anlage N geltend gemacht werden."
+    },
+    "criteria": {
+      "heading": "Welche Voraussetzungen müssen erfüllt sein",
+      "intro": "Alle folgenden Punkte müssen kumulativ erfüllt sein — fehlt einer, wird die DHF in der Regel nicht anerkannt:",
+      "list": {
+        "c1": "Die Zweitwohnung besteht ausschließlich aus beruflichen Gründen (nicht privat).",
+        "c2": "Der Hauptwohnsitz bleibt Lebensmittelpunkt — dort sind Familie, Freundeskreis und Aktivitäten.",
+        "c3": "Sie beteiligen sich am Hauptwohnsitz finanziell an den Kosten (Miete, Nebenkosten, Lebensmittel). Bloße Anmeldung reicht nicht.",
+        "c4": "Die Zweitwohnung liegt nahe am Arbeitsort und wird beruflich genutzt.",
+        "c5": "Sie haben klare Nachweise über Art und Dauer beider Haushalte."
+      }
+    },
+    "costs": {
+      "heading": "Welche Kostenarten kommen in Betracht",
+      "intro": "Die DHF deckt mehrere Posten. Konkrete Beträge und Obergrenzen nennen wir nicht — sie ergeben sich aus den jeweils gültigen Regeln:",
+      "list": {
+        "k1": {
+          "title": "Miete Zweitwohnung",
+          "desc": "Monatliche Miete und Nebenkosten am Arbeitsort."
+        },
+        "k2": {
+          "title": "Heimfahrten",
+          "desc": "Fahrten von der Zweitwohnung zum Hauptwohnsitz (üblicherweise einmal pro Woche)."
+        },
+        "k3": {
+          "title": "Umzug",
+          "desc": "Umzugskosten in/aus der Zweitwohnung, sofern beruflich veranlasst."
+        },
+        "k4": {
+          "title": "Erstausstattung",
+          "desc": "Notwendige Möbel und Haushaltsgeräte für die Zweitwohnung (in angemessenem Umfang)."
+        },
+        "k5": {
+          "title": "Verpflegungsmehraufwand",
+          "desc": "Pauschale für die ersten Monate nach Bezug der Zweitwohnung."
+        }
+      },
+      "noNumbersNote": "Konkrete Beträge, Pauschalen und Zeitgrenzen nennen wir nicht — prüfen Sie diese beim Finanzamt, Lohnsteuerhilfeverein oder im aktuellen BMF-Schreiben."
+    },
+    "proofs": {
+      "heading": "Welche Nachweise sollten Sie aufbewahren",
+      "intro": "Das Finanzamt verlangt häufig Nachweise. Ohne saubere Belege wird der Abzug auch bei materieller Erfüllung oft abgelehnt:",
+      "list": {
+        "p1": "Mietvertrag der Zweitwohnung und Nachweise über Mietzahlungen.",
+        "p2": "Nachweis des Hauptwohnsitzes: Eigentums- oder Mietvertrag und Belege über die finanzielle Beteiligung (Miet-/Nebenkostenzahlungen).",
+        "p3": "Anmeldung an beiden Adressen, sofern zutreffend.",
+        "p4": "Aufzeichnung der Heimfahrten (Daten, Verkehrsmittel, Tickets/Tankquittungen).",
+        "p5": "Belege für Umzug, Möbel und Erstausstattung."
+      }
+    },
+    "mistakes": {
+      "heading": "Häufige Fehler",
+      "list": {
+        "m1": "Die Zweitwohnung ist größer/luxuriöser als für den Beruf 'angemessen' — das Finanzamt kann teilweise kürzen.",
+        "m2": "Am Hauptwohnsitz fehlt der Nachweis der finanziellen Beteiligung — Finanzamt wertet das als bloßes Wohnen bei Eltern und versagt die DHF.",
+        "m3": "Der Lebensmittelpunkt hat sich tatsächlich an den Arbeitsort verlagert (Familie, Aktivitäten dort) — DHF entfällt.",
+        "m4": "Vermischung privater und beruflicher Gründe für die Zweitwohnung.",
+        "m5": "Keine Belege über wöchentliche Heimfahrten oder unsaubere Aufzeichnungen."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Kann ich DHF geltend machen, wenn ich am Hauptwohnsitz bei den Eltern wohne?",
+          "a": "Ja, aber nur wenn Sie sich tatsächlich finanziell an den Haushaltskosten beteiligen (Miete, Nebenkosten, Lebensmittel) und das nachweisen. Der BFH (z. B. VI R 39/16, VI R 39/17) verlangt das ausdrücklich."
+        },
+        "q2": {
+          "q": "Was, wenn die Zweitwohnung mit dem Partner geteilt wird?",
+          "a": "Technisch möglich, das Finanzamt prüft jedoch genau, ob die Wohnung tatsächlich beruflich veranlasst ist. Bei komplexen Konstellationen Beratung einholen."
+        },
+        "q3": {
+          "q": "Geht DHF auch für Singles?",
+          "a": "Ja. Voraussetzung ist ein tatsächlicher Lebensmittelpunkt an einem Ort und eine berufsbedingte Zweitwohnung mit Nachweisen über die finanzielle Beteiligung am Hauptwohnsitz."
+        },
+        "q4": {
+          "q": "Was ist, wenn der Arbeitgeber Kosten übernimmt?",
+          "a": "Vom Arbeitgeber übernommene Beträge (Sachbezug oder Erstattung) können Sie nicht doppelt geltend machen. Es zählt nur, was Sie tatsächlich selbst getragen haben."
+        }
+      }
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Mit den passenden Nachweisen tragen Sie die Kosten in der Anlage N (Bereich 'Doppelte Haushaltsführung') ein. Bei Unsicherheit lassen Sie Ihre individuelle Lage von einem Steuerberater oder Lohnsteuerhilfeverein prüfen.",
+      "ctaHub": "Zurück zu allen Modulen",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Diese Inhalte sind rein informativ und stellen keine Steuerberatung dar. BalkanLink ist kein Steuerberater und kein Lohnsteuerhilfeverein. Ihre konkrete Lage kann von typischen Fällen abweichen.",
+      "sources": "Hauptquellen: § 9 Abs. 1 Nr. 5 EStG; R 9.11 LStR; BMF-Schreiben vom 25.11.2020; BFH VI R 39/16 und VI R 39/17. Stand: Januar 2026."
     }
   }
 }

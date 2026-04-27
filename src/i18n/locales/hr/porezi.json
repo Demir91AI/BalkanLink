@@ -66,7 +66,6 @@
     "body": "Sadržaj ovog odjela je informativnog karaktera i ne predstavlja poreznu ni pravnu uslugu. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Za konkretne odluke obratite se ovlaštenom poreznom savjetniku ili priznatoj udruzi.",
     "sources": "Glavni izvori: §§ EStG (Einkommensteuergesetz), R LStR (Lohnsteuer-Richtlinien), BMF Schreiben, BFH presude. Ažurirano: siječanj 2026."
   },
-
   "wizard": {
     "seo": {
       "title": "Moram li podnijeti poreznu prijavu? — BalkanLink",
@@ -102,80 +101,176 @@
         "title": "Za koju poreznu godinu pitate?",
         "help": "Vodič procjenjuje vašu situaciju u kontekstu odabrane godine. Pravila su trenutno usklađena za 2024. i 2025.",
         "options": {
-          "2024": { "label": "Porezna godina 2024", "desc": "Prijava se obično predaje tijekom 2025." },
-          "2025": { "label": "Porezna godina 2025", "desc": "Prijava se obično predaje tijekom 2026." }
+          "2024": {
+            "label": "Porezna godina 2024",
+            "desc": "Prijava se obično predaje tijekom 2025."
+          },
+          "2025": {
+            "label": "Porezna godina 2025",
+            "desc": "Prijava se obično predaje tijekom 2026."
+          }
         }
       },
       "residency": {
         "title": "Jeste li bili porezni rezident u Njemačkoj te godine?",
         "help": "Porezni rezident ste ako ste imali prijavljeno prebivalište ili uobičajeno boravište u Njemačkoj. Ako ste tu radili, ali ste živjeli u inozemstvu cijelu godinu, najčešće spadate u nerezidente.",
         "options": {
-          "yesFullYear": { "label": "Da, cijelu godinu", "desc": "Cijelu godinu ste imali prebivalište u Njemačkoj." },
-          "yesPartial": { "label": "Da, dio godine", "desc": "Doselili ste ili otišli tijekom godine." },
-          "no": { "label": "Ne, nisam bio rezident", "desc": "Bili ste nerezident — vrijede posebna pravila." }
+          "yesFullYear": {
+            "label": "Da, cijelu godinu",
+            "desc": "Cijelu godinu ste imali prebivalište u Njemačkoj."
+          },
+          "yesPartial": {
+            "label": "Da, dio godine",
+            "desc": "Doselili ste ili otišli tijekom godine."
+          },
+          "no": {
+            "label": "Ne, nisam bio rezident",
+            "desc": "Bili ste nerezident — vrijede posebna pravila."
+          }
         }
       },
       "employer": {
         "title": "Koliko poslodavaca ste imali te godine?",
         "help": "Misli se na poslove sa Lohnsteuerom (klasično zaposlenje, ne čisti Minijob).",
         "options": {
-          "singleEmployer": { "label": "Jedan poslodavac", "desc": "Cijelu godinu kod istog poslodavca." },
-          "multipleEmployers": { "label": "Dva ili više poslodavaca", "desc": "Mijenjali ste posao ili imali paralelno više zaposlenja." },
-          "noEmployment": { "label": "Nisam bio zaposlen", "desc": "Niste imali Lohnsteuer prihod kod poslodavca." }
+          "singleEmployer": {
+            "label": "Jedan poslodavac",
+            "desc": "Cijelu godinu kod istog poslodavca."
+          },
+          "multipleEmployers": {
+            "label": "Dva ili više poslodavaca",
+            "desc": "Mijenjali ste posao ili imali paralelno više zaposlenja."
+          },
+          "noEmployment": {
+            "label": "Nisam bio zaposlen",
+            "desc": "Niste imali Lohnsteuer prihod kod poslodavca."
+          }
         }
       },
       "wageReplacement": {
         "title": "Jeste li primali naknade umjesto plaće?",
         "help": "Naknade koje podliježu Progressionsvorbehaltu — utječu na poreznu stopu iako same nisu oporezovane.",
         "options": {
-          "none": { "label": "Ne, ništa od navedenog", "desc": "Imali ste redovnu plaću bez ovih naknada." },
-          "kurzarbeit": { "label": "Kurzarbeitergeld", "desc": "Naknada za skraćeno radno vrijeme." },
-          "elterngeld": { "label": "Elterngeld", "desc": "Roditeljska naknada." },
-          "krankengeld": { "label": "Krankengeld", "desc": "Bolovanje preko Krankenkasse." },
-          "arbeitslosengeld": { "label": "Arbeitslosengeld I", "desc": "Naknada za nezaposlene (ne Bürgergeld)." }
+          "none": {
+            "label": "Ne, ništa od navedenog",
+            "desc": "Imali ste redovnu plaću bez ovih naknada."
+          },
+          "kurzarbeit": {
+            "label": "Kurzarbeitergeld",
+            "desc": "Naknada za skraćeno radno vrijeme."
+          },
+          "elterngeld": {
+            "label": "Elterngeld",
+            "desc": "Roditeljska naknada."
+          },
+          "krankengeld": {
+            "label": "Krankengeld",
+            "desc": "Bolovanje preko Krankenkasse."
+          },
+          "arbeitslosengeld": {
+            "label": "Arbeitslosengeld I",
+            "desc": "Naknada za nezaposlene (ne Bürgergeld)."
+          }
         }
       },
       "maritalStatus": {
         "title": "Vaš porezni status / razred",
         "help": "Steuerklasse je bila upisana na vašoj Lohnsteuerbescheinigung. Bračni partneri biraju kombinaciju.",
         "options": {
-          "single": { "label": "Samac (razred I) ili samohrani roditelj (II)", "desc": "Standardna situacija za neoženjene." },
-          "marriedClass3or5": { "label": "U braku, kombinacija III / V", "desc": "Jedan partner ima III, drugi V." },
-          "marriedClass4Faktor": { "label": "U braku, IV / IV s Faktorom", "desc": "Oba partnera imaju IV s upisanim Faktor postupkom." },
-          "marriedClass4": { "label": "U braku, IV / IV bez Faktora", "desc": "Klasična kombinacija bez Faktora." }
+          "single": {
+            "label": "Samac (razred I) ili samohrani roditelj (II)",
+            "desc": "Standardna situacija za neoženjene."
+          },
+          "marriedClass3or5": {
+            "label": "U braku, kombinacija III / V",
+            "desc": "Jedan partner ima III, drugi V."
+          },
+          "marriedClass4Faktor": {
+            "label": "U braku, IV / IV s Faktorom",
+            "desc": "Oba partnera imaju IV s upisanim Faktor postupkom."
+          },
+          "marriedClass4": {
+            "label": "U braku, IV / IV bez Faktora",
+            "desc": "Klasična kombinacija bez Faktora."
+          }
         }
       },
       "sideIncome": {
         "title": "Jeste li imali dodatne prihode izvan plaće?",
         "help": "Npr. honorari, samostalna djelatnost, kapitalni prihodi izvan Sparer-Pauschbetraga, najam, prihodi iz inozemstva.",
         "options": {
-          "none": { "label": "Ne, samo plaća", "desc": "Nije bilo drugih prihoda." },
-          "minor": { "label": "Manji povremeni prihodi", "desc": "Sitne svote — npr. honorar par puta godišnje." },
-          "significant": { "label": "Značajni dodatni prihodi", "desc": "Najam, redovna freelance djelatnost, prihodi iz inozemstva." }
+          "none": {
+            "label": "Ne, samo plaća",
+            "desc": "Nije bilo drugih prihoda."
+          },
+          "minor": {
+            "label": "Manji povremeni prihodi",
+            "desc": "Sitne svote — npr. honorar par puta godišnje."
+          },
+          "significant": {
+            "label": "Značajni dodatni prihodi",
+            "desc": "Najam, redovna freelance djelatnost, prihodi iz inozemstva."
+          }
         }
       },
       "freibetrag": {
         "title": "Imate li upisan Lohnsteuer-Freibetrag?",
         "help": "Freibetrag je iznos koji je Finanzamt unaprijed upisao u poreznu karticu da bi mjesečno odbijao manje poreza (npr. zbog dugog dnevnog puta do posla).",
         "options": {
-          "yes": { "label": "Da, imao sam Freibetrag", "desc": "Mjesečno je odbijano manje poreza." },
-          "no": { "label": "Ne ili ne znam", "desc": "Nije bio upisan poseban Freibetrag." }
+          "yes": {
+            "label": "Da, imao sam Freibetrag",
+            "desc": "Mjesečno je odbijano manje poreza."
+          },
+          "no": {
+            "label": "Ne ili ne znam",
+            "desc": "Nije bio upisan poseban Freibetrag."
+          }
         }
       },
       "deductibles": {
         "title": "Što od ovoga vam se odnosi (može više)?",
         "help": "Tipične stavke koje povećavaju vjerojatnost da se prijava isplati. Ne tražimo iznose — samo relevantnost.",
         "options": {
-          "commute": { "label": "Dnevni put do posla (Pendlerpauschale)", "desc": "Putujete na posao više od par kilometara dnevno." },
-          "homeOffice": { "label": "Rad od kuće", "desc": "Dani iz kuće (Homeoffice-Pauschale)." },
-          "doppelHaushalt": { "label": "Dvostruko domaćinstvo (DHF)", "desc": "Drugi stan zbog posla u drugom mjestu." },
-          "workClothing": { "label": "Radna oprema / odjeća / alat", "desc": "Kupovali ste alat, knjige, opremu za posao." },
-          "training": { "label": "Stručno usavršavanje / tečajevi", "desc": "Plaćali tečajeve, certifikate, ispite vezane za posao." },
-          "donations": { "label": "Donacije / članarine", "desc": "Registriranim organizacijama, sindikatu, crkvi." },
-          "childcare": { "label": "Troškovi čuvanja djece", "desc": "Vrtić, dadilja, hort." },
-          "healthExtras": { "label": "Veći zdravstveni izdaci", "desc": "Naočale, zubi, lijekovi izvan osnovnog osiguranja." },
-          "householdServices": { "label": "Usluge u kućanstvu / obrtnici", "desc": "Čišćenje, popravci, useljenje (haushaltsnahe Dienstleistungen)." },
-          "none": { "label": "Ništa od navedenog", "desc": "Ne primjenjuje se nijedna stavka." }
+          "commute": {
+            "label": "Dnevni put do posla (Pendlerpauschale)",
+            "desc": "Putujete na posao više od par kilometara dnevno."
+          },
+          "homeOffice": {
+            "label": "Rad od kuće",
+            "desc": "Dani iz kuće (Homeoffice-Pauschale)."
+          },
+          "doppelHaushalt": {
+            "label": "Dvostruko domaćinstvo (DHF)",
+            "desc": "Drugi stan zbog posla u drugom mjestu."
+          },
+          "workClothing": {
+            "label": "Radna oprema / odjeća / alat",
+            "desc": "Kupovali ste alat, knjige, opremu za posao."
+          },
+          "training": {
+            "label": "Stručno usavršavanje / tečajevi",
+            "desc": "Plaćali tečajeve, certifikate, ispite vezane za posao."
+          },
+          "donations": {
+            "label": "Donacije / članarine",
+            "desc": "Registriranim organizacijama, sindikatu, crkvi."
+          },
+          "childcare": {
+            "label": "Troškovi čuvanja djece",
+            "desc": "Vrtić, dadilja, hort."
+          },
+          "healthExtras": {
+            "label": "Veći zdravstveni izdaci",
+            "desc": "Naočale, zubi, lijekovi izvan osnovnog osiguranja."
+          },
+          "householdServices": {
+            "label": "Usluge u kućanstvu / obrtnici",
+            "desc": "Čišćenje, popravci, useljenje (haushaltsnahe Dienstleistungen)."
+          },
+          "none": {
+            "label": "Ništa od navedenog",
+            "desc": "Ne primjenjuje se nijedna stavka."
+          }
         }
       }
     },
@@ -228,6 +323,120 @@
         },
         "legalRef": "Pravna osnova: §§ 1, 49, 50 EStG i Doppelbesteuerungsabkommen Njemačke s konkretnom državom."
       }
+    }
+  },
+  "dhf": {
+    "seo": {
+      "title": "Dvostruko kućanstvo (DHF) — porezni odbitak | BalkanLink",
+      "description": "Što je Doppelte Haushaltsführung, tko ima pravo, koje troškove možete prijaviti i koje dokaze trebate čuvati."
+    },
+    "gate": {
+      "title": "DHF modul je dio Premiuma",
+      "body": "Detaljni vodič o Doppelte Haushaltsführung dostupan je Premium korisnicima.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Natrag na Porezi"
+    },
+    "hero": {
+      "badge": "Premium · Werbungskosten",
+      "title": "Doppelte Haushaltsführung — Dvostruko kućanstvo",
+      "subtitle": "Kada radite u jednom mjestu, a vaše životno središte ostaje u drugom — porez vam može priznati dio troškova drugog stana. Ovo je vodič kroz uvjete, dokaze i tipične pogreške."
+    },
+    "intro": {
+      "heading": "Što je Doppelte Haushaltsführung",
+      "p1": "DHF je situacija kada radnik vodi dva odvojena kućanstva zbog svog posla: glavno (Lebensmittelpunkt — gdje mu je središte života) i drugo, koje koristi blizu mjesta rada.",
+      "p2": "Ako su uvjeti ispunjeni, dio troškova drugog stana, putovanja kući i selidbe može se prijaviti kao Werbungskosten u Anlage N."
+    },
+    "criteria": {
+      "heading": "Koji uvjeti moraju biti ispunjeni",
+      "intro": "Svi sljedeći uvjeti moraju biti kumulativno ispunjeni — ako jedan izostane, DHF se obično ne priznaje:",
+      "list": {
+        "c1": "Drugo kućanstvo postoji isključivo iz profesionalnih razloga (zbog posla, ne privatno).",
+        "c2": "Glavno kućanstvo (Hauptwohnsitz) ostaje vaše životno središte — tu su obitelj, prijatelji, aktivnosti.",
+        "c3": "U glavnom kućanstvu financijski sudjelujete u troškovima (najam, režije, hrana). Sama prijava prebivališta nije dovoljna.",
+        "c4": "Drugi stan se nalazi blizu mjesta rada i koristite ga zbog posla.",
+        "c5": "Imate jasne dokaze o prirodi i trajanju oba kućanstva."
+      }
+    },
+    "costs": {
+      "heading": "Koje kategorije troškova mogu ući u prijavu",
+      "intro": "DHF pokriva više kategorija. Konkretne iznose i gornje granice ne navodimo — utvrđuje ih Finanzamt prema važećim pravilima:",
+      "list": {
+        "k1": {
+          "title": "Najam drugog stana",
+          "desc": "Mjesečni najam i režije za drugi stan u mjestu rada."
+        },
+        "k2": {
+          "title": "Putovanja kući",
+          "desc": "Vožnje od drugog stana do glavnog kućanstva (obično jednom tjedno)."
+        },
+        "k3": {
+          "title": "Selidba",
+          "desc": "Trošak selidbe u/iz drugog stana, ako je vezan uz posao."
+        },
+        "k4": {
+          "title": "Početno opremanje",
+          "desc": "Osnovni namještaj i kućni aparati za drugi stan (u razumnom opsegu)."
+        },
+        "k5": {
+          "title": "Verpflegungsmehraufwand",
+          "desc": "Paušal za prve mjesece nakon useljenja u drugi stan."
+        }
+      },
+      "noNumbersNote": "Konkretne iznose, paušale i vremenske limite ne navodimo — provjerite kod Finanzamta, Lohnsteuerhilfevereina ili u aktualnom BMF Schreiben."
+    },
+    "proofs": {
+      "heading": "Koje dokaze treba čuvati",
+      "intro": "Finanzamt često traži dokaze. Bez urednih dokaza odbitak može biti odbijen iako su uvjeti materijalno ispunjeni:",
+      "list": {
+        "p1": "Ugovor o najmu drugog stana i dokazi o uplaćenom najmu.",
+        "p2": "Dokaz o glavnom kućanstvu: vlasnički list ili ugovor o najmu te dokaz o sudjelovanju u troškovima (uplate najma/režija).",
+        "p3": "Prijava prebivališta na obje adrese (Anmeldung), ako je primjenjivo.",
+        "p4": "Evidencija putovanja kući (datumi, način prijevoza, karte/računi za gorivo).",
+        "p5": "Računi za selidbu, namještaj, opremanje drugog stana."
+      }
+    },
+    "mistakes": {
+      "heading": "Najčešće pogreške",
+      "list": {
+        "m1": "Drugi stan je veći/luksuzniji nego što je 'razumno' za potrebe posla — Finanzamt može djelomično odbiti.",
+        "m2": "U glavnom kućanstvu nema dokaza o financijskom sudjelovanju — Finanzamt to često tretira kao 'stanovanje kod roditelja' i odbija DHF.",
+        "m3": "Središte života se zapravo preselilo u mjesto rada — DHF se gubi.",
+        "m4": "Miješanje privatnih i profesionalnih razloga za drugi stan.",
+        "m5": "Nema dokaza o tjednim putovanjima kući ili evidencija nije uredna."
+      }
+    },
+    "faq": {
+      "heading": "Često postavljana pitanja",
+      "list": {
+        "q1": {
+          "q": "Mogu li DHF prijaviti ako u glavnom kućanstvu stanujem kod roditelja?",
+          "a": "Možete, ali samo ako stvarno financijski sudjelujete u troškovima kućanstva (najam, režije, hrana) i to možete dokazati. BFH presude (npr. VI R 39/16, VI R 39/17) to izričito traže."
+        },
+        "q2": {
+          "q": "Što ako je drugi stan dijeljen s partnerom?",
+          "a": "Tehnički je moguće, ali Finanzamt pažljivo provjerava da li je stvarno profesionalno motiviran. Kod složenih situacija konzultirajte savjetnika."
+        },
+        "q3": {
+          "q": "Mogu li DHF prijaviti i kao samac?",
+          "a": "Da. Glavni uvjet je stvarno životno središte na jednom mjestu i drugi stan zbog posla, uz dokaze o financijskom sudjelovanju u glavnom kućanstvu."
+        },
+        "q4": {
+          "q": "Što ako poslodavac plaća dio troškova?",
+          "a": "Iznose koje pokriva poslodavac (Sachbezug ili refundacija) ne možete dvostruko prijaviti. Ulazi samo iznos koji ste stvarno sami snosili."
+        }
+      }
+    },
+    "nextSteps": {
+      "heading": "Što sada",
+      "body": "S potrebnim dokazima troškove unosite u Anlage N porezne prijave (rubrika 'Doppelte Haushaltsführung'). U slučaju nesigurnosti vašu konkretnu situaciju neka provjeri Steuerberater ili Lohnsteuerhilfeverein.",
+      "ctaHub": "Natrag na sve module",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Sadržaj je informativnog karaktera i ne predstavlja porezni savjet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša konkretna situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 9 Abs. 1 Nr. 5 EStG; R 9.11 LStR; BMF Schreiben od 25.11.2020; BFH VI R 39/16 i VI R 39/17. Ažurirano: siječanj 2026."
     }
   }
 }
