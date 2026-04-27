@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { Calendar, Flame, ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { ActionItem } from "@/lib/schufa-simulator";
+import { SPECIAL_IMPACT_KEYS, type ActionItem } from "@/lib/schufa-simulator";
 
 interface Props {
   actionPlan: ActionItem[];
@@ -8,12 +9,13 @@ interface Props {
 }
 
 const PRIORITY_META = {
-  high: { label: "Visok prioritet", color: "hsl(0, 70%, 55%)", icon: Flame },
-  medium: { label: "Srednji prioritet", color: "hsl(45, 80%, 55%)", icon: Calendar },
-  low: { label: "Nizak prioritet", color: "hsl(200, 60%, 55%)", icon: Calendar },
+  high: { i18nKey: "actionPlan.priorityHigh", color: "hsl(0, 70%, 55%)", icon: Flame },
+  medium: { i18nKey: "actionPlan.priorityMedium", color: "hsl(45, 80%, 55%)", icon: Calendar },
+  low: { i18nKey: "actionPlan.priorityLow", color: "hsl(200, 60%, 55%)", icon: Calendar },
 } as const;
 
 export default function SchufaActionPlan({ actionPlan, onContinue }: Props) {
+  const { t } = useTranslation("schufa");
   return (
     <div className="space-y-5">
       <div
@@ -22,16 +24,17 @@ export default function SchufaActionPlan({ actionPlan, onContinue }: Props) {
           background: "linear-gradient(160deg, hsl(220,50%,10%,0.95), hsl(225,45%,7%,0.97))",
         }}
       >
-        <h2 className="text-2xl font-black text-white mb-2">Tvoj 6-mjesečni plan poboljšanja</h2>
-        <p className="text-sm text-white/60 leading-relaxed">
-          Personalizirani koraci na osnovu tvojih odgovora. Sortirani po prioritetu — počni od vrha.
-        </p>
+        <h2 className="text-2xl font-black text-white mb-2">{t("actionPlan.title")}</h2>
+        <p className="text-sm text-white/60 leading-relaxed">{t("actionPlan.subline")}</p>
       </div>
 
       <div className="space-y-3">
         {actionPlan.map((item, i) => {
           const meta = PRIORITY_META[item.priority];
           const Icon = meta.icon;
+          const impact = SPECIAL_IMPACT_KEYS.has(item.estimatedImpact)
+            ? t(`actions.${item.estimatedImpact}.impact`)
+            : item.estimatedImpact;
           return (
             <div
               key={i}
@@ -55,21 +58,27 @@ export default function SchufaActionPlan({ actionPlan, onContinue }: Props) {
                       style={{ background: `${meta.color}20`, color: meta.color }}
                     >
                       <Icon className="h-3 w-3" />
-                      {meta.label}
+                      {t(meta.i18nKey)}
                     </span>
                     <span className="text-[10px] text-white/40 uppercase tracking-wider">
-                      Efekat: <strong className="text-white/70">{item.estimatedImpact}</strong>
+                      {t("actionPlan.effectLabel")}{" "}
+                      <strong className="text-white/70">{impact}</strong>
                     </span>
                     {item.timeframeMonths > 0 && (
                       <span className="text-[10px] text-white/40 uppercase tracking-wider">
-                        · Rok: <strong className="text-white/70">{item.timeframeMonths} mj</strong>
+                        · {t("actionPlan.deadlineLabel")}{" "}
+                        <strong className="text-white/70">
+                          {item.timeframeMonths} {t("actionPlan.monthsAbbr")}
+                        </strong>
                       </span>
                     )}
                   </div>
                   <h3 className="text-base font-bold text-white mb-1.5 leading-snug">
-                    {item.title}
+                    {t(`actions.${item.key}.title`)}
                   </h3>
-                  <p className="text-sm text-white/65 leading-relaxed">{item.detail}</p>
+                  <p className="text-sm text-white/65 leading-relaxed">
+                    {t(`actions.${item.key}.detail`)}
+                  </p>
                 </div>
               </div>
             </div>
@@ -81,11 +90,8 @@ export default function SchufaActionPlan({ actionPlan, onContinue }: Props) {
         <div className="flex gap-3">
           <FileText className="h-5 w-5 shrink-0 text-amber-300 mt-0.5" />
           <div className="text-sm text-amber-100 leading-relaxed">
-            <p className="font-bold text-amber-200 mb-1">Sljedeći važan korak: Zvanični Schufa Datenkopie</p>
-            <p>
-              Po §15 DSGVO imaš pravo na <strong>BESPLATAN</strong> izvod tvog Schufa profila 1× godišnje.
-              Tek tu vidiš stvarne podatke i možeš provjeriti netačne unose.
-            </p>
+            <p className="font-bold text-amber-200 mb-1">{t("actionPlan.nextStepTitle")}</p>
+            <p dangerouslySetInnerHTML={{ __html: t("actionPlan.nextStepBody") }} />
           </div>
         </div>
       </div>
@@ -98,7 +104,7 @@ export default function SchufaActionPlan({ actionPlan, onContinue }: Props) {
           boxShadow: "0 4px 24px hsla(43,70%,53%,0.35)",
         }}
       >
-        Kako zatražiti zvanični Schufa Auskunft →
+        {t("actionPlan.ctaContinue")}
         <ArrowRight className="h-5 w-5 ml-2" />
       </Button>
     </div>
