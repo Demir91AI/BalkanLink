@@ -37,7 +37,7 @@
       },
       {
         "heading": "Nije pravno savetovanje",
-        "html": "<p>Svi sadržaji — vodiči, obrasci, asistent, alati — <strong>ne predstavljaju pravno savetovanje</strong> u smislu RDG-a (Rechtsdienstleistungsgesetz). Korištenjem platforme <strong>ne nastaje punomoć ni ugovor o savetovanju</strong>.</p>"
+        "html": "<p>Svi sadržaji — vodiči, obrasci, asistent, alati — <strong>ne predstavljaju pravno savetovanje</strong> u smislu RDG-a (Rechtsdienstleistungsgesetz). Korišćenjem platforme <strong>ne nastaje punomoć ni ugovor o savetovanju</strong>.</p>"
       },
       {
         "heading": "Rešavanje sporova — OS platforma EU",
@@ -55,7 +55,7 @@
       },
       {
         "heading": "2. Koje podatke prikupljamo",
-        "html": "<p><strong>Kategorije korisnika:</strong></p><ul><li>Posjetioci platforme (bez registracije)</li><li>Registrirani korisnici (s korisničkim računom)</li><li>Premium pretplatnici</li><li>Osobe koje kontaktiraju e-poštom</li></ul><p class=\"mt-3\"><strong>Kategorije podataka:</strong></p><ul><li>Podaci o računu: e-mail adresa, lozinka (pohranjena šifrirano — bcrypt/argon2)</li><li>Podaci o korištenju: posjećene stranice, napredak u kursu</li><li>Tehnički podaci: IP adresa, tip preglednika, OS</li><li>Sadržajni podaci: tekst u obrascima/alatima (nije trajno pohranjen)</li><li>Podaci o plaćanju: obrađuju se isključivo putem Stripe-a (mi ne vidimo broj kartice)</li></ul>"
+        "html": "<p><strong>Kategorije korisnika:</strong></p><ul><li>Posjetioci platforme (bez registracije)</li><li>Registrirani korisnici (s korisničkim računom)</li><li>Premium pretplatnici</li><li>Osobe koje kontaktiraju e-poštom</li></ul><p class=\"mt-3\"><strong>Kategorije podataka:</strong></p><ul><li>Podaci o računu: e-mail adresa, lozinka (pohranjena šifrirano — bcrypt/argon2)</li><li>Podaci o korišćenju: posjećene stranice, napredak u kursu</li><li>Tehnički podaci: IP adresa, tip preglednika, OS</li><li>Sadržajni podaci: tekst u obrascima/alatima (nije trajno pohranjen)</li><li>Podaci o plaćanju: obrađuju se isključivo putem Stripe-a (mi ne vidimo broj kartice)</li></ul>"
       },
       {
         "heading": "3. Pravne osnove obrade",
@@ -71,7 +71,7 @@
       },
       {
         "heading": "6. Obrasci, alati i Dokumenten-Check",
-        "html": "<p>Tekst koji uneseš u obrasce i alate obrađuje se isključivo radi pružanja tražene funkcije. Učitani dokumenti obrađuju se samo privremeno u radnoj memoriji — <strong>bez trajnog pohranjivanja</strong>. Svi podaci brišu se odmah po prikazu rezultata.</p><div class=\"legal-warn-yellow\"><strong>Preporuka:</strong> Prekrij osobne podatke (ime, adresu, JMBG, porezni broj) pre korištenja Dokumenten-Check funkcije.</div><p class=\"mt-1\">Pravna osnova: čl. 6 st. 1 tač. a i f DSGVO.</p>"
+        "html": "<p>Tekst koji uneseš u obrasce i alate obrađuje se isključivo radi pružanja tražene funkcije. Učitani dokumenti obrađuju se samo privremeno u radnoj memoriji — <strong>bez trajnog pohranjivanja</strong>. Svi podaci brišu se odmah po prikazu rezultata.</p><div class=\"legal-warn-yellow\"><strong>Preporuka:</strong> Prekrij osobne podatke (ime, adresu, JMBG, porezni broj) pre korišćenja Dokumenten-Check funkcije.</div><p class=\"mt-1\">Pravna osnova: čl. 6 st. 1 tač. a i f DSGVO.</p>"
       },
       {
         "heading": "7. BalkanLink Asistent",
@@ -116,12 +116,12 @@
     ]
   },
   "agb": {
-    "title": "Uslovi korištenja",
-    "subtitle": "Opšti uslovi korištenja platforme BalkanLink (AGB)",
+    "title": "Uslovi korišćenja",
+    "subtitle": "Opšti uslovi korišćenja platforme BalkanLink (AGB)",
     "sections": [
       {
         "heading": "§ 1 Područje primene i operator",
-        "html": "<p>Ovi Opšti uslovi korištenja (u daljem tekstu: „AGB\") važe za korištenje platforme „BalkanLink\" (u daljem tekstu: „Platforma\"), koju vodi:</p><p class=\"mt-2\"><strong>RealCore Digital</strong><br/>Vlasnik: Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland<br/>E-pošta: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p class=\"mt-2\">Korištenjem Platforme korisnik prihvata ove AGB. Drugačiji uslovi korisnika ne vrijede, osim ako operator izričito pristane u pisanom obliku.</p>"
+        "html": "<p>Ovi Opšti uslovi korišćenja (u daljem tekstu: „AGB\") važe za korišćenje platforme „BalkanLink\" (u daljem tekstu: „Platforma\"), koju vodi:</p><p class=\"mt-2\"><strong>RealCore Digital</strong><br/>Vlasnik: Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland<br/>E-pošta: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p class=\"mt-2\">Korišćenjem Platforme korisnik prihvata ove AGB. Drugačiji uslovi korisnika ne vrijede, osim ako operator izričito pristane u pisanom obliku.</p>"
       },
       {
         "heading": "§ 2 Opis usluga",
@@ -129,11 +129,11 @@
       },
       {
         "heading": "§ 3 Bez ugovora o savetovanju",
-        "html": "<p>Korištenjem Platforme <strong>ne nastaje punomoć, ugovor o savetovanju niti bilo kakav drugi ugovorni odnos</strong> koji uključuje individualno pravno, porezno, finansijsko ili drugo stručno savetovanje.</p><p class=\"mt-2\">Svi sadržaji služe isključivo općem informiranju i orijentaciji. Za obavezujuće informacije konsultuj nadležne organe, advokate, porezne savetnike ili druge kvalificirane stručnjake.</p>"
+        "html": "<p>Korišćenjem Platforme <strong>ne nastaje punomoć, ugovor o savetovanju niti bilo kakav drugi ugovorni odnos</strong> koji uključuje individualno pravno, porezno, finansijsko ili drugo stručno savetovanje.</p><p class=\"mt-2\">Svi sadržaji služe isključivo općem informiranju i orijentaciji. Za obavezujuće informacije konsultuj nadležne organe, advokate, porezne savetnike ili druge kvalificirane stručnjake.</p>"
       },
       {
         "heading": "§ 4 Bez garancije za sadržaj",
-        "html": "<p>Sve informacije na Platformi pružaju se po najboljem znanju, ali bez ikakve garancije za tačnost, potpunost, aktuelnost ili prikladnost za određenu svrhu. Zakoni i propisi mogu se u svakom trenutku promeniti. Operator ne preuzima odgovornost za štete nastale korištenjem ili oslanjanjem na pružene sadržaje.</p>"
+        "html": "<p>Sve informacije na Platformi pružaju se po najboljem znanju, ali bez ikakve garancije za tačnost, potpunost, aktuelnost ili prikladnost za određenu svrhu. Zakoni i propisi mogu se u svakom trenutku promeniti. Operator ne preuzima odgovornost za štete nastale korišćenjem ili oslanjanjem na pružene sadržaje.</p>"
       },
       {
         "heading": "§ 5 Obaveze korisnika",
@@ -141,7 +141,7 @@
       },
       {
         "heading": "§ 6 Korisnički generirani sadržaji",
-        "html": "<p>Korisnici mogu na Platformi objavljivati vlastite sadržaje (npr. oglase, unose, recenzije). Korisnik je isključivo odgovoran za sadržaje koje objavi.</p><p class=\"mt-2\">Objavljivanjem sadržaja korisnik operatoru daje jednostavno, vremenski i prostorno neograničeno, besplatno pravo korištenja sadržaja u okviru Platforme.</p><p class=\"mt-2\">Operator nije obavezan pregledati sadržaje pre objavljivanja, ali zadržava pravo da sadržaje u svakom trenutku pregleda, uredi, pomjeri ili ukloni.</p>"
+        "html": "<p>Korisnici mogu na Platformi objavljivati vlastite sadržaje (npr. oglase, unose, recenzije). Korisnik je isključivo odgovoran za sadržaje koje objavi.</p><p class=\"mt-2\">Objavljivanjem sadržaja korisnik operatoru daje jednostavno, vremenski i prostorno neograničeno, besplatno pravo korišćenja sadržaja u okviru Platforme.</p><p class=\"mt-2\">Operator nije obavezan pregledati sadržaje pre objavljivanja, ali zadržava pravo da sadržaje u svakom trenutku pregleda, uredi, pomjeri ili ukloni.</p>"
       },
       {
         "heading": "§ 7 Zabranjeni sadržaji",
@@ -157,11 +157,11 @@
       },
       {
         "heading": "§ 10 Ograničenje odgovornosti",
-        "html": "<p>Operator odgovara neograničeno samo u slučaju namjere i grubog nemara, te pri povredi bitnih ugovornih obaveza (kardinalne obaveze). Kod blagog nemara odgovornost je ograničena na predvidivu, uobičajenu štetu.</p><p class=\"mt-2\">Odgovornost za štete nastale povredom života, tela ili zdravlja ostaje nepromenjena. Isto vrijedi i za zahteve prema Zakonu o odgovornosti za proizvode.</p><p class=\"mt-2\">Operator ne odgovara za štete nastale korištenjem ili oslanjanjem na pružene informacije, alate ili korisnički generirane sadržaje.</p>"
+        "html": "<p>Operator odgovara neograničeno samo u slučaju namjere i grubog nemara, te pri povredi bitnih ugovornih obaveza (kardinalne obaveze). Kod blagog nemara odgovornost je ograničena na predvidivu, uobičajenu štetu.</p><p class=\"mt-2\">Odgovornost za štete nastale povredom života, tela ili zdravlja ostaje nepromenjena. Isto vrijedi i za zahteve prema Zakonu o odgovornosti za proizvode.</p><p class=\"mt-2\">Operator ne odgovara za štete nastale korišćenjem ili oslanjanjem na pružene informacije, alate ili korisnički generirane sadržaje.</p>"
       },
       {
         "heading": "§ 11 Oslobađanje od odgovornosti",
-        "html": "<p>Korisnik oslobađa operatora od svih potraživanja trećih lica koja nastanu zbog nezakonitog korištenja Platforme ili zbog sadržaja koje je korisnik objavio. Korisnik snosi troškove potrebne pravne odbrane uključujući sudske i advokatske troškove.</p>"
+        "html": "<p>Korisnik oslobađa operatora od svih potraživanja trećih lica koja nastanu zbog nezakonitog korišćenja Platforme ili zbog sadržaja koje je korisnik objavio. Korisnik snosi troškove potrebne pravne odbrane uključujući sudske i advokatske troškove.</p>"
       },
       {
         "heading": "§ 12 Dostupnost platforme",
@@ -169,7 +169,7 @@
       },
       {
         "heading": "§ 13 Izmene platforme i AGB-a",
-        "html": "<p>Operator zadržava pravo da ove AGB u svakom trenutku izmeni. Izmene se objavljuju na Platformi. Daljnje korištenje Platforme nakon objave izmijenjenih AGB-a smatra se prihvatanjem izmena.</p><p class=\"mt-2\">Operator također zadržava pravo da Platformu, njene funkcije, dizajn i sadržaje u svakom trenutku izmeni, proširi ili obustavi.</p>"
+        "html": "<p>Operator zadržava pravo da ove AGB u svakom trenutku izmeni. Izmene se objavljuju na Platformi. Daljnje korišćenje Platforme nakon objave izmijenjenih AGB-a smatra se prihvatanjem izmena.</p><p class=\"mt-2\">Operator također zadržava pravo da Platformu, njene funkcije, dizajn i sadržaje u svakom trenutku izmeni, proširi ili obustavi.</p>"
       },
       {
         "heading": "§ 14 Primjenjivo pravo i nadležnost suda",
@@ -191,7 +191,7 @@
       },
       {
         "heading": "1. Nema pravnog savetovanja",
-        "html": "<p>Svi sadržaji — Smart Guide vodiči, Musterformulare, Viza Navigator, Asistent, DeutschTrainer i ostali alati — <strong>ne predstavljaju pravno savetovanje</strong> u smislu RDG-a. Korištenjem platforme <strong>ne nastaje punomoć ni ugovor o savetovanju</strong>.</p><p class=\"mt-2\">Za pravno obavezujuće informacije obrati se:</p><ul><li>Nadležnoj službi (Ausländerbehörde, Jobcenter, Finanzamt, Standesamt itd.)</li><li>Licenciranom advokatu (Rechtsanwalt)</li><li>Priznatom savetovalištu (AWO, Caritas, Diakonie, Pro Asyl)</li><li>Poreznom savjetniku (Steuerberater) za porezna pitanja</li></ul>"
+        "html": "<p>Svi sadržaji — Smart Guide vodiči, Musterformulare, Viza Navigator, Asistent, DeutschTrainer i ostali alati — <strong>ne predstavljaju pravno savetovanje</strong> u smislu RDG-a. Korišćenjem platforme <strong>ne nastaje punomoć ni ugovor o savetovanju</strong>.</p><p class=\"mt-2\">Za pravno obavezujuće informacije obrati se:</p><ul><li>Nadležnoj službi (Ausländerbehörde, Jobcenter, Finanzamt, Standesamt itd.)</li><li>Licenciranom advokatu (Rechtsanwalt)</li><li>Priznatom savetovalištu (AWO, Caritas, Diakonie, Pro Asyl)</li><li>Poreznom savjetniku (Steuerberater) za porezna pitanja</li></ul>"
       },
       {
         "heading": "2. Tačnost i aktuelnost informacija",
@@ -225,7 +225,7 @@
     "sections": [
       {
         "heading": "",
-        "html": "<div class=\"legal-warn-red\"><p class=\"font-bold text-base\">⚠ Obavezno pročitaj pre korištenja asistenta</p><p class=\"mt-3\">BalkanLink Asistent pruža isključivo <strong>opšte, informativne odgovore</strong>. Odgovori asistenta <strong>ne predstavljaju pravni, porezni, finansijski ni medicinski savet</strong> i ne mogu zameniti konzultaciju s nadležnim organima ili stručnim licima.</p><p class=\"mt-3\"><strong>BalkanLink ne snosi nikakvu odgovornost</strong> za tačnost, potpunost, aktuelnost ni primjenjivost odgovora asistenta. Svaka odluka donesena na osnovu odgovora asistenta donosi se na <strong>isključivu vlastitu odgovornost korisnika</strong>.</p></div>"
+        "html": "<div class=\"legal-warn-red\"><p class=\"font-bold text-base\">⚠ Obavezno pročitaj pre korišćenja asistenta</p><p class=\"mt-3\">BalkanLink Asistent pruža isključivo <strong>opšte, informativne odgovore</strong>. Odgovori asistenta <strong>ne predstavljaju pravni, porezni, finansijski ni medicinski savet</strong> i ne mogu zameniti konzultaciju s nadležnim organima ili stručnim licima.</p><p class=\"mt-3\"><strong>BalkanLink ne snosi nikakvu odgovornost</strong> za tačnost, potpunost, aktuelnost ni primjenjivost odgovora asistenta. Svaka odluka donesena na osnovu odgovora asistenta donosi se na <strong>isključivu vlastitu odgovornost korisnika</strong>.</p></div>"
       },
       {
         "heading": "1. Šta je BalkanLink Asistent?",
@@ -288,7 +288,7 @@
     ],
     "necessaryLegal": "Pravna osnova: §25 st. 2 TDDDG (tehnička neophodnost)",
     "analytics": "Analitički podaci (opcionalno)",
-    "analyticsDesc": "Anonimni podaci o korištenju koji nam pomažu poboljšati platformu. IP adresa se u potpunosti anonimizira. Nema prosljeđivanja reklamerima.",
+    "analyticsDesc": "Anonimni podaci o korišćenju koji nam pomažu poboljšati platformu. IP adresa se u potpunosti anonimizira. Nema prosljeđivanja reklamerima.",
     "statusOn": "Aktivirani ste za anonimnu analitiku",
     "statusOff": "Analitika isključena",
     "analyticsLegal": "Pravna osnova: čl. 6 st. 1 tač. a DSGVO (isključivo uz tvoju aktivaciju)",
