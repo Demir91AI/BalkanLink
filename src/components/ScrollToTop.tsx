@@ -25,18 +25,20 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     // Dvostruki rAF: prvi čeka commit, drugi čeka layout/paint.
+    let raf2 = 0;
     const raf1 = requestAnimationFrame(() => {
-      const raf2 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
         // Fallback za neke mobilne browsere
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
       });
-      // cleanup pomoćni
-      (raf1 as unknown as { _next?: number })._next = raf2;
     });
 
-    return () => cancelAnimationFrame(raf1);
+    return () => {
+      cancelAnimationFrame(raf1);
+      if (raf2) cancelAnimationFrame(raf2);
+    };
   }, [pathname]);
 
   return null;
