@@ -237,20 +237,26 @@ Ako NE → prosiri prije slanja.`;
       { role: "system", content: systemPrompt },
     ];
 
-    if (imageBase64 && mimeType) {
-      messages.push({
-        role: "user",
-        content: [
-          {
-            type: "image_url",
-            image_url: { url: `data:${mimeType};base64,${imageBase64}` },
-          },
-          {
-            type: "text",
-            text: "Analiziraj ovaj dokument/pismo detaljno koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji.",
-          },
-        ],
+    if (files.length > 0) {
+      const userContent: Array<{ type: string; text?: string; image_url?: { url: string } }> = [];
+      const intro = files.length === 1
+        ? "Analiziraj ovaj dokument/pismo detaljno koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji."
+        : `Analiziraj ovaj dokument/pismo — sastoji se od ${files.length} stranica/fajlova (priloženi redom). Tretiraj ih kao JEDAN dokument i napravi JEDNU objedinjenu analizu koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji.`;
+      userContent.push({ type: "text", text: intro });
+
+      files.forEach((f, idx) => {
+        if (!f?.base64 || !f?.mimeType) return;
+        if (files.length > 1) {
+          userContent.push({ type: "text", text: `--- Stranica/fajl ${idx + 1}/${files.length}${f.name ? ` (${f.name})` : ""} ---` });
+        }
+        userContent.push({ type: "image_url", image_url: { url: `data:${f.mimeType};base64,${f.base64}` } });
       });
+
+      if (text) {
+        userContent.push({ type: "text", text: `\nDodatni tekstualni kontekst:\n${text}` });
+      }
+
+      messages.push({ role: "user", content: userContent });
     } else {
       messages.push({
         role: "user",
