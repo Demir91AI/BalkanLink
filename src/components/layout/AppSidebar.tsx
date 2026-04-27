@@ -196,7 +196,10 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
-              const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
+              const matchers = (item as any).matchPaths as string[] | undefined;
+              const active = matchers
+                ? matchers.some((p) => currentPath === p || currentPath.startsWith(p + "/"))
+                : currentPath === item.url || currentPath.startsWith(item.url + "/");
               return (
                 <button
                   key={item.url}
