@@ -783,6 +783,18 @@ Dolazak u Njemačku → [Dolazak](/nach-deutschland)
 Premium / Paketi i cijene → [Paketi](/paketi)
 Šabloni / Vorlagen → [Šabloni](/vorlagen)
 Rechner / Kalkulatori → [Kalkulatori](/kalkulatori)
+Porez / Steuererklärung / Finanzamt → [Porezi vodič](/porezi)
+Porezni rokovi i kazne / Verspätungszuschlag → [Rokovi i kazne](/porezi/rokovi-i-kazne)
+Werbungskosten / Šta mogu odbiti → [Šta mogu odbiti](/porezi/sta-mogu-odbiti)
+ELSTER vodič → [ELSTER vodič](/porezi/elster-vodic)
+Steuerklasse / porezne klase → [Porodica i klase](/porezi/porodica-i-klase)
+Doppelte Haushaltsführung → [Dvostruko domaćinstvo](/porezi/dvostruko-domacinstvo)
+Da li moram poreznu prijavu → [Da li moram](/porezi/da-li-moram)
+Najčešće greške u Steuererklärung → [Najčešće greške](/porezi/najcesce-greske)
+Anerkennung diplome / kvalifikacija → [Anerkennung Navigator](/anerkennung)
+Mietrecht / stanarsko pravo → [Mietrecht](/mietrecht)
+Radno pravo / Kündigung → [Radno pravo](/radno-pravo)
+Biznis / Gewerbe / samozaposlenje → [Biznis u Njemačkoj](/biznis)
 
 ═══════════════════════════════════════
 VIZA PO ZEMLJAMA
