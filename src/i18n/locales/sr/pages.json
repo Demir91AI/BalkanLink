@@ -379,7 +379,12 @@
     "upload": {
       "label": "Učitaj dokument",
       "hint": "PDF, JPG, PNG — maks. 10 MB",
-      "deletedAfter": "Dokument se briše odmah nakon analize. Ništa se ne pohranjuje."
+      "deletedAfter": "Dokument se briše odmah nakon analize. Ništa se ne pohranjuje.",
+      "multiPageTitle": "Imaš dokument sa više stranica?",
+      "multiPageHint": "Učitaj sve stranice odjednom (do 10 fajlova) — analiziramo ih kao jedan dokument. Možeš slikati svaku stranicu telefonom ili učitati PDF.",
+      "filesCount": "{{count}} od {{max}} fajlova",
+      "addMore": "Dodaj još stranica",
+      "remove": "Ukloni"
     },
     "confirm": "Potvrđujem da ne učitavam/unosim osetljive podatke (broj lične karte, Steuer-ID, IBAN, zdravstvene podatke).",
     "buttons": {
@@ -395,7 +400,9 @@
       "serverError": "Greška servera pri analizi dokumenta. Pokušajte ponovo za nekoliko trenutaka.",
       "processingFailed": "Dokument nije mogao biti obrađen. Pokušajte s drugom datotekom.",
       "readError": "Greška pri čitanju datoteke",
-      "fallback": "Greška servera pri analizi dokumenta."
+      "fallback": "Greška servera pri analizi dokumenta.",
+      "tooManyFiles": "Maksimalno {{max}} fajlova.",
+      "totalTooLarge": "Ukupna veličina prelazi 25 MB."
     },
     "paywall": {
       "title": "Dokumenten-Check",
