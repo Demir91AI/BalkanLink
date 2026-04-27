@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FileText, Shield, GraduationCap, Camera, Megaphone, Receipt, Calculator } from "lucide-react";
+import { FileText, Shield, GraduationCap, Camera, Receipt, Calculator } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
@@ -17,7 +17,6 @@ export default function FeatureCards() {
     { icon: Shield, key: "visa", to: "/viza" },
     { icon: GraduationCap, key: "german", to: "/deutsch-trainer" },
     { icon: Receipt, key: "porezi", to: "/porezi" },
-    { icon: Megaphone, key: "ads", to: "/nudim-trazim" },
   ];
 
   useEffect(() => {
@@ -48,7 +47,7 @@ export default function FeatureCards() {
         </h2>
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         {features.map((f, i) => {
           const Icon = f.icon;
           return (
