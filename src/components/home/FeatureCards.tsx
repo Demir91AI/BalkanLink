@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FileText, Shield, GraduationCap, Camera, Megaphone, Receipt } from "lucide-react";
+import { FileText, Shield, GraduationCap, Camera, Megaphone, Receipt, Calculator } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
