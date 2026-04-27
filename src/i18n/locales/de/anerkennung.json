@@ -74,7 +74,8 @@
     "emailCopiedToast": "E-Mail in die Zwischenablage kopiert",
     "emailDownloadedToast": "E-Mail heruntergeladen",
     "officialSourcesTitle": "Offizielle Quellen für diesen Beruf",
-    "allPortalsTitle": "📚 Alle offiziellen Quellen (immer aktuell)"
+    "allPortalsTitle": "📚 Alle offiziellen Quellen (immer aktuell)",
+    "previewSelected": "Ausgewählt:"
   },
   "paywall": {
     "title": "Anerkennungs-Navigator",
@@ -90,12 +91,30 @@
     "footnote": "Rechtssicheres Informationswerkzeug — alle Informationen basieren auf offiziellen deutschen Quellen (Anabin, BIBB, BMFTR, ZAB)."
   },
   "countries": {
-    "BA": { "name": "Bosnien und Herzegowina", "notes": "Drittstaat. Abschlüsse werden individuell über die Anabin-Datenbank und die zuständige Stelle anerkannt. Häufig sind Anpassungslehrgang oder Kenntnisprüfung für reglementierte Berufe nötig." },
-    "HR": { "name": "Kroatien", "notes": "EU-Mitglied seit 2013. Für die meisten reglementierten Berufe gilt die EU-Richtlinie 2005/36/EG — automatische oder erleichterte Anerkennung." },
-    "RS": { "name": "Serbien", "notes": "Drittstaat. Verfahren ähnlich wie für BA — über Anabin und die zuständige Stelle nach Beruf und Bundesland." },
-    "ME": { "name": "Montenegro", "notes": "Drittstaat. Verfahren über die Anabin-Datenbank." },
-    "MK": { "name": "Nordmazedonien", "notes": "Drittstaat. Verfahren über die Anabin-Datenbank." },
-    "XK": { "name": "Kosovo", "notes": "Drittstaat. Verfahren über die Anabin-Datenbank." }
+    "BA": {
+      "name": "Bosnien und Herzegowina",
+      "notes": "Drittstaat. Abschlüsse werden individuell über die Anabin-Datenbank und die zuständige Stelle anerkannt. Häufig sind Anpassungslehrgang oder Kenntnisprüfung für reglementierte Berufe nötig."
+    },
+    "HR": {
+      "name": "Kroatien",
+      "notes": "EU-Mitglied seit 2013. Für die meisten reglementierten Berufe gilt die EU-Richtlinie 2005/36/EG — automatische oder erleichterte Anerkennung."
+    },
+    "RS": {
+      "name": "Serbien",
+      "notes": "Drittstaat. Verfahren ähnlich wie für BA — über Anabin und die zuständige Stelle nach Beruf und Bundesland."
+    },
+    "ME": {
+      "name": "Montenegro",
+      "notes": "Drittstaat. Verfahren über die Anabin-Datenbank."
+    },
+    "MK": {
+      "name": "Nordmazedonien",
+      "notes": "Drittstaat. Verfahren über die Anabin-Datenbank."
+    },
+    "XK": {
+      "name": "Kosovo",
+      "notes": "Drittstaat. Verfahren über die Anabin-Datenbank."
+    }
   },
   "professions": {
     "pflegefachperson": {
@@ -410,12 +429,30 @@
     }
   },
   "anabin": {
-    "instH+": { "title": "H+ (anerkannt)", "description": "Die Einrichtung ist im Herkunftsland staatlich anerkannt und Abschlüsse können in Deutschland bewertet werden. BESTER Status." },
-    "instH-": { "title": "H− (nicht anerkannt)", "description": "Die Einrichtung gilt im Herkunftsland nicht als Hochschule. Abschlüsse können in Deutschland in der Regel NICHT anerkannt werden." },
-    "instH+/-": { "title": "H+/− (bedingt)", "description": "Status nicht eindeutig — es gibt unterschiedliche Fälle. Eine individuelle Prüfung ist erforderlich." },
-    "dipEntspricht": { "title": "entspricht", "description": "Der Abschluss entspricht dem entsprechenden deutschen Abschluss — gleichwertig." },
-    "dipGleichwertig": { "title": "gleichwertig", "description": "Der Abschluss ist dem deutschen gleichwertig — wird anerkannt." },
-    "dipNicht": { "title": "nicht gleichwertig", "description": "Der Abschluss gilt nicht als gleichwertig — ggf. ist ein Zusatzverfahren oder eine Nachqualifizierung erforderlich." }
+    "instH+": {
+      "title": "H+ (anerkannt)",
+      "description": "Die Einrichtung ist im Herkunftsland staatlich anerkannt und Abschlüsse können in Deutschland bewertet werden. BESTER Status."
+    },
+    "instH-": {
+      "title": "H− (nicht anerkannt)",
+      "description": "Die Einrichtung gilt im Herkunftsland nicht als Hochschule. Abschlüsse können in Deutschland in der Regel NICHT anerkannt werden."
+    },
+    "instH+/-": {
+      "title": "H+/− (bedingt)",
+      "description": "Status nicht eindeutig — es gibt unterschiedliche Fälle. Eine individuelle Prüfung ist erforderlich."
+    },
+    "dipEntspricht": {
+      "title": "entspricht",
+      "description": "Der Abschluss entspricht dem entsprechenden deutschen Abschluss — gleichwertig."
+    },
+    "dipGleichwertig": {
+      "title": "gleichwertig",
+      "description": "Der Abschluss ist dem deutschen gleichwertig — wird anerkannt."
+    },
+    "dipNicht": {
+      "title": "nicht gleichwertig",
+      "description": "Der Abschluss gilt nicht als gleichwertig — ggf. ist ein Zusatzverfahren oder eine Nachqualifizierung erforderlich."
+    }
   },
   "zuschuss": {
     "description": "Der Anerkennungszuschuss ist eine staatliche Förderung des Bundesministeriums für Forschung, Technologie und Raumfahrt (BMFTR) für Personen mit niedrigem Einkommen, die ihre ausländische Qualifikation anerkennen lassen wollen.",

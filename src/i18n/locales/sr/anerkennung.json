@@ -74,7 +74,8 @@
     "emailCopiedToast": "Email kopiran u clipboard",
     "emailDownloadedToast": "Email preuzet",
     "officialSourcesTitle": "Službeni izvori za ovu profesiju",
-    "allPortalsTitle": "📚 Svi službeni izvori (uvijek aktuelno)"
+    "allPortalsTitle": "📚 Svi službeni izvori (uvijek aktuelno)",
+    "previewSelected": "Odabrano:"
   },
   "paywall": {
     "title": "Anerkennung Navigator",
