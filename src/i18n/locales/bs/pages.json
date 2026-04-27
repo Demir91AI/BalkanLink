@@ -1367,7 +1367,13 @@
       "errorTooMany": "Možeš dodati najviše {{max}} fajlova.",
       "errorWrongType": "Dozvoljeni su samo PDF, JPG i PNG.",
       "errorConsent": "Molimo prihvati napomenu prije analize.",
-      "errorEmpty": "Molimo izaberi barem jedan fajl."
+      "errorEmpty": "Molimo izaberi barem jedan fajl.",
+      "whatToUploadTitle": "Šta učitati? Sve stranice obračuna zajedno",
+      "whatToUpload1": "Glavni Nebenkostenabrechnung (sve stranice — često su 2-4 stranice)",
+      "whatToUpload2": "Ako imaš odvojen obračun za grijanje (Heizkostenabrechnung) — dodaj ga",
+      "whatToUpload3": "Ako imaš odvojen obračun za vodu (Wasserabrechnung) — dodaj i njega",
+      "whatToUpload4": "Sve priloge sa razradom troškova (Einzelaufstellung, Verteilerschlüssel)",
+      "whatToUploadTip": "💡 Možeš slikati svaku stranicu telefonom posebno ili učitati PDF — analiziramo sve kao jedan dokument."
     },
     "result": {
       "title": "Tvoja analiza",

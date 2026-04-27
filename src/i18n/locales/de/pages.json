@@ -1367,7 +1367,13 @@
       "errorTooMany": "Maximal {{max}} Dateien erlaubt.",
       "errorWrongType": "Nur PDF, JPG und PNG erlaubt.",
       "errorConsent": "Bitte bestätige den Hinweis vor der Analyse.",
-      "errorEmpty": "Bitte wähle mindestens eine Datei aus."
+      "errorEmpty": "Bitte wähle mindestens eine Datei aus.",
+      "whatToUploadTitle": "Was hochladen? Alle Seiten der Abrechnung zusammen",
+      "whatToUpload1": "Hauptdokument Nebenkostenabrechnung (alle Seiten — oft 2-4 Seiten)",
+      "whatToUpload2": "Falls separat: Heizkostenabrechnung — bitte ebenfalls hinzufügen",
+      "whatToUpload3": "Falls separat: Wasserabrechnung — auch diese hinzufügen",
+      "whatToUpload4": "Alle Anlagen mit Kostenaufstellung (Einzelaufstellung, Verteilerschlüssel)",
+      "whatToUploadTip": "💡 Du kannst jede Seite einzeln mit dem Handy abfotografieren oder als PDF hochladen — wir analysieren alles als ein Dokument."
     },
     "result": {
       "title": "Deine Analyse",
