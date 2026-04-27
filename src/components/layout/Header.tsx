@@ -162,44 +162,47 @@ export default function Header() {
           )}
         </div>
 
-        {/* RIGHT: Premium badge + User icon */}
+        {/* RIGHT: Premium CTA + User icon */}
         <div className="flex items-center gap-2 ml-auto">
-          {/* Premium CTA button */}
-          <button
-            onClick={() => navigate("/premium")}
-            aria-label={isPremium ? t("common:nav.premiumActive") : t("common:nav.becomePremium")}
-            className="group relative hidden sm:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
-            style={{
-              background:
-                "linear-gradient(135deg, #D4AF37 0%, #F4D77A 50%, #B8941F 100%)",
-              border: "1px solid rgba(244,215,122,0.5)",
-              color: "#0A0F1F",
-              borderRadius: 22,
-              padding: "7px 16px 7px 12px",
-              fontSize: 12,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase" as const,
-              fontWeight: 800,
-              boxShadow:
-                "0 4px 14px rgba(212,175,55,0.35), 0 0 0 1px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.4)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow =
-                "0 6px 22px rgba(212,175,55,0.55), 0 0 0 1px rgba(244,215,122,0.4), inset 0 1px 0 rgba(255,255,255,0.5)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow =
-                "0 4px 14px rgba(212,175,55,0.35), 0 0 0 1px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.4)";
-            }}
-          >
-            {/* Shine sweep on hover */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
-            />
-            <Crown className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
-            <span className="relative z-10">{isPremium ? t("common:nav.premiumActive") : t("common:nav.becomePremium")}</span>
-          </button>
+          {/* Premium CTA — shown ONLY to non-premium users.
+              Once subscription is active, the badge disappears entirely. */}
+          {!isPremium && (
+            <button
+              onClick={() => navigate("/premium")}
+              aria-label={t("common:nav.becomePremium")}
+              className="group relative hidden sm:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
+              style={{
+                background:
+                  "linear-gradient(135deg, #D4AF37 0%, #F4D77A 50%, #B8941F 100%)",
+                border: "1px solid rgba(244,215,122,0.5)",
+                color: "#0A0F1F",
+                borderRadius: 22,
+                padding: "7px 16px 7px 12px",
+                fontSize: 12,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase" as const,
+                fontWeight: 800,
+                boxShadow:
+                  "0 4px 14px rgba(212,175,55,0.35), 0 0 0 1px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.4)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow =
+                  "0 6px 22px rgba(212,175,55,0.55), 0 0 0 1px rgba(244,215,122,0.4), inset 0 1px 0 rgba(255,255,255,0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow =
+                  "0 4px 14px rgba(212,175,55,0.35), 0 0 0 1px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.4)";
+              }}
+            >
+              {/* Shine sweep on hover */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+              />
+              <Crown className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
+              <span className="relative z-10">{t("common:nav.becomePremium")}</span>
+            </button>
+          )}
 
           {/* Language switcher — visible on all viewports */}
           <LanguageSwitcher variant="header" />
