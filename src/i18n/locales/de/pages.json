@@ -37,6 +37,10 @@
           "label": "Steuern",
           "desc": "Steuererklärung leicht erklärt"
         },
+        "nebenkosten": {
+          "label": "Nebenkosten-Scan",
+          "desc": "Abrechnung in 30 Sek. prüfen"
+        },
         "ads": {
           "label": "Kleinanzeigen",
           "desc": "Job finden oder Dienstleistung anbieten"

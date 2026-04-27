@@ -54,6 +54,7 @@ const Generatoren = lazy(() => import("./pages/Generatoren"));
 const Wohnungen = lazy(() => import("./pages/Wohnungen"));
 const Stellenangebote = lazy(() => import("./pages/Stellenangebote"));
 const DokumentenCheck = lazy(() => import("./pages/DokumentenCheck"));
+const NebenkostenScan = lazy(() => import("./pages/NebenkostenScan"));
 const AdminForms = lazy(() => import("./pages/AdminForms"));
 const AdminFormMapper = lazy(() => import("./pages/AdminFormMapper"));
 const BruttoNettoRechner = lazy(() => import("./pages/BruttoNettoRechner"));
@@ -205,6 +206,9 @@ function LocalizedRoutes() {
         <Route path="guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="smart-guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="dokumenten-check" element={<DokumentenCheck />} />
+        <Route path="nebenkosten-scan" element={<NebenkostenScan />} />
+        <Route path="rezije-skener" element={<Navigate to="../nebenkosten-scan" replace />} />
+        <Route path="rezije-provjera" element={<Navigate to="../nebenkosten-scan" replace />} />
         <Route path="schufa-simulator" element={<SchufaSimulator />} />
         <Route path="bonitet" element={<Navigate to="../schufa-simulator" replace />} />
         <Route path="anerkennung-navigator" element={<AnerkennungNavigator />} />

@@ -37,6 +37,10 @@
           "label": "Porezi",
           "desc": "Vodič kroz Steuererklärung"
         },
+        "nebenkosten": {
+          "label": "Skener režija",
+          "desc": "Provjeri Nebenkosten obračun"
+        },
         "ads": {
           "label": "Oglasi",
           "desc": "Nađi posao ili ponudi uslugu"
