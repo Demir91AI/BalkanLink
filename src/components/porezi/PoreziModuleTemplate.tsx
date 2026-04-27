@@ -208,6 +208,38 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
           </Section>
         )}
 
+        {/* Amounts (2026 paušali / iznosi sa izvorom) */}
+        {amountsKeys.length > 0 && (
+          <Section
+            icon={<Euro className="h-4 w-4 text-emerald-700" />}
+            title={t(k("amounts.heading"))}
+          >
+            <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+              {t(k("amounts.intro"))}
+            </p>
+            <div className="overflow-hidden rounded-xl border border-emerald-600/20 divide-y divide-emerald-600/10">
+              {amountsKeys.map((key) => (
+                <div key={key} className="grid grid-cols-12 gap-2 bg-emerald-50/40 p-3">
+                  <div className="col-span-12 sm:col-span-7 text-sm font-medium text-foreground/90 leading-relaxed">
+                    {t(k(`amounts.list.${key}.label`))}
+                  </div>
+                  <div className="col-span-12 sm:col-span-5 sm:text-right">
+                    <div className="text-sm font-bold text-emerald-800">
+                      {t(k(`amounts.list.${key}.value`))}
+                    </div>
+                    <div className="text-[11px] text-muted-foreground leading-snug">
+                      {t(k(`amounts.list.${key}.note`))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-2 text-[11px] text-muted-foreground italic leading-relaxed">
+              {t(k("amounts.disclaimer"))}
+            </p>
+          </Section>
+        )}
+
         {/* Costs (title + desc cards) */}
         {costsKeys.length > 0 && (
           <Section
