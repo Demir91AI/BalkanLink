@@ -404,16 +404,18 @@
       "readError": "Fehler beim Lesen der Datei",
       "fallback": "Serverfehler bei der Dokumentenanalyse.",
       "tooManyFiles": "Maximal {{max}} Dateien.",
-      "totalTooLarge": "Gesamtgröße überschreitet 25 MB."
+      "totalTooLarge": "Gesamtgröße überschreitet 25 MB.",
+      "paymentRequired": "Zahlung von 2,99 € ist für die Analyse erforderlich."
     },
     "paywall": {
       "title": "Dokumenten-Check",
       "subtitle": "Dokument hochladen — Sie erhalten eine Erklärung in Ihrer Sprache",
       "premiumCta": "BalkanLink Premium — 9,99 €/Monat",
-      "premiumPerk": "1×/Tag kostenlos + alle Premium-Funktionen",
+      "premiumPerk": "Unbegrenzte Dokumentenprüfungen + alle Premium-Funktionen",
       "or": "oder",
-      "oneTimeCta": "Einmalig kaufen — 2,99 € →",
-      "oneTimeReset": "Wird nach jeder Nutzung zurückgesetzt"
+      "oneTimeCta": "2,99 € für eine Analyse zahlen →",
+      "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
+      "paymentReadyToast": "Zahlung erhalten. Klicken Sie auf Dokument prüfen, um die Analyse zu starten."
     },
     "example": {
       "trigger": "👁 Beispielanalyse — zum Ansehen klicken",
