@@ -1,0 +1,310 @@
+{
+  "impressum": {
+    "title": "Impressum",
+    "subtitle": "Zakonski obavezne informacije o operatoru platforme",
+    "sections": [
+      {
+        "heading": "Podaci o operatoru prema §5 DDG",
+        "html": "<p><strong>RealCore Digital</strong><br/>Vlasnik: Demir Sinanovic<br/>Münchener Straße 78<br/>83395 Freilassing<br/>Deutschland</p><p class=\"mt-3\"><strong>Pravna forma:</strong> Einzelunternehmen (samostalni obrt)</p><div class=\"legal-warn-yellow\">BalkanLink je <strong>privatna, nezavisna informacijska platforma</strong> bez ikakve veze s njemačkim državnim organima, ambasadama, konzulatima niti s bilo kojim zvaničnim tijelom Savezne Republike Njemačke ili bilo koje druge države.</div>"
+      },
+      {
+        "heading": "Kontakt",
+        "html": "<p>E-pošta: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a><br/>Web: <a href=\"https://balkanlink.de\">https://balkanlink.de</a></p>"
+      },
+      {
+        "heading": "Poreski status",
+        "html": "<p>Mali poduzetnik prema §19 Zakona o porezu na promet (UStG) — <em>Kleinunternehmerregelung</em>.<br/>Na računima <strong>ne prikazujemo PDV</strong>.</p><p class=\"mt-2 text-xs opacity-70\">Što to znači: Sve naše cene su konačne cene bez PDV-a. Kao mali poduzetnik nismo obveznici PDV-a — ne naplaćujemo ni ne uplaćujemo porez na dodatu vrijednost.</p>"
+      },
+      {
+        "heading": "Odgovorna osoba za sadržaj prema §18 Abs. 2 MStV",
+        "html": "<p>Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland</p>"
+      },
+      {
+        "heading": "Opis platforme",
+        "html": "<p>BalkanLink je digitalna informacijska platforma za osobe iz balkanskih zemalja koje žive u Njemačkoj ili planiraju preseljenje. Platforma nudi:</p><ul><li>Informativne vodiče kroz njemačku birokratiju (Smart Guide)</li><li>Interaktivne pomoćnike za popunjavanje obrazaca (Musterformulare)</li><li>Navigaciju kroz vizne i boravišne postupke (Viza Navigator)</li><li>Kurs njemačkog jezika (DeutschTrainer A1–C2)</li><li>Asistenta za informativna pitanja (BalkanLink Asistent)</li><li>Provjeru dokumenata (Dokumenten-Check)</li><li>Oglasnik za dijasporu (Nudim / Tražim)</li></ul>"
+      },
+      {
+        "heading": "Odgovornost za sadržaj (§§7–10 DDG)",
+        "html": "<p>Sadržaj platforme izrađen je s najvećom pažnjom, ali ne preuzimamo odgovornost za tačnost, potpunost ni aktuelnost objavljenih informacija.</p><p class=\"mt-2\"><strong>Važno:</strong> Informacije na ovoj platformi <strong>ne predstavljaju pravni, porezni ni finansijski savjet</strong>. Sadržaj služi isključivo općem informiranju i orijentaciji. Za obavezujuće informacije konsultuj nadležne organe, advokate ili porezne savjetnike.</p>"
+      },
+      {
+        "heading": "Odgovornost za vanjske linkove",
+        "html": "<p>Platforma sadrži linkove na vanjske stranice. Na sadržaj tih stranica nemamo uticaj i ne preuzimamo odgovornost za eventualne naknadne promene. Ako primijetiš problematičan sadržaj, obaveštenja nas na kontakt@realcore-digital.de.</p>"
+      },
+      {
+        "heading": "Autorska prava",
+        "html": "<p>Sadržaji platforme podliježu njemačkom zakonu o autorskim pravima. Umnožavanje i distribucija van zakonskih granica zahtijeva pisanu saglasnost autora. Preuzimanje je dozvoljeno samo za privatnu, nekomercijalnu upotrebu.</p>"
+      },
+      {
+        "heading": "Nije pravno savjetovanje",
+        "html": "<p>Svi sadržaji — vodiči, obrasci, asistent, alati — <strong>ne predstavljaju pravno savjetovanje</strong> u smislu RDG-a (Rechtsdienstleistungsgesetz). Korištenjem platforme <strong>ne nastaje punomoć ni ugovor o savjetovanju</strong>.</p>"
+      },
+      {
+        "heading": "Rješavanje sporova — OS platforma EU",
+        "html": "<p>Evropska komisija pruža platformu za online rješavanje sporova: <a href=\"https://ec.europa.eu/consumers/odr/\" target=\"_blank\" rel=\"noopener noreferrer\">https://ec.europa.eu/consumers/odr/</a></p><p class=\"mt-2\">Nismo ni voljni ni obavezni sudjelovati u postupku rješavanja sporova pred arbitražnom komisijom za zaštitu potrošača.</p>"
+      }
+    ]
+  },
+  "datenschutz": {
+    "title": "Zaštita podataka",
+    "subtitle": "Izjava o privatnosti — DSGVO (Opšta uredba EU o zaštiti podataka) i BDSG",
+    "sections": [
+      {
+        "heading": "1. Odgovorna osoba",
+        "html": "<p>Odgovorna osoba u smislu DSGVO-a je:</p><p class=\"mt-2\"><strong>RealCore Digital</strong>, vlasnik Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland<br/>E-pošta: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p class=\"mt-2 text-xs opacity-70\">Ova osoba je pravno odgovorna za sve odluke o tome kako se tvoji podaci obrađuju. Obrati joj se s bilo kojim pitanjem o privatnosti podataka.</p>"
+      },
+      {
+        "heading": "2. Koje podatke prikupljamo",
+        "html": "<p><strong>Kategorije korisnika:</strong></p><ul><li>Posjetioci platforme (bez registracije)</li><li>Registrirani korisnici (s korisničkim računom)</li><li>Premium pretplatnici</li><li>Osobe koje kontaktiraju e-poštom</li></ul><p class=\"mt-3\"><strong>Kategorije podataka:</strong></p><ul><li>Podaci o računu: e-mail adresa, lozinka (pohranjena šifrirano — bcrypt/argon2)</li><li>Podaci o korištenju: posjećene stranice, napredak u kursu</li><li>Tehnički podaci: IP adresa, tip preglednika, OS</li><li>Sadržajni podaci: tekst u obrascima/alatima (nije trajno pohranjen)</li><li>Podaci o plaćanju: obrađuju se isključivo putem Stripe-a (mi ne vidimo broj kartice)</li></ul>"
+      },
+      {
+        "heading": "3. Pravne osnove obrade",
+        "html": "<ul><li><strong>Saglasnost (čl. 6 st. 1 tač. a DSGVO):</strong> Npr. za opcionalne kolačiće — saglasnost se može povući u svako doba.</li><li><strong>Izvršenje ugovora (čl. 6 st. 1 tač. b DSGVO):</strong> Neophodna obrada za pružanje usluga — korisnički račun, pretplata.</li><li><strong>Zakonska obaveza (čl. 6 st. 1 tač. c DSGVO):</strong> Čuvanje računovodstvenih isprava prema §147 AO (do 10 godina).</li><li><strong>Legitimni interes (čl. 6 st. 1 tač. f DSGVO):</strong> Bezbjednost platforme, sprečavanje zloupotrebe, ispravno funkcionisanje.</li></ul>"
+      },
+      {
+        "heading": "4. Serverski logovi",
+        "html": "<p>Hosting-provider automatski bilježi tehničke podatke: IP adresu, datum/vreme pristupa, URL, HTTP statusni kod, tip preglednika, OS i referrer URL. Ovi podaci se ne kombinuju s drugim izvorima i brišu se nakon max. 30 dana.</p><p class=\"mt-1\">Pravna osnova: čl. 6 st. 1 tač. f DSGVO.</p>"
+      },
+      {
+        "heading": "5. Korisnički račun",
+        "html": "<p>Registracijom prikupljamo e-mail adresu i lozinku (pohranjena isključivo šifrirano, nikada u čitljivom obliku). Korisnički račun možeš obrisati u svako doba u Postavkama ili slanjem zahtjeva na kontakt@realcore-digital.de.</p><p class=\"mt-1\">Pravna osnova: čl. 6 st. 1 tač. b DSGVO.</p>"
+      },
+      {
+        "heading": "6. Obrasci, alati i Dokumenten-Check",
+        "html": "<p>Tekst koji uneseš u obrasce i alate obrađuje se isključivo radi pružanja tražene funkcije. Učitani dokumenti obrađuju se samo privremeno u radnoj memoriji — <strong>bez trajnog pohranjivanja</strong>. Svi podaci brišu se odmah po prikazu rezultata.</p><div class=\"legal-warn-yellow\"><strong>Preporuka:</strong> Prekrij osobne podatke (ime, adresu, JMBG, porezni broj) pre korištenja Dokumenten-Check funkcije.</div><p class=\"mt-1\">Pravna osnova: čl. 6 st. 1 tač. a i f DSGVO.</p>"
+      },
+      {
+        "heading": "7. BalkanLink Asistent",
+        "html": "<p>BalkanLink Asistent je automatizirani sistem koji odgovara na pitanja korisnika. Upiti se obrađuju putem eksternog servisa u skladu s GDPR standardima.</p><ul><li>Tvoje poruke obrađuju se radi generiranja odgovora i odmah se vraća rezultat</li><li>Zaključen je ugovor o obradi podataka (DPA) s pružaocem usluge (čl. 28 DSGVO)</li><li><strong>Tvoji podaci se ne koriste za poboljšanje sistema</strong> trećih strana</li><li>Istorija razgovora može biti pohranjena u tvom profilu radi kontinuiteta i može se obrisati u Postavkama računa</li></ul><p class=\"mt-1\">Pravna osnova: čl. 6 st. 1 tač. b i f DSGVO; prijenos podataka po čl. 46 DSGVO (standardne ugovorne klauzule EU — SCC).</p>"
+      },
+      {
+        "heading": "8. Plaćanje putem Stripe",
+        "html": "<p>Plaćanja obrađuje <strong>Stripe Payments Europe, Ltd.</strong> (Dublin, Irska) — certificiran prema PCI DSS Level 1.</p><ul><li>Mi <strong>nikada ne vidimo niti pohranjujemo</strong> podatke o kartici</li><li>Stripe prima podatke direktno od tebe putem sigurne šifrirane veze</li><li>Mi primamo samo potvrdu uplate i anonimni ID transakcije</li><li>Stripe čuva transakcijske podatke radi zakonskih obaveza (do 10 godina)</li></ul><p class=\"mt-1\">Stripe privatnost: <a href=\"https://stripe.com/de/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">stripe.com/de/privacy</a><br/>Pravna osnova: čl. 6 st. 1 tač. b DSGVO.</p>"
+      },
+      {
+        "heading": "9. Supabase — baza podataka",
+        "html": "<p>Za pohranu i autentifikaciju koristimo <strong>Supabase Inc.</strong> Podaci se pohranjuju na serverima u <strong>Frankfurt am Main, EU (AWS eu-central-1)</strong>.</p><ul><li>Supabase je izvršilac obrade — DPA ugovor zaključen</li><li>Podaci se ne prenose izvan EU-a</li><li>Enkripcija u prijenosu: TLS; u mirovanju: AES-256</li></ul>"
+      },
+      {
+        "heading": "10. Kolačići i lokalna pohrana",
+        "html": "<p>Ne koristimo marketinške kolačiće ni praćenje od strane trećih strana. U lokalnoj pohrani pregledača pohranjujemo:</p><ul><li>Token za autentifikaciju (samo za prijavljene korisnike)</li><li>Postavke saglasnosti za kolačiće</li><li>Napredak u DeutschTraineru (do sinhronizacije s računom)</li></ul><p class=\"mt-1\">Pravna osnova: §25 TDDDG / čl. 6 st. 1 tač. a DSGVO.</p>"
+      },
+      {
+        "heading": "11. Rok čuvanja",
+        "html": "<ul><li>Serverski logovi: max. 30 dana</li><li>E-mail upiti: max. 6 meseci po završetku obrade</li><li>Korisnički račun: do brisanja od strane korisnika</li><li>Sadržajni podaci (alati): trenutno brisanje</li><li>Podaci o plaćanju: 10 godina (§147 AO)</li></ul>"
+      },
+      {
+        "heading": "12. Primaoci podataka",
+        "html": "<ul><li><strong>Supabase Inc.</strong> — hosting i baza podataka (čl. 28 DSGVO)</li><li><strong>Stripe Payments Europe, Ltd.</strong> — obrada plaćanja</li><li>Pružalac usluge za BalkanLink Asistenta (SCC ugovor, čl. 46 DSGVO)</li><li>Državni organi — samo na zakonski osnovan zahtjev</li></ul>"
+      },
+      {
+        "heading": "13. Sigurnost podataka (čl. 32 DSGVO)",
+        "html": "<p>SSL/TLS enkripcija svih veza, šifrirano pohranjivanje lozinki (bcrypt/argon2), ograničen pristup podacima, redovne sigurnosne provjere. Sigurnu vezu prepoznaješ po „https://\" u adresnoj traci.</p>"
+      },
+      {
+        "heading": "14. Tvoja prava (čl. 15–22 DSGVO)",
+        "html": "<ul><li><strong>Pravo na pristup (čl. 15):</strong> Možeš zatražiti uvid u sve podatke koje obrađujemo.</li><li><strong>Pravo na ispravak (čl. 16):</strong> Možeš zatražiti ispravku netačnih podataka.</li><li><strong>Pravo na brisanje (čl. 17 — „pravo na zaborav\"):</strong> Možeš zatražiti brisanje svojih podataka.</li><li><strong>Pravo na ograničenje (čl. 18):</strong> Možeš zatražiti ograničenje obrade u određenim slučajevima.</li><li><strong>Pravo na prenosivost (čl. 20):</strong> Možeš dobiti svoje podatke u strojno čitljivom formatu.</li><li><strong>Pravo na prigovor (čl. 21):</strong> Možeš podnijeti prigovor na obradu zasnovanu na legitimnom interesu.</li><li><strong>Opoziv saglasnosti (čl. 7 st. 3):</strong> Saglasnost možeš povući u svako doba — bez retroaktivnog dejstva.</li><li><strong>Pravo na žalbu (čl. 77):</strong> Nadležno nadzorno telo: <strong>Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach.</li></ul><p class=\"mt-2\">Zahtjeve šalji na: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p>"
+      },
+      {
+        "heading": "15. Nema automatiziranog odlučivanja",
+        "html": "<p>Ne vrši se automatizovano donošenje odluka niti profiliranje (čl. 22 DSGVO) koje bi imalo pravno dejstvo ili na sličan način znatno pogađalo korisnika.</p>"
+      },
+      {
+        "heading": "16. Izmjene izjave",
+        "html": "<p>Zadržavamo pravo izmjene ove Izjave radi usklađenosti s propisima ili promenama usluga.</p><p class=\"mt-2 text-xs opacity-60\">Verzija: April 2026</p>"
+      }
+    ]
+  },
+  "agb": {
+    "title": "Uslovi korištenja",
+    "subtitle": "Opšti uslovi korištenja platforme BalkanLink (AGB)",
+    "sections": [
+      {
+        "heading": "§ 1 Područje primene i operator",
+        "html": "<p>Ovi Opšti uslovi korištenja (u daljem tekstu: „AGB\") važe za korištenje platforme „BalkanLink\" (u daljem tekstu: „Platforma\"), koju vodi:</p><p class=\"mt-2\"><strong>RealCore Digital</strong><br/>Vlasnik: Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland<br/>E-pošta: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p class=\"mt-2\">Korištenjem Platforme korisnik prihvata ove AGB. Drugačiji uslovi korisnika ne vrijede, osim ako operator izričito pristane u pisanom obliku.</p>"
+      },
+      {
+        "heading": "§ 2 Opis usluga",
+        "html": "<p>Platforma nudi sljedeće usluge:</p><ul><li>Strukturirane informacije o birokratskim postupcima i svakodnevnim temama u Njemačkoj</li><li>Digitalne pomoćnike za popunjavanje obrazaca (ne predstavljaju pravno savjetovanje)</li><li>Alate i kalkulatore (npr. Brutto-Netto-Rechner)</li><li>Informativnog asistenta (BalkanLink Asistent)</li><li>Dokumenten-Check (opšte objašnjenje učitanih dokumenata)</li><li>Korisnički generirane sadržaje (oglasi, unosi, direktoriji)</li><li>Direktorije i karte</li></ul><p class=\"mt-2\">Operator zadržava pravo da obim usluga u svakom trenutku izmijeni, proširi ili ograniči, bez da iz toga nastaju potraživanja korisnika.</p>"
+      },
+      {
+        "heading": "§ 3 Bez ugovora o savjetovanju",
+        "html": "<p>Korištenjem Platforme <strong>ne nastaje punomoć, ugovor o savjetovanju niti bilo kakav drugi ugovorni odnos</strong> koji uključuje individualno pravno, porezno, finansijsko ili drugo stručno savjetovanje.</p><p class=\"mt-2\">Svi sadržaji služe isključivo općem informiranju i orijentaciji. Za obavezujuće informacije konsultuj nadležne organe, advokate, porezne savjetnike ili druge kvalificirane stručnjake.</p>"
+      },
+      {
+        "heading": "§ 4 Bez garancije za sadržaj",
+        "html": "<p>Sve informacije na Platformi pružaju se po najboljem znanju, ali bez ikakve garancije za tačnost, potpunost, aktuelnost ili prikladnost za određenu svrhu. Zakoni i propisi mogu se u svakom trenutku promeniti. Operator ne preuzima odgovornost za štete nastale korištenjem ili oslanjanjem na pružene sadržaje.</p>"
+      },
+      {
+        "heading": "§ 5 Obaveze korisnika",
+        "html": "<p>Korisnik se obavezuje:</p><ul><li>koristiti Platformu samo u zakonite svrhe;</li><li>ne objavljivati lažne, obmanjujuće ili nezakonite sadržaje;</li><li>ne kršiti prava trećih lica (autorska prava, žigove, lična prava);</li><li>ne koristiti malware, spam ili automatizirane pristupe;</li><li>čuvati povjerljivost svojih pristupnih podataka;</li><li>ne manipulirati Platformom niti narušavati njenu funkcionalnost;</li><li>ne objavljivati sadržaje koji krše važeće pravo ili prava trećih lica;</li><li>davati istinite podatke pri registraciji i objavljivanju sadržaja.</li></ul>"
+      },
+      {
+        "heading": "§ 6 Korisnički generirani sadržaji",
+        "html": "<p>Korisnici mogu na Platformi objavljivati vlastite sadržaje (npr. oglase, unose, recenzije). Korisnik je isključivo odgovoran za sadržaje koje objavi.</p><p class=\"mt-2\">Objavljivanjem sadržaja korisnik operatoru daje jednostavno, vremenski i prostorno neograničeno, besplatno pravo korištenja sadržaja u okviru Platforme.</p><p class=\"mt-2\">Operator nije obavezan pregledati sadržaje pre objavljivanja, ali zadržava pravo da sadržaje u svakom trenutku pregleda, uredi, pomjeri ili ukloni.</p>"
+      },
+      {
+        "heading": "§ 7 Zabranjeni sadržaji",
+        "html": "<p>Zabranjeno je na Platformi objavljivati ili širiti:</p><ul><li>Sadržaje koji krše važeće pravo (posebno krivično)</li><li>Sadržaje koji huškaju na mržnju, rasizam, diskriminaciju</li><li>Sadržaje koji veličaju nasilje ili terorizam</li><li>Pornografske ili za maloljetnike štetne sadržaje</li><li>Autorski zaštićene sadržaje bez odobrenja</li><li>Lične podatke trećih lica bez njihove saglasnosti</li><li>Spam, reklamu ili komercijalne sadržaje bez odobrenja</li><li>Pokušaje prevare, phishing ili druge obmanjujuće aktivnosti</li><li>Sadržaje koji mogu naštetiti ugledu Platforme</li></ul>"
+      },
+      {
+        "heading": "§ 8 Moderacija, blokiranje i brisanje",
+        "html": "<p>Operator je ovlašten da u slučaju kršenja ovih AGB ili pri postojanju indicija o nezakonitom sadržaju poduzme sljedeće mere:</p><ul><li>Upozorenje korisniku</li><li>Uređivanje ili uklanjanje pojedinačnih sadržaja</li><li>Privremeno ili trajno blokiranje korisničkog računa</li><li>Brisanje korisničkog računa</li></ul><p class=\"mt-2\">Korisnik će biti obaviješten o meri i njenom obrazloženju, osim ako tome ne stoje pravne prepreke.</p>"
+      },
+      {
+        "heading": "§ 9 Platforma kao posrednik",
+        "html": "<p>Platforma pruža samo tehničku infrastrukturu za razmjenu informacija. Operator nije ugovorna strana u dogovorima između korisnika (npr. kontakt putem oglasa). Operator ne preuzima nikakvu odgovornost za ugovore ili pravne odnose između korisnika.</p>"
+      },
+      {
+        "heading": "§ 10 Ograničenje odgovornosti",
+        "html": "<p>Operator odgovara neograničeno samo u slučaju namjere i grubog nemara, te pri povredi bitnih ugovornih obaveza (kardinalne obaveze). Kod blagog nemara odgovornost je ograničena na predvidivu, uobičajenu štetu.</p><p class=\"mt-2\">Odgovornost za štete nastale povredom života, tela ili zdravlja ostaje nepromijenjena. Isto vrijedi i za zahtjeve prema Zakonu o odgovornosti za proizvode.</p><p class=\"mt-2\">Operator ne odgovara za štete nastale korištenjem ili oslanjanjem na pružene informacije, alate ili korisnički generirane sadržaje.</p>"
+      },
+      {
+        "heading": "§ 11 Oslobađanje od odgovornosti",
+        "html": "<p>Korisnik oslobađa operatora od svih potraživanja trećih lica koja nastanu zbog nezakonitog korištenja Platforme ili zbog sadržaja koje je korisnik objavio. Korisnik snosi troškove potrebne pravne odbrane uključujući sudske i advokatske troškove.</p>"
+      },
+      {
+        "heading": "§ 12 Dostupnost platforme",
+        "html": "<p>Operator nastoji obezbediti što neprekidniju dostupnost Platforme. Međutim, ne postoji pravo na stalnu dostupnost. Operator zadržava pravo da Platformu privremeno ograniči ili obustavi radi održavanja, ažuriranja ili iz drugih razloga.</p>"
+      },
+      {
+        "heading": "§ 13 Izmjene platforme i AGB-a",
+        "html": "<p>Operator zadržava pravo da ove AGB u svakom trenutku izmijeni. Izmjene se objavljuju na Platformi. Daljnje korištenje Platforme nakon objave izmijenjenih AGB-a smatra se prihvatanjem izmjena.</p><p class=\"mt-2\">Operator također zadržava pravo da Platformu, njene funkcije, dizajn i sadržaje u svakom trenutku izmijeni, proširi ili obustavi.</p>"
+      },
+      {
+        "heading": "§ 14 Primjenjivo pravo i nadležnost suda",
+        "html": "<p>Primenjuje se pravo Savezne Republike Njemačke uz isključenje UN Konvencije o ugovorima o međunarodnoj prodaji robe. Ako je korisnik trgovac, pravno lice javnog prava ili javnopravni fond, nadležan je sud na sedištu operatora.</p>"
+      },
+      {
+        "heading": "§ 15 Salvatorska klauzula",
+        "html": "<p>Ako pojedine odredbe ovih AGB-a budu nevažeće ili neprovedive, to ne utiče na važnost ostalih odredbi. Umjesto nevažeće odredbe primenjuje se važeća odredba koja najbliže odgovara ekonomskom cilju.</p><p class=\"mt-2 text-xs opacity-60\">Verzija: April 2026</p>"
+      }
+    ]
+  },
+  "disclaimer": {
+    "title": "Odricanje odgovornosti",
+    "subtitle": "Haftungsausschluss — Važne napomene o ograničenju odgovornosti platforme BalkanLink",
+    "sections": [
+      {
+        "heading": "",
+        "html": "<div class=\"legal-warn-red\"><p class=\"font-semibold\">⚠ Važno upozorenje</p><p class=\"mt-1\">BalkanLink je <strong>informacijska platforma</strong> — ne pravna kancelarija, ne savjetovalište, ne zastupnik. Sve informacije služe isključivo općem informiranju i ne mogu zamijeniti stručni pravni, porezni ni administrativni savjet.</p></div>"
+      },
+      {
+        "heading": "1. Nema pravnog savjetovanja",
+        "html": "<p>Svi sadržaji — Smart Guide vodiči, Musterformulare, Viza Navigator, Asistent, DeutschTrainer i ostali alati — <strong>ne predstavljaju pravno savjetovanje</strong> u smislu RDG-a. Korištenjem platforme <strong>ne nastaje punomoć ni ugovor o savjetovanju</strong>.</p><p class=\"mt-2\">Za pravno obavezujuće informacije obrati se:</p><ul><li>Nadležnoj službi (Ausländerbehörde, Jobcenter, Finanzamt, Standesamt itd.)</li><li>Licenciranom advokatu (Rechtsanwalt)</li><li>Priznatom savjetovalištu (AWO, Caritas, Diakonie, Pro Asyl)</li><li>Poreznom savjetniku (Steuerberater) za porezna pitanja</li></ul>"
+      },
+      {
+        "heading": "2. Tačnost i aktuelnost informacija",
+        "html": "<p>Nastojimo redovito ažurirati sve sadržaje, ali <strong>ne garantujemo tačnost, potpunost ni aktuelnost</strong> objavljenih informacija. Zakoni, iznosi naknada i administrativni postupci mogu se menjati bez prethodne najave.</p><p class=\"mt-2\">Posebno napominjemo:</p><ul><li>Vizni propisi menjaju se po odlukama Vlade i EU-a</li><li>Iznosi naknada (Bürgergeld, Kindergeld, BAföG itd.) ažuriraju se godišnje</li><li>Zahtjevi Ausländerbehörde variraju po saveznoj zemlji i gradu</li><li>Obrasci se povremeno menjaju — uvek preuzmi aktuelnu verziju s web stranice nadležnog organa</li></ul><p class=\"mt-2\"><strong>Uvek provjeri informacije na zvaničnim izvorima</strong> (bundesregierung.de, bamf.de, arbeitsagentur.de, make-it-in-germany.com) pre preduzimanja bilo koje radnje.</p>"
+      },
+      {
+        "heading": "3. Ograničenje odgovornosti za sadržaj",
+        "html": "<p>Odgovaramo za vlastite sadržaje po §7 DDG-a i općim propisima, ograničeno na namjerno pogrešne ili grubim nemarom netačne informacije.</p><p class=\"mt-2\"><strong>Isključujemo odgovornost za:</strong></p><ul><li>Gubitke nastale zbog oslanjanja na informacije s platforme</li><li>Zastarjele informacije nastale uslijed zakonodavnih promena</li><li>Odluke administrativnih organa donesene na osnovu sadržaja s platforme</li><li>Greške pri popunjavanju obrazaca na osnovu naših informacija</li><li>Privremenu nedostupnost platforme</li></ul>"
+      },
+      {
+        "heading": "4. Vanjske poveznice",
+        "html": "<p>Sadržaj vanjskih stranica nije pod našom kontrolom. Ne preuzimamo odgovornost za eventualne naknadne promene. Obaveštenja nas o problematičnom sadržaju na <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a>.</p>"
+      },
+      {
+        "heading": "5. Asistent — posebne napomene",
+        "html": "<p>Odgovori asistenta su automatski generirani i <strong>mogu sadržavati greške, zastarjele podatke ili nepotpune informacije</strong>.</p><ul><li>Asistent ne može predvidjeti individualne okolnosti tvog slučaja</li><li>Odgovori ne zamjenjuju konzultaciju s nadležnim organom ili stručnjakom</li><li>Ne preduzimaj pravno relevantne radnje isključivo na osnovu odgovora asistenta</li><li>Provjeri sve važne informacije na zvaničnim stranicama nadležnih institucija</li></ul>"
+      },
+      {
+        "heading": "6. Musterformulare",
+        "html": "<p>Musterformulare su <strong>informativni primeri</strong> koji pomažu razumevanju obrazaca. Ne garantujemo da su uvek usklađeni s najnovijim zvaničnim verzijama.</p><p class=\"mt-2\"><strong>Uvek preuzmi i koristi zvanični obrazac</strong> s web stranice nadležnog organa — linkovi su dostupni na svakom Musterformularu.</p>"
+      },
+      {
+        "heading": "7. Ograničenje prema §521 BGB",
+        "html": "<p>U meri u kojoj je zakonski dopušteno, ograničavamo odgovornost na namjeru i grubu nepažnju (§521 BGB za besplatne usluge; §276 BGB za plaćene). Odgovornost za povredu tela ili zdravlja ostaje nepromijenjena.</p>"
+      }
+    ]
+  },
+  "asistent": {
+    "title": "Napomena o upotrebi asistenta",
+    "subtitle": "Transparentnost, ograničenja i odricanje od odgovornosti za sadržaje koje generiše BalkanLink Asistent",
+    "sections": [
+      {
+        "heading": "",
+        "html": "<div class=\"legal-warn-red\"><p class=\"font-bold text-base\">⚠ Obavezno pročitaj pre korištenja asistenta</p><p class=\"mt-3\">BalkanLink Asistent pruža isključivo <strong>opšte, informativne odgovore</strong>. Odgovori asistenta <strong>ne predstavljaju pravni, porezni, finansijski ni medicinski savjet</strong> i ne mogu zamijeniti konzultaciju s nadležnim organima ili stručnim licima.</p><p class=\"mt-3\"><strong>BalkanLink ne snosi nikakvu odgovornost</strong> za tačnost, potpunost, aktuelnost ni primjenjivost odgovora asistenta. Svaka odluka donesena na osnovu odgovora asistenta donosi se na <strong>isključivu vlastitu odgovornost korisnika</strong>.</p></div>"
+      },
+      {
+        "heading": "1. Šta je BalkanLink Asistent?",
+        "html": "<p>BalkanLink Asistent je automatizirani sistem koji odgovara na pitanja o životu u Njemačkoj, birokratiji, vizama, socijalnim naknadama, radu i stanovanju — na bosanskom jeziku. Sistem je konfiguriran s detaljnim znanjem o:</p><ul><li>Viznim i boravišnim pravilima za balkanske državljane</li><li>Socijalnim naknadama (Bürgergeld, Kindergeld, Elterngeld, BAföG, Wohngeld itd.)</li><li>Radnom pravu, stanarskom pravu i zdravstvenom osiguranju</li><li>Poreznim osnovama za strane radnike</li><li>Procedurama kod ključnih njemačkih ureda</li></ul><p class=\"mt-3\">Bez obzira na kvalitet konfiguracije, <strong>automatizirani sistemi mogu generirati netačne, nepotpune ili zastarjele odgovore</strong> — ovo je tehničko ograničenje koje nije moguće u potpunosti eliminirati.</p>"
+      },
+      {
+        "heading": "2. Ograničenja asistenta — šta ne može i ne smije",
+        "html": "<div class=\"legal-warn-yellow\"><ul><li><strong>Ne može davati pravno obavezujuće savjete</strong> niti te zastupati u upravnim ili sudskim postupcima</li><li><strong>Ne garantuje tačnost informacija</strong> — zakoni, iznosi naknada i procedure menjaju se bez prethodne najave</li><li><strong>Ne poznaje tvoju specifičnu situaciju</strong> — isti odgovor može biti tačan za jednu osobu, a netačan za drugu ovisno o individualnim okolnostima</li><li><strong>Ne može pristupiti bazama ureda</strong> niti provjeriti status tvojeg predmeta, zahtjeva ili dozvole</li><li><strong>Ne može predvidjeti odluke</strong> konkretnih Ausländerbehörde, Jobcenter-a ni sudova — praksa varira po gradu i saveznoj zemlji</li><li><strong>Može pogrešiti</strong> — čak i uvjerljivo formuliran odgovor može biti faktički netačan</li></ul></div>"
+      },
+      {
+        "heading": "3. Odricanje od odgovornosti za sadržaje asistenta",
+        "html": "<p>U skladu s §7 DDG-a i općim odredbama građanskog prava, <strong>BalkanLink izričito isključuje svaku odgovornost</strong> za sadržaje koje generiše asistent, uključujući:</p><ul><li><strong>Netačne ili zastarjele informacije</strong> — sistem ne može pratiti promene zakona u realnom vremenu</li><li><strong>Nepotpune odgovore</strong> — sistem možda neće uzeti u obzir sve relevantne okolnosti tvoje situacije</li><li><strong>Štetu nastalu primjenom odgovora asistenta</strong> — gubitak, propuštena korist, kazne, odbijeni zahtjevi ili drugi negativni ishodi</li><li><strong>Odluke nadležnih organa</strong> — ishod tvojeg predmeta kod Ausländerbehörde, Jobcenter-a ili BAMF-a ne može se predvidjeti putem asistenta</li><li><strong>Propuštene rokove</strong> — asistent ne zna za konkretne rokove tvojeg predmeta; rokove uvek provjeri direktno kod nadležnog organa</li></ul><p class=\"legal-note-box mt-3\"><strong>Zakonska osnova:</strong> §7 st. 1 DDG, §521 BGB (besplatne usluge), §276 BGB (isključenje obične nepažnje). Odgovornost za namjernu ili grubom nepažnjom prouzrokovanu štetu i za povredu tela ili zdravlja ostaje nepromijenjena.</p>"
+      },
+      {
+        "heading": "4. Tvoja obaveza provjere",
+        "html": "<p>Svaku informaciju dobivenu od asistenta <strong>dužan/na si provjeriti na zvaničnim izvorima</strong> pre preduzimanja bilo koje radnje:</p><ul><li><a href=\"https://www.bamf.de\" target=\"_blank\" rel=\"noopener noreferrer\">bamf.de</a> — Savezni ured za migracije i izbjeglice</li><li><a href=\"https://www.arbeitsagentur.de\" target=\"_blank\" rel=\"noopener noreferrer\">arbeitsagentur.de</a> — Federalna agencija za zapošljavanje</li><li><a href=\"https://www.bundesregierung.de\" target=\"_blank\" rel=\"noopener noreferrer\">bundesregierung.de</a> — Vlada SR Njemačke</li><li><a href=\"https://www.make-it-in-germany.com\" target=\"_blank\" rel=\"noopener noreferrer\">make-it-in-germany.com</a> — Zvanični portal za stručnjake iz inostranstva</li><li>Nadležna Ausländerbehörde, Jobcenter ili Finanzamt u tvom gradu</li><li>Licencirani advokat ili savjetovalište (AWO, Caritas, Diakonie, Pro Asyl) za pravna pitanja</li></ul>"
+      },
+      {
+        "heading": "5. Sigurnosne mere i kvalitet sistema",
+        "html": "<ul><li><strong>Detaljan konfiguracijski sistem</strong> — asistent je podešen s opsežnim znanjem o relevantnim zakonima i procedurama te uputama da uvek preporuči provjeru na zvaničnim izvorima</li><li><strong>Zabrana štetnih odgovora</strong> — sistem je konfiguriran da odbije davati savjete koji bi mogli potaknuti kršenje zakona, diskriminaciju ili nasilje</li><li><strong>Redovno ažuriranje</strong> — konfiguracija se ažurira pri važnim zakonskim promenama, ali između ažuriranja može doći do zastarjelosti informacija</li></ul><p class=\"mt-3 text-xs opacity-70\">Ove mere značajno smanjuju, ali <strong>ne eliminuju u potpunosti</strong> mogućnost netačnih odgovora. Tvoja vlastita provjera informacija ostaje neophodna.</p>"
+      },
+      {
+        "heading": "6. Zaštita podataka",
+        "html": "<ul><li>Tvoji upiti obrađuju se u skladu s DSGVO standardima</li><li><strong>Tvoji podaci se ne koriste za poboljšanje sistema</strong> trećih strana</li><li>Historiju razgovora možeš obrisati u Postavkama računa</li></ul><div class=\"legal-warn-red mt-3\"><strong>Preporuka:</strong> Nikada ne unosite u asistenta osjetljive osobne podatke: JMBG/OIB, broj pasoša, podatke o platnoj kartici niti medicinske informacije.</div><p class=\"mt-2\">Više o zaštiti podataka: <a href=\"/datenschutz\">Zaštita podataka</a></p><p class=\"text-xs opacity-60 pt-4\">Verzija: April 2026</p>"
+      }
+    ]
+  },
+  "dsa": {
+    "title": "Prijava sadržaja i postupak žalbe",
+    "subtitle": "U skladu s Uredbom (EU) 2022/2065 o digitalnim uslugama (Digital Services Act — DSA) i odredbama Digitale-Dienste-Gesetza (DDG)",
+    "sections": [
+      {
+        "heading": "1. Prijava nezakonitog sadržaja",
+        "html": "<p>Korisnici i treća lica imaju mogućnost prijaviti sadržaje na Platformi koje smatraju nezakonitim. Prijave shvatamo ozbiljno i obrađujemo ih pravovremeno.</p><h3>1.1 Kako prijaviti sadržaj?</h3><p>Prijavu pošalji e-poštom na: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p>Predmet: <strong>„Prijava nezakonitog sadržaja\"</strong></p><h3>1.2 Potrebni podaci</h3><p>Da bismo mogli obraditi tvoju prijavu, potrebni su nam:</p><ul><li>Tačan URL ili opis spornog sadržaja</li><li>Obrazloženje zašto se sadržaj smatra nezakonitim</li><li>Po potrebi relevantne pravne odredbe</li><li>Kontakt podaci prijavitelja (ime, e-mail adresa)</li><li>Izjava da su podaci istiniti i potpuni po najboljem znanju</li></ul><h3>1.3 Provjera i mere</h3><p>Po prijemu tvoje prijave:</p><ul><li>Pravovremeno ćemo potvrditi prijem prijave</li><li>Prijavljeni sadržaj pažljivo i objektivno provjeriti</li><li>U slučaju utvrđene nezakonitosti — sadržaj ukloniti ili blokirati pristup</li><li>Prijavitelja obavijestiti o donesenoj odluci i obrazloženju</li><li>Pogođenog korisnika (autora sadržaja) obavijestiti o meri i mogućnosti žalbe, osim ako tome ne stoje pravne prepreke</li></ul><p class=\"mt-2\">Obrada se vrši u pravilu u roku od 7 radnih dana po prijemu potpune prijave. Kod očigledno nezakonitih sadržaja (npr. huškanje na mržnju, zlostavljanje dece) uklanjanje se vrši odmah.</p>"
+      },
+      {
+        "heading": "2. Interni postupak žalbe",
+        "html": "<p>U skladu s čl. 20 Uredbe (EU) 2022/2065 omogućavamo interni postupak žalbe koji je otvoren za:</p><ul><li>Korisnike čiji su sadržaji uklonjeni ili čiji je pristup blokiran</li><li>Prijavitelje čija je prijava odbijena</li></ul><h3>2.1 Podnošenje žalbe</h3><p>Žalbe se mogu podnijeti u roku od <strong>6 meseci</strong> od dotične odluke e-poštom na <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p>Predmet: <strong>„Žalba — [kratak opis]\"</strong></p><h3>2.2 Sadržaj žalbe</h3><ul><li>Referenca na dotičnu odluku (uklj. datum i eventualni referentni broj)</li><li>Obrazloženje žalbe</li><li>Kontakt podaci podnositelja žalbe</li></ul><h3>2.3 Obrada</h3><ul><li>Žalba se pravovremeno, objektivno i nepristrasno provjerava.</li><li>Odluka se ne donosi isključivo automatski.</li><li>Podnositelj žalbe biva obaviješten o rezultatu i obrazloženju.</li><li>Ako je žalba opravdana, prvobitna odluka se poništava.</li></ul><h3>2.4 Vansudsko rješavanje sporova</h3><p>Nezavisno od ovog internog postupka žalbe, imaš pravo obratiti se certificiranom telu za vansudsko rješavanje sporova prema čl. 21 Uredbe (EU) 2022/2065.</p>"
+      },
+      {
+        "heading": "3. Kontakt tačka",
+        "html": "<p>Centralna kontakt tačka za organe država članica, Komisiju i Odbor za digitalne usluge prema čl. 11 Uredbe (EU) 2022/2065 je:</p><p class=\"mt-2\"><strong>RealCore Digital</strong><br/>E-pošta: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a><br/>Jezici: njemački, engleski</p><p class=\"text-xs opacity-60 pt-4\">Verzija: April 2026</p>"
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Postavke kolačića",
+    "subtitle": "Cookie-Einstellungen — upravljanje kolačićima i lokalnom pohranom",
+    "whatAreCookies": "Šta su kolačići?",
+    "whatAreCookiesText": "Kolačići su male tekstualne datoteke u pregledaču. Pored klasičnih kolačića, BalkanLink koristi <strong>localStorage</strong> i <strong>sessionStorage</strong> — mehanizme lokalne pohrane koji su ograničeni na tvoj uređaj i nikad se ne šalju automatski na server.",
+    "legalBasisShort": "Pravna osnova: §25 TDDDG u vezi s čl. 6 st. 1 tač. a DSGVO (saglasnost) i §25 st. 2 TDDDG (tehnički neophodni).",
+    "categoriesTitle": "Vrste podataka",
+    "necessary": "Tehnički neophodni",
+    "alwaysActive": "Uvek aktivno",
+    "necessaryDesc": "Neophodni za rad platforme. Ne mogu se isključiti.",
+    "necessaryItems": [
+      "Autentifikacijski token — drži te prijavljenim",
+      "Postavke saglasnosti za kolačiće — bilježi tvoj odabir (12 mj.)",
+      "Napredak u DeutschTraineru — lokalno, do sinhronizacije s računom"
+    ],
+    "necessaryLegal": "Pravna osnova: §25 st. 2 TDDDG (tehnička neophodnost)",
+    "analytics": "Analitički podaci (opcionalno)",
+    "analyticsDesc": "Anonimni podaci o korištenju koji nam pomažu poboljšati platformu. IP adresa se u potpunosti anonimizira. Nema prosljeđivanja reklamerima.",
+    "statusOn": "Aktivirani ste za anonimnu analitiku",
+    "statusOff": "Analitika isključena",
+    "analyticsLegal": "Pravna osnova: čl. 6 st. 1 tač. a DSGVO (isključivo uz tvoju aktivaciju)",
+    "marketing": "Marketinški kolačići",
+    "notInUse": "Nije u upotrebi",
+    "marketingDesc": "BalkanLink <strong>ne koristi</strong> marketinške kolačiće, retargeting piksele ni reklamne mreže (Google Ads, Meta Pixel itd.). Platforma je bez reklama i bez praćenja za reklamne svrhe.",
+    "deleteTitle": "Brisanje kolačića u pregledaču",
+    "deleteItems": [
+      "<strong>Chrome:</strong> Postavke → Privatnost i sigurnost → Obriši podatke",
+      "<strong>Firefox:</strong> Postavke → Privatnost → Kolačići i podaci stranice",
+      "<strong>Safari:</strong> Postavke → Privatnost → Upravljanje podacima",
+      "<strong>Edge:</strong> Postavke → Privatnost → Izbriši podatke pregledavanja"
+    ],
+    "deleteWarn": "Brisanjem svih kolačića možeš biti odjavan/a i izgubiti lokalni napredak u DeutschTraineru.",
+    "version": "Verzija: April 2026",
+    "save": "Sačuvaj postavke",
+    "saved": "Postavke su sačuvane."
+  }
+}
