@@ -477,6 +477,7 @@ export default function DokumentenCheck() {
                 )}
               </div>
             </div>
+          </motion.div>
 
           {/* ── Error ── */}
           {error && (
