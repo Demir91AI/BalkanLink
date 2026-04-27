@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import PageNavBar from "@/components/navigation/PageNavBar";
 
 export default function CookieRichtlinie() {
+  const { t } = useTranslation("legal");
+
   const [analytics, setAnalytics] = useState(() => {
     try {
       const s = localStorage.getItem("bl-cookie-consent");
@@ -16,60 +19,60 @@ export default function CookieRichtlinie() {
       statistics: analytics,
       marketing: false,
     }));
-    alert("Postavke su sačuvane.");
+    alert(t("cookies.saved"));
   };
+
+  const necessaryItems = t("cookies.necessaryItems", {
+    returnObjects: true,
+    defaultValue: [] as string[],
+  }) as string[];
+  const deleteItems = t("cookies.deleteItems", {
+    returnObjects: true,
+    defaultValue: [] as string[],
+  }) as string[];
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
       <PageNavBar />
-      <h1 className="mb-2 text-3xl font-bold">Postavke kolačića</h1>
-      <p className="mb-10 text-sm text-muted-foreground">
-        Cookie-Einstellungen — upravljanje kolačićima i lokalnom pohranom
-      </p>
+      <h1 className="mb-2 text-3xl font-bold">{t("cookies.title")}</h1>
+      <p className="mb-10 text-sm text-muted-foreground">{t("cookies.subtitle")}</p>
       <div className="space-y-8 text-sm leading-relaxed text-muted-foreground">
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">Šta su kolačići?</h2>
-          <p>
-            Kolačići su male tekstualne datoteke u pregledaču. Pored klasičnih kolačića,
-            BalkanLink koristi <strong className="text-foreground">localStorage</strong> i{" "}
-            <strong className="text-foreground">sessionStorage</strong> — mehanizme lokalne
-            pohrane koji su ograničeni na tvoj uređaj i nikad se ne šalju automatski na server.
-          </p>
-          <p className="mt-2 text-xs opacity-70">
-            Pravna osnova: §25 TDDDG u vezi s čl. 6 st. 1 tač. a DSGVO (saglasnost)
-            i §25 st. 2 TDDDG (tehnički neophodni).
-          </p>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">
+            {t("cookies.whatAreCookies")}
+          </h2>
+          <p dangerouslySetInnerHTML={{ __html: t("cookies.whatAreCookiesText") }} />
+          <p className="mt-2 text-xs opacity-70">{t("cookies.legalBasisShort")}</p>
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">Vrste podataka</h2>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">
+            {t("cookies.categoriesTitle")}
+          </h2>
 
           <div className="rounded-md border border-green-500/30 bg-green-500/5 p-4 mt-3">
             <div className="flex items-center justify-between">
-              <p className="font-semibold text-green-300">✓ Tehnički neophodni</p>
+              <p className="font-semibold text-green-300">✓ {t("cookies.necessary")}</p>
               <span className="rounded-full bg-green-500/20 px-3 py-1 text-xs text-green-300">
-                Uvijek aktivno
+                {t("cookies.alwaysActive")}
               </span>
             </div>
-            <p className="mt-2 text-xs">
-              Neophodni za rad platforme. Ne mogu se isključiti.
-            </p>
+            <p className="mt-2 text-xs">{t("cookies.necessaryDesc")}</p>
             <ul className="ml-4 mt-2 list-disc space-y-1 text-xs">
-              <li>Autentifikacijski token — drži te prijavljenim</li>
-              <li>Postavke saglasnosti za kolačiće — bilježi tvoj odabir (12 mj.)</li>
-              <li>Napredak u DeutschTraineru — lokalno, do sinhronizacije s računom</li>
+              {Array.isArray(necessaryItems) && necessaryItems.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
-            <p className="mt-2 text-xs opacity-60">
-              Pravna osnova: §25 st. 2 TDDDG (tehnička neophodnost)
-            </p>
+            <p className="mt-2 text-xs opacity-60">{t("cookies.necessaryLegal")}</p>
           </div>
 
           <div className="rounded-md border border-border p-4 mt-4">
             <div className="flex items-center justify-between">
-              <p className="font-semibold text-foreground">📊 Analitički podaci (opcionalno)</p>
+              <p className="font-semibold text-foreground">📊 {t("cookies.analytics")}</p>
               <button
                 onClick={() => setAnalytics(!analytics)}
+                aria-label={t("cookies.analytics")}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors
                   ${analytics ? "bg-primary" : "bg-muted"}`}
               >
@@ -78,44 +81,38 @@ export default function CookieRichtlinie() {
                 />
               </button>
             </div>
-            <p className="mt-2 text-xs">
-              Anonimni podaci o korištenju koji nam pomažu poboljšati platformu.
-              IP adresa se u potpunosti anonimizira. Nema prosljeđivanja reklamerima.
-            </p>
+            <p className="mt-2 text-xs">{t("cookies.analyticsDesc")}</p>
             <p className="mt-2 text-xs opacity-60">
-              Status: {analytics ? "Aktivirani ste za anonimnu analitiku" : "Analitika isključena"}<br />
-              Pravna osnova: čl. 6 st. 1 tač. a DSGVO (isključivo uz tvoju aktivaciju)
+              {analytics ? t("cookies.statusOn") : t("cookies.statusOff")}<br />
+              {t("cookies.analyticsLegal")}
             </p>
           </div>
 
           <div className="rounded-md border border-border p-4 mt-4 opacity-50">
             <div className="flex items-center justify-between">
-              <p className="font-semibold text-foreground">🎯 Marketinški kolačići</p>
-              <span className="rounded-full bg-muted px-3 py-1 text-xs">Nije u upotrebi</span>
+              <p className="font-semibold text-foreground">🎯 {t("cookies.marketing")}</p>
+              <span className="rounded-full bg-muted px-3 py-1 text-xs">
+                {t("cookies.notInUse")}
+              </span>
             </div>
-            <p className="mt-2 text-xs">
-              BalkanLink <strong className="text-foreground">ne koristi</strong> marketinške
-              kolačiće, retargeting piksele ni reklamne mreže (Google Ads, Meta Pixel itd.).
-              Platforma je bez reklama i bez praćenja za reklamne svrhe.
-            </p>
+            <p className="mt-2 text-xs" dangerouslySetInnerHTML={{ __html: t("cookies.marketingDesc") }} />
           </div>
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-foreground">Brisanje kolačića u pregledaču</h2>
+          <h2 className="mb-3 text-lg font-semibold text-foreground">
+            {t("cookies.deleteTitle")}
+          </h2>
           <ul className="ml-4 mt-1 list-disc space-y-1">
-            <li><strong className="text-foreground">Chrome:</strong> Postavke → Privatnost i sigurnost → Obriši podatke</li>
-            <li><strong className="text-foreground">Firefox:</strong> Postavke → Privatnost → Kolačići i podaci stranice</li>
-            <li><strong className="text-foreground">Safari:</strong> Postavke → Privatnost → Upravljanje podacima</li>
-            <li><strong className="text-foreground">Edge:</strong> Postavke → Privatnost → Izbriši podatke pregledavanja</li>
+            {Array.isArray(deleteItems) && deleteItems.map((item, i) => (
+              <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+            ))}
           </ul>
-          <p className="mt-2 text-xs opacity-70">
-            Brisanjem svih kolačića možeš biti odjavan/a i izgubiti lokalni napredak u DeutschTraineru.
-          </p>
+          <p className="mt-2 text-xs opacity-70">{t("cookies.deleteWarn")}</p>
         </section>
 
         <section>
-          <p className="text-xs opacity-60">Verzija: April 2026</p>
+          <p className="text-xs opacity-60">{t("cookies.version")}</p>
         </section>
 
         <div className="pt-2">
@@ -124,7 +121,7 @@ export default function CookieRichtlinie() {
             className="rounded-md bg-primary px-6 py-2 text-sm font-medium
               text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Sačuvaj postavke
+            {t("cookies.save")}
           </button>
         </div>
 
