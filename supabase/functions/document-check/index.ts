@@ -320,6 +320,14 @@ Ako NE → prosiri prije slanja.`;
 
     console.log("Analysis completed successfully, length:", result.length);
 
+    // Consume one credit for non-premium users only AFTER a successful analysis,
+    // so a failed AI request does not waste their 2,99€ purchase.
+    if (!isPremium) {
+      const { data: consumed, error: consumeErr } = await adminSupabase.rpc("consume_doc_check_credit", { uid: userId });
+      if (consumeErr) console.error("consume_doc_check_credit error:", consumeErr.message);
+      else if (!consumed) console.warn("No credit was consumed even though one was expected for user", userId);
+    }
+
     return new Response(
       JSON.stringify({ success: true, analysis: result }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
