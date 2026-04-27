@@ -207,6 +207,10 @@ function LocalizedRoutes() {
         <Route path="porezi/da-li-moram" element={<PoreziWizard />} />
         <Route path="porezi/moram-li-uopce" element={<PoreziWizard />} />
         <Route path="steuern/muss-ich-ueberhaupt" element={<PoreziWizard />} />
+        {/* DHF — Doppelte Haushaltsführung modul */}
+        <Route path="porezi/dvostruko-domacinstvo" element={<PoreziDoppelhaushalt />} />
+        <Route path="porezi/dvostruko-kucanstvo" element={<PoreziDoppelhaushalt />} />
+        <Route path="steuern/doppelte-haushaltsfuehrung" element={<PoreziDoppelhaushalt />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
