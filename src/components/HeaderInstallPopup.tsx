@@ -112,8 +112,9 @@ export function HeaderInstallPopup() {
     setOpen(false);
   }, [installAndroid, triggerManual]);
 
-  // Hide entirely if app is installed or user is not logged in
-  if (installed || !user) return null;
+  // Hide only if app is already running in standalone mode (already installed).
+  // Show for both guests and logged-in users so the install entry is always reachable.
+  if (installed) return null;
 
   const ios = isIOS();
 
