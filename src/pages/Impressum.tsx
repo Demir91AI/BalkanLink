@@ -53,8 +53,7 @@ export default function Impressum() {
             <p>
               Mali poduzetnik prema §19 Zakona o porezu na promet (UStG) —{" "}
               <em>Kleinunternehmerregelung</em>.<br />
-              Na računima <strong>ne prikazujemo PDV</strong>.<br />
-              Identifikacioni broj za PDV (USt-IdNr.) <strong>nije dodijeljen</strong>.
+              Na računima <strong>ne prikazujemo PDV</strong>.
             </p>
             <p className="mt-2 text-xs opacity-70">
               Što to znači: Sve naše cijene su konačne cijene bez PDV-a. Kao mali poduzetnik
