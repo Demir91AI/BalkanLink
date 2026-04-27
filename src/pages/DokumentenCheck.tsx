@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useMemo } from "react";
+import React, { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { FileText, Upload, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Crown, ChevronDown, Plus, Info } from "lucide-react";
 import AuthGate from "@/components/AuthGate";
 import PageNavBar from "@/components/navigation/PageNavBar";
@@ -255,10 +255,44 @@ export default function DokumentenCheck() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
+  const [creditCount, setCreditCount] = useState<number>(0);
+  const [checkoutPending, setCheckoutPending] = useState(false);
   const submittingRef = useRef(false);
 
   const { isPremium } = useSubscription();
   const { user } = useAuth();
+
+  // Fetch unconsumed Document-Check credits for the current user.
+  const refreshCredits = useCallback(async () => {
+    if (!user?.id) { setCreditCount(0); return; }
+    const { count } = await supabase
+      .from("doc_check_credits")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", user.id)
+      .is("consumed_at", null);
+    setCreditCount(count ?? 0);
+  }, [user?.id]);
+
+  // Initial + visibility-change refresh (so returning from Stripe tab updates credits).
+  useEffect(() => {
+    refreshCredits();
+    const onVis = () => { if (document.visibilityState === "visible") refreshCredits(); };
+    document.addEventListener("visibilitychange", onVis);
+    window.addEventListener("focus", refreshCredits);
+    return () => {
+      document.removeEventListener("visibilitychange", onVis);
+      window.removeEventListener("focus", refreshCredits);
+    };
+  }, [refreshCredits]);
+
+  // When a credit becomes available after returning from Stripe, surface a success toast once.
+  useEffect(() => {
+    if (checkoutPending && creditCount > 0) {
+      setCheckoutPending(false);
+      setShowPaywall(false);
+      toast.success(t("documentCheck.paywall.paymentReadyToast", "Plaćanje je primljeno. Kliknite Provjeri dokument za pokretanje analize."));
+    }
+  }, [checkoutPending, creditCount, t]);
 
   const totalSize = useMemo(() => files.reduce((s, f) => s + f.size, 0), [files]);
 
@@ -297,16 +331,26 @@ export default function DokumentenCheck() {
     setAnalysis(null);
   }, [t]);
 
+  // Open Stripe checkout for the one-off 2.99€ purchase. Stripe opens in a new tab;
+  // when the user returns, visibilitychange triggers refreshCredits().
+  const startOneOffCheckout = useCallback(() => {
+    if (!user) { localizedNavigate("/login"); return; }
+    setCheckoutPending(true);
+    initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
+  }, [user, localizedNavigate]);
+
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
-    if (!isPremium) { setShowPaywall(true); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
+    // Premium → free unlimited. Non-premium → must already hold an unconsumed credit.
+    if (!isPremium && creditCount < 1) { setShowPaywall(true); return; }
 
     submittingRef.current = true;
     setLoading(true);
     setError(null);
     setAnalysis(null);
+    setShowPaywall(false);
 
     try {
       const filesPayload = await Promise.all(
@@ -317,7 +361,6 @@ export default function DokumentenCheck() {
       );
       const payload = {
         files: filesPayload,
-        // Backward compat ako deployana funkcija još očekuje single-file polja
         imageBase64: filesPayload[0]?.base64,
         mimeType: filesPayload[0]?.mimeType,
       };
@@ -325,10 +368,20 @@ export default function DokumentenCheck() {
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
       if (fnError) throw new Error(t("documentCheck.errors.serverError"));
-      if (data?.success === false) throw new Error(data.message || t("documentCheck.errors.processingFailed"));
+      if (data?.success === false) {
+        // Backend says payment is required — open paywall and refresh credits.
+        if (data.errorCode === "PAYMENT_REQUIRED") {
+          await refreshCredits();
+          setShowPaywall(true);
+          throw new Error(data.message || t("documentCheck.errors.paymentRequired", "Plaćanje 2,99€ je potrebno."));
+        }
+        throw new Error(data.message || t("documentCheck.errors.processingFailed"));
+      }
       if (!data?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
 
       setAnalysis(data.analysis);
+      // Refresh credits after the backend has consumed one (non-premium only).
+      if (!isPremium) await refreshCredits();
     } catch (err: any) {
       const message = err.message || t("documentCheck.errors.fallback");
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
@@ -340,7 +393,7 @@ export default function DokumentenCheck() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, files, isPremium, loading, t]);
+  }, [confirmed, files, isPremium, creditCount, loading, refreshCredits, t]);
 
   const handleClear = useCallback(() => {
     clearFiles();
@@ -415,14 +468,16 @@ export default function DokumentenCheck() {
                 {t("documentCheck.pricing.oneTimeReset")}
               </p>
               <button
-                onClick={() => {
-                  if (!user) { localizedNavigate("/login"); return; }
-                  initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
-                }}
+                onClick={startOneOffCheckout}
                 className="mt-3 block w-full rounded-xl border border-border px-3 py-2 text-xs font-semibold hover:bg-accent transition-colors"
               >
                 {t("documentCheck.pricing.buyOneTime")}
               </button>
+              {creditCount > 0 && !isPremium && (
+                <p className="mt-2 text-[11px] font-semibold text-emerald-600">
+                  {t("documentCheck.pricing.creditAvailable", { count: creditCount, defaultValue: "Dostupno: {{count}} provjera" })}
+                </p>
+              )}
             </div>
             <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative flex flex-col">
               <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">{t("documentCheck.pricing.premiumBadge")}</span>

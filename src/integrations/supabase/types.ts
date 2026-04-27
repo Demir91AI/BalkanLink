@@ -338,6 +338,36 @@ export type Database = {
         }
         Relationships: []
       }
+      doc_check_credits: {
+        Row: {
+          amount_cents: number
+          consumed_at: string | null
+          created_at: string
+          currency: string
+          id: string
+          stripe_session_id: string
+          user_id: string
+        }
+        Insert: {
+          amount_cents?: number
+          consumed_at?: string | null
+          created_at?: string
+          currency?: string
+          id?: string
+          stripe_session_id: string
+          user_id: string
+        }
+        Update: {
+          amount_cents?: number
+          consumed_at?: string | null
+          created_at?: string
+          currency?: string
+          id?: string
+          stripe_session_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       doc_check_usage: {
         Row: {
           count: number
@@ -1135,6 +1165,7 @@ export type Database = {
         Args: { daily_limit?: number; uid: string }
         Returns: boolean
       }
+      consume_doc_check_credit: { Args: { uid: string }; Returns: boolean }
       delete_email: {
         Args: { message_id: number; queue_name: string }
         Returns: boolean
@@ -1144,6 +1175,15 @@ export type Database = {
         Returns: number
       }
       get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
+      grant_doc_check_credit: {
+        Args: {
+          amt_cents?: number
+          curr?: string
+          session_id: string
+          uid: string
+        }
+        Returns: boolean
+      }
       grant_premium_access: {
         Args: {
           new_expires_at?: string

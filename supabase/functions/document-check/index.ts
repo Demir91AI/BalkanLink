@@ -35,7 +35,7 @@ Deno.serve(async (req) => {
     }
     const userId = claimsData.claims.sub as string;
 
-    // ── Premium check or daily-credit consumption ──
+    // ── Premium check or pre-paid one-off credit ──
     const adminSupabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
@@ -52,22 +52,26 @@ Deno.serve(async (req) => {
     const isPremium = !!profile?.is_premium &&
       (!profile.subscription_expires_at || new Date(profile.subscription_expires_at) > now);
 
+    // Non-premium: must have at least one unconsumed Document-Check credit (one-off 2.99€).
+    // We check existence first; the credit is only consumed AFTER a successful analysis,
+    // so a server-side AI failure does not waste the user's purchase.
     if (!isPremium) {
-      // Free / non-premium users: 1 free analysis per day via consume_doc_check()
-      const { data: allowed, error: rpcErr } = await adminSupabase.rpc("consume_doc_check", {
-        uid: userId,
-        daily_limit: 1,
-      });
-      if (rpcErr) {
-        console.error("consume_doc_check error:", rpcErr.message);
+      const { count, error: countErr } = await adminSupabase
+        .from("doc_check_credits")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId)
+        .is("consumed_at", null);
+
+      if (countErr) {
+        console.error("doc_check_credits count error:", countErr.message);
         return new Response(
-          JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera kvote nije uspjela." }),
+          JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera plaćanja nije uspjela." }),
           { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
-      if (!allowed) {
+      if (!count || count < 1) {
         return new Response(
-          JSON.stringify({ success: false, errorCode: "QUOTA_EXCEEDED", message: "Dnevna kvota iskorištena. Uključi Premium za neograničene analize." }),
+          JSON.stringify({ success: false, errorCode: "PAYMENT_REQUIRED", message: "Za provjeru dokumenta potrebno je jednokratno plaćanje 2,99€ ili Premium pretplata." }),
           { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
@@ -315,6 +319,14 @@ Ako NE → prosiri prije slanja.`;
     }
 
     console.log("Analysis completed successfully, length:", result.length);
+
+    // Consume one credit for non-premium users only AFTER a successful analysis,
+    // so a failed AI request does not waste their 2,99€ purchase.
+    if (!isPremium) {
+      const { data: consumed, error: consumeErr } = await adminSupabase.rpc("consume_doc_check_credit", { uid: userId });
+      if (consumeErr) console.error("consume_doc_check_credit error:", consumeErr.message);
+      else if (!consumed) console.warn("No credit was consumed even though one was expected for user", userId);
+    }
 
     return new Response(
       JSON.stringify({ success: true, analysis: result }),
