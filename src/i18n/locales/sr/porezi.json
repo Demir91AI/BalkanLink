@@ -8,17 +8,23 @@
     "title": "Porezi u Nemačkoj",
     "subtitle": "Smart vodič kroz Steuererklärung — jasno, korak po korak, na vašem jeziku.",
     "ctaPrimary": "Pokreni vodič",
-    "ctaSecondary": "Pogledaj sve module"
+    "ctaSecondary": "Pogledaj sve module",
+    "trust1": "Stand 2026",
+    "trust2": "Pravno proveren",
+    "trust3": "Bez konkretnih iznosa"
   },
   "intro": {
     "heading": "Šta ovde dobijate",
     "p1": "Edukativni vodič koji vam objašnjava kako funkcioniše nemačka poreska prijava (Einkommensteuererklärung), na šta treba paziti i koje greške izbeći.",
     "p2": "Ne dajemo konkretne iznose povraćaja niti zamenjujemo poreskog savetnika — pokazujemo sistem i pomažemo da razumete svoju situaciju."
   },
-  "modulesHeading": "Moduli",
+  "availableNow": "Dostupno sada",
+  "comingSoonHeading": "Uskoro",
+  "modulesHeading": "Svi moduli",
   "comingSoonBadge": "Uskoro",
   "premiumBadge": "Premium",
-  "openModule": "Otvori",
+  "openModule": "Otvori modul",
+  "lockedHint": "Klikom aktivirate Premium",
   "modules": {
     "wizard": {
       "title": "Da li uopšte moram da podnesem prijavu?",

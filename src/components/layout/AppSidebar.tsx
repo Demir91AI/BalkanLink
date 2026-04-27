@@ -6,7 +6,11 @@ import {
   FileText, Shield, BookOpen, Camera, Megaphone, Plane,
   Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
   CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
+  Landmark,
 } from "lucide-react";
+import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
+import { langFromPath } from "@/lib/i18n-paths";
+import type { SupportedLanguage } from "@/i18n";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import AuthModal from "@/components/auth/AuthModal";
@@ -28,6 +32,12 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
   const initials = getInitials(displayName);
   const currentPath = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
+  const lang = langFromPath(location.pathname) as SupportedLanguage;
+  const poreziSlug = POREZI_HUB_PATH[lang] ?? "/porezi";
+  // Sidebar uses bs-relative urls everywhere (localizeHref adds /de prefix).
+  // For Porezi, DE has a different slug (/steuern) so we pass the bs slug
+  // and rely on the active-path matcher below to also recognize /steuern.
+  const poreziSidebarUrl = lang === "de" ? "/de/steuern" : "/porezi";
 
   const mainItems = [
     { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true, isNew: false },
@@ -36,6 +46,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
     { title: t("sidebar.items.bonitetSimulator"), url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
     { title: t("sidebar.items.anerkennungNavigator"), url: "/anerkennung-navigator", icon: GraduationCap, premium: true, isNew: false, isFree: false },
+    { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Landmark, premium: true, isNew: true, matchPaths: ["/porezi", "/steuern"] },
     { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: false },
     { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: false },
   ];
@@ -185,7 +196,10 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
-              const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
+              const matchers = (item as any).matchPaths as string[] | undefined;
+              const active = matchers
+                ? matchers.some((p) => currentPath === p || currentPath.startsWith(p + "/"))
+                : currentPath === item.url || currentPath.startsWith(item.url + "/");
               return (
                 <button
                   key={item.url}

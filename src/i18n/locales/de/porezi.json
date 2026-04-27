@@ -8,17 +8,23 @@
     "title": "Steuern in Deutschland",
     "subtitle": "Smart Guide für die Einkommensteuererklärung — verständlich, Schritt für Schritt, in Ihrer Sprache.",
     "ctaPrimary": "Wizard starten",
-    "ctaSecondary": "Alle Module ansehen"
+    "ctaSecondary": "Alle Module ansehen",
+    "trust1": "Stand 2026",
+    "trust2": "Rechtlich geprüft",
+    "trust3": "Keine Erstattungsbeträge"
   },
   "intro": {
     "heading": "Was Sie hier finden",
     "p1": "Ein Lernleitfaden, der Ihnen erklärt, wie die deutsche Einkommensteuererklärung funktioniert, worauf Sie achten sollten und welche Fehler Sie vermeiden können.",
     "p2": "Wir nennen keine konkreten Erstattungsbeträge und ersetzen keinen Steuerberater — wir zeigen Ihnen das System und helfen, Ihre Lage zu verstehen."
   },
-  "modulesHeading": "Module",
+  "availableNow": "Jetzt verfügbar",
+  "comingSoonHeading": "In Kürze",
+  "modulesHeading": "Alle Module",
   "comingSoonBadge": "Bald",
   "premiumBadge": "Premium",
-  "openModule": "Öffnen",
+  "openModule": "Modul öffnen",
+  "lockedHint": "Klick aktiviert Premium",
   "modules": {
     "wizard": {
       "title": "Muss ich überhaupt eine Steuererklärung abgeben?",

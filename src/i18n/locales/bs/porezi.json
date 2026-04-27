@@ -8,17 +8,23 @@
     "title": "Porezi u Njemačkoj",
     "subtitle": "Smart Guide kroz Steuererklärung — jasno, korak po korak, na tvom jeziku.",
     "ctaPrimary": "Pokreni wizard",
-    "ctaSecondary": "Pogledaj sve module"
+    "ctaSecondary": "Pogledaj sve module",
+    "trust1": "Stand 2026",
+    "trust2": "Pravno provjereno",
+    "trust3": "Bez konkretnih iznosa"
   },
   "intro": {
     "heading": "Šta dobiješ ovdje",
     "p1": "Edukativni vodič koji ti objašnjava kako funkcioniše njemačka porezna prijava (Einkommensteuererklärung), na šta treba paziti i koje greške izbjeći.",
     "p2": "Ne dajemo ti konkretne iznose povrata niti zamjenjujemo poreznog savjetnika — pokazujemo ti sistem i pomažemo da razumiješ svoju situaciju."
   },
-  "modulesHeading": "Moduli",
+  "availableNow": "Dostupno sada",
+  "comingSoonHeading": "Uskoro",
+  "modulesHeading": "Svi moduli",
   "comingSoonBadge": "Uskoro",
   "premiumBadge": "Premium",
-  "openModule": "Otvori",
+  "openModule": "Otvori modul",
+  "lockedHint": "Klikom aktiviraš Premium",
   "modules": {
     "wizard": {
       "title": "Da li uopšte moram podnositi prijavu?",
