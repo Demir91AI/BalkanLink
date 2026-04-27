@@ -19,6 +19,34 @@ interface Props {
 }
 
 export default function VorlagenGenerator({ template }: Props) {
+  const { t } = useTranslation("pages");
+
+  /** Localized field label (falls back to BS) */
+  const fieldLabel = (key: string, fallback: string): string => {
+    const k = `vorlagen.templates.${template.slug}.fields.${key}`;
+    const v = t(k);
+    return v === k ? fallback : v;
+  };
+  /** Localized variant label */
+  const variantLabel = (id: string, fallback: string): string => {
+    const k = `vorlagen.templates.${template.slug}.variants.${id}`;
+    const v = t(k);
+    return v === k ? fallback : v;
+  };
+  /** Localized hints array */
+  const localizedHints = (): { title: string; items: string[] }[] => {
+    const k = `vorlagen.templates.${template.slug}.hints`;
+    const v = t(k, { returnObjects: true }) as unknown;
+    return Array.isArray(v) ? (v as { title: string; items: string[] }[]) : template.hints;
+  };
+  /** Localized checklist */
+  const localizedChecklist = (): string[] => {
+    const k = `vorlagen.templates.${template.slug}.checklist`;
+    const v = t(k, { returnObjects: true }) as unknown;
+    return Array.isArray(v) ? (v as string[]) : template.checklist;
+  };
+
+
   const [values, setValues] = useState<Record<string, string>>(() => {
     const init: Record<string, string> = {};
     template.fields.forEach((f) => {
