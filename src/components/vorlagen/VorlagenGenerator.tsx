@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 import { Copy, Download, Check, Shield, FileCheck, Award, UserCheck, Info, ChevronDown, ChevronUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
