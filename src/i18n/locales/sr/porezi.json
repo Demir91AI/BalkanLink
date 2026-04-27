@@ -444,5 +444,820 @@
       "body": "Sadržaj je informativnog karaktera i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša konkretna situacija može odstupati od opisanih tipičnih slučajeva.",
       "sources": "Glavni izvori: § 9 Abs. 1 Nr. 5 EStG; R 9.11 LStR; BMF Schreiben od 25.11.2020; BFH VI R 39/16 i VI R 39/17. Ažurirano: januar 2026."
     }
+  },
+  "checklist": {
+    "progress": "{{done}}/{{total}} rešeno",
+    "done": "Sve stavke su označene — odlično!",
+    "reset": "Resetuj"
+  },
+  "deadlines": {
+    "seo": {
+      "title": "Rokovi i kazne za Steuererklärung — BalkanLink",
+      "description": "Do kada se predaje poreska prijava, šta ako kasnite, Verspätungszuschlag i izuzeci. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Rokovi i kazne",
+      "subtitle": "Do kada se predaje prijava, šta se dešava ako kasnite i kako izbeći Verspätungszuschlag."
+    },
+    "intro": {
+      "heading": "Zašto su rokovi važni",
+      "p1": "Nemačko poresko pravo razlikuje kada je prijava OBAVEZNA i kada je DOBROVOLJNA — i rokovi se znatno razlikuju.",
+      "p2": "Ako ste u obavezi (Pflichtveranlagung) i propustite rok, Finanzamt može odrediti Verspätungszuschlag i kamate. Kod dobrovoljne prijave (Antragsveranlagung) važi mnogo duži rok i nema kazne za kašnjenje."
+    },
+    "criteria": {
+      "heading": "Glavni rokovi",
+      "intro": "Pregled tipičnih rokova za zaposlene (bez Steuerberatera). Tačni datumi se menjaju ako padaju na vikend ili praznik.",
+      "list": {
+        "c1": "Pflichtveranlagung — bez Steuerberatera: kraj jula naredne godine (npr. prijava 2025 → 31.07.2026).",
+        "c2": "Pflichtveranlagung — sa Steuerberaterom: rok se produžava, obično do kraja februara dve godine kasnije.",
+        "c3": "Antragsveranlagung (dobrovoljna) — 4 godine od kraja poreske godine (npr. prijava 2025 do 31.12.2029).",
+        "c4": "U posebnim periodima (Korona) rokovi su produžavani saveznim zakonom — proverite po godini.",
+        "c5": "Ako Finanzamt zatraži prijavu pisanim putem, važi rok iz dopisa (često mesec dana)."
+      }
+    },
+    "proofs": {
+      "heading": "Čeklista pre slanja",
+      "intro": "Označite šta ste pripremili pre slanja prijave. Lista se pamti lokalno na ovom uređaju.",
+      "list": {
+        "p1": "Lohnsteuerbescheinigung od svih poslodavaca za poresku godinu",
+        "p2": "Steuer-Identifikationsnummer (11 cifara) — provereno",
+        "p3": "Bankovni IBAN za eventualni povraćaj upisan u prijavu",
+        "p4": "Računi za Werbungskosten skenirani / čuvani 10 godina",
+        "p5": "Potvrde o uplatama u zdravstveno i penziono osiguranje"
+      }
+    },
+    "mistakes": {
+      "heading": "Najčešće greške sa rokovima",
+      "list": {
+        "m1": "Pogrešno računanje kada 31.07. pada na nedelju — rok se pomera na sledeći radni dan, ne ranije.",
+        "m2": "Mešanje Pflicht- i Antragsveranlagung — pretpostavka da imate 4 godine kad ste zapravo u obavezi.",
+        "m3": "Slanje papirne prijave kada je obavezno elektronski (ELSTER) — može biti odbijena.",
+        "m4": "Ignorisanje Mahnung-a od Finanzamta — kazna može značajno porasti.",
+        "m5": "Prijava bez svih Lohnsteuerbescheinigung kada ste imali više poslodavaca."
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Šta ako sam tek došao u Nemačku — kako se računa rok?",
+          "a": "Rok važi za poresku godinu u kojoj ste bili rezident. Za nepotpunu godinu prijavljuje se samo deo prihoda iz Nemačke."
+        },
+        "q2": {
+          "q": "Mogu li tražiti produženje roka?",
+          "a": "Da, pisanim zahtevom Finanzamtu (Fristverlängerung) pre isteka roka. Obično se odobrava uz razuman razlog."
+        },
+        "q3": {
+          "q": "Koliko iznosi Verspätungszuschlag?",
+          "a": "Zakonski okvir je § 152 AO. Konkretan iznos određuje Finanzamt — ne objavljujemo paušalne iznose."
+        },
+        "q4": {
+          "q": "Šta ako sam zaboravio prijavu za prethodnu godinu?",
+          "a": "Ako ste u obavezi, predajte što pre uz obrazloženje. Ako je dobrovoljna, imate još 4 godine."
+        }
+      }
+    },
+    "gate": {
+      "title": "Rokovi i kazne — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 25 EStG, § 149 AO, § 152 AO, godišnji BMF Schreiben. Ažurirano: januar 2026."
+    }
+  },
+  "deductions": {
+    "seo": {
+      "title": "Šta sve mogu odbiti — Werbungskosten i Sonderausgaben | BalkanLink",
+      "description": "Pregled tipičnih stavki koje zaposleni u Nemačkoj mogu odbiti: Werbungskosten, Sonderausgaben, außergewöhnliche Belastungen. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Šta sve mogu odbiti",
+      "subtitle": "Tri velike kategorije odbitaka — šta ide gde, koje dokaze čuvati i česte greške."
+    },
+    "intro": {
+      "heading": "Tri velike kategorije",
+      "p1": "Nemački poreski sistem deli odbitke u tri grupe: Werbungskosten (troškovi vezani za posao), Sonderausgaben (lični troškovi koje država priznaje) i außergewöhnliche Belastungen (vanredna opterećenja).",
+      "p2": "Ovaj modul pokazuje šta tipično ide u koju grupu i koje dokaze treba pripremiti — bez konkretnih iznosa."
+    },
+    "costs": {
+      "heading": "Tipične kategorije",
+      "intro": "Najčešće stavke koje zaposleni prijavljuju. Tačno priznavanje zavisi od dokumentacije i pravila vašeg Finanzamta.",
+      "list": {
+        "k1": {
+          "title": "Pendlerpauschale (put do posla)",
+          "desc": "Svaki kilometar jednosmerno između stana i radnog mesta — bez obzira na prevozno sredstvo."
+        },
+        "k2": {
+          "title": "Stručna literatura i alati",
+          "desc": "Knjige, časopisi, software, sitan alat — direktno vezano za zanimanje."
+        },
+        "k3": {
+          "title": "Edukacija i dokvalifikacija",
+          "desc": "Kursevi, sertifikati, ispiti koji unapređuju vašu trenutnu profesiju (Fortbildung)."
+        },
+        "k4": {
+          "title": "Doprinosi sindikatu / komori",
+          "desc": "Mitgliedsbeiträge u strukovnim udruženjima."
+        },
+        "k5": {
+          "title": "Penziono i zdravstveno osiguranje",
+          "desc": "Sonderausgaben — Vorsorgeaufwendungen."
+        },
+        "k6": {
+          "title": "Donacije i crkveni porez",
+          "desc": "Sonderausgaben — uz pravilan dokaz uplate."
+        }
+      },
+      "noNumbersNote": "Ne objavljujemo paušalne iznose ni stope — koriste se zvanične vrednosti za odgovarajuću poresku godinu."
+    },
+    "proofs": {
+      "heading": "Čeklista dokaza",
+      "intro": "Označite koje dokaze imate spremne. Bez papira odbitak najčešće ne prolazi u slučaju kontrole.",
+      "list": {
+        "p1": "Računi i fakture za stručnu literaturu / alat",
+        "p2": "Potvrde o pohađanju kurseva i sertifikati",
+        "p3": "Pendlerpauschale — adresa stana i radnog mesta jasno dokumentovana",
+        "p4": "Bankovni izvodi za doprinose udruženjima i donacije",
+        "p5": "Potvrde osiguranja (Versicherungsbescheinigungen)"
+      }
+    },
+    "mistakes": {
+      "heading": "Najčešće greške",
+      "list": {
+        "m1": "Pendler — prijava udaljenosti koja nije najkraća realna ruta.",
+        "m2": "Mešanje Werbungskosten i Sonderausgaben — penzioni doprinosi NE idu u Werbungskosten.",
+        "m3": "Stavljanje privatnih troškova (npr. odeća bez uniforme) — gotovo uvek odbijeno.",
+        "m4": "Donacije bez Zuwendungsbestätigung — bez ovog dokaza nije priznato.",
+        "m5": "Prijava istog troška u dve kategorije — vodi do upita Finanzamta."
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Isplati li se prijavljivati pojedinačne Werbungskosten?",
+          "a": "Tek ako prelaze zakonski Pauschbetrag. Inače se paušal primenjuje automatski."
+        },
+        "q2": {
+          "q": "Mogu li odbiti home office?",
+          "a": "Da, pod određenim uslovima — postoji Homeoffice-Pauschale i pravila za priznati Arbeitszimmer."
+        },
+        "q3": {
+          "q": "Šta sa donacijama van EU?",
+          "a": "Ograničeno priznate, samo ako organizacija ispunjava nemačke uslove (gemeinnützig)."
+        },
+        "q4": {
+          "q": "Koliko dugo čuvati račune?",
+          "a": "10 godina za samostalce; za zaposlene minimum dok teče rok zastarelosti za izmenu rešenja."
+        }
+      }
+    },
+    "gate": {
+      "title": "Šta sve mogu odbiti — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 9 EStG, § 10 EStG, § 33 EStG. Ažurirano: januar 2026."
+    }
+  },
+  "elsterGuide": {
+    "seo": {
+      "title": "ELSTER — registracija i prva prijava | BalkanLink",
+      "description": "Korak po korak kako otvoriti nalog na ELSTER portalu i poslati prijavu elektronski. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "ELSTER — kako se registrovati",
+      "subtitle": "Otvaranje naloga, sertifikat, aktivacija i prva elektronska prijava — jezikom koji razumete."
+    },
+    "intro": {
+      "heading": "Šta je ELSTER",
+      "p1": "ELSTER je zvanični nemački portal Finanzverwaltunga za elektronsku komunikaciju sa Finanzamtom.",
+      "p2": "Za većinu slučajeva ELSTER je danas obavezan kanal — papir je izuzetak."
+    },
+    "criteria": {
+      "heading": "5 koraka registracije",
+      "intro": "Ceo proces traje 1–3 nedelje jer se aktivacija šalje poštom.",
+      "list": {
+        "c1": "Otvaranje naloga na elster.de — izbor tipa korisnika.",
+        "c2": "Unos Steuer-Identifikationsnummer (11 cifara) i osnovnih podataka.",
+        "c3": "Čekanje aktivacije: dva odvojena pisma (ID i Code) stižu poštom.",
+        "c4": "Generisanje sertifikata (.pfx datoteka) — vaš 'ključ' za prijavu.",
+        "c5": "Prva prijava i postavljanje bezbednosnog PIN-a."
+      }
+    },
+    "proofs": {
+      "heading": "Pre nego što krenete",
+      "intro": "Označite šta imate spremno — bez ovoga ćete zapeti.",
+      "list": {
+        "p1": "Steuer-Identifikationsnummer (11 cifara)",
+        "p2": "Aktuelna adresa prijave — pisma stižu tu",
+        "p3": "Email koji redovno proveravate",
+        "p4": "Bezbedno mesto za .pfx sertifikat",
+        "p5": "Jaka lozinka koju nećete zaboraviti"
+      }
+    },
+    "mistakes": {
+      "heading": "Najčešće greške",
+      "list": {
+        "m1": "Pogrešna Steuer-ID — registracija se ponavlja.",
+        "m2": "Promena adrese tokom čekanja pisma.",
+        "m3": "Gubitak .pfx sertifikata bez bekapa.",
+        "m4": "Dve registracije pod istom Steuer-ID — blokirano.",
+        "m5": "'Mein ELSTER' za firmu umesto 'Organisationszertifikat'."
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Mogu li koristiti tuđi ELSTER nalog?",
+          "a": "Pravno rizično. Steuerberater može podneti prijavu umesto vas."
+        },
+        "q2": {
+          "q": "Šta ako još nemam Steuer-ID?",
+          "a": "Dobija se automatski po Anmeldungu (max 6 nedelja)."
+        },
+        "q3": {
+          "q": "Postoji li alternativa?",
+          "a": "Komercijalni programi (WISO, Smartsteuer, Taxfix) koriste ELSTER API."
+        },
+        "q4": {
+          "q": "Da li je ELSTER besplatan?",
+          "a": "Da, portal je besplatan."
+        }
+      }
+    },
+    "gate": {
+      "title": "ELSTER vodič — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 87a AO, § 25 EStG, ELSTER zvanična dokumentacija. Ažurirano: januar 2026."
+    }
+  },
+  "family": {
+    "seo": {
+      "title": "Porodica i poreske klase | BalkanLink",
+      "description": "Steuerklassen I–VI, Ehegattensplitting, Kinderfreibetrag vs Kindergeld i Günstigerprüfung. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Porodica i poreske klase",
+      "subtitle": "Steuerklassen, zajednička prijava, Kinderfreibetrag — kako utiču na poresku obavezu."
+    },
+    "intro": {
+      "heading": "Zašto je ovo važno",
+      "p1": "Poreska klasa određuje mesečnu obustavu od plate. Ne menja godišnju obavezu, ali menja cash-flow.",
+      "p2": "Bračni parovi biraju Einzel- ili Zusammenveranlagung — Finanzamt radi Günstigerprüfung."
+    },
+    "criteria": {
+      "heading": "Klase I–VI",
+      "intro": "Tipično raspoređivanje za zaposlene.",
+      "list": {
+        "c1": "I — samci, razvedeni, bez zajedničke porodice.",
+        "c2": "II — samci sa detetom (Alleinerziehende).",
+        "c3": "III — partner sa višim primanjem (uz IV).",
+        "c4": "IV — partneri približno jednakih primanja.",
+        "c5": "V — partner sa nižim primanjem (uz III)."
+      }
+    },
+    "costs": {
+      "heading": "Porodične olakšice",
+      "intro": "Tipične olakšice. Iznosi se menjaju svake godine.",
+      "list": {
+        "k1": {
+          "title": "Kinderfreibetrag",
+          "desc": "Olakšica po detetu."
+        },
+        "k2": {
+          "title": "BEA-Freibetrag",
+          "desc": "Betreuung, Erziehung, Ausbildung."
+        },
+        "k3": {
+          "title": "Kindergeld",
+          "desc": "Mesečna isplata."
+        },
+        "k4": {
+          "title": "Entlastungsbetrag",
+          "desc": "Za samce sa detetom."
+        },
+        "k5": {
+          "title": "Kinderbetreuungskosten",
+          "desc": "Vrtić, dadilja."
+        },
+        "k6": {
+          "title": "Schulgeld",
+          "desc": "Ograničeno priznato."
+        }
+      },
+      "noNumbersNote": "Iznose Freibetraga ne objavljujemo — razlikuju se po godini."
+    },
+    "mistakes": {
+      "heading": "Najčešće greške",
+      "list": {
+        "m1": "Kombinacija III/V kada je razlika mala.",
+        "m2": "Zaboravljanje promene Steuerklasse posle razvoda.",
+        "m3": "Dvostruka prijava deteta od oba roditelja.",
+        "m4": "Pretpostavka da je Kindergeld bolji od Freibetrag-a.",
+        "m5": "Neprijavljivanje Kinderbetreuungskosten."
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Kako menjam Steuerklasse?",
+          "a": "Preko ELSTER ili papirnim zahtevom Finanzamtu."
+        },
+        "q2": {
+          "q": "Šta je Faktorverfahren?",
+          "a": "Alternativa III/V — pravednija mesečna raspodela."
+        },
+        "q3": {
+          "q": "Utiče li Kindergeld na obavezu?",
+          "a": "Direktno ne, ali ulazi u Günstigerprüfung."
+        },
+        "q4": {
+          "q": "Šta sa decom u BiH/HR/SR?",
+          "a": "Mogu se prijaviti pod uslovima EU/međudržavnih sporazuma."
+        }
+      }
+    },
+    "gate": {
+      "title": "Porodica i klase — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 26 EStG, § 32 EStG, § 38b EStG, BMF Schreiben. Ažurirano: januar 2026."
+    }
+  },
+  "studentsTrainees": {
+    "seo": {
+      "title": "Studenti i pripravnici — Steuererklärung | BalkanLink",
+      "description": "Kada se isplati prijava za studente i pripravnike, Verlustvortrag, Werbungskosten i Sonderausgaben. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Studenti i pripravnici",
+      "subtitle": "Kada studenti i Azubis treba da razmišljaju o poreskoj prijavi i kako stvoriti budući benefit Verlustvortrag-om."
+    },
+    "intro": {
+      "heading": "Zašto su studenti specifični",
+      "p1": "Studenti uglavnom nemaju veliki prihod, ali mogu imati značajne troškove.",
+      "p2": "Verlustvortrag prenosi 'gubitke' iz studentskih godina u prvu godinu zarade."
+    },
+    "criteria": {
+      "heading": "Glavni pojmovi",
+      "intro": "Pet pojmova ključnih za studente i pripravnike.",
+      "list": {
+        "c1": "Erststudium — prvo studiranje. Troškovi samo kao Sonderausgaben (ograničeno).",
+        "c2": "Zweitausbildung / Zweitstudium — drugi ciklus, puni Werbungskosten.",
+        "c3": "Verlustvortrag — prenos gubitaka u buduće godine.",
+        "c4": "Ausbildungsfreibetrag — za roditelje studenata koji žive odvojeno.",
+        "c5": "BAföG — uglavnom NE oporezivo."
+      }
+    },
+    "costs": {
+      "heading": "Tipični troškovi",
+      "intro": "Šta studenti često zaboravljaju da prijave.",
+      "list": {
+        "k1": {
+          "title": "Semestarska upisnina",
+          "desc": "Doprinosi za semestar."
+        },
+        "k2": {
+          "title": "Stručna literatura",
+          "desc": "Knjige, časopisi, online."
+        },
+        "k3": {
+          "title": "Pendlerpauschale (do fakulteta)",
+          "desc": "Ako pripada Zweitstudium-u."
+        },
+        "k4": {
+          "title": "Računar i software",
+          "desc": "Oprema za studije."
+        },
+        "k5": {
+          "title": "Soba u stanu (Arbeitszimmer)",
+          "desc": "Pod uslovom da je centar studija."
+        },
+        "k6": {
+          "title": "Auslandssemester",
+          "desc": "Put, smeštaj — uz dokumentaciju."
+        }
+      },
+      "noNumbersNote": "Maksimalne iznose Sonderausgaben za studije ne objavljujemo."
+    },
+    "mistakes": {
+      "heading": "Najčešće greške",
+      "list": {
+        "m1": "Student bez prihoda misli da 'ne treba' prijavu — često treba.",
+        "m2": "Mešanje Erst- i Zweitstudium-a.",
+        "m3": "Odbacivanje malih računa.",
+        "m4": "Neprijavljivanje BAföG-a u rubrici.",
+        "m5": "Propuštanje 4-godišnjeg roka za Antragsveranlagung."
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Kao Bachelor student, da li ću dobiti povrat?",
+          "a": "Verovatno ne odmah, ali Verlustvortrag pomaže kasnije."
+        },
+        "q2": {
+          "q": "Da li je Master Erst- ili Zweitstudium?",
+          "a": "Bachelor → Master = Zweitstudium → Werbungskosten."
+        },
+        "q3": {
+          "q": "Šta sa duobalnim studijem?",
+          "a": "Tretira se kao zaposlenje + edukacija — pun Werbungskosten."
+        },
+        "q4": {
+          "q": "Mogu li uračunati studije iz BiH/HR/SR?",
+          "a": "Veoma retko — konsultujte Steuerberater-a."
+        }
+      }
+    },
+    "gate": {
+      "title": "Studenti — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 9 Abs. 6 EStG, § 10 EStG, § 33a EStG, BFH praksa. Ažurirano: januar 2026."
+    }
+  },
+  "selfEmployed": {
+    "seo": {
+      "title": "Samostalni i Freelancer — Steuererklärung | BalkanLink",
+      "description": "Razlika između Gewerbe i Freiberuf, EÜR, Vorsteuer, Kleinunternehmerregelung i tipične greške. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Samostalni i Freelancer",
+      "subtitle": "Gewerbe vs Freiberuf, EÜR, PDV i Kleinunternehmer — pregled za one koji rade za sebe."
+    },
+    "intro": {
+      "heading": "Zašto posebno",
+      "p1": "Samostalni rad ima više obaveza nego rad za drugoga.",
+      "p2": "Klasifikacija Gewerbe ili Freiberuf odlučuje o Gewerbeanmeldung-u i Gewerbesteuer-u."
+    },
+    "criteria": {
+      "heading": "Glavni pojmovi",
+      "intro": "Pet pojmova bez kojih ne možete krenuti.",
+      "list": {
+        "c1": "Freiberuf — slobodne profesije iz § 18 EStG.",
+        "c2": "Gewerbe — sve ostalo, Gewerbeanmeldung obavezna.",
+        "c3": "EÜR — jednostavno knjigovodstvo do praga.",
+        "c4": "Umsatzsteuer — prijava mesečno/kvartalno + godišnja.",
+        "c5": "Kleinunternehmerregelung — izuzeće od PDV-a (§ 19 UStG)."
+      }
+    },
+    "costs": {
+      "heading": "Tipične kategorije troškova",
+      "intro": "Šta ulazi u Betriebsausgaben.",
+      "list": {
+        "k1": {
+          "title": "Zakup i režije",
+          "desc": "Poslovni prostor ili deo stana."
+        },
+        "k2": {
+          "title": "Tehnička oprema i software",
+          "desc": "Računar, periferija, licence."
+        },
+        "k3": {
+          "title": "Telefon i internet",
+          "desc": "Poslovni deo — odvojeno od privatnog."
+        },
+        "k4": {
+          "title": "Putovanja i transport",
+          "desc": "Klijenti, sajmovi."
+        },
+        "k5": {
+          "title": "Edukacija i članarine",
+          "desc": "Stručna obuka i članstva."
+        },
+        "k6": {
+          "title": "Kancelarijski materijal",
+          "desc": "Sitan potrošni inventar."
+        }
+      },
+      "noNumbersNote": "Pragove Kleinunternehmer i AfA stope ne objavljujemo."
+    },
+    "proofs": {
+      "heading": "Čeklista dokumenata",
+      "intro": "Označite šta imate.",
+      "list": {
+        "p1": "Registracija (Gewerbeanmeldung ili Erfassungsbogen)",
+        "p2": "Izdati računi klijentima",
+        "p3": "Računi dobavljača",
+        "p4": "Bankovni izvodi poslovnog računa",
+        "p5": "Reisekostenabrechnung dokumentacija"
+      }
+    },
+    "mistakes": {
+      "heading": "Najčešće greške",
+      "list": {
+        "m1": "Pogrešna kategorizacija (Gewerbe umesto Freiberuf).",
+        "m2": "Privatni i poslovni račun nepodeljeni.",
+        "m3": "Propuštanje rokova za Umsatzsteuer-Voranmeldung.",
+        "m4": "Prijava troškova bez originalnih računa.",
+        "m5": "Primena Kleinunternehmer nakon prelaska praga."
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Jesam li Freiberuf ili Gewerbe?",
+          "a": "§ 18 EStG je polazište; Erfassungsbogen Finanzamta odlučuje konačno."
+        },
+        "q2": {
+          "q": "Kada Kleinunternehmer?",
+          "a": "Ako su klijenti privatne osobe — bez PDV-a konkurentniji."
+        },
+        "q3": {
+          "q": "Strani klijenti?",
+          "a": "EU — Reverse-Charge. Treća zemlja — često bez PDV-a."
+        },
+        "q4": {
+          "q": "Treba li mi Steuerberater?",
+          "a": "Početak može bez, ali sa rastom prometa preporuka je da."
+        }
+      }
+    },
+    "gate": {
+      "title": "Samostalni — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 18 EStG, § 4 Abs. 3 EStG, § 19 UStG, GewStG. Ažurirano: januar 2026."
+    }
+  },
+  "rentalIncome": {
+    "seo": {
+      "title": "Prihodi od izdavanja — Anlage V | BalkanLink",
+      "description": "Kako se oporezuju prihodi od stanova i kuća, priznati troškovi, AfA i razlika repair vs improvement. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Prihodi od izdavanja",
+      "subtitle": "Anlage V — kako prijaviti najam, koje troškove odbiti i šta je AfA."
+    },
+    "intro": {
+      "heading": "Osnove",
+      "p1": "Prihodi od izdavanja stanova ili kuća prijavljuju se u Anlage V.",
+      "p2": "Razdvajanje održavanja (Erhaltungsaufwand) i poboljšanja (Herstellungsaufwand) je najvažnije."
+    },
+    "criteria": {
+      "heading": "Glavni pojmovi",
+      "intro": "Pet pojmova bez kojih ne možete popuniti Anlage V.",
+      "list": {
+        "c1": "Mieteinnahmen — bruto prihod (uklj. paušalne Nebenkosten).",
+        "c2": "Werbungskosten — troškovi vezani za nekretninu.",
+        "c3": "AfA — godišnja amortizacija zgrade.",
+        "c4": "Erhaltungsaufwand — popravke, odbije se odmah.",
+        "c5": "Herstellungsaufwand — poboljšanja, kroz AfA."
+      }
+    },
+    "costs": {
+      "heading": "Tipični priznati troškovi",
+      "intro": "Šta ulazi u Werbungskosten.",
+      "list": {
+        "k1": {
+          "title": "Kamata na hipoteku",
+          "desc": "Glavnica NIJE odbitna; samo kamata."
+        },
+        "k2": {
+          "title": "AfA — amortizacija",
+          "desc": "Linearna otpisna stopa zgrade."
+        },
+        "k3": {
+          "title": "Popravke (Erhaltungsaufwand)",
+          "desc": "Krov, instalacije, krečenje."
+        },
+        "k4": {
+          "title": "Komunalije i upravljanje",
+          "desc": "Hausverwaltung, neplaćeni Nebenkosten."
+        },
+        "k5": {
+          "title": "Putovanja zbog nekretnine",
+          "desc": "Poseta, predaja stana."
+        },
+        "k6": {
+          "title": "Reklama i posrednik",
+          "desc": "Maklergebühr, oglasi."
+        }
+      },
+      "noNumbersNote": "Tačne AfA stope ne objavljujemo."
+    },
+    "proofs": {
+      "heading": "Čeklista dokumenata",
+      "intro": "Označite šta imate spremno.",
+      "list": {
+        "p1": "Mietvertrag i izmene",
+        "p2": "Nebenkostenabrechnung",
+        "p3": "Bankovni izvodi sa najmom",
+        "p4": "Računi za popravke (10 godina)",
+        "p5": "Hipotekarni ugovor i izvod kamata"
+      }
+    },
+    "mistakes": {
+      "heading": "Najčešće greške",
+      "list": {
+        "m1": "Mešanje Erhaltung i Herstellung.",
+        "m2": "Anschaffungsnaher Aufwand u prve 3 godine — § 6 EStG.",
+        "m3": "Prijavljivanje glavnice umesto kamate.",
+        "m4": "Ignorisanje AfA.",
+        "m5": "Gemischte Vermietung — privatno korišćenje neprijavljeno."
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Šta ako stan stoji prazan?",
+          "a": "Ako je dokazano nuđen za najam, troškovi mogu biti priznati."
+        },
+        "q2": {
+          "q": "Najam rodbini?",
+          "a": "Priznat samo iznad 50 % tržišne cene (§ 21 Abs. 2 EStG)."
+        },
+        "q3": {
+          "q": "Airbnb?",
+          "a": "Često spada pod Gewerbe — zaseban režim."
+        },
+        "q4": {
+          "q": "Gubici iz najma?",
+          "a": "Da, ulaze u Verlustverrechnung; ostatak Verlustvortrag/Rücktrag."
+        }
+      }
+    },
+    "gate": {
+      "title": "Prihodi od izdavanja — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: § 21 EStG, § 7 EStG, § 6 EStG, BMF Schreiben. Ažurirano: januar 2026."
+    }
+  },
+  "mistakes": {
+    "seo": {
+      "title": "Najčešće greške u Steuererklärung | BalkanLink",
+      "description": "Top greške koje vode do odbijanja odbitaka, kontrole ili dodatnih obaveza. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Najčešće greške",
+      "subtitle": "Stvari na koje korisnici najviše padaju — od zaboravljenih dokaza do pogrešno upisanih kategorija."
+    },
+    "intro": {
+      "heading": "Zašto ovaj modul",
+      "p1": "Većina problema dolazi iz nekoliko ponavljajućih grešaka.",
+      "p2": "Ako prođete kroz ovih 8 tačaka pre slanja, smanjujete rizik od kontrole za 80–90 %."
+    },
+    "mistakes": {
+      "heading": "Top 8 grešaka",
+      "list": {
+        "m1": "Slanje bez svih Lohnsteuerbescheinigungen.",
+        "m2": "Mešanje Werbungskosten i Sonderausgaben.",
+        "m3": "Pendlerpauschale — pogrešna udaljenost.",
+        "m4": "Donacije bez Zuwendungsbestätigung.",
+        "m5": "Pretpostavka dobrovoljne prijave kad ste u Pflichtveranlagungu.",
+        "m6": "Anschaffungsnaher Aufwand u prve 3 godine.",
+        "m7": "Privatne troškove prijaviti kao Werbungskosten.",
+        "m8": "Tipfeler u IBAN-u — povraćaj se vraća Finanzamtu."
+      }
+    },
+    "proofs": {
+      "heading": "Last-mile čeklista",
+      "intro": "5 stvari za proveru 5 minuta pre slanja.",
+      "list": {
+        "p1": "IBAN i adresa tačno",
+        "p2": "Svi Lohnsteuerbescheinigungen pridodati",
+        "p3": "Kategorija svake stavke pravilno označena",
+        "p4": "Računi sačuvani 10 godina",
+        "p5": "Rok slanja proveren prema veranlagungu"
+      }
+    },
+    "faq": {
+      "heading": "Česta pitanja",
+      "list": {
+        "q1": {
+          "q": "Šta ako sam poslao prijavu sa greškom?",
+          "a": "Berichtigung preko ELSTER-a dok Bescheid nije stigao; posle — Einspruch (mesec dana)."
+        },
+        "q2": {
+          "q": "Znači li kontrola da sam pogrešio?",
+          "a": "Ne nužno. Finanzamt nasumično traži Belegprüfung."
+        },
+        "q3": {
+          "q": "Najčešća kazna?",
+          "a": "Kasna prijava → Verspätungszuschlag. Skrivanje prihoda → Steuerhinterziehung."
+        },
+        "q4": {
+          "q": "Kako biti siguran?",
+          "a": "BalkanLink Premium + Steuerberater za složene slučajeve."
+        }
+      }
+    },
+    "gate": {
+      "title": "Najčešće greške — Premium pristup",
+      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Aktiviraj Premium",
+      "ctaLogin": "Prijavi se",
+      "ctaBack": "Nazad na Poreze"
+    },
+    "nextSteps": {
+      "heading": "Šta dalje",
+      "body": "Kada prođete ovaj modul, vratite se na Poreze hub i pogledajte povezane teme. Za konkretne odluke obratite se Steuerberater-u ili Lohnsteuerhilfeverein-u.",
+      "ctaHub": "Nazad na Poreze",
+      "ctaElster": "Otvori ELSTER"
+    },
+    "legal": {
+      "heading": "Pravna napomena",
+      "body": "Ovaj sadržaj je informativan i ne predstavlja poreski savet. BalkanLink nije Steuerberater niti Lohnsteuerhilfeverein. Vaša situacija može odstupati od opisanih tipičnih slučajeva.",
+      "sources": "Glavni izvori: BFH praksa, AO §§ 152, 153, 173, Bundessteuerberaterkammer preporuke. Ažurirano: januar 2026."
+    }
   }
 }
