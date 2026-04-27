@@ -1413,11 +1413,16 @@ serve(async (req) => {
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
+    // HTTP headers must be ByteString (latin-1). Encode to safely transport UTF-8 (čšđž etc.)
+    const safeHeader = (v: string) => encodeURIComponent(v);
     const extraHeaders: Record<string, string> = { ...corsHeaders, "Content-Type": "text/event-stream" };
-    if (guideSlug) extraHeaders["X-Guide-Slug"] = guideSlug;
-    if (detectedForm) extraHeaders["X-Form-Slug"] = detectedForm.slug;
+    extraHeaders["Access-Control-Expose-Headers"] = "X-Guide-Slug, X-Form-Slug, X-Site-Topics";
+    if (guideSlug) extraHeaders["X-Guide-Slug"] = safeHeader(guideSlug);
+    if (detectedForm) extraHeaders["X-Form-Slug"] = safeHeader(detectedForm.slug);
     if (siteTopics.length > 0) {
-      extraHeaders["X-Site-Topics"] = JSON.stringify(siteTopics.map(t => ({ url: t.url, label: t.label })));
+      extraHeaders["X-Site-Topics"] = safeHeader(
+        JSON.stringify(siteTopics.map(t => ({ url: t.url, label: t.label })))
+      );
     }
 
     return new Response(response.body, { headers: extraHeaders });
