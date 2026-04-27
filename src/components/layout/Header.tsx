@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Menu, ShieldCheck, Crown, UserCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { HeaderInstallPopup } from "@/components/HeaderInstallPopup";
 import { useLocalizedHref, useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 export default function Header() {
@@ -202,6 +203,9 @@ export default function Header() {
 
           {/* Language switcher — visible on all viewports */}
           <LanguageSwitcher variant="header" />
+
+          {/* App install popup (shown after every login until installed) */}
+          <HeaderInstallPopup />
 
           {/* User/profile icon button */}
           <button
