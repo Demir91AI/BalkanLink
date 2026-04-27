@@ -379,7 +379,12 @@
     "upload": {
       "label": "Dokument hochladen",
       "hint": "PDF, JPG, PNG — max. 10 MB",
-      "deletedAfter": "Das Dokument wird unmittelbar nach der Analyse gelöscht. Es wird nichts gespeichert."
+      "deletedAfter": "Das Dokument wird unmittelbar nach der Analyse gelöscht. Es wird nichts gespeichert.",
+      "multiPageTitle": "Mehrseitiges Dokument?",
+      "multiPageHint": "Lade alle Seiten auf einmal hoch (bis zu 10 Dateien) — wir analysieren sie als ein Dokument. Du kannst jede Seite mit dem Handy fotografieren oder als PDF hochladen.",
+      "filesCount": "{{count}} von {{max}} Dateien",
+      "addMore": "Weitere Seite hinzufügen",
+      "remove": "Entfernen"
     },
     "confirm": "Ich bestätige, dass ich keine sensiblen Daten hochlade/eingebe (Personalausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).",
     "buttons": {
@@ -395,7 +400,9 @@
       "serverError": "Serverfehler bei der Dokumentenanalyse. Bitte versuchen Sie es in wenigen Augenblicken erneut.",
       "processingFailed": "Das Dokument konnte nicht verarbeitet werden. Bitte versuchen Sie es mit einer anderen Datei.",
       "readError": "Fehler beim Lesen der Datei",
-      "fallback": "Serverfehler bei der Dokumentenanalyse."
+      "fallback": "Serverfehler bei der Dokumentenanalyse.",
+      "tooManyFiles": "Maximal {{max}} Dateien.",
+      "totalTooLarge": "Gesamtgröße überschreitet 25 MB."
     },
     "paywall": {
       "title": "Dokumenten-Check",
