@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Printer, Euro, ChevronRight, Lock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useAuth } from '@/contexts/AuthContext';
 import VisaGateCard from './VisaGateCard';
-import { COUNTRY_CONTENT } from '../../data/vizaNavigatorContent';
+import { getLocalizedCountryContent } from '@/data/viza-i18n';
 import { DEV_MODE } from '@/lib/dev-mode';
 
 const loadForm = (formKey: string) => {
@@ -75,7 +75,8 @@ const BlurredBlock = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selectedRoute, onSelectRoute, onBack }) => {
-  const { t } = useTranslation('pages');
+  const { t, i18n } = useTranslation('pages');
+  const COUNTRY_CONTENT = useMemo(() => getLocalizedCountryContent(i18n.language), [i18n.language]);
   const [openFormKey, setOpenFormKey] = useState<string | null>(null);
   const [LoadedForm, setLoadedForm] = useState<React.FC | null>(null);
   const openFormRef = useRef<HTMLDivElement>(null);
