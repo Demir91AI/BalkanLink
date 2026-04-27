@@ -468,14 +468,16 @@ export default function DokumentenCheck() {
                 {t("documentCheck.pricing.oneTimeReset")}
               </p>
               <button
-                onClick={() => {
-                  if (!user) { localizedNavigate("/login"); return; }
-                  initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
-                }}
+                onClick={startOneOffCheckout}
                 className="mt-3 block w-full rounded-xl border border-border px-3 py-2 text-xs font-semibold hover:bg-accent transition-colors"
               >
                 {t("documentCheck.pricing.buyOneTime")}
               </button>
+              {creditCount > 0 && !isPremium && (
+                <p className="mt-2 text-[11px] font-semibold text-emerald-600">
+                  {t("documentCheck.pricing.creditAvailable", { count: creditCount, defaultValue: "Dostupno: {{count}} provjera" })}
+                </p>
+              )}
             </div>
             <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative flex flex-col">
               <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">{t("documentCheck.pricing.premiumBadge")}</span>
