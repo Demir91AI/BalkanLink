@@ -90,4 +90,11 @@ i18n
     returnNull: false,
   });
 
+// Dev-only: warn in console if any `legal` namespace key is missing/empty
+// across the 4 supported languages. Never throws.
+if (import.meta.env?.DEV) {
+  // dynamic import keeps validator out of the production bundle
+  import("./validateLegal").then((m) => m.runLegalValidationInDev()).catch(() => {});
+}
+
 export default i18n;
