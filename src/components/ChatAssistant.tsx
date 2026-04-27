@@ -111,6 +111,30 @@ function buildRateLimitMessage(): string {
   return `⚡ **Dostigao/la si dnevni limit od 5 pitanja.**\n\nNovi besplatni upiti se otključavaju za **${resetIn}** (ponoć).\n\nSa **BalkanLink Premium** (9,99 €/mj) dobijaš neograničena pitanja, prioritetne odgovore i sve premium vodiče.\n\n[👉 Aktiviraj Premium](/premium)`;
 }
 
+// ── Detekcija pitanja o broju preostalih dnevnih pitanja (lokalno, bez AI) ──
+const QUOTA_QUERY_RE = /\b(kol[iı]ko|kolko|koliko\s+jo[sš]?|jo[sš]?\s+kol[iı]ko|preostal|ostal[oa]?|ostalo)\b.*\b(pitanj|upit|kvot|limit)\b|\b(pitanj|upit|kvot|limit)\b.*\b(kol[iı]ko|kolko|preostal|ostal[oa]?)\b/i;
+
+function isQuotaQuestion(text: string): boolean {
+  const t = (text || "").trim().toLowerCase();
+  if (!t) return false;
+  // brzi pogodci
+  if (/(kol[iı]ko|kolko)\s+(jo[sš]\s+)?(imam\s+)?(pitanja|upita)/i.test(t)) return true;
+  if (/(jo[sš]\s+)?kol[iı]ko\s+pitanja/i.test(t)) return true;
+  if (/(preostal|ostalo)\s+pitanja/i.test(t)) return true;
+  return QUOTA_QUERY_RE.test(t);
+}
+
+function buildQuotaAnswer(remaining: number, isPremium: boolean): string {
+  if (isPremium) {
+    return `Imaš **neograničen broj pitanja** kao Premium korisnik. 🎉\n\nPostavi mi šta god ti treba — formulari, vize, porez, stanovanje, posao u Njemačkoj.`;
+  }
+  if (remaining <= 0) {
+    return `Iskoristio/la si svih **5 besplatnih pitanja** za danas. Brojač se resetuje u ponoć.\n\nSa **Premium pretplatom (9,99 €/mj)** dobijaš:\n- ✅ Neograničena pitanja\n- ✅ Prioritetne odgovore\n- ✅ Sve premium vodiče i alate\n\n[👉 Aktiviraj Premium](/premium)`;
+  }
+  const word = remaining === 1 ? "pitanje" : (remaining < 5 ? "pitanja" : "pitanja");
+  return `Imaš još **${remaining} ${word}** za danas na besplatnom paketu (od ukupno 5 dnevno). Brojač se resetuje u ponoć.\n\nAko želiš neograničen pristup i sve premium funkcije, pogledaj [Paketi i cijene](/paketi).`;
+}
+
 // ── Auto-link keywords ──
 const KEYWORD_LINKS: [RegExp, string][] = [
   // FORMULARI
