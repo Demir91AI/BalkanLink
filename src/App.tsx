@@ -113,6 +113,7 @@ const SchufaSimulator = lazy(() => import("./pages/SchufaSimulator"));
 const AnerkennungNavigator = lazy(() => import("./pages/AnerkennungNavigator"));
 const Porezi = lazy(() => import("./pages/Porezi"));
 const PoreziWizard = lazy(() => import("./pages/PoreziWizard"));
+const PoreziDoppelhaushalt = lazy(() => import("./pages/PoreziDoppelhaushalt"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));

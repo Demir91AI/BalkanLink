@@ -89,9 +89,14 @@ export const POREZI_MODULES: PoreziModule[] = [
   {
     id: "doppelhaushalt",
     icon: Home,
-    status: "coming-soon",
+    status: "available",
     accent: "border-l-teal-500",
-    routes: {},
+    routes: {
+      bs: "/porezi/dvostruko-domacinstvo",
+      de: "/steuern/doppelte-haushaltsfuehrung",
+      hr: "/porezi/dvostruko-kucanstvo",
+      sr: "/porezi/dvostruko-domacinstvo",
+    },
   },
   {
     id: "elsterGuide",
