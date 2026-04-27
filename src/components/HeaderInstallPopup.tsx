@@ -50,21 +50,24 @@ export function HeaderInstallPopup() {
     return () => mq.removeEventListener?.("change", handler);
   }, []);
 
-  // Auto-open after every login (per session)
+  // Auto-open after every login (per session) — and on initial mount if
+  // user is already signed in (e.g. page refresh or returning visitor).
   useEffect(() => {
-    const onSignedIn = () => {
+    const tryOpen = () => {
       try {
         if (isStandalone()) return;
         if (sessionStorage.getItem(SS_DISMISS_KEY) === "1") return;
-        // Slight delay so it doesn't fight with redirect / toast
         window.setTimeout(() => setOpen(true), 600);
       } catch {
         /* ignore */
       }
     };
-    window.addEventListener("bl:user-signed-in", onSignedIn);
-    return () => window.removeEventListener("bl:user-signed-in", onSignedIn);
-  }, []);
+    window.addEventListener("bl:user-signed-in", tryOpen);
+    // Also trigger on mount if user is already authenticated
+    if (user) tryOpen();
+    return () => window.removeEventListener("bl:user-signed-in", tryOpen);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
 
   // Close on Esc + outside click
   useEffect(() => {
