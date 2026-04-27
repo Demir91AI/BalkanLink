@@ -331,16 +331,26 @@ export default function DokumentenCheck() {
     setAnalysis(null);
   }, [t]);
 
+  // Open Stripe checkout for the one-off 2.99€ purchase. Stripe opens in a new tab;
+  // when the user returns, visibilitychange triggers refreshCredits().
+  const startOneOffCheckout = useCallback(() => {
+    if (!user) { localizedNavigate("/login"); return; }
+    setCheckoutPending(true);
+    initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
+  }, [user, localizedNavigate]);
+
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
-    if (!isPremium) { setShowPaywall(true); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
+    // Premium → free unlimited. Non-premium → must already hold an unconsumed credit.
+    if (!isPremium && creditCount < 1) { setShowPaywall(true); return; }
 
     submittingRef.current = true;
     setLoading(true);
     setError(null);
     setAnalysis(null);
+    setShowPaywall(false);
 
     try {
       const filesPayload = await Promise.all(
@@ -351,7 +361,6 @@ export default function DokumentenCheck() {
       );
       const payload = {
         files: filesPayload,
-        // Backward compat ako deployana funkcija još očekuje single-file polja
         imageBase64: filesPayload[0]?.base64,
         mimeType: filesPayload[0]?.mimeType,
       };
@@ -359,10 +368,20 @@ export default function DokumentenCheck() {
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
       if (fnError) throw new Error(t("documentCheck.errors.serverError"));
-      if (data?.success === false) throw new Error(data.message || t("documentCheck.errors.processingFailed"));
+      if (data?.success === false) {
+        // Backend says payment is required — open paywall and refresh credits.
+        if (data.errorCode === "PAYMENT_REQUIRED") {
+          await refreshCredits();
+          setShowPaywall(true);
+          throw new Error(data.message || t("documentCheck.errors.paymentRequired", "Plaćanje 2,99€ je potrebno."));
+        }
+        throw new Error(data.message || t("documentCheck.errors.processingFailed"));
+      }
       if (!data?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
 
       setAnalysis(data.analysis);
+      // Refresh credits after the backend has consumed one (non-premium only).
+      if (!isPremium) await refreshCredits();
     } catch (err: any) {
       const message = err.message || t("documentCheck.errors.fallback");
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
@@ -374,7 +393,7 @@ export default function DokumentenCheck() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, files, isPremium, loading, t]);
+  }, [confirmed, files, isPremium, creditCount, loading, refreshCredits, t]);
 
   const handleClear = useCallback(() => {
     clearFiles();
