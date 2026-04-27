@@ -32,6 +32,12 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
   const initials = getInitials(displayName);
   const currentPath = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
+  const lang = langFromPath(location.pathname) as SupportedLanguage;
+  const poreziSlug = POREZI_HUB_PATH[lang] ?? "/porezi";
+  // Sidebar uses bs-relative urls everywhere (localizeHref adds /de prefix).
+  // For Porezi, DE has a different slug (/steuern) so we pass the bs slug
+  // and rely on the active-path matcher below to also recognize /steuern.
+  const poreziSidebarUrl = lang === "de" ? "/de/steuern" : "/porezi";
 
   const mainItems = [
     { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true, isNew: false },
@@ -40,6 +46,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
     { title: t("sidebar.items.bonitetSimulator"), url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
     { title: t("sidebar.items.anerkennungNavigator"), url: "/anerkennung-navigator", icon: GraduationCap, premium: true, isNew: false, isFree: false },
+    { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Landmark, premium: true, isNew: true, matchPaths: ["/porezi", "/steuern"] },
     { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: false },
     { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: false },
   ];
