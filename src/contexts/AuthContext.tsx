@@ -86,6 +86,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           try {
             localStorage.removeItem("bl_session_expired");
             localStorage.setItem("bl_last_activity", String(Date.now()));
+            // Reset per-session install popup so it shows once after every login
+            sessionStorage.removeItem("bl_install_popup_dismissed");
+            window.dispatchEvent(new CustomEvent("bl:user-signed-in"));
           } catch { /* best-effort */ }
         }
 
