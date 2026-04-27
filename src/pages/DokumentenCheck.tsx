@@ -172,6 +172,51 @@ async function fileToBase64(file: File): Promise<string> {
   });
 }
 
+/**
+ * Komprimuje sliku na max dimenzije i JPEG kvalitet kako bi se smanjila veličina payload-a.
+ * Ne dira PDF-ove. Vraća { base64, mimeType }.
+ */
+async function fileToCompressedBase64(file: File): Promise<{ base64: string; mimeType: string }> {
+  const isPdf = file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
+  if (isPdf) {
+    return { base64: await fileToBase64(file), mimeType: "application/pdf" };
+  }
+
+  // Slike: učitaj, skaliraj na max 1600px duža strana, encode kao JPEG q=0.75
+  const dataUrl: string = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(new Error("Fehler beim Lesen der Datei"));
+    reader.readAsDataURL(file);
+  });
+
+  const img: HTMLImageElement = await new Promise((resolve, reject) => {
+    const i = new Image();
+    i.onload = () => resolve(i);
+    i.onerror = () => reject(new Error("Fehler beim Laden des Bildes"));
+    i.src = dataUrl;
+  });
+
+  const MAX_DIM = 1600;
+  let { width, height } = img;
+  if (width > MAX_DIM || height > MAX_DIM) {
+    const ratio = Math.min(MAX_DIM / width, MAX_DIM / height);
+    width = Math.round(width * ratio);
+    height = Math.round(height * ratio);
+  }
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) {
+    return { base64: dataUrl.split(",")[1], mimeType: file.type || "image/jpeg" };
+  }
+  ctx.drawImage(img, 0, 0, width, height);
+  const compressed = canvas.toDataURL("image/jpeg", 0.75);
+  return { base64: compressed.split(",")[1], mimeType: "image/jpeg" };
+}
+
 /* ── Example document types ── */
 const DOC_EXAMPLE_KEYS = [
   { emoji: "📬", key: "letterFromFinanzamt" },
@@ -249,11 +294,10 @@ export default function DokumentenCheck() {
 
     try {
       const filesPayload = await Promise.all(
-        files.map(async (f) => ({
-          base64: await fileToBase64(f),
-          mimeType: f.type || (f.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg"),
-          name: f.name,
-        }))
+        files.map(async (f) => {
+          const { base64, mimeType } = await fileToCompressedBase64(f);
+          return { base64, mimeType, name: f.name };
+        })
       );
       const payload = { files: filesPayload };
 

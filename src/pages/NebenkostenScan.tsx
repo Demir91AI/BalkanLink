@@ -36,6 +36,46 @@ function fileToBase64(file: File): Promise<string> {
   });
 }
 
+/**
+ * Komprimuje sliku (max 1600px, JPEG q=0.75). PDF ostaje netaknut.
+ * Smanjuje payload kako se ne bi prešao limit Edge funkcije.
+ */
+async function fileToCompressedBase64(file: File): Promise<{ base64: string; mimeType: string }> {
+  const isPdf = file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
+  if (isPdf) {
+    return { base64: await fileToBase64(file), mimeType: "application/pdf" };
+  }
+  const dataUrl: string = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(new Error("read_failed"));
+    reader.readAsDataURL(file);
+  });
+  const img: HTMLImageElement = await new Promise((resolve, reject) => {
+    const i = new Image();
+    i.onload = () => resolve(i);
+    i.onerror = () => reject(new Error("image_load_failed"));
+    i.src = dataUrl;
+  });
+  const MAX_DIM = 1600;
+  let { width, height } = img;
+  if (width > MAX_DIM || height > MAX_DIM) {
+    const ratio = Math.min(MAX_DIM / width, MAX_DIM / height);
+    width = Math.round(width * ratio);
+    height = Math.round(height * ratio);
+  }
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) {
+    return { base64: dataUrl.split(",")[1], mimeType: file.type || "image/jpeg" };
+  }
+  ctx.drawImage(img, 0, 0, width, height);
+  const compressed = canvas.toDataURL("image/jpeg", 0.75);
+  return { base64: compressed.split(",")[1], mimeType: "image/jpeg" };
+}
+
 export default function NebenkostenScan() {
   const { t } = useTranslation("pages");
   const navigate = useNavigate();
@@ -97,11 +137,10 @@ export default function NebenkostenScan() {
 
     try {
       const payloadFiles = await Promise.all(
-        files.map(async (f) => ({
-          base64: await fileToBase64(f),
-          mimeType: f.type || (f.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg"),
-          name: f.name,
-        }))
+        files.map(async (f) => {
+          const { base64, mimeType } = await fileToCompressedBase64(f);
+          return { base64, mimeType, name: f.name };
+        })
       );
 
       const { data, error: fnError } = await supabase.functions.invoke("nebenkosten-scan", {
