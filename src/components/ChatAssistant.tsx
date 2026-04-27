@@ -96,6 +96,7 @@ const STARTER_QUESTIONS = [
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
+const ACTIVE_CHAT_STORAGE_KEY = "bl-chat-current";
 
 // ── Rate-limit message with reset countdown (resets at midnight local) ──
 function buildRateLimitMessage(): string {
@@ -249,7 +250,7 @@ export default function ChatAssistant() {
   const { user } = useAuth();
 
   // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
-  const chatStorageKey = user ? `bl-chat-${user.id}` : null;
+  const chatStorageKey = user ? `bl-chat-${user.id}` : ACTIVE_CHAT_STORAGE_KEY;
   const prevUserIdRef = useRef<string | null | undefined>(undefined);
   const restoredRef = useRef(false);
   // Track which messages have been synced to DB (by stable signature) to avoid duplicates
@@ -262,18 +263,27 @@ export default function ChatAssistant() {
     return `${idx}|${m.role}|${(m.content || "").slice(0, 80)}`;
   }
 
-  function loadMessagesForUser(userId: string): Msg[] {
+  function loadMessagesByKey(storageKey: string): Msg[] {
     try {
-      const raw = localStorage.getItem(`bl-chat-${userId}`);
+      const raw = localStorage.getItem(storageKey);
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed as Msg[];
       }
     } catch (e) {
       console.warn("[BL-Chat] Failed to parse stored chat, clearing:", e);
-      localStorage.removeItem(`bl-chat-${userId}`);
+      localStorage.removeItem(storageKey);
     }
     return [];
+  }
+
+  function loadMessagesForUser(userId: string): Msg[] {
+    return loadMessagesByKey(`bl-chat-${userId}`);
+  }
+
+  function loadActiveMessages(userId?: string): Msg[] {
+    const userMessages = userId ? loadMessagesForUser(userId) : [];
+    return userMessages.length > 0 ? userMessages : loadMessagesByKey(ACTIVE_CHAT_STORAGE_KEY);
   }
 
   // Fetch full history from Supabase for cross-device restore
@@ -312,15 +322,13 @@ export default function ChatAssistant() {
   }
 
   const [messages, setMessages] = useState<Msg[]>(() => {
-    if (user?.id) {
-      const restored = loadMessagesForUser(user.id);
-      if (restored.length > 0) {
-        restoredRef.current = true;
-        // Mark all locally-restored as already synced (best-effort) to avoid spam re-inserts.
-        // The remote fetch on mount will reconcile.
-        restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-        return restored;
-      }
+    const restored = loadActiveMessages(user?.id);
+    if (restored.length > 0) {
+      restoredRef.current = true;
+      // Mark all locally-restored as already synced (best-effort) to avoid spam re-inserts.
+      // The remote fetch on mount will reconcile.
+      restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+      return restored;
     }
     return [];
   });
@@ -342,16 +350,30 @@ export default function ChatAssistant() {
 
   // Persist messages to localStorage (fast cache)
   useEffect(() => {
-    if (!chatStorageKey) return;
     if (messages.length > 0) {
       localStorage.setItem(chatStorageKey, JSON.stringify(messages));
+      localStorage.setItem(ACTIVE_CHAT_STORAGE_KEY, JSON.stringify(messages));
     }
   }, [messages, chatStorageKey]);
+
+  // Restore from local cache immediately on auth hydration, then cloud if available.
+  useEffect(() => {
+    if (user?.id) {
+      const local = loadActiveMessages(user.id);
+      if (local.length > 0) {
+        setMessages(prev => (prev.length > 0 ? prev : local));
+        local.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+      }
+    } else {
+      const local = loadActiveMessages();
+      if (local.length > 0) setMessages(prev => (prev.length > 0 ? prev : local));
+    }
+  }, [user?.id]);
 
   // Restore from cloud on login/hydration. Cloud is source of truth across devices.
   useEffect(() => {
     if (!user?.id) return;
-    if (restoredRef.current && prevUserIdRef.current === user.id) return;
+    if (prevUserIdRef.current === user.id) return;
 
     let cancelled = false;
     (async () => {
@@ -365,7 +387,7 @@ export default function ChatAssistant() {
         console.debug("[BL-Chat] Restored", remote.length, "messages from cloud");
       } else {
         // No cloud history — keep local (will be synced upward by sync effect)
-        const local = loadMessagesForUser(user.id);
+        const local = loadActiveMessages(user.id);
         if (local.length > 0 && messages.length === 0) {
           setMessages(local);
         }
@@ -474,7 +496,8 @@ export default function ChatAssistant() {
     setMessages([]);
     syncedSigsRef.current.clear();
     remoteIdsRef.current.clear();
-    if (chatStorageKey) localStorage.removeItem(chatStorageKey);
+    localStorage.removeItem(chatStorageKey);
+    localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
     if (user?.id) {
       supabase.from("chat_messages").delete().eq("user_id", user.id).then(({ error }) => {
         if (error) console.warn("[BL-Chat] Cloud clear failed:", error.message);
@@ -486,8 +509,8 @@ export default function ChatAssistant() {
     });
   }, [messages.length, chatStorageKey, user?.id]);
 
-  // Clear local cache ONLY on real sign-out — cloud history stays intact
-  // so the user finds their conversation when they log in again (any device).
+  // Clear local cache ONLY on real sign-out — never on minimize/close.
+  // Cloud history stays intact so the user finds their conversation after login.
   useEffect(() => {
     const handleSignOut = () => {
       const hadMessages = messages.length > 0;
@@ -496,6 +519,7 @@ export default function ChatAssistant() {
       remoteIdsRef.current.clear();
       const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
       keys.forEach(k => localStorage.removeItem(k));
+      localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
       restoredRef.current = false;
       prevUserIdRef.current = null;
       if (hadMessages) {
