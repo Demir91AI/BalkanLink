@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Upload, FileText, X, Loader2, CheckCircle2, ShieldCheck, Lock, Receipt, Crown, AlertTriangle, ScrollText, Plus } from "lucide-react";
+import { Upload, FileText, X, Loader2, CheckCircle2, ShieldCheck, Lock, Receipt, Crown, AlertTriangle, ScrollText, Plus, Info } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import NebenkostenResultView from "@/components/nebenkosten/NebenkostenResultView";
 import { useTranslation } from "react-i18next";
