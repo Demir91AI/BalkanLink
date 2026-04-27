@@ -25,8 +25,7 @@ export default function Impressum() {
               Deutschland
             </p>
             <p className="mt-3">
-              <strong className="text-foreground">Pravna forma:</strong> Einzelunternehmen (samostalni obrt)<br />
-              <strong className="text-foreground">Upis u registar:</strong> Nije upisan u Handelsregister
+              <strong className="text-foreground">Pravna forma:</strong> Einzelunternehmen (samostalni obrt)
             </p>
             <div className="mt-3 rounded-md border border-yellow-500/30 bg-yellow-500/5 p-3 text-xs text-yellow-700 dark:text-yellow-200/80">
               BalkanLink je <strong>privatna, nezavisna informacijska platforma</strong> bez ikakve
@@ -42,7 +41,6 @@ export default function Impressum() {
               <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
                 kontakt@balkanlink.de
               </a><br />
-              Telefon: na upit<br />
               Web:{" "}
               <a href="https://balkanlink.de" className="text-primary hover:underline">
                 https://balkanlink.de
