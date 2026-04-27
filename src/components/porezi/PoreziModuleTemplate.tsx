@@ -131,7 +131,10 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
   /* ─────────────── Helpers ─────────────── */
   const introKeys = range(counts.intro ?? 0, "p");
   const criteriaKeys = range(counts.criteria ?? 0, "c");
+  const amountsKeys = range(counts.amounts ?? 0, "a");
   const costsKeys = range(counts.costs ?? 0, "k");
+  const stepsKeys = range(counts.steps ?? 0, "s");
+  const exampleRowKeys = range(counts.exampleRows ?? 0, "r");
   const proofsKeys = range(counts.proofs ?? 0, "p");
   const mistakesKeys = range(counts.mistakes ?? 0, "m");
   const faqKeys = range(counts.faq ?? 0, "q");
