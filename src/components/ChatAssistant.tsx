@@ -533,11 +533,12 @@ export default function ChatAssistant() {
     });
   }, [messages.length, chatStorageKey, user?.id]);
 
-  // Clear local cache ONLY on real sign-out — never on minimize/close.
-  // Cloud history stays intact so the user finds their conversation after login.
+  // On real sign-out: clear local cache AND wipe cloud history.
+  // During an active session (minimize/close/navigation) history persists.
   useEffect(() => {
-    const handleSignOut = () => {
-      const hadMessages = messages.length > 0;
+    const handleSignOut = (e: Event) => {
+      const detail = (e as CustomEvent)?.detail as { userId?: string } | undefined;
+      const signedOutUserId = detail?.userId ?? prevUserIdRef.current ?? user?.id ?? null;
       setMessages([]);
       syncedSigsRef.current.clear();
       remoteIdsRef.current.clear();
@@ -546,17 +547,16 @@ export default function ChatAssistant() {
       localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
       restoredRef.current = false;
       prevUserIdRef.current = null;
-      if (hadMessages) {
-        toast("Odjavljen/a si", {
-          description: "Razgovor je sačuvan u oblaku — vidjet ćeš ga ponovo nakon prijave.",
-          duration: 4000,
+      if (signedOutUserId) {
+        supabase.from("chat_messages").delete().eq("user_id", signedOutUserId).then(({ error }) => {
+          if (error) console.warn("[BL-Chat] Cloud clear on sign-out failed:", error.message);
         });
       }
-      console.debug("[BL-Chat] Sign-out — local cache cleared (cloud history preserved)");
+      console.debug("[BL-Chat] Sign-out — local cache and cloud history cleared");
     };
     window.addEventListener("bl:user-signed-out", handleSignOut);
     return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
-  }, [messages.length]);
+  }, [user?.id]);
 
   // Load chat lang preference
   useEffect(() => {
