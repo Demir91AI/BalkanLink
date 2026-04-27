@@ -362,14 +362,16 @@
     "pricing": {
       "oneTimeLabel": "Einmalig",
       "oneTimePerCheck": "pro Prüfung",
-      "oneTimeReset": "Wird nach jeder Nutzung zurückgesetzt",
+      "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
       "buyOneTime": "Für 2,99 € kaufen →",
+      "creditAvailable_one": "Verfügbar: {{count}} Prüfung",
+      "creditAvailable_other": "Verfügbar: {{count}} Prüfungen",
       "premiumLabel": "Premium",
       "premiumBadge": "⭐ Premium",
       "premiumPerMonth": "/Monat",
-      "premiumFeature1": "1×/Tag kostenlos",
-      "premiumFeature2": "Weitere Prüfungen 2,99 €/Stk.",
-      "premiumFeature3": "+ alle Premium-Funktionen",
+      "premiumFeature1": "Unbegrenzte Prüfungen — immer kostenlos",
+      "premiumFeature2": "Schnelle und priorisierte Analyse",
+      "premiumFeature3": "+ alle Premium-Funktionen der Plattform",
       "buyPremium": "Premium kaufen →"
     },
     "privacy": {
