@@ -1,0 +1,310 @@
+{
+  "impressum": {
+    "title": "Impressum",
+    "subtitle": "Gesetzlich vorgeschriebene Angaben zum Plattformbetreiber",
+    "sections": [
+      {
+        "heading": "Angaben gemäß §5 DDG",
+        "html": "<p><strong>RealCore Digital</strong><br/>Inhaber: Demir Sinanovic<br/>Münchener Straße 78<br/>83395 Freilassing<br/>Deutschland</p><p class=\"mt-3\"><strong>Rechtsform:</strong> Einzelunternehmen</p><div class=\"legal-warn-yellow\">BalkanLink ist eine <strong>private, unabhängige Informationsplattform</strong> ohne jegliche Verbindung zu deutschen Behörden, Botschaften, Konsulaten oder anderen offiziellen Stellen der Bundesrepublik Deutschland oder eines anderen Staates.</div>"
+      },
+      {
+        "heading": "Kontakt",
+        "html": "<p>E-Mail: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a><br/>Web: <a href=\"https://balkanlink.de\">https://balkanlink.de</a></p>"
+      },
+      {
+        "heading": "Steuerlicher Status",
+        "html": "<p>Kleinunternehmer gemäß §19 Umsatzsteuergesetz (UStG) — <em>Kleinunternehmerregelung</em>.<br/>Auf Rechnungen wird <strong>keine Umsatzsteuer ausgewiesen</strong>.</p><p class=\"mt-2 text-xs opacity-70\">Was das bedeutet: Alle unsere Preise sind Endpreise ohne Umsatzsteuer. Als Kleinunternehmer sind wir nicht umsatzsteuerpflichtig — wir berechnen und führen keine Umsatzsteuer ab.</p>"
+      },
+      {
+        "heading": "Inhaltlich Verantwortlicher gemäß §18 Abs. 2 MStV",
+        "html": "<p>Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland</p>"
+      },
+      {
+        "heading": "Beschreibung der Plattform",
+        "html": "<p>BalkanLink ist eine digitale Informationsplattform für Personen aus den Balkanländern, die in Deutschland leben oder einen Umzug planen. Die Plattform bietet:</p><ul><li>Informative Leitfäden durch die deutsche Bürokratie (Smart Guide)</li><li>Interaktive Hilfen zum Ausfüllen von Formularen (Musterformulare)</li><li>Navigation durch Visa- und Aufenthaltsverfahren (Visa Navigator)</li><li>Deutschkurs (DeutschTrainer A1–C2)</li><li>Assistenten für informative Fragen (BalkanLink Assistent)</li><li>Dokumentenprüfung (Dokumenten-Check)</li><li>Anzeigen für die Diaspora (Angebote / Gesuche)</li></ul>"
+      },
+      {
+        "heading": "Haftung für Inhalte (§§7–10 DDG)",
+        "html": "<p>Die Inhalte der Plattform wurden mit größter Sorgfalt erstellt, jedoch übernehmen wir keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität der veröffentlichten Informationen.</p><p class=\"mt-2\"><strong>Wichtig:</strong> Die Informationen auf dieser Plattform <strong>stellen keine Rechts-, Steuer- oder Finanzberatung dar</strong>. Die Inhalte dienen ausschließlich der allgemeinen Information und Orientierung. Für verbindliche Auskünfte wenden Sie sich bitte an die zuständigen Behörden, Rechtsanwälte oder Steuerberater.</p>"
+      },
+      {
+        "heading": "Haftung für externe Links",
+        "html": "<p>Die Plattform enthält Links zu externen Websites. Auf deren Inhalt haben wir keinen Einfluss und übernehmen keine Haftung für eventuelle nachträgliche Änderungen. Bitte informieren Sie uns über problematische Inhalte unter kontakt@realcore-digital.de.</p>"
+      },
+      {
+        "heading": "Urheberrecht",
+        "html": "<p>Die Inhalte der Plattform unterliegen dem deutschen Urheberrecht. Vervielfältigung und Verbreitung außerhalb der gesetzlichen Grenzen erfordern die schriftliche Zustimmung des Autors. Downloads sind nur für den privaten, nicht-kommerziellen Gebrauch erlaubt.</p>"
+      },
+      {
+        "heading": "Keine Rechtsberatung",
+        "html": "<p>Sämtliche Inhalte — Leitfäden, Formulare, Assistent, Tools — <strong>stellen keine Rechtsberatung</strong> im Sinne des RDG (Rechtsdienstleistungsgesetz) dar. Durch die Nutzung der Plattform <strong>entsteht weder Vollmacht noch Beratungsvertrag</strong>.</p>"
+      },
+      {
+        "heading": "Streitbeilegung — OS-Plattform der EU",
+        "html": "<p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href=\"https://ec.europa.eu/consumers/odr/\" target=\"_blank\" rel=\"noopener noreferrer\">https://ec.europa.eu/consumers/odr/</a></p><p class=\"mt-2\">Wir sind weder bereit noch verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>"
+      }
+    ]
+  },
+  "datenschutz": {
+    "title": "Datenschutzerklärung",
+    "subtitle": "Datenschutzerklärung — DSGVO (EU-Datenschutz-Grundverordnung) und BDSG",
+    "sections": [
+      {
+        "heading": "1. Verantwortliche Stelle",
+        "html": "<p>Verantwortliche Stelle im Sinne der DSGVO ist:</p><p class=\"mt-2\"><strong>RealCore Digital</strong>, Inhaber Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland<br/>E-Mail: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p class=\"mt-2 text-xs opacity-70\">Diese Stelle ist rechtlich verantwortlich für alle Entscheidungen darüber, wie Ihre Daten verarbeitet werden. Wenden Sie sich mit allen Fragen zum Datenschutz an diese Stelle.</p>"
+      },
+      {
+        "heading": "2. Welche Daten wir erheben",
+        "html": "<p><strong>Nutzerkategorien:</strong></p><ul><li>Besucher der Plattform (ohne Registrierung)</li><li>Registrierte Nutzer (mit Benutzerkonto)</li><li>Premium-Abonnenten</li><li>Personen, die per E-Mail Kontakt aufnehmen</li></ul><p class=\"mt-3\"><strong>Datenkategorien:</strong></p><ul><li>Kontodaten: E-Mail-Adresse, Passwort (verschlüsselt gespeichert — bcrypt/argon2)</li><li>Nutzungsdaten: besuchte Seiten, Kursfortschritt</li><li>Technische Daten: IP-Adresse, Browsertyp, Betriebssystem</li><li>Inhaltsdaten: Texte in Formularen/Tools (nicht dauerhaft gespeichert)</li><li>Zahlungsdaten: ausschließlich über Stripe verarbeitet (wir sehen die Kartennummer nicht)</li></ul>"
+      },
+      {
+        "heading": "3. Rechtsgrundlagen der Verarbeitung",
+        "html": "<ul><li><strong>Einwilligung (Art. 6 Abs. 1 lit. a DSGVO):</strong> Z.B. für optionale Cookies — die Einwilligung kann jederzeit widerrufen werden.</li><li><strong>Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO):</strong> Erforderliche Verarbeitung zur Bereitstellung der Dienste — Benutzerkonto, Abonnement.</li><li><strong>Gesetzliche Verpflichtung (Art. 6 Abs. 1 lit. c DSGVO):</strong> Aufbewahrung von Buchhaltungsunterlagen gemäß §147 AO (bis zu 10 Jahre).</li><li><strong>Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO):</strong> Sicherheit der Plattform, Missbrauchsverhinderung, ordnungsgemäßer Betrieb.</li></ul>"
+      },
+      {
+        "heading": "4. Server-Logfiles",
+        "html": "<p>Der Hosting-Provider erfasst automatisch technische Daten: IP-Adresse, Datum/Uhrzeit des Zugriffs, URL, HTTP-Statuscode, Browsertyp, OS und Referrer-URL. Diese Daten werden nicht mit anderen Quellen kombiniert und nach max. 30 Tagen gelöscht.</p><p class=\"mt-1\">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>"
+      },
+      {
+        "heading": "5. Benutzerkonto",
+        "html": "<p>Bei der Registrierung erheben wir E-Mail-Adresse und Passwort (ausschließlich verschlüsselt, niemals im Klartext gespeichert). Sie können Ihr Benutzerkonto jederzeit in den Einstellungen oder per Anfrage an kontakt@realcore-digital.de löschen.</p><p class=\"mt-1\">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>"
+      },
+      {
+        "heading": "6. Formulare, Tools und Dokumenten-Check",
+        "html": "<p>Texte, die Sie in Formulare und Tools eingeben, werden ausschließlich zur Bereitstellung der gewünschten Funktion verarbeitet. Hochgeladene Dokumente werden nur temporär im Arbeitsspeicher verarbeitet — <strong>ohne dauerhafte Speicherung</strong>. Alle Daten werden unmittelbar nach Anzeige des Ergebnisses gelöscht.</p><div class=\"legal-warn-yellow\"><strong>Empfehlung:</strong> Schwärzen Sie persönliche Daten (Name, Adresse, Personalausweisnummer, Steuernummer) vor der Nutzung der Dokumenten-Check-Funktion.</div><p class=\"mt-1\">Rechtsgrundlage: Art. 6 Abs. 1 lit. a und f DSGVO.</p>"
+      },
+      {
+        "heading": "7. BalkanLink Assistent",
+        "html": "<p>Der BalkanLink Assistent ist ein automatisiertes System, das Nutzerfragen beantwortet. Anfragen werden über einen externen Dienst gemäß DSGVO-Standards verarbeitet.</p><ul><li>Ihre Nachrichten werden zur Generierung der Antwort verarbeitet und das Ergebnis sofort zurückgegeben</li><li>Mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag (DPA, Art. 28 DSGVO)</li><li><strong>Ihre Daten werden nicht zur Verbesserung der Systeme</strong> Dritter verwendet</li><li>Der Chatverlauf kann zu Kontinuitätszwecken in Ihrem Profil gespeichert werden und in den Kontoeinstellungen gelöscht werden</li></ul><p class=\"mt-1\">Rechtsgrundlage: Art. 6 Abs. 1 lit. b und f DSGVO; Datenübermittlung gemäß Art. 46 DSGVO (EU-Standardvertragsklauseln — SCC).</p>"
+      },
+      {
+        "heading": "8. Zahlung über Stripe",
+        "html": "<p>Zahlungen werden von <strong>Stripe Payments Europe, Ltd.</strong> (Dublin, Irland) verarbeitet — zertifiziert nach PCI DSS Level 1.</p><ul><li>Wir <strong>sehen und speichern niemals</strong> Kartendaten</li><li>Stripe empfängt die Daten direkt von Ihnen über eine sichere verschlüsselte Verbindung</li><li>Wir erhalten nur die Zahlungsbestätigung und eine anonyme Transaktions-ID</li><li>Stripe speichert Transaktionsdaten zur Erfüllung gesetzlicher Pflichten (bis zu 10 Jahre)</li></ul><p class=\"mt-1\">Stripe Datenschutz: <a href=\"https://stripe.com/de/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">stripe.com/de/privacy</a><br/>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>"
+      },
+      {
+        "heading": "9. Supabase — Datenbank",
+        "html": "<p>Für Speicherung und Authentifizierung nutzen wir <strong>Supabase Inc.</strong> Die Daten werden auf Servern in <strong>Frankfurt am Main, EU (AWS eu-central-1)</strong> gespeichert.</p><ul><li>Supabase ist Auftragsverarbeiter — DPA-Vertrag geschlossen</li><li>Daten werden nicht außerhalb der EU übertragen</li><li>Verschlüsselung in Übertragung: TLS; im Ruhezustand: AES-256</li></ul>"
+      },
+      {
+        "heading": "10. Cookies und lokale Speicherung",
+        "html": "<p>Wir verwenden keine Marketing-Cookies oder Tracking durch Dritte. Im lokalen Browser-Speicher speichern wir:</p><ul><li>Authentifizierungs-Token (nur für angemeldete Nutzer)</li><li>Cookie-Einwilligungseinstellungen</li><li>Fortschritt im DeutschTrainer (bis zur Synchronisation mit dem Konto)</li></ul><p class=\"mt-1\">Rechtsgrundlage: §25 TDDDG / Art. 6 Abs. 1 lit. a DSGVO.</p>"
+      },
+      {
+        "heading": "11. Speicherdauer",
+        "html": "<ul><li>Server-Logfiles: max. 30 Tage</li><li>E-Mail-Anfragen: max. 6 Monate nach Abschluss der Bearbeitung</li><li>Benutzerkonto: bis zur Löschung durch den Nutzer</li><li>Inhaltsdaten (Tools): sofortige Löschung</li><li>Zahlungsdaten: 10 Jahre (§147 AO)</li></ul>"
+      },
+      {
+        "heading": "12. Empfänger der Daten",
+        "html": "<ul><li><strong>Supabase Inc.</strong> — Hosting und Datenbank (Art. 28 DSGVO)</li><li><strong>Stripe Payments Europe, Ltd.</strong> — Zahlungsabwicklung</li><li>Anbieter für den BalkanLink Assistenten (SCC-Vertrag, Art. 46 DSGVO)</li><li>Behörden — nur auf rechtlich begründetes Verlangen</li></ul>"
+      },
+      {
+        "heading": "13. Datensicherheit (Art. 32 DSGVO)",
+        "html": "<p>SSL/TLS-Verschlüsselung aller Verbindungen, verschlüsselte Passwortspeicherung (bcrypt/argon2), beschränkter Datenzugriff, regelmäßige Sicherheitsprüfungen. Eine sichere Verbindung erkennen Sie an „https://\" in der Adressleiste.</p>"
+      },
+      {
+        "heading": "14. Ihre Rechte (Art. 15–22 DSGVO)",
+        "html": "<ul><li><strong>Auskunftsrecht (Art. 15):</strong> Sie können Auskunft über alle Daten verlangen, die wir verarbeiten.</li><li><strong>Recht auf Berichtigung (Art. 16):</strong> Sie können die Berichtigung unrichtiger Daten verlangen.</li><li><strong>Recht auf Löschung (Art. 17 — „Recht auf Vergessenwerden\"):</strong> Sie können die Löschung Ihrer Daten verlangen.</li><li><strong>Recht auf Einschränkung (Art. 18):</strong> Sie können in bestimmten Fällen die Einschränkung der Verarbeitung verlangen.</li><li><strong>Recht auf Datenübertragbarkeit (Art. 20):</strong> Sie können Ihre Daten in einem maschinenlesbaren Format erhalten.</li><li><strong>Widerspruchsrecht (Art. 21):</strong> Sie können der Verarbeitung auf Grundlage berechtigten Interesses widersprechen.</li><li><strong>Widerruf der Einwilligung (Art. 7 Abs. 3):</strong> Die Einwilligung kann jederzeit widerrufen werden — ohne Rückwirkung.</li><li><strong>Beschwerderecht (Art. 77):</strong> Zuständige Aufsichtsbehörde: <strong>Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</strong>, Promenade 18, 91522 Ansbach.</li></ul><p class=\"mt-2\">Anfragen senden Sie an: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p>"
+      },
+      {
+        "heading": "15. Keine automatisierte Entscheidungsfindung",
+        "html": "<p>Es findet keine automatisierte Entscheidungsfindung oder Profilbildung (Art. 22 DSGVO) statt, die rechtliche Wirkung entfaltet oder den Nutzer in ähnlicher Weise erheblich beeinträchtigt.</p>"
+      },
+      {
+        "heading": "16. Änderungen dieser Erklärung",
+        "html": "<p>Wir behalten uns vor, diese Erklärung zur Anpassung an gesetzliche Vorgaben oder Änderungen unserer Dienste zu ändern.</p><p class=\"mt-2 text-xs opacity-60\">Version: April 2026</p>"
+      }
+    ]
+  },
+  "agb": {
+    "title": "Nutzungsbedingungen",
+    "subtitle": "Allgemeine Geschäftsbedingungen der Plattform BalkanLink (AGB)",
+    "sections": [
+      {
+        "heading": "§ 1 Geltungsbereich und Betreiber",
+        "html": "<p>Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB\") gelten für die Nutzung der Plattform „BalkanLink\" (nachfolgend „Plattform\"), betrieben von:</p><p class=\"mt-2\"><strong>RealCore Digital</strong><br/>Inhaber: Demir Sinanovic<br/>Münchener Straße 78, 83395 Freilassing, Deutschland<br/>E-Mail: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p class=\"mt-2\">Mit der Nutzung der Plattform akzeptiert der Nutzer diese AGB. Abweichende Bedingungen des Nutzers gelten nicht, es sei denn, der Betreiber stimmt ihnen ausdrücklich schriftlich zu.</p>"
+      },
+      {
+        "heading": "§ 2 Leistungsbeschreibung",
+        "html": "<p>Die Plattform bietet folgende Leistungen:</p><ul><li>Strukturierte Informationen zu bürokratischen Verfahren und Alltagsthemen in Deutschland</li><li>Digitale Hilfen zum Ausfüllen von Formularen (keine Rechtsberatung)</li><li>Tools und Rechner (z.B. Brutto-Netto-Rechner)</li><li>Informativer Assistent (BalkanLink Assistent)</li><li>Dokumenten-Check (allgemeine Erklärung hochgeladener Dokumente)</li><li>Nutzergenerierte Inhalte (Anzeigen, Einträge, Verzeichnisse)</li><li>Verzeichnisse und Karten</li></ul><p class=\"mt-2\">Der Betreiber behält sich vor, den Leistungsumfang jederzeit zu ändern, zu erweitern oder einzuschränken, ohne dass daraus Ansprüche der Nutzer entstehen.</p>"
+      },
+      {
+        "heading": "§ 3 Kein Beratungsvertrag",
+        "html": "<p>Mit der Nutzung der Plattform <strong>entsteht keine Vollmacht, kein Beratungsvertrag und kein anderes Vertragsverhältnis</strong>, das individuelle Rechts-, Steuer-, Finanz- oder sonstige fachliche Beratung umfasst.</p><p class=\"mt-2\">Sämtliche Inhalte dienen ausschließlich der allgemeinen Information und Orientierung. Für verbindliche Auskünfte wenden Sie sich an die zuständigen Behörden, Rechtsanwälte, Steuerberater oder andere qualifizierte Fachleute.</p>"
+      },
+      {
+        "heading": "§ 4 Keine Inhaltsgarantie",
+        "html": "<p>Alle Informationen auf der Plattform werden nach bestem Wissen bereitgestellt, jedoch ohne jegliche Gewähr für Richtigkeit, Vollständigkeit, Aktualität oder Eignung für einen bestimmten Zweck. Gesetze und Vorschriften können sich jederzeit ändern. Der Betreiber übernimmt keine Haftung für Schäden, die durch die Nutzung oder das Vertrauen auf die bereitgestellten Inhalte entstehen.</p>"
+      },
+      {
+        "heading": "§ 5 Pflichten des Nutzers",
+        "html": "<p>Der Nutzer verpflichtet sich:</p><ul><li>die Plattform nur für rechtmäßige Zwecke zu nutzen;</li><li>keine falschen, irreführenden oder rechtswidrigen Inhalte zu veröffentlichen;</li><li>keine Rechte Dritter zu verletzen (Urheberrechte, Marken, Persönlichkeitsrechte);</li><li>keine Malware, Spam oder automatisierten Zugriffe zu nutzen;</li><li>seine Zugangsdaten vertraulich zu behandeln;</li><li>die Plattform nicht zu manipulieren oder ihre Funktionalität zu beeinträchtigen;</li><li>keine Inhalte zu veröffentlichen, die geltendes Recht oder Rechte Dritter verletzen;</li><li>bei Registrierung und Veröffentlichung wahrheitsgemäße Angaben zu machen.</li></ul>"
+      },
+      {
+        "heading": "§ 6 Nutzergenerierte Inhalte",
+        "html": "<p>Nutzer können auf der Plattform eigene Inhalte veröffentlichen (z.B. Anzeigen, Einträge, Bewertungen). Der Nutzer ist allein für die von ihm veröffentlichten Inhalte verantwortlich.</p><p class=\"mt-2\">Mit der Veröffentlichung räumt der Nutzer dem Betreiber ein einfaches, zeitlich und örtlich unbeschränktes, unentgeltliches Nutzungsrecht an den Inhalten im Rahmen der Plattform ein.</p><p class=\"mt-2\">Der Betreiber ist nicht verpflichtet, Inhalte vor Veröffentlichung zu prüfen, behält sich jedoch vor, Inhalte jederzeit zu prüfen, zu bearbeiten, zu verschieben oder zu entfernen.</p>"
+      },
+      {
+        "heading": "§ 7 Verbotene Inhalte",
+        "html": "<p>Es ist untersagt, auf der Plattform folgende Inhalte zu veröffentlichen oder zu verbreiten:</p><ul><li>Inhalte, die geltendes Recht verletzen (insbesondere Strafrecht)</li><li>Inhalte, die zu Hass, Rassismus oder Diskriminierung aufrufen</li><li>Inhalte, die Gewalt oder Terrorismus verherrlichen</li><li>Pornografische oder jugendgefährdende Inhalte</li><li>Urheberrechtlich geschützte Inhalte ohne Zustimmung</li><li>Personenbezogene Daten Dritter ohne deren Zustimmung</li><li>Spam, Werbung oder kommerzielle Inhalte ohne Zustimmung</li><li>Betrugsversuche, Phishing oder andere irreführende Aktivitäten</li><li>Inhalte, die dem Ansehen der Plattform schaden können</li></ul>"
+      },
+      {
+        "heading": "§ 8 Moderation, Sperrung und Löschung",
+        "html": "<p>Der Betreiber ist berechtigt, bei Verstößen gegen diese AGB oder bei Anhaltspunkten für rechtswidrige Inhalte folgende Maßnahmen zu ergreifen:</p><ul><li>Verwarnung des Nutzers</li><li>Bearbeitung oder Entfernung einzelner Inhalte</li><li>Vorübergehende oder dauerhafte Sperrung des Benutzerkontos</li><li>Löschung des Benutzerkontos</li></ul><p class=\"mt-2\">Der Nutzer wird über die Maßnahme und ihre Begründung informiert, sofern dem keine rechtlichen Gründe entgegenstehen.</p>"
+      },
+      {
+        "heading": "§ 9 Plattform als Vermittler",
+        "html": "<p>Die Plattform stellt nur die technische Infrastruktur für den Informationsaustausch bereit. Der Betreiber ist nicht Vertragspartner von Vereinbarungen zwischen Nutzern (z.B. Kontakt über Anzeigen). Der Betreiber übernimmt keine Haftung für Verträge oder Rechtsbeziehungen zwischen Nutzern.</p>"
+      },
+      {
+        "heading": "§ 10 Haftungsbeschränkung",
+        "html": "<p>Der Betreiber haftet unbeschränkt nur bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten). Bei leichter Fahrlässigkeit ist die Haftung auf den vorhersehbaren, typischen Schaden begrenzt.</p><p class=\"mt-2\">Die Haftung für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit bleibt unberührt. Gleiches gilt für Ansprüche nach dem Produkthaftungsgesetz.</p><p class=\"mt-2\">Der Betreiber haftet nicht für Schäden, die durch die Nutzung oder das Vertrauen auf bereitgestellte Informationen, Tools oder nutzergenerierte Inhalte entstehen.</p>"
+      },
+      {
+        "heading": "§ 11 Freistellung",
+        "html": "<p>Der Nutzer stellt den Betreiber von allen Ansprüchen Dritter frei, die durch rechtswidrige Nutzung der Plattform oder durch vom Nutzer veröffentlichte Inhalte entstehen. Der Nutzer trägt die Kosten der erforderlichen Rechtsverteidigung einschließlich Gerichts- und Anwaltskosten.</p>"
+      },
+      {
+        "heading": "§ 12 Verfügbarkeit der Plattform",
+        "html": "<p>Der Betreiber bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit der Plattform. Es besteht jedoch kein Anspruch auf ständige Verfügbarkeit. Der Betreiber behält sich vor, die Plattform vorübergehend einzuschränken oder einzustellen — etwa für Wartung, Updates oder aus anderen Gründen.</p>"
+      },
+      {
+        "heading": "§ 13 Änderungen der Plattform und der AGB",
+        "html": "<p>Der Betreiber behält sich vor, diese AGB jederzeit zu ändern. Änderungen werden auf der Plattform bekannt gegeben. Die weitere Nutzung nach Veröffentlichung geänderter AGB gilt als Zustimmung zu den Änderungen.</p><p class=\"mt-2\">Der Betreiber behält sich auch vor, die Plattform, ihre Funktionen, ihr Design und ihre Inhalte jederzeit zu ändern, zu erweitern oder einzustellen.</p>"
+      },
+      {
+        "heading": "§ 14 Anwendbares Recht und Gerichtsstand",
+        "html": "<p>Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Sofern der Nutzer Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist, ist Gerichtsstand der Sitz des Betreibers.</p>"
+      },
+      {
+        "heading": "§ 15 Salvatorische Klausel",
+        "html": "<p>Sollten einzelne Bestimmungen dieser AGB unwirksam oder undurchführbar sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. An die Stelle der unwirksamen Bestimmung tritt eine wirksame Bestimmung, die dem wirtschaftlichen Zweck am nächsten kommt.</p><p class=\"mt-2 text-xs opacity-60\">Version: April 2026</p>"
+      }
+    ]
+  },
+  "disclaimer": {
+    "title": "Haftungsausschluss",
+    "subtitle": "Wichtige Hinweise zur Haftungsbeschränkung der Plattform BalkanLink",
+    "sections": [
+      {
+        "heading": "",
+        "html": "<div class=\"legal-warn-red\"><p class=\"font-semibold\">⚠ Wichtiger Hinweis</p><p class=\"mt-1\">BalkanLink ist eine <strong>Informationsplattform</strong> — keine Anwaltskanzlei, keine Beratungsstelle, kein Vertreter. Alle Informationen dienen ausschließlich der allgemeinen Information und können fachliche Rechts-, Steuer- oder Verwaltungsberatung nicht ersetzen.</p></div>"
+      },
+      {
+        "heading": "1. Keine Rechtsberatung",
+        "html": "<p>Sämtliche Inhalte — Smart-Guide-Anleitungen, Musterformulare, Visa Navigator, Assistent, DeutschTrainer und sonstige Tools — <strong>stellen keine Rechtsberatung</strong> im Sinne des RDG dar. Durch die Nutzung der Plattform <strong>entsteht keine Vollmacht und kein Beratungsvertrag</strong>.</p><p class=\"mt-2\">Für rechtsverbindliche Auskünfte wenden Sie sich bitte an:</p><ul><li>Die zuständige Behörde (Ausländerbehörde, Jobcenter, Finanzamt, Standesamt usw.)</li><li>Einen zugelassenen Rechtsanwalt</li><li>Anerkannte Beratungsstellen (AWO, Caritas, Diakonie, Pro Asyl)</li><li>Einen Steuerberater für Steuerfragen</li></ul>"
+      },
+      {
+        "heading": "2. Richtigkeit und Aktualität der Informationen",
+        "html": "<p>Wir bemühen uns, alle Inhalte regelmäßig zu aktualisieren, übernehmen jedoch <strong>keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität</strong> der veröffentlichten Informationen. Gesetze, Beträge und Verwaltungsverfahren können sich ohne Vorankündigung ändern.</p><p class=\"mt-2\">Wir weisen besonders darauf hin:</p><ul><li>Visa-Vorschriften ändern sich durch Beschlüsse der Regierung und der EU</li><li>Beträge (Bürgergeld, Kindergeld, BAföG usw.) werden jährlich angepasst</li><li>Anforderungen der Ausländerbehörden variieren je nach Bundesland und Stadt</li><li>Formulare ändern sich gelegentlich — laden Sie immer die aktuelle Version von der Website der zuständigen Behörde herunter</li></ul><p class=\"mt-2\"><strong>Überprüfen Sie Informationen immer über offizielle Quellen</strong> (bundesregierung.de, bamf.de, arbeitsagentur.de, make-it-in-germany.com), bevor Sie Maßnahmen ergreifen.</p>"
+      },
+      {
+        "heading": "3. Haftungsbeschränkung für Inhalte",
+        "html": "<p>Wir haften für eigene Inhalte gemäß §7 DDG und allgemeinen Vorschriften, beschränkt auf vorsätzlich falsche oder grob fahrlässig unrichtige Informationen.</p><p class=\"mt-2\"><strong>Wir schließen die Haftung aus für:</strong></p><ul><li>Verluste durch Vertrauen auf Informationen der Plattform</li><li>Veraltete Informationen aufgrund von Gesetzesänderungen</li><li>Entscheidungen von Behörden auf Grundlage der Plattforminhalte</li><li>Fehler beim Ausfüllen von Formularen auf Grundlage unserer Informationen</li><li>Vorübergehende Nichtverfügbarkeit der Plattform</li></ul>"
+      },
+      {
+        "heading": "4. Externe Links",
+        "html": "<p>Inhalte externer Seiten unterliegen nicht unserer Kontrolle. Wir übernehmen keine Haftung für nachträgliche Änderungen. Bitte informieren Sie uns über problematische Inhalte unter <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a>.</p>"
+      },
+      {
+        "heading": "5. Assistent — besondere Hinweise",
+        "html": "<p>Antworten des Assistenten werden automatisch generiert und können <strong>Fehler, veraltete Daten oder unvollständige Informationen enthalten</strong>.</p><ul><li>Der Assistent kann individuelle Umstände Ihres Falls nicht vorhersehen</li><li>Antworten ersetzen keine Konsultation mit der zuständigen Behörde oder einem Fachmann</li><li>Treffen Sie keine rechtlich relevanten Maßnahmen ausschließlich auf Grundlage von Antworten des Assistenten</li><li>Überprüfen Sie alle wichtigen Informationen auf den offiziellen Seiten der zuständigen Stellen</li></ul>"
+      },
+      {
+        "heading": "6. Musterformulare",
+        "html": "<p>Musterformulare sind <strong>informative Beispiele</strong> zum besseren Verständnis der Formulare. Wir garantieren nicht, dass sie immer mit den neuesten offiziellen Versionen übereinstimmen.</p><p class=\"mt-2\"><strong>Laden Sie immer das offizielle Formular</strong> von der Website der zuständigen Behörde herunter — Links sind in jedem Musterformular verfügbar.</p>"
+      },
+      {
+        "heading": "7. Haftungsbeschränkung gemäß §521 BGB",
+        "html": "<p>Soweit gesetzlich zulässig, beschränken wir die Haftung auf Vorsatz und grobe Fahrlässigkeit (§521 BGB für unentgeltliche Leistungen; §276 BGB für entgeltliche). Die Haftung für Verletzungen von Körper oder Gesundheit bleibt unberührt.</p>"
+      }
+    ]
+  },
+  "asistent": {
+    "title": "Hinweis zur Nutzung des Assistenten",
+    "subtitle": "Transparenz, Grenzen und Haftungsausschluss für vom BalkanLink Assistent generierte Inhalte",
+    "sections": [
+      {
+        "heading": "",
+        "html": "<div class=\"legal-warn-red\"><p class=\"font-bold text-base\">⚠ Vor Nutzung des Assistenten unbedingt lesen</p><p class=\"mt-3\">Der BalkanLink Assistent gibt ausschließlich <strong>allgemeine, informative Antworten</strong>. Antworten des Assistenten <strong>stellen keine Rechts-, Steuer-, Finanz- oder medizinische Beratung dar</strong> und können eine Konsultation mit zuständigen Behörden oder Fachpersonen nicht ersetzen.</p><p class=\"mt-3\"><strong>BalkanLink übernimmt keine Haftung</strong> für Richtigkeit, Vollständigkeit, Aktualität oder Anwendbarkeit der Antworten des Assistenten. Jede Entscheidung auf Grundlage einer Antwort wird in <strong>ausschließlicher Eigenverantwortung des Nutzers</strong> getroffen.</p></div>"
+      },
+      {
+        "heading": "1. Was ist der BalkanLink Assistent?",
+        "html": "<p>Der BalkanLink Assistent ist ein automatisiertes System, das Fragen zum Leben in Deutschland, zur Bürokratie, zu Visa, Sozialleistungen, Arbeit und Wohnen beantwortet. Das System ist mit detailliertem Wissen konfiguriert über:</p><ul><li>Visa- und Aufenthaltsregeln für Staatsangehörige der Balkanländer</li><li>Sozialleistungen (Bürgergeld, Kindergeld, Elterngeld, BAföG, Wohngeld usw.)</li><li>Arbeitsrecht, Mietrecht und Krankenversicherung</li><li>Steuerliche Grundlagen für ausländische Arbeitnehmer</li><li>Verfahren bei wichtigen deutschen Behörden</li></ul><p class=\"mt-3\">Unabhängig von der Qualität der Konfiguration können <strong>automatisierte Systeme unrichtige, unvollständige oder veraltete Antworten generieren</strong> — dies ist eine technische Beschränkung, die nicht vollständig eliminiert werden kann.</p>"
+      },
+      {
+        "heading": "2. Grenzen des Assistenten — was er nicht kann und nicht darf",
+        "html": "<div class=\"legal-warn-yellow\"><ul><li><strong>Er kann keine rechtsverbindlichen Auskünfte geben</strong> und Sie nicht in Verwaltungs- oder Gerichtsverfahren vertreten</li><li><strong>Er garantiert nicht die Richtigkeit der Informationen</strong> — Gesetze, Beträge und Verfahren ändern sich ohne Vorankündigung</li><li><strong>Er kennt Ihre konkrete Situation nicht</strong> — dieselbe Antwort kann für eine Person richtig, für eine andere falsch sein</li><li><strong>Er hat keinen Zugriff auf Behördendatenbanken</strong> und kann den Status Ihres Antrags oder Ihrer Genehmigung nicht prüfen</li><li><strong>Er kann Entscheidungen</strong> konkreter Ausländerbehörden, Jobcenter oder Gerichte nicht vorhersagen — die Praxis variiert nach Stadt und Bundesland</li><li><strong>Er kann Fehler machen</strong> — selbst eine überzeugend formulierte Antwort kann faktisch unrichtig sein</li></ul></div>"
+      },
+      {
+        "heading": "3. Haftungsausschluss für Inhalte des Assistenten",
+        "html": "<p>Gemäß §7 DDG und allgemeinen zivilrechtlichen Bestimmungen schließt <strong>BalkanLink ausdrücklich jede Haftung</strong> für vom Assistenten generierte Inhalte aus, einschließlich:</p><ul><li><strong>Unrichtige oder veraltete Informationen</strong> — das System kann Gesetzesänderungen nicht in Echtzeit verfolgen</li><li><strong>Unvollständige Antworten</strong> — das System berücksichtigt möglicherweise nicht alle relevanten Umstände Ihrer Situation</li><li><strong>Schäden durch Anwendung der Antworten</strong> — Verluste, entgangene Vorteile, Bußgelder, abgelehnte Anträge oder andere negative Folgen</li><li><strong>Entscheidungen zuständiger Behörden</strong> — der Ausgang Ihres Falls bei Ausländerbehörde, Jobcenter oder BAMF kann nicht über den Assistenten vorhergesagt werden</li><li><strong>Versäumte Fristen</strong> — der Assistent kennt konkrete Fristen Ihres Verfahrens nicht; prüfen Sie Fristen immer direkt bei der zuständigen Behörde</li></ul><p class=\"legal-note-box mt-3\"><strong>Rechtsgrundlage:</strong> §7 Abs. 1 DDG, §521 BGB (unentgeltliche Leistungen), §276 BGB (Ausschluss leichter Fahrlässigkeit). Die Haftung für vorsätzlich oder grob fahrlässig verursachte Schäden sowie für Verletzungen von Körper oder Gesundheit bleibt unberührt.</p>"
+      },
+      {
+        "heading": "4. Ihre Prüfpflicht",
+        "html": "<p>Jede vom Assistenten erhaltene Information <strong>müssen Sie über offizielle Quellen prüfen</strong>, bevor Sie Maßnahmen ergreifen:</p><ul><li><a href=\"https://www.bamf.de\" target=\"_blank\" rel=\"noopener noreferrer\">bamf.de</a> — Bundesamt für Migration und Flüchtlinge</li><li><a href=\"https://www.arbeitsagentur.de\" target=\"_blank\" rel=\"noopener noreferrer\">arbeitsagentur.de</a> — Bundesagentur für Arbeit</li><li><a href=\"https://www.bundesregierung.de\" target=\"_blank\" rel=\"noopener noreferrer\">bundesregierung.de</a> — Bundesregierung</li><li><a href=\"https://www.make-it-in-germany.com\" target=\"_blank\" rel=\"noopener noreferrer\">make-it-in-germany.com</a> — Offizielles Portal für Fachkräfte aus dem Ausland</li><li>Zuständige Ausländerbehörde, Jobcenter oder Finanzamt in Ihrer Stadt</li><li>Zugelassener Anwalt oder Beratungsstelle (AWO, Caritas, Diakonie, Pro Asyl) für Rechtsfragen</li></ul>"
+      },
+      {
+        "heading": "5. Sicherheitsmaßnahmen und Systemqualität",
+        "html": "<ul><li><strong>Detailliertes Konfigurationssystem</strong> — der Assistent ist mit umfassendem Wissen über relevante Gesetze und Verfahren sowie Anweisungen konfiguriert, immer eine Prüfung über offizielle Quellen zu empfehlen</li><li><strong>Verbot schädlicher Antworten</strong> — das System ist so konfiguriert, dass es keine Ratschläge gibt, die Gesetzesverstöße, Diskriminierung oder Gewalt fördern könnten</li><li><strong>Regelmäßige Aktualisierung</strong> — die Konfiguration wird bei wichtigen Gesetzesänderungen aktualisiert, zwischen Updates kann es jedoch zu veralteten Informationen kommen</li></ul><p class=\"mt-3 text-xs opacity-70\">Diese Maßnahmen reduzieren das Risiko unrichtiger Antworten erheblich, <strong>eliminieren es jedoch nicht vollständig</strong>. Ihre eigene Prüfung der Informationen bleibt erforderlich.</p>"
+      },
+      {
+        "heading": "6. Datenschutz",
+        "html": "<ul><li>Ihre Anfragen werden gemäß DSGVO-Standards verarbeitet</li><li><strong>Ihre Daten werden nicht zur Verbesserung der Systeme</strong> Dritter verwendet</li><li>Den Chatverlauf können Sie in den Kontoeinstellungen löschen</li></ul><div class=\"legal-warn-red mt-3\"><strong>Empfehlung:</strong> Geben Sie niemals sensible personenbezogene Daten in den Assistenten ein: Ausweis-/Passnummer, Kreditkartendaten oder medizinische Informationen.</div><p class=\"mt-2\">Mehr zum Datenschutz: <a href=\"/de/datenschutz\">Datenschutzerklärung</a></p><p class=\"text-xs opacity-60 pt-4\">Version: April 2026</p>"
+      }
+    ]
+  },
+  "dsa": {
+    "title": "Meldung von Inhalten und Beschwerdeverfahren",
+    "subtitle": "Gemäß Verordnung (EU) 2022/2065 über digitale Dienste (Digital Services Act — DSA) und den Bestimmungen des Digitale-Dienste-Gesetzes (DDG)",
+    "sections": [
+      {
+        "heading": "1. Meldung rechtswidriger Inhalte",
+        "html": "<p>Nutzer und Dritte haben die Möglichkeit, Inhalte auf der Plattform zu melden, die sie für rechtswidrig halten. Wir nehmen Meldungen ernst und bearbeiten sie zeitnah.</p><h3>1.1 Wie melde ich Inhalte?</h3><p>Senden Sie Ihre Meldung per E-Mail an: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a></p><p>Betreff: <strong>„Meldung rechtswidriger Inhalte\"</strong></p><h3>1.2 Erforderliche Angaben</h3><p>Damit wir Ihre Meldung bearbeiten können, benötigen wir:</p><ul><li>Genaue URL oder Beschreibung des beanstandeten Inhalts</li><li>Begründung, warum der Inhalt rechtswidrig sein soll</li><li>Gegebenenfalls einschlägige Rechtsvorschriften</li><li>Kontaktdaten des Meldenden (Name, E-Mail-Adresse)</li><li>Versicherung, dass die Angaben nach bestem Wissen wahr und vollständig sind</li></ul><h3>1.3 Prüfung und Maßnahmen</h3><p>Nach Eingang Ihrer Meldung:</p><ul><li>Bestätigen wir den Eingang zeitnah</li><li>Prüfen wir den gemeldeten Inhalt sorgfältig und objektiv</li><li>Bei festgestellter Rechtswidrigkeit — Inhalt entfernen oder Zugang sperren</li><li>Informieren wir den Meldenden über die Entscheidung und Begründung</li><li>Informieren wir den betroffenen Nutzer (Inhaltsersteller) über die Maßnahme und die Möglichkeit der Beschwerde, sofern dem keine rechtlichen Gründe entgegenstehen</li></ul><p class=\"mt-2\">Die Bearbeitung erfolgt in der Regel innerhalb von 7 Werktagen nach Eingang einer vollständigen Meldung. Bei offensichtlich rechtswidrigen Inhalten (z.B. Volksverhetzung, Kindesmissbrauch) erfolgt die Entfernung sofort.</p>"
+      },
+      {
+        "heading": "2. Internes Beschwerdeverfahren",
+        "html": "<p>Gemäß Art. 20 der Verordnung (EU) 2022/2065 stellen wir ein internes Beschwerdeverfahren bereit, das offensteht für:</p><ul><li>Nutzer, deren Inhalte entfernt oder deren Zugang gesperrt wurde</li><li>Meldende, deren Meldung abgelehnt wurde</li></ul><h3>2.1 Einreichung der Beschwerde</h3><p>Beschwerden können innerhalb von <strong>6 Monaten</strong> nach der jeweiligen Entscheidung per E-Mail an <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a> eingereicht werden.</p><p>Betreff: <strong>„Beschwerde — [kurze Beschreibung]\"</strong></p><h3>2.2 Inhalt der Beschwerde</h3><ul><li>Bezugnahme auf die jeweilige Entscheidung (inkl. Datum und ggf. Referenznummer)</li><li>Begründung der Beschwerde</li><li>Kontaktdaten des Beschwerdeführers</li></ul><h3>2.3 Bearbeitung</h3><ul><li>Die Beschwerde wird zeitnah, objektiv und unvoreingenommen geprüft.</li><li>Die Entscheidung erfolgt nicht ausschließlich automatisiert.</li><li>Der Beschwerdeführer wird über das Ergebnis und die Begründung informiert.</li><li>Bei begründeter Beschwerde wird die ursprüngliche Entscheidung aufgehoben.</li></ul><h3>2.4 Außergerichtliche Streitbeilegung</h3><p>Unabhängig von diesem internen Beschwerdeverfahren haben Sie das Recht, sich an eine zertifizierte Stelle zur außergerichtlichen Streitbeilegung gemäß Art. 21 der Verordnung (EU) 2022/2065 zu wenden.</p>"
+      },
+      {
+        "heading": "3. Kontaktstelle",
+        "html": "<p>Zentrale Kontaktstelle für Behörden der Mitgliedstaaten, die Kommission und das Gremium für digitale Dienste gemäß Art. 11 der Verordnung (EU) 2022/2065 ist:</p><p class=\"mt-2\"><strong>RealCore Digital</strong><br/>E-Mail: <a href=\"mailto:kontakt@realcore-digital.de\">kontakt@realcore-digital.de</a><br/>Sprachen: Deutsch, Englisch</p><p class=\"text-xs opacity-60 pt-4\">Version: April 2026</p>"
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Cookie-Einstellungen",
+    "subtitle": "Cookie-Einstellungen — Verwaltung von Cookies und lokaler Speicherung",
+    "whatAreCookies": "Was sind Cookies?",
+    "whatAreCookiesText": "Cookies sind kleine Textdateien im Browser. Neben klassischen Cookies nutzt BalkanLink <strong>localStorage</strong> und <strong>sessionStorage</strong> — lokale Speichermechanismen, die auf Ihr Gerät beschränkt sind und nie automatisch an den Server gesendet werden.",
+    "legalBasisShort": "Rechtsgrundlage: §25 TDDDG i.V.m. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) und §25 Abs. 2 TDDDG (technisch notwendig).",
+    "categoriesTitle": "Datenarten",
+    "necessary": "Technisch notwendig",
+    "alwaysActive": "Immer aktiv",
+    "necessaryDesc": "Notwendig für den Betrieb der Plattform. Können nicht deaktiviert werden.",
+    "necessaryItems": [
+      "Authentifizierungs-Token — hält Sie angemeldet",
+      "Cookie-Einwilligungseinstellungen — speichert Ihre Auswahl (12 Monate)",
+      "Fortschritt im DeutschTrainer — lokal, bis zur Synchronisation mit dem Konto"
+    ],
+    "necessaryLegal": "Rechtsgrundlage: §25 Abs. 2 TDDDG (technische Notwendigkeit)",
+    "analytics": "Analysedaten (optional)",
+    "analyticsDesc": "Anonyme Nutzungsdaten, die uns helfen, die Plattform zu verbessern. Die IP-Adresse wird vollständig anonymisiert. Keine Weitergabe an Werbetreibende.",
+    "statusOn": "Sie haben anonyme Analyse aktiviert",
+    "statusOff": "Analyse deaktiviert",
+    "analyticsLegal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (ausschließlich mit Ihrer Aktivierung)",
+    "marketing": "Marketing-Cookies",
+    "notInUse": "Nicht im Einsatz",
+    "marketingDesc": "BalkanLink <strong>verwendet keine</strong> Marketing-Cookies, Retargeting-Pixel oder Werbenetzwerke (Google Ads, Meta Pixel usw.). Die Plattform ist werbefrei und ohne Tracking zu Werbezwecken.",
+    "deleteTitle": "Cookies im Browser löschen",
+    "deleteItems": [
+      "<strong>Chrome:</strong> Einstellungen → Datenschutz und Sicherheit → Daten löschen",
+      "<strong>Firefox:</strong> Einstellungen → Datenschutz → Cookies und Website-Daten",
+      "<strong>Safari:</strong> Einstellungen → Datenschutz → Daten verwalten",
+      "<strong>Edge:</strong> Einstellungen → Datenschutz → Browserdaten löschen"
+    ],
+    "deleteWarn": "Beim Löschen aller Cookies können Sie abgemeldet werden und den lokalen Fortschritt im DeutschTrainer verlieren.",
+    "version": "Version: April 2026",
+    "save": "Einstellungen speichern",
+    "saved": "Einstellungen wurden gespeichert."
+  }
+}
