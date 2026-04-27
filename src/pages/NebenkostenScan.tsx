@@ -360,6 +360,17 @@ export default function NebenkostenScan() {
                   </div>
                 )}
 
+                <div className="mt-8 flex justify-center">
+                  <Button
+                    onClick={reset}
+                    size="lg"
+                    className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all"
+                  >
+                    <ShieldCheck className="mr-2 h-5 w-5" />
+                    {t("nebenkostenScan.result.newScanCta")}
+                  </Button>
+                </div>
+
                 <div className="mt-6 flex items-start gap-2 rounded-xl border border-border bg-muted/40 p-4 text-xs text-muted-foreground">
                   <ScrollText className="h-4 w-4 shrink-0 mt-0.5" />
                   <span>{t("nebenkostenScan.result.disclaimer")}</span>
