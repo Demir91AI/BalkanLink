@@ -736,12 +736,18 @@ export default function ChatAssistant() {
                   <div className="flex items-center gap-1">
                     {/* Save */}
                     {messages.length > 0 && (
-                      <button onClick={saveConversation} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Spremi razgovor">
+                      <button onClick={saveConversation} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Spremi razgovor (.txt)" aria-label="Spremi razgovor">
                         <Save className="h-4 w-4" />
                       </button>
                     )}
+                    {/* Clear chat */}
+                    {messages.length > 0 && (
+                      <button onClick={clearChat} className="rounded-lg p-1.5 text-white/30 hover:text-red-400 hover:bg-red-500/10 transition-all" title="Obriši razgovor" aria-label="Obriši razgovor">
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    )}
                     {/* Close */}
-                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all">
+                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Zatvori" aria-label="Zatvori asistenta">
                       <X className="h-5 w-5" />
                     </button>
                   </div>
