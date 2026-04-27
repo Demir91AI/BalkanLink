@@ -251,29 +251,8 @@ export default function AnerkennungNavigator() {
     setEmailVisible(false);
   };
 
-  // Premium gate
-  if (!isPremium) {
-    return (
-      <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen">
-        <SEO
-          title={t("seo.title")}
-          description={t("seo.description")}
-          path="/anerkennung-navigator"
-        />
-        <PageNavBar onBack={handleBack} />
-        <div className="mb-6">
-          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground flex items-center gap-3">
-            <GraduationCap className="h-7 w-7 text-[hsl(var(--gold))]" />
-            {t("ui.headerTitle")}
-          </h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {t("ui.headerSubtitleShort")}
-          </p>
-        </div>
-        <AnerkennungPaywall />
-      </div>
-    );
-  }
+  // Premium gate — free preview: Step 1 (country) is open; paywall kicks in after country selected
+  const showPaywall = !isPremium && !!selectedCountry;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen">
