@@ -51,6 +51,7 @@ import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuid
 import { navigateBackOrHome } from "@/lib/navigation";
 import FormRightPanel from "@/components/formCenter/FormRightPanel";
 import PremiumBenefitsSection from "@/components/formCenter/PremiumBenefitsSection";
+import FormCatalogVault from "@/components/formCenter/FormCatalogVault";
 import { label } from "@/lib/de-labels";
 
 type LangKey = "de" | "bs" | "hr" | "sr";
