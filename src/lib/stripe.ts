@@ -28,8 +28,9 @@ export const STRIPE_PRODUCT_IDS = {
  */
 export async function initiateCheckout(priceId: string, _userId: string, mode: "subscription" | "payment" = "payment", _formSlug?: string) {
   try {
+    const returnTo = `${window.location.pathname}${window.location.search}`;
     const { data, error } = await supabase.functions.invoke("create-checkout", {
-      body: { priceId, mode },
+      body: { priceId, mode, formSlug: _formSlug, returnTo },
     });
     if (error) throw error;
     if (data?.url) {
