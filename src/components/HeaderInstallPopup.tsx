@@ -34,6 +34,7 @@ export function HeaderInstallPopup() {
   const [open, setOpen] = useState(false);
   const [installed, setInstalled] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const popupRef = useRef<HTMLDivElement | null>(null);
 
   // Detect already-installed standalone mode
   useEffect(() => {
