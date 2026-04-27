@@ -327,8 +327,34 @@ export default function AnerkennungNavigator() {
         </section>
       )}
 
+      {/* ────────── PAYWALL after Step 1 (free preview) ────────── */}
+      {showPaywall && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+              {country && <span className="text-lg">{country.flag}</span>}
+              <span>
+                {t("ui.previewSelected", {
+                  defaultValue: "Odabrano:",
+                })}{" "}
+                <strong className="text-foreground">
+                  {country ? countryT(country.code, "name", country.name) : ""}
+                </strong>
+              </span>
+            </p>
+            <button
+              onClick={() => setSelectedCountry(null)}
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+            >
+              <ChevronLeft className="h-3 w-3" /> {t("ui.changeCountry")}
+            </button>
+          </div>
+          <AnerkennungPaywall />
+        </section>
+      )}
+
       {/* ────────── STEP 2: Profession ────────── */}
-      {selectedCountry && !selectedProfession && country && (
+      {!showPaywall && selectedCountry && !selectedProfession && country && (
         <section className="space-y-6">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div>
