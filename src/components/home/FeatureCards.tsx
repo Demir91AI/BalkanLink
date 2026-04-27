@@ -13,6 +13,7 @@ export default function FeatureCards() {
   const features = [
     { icon: FileText, key: "form", to: "/formulari" },
     { icon: Camera, key: "doc", to: "/dokumenten-check" },
+    { icon: Calculator, key: "nebenkosten", to: "/nebenkosten-scan" },
     { icon: Shield, key: "visa", to: "/viza" },
     { icon: GraduationCap, key: "german", to: "/deutsch-trainer" },
     { icon: Receipt, key: "porezi", to: "/porezi" },
