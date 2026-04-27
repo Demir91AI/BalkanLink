@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import { ArrowRight, ChevronDown, Search, Lock, Sparkles, Info, X, Crown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronDown, Search, Lock, Sparkles, Info, X, Crown, FileText } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import {
@@ -11,8 +12,8 @@ import {
 } from "@/lib/form-catalog";
 
 /**
- * Vault — Black & Gold luxury edition.
- * Premium feel: gold accents, metallic shimmer, deep blacks.
+ * Vault — BalkanLink Deutsch styled.
+ * Navy gradient + blue/cyan gradient highlights + subtle gold accents.
  */
 
 interface Props {
@@ -25,22 +26,15 @@ interface Props {
 function StatusPill({ free }: { free: boolean }) {
   if (free) {
     return (
-      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">
-        <span className="block size-1 rounded-full bg-emerald-400" />
+      <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(var(--success)/0.12)] px-2 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
+        <span className="block size-1 rounded-full bg-[hsl(var(--success))]" />
         Free
       </span>
     );
   }
   return (
-    <span
-      className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider border"
-      style={{
-        background: "linear-gradient(135deg, hsl(var(--gold) / 0.2), hsl(var(--gold) / 0.05))",
-        borderColor: "hsl(var(--gold) / 0.4)",
-        color: "hsl(var(--gold))",
-      }}
-    >
-      <Crown className="h-2 w-2" />
+    <span className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/[0.08] px-2 py-0.5 text-[10px] font-bold text-gold">
+      <Crown className="h-2.5 w-2.5" />
       Pro
     </span>
   );
@@ -57,36 +51,35 @@ function FormRow({
 }) {
   const free = isFormFree(item.slug);
   return (
-    <button
+    <motion.button
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.2 }}
       onClick={() => onSelect(item.slug)}
       className={cn(
-        "group relative w-full text-left flex items-start gap-3 px-3 py-2.5 rounded-lg border transition-all overflow-hidden",
-        "border-white/5 bg-black/30 hover:bg-black/50 hover:border-[hsl(var(--gold))]/40",
-        "hover:shadow-[0_0_20px_-5px_hsl(var(--gold)/0.3)]"
+        "group relative w-full text-left flex items-start gap-3 rounded-2xl border p-4 transition-all duration-200",
+        free
+          ? "border-white/[0.06] bg-white/[0.03] hover:border-[hsl(var(--success)/0.3)] hover:shadow-[0_8px_30px_rgba(34,197,94,0.1)]"
+          : "border-white/[0.06] bg-white/[0.03] hover:border-white/[0.12] hover:shadow-[0_8px_30px_rgba(59,130,246,0.1)]"
       )}
       aria-label={`Otvori ${item.label}`}
     >
-      {/* Gold shimmer on hover */}
-      <span
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(110deg, transparent 30%, hsl(var(--gold) / 0.08) 50%, transparent 70%)",
-        }}
-      />
-      <span
+      {/* Icon block */}
+      <div
         className={cn(
-          "mt-1.5 block size-1.5 rounded-full shrink-0 transition-all",
-          free ? "bg-emerald-400" : "bg-[hsl(var(--gold))]",
-          "group-hover:shadow-[0_0_8px_currentColor]"
+          "shrink-0 flex items-center justify-center w-10 h-10 rounded-xl transition-all",
+          free
+            ? "bg-[hsl(var(--success)/0.1)] text-[hsl(var(--success))]"
+            : "bg-gold/[0.08] text-gold"
         )}
-        aria-hidden="true"
-      />
+      >
+        <FileText className="h-4 w-4" />
+      </div>
+
       <div className="relative flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm font-semibold text-foreground leading-tight group-hover:text-[hsl(var(--gold))] transition-colors">
+          <h3 className="text-sm font-bold text-white/90 leading-tight">
             {item.label}
-          </span>
+          </h3>
           <StatusPill free={free} />
           {item.slug === "hauptantrag" && onShowBuergergeldInfo && (
             <span
@@ -96,19 +89,19 @@ function FormRow({
                 e.stopPropagation();
                 onShowBuergergeldInfo();
               }}
-              className="inline-flex items-center text-muted-foreground hover:text-[hsl(var(--gold))] transition-colors"
+              className="inline-flex items-center text-white/40 hover:text-gold transition-colors"
               title="Šta je Bürgergeld?"
             >
               <Info className="h-3 w-3" />
             </span>
           )}
         </div>
-        <p className="mt-0.5 text-xs text-muted-foreground/80 leading-snug line-clamp-2">
+        <p className="mt-1 text-xs text-white/40 leading-relaxed line-clamp-2">
           {item.desc}
         </p>
       </div>
-      <ArrowRight className="relative h-3.5 w-3.5 mt-1 shrink-0 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:text-[hsl(var(--gold))]" />
-    </button>
+      <ArrowRight className="h-4 w-4 mt-1 shrink-0 text-white/20 transition-all group-hover:translate-x-0.5 group-hover:text-white/60" />
+    </motion.button>
   );
 }
 
@@ -118,145 +111,126 @@ function CategorySection({
   onToggle,
   onSelect,
   onShowBuergergeldInfo,
+  index,
 }: {
   group: FormGroup;
   isOpen: boolean;
   onToggle: () => void;
   onSelect: (slug: string) => void;
   onShowBuergergeldInfo?: () => void;
+  index: number;
 }) {
   const totalCount =
     group.items.length +
     (group.subGroups?.reduce((acc, s) => acc + s.items.length, 0) || 0);
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.2) }}
       className={cn(
-        "relative rounded-xl border overflow-hidden transition-all",
+        "rounded-2xl border bg-white/[0.02] overflow-hidden transition-all duration-300",
         isOpen
-          ? "border-[hsl(var(--gold))]/30 bg-gradient-to-b from-black/60 to-black/40 shadow-[0_8px_40px_-12px_hsl(var(--gold)/0.25)]"
-          : "border-white/5 bg-black/30 hover:border-[hsl(var(--gold))]/20 hover:bg-black/40"
+          ? "border-white/[0.12] shadow-[0_8px_40px_rgba(59,130,246,0.08)]"
+          : "border-white/[0.06] hover:border-white/[0.1]"
       )}
     >
-      {/* Top gold hairline when open */}
-      {isOpen && (
-        <span
-          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent)",
-          }}
-        />
-      )}
-
-      {/* Header — compact luxury */}
+      {/* Header */}
       <button
         onClick={onToggle}
-        className="w-full flex items-center gap-3 px-4 py-3 relative text-left transition-colors hover:bg-[hsl(var(--gold))]/[0.03]"
+        className="w-full flex items-center gap-3 px-5 py-4 text-left transition-colors hover:bg-white/[0.02]"
         aria-expanded={isOpen}
       >
-        {/* Left gold strip */}
-        <span
-          className="absolute left-0 top-0 bottom-0 w-[2px] transition-all"
-          style={{
-            background: isOpen
-              ? "linear-gradient(180deg, transparent, hsl(var(--gold)), transparent)"
-              : "linear-gradient(180deg, transparent, hsl(var(--gold) / 0.4), transparent)",
-          }}
-        />
-        <span
-          className={cn(
-            "text-xl ml-2 shrink-0 transition-all",
-            isOpen && "drop-shadow-[0_0_8px_hsl(var(--gold)/0.4)]"
-          )}
-          aria-hidden="true"
-        >
+        <span className="text-2xl shrink-0" aria-hidden="true">
           {group.icon}
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-2 flex-wrap">
-            <h2
-              className={cn(
-                "text-base font-bold tracking-tight transition-colors",
-                isOpen ? "text-[hsl(var(--gold))]" : "text-foreground"
-              )}
-            >
+            <h2 className="text-base font-black text-white/90 tracking-tight">
               {group.title}
             </h2>
             <span
-              className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border"
-              style={{
-                background: "hsl(var(--gold) / 0.1)",
-                borderColor: "hsl(var(--gold) / 0.25)",
-                color: "hsl(var(--gold))",
-              }}
+              className={cn(
+                "rounded-full px-2 py-0.5 text-[10px] font-bold transition-all",
+                isOpen
+                  ? "text-white shadow-[0_0_12px_rgba(59,130,246,0.3)]"
+                  : "border border-white/[0.08] bg-white/[0.04] text-white/60"
+              )}
+              style={
+                isOpen
+                  ? { background: "linear-gradient(135deg, #3b82f6, #06b6d4)" }
+                  : undefined
+              }
             >
               {totalCount}
             </span>
             {group.isFree && (
-              <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--success))]">
                 · Sve besplatno
               </span>
             )}
           </div>
         </div>
-        <ChevronDown
-          className={cn(
-            "h-4 w-4 transition-all duration-300 shrink-0",
-            isOpen ? "rotate-180 text-[hsl(var(--gold))]" : "text-muted-foreground"
-          )}
-        />
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="shrink-0"
+        >
+          <ChevronDown
+            className={cn(
+              "h-4 w-4 transition-colors",
+              isOpen ? "text-white/80" : "text-white/30"
+            )}
+          />
+        </motion.div>
       </button>
 
       {/* Content */}
-      {isOpen && (
-        <div
-          className="border-t p-2 sm:p-3"
-          style={{ borderColor: "hsl(var(--gold) / 0.15)" }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
-            {group.items.map((item) => (
-              <FormRow
-                key={item.slug}
-                item={item}
-                onSelect={onSelect}
-                onShowBuergergeldInfo={onShowBuergergeldInfo}
-              />
-            ))}
-          </div>
-
-          {group.subGroups?.map((sub) => (
-            <div
-              key={sub.id}
-              className="mt-3 pt-3 border-t"
-              style={{ borderColor: "hsl(var(--gold) / 0.1)" }}
-            >
-              <div className="flex items-center gap-2 px-1 mb-2">
-                <span className="block size-1 rounded-full bg-[hsl(var(--gold))]" />
-                <h3 className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">
-                  {sub.title}
-                </h3>
-                <div
-                  className="flex-1 h-px"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, hsl(var(--gold) / 0.3), transparent)",
-                  }}
-                />
-                <span className="text-[10px] text-muted-foreground tabular-nums">
-                  {sub.items.length}
-                </span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
-                {sub.items.map((item) => (
-                  <FormRow key={item.slug} item={item} onSelect={onSelect} />
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="overflow-hidden"
+          >
+            <div className="border-t border-white/[0.06] p-3 sm:p-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                {group.items.map((item) => (
+                  <FormRow
+                    key={item.slug}
+                    item={item}
+                    onSelect={onSelect}
+                    onShowBuergergeldInfo={onShowBuergergeldInfo}
+                  />
                 ))}
               </div>
+
+              {group.subGroups?.map((sub) => (
+                <div key={sub.id} className="mt-4 pt-4 border-t border-white/[0.06]">
+                  <div className="flex items-center gap-2 px-1 mb-3">
+                    <h3 className="text-[11px] font-black uppercase tracking-[0.15em] text-white/60">
+                      {sub.title}
+                    </h3>
+                    <div className="flex-1 h-px bg-gradient-to-r from-white/[0.08] to-transparent" />
+                    <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2 py-0.5 text-[10px] font-bold text-white/60">
+                      {sub.items.length}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                    {sub.items.map((item) => (
+                      <FormRow key={item.slug} item={item} onSelect={onSelect} />
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
-    </section>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.section>
   );
 }
 
@@ -297,182 +271,201 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
   const freeForms = allEntries.filter((e) => isFormFree(e.slug)).length;
 
   return (
-    <div className="space-y-4">
-      {/* Hero — Black & Gold luxury */}
-      <div
-        className="relative overflow-hidden rounded-xl border p-5 sm:p-6"
+    <div
+      className="relative -mx-5 sm:-mx-10 lg:-mx-20 -mt-6 sm:-mt-8"
+      style={{
+        background: "linear-gradient(180deg, #0f172a 0%, #020617 100%)",
+      }}
+    >
+      {/* Hero — BalkanLink Deutsch style */}
+      <section
+        className="relative overflow-hidden border-b border-white/[0.06] pb-10 pt-6 sm:pb-12 sm:pt-8"
         style={{
-          background:
-            "linear-gradient(135deg, rgba(8,12,24,0.95) 0%, rgba(15,20,40,0.85) 50%, rgba(20,16,8,0.9) 100%)",
-          borderColor: "hsl(var(--gold) / 0.3)",
-          boxShadow:
-            "inset 0 1px 0 hsl(var(--gold) / 0.15), 0 20px 60px -20px hsl(var(--gold) / 0.2)",
+          background: "linear-gradient(145deg, #0f172a 0%, #020617 50%, #0c1a3d 100%)",
         }}
       >
-        {/* Gold corner glow */}
+        {/* Animated dot pattern */}
         <div
-          className="absolute -top-32 -right-32 w-80 h-80 rounded-full pointer-events-none"
+          className="pointer-events-none absolute inset-0"
           style={{
-            background:
-              "radial-gradient(circle, hsl(var(--gold) / 0.25) 0%, transparent 70%)",
-            filter: "blur(40px)",
+            backgroundImage:
+              "radial-gradient(circle, rgba(59,130,246,0.08) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
           }}
         />
+        {/* Radial glow */}
         <div
-          className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full pointer-events-none"
+          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2"
           style={{
+            width: "120%",
+            height: "100%",
             background:
-              "radial-gradient(circle, hsl(var(--gold) / 0.12) 0%, transparent 70%)",
-            filter: "blur(40px)",
-          }}
-        />
-        {/* Top gold shimmer line */}
-        <span
-          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, hsl(var(--gold) / 0.8), transparent)",
+              "radial-gradient(ellipse 60% 70% at 50% 20%, rgba(59,130,246,0.18) 0%, rgba(6,182,212,0.06) 40%, transparent 80%)",
           }}
         />
 
-        <div className="relative flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <div className="min-w-0">
-            <div
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full mb-3 border"
-              style={{
-                background:
-                  "linear-gradient(135deg, hsl(var(--gold) / 0.2), hsl(var(--gold) / 0.05))",
-                borderColor: "hsl(var(--gold) / 0.4)",
-              }}
-            >
-              <Sparkles className="h-2.5 w-2.5 text-[hsl(var(--gold))]" />
-              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[hsl(var(--gold))]">
-                Premium Vault · Stand 2026
-              </span>
-            </div>
-            <h1
-              className="text-2xl sm:text-3xl font-extrabold tracking-tight"
-              style={{
-                background:
-                  "linear-gradient(135deg, #fff 0%, hsl(var(--gold)) 50%, #fff 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Katalog obrazaca
-            </h1>
-            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-[55ch]">
-              Svi zvanični njemački formulari — prevedeni i pojašnjeni na bosanskom.
-            </p>
-          </div>
-          <div className="flex gap-5 sm:gap-7 shrink-0">
-            <div className="text-right">
-              <div
-                className="text-3xl font-extrabold tabular-nums"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsl(var(--gold)) 0%, #f5e6a8 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+        <div className="relative z-10 px-5 sm:px-10 lg:px-20">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
+            <div className="max-w-2xl">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/[0.08] px-4 py-1.5"
               >
-                {totalForms}
-              </div>
-              <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
-                Obrazaca
-              </div>
+                <Sparkles className="h-3.5 w-3.5 text-gold" />
+                <span className="text-xs font-bold text-gold">
+                  Katalog · Stand 2026
+                </span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.08 }}
+                className="text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl"
+              >
+                Formulari za Njemačku
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.16 }}
+                className="mt-3 max-w-lg text-sm leading-relaxed text-white/50 sm:text-base"
+              >
+                Svi zvanični njemački obrasci — prevedeni i pojašnjeni na bosanskom.
+              </motion.p>
             </div>
-            <div className="text-right">
-              <div className="text-3xl font-extrabold text-emerald-400 tabular-nums">
-                {freeForms}
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="flex gap-3"
+            >
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-center min-w-[88px]">
+                <div
+                  className="text-2xl font-black tabular-nums"
+                  style={{
+                    background: "linear-gradient(135deg, #3b82f6, #06b6d4)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {totalForms}
+                </div>
+                <div className="text-[10px] font-bold uppercase tracking-wider text-white/40 mt-0.5">
+                  Obrazaca
+                </div>
               </div>
-              <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
-                Besplatno
+              <div className="rounded-2xl border border-[hsl(var(--success)/0.2)] bg-[hsl(var(--success)/0.04)] px-4 py-3 text-center min-w-[88px]">
+                <div className="text-2xl font-black tabular-nums text-[hsl(var(--success))]">
+                  {freeForms}
+                </div>
+                <div className="text-[10px] font-bold uppercase tracking-wider text-white/40 mt-0.5">
+                  Besplatno
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Search + controls */}
-      <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[hsl(var(--gold))]/70" />
-          <Input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Pretraži formulare (npr. Kindergeld, Anmeldung…)"
-            className="pl-9 pr-9 h-10 text-sm rounded-lg bg-black/40 backdrop-blur-sm focus-visible:ring-[hsl(var(--gold))]/40"
-            style={{ borderColor: "hsl(var(--gold) / 0.2)" }}
-            aria-label="Pretraga formulara"
-          />
-          {isSearching && (
-            <button
-              onClick={() => setSearch("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-[hsl(var(--gold))]"
-              aria-label="Očisti pretragu"
-            >
-              <X className="h-3.5 w-3.5" />
-            </button>
+      {/* Main area */}
+      <div className="relative">
+        {/* Subtle radial glow */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.08) 0%, transparent 70%)",
+          }}
+        />
+
+        <div className="relative z-10 px-5 sm:px-10 lg:px-20 py-8">
+          {/* Search + controls */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="mb-6 flex flex-col sm:flex-row gap-2 items-stretch sm:items-center"
+          >
+            <div className="relative flex-1">
+              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
+              <Input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Pretraži formulare (npr. Kindergeld, Anmeldung…)"
+                className="pl-10 pr-10 h-11 text-sm rounded-xl border-white/[0.08] bg-white/[0.03] backdrop-blur-sm text-white placeholder:text-white/30 focus-visible:ring-blue-500/40 focus-visible:border-blue-500/40"
+                aria-label="Pretraga formulara"
+              />
+              {isSearching && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/70 transition-colors"
+                  aria-label="Očisti pretragu"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+            {!isSearching && (
+              <div className="flex gap-2 shrink-0">
+                <button
+                  onClick={expandAll}
+                  className="px-4 h-11 rounded-xl border border-white/[0.08] bg-white/[0.03] text-xs font-bold text-white/70 hover:bg-white/[0.06] hover:text-white transition-colors"
+                >
+                  Otvori sve
+                </button>
+                <button
+                  onClick={collapseAll}
+                  className="px-4 h-11 rounded-xl border border-white/[0.08] bg-white/[0.03] text-xs font-bold text-white/50 hover:bg-white/[0.06] hover:text-white/70 transition-colors"
+                >
+                  Zatvori
+                </button>
+              </div>
+            )}
+          </motion.div>
+
+          {/* Results */}
+          {isSearching ? (
+            <div className="space-y-3">
+              <p className="text-xs text-white/50 px-1">
+                {searchResults.length === 0
+                  ? "Nema rezultata."
+                  : `${searchResults.length} ${searchResults.length === 1 ? "rezultat" : "rezultata"} za „${search}"`}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
+                {searchResults.map((item) => (
+                  <FormRow
+                    key={item.slug}
+                    item={item}
+                    onSelect={onSelect}
+                    onShowBuergergeldInfo={onShowBuergergeldInfo}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {formCatalog.map((group, idx) => (
+                <CategorySection
+                  key={group.id}
+                  group={group}
+                  index={idx}
+                  isOpen={openIds.has(group.id)}
+                  onToggle={() => toggle(group.id)}
+                  onSelect={onSelect}
+                  onShowBuergergeldInfo={onShowBuergergeldInfo}
+                />
+              ))}
+            </div>
           )}
         </div>
-        {!isSearching && (
-          <div className="flex gap-1.5 shrink-0">
-            <button
-              onClick={expandAll}
-              className="px-3 h-10 rounded-lg border bg-black/40 text-xs font-semibold text-foreground hover:text-[hsl(var(--gold))] transition-colors"
-              style={{ borderColor: "hsl(var(--gold) / 0.25)" }}
-            >
-              Otvori sve
-            </button>
-            <button
-              onClick={collapseAll}
-              className="px-3 h-10 rounded-lg border border-white/10 bg-black/40 text-xs font-semibold text-muted-foreground hover:text-foreground hover:border-white/20 transition-colors"
-            >
-              Zatvori
-            </button>
-          </div>
-        )}
       </div>
-
-      {/* Results */}
-      {isSearching ? (
-        <div className="space-y-2">
-          <p className="text-xs text-muted-foreground px-1">
-            {searchResults.length === 0
-              ? "Nema rezultata."
-              : `${searchResults.length} ${searchResults.length === 1 ? "rezultat" : "rezultata"} za „${search}"`}
-          </p>
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-1.5 rounded-xl border bg-black/40 backdrop-blur-sm p-3"
-            style={{ borderColor: "hsl(var(--gold) / 0.2)" }}
-          >
-            {searchResults.map((item) => (
-              <FormRow
-                key={item.slug}
-                item={item}
-                onSelect={onSelect}
-                onShowBuergergeldInfo={onShowBuergergeldInfo}
-              />
-            ))}
-          </div>
-        </div>
-      ) : (
-        <div className="space-y-2.5">
-          {formCatalog.map((group) => (
-            <CategorySection
-              key={group.id}
-              group={group}
-              isOpen={openIds.has(group.id)}
-              onToggle={() => toggle(group.id)}
-              onSelect={onSelect}
-              onShowBuergergeldInfo={onShowBuergergeldInfo}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }
