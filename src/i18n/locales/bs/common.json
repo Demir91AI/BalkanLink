@@ -127,6 +127,8 @@
       "forgotPassword": "Zaboravljena lozinka?",
       "noAccount": "Nemaš nalog? Registruj se",
       "mustAcceptTerms": "Moraš prihvatiti uslove korištenja.",
+      "showPassword": "Prikaži lozinku",
+      "hidePassword": "Sakrij lozinku",
       "wrongCredentials": "Pogrešan e-mail ili lozinka.",
       "successTitle": "Uspješno prijavljeni!"
     },

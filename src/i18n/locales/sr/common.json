@@ -118,6 +118,8 @@
       "title": "Prijava",
       "emailPlaceholder": "E-mail adresa",
       "passwordPlaceholder": "Lozinka",
+      "showPassword": "Prikaži lozinku",
+      "hidePassword": "Sakrij lozinku",
       "termsPrefix": "Prihvatam uslove korišćenja",
       "termsLink": "Uslovi korišćenja",
       "termsAnd": "i",

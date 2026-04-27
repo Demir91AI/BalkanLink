@@ -118,6 +118,8 @@
       "title": "Anmelden",
       "emailPlaceholder": "E-Mail-Adresse",
       "passwordPlaceholder": "Passwort",
+      "showPassword": "Passwort anzeigen",
+      "hidePassword": "Passwort verbergen",
       "termsPrefix": "Ich akzeptiere die",
       "termsLink": "Nutzungsbedingungen",
       "termsAnd": "und",
