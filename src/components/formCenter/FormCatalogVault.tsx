@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { ArrowRight, ChevronDown, Search, Lock, Sparkles, Info, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Search, Lock, Sparkles, Info, X, Crown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import {
@@ -11,8 +11,8 @@ import {
 } from "@/lib/form-catalog";
 
 /**
- * Vault Accordion v2 — colored, compact, premium feel.
- * Each category has its own accent color → instant scanning + wow factor.
+ * Vault — Black & Gold luxury edition.
+ * Premium feel: gold accents, metallic shimmer, deep blacks.
  */
 
 interface Props {
@@ -20,105 +20,27 @@ interface Props {
   onShowBuergergeldInfo?: () => void;
 }
 
-/* ---------- Color theme per category ---------- */
-
-type Theme = {
-  /** raw HSL components for arbitrary tailwind values */
-  hsl: string;
-  /** tailwind text class for accent text */
-  text: string;
-  /** tailwind border class for accent border */
-  border: string;
-  /** tailwind bg class for very subtle accent fill */
-  bg: string;
-  /** tailwind bg class for the accent dot/strip */
-  dot: string;
-  /** soft glow color (rgba) for hover shadow */
-  glow: string;
-};
-
-const THEMES: Record<string, Theme> = {
-  // Emerald — Free
-  dolazak: {
-    hsl: "152 76% 50%",
-    text: "text-emerald-300",
-    border: "border-emerald-500/40",
-    bg: "bg-emerald-500/[0.06]",
-    dot: "bg-emerald-400",
-    glow: "rgba(52,211,153,0.15)",
-  },
-  // Rose — Family
-  porodica: {
-    hsl: "350 89% 65%",
-    text: "text-rose-300",
-    border: "border-rose-500/40",
-    bg: "bg-rose-500/[0.06]",
-    dot: "bg-rose-400",
-    glow: "rgba(251,113,133,0.15)",
-  },
-  // Amber — Bürgergeld (money)
-  buergergeld: {
-    hsl: "38 92% 60%",
-    text: "text-amber-300",
-    border: "border-amber-500/40",
-    bg: "bg-amber-500/[0.06]",
-    dot: "bg-amber-400",
-    glow: "rgba(251,191,36,0.18)",
-  },
-  // Sky — Wohngeld (home)
-  wohngeld: {
-    hsl: "199 89% 60%",
-    text: "text-sky-300",
-    border: "border-sky-500/40",
-    bg: "bg-sky-500/[0.06]",
-    dot: "bg-sky-400",
-    glow: "rgba(56,189,248,0.15)",
-  },
-  // Violet — Work
-  posao: {
-    hsl: "262 83% 70%",
-    text: "text-violet-300",
-    border: "border-violet-500/40",
-    bg: "bg-violet-500/[0.06]",
-    dot: "bg-violet-400",
-    glow: "rgba(167,139,250,0.15)",
-  },
-  // Cyan — Education
-  obrazovanje: {
-    hsl: "188 86% 53%",
-    text: "text-cyan-300",
-    border: "border-cyan-500/40",
-    bg: "bg-cyan-500/[0.06]",
-    dot: "bg-cyan-400",
-    glow: "rgba(34,211,238,0.15)",
-  },
-  // Slate-gold — Documents (gold accent)
-  dokumenti: {
-    hsl: "43 74% 54%",
-    text: "text-[hsl(var(--gold))]",
-    border: "border-[hsl(var(--gold))]/40",
-    bg: "bg-[hsl(var(--gold))]/[0.06]",
-    dot: "bg-[hsl(var(--gold))]",
-    glow: "rgba(201,168,76,0.18)",
-  },
-};
-
-const FALLBACK_THEME: Theme = THEMES.dokumenti;
-
 /* ---------- Sub-components ---------- */
 
 function StatusPill({ free }: { free: boolean }) {
   if (free) {
     return (
-      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">
         <span className="block size-1 rounded-full bg-emerald-400" />
         Free
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[hsl(var(--gold))]/15 text-[hsl(var(--gold))] border border-[hsl(var(--gold))]/30">
-      <Lock className="h-2 w-2" />
+    <span
+      className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider border"
+      style={{
+        background: "linear-gradient(135deg, hsl(var(--gold) / 0.2), hsl(var(--gold) / 0.05))",
+        borderColor: "hsl(var(--gold) / 0.4)",
+        color: "hsl(var(--gold))",
+      }}
+    >
+      <Crown className="h-2 w-2" />
       Pro
     </span>
   );
@@ -126,12 +48,10 @@ function StatusPill({ free }: { free: boolean }) {
 
 function FormRow({
   item,
-  theme,
   onSelect,
   onShowBuergergeldInfo,
 }: {
   item: FormEntry;
-  theme: Theme;
   onSelect: (slug: string) => void;
   onShowBuergergeldInfo?: () => void;
 }) {
@@ -140,22 +60,31 @@ function FormRow({
     <button
       onClick={() => onSelect(item.slug)}
       className={cn(
-        "group w-full text-left flex items-start gap-3 px-3 py-2.5 rounded-lg border transition-all",
-        "border-border/30 bg-background/30 hover:bg-background/60",
-        `hover:${theme.border}`
+        "group relative w-full text-left flex items-start gap-3 px-3 py-2.5 rounded-lg border transition-all overflow-hidden",
+        "border-white/5 bg-black/30 hover:bg-black/50 hover:border-[hsl(var(--gold))]/40",
+        "hover:shadow-[0_0_20px_-5px_hsl(var(--gold)/0.3)]"
       )}
-      style={{
-        // arbitrary hover shadow via inline so theme works in dark
-      }}
       aria-label={`Otvori ${item.label}`}
     >
+      {/* Gold shimmer on hover */}
       <span
-        className={cn("mt-1.5 block size-1.5 rounded-full shrink-0", theme.dot)}
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(110deg, transparent 30%, hsl(var(--gold) / 0.08) 50%, transparent 70%)",
+        }}
+      />
+      <span
+        className={cn(
+          "mt-1.5 block size-1.5 rounded-full shrink-0 transition-all",
+          free ? "bg-emerald-400" : "bg-[hsl(var(--gold))]",
+          "group-hover:shadow-[0_0_8px_currentColor]"
+        )}
         aria-hidden="true"
       />
-      <div className="flex-1 min-w-0">
+      <div className="relative flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm font-semibold text-foreground leading-tight">
+          <span className="text-sm font-semibold text-foreground leading-tight group-hover:text-[hsl(var(--gold))] transition-colors">
             {item.label}
           </span>
           <StatusPill free={free} />
@@ -174,17 +103,11 @@ function FormRow({
             </span>
           )}
         </div>
-        <p className="mt-0.5 text-xs text-muted-foreground leading-snug line-clamp-2">
+        <p className="mt-0.5 text-xs text-muted-foreground/80 leading-snug line-clamp-2">
           {item.desc}
         </p>
       </div>
-      <ArrowRight
-        className={cn(
-          "h-3.5 w-3.5 mt-1 shrink-0 text-muted-foreground transition-all",
-          "group-hover:translate-x-0.5",
-          `group-hover:${theme.text}`
-        )}
-      />
+      <ArrowRight className="relative h-3.5 w-3.5 mt-1 shrink-0 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:text-[hsl(var(--gold))]" />
     </button>
   );
 }
@@ -202,7 +125,6 @@ function CategorySection({
   onSelect: (slug: string) => void;
   onShowBuergergeldInfo?: () => void;
 }) {
-  const theme = THEMES[group.id] || FALLBACK_THEME;
   const totalCount =
     group.items.length +
     (group.subGroups?.reduce((acc, s) => acc + s.items.length, 0) || 0);
@@ -210,47 +132,64 @@ function CategorySection({
   return (
     <section
       className={cn(
-        "rounded-xl border bg-card/50 backdrop-blur-sm overflow-hidden transition-all",
+        "relative rounded-xl border overflow-hidden transition-all",
         isOpen
-          ? cn(theme.border, "shadow-lg")
-          : "border-border/40 hover:border-border"
+          ? "border-[hsl(var(--gold))]/30 bg-gradient-to-b from-black/60 to-black/40 shadow-[0_8px_40px_-12px_hsl(var(--gold)/0.25)]"
+          : "border-white/5 bg-black/30 hover:border-[hsl(var(--gold))]/20 hover:bg-black/40"
       )}
-      style={
-        isOpen
-          ? { boxShadow: `0 8px 32px -12px ${theme.glow}` }
-          : undefined
-      }
     >
-      {/* Header — compact */}
+      {/* Top gold hairline when open */}
+      {isOpen && (
+        <span
+          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent)",
+          }}
+        />
+      )}
+
+      {/* Header — compact luxury */}
       <button
         onClick={onToggle}
-        className={cn(
-          "w-full flex items-center gap-3 px-4 py-3 relative text-left transition-colors",
-          isOpen ? theme.bg : "hover:bg-white/[0.02]"
-        )}
+        className="w-full flex items-center gap-3 px-4 py-3 relative text-left transition-colors hover:bg-[hsl(var(--gold))]/[0.03]"
         aria-expanded={isOpen}
       >
+        {/* Left gold strip */}
+        <span
+          className="absolute left-0 top-0 bottom-0 w-[2px] transition-all"
+          style={{
+            background: isOpen
+              ? "linear-gradient(180deg, transparent, hsl(var(--gold)), transparent)"
+              : "linear-gradient(180deg, transparent, hsl(var(--gold) / 0.4), transparent)",
+          }}
+        />
         <span
           className={cn(
-            "absolute left-0 top-0 bottom-0 w-[3px] transition-all",
-            theme.dot,
-            isOpen ? "opacity-100" : "opacity-60"
+            "text-xl ml-2 shrink-0 transition-all",
+            isOpen && "drop-shadow-[0_0_8px_hsl(var(--gold)/0.4)]"
           )}
-        />
-        <span className="text-xl ml-2 shrink-0" aria-hidden="true">
+          aria-hidden="true"
+        >
           {group.icon}
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-2 flex-wrap">
-            <h2 className="text-base font-bold text-foreground tracking-tight">
+            <h2
+              className={cn(
+                "text-base font-bold tracking-tight transition-colors",
+                isOpen ? "text-[hsl(var(--gold))]" : "text-foreground"
+              )}
+            >
               {group.title}
             </h2>
             <span
-              className={cn(
-                "text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded",
-                theme.bg,
-                theme.text
-              )}
+              className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border"
+              style={{
+                background: "hsl(var(--gold) / 0.1)",
+                borderColor: "hsl(var(--gold) / 0.25)",
+                color: "hsl(var(--gold))",
+              }}
             >
               {totalCount}
             </span>
@@ -263,22 +202,23 @@ function CategorySection({
         </div>
         <ChevronDown
           className={cn(
-            "h-4 w-4 text-muted-foreground transition-transform duration-300 shrink-0",
-            isOpen && "rotate-180",
-            isOpen && theme.text
+            "h-4 w-4 transition-all duration-300 shrink-0",
+            isOpen ? "rotate-180 text-[hsl(var(--gold))]" : "text-muted-foreground"
           )}
         />
       </button>
 
-      {/* Content — tight grid */}
+      {/* Content */}
       {isOpen && (
-        <div className="border-t border-border/30 p-2 sm:p-3 bg-background/20">
+        <div
+          className="border-t p-2 sm:p-3"
+          style={{ borderColor: "hsl(var(--gold) / 0.15)" }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
             {group.items.map((item) => (
               <FormRow
                 key={item.slug}
                 item={item}
-                theme={theme}
                 onSelect={onSelect}
                 onShowBuergergeldInfo={onShowBuergergeldInfo}
               />
@@ -286,25 +226,30 @@ function CategorySection({
           </div>
 
           {group.subGroups?.map((sub) => (
-            <div key={sub.id} className="mt-3 pt-3 border-t border-border/20">
+            <div
+              key={sub.id}
+              className="mt-3 pt-3 border-t"
+              style={{ borderColor: "hsl(var(--gold) / 0.1)" }}
+            >
               <div className="flex items-center gap-2 px-1 mb-2">
-                <span className={cn("block size-1 rounded-full", theme.dot)} />
-                <h3 className={cn("text-[10px] font-bold uppercase tracking-widest", theme.text)}>
+                <span className="block size-1 rounded-full bg-[hsl(var(--gold))]" />
+                <h3 className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">
                   {sub.title}
                 </h3>
-                <div className="flex-1 h-px bg-border/30" />
+                <div
+                  className="flex-1 h-px"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, hsl(var(--gold) / 0.3), transparent)",
+                  }}
+                />
                 <span className="text-[10px] text-muted-foreground tabular-nums">
                   {sub.items.length}
                 </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
                 {sub.items.map((item) => (
-                  <FormRow
-                    key={item.slug}
-                    item={item}
-                    theme={theme}
-                    onSelect={onSelect}
-                  />
+                  <FormRow key={item.slug} item={item} onSelect={onSelect} />
                 ))}
               </div>
             </div>
@@ -319,7 +264,6 @@ function CategorySection({
 
 export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Props) {
   const [search, setSearch] = useState("");
-  // Open the first 2 sections by default
   const [openIds, setOpenIds] = useState<Set<string>>(
     new Set(formCatalog.slice(0, 2).map((g) => g.id))
   );
@@ -349,45 +293,102 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
   const expandAll = () => setOpenIds(new Set(formCatalog.map((g) => g.id)));
   const collapseAll = () => setOpenIds(new Set());
 
-  // Stats for hero
   const totalForms = allEntries.length;
   const freeForms = allEntries.filter((e) => isFormFree(e.slug)).length;
 
   return (
     <div className="space-y-4">
-      {/* Hero — compact with color streak */}
-      <div className="relative overflow-hidden rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm p-4 sm:p-5">
-        <div className="absolute -top-20 -right-20 w-56 h-56 bg-[hsl(var(--gold))]/10 blur-[80px] rounded-full pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-56 h-56 bg-emerald-500/10 blur-[80px] rounded-full pointer-events-none" />
-        <div className="relative flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+      {/* Hero — Black & Gold luxury */}
+      <div
+        className="relative overflow-hidden rounded-xl border p-5 sm:p-6"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(8,12,24,0.95) 0%, rgba(15,20,40,0.85) 50%, rgba(20,16,8,0.9) 100%)",
+          borderColor: "hsl(var(--gold) / 0.3)",
+          boxShadow:
+            "inset 0 1px 0 hsl(var(--gold) / 0.15), 0 20px 60px -20px hsl(var(--gold) / 0.2)",
+        }}
+      >
+        {/* Gold corner glow */}
+        <div
+          className="absolute -top-32 -right-32 w-80 h-80 rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, hsl(var(--gold) / 0.25) 0%, transparent 70%)",
+            filter: "blur(40px)",
+          }}
+        />
+        <div
+          className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, hsl(var(--gold) / 0.12) 0%, transparent 70%)",
+            filter: "blur(40px)",
+          }}
+        />
+        {/* Top gold shimmer line */}
+        <span
+          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, hsl(var(--gold) / 0.8), transparent)",
+          }}
+        />
+
+        <div className="relative flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div className="min-w-0">
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[hsl(var(--gold))]/10 border border-[hsl(var(--gold))]/20 mb-2">
+            <div
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full mb-3 border"
+              style={{
+                background:
+                  "linear-gradient(135deg, hsl(var(--gold) / 0.2), hsl(var(--gold) / 0.05))",
+                borderColor: "hsl(var(--gold) / 0.4)",
+              }}
+            >
               <Sparkles className="h-2.5 w-2.5 text-[hsl(var(--gold))]" />
-              <span className="text-[9px] font-bold uppercase tracking-widest text-[hsl(var(--gold))]">
-                Stand 2026
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[hsl(var(--gold))]">
+                Premium Vault · Stand 2026
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+            <h1
+              className="text-2xl sm:text-3xl font-extrabold tracking-tight"
+              style={{
+                background:
+                  "linear-gradient(135deg, #fff 0%, hsl(var(--gold)) 50%, #fff 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               Katalog obrazaca
             </h1>
-            <p className="mt-1 text-xs sm:text-sm text-muted-foreground max-w-[55ch]">
-              Svi zvanični njemački formulari, prevedeni i pojašnjeni na bosanskom.
+            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-[55ch]">
+              Svi zvanični njemački formulari — prevedeni i pojašnjeni na bosanskom.
             </p>
           </div>
-          <div className="flex gap-4 sm:gap-6 shrink-0">
+          <div className="flex gap-5 sm:gap-7 shrink-0">
             <div className="text-right">
-              <div className="text-2xl font-extrabold text-foreground tabular-nums">
+              <div
+                className="text-3xl font-extrabold tabular-nums"
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsl(var(--gold)) 0%, #f5e6a8 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
                 {totalForms}
               </div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
+              <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
                 Obrazaca
               </div>
             </div>
             <div className="text-right">
-              <div className="text-2xl font-extrabold text-emerald-400 tabular-nums">
+              <div className="text-3xl font-extrabold text-emerald-400 tabular-nums">
                 {freeForms}
               </div>
-              <div className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
+              <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
                 Besplatno
               </div>
             </div>
@@ -395,21 +396,22 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
         </div>
       </div>
 
-      {/* Search + controls — compact */}
+      {/* Search + controls */}
       <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
+          <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[hsl(var(--gold))]/70" />
           <Input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Pretraži formulare (npr. Kindergeld, Anmeldung…)"
-            className="pl-9 pr-9 h-10 text-sm rounded-lg border-border/60 bg-card/60 backdrop-blur-sm"
+            className="pl-9 pr-9 h-10 text-sm rounded-lg bg-black/40 backdrop-blur-sm focus-visible:ring-[hsl(var(--gold))]/40"
+            style={{ borderColor: "hsl(var(--gold) / 0.2)" }}
             aria-label="Pretraga formulara"
           />
           {isSearching && (
             <button
               onClick={() => setSearch("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-[hsl(var(--gold))]"
               aria-label="Očisti pretragu"
             >
               <X className="h-3.5 w-3.5" />
@@ -420,13 +422,14 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
           <div className="flex gap-1.5 shrink-0">
             <button
               onClick={expandAll}
-              className="px-3 h-10 rounded-lg border border-border/60 bg-card/60 text-xs font-semibold text-foreground hover:border-[hsl(var(--gold))]/40 transition-colors"
+              className="px-3 h-10 rounded-lg border bg-black/40 text-xs font-semibold text-foreground hover:text-[hsl(var(--gold))] transition-colors"
+              style={{ borderColor: "hsl(var(--gold) / 0.25)" }}
             >
               Otvori sve
             </button>
             <button
               onClick={collapseAll}
-              className="px-3 h-10 rounded-lg border border-border/60 bg-card/60 text-xs font-semibold text-muted-foreground hover:text-foreground hover:border-border transition-colors"
+              className="px-3 h-10 rounded-lg border border-white/10 bg-black/40 text-xs font-semibold text-muted-foreground hover:text-foreground hover:border-white/20 transition-colors"
             >
               Zatvori
             </button>
@@ -442,25 +445,18 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
               ? "Nema rezultata."
               : `${searchResults.length} ${searchResults.length === 1 ? "rezultat" : "rezultata"} za „${search}"`}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 rounded-xl border border-border/50 bg-card/60 backdrop-blur-sm p-3">
-            {searchResults.map((item) => {
-              // try find theme by group
-              const group = formCatalog.find(
-                (g) =>
-                  g.items.some((i) => i.slug === item.slug) ||
-                  g.subGroups?.some((s) => s.items.some((i) => i.slug === item.slug))
-              );
-              const theme = group ? THEMES[group.id] || FALLBACK_THEME : FALLBACK_THEME;
-              return (
-                <FormRow
-                  key={item.slug}
-                  item={item}
-                  theme={theme}
-                  onSelect={onSelect}
-                  onShowBuergergeldInfo={onShowBuergergeldInfo}
-                />
-              );
-            })}
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 gap-1.5 rounded-xl border bg-black/40 backdrop-blur-sm p-3"
+            style={{ borderColor: "hsl(var(--gold) / 0.2)" }}
+          >
+            {searchResults.map((item) => (
+              <FormRow
+                key={item.slug}
+                item={item}
+                onSelect={onSelect}
+                onShowBuergergeldInfo={onShowBuergergeldInfo}
+              />
+            ))}
           </div>
         </div>
       ) : (
