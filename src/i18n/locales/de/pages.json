@@ -1372,6 +1372,7 @@
     "result": {
       "title": "Deine Analyse",
       "newScan": "Neue Prüfung",
+      "newScanCta": "Neue Abrechnung hochladen",
       "premiumLockTitle": "Detaillierter Bericht — Premium",
       "premiumLockSub": "In Premium siehst du alle strittigen Positionen mit Rechtsgrundlage, geschätzten strittigen Betrag und fertigen Text für die Anfrage an den Vermieter.",
       "premiumCta": "Für 9,99 €/Mon. freischalten",
