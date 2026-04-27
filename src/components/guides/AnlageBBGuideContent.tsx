@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageBB";
 
 const STEPS: StepData[] = [
   {
@@ -52,23 +55,26 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage BB — Besonderer Bedarf",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage BB",
+    whoCanApply: "Bürgergeld-primaoci sa vanrednim troškovima",
+    processingTime: "2–4 sedmice",
+  },
+  steps: STEPS,
+};
+
 export default function AnlageBBGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Anlage BB — Besonderer Bedarf"
-        source="Jobcenter (SGB II)"
-        formName="Anlage BB"
-        whoCanApply="Bürgergeld-primaoci sa vanrednim troškovima"
-        processingTime="2–4 sedmice"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Anlage BB</strong> — zahtjev za jednokratni ili ponavljajući vanredni trošak
-          koji nije pokriven redovnim Bürgergeld iznosom (Regelsatz).
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Anlage BB</strong> — zahtjev za jednokratni ili ponavljajući vanredni trošak
+                koji nije pokriven redovnim Bürgergeld iznosom (Regelsatz).
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

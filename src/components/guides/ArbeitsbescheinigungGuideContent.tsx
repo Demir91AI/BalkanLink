@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "arbeitsbescheinigung";
 
 const STEPS: StepData[] = [
   {
@@ -50,30 +53,33 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Arbeitsbescheinigung § 57 SGB II",
+    source: "Jobcenter / Agentur für Arbeit",
+    formName: "Arbeitsbescheinigung (6 stranica)",
+    whoCanApply: "⚠️ Popunjava ISKLJUČIVO poslodavac",
+    processingTime: "Uz Bürgergeld zahtjev",
+  },
+  steps: STEPS,
+};
+
 export default function ArbeitsbescheinigungGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Arbeitsbescheinigung § 57 SGB II"
-        source="Jobcenter / Agentur für Arbeit"
-        formName="Arbeitsbescheinigung (6 stranica)"
-        whoCanApply="⚠️ Popunjava ISKLJUČIVO poslodavac"
-        processingTime="Uz Bürgergeld zahtjev"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ⚠️ <strong>VAŽNO:</strong> Ovaj formular popunjava ISKLJUČIVO poslodavac!
-          Arbeitnehmer (radnik) ga prima od Jobcentra i predaje poslodavcu na popunjavanje.
-          Poslodavac je zakonski obavezan da ga popuni (§ 57 SGB II).
-        </p>
-      </div>
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Arbeitsbescheinigung</strong> — službeni dokument o završenom radnom
-          odnosu, otkazu, otpremnini i otkaznim rokovima. Predaje se Jobcentru uz Bürgergeld zahtjev.
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ⚠️ <strong>VAŽNO:</strong> Ovaj formular popunjava ISKLJUČIVO poslodavac!
+                Arbeitnehmer (radnik) ga prima od Jobcentra i predaje poslodavcu na popunjavanje.
+                Poslodavac je zakonski obavezan da ga popuni (§ 57 SGB II).
+              </p>
+            </div>
+            <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Arbeitsbescheinigung</strong> — službeni dokument o završenom radnom
+                odnosu, otkazu, otpremnini i otkaznim rokovima. Predaje se Jobcentru uz Bürgergeld zahtjev.
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

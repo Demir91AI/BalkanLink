@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageHG";
 
 const STEPS: StepData[] = [
   {
@@ -45,23 +48,26 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage HG — Haushaltsgemeinschaft",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage HG",
+    whoCanApply: "Bürgergeld-primaoci koji žive sa srodnicima",
+    processingTime: "2–4 sedmice",
+  },
+  steps: STEPS,
+};
+
 export default function AnlageHGGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Anlage HG — Haushaltsgemeinschaft"
-        source="Jobcenter (SGB II)"
-        formName="Anlage HG"
-        whoCanApply="Bürgergeld-primaoci koji žive sa srodnicima"
-        processingTime="2–4 sedmice"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Anlage HG</strong> — utvrđuje da li živiš sa srodnicima ili tazbinom
-          u zajedničkom domaćinstvu i kako se dijele troškovi. Za svaku osobu odvojena Anlage HG!
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Anlage HG</strong> — utvrđuje da li živiš sa srodnicima ili tazbinom
+                u zajedničkom domaćinstvu i kako se dijele troškovi. Za svaku osobu odvojena Anlage HG!
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

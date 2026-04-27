@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "burgergeld";
 
 const STEPS: StepData[] = [
   {
@@ -41,31 +44,35 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function BurgergeldGuideContent() {
-  return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Građanska naknada (Bürgergeld)"
-        source="Jobcenter"
-        formName="Antrag auf Bürgergeld (SGB II)"
-        whoCanApply="Osobe sposobne za rad koje nemaju dovoljno prihoda ili su nezaposlene."
-        processingTime="2-4 sedmice od podnošenja zahtjeva"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Građanska naknada (Bürgergeld)",
+    source: "Jobcenter",
+    formName: "Antrag auf Bürgergeld (SGB II)",
+    whoCanApply: "Osobe sposobne za rad koje nemaju dovoljno prihoda ili su nezaposlene.",
+    processingTime: "2-4 sedmice od podnošenja zahtjeva",
+    requirements: [
           "Pasoš ili lična karta",
           "Meldebescheinigung",
           "Mietvertrag (ugovor o najmu)",
           "Dokaz o prihodu ili otkazu",
           "IBAN bankovnog računa",
           "Boravišna dozvola (za ne-EU državljane)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Čekati s prijavom — svaki dan kašnjenja znači manje novca",
           "Ne prijaviti promjene prihoda ili adrese Jobcenteru",
           "Uzeti preskup stan i očekivati punu naknadu",
           "Misliti da ne možeš dobiti Bürgergeld ako radiš (Aufstocken postoji!)",
-        ]}
-      />
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function BurgergeldGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
+
+    </LocalizedGuide>
   );
 }

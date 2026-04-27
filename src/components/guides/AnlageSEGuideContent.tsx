@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageSE";
 
 const STEPS: StepData[] = [
   {
@@ -44,29 +47,32 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage SE — Schweigepflichtentbindung",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage SE (3 stranice)",
+    whoCanApply: "Bürgergeld-primaoci koji podnose Anlage UF",
+    processingTime: "Zajedno sa Anlage UF",
+  },
+  steps: STEPS,
+};
+
 export default function AnlageSEGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Anlage SE — Schweigepflichtentbindung"
-        source="Jobcenter (SGB II)"
-        formName="Anlage SE (3 stranice)"
-        whoCanApply="Bürgergeld-primaoci koji podnose Anlage UF"
-        processingTime="Zajedno sa Anlage UF"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ⚠️ <strong>Anlage SE</strong> se UVIJEK podnosi zajedno sa Anlage UF (Unfallfragebogen).
-          Izjava je dobrovoljna, ali bez nje Jobcenter može naložiti dodatne preglede.
-        </p>
-      </div>
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Schweigepflichtentbindung</strong> — ovlašćenje za Jobcenter da zatraži
-          medicinsku dokumentaciju od ljekara i bolnica vezanu za nesreću.
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ⚠️ <strong>Anlage SE</strong> se UVIJEK podnosi zajedno sa Anlage UF (Unfallfragebogen).
+                Izjava je dobrovoljna, ali bez nje Jobcenter može naložiti dodatne preglede.
+              </p>
+            </div>
+            <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Schweigepflichtentbindung</strong> — ovlašćenje za Jobcenter da zatraži
+                medicinsku dokumentaciju od ljekara i bolnica vezanu za nesreću.
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

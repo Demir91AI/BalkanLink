@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "weiterbewilligung";
 
 const STEPS: StepData[] = [
   {
@@ -43,33 +46,36 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function WeiterbewilligungGuideContent() {
-  return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Weiterbewilligungsantrag (WBA)"
-        source="Jobcenter (SGB II)"
-        formName="Weiterbewilligungsantrag"
-        whoCanApply="Svi postojeći Bürgergeld primaoci prije isteka aktualnog Bescheida."
-        processingTime="2–4 sedmice"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Weiterbewilligungsantrag (WBA)",
+    source: "Jobcenter (SGB II)",
+    formName: "Weiterbewilligungsantrag",
+    whoCanApply: "Svi postojeći Bürgergeld primaoci prije isteka aktualnog Bescheida.",
+    processingTime: "2–4 sedmice",
+    requirements: [
           "Kontoauszüge posljednja 3 mjeseca",
           "Nove platne liste (ako postoji zaposlenje)",
           "Aktuelna Mietbescheinigung / obračun grijanja",
           "Anlage EKS (ako je osoba samozaposlena)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Prekasno podnošenje → nastaje praznina u isplatama",
           "Promjene prihoda ne prijaviti → Rückforderung",
           "Kontoauszüge zaboraviti → zahtjev nepotpun",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function WeiterbewilligungGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-yellow-300 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ⏰ <strong>Tipp:</strong> Podnesi WBA najmanje 4 sedmice prije isteka. Online predaja na jobcenter.digital omogućava direktno učitavanje dokaza.
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ⏰ <strong>Tipp:</strong> Podnesi WBA najmanje 4 sedmice prije isteka. Online predaja na jobcenter.digital omogućava direktno učitavanje dokaza.
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

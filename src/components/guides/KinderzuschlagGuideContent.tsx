@@ -1,12 +1,9 @@
-import { Link } from "react-router-dom";
-import {
-  ChevronRight, ExternalLink, CheckCircle2, XCircle, Search,
-  FileText, Upload, Info, Calculator,
-} from "lucide-react";
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
 
-/* ── 7-step Kinderzuschlag wizard ── */
+const GUIDE_KEY = "kinderzuschlag";
+
 const STEPS: StepData[] = [
   {
     deField: "Was ist Kinderzuschlag?",
@@ -82,120 +79,53 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Dodatak za djecu (Kinderzuschlag)",
+    source: "Familienkasse pri Bundesagentur für Arbeit",
+    formName: "Online zahtjev ili pismeno (KiZ 1)",
+    whoCanApply: "Porodice s manjim prihodima koje primaju Kindergeld",
+    processingTime: "4–6 sedmica",
+  },
+  steps: STEPS,
+};
+
 export default function KinderzuschlagGuideContent() {
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <GuideInfoHeader
-        title="Dodatak za djecu (Kinderzuschlag)"
-        source="Familienkasse pri Bundesagentur für Arbeit"
-        formName="Online zahtjev ili pismeno (KiZ 1)"
-        whoCanApply="Porodice s manjim prihodima koje primaju Kindergeld"
-        processingTime="4–6 sedmica"
-      />
-
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       {/* Info box */}
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Kinderzuschlag (KiZ)</strong> — dodatna pomoć za porodice s manjim
-          prihodima koje primaju Kindergeld, a ne ispunjavaju uvjete za Bürgergeld.
-        </p>
-      </div>
-
-      {/* KiZ-Lotse CTA */}
-      <div className="rounded-2xl border border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50/50 p-5 dark:border-yellow-700 dark:from-yellow-950/30 dark:to-amber-950/20">
-        <div className="flex items-start gap-3">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yellow-400/20 text-yellow-600 dark:text-yellow-400">
-            <Search className="h-5 w-5" />
-          </span>
-          <div className="space-y-2">
-            <p className="text-sm font-bold">Provjeri imaš li pravo — prije prijave</p>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              KiZ-Lotse NE izračunava iznos — samo provjerava da li uopće imaš pravo. Besplatan i anoniman.
-            </p>
-            <a
-              href="https://www.arbeitsagentur.de/familie-und-kinder/kiz-lotse"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-5 py-2.5 text-xs font-bold text-[#0f1f3d] shadow-md shadow-yellow-400/20 transition-all hover:shadow-lg hover:bg-yellow-300"
-            >
-              <Search className="h-3.5 w-3.5" /> Provjeri pravo — KiZ-Lotse
-              <ExternalLink className="h-3 w-3" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Smart Guide Wizard */}
-      <SmartGuideWizardShared steps={STEPS} />
-
-      {/* Bottom tools & links */}
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-5 space-y-4 dark:border-green-800 dark:bg-green-950/20">
-        <p className="text-sm font-bold">💡 Korisni alati i linkovi</p>
-        <div className="grid gap-2">
-          <a
-            href="https://www.arbeitsagentur.de/familie-und-kinder/kiz-lotse"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs text-primary hover:underline"
-          >
-            <Search className="h-3 w-3" /> KiZ-Lotse (provjera prava) <ExternalLink className="h-2.5 w-2.5" />
-          </a>
-          <a
-            href="https://con.arbeitsagentur.de/prod/kiz/ui/start"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs text-primary hover:underline"
-          >
-            <FileText className="h-3 w-3" /> Online zahtjev — Kinderzuschlag Digital <ExternalLink className="h-2.5 w-2.5" />
-          </a>
-          <a
-            href="https://www.arbeitsagentur.de/familie-und-kinder"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs text-primary hover:underline"
-          >
-            <Info className="h-3 w-3" /> Digitalni asistent za pitanja <ExternalLink className="h-2.5 w-2.5" />
-          </a>
-        </div>
-
-        {/* Prominent KiZ-Lotse CTA */}
-        <a
-          href="https://www.arbeitsagentur.de/familie-und-kinder/kiz-lotse"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 inline-flex items-center gap-2 rounded-full bg-yellow-400 px-6 py-3 text-xs font-bold text-[#0f1f3d] shadow-md shadow-yellow-400/20 transition-all hover:shadow-lg hover:bg-yellow-300"
-        >
-          <Search className="h-3.5 w-3.5" /> Provjeri pravo sada — KiZ-Lotse
-          <ExternalLink className="h-3 w-3" />
-        </a>
-      </div>
-
-      {/* Online application CTA */}
-      <div className="rounded-xl border bg-card p-5 text-center space-y-3">
-        <p className="text-sm font-bold">📋 Spreman/na za prijavu?</p>
-        <a
-          href="https://con.arbeitsagentur.de/prod/kiz/ui/start"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-        >
-          Online zahtjev Kinderzuschlag <ExternalLink className="h-3.5 w-3.5" />
-        </a>
-      </div>
-
-      {/* Official link */}
-      <div className="rounded-xl border bg-card p-5 text-center">
-        <p className="text-xs text-muted-foreground mb-2">Više informacija o Kinderzuschlag</p>
-        <a
-          href="https://familienportal.de/familienportal/familienleistungen/kinderzuschlag"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
-        >
-          <ExternalLink className="h-3.5 w-3.5" /> Više informacija — Familienportal.de
-        </a>
-      </div>
-    </div>
+            <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Kinderzuschlag (KiZ)</strong> — dodatna pomoć za porodice s manjim
+                prihodima koje primaju Kindergeld, a ne ispunjavaju uvjete za Bürgergeld.
+              </p>
+            </div>
+      
+            {/* KiZ-Lotse CTA */}
+            <div className="rounded-2xl border border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50/50 p-5 dark:border-yellow-700 dark:from-yellow-950/30 dark:to-amber-950/20">
+              <div className="flex items-start gap-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yellow-400/20 text-yellow-600 dark:text-yellow-400">
+                  <Search className="h-5 w-5" />
+                </span>
+                <div className="space-y-2">
+                  <p className="text-sm font-bold">Provjeri imaš li pravo — prije prijave</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    KiZ-Lotse NE izračunava iznos — samo provjerava da li uopće imaš pravo. Besplatan i anoniman.
+                  </p>
+                  <a
+                    href="https://www.arbeitsagentur.de/familie-und-kinder/kiz-lotse"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-5 py-2.5 text-xs font-bold text-[#0f1f3d] shadow-md shadow-yellow-400/20 transition-all hover:shadow-lg hover:bg-yellow-300"
+                  >
+                    <Search className="h-3.5 w-3.5" /> Provjeri pravo — KiZ-Lotse
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
+              </div>
+            </div>
+      
+            {/* Smart Guide Wizard */}
+    </LocalizedGuide>
   );
 }

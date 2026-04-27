@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anfrageNichterreichbarkeit";
 
 const STEPS: StepData[] = [
   {
@@ -43,41 +46,36 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnfrageNichterreichbarkeitGuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anfrage Nichterreichbarkeit (ANE)"
-        source="Jobcenter (SGB II)"
-        formName="Anfrage zur Nichterreichbarkeit"
-        whoCanApply="Svi Bürgergeld primaoci (15+) koji planiraju privremenu odsutnost."
-        processingTime="Odobrenje obično u roku od 5 radnih dana"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anfrage Nichterreichbarkeit (ANE)",
+    source: "Jobcenter (SGB II)",
+    formName: "Anfrage zur Nichterreichbarkeit",
+    whoCanApply: "Svi Bürgergeld primaoci (15+) koji planiraju privremenu odsutnost.",
+    processingTime: "Odobrenje obično u roku od 5 radnih dana",
+    requirements: [
           "Kod kure/rehabilitacije: ljekarska preporuka",
           "Kod volontiranja: dokaz o aktivnosti",
           "Kod traženja posla u inostranstvu: objašnjenje",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Prekasno podnijeti — najmanje 5 radnih dana prije odsutnosti!",
           "Kontakt podatke zaboraviti kod ne-odmorskih razloga",
           "Ostati duže od odobrenog perioda → povrat novca!",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnfrageNichterreichbarkeitGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-red-300 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          🚨 <strong>Pravilo 3 sedmice:</strong> Max. 3 sedmice/kalendarska godina možeš biti odsutan BEZ gubitka primanja.
-          Od 4. sedmice: primanja se OBUSTAVLJAJU — uključujući zdravstveno osiguranje! Uvijek prvo zatraži odobrenje!
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                🚨 <strong>Pravilo 3 sedmice:</strong> Max. 3 sedmice/kalendarska godina možeš biti odsutan BEZ gubitka primanja.
+                Od 4. sedmice: primanja se OBUSTAVLJAJU — uključujući zdravstveno osiguranje! Uvijek prvo zatraži odobrenje!
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

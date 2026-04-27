@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "antragsruecknahme";
 
 const STEPS: StepData[] = [
   {
@@ -33,30 +36,33 @@ const STEPS: StepData[] = [
   },
 ];
 
+const BASE: GuideContent = {
+  header: {
+    title: "Erklärung der Antragsrücknahme",
+    source: "Jobcenter (SGB II)",
+    formName: "Antragsrücknahme (1 stranica)",
+    whoCanApply: "Osobe koje žele povući Bürgergeld zahtjev",
+    processingTime: "Odmah po predaji",
+  },
+  steps: STEPS,
+};
+
 export default function AntragsruecknahmeGuideContent() {
   return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Erklärung der Antragsrücknahme"
-        source="Jobcenter (SGB II)"
-        formName="Antragsrücknahme (1 stranica)"
-        whoCanApply="Osobe koje žele povući Bürgergeld zahtjev"
-        processingTime="Odmah po predaji"
-      />
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ⚠️ <strong>UPOZORENJE:</strong> Povlačenje zahtjeva je NEOPOZIVO!
-          Nakon predaje, zahtjev važi kao da nikad nije podnesen. Zdravstveno osiguranje
-          preko Jobcentra odmah prestaje — kontaktiraj Krankenkasse!
-        </p>
-      </div>
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          📋 <strong>Antragsrücknahme</strong> — formular za povlačenje već podnesenog
-          Bürgergeld zahtjeva. Vrijedi i bez potpisa — predaja je dovoljna.
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ⚠️ <strong>UPOZORENJE:</strong> Povlačenje zahtjeva je NEOPOZIVO!
+                Nakon predaje, zahtjev važi kao da nikad nije podnesen. Zdravstveno osiguranje
+                preko Jobcentra odmah prestaje — kontaktiraj Krankenkasse!
+              </p>
+            </div>
+            <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
+              <p className="text-xs leading-relaxed text-foreground/80">
+                📋 <strong>Antragsrücknahme</strong> — formular za povlačenje već podnesenog
+                Bürgergeld zahtjeva. Vrijedi i bez potpisa — predaja je dovoljna.
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

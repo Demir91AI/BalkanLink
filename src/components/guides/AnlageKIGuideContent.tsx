@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageKI";
 
 const STEPS: StepData[] = [
   {
@@ -42,37 +45,33 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageKIGuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage KI — Kind unter 15 Jahren"
-        source="Jobcenter (SGB II)"
-        formName="Anlage KI"
-        whoCanApply="Roditelji/staratelji sa djecom mlađom od 15 godina u Bedarfsgemeinschaft."
-        processingTime="Obrađuje se uz Hauptantrag"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage KI — Kind unter 15 Jahren",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage KI",
+    whoCanApply: "Roditelji/staratelji sa djecom mlađom od 15 godina u Bedarfsgemeinschaft.",
+    processingTime: "Obrađuje se uz Hauptantrag",
+    requirements: [
           "Rodilišni list djeteta",
           "Potvrda zdravstvenog osiguranja djeteta",
           "Schulbescheinigung (od upisa u školu)",
           "Kindergeld-Bescheid (Familienkasse)",
           "Dokazi o alimentaciji (ako drugi roditelj živi van BG)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Jedna KI za više djece — svako dijete treba vlastiti formular!",
           "Prihode djeteta zaboraviti (Kindergeld, alimentacija)",
           "Anlage UH3 zaboraviti kad drugi roditelj ne živi u BG",
-        ]}
-      />
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageKIGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
+
+    </LocalizedGuide>
   );
 }

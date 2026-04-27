@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "elterngeld";
 
 const STEPS: StepData[] = [
   {
@@ -38,31 +41,35 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function ElterngeldGuideContent() {
-  return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Roditeljska naknada (Elterngeld)"
-        source="Elterngeldstelle"
-        formName="Antrag auf Elterngeld"
-        whoCanApply="Roditelji koji žive u Njemačkoj, brinu o djetetu i ne rade ili rade manje od 32h/sedmici."
-        processingTime="4-8 sedmica od podnošenja kompletnog zahtjeva"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Roditeljska naknada (Elterngeld)",
+    source: "Elterngeldstelle",
+    formName: "Antrag auf Elterngeld",
+    whoCanApply: "Roditelji koji žive u Njemačkoj, brinu o djetetu i ne rade ili rade manje od 32h/sedmici.",
+    processingTime: "4-8 sedmica od podnošenja kompletnog zahtjeva",
+    requirements: [
           "Popunjen obrazac za Elterngeld",
           "Geburtsurkunde (rodni list djeteta)",
           "Potvrda o prihodu za zadnjih 12 mjeseci",
           "Meldebescheinigung",
           "IBAN bankovnog računa",
           "Boravišna dozvola (za ne-EU državljane)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Podnijeti zahtjev u Familienkasse umjesto Elterngeldstelle",
           "Ne uključiti bonuse i Weihnachtsgeld u izračun prihoda",
           "Propustiti rok od 3 mjeseca za retroaktivnu prijavu",
           "Ne znati za ElterngeldPlus opciju",
-        ]}
-      />
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function ElterngeldGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
+
+    </LocalizedGuide>
   );
 }

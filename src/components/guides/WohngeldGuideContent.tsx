@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "wohngeld";
 
 const STEPS: StepData[] = [
   {
@@ -32,30 +35,34 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function WohngeldGuideContent() {
-  return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Stambena naknada (Wohngeld)"
-        source="Wohngeldstelle"
-        formName="Antrag auf Wohngeld"
-        whoCanApply="Osobe s niskim primanjima koje plaćaju kiriju ili otplaćuju stambeni kredit."
-        processingTime="4-6 sedmica od podnošenja zahtjeva"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Stambena naknada (Wohngeld)",
+    source: "Wohngeldstelle",
+    formName: "Antrag auf Wohngeld",
+    whoCanApply: "Osobe s niskim primanjima koje plaćaju kiriju ili otplaćuju stambeni kredit.",
+    processingTime: "4-6 sedmica od podnošenja zahtjeva",
+    requirements: [
           "Mietvertrag (ugovor o najmu)",
           "Zadnje 3 platne liste ili dokaz o prihodu",
           "Meldebescheinigung",
           "IBAN bankovnog računa",
           "Dokaz o Nebenkosten (komunalne troškove)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Ići u Jobcenter umjesto Wohngeldstelle",
           "Ne obnoviti prijavu nakon 12 mjeseci",
           "Ne prijaviti promjene prihoda ili kirije",
           "Misliti da ne ispunjavaš uslov bez provjere kalkulatorom",
-        ]}
-      />
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function WohngeldGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
+
+    </LocalizedGuide>
   );
 }

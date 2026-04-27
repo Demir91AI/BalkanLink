@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageEK";
 
 const STEPS: StepData[] = [
   {
@@ -42,41 +45,36 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageEKGuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage EK — Einkommen"
-        source="Jobcenter (SGB II)"
-        formName="Anlage EK"
-        whoCanApply="Svaka osoba starija od 15 godina u Bedarfsgemeinschaft."
-        processingTime="Obrađuje se uz Hauptantrag/WBA"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage EK — Einkommen",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage EK",
+    whoCanApply: "Svaka osoba starija od 15 godina u Bedarfsgemeinschaft.",
+    processingTime: "Obrađuje se uz Hauptantrag/WBA",
+    requirements: [
           "Lohnabrechnung(en) posljednja 3 mjeseca",
           "Kontoauszüge (dokaz o primanjima)",
           "Bescheide (Kindergeld, ALG I, renta itd.)",
           "Dokazi o troškovima putovanja na posao",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Kindergeld zaboraviti — i to je prihod!",
           "Minijob ne navesti — čak i 603€ poslovi moraju biti prijavljeni",
           "Troškove putovanja ne navesti — smanjuju obračunati prihod",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageEKGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-orange-300 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ⚠️ Za svakog partnera i svaku osobu stariju od 15 godina potrebna je <strong>zasebna Anlage EK!</strong>
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ⚠️ Za svakog partnera i svaku osobu stariju od 15 godina potrebna je <strong>zasebna Anlage EK!</strong>
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

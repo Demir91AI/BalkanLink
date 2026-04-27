@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "wirtschaftlicheJugendhilfe";
 
 const STEPS: StepData[] = [
   {
@@ -127,16 +129,14 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function WirtschaftlicheJugendhilfeGuideContent() {
-  return (
-    <div className="space-y-8">
-      <GuideInfoHeader
-        title="Wirtschaftliche Jugendhilfe (Hilfe zur Erziehung)"
-        source="Jugendamt · SGB VIII (Stand 2026)"
-        formName="Antrag auf Hilfe zur Erziehung (§ 27 SGB VIII)"
-        whoCanApply="Roditelji, hraniteljske porodice, mladi punoljetni 18–21 (do 27), djeca/mladi sa duševnim smetnjama (§ 35a). Pravo ne zavisi od državljanstva — vezano je za uobičajeno boravište djeteta u Njemačkoj."
-        processingTime="4–12 sedmica od podnošenja kompletnog zahtjeva (Bedarfsfeststellung 4–8 sedmica + Hilfeplangespräch + Bescheid)"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Wirtschaftliche Jugendhilfe (Hilfe zur Erziehung)",
+    source: "Jugendamt · SGB VIII (Stand 2026)",
+    formName: "Antrag auf Hilfe zur Erziehung (§ 27 SGB VIII)",
+    whoCanApply: "Roditelji, hraniteljske porodice, mladi punoljetni 18–21 (do 27), djeca/mladi sa duševnim smetnjama (§ 35a). Pravo ne zavisi od državljanstva — vezano je za uobičajeno boravište djeteta u Njemačkoj.",
+    processingTime: "4–12 sedmica od podnošenja kompletnog zahtjeva (Bedarfsfeststellung 4–8 sedmica + Hilfeplangespräch + Bescheid)",
+    requirements: [
           "Pisani Antrag (slobodna forma ili formular Jugendamt-a)",
           "Lična dokumenta roditelja i djeteta + Aufenthaltstitel (ne-EU)",
           "Geburtsurkunde djeteta (internacionalna)",
@@ -145,53 +145,23 @@ export default function WirtschaftlicheJugendhilfeGuideContent() {
           "Aktuelni Bescheid o Bürgergeld/Wohngeld/Kinderzuschlag (ako primaš)",
           "Schulzeugnisse + medicinski/psihološki nalazi (po potrebi)",
           "Pisana izjava škole, ljekara ili terapeuta (ako je inicijativa od njih)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Bez formalnog Antrag-a rok za pomoć ne teče — uvijek pisano i sa dokazom predaje",
           "Idete na Hilfeplangespräch nepripremljen — sve što kažeš ulazi u pravno obvezujući Hilfeplan",
           "Propušten rok od mjesec dana za Widerspruch — Bescheid postaje pravosnažan",
           "Ne tražite Härtefallantrag — Kostenbeitrag se može smanjiti ili ukinuti uz obrazloženje",
           "Junge Volljährige misli da pravo prestaje sa 18 — § 41 traje do 21. (izuzetno 27.) godine",
           "Vodi rođaka kao tumača — imaš pravo na certifikovanog tumača kojeg plaća Jugendamt",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
 
-      <SmartGuideWizardShared steps={STEPS} />
+export default function WirtschaftlicheJugendhilfeGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
 
-      {/* Besplatne savjetovaonice */}
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-900/40 dark:bg-emerald-950/20">
-        <h3 className="mb-2 text-xs font-bold text-emerald-800 dark:text-emerald-300">
-          📞 Besplatne savjetovaonice (prije pokretanja postupka)
-        </h3>
-        <ul className="space-y-1 text-xs text-emerald-900/90 dark:text-emerald-200/80">
-          <li>• <strong>Caritas Migrationsberatung</strong> — savjetovanje za migrante na više jezika</li>
-          <li>• <strong>Diakonisches Werk</strong> — psihosocijalna podrška</li>
-          <li>• <strong>AWO (Arbeiterwohlfahrt)</strong> — porodična savjetovaonica</li>
-          <li>• <strong>Pro Familia</strong> — savjetovaonica za porodična pitanja</li>
-          <li>• <strong>Verbraucherzentrale</strong> — pravni savjeti oko Bescheid-a</li>
-        </ul>
-      </div>
-
-      {/* Povezani vodiči */}
-      <div className="rounded-xl border border-border bg-card p-4">
-        <h3 className="mb-2 text-xs font-bold">🔗 Povezani vodiči</h3>
-        <ul className="space-y-1 text-xs">
-          <li>• <Link to="/formulari/kindergeld" className="text-primary underline">Kindergeld</Link> — kako prijaviti dječji dodatak</li>
-          <li>• <Link to="/formulari/hauptantrag" className="text-primary underline">Bürgergeld</Link> — osnovni socijalni minimum</li>
-          <li>• <Link to="/formulari/mutterschaftsgeld" className="text-primary underline">Mutterschaftsgeld</Link> — naknada za majke</li>
-          <li>• <Link to="/formulari/unterhaltsvorschuss" className="text-primary underline">Unterhaltsvorschuss</Link> — alimentacijski predujam</li>
-        </ul>
-      </div>
-
-      {/* Pravna napomena */}
-      <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/40 dark:bg-amber-950/20">
-        <p className="text-[11px] text-amber-900/80 dark:text-amber-200/70 leading-relaxed">
-          <strong>Pravni izvori:</strong> SGB VIII (gesetze-im-internet.de), Empfehlungen des Deutschen Vereins zur
-          Fortschreibung der Pauschalbeträge in der Vollzeitpflege 2026, Gemeinsame Empfehlungen BAGLJÄ zur
-          Kostenbeteiligung nach SGB VIII (6. izdanje, juni 2024), KostenbeitragsV. Stand: januar 2026.
-          Ovo je edukativni vodič — nije zamjena za pravni savjet.
-        </p>
-      </div>
-    </div>
+    </LocalizedGuide>
   );
 }

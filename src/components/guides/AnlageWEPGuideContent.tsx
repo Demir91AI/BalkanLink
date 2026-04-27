@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageWEP";
 
 const STEPS: StepData[] = [
   {
@@ -42,36 +45,32 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageWEPGuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage WEP — Weitere Person"
-        source="Jobcenter (SGB II)"
-        formName="Anlage WEP"
-        whoCanApply="Za partnera, supružnika i djecu 15–24 god. koja žive u Bedarfsgemeinschaft."
-        processingTime="Obrađuje se uz Hauptantrag/WBA"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage WEP — Weitere Person",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage WEP",
+    whoCanApply: "Za partnera, supružnika i djecu 15–24 god. koja žive u Bedarfsgemeinschaft.",
+    processingTime: "Obrađuje se uz Hauptantrag/WBA",
+    requirements: [
           "Personalausweis/Reisepass osobe",
           "Schulbescheinigung (za djecu 15–24)",
           "Dokaz o obrazovanju/praksi",
           "Potvrda zdravstvenog osiguranja",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "'Partner' označiti → automatski pokreće Anlage VE provjeru",
           "Školsku potvrdu za djecu 15–17 god. ne priložiti",
           "Samo jedan potpis — trebaju oba!",
-        ]}
-      />
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageWEPGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
+
+    </LocalizedGuide>
   );
 }

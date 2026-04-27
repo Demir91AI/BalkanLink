@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageVM";
 
 const STEPS: StepData[] = [
   {
@@ -42,46 +45,41 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageVMGuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage VM — Vermögen"
-        source="Jobcenter (SGB II)"
-        formName="Anlage VM"
-        whoCanApply="Svaka Bedarfsgemeinschaft — formular se popunjava JEDNOM za cijelu BG."
-        processingTime="Obrađuje se uz Hauptantrag"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage VM — Vermögen",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage VM",
+    whoCanApply: "Svaka Bedarfsgemeinschaft — formular se popunjava JEDNOM za cijelu BG.",
+    processingTime: "Obrađuje se uz Hauptantrag",
+    requirements: [
           "Kontoauszüge (svi računi)",
           "KFZ-Zulassung + procjena vrijednosti",
           "Izvodi štednje / depozitne vrijednosti",
           "Bausparvertrag pregled",
           "Dokumenti o nekretninama (ako postoje)",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "PayPal račun zaboraviti — to JE konto!",
           "Kriptovalute zaboraviti — tretiraju se kao Wertpapiere",
           "Poklone posljednjih 10 godina zaboraviti",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageVMGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-green-300 bg-green-50 p-4 dark:border-green-800 dark:bg-green-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ✅ <strong>Schonvermögen 2024 — šta je zaštićeno?</strong><br />
-          • Po osobi: 15.000 € osnovni freibetrag<br />
-          • Vlastiti stan (primjerene veličine)<br />
-          • Starosna štednja do datuma penzionisanja<br />
-          • Jedno primjereno vozilo (vrijednost do ca. 7.500 €)
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ✅ <strong>Schonvermögen 2024 — šta je zaštićeno?</strong><br />
+                • Po osobi: 15.000 € osnovni freibetrag<br />
+                • Vlastiti stan (primjerene veličine)<br />
+                • Starosna štednja do datuma penzionisanja<br />
+                • Jedno primjereno vozilo (vrijednost do ca. 7.500 €)
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }

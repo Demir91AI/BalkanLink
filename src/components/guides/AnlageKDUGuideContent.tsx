@@ -1,5 +1,8 @@
-import GuideInfoHeader from "./GuideInfoHeader";
-import SmartGuideWizardShared, { type StepData } from "./SmartGuideWizardShared";
+import LocalizedGuide from "./LocalizedGuide";
+import type { GuideContent } from "@/lib/guide-i18n";
+import type { StepData } from "./SmartGuideWizardShared";
+
+const GUIDE_KEY = "anlageKDU";
 
 const STEPS: StepData[] = [
   {
@@ -43,43 +46,38 @@ const STEPS: StepData[] = [
   },
 ];
 
-export default function AnlageKDUGuideContent() {
-  return (
-    <div className="space-y-8">
-      <div className="mb-4 rounded-xl border border-blue-500/30 bg-blue-500/[0.08] p-4 flex items-start gap-3">
-        <span className="text-xl shrink-0">💻</span>
-        <div>
-          <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-1">Ovaj prilog se popunjava online</p>
-          <p className="text-xs text-muted-foreground mb-2">Bürgergeld anlagen se podnose isključivo putem Jobcenter Digital portala. Papirna verzija se više ne prihvata u većini jobcentara.</p>
-          <a href="https://jobcenter.digital" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors">🌐 Otvori Jobcenter Digital →</a>
-        </div>
-      </div>
-      <GuideInfoHeader
-        title="Anlage KDU — Kosten der Unterkunft"
-        source="Jobcenter (SGB II)"
-        formName="Anlage KDU"
-        whoCanApply="Svi podnosioci zahtjeva koji imaju troškove stanovanja (najam ili vlasništvo)."
-        processingTime="Obrađuje se uz Hauptantrag/WBA"
-        requirements={[
+const BASE: GuideContent = {
+  header: {
+    title: "Anlage KDU — Kosten der Unterkunft",
+    source: "Jobcenter (SGB II)",
+    formName: "Anlage KDU",
+    whoCanApply: "Svi podnosioci zahtjeva koji imaju troškove stanovanja (najam ili vlasništvo).",
+    processingTime: "Obrađuje se uz Hauptantrag/WBA",
+    requirements: [
           "Aktualni Mietvertrag",
           "Posljednji obračun grijanja i sporednih troškova",
           "Mietbescheinigung (popunjava stanodavac)",
           "Kod vlasništva: Grundsteuerbescheid, osiguranje, kreditni ugovor",
-        ]}
-        commonMistakes={[
+        ],
+    commonMistakes: [
           "Grijanje navesti zajedno sa Nebenkosten — uvijek razdvojiti!",
           "Pauschalmiete I pojedinačne stavke označiti — samo jedna opcija",
           "IBAN stanodavca zaboraviti kod direktne uplate",
-        ]}
-      />
+        ],
+  },
+  steps: STEPS,
+};
+
+export default function AnlageKDUGuideContent() {
+  return (
+    <LocalizedGuide guideKey={GUIDE_KEY} base={BASE}>
       <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/20">
-        <p className="text-xs leading-relaxed text-foreground/80">
-          ℹ️ <strong>KdU-Richtwerte Berlin (2024):</strong><br />
-          1 osoba: max. 563 € | 2 osobe: max. 678 € | 3 osobe: max. 815 €<br />
-          <span className="text-muted-foreground">Izvor: Jobcenter Berlin — pri prekoračenju može uslijediti Kostensenkungsverfahren!</span>
-        </p>
-      </div>
-      <SmartGuideWizardShared steps={STEPS} />
-    </div>
+              <p className="text-xs leading-relaxed text-foreground/80">
+                ℹ️ <strong>KdU-Richtwerte Berlin (2024):</strong><br />
+                1 osoba: max. 563 € | 2 osobe: max. 678 € | 3 osobe: max. 815 €<br />
+                <span className="text-muted-foreground">Izvor: Jobcenter Berlin — pri prekoračenju može uslijediti Kostensenkungsverfahren!</span>
+              </p>
+            </div>
+    </LocalizedGuide>
   );
 }
