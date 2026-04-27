@@ -30,6 +30,7 @@ import deErrors from "./locales/de/errors.json";
 import deSchufa from "./locales/de/schufa.json";
 import deAnerkennung from "./locales/de/anerkennung.json";
 import dePorezi from "./locales/de/porezi.json";
+import deLegal from "./locales/de/legal.json";
 
 import hrCommon from "./locales/hr/common.json";
 import hrForms from "./locales/hr/forms.json";
