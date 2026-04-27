@@ -25,8 +25,8 @@ export default function Datenschutz() {
               Münchener Straße 78, 83395 Freilassing, Deutschland
               <br />
               E-pošta:{" "}
-              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
-                kontakt@balkanlink.de
+              <a href="mailto:kontakt@realcore-digital.de" className="text-primary hover:underline">
+                kontakt@realcore-digital.de
               </a>
             </p>
             <p className="mt-2 text-xs opacity-70">
@@ -118,7 +118,7 @@ export default function Datenschutz() {
             <p>
               Registracijom prikupljamo e-mail adresu i lozinku (pohranjena isključivo
               šifrirano, nikada u čitljivom obliku). Korisnički račun možeš obrisati u
-              svako doba u Postavkama ili slanjem zahtjeva na kontakt@balkanlink.de.
+              svako doba u Postavkama ili slanjem zahtjeva na kontakt@realcore-digital.de.
             </p>
             <p className="mt-1">Pravna osnova: čl. 6 st. 1 tač. b DSGVO.</p>
           </section>
@@ -325,8 +325,8 @@ export default function Datenschutz() {
             </ul>
             <p className="mt-2">
               Zahtjeve šalji na:{" "}
-              <a href="mailto:kontakt@balkanlink.de" className="text-primary hover:underline">
-                kontakt@balkanlink.de
+              <a href="mailto:kontakt@realcore-digital.de" className="text-primary hover:underline">
+                kontakt@realcore-digital.de
               </a>
             </p>
           </section>

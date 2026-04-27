@@ -102,8 +102,8 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
         <div>
           <p style={colTitleStyle}>{t("common:footer.contactTitle")}</p>
-          <a href="mailto:kontakt@balkanlink.de" style={linkStyle} className="footer-link">
-            kontakt@balkanlink.de
+          <a href="mailto:kontakt@realcore-digital.de" style={linkStyle} className="footer-link">
+            kontakt@realcore-digital.de
           </a>
         </div>
       </div>
