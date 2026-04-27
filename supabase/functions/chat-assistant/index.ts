@@ -226,16 +226,17 @@ const SAFETY_BLOCK_PATTERNS = [
   /\b(bomb|explosive|attack|kill|murder|weapon|gun|grenade|assault)\b/i,
   /\b(waffe|angriff|töten|mord|bombe|sprengstoff)\b/i,
   // hacking & fraud
-  /\b(hakiraj|hakuj|crack|phishing|ukradi|prevara|prijevara|falsifik|falsific)\b/i,
-  /\b(hack\s|hacking|crack\s|steal|fraud|counterfeit|forge|phish)\b/i,
+  /\b(hakiraj|hakuj|crack|phishing|ukradi|prevara|prijevara|prevari[tć]?|prijeva[rt]i[tć]?|falsifik|falsific)\b/i,
+  /\b(hack\s|hacking|crack\s|steal|fraud|counterfeit|forge|phish|scam)\b/i,
   /\b(hacken|betrüg|betrug|fälsch|stehlen)\b/i,
   // drugs
   /\b(droga|kokain|heroin|metamfetamin|trava za prodaju|dilovanje|diler)\b/i,
   /\b(cocaine|heroin|meth|drug deal|narcotics)\b/i,
-  // bypassing law
-  /\b(zaobiđi policiju|sakrij se od policije|ilegalno prijeđi|crni rad|rad na crno|utaja poreza)\b/i,
-  /\b(schwarzarbeit|steuerhinterziehung|illegal\s+grenz)\b/i,
-  /\b(bypass police|evade law|hide from police|tax evasion|work illegally)\b/i,
+  // bypassing law / cheating state
+  /\b(zaobi[đdj]i\s+(policiju|zakon)|sakrij\s+se\s+od\s+policije|ilegalno\s+pre[đdj]i|crni\s+rad|rad\s+na\s+crno|utaja\s+poreza|izbjeg(ni|nuti|avanje)\s+porez|ne\s+plati(ti)?\s+porez)\b/i,
+  /\b(prevari[tć]?|prijevari[tć]?|nasamari[tć]?|izigra[tć]?)\s+(drzav|drža[vw]|finanzamt|porez|sluzb|službe|institucij|firmu|poslodavca|policiju|jobcenter|agentur)/i,
+  /\b(schwarzarbeit|steuerhinterziehung|illegal\s+grenz|staat\s+betrüg|finanzamt\s+betrüg)\b/i,
+  /\b(bypass\s+police|evade\s+law|hide\s+from\s+police|tax\s+evasion|work\s+illegally|cheat\s+(the\s+)?(state|government|tax|irs))\b/i,
 ];
 
 const SEXUAL_SERVICE_PATTERNS = [
@@ -258,9 +259,9 @@ function checkSafety(text: string): SafetyResult {
 }
 
 const SAFETY_BLOCK_MSG: Record<string, string> = {
-  bs: "Ne mogu pomoći s tim. Ako imaš pitanje vezano za život u Njemačkoj, slobodno pitaj.",
-  de: "Damit kann ich leider nicht helfen. Wenn du eine Frage zum Leben in Deutschland hast, frag gerne.",
-  en: "I can't help with that. If you have a question about life in Germany, feel free to ask.",
+  bs: "Ne mogu pomoći s tim — BalkanLink Asistent daje informacije isključivo o legalnim temama (vize, formulari, porezi, posao, stanovanje u Njemačkoj). Ako imaš pitanje iz tih oblasti, slobodno pitaj. 🙂",
+  de: "Damit kann ich nicht helfen — der BalkanLink Assistent informiert ausschließlich zu legalen Themen (Visa, Formulare, Steuern, Arbeit, Wohnen in Deutschland). Bei Fragen dazu bin ich gerne da.",
+  en: "I can't help with that — BalkanLink Assistant only covers legal topics (visas, forms, taxes, work, housing in Germany). Happy to help with those!",
 };
 
 const SEXUAL_REDIRECT_MSG: Record<string, string> = {
@@ -1133,6 +1134,12 @@ ${buildFormCatalogContext()}
 ${pageContext ? `KONTEKST STRANICE:\n${pageContext}\n` : ""}
 
 ${!isPremium ? `KORISNIK JE FREE — premium zaštita je AKTIVNA. Ne daj duboku pomoć za premium teme.` : `KORISNIK JE PREMIUM — možeš dati detaljniju pomoć, ali i dalje upućuj na alate za strukturirani vodič.`}
+
+KRITIČNA PRAVILA ODGOVORA:
+- NIKADA ne piši placeholder oznake poput \`$remaining_questions$\`, \`{count}\`, \`{{var}}\` ili sličnih template stringova. Ako ne znaš tačan broj — ne izmišljaj ga, samo uputi korisnika na "Paketi i cijene".
+- NIKADA ne počinji odgovor sa "Kao AI asistent..." ili "Kao tvoj asistent...". Govori prirodno, kratko i konkretno.
+- Pitanja tipa "koliko pitanja imam / koliko mi je ostalo" rješava aplikacija lokalno — TO PITANJE NEĆEŠ NI VIDJETI. Ako ipak dobiješ takvo pitanje, samo uputi na /paketi.
+- Ne moraliziraj. Ako odbijaš nešto, odbij u 1-2 rečenice i ponudi legalnu alternativu.
 
 FOLLOW-UP SUGESTIJE:
 Na kraju SVAKOG odgovora dodaj JSON blok (neće biti prikazan):
