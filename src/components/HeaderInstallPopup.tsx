@@ -17,6 +17,7 @@
  * the Lovable preview iframe (it just won't trigger the native prompt there).
  */
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { Smartphone, X, Download, Apple, Share2, PlusSquare } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -33,6 +34,7 @@ export function HeaderInstallPopup() {
   const [open, setOpen] = useState(false);
   const [installed, setInstalled] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const popupRef = useRef<HTMLDivElement | null>(null);
 
   // Detect already-installed standalone mode
   useEffect(() => {
@@ -76,8 +78,10 @@ export function HeaderInstallPopup() {
       if (e.key === "Escape") handleDismiss();
     };
     const onClick = (e: MouseEvent) => {
-      if (!wrapperRef.current) return;
-      if (!wrapperRef.current.contains(e.target as Node)) handleDismiss();
+      const target = e.target as Node;
+      const insideTrigger = wrapperRef.current?.contains(target);
+      const insidePopup = popupRef.current?.contains(target);
+      if (!insideTrigger && !insidePopup) handleDismiss();
     };
     window.addEventListener("keydown", onKey);
     // Capture phase so it runs before other handlers
@@ -114,49 +118,55 @@ export function HeaderInstallPopup() {
   const ios = isIOS();
 
   return (
-    <div ref={wrapperRef} className="relative">
-      {/* Trigger button — matches header glassy style */}
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label={t("install.ariaTrigger", "Instaliraj aplikaciju")}
-        aria-expanded={open}
-        className="flex items-center justify-center transition-all duration-250 ease-in-out relative"
-        style={{
-          width: 36,
-          height: 36,
-          background: "rgba(255,255,255,0.04)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: "50%",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "rgba(212,175,55,0.3)";
-          e.currentTarget.style.background = "rgba(212,175,55,0.06)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-          e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-        }}
-      >
-        <Smartphone
-          className="h-[18px] w-[18px]"
-          style={{ color: "rgba(255,255,255,0.78)" }}
-          strokeWidth={1.9}
-        />
-        {/* Subtle gold dot to hint there's something to discover */}
-        <span
-          aria-hidden="true"
-          className="absolute top-1 right-1 h-1.5 w-1.5 rounded-full animate-pulse"
+    <>
+      <div ref={wrapperRef} className="relative">
+        {/* Trigger button — matches header glassy style */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={t("install.ariaTrigger", "Instaliraj aplikaciju")}
+          aria-expanded={open}
+          className="flex items-center justify-center transition-all duration-250 ease-in-out relative"
           style={{
-            background: "#D4AF37",
-            boxShadow: "0 0 6px rgba(212,175,55,0.6)",
+            width: 36,
+            height: 36,
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: "50%",
           }}
-        />
-      </button>
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "rgba(212,175,55,0.3)";
+            e.currentTarget.style.background = "rgba(212,175,55,0.06)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+          }}
+        >
+          <Smartphone
+            className="h-[18px] w-[18px]"
+            style={{ color: "rgba(255,255,255,0.78)" }}
+            strokeWidth={1.9}
+          />
+          {/* Subtle gold dot to hint there's something to discover */}
+          <span
+            aria-hidden="true"
+            className="absolute top-1 right-1 h-1.5 w-1.5 rounded-full animate-pulse"
+            style={{
+              background: "#D4AF37",
+              boxShadow: "0 0 6px rgba(212,175,55,0.6)",
+            }}
+          />
+        </button>
+      </div>
 
-      {/* Dropdown popup — fixed so it escapes header's overflow-hidden */}
-      <div
-        role="dialog"
+      {/* Popup is rendered through a portal to escape header's backdrop-filter
+          containing block (which would otherwise clip a fixed child). */}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <div
+            ref={popupRef}
+            role="dialog"
         aria-modal="false"
         aria-label={t("install.ariaDialog", "Preuzmi BalkanLink aplikaciju")}
         className={cn(
@@ -335,8 +345,10 @@ export function HeaderInstallPopup() {
             {t("install.footerHint", "Ovaj prozor se opet pojavljuje pri svakoj prijavi.")}
           </p>
         </div>
-      </div>
-    </div>
+          </div>,
+          document.body
+        )}
+    </>
   );
 }
 
