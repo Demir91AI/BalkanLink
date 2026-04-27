@@ -66,6 +66,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const result = await checkSubscriptionStatus();
       setIsPremium(result.subscribed);
       setSubscriptionEnd(result.subscription_end ?? null);
+      // Notify other hooks (e.g. useSubscription) that profile data may have changed,
+      // so they can refetch from the profiles table without waiting for a manual reload.
+      try { window.dispatchEvent(new CustomEvent("bl:subscription-refreshed")); } catch { /* noop */ }
     } catch {
       // silently fail
     }
