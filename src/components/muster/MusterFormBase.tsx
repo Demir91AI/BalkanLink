@@ -5,6 +5,7 @@ import FieldTooltip from "@/components/muster/FieldTooltip";
 import FormularLock from "@/components/paywall/FormularLock";
 import { useSubscription } from "@/hooks/useSubscription";
 import AuthGate from "@/components/AuthGate";
+import { isFormFree } from "@/lib/form-catalog";
 
 export const S = {
   page: { minHeight: "100vh", background: "#F5F0E8", fontFamily: "Arial, sans-serif", fontSize: 11, color: "#111" } as React.CSSProperties,
@@ -96,7 +97,8 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
   const onSaveRef = useRef(onSave);
   const { hasSingleAccess, isPremium } = useSubscription();
   const fId = formularId || lsKey;
-  const locked = !isPremium && !hasSingleAccess(fId);
+  const isFree = isFormFree(fId);
+  const locked = !isFree && !isPremium && !hasSingleAccess(fId);
 
   // Keep latest onSave reference without retriggering autosave
   useEffect(() => {
@@ -198,11 +200,15 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
             </div>
           </div>
 
-          <AuthGate>
-            <FormularLock locked={locked} formularId={fId}>
-              {children}
-            </FormularLock>
-          </AuthGate>
+          {isFree ? (
+            <>{children}</>
+          ) : (
+            <AuthGate>
+              <FormularLock locked={locked} formularId={fId}>
+                {children}
+              </FormularLock>
+            </AuthGate>
+          )}
 
           <div style={S.footer}>
             {footerNote}
