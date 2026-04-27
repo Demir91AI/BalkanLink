@@ -379,6 +379,64 @@ export default function FormCenter() {
     );
   }
 
+  // ─── INDEX VIEW: no form selected → Vault Accordion (full width) ───
+  if (!activeSlug || isRemovedFormSlug) {
+    return (
+      <div className="mx-auto max-w-5xl px-4 py-6 min-h-screen" style={{ background: "hsl(var(--background))" }}>
+        <SEO title="Musterformulari — Njemački Obrasci" description="Popuni njemačke formulare na svom jeziku — Kindergeld, Bürgergeld, Wohngeld, BAföG i još 15+ obrazaca." path="/formulari" />
+        <BuergergeldInfoModal
+          open={showBgInfo}
+          onClose={() => setShowBgInfo(false)}
+          onOpenForm={() => { setShowBgInfo(false); handleSelect("hauptantrag"); }}
+        />
+
+        <div className="mb-2">
+          <PageNavBar onBack={handleBack} />
+        </div>
+
+        <FormCatalogVault
+          onSelect={handleSelect}
+          onShowBuergergeldInfo={() => setShowBgInfo(true)}
+        />
+
+        <div className="mt-10">
+          <PremiumBenefitsSection />
+        </div>
+      </div>
+    );
+  }
+
+  // ─── DETAIL VIEW: form selected ───
+  // Mobile: full-screen guide
+  if (isMobile && activeSlug && !isRemovedFormSlug) {
+    const musterPath = getMusterPath(activeSlug);
+    return (
+      <div className="px-4 py-6">
+        <PageNavBar onBack={handleBack} />
+        {canAccess ? (
+          <>
+            <GuideContent key={activeSlug} slug={activeSlug} />
+            {musterPath && (
+              <button
+                onClick={() => navigate(musterPath)}
+                className="w-full mt-6 mb-4 rounded-xl py-3 text-sm font-bold text-white flex items-center justify-center gap-2"
+                style={{ background: '#1E293B' }}
+              >
+                📋 Otvori Musterformular
+                {!isFormFree(activeSlug) && (
+                  <span style={{ color: '#C9A84C', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', marginLeft: 4 }}>⭐ PREMIUM</span>
+                )}
+              </button>
+            )}
+          </>
+        ) : (
+          <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
+        )}
+      </div>
+    );
+  }
+
+  // Desktop: sidebar + content + right panel
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen" style={{ background: "hsl(var(--background))" }}>
       <SEO title="Musterformulari — Njemački Obrasci" description="Popuni njemačke formulare na svom jeziku — Kindergeld, Bürgergeld, Wohngeld, BAföG i još 15+ obrazaca." path="/formulari" />
@@ -388,21 +446,13 @@ export default function FormCenter() {
         onOpenForm={() => { setShowBgInfo(false); handleSelect("hauptantrag"); }}
       />
 
-      {/* Page title */}
       <div className="mb-6">
         <PageNavBar onBack={handleBack} />
-        <h1 className="font-heading text-2xl font-extrabold sm:text-3xl text-foreground">
-          Formulari
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Pravilno popuni formulare
-        </p>
-        <div className="h-px mt-4 mb-6 bg-border/40" />
       </div>
 
       <div className="flex gap-6">
         {/* ─── Sidebar ─── */}
-        <aside className={cn("shrink-0", isMobile ? "hidden" : "sticky top-20 self-start w-72")} style={{ background: "hsl(var(--card))", borderRight: "1px solid hsl(var(--border) / 0.4)" }}>
+        <aside className="shrink-0 sticky top-20 self-start w-72" style={{ background: "hsl(var(--card))", borderRight: "1px solid hsl(var(--border) / 0.4)" }}>
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -482,161 +532,30 @@ export default function FormCenter() {
 
         {/* ─── Main content ─── */}
         <main className="min-w-0 flex-1 overflow-hidden">
-          {activeSlug && !isRemovedFormSlug ? (
-            <>
-              <div className="flex items-center gap-2 mb-4 text-sm">
-                <button
-                  className="text-[hsl(var(--gold))] hover:underline font-medium"
-                  onClick={() => navigate('/formulari')}
-                >
-                  Formulari
-                </button>
-                <span className="text-muted-foreground">›</span>
-                <span className="text-foreground font-semibold truncate">
-                  {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
-                </span>
-                <ItemBadge slug={activeSlug} />
-              </div>
-              {canAccess ? (
-                <GuideContent key={activeSlug} slug={activeSlug} />
-              ) : (
-                <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
-              )}
-            </>
+          <div className="flex items-center gap-2 mb-4 text-sm">
+            <button
+              className="text-[hsl(var(--gold))] hover:underline font-medium"
+              onClick={() => navigate('/formulari')}
+            >
+              Formulari
+            </button>
+            <span className="text-muted-foreground">›</span>
+            <span className="text-foreground font-semibold truncate">
+              {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
+            </span>
+            <ItemBadge slug={activeSlug} />
+          </div>
+          {canAccess ? (
+            <GuideContent key={activeSlug} slug={activeSlug} />
           ) : (
-            <div className="flex flex-col items-center justify-center py-20 text-center">
-              {isMobile ? (
-                <div className="w-full space-y-1">
-                  <div className="relative mb-4">
-                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                    <Input
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                      placeholder="Pretraži formulare..."
-                      className="pl-9 h-10 text-sm rounded-xl border-border/60 bg-card"
-                    />
-                  </div>
-                  {isSearching ? (
-                    searchResults.length > 0 ? (
-                      <div className="space-y-2">
-                        {searchResults.map((item) => (
-                          <button
-                            key={item.slug}
-                            onClick={() => handleSelect(item.slug)}
-                            className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
-                          >
-                            <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
-                            <div className="min-w-0 flex-1">
-                              <div className="flex items-center gap-2">
-                                <p className="font-semibold truncate">{item.label}</p>
-                                <ItemBadge slug={item.slug} />
-                              </div>
-                              <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                              <AvailabilityIndicator slug={item.slug} />
-                            </div>
-                            <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
-                          </button>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="px-3 py-6 text-xs text-muted-foreground text-center">
-                        Nema rezultata
-                      </p>
-                    )
-                  ) : (
-                    <>
-                      {formCatalog.map((group) => (
-                        <Collapsible
-                          key={group.id}
-                          open={openMobileGroups.has(group.id)}
-                          onOpenChange={() => toggleMobileGroup(group.id)}
-                        >
-                          {/* Free banner above Dolazak */}
-                          {group.isFree && (
-                            <div className="rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 px-4 py-2.5 text-xs font-medium text-emerald-700 dark:text-emerald-400 mt-3 mb-1">
-                              ✓ Ova kategorija je potpuno besplatna — bez registracije, bez plaćanja.
-                            </div>
-                          )}
-                          <CollapsibleTrigger className="w-full flex items-center justify-between px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-[hsl(var(--gold))] bg-[hsl(220,50%,8%)] rounded-lg mt-1 mb-1.5">
-                            <span className="flex items-center gap-2">
-                              {group.icon} {getGroupTitle(group)}
-                              {group.isFree ? <FreeBadge /> : <PremiumBadge />}
-                            </span>
-                            <ChevronDown className={cn("h-4 w-4 transition-transform", openMobileGroups.has(group.id) && "rotate-180")} />
-                          </CollapsibleTrigger>
-                          <CollapsibleContent className="space-y-2">
-                            {group.items.map((item) => (
-                              <button
-                                key={item.slug}
-                                onClick={() => handleSelect(item.slug)}
-                                className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
-                              >
-                                <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
-                                <div className="min-w-0 flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <p className="font-semibold truncate">{item.label}</p>
-                                    <ItemBadge slug={item.slug} />
-                                  </div>
-                                  <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                                  <AvailabilityIndicator slug={item.slug} />
-                                </div>
-                                <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
-                              </button>
-                            ))}
-                            {group.subGroups?.map((sub) => (
-                              <div key={sub.id}>
-                                <p className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-2">{sub.title}</p>
-                                {sub.items.map((item) => (
-                                  <button
-                                    key={item.slug}
-                                    onClick={() => handleSelect(item.slug)}
-                                    className="w-full flex items-center gap-3 rounded-xl border border-border/40 bg-card px-4 py-3 text-left text-sm transition hover:border-[hsl(var(--gold))]/40 hover:shadow-sm"
-                                  >
-                                    <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
-                                    <div className="min-w-0 flex-1">
-                                      <div className="flex items-center gap-2">
-                                        <p className="font-semibold truncate">{item.label}</p>
-                                        <ItemBadge slug={item.slug} />
-                                      </div>
-                                      <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                                      <AvailabilityIndicator slug={item.slug} />
-                                    </div>
-                                    <ChevronRight className="ml-auto h-4 w-4 shrink-0 text-muted-foreground" />
-                                  </button>
-                                ))}
-                              </div>
-                            ))}
-                          </CollapsibleContent>
-                        </Collapsible>
-                      ))}
-                      {/* Premium benefits at bottom */}
-                      <PremiumBenefitsSection />
-                    </>
-                  )}
-                </div>
-              ) : (
-                <>
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/5 mb-6">
-                    <FileText className="h-10 w-10 text-[hsl(var(--gold))]/40" />
-                  </div>
-                  <h2 className="text-lg font-bold text-foreground/70">Izaberi formular</h2>
-                  <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                    Izaberi formular iz liste
-                  </p>
-                </>
-              )}
-            </div>
+            <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
           )}
-          {/* Desktop: Premium benefits at bottom when no slug selected */}
-          {!activeSlug && !isMobile && <PremiumBenefitsSection />}
         </main>
-        {activeSlug && !isMobile && (
-          <FormRightPanel
-            activeSlug={activeSlug}
-            formLabel={activeEntry?.label}
-            formDesc={activeEntry?.desc}
-          />
-        )}
+        <FormRightPanel
+          activeSlug={activeSlug}
+          formLabel={activeEntry?.label}
+          formDesc={activeEntry?.desc}
+        />
       </div>
     </div>
   );
