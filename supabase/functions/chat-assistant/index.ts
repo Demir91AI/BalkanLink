@@ -226,16 +226,17 @@ const SAFETY_BLOCK_PATTERNS = [
   /\b(bomb|explosive|attack|kill|murder|weapon|gun|grenade|assault)\b/i,
   /\b(waffe|angriff|töten|mord|bombe|sprengstoff)\b/i,
   // hacking & fraud
-  /\b(hakiraj|hakuj|crack|phishing|ukradi|prevara|prijevara|falsifik|falsific)\b/i,
-  /\b(hack\s|hacking|crack\s|steal|fraud|counterfeit|forge|phish)\b/i,
+  /\b(hakiraj|hakuj|crack|phishing|ukradi|prevara|prijevara|prevari[tć]?|prijeva[rt]i[tć]?|falsifik|falsific)\b/i,
+  /\b(hack\s|hacking|crack\s|steal|fraud|counterfeit|forge|phish|scam)\b/i,
   /\b(hacken|betrüg|betrug|fälsch|stehlen)\b/i,
   // drugs
   /\b(droga|kokain|heroin|metamfetamin|trava za prodaju|dilovanje|diler)\b/i,
   /\b(cocaine|heroin|meth|drug deal|narcotics)\b/i,
-  // bypassing law
-  /\b(zaobiđi policiju|sakrij se od policije|ilegalno prijeđi|crni rad|rad na crno|utaja poreza)\b/i,
-  /\b(schwarzarbeit|steuerhinterziehung|illegal\s+grenz)\b/i,
-  /\b(bypass police|evade law|hide from police|tax evasion|work illegally)\b/i,
+  // bypassing law / cheating state
+  /\b(zaobi[đdj]i\s+(policiju|zakon)|sakrij\s+se\s+od\s+policije|ilegalno\s+pre[đdj]i|crni\s+rad|rad\s+na\s+crno|utaja\s+poreza|izbjeg(ni|nuti|avanje)\s+porez|ne\s+plati(ti)?\s+porez)\b/i,
+  /\b(prevari[tć]?|prijevari[tć]?|nasamari[tć]?|izigra[tć]?)\s+(drzav|drža[vw]|finanzamt|porez|sluzb|službe|institucij|firmu|poslodavca|policiju|jobcenter|agentur)/i,
+  /\b(schwarzarbeit|steuerhinterziehung|illegal\s+grenz|staat\s+betrüg|finanzamt\s+betrüg)\b/i,
+  /\b(bypass\s+police|evade\s+law|hide\s+from\s+police|tax\s+evasion|work\s+illegally|cheat\s+(the\s+)?(state|government|tax|irs))\b/i,
 ];
 
 const SEXUAL_SERVICE_PATTERNS = [
