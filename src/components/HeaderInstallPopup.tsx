@@ -52,24 +52,24 @@ export function HeaderInstallPopup() {
     return () => mq.removeEventListener?.("change", handler);
   }, []);
 
-  // Auto-open after every login (per session) — and on initial mount if
-  // user is already signed in (e.g. page refresh or returning visitor).
+  // Auto-open ONLY on a real login event (`bl:user-signed-in`), once per session.
+  // We intentionally do NOT auto-open on mount/refresh — that made the popup feel
+  // spammy because it reappeared on every page reload while still logged in.
   useEffect(() => {
     const tryOpen = () => {
       try {
         if (isStandalone()) return;
         if (sessionStorage.getItem(SS_DISMISS_KEY) === "1") return;
+        // Mark as shown immediately so a second event in the same session is a no-op.
+        sessionStorage.setItem(SS_DISMISS_KEY, "1");
         window.setTimeout(() => setOpen(true), 600);
       } catch {
         /* ignore */
       }
     };
     window.addEventListener("bl:user-signed-in", tryOpen);
-    // Also trigger on mount if user is already authenticated
-    if (user) tryOpen();
     return () => window.removeEventListener("bl:user-signed-in", tryOpen);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id]);
+  }, []);
 
   // Close on Esc + outside click
   useEffect(() => {
