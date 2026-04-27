@@ -105,7 +105,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
           // Fire explicit sign-out event (only on real SIGNED_OUT, not initial hydration)
           if (event === "SIGNED_OUT") {
-            try { window.dispatchEvent(new CustomEvent("bl:user-signed-out")); } catch {}
+            const previousUserId = (typeof window !== "undefined" ? localStorage.getItem("bl_last_user_id") : null) || undefined;
+            try { window.dispatchEvent(new CustomEvent("bl:user-signed-out", { detail: { userId: previousUserId } })); } catch {}
+            try { localStorage.removeItem("bl_last_user_id"); } catch {}
           }
 
           // Show "session expired" toast ONLY on a real SIGNED_OUT event
