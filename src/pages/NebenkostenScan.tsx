@@ -269,9 +269,7 @@ export default function NebenkostenScan() {
                   <Button variant="outline" size="sm" onClick={reset}>{t("nebenkostenScan.result.newScan")}</Button>
                 </div>
 
-                <article className="prose prose-sm sm:prose-base dark:prose-invert max-w-none prose-headings:font-bold prose-h2:text-lg prose-h2:mt-6 prose-h2:mb-3 prose-h2:flex prose-h2:items-center prose-h2:gap-2 prose-strong:text-foreground">
-                  <ReactMarkdown>{analysis}</ReactMarkdown>
-                </article>
+                <NebenkostenResultView analysis={analysis} />
 
                 {!isPremium && (
                   <div className="mt-8 rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-gradient-to-br from-[hsl(var(--gold))]/10 to-transparent p-6 text-center">
