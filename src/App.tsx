@@ -114,6 +114,14 @@ const AnerkennungNavigator = lazy(() => import("./pages/AnerkennungNavigator"));
 const Porezi = lazy(() => import("./pages/Porezi"));
 const PoreziWizard = lazy(() => import("./pages/PoreziWizard"));
 const PoreziDoppelhaushalt = lazy(() => import("./pages/PoreziDoppelhaushalt"));
+const PoreziDeadlines = lazy(() => import("./pages/PoreziDeadlines"));
+const PoreziDeductions = lazy(() => import("./pages/PoreziDeductions"));
+const PoreziElster = lazy(() => import("./pages/PoreziElster"));
+const PoreziFamily = lazy(() => import("./pages/PoreziFamily"));
+const PoreziStudents = lazy(() => import("./pages/PoreziStudents"));
+const PoreziSelfEmployed = lazy(() => import("./pages/PoreziSelfEmployed"));
+const PoreziRental = lazy(() => import("./pages/PoreziRental"));
+const PoreziMistakes = lazy(() => import("./pages/PoreziMistakes"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -211,6 +219,35 @@ function LocalizedRoutes() {
         <Route path="porezi/dvostruko-domacinstvo" element={<PoreziDoppelhaushalt />} />
         <Route path="porezi/dvostruko-kucanstvo" element={<PoreziDoppelhaushalt />} />
         <Route path="steuern/doppelte-haushaltsfuehrung" element={<PoreziDoppelhaushalt />} />
+        {/* Deadlines */}
+        <Route path="porezi/rokovi-i-kazne" element={<PoreziDeadlines />} />
+        <Route path="steuern/fristen-und-strafen" element={<PoreziDeadlines />} />
+        {/* Deductions */}
+        <Route path="porezi/sta-mogu-odbiti" element={<PoreziDeductions />} />
+        <Route path="porezi/sto-mogu-odbiti" element={<PoreziDeductions />} />
+        <Route path="steuern/was-kann-ich-absetzen" element={<PoreziDeductions />} />
+        {/* ELSTER guide */}
+        <Route path="porezi/elster-vodic" element={<PoreziElster />} />
+        <Route path="steuern/elster-anleitung" element={<PoreziElster />} />
+        {/* Family */}
+        <Route path="porezi/porodica-i-klase" element={<PoreziFamily />} />
+        <Route path="porezi/obitelj-i-klase" element={<PoreziFamily />} />
+        <Route path="steuern/familie-und-steuerklassen" element={<PoreziFamily />} />
+        {/* Students */}
+        <Route path="porezi/studenti-i-pripravnici" element={<PoreziStudents />} />
+        <Route path="porezi/studenti-i-naucnici" element={<PoreziStudents />} />
+        <Route path="steuern/studenten-und-azubis" element={<PoreziStudents />} />
+        {/* Self-employed */}
+        <Route path="porezi/samostalni-i-freelancer" element={<PoreziSelfEmployed />} />
+        <Route path="steuern/selbststaendige-und-freelancer" element={<PoreziSelfEmployed />} />
+        {/* Rental */}
+        <Route path="porezi/prihodi-od-izdavanja" element={<PoreziRental />} />
+        <Route path="porezi/prihodi-od-najma" element={<PoreziRental />} />
+        <Route path="steuern/mieteinkuenfte" element={<PoreziRental />} />
+        {/* Mistakes */}
+        <Route path="porezi/najcesce-greske" element={<PoreziMistakes />} />
+        <Route path="porezi/najceste-pogreske" element={<PoreziMistakes />} />
+        <Route path="steuern/haeufigste-fehler" element={<PoreziMistakes />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />

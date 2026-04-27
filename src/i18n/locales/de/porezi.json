@@ -444,5 +444,820 @@
       "body": "Diese Inhalte sind rein informativ und stellen keine Steuerberatung dar. BalkanLink ist kein Steuerberater und kein Lohnsteuerhilfeverein. Ihre konkrete Lage kann von typischen Fällen abweichen.",
       "sources": "Hauptquellen: § 9 Abs. 1 Nr. 5 EStG; R 9.11 LStR; BMF-Schreiben vom 25.11.2020; BFH VI R 39/16 und VI R 39/17. Stand: Januar 2026."
     }
+  },
+  "checklist": {
+    "progress": "{{done}}/{{total}} erledigt",
+    "done": "Alle Punkte sind erledigt — top!",
+    "reset": "Zurücksetzen"
+  },
+  "deadlines": {
+    "seo": {
+      "title": "Steuererklärung — Fristen und Strafen | BalkanLink",
+      "description": "Bis wann Sie Ihre Steuererklärung abgeben müssen, was bei Verspätung passiert (Verspätungszuschlag, Zinsen) und welche Ausnahmen gelten. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Fristen und Strafen",
+      "subtitle": "Bis wann Sie abgeben müssen, was bei Verspätung droht und wie Sie den Verspätungszuschlag vermeiden."
+    },
+    "intro": {
+      "heading": "Warum die Fristen wichtig sind",
+      "p1": "Das deutsche Steuerrecht unterscheidet zwischen PFLICHT- und FREIWILLIGER Veranlagung — die Fristen unterscheiden sich erheblich.",
+      "p2": "Wer pflichtveranlagt ist und die Frist verpasst, riskiert Verspätungszuschlag und Zinsen. Bei der freiwilligen Antragsveranlagung gilt eine deutlich längere Frist ohne Strafe."
+    },
+    "criteria": {
+      "heading": "Die wichtigsten Fristen",
+      "intro": "Übersicht typischer Fristen für Arbeitnehmer (ohne Steuerberater). Konkrete Tage verschieben sich, wenn der Stichtag auf Wochenende/Feiertag fällt.",
+      "list": {
+        "c1": "Pflichtveranlagung — ohne Berater: Ende Juli des Folgejahres (z. B. Erklärung 2025 → 31.07.2026).",
+        "c2": "Pflichtveranlagung — mit Steuerberater: deutlich verlängert, üblicherweise bis Ende Februar des übernächsten Jahres.",
+        "c3": "Antragsveranlagung (freiwillig) — 4 Jahre nach Ende des Steuerjahres (z. B. Erklärung 2025 bis 31.12.2029).",
+        "c4": "In Sondersituationen (Corona-Jahre) wurden Fristen per Bundesgesetz verlängert — Jahr individuell prüfen.",
+        "c5": "Fordert das Finanzamt schriftlich auf, gilt die im Schreiben genannte Frist (oft ein Monat)."
+      }
+    },
+    "proofs": {
+      "heading": "Checkliste vor dem Absenden",
+      "intro": "Haken Sie ab, was Sie bereit haben, bevor Sie die Erklärung abschicken. Die Liste wird lokal auf diesem Gerät gespeichert.",
+      "list": {
+        "p1": "Lohnsteuerbescheinigung von allen Arbeitgebern des Jahres",
+        "p2": "Steuer-Identifikationsnummer (11 Stellen) geprüft",
+        "p3": "IBAN für eine eventuelle Erstattung in der Erklärung eingetragen",
+        "p4": "Belege für Werbungskosten gescannt / 10 Jahre aufbewahrt",
+        "p5": "Nachweise zu Kranken- und Rentenversicherungsbeiträgen"
+      }
+    },
+    "mistakes": {
+      "heading": "Typische Fehler bei Fristen",
+      "list": {
+        "m1": "Falsches Berechnen, wenn der 31.07. auf einen Sonntag fällt — die Frist verschiebt sich auf den nächsten Werktag, nicht früher.",
+        "m2": "Pflicht- und Antragsveranlagung verwechseln — fälschlich von 4 Jahren ausgehen, obwohl Pflicht besteht.",
+        "m3": "Papierabgabe, obwohl elektronisch (ELSTER) Pflicht ist — kann abgelehnt werden.",
+        "m4": "Mahnung des Finanzamts ignorieren — Zuschlag kann deutlich steigen.",
+        "m5": "Abgabe ohne alle Lohnsteuerbescheinigungen bei mehreren Arbeitgebern — Hauptgrund für Korrekturen."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Ich bin gerade erst nach Deutschland gezogen — welche Frist gilt?",
+          "a": "Die Frist gilt für das Steuerjahr, in dem Sie Steuerresident waren. Bei unterjährigem Zuzug wird nur der deutsche Anteil erklärt."
+        },
+        "q2": {
+          "q": "Kann ich Fristverlängerung beantragen?",
+          "a": "Ja, schriftlich vor Ablauf der Frist beim Finanzamt. Mit nachvollziehbarer Begründung wird sie meist gewährt."
+        },
+        "q3": {
+          "q": "Wie hoch ist der Verspätungszuschlag?",
+          "a": "Die Berechnung folgt § 152 AO. Den konkreten Betrag legt das Finanzamt nach Dauer und Höhe der Steuerschuld fest — wir veröffentlichen keine Pauschalen."
+        },
+        "q4": {
+          "q": "Was, wenn ich eine Erklärung aus einem Vorjahr vergessen habe?",
+          "a": "Bei Pflichtveranlagung: schnellstmöglich nachreichen, ggf. mit Begründung. Bei Antragsveranlagung gilt die 4-Jahres-Frist."
+        }
+      }
+    },
+    "gate": {
+      "title": "Fristen und Strafen — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: § 25 EStG, § 149 AO, § 152 AO sowie jährliche BMF-Schreiben. Stand: Januar 2026."
+    }
+  },
+  "deductions": {
+    "seo": {
+      "title": "Was kann ich absetzen? — Werbungskosten & Sonderausgaben | BalkanLink",
+      "description": "Übersicht der typischen Posten, die Arbeitnehmer in Deutschland absetzen können: Werbungskosten, Sonderausgaben, außergewöhnliche Belastungen. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Was kann ich absetzen",
+      "subtitle": "Drei große Abzugskategorien — was wo hingehört, welche Belege Sie aufbewahren und typische Fehler."
+    },
+    "intro": {
+      "heading": "Drei große Kategorien",
+      "p1": "Das deutsche Steuersystem teilt Abzüge in drei Gruppen: Werbungskosten (beruflich veranlasste Kosten), Sonderausgaben (private, gesetzlich anerkannte Kosten) und außergewöhnliche Belastungen.",
+      "p2": "Dieses Modul zeigt, was typischerweise wo hingehört und welche Belege Sie vorbereiten sollten — ohne konkrete Beträge, da diese vom Jahr und Ihrer Situation abhängen."
+    },
+    "costs": {
+      "heading": "Typische Kategorien",
+      "intro": "Die häufigsten Posten, die Arbeitnehmer angeben. Die genaue Anerkennung hängt von der Dokumentation und Ihrem Finanzamt ab.",
+      "list": {
+        "k1": {
+          "title": "Pendlerpauschale",
+          "desc": "Jeder Kilometer einfache Strecke zwischen Wohnung und Tätigkeitsstätte — unabhängig vom Verkehrsmittel."
+        },
+        "k2": {
+          "title": "Fachliteratur & Werkzeuge",
+          "desc": "Bücher, Fachzeitschriften, Software, geringwertige Werkzeuge — beruflich veranlasst."
+        },
+        "k3": {
+          "title": "Fort- und Weiterbildung",
+          "desc": "Kurse, Zertifikate, Prüfungen, die Ihren aktuellen Beruf voranbringen."
+        },
+        "k4": {
+          "title": "Beiträge zu Gewerkschaft / Berufskammer",
+          "desc": "Mitgliedsbeiträge in berufsständischen Organisationen."
+        },
+        "k5": {
+          "title": "Renten- und Krankenversicherung",
+          "desc": "Sonderausgaben — Vorsorgeaufwendungen."
+        },
+        "k6": {
+          "title": "Spenden & Kirchensteuer",
+          "desc": "Sonderausgaben — mit ordnungsgemäßer Zuwendungsbestätigung."
+        }
+      },
+      "noNumbersNote": "Wir veröffentlichen keine Pauschalbeträge oder Sätze — es gelten die offiziellen Werte des jeweiligen Steuerjahres."
+    },
+    "proofs": {
+      "heading": "Beleg-Checkliste",
+      "intro": "Haken Sie ab, welche Belege Sie bereit haben. Ohne Belege werden Abzüge bei einer Prüfung meist nicht anerkannt.",
+      "list": {
+        "p1": "Rechnungen für Fachliteratur / Werkzeuge",
+        "p2": "Teilnahmebescheinigungen und Zertifikate von Kursen",
+        "p3": "Pendlerpauschale — Wohn- und Arbeitsadresse klar dokumentiert",
+        "p4": "Kontoauszüge zu Mitgliedsbeiträgen und Spenden",
+        "p5": "Versicherungsbescheinigungen"
+      }
+    },
+    "mistakes": {
+      "heading": "Typische Fehler",
+      "list": {
+        "m1": "Pendler — Entfernung angeben, die nicht der kürzesten verkehrsüblichen Route entspricht.",
+        "m2": "Werbungskosten und Sonderausgaben verwechseln — Rentenbeiträge gehören NICHT zu Werbungskosten.",
+        "m3": "Private Ausgaben (z. B. Alltagskleidung statt Uniform) ansetzen — wird fast immer gestrichen.",
+        "m4": "Spenden ohne Zuwendungsbestätigung — ohne Beleg keine Anerkennung.",
+        "m5": "Denselben Posten in zwei Kategorien angeben — führt zu Rückfragen des Finanzamts."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Lohnt es sich, einzelne Werbungskosten anzusetzen?",
+          "a": "Erst wenn sie über dem gesetzlichen Pauschbetrag liegen. Sonst wird automatisch der Pauschbetrag angesetzt."
+        },
+        "q2": {
+          "q": "Kann ich Homeoffice absetzen?",
+          "a": "Ja, unter bestimmten Voraussetzungen — es gibt die Homeoffice-Pauschale und Regeln für das anerkannte Arbeitszimmer."
+        },
+        "q3": {
+          "q": "Spenden außerhalb der EU?",
+          "a": "Nur eingeschränkt anerkannt — die Organisation muss deutsche Voraussetzungen (gemeinnützig) erfüllen."
+        },
+        "q4": {
+          "q": "Wie lange Belege aufbewahren?",
+          "a": "Selbständige: 10 Jahre. Arbeitnehmer: mindestens bis Ablauf der Festsetzungsverjährung (in der Regel 4+ Jahre)."
+        }
+      }
+    },
+    "gate": {
+      "title": "Was kann ich absetzen — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: § 9 EStG (Werbungskosten), § 10 EStG (Sonderausgaben), § 33 EStG (außergewöhnliche Belastungen). Stand: Januar 2026."
+    }
+  },
+  "elsterGuide": {
+    "seo": {
+      "title": "ELSTER — Registrierung und erste Abgabe | BalkanLink",
+      "description": "Schritt für Schritt, wie Sie ein ELSTER-Konto eröffnen und Ihre Steuererklärung elektronisch abgeben. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "ELSTER — so registrieren Sie sich",
+      "subtitle": "Konto, Zertifikat, Aktivierung und die erste elektronische Abgabe — verständlich erklärt."
+    },
+    "intro": {
+      "heading": "Was ist ELSTER",
+      "p1": "ELSTER (Elektronische Steuererklärung) ist das offizielle Portal der deutschen Finanzverwaltung für die elektronische Kommunikation mit dem Finanzamt.",
+      "p2": "Für die meisten Fälle (Arbeitnehmer, Selbständige, Vermietung) ist ELSTER heute Pflichtkanal — Papier ist die Ausnahme."
+    },
+    "criteria": {
+      "heading": "5 Schritte zur Registrierung",
+      "intro": "Der Prozess dauert 1–3 Wochen, da die Aktivierung per Post kommt.",
+      "list": {
+        "c1": "Konto auf elster.de eröffnen — Nutzertyp wählen (Privatperson / Unternehmen).",
+        "c2": "Steuer-Identifikationsnummer (11 Stellen) und Stammdaten eingeben.",
+        "c3": "Warten auf zwei separate Briefe (Aktivierungs-ID und -Code).",
+        "c4": "Zertifikat (.pfx-Datei) erstellen — das ist Ihr 'Schlüssel' für die Anmeldung.",
+        "c5": "Erste Anmeldung und Sicherheits-PIN festlegen."
+      }
+    },
+    "proofs": {
+      "heading": "Bevor Sie starten",
+      "intro": "Haken Sie ab, was Sie bereit haben — ohne diese Dinge stoppen Sie im Prozess.",
+      "list": {
+        "p1": "Steuer-Identifikationsnummer (11 Stellen)",
+        "p2": "Aktuelle Meldeadresse — die Briefe gehen dorthin",
+        "p3": "Regelmäßig genutzte E-Mail-Adresse",
+        "p4": "Sicherer Ort für die .pfx-Zertifikatsdatei",
+        "p5": "Starkes Passwort, das Sie sich merken — sonst Zugang weg"
+      }
+    },
+    "mistakes": {
+      "heading": "Typische Fehler",
+      "list": {
+        "m1": "Falsch eingegebene Steuer-ID — Registrierung beginnt von vorne.",
+        "m2": "Adresswechsel während Wartezeit auf Aktivierungspost.",
+        "m3": "Verlust der .pfx-Datei ohne Backup — neuer Zertifikatsantrag nötig.",
+        "m4": "Doppelte Registrierung mit derselben Steuer-ID — vom System blockiert.",
+        "m5": "'Mein ELSTER' für Unternehmen statt 'Organisationszertifikat' nutzen."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Darf ich ein fremdes ELSTER-Konto nutzen?",
+          "a": "Rechtlich riskant. Ein Steuerberater darf jedoch die Erklärung mit seinem Konto für Sie abgeben."
+        },
+        "q2": {
+          "q": "Was, wenn ich noch keine Steuer-ID habe?",
+          "a": "Sie kommt automatisch nach der Anmeldung (max. 6 Wochen). Ohne Steuer-ID kein ELSTER."
+        },
+        "q3": {
+          "q": "Gibt es Alternativen?",
+          "a": "Kommerzielle Programme (WISO, Smartsteuer, Taxfix) nutzen die ELSTER-Schnittstelle, bieten aber komfortablere UI."
+        },
+        "q4": {
+          "q": "Ist ELSTER kostenlos?",
+          "a": "Ja, das Portal ist kostenlos. Bezahlt wird nur kommerzielle Software, die darauf aufsetzt."
+        }
+      }
+    },
+    "gate": {
+      "title": "ELSTER-Anleitung — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: § 87a AO, § 25 EStG sowie offizielle ELSTER-Dokumentation. Stand: Januar 2026."
+    }
+  },
+  "family": {
+    "seo": {
+      "title": "Familie und Steuerklassen — Steuerklassen & Kinderfreibetrag | BalkanLink",
+      "description": "Steuerklassen I–VI, Ehegattensplitting, Kinderfreibetrag vs. Kindergeld und Günstigerprüfung. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Familie und Steuerklassen",
+      "subtitle": "Steuerklassen, Zusammenveranlagung, Kinderfreibetrag — wie sich das auf die Steuerlast auswirkt."
+    },
+    "intro": {
+      "heading": "Warum das wichtig ist",
+      "p1": "Die Steuerklasse bestimmt den monatlichen Lohnsteuerabzug. Sie ändert nicht die Jahressteuer, aber den Cash-Flow.",
+      "p2": "Verheiratete wählen zwischen Einzel- und Zusammenveranlagung — das Finanzamt führt automatisch eine Günstigerprüfung durch."
+    },
+    "criteria": {
+      "heading": "Klassen I–VI",
+      "intro": "Typische Zuordnung für Arbeitnehmer. Es gibt Ausnahmen für Schwerbehinderte, Alleinerziehende usw.",
+      "list": {
+        "c1": "I — Ledige, Geschiedene, ohne zusammenlebende Familie in Deutschland.",
+        "c2": "II — Alleinerziehende mit Entlastungsbetrag.",
+        "c3": "III — Verheirateter Partner mit höherem Einkommen (mit IV beim anderen).",
+        "c4": "IV — Verheiratete Partner mit ähnlichem Einkommen.",
+        "c5": "V — Partner mit geringerem Einkommen (Kombi mit III)."
+      }
+    },
+    "costs": {
+      "heading": "Familienbezogene Entlastungen",
+      "intro": "Typische Entlastungen, die Familien nutzen. Die konkreten Beträge ändern sich jährlich.",
+      "list": {
+        "k1": {
+          "title": "Kinderfreibetrag",
+          "desc": "Pro Kind — automatische Günstigerprüfung."
+        },
+        "k2": {
+          "title": "BEA-Freibetrag",
+          "desc": "Betreuung, Erziehung, Ausbildung — neben dem Kinderfreibetrag."
+        },
+        "k3": {
+          "title": "Kindergeld",
+          "desc": "Monatliche Auszahlung der Familienkasse — Alternative zum Freibetrag."
+        },
+        "k4": {
+          "title": "Entlastungsbetrag",
+          "desc": "Für Alleinerziehende (Steuerklasse II)."
+        },
+        "k5": {
+          "title": "Kinderbetreuungskosten",
+          "desc": "Kita, Tagesmutter — als Sonderausgaben."
+        },
+        "k6": {
+          "title": "Schulgeld (Privatschulen)",
+          "desc": "Eingeschränkt anerkannt — unter Voraussetzungen."
+        }
+      },
+      "noNumbersNote": "Wir veröffentlichen keine konkreten Freibeträge — sie ändern sich jährlich."
+    },
+    "mistakes": {
+      "heading": "Typische Fehler",
+      "list": {
+        "m1": "Kombi III/V bei nur kleinem Einkommensunterschied — V wird unverhältnismäßig stark belastet.",
+        "m2": "Steuerklassenwechsel nach Trennung/Scheidung vergessen.",
+        "m3": "Doppelangabe desselben Kindes durch beide Eltern.",
+        "m4": "Annahme, Kindergeld sei immer besser — die Günstigerprüfung entscheidet.",
+        "m5": "Kinderbetreuungskosten nicht angeben, weil 'nicht Pflicht' — oft große Ersparnis."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Wie wechsle ich die Steuerklasse?",
+          "a": "Online über ELSTER oder schriftlich beim Finanzamt — einmal jährlich plus Lebensereignisse."
+        },
+        "q2": {
+          "q": "Was ist das Faktorverfahren?",
+          "a": "Alternative zu III/V — gerechtere monatliche Verteilung. Muss beantragt werden."
+        },
+        "q3": {
+          "q": "Beeinflusst Kindergeld die Steuer?",
+          "a": "Direkt nein, aber es fließt in die Günstigerprüfung ein."
+        },
+        "q4": {
+          "q": "Was ist mit Kindern in BiH/HR/SR?",
+          "a": "Können unter Voraussetzungen für Kindergeld/Freibetrag berücksichtigt werden — EU- bzw. Sozialabkommen prüfen."
+        }
+      }
+    },
+    "gate": {
+      "title": "Familie & Steuerklassen — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: § 26 EStG, § 32 EStG, § 38b EStG sowie jährliche BMF-Schreiben. Stand: Januar 2026."
+    }
+  },
+  "studentsTrainees": {
+    "seo": {
+      "title": "Studenten und Auszubildende — Steuererklärung | BalkanLink",
+      "description": "Wann sich die Erklärung für Studenten und Azubis lohnt: Verlustvortrag, Werbungskosten, Sonderausgaben. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Studenten und Azubis",
+      "subtitle": "Wann Studenten und Auszubildende über die Erklärung nachdenken sollten — und wie man mit Verlustvortrag zukünftigen Vorteil aufbaut."
+    },
+    "intro": {
+      "heading": "Warum Studenten Sonderfälle sind",
+      "p1": "Studierende haben oft wenig Einkommen, aber erhebliche Kosten (Studiengebühren, Pendeln, doppelter Haushalt). Hier entsteht der Verlustvortrag.",
+      "p2": "Der Verlustvortrag verschiebt 'Verluste' aus Studienjahren ins erste Berufsjahr — und senkt dort die Steuerlast."
+    },
+    "criteria": {
+      "heading": "Wichtige Begriffe",
+      "intro": "Fünf Begriffe, die für Studenten und Azubis zentral sind.",
+      "list": {
+        "c1": "Erststudium — erste Ausbildung. Kosten nur als Sonderausgaben (begrenzt).",
+        "c2": "Zweitausbildung / Zweitstudium — Folgeausbildung, Kosten als volle Werbungskosten.",
+        "c3": "Verlustvortrag — Übertrag der Verluste in zukünftige Jahre.",
+        "c4": "Ausbildungsfreibetrag — für Eltern auswärts wohnender Studierender.",
+        "c5": "BAföG — meist NICHT steuerpflichtig, beeinflusst aber andere Entlastungen."
+      }
+    },
+    "costs": {
+      "heading": "Typische absetzbare Kosten",
+      "intro": "Was Studenten und Azubis oft vergessen anzugeben.",
+      "list": {
+        "k1": {
+          "title": "Semesterbeitrag & Studiengebühren",
+          "desc": "Semesterbeiträge, AStA."
+        },
+        "k2": {
+          "title": "Fachliteratur",
+          "desc": "Bücher, Zeitschriften, Online-Materialien."
+        },
+        "k3": {
+          "title": "Pendlerpauschale (zur Hochschule)",
+          "desc": "Bei Zweitstudium — als Werbungskosten."
+        },
+        "k4": {
+          "title": "Computer & Software",
+          "desc": "Notwendige Technik fürs Studium."
+        },
+        "k5": {
+          "title": "Arbeitszimmer",
+          "desc": "Unter strengen Voraussetzungen anerkennbar."
+        },
+        "k6": {
+          "title": "Auslandssemester",
+          "desc": "Reise, Unterkunft — mit Belegen."
+        }
+      },
+      "noNumbersNote": "Wir veröffentlichen keine konkreten Höchstbeträge der Sonderausgaben — Jahr individuell prüfen."
+    },
+    "mistakes": {
+      "heading": "Typische Fehler",
+      "list": {
+        "m1": "Annahme, dass Studenten ohne Einkommen 'keine Erklärung brauchen' — wegen Verlustvortrag oft doch.",
+        "m2": "Erst- und Zweitstudium verwechseln — unterschiedliche Abzugsregeln.",
+        "m3": "Kleine Belege verwerfen — kumulativ relevant.",
+        "m4": "BAföG nicht in der Erklärung angeben.",
+        "m5": "4-Jahres-Frist für Antragsveranlagung verpassen — Verlustvortrag verloren."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Bekomme ich als Bachelor-Student eine Erstattung?",
+          "a": "Meist nicht sofort, aber der Verlustvortrag wirkt sich aus, sobald Sie nach dem Studium verdienen."
+        },
+        "q2": {
+          "q": "Ist der Master Erst- oder Zweitstudium?",
+          "a": "Bachelor → Master gilt in der Regel als Zweitstudium → Werbungskosten. Bei einheitlicher Ausbildung Erststudium — individuell prüfen."
+        },
+        "q3": {
+          "q": "Was ist mit dualem Studium?",
+          "a": "Wird wie Beschäftigung + Ausbildung behandelt — voller Werbungskostenzugang."
+        },
+        "q4": {
+          "q": "Kann ich Studienjahre aus BiH/HR/SR ansetzen?",
+          "a": "Sehr selten — nur bei deutscher Steuerresidenz im jeweiligen Jahr. Steuerberater konsultieren."
+        }
+      }
+    },
+    "gate": {
+      "title": "Studenten & Azubis — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: § 9 Abs. 6 EStG, § 10 EStG, § 33a EStG sowie BFH-Rechtsprechung zur Erst-/Zweitausbildung. Stand: Januar 2026."
+    }
+  },
+  "selfEmployed": {
+    "seo": {
+      "title": "Selbständige und Freelancer — Steuererklärung | BalkanLink",
+      "description": "Gewerbe vs. Freiberuf, EÜR, Vorsteuer, Kleinunternehmerregelung und typische Fehler. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Selbständige und Freelancer",
+      "subtitle": "Gewerbe vs. Freiberuf, EÜR, Umsatzsteuer und Kleinunternehmer — Überblick für alle, die für sich selbst arbeiten."
+    },
+    "intro": {
+      "heading": "Warum eigene Kategorie",
+      "p1": "Selbständige haben mehr Pflichten als Angestellte: Einkommen, Umsatzsteuer, ggf. Gewerbesteuer und Jahreserklärung sind getrennte Vorgänge.",
+      "p2": "Die richtige Einordnung (Gewerbe oder Freiberuf) entscheidet, ob Gewerbeanmeldung und Gewerbesteuer fällig werden."
+    },
+    "criteria": {
+      "heading": "Wichtige Begriffe",
+      "intro": "Fünf Begriffe, ohne die es nicht geht.",
+      "list": {
+        "c1": "Freiberuf — Katalogberufe nach § 18 EStG (Ärzte, Anwälte, IT, Journalisten, Übersetzer u. a.).",
+        "c2": "Gewerbe — alles andere — Gewerbeanmeldung Pflicht.",
+        "c3": "EÜR — Einnahmen-Überschuss-Rechnung, einfache Buchführung bis zur Schwelle.",
+        "c4": "Umsatzsteuer — monatliche/quartalsweise Voranmeldung + Jahreserklärung.",
+        "c5": "Kleinunternehmerregelung — Befreiung von der Umsatzsteuer nach § 19 UStG."
+      }
+    },
+    "costs": {
+      "heading": "Typische Betriebsausgaben",
+      "intro": "Was häufig zu Betriebsausgaben zählt.",
+      "list": {
+        "k1": {
+          "title": "Miete & Nebenkosten",
+          "desc": "Büro oder beruflich genutzter Anteil der Wohnung."
+        },
+        "k2": {
+          "title": "Technik & Software",
+          "desc": "Computer, Peripherie, Lizenzen — oft mit AfA."
+        },
+        "k3": {
+          "title": "Telefon & Internet",
+          "desc": "Beruflicher Anteil getrennt vom privaten."
+        },
+        "k4": {
+          "title": "Reisen & Transport",
+          "desc": "Kundentermine, Messen — mit Reisekostenabrechnung."
+        },
+        "k5": {
+          "title": "Fortbildung & Beiträge",
+          "desc": "Schulungen und Mitgliedschaften."
+        },
+        "k6": {
+          "title": "Büromaterial",
+          "desc": "Geringwertiger Verbrauch."
+        }
+      },
+      "noNumbersNote": "Kleinunternehmer-Schwellen und AfA-Sätze veröffentlichen wir nicht — gültige Werte des Jahres prüfen."
+    },
+    "proofs": {
+      "heading": "Dokumenten-Checkliste",
+      "intro": "Haken Sie ab, was Sie schon bereit haben.",
+      "list": {
+        "p1": "Registrierung (Gewerbeanmeldung oder Steuerlicher Erfassungsbogen)",
+        "p2": "Ausgangsrechnungen an Kunden — chronologisch",
+        "p3": "Eingangsrechnungen — chronologisch",
+        "p4": "Bankauszüge des Geschäftskontos",
+        "p5": "Fahrt- und Reisekostenabrechnungen"
+      }
+    },
+    "mistakes": {
+      "heading": "Typische Fehler",
+      "list": {
+        "m1": "Falsche Einordnung (Gewerbe statt Freiberuf) — zusätzliche Gewerbesteuer und Bürokratie.",
+        "m2": "Geschäfts- und Privatkonto nicht getrennt.",
+        "m3": "Fristen für Umsatzsteuer-Voranmeldung verpassen — Strafen.",
+        "m4": "Kosten ohne Originalrechnungen ansetzen — bei Prüfung gestrichen.",
+        "m5": "Kleinunternehmerregelung trotz Schwellenüberschreitung weiter anwenden."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Wie weiß ich, ob ich Freiberufler bin?",
+          "a": "§ 18 EStG ist Ausgangspunkt. Im Zweifel entscheidet der Erfassungsbogen des Finanzamts — Steuerberater hilft bei der Einordnung."
+        },
+        "q2": {
+          "q": "Wann lohnt sich Kleinunternehmer?",
+          "a": "Bei B2C-Kunden (Privatpersonen) sind Sie ohne USt günstiger. Bei B2B macht es kaum einen Unterschied."
+        },
+        "q3": {
+          "q": "Was ist mit ausländischen Kunden?",
+          "a": "EU-Kunden — Reverse-Charge. Drittland — meist ohne USt, aber genaue Einordnung erforderlich."
+        },
+        "q4": {
+          "q": "Brauche ich einen Steuerberater?",
+          "a": "Anfangs reicht oft EÜR + ELSTER. Mit wachsendem Umsatz oder USt-Verpflichtungen empfohlen."
+        }
+      }
+    },
+    "gate": {
+      "title": "Selbständige — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: § 18 EStG, § 4 Abs. 3 EStG, § 19 UStG sowie GewStG. Stand: Januar 2026."
+    }
+  },
+  "rentalIncome": {
+    "seo": {
+      "title": "Mieteinkünfte — Anlage V | BalkanLink",
+      "description": "Wie Mieteinkünfte versteuert werden: anerkannte Kosten, AfA, Erhaltungs- vs. Herstellungsaufwand. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Mieteinkünfte",
+      "subtitle": "Anlage V — Vermietungseinkünfte erklären, anerkannte Werbungskosten und AfA verstehen."
+    },
+    "intro": {
+      "heading": "Grundlagen",
+      "p1": "Mieteinkünfte werden in der Anlage V (Vermietung und Verpachtung) erklärt. Der Saldo aus Einnahmen und anerkannten Kosten fließt in die Einkommensteuer.",
+      "p2": "Die saubere Trennung zwischen Erhaltungs- und Herstellungsaufwand ist zentral — Erhaltung sofort absetzbar, Herstellung über AfA verteilt."
+    },
+    "criteria": {
+      "heading": "Wichtige Begriffe",
+      "intro": "Fünf Begriffe für die Anlage V.",
+      "list": {
+        "c1": "Mieteinnahmen — Bruttoeinnahmen inkl. pauschaler Nebenkosten.",
+        "c2": "Werbungskosten — alle vermietungsbezogenen Kosten (Zinsen, Reparaturen, AfA).",
+        "c3": "AfA — jährliche lineare Gebäudeabschreibung.",
+        "c4": "Erhaltungsaufwand — Reparaturen, sofort absetzbar.",
+        "c5": "Herstellungsaufwand — Verbesserungen, über AfA."
+      }
+    },
+    "costs": {
+      "heading": "Typische Werbungskosten",
+      "intro": "Was häufig zu den Werbungskosten zählt.",
+      "list": {
+        "k1": {
+          "title": "Hypothekenzinsen",
+          "desc": "Tilgung NICHT absetzbar — nur Zinsen."
+        },
+        "k2": {
+          "title": "AfA",
+          "desc": "Lineare Gebäudeabschreibung nach Baujahr."
+        },
+        "k3": {
+          "title": "Reparaturen (Erhaltung)",
+          "desc": "Dach, Installationen, Streichen."
+        },
+        "k4": {
+          "title": "Verwaltung & Nebenkosten",
+          "desc": "Hausverwaltung, nicht umgelegte Nebenkosten."
+        },
+        "k5": {
+          "title": "Fahrten zur Immobilie",
+          "desc": "Besichtigungen, Wohnungsübergaben."
+        },
+        "k6": {
+          "title": "Inserate & Makler",
+          "desc": "Maklergebühr, Anzeigen für neue Mieter."
+        }
+      },
+      "noNumbersNote": "Wir veröffentlichen keine konkreten AfA-Sätze — gültige Tabelle nach Baujahr."
+    },
+    "proofs": {
+      "heading": "Dokumenten-Checkliste",
+      "intro": "Haken Sie ab, was Sie bereit haben.",
+      "list": {
+        "p1": "Mietvertrag und Änderungen",
+        "p2": "Nebenkostenabrechnung mit Mieter",
+        "p3": "Kontoauszüge mit Mieteingängen",
+        "p4": "Belege für Reparaturen (10 Jahre)",
+        "p5": "Hypothekenvertrag und jährlicher Zinsausweis"
+      }
+    },
+    "mistakes": {
+      "heading": "Typische Fehler",
+      "list": {
+        "m1": "Erhaltung und Herstellung verwechseln — häufigster Streitpunkt.",
+        "m2": "Anschaffungsnaher Aufwand (§ 6 EStG) — Schwelle in den ersten 3 Jahren überschreiten.",
+        "m3": "Tilgung statt Zinsen ansetzen.",
+        "m4": "AfA vergessen — große Position fällt weg.",
+        "m5": "Gemischte Vermietung — Privatanteil nicht berücksichtigt."
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Was bei Leerstand?",
+          "a": "Bei nachweisbarer Vermietungsabsicht (Inserat, Makler) bleiben die Kosten anerkannt."
+        },
+        "q2": {
+          "q": "Vermietung an Angehörige?",
+          "a": "Nur anerkannt, wenn Miete mindestens 50 % der ortsüblichen Miete beträgt (§ 21 Abs. 2 EStG)."
+        },
+        "q3": {
+          "q": "Ist Airbnb dasselbe?",
+          "a": "Oft NEIN — Kurzvermietung kann gewerblich sein (Gewerbesteuer & USt)."
+        },
+        "q4": {
+          "q": "Verluste aus Vermietung?",
+          "a": "Können in der Verlustverrechnung verrechnet werden; Restbetrag Verlustvor-/Rücktrag."
+        }
+      }
+    },
+    "gate": {
+      "title": "Mieteinkünfte — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: § 21 EStG, § 7 EStG (AfA), § 6 EStG (anschaffungsnaher Aufwand) sowie BMF-Schreiben. Stand: Januar 2026."
+    }
+  },
+  "mistakes": {
+    "seo": {
+      "title": "Häufigste Fehler in der Steuererklärung | BalkanLink",
+      "description": "Die typischen Fehler, die zu abgelehnten Abzügen, Prüfungen oder Nachforderungen führen. Stand 2026."
+    },
+    "hero": {
+      "badge": "Premium · Stand 2026",
+      "title": "Häufigste Fehler",
+      "subtitle": "Die Dinge, an denen Nutzer am häufigsten scheitern — von vergessenen Belegen bis zu falschen Kategorien."
+    },
+    "intro": {
+      "heading": "Warum dieses Modul",
+      "p1": "Die meisten Probleme bei der Steuererklärung entstehen aus wenigen wiederkehrenden Fehlern — nicht aus komplexen Rechtsfragen.",
+      "p2": "Wer diese 8 Punkte vor dem Absenden prüft, senkt das Risiko von Prüfungen und Korrekturen um 80–90 %."
+    },
+    "mistakes": {
+      "heading": "Top 8 Fehler",
+      "list": {
+        "m1": "Erklärung ohne alle Lohnsteuerbescheinigungen bei mehreren Arbeitgebern abgeben.",
+        "m2": "Werbungskosten und Sonderausgaben verwechseln — Rentenbeiträge gehören nicht zu Werbungskosten.",
+        "m3": "Pendlerpauschale — Entfernung, die nicht der kürzesten verkehrsüblichen Route entspricht.",
+        "m4": "Spenden ohne Zuwendungsbestätigung ansetzen.",
+        "m5": "Annahme einer Antragsveranlagung, obwohl Pflichtveranlagung besteht — Frist wird verpasst.",
+        "m6": "Anschaffungsnaher Aufwand bei neu gekaufter Immobilie — Schwelle in den ersten 3 Jahren überschritten.",
+        "m7": "Private Ausgaben (z. B. Alltagskleidung statt Uniform) als Werbungskosten ansetzen.",
+        "m8": "IBAN mit Tippfehler — Erstattung verzögert oder geht ans Finanzamt zurück."
+      }
+    },
+    "proofs": {
+      "heading": "Last-Mile-Checkliste",
+      "intro": "5 Punkte, die Sie 5 Minuten vor dem Absenden prüfen.",
+      "list": {
+        "p1": "IBAN und Adresse fehlerfrei eingegeben",
+        "p2": "Alle Lohnsteuerbescheinigungen des Jahres beigefügt",
+        "p3": "Jede Position korrekt eingeordnet (Werbungskosten / Sonderausgaben)",
+        "p4": "Alle Belege gescannt / 10 Jahre archiviert",
+        "p5": "Frist gemäß Ihrer Veranlagungskategorie geprüft"
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen",
+      "list": {
+        "q1": {
+          "q": "Was, wenn ich die Erklärung mit Fehler abgegeben habe?",
+          "a": "Berichtigung über ELSTER, solange noch kein Bescheid vorliegt. Danach Einspruch innerhalb eines Monats."
+        },
+        "q2": {
+          "q": "Bedeutet eine Nachfrage, dass ich etwas falsch gemacht habe?",
+          "a": "Nicht zwingend. Das Finanzamt fordert oft nur Belege an (Belegprüfung)."
+        },
+        "q3": {
+          "q": "Was ist die häufigste Strafe?",
+          "a": "Bei Verspätung: Verspätungszuschlag. Bei Verschweigen: möglich Steuerhinterziehung (strafrechtlich relevant)."
+        },
+        "q4": {
+          "q": "Wie werde ich sicher?",
+          "a": "BalkanLink Premium gibt das System; bei komplexen Fällen Steuerberater oder Lohnsteuerhilfeverein konsultieren."
+        }
+      }
+    },
+    "gate": {
+      "title": "Häufigste Fehler — Premium",
+      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "nextSteps": {
+      "heading": "Wie geht es weiter",
+      "body": "Nach diesem Modul kehren Sie zum Steuern-Hub zurück und schauen Sie sich verwandte Themen an. Für konkrete Entscheidungen wenden Sie sich an einen Steuerberater oder Lohnsteuerhilfeverein.",
+      "ctaHub": "Zurück zu Steuern",
+      "ctaElster": "ELSTER öffnen"
+    },
+    "legal": {
+      "heading": "Rechtlicher Hinweis",
+      "body": "Dieser Inhalt ist rein informativ und stellt keine steuerliche Beratung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Ihre konkrete Situation kann von den beschriebenen Standardfällen abweichen.",
+      "sources": "Hauptquellen: BFH-Rechtsprechung, AO §§ 152, 153, 173 sowie Empfehlungen der Bundessteuerberaterkammer. Stand: Januar 2026."
+    }
   }
 }
