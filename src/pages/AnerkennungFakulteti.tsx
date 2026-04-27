@@ -287,38 +287,45 @@ const ZAB_STEPS = [
   {
     n: 1,
     title: "Provjeri svoju ustanovu u Anabin bazi",
-    body: "Idi na anabin.kmk.org → Hochschulen → Suchen nach Hochschulen → izaberi zemlju (npr. Bosnien und Herzegowina) → potraži svoj univerzitet. Status mora biti H+ ili H+/-.",
-    link: "https://anabin.kmk.org/anabin/hochschulinstitutionen.html",
-    linkLabel: "Anabin: Hochschulen",
+    body: "Idi na anabin.kmk.org → vodič 'Anerkennung ausländischer Hochschulen' → izaberi zemlju (npr. Bosnien und Herzegowina) → potraži svoj univerzitet. Status mora biti H+ ili H+/-.",
+    link: "https://anabin.kmk.org/rechercheanleitung-hochschule",
+    linkLabel: "Anabin: Vodič za Hochschulen",
   },
   {
     n: 2,
     title: "Provjeri svoju diplomu u Anabin bazi",
-    body: "U istoj bazi → Hochschulabschlüsse → Suchen nach Abschlüssen. Ako tvoj abschluss već postoji u bazi sa zelenom oznakom 'entspricht' — možda ti uopće NE TREBA ZAB Zeugnisbewertung (poslodavac može sam printati ekvivalenciju).",
-    link: "https://anabin.kmk.org/anabin/hochschulabschluesse.html",
-    linkLabel: "Anabin: Abschlüsse",
+    body: "U istoj bazi → vodič 'Bewertung Hochschulabschluss' → izaberi zemlju → svoj smjer. Ako tvoj abschluss već postoji u bazi sa zelenom oznakom 'entspricht' — možda ti uopće NE TREBA ZAB Zeugnisbewertung (poslodavac može sam priznati ekvivalenciju).",
+    link: "https://anabin.kmk.org/rechercheanleitung-hochschulabschluss",
+    linkLabel: "Anabin: Vodič za Abschlüsse",
   },
   {
     n: 3,
-    title: "Prikupi dokumente za ZAB Zeugnisbewertung",
-    body: "Trebat će ti: 1) ovjerena kopija diplome (original + njemački prevod od stalnog sudskog tumača), 2) ovjerena kopija dodatka diplomi (Diploma Supplement / transkript ocjena), 3) sažetak diplomskog rada na njemačkom (1–2 stranice), 4) kopija pasoša, 5) lebenslauf na njemačkom, 6) potvrda o uplati 208 €.",
-    link: "https://zab.kmk.org/de/zeugnisbewertung/antrag-stellen",
-    linkLabel: "ZAB: Antrag stellen",
+    title: "Provjeri da li uopće možeš aplicirati (Pre-Check)",
+    body: "ZAB ima online alat 'Vorab-Check' koji ti za 2 minute kaže da li tvoj abschluss ispunjava uslove. Bez ovoga ne idi dalje — možda samo gubiš 208 €.",
+    link: "https://zab.kmk.org/de/app/pre-check",
+    linkLabel: "ZAB Vorab-Check",
   },
   {
     n: 4,
-    title: "Pošalji zahtjev online + poštom",
-    body: "Aplikacija ide kroz online portal ZAB-a. Uplata 208 € (nepovratno) prije obrade. Originali dokumenata i ovjereni prevodi šalju se poštom na adresu: Sekretariat der KMK – ZAB, Graurheindorfer Str. 157, 53117 Bonn.",
-    link: "https://zab.kmk.org/de/zeugnisbewertung/antrag-stellen",
-    linkLabel: "ZAB online portal",
+    title: "Prikupi dokumente za ZAB Zeugnisbewertung",
+    body: "Trebat će ti: 1) skenirana diploma + njemački prevod od stalnog sudskog tumača (Beeidigter Übersetzer), 2) dodatak diplomi / transkript ocjena, 3) sažetak diplomskog rada na njemačkom (1–2 stranice), 4) kopija pasoša, 5) lebenslauf na njemačkom. Sve se učitava digitalno kroz BundID.",
+    link: "https://zab.kmk.org/de/zeugnisbewertung",
+    linkLabel: "ZAB: Zeugnisbewertung start",
   },
   {
     n: 5,
+    title: "Aplikacija + uplata online (208 €)",
+    body: "Postupak je u potpunosti digitalan: prijavi se BundID-em na ZAB portal, popuni formular, učitaj dokumente, plati 208 € preko ePayBL (kartica/SEPA). Više ne moraš ništa slati poštom.",
+    link: "https://zab.kmk.org/de/zeugnisbewertung/gebuehren",
+    linkLabel: "ZAB: Gebühren & Bezahlung",
+  },
+  {
+    n: 6,
     title: "Sačekaj rješenje (Bewertung)",
     body: "Obrada traje 3–5 mjeseci (službeno do 6 mj). Dobivaš službeni dokument 'Zeugnisbewertung für ausländische Hochschulqualifikationen' — prikazuje koji je njemački ekvivalent tvoje diplome (npr. 'entspricht einem deutschen Bachelor of Science').",
   },
   {
-    n: 6,
+    n: 7,
     title: "Koristi Bewertung",
     body: "Dokument je trajno važeći. Koristiš ga: u CV-u, prilažeš uz aplikaciju za posao, prilažeš uz zahtjev za Blue Card EU, prilažeš pri upisu na njemački Master/PhD, prilažeš pri javnim natječajima.",
   },
@@ -438,7 +445,7 @@ export default function AnerkennungFakulteti() {
           ))}
         </div>
         <a
-          href="https://anabin.kmk.org/anabin/hochschulinstitutionen.html"
+          href="https://anabin.kmk.org/rechercheanleitung-hochschule"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(var(--gold))] hover:underline"
@@ -739,10 +746,10 @@ export default function AnerkennungFakulteti() {
         <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-700 dark:text-amber-400 flex gap-2">
           <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
           <span>
-            <strong>Napomena 2026:</strong> ZAB sada prihvata <em>certified
-            digital copies</em> kroz online portal — ne moraš slati originale
-            poštom ako koristiš VIDEOIDENT ovjeru ili eIDAS-priznati digitalni
-            potpis.
+            <strong>Napomena 2026:</strong> Cijeli postupak je sada digitalan
+            preko <strong>BundID</strong> računa i ZAB online portala (ePayBL
+            za uplatu). Nije potrebno slati originale poštom — dovoljni su
+            kvalitetni skenovi diplome i prevoda.
           </span>
         </div>
       </section>
