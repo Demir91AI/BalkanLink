@@ -78,8 +78,10 @@ export function HeaderInstallPopup() {
       if (e.key === "Escape") handleDismiss();
     };
     const onClick = (e: MouseEvent) => {
-      if (!wrapperRef.current) return;
-      if (!wrapperRef.current.contains(e.target as Node)) handleDismiss();
+      const target = e.target as Node;
+      const insideTrigger = wrapperRef.current?.contains(target);
+      const insidePopup = popupRef.current?.contains(target);
+      if (!insideTrigger && !insidePopup) handleDismiss();
     };
     window.addEventListener("keydown", onKey);
     // Capture phase so it runs before other handlers
