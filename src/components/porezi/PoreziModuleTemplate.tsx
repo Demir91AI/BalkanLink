@@ -57,7 +57,11 @@ export interface PoreziModuleConfig {
   counts: {
     intro?: number; // p1, p2, ...
     criteria?: number; // c1..cN
+    amounts?: number; // a1..aN  (label + value + note)  ← NEW: 2026 iznosi/pauschali
     costs?: number; // k1..kN  (uses .title and .desc)
+    steps?: number; // s1..sN  (title + body + zeile/anlage) ← NEW: ELSTER walkthrough
+    example?: boolean; // ← NEW: realan primjer popunjavanja (intro + 1..N rows + result)
+    exampleRows?: number; // r1..rN  (label + value)
     proofs?: number; // p1..pN  (also serves as checklist source)
     mistakes?: number; // m1..mN
     faq?: number; // q1..qN  (uses .q and .a)
