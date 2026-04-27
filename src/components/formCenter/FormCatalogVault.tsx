@@ -33,9 +33,9 @@ function StatusPill({ free }: { free: boolean }) {
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/[0.08] px-2 py-0.5 text-[10px] font-bold text-gold">
+    <span className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/[0.08] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold">
       <Crown className="h-2.5 w-2.5" />
-      Pro
+      Premium
     </span>
   );
 }
