@@ -28,5 +28,34 @@
     "selectOption": "Odaberi opciju",
     "writeHere": "Napišite ovdje...",
     "passwordPlaceholder": "Najmanje 8 znakova"
+  },
+  "guide": {
+    "source": "Izvor",
+    "form": "Obrazac",
+    "whoCanApply": "Tko može podnijeti zahtjev",
+    "processingTime": "Vrijeme obrade",
+    "whatToPrepare": "Što treba pripremiti",
+    "commonMistakesTitle": "Najčešće pogreške koje vode do odbijanja",
+    "wizardTitle": "Smart Guide — korak po korak",
+    "wizardSubtitle": "Svako polje objašnjeno — što upisati, gdje pronaći, format i česte pogreške",
+    "step": "Korak",
+    "back": "Natrag",
+    "next": "Dalje",
+    "done": "✅ Završeno",
+    "card": {
+      "whatToWrite": "Što točno upisati",
+      "whereToFind": "Gdje pronaći",
+      "format": "Format",
+      "commonMistake": "Česte pogreške",
+      "whenToLeaveEmpty": "Kada ostaviti prazno",
+      "example": "Ispunjeni primjer",
+      "note": "Napomena"
+    },
+    "premium": {
+      "title": "Smart Guide samo uz Premium",
+      "subtitle": "Otključaj kompletni vodič za sve obrasce.",
+      "stepInfo": "Korak 1–{{free}} besplatno · Korak {{current}} zahtijeva Premium",
+      "cta": "BalkanLink Premium — 9,99€/mj."
+    }
   }
 }
