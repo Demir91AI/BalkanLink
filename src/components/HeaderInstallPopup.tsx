@@ -154,13 +154,13 @@ export function HeaderInstallPopup() {
         />
       </button>
 
-      {/* Dropdown popup */}
+      {/* Dropdown popup — fixed so it escapes header's overflow-hidden */}
       <div
         role="dialog"
         aria-modal="false"
         aria-label={t("install.ariaDialog", "Preuzmi BalkanLink aplikaciju")}
         className={cn(
-          "absolute right-0 mt-2 w-[320px] sm:w-[360px] origin-top-right z-50",
+          "fixed right-3 sm:right-4 top-[64px] sm:top-[80px] w-[min(360px,calc(100vw-1.5rem))] origin-top-right z-[100]",
           "rounded-2xl overflow-hidden",
           "transition-all duration-200 ease-out",
           open
