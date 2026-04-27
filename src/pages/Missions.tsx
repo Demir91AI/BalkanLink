@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info, ChevronLeft } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
@@ -12,13 +13,14 @@ const MISSION_TYPES = ["Embassy", "Consulate General"] as const;
 
 function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
   const { data: missions, isLoading } = useMissions({ country: "", city: "", missionType: "" });
+  const { t } = useTranslation("common");
   const mission = missions?.find((m) => m.id === id);
 
   if (isLoading) return <div className="container py-8"><div className="h-48 animate-pulse rounded-xl border bg-muted" /></div>;
   if (!mission) return (
     <div className="container py-8 text-center">
-      <p className="text-muted-foreground">Nema rezultata</p>
-      <button onClick={onBack} className="back-button"><ChevronLeft className="h-4 w-4" />Nazad</button>
+      <p className="text-muted-foreground">{t("noResults", { defaultValue: "Nema rezultata" })}</p>
+      <button onClick={onBack} className="back-button"><ChevronLeft className="h-4 w-4" />{t("nav.back", { defaultValue: "Nazad" })}</button>
     </div>
   );
 

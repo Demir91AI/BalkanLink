@@ -1,5 +1,6 @@
 import { ChevronLeft, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { navigateBackOrHome } from "@/lib/navigation";
 interface Props {
   onBack?: () => void;
@@ -8,6 +9,7 @@ interface Props {
 
 export default function PageNavBar({ onBack, inline }: Props) {
   const navigate = useNavigate();
+  const { t } = useTranslation("common");
   const handleBack = () => {
     if (onBack) {
       onBack();
@@ -23,14 +25,14 @@ export default function PageNavBar({ onBack, inline }: Props) {
         className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]"
       >
         <ChevronLeft className="h-4 w-4" />
-        Nazad
+        {t("nav.back", { defaultValue: "Nazad" })}
       </button>
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] hover:text-[#2D2D2D] transition-colors px-3 py-1.5 rounded-lg hover:bg-[#F0EAD8]"
       >
         <Home className="h-4 w-4" />
-        Početna
+        {t("nav.home", { defaultValue: "Početna" })}
       </button>
     </div>
   );
