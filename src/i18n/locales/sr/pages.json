@@ -362,14 +362,16 @@
     "pricing": {
       "oneTimeLabel": "Jednokratno",
       "oneTimePerCheck": "po Proveri",
-      "oneTimeReset": "Resetuje se nakon svake upotrebe",
+      "oneTimeReset": "Plaća se za svaku analizu pojedinačno",
       "buyOneTime": "Kupi za 2,99€ →",
+      "creditAvailable_one": "Dostupno: {{count}} provera",
+      "creditAvailable_other": "Dostupno: {{count}} provera",
       "premiumLabel": "Premium",
       "premiumBadge": "⭐ Premium",
       "premiumPerMonth": "/mj.",
-      "premiumFeature1": "1×/dan gratis",
-      "premiumFeature2": "Dodatne provere 2,99€/kom",
-      "premiumFeature3": "+ sve Premium funkcije",
+      "premiumFeature1": "Neograničene provere — uvek besplatno",
+      "premiumFeature2": "Brza i prioritetna analiza",
+      "premiumFeature3": "+ sve Premium funkcije platforme",
       "buyPremium": "Kupi Premium →"
     },
     "privacy": {
@@ -402,16 +404,18 @@
       "readError": "Greška pri čitanju datoteke",
       "fallback": "Greška servera pri analizi dokumenta.",
       "tooManyFiles": "Maksimalno {{max}} fajlova.",
-      "totalTooLarge": "Ukupna veličina prelazi 25 MB."
+      "totalTooLarge": "Ukupna veličina prelazi 25 MB.",
+      "paymentRequired": "Plaćanje 2,99€ je potrebno za analizu."
     },
     "paywall": {
       "title": "Dokumenten-Check",
       "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku",
       "premiumCta": "BalkanLink Premium — 9,99€/mj.",
-      "premiumPerk": "1×/dan gratis + sve Premium funkcije",
+      "premiumPerk": "Neograničene provere dokumenata + sve Premium funkcije",
       "or": "ili",
-      "oneTimeCta": "Kupi jednokratno — 2,99€ →",
-      "oneTimeReset": "Resetuje se nakon svake upotrebe"
+      "oneTimeCta": "Plati 2,99€ za jednu analizu →",
+      "oneTimeReset": "Plaćaš za svaku analizu pojedinačno",
+      "paymentReadyToast": "Plaćanje je primljeno. Kliknite Proveri dokument za pokretanje analize."
     },
     "example": {
       "trigger": "👁 Primer analize — klikni da vidiš",

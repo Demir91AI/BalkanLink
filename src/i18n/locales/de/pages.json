@@ -362,14 +362,16 @@
     "pricing": {
       "oneTimeLabel": "Einmalig",
       "oneTimePerCheck": "pro Prüfung",
-      "oneTimeReset": "Wird nach jeder Nutzung zurückgesetzt",
+      "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
       "buyOneTime": "Für 2,99 € kaufen →",
+      "creditAvailable_one": "Verfügbar: {{count}} Prüfung",
+      "creditAvailable_other": "Verfügbar: {{count}} Prüfungen",
       "premiumLabel": "Premium",
       "premiumBadge": "⭐ Premium",
       "premiumPerMonth": "/Monat",
-      "premiumFeature1": "1×/Tag kostenlos",
-      "premiumFeature2": "Weitere Prüfungen 2,99 €/Stk.",
-      "premiumFeature3": "+ alle Premium-Funktionen",
+      "premiumFeature1": "Unbegrenzte Prüfungen — immer kostenlos",
+      "premiumFeature2": "Schnelle und priorisierte Analyse",
+      "premiumFeature3": "+ alle Premium-Funktionen der Plattform",
       "buyPremium": "Premium kaufen →"
     },
     "privacy": {
@@ -402,16 +404,18 @@
       "readError": "Fehler beim Lesen der Datei",
       "fallback": "Serverfehler bei der Dokumentenanalyse.",
       "tooManyFiles": "Maximal {{max}} Dateien.",
-      "totalTooLarge": "Gesamtgröße überschreitet 25 MB."
+      "totalTooLarge": "Gesamtgröße überschreitet 25 MB.",
+      "paymentRequired": "Zahlung von 2,99 € ist für die Analyse erforderlich."
     },
     "paywall": {
       "title": "Dokumenten-Check",
       "subtitle": "Dokument hochladen — Sie erhalten eine Erklärung in Ihrer Sprache",
       "premiumCta": "BalkanLink Premium — 9,99 €/Monat",
-      "premiumPerk": "1×/Tag kostenlos + alle Premium-Funktionen",
+      "premiumPerk": "Unbegrenzte Dokumentenprüfungen + alle Premium-Funktionen",
       "or": "oder",
-      "oneTimeCta": "Einmalig kaufen — 2,99 € →",
-      "oneTimeReset": "Wird nach jeder Nutzung zurückgesetzt"
+      "oneTimeCta": "2,99 € für eine Analyse zahlen →",
+      "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
+      "paymentReadyToast": "Zahlung erhalten. Klicken Sie auf Dokument prüfen, um die Analyse zu starten."
     },
     "example": {
       "trigger": "👁 Beispielanalyse — zum Ansehen klicken",
