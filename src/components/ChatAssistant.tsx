@@ -439,7 +439,7 @@ export default function ChatAssistant() {
 
       try {
         if (!canChat) {
-          setMessages(prev => [...prev, { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\n[👉 Premium](/premium)" }]);
+          setMessages(prev => [...prev, { role: "assistant", content: buildRateLimitMessage() }]);
           setLoading(false);
           return;
         }
@@ -577,7 +577,7 @@ export default function ChatAssistant() {
     if (!canChat) {
       setMessages(prev => [...prev,
         { role: "user", content: text.trim() },
-        { role: "assistant", content: "⚡ Dostigao/la si dnevni limit od 3 pitanja.\n\nSa **BalkanLink Premium** dobijaš neograničenu pomoć.\n\n[👉 Premium](/premium)" },
+        { role: "assistant", content: buildRateLimitMessage() },
       ]);
       setInput("");
       return;
