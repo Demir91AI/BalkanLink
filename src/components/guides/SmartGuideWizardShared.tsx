@@ -119,10 +119,10 @@ export default function SmartGuideWizardShared({
     <div className="space-y-4">
       <div className="text-center">
         <h2 className="text-lg font-bold text-foreground">
-          Smart Guide — korak po korak
+          {t("guide.wizardTitle")}
         </h2>
         <p className="text-sm text-muted-foreground mt-1">
-          Svako polje objašnjeno — šta upisati, gdje pronaći, format i česte greške
+          {t("guide.wizardSubtitle")}
         </p>
       </div>
 
@@ -130,7 +130,7 @@ export default function SmartGuideWizardShared({
       <div className="flex items-center gap-3">
         <Progress value={progress} className="h-2 flex-1" />
         <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
-          Korak {step + 1} / {steps.length}
+          {t("guide.step")} {step + 1} / {steps.length}
         </span>
       </div>
 
@@ -165,15 +165,13 @@ export default function SmartGuideWizardShared({
         >
           <Lock className="mx-auto mb-4 h-10 w-10 text-[hsl(var(--gold))]" />
           <h3 className="text-base font-black text-foreground">
-            Smart Guide samo uz Premium
+            {t("guide.premium.title")}
           </h3>
           <p className="mt-2 text-sm text-muted-foreground max-w-xs mx-auto">
-            Otključaj kompletni vodič za sve formulare.
+            {t("guide.premium.subtitle")}
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
-            Korak 1–{FREE_STEPS} besplatno
-            {" · "}
-            Korak {step + 1} zahtijeva Premium
+            {t("guide.premium.stepInfo", { free: FREE_STEPS, current: step + 1 })}
           </p>
           <button
             onClick={() => navigate("/paketi")}
@@ -185,7 +183,7 @@ export default function SmartGuideWizardShared({
               color: "hsl(var(--gold-foreground))",
             }}
           >
-            BalkanLink Premium — 9,99€/mj.
+            {t("guide.premium.cta")}
           </button>
         </div>
       ) : (
@@ -193,7 +191,7 @@ export default function SmartGuideWizardShared({
           {/* Step field card */}
           <div className="rounded-2xl border border-border/60 bg-card p-5">
             <p className="text-[10px] font-medium text-muted-foreground mb-1">
-              Korak {step + 1}
+              {t("guide.step")} {step + 1}
             </p>
             <h3 className="font-bold text-sm">{current.deField}</h3>
             <p className="text-xs text-muted-foreground mt-0.5">
