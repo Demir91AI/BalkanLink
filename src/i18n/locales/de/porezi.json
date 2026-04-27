@@ -1,69 +1,233 @@
 {
   "seo": {
-    "title": "Steuern in Deutschland — Smart Guide zur Steuererklärung",
-    "description": "Smart Guide durchs deutsche Steuersystem: wie die Steuererklärung funktioniert, was du absetzen kannst, Fristen und häufige Fehler. Stand 2026."
+    "title": "Steuern in Deutschland — Smart Guide für die Steuererklärung",
+    "description": "Smarter Wegweiser durch das deutsche Steuersystem: Steuererklärung Schritt für Schritt, abzugsfähige Posten, Fristen und häufige Fehler. Stand 2026."
   },
   "hero": {
     "badge": "Premium · Stand 2026",
     "title": "Steuern in Deutschland",
-    "subtitle": "Smart Guide zur Steuererklärung — klar, Schritt für Schritt, in deiner Sprache.",
+    "subtitle": "Smart Guide für die Einkommensteuererklärung — verständlich, Schritt für Schritt, in Ihrer Sprache.",
     "ctaPrimary": "Wizard starten",
     "ctaSecondary": "Alle Module ansehen"
   },
   "intro": {
-    "heading": "Was du hier bekommst",
-    "p1": "Ein Lern-Guide, der erklärt, wie die deutsche Einkommensteuererklärung funktioniert, worauf zu achten ist und welche Fehler zu vermeiden sind.",
-    "p2": "Wir nennen keine konkreten Erstattungsbeträge und ersetzen keinen Steuerberater — wir zeigen dir das System und helfen dir, deine Situation zu verstehen."
+    "heading": "Was Sie hier finden",
+    "p1": "Ein Lernleitfaden, der Ihnen erklärt, wie die deutsche Einkommensteuererklärung funktioniert, worauf Sie achten sollten und welche Fehler Sie vermeiden können.",
+    "p2": "Wir nennen keine konkreten Erstattungsbeträge und ersetzen keinen Steuerberater — wir zeigen Ihnen das System und helfen, Ihre Lage zu verstehen."
   },
   "modulesHeading": "Module",
-  "comingSoonBadge": "Bald verfügbar",
+  "comingSoonBadge": "Bald",
   "premiumBadge": "Premium",
   "openModule": "Öffnen",
   "modules": {
     "wizard": {
-      "title": "Muss ich überhaupt eine Erklärung abgeben?",
-      "desc": "Interaktiver Wizard mit 8 Fragen, der dir sagt, ob deine Steuererklärung Pflicht, empfehlenswert oder nicht nötig ist."
+      "title": "Muss ich überhaupt eine Steuererklärung abgeben?",
+      "desc": "Interaktiver 8-Fragen-Wizard, der Ihnen sagt, ob Ihre Erklärung Pflicht, empfohlen oder freiwillig ist."
     },
     "deadlines": {
-      "title": "Fristen und Strafen",
-      "desc": "Bis wann muss abgegeben werden, was passiert bei Verspätung, Konsequenzen und Ausnahmen."
+      "title": "Fristen und Sanktionen",
+      "desc": "Bis wann abgeben, was passiert bei Verspätung, Konsequenzen und Ausnahmen."
     },
     "deductions": {
       "title": "Was kann ich absetzen",
       "desc": "Werbungskosten, Sonderausgaben, außergewöhnliche Belastungen — typische Posten für Arbeitnehmer."
     },
     "doppelhaushalt": {
-      "title": "Doppelte Haushaltsführung (DHF)",
-      "desc": "Wenn der Arbeitnehmer zwei Wohnungen aus beruflichen Gründen hat — Voraussetzungen, Nachweise, Eintragung."
+      "title": "Doppelte Haushaltsführung",
+      "desc": "Wenn Sie wegen der Arbeit zwei Wohnungen haben — Voraussetzungen, Nachweise, Geltendmachung."
     },
     "elsterGuide": {
-      "title": "ELSTER — Registrierung Schritt für Schritt",
-      "desc": "Wie du ein ELSTER-Konto eröffnest und die Erklärung elektronisch einreichst."
+      "title": "ELSTER — wie registrieren",
+      "desc": "Schritt für Schritt zum ELSTER-Konto und zur elektronischen Abgabe."
     },
     "family": {
       "title": "Familie und Steuerklassen",
-      "desc": "Steuerklassen, Zusammenveranlagung, Kinderfreibetrag — wie sie sich auf die Steuer auswirken."
+      "desc": "Steuerklassen, gemeinsame Veranlagung, Kinderfreibetrag — wie sie die Steuer beeinflussen."
     },
     "studentsTrainees": {
       "title": "Studenten und Auszubildende",
-      "desc": "Wann sich die Erklärung lohnt, Werbungskostenpauschale, Verlustvortrag und mehr."
+      "desc": "Wann lohnt sich die Erklärung, Werbungskostenpauschale, Verlustvortrag und mehr."
     },
     "selfEmployed": {
       "title": "Selbstständige und Freelancer",
-      "desc": "Unterschied Gewerbe vs. Freiberuf, EÜR, Vorsteuer und typische Fehler."
+      "desc": "Unterschied Gewerbe / Freiberuf, EÜR, Vorsteuer und typische Fehler."
     },
     "rentalIncome": {
-      "title": "Einkünfte aus Vermietung",
+      "title": "Mieteinnahmen",
       "desc": "Anlage V — wie Mieteinnahmen besteuert werden, Kosten, Abschreibung."
     },
     "mistakes": {
-      "title": "Häufigste Fehler",
-      "desc": "Wo Nutzer am häufigsten stolpern — von vergessenen Nachweisen bis falsch eingetragenen Kategorien."
+      "title": "Häufige Fehler",
+      "desc": "Worauf Nutzer am häufigsten reinfallen — von vergessenen Belegen bis zu falschen Kategorien."
     }
   },
   "legal": {
     "heading": "Rechtlicher Hinweis",
-    "body": "Die Inhalte dieser Abteilung dienen ausschließlich der Orientierung und stellen keine Steuer- oder Rechtsberatung dar. BalkanLink ist weder Steuerberater noch Lohnsteuerhilfeverein. Für konkrete Entscheidungen wende dich an einen zugelassenen Steuerberater oder einen anerkannten Verein.",
-    "sources": "Hauptquellen: §§ EStG (Einkommensteuergesetz), R LStR (Lohnsteuer-Richtlinien), BMF-Schreiben, BFH-Urteile. Stand: Januar 2026."
+    "body": "Die Inhalte dieses Bereichs sind rein informativ und stellen keine Steuer- oder Rechtsberatung dar. BalkanLink ist kein Steuerberater und kein Lohnsteuerhilfeverein. Für konkrete Entscheidungen wenden Sie sich an einen befugten Steuerberater oder anerkannten Verein.",
+    "sources": "Hauptquellen: §§ EStG, R LStR, BMF-Schreiben, BFH-Rechtsprechung. Stand: Januar 2026."
+  },
+
+  "wizard": {
+    "seo": {
+      "title": "Muss ich eine Steuererklärung abgeben? — BalkanLink",
+      "description": "Interaktiver Wizard mit 8 Fragen, der Ihnen hilft zu verstehen, ob Ihre Steuererklärung Pflicht, empfohlen oder freiwillig ist."
+    },
+    "gate": {
+      "title": "Der Wizard ist Teil von Premium",
+      "body": "Für den interaktiven Klassifikator und alle Module des Steuerbereichs benötigen Sie eine Premium-Mitgliedschaft. Die Landingpage /steuern bleibt frei zugänglich.",
+      "ctaPremium": "Premium aktivieren",
+      "ctaLogin": "Anmelden",
+      "ctaBack": "Zurück zu Steuern"
+    },
+    "header": {
+      "badge": "Premium-Wizard",
+      "title": "Muss ich eine Steuererklärung abgeben?",
+      "subtitle": "Beantworten Sie 8 Fragen — wir zeigen Ihnen Ihre Kategorie und die nächsten Schritte. Es wird nichts gespeichert."
+    },
+    "progress": {
+      "step": "Schritt {{current}} / {{total}}"
+    },
+    "nav": {
+      "back": "Zurück",
+      "next": "Weiter",
+      "finish": "Abschließen",
+      "exit": "Beenden"
+    },
+    "legal": {
+      "heading": "Keine Steuerberatung",
+      "body": "Dieser Wizard ist ein Informationswerkzeug. Er stellt keine Steuerberatung dar und nennt keine konkreten Erstattungsbeträge. Für eine individuelle Entscheidung wenden Sie sich an einen Steuerberater oder anerkannten Lohnsteuerhilfeverein."
+    },
+    "steps": {
+      "year": {
+        "title": "Für welches Steuerjahr fragen Sie?",
+        "help": "Der Wizard schätzt Ihre Lage im Kontext des gewählten Jahres ein. Die Regeln sind aktuell auf 2024 und 2025 abgestimmt.",
+        "options": {
+          "2024": { "label": "Steuerjahr 2024", "desc": "Erklärung wird üblicherweise 2025 abgegeben." },
+          "2025": { "label": "Steuerjahr 2025", "desc": "Erklärung wird üblicherweise 2026 abgegeben." }
+        }
+      },
+      "residency": {
+        "title": "Waren Sie in diesem Jahr in Deutschland steuerlich ansässig?",
+        "help": "Steuerlich ansässig sind Sie, wenn Sie Wohnsitz oder gewöhnlichen Aufenthalt in Deutschland hatten. Wer hier arbeitet, aber das ganze Jahr im Ausland lebte, gilt meist als nicht ansässig.",
+        "options": {
+          "yesFullYear": { "label": "Ja, das ganze Jahr", "desc": "Ganzjährig Wohnsitz in Deutschland." },
+          "yesPartial": { "label": "Ja, teilweise", "desc": "Zu- oder Wegzug innerhalb des Jahres." },
+          "no": { "label": "Nein, nicht ansässig", "desc": "Beschränkte Steuerpflicht — Sonderregeln." }
+        }
+      },
+      "employer": {
+        "title": "Wie viele Arbeitgeber hatten Sie in diesem Jahr?",
+        "help": "Gemeint sind Beschäftigungen mit Lohnsteuerabzug (klassische Anstellung, kein reiner Minijob).",
+        "options": {
+          "singleEmployer": { "label": "Ein Arbeitgeber", "desc": "Das ganze Jahr beim selben Arbeitgeber." },
+          "multipleEmployers": { "label": "Zwei oder mehr Arbeitgeber", "desc": "Wechsel oder mehrere parallele Anstellungen." },
+          "noEmployment": { "label": "Keine Anstellung", "desc": "Kein Lohnsteuer-Einkommen aus Anstellung." }
+        }
+      },
+      "wageReplacement": {
+        "title": "Haben Sie Lohnersatzleistungen erhalten?",
+        "help": "Leistungen, die dem Progressionsvorbehalt unterliegen — sie erhöhen den Steuersatz, sind aber selbst steuerfrei.",
+        "options": {
+          "none": { "label": "Nein, nichts davon", "desc": "Reguläres Gehalt ohne diese Leistungen." },
+          "kurzarbeit": { "label": "Kurzarbeitergeld", "desc": "Leistung bei reduzierter Arbeitszeit." },
+          "elterngeld": { "label": "Elterngeld", "desc": "Leistung für Eltern." },
+          "krankengeld": { "label": "Krankengeld", "desc": "Über die Krankenkasse." },
+          "arbeitslosengeld": { "label": "Arbeitslosengeld I", "desc": "Nicht Bürgergeld." }
+        }
+      },
+      "maritalStatus": {
+        "title": "Ihre Steuerklasse / Familienstand",
+        "help": "Die Steuerklasse stand auf Ihrer Lohnsteuerbescheinigung. Ehepartner wählen eine Kombination.",
+        "options": {
+          "single": { "label": "Ledig (Klasse I) oder Alleinerziehend (II)", "desc": "Standardsituation für Unverheiratete." },
+          "marriedClass3or5": { "label": "Verheiratet, Kombination III / V", "desc": "Ein Partner III, der andere V." },
+          "marriedClass4Faktor": { "label": "Verheiratet, IV / IV mit Faktor", "desc": "Beide Partner IV mit eingetragenem Faktor." },
+          "marriedClass4": { "label": "Verheiratet, IV / IV ohne Faktor", "desc": "Klassische Kombi ohne Faktor." }
+        }
+      },
+      "sideIncome": {
+        "title": "Hatten Sie weitere Einkünfte neben dem Gehalt?",
+        "help": "Z. B. Honorare, selbstständige Tätigkeit, Kapitaleinkünfte über dem Sparer-Pauschbetrag, Vermietung, Auslandseinkünfte.",
+        "options": {
+          "none": { "label": "Nein, nur Gehalt", "desc": "Keine weiteren Einkünfte." },
+          "minor": { "label": "Geringe gelegentliche Einkünfte", "desc": "Kleine Beträge — z. B. Honorar wenige Male im Jahr." },
+          "significant": { "label": "Bedeutende Nebeneinkünfte", "desc": "Vermietung, regelmäßige Freelance-Tätigkeit, Auslandseinkünfte." }
+        }
+      },
+      "freibetrag": {
+        "title": "Wurde ein Lohnsteuer-Freibetrag eingetragen?",
+        "help": "Ein Freibetrag wird vom Finanzamt vorab eingetragen, damit monatlich weniger Lohnsteuer einbehalten wird (z. B. wegen langer Pendlerstrecke).",
+        "options": {
+          "yes": { "label": "Ja, Freibetrag war eingetragen", "desc": "Monatlich wurde weniger Steuer einbehalten." },
+          "no": { "label": "Nein oder weiß nicht", "desc": "Kein besonderer Freibetrag eingetragen." }
+        }
+      },
+      "deductibles": {
+        "title": "Was davon trifft auf Sie zu (Mehrfachauswahl)?",
+        "help": "Diese Posten erhöhen typischerweise die Wahrscheinlichkeit, dass sich die Erklärung lohnt. Wir fragen keine Beträge ab — nur Relevanz.",
+        "options": {
+          "commute": { "label": "Pendeln zur Arbeit (Pendlerpauschale)", "desc": "Sie pendeln täglich mehr als ein paar Kilometer." },
+          "homeOffice": { "label": "Homeoffice", "desc": "Tage im Homeoffice (Homeoffice-Pauschale)." },
+          "doppelHaushalt": { "label": "Doppelte Haushaltsführung", "desc": "Zweitwohnung wegen Arbeit am anderen Ort." },
+          "workClothing": { "label": "Arbeitsmittel / Kleidung / Werkzeug", "desc": "Werkzeug, Bücher, Arbeitsausrüstung gekauft." },
+          "training": { "label": "Fortbildung / Kurse", "desc": "Kurse, Zertifikate, Prüfungen mit Berufsbezug." },
+          "donations": { "label": "Spenden / Beiträge", "desc": "An anerkannte Organisationen, Gewerkschaft, Kirche." },
+          "childcare": { "label": "Kinderbetreuung", "desc": "Kita, Tagesmutter, Hort." },
+          "healthExtras": { "label": "Höhere Gesundheitsausgaben", "desc": "Brille, Zahnersatz, Medikamente außerhalb der Grundversorgung." },
+          "householdServices": { "label": "Haushaltsnahe Dienstleistungen / Handwerker", "desc": "Reinigung, Reparaturen, Umzug." },
+          "none": { "label": "Nichts davon", "desc": "Keiner der Posten trifft zu." }
+        }
+      }
+    },
+    "result": {
+      "incomplete": "Wizard ist nicht abgeschlossen. Gehen Sie zurück und beantworten Sie alle Fragen.",
+      "nextStepsHeading": "Was jetzt",
+      "restart": "Neu starten",
+      "elsterLink": "ELSTER-Portal öffnen",
+      "mandatory": {
+        "badge": "Pflichtveranlagung",
+        "title": "Ihre Erklärung ist voraussichtlich Pflicht",
+        "summary": "Aufgrund Ihrer Antworten fällt Ihre Konstellation typischerweise unter § 46 Abs. 2 EStG, sodass das Finanzamt eine Erklärung erwartet. Es gelten gesetzliche Fristen und mögliche Sanktionen bei Verspätung.",
+        "steps": {
+          "s1": "Halten Sie Lohnsteuerbescheinigung und Bescheinigungen über Lohnersatzleistungen oder Nebeneinkünfte bereit.",
+          "s2": "Prüfen Sie die Abgabefrist — ohne Steuerberater ist sie kürzer als mit.",
+          "s3": "Erwägen Sie ELSTER oder die Beauftragung eines Lohnsteuerhilfevereins / Steuerberaters bei komplexer Lage."
+        },
+        "legalRef": "Rechtsgrundlage: § 46 Abs. 2 EStG (Pflichtveranlagungstatbestände). Konkrete Fristen und Folgen prüfen Sie beim Finanzamt oder Berater."
+      },
+      "recommended": {
+        "badge": "Freiwillig — empfohlen",
+        "title": "Erklärung ist nicht Pflicht, lohnt sich aber wahrscheinlich",
+        "summary": "Ihre Antworten zeigen eine Konstellation, in der sich oft eine Korrektur der über die Lohnsteuer vorab gezahlten Beträge ergibt. Die Antragsveranlagung ist freiwillig (§ 46 Abs. 2 Nr. 8 EStG).",
+        "steps": {
+          "s1": "Sammeln Sie Belege zu den markierten Posten (Quittungen, Arbeitgeberbescheinigungen, Pendlerkalender).",
+          "s2": "Prüfen Sie die Lohnenswertigkeit — ein Lohnsteuerhilfeverein erstellt für Arbeitnehmer Erklärungen zum festen Mitgliedsbeitrag.",
+          "s3": "Sie haben mehrere Jahre Zeit für die freiwillige Abgabe (Antragsveranlagung) — prüfen Sie die gesetzliche Frist."
+        },
+        "legalRef": "Rechtsgrundlage: § 46 Abs. 2 Nr. 8 EStG (Antragsveranlagung). Wir berechnen keinen Erstattungsbetrag — wir zeigen nur die Wahrscheinlichkeit."
+      },
+      "optional": {
+        "badge": "Freiwillig — optional",
+        "title": "Erklärung ist nicht Pflicht und lohnt sich vermutlich nicht stark",
+        "summary": "Aufgrund Ihrer Antworten gibt es vermutlich keine größeren Posten, die die Steuerbasis verschieben. Sie können freiwillig abgeben, der Effekt kann jedoch klein oder null sein.",
+        "steps": {
+          "s1": "Prüfen Sie zur Sicherheit die ELSTER-Berechnung — kostenlos und ohne Abgabepflicht.",
+          "s2": "Überlegen Sie, ob Sie Posten vergessen haben (Spenden, kleinere Werbungskosten) — Wizard ggf. neu starten.",
+          "s3": "Wenn Ihre Lage stabil und einfach ist, können Sie die Abgabe weglassen — keine Pflicht."
+        },
+        "legalRef": "Rechtsgrundlage: § 46 Abs. 2 EStG. Die Lohnenswertigkeit ist eine Orientierung — den konkreten Betrag liefert nur eine Berechnung."
+      },
+      "nonResident": {
+        "badge": "Nicht ansässig",
+        "title": "Sie waren nicht ansässig — Sonderregeln gelten",
+        "summary": "Für Nicht-Ansässige gelten § 1 Abs. 4 EStG und das jeweilige Doppelbesteuerungsabkommen. Dieser Wizard deckt Ansässige ab.",
+        "steps": {
+          "s1": "Prüfen Sie, ob die fiktive unbeschränkte Steuerpflicht (§ 1 Abs. 3 EStG) für Sie greift — sie ermöglicht oft Erleichterungen.",
+          "s2": "Beschaffen Sie die Bescheinigung EU/EWR oder ein vergleichbares Dokument aus dem Wohnsitzstaat.",
+          "s3": "Wenden Sie sich an einen Steuerberater mit Erfahrung in grenzüberschreitenden Fällen."
+        },
+        "legalRef": "Rechtsgrundlage: §§ 1, 49, 50 EStG sowie das Doppelbesteuerungsabkommen mit dem konkreten Staat."
+      }
+    }
   }
 }
