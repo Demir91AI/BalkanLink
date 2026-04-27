@@ -1,4 +1,5 @@
 import { ExternalLink, FileText, CheckCircle2, AlertTriangle, Mail, Download } from "lucide-react";
+import { Trans, useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 }
 
 export default function SchufaOfficialGuide({ onRestart }: Props) {
+  const { t } = useTranslation("schufa");
+
   const handleDownloadMusterbrief = () => {
     const today = new Date().toLocaleDateString("de-DE");
     const content = `[Tvoje ime i prezime]
@@ -69,78 +72,80 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
           background: "linear-gradient(160deg, hsl(220,50%,10%,0.95), hsl(225,45%,7%,0.97))",
         }}
       >
-        <h2 className="text-2xl font-black text-white mb-2">Zvanični Schufa Auskunft</h2>
-        <p className="text-sm text-white/60 leading-relaxed">
-          Sve što trebaš znati da dobiješ <strong className="text-white">stvarne</strong> podatke od Schufa Holding AG.
-        </p>
+        <h2 className="text-2xl font-black text-white mb-2">{t("guide.title")}</h2>
+        <p
+          className="text-sm text-white/60 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: t("guide.subline") }}
+        />
       </div>
 
       {/* 4 verzije Schufa izvoda */}
       <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-        <h3 className="text-base font-bold text-white mb-4">Koji izvod ti treba?</h3>
+        <h3 className="text-base font-bold text-white mb-4">{t("guide.optionsTitle")}</h3>
         <div className="space-y-3">
           <OptionCard
             recommended
-            title="Datenkopie (§15 DSGVO)"
-            price="BESPLATNO"
-            useCase="Za tebe lično — jednom godišnje"
-            description="Kompletni izvod svih podataka koje Schufa ima o tebi. Ovo je tvoje zakonsko pravo."
+            recommendedLabel={t("guide.recommended")}
+            title={t("guide.opt1Title")}
+            price={t("guide.free")}
+            freeLabel={t("guide.free")}
+            useCase={t("guide.opt1UseCase")}
+            description={t("guide.opt1Description")}
             link="https://www.meineschufa.de/de/datenkopie"
-            linkText="Zatraži besplatni Datenkopie"
+            linkText={t("guide.opt1LinkText")}
           />
           <OptionCard
-            title="bonify (besplatna app)"
-            price="BESPLATNO"
-            useCase="Za brzi pregled na mobitelu"
-            description="App od Schufe sa pojednostavljenim prikazom score-a. Ne zamjenjuje zvanični Datenkopie."
+            title={t("guide.opt2Title")}
+            price={t("guide.free")}
+            freeLabel={t("guide.free")}
+            useCase={t("guide.opt2UseCase")}
+            description={t("guide.opt2Description")}
             link="https://www.bonify.de"
-            linkText="Otvori bonify"
+            linkText={t("guide.opt2LinkText")}
           />
           <OptionCard
-            title="Bonitätsauskunft"
-            price="29,95€ jednokratno"
-            useCase="Za stanodavca pri prijavi na stan"
-            description="Sertifikat koji se daje stanodavcu — pokazuje samo opštu bonitetnu sliku, bez detalja."
+            title={t("guide.opt3Title")}
+            price={t("guide.opt3Price")}
+            freeLabel={t("guide.free")}
+            useCase={t("guide.opt3UseCase")}
+            description={t("guide.opt3Description")}
             link="https://www.meineschufa.de/de/bonitaetsauskunft"
-            linkText="Zatraži Bonitätsauskunft"
+            linkText={t("guide.opt3LinkText")}
           />
           <OptionCard
-            title="meineSCHUFA Plus"
-            price="3,95€/mj"
-            useCase="Za kontinuirano praćenje (npr. nakon insolvencije)"
-            description="Online pristup, ažuriranja u realnom vremenu, push notifikacije pri promjenama."
+            title={t("guide.opt4Title")}
+            price={t("guide.opt4Price")}
+            freeLabel={t("guide.free")}
+            useCase={t("guide.opt4UseCase")}
+            description={t("guide.opt4Description")}
             link="https://www.meineschufa.de"
-            linkText="meineSCHUFA registracija"
+            linkText={t("guide.opt4LinkText")}
           />
         </div>
       </div>
 
       {/* Korak po korak */}
       <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-        <h3 className="text-base font-bold text-white mb-4">Kako zatražiti besplatni Datenkopie — korak po korak</h3>
+        <h3 className="text-base font-bold text-white mb-4">{t("guide.stepsTitle")}</h3>
         <ol className="space-y-3 text-sm text-white/80">
           <Step n={1}>
-            Idi na zvanični link:{" "}
+            {t("guide.step1")}{" "}
             <a
               href="https://www.meineschufa.de/de/datenkopie"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[hsl(var(--gold))] underline"
             >
-              meineschufa.de/de/datenkopie
+              {t("guide.step1Link")}
             </a>
           </Step>
-          <Step n={2}>
-            Popuni online formular sa: ime, prezime, datum rođenja, adresa (i prijašnje adrese 5 god.).
-          </Step>
-          <Step n={3}>
-            Pošalji kopiju pasoša/lične karte (možeš zatamniti broj pasoša — Schufa ne treba taj broj).
-          </Step>
+          <Step n={2}>{t("guide.step2")}</Step>
+          <Step n={3}>{t("guide.step3")}</Step>
           <Step n={4}>
-            Sačekaj <strong>2-4 sedmice</strong> — Datenkopie stiže poštom na tvoju adresu.
+            <span dangerouslySetInnerHTML={{ __html: t("guide.step4") }} />
           </Step>
           <Step n={5}>
-            Provjeri sve podatke. Ako je nešto netačno → odmah <strong>Berichtigungsantrag</strong>.
+            <span dangerouslySetInnerHTML={{ __html: t("guide.step5") }} />
           </Step>
         </ol>
       </div>
@@ -153,10 +158,8 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
               <FileText className="h-5 w-5 text-[hsl(var(--gold))]" />
             </div>
             <div>
-              <h4 className="text-base font-bold text-white mb-0.5">Musterbrief — Datenkopie Antrag</h4>
-              <p className="text-xs text-white/60">
-                Spremni obrazac na njemačkom za slanje preporučenom poštom (Einschreiben)
-              </p>
+              <h4 className="text-base font-bold text-white mb-0.5">{t("guide.musterTitle")}</h4>
+              <p className="text-xs text-white/60">{t("guide.musterSubline")}</p>
             </div>
           </div>
           <Button
@@ -167,7 +170,7 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
             }}
           >
             <Download className="h-4 w-4 mr-2" />
-            Preuzmi Musterbrief
+            {t("guide.musterCta")}
           </Button>
         </div>
       </div>
@@ -177,13 +180,13 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
         <div className="flex gap-3">
           <AlertTriangle className="h-5 w-5 shrink-0 text-red-300 mt-0.5" />
           <div className="text-sm text-red-100 leading-relaxed">
-            <p className="font-bold text-red-200 mb-1">Ako pronađeš netačne podatke u svom Schufa izvodu:</p>
+            <p className="font-bold text-red-200 mb-1">{t("guide.errorsTitle")}</p>
             <ol className="list-decimal list-inside space-y-1 mt-2">
-              <li>Pošalji <strong>Berichtigungsantrag</strong> (zahtjev za ispravku) Schufi i kreditoru/banci.</li>
-              <li>Priloži dokaz (ugovor, potvrda o plaćanju, korespondencija).</li>
-              <li>Schufa po zakonu mora reagovati u roku od 30 dana (§17 DSGVO).</li>
+              <li dangerouslySetInnerHTML={{ __html: t("guide.error1") }} />
+              <li>{t("guide.error2")}</li>
+              <li>{t("guide.error3")}</li>
               <li>
-                Ako odbiju → besplatna pomoć:{" "}
+                {t("guide.error4Before")}{" "}
                 <a
                   href="https://www.verbraucherzentrale.de"
                   target="_blank"
@@ -192,12 +195,16 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
                 >
                   Verbraucherzentrale
                 </a>{" "}
-                ili podnesi prijavu pri <a
+                {t("guide.error4Mid")}{" "}
+                <a
                   href="https://www.bfdi.bund.de"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline text-red-200"
-                >BfDI</a>.
+                >
+                  BfDI
+                </a>
+                {t("guide.error4After")}
               </li>
             </ol>
           </div>
@@ -210,7 +217,7 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
           variant="ghost"
           className="h-12 text-white/70 hover:text-white hover:bg-white/5 border border-white/10 flex-1"
         >
-          Ponovi simulaciju
+          {t("guide.ctaRestart")}
         </Button>
         <Button
           asChild
@@ -221,7 +228,7 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
         >
           <a href="https://www.meineschufa.de/de/datenkopie" target="_blank" rel="noopener noreferrer">
             <ExternalLink className="h-4 w-4 mr-2" />
-            Zatraži zvanični Datenkopie
+            {t("guide.ctaOfficial")}
           </a>
         </Button>
       </div>
@@ -231,16 +238,20 @@ Anlagen: Kopie des Personalausweises / Aufenthaltstitels (geschwärzt)
 
 function OptionCard({
   recommended,
+  recommendedLabel,
   title,
   price,
+  freeLabel,
   useCase,
   description,
   link,
   linkText,
 }: {
   recommended?: boolean;
+  recommendedLabel?: string;
   title: string;
   price: string;
+  freeLabel: string;
   useCase: string;
   description: string;
   link: string;
@@ -255,14 +266,14 @@ function OptionCard({
       }`}
     >
       <div className="flex flex-wrap items-center gap-2 mb-1.5">
-        {recommended && (
+        {recommended && recommendedLabel && (
           <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-[hsl(var(--gold))]/20 text-[hsl(var(--gold))] flex items-center gap-1">
             <CheckCircle2 className="h-3 w-3" />
-            Preporučeno
+            {recommendedLabel}
           </span>
         )}
         <h4 className="text-sm font-bold text-white">{title}</h4>
-        <span className={`text-xs font-bold ml-auto ${price === "BESPLATNO" ? "text-emerald-400" : "text-white/60"}`}>
+        <span className={`text-xs font-bold ml-auto ${price === freeLabel ? "text-emerald-400" : "text-white/60"}`}>
           {price}
         </span>
       </div>
