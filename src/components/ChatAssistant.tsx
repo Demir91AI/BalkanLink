@@ -496,7 +496,8 @@ export default function ChatAssistant() {
     setMessages([]);
     syncedSigsRef.current.clear();
     remoteIdsRef.current.clear();
-    if (chatStorageKey) localStorage.removeItem(chatStorageKey);
+    localStorage.removeItem(chatStorageKey);
+    localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
     if (user?.id) {
       supabase.from("chat_messages").delete().eq("user_id", user.id).then(({ error }) => {
         if (error) console.warn("[BL-Chat] Cloud clear failed:", error.message);
@@ -508,8 +509,8 @@ export default function ChatAssistant() {
     });
   }, [messages.length, chatStorageKey, user?.id]);
 
-  // Clear local cache ONLY on real sign-out — cloud history stays intact
-  // so the user finds their conversation when they log in again (any device).
+  // Clear local cache ONLY on real sign-out — never on minimize/close.
+  // Cloud history stays intact so the user finds their conversation after login.
   useEffect(() => {
     const handleSignOut = () => {
       const hadMessages = messages.length > 0;
@@ -518,6 +519,7 @@ export default function ChatAssistant() {
       remoteIdsRef.current.clear();
       const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
       keys.forEach(k => localStorage.removeItem(k));
+      localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
       restoredRef.current = false;
       prevUserIdRef.current = null;
       if (hadMessages) {
