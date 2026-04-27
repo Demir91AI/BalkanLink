@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FileText, Shield, GraduationCap, Camera, Megaphone, Mail } from "lucide-react";
+import { FileText, Shield, GraduationCap, Camera, Megaphone, Receipt } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
@@ -15,7 +15,7 @@ export default function FeatureCards() {
     { icon: Camera, key: "doc", to: "/dokumenten-check" },
     { icon: Shield, key: "visa", to: "/viza" },
     { icon: GraduationCap, key: "german", to: "/deutsch-trainer" },
-    { icon: Mail, key: "templates", to: "/vorlagen" },
+    { icon: Receipt, key: "porezi", to: "/porezi" },
     { icon: Megaphone, key: "ads", to: "/nudim-trazim" },
   ];
 
