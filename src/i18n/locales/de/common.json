@@ -243,5 +243,22 @@
         "desc": "Speichern bestimmte Auswahlen und verbessern das Nutzererlebnis."
       }
     }
+  },
+  "install": {
+    "ariaTrigger": "App installieren",
+    "ariaDialog": "BalkanLink-App herunterladen",
+    "close": "Schließen",
+    "title": "BalkanLink installieren",
+    "subtitle": "Schnellerer Zugriff, Offline-Modus und Icon auf dem Homescreen.",
+    "iosStep1": "In Safari auf dem iPhone öffnen",
+    "iosStep2": "Tippe auf 'Teilen' (Quadrat mit Pfeil)",
+    "iosStep3": "Wähle 'Zum Home-Bildschirm'",
+    "benefit1": "Funktioniert auch offline auf den Hauptseiten",
+    "benefit2": "Öffnet sich wie eine echte App — ohne Tabs",
+    "benefit3": "Schnellerer Start und Frist-Erinnerungen",
+    "installNow": "Jetzt installieren",
+    "gotItIos": "Verstanden",
+    "later": "Später",
+    "footerHint": "Dieses Fenster erscheint nach jeder Anmeldung erneut."
   }
 }

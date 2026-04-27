@@ -243,5 +243,22 @@
         "desc": "Pamte određene izbore i poboljšavaju korisničko iskustvo."
       }
     }
+  },
+  "install": {
+    "ariaTrigger": "Instaliraj aplikaciju",
+    "ariaDialog": "Preuzmi BalkanLink aplikaciju",
+    "close": "Zatvori",
+    "title": "Instaliraj BalkanLink",
+    "subtitle": "Brži pristup, offline režim i ikona na početnom ekranu.",
+    "iosStep1": "Otvori u Safariju na iPhoneu",
+    "iosStep2": "Pritisni Share dugme (kvadrat sa strelicom)",
+    "iosStep3": "Izaberi 'Add to Home Screen'",
+    "benefit1": "Radi i bez interneta na osnovnim ekranima",
+    "benefit2": "Otvara se kao prava aplikacija — bez tabova",
+    "benefit3": "Brži start i podsjetnici za rokove",
+    "installNow": "Instaliraj sada",
+    "gotItIos": "Razumeo sam",
+    "later": "Kasnije",
+    "footerHint": "Ovaj prozor se ponovo pojavljuje pri svakoj prijavi."
   }
 }
