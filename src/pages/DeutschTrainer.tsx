@@ -4,14 +4,14 @@ import { SEO } from "@/components/SEO";
 import AuthGate from "@/components/AuthGate";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react";
+import { Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { LEVELS, LEVEL_COLORS, getLessonsForLevel, loadLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
-import { navigateBackOrHome } from "@/lib/navigation";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 const LESSONS_PER_PAGE = 9;
 
 const INDIVIDUAL_PRICES: Record<string, string> = {
@@ -102,21 +102,7 @@ export default function DeutschTrainer() {
         />
 
         <div className="relative z-10 px-5 sm:px-10 lg:px-20">
-          {/* Nav */}
-          <div className="mb-8 flex items-center gap-4">
-            <button
-              onClick={() => navigateBackOrHome(navigate)}
-              className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4" /> {t("common.back", { defaultValue: "Nazad", ns: "common" })}
-            </button>
-            <button
-              onClick={() => navigate("/")}
-              className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors"
-            >
-              <Home className="h-4 w-4" /> {t("common.home", { defaultValue: "Početna", ns: "common" })}
-            </button>
-          </div>
+          <Breadcrumbs variant="dark" className="mb-8" />
 
           {/* Hero content */}
           <div className="max-w-2xl">
