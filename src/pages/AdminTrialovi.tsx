@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
 import { Copy, Check, Plus, Crown, Users, Calendar, RefreshCw } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
-import SEO from "@/components/SEO";
+import { SEO } from "@/components/SEO";
 
 interface TrialCode {
   id: string;
