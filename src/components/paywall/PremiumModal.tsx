@@ -100,7 +100,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
             {/* Login CTA */}
             {!user && (
               <button
-                onClick={() => setAuthOpen(true)}
+                onClick={() => { onClose(); navigate("/login"); }}
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 Već imam Premium — Prijavi se
@@ -109,7 +109,6 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
           </div>
         </div>
       </div>
-      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </>
   );
 }
