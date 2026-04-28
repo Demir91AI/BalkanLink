@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { useTranslation } from "react-i18next";
 import {
-  FileText, Shield, BookOpen, Camera, Megaphone, Plane,
-  Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
-  Landmark,
+  FileText, Shield, BookOpen, ScanLine, Megaphone, Plane,
+  Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
+  Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
+  Coins,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
