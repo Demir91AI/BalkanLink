@@ -194,7 +194,6 @@ const DICT: Record<string, Entry> = {
   "B. Betroffene Person": { bs: "B. Pogođena osoba" },
   "B. Geschädigte Person": { bs: "B. Oštećena osoba" },
   "D. Unterschrift": { bs: "D. Potpis" },
-};
   "Sonstiges:": { bs: "Ostalo:" },
   "Sonstige": { bs: "Ostalo" },
   "Sonstiger Grund:": { bs: "Drugi razlog:" },
