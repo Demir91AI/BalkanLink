@@ -124,34 +124,53 @@ export function useTTS() {
     };
   }, []);
 
-  /* ── Play via ElevenLabs (Audio URL) ── */
+  /* ── Play via ElevenLabs (Audio URL) ──
+   * IMPORTANT for iOS PWA (standalone): the <audio> element MUST be created
+   * synchronously inside the user gesture (the click), BEFORE any `await`.
+   * Otherwise iOS WebKit drops the gesture activation and `play()` is rejected,
+   * which silently falls back to the robotic browser speechSynthesis voice.
+   */
   const playViaProvider = useCallback(async (id: string, text: string): Promise<boolean> => {
+    // Stop any existing audio
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+    }
+
+    // Create the Audio element NOW (still inside user gesture)
+    const audio = new Audio();
+    audio.preload = "auto";
+    audio.crossOrigin = "anonymous";
+    applyAudioTuning(audio, rate);
+    audioRef.current = audio;
+
+    audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
+    audio.onended = () => {
+      setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100);
+    };
+    audio.onerror = () => {
+      console.error(`[TTS] Playback error for ${id}`);
+      setActiveId(null);
+      setPlayState("idle");
+    };
+
+    // Prime the element with a silent play() call to keep the gesture alive on iOS PWA.
+    // (The element is empty, so this resolves/rejects quickly without affecting UX.)
+    const primingPlay = audio.play().catch(() => { /* expected — no source yet */ });
+
+    // Now fetch the real audio URL (this is the async part)
     const sentence: TTSSentence = { id, text: preprocessGerman(text) };
     const audioUrl = await getAudio(sentence);
 
+    // Wait for the priming attempt to settle so we don't race with .src assignment
+    await primingPlay;
+
     if (!audioUrl) return false;
+    if (audioRef.current !== audio) return false; // superseded by another play
 
     try {
-      // Stop any existing audio
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.src = "";
-      }
-
-      const audio = new Audio(audioUrl);
-      applyAudioTuning(audio, rate);
-      audioRef.current = audio;
-
-      audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
-      audio.onended = () => {
-        setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100);
-      };
-      audio.onerror = () => {
-        console.error(`[TTS] Playback error for ${id}`);
-        setActiveId(null);
-        setPlayState("idle");
-      };
-
+      audio.src = audioUrl;
+      audio.load();
       await audio.play();
       return true;
     } catch (err) {
