@@ -155,7 +155,12 @@ export default function Register() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">{t("auth.register.labelPassword")}</Label>
-              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.register.passwordHint")} />
+              <div className="relative">
+                <Input id="password" type={showPassword ? "text" : "password"} required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.register.passwordHint")} className="pr-10" />
+                <button type="button" onClick={() => setShowPassword(v => !v)} aria-label={showPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-primary transition-colors">
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
               {password.length > 0 && (
                 <div className="mt-2 space-y-1 rounded-lg border bg-muted/30 p-3">
                   <p className="text-[11px] font-semibold text-muted-foreground mb-1">{t("auth.register.rulesTitle")}</p>
