@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { useTranslation } from "react-i18next";
@@ -6,12 +6,14 @@ import {
   FileText, Shield, BookOpen, ScanLine, Megaphone, Plane,
   Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
   Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
-  Coins,
+  Coins, Search, Crown, Clock, ArrowRight,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
 import type { SupportedLanguage } from "@/i18n";
 import { useAuth } from "@/contexts/AuthContext";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useRecentPages } from "@/hooks/useRecentPages";
 import { toast } from "sonner";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
