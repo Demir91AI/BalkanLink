@@ -23,7 +23,7 @@ function getInitials(name: string) {
 
 export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [authOpen, setAuthOpen] = useState(false);
+  
   const debounceRef = useRef(0);
   const navigate = useLocalizedNavigate();
   const location = useLocation();
