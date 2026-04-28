@@ -187,29 +187,36 @@ export default function Register() {
               )}
             </div>
 
-            <div className="flex items-start gap-3 rounded-xl border bg-muted/20 p-4">
+            <label
+              htmlFor="terms"
+              className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+                acceptedTerms
+                  ? "border-primary/50 bg-primary/5"
+                  : "border-primary/40 bg-primary/[0.04] hover:bg-primary/[0.08]"
+              }`}
+            >
               <Checkbox
                 id="terms"
                 checked={acceptedTerms}
                 onCheckedChange={(v) => setAcceptedTerms(v === true)}
-                className="mt-0.5"
+                className="mt-0.5 h-5 w-5 rounded border-2 border-primary data-[state=checked]:bg-primary data-[state=checked]:border-primary shadow-sm"
               />
-              <label htmlFor="terms" className="cursor-pointer text-xs leading-relaxed text-muted-foreground">
+              <span className="text-xs leading-relaxed text-foreground/85 font-medium select-none">
                 {t("auth.register.consentText")}{" "}
-                <Link to="/uslovi-koristenja" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                <Link to="/uslovi-koristenja" target="_blank" className="font-semibold text-primary underline underline-offset-2 hover:no-underline">
                   {t("auth.register.consentTermsLink")}
                 </Link>
                 ,{" "}
-                <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                <Link to="/datenschutz" target="_blank" className="font-semibold text-primary underline underline-offset-2 hover:no-underline">
                   {t("auth.register.consentPrivacyLink")}
                 </Link>{" "}
                 {t("auth.register.consentAiPrefix")}{" "}
-                <Link to="/napomena-o-ki" target="_blank" className="font-semibold text-primary underline hover:no-underline">
+                <Link to="/napomena-o-ki" target="_blank" className="font-semibold text-primary underline underline-offset-2 hover:no-underline">
                   {t("auth.register.consentAiLink")}
                 </Link>
                 {t("auth.register.consentAiSuffix")}
-              </label>
-            </div>
+              </span>
+            </label>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <Button type="submit" className="w-full" disabled={loading || !canSubmit}>
