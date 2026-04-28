@@ -39,14 +39,14 @@ interface PremiumModalProps {
 export default function PremiumModal({ isOpen, onClose, trigger, formularId }: PremiumModalProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [authOpen, setAuthOpen] = useState(false);
   const content = TRIGGER_TEXT[trigger];
 
   if (!isOpen) return null;
 
   const handlePremium = () => {
     if (!user) {
-      setAuthOpen(true);
+      onClose();
+      navigate("/login");
       return;
     }
     initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
