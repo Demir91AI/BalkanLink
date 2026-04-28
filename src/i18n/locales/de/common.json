@@ -60,7 +60,8 @@
     "statusPremium": "Premium aktiv",
     "statusFree": "Free Plan",
     "upgrade": "Upgrade",
-    "openProfile": "Profil öffnen"
+    "openProfile": "Profil öffnen",
+    "toggleAccount": "Konto öffnen"
   },
   "mobileNav": {
     "documents": "Dokumente",
