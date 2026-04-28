@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { toast } from "sonner";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -65,6 +64,7 @@ export function usePWAInstall() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showBanner, setShowBanner] = useState(false);
   const [showIOSGuide, setShowIOSGuide] = useState(false);
+  const [showManualGuide, setShowManualGuide] = useState(false);
   const [triggerReady, setTriggerReady] = useState(false);
   const visitedRoutes = useRef(new Set<string>());
   const mountTime = useRef(Date.now());
@@ -148,26 +148,34 @@ export function usePWAInstall() {
     setShowIOSGuide(false);
   }, []);
 
-  // Manual trigger from menu
+  const closeManualGuide = useCallback(() => {
+    setShowManualGuide(false);
+  }, []);
+
+  // Manual trigger from menu — always shows actionable guidance
   const triggerManual = useCallback(() => {
-    if (isStandalone() || isAccepted()) return;
+    if (isStandalone()) return;
+    // If browser supports the native prompt, use it
     if (deferredPrompt) {
       setShowBanner(true);
-    } else if (isIOS()) {
-      setShowIOSGuide(true);
-    } else {
-      toast.info("Otvori ovu stranicu na mobilnom telefonu u pregledniku da instaliraš BalkanLink aplikaciju.", { duration: 5000 });
+      return;
     }
+    // Otherwise show the per-browser manual guide (handles iOS Safari, iOS Chrome,
+    // Android Chrome, Samsung Internet, Firefox, in-app webviews, desktop)
+    setShowManualGuide(true);
   }, [deferredPrompt]);
 
-  const canShowMenuEntry = !isStandalone() && !isAccepted();
+  // Always allow opening the install guide unless the app is already running standalone
+  const canShowMenuEntry = !isStandalone();
 
   return {
     showBanner,
     showIOSGuide,
+    showManualGuide,
     installAndroid,
     dismiss,
     closeIOSGuide,
+    closeManualGuide,
     triggerManual,
     canShowMenuEntry,
   };
