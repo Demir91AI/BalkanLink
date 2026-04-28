@@ -64,7 +64,7 @@ export default function SchuelerBafoegMuster() {
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Art der Schule</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {["Gymnasium (Oberstufe, Kl. 11–13)", "Fachoberschule (FOS)", "Berufsfachschule (BFS)", "Berufsaufbauschule", "Fachschule", "Abendrealschule / Abendgymnasium", "Kolleg"].map(a => (<label key={a} style={S.chk}><input type="radio" name="schulart" checked={f.schulart === a} onChange={() => set("schulart", a)} />{a}</label>))}
-            <label style={S.chk}><input type="radio" name="schulart" checked={f.schulart === "Sonstiges"} onChange={() => set("schulart", "Sonstiges")} />Sonstiges:</label>
+            <label style={S.chk}><input type="radio" name="schulart" checked={f.schulart === "Sonstiges"} onChange={() => set("schulart", "Sonstiges")} /><TOpt value="Sonstiges:" /></label>
           </div>
           {f.schulart === "Sonstiges" && <input style={{ ...S.inp, width: "100%", marginTop: 4 }} value={f.sonstigeSchulart} onChange={e => set("sonstigeSchulart", e.target.value)} />}
         </div>

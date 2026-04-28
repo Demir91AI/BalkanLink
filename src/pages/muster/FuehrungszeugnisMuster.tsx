@@ -51,7 +51,7 @@ export default function FuehrungszeugnisMuster() {
           {["Bewerbung / neue Arbeitsstelle", "Ehrenamtliche Tätigkeit mit Minderjährigen", "Ausländerbehörde / Aufenthaltstitel", "Gewerbeanmeldung"].map(z => (
             <label key={z} style={S.chk}><input type="radio" name="zweck" checked={f.zweck === z} onChange={() => set("zweck", z)} />{z}</label>
           ))}
-          <label style={S.chk}><input type="radio" name="zweck" checked={f.zweck === "Sonstiges"} onChange={() => set("zweck", "Sonstiges")} />Sonstiges:</label>
+          <label style={S.chk}><input type="radio" name="zweck" checked={f.zweck === "Sonstiges"} onChange={() => set("zweck", "Sonstiges")} /><TOpt value="Sonstiges:" /></label>
           {f.zweck === "Sonstiges" && <input style={{ ...S.inp, width: "100%" }} value={f.sonstigerZweck} onChange={e => set("sonstigerZweck", e.target.value)} />}
         </div>
       </div>

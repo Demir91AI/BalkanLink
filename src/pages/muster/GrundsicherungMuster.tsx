@@ -102,7 +102,7 @@ export default function GrundsicherungMuster() {
         <CheckAmount label="Mieteinnahmen (€/Monat)" checked={f.mieteinnahmen === "Ja"} amount={f.mieteinnahmenAmt} onCheck={v => set("mieteinnahmen", v ? "Ja" : "")} onAmount={v => set("mieteinnahmenAmt", v)} />
         <CheckAmount label="Kapitalerträge (€/Jahr)" checked={f.kapitalertraege === "Ja"} amount={f.kapitalertraegeAmt} onCheck={v => set("kapitalertraege", v ? "Ja" : "")} onAmount={v => set("kapitalertraegeAmt", v)} />
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-          <label style={S.chk}><input type="checkbox" checked={f.sonstigeEink === "Ja"} onChange={e => set("sonstigeEink", e.target.checked ? "Ja" : "")} />Sonstige</label>
+          <label style={S.chk}><input type="checkbox" checked={f.sonstigeEink === "Ja"} onChange={e => set("sonstigeEink", e.target.checked ? "Ja" : "")} /><TOpt value="Sonstige" /></label>
           {f.sonstigeEink === "Ja" && (<><input style={{ ...S.inp, width: 100 }} placeholder="Art" value={f.sonstigeEinkArt} onChange={e => set("sonstigeEinkArt", e.target.value)} /><input style={{ ...S.inp, width: 80 }} placeholder="€" value={f.sonstigeEinkAmt} onChange={e => set("sonstigeEinkAmt", e.target.value)} /></>)}
         </div>
         <Info>ℹ️ Grundsicherung pokriva razliku. Ako primaš 400 € penzije a minimum je 600 €, Sozialamt plaća razliku od 200 €. Prijavi SVE prihode.</Info>
