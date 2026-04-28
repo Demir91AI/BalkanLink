@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { GraduationCap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 export default function TrainerFaq() {
+  const navigate = useNavigate();
   const faqs = [
     { q: "Šta je uključeno u besplatnu verziju?", a: "Dobijaš 3 lekcije po nivou sa zadacima i 3 rečenice govorne pomoći po lekciji — besplatno." },
     { q: "Šta je uključeno u Ultimate paket?", a: "Sa Ultimate paketom dobijaš sve lekcije, puni pristup govornoj pomoći i dinamički generisane zadatke." },
