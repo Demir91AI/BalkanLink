@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Lock, Crown, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
-import AuthModal from "@/components/auth/AuthModal";
 import { useNavigate } from "react-router-dom";
 type Trigger = "formular" | "guide" | "ai" | "kurs" | "viza";
 
