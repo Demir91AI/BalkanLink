@@ -443,12 +443,30 @@ const exLower: Record<string, string> = {};
 for (const [k, v] of Object.entries(EXAMPLES)) exLower[k.toLowerCase()] = v;
 
 /**
+ * Strip leading numbering like "1. ", "10. ", "12.", "A. " etc.
+ * so that "1. Vorname" matches the dictionary entry "Vorname".
+ */
+function stripNumberPrefix(s: string): string {
+  return s.replace(/^\s*(?:\d{1,3}|[A-Z])\.\s+/, "").trim();
+}
+
+function lookupEntry(deLabel: string): Entry | null {
+  return (
+    DICT[deLabel] ??
+    lower[deLabel.toLowerCase()] ??
+    DICT[stripNumberPrefix(deLabel)] ??
+    lower[stripNumberPrefix(deLabel).toLowerCase()] ??
+    null
+  );
+}
+
+/**
  * Returns the translation only (without the German term).
  * Renderer uses this to stack the translation as a second line under the German label.
  */
 export function tTranslation(deLabel: string, lang: Lang): string | null {
   if (!deLabel || lang === "de") return null;
-  const entry = DICT[deLabel] ?? lower[deLabel.toLowerCase()];
+  const entry = lookupEntry(deLabel);
   if (!entry) return null;
   const translated =
     lang === "hr" ? entry.hr ?? entry.bs :
@@ -477,5 +495,11 @@ export function tOption(deOption: string, lang: Lang): string {
 /** Lookup a default visa-style example for a given German label. */
 export function getExample(deLabel: string): string | null {
   if (!deLabel) return null;
-  return EXAMPLES[deLabel] ?? exLower[deLabel.toLowerCase()] ?? null;
+  return (
+    EXAMPLES[deLabel] ??
+    exLower[deLabel.toLowerCase()] ??
+    EXAMPLES[stripNumberPrefix(deLabel)] ??
+    exLower[stripNumberPrefix(deLabel).toLowerCase()] ??
+    null
+  );
 }
