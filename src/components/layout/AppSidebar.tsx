@@ -13,7 +13,7 @@ import { langFromPath } from "@/lib/i18n-paths";
 import type { SupportedLanguage } from "@/i18n";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import AuthModal from "@/components/auth/AuthModal";
+
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 function getInitials(name: string) {
