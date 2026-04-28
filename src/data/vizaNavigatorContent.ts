@@ -39,28 +39,28 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     name: 'Hrvatska',
     flag: 'https://flagcdn.com/h24/hr.png',
     isEU: true,
-    embassyName: 'Deutsche Botschaft Zagreb',
+    embassyName: 'Njemačka ambasada Zagreb',
     embassyUrl: 'https://zagreb.diplo.de',
-    embassyNote: 'Kao EU građanin ne trebaš vizu za Njemačku.',
+    embassyNote: 'Kao građanin EU ne trebaš vizu za Njemačku.',
     routes: [{
       id: 'eu_info',
-      title: 'EU Sloboda kretanja — FreizügG/EU',
+      title: 'EU sloboda kretanja — FreizügG/EU',
       legalBasis: 'FreizügG/EU + § 4a FreizügG/EU',
-      subtitle: 'Kao hrvatski državljanin imaš pravo slobodnog kretanja u cijeloj EU. Nema vize, nema posebnih dozvola.',
+      subtitle: 'Kao hrvatski državljanin imaš pravo na slobodno kretanje u cijeloj EU. Bez vize, bez posebnih dozvola.',
       steps: [
-        'Ulazak u Njemačku — bez vize, bez posebnih dozvola. Samo važeća osobna iskaznica ili putovnica.',
-        'Anmeldung (Prijava boravišta) — unutar 14 dana od useljenja kod lokalnog Einwohnermeldeamt. Potrebna: Wohnungsgeberbestätigung od stanodavca.',
-        'Zdravstveno osiguranje — zaključi zakonsko (GKV: TK, AOK, DAK) ili privatno zdravstveno osiguranje. Obavezno za sve.',
+        'Ulazak u Njemačku — bez vize, bez posebnih dozvola. Samo važeća lična karta ili pasoš.',
+        'Anmeldung (prijava boravišta) — u roku od 14 dana od useljenja u lokalnom Einwohnermeldeamt. Potrebno: Wohnungsgeberbestätigung od stanodavca.',
+        'Zdravstveno osiguranje — zakonsko (GKV: TK, AOK, DAK) ili privatno. Obavezno za sve.',
         'Bankovni račun — otvori tekući račun (DKB, N26, Commerzbank, Sparkasse).',
-        'Steuer-ID — automatski se dodjeljuje nakon Anmeldung, stiže poštom za 2–4 tjedna.',
-        'Zaposlenje — ne trebaš radnu dozvolu. Direktna prijava kod poslodavca ili registracija kod Jobcenter-a.',
-        'Stalni boravak — nakon 5 godina kontinuiranog boravka apliciraj za Niederlassungserlaubnis (§ 4a FreizügG/EU) kod lokalne Ausländerbehörde.'
+        'Steuer-ID — automatski se dodjeljuje nakon Anmeldunga, stiže poštom za 2–4 sedmice.',
+        'Zaposlenje — ne treba ti radna dozvola. Direktna prijava kod poslodavca ili registracija na Jobcenter-u.',
+        'Stalni boravak — nakon 5 godina neprekidnog boravka aplicirati za Niederlassungserlaubnis (§ 4a FreizügG/EU) u lokalnoj Ausländerbehörde.'
       ],
       documents: [
-        'Važeća osobna iskaznica ili putovnica',
+        'Važeća lična karta ili pasoš',
         'Za Anmeldung: Wohnungsgeberbestätigung od stanodavca (obavezno!)',
-        'Za zaposlenje: životopis, diplome, certifikati',
-        'Za Niederlassungserlaubnis (nakon 5 god.): dokaz kontinuiranog boravka, B1 njemacki, penzijsko osiguranje'
+        'Za zaposlenje: biografija (CV), diplome, certifikati',
+        'Za Niederlassungserlaubnis (nakon 5 god.): dokaz neprekidnog boravka, njemački B1, penzijsko osiguranje'
       ],
       costs: [
         'Ulazak: besplatno',
@@ -69,9 +69,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         'Niederlassungserlaubnis (nakon 5 god.): 113 €'
       ],
       errors: [
-        'Ne prijaviti boravište (Anmeldung) unutar 14 dana — kazna do 1.000 €!',
-        'Zaboraviti zdravstveno osiguranje — obavezno za sve, bez iznimke',
-        'Misliti da ti kao EU građanin ne treba ništa — Anmeldung je OBAVEZNA!'
+        'Ne prijaviti boravište (Anmeldung) u roku od 14 dana — kazna do 1.000 €!',
+        'Zaboraviti zdravstveno osiguranje — obavezno za sve, bez izuzetka',
+        'Misliti da ti kao građaninu EU ne treba ništa — Anmeldung je OBAVEZNA!'
       ],
       sources: [
         { label: 'Your Europe — EU Freizügigkeit', url: 'https://europa.eu/youreurope/citizens/travel/entry-exit/eu-citizens/index_de.htm' },
