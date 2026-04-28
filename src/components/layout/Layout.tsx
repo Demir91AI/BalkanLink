@@ -12,6 +12,7 @@ import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
+import PWAManualGuide from "@/components/PWAManualGuide";
 // TranslationPendingBanner removed (apr 2026): all UI strings ship fully
 // translated; the platform must never advertise "translation pending".
 
@@ -85,6 +86,7 @@ export default function Layout() {
         />
         <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
+        <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
       </div>
     </div>
   );

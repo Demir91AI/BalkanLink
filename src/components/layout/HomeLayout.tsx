@@ -10,6 +10,7 @@ import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
+import PWAManualGuide from "@/components/PWAManualGuide";
 
 export default function HomeLayout() {
   const cookie = useCookieConsent();
@@ -41,6 +42,7 @@ export default function HomeLayout() {
       />
       <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
       <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
+      <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
     </div>
   );
 }
