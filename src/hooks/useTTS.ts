@@ -1,7 +1,7 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
-import { getAudio, type TTSSentence } from "@/services/ttsProvider";
+import { getAudio, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
 
 /* ── helpers ── */
 
@@ -85,6 +85,17 @@ function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number) {
   tunedAudio.webkitPreservesPitch = true;
 }
 
+function isMobileStandalonePlayback(): boolean {
+  try {
+    const standalone = window.matchMedia?.("(display-mode: standalone)")?.matches ||
+      ("standalone" in navigator && Boolean((navigator as Navigator & { standalone?: boolean }).standalone));
+    const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    return standalone || mobile;
+  } catch {
+    return false;
+  }
+}
+
 export type SpeechRate = TtsSpeed;
 
 export function useTTS() {
@@ -154,12 +165,27 @@ export function useTTS() {
       setPlayState("idle");
     };
 
+    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
+    if (isMobileStandalonePlayback()) {
+      const directUrl = getDirectAudioUrl(sentence);
+      if (!directUrl) return false;
+
+      try {
+        audio.src = directUrl;
+        audio.load();
+        await audio.play();
+        return true;
+      } catch (err) {
+        console.error("[TTS] Direct audio play error:", err);
+        return false;
+      }
+    }
+
     // Prime the element with a silent play() call to keep the gesture alive on iOS PWA.
     // (The element is empty, so this resolves/rejects quickly without affecting UX.)
     const primingPlay = audio.play().catch(() => { /* expected — no source yet */ });
 
     // Now fetch the real audio URL (this is the async part)
-    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
     const audioUrl = await getAudio(sentence);
 
     // Wait for the priming attempt to settle so we don't race with .src assignment

@@ -9,6 +9,9 @@ verify_jwt = false
 [functions.document-check]
 verify_jwt = false
 
+[functions.generate-tts]
+verify_jwt = false
+
 [functions.stripe-webhook]
 verify_jwt = false
 

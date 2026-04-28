@@ -15,13 +15,28 @@ async function sha256(input: string): Promise<string> {
     .join("");
 }
 
+async function requestToPayload(req: Request) {
+  if (req.method === "GET") {
+    const url = new URL(req.url);
+    return {
+      text: url.searchParams.get("text") ?? "",
+      voiceId: url.searchParams.get("voiceId") ?? undefined,
+      stability: Number(url.searchParams.get("stability")) || undefined,
+      similarityBoost: Number(url.searchParams.get("similarityBoost")) || undefined,
+      format: url.searchParams.get("format") ?? undefined,
+    };
+  }
+
+  return await req.json();
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { text, voiceId, stability, similarityBoost } = await req.json();
+    const { text, voiceId, stability, similarityBoost, format } = await requestToPayload(req);
 
     // Validate input
     if (!text || typeof text !== "string" || text.trim().length === 0) {
@@ -58,6 +73,22 @@ serve(async (req) => {
         .list("tts", { search: `${cacheKey}.mp3`, limit: 1 });
 
       if (listData && listData.length > 0) {
+        if (format === "audio") {
+          const { data: downloadData, error: downloadError } = await supabase.storage
+            .from("tts-audio")
+            .download(storagePath);
+
+          if (!downloadError && downloadData) {
+            return new Response(downloadData, {
+              headers: {
+                ...corsHeaders,
+                "Content-Type": "audio/mpeg",
+                "Cache-Control": "public, max-age=31536000, immutable",
+              },
+            });
+          }
+        }
+
         const { data: publicUrl } = supabase.storage
           .from("tts-audio")
           .getPublicUrl(storagePath);
@@ -115,6 +146,26 @@ serve(async (req) => {
     const audioBuffer = await ttsResponse.arrayBuffer();
     const elapsed = Date.now() - startTime;
     console.log(`[TTS] Generated in ${elapsed}ms: ${cacheKey}`);
+
+    if (format === "audio") {
+      supabase.storage
+        .from("tts-audio")
+        .upload(storagePath, audioBuffer.slice(0), {
+          contentType: "audio/mpeg",
+          upsert: true,
+        })
+        .then(({ error }) => {
+          if (error) console.error(`[TTS] Upload error:`, error);
+        });
+
+      return new Response(audioBuffer, {
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "audio/mpeg",
+          "Cache-Control": "public, max-age=31536000, immutable",
+        },
+      });
+    }
 
     // Upload to Supabase Storage
     const { error: uploadError } = await supabase.storage

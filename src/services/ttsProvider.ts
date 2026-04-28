@@ -62,6 +62,26 @@ export async function getAudio(sentence: TTSSentence): Promise<string | null> {
   }
 }
 
+/**
+ * Direct audio endpoint for mobile/PWA playback.
+ * The URL is assigned to <audio>.src inside the tap handler, so mobile WebViews
+ * keep the user gesture while the backend generates/streams the MP3.
+ */
+export function getDirectAudioUrl(sentence: TTSSentence): string | null {
+  const text = sentence.text.trim().slice(0, TTS_CONFIG.maxTextLength);
+  if (!text || !SUPABASE_URL) return null;
+
+  const params = new URLSearchParams({
+    text,
+    voiceId: TTS_CONFIG.voiceId,
+    stability: String(TTS_CONFIG.stability),
+    similarityBoost: String(TTS_CONFIG.similarityBoost),
+    format: "audio",
+  });
+
+  return `${SUPABASE_URL}/functions/v1/${TTS_CONFIG.edgeFunctionName}?${params.toString()}`;
+}
+
 async function fetchFromEdge(sentence: TTSSentence): Promise<string | null> {
   try {
     const text = sentence.text.trim().slice(0, TTS_CONFIG.maxTextLength);
