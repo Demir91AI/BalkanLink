@@ -86,36 +86,36 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     name: 'Slovenija',
     flag: 'https://flagcdn.com/h24/si.png',
     isEU: true,
-    embassyName: 'Deutsche Botschaft Ljubljana',
+    embassyName: 'Njemačka ambasada Ljubljana',
     embassyUrl: 'https://laibach.diplo.de',
-    embassyNote: 'Kot EU državljan ne potrebuješ vizuma za Nemčijo.',
+    embassyNote: 'Kao građanin EU ne trebaš vizu za Njemačku.',
     routes: [{
       id: 'eu_info',
-      title: 'EU Svoboda gibanja — FreizügG/EU',
+      title: 'EU sloboda kretanja — FreizügG/EU',
       legalBasis: 'FreizügG/EU + § 4a FreizügG/EU',
-      subtitle: 'Kot slovenski državljan imaš pravico do prostega gibanja v celotni EU. Brez vizuma, brez posebnih dovoljenj.',
+      subtitle: 'Kao slovenski državljanin imaš pravo na slobodno kretanje u cijeloj EU. Bez vize, bez posebnih dozvola.',
       steps: [
-        'Vstop v Nemčijo — brez vizuma, samo veljavna osebna izkaznica ali potni list.',
-        'Anmeldung — v 14 dneh po vselitvi pri lokalnem Einwohnermeldeamt. Potrebuješ: Wohnungsgeberbestätigung od najemodajalca.',
-        'Zdravstveno zavarovanje — zakonsko (GKV) ali zasebno. Obvezno za vse.',
-        'Bančni račun — odpri tekoči račun (DKB, N26, Commerzbank).',
-        'Steuer-ID — samodejno dodeljena po Anmeldung, prispe po pošti v 2–4 tednih.',
-        'Zaposlitev — ni potrebno delovno dovoljenje.',
-        'Stalno bivanje — po 5 letih zveznega bivanja (§ 4a FreizügG/EU).'
+        'Ulazak u Njemačku — bez vize, samo važeća lična karta ili pasoš.',
+        'Anmeldung — u roku od 14 dana od useljenja u lokalnom Einwohnermeldeamt. Potrebno: Wohnungsgeberbestätigung od stanodavca.',
+        'Zdravstveno osiguranje — zakonsko (GKV) ili privatno. Obavezno za sve.',
+        'Bankovni račun — otvori tekući račun (DKB, N26, Commerzbank).',
+        'Steuer-ID — automatski se dodjeljuje nakon Anmeldunga, stiže poštom za 2–4 sedmice.',
+        'Zaposlenje — ne treba ti radna dozvola.',
+        'Stalni boravak — nakon 5 godina neprekidnog boravka (§ 4a FreizügG/EU).'
       ],
       documents: [
-        'Veljavna osebna izkaznica ali potni list',
+        'Važeća lična karta ili pasoš',
         'Za Anmeldung: Wohnungsgeberbestätigung',
-        'Za zaposlitev: življenjepis, diplome, certifikati'
+        'Za zaposlenje: biografija (CV), diplome, certifikati'
       ],
       costs: [
-        'Vstop: brezplačno',
-        'Anmeldung: brezplačno',
-        'Stalno bivanje (po 5 letih): 113 €'
+        'Ulazak: besplatno',
+        'Anmeldung: besplatno',
+        'Stalni boravak (nakon 5 godina): 113 €'
       ],
       errors: [
-        'Pozabiti Anmeldung v 14 dneh — kazen do 1.000 €!',
-        'Pozabiti zdravstveno zavarovanje — obvezno!'
+        'Zaboraviti Anmeldung u roku od 14 dana — kazna do 1.000 €!',
+        'Zaboraviti zdravstveno osiguranje — obavezno!'
       ],
       sources: [
         { label: 'Your Europe — EU Freizügigkeit', url: 'https://europa.eu/youreurope/citizens/travel/entry-exit/eu-citizens/index_de.htm' },
