@@ -166,3 +166,75 @@ export const PageBreak = ({ n, total = 4 }: { n: number; total?: number }) => (
     <div className="flex-1 border-t" style={{ borderColor: "#E0D0B0" }} />
   </div>
 );
+
+// =====================================================================
+// Compatibility aliases used by VisaWorkForm2.tsx (and possibly others).
+// They render with the same look + bilingual behaviour as the primary
+// components above so the UX stays consistent across all visa forms.
+// =====================================================================
+export const sectionTitle = "font-bold text-[15px] border-b-2 mb-3 pb-1";
+export const labelCls = "block text-[11px] uppercase text-[#6B6B6B] mb-1 font-medium leading-tight";
+
+export const FormField = Field;
+
+export const BlueTip = ({ children }: { children: React.ReactNode }) => (
+  <div
+    className="flex items-start gap-2 rounded-lg p-3 mt-2 text-[12px] leading-relaxed"
+    style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", color: "#1E3A8A" }}
+  >
+    <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" /> <span>{children}</span>
+  </div>
+);
+
+export const GoldTip = GoldNote;
+
+export const CheckRow = ({
+  options,
+  selected,
+}: {
+  options: string[];
+  selected?: number;
+}) => {
+  const lang = useLang();
+  return (
+    <div className="flex flex-wrap gap-3 mt-1">
+      {options.map((o, i) => {
+        const tr = tTranslation(o, lang);
+        return (
+          <label key={o + i} className="flex items-center gap-2 text-sm cursor-pointer">
+            <input
+              type="checkbox"
+              defaultChecked={selected === i}
+              className="accent-[#C9A84C] h-4 w-4"
+            />
+            <span>
+              {o}
+              {tr && (
+                <span className="italic ml-1" style={{ color: "#C9A84C" }}>
+                  ({tr})
+                </span>
+              )}
+            </span>
+          </label>
+        );
+      })}
+    </div>
+  );
+};
+
+export const ExternalLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 underline text-sm hover:text-blue-800"
+  >
+    {children}
+  </a>
+);
