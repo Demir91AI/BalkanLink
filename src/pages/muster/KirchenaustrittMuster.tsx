@@ -35,7 +35,7 @@ export default function KirchenaustrittMuster() {
           {["Römisch-Katholische Kirche", "Evangelische Kirche (EKD)", "Evangelisch-Lutherische Kirche", "Evangelisch-Reformierte Kirche", "Altkatholische Kirche"].map(r => (
             <label key={r} style={S.chk}><input type="radio" name="religion" checked={f.religionsgemeinschaft === r} onChange={() => set("religionsgemeinschaft", r)} />{r}</label>
           ))}
-          <label style={S.chk}><input type="radio" name="religion" checked={f.religionsgemeinschaft === "Andere"} onChange={() => set("religionsgemeinschaft", "Andere")} />Andere Religionsgemeinschaft:</label>
+          <label style={S.chk}><input type="radio" name="religion" checked={f.religionsgemeinschaft === "Andere"} onChange={() => set("religionsgemeinschaft", "Andere")} /><TOpt value="Andere Religionsgemeinschaft:" /></label>
           {f.religionsgemeinschaft === "Andere" && <input style={{ ...S.inp, width: "100%" }} value={f.andereReligion} onChange={e => set("andereReligion", e.target.value)} />}
         </div>
       </div>

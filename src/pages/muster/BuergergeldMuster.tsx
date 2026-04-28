@@ -166,7 +166,7 @@ export default function BuergergeldMuster() {
               <CheckAmount label="Kapitalerträge (€/Jahr)" checked={ek.kapitalertraege === "Ja"} amount={ek.kapitalertraege === "Ja" ? ek.kapitalertraege : ""} onCheck={v => setEk(i, "kapitalertraege", v ? "Ja" : "")} onAmount={v => setEk(i, "kapitalertraege", v)} />
               <CheckAmount label="Sonstige" checked={ek.sonstigeEink === "Ja"} amount={ek.sonstigeEinkAmt} onCheck={v => setEk(i, "sonstigeEink", v ? "Ja" : "")} onAmount={v => setEk(i, "sonstigeEinkAmt", v)} />
               {ek.sonstigeEink === "Ja" && <div style={S.row}><Field label="Art" value={ek.sonstigeEinkArt} onChange={v => setEk(i, "sonstigeEinkArt", v)} /></div>}
-              <label style={{ ...S.chk, marginTop: 4 }}><input type="checkbox" checked={!!ek.keinEinkommen} onChange={e => setEk(i, "keinEinkommen", e.target.checked)} />Kein Einkommen</label>
+              <label style={{ ...S.chk, marginTop: 4 }}><input type="checkbox" checked={!!ek.keinEinkommen} onChange={e => setEk(i, "keinEinkommen", e.target.checked)} /><TOpt value="Kein Einkommen" /></label>
 
               <Info>ℹ️ Zašto se Kindergeld upisuje? Kindergeld se prima kao prihod i oduzima od Bürgergelda. Ne gubi se — samo se uračunava.</Info>
 

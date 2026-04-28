@@ -65,7 +65,7 @@ export default function SteuerklasseMuster() {
           {["Heirat / Eintragung der Lebenspartnerschaft", "Änderung der Einkommensverhältnisse", "Aufnahme einer Erwerbstätigkeit", "Aufgabe einer Erwerbstätigkeit", "Geburt eines Kindes"].map(g => (
             <label key={g} style={S.chk}><input type="radio" name="grund" checked={f.grund === g} onChange={() => set("grund", g)} />{g}</label>
           ))}
-          <label style={S.chk}><input type="radio" name="grund" checked={f.grund === "Sonstiges"} onChange={() => set("grund", "Sonstiges")} />Sonstiger Grund:</label>
+          <label style={S.chk}><input type="radio" name="grund" checked={f.grund === "Sonstiges"} onChange={() => set("grund", "Sonstiges")} /><TOpt value="Sonstiger Grund:" /></label>
           {f.grund === "Sonstiges" && <input style={{ ...S.inp, width: "100%" }} value={f.sonstigerGrund} onChange={e => set("sonstigerGrund", e.target.value)} />}
         </div>
       </div>

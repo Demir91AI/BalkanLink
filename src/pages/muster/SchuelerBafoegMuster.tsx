@@ -64,7 +64,7 @@ export default function SchuelerBafoegMuster() {
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Art der Schule</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {["Gymnasium (Oberstufe, Kl. 11–13)", "Fachoberschule (FOS)", "Berufsfachschule (BFS)", "Berufsaufbauschule", "Fachschule", "Abendrealschule / Abendgymnasium", "Kolleg"].map(a => (<label key={a} style={S.chk}><input type="radio" name="schulart" checked={f.schulart === a} onChange={() => set("schulart", a)} />{a}</label>))}
-            <label style={S.chk}><input type="radio" name="schulart" checked={f.schulart === "Sonstiges"} onChange={() => set("schulart", "Sonstiges")} />Sonstiges:</label>
+            <label style={S.chk}><input type="radio" name="schulart" checked={f.schulart === "Sonstiges"} onChange={() => set("schulart", "Sonstiges")} /><TOpt value="Sonstiges:" /></label>
           </div>
           {f.schulart === "Sonstiges" && <input style={{ ...S.inp, width: "100%", marginTop: 4 }} value={f.sonstigeSchulart} onChange={e => set("sonstigeSchulart", e.target.value)} />}
         </div>
@@ -111,7 +111,7 @@ export default function SchuelerBafoegMuster() {
         {f.elternGetrennt === "Ja" && <div style={S.row}><Field label="Seit" type="date" value={f.getrenntSeit} onChange={v => set("getrenntSeit", v)} /></div>}
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Elternteil verstorben?</div><Radio name="elternteilVerstorben" value={f.elternteilVerstorben} options={["Elternteil 1", "Elternteil 2", "Nein"]} onChange={v => set("elternteilVerstorben", v)} /></div>
         <div style={S.row}><Field label="Unterhalt von Eltern (€/Monat)" value={f.unterhaltVonEltern} onChange={v => set("unterhaltVonEltern", v)} /></div>
-        <div style={{ marginBottom: 6 }}><label style={S.chk}><input type="checkbox" checked={f.unterhaltNichtGezahlt === "Ja"} onChange={e => set("unterhaltNichtGezahlt", e.target.checked ? "Ja" : "")} />Unterhalt wird nicht gezahlt</label></div>
+        <div style={{ marginBottom: 6 }}><label style={S.chk}><input type="checkbox" checked={f.unterhaltNichtGezahlt === "Ja"} onChange={e => set("unterhaltNichtGezahlt", e.target.checked ? "Ja" : "")} /><TOpt value="Unterhalt wird nicht gezahlt" /></label></div>
         {f.unterhaltNichtGezahlt === "Ja" && <div style={S.row}><Field label="Grund" value={f.unterhaltGrund} onChange={v => set("unterhaltGrund", v)} /></div>}
       </div>
 

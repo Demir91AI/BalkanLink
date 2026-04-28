@@ -94,7 +94,7 @@ export default function GrundsicherungMuster() {
         <CheckAmount label="Witwen-/Witwerrente (€/Monat netto)" checked={f.witwenrente === "Ja"} amount={f.witwenrenteAmt} onCheck={v => set("witwenrente", v ? "Ja" : "")} onAmount={v => set("witwenrenteAmt", v)} />
         <CheckAmount label="Betriebsrente (€/Monat netto)" checked={f.betriebsrente === "Ja"} amount={f.betriebsrenteAmt} onCheck={v => set("betriebsrente", v ? "Ja" : "")} onAmount={v => set("betriebsrenteAmt", v)} />
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-          <label style={S.chk}><input type="checkbox" checked={f.auslandRente === "Ja"} onChange={e => set("auslandRente", e.target.checked ? "Ja" : "")} />Ausländische Rente</label>
+          <label style={S.chk}><input type="checkbox" checked={f.auslandRente === "Ja"} onChange={e => set("auslandRente", e.target.checked ? "Ja" : "")} /><TOpt value="Ausländische Rente" /></label>
           {f.auslandRente === "Ja" && (<><input style={{ ...S.inp, width: 80 }} placeholder="Land" value={f.auslandRenteLand} onChange={e => set("auslandRenteLand", e.target.value)} /><input style={{ ...S.inp, width: 80 }} placeholder="€/Monat" value={f.auslandRenteAmt} onChange={e => set("auslandRenteAmt", e.target.value)} /></>)}
         </div>
         <CheckAmount label="Erwerbseinkommen (€/Monat netto)" checked={f.erwerbseinkommen === "Ja"} amount={f.erwerbseinkommenAmt} onCheck={v => set("erwerbseinkommen", v ? "Ja" : "")} onAmount={v => set("erwerbseinkommenAmt", v)} />
@@ -102,7 +102,7 @@ export default function GrundsicherungMuster() {
         <CheckAmount label="Mieteinnahmen (€/Monat)" checked={f.mieteinnahmen === "Ja"} amount={f.mieteinnahmenAmt} onCheck={v => set("mieteinnahmen", v ? "Ja" : "")} onAmount={v => set("mieteinnahmenAmt", v)} />
         <CheckAmount label="Kapitalerträge (€/Jahr)" checked={f.kapitalertraege === "Ja"} amount={f.kapitalertraegeAmt} onCheck={v => set("kapitalertraege", v ? "Ja" : "")} onAmount={v => set("kapitalertraegeAmt", v)} />
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-          <label style={S.chk}><input type="checkbox" checked={f.sonstigeEink === "Ja"} onChange={e => set("sonstigeEink", e.target.checked ? "Ja" : "")} />Sonstige</label>
+          <label style={S.chk}><input type="checkbox" checked={f.sonstigeEink === "Ja"} onChange={e => set("sonstigeEink", e.target.checked ? "Ja" : "")} /><TOpt value="Sonstige" /></label>
           {f.sonstigeEink === "Ja" && (<><input style={{ ...S.inp, width: 100 }} placeholder="Art" value={f.sonstigeEinkArt} onChange={e => set("sonstigeEinkArt", e.target.value)} /><input style={{ ...S.inp, width: 80 }} placeholder="€" value={f.sonstigeEinkAmt} onChange={e => set("sonstigeEinkAmt", e.target.value)} /></>)}
         </div>
         <Info>ℹ️ Grundsicherung pokriva razliku. Ako primaš 400 € penzije a minimum je 600 €, Sozialamt plaća razliku od 200 €. Prijavi SVE prihode.</Info>

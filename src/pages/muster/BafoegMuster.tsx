@@ -46,7 +46,7 @@ export default function BafoegMuster() {
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Art der Ausbildung</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {["Hochschule (Universität / FH)", "Fachschule", "Berufsfachschule", "Berufsaufbauschule"].map(a => (<label key={a} style={S.chk}><input type="radio" name="ausbildungsArt" checked={f.ausbildungsArt === a} onChange={() => set("ausbildungsArt", a)} />{a}</label>))}
-            <label style={S.chk}><input type="radio" name="ausbildungsArt" checked={f.ausbildungsArt === "Sonstiges"} onChange={() => set("ausbildungsArt", "Sonstiges")} />Sonstiges:</label>
+            <label style={S.chk}><input type="radio" name="ausbildungsArt" checked={f.ausbildungsArt === "Sonstiges"} onChange={() => set("ausbildungsArt", "Sonstiges")} /><TOpt value="Sonstiges:" /></label>
           </div>
           {f.ausbildungsArt === "Sonstiges" && <input style={{ ...S.inp, width: "100%", marginTop: 4 }} value={f.sonstigeAusbildung} onChange={e => set("sonstigeAusbildung", e.target.value)} />}
         </div>
