@@ -7,7 +7,7 @@ import FormularLock from "@/components/paywall/FormularLock";
 import { useSubscription } from "@/hooks/useSubscription";
 import AuthGate from "@/components/AuthGate";
 import { isFormFree } from "@/lib/form-catalog";
-import { tLabel, tOption } from "@/lib/muster-i18n";
+import { tLabel, tOption, tTranslation, getExample } from "@/lib/muster-i18n";
 
 type Lang = "bs" | "de" | "hr" | "sr";
 function useFormLang(): Lang {
@@ -25,14 +25,19 @@ export const S = {
   navBtn: { background: "transparent", border: "none", cursor: "pointer", color: "#6B6B6B", fontSize: 13, fontWeight: 500 } as React.CSSProperties,
   disc: { background: "hsl(48,96%,89%)", border: "2px solid #EAB308", borderRadius: 6, padding: 12, margin: "12px auto", maxWidth: 794 } as React.CSSProperties,
   paper: { maxWidth: 800, margin: "0 auto 40px", background: "#fff", padding: "clamp(20px, 4vw, 40px)", borderRadius: 8, border: "1px solid #D0C8B0", boxShadow: "0 6px 24px rgba(0,0,0,0.10)", color: "#111" } as React.CSSProperties,
-  // Visa-style section header: clean underline with gold accent, no heavy gray bar.
-  secHead: { padding: "0 0 6px", display: "flex", alignItems: "center", gap: 10, marginBottom: 14, borderBottom: "2px solid #E0D0B0", fontWeight: 700, fontSize: 15, color: "#111", textTransform: "none" as const, letterSpacing: 0 },
-  secNum: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, borderRadius: 4, background: "#C9A84C", color: "#fff", fontWeight: 700, fontSize: 13 } as React.CSSProperties,
-  sec: { padding: "8px 0 18px", marginBottom: 8 } as React.CSSProperties,
-  row: { display: "flex", gap: 14, marginBottom: 14, flexWrap: "wrap" as const } as React.CSSProperties,
-  lbl: { fontSize: 11, color: "#6b7280", marginBottom: 4, textTransform: "uppercase" as const, letterSpacing: 0.4, fontWeight: 500 } as React.CSSProperties,
-  inp: { border: "1px solid #D0C8B0", borderRadius: 4, background: "#fff", fontSize: 14, padding: "8px 10px", outline: "none", width: "100%", boxSizing: "border-box" as const, color: "#111" } as React.CSSProperties,
-  example: { fontSize: 12, fontStyle: "italic" as const, color: "#C9A84C", marginTop: 4 } as React.CSSProperties,
+  // Visa-style section header
+  secHead: { padding: "0 0 6px", display: "flex", alignItems: "center", gap: 10, marginBottom: 16, borderBottom: "2px solid #E0D0B0", fontWeight: 700, fontSize: 15, color: "#111", textTransform: "none" as const, letterSpacing: 0, flexWrap: "wrap" as const },
+  secNum: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, borderRadius: 4, background: "#C9A84C", color: "#fff", fontWeight: 700, fontSize: 13, flexShrink: 0 } as React.CSSProperties,
+  secTitleWrap: { display: "flex", flexDirection: "column" as const, lineHeight: 1.25 },
+  secSub: { fontSize: 12, fontWeight: 500, color: "#9A8042", marginTop: 1, fontStyle: "italic" as const, textTransform: "none" as const, letterSpacing: 0 },
+  sec: { padding: "8px 0 22px", marginBottom: 8 } as React.CSSProperties,
+  row: { display: "flex", gap: 16, marginBottom: 18, flexWrap: "wrap" as const } as React.CSSProperties,
+  // German label (top line) — UPPERCASE, gray
+  lbl: { fontSize: 11, color: "#6b7280", marginBottom: 2, textTransform: "uppercase" as const, letterSpacing: 0.4, fontWeight: 600, lineHeight: 1.3 } as React.CSSProperties,
+  // Translation (sub line) — gold, italic, normal case
+  lblTr: { fontSize: 11, color: "#C9A84C", marginBottom: 6, fontWeight: 500, fontStyle: "italic" as const, lineHeight: 1.3, textTransform: "none" as const, letterSpacing: 0 } as React.CSSProperties,
+  inp: { border: "1px solid #D0C8B0", borderRadius: 4, background: "#fff", fontSize: 14, padding: "9px 11px", outline: "none", width: "100%", boxSizing: "border-box" as const, color: "#111" } as React.CSSProperties,
+  example: { fontSize: 12, fontStyle: "italic" as const, color: "#C9A84C", marginTop: 4, lineHeight: 1.3 } as React.CSSProperties,
   idBox: { width: 28, height: 34, border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: 15, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
   ibanBox: { width: 22, height: 32, border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: 13, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
   chk: { display: "flex", alignItems: "center", gap: 6, fontSize: 13, cursor: "pointer", marginRight: 14 } as React.CSSProperties,
@@ -42,15 +47,25 @@ export const S = {
 
 export const Field = ({ label, flex, width, type, value, onChange, disabled, example, placeholder }: { label: string; flex?: number; width?: string | number; type?: string; value?: string; onChange?: (v: string) => void; disabled?: boolean; example?: string; placeholder?: string }) => {
   const lang = useFormLang();
-  const display = tLabel(label, lang);
+  const translation = tTranslation(label, lang);
+  // Auto-fill example from dictionary if not explicitly provided
+  const effectiveExample = example ?? getExample(label) ?? undefined;
   return (
-    <div style={{ flex: flex ?? 1, minWidth: width ?? 0 }}>
-      <div style={S.lbl} className="flex items-center">
-        {display}
+    <div style={{ flex: flex ?? 1, minWidth: typeof width === "number" ? width : 140 }}>
+      <div style={S.lbl} className="flex items-center gap-1">
+        <span>{label}</span>
         <FieldTooltip label={label} />
       </div>
-      <input style={{ ...S.inp, width: width ?? "100%" }} type={type ?? "text"} value={value ?? ""} onChange={e => onChange?.(e.target.value)} disabled={disabled} placeholder={placeholder ?? example ?? ""} />
-      {example ? <p style={S.example}>z.B. {example}</p> : null}
+      {translation ? <div style={S.lblTr}>{translation}</div> : null}
+      <input
+        style={{ ...S.inp, width: typeof width === "number" ? width : "100%" }}
+        type={type ?? "text"}
+        value={value ?? ""}
+        onChange={e => onChange?.(e.target.value)}
+        disabled={disabled}
+        placeholder={placeholder ?? effectiveExample ?? ""}
+      />
+      {effectiveExample ? <p style={S.example}>z.B. {effectiveExample}</p> : null}
     </div>
   );
 };
@@ -78,15 +93,28 @@ export const IdBoxes = ({ count, value, onChange }: { count: number; value: stri
 
 export const SecHeader = ({ num, title }: { num: number; title: string }) => {
   const lang = useFormLang();
-  return <div style={S.secHead}><span style={S.secNum}>{num}</span>{tLabel(title, lang)}</div>;
+  const translation = tTranslation(title, lang);
+  return (
+    <div style={S.secHead}>
+      <span style={S.secNum}>{num}</span>
+      <div style={S.secTitleWrap}>
+        <span>{title}</span>
+        {translation ? <span style={S.secSub}>({translation})</span> : null}
+      </div>
+    </div>
+  );
 };
 
 export const Signature = ({ label }: { label: string }) => {
   const lang = useFormLang();
+  const translation = tTranslation(label, lang);
   return (
     <div style={{ flex: 1 }}>
       <div style={S.sigLine} />
-      <div style={{ fontSize: 9, color: "#6b7280", textAlign: "center" }}>{tLabel(label, lang)}</div>
+      <div style={{ fontSize: 10, color: "#6b7280", textAlign: "center", lineHeight: 1.3 }}>
+        <div>{label}</div>
+        {translation ? <div style={{ color: "#C9A84C", fontStyle: "italic" }}>({translation})</div> : null}
+      </div>
     </div>
   );
 };

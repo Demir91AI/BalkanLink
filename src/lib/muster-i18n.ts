@@ -201,32 +201,281 @@ const DICT: Record<string, Entry> = {
   "Ausländische Rente": { bs: "Inostrana penzija", sr: "Inostrana penzija", hr: "Inozemna mirovina" },
   "Andere Religionsgemeinschaft:": { bs: "Druga vjerska zajednica:", sr: "Druga verska zajednica:", hr: "Druga vjerska zajednica:" },
   "Unterhalt wird nicht gezahlt": { bs: "Alimentacija se ne plaća" },
+
+  // ===== expansion: kindergeld / elterngeld / family =====
+  "Antragsteller/in": { bs: "Podnosilac zahtjeva", sr: "Podnosilac zahteva", hr: "Podnositelj zahtjeva" },
+  "Antragstellerin / Antragsteller": { bs: "Podnositeljka / podnosilac zahtjeva" },
+  "Mutter": { bs: "Majka" },
+  "Vater": { bs: "Otac" },
+  "Elternteil 1": { bs: "Roditelj 1" },
+  "Elternteil 2": { bs: "Roditelj 2" },
+  "Kind": { bs: "Dijete", sr: "Dete", hr: "Dijete" },
+  "Kinder": { bs: "Djeca", sr: "Deca", hr: "Djeca" },
+  "Name des Kindes": { bs: "Ime djeteta", sr: "Ime deteta", hr: "Ime djeteta" },
+  "Geburtsdatum des Kindes": { bs: "Datum rođenja djeteta", sr: "Datum rođenja deteta", hr: "Datum rođenja djeteta" },
+  "Verwandtschaftsverhältnis": { bs: "Srodstveni odnos" },
+  "Lebt im Haushalt?": { bs: "Živi u domaćinstvu?" },
+  "Voraussichtlicher Geburtstermin": { bs: "Predviđeni datum porođaja" },
+  "Tatsächlicher Geburtstermin": { bs: "Stvarni datum porođaja" },
+  "Beziehungszeitraum": { bs: "Period primanja", sr: "Period primanja" },
+  "Bezugszeitraum": { bs: "Period primanja" },
+  "Erwerbstätigkeit vor der Geburt": { bs: "Zaposlenost prije porođaja", sr: "Zaposlenost pre porođaja", hr: "Zaposlenost prije porođaja" },
+  "Erwerbstätigkeit nach der Geburt": { bs: "Zaposlenost nakon porođaja" },
+  "Arbeitszeit (Stunden/Woche)": { bs: "Radno vrijeme (sati/sedmica)", sr: "Radno vreme (sati/nedelja)", hr: "Radno vrijeme (sati/tjedan)" },
+  "Mutterschaftsgeld": { bs: "Naknada za porodilje" },
+  "Elterngeld": { bs: "Roditeljska naknada (Elterngeld)" },
+  "Basiselterngeld": { bs: "Osnovni Elterngeld" },
+  "ElterngeldPlus": { bs: "Elterngeld Plus" },
+  "Partnerschaftsbonus": { bs: "Partnerski bonus" },
+
+  // ===== income / wohngeld / bürgergeld =====
+  "Nettoeinkommen": { bs: "Neto prihod" },
+  "Bruttoeinkommen": { bs: "Bruto prihod" },
+  "Monatliches Einkommen": { bs: "Mjesečni prihod", sr: "Mesečni prihod", hr: "Mjesečni prihod" },
+  "Jahreseinkommen": { bs: "Godišnji prihod" },
+  "Sonstige Einkünfte": { bs: "Ostali prihodi" },
+  "Vermögen": { bs: "Imovina" },
+  "Sparguthaben (€)": { bs: "Štednja (€)" },
+  "Bargeld (€)": { bs: "Gotovina (€)" },
+  "Immobilien": { bs: "Nekretnine" },
+  "Fahrzeuge": { bs: "Vozila" },
+  "Schulden (€)": { bs: "Dugovi (€)" },
+  "Unterhaltsleistungen": { bs: "Alimentacije / izdržavanje" },
+  "Unterhaltsempfänger": { bs: "Primalac alimentacije", sr: "Primalac alimentacije", hr: "Primatelj alimentacije" },
+  "Rente / Pension": { bs: "Penzija / mirovina", sr: "Penzija", hr: "Mirovina" },
+  "Arbeitslosengeld": { bs: "Naknada za nezaposlene (ALG I)" },
+  "Bürgergeld": { bs: "Bürgergeld (socijalna pomoć)" },
+  "Wohngeld": { bs: "Wohngeld (stambena pomoć)" },
+  "Kindergeld": { bs: "Dječiji doplatak (Kindergeld)", sr: "Dečiji doplatak (Kindergeld)", hr: "Dječji doplatak (Kindergeld)" },
+  "Kinderzuschlag": { bs: "Dodatak za djecu (Kinderzuschlag)", sr: "Dodatak za decu", hr: "Dodatak za djecu" },
+  "BAföG": { bs: "Studentska pomoć (BAföG)" },
+  "Krankengeld": { bs: "Naknada za bolovanje" },
+  "Pflegegeld": { bs: "Naknada za njegu" },
+  "Sozialleistungen": { bs: "Socijalne naknade" },
+  "Sonstige Leistungen": { bs: "Ostale naknade" },
+
+  // ===== housing extras =====
+  "Wohnsitz": { bs: "Prebivalište" },
+  "Hauptwohnsitz": { bs: "Glavno prebivalište" },
+  "Nebenwohnsitz": { bs: "Sporedno prebivalište" },
+  "Vermieter/in": { bs: "Najmodavac", sr: "Najmodavac", hr: "Najmodavac" },
+  "Mieter/in": { bs: "Najmoprimac", sr: "Najmoprimac", hr: "Najmoprimac" },
+  "Mietbeginn": { bs: "Početak najma" },
+  "Mietvertrag": { bs: "Ugovor o najmu" },
+  "Warmmiete (€/Monat)": { bs: "Topla kirija (€/mjesec)", sr: "Topla kirija (€/mesec)", hr: "Topla najamnina (€/mjesec)" },
+  "Nebenkosten (€/Monat)": { bs: "Režijski troškovi (€/mjesec)", sr: "Režijski troškovi (€/mesec)", hr: "Režijski troškovi (€/mjesec)" },
+  "Stromkosten (€/Monat)": { bs: "Struja (€/mjesec)", sr: "Struja (€/mesec)", hr: "Struja (€/mjesec)" },
+
+  // ===== work / arbeitsbescheinigung =====
+  "Arbeitsverhältnis": { bs: "Radni odnos" },
+  "Arbeitsbeginn": { bs: "Početak rada" },
+  "Arbeitsende": { bs: "Završetak rada" },
+  "Befristet bis": { bs: "Ugovor na određeno do" },
+  "Unbefristet": { bs: "Na neodređeno" },
+  "Vollzeit": { bs: "Puno radno vrijeme", sr: "Puno radno vreme", hr: "Puno radno vrijeme" },
+  "Teilzeit": { bs: "Skraćeno radno vrijeme", sr: "Skraćeno radno vreme", hr: "Skraćeno radno vrijeme" },
+  "Minijob": { bs: "Mini-posao (do 538€)" },
+  "Selbstständig": { bs: "Samozaposlen" },
+  "Arbeitslos": { bs: "Nezaposlen" },
+  "Schüler/in": { bs: "Učenik/ca" },
+  "Student/in": { bs: "Student/ica" },
+  "Auszubildende/r": { bs: "Praktikant (Azubi)" },
+  "Rentner/in": { bs: "Penzioner/ka", sr: "Penzioner/ka", hr: "Umirovljenik/ca" },
+  "Hausfrau / Hausmann": { bs: "Domaćica / domaćin" },
+  "Kündigungsdatum": { bs: "Datum otkaza" },
+  "Kündigungsgrund": { bs: "Razlog otkaza" },
+  "Letzter Arbeitstag": { bs: "Posljednji radni dan", sr: "Poslednji radni dan", hr: "Posljednji radni dan" },
+
+  // ===== education / bafög =====
+  "Schule / Hochschule": { bs: "Škola / fakultet" },
+  "Studienfach": { bs: "Smjer studija", sr: "Smer studija", hr: "Smjer studija" },
+  "Fachsemester": { bs: "Semestar struke" },
+  "Hochschulsemester": { bs: "Semestar fakulteta" },
+  "Ausbildungsbeginn": { bs: "Početak obrazovanja" },
+  "Ausbildungsende": { bs: "Završetak obrazovanja" },
+  "Ausbildungsstätte": { bs: "Obrazovna ustanova" },
+  "Bildungsabschluss": { bs: "Stečena diploma" },
+
+  // ===== führungszeugnis / official =====
+  "Verwendungszweck": { bs: "Svrha" },
+  "Empfänger": { bs: "Primalac", sr: "Primalac", hr: "Primatelj" },
+  "Behörde": { bs: "Ured / institucija" },
+  "Aktenzeichen": { bs: "Broj predmeta" },
+  "Bemerkungen": { bs: "Napomene" },
+  "Erklärung": { bs: "Izjava" },
+  "Begründung": { bs: "Obrazloženje" },
+
+  // ===== more sections =====
+  "Angaben zum Antrag": { bs: "Podaci o zahtjevu", sr: "Podaci o zahtevu", hr: "Podaci o zahtjevu" },
+  "Angaben zur Wohnsituation": { bs: "Podaci o stambenoj situaciji" },
+  "Angaben zum Einkommen": { bs: "Podaci o prihodu" },
+  "Angaben zum Vermögen": { bs: "Podaci o imovini" },
+  "Angaben zur Erwerbstätigkeit": { bs: "Podaci o zaposlenju" },
+  "Angaben zur Krankenversicherung": { bs: "Podaci o zdravstvenom osiguranju" },
+  "Angaben zur Bankverbindung": { bs: "Podaci o bankovnom računu" },
+  "Bankverbindung": { bs: "Bankovni račun" },
+  "Erklärungen": { bs: "Izjave" },
+  "Anlagen": { bs: "Prilozi" },
+  "Hinweise": { bs: "Napomene / upute" },
+  "Wichtige Hinweise": { bs: "Važne napomene" },
+
+  // ===== generic options =====
+  "vorhanden": { bs: "postoji" },
+  "nicht vorhanden": { bs: "ne postoji" },
+  "trifft zu": { bs: "primjenjuje se", sr: "primenjuje se", hr: "primjenjuje se" },
+  "trifft nicht zu": { bs: "ne primjenjuje se", sr: "ne primenjuje se", hr: "ne primjenjuje se" },
+  "bekannt": { bs: "poznato" },
+  "unbekannt": { bs: "nepoznato" },
+  "in Bearbeitung": { bs: "u obradi" },
+  "abgeschlossen": { bs: "završeno" },
+};
+
+// ============================================================
+//  EXAMPLES — bilingual placeholder hints below each input.
+//  Used by Field when no explicit `example` prop is provided.
+//  Mirrors the visa form aesthetic (z.B. Mustermann).
+// ============================================================
+const EXAMPLES: Record<string, string> = {
+  "Vorname": "MAX",
+  "Vorname(n)": "MAX",
+  "Vorname(n) (Rufname in Großbuchstaben)": "MAX",
+  "Familienname": "Mustermann",
+  "Familienname, ggf. frühere(r) Name(n)": "Mustermann",
+  "Nachname": "Mustermann",
+  "Geburtsname": "Hodžić",
+  "Geburtsname (falls abweichend)": "Hodžić",
+  "Titel": "Dr.",
+  "Geburtsdatum": "01.01.1990",
+  "Geburtsdatum (tt.mm.jjjj)": "01.01.1990",
+  "Geburtsort": "Sarajevo",
+  "Geburtsland": "Bosnien und Herzegowina",
+  "Staatsangehörigkeit": "bosnisch-herzegowinisch",
+  "Staatsangehörigkeit (1.)": "bosnisch-herzegowinisch",
+  "ggf. 2. Staatsangehörigkeit": "deutsch",
+  "Eventuell frühere Staatsangehörigkeit(en)": "keine",
+  "Religionszugehörigkeit (freiwillig)": "römisch-katholisch / islamisch / ohne",
+  "Größe (cm)": "180",
+  "Augenfarbe": "braun",
+
+  "Anschrift": "Musterstraße 1, 99001 Erfurt",
+  "Anschrift (Straße, Hausnummer)": "Musterstraße 1",
+  "Straße": "Musterstraße",
+  "Straße, Hausnr.": "Musterstraße 1",
+  "Hausnummer": "1",
+  "PLZ": "99001",
+  "Postleitzahl": "99001",
+  "Wohnort": "Erfurt",
+  "Ort": "Erfurt",
+  "Staat": "Deutschland",
+  "Land": "Deutschland",
+  "Einzugsdatum (tt.mm.jjjj)": "15.03.2025",
+  "Ersteinreise am": "15.03.2025",
+
+  "Telefon": "+49 123 456789",
+  "Tel.": "+49 123 456789",
+  "E-Mail": "max.mustermann@email.de",
+
+  "Steuerliche Identifikationsnummer": "12 345 678 901",
+  "Steuerliche Identifikationsnummer (zwingend auszufüllen)": "12 345 678 901",
+  "Steuer-ID des Kindes": "12 345 678 901",
+  "Ausweisnummer": "T220000129",
+  "Dokumentnummer": "T220000129",
+  "Ausgestellt am": "01.01.2020",
+  "Gültig bis": "31.12.2030",
+
+  "IBAN": "DE89 3704 0044 0532 0130 00",
+  "BIC": "COBADEFFXXX",
+  "Bank / Finanzinstitut": "Commerzbank",
+  "Versicherung": "TK – Techniker Krankenkasse",
+  "Krankenkasse": "TK – Techniker Krankenkasse",
+  "Krankenversicherung": "TK – Techniker Krankenkasse",
+
+  "Datum": "[današnji datum]",
+  "Ort, Datum": "Erfurt, [datum]",
+  "Unterschrift": "[potpis]",
+
+  "Monatlicher Netto-Verdienst": "2.800 €",
+  "Bruttoeinkommen (€/Monat)": "3.500 €",
+  "Nettoeinkommen": "2.200 €",
+  "Bruttoeinkommen": "3.500 €",
+  "Monatliches Einkommen": "2.200 €",
+  "Bei / Als": "TechGmbH München / Softwareentwickler",
+  "Beruf": "Softwareentwickler",
+  "Beruf / Tätigkeit": "Softwareentwickler",
+  "Arbeitgeber": "TechGmbH München",
+  "Wochenstunden": "40",
+  "Arbeitszeit (Stunden/Woche)": "40",
+
+  "Kaltmiete (€/Monat)": "650 €",
+  "Warmmiete (€/Monat)": "850 €",
+  "Heizkosten (€/Monat)": "120 €",
+  "Nebenkosten (€/Monat)": "180 €",
+  "Wohnfläche (m²)": "65",
+  "Anzahl der Zimmer": "2",
+  "Anzahl Personen im Haushalt": "3",
+  "Anzahl der Kinder": "2",
+
+  "Voraussichtlicher Geburtstermin": "15.07.2026",
+  "Tatsächlicher Geburtstermin": "12.07.2026",
+  "Name des Kindes": "Ana Mustermann",
+  "Geburtsdatum des Kindes": "12.07.2026",
+
+  "Aktenzeichen": "ABC-2026-001",
+  "BG-Nummer": "12345BG6789",
+  "Kundennummer": "1234567890",
+  "Verwendungszweck": "Bewerbung als Erzieher",
+  "Behörde": "Stadtverwaltung Erfurt",
+  "Empfänger": "Jobcenter Erfurt",
+
+  "Studienfach": "Informatik",
+  "Fachsemester": "3",
+  "Hochschulsemester": "3",
+  "Schule / Hochschule": "Universität Erfurt",
+  "Ausbildungsbeginn": "01.10.2025",
+  "Ausbildungsende": "30.09.2028",
+  "Ausbildungsstätte": "TU München",
 };
 
 const lower: Record<string, Entry> = {};
 for (const [k, v] of Object.entries(DICT)) lower[k.toLowerCase()] = v;
 
+const exLower: Record<string, string> = {};
+for (const [k, v] of Object.entries(EXAMPLES)) exLower[k.toLowerCase()] = v;
+
 /**
- * Translate a German form label to "German (Translation)".
- * - For lang === 'de' or unknown labels: returns the German text unchanged.
- * - For bs/hr/sr: returns "Familienname (Prezime)" when found.
- *
- * Treats the label as opaque; never throws.
+ * Returns the translation only (without the German term).
+ * Renderer uses this to stack the translation as a second line under the German label.
  */
-export function tLabel(deLabel: string, lang: Lang): string {
-  if (!deLabel) return deLabel;
-  if (lang === "de") return deLabel;
+export function tTranslation(deLabel: string, lang: Lang): string | null {
+  if (!deLabel || lang === "de") return null;
   const entry = DICT[deLabel] ?? lower[deLabel.toLowerCase()];
-  if (!entry) return deLabel;
+  if (!entry) return null;
   const translated =
     lang === "hr" ? entry.hr ?? entry.bs :
     lang === "sr" ? entry.sr ?? entry.bs :
     entry.bs;
-  if (!translated || translated === deLabel) return deLabel;
-  return `${deLabel} (${translated})`;
+  if (!translated || translated === deLabel) return null;
+  return translated;
+}
+
+/**
+ * Translate a German form label to "German (Translation)".
+ * Kept for backward compatibility with section headers and option text.
+ */
+export function tLabel(deLabel: string, lang: Lang): string {
+  if (!deLabel) return deLabel;
+  if (lang === "de") return deLabel;
+  const t = tTranslation(deLabel, lang);
+  return t ? `${deLabel} (${t})` : deLabel;
 }
 
 /** Same as tLabel but for short option strings inside checkbox/radio groups. */
 export function tOption(deOption: string, lang: Lang): string {
   return tLabel(deOption, lang);
+}
+
+/** Lookup a default visa-style example for a given German label. */
+export function getExample(deLabel: string): string | null {
+  if (!deLabel) return null;
+  return EXAMPLES[deLabel] ?? exLower[deLabel.toLowerCase()] ?? null;
 }
