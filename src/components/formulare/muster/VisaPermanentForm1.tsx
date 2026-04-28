@@ -3,7 +3,6 @@ import {
   GoldNote,
   RedNote,
   Label,
-  Example,
   FieldRow,
   Field,
   CB,

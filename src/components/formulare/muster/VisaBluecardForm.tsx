@@ -3,11 +3,12 @@ import {
   GoldNote,
   RedNote,
   Label,
-  Example,
   FieldRow,
   Field,
   CB,
   PageBreak,
+  GreySection,
+  BlueNote,
 } from "./VisaFormPrimitives";
 
 export default function VisaBluecardForm() {

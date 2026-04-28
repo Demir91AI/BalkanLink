@@ -1,13 +1,4 @@
 import {
-  SectionTitle,
-  GoldNote,
-  RedNote,
-  Label,
-  Example,
-  FieldRow,
-  Field,
-  CB,
-  PageBreak,
   FormField,
   BlueTip,
   GoldTip,
@@ -15,6 +6,8 @@ import {
   ExternalLink,
   sectionTitle,
   labelCls,
+  inputCls,
+  gold,
 } from "./VisaFormPrimitives";
 
 export default function VisaWorkForm2() {

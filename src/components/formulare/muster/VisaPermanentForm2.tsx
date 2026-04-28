@@ -3,11 +3,11 @@ import {
   GoldNote,
   RedNote,
   Label,
-  Example,
   FieldRow,
   Field,
   CB,
   PageBreak,
+  BlueNote,
 } from "./VisaFormPrimitives";
 
 export default function VisaPermanentForm2() {
