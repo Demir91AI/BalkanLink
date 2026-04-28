@@ -51,7 +51,8 @@
       "porezi": "Steuern",
       "nebenkostenScan": "Nebenkosten-Scan"
     },
-    "premiumBadge": "PREMIUM"
+    "premiumBadge": "PREMIUM",
+    "accountSectionLabel": "Konto"
   },
   "mobileNav": {
     "documents": "Dokumente",

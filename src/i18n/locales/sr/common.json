@@ -51,7 +51,8 @@
       "porezi": "Porezi",
       "nebenkostenScan": "Skener režija"
     },
-    "premiumBadge": "PREMIUM"
+    "premiumBadge": "PREMIUM",
+    "accountSectionLabel": "Račun"
   },
   "mobileNav": {
     "documents": "Dokumenti",
