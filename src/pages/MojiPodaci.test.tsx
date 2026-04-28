@@ -49,61 +49,34 @@ describe("MojiPodaci — delete confirmation gating", () => {
 
   it("shows the confirm form after clicking 'Želim obrisati račun'", () => {
     openConfirm();
-    expect(screen.getByLabelText(/ukucaj svoj email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/ukucaj.*velikim slovima/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/za potvrdu/i)).toBeInTheDocument();
   });
 
-  it("disables 'Trajno obriši' when both fields are empty", () => {
+  it("disables submit when field is empty", () => {
     openConfirm();
-    const submit = screen.getByRole("button", { name: /trajno obriši/i });
-    expect(submit).toBeDisabled();
+    expect(screen.getByRole("button", { name: /trajno obriši/i })).toBeDisabled();
   });
 
-  it("disables submit when only email matches", () => {
+  it("disables submit when wrong text is typed", () => {
     openConfirm();
-    fireEvent.change(screen.getByLabelText(/ukucaj svoj email/i), {
-      target: { value: "test@example.com" },
+    fireEvent.change(screen.getByLabelText(/za potvrdu/i), {
+      target: { value: "delete" },
     });
     expect(screen.getByRole("button", { name: /trajno obriši/i })).toBeDisabled();
   });
 
-  it("disables submit when only OBRIŠI is typed", () => {
+  it("enables submit when OBRIŠI is typed (case-insensitive, trims whitespace)", () => {
     openConfirm();
-    fireEvent.change(screen.getByLabelText(/ukucaj.*velikim slovima/i), {
-      target: { value: "OBRIŠI" },
+    fireEvent.change(screen.getByLabelText(/za potvrdu/i), {
+      target: { value: " OBRIŠI " },
     });
-    expect(screen.getByRole("button", { name: /trajno obriši/i })).toBeDisabled();
+    expect(screen.getByRole("button", { name: /trajno obriši/i })).toBeEnabled();
   });
 
-  it("disables submit when OBRIŠI casing is wrong", () => {
+  it("accepts lowercase obriši and normalizes to uppercase", () => {
     openConfirm();
-    fireEvent.change(screen.getByLabelText(/ukucaj svoj email/i), {
-      target: { value: "test@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText(/ukucaj.*velikim slovima/i), {
+    fireEvent.change(screen.getByLabelText(/za potvrdu/i), {
       target: { value: "obriši" },
-    });
-    expect(screen.getByRole("button", { name: /trajno obriši/i })).toBeDisabled();
-  });
-
-  it("disables submit when email does not match", () => {
-    openConfirm();
-    fireEvent.change(screen.getByLabelText(/ukucaj svoj email/i), {
-      target: { value: "wrong@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText(/ukucaj.*velikim slovima/i), {
-      target: { value: "OBRIŠI" },
-    });
-    expect(screen.getByRole("button", { name: /trajno obriši/i })).toBeDisabled();
-  });
-
-  it("enables submit when email matches (case-insensitive) AND text is exactly OBRIŠI", () => {
-    openConfirm();
-    fireEvent.change(screen.getByLabelText(/ukucaj svoj email/i), {
-      target: { value: "TEST@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText(/ukucaj.*velikim slovima/i), {
-      target: { value: "OBRIŠI" },
     });
     expect(screen.getByRole("button", { name: /trajno obriši/i })).toBeEnabled();
   });

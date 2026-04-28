@@ -271,16 +271,9 @@ export default function MojiPodaci() {
 
   const handleDelete = async () => {
     if (!user) return;
-    const emailOk =
-      confirmEmail.trim().toLowerCase() === (user.email ?? "").toLowerCase() &&
-      (user.email ?? "").length > 0;
-    const textOk = confirmText === "OBRIŠI";
-    if (!emailOk || !textOk) {
-      setDeleteError(
-        !emailOk
-          ? "Email ne odgovara tvom računu."
-          : "Moraš ukucati tačno OBRIŠI (velikim slovima)."
-      );
+    const textOk = confirmText.trim().toUpperCase() === "OBRIŠI";
+    if (!textOk) {
+      setDeleteError("Moraš ukucati tačno OBRIŠI da potvrdiš brisanje.");
       return;
     }
 
@@ -301,8 +294,8 @@ export default function MojiPodaci() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            confirm_email: confirmEmail,
-            confirm_text: confirmText,
+            confirm_email: user.email ?? "",
+            confirm_text: confirmText.trim().toUpperCase(),
           }),
         }
       );
@@ -430,32 +423,19 @@ export default function MojiPodaci() {
               Želim obrisati račun
             </button>
           ) : (
-            <div className="space-y-3 rounded-md border border-border/50 bg-muted/20 p-3 mt-1">
-              <p className="text-[11px] text-muted-foreground">
-                Ova akcija je nepovratna. Aktivna pretplata bit će otkazana, profil i historija obrisani.
-              </p>
+            <div className="space-y-3 rounded-md border border-destructive/30 bg-destructive/5 p-3 mt-1">
+              <div className="space-y-1">
+                <p className="text-xs font-medium text-destructive">
+                  Ova akcija je nepovratna.
+                </p>
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  Aktivna pretplata bit će otkazana, profil i historija obrisani. Brišemo račun za <span className="font-medium text-foreground">{user.email}</span>.
+                </p>
+              </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="confirm-email" className="text-[11px] text-muted-foreground">
-                  Ukucaj svoj email ({user.email}):
-                </Label>
-                <Input
-                  id="confirm-email"
-                  type="email"
-                  value={confirmEmail}
-                  onChange={(e) => {
-                    setConfirmEmail(e.target.value);
-                    if (deleteError) setDeleteError(null);
-                  }}
-                  placeholder={user.email ?? ""}
-                  autoComplete="off"
-                  className="h-8 text-xs"
-                  aria-invalid={deleteError ? true : undefined}
-                />
-              </div>
-              <div className="space-y-1.5">
                 <Label htmlFor="confirm-text" className="text-[11px] text-muted-foreground">
-                  Ukucaj <span className="font-mono font-bold text-destructive">OBRIŠI</span> velikim slovima:
+                  Za potvrdu, ukucaj <span className="font-mono font-bold text-destructive">OBRIŠI</span>:
                 </Label>
                 <Input
                   id="confirm-text"
@@ -466,8 +446,11 @@ export default function MojiPodaci() {
                   }}
                   placeholder="OBRIŠI"
                   autoComplete="off"
-                  className="h-8 text-xs"
+                  autoCapitalize="characters"
+                  spellCheck={false}
+                  className="h-9 text-sm font-mono tracking-wider"
                   aria-invalid={deleteError ? true : undefined}
+                  disabled={deleting}
                 />
               </div>
 
@@ -491,7 +474,7 @@ export default function MojiPodaci() {
                     setDeleteError(null);
                   }}
                   disabled={deleting}
-                  className="text-xs h-8"
+                  className="text-xs h-9"
                 >
                   Odustani
                 </Button>
@@ -499,12 +482,8 @@ export default function MojiPodaci() {
                   variant="destructive"
                   size="sm"
                   onClick={handleDelete}
-                  disabled={
-                    deleting ||
-                    confirmEmail.trim().toLowerCase() !== (user.email ?? "").toLowerCase() ||
-                    confirmText !== "OBRIŠI"
-                  }
-                  className="flex-1 text-xs h-8"
+                  disabled={deleting || confirmText.trim().toUpperCase() !== "OBRIŠI"}
+                  className="flex-1 text-xs h-9"
                 >
                   {deleting ? (
                     <>
@@ -512,7 +491,7 @@ export default function MojiPodaci() {
                       Brišem…
                     </>
                   ) : (
-                    "Trajno obriši"
+                    "Trajno obriši račun"
                   )}
                 </Button>
               </div>
