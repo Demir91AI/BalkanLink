@@ -294,12 +294,6 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         {t('visa.renderer.backToRoutes')}
       </button>
 
-      {/* Breadcrumb */}
-      <div style={{ fontSize: 13, color: '#9CA3AF', marginBottom: 16 }}>
-        <img src={country.flag} alt="" style={{ height: 14, verticalAlign: 'middle', marginRight: 6, borderRadius: 2 }} />
-        {country.name} › <span style={{ color: CHARCOAL, fontWeight: 500 }}>{route.title}</span>
-      </div>
-
       {/* FREE: Title + legal basis + subtitle */}
       <h1 style={{ fontSize: 24, fontWeight: 700, color: CHARCOAL, marginBottom: 4 }}>{route.title}</h1>
       <p style={{ fontSize: 13, fontFamily: 'monospace', color: '#9CA3AF', marginBottom: 8 }}>{route.legalBasis}</p>
