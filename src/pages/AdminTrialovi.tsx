@@ -36,7 +36,7 @@ export default function AdminTrialovi() {
   // Form
   const [newCode, setNewCode] = useState("");
   const [newDescription, setNewDescription] = useState("");
-  const [newDays, setNewDays] = useState(7);
+  const [newDays, setNewDays] = useState(30);
   const [newMaxUses, setNewMaxUses] = useState<string>("");
 
   const fetchCodes = useCallback(async () => {
