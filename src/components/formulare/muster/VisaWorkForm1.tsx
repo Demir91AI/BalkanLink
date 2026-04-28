@@ -1,44 +1,13 @@
-import { Info } from "lucide-react";
-
-const gold = "#C9A84C";
-const labelCls = "block text-[11px] uppercase tracking-wide text-muted-foreground mb-1";
-const inputCls = "w-full rounded border border-border bg-background px-2.5 py-1.5 text-sm placeholder:italic placeholder:text-[#C9A84C]/70 focus:outline-none focus:ring-1 focus:ring-[#C9A84C]";
-const exampleCls = "text-[13px] italic mt-0.5";
-const sectionTitle = "font-bold text-[15px] border-b-2 pb-1 mb-4";
-const pageSep = "flex items-center gap-3 my-6";
-const tipCls = "flex items-start gap-2 rounded-lg p-3 text-xs leading-relaxed";
-
-function GoldTip({ children }: { children: React.ReactNode }) {
-  return (
-    <div className={tipCls} style={{ background: "#FFF8EC", border: "1px solid #E8D9B0", color: "#92400E" }}>
-      <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: gold }} />
-      <span>{children}</span>
-    </div>
-  );
-}
-
-function FormField({ label, example, placeholder, type = "text" }: { label: string; example: string; placeholder?: string; type?: string }) {
-  return (
-    <div>
-      <label className={labelCls}>{label}</label>
-      <input className={inputCls} type={type} placeholder={placeholder || example} defaultValue="" />
-      <p className={exampleCls} style={{ color: gold }}>z.B. {example}</p>
-    </div>
-  );
-}
-
-function CheckRow({ options, selected }: { options: string[]; selected: number }) {
-  return (
-    <div className="flex flex-wrap gap-4 text-sm">
-      {options.map((opt, i) => (
-        <label key={i} className="inline-flex items-center gap-1.5 cursor-pointer">
-          <input type="checkbox" defaultChecked={i === selected} className="h-3.5 w-3.5 accent-[#C9A84C]" />
-          {opt}
-        </label>
-      ))}
-    </div>
-  );
-}
+import {
+  FormField,
+  GoldTip,
+  CheckRow,
+  sectionTitle,
+  labelCls,
+  exampleCls,
+  pageSep,
+  gold,
+} from "./VisaFormPrimitives";
 
 export default function VisaWorkForm1() {
   return (
