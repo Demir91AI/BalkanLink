@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "anlage-sv-muster-data";
 const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld";
