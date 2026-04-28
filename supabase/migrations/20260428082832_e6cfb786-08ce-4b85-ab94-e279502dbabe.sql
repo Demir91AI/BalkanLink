@@ -1,0 +1,1 @@
+ALTER TABLE public.trial_codes ALTER COLUMN duration_days SET DEFAULT 30;

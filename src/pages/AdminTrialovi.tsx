@@ -36,7 +36,7 @@ export default function AdminTrialovi() {
   // Form
   const [newCode, setNewCode] = useState("");
   const [newDescription, setNewDescription] = useState("");
-  const [newDays, setNewDays] = useState(7);
+  const [newDays, setNewDays] = useState(30);
   const [newMaxUses, setNewMaxUses] = useState<string>("");
 
   const fetchCodes = useCallback(async () => {
@@ -81,7 +81,7 @@ export default function AdminTrialovi() {
       return;
     }
     toast({ title: "Kod kreiran", description: `${cleanCode} — ${newDays} dana Premium.` });
-    setNewCode(""); setNewDescription(""); setNewMaxUses(""); setNewDays(7);
+    setNewCode(""); setNewDescription(""); setNewMaxUses(""); setNewDays(30);
     fetchCodes();
   };
 
@@ -160,7 +160,7 @@ export default function AdminTrialovi() {
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="days">Trajanje (dana)</Label>
-                <Input id="days" type="number" min={1} max={365} value={newDays} onChange={(e) => setNewDays(parseInt(e.target.value, 10) || 7)} />
+                <Input id="days" type="number" min={1} max={365} value={newDays} onChange={(e) => setNewDays(parseInt(e.target.value, 10) || 30)} />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="maxUses">Limit korištenja (prazno = neograničeno)</Label>
