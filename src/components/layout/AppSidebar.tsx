@@ -208,13 +208,15 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           </button>
         </div>
 
-        {/* User info (only when logged in) */}
+        {/* User account dropdown (only when logged in) */}
         {user && (
           <div className="px-3 pt-4 pb-3">
             <button
-              onClick={() => handleNav("/profil")}
-              className="w-full px-3 py-2.5 rounded-xl text-left hover:bg-[#F5F0E8]/60 transition-colors group"
-              aria-label={t("sidebar.openProfile", "Otvori profil")}
+              onClick={() => setAccountOpen((v) => !v)}
+              className="w-full px-3 py-2.5 rounded-xl text-left hover:bg-[#F5F0E8]/60 transition-colors"
+              aria-expanded={accountOpen}
+              aria-controls="account-dropdown"
+              aria-label={t("sidebar.toggleAccount", "Otvori račun")}
             >
               <div className="flex items-center gap-3">
                 <div className="relative shrink-0">
@@ -239,35 +241,67 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                     )}
                   </p>
                 </div>
+                <ChevronDown
+                  className={`h-4 w-4 shrink-0 text-[#6B6B6B] transition-transform duration-200 ${accountOpen ? "rotate-180" : ""}`}
+                />
               </div>
             </button>
 
-            <div className="px-3 mt-2">
-              {!isPremium && (
-                <button
-                  onClick={() => handleNav("/paketi")}
-                  className="group flex items-center justify-between gap-2 w-full px-3 py-1.5 rounded-lg bg-[hsl(var(--gold))]/8 hover:bg-[hsl(var(--gold))]/14 border border-[hsl(var(--gold))]/20 transition-colors"
-                >
-                  <span className="text-[11px] font-semibold tracking-wide text-[#6B6B6B]">{t("sidebar.statusFree", "Free plan")}</span>
-                  <span className="flex items-center gap-1 text-[11px] font-bold text-[hsl(var(--gold))]">
-                    {t("sidebar.upgrade", "Nadogradi")}
-                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </button>
-              )}
-              <button
-                onClick={() => handleNav("/profil/placanja")}
-                className={`${!isPremium ? "mt-1.5" : ""} flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-colors duration-200 ${
-                  location.pathname === "/profil/placanja"
-                    ? "bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
-                    : "text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D]"
-                }`}
+            {accountOpen && (
+              <div
+                id="account-dropdown"
+                className="mt-1.5 mx-1 rounded-xl border border-[#E8E0D0] bg-white shadow-sm overflow-hidden animate-fade-in"
               >
-                <Receipt className={`h-[16px] w-[16px] shrink-0 ${location.pathname === "/profil/placanja" ? "text-[hsl(var(--gold))]" : ""}`} />
-                <span className="text-[13px] font-medium">{t("sidebar.paymentHistory")}</span>
-              </button>
-              <div className="mt-4 h-px bg-border/80" />
-            </div>
+                {/* Email row */}
+                <div className="flex items-center gap-2.5 px-3 py-2.5 bg-[#FAF7F1] border-b border-[#E8E0D0]">
+                  <Mail className="h-3.5 w-3.5 shrink-0 text-[#6B6B6B]/70" />
+                  <span className="text-[12px] text-[#2D2D2D] truncate" title={user.email}>
+                    {user.email}
+                  </span>
+                </div>
+
+                <div className="py-1">
+                  <button
+                    onClick={() => { setAccountOpen(false); handleNav("/profil"); }}
+                    className="flex items-center gap-3 w-full px-3 py-2 text-left text-[#2D2D2D] hover:bg-[#F5F0E8] transition-colors"
+                  >
+                    <User className="h-[16px] w-[16px] shrink-0 text-[#6B6B6B]" />
+                    <span className="text-[13px] font-medium">{t("sidebar.openProfile", "Otvori profil")}</span>
+                  </button>
+
+                  <button
+                    onClick={() => { setAccountOpen(false); handleNav("/profil/placanja"); }}
+                    className="flex items-center gap-3 w-full px-3 py-2 text-left text-[#2D2D2D] hover:bg-[#F5F0E8] transition-colors"
+                  >
+                    <Receipt className="h-[16px] w-[16px] shrink-0 text-[#6B6B6B]" />
+                    <span className="text-[13px] font-medium">{t("sidebar.paymentHistory")}</span>
+                  </button>
+
+                  {!isPremium && (
+                    <button
+                      onClick={() => { setAccountOpen(false); handleNav("/paketi"); }}
+                      className="flex items-center gap-3 w-full px-3 py-2 text-left transition-colors hover:bg-[hsl(var(--gold))]/10"
+                    >
+                      <Crown className="h-[16px] w-[16px] shrink-0 text-[hsl(var(--gold))]" />
+                      <span className="text-[13px] font-semibold text-[hsl(var(--gold))]">{t("sidebar.upgrade", "Nadogradi")}</span>
+                      <ArrowRight className="ml-auto h-3.5 w-3.5 text-[hsl(var(--gold))]" />
+                    </button>
+                  )}
+
+                  <div className="my-1 mx-3 h-px bg-[#E8E0D0]" />
+
+                  <button
+                    onClick={() => { setAccountOpen(false); handleSignOut(); }}
+                    className="flex items-center gap-3 w-full px-3 py-2 text-left text-[#B91C1C] hover:bg-[#FEF2F2] transition-colors"
+                  >
+                    <LogOut className="h-[16px] w-[16px] shrink-0" />
+                    <span className="text-[13px] font-medium">{t("sidebar.logout")}</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <div className="mx-3 mt-3 h-px bg-border/80" />
           </div>
         )}
 
