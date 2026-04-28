@@ -920,7 +920,6 @@ const DICT: Record<string, Entry> = {
   "zugezogen am": { bs: "doselio dana" },
 
   // ============= AUFENTHALTSTITEL =============
-  "Aufenthaltstitel": { bs: "Dozvola boravka", sr: "Dozvola boravka", hr: "Boravišna dozvola" },
   "Aufenthaltserlaubnis": { bs: "Dozvola boravka", sr: "Dozvola boravka", hr: "Boravišna dozvola" },
   "Aufenthaltserlaubnis AufenthG": { bs: "Dozvola boravka po AufenthG", sr: "Dozvola boravka po AufenthG", hr: "Boravišna dozvola po AufenthG" },
   "Aufenthaltserlaubnis — §18 AufenthG — gültig bis 31.12.2026": { bs: "Dozvola boravka — §18 AufenthG — važi do 31.12.2026", sr: "Dozvola boravka — §18 AufenthG — važi do 31.12.2026", hr: "Boravišna dozvola — §18 AufenthG — vrijedi do 31.12.2026" },
