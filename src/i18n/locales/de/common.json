@@ -52,7 +52,14 @@
       "nebenkostenScan": "Nebenkosten-Scan"
     },
     "premiumBadge": "PREMIUM",
-    "accountSectionLabel": "Konto"
+    "accountSectionLabel": "Konto",
+    "searchPlaceholder": "Funktionen suchen…",
+    "searchResultsLabel": "Suchergebnisse",
+    "noResults": "Keine Ergebnisse für",
+    "recentSectionLabel": "Zuletzt verwendet",
+    "statusPremium": "Premium aktiv",
+    "statusFree": "Free Plan",
+    "upgrade": "Upgrade"
   },
   "mobileNav": {
     "documents": "Dokumente",
