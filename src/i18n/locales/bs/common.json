@@ -52,7 +52,14 @@
       "nebenkostenScan": "Skener režija"
     },
     "premiumBadge": "PREMIUM",
-    "accountSectionLabel": "Račun"
+    "accountSectionLabel": "Račun",
+    "searchPlaceholder": "Pretraži funkcije…",
+    "searchResultsLabel": "Rezultati pretrage",
+    "noResults": "Nema rezultata za",
+    "recentSectionLabel": "Nedavno korišteno",
+    "statusPremium": "Premium aktivan",
+    "statusFree": "Free plan",
+    "upgrade": "Nadogradi"
   },
   "mobileNav": {
     "documents": "Dokumenti",
