@@ -1006,149 +1006,149 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     name: 'Albanija',
     flag: 'https://flagcdn.com/h24/al.png',
     isEU: false,
-    embassyName: 'Ambasada gjermane Tiranë',
+    embassyName: 'Njemačka ambasada Tirana',
     embassyUrl: 'https://tirana.diplo.de',
-    embassyNote: 'Terminet TAGESAKTUELL — kontrolloni çdo ditë faqen tirana.diplo.de.',
+    embassyNote: 'Termini TAGESAKTUELL — provjeravaj svaki dan stranicu tirana.diplo.de.',
     schengenFree: true,
-    schengenNote: 'Shtetasit shqiptarë me pasaportë biometrike mund të hyjnë pa vizë në zonën Shengen deri 90 ditë. Për punë nevojitet viza!',
+    schengenNote: 'Albanski državljani s biometrijskim pasošem mogu bez vize u Schengen do 90 dana. Za rad je obavezna viza!',
     routes: [
       {
         id: 'work',
-        title: 'Viza e punës §18 AufenthG',
+        title: 'Radna viza §18 AufenthG',
         legalBasis: '§ 18 AufenthG + § 26 Abs. 2 BeschV (Westbalkan)',
-        subtitle: 'Leja e qëndrimit për punësim. Shqipëria është pjesë e Westbalkan-Regelung.',
-        westbalkanNote: 'WESTBALKAN-REGELUNG: Si shtetas shqiptar mund të punosh në Gjermani pa kontroll prioriteti dhe PA provë kualifikimi. 50.000 viza në vit. Termina Tiranë: TAGESAKTUELL. Vorabzustimmung nga BA e shpejton procesin.',
+        subtitle: 'Boravišna dozvola za zaposlenje. Albanija je dio Westbalkan-Regelung.',
+        westbalkanNote: 'WESTBALKAN-REGELUNG: Kao albanski državljanin možeš raditi u Njemačkoj bez provjere prioriteta i BEZ dokaza o kvalifikaciji. 50.000 viza godišnje. Termini Tirana: TAGESAKTUELL. Vorabzustimmung od BA ubrzava postupak.',
         steps: [
-          'Gjej punë tek punëdhënësi gjerman — me ofertë pune të detyrueshme.',
-          'Vorabzustimmung — Punëdhënësi kërkon nga Bundesagentur für Arbeit.',
-          'Termin kaq ambasadën Tiranë — tirana.diplo.de, TAGESAKTUELL.',
-          'Dokumentacion — EzB (plotëson punëdhënësi), Vorabzustimmung, pasaportë, 2 foto biometrike dixhitale.',
-          'Apliko personalisht. Hyj me vizë D. Anmeldung. Ausländerbehörde §18.'
+          'Pronađi posao kod njemačkog poslodavca — s obavezujućom ponudom posla.',
+          'Vorabzustimmung — Poslodavac traži od Bundesagentur für Arbeit.',
+          'Termin u ambasadi Tirana — tirana.diplo.de, TAGESAKTUELL.',
+          'Dokumentacija — EzB (popunjava poslodavac), Vorabzustimmung, pasoš, 2 digitalne biometrijske fotografije.',
+          'Apliciraj lično. Ulazak s D-vizom. Anmeldung. Ausländerbehörde §18.'
         ],
-        documents: ['Pasaportë (min. 18 muj)', '2 foto biometrike dixhitale', 'EzB — nënshkruan PUNËDHËNËSI', 'Vorabzustimmung BA', 'Kontratë pune', 'Sigurimi shëndetësor'],
-        costs: ['Vizë D: 75 €', 'Aufenthaltserlaubnis: 100–110 €'],
-        errors: ['EzB jo e plotë ose pa nënshkrim', 'Foto jo dixhitale!'],
+        documents: ['Pasoš (min. 18 mj.)', '2 digitalne biometrijske fotografije', 'EzB — potpisuje POSLODAVAC', 'Vorabzustimmung BA', 'Ugovor o radu', 'Zdravstveno osiguranje'],
+        costs: ['D-Viza: 75 €', 'Aufenthaltserlaubnis: 100–110 €'],
+        errors: ['EzB nepotpuna ili bez potpisa', 'Nedigitalne fotografije!'],
         sources: [
-          { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
+          { label: 'Ambasada Tirana', url: 'https://tirana.diplo.de' },
           { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' }
         ],
         musterformulare: [
-          { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18', subtitle: 'Shembull për Shqipërinë', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: EzB', subtitle: 'Formulari i punëdhënësit', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
+          { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18', subtitle: 'Primjer za Albaniju', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Musterformular 2: EzB', subtitle: 'Formular poslodavca', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {
         id: 'family',
-        title: 'Ribashkim familjar §§27-36 AufenthG',
+        title: 'Spajanje porodice §§27-36 AufenthG',
         legalBasis: '§ 30 + § 32 AufenthG',
-        subtitle: 'Bashkëshortët dhe fëmijët mund të vijnë tek personi që jeton në Gjermani.',
+        subtitle: 'Supružnici i djeca mogu doći k osobi koja živi u Njemačkoj.',
         steps: [
-          'Provim A1 gjermanisht — Instituti Goethe Tiranë PARA ardhjes.',
-          'Apostilë në dokumente shqiptare — E DETYRUESHME.',
-          'Përkthim i besuar nga përkthyes i betuar.',
-          'Termin ambasada Tiranë. Apliko. Hyrja. Anmeldung. Ausländerbehörde §30/§32.'
+          'Ispit A1 njemački — Goethe-Institut Tirana PRIJE dolaska.',
+          'Apostille na albanskim dokumentima — OBAVEZAN.',
+          'Ovjereni prijevod od sudskog tumača.',
+          'Termin u ambasadi Tirana. Apliciraj. Ulazak. Anmeldung. Ausländerbehörde §30/§32.'
         ],
-        documents: ['Pasaportë', '2 foto biometrike dixhitale', 'Certifikatë martese me Apostilë + përkthim', 'Goethe A1 ose ÖSD A1', 'Listëpagesa (3 muj) e personit në Gjermani', 'Kontratë qiraje'],
-        costs: ['Vizë D: 75 €', 'Kurs + provim A1: 150–400 €'],
-        errors: ['Pa A1 viza refuzohet!', 'Apostilë e detyrueshme!'],
+        documents: ['Pasoš', '2 digitalne biometrijske fotografije', 'Vjenčani list s Apostille + prijevod', 'Goethe A1 ili ÖSD A1', 'Platne liste (3 mj.) osobe u Njemačkoj', 'Ugovor o najmu'],
+        costs: ['D-Viza: 75 €', 'Kurs + ispit A1: 150–400 €'],
+        errors: ['Bez A1 viza odbijena!', 'Apostille obavezan!'],
         sources: [
-          { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
-          { label: 'Goethe-Institut Shqipëri', url: 'https://www.goethe.de/de/index.html' }
+          { label: 'Ambasada Tirana', url: 'https://tirana.diplo.de' },
+          { label: 'Goethe-Institut Albanija', url: 'https://www.goethe.de/de/index.html' }
         ],
         musterformulare: [
-          { title: 'Musterformular: Antrag Aufenthaltserlaubnis (Ribashkim)', subtitle: '§§27-36 shembull Shqipëria', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de' }
+          { title: 'Musterformular: Antrag Aufenthaltserlaubnis (Spajanje)', subtitle: '§§27-36 primjer Albanija', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de' }
         ]
       },
       {
         id: 'permanent',
-        title: 'Qëndrimi i përhershëm §9 + §9a AufenthG',
+        title: 'Stalni boravak §9 + §9a AufenthG',
         legalBasis: '§ 9 + § 9a AufenthG',
-        subtitle: 'E drejta e qëndrimit të pakufizuar. Apliko për TË DY njëkohësisht!',
-        steps: ['5 vjet qëndrim ligjor', 'Gjermanisht B1', '60 muj pensioni (drv.de)', 'Termin Ausländerbehörde', 'TË DY kërkesat bashkë'],
-        documents: ['Pasaportë', 'AUFENTHG-009 + AUFENTHG-014', 'Rentenversicherungsverlauf', 'Certifikatë B1'],
-        costs: ['113 € (të dy bashkë)'],
-        errors: ['< 60 muj pensioni!', 'Pa B1!'],
+        subtitle: 'Pravo neograničenog boravka. Apliciraj za OBA istovremeno!',
+        steps: ['5 godina zakonitog boravka', 'Njemački B1', '60 mj. penzijskog (drv.de)', 'Termin Ausländerbehörde', 'OBA zahtjeva zajedno'],
+        documents: ['Pasoš', 'AUFENTHG-009 + AUFENTHG-014', 'Rentenversicherungsverlauf', 'B1 certifikat'],
+        costs: ['113 € (oba zajedno)'],
+        errors: ['< 60 mj. penzijskog!', 'Nema B1!'],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
         musterformulare: [
-          { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 Shqipëria', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 Shqipëria', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
+          { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 Albanija', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 Albanija', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
         ]
       }
 ,
       {
         id: 'ausbildung',
-        title: 'Viza Ausbildung §16a AufenthG',
+        title: 'Ausbildung viza §16a AufenthG',
         legalBasis: '§ 16a AufenthG',
-        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Leja e qëndrimit për aftësim profesional (Ausbildung) në Gjermani.',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj.',
         ausbildungHighlight: [
-          '✅ Mund të aplikosh drejtpërdrejt nga Shqipëria',
-          '✅ Nuk nevojitet njohja e diplomës së shkollës për aplikim',
-          '✅ Firma duhet të regjistrojë Ausbildungsvertrag tek Kammer (IHK/HWK)',
-          '✅ Bundesagentur für Arbeit jep pëlqimin (automatikisht)',
-          '✅ Pas përfundimit: mundësi qëndrimi 18 muaj për kërkim pune (§20 AufenthG)',
-          '⚠️ E rëndësishme: Ausbildung ≠ Studim — mos e ngatërro me §16b AufenthG (Studium)'
+          '✅ Možeš aplicirati direktno iz Albanije',
+          '✅ Nije potrebno priznavanje diplome škole za apliciranje',
+          '✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit daje saglasnost (automatski)',
+          '✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)',
+          '⚠️ Važno: Ausbildung ≠ Studij — ne miješaj sa §16b AufenthG (Studium)'
         ],
         countryNotes: [
-          '💰 Tarifa: 75€',
+          '💰 Taksa: 75€',
           '📅 Termin: tirana.diplo.de',
-          '📄 Dokumente: Apostilë + përkthim i betuar — Shqipëria është nënshkruese e Konventës së Hagës',
-          '🗣️ Certifikatë gjuhësore: ALTE e certifikuar, max. 1 vit'
+          '📄 Dokumenti: Apostille + ovjereni prijevod — Albanija je potpisnica Haške konvencije',
+          '🗣️ Jezički certifikat: ALTE certificiran, max. 1 godina'
         ],
-        countryBadge: '75€ — Apostilë Hagjë',
+        countryBadge: '75€ — Apostille Haag',
         steps: [
-          'Gjej vend Ausbildung — Ausbildungsvertrag i nënshkruar PARA aplikimit. Përdor: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
-          'Kontrollo kushtet gjuhësore — Min. B1 gjermanisht. Rekomandohet B2. Certifikata: Goethe, telc, ÖSD, TestDaF (max. 1 vit)',
-          'Përgatit dokumentacionin — Apostilë + përkthim i betuar.',
-          'Cakto termin në ambasadën Tiranë — tirana.diplo.de. Afate: 4–12 javë.',
-          'Dorëzo kërkesën për vizë D — Personalisht. Tarifa: 75 €.',
-          'Pritja dhe vendimi — 4–12 javë. Viza D vlen 3–6 muaj.',
-          'Ardhja në Gjermani — Anmeldung brenda 14 ditëve.',
-          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 vit, rinovohet. Tarifa: 100–110 €.'
+          'Pronađi Ausbildung mjesto — Potpisan Ausbildungsvertrag PRIJE apliciranja. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Provjeri jezičke uslove — Min. B1 njemački. Preporučeno B2. Certifikati: Goethe, telc, ÖSD, TestDaF (max. 1 god.)',
+          'Pripremi dokumentaciju — Apostille + ovjereni prijevod.',
+          'Zakaži termin u ambasadi Tirana — tirana.diplo.de. Rokovi: 4–12 sedmica.',
+          'Podnesi zahtjev za D-vizu — Lično. Taksa: 75 €.',
+          'Čekanje i odluka — 4–12 sedmica. D-viza važi 3–6 mjeseci.',
+          'Dolazak u Njemačku — Anmeldung u roku 14 dana.',
+          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 godina, obnavlja se. Taksa: 100–110 €.'
         ],
         documents: [
-          'Pasaportë e vlefshme (min. 12–18 muaj)',
-          'Ausbildungsvertrag i nënshkruar (origjinal + kopje)',
-          'Vërtetim IHK/HWK regjistrimi',
-          'Lebenslauf / CV (në gjermanisht)',
-          'Diplomë / dëftesë (Apostilë + përkthim i betuar)',
-          'Dëshmi gjuhe gjermane (min. B1 — ALTE, max. 1 vit)',
-          'Dëshmi strehimi në Gjermani',
-          'Sigurim shëndetësor',
-          'Dëshmi financiare: pagë ILI Sperrkonto ILI Verpflichtungserklärung',
-          'Formularë vize (plotësuar, nënshkruar)',
-          'Foto biometrike (45x35mm)',
-          'Tarifa: 75 €'
+          'Važeći pasoš (min. 12–18 mjeseci)',
+          'Potpisan Ausbildungsvertrag (original + kopija)',
+          'Potvrda IHK/HWK registracije',
+          'Lebenslauf / CV (na njemačkom)',
+          'Diploma / svjedočanstvo (Apostille + ovjereni prijevod)',
+          'Dokaz o znanju njemačkog (min. B1 — ALTE, max. 1 god.)',
+          'Dokaz o smještaju u Njemačkoj',
+          'Zdravstveno osiguranje',
+          'Finansijski dokaz: plata ILI Sperrkonto ILI Verpflichtungserklärung',
+          'Viza formulari (popunjeni, potpisani)',
+          'Biometrijska fotografija (45x35mm)',
+          'Taksa: 75 €'
         ],
         costs: [
-          'Vizë D: 75 €',
+          'D-Viza: 75 €',
           'Aufenthaltstitel: 100–110 €',
-          'Përpunimi ambasadë: 4–12 javë',
-          'Përpunimi Ausländerbehörde: 4–8 javë',
-          'Sperrkonto (nëse duhet): min. 1.091 €/muaj (2026)',
-          'Viza D vlefshmëria: 3–6 muaj',
-          'Aufenthaltserlaubnis: 1 vit (rinovohet)',
-          'Jobsuche: 18 muaj (§20 AufenthG)'
+          'Obrada ambasada: 4–12 sedmica',
+          'Obrada Ausländerbehörde: 4–8 sedmica',
+          'Sperrkonto (ako treba): min. 1.091 €/mj. (2026)',
+          'Važnost D-vize: 3–6 mjeseci',
+          'Aufenthaltserlaubnis: 1 god. (obnavlja se)',
+          'Jobsuche: 18 mjeseci (§20 AufenthG)'
         ],
         errors: [
-          'Pa Ausbildungsvertrag → refuzim automatik',
-          'Gjuhë nën B1 → refuzim',
-          'Dokumente jo të plota ose pa përkthim',
-          'Tip i gabuar vize (§16b në vend të §16a)',
-          'Aplikim i vonuar',
-          'Pa dëshmi strehimi',
-          'Anmeldung e vonuar (afati 14 ditë)',
-          'Fillim Ausbildung pa Aufenthaltstitel'
+          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          'Jezik ispod B1 → odbijanje',
+          'Nepotpuni ili neprevedeni dokumenti',
+          'Pogrešan tip vize (§16b umjesto §16a)',
+          'Kasno apliciranje',
+          'Nema dokaza o smještaju',
+          'Kasno Anmeldung (rok 14 dana)',
+          'Početak Ausbildunga bez Aufenthaltstitel'
         ],
         sources: [
-          { label: 'Ambasada Tiranë', url: 'https://tirana.diplo.de' },
+          { label: 'Ambasada Tirana', url: 'https://tirana.diplo.de' },
           { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Formular vize (Ausbildung)', subtitle: 'Formular universal — plotësohet online', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/parapamje — dorëzohet në Gjermani', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template', subtitle: 'Shabllon CV për Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Viza formular (Ausbildung)', subtitle: 'Univerzalni formular — popunjava se online', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak CV-a za Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
