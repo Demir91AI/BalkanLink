@@ -57,6 +57,7 @@ const DokumentenCheck = lazy(() => import("./pages/DokumentenCheck"));
 const NebenkostenScan = lazy(() => import("./pages/NebenkostenScan"));
 const AdminForms = lazy(() => import("./pages/AdminForms"));
 const AdminFormMapper = lazy(() => import("./pages/AdminFormMapper"));
+const AdminTrialovi = lazy(() => import("./pages/AdminTrialovi"));
 const BruttoNettoRechner = lazy(() => import("./pages/BruttoNettoRechner"));
 const NudimTrazim = lazy(() => import("./pages/NudimTrazim"));
 const NachDeutschland = lazy(() => import("./pages/NachDeutschland"));
@@ -259,6 +260,7 @@ function LocalizedRoutes() {
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
+          <Route path="admin/trialovi" element={<AdminTrialovi />} />
         </Route>
         <Route path="qa" element={<QA />} />
         <Route path="qa/:id" element={<QADetail />} />

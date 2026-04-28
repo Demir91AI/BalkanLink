@@ -984,6 +984,83 @@ export type Database = {
         }
         Relationships: []
       }
+      trial_codes: {
+        Row: {
+          code: string
+          created_at: string
+          created_by: string | null
+          description: string | null
+          duration_days: number
+          expires_at: string | null
+          id: string
+          is_active: boolean
+          max_uses: number | null
+          used_count: number
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          duration_days?: number
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          max_uses?: number | null
+          used_count?: number
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          duration_days?: number
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          max_uses?: number | null
+          used_count?: number
+        }
+        Relationships: []
+      }
+      trial_redemptions: {
+        Row: {
+          code: string
+          deactivated_at: string | null
+          expires_at: string
+          id: string
+          redeemed_at: string
+          trial_code_id: string
+          user_id: string
+        }
+        Insert: {
+          code: string
+          deactivated_at?: string | null
+          expires_at: string
+          id?: string
+          redeemed_at?: string
+          trial_code_id: string
+          user_id: string
+        }
+        Update: {
+          code?: string
+          deactivated_at?: string | null
+          expires_at?: string
+          id?: string
+          redeemed_at?: string
+          trial_code_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "trial_redemptions_trial_code_id_fkey"
+            columns: ["trial_code_id"]
+            isOneToOne: false
+            referencedRelation: "trial_codes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_form_access: {
         Row: {
           form_slug: string
@@ -1166,6 +1243,7 @@ export type Database = {
         Returns: boolean
       }
       consume_doc_check_credit: { Args: { uid: string }; Returns: boolean }
+      deactivate_expired_trials: { Args: never; Returns: number }
       delete_email: {
         Args: { message_id: number; queue_name: string }
         Returns: boolean
@@ -1219,6 +1297,10 @@ export type Database = {
           msg_id: number
           read_ct: number
         }[]
+      }
+      redeem_trial_code: {
+        Args: { _code: string; _user_id: string }
+        Returns: Json
       }
       search_community_listings: {
         Args: { search_terms: string[] }

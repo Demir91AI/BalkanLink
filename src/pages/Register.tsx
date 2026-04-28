@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useMemo, useEffect } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import BrandLogo from "@/components/BrandLogo";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,8 +9,10 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Check, X } from "lucide-react";
+import { Check, X, Crown } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
+
+const TRIAL_STORAGE_KEY = "pending_trial_code";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
@@ -19,9 +21,26 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [trialCode, setTrialCode] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { toast } = useToast();
   const { t } = useTranslation("common");
+
+  // Pick up trial code from URL or sessionStorage
+  useEffect(() => {
+    const fromUrl = searchParams.get("trial");
+    if (fromUrl && /^[A-Z0-9_-]{1,64}$/i.test(fromUrl)) {
+      const normalized = fromUrl.trim().toUpperCase();
+      setTrialCode(normalized);
+      try { sessionStorage.setItem(TRIAL_STORAGE_KEY, normalized); } catch {}
+      return;
+    }
+    try {
+      const stored = sessionStorage.getItem(TRIAL_STORAGE_KEY);
+      if (stored && /^[A-Z0-9_-]{1,64}$/.test(stored)) setTrialCode(stored);
+    } catch {}
+  }, [searchParams]);
 
   const PW_RULES = useMemo(() => [
     { label: t("auth.register.rule1"), test: (pw: string) => pw.length >= 8 },
@@ -60,6 +79,24 @@ export default function Register() {
           email,
           first_name: firstName.trim(),
         } as any, { onConflict: "id" });
+
+      // Trial redemption — only if user is already signed in (auto-confirm OFF means session is null)
+      if (trialCode && signUpData.session) {
+        try {
+          const { data: redeemData, error: redeemErr } = await supabase.functions.invoke("redeem-trial", {
+            body: { code: trialCode },
+          });
+          if (!redeemErr && (redeemData as any)?.success) {
+            try { sessionStorage.removeItem(TRIAL_STORAGE_KEY); } catch {}
+            toast({
+              title: t("auth.register.trialActivatedTitle"),
+              description: t("auth.register.trialActivatedDesc", { days: (redeemData as any)?.days ?? 7 }),
+            });
+          }
+        } catch (err) {
+          console.error("[trial] redeem failed", err);
+        }
+      }
     }
 
     setLoading(false);
@@ -82,6 +119,25 @@ export default function Register() {
           <CardTitle className="text-2xl">{t("auth.register.title")}</CardTitle>
           <CardDescription>{t("auth.register.subtitleCard")}</CardDescription>
         </CardHeader>
+
+        {trialCode && (
+          <div className="mx-6 mb-2 rounded-xl border border-[hsl(var(--gold))]/40 bg-gradient-to-br from-[hsl(var(--gold))]/15 to-[hsl(var(--gold))]/5 p-4">
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))]/20">
+                <Crown className="h-4 w-4 text-[hsl(var(--gold))]" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-bold text-foreground">
+                  {t("auth.register.trialBannerTitle")}
+                </p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {t("auth.register.trialBannerDesc", { code: trialCode })}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <form onSubmit={handleRegister}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
