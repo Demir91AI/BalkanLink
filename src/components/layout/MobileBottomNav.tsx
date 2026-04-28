@@ -10,7 +10,6 @@ export default function MobileBottomNav() {
   const location = useLocation();
   const { user } = useAuth();
   const { t } = useTranslation("common");
-  const [authOpen, setAuthOpen] = useState(false);
   const [pressing, setPressing] = useState(false);
 
   const sideItems = [
