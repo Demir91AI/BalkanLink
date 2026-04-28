@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Lock, Crown, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
-import AuthModal from "@/components/auth/AuthModal";
 import { useNavigate } from "react-router-dom";
 type Trigger = "formular" | "guide" | "ai" | "kurs" | "viza";
 
@@ -41,14 +39,14 @@ interface PremiumModalProps {
 export default function PremiumModal({ isOpen, onClose, trigger, formularId }: PremiumModalProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [authOpen, setAuthOpen] = useState(false);
   const content = TRIGGER_TEXT[trigger];
 
   if (!isOpen) return null;
 
   const handlePremium = () => {
     if (!user) {
-      setAuthOpen(true);
+      onClose();
+      navigate("/login");
       return;
     }
     initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
@@ -102,7 +100,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
             {/* Login CTA */}
             {!user && (
               <button
-                onClick={() => setAuthOpen(true)}
+                onClick={() => { onClose(); navigate("/login"); }}
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 Već imam Premium — Prijavi se
@@ -111,7 +109,6 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
           </div>
         </div>
       </div>
-      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </>
   );
 }

@@ -13,7 +13,7 @@ import { langFromPath } from "@/lib/i18n-paths";
 import type { SupportedLanguage } from "@/i18n";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import AuthModal from "@/components/auth/AuthModal";
+
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 function getInitials(name: string) {
@@ -23,7 +23,7 @@ function getInitials(name: string) {
 
 export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [authOpen, setAuthOpen] = useState(false);
+  
   const debounceRef = useRef(0);
   const navigate = useLocalizedNavigate();
   const location = useLocation();
@@ -93,7 +93,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
   const handleAuthClick = () => {
     close();
-    setAuthOpen(true);
+    navigate("/login");
   };
 
   const handleSignOut = async () => {
@@ -299,8 +299,6 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         </div>
 
       </aside>
-
-      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </>
   );
 }

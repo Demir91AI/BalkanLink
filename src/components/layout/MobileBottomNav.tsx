@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { FileText, Globe, Sparkles, User, Tag } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import AuthModal from "@/components/auth/AuthModal";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
@@ -11,7 +10,6 @@ export default function MobileBottomNav() {
   const location = useLocation();
   const { user } = useAuth();
   const { t } = useTranslation("common");
-  const [authOpen, setAuthOpen] = useState(false);
   const [pressing, setPressing] = useState(false);
 
   const sideItems = [
@@ -33,7 +31,7 @@ export default function MobileBottomNav() {
   const handleClick = (path: string) => {
     if (path === "__auth__") {
       if (user) navigate("/profil");
-      else setAuthOpen(true);
+      else navigate("/login");
     } else {
       navigate(path);
     }
@@ -178,8 +176,6 @@ export default function MobileBottomNav() {
           100% { box-shadow: 0 0 20px rgba(201,168,76,0.6), 0 0 40px rgba(201,168,76,0.3); }
         }
       `}</style>
-
-      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </>
   );
 }
