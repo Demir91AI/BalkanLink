@@ -439,27 +439,43 @@ const EXAMPLES: Record<string, string> = {
 const lower: Record<string, Entry> = {};
 for (const [k, v] of Object.entries(DICT)) lower[k.toLowerCase()] = v;
 
+const exLower: Record<string, string> = {};
+for (const [k, v] of Object.entries(EXAMPLES)) exLower[k.toLowerCase()] = v;
+
 /**
- * Translate a German form label to "German (Translation)".
- * - For lang === 'de' or unknown labels: returns the German text unchanged.
- * - For bs/hr/sr: returns "Familienname (Prezime)" when found.
- *
- * Treats the label as opaque; never throws.
+ * Returns the translation only (without the German term).
+ * Renderer uses this to stack the translation as a second line under the German label.
  */
-export function tLabel(deLabel: string, lang: Lang): string {
-  if (!deLabel) return deLabel;
-  if (lang === "de") return deLabel;
+export function tTranslation(deLabel: string, lang: Lang): string | null {
+  if (!deLabel || lang === "de") return null;
   const entry = DICT[deLabel] ?? lower[deLabel.toLowerCase()];
-  if (!entry) return deLabel;
+  if (!entry) return null;
   const translated =
     lang === "hr" ? entry.hr ?? entry.bs :
     lang === "sr" ? entry.sr ?? entry.bs :
     entry.bs;
-  if (!translated || translated === deLabel) return deLabel;
-  return `${deLabel} (${translated})`;
+  if (!translated || translated === deLabel) return null;
+  return translated;
+}
+
+/**
+ * Translate a German form label to "German (Translation)".
+ * Kept for backward compatibility with section headers and option text.
+ */
+export function tLabel(deLabel: string, lang: Lang): string {
+  if (!deLabel) return deLabel;
+  if (lang === "de") return deLabel;
+  const t = tTranslation(deLabel, lang);
+  return t ? `${deLabel} (${t})` : deLabel;
 }
 
 /** Same as tLabel but for short option strings inside checkbox/radio groups. */
 export function tOption(deOption: string, lang: Lang): string {
   return tLabel(deOption, lang);
+}
+
+/** Lookup a default visa-style example for a given German label. */
+export function getExample(deLabel: string): string | null {
+  if (!deLabel) return null;
+  return EXAMPLES[deLabel] ?? exLower[deLabel.toLowerCase()] ?? null;
 }
