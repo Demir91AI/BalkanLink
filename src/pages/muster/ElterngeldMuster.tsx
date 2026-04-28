@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "elterngeld-muster-data";
 const PDF_URL = "https://familienportal.de/familienportal/rechner-antraege/antragsformulare";

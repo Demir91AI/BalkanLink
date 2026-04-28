@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "kg1-muster-data";
 const PDF_URL = "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf";
@@ -96,7 +96,7 @@ export default function KindergeldMuster() {
             {fsList.map(fs => (
               <label key={fs.value} style={S.chk}>
                 <input type="checkbox" checked={f.familienstand === fs.value} onChange={() => set("familienstand", f.familienstand === fs.value ? "" : fs.value)} />
-                {fs.label}
+                <TOpt value={fs.label} />
               </label>
             ))}
           </div>

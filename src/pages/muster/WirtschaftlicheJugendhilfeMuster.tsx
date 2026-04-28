@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "wijuhi-muster-data";
 const PDF_URL = "https://www.gesetze-im-internet.de/sgb_8/";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "grundsicherung-muster-data";
 const PDF_URL = "https://www.deutscher-verein.de/de/uploads/hauptnavigation/downloads/sososo/vordruck-antrag-grundsicherung-im-alter-und-bei-erwerbsminderung-sgbxii.pdf";

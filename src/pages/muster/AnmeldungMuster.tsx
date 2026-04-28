@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "anmeldung-muster-v2-data";
 const PDF_URL = "https://service.berlin.de/dienstleistung/120686/";
@@ -35,7 +35,7 @@ export default function AnmeldungMusterV2() {
         <div><div style={S.lbl}>Bei wem eingezogen?</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {["Eigentümer/in", "Hauptmieter/in", "Untermieter/in"].map(o => (
-              <label key={o} style={S.chk}><input type="radio" name="beiWem" checked={f.beiWem === o} onChange={() => set("beiWem", o)} />{o}</label>
+              <label key={o} style={S.chk}><input type="radio" name="beiWem" checked={f.beiWem === o} onChange={() => set("beiWem", o)} /><TOpt value={o} /></label>
             ))}
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function AnmeldungMusterV2() {
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Geschlecht</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {["männlich", "weiblich", "divers", "ohne Angabe"].map(g => (
-              <label key={g} style={S.chk}><input type="radio" name="geschlecht" checked={f.geschlecht === g} onChange={() => set("geschlecht", g)} />{g}</label>
+              <label key={g} style={S.chk}><input type="radio" name="geschlecht" checked={f.geschlecht === g} onChange={() => set("geschlecht", g)} /><TOpt value={g} /></label>
             ))}
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function AnmeldungMusterV2() {
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Familienstand</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {["ledig", "verheiratet", "verwitwet", "geschieden", "eingetragene Lebenspartnerschaft", "durch Tod aufgelöst"].map(fs => (
-              <label key={fs} style={S.chk}><input type="radio" name="familienstand" checked={f.familienstand === fs} onChange={() => set("familienstand", fs)} />{fs}</label>
+              <label key={fs} style={S.chk}><input type="radio" name="familienstand" checked={f.familienstand === fs} onChange={() => set("familienstand", fs)} /><TOpt value={fs} /></label>
             ))}
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function AnmeldungMusterV2() {
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Ausweisdokument</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 6 }}>
             {["Personalausweis", "Reisepass", "Aufenthaltstitel"].map(a => (
-              <label key={a} style={S.chk}><input type="radio" name="ausweis" checked={f.ausweis === a} onChange={() => set("ausweis", a)} />{a}</label>
+              <label key={a} style={S.chk}><input type="radio" name="ausweis" checked={f.ausweis === a} onChange={() => set("ausweis", a)} /><TOpt value={a} /></label>
             ))}
           </div>
         </div>
@@ -75,8 +75,8 @@ export default function AnmeldungMusterV2() {
       <div style={S.sec}>
         <SecHeader num={3} title="Bisherige Wohnung (Ummeldung)" />
         <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 8 }}>
-          <label style={S.chk}><input type="radio" name="erstanmeldung" checked={f.erstanmeldung === "Ja"} onChange={() => set("erstanmeldung", "Ja")} />Erstanmeldung in Deutschland (kein Vorwohnsitz)</label>
-          <label style={S.chk}><input type="radio" name="erstanmeldung" checked={f.erstanmeldung === "Nein"} onChange={() => set("erstanmeldung", "Nein")} />Ummeldung — bisherige Anschrift:</label>
+          <label style={S.chk}><input type="radio" name="erstanmeldung" checked={f.erstanmeldung === "Ja"} onChange={() => set("erstanmeldung", "Ja")} /><TOpt value="Erstanmeldung in Deutschland (kein Vorwohnsitz)" /></label>
+          <label style={S.chk}><input type="radio" name="erstanmeldung" checked={f.erstanmeldung === "Nein"} onChange={() => set("erstanmeldung", "Nein")} /><TOpt value="Ummeldung — bisherige Anschrift:" /></label>
         </div>
         {f.erstanmeldung === "Nein" && (
           <div style={S.row}><Field label="Straße, Hausnr." flex={2} value={f.altStrasse} onChange={v => set("altStrasse", v)} /><Field label="PLZ" width={80} value={f.altPlz} onChange={v => set("altPlz", v)} /><Field label="Ort" flex={1} value={f.altOrt} onChange={v => set("altOrt", v)} /><Field label="Land" value={f.altLand} onChange={v => set("altLand", v)} /></div>
@@ -88,14 +88,14 @@ export default function AnmeldungMusterV2() {
         <div style={{ fontSize: 10, fontStyle: "italic", margin: "0 0 8px", color: "#6b7280" }}>Person 2</div>
         <div style={S.row}><Field label="Familienname" value={f.p2Familienname} onChange={v => set("p2Familienname", v)} /><Field label="Vorname" value={f.p2Vorname} onChange={v => set("p2Vorname", v)} /><Field label="Geburtsdatum" type="date" value={f.p2Geburtsdatum} onChange={v => set("p2Geburtsdatum", v)} /></div>
         <div style={S.row}>
-          <div style={{ flex: 1 }}><div style={S.lbl}>Geschlecht</div><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{["männlich", "weiblich", "divers"].map(g => (<label key={g} style={S.chk}><input type="radio" name="p2Geschlecht" checked={f.p2Geschlecht === g} onChange={() => set("p2Geschlecht", g)} />{g}</label>))}</div></div>
+          <div style={{ flex: 1 }}><div style={S.lbl}>Geschlecht</div><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{["männlich", "weiblich", "divers"].map(g => (<label key={g} style={S.chk}><input type="radio" name="p2Geschlecht" checked={f.p2Geschlecht === g} onChange={() => set("p2Geschlecht", g)} /><TOpt value={g} /></label>))}</div></div>
           <Field label="Staatsangehörigkeit" value={f.p2Staatsangehoerigkeit} onChange={v => set("p2Staatsangehoerigkeit", v)} />
           <Field label="Familienstand" value={f.p2Familienstand} onChange={v => set("p2Familienstand", v)} />
         </div>
         <div style={{ fontSize: 10, fontStyle: "italic", margin: "12px 0 8px", color: "#6b7280" }}>Person 3</div>
         <div style={S.row}><Field label="Familienname" value={f.p3Familienname} onChange={v => set("p3Familienname", v)} /><Field label="Vorname" value={f.p3Vorname} onChange={v => set("p3Vorname", v)} /><Field label="Geburtsdatum" type="date" value={f.p3Geburtsdatum} onChange={v => set("p3Geburtsdatum", v)} /></div>
         <div style={S.row}>
-          <div style={{ flex: 1 }}><div style={S.lbl}>Geschlecht</div><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{["männlich", "weiblich", "divers"].map(g => (<label key={g} style={S.chk}><input type="radio" name="p3Geschlecht" checked={f.p3Geschlecht === g} onChange={() => set("p3Geschlecht", g)} />{g}</label>))}</div></div>
+          <div style={{ flex: 1 }}><div style={S.lbl}>Geschlecht</div><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{["männlich", "weiblich", "divers"].map(g => (<label key={g} style={S.chk}><input type="radio" name="p3Geschlecht" checked={f.p3Geschlecht === g} onChange={() => set("p3Geschlecht", g)} /><TOpt value={g} /></label>))}</div></div>
           <Field label="Staatsangehörigkeit" value={f.p3Staatsangehoerigkeit} onChange={v => set("p3Staatsangehoerigkeit", v)} />
           <Field label="Familienstand" value={f.p3Familienstand} onChange={v => set("p3Familienstand", v)} />
         </div>
