@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { useTranslation } from "react-i18next";
 import {
-  FileText, Shield, BookOpen, Camera, Megaphone, Plane,
-  Briefcase, Building, Calculator, FileCheck, X, LogIn, LogOut, User,
-  CreditCard, Scale, Store, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
-  Landmark,
+  FileText, Shield, BookOpen, ScanLine, Megaphone, Plane,
+  Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
+  Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
+  Coins,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
@@ -39,26 +39,28 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   // and rely on the active-path matcher below to also recognize /steuern.
   const poreziSidebarUrl = lang === "de" ? "/de/steuern" : "/porezi";
 
+  // Glavne funkcije — poredane po prioritetu/vrijednosti za korisnika
   const mainItems = [
     { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true, isNew: false },
     { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true, isNew: false },
-    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
-    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
-    { title: t("sidebar.items.nebenkostenScan"), url: "/nebenkosten-scan", icon: Receipt, premium: true, isNew: false },
-    { title: t("sidebar.items.bonitetSimulator"), url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
     { title: t("sidebar.items.anerkennungNavigator"), url: "/anerkennung-navigator", icon: GraduationCap, premium: true, isNew: false, isFree: false },
-    { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Landmark, premium: true, matchPaths: ["/porezi", "/steuern"] },
-    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: false },
-    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: false },
+    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: ScanLine, premium: true, isNew: false },
+    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
+    { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Coins, premium: true, matchPaths: ["/porezi", "/steuern"] },
+    { title: t("sidebar.items.bonitetSimulator"), url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
+    { title: t("sidebar.items.nebenkostenScan"), url: "/nebenkosten-scan", icon: Receipt, premium: true, isNew: false },
+    // Free funkcije na dnu
+    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: Files, premium: false, isNew: false, isFree: true },
+    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: true },
   ];
 
   const secondaryItems = [
     { title: t("sidebar.items.zivot"), url: "/zivot-u-njemackoj", icon: Plane },
     { title: t("sidebar.items.radnoPravo"), url: "/radno-pravo", icon: Scale },
     { title: t("sidebar.items.mietrecht"), url: "/mietrecht", icon: Home },
-    { title: t("sidebar.items.biznis"), url: "/biznis", icon: Store },
-    { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: Briefcase },
-    { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building },
+    { title: t("sidebar.items.biznis"), url: "/biznis", icon: Briefcase },
+    { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: BriefcaseBusiness },
+    { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building2 },
     { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
   ];
 
@@ -265,19 +267,19 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         </div>
 
         {/* Account & Paketi (dno) */}
-        <div className="px-3 pt-3 pb-4 mt-auto border-t border-[#E8E0D0]">
+        <div className="px-3 pt-3 pb-4 mt-auto border-t-2 border-[hsl(var(--gold))]/25">
           <p className="px-3 pb-2 pt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.accountSectionLabel", "Račun")}</p>
           <nav className="flex flex-col gap-0.5">
             <button
               onClick={() => handleNav("/paketi")}
-              className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-all duration-200 ${
+              className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left transition-all duration-200 ${
                 location.pathname === "/paketi"
-                  ? "bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
-                  : "text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D]"
+                  ? "bg-[hsl(var(--gold))]/15 text-[hsl(var(--gold))]"
+                  : "bg-[hsl(var(--gold))]/5 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/15"
               }`}
             >
-              <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
-              <span className="text-[14px] font-medium">{t("sidebar.packagesPricing")}</span>
+              <Sparkles className="h-[18px] w-[18px] shrink-0 text-[hsl(var(--gold))]" />
+              <span className="text-[14px] font-semibold">{t("sidebar.packagesPricing")}</span>
             </button>
             {user ? (
               <button
@@ -290,10 +292,10 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
             ) : (
               <button
                 onClick={handleAuthClick}
-                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+                className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5 hover:bg-[hsl(var(--primary))]/10 transition-all duration-200"
               >
-                <LogIn className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">{t("sidebar.loginRegister")}</span>
+                <LogIn className="h-[18px] w-[18px] shrink-0 text-[hsl(var(--primary))]" />
+                <span className="text-[14px] font-semibold">{t("sidebar.loginRegister")}</span>
               </button>
             )}
           </nav>
