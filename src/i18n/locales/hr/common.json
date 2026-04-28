@@ -174,7 +174,11 @@
       "successCheckEmail": "Provjeri e-mail za potvrdu registracije.",
       "successRegistered": "Uspješno registrirani!",
       "errorTitleShort": "Pogreška pri registraciji.",
-      "passwordTooShortShort": "Lozinka je prekratka."
+      "passwordTooShortShort": "Lozinka je prekratka.",
+      "trialBannerTitle": "🎁 7 dana Premium besplatno",
+      "trialBannerDesc": "Tvoj kod {{code}} je prepoznat. Premium pristup aktivira se odmah nakon registracije.",
+      "trialActivatedTitle": "Premium aktiviran!",
+      "trialActivatedDesc": "Imaš {{days}} dana puni pristup. Uživaj!"
     },
     "forgotPassword": {
       "title": "Zaboravljena lozinka",
