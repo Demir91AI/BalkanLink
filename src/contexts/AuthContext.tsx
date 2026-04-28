@@ -85,6 +85,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // Fresh login must reset stale inactivity markers before the timeout hook runs.
         // Otherwise an old bl_last_activity value can immediately log the user out
         // right after a successful password login.
+        let pendingTrialCode: string | null = null;
         if (event === "SIGNED_IN" && session?.user) {
           try {
             localStorage.removeItem("bl_session_expired");
@@ -94,8 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             window.dispatchEvent(new CustomEvent("bl:user-signed-in"));
           } catch { /* best-effort */ }
 
-          // Pending influencer trial code? Redeem now (works after email confirmation,
-          // even if localStorage was lost, because signup stores it in user metadata too).
+          // Detect pending influencer trial code (from URL signup flow or post-confirmation login)
           try {
             const storedPending = localStorage.getItem("pending_trial_code");
             const metadataPending = typeof session.user.user_metadata?.pending_trial_code === "string"
@@ -103,19 +103,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               : null;
             const pending = storedPending || metadataPending;
             if (pending && /^[A-Z0-9_-]{1,64}$/.test(pending)) {
-              supabase.functions.invoke("redeem-trial", { body: { code: pending } })
-                .then(({ data, error }) => {
-                  if (!error && (data as any)?.success) {
-                    localStorage.removeItem("pending_trial_code");
-                    setIsPremium(true);
-                    setSubscriptionEnd((data as any)?.expires_at ?? null);
-                    try { window.dispatchEvent(new CustomEvent("bl:subscription-refreshed")); } catch { /* noop */ }
-                    setTimeout(() => {
-                      if (session?.user) fetchUserMeta(session.user.id);
-                    }, 300);
-                  }
-                })
-                .catch(() => { /* silent */ });
+              pendingTrialCode = pending;
             }
           } catch { /* best-effort */ }
         }
@@ -124,8 +112,32 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setSession(session);
         if (session?.user) {
           try { localStorage.setItem("bl_last_user_id", session.user.id); } catch {}
-          setTimeout(() => fetchUserMeta(session.user.id), 0);
-          setTimeout(() => refreshSubscription(), 100);
+
+          if (pendingTrialCode) {
+            // CRITICAL: Redeem trial BEFORE refreshSubscription / fetchUserMeta,
+            // otherwise check-subscription sees no premium yet and downgrades the profile,
+            // wiping out the trial that was just activated.
+            const userId = session.user.id;
+            const code = pendingTrialCode;
+            (async () => {
+              try {
+                const { data, error } = await supabase.functions.invoke("redeem-trial", { body: { code } });
+                const success = !error && (data as any)?.success;
+                if (success) {
+                  try { localStorage.removeItem("pending_trial_code"); } catch {}
+                  setIsPremium(true);
+                  setSubscriptionEnd((data as any)?.expires_at ?? null);
+                }
+              } catch { /* silent */ }
+              // Now safe to read fresh profile + verify subscription
+              await fetchUserMeta(userId);
+              try { window.dispatchEvent(new CustomEvent("bl:subscription-refreshed")); } catch { /* noop */ }
+              setTimeout(() => refreshSubscription(), 200);
+            })();
+          } else {
+            setTimeout(() => fetchUserMeta(session.user.id), 0);
+            setTimeout(() => refreshSubscription(), 100);
+          }
         } else {
           setIsPremium(false);
           setIsAdmin(false);
