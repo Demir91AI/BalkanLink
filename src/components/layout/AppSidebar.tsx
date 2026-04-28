@@ -107,6 +107,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   useEffect(() => {
     if (!isOpen) {
       setSearchQuery("");
+      setAccountOpen(false);
     } else {
       const isDesktop = typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches;
       if (isDesktop) {
