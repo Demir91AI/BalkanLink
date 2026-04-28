@@ -94,7 +94,7 @@ export default function GrundsicherungMuster() {
         <CheckAmount label="Witwen-/Witwerrente (€/Monat netto)" checked={f.witwenrente === "Ja"} amount={f.witwenrenteAmt} onCheck={v => set("witwenrente", v ? "Ja" : "")} onAmount={v => set("witwenrenteAmt", v)} />
         <CheckAmount label="Betriebsrente (€/Monat netto)" checked={f.betriebsrente === "Ja"} amount={f.betriebsrenteAmt} onCheck={v => set("betriebsrente", v ? "Ja" : "")} onAmount={v => set("betriebsrenteAmt", v)} />
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-          <label style={S.chk}><input type="checkbox" checked={f.auslandRente === "Ja"} onChange={e => set("auslandRente", e.target.checked ? "Ja" : "")} />Ausländische Rente</label>
+          <label style={S.chk}><input type="checkbox" checked={f.auslandRente === "Ja"} onChange={e => set("auslandRente", e.target.checked ? "Ja" : "")} /><TOpt value="Ausländische Rente" /></label>
           {f.auslandRente === "Ja" && (<><input style={{ ...S.inp, width: 80 }} placeholder="Land" value={f.auslandRenteLand} onChange={e => set("auslandRenteLand", e.target.value)} /><input style={{ ...S.inp, width: 80 }} placeholder="€/Monat" value={f.auslandRenteAmt} onChange={e => set("auslandRenteAmt", e.target.value)} /></>)}
         </div>
         <CheckAmount label="Erwerbseinkommen (€/Monat netto)" checked={f.erwerbseinkommen === "Ja"} amount={f.erwerbseinkommenAmt} onCheck={v => set("erwerbseinkommen", v ? "Ja" : "")} onAmount={v => set("erwerbseinkommenAmt", v)} />

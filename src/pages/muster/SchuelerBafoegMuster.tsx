@@ -111,7 +111,7 @@ export default function SchuelerBafoegMuster() {
         {f.elternGetrennt === "Ja" && <div style={S.row}><Field label="Seit" type="date" value={f.getrenntSeit} onChange={v => set("getrenntSeit", v)} /></div>}
         <div style={{ marginBottom: 8 }}><div style={S.lbl}>Elternteil verstorben?</div><Radio name="elternteilVerstorben" value={f.elternteilVerstorben} options={["Elternteil 1", "Elternteil 2", "Nein"]} onChange={v => set("elternteilVerstorben", v)} /></div>
         <div style={S.row}><Field label="Unterhalt von Eltern (€/Monat)" value={f.unterhaltVonEltern} onChange={v => set("unterhaltVonEltern", v)} /></div>
-        <div style={{ marginBottom: 6 }}><label style={S.chk}><input type="checkbox" checked={f.unterhaltNichtGezahlt === "Ja"} onChange={e => set("unterhaltNichtGezahlt", e.target.checked ? "Ja" : "")} />Unterhalt wird nicht gezahlt</label></div>
+        <div style={{ marginBottom: 6 }}><label style={S.chk}><input type="checkbox" checked={f.unterhaltNichtGezahlt === "Ja"} onChange={e => set("unterhaltNichtGezahlt", e.target.checked ? "Ja" : "")} /><TOpt value="Unterhalt wird nicht gezahlt" /></label></div>
         {f.unterhaltNichtGezahlt === "Ja" && <div style={S.row}><Field label="Grund" value={f.unterhaltGrund} onChange={v => set("unterhaltGrund", v)} /></div>}
       </div>
 

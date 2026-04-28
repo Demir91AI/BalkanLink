@@ -50,7 +50,7 @@ export default function ArbeitslosengeldMuster() {
             {["Kündigung durch Arbeitgeber", "Eigenkündigung", "Aufhebungsvertrag (einvernehmlich)", "Ablauf der Befristung"].map(g => (
               <label key={g} style={S.chk}><input type="radio" name="grundBeendigung" checked={f.grundBeendigung === g} onChange={() => set("grundBeendigung", g)} />{g}</label>
             ))}
-            <label style={S.chk}><input type="radio" name="grundBeendigung" checked={f.grundBeendigung === "Sonstiges"} onChange={() => set("grundBeendigung", "Sonstiges")} />Sonstiger Grund:</label>
+            <label style={S.chk}><input type="radio" name="grundBeendigung" checked={f.grundBeendigung === "Sonstiges"} onChange={() => set("grundBeendigung", "Sonstiges")} /><TOpt value="Sonstiger Grund:" /></label>
             {f.grundBeendigung === "Sonstiges" && <input style={{ ...S.inp, width: "100%" }} value={f.sonstigerGrund} onChange={e => set("sonstigerGrund", e.target.value)} />}
           </div>
         </div>
