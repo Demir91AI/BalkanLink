@@ -20,6 +20,13 @@ const unixSecondsToIso = (value: unknown): string | null => {
   return Number.isNaN(date.getTime()) ? null : date.toISOString();
 };
 
+const isLocalPremiumActive = (profile: { is_premium?: boolean | null; subscription_tier?: string | null; subscription_expires_at?: string | null } | null) => {
+  if (!profile?.is_premium || profile.subscription_tier === "free") return false;
+  if (!profile.subscription_expires_at) return true;
+  const expiresAt = new Date(profile.subscription_expires_at);
+  return !Number.isNaN(expiresAt.getTime()) && expiresAt.getTime() > Date.now();
+};
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -55,18 +62,22 @@ serve(async (req) => {
     const customers = await stripe.customers.list({ email: userEmail, limit: 1 });
 
     if (customers.data.length === 0) {
-      // Only sync to "free" if profile is currently flagged premium and Stripe truly has no record.
-      // Don't aggressively downgrade — webhook is the source of truth.
       log("no stripe customer found");
       const { data: profile } = await supabaseClient
         .from("profiles")
-        .select("is_premium")
+        .select("is_premium, subscription_tier, subscription_expires_at")
         .eq("id", userId)
         .maybeSingle();
 
-      if (profile?.is_premium) {
-        // Profile says premium but Stripe has nothing — leave alone, webhook will reconcile.
-        log("profile says premium but no stripe customer — leaving as-is");
+      if (isLocalPremiumActive(profile)) {
+        log("active local premium access — leaving as-is", { tier: profile?.subscription_tier });
+        return new Response(JSON.stringify({
+          subscribed: true,
+          subscription_end: profile?.subscription_expires_at ?? null,
+          local_access: true,
+        }), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
       } else {
         await supabaseClient.from("profiles").update({
           is_premium: false,
@@ -88,6 +99,12 @@ serve(async (req) => {
       status: "active",
       limit: 1,
     });
+
+    const { data: currentProfile } = await supabaseClient
+      .from("profiles")
+      .select("is_premium, subscription_tier, subscription_expires_at")
+      .eq("id", userId)
+      .maybeSingle();
 
     const hasActiveSub = subscriptions.data.length > 0;
     let subscriptionEnd: string | null = null;
@@ -113,6 +130,16 @@ serve(async (req) => {
       log("active subscription", { subscriptionId: sub.id, productId, interval });
     } else {
       log("no active subscription");
+      if (isLocalPremiumActive(currentProfile)) {
+        log("active local premium access — not downgrading", { tier: currentProfile?.subscription_tier });
+        return new Response(JSON.stringify({
+          subscribed: true,
+          subscription_end: currentProfile?.subscription_expires_at ?? null,
+          local_access: true,
+        }), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
     }
 
     // Sync premium status to profiles table (only relevant fields)
