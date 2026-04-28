@@ -20,21 +20,23 @@ function useFormLang(): Lang {
 export { tLabel, tOption };
 
 export const S = {
-  page: { minHeight: "100vh", background: "#F5F0E8", fontFamily: "Arial, sans-serif", fontSize: 11, color: "#111" } as React.CSSProperties,
+  page: { minHeight: "100vh", background: "#F5F0E8", fontFamily: "Arial, sans-serif", fontSize: 13, color: "#111" } as React.CSSProperties,
   nav: { background: "#FFFFFF", borderBottom: "1px solid #F0EAD8", padding: "10px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" } as React.CSSProperties,
   navBtn: { background: "transparent", border: "none", cursor: "pointer", color: "#6B6B6B", fontSize: 13, fontWeight: 500 } as React.CSSProperties,
   disc: { background: "hsl(48,96%,89%)", border: "2px solid #EAB308", borderRadius: 6, padding: 12, margin: "12px auto", maxWidth: 794 } as React.CSSProperties,
-  paper: { maxWidth: 794, margin: "0 auto 40px", background: "#fff", padding: "clamp(16px, 4vw, 40px)", boxShadow: "0 0 30px rgba(0,0,0,0.5)", color: "#111" } as React.CSSProperties,
-  secHead: { background: "#e5e7eb", padding: "5px 8px", display: "flex", alignItems: "center", gap: 8, marginBottom: 8, textTransform: "uppercase" as const, fontWeight: 700, fontSize: 11, letterSpacing: 0.5 },
-  secNum: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 22, height: 22, border: "2px solid #374151", fontWeight: 700, fontSize: 12 } as React.CSSProperties,
-  sec: { border: "1px solid #d1d5db", padding: 10, marginBottom: 14 } as React.CSSProperties,
-  row: { display: "flex", gap: 8, marginBottom: 8, flexWrap: "wrap" as const } as React.CSSProperties,
-  lbl: { fontSize: 9, color: "#6b7280", marginBottom: 2 } as React.CSSProperties,
-  inp: { border: "1px solid #9ca3af", background: "#fff", fontSize: 11, padding: "2px 4px", outline: "none", width: "100%", boxSizing: "border-box" as const } as React.CSSProperties,
-  idBox: { width: 24, height: 28, border: "1px solid #374151", textAlign: "center" as const, fontSize: 14, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
-  ibanBox: { width: 18, height: 26, border: "1px solid #374151", textAlign: "center" as const, fontSize: 12, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
-  chk: { display: "flex", alignItems: "center", gap: 4, fontSize: 10, cursor: "pointer", marginRight: 10 } as React.CSSProperties,
-  footer: { fontSize: 8, color: "#6b7280", textAlign: "center" as const, borderTop: "1px solid #d1d5db", paddingTop: 8, marginTop: 16 },
+  paper: { maxWidth: 800, margin: "0 auto 40px", background: "#fff", padding: "clamp(20px, 4vw, 40px)", borderRadius: 8, border: "1px solid #D0C8B0", boxShadow: "0 6px 24px rgba(0,0,0,0.10)", color: "#111" } as React.CSSProperties,
+  // Visa-style section header: clean underline with gold accent, no heavy gray bar.
+  secHead: { padding: "0 0 6px", display: "flex", alignItems: "center", gap: 10, marginBottom: 14, borderBottom: "2px solid #E0D0B0", fontWeight: 700, fontSize: 15, color: "#111", textTransform: "none" as const, letterSpacing: 0 },
+  secNum: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 24, height: 24, borderRadius: 4, background: "#C9A84C", color: "#fff", fontWeight: 700, fontSize: 13 } as React.CSSProperties,
+  sec: { padding: "8px 0 18px", marginBottom: 8 } as React.CSSProperties,
+  row: { display: "flex", gap: 14, marginBottom: 14, flexWrap: "wrap" as const } as React.CSSProperties,
+  lbl: { fontSize: 11, color: "#6b7280", marginBottom: 4, textTransform: "uppercase" as const, letterSpacing: 0.4, fontWeight: 500 } as React.CSSProperties,
+  inp: { border: "1px solid #D0C8B0", borderRadius: 4, background: "#fff", fontSize: 14, padding: "8px 10px", outline: "none", width: "100%", boxSizing: "border-box" as const, color: "#111" } as React.CSSProperties,
+  example: { fontSize: 12, fontStyle: "italic" as const, color: "#C9A84C", marginTop: 4 } as React.CSSProperties,
+  idBox: { width: 28, height: 34, border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: 15, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
+  ibanBox: { width: 22, height: 32, border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: 13, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
+  chk: { display: "flex", alignItems: "center", gap: 6, fontSize: 13, cursor: "pointer", marginRight: 14 } as React.CSSProperties,
+  footer: { fontSize: 10, color: "#6b7280", textAlign: "center" as const, borderTop: "1px solid #E5E5E5", paddingTop: 10, marginTop: 20 },
   sigLine: { borderBottom: "1px solid #374151", height: 50, marginBottom: 4 } as React.CSSProperties,
 };
 
