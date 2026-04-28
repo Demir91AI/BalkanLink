@@ -23,6 +23,15 @@ function getInitials(name: string) {
   return parts.slice(0, 2).map((part) => part.charAt(0).toUpperCase()).join("") || "?";
 }
 
+function maskEmail(email: string) {
+  if (!email) return "";
+  const [local, domain] = email.split("@");
+  if (!domain) return email;
+  if (local.length <= 2) return `${local}@${domain}`;
+  if (local.length <= 6) return `${local[0]}${"•".repeat(local.length - 2)}${local.slice(-1)}@${domain}`;
+  return `${local.slice(0, 2)}${"•".repeat(3)}${local.slice(-2)}@${domain}`;
+}
+
 export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
