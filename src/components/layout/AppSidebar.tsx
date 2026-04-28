@@ -93,7 +93,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
   const handleAuthClick = () => {
     close();
-    setAuthOpen(true);
+    navigate("/login");
   };
 
   const handleSignOut = async () => {
