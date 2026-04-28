@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
-import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ChevronLeft, Home, ClipboardList } from "lucide-react";
+import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ClipboardList } from "lucide-react";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
 import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
@@ -164,14 +165,7 @@ export default function NudimTrazim() {
           backgroundImage: 'radial-gradient(ellipse 60% 50% at 30% 50%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 80% 30%, rgba(59,130,246,0.06) 0%, transparent 60%)'
         }} />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-14 md:py-20">
-          <div className="flex items-center gap-3 mb-8">
-            <button onClick={handleBack} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <ChevronLeft className="h-4 w-4" /> {t("navigation.back")}
-            </button>
-            <button onClick={() => navigate("/")} className="flex items-center gap-1.5 text-[13px] font-medium text-white/50 hover:text-white transition-colors">
-              <Home className="h-4 w-4" /> {t("navigation.home")}
-            </button>
-          </div>
+          <Breadcrumbs variant="dark" />
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-4 py-1.5 mb-5">
               <Megaphone className="h-3.5 w-3.5 text-[#C9A84C]" />
