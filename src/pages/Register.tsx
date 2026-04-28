@@ -181,7 +181,12 @@ export default function Register() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">{t("auth.register.labelConfirmPassword")}</Label>
-              <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
+              <div className="relative">
+                <Input id="confirmPassword" type={showConfirmPassword ? "text" : "password"} required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" className="pr-10" />
+                <button type="button" onClick={() => setShowConfirmPassword(v => !v)} aria-label={showConfirmPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-primary transition-colors">
+                  {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
               {confirmPassword.length > 0 && !passwordsMatch && (
                 <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
                   <X className="h-3 w-3" /> {t("auth.register.passwordMismatch")}
