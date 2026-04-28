@@ -11,7 +11,7 @@
  *     underneath, and a bilingual "z.B." example below the input.
  */
 import React from "react";
-import { AlertCircle, Info } from "lucide-react";
+import { AlertCircle, Info, ExternalLink as ExternalLinkIcon } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { tTranslation, getExample } from "@/lib/muster-i18n";
 
