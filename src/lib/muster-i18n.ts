@@ -441,7 +441,7 @@ const DICT: Record<string, Entry> = {
   "Lebensversicherung Rückkaufwert (€)": { bs: "Životno osiguranje — otkupna vrijednost (€)", sr: "Životno osiguranje — otkupna vrednost (€)", hr: "Životno osiguranje — otkupna vrijednost (€)" },
   "Letzter Bruttolohn (€/Monat)": { bs: "Posljednja bruto plaća (€/mjesec)", sr: "Poslednja bruto plata (€/mesec)", hr: "Posljednja bruto plaća (€/mjesec)" },
   "Letzte Berufsbezeichnung": { bs: "Posljednje zanimanje", sr: "Poslednje zanimanje", hr: "Posljednje zanimanje" },
-  "Marke/Modell": { bs: "Marka/model" },
+  "Letzte Berufsbezeichnung_": { bs: "" }, // placeholder removed
   "Max. Wochenstunden": { bs: "Maks. sati sedmično", sr: "Maks. sati nedeljno", hr: "Maks. sati tjedno" },
   "Mieteinnahmen": { bs: "Prihodi od najma" },
   "Mieteinnahmen (€/Monat)": { bs: "Prihodi od najma (€/mjesec)", sr: "Prihodi od najma (€/mesec)", hr: "Prihodi od najma (€/mjesec)" },
@@ -562,8 +562,6 @@ const DICT: Record<string, Entry> = {
   "Enddatum": { bs: "Datum završetka" },
   "Kündigung am": { bs: "Otkaz dana" },
   "Abfindung (Brutto)": { bs: "Otpremnina (bruto)" },
-  "Bargeld (€)": { bs: "Gotovina (€)" },
-  "Eigenes Vermögen (€)": { bs: "Vlastita imovina (€)" },
 };
 
 // ============================================================
