@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight, ChevronLeft } from "lucide-react";
+import { Briefcase, Receipt, Home, Heart, Users, HandCoins, ArrowRight } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
-import { navigateBackOrHome } from "@/lib/navigation";
+import PageNavBar from "@/components/navigation/PageNavBar";
 
 const categories = [
   {
@@ -134,16 +134,12 @@ function CategoryCard({ cat, idx }: { cat: typeof categories[number]; idx: numbe
 }
 
 export default function ZivotSavjeti() {
-  const navigate = useNavigate();
-
   return (
     <>
       <SEO title="Život u Njemačkoj — Savjeti i Prava" description="Radna prava, porezi, stanovanje, zdravstvo i sve što trebaš znati za svakodnevni život u Njemačkoj." path="/zivot" />
       <section className="border-b bg-primary py-12">
         <div className="container">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <PageNavBar variant="dark" />
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {"Tvoj dnevni zadatak"}
