@@ -33,11 +33,11 @@ export default function Register() {
     if (fromUrl && /^[A-Z0-9_-]{1,64}$/i.test(fromUrl)) {
       const normalized = fromUrl.trim().toUpperCase();
       setTrialCode(normalized);
-      try { sessionStorage.setItem(TRIAL_STORAGE_KEY, normalized); } catch {}
+      try { localStorage.setItem(TRIAL_STORAGE_KEY, normalized); } catch {}
       return;
     }
     try {
-      const stored = sessionStorage.getItem(TRIAL_STORAGE_KEY);
+      const stored = localStorage.getItem(TRIAL_STORAGE_KEY);
       if (stored && /^[A-Z0-9_-]{1,64}$/.test(stored)) setTrialCode(stored);
     } catch {}
   }, [searchParams]);
@@ -87,7 +87,7 @@ export default function Register() {
             body: { code: trialCode },
           });
           if (!redeemErr && (redeemData as any)?.success) {
-            try { sessionStorage.removeItem(TRIAL_STORAGE_KEY); } catch {}
+            try { localStorage.removeItem(TRIAL_STORAGE_KEY); } catch {}
             toast({
               title: t("auth.register.trialActivatedTitle"),
               description: t("auth.register.trialActivatedDesc", { days: (redeemData as any)?.days ?? 30 }),
