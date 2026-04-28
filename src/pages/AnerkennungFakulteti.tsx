@@ -39,7 +39,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { SEO } from "@/components/SEO";
-import PageNavBar from "@/components/navigation/PageNavBar";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
