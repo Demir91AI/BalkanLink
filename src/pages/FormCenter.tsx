@@ -534,17 +534,10 @@ export default function FormCenter() {
 
         {/* ─── Main content ─── */}
         <main className="min-w-0 flex-1 overflow-hidden">
-          <div className="flex items-center gap-2 mb-4 text-sm">
-            <button
-              className="text-[hsl(var(--gold))] hover:underline font-medium"
-              onClick={() => navigate('/formulari')}
-            >
-              Formulari
-            </button>
-            <span className="text-muted-foreground">›</span>
-            <span className="text-foreground font-semibold truncate">
+          <div className="flex items-center gap-2 mb-4">
+            <h1 className="text-lg sm:text-xl font-semibold text-foreground truncate">
               {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
-            </span>
+            </h1>
             <ItemBadge slug={activeSlug} />
           </div>
           {canAccess ? (
