@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
@@ -95,8 +95,6 @@ const cards = [
 ];
 
 export default function PocniOvdje() {
-  const navigate = useNavigate();
-
   return (
     <>
       <SEO title="Počni Ovdje — Prvi Koraci u Njemačkoj" description="Najvažniji koraci za tvoj početak u Njemačkoj — prijava, dozvola, osiguranje, banka i više." path="/dolazak" />

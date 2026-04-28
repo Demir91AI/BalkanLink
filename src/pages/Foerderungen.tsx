@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowRight, Home, Briefcase, HeartPulse, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
@@ -27,7 +27,6 @@ const titles = {
 };
 
 export default function Foerderungen() {
-  const navigate = useNavigate();
   const lk = getLangKey("bs");
   const t = titles[lk];
 
