@@ -271,16 +271,9 @@ export default function MojiPodaci() {
 
   const handleDelete = async () => {
     if (!user) return;
-    const emailOk =
-      confirmEmail.trim().toLowerCase() === (user.email ?? "").toLowerCase() &&
-      (user.email ?? "").length > 0;
-    const textOk = confirmText === "OBRIŠI";
-    if (!emailOk || !textOk) {
-      setDeleteError(
-        !emailOk
-          ? "Email ne odgovara tvom računu."
-          : "Moraš ukucati tačno OBRIŠI (velikim slovima)."
-      );
+    const textOk = confirmText.trim().toUpperCase() === "OBRIŠI";
+    if (!textOk) {
+      setDeleteError("Moraš ukucati tačno OBRIŠI da potvrdiš brisanje.");
       return;
     }
 
