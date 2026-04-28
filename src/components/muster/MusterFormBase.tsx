@@ -51,14 +51,14 @@ export const Field = ({ label, flex, width, type, value, onChange, disabled, exa
   // Auto-fill example from dictionary if not explicitly provided
   const effectiveExample = example ?? getExample(label) ?? undefined;
   return (
-    <div style={{ flex: flex ?? 1, minWidth: typeof width === "number" ? width : 140 }}>
+    <div style={{ flex: flex ?? 1, minWidth: 140 }}>
       <div style={S.lbl} className="flex items-center gap-1">
         <span>{label}</span>
         <FieldTooltip label={label} />
       </div>
       {translation ? <div style={S.lblTr}>{translation}</div> : null}
       <input
-        style={{ ...S.inp, width: typeof width === "number" ? width : "100%" }}
+        style={{ ...S.inp, width: typeof width === "number" ? `${width}px` : "100%", maxWidth: "100%" }}
         type={type ?? "text"}
         value={value ?? ""}
         onChange={e => onChange?.(e.target.value)}
