@@ -229,11 +229,12 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   <p className="text-[14px] font-semibold text-[#2D2D2D] truncate leading-tight">
                     {firstName}
                   </p>
-                  <p
-                    className="mt-0.5 truncate text-[11px] text-[#6B6B6B]/80 leading-tight"
-                    title={user.email}
-                  >
-                    {maskEmail(user.email || "")}
+                  <p className="mt-0.5 truncate text-[11px] font-medium leading-tight">
+                    {isPremium ? (
+                      <span className="text-[hsl(var(--gold))]">{t("sidebar.statusPremium", "Premium")}</span>
+                    ) : (
+                      <span className="text-[#6B6B6B]/70">{t("sidebar.statusFree", "Free plan")}</span>
+                    )}
                   </p>
                 </div>
               </div>
