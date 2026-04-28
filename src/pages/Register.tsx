@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Check, X, Crown } from "lucide-react";
+import { Check, X, Crown, Eye, EyeOff } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 
 const TRIAL_STORAGE_KEY = "pending_trial_code";
