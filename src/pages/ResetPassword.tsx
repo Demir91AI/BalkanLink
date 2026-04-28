@@ -83,11 +83,21 @@ export default function ResetPassword() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="password">{t("auth.resetPassword.newPasswordPlaceholder")}</Label>
-              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.resetPassword.newPasswordPlaceholder")} />
+              <div className="relative">
+                <Input id="password" type={showPassword ? "text" : "password"} required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.resetPassword.newPasswordPlaceholder")} className="pr-10" />
+                <button type="button" onClick={() => setShowPassword(v => !v)} aria-label={showPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-primary transition-colors">
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">{t("auth.resetPassword.confirmPasswordPlaceholder")}</Label>
-              <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
+              <div className="relative">
+                <Input id="confirmPassword" type={showConfirmPassword ? "text" : "password"} required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" className="pr-10" />
+                <button type="button" onClick={() => setShowConfirmPassword(v => !v)} aria-label={showConfirmPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-primary transition-colors">
+                  {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
             </div>
           </CardContent>
           <CardFooter>
