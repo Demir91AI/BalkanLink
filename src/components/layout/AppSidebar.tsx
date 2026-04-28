@@ -93,6 +93,68 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
   useEffect(() => { close(); }, [location.pathname, close]);
 
+  // Reset search kad se zatvori, auto-focus kad se otvori (desktop)
+  useEffect(() => {
+    if (!isOpen) {
+      setSearchQuery("");
+    } else {
+      const isDesktop = typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches;
+      if (isDesktop) {
+        setTimeout(() => searchInputRef.current?.focus(), 320);
+      }
+    }
+  }, [isOpen]);
+
+  // Filter po search query
+  const allItems = useMemo(() => [...mainItems, ...secondaryItems], [mainItems, secondaryItems]);
+  const filteredMain = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return mainItems;
+    return mainItems.filter((it) => it.title.toLowerCase().includes(q));
+  }, [searchQuery, mainItems]);
+  const filteredSecondary = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return secondaryItems;
+    return secondaryItems.filter((it) => it.title.toLowerCase().includes(q));
+  }, [searchQuery, secondaryItems]);
+  const hasSearch = searchQuery.trim().length > 0;
+  const noResults = hasSearch && filteredMain.length === 0 && filteredSecondary.length === 0;
+
+  // Mapa za "Nedavno korišteno" — resolve path → item
+  const itemByPath = useMemo(() => {
+    const map = new Map<string, typeof allItems[number]>();
+    allItems.forEach((it) => {
+      map.set(it.url, it);
+      const matchers = (it as any).matchPaths as string[] | undefined;
+      matchers?.forEach((p) => map.set(p, it));
+    });
+    return map;
+  }, [allItems]);
+
+  const recentItems = useMemo(() => {
+    if (hasSearch) return [];
+    return recentPages
+      .map((rp) => {
+        // direct match
+        if (itemByPath.has(rp.path)) return itemByPath.get(rp.path)!;
+        // prefix match (npr /formulari/anmeldung -> /formulari)
+        for (const [key, val] of itemByPath.entries()) {
+          if (rp.path.startsWith(key + "/")) return val;
+        }
+        return null;
+      })
+      .filter((x): x is typeof allItems[number] => x !== null)
+      // izbaci trenutnu stranicu
+      .filter((it) => {
+        const matchers = (it as any).matchPaths as string[] | undefined;
+        if (matchers) return !matchers.some((p) => currentPath === p || currentPath.startsWith(p + "/"));
+        return !(currentPath === it.url || currentPath.startsWith(it.url + "/"));
+      })
+      // dedupe
+      .filter((it, idx, arr) => arr.findIndex((x) => x.url === it.url) === idx)
+      .slice(0, 3);
+  }, [recentPages, itemByPath, currentPath, hasSearch]);
+
   const handleNav = useCallback((url: string) => {
     close();
     navigate(url);
