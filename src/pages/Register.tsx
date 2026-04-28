@@ -90,7 +90,7 @@ export default function Register() {
             try { sessionStorage.removeItem(TRIAL_STORAGE_KEY); } catch {}
             toast({
               title: t("auth.register.trialActivatedTitle"),
-              description: t("auth.register.trialActivatedDesc", { days: (redeemData as any)?.days ?? 7 }),
+              description: t("auth.register.trialActivatedDesc", { days: (redeemData as any)?.days ?? 30 }),
             });
           }
         } catch (err) {
