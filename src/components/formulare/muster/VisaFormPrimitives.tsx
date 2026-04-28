@@ -225,15 +225,17 @@ export const CheckRow = ({
 export const ExternalLink = ({
   href,
   children,
+  className,
 }: {
   href: string;
   children: React.ReactNode;
+  className?: string;
 }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-blue-600 underline text-sm hover:text-blue-800"
+    className={className ?? "text-blue-600 underline text-sm hover:text-blue-800"}
   >
     {children}
   </a>
