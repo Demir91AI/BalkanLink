@@ -212,14 +212,23 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
               {tab === "register" && (
                 <div>
                   <label className="block text-xs font-medium text-[#6B6B6B] mb-1.5">{t("auth.register.labelConfirmPassword")}</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full h-11 px-3.5 rounded-xl border border-[#E8E0D0] bg-[#FAFAF8] text-sm text-[#2D2D2D] placeholder:text-[#B0B0B0] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold))]/40 focus:border-[hsl(var(--gold))] transition-all"
-                    placeholder="••••••••"
-                    autoComplete="new-password"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      className="w-full h-11 px-3.5 pr-10 rounded-xl border border-[#E8E0D0] bg-[#FAFAF8] text-sm text-[#2D2D2D] placeholder:text-[#B0B0B0] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--gold))]/40 focus:border-[hsl(var(--gold))] transition-all"
+                      placeholder="••••••••"
+                      autoComplete="new-password"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#B0B0B0] hover:text-[#6B6B6B]"
+                    >
+                      {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
                 </div>
               )}
 
