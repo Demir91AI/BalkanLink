@@ -1,11 +1,23 @@
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { useState, useRef, useCallback, useEffect, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import FieldTooltip from "@/components/muster/FieldTooltip";
 import FormularLock from "@/components/paywall/FormularLock";
 import { useSubscription } from "@/hooks/useSubscription";
 import AuthGate from "@/components/AuthGate";
 import { isFormFree } from "@/lib/form-catalog";
+import { tLabel, tOption } from "@/lib/muster-i18n";
+
+type Lang = "bs" | "de" | "hr" | "sr";
+function useFormLang(): Lang {
+  const { i18n } = useTranslation();
+  const code = (i18n.language?.split("-")[0] ?? "bs") as Lang;
+  return (["bs", "de", "hr", "sr"] as const).includes(code) ? code : "bs";
+}
+
+/** Re-export for forms that want to translate option labels (radio/checkbox text). */
+export { tLabel, tOption };
 
 export const S = {
   page: { minHeight: "100vh", background: "#F5F0E8", fontFamily: "Arial, sans-serif", fontSize: 11, color: "#111" } as React.CSSProperties,
