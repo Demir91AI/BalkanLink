@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "anmeldung-muster-v2-data";
 const PDF_URL = "https://service.berlin.de/dienstleistung/120686/";
