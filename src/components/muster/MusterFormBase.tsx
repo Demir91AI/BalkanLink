@@ -38,15 +38,19 @@ export const S = {
   sigLine: { borderBottom: "1px solid #374151", height: 50, marginBottom: 4 } as React.CSSProperties,
 };
 
-export const Field = ({ label, flex, width, type, value, onChange, disabled }: { label: string; flex?: number; width?: string | number; type?: string; value?: string; onChange?: (v: string) => void; disabled?: boolean }) => (
-  <div style={{ flex: flex ?? 1, minWidth: width ?? 0 }}>
-    <div style={S.lbl} className="flex items-center">
-      {label}
-      <FieldTooltip label={label} />
+export const Field = ({ label, flex, width, type, value, onChange, disabled }: { label: string; flex?: number; width?: string | number; type?: string; value?: string; onChange?: (v: string) => void; disabled?: boolean }) => {
+  const lang = useFormLang();
+  const display = tLabel(label, lang);
+  return (
+    <div style={{ flex: flex ?? 1, minWidth: width ?? 0 }}>
+      <div style={S.lbl} className="flex items-center">
+        {display}
+        <FieldTooltip label={label} />
+      </div>
+      <input style={{ ...S.inp, width: width ?? "100%" }} type={type ?? "text"} value={value ?? ""} onChange={e => onChange?.(e.target.value)} disabled={disabled} />
     </div>
-    <input style={{ ...S.inp, width: width ?? "100%" }} type={type ?? "text"} value={value ?? ""} onChange={e => onChange?.(e.target.value)} disabled={disabled} />
-  </div>
-);
+  );
+};
 
 export const IdBoxes = ({ count, value, onChange }: { count: number; value: string; onChange: (v: string) => void }) => {
   const refs = useRef<(HTMLInputElement | null)[]>([]);
