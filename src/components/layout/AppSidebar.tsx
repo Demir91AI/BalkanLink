@@ -382,7 +382,8 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           </div>
         )}
 
-        {/* Mobile sekcija */}
+        {/* Mobile sekcija — sakrij tokom search */}
+        {!hasSearch && (
         <div className="px-3 pt-5 pb-4">
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mobileSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
