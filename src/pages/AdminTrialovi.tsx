@@ -81,7 +81,7 @@ export default function AdminTrialovi() {
       return;
     }
     toast({ title: "Kod kreiran", description: `${cleanCode} — ${newDays} dana Premium.` });
-    setNewCode(""); setNewDescription(""); setNewMaxUses(""); setNewDays(7);
+    setNewCode(""); setNewDescription(""); setNewMaxUses(""); setNewDays(30);
     fetchCodes();
   };
 
