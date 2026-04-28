@@ -97,9 +97,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           // Pending influencer trial code? Redeem now (works for both fresh signup
           // with auto-confirm and post-email-confirmation logins).
           try {
-            const pending = sessionStorage.getItem("pending_trial_code");
+            const pending = localStorage.getItem("pending_trial_code");
             if (pending && /^[A-Z0-9_-]{1,64}$/.test(pending)) {
-              sessionStorage.removeItem("pending_trial_code");
+              localStorage.removeItem("pending_trial_code");
               supabase.functions.invoke("redeem-trial", { body: { code: pending } })
                 .then(({ data, error }) => {
                   if (!error && (data as any)?.success) {
