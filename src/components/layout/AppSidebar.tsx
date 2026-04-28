@@ -414,8 +414,10 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
             )}
           </nav>
         </div>
+        )}
 
-        {/* Account & Paketi (dno) */}
+        {/* Account & Paketi (dno) — sakrij tokom search */}
+        {!hasSearch && (
         <div className="px-3 pt-3 pb-4 mt-auto border-t-2 border-[hsl(var(--gold))]/25">
           <p className="px-3 pb-2 pt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.accountSectionLabel", "Račun")}</p>
           <nav className="flex flex-col gap-0.5">
