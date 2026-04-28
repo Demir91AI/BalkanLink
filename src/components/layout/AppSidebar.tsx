@@ -299,8 +299,6 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         </div>
 
       </aside>
-
-      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </>
   );
 }
