@@ -238,3 +238,24 @@ export const ExternalLink = ({
     {children}
   </a>
 );
+
+// Additional aliases for VisaWorkForm1, VisaBluecardForm, VisaFamilyForm, VisaPermanentForm2
+export const exampleCls = "italic text-[13px] mt-0.5 block";
+export const inputCls = "w-full rounded border px-2.5 py-1.5 text-sm";
+export const pageSep = "flex items-center gap-4 my-6";
+export const gold = "#C9A84C";
+
+export const GreySection = ({ children }: { children: React.ReactNode }) => (
+  <div className="rounded-lg p-4 mt-2" style={{ background: "#F8F7F2", border: "1px solid #E5E5E5" }}>
+    {children}
+  </div>
+);
+
+export const BlueNote = ({ children }: { children: React.ReactNode }) => (
+  <div
+    className="flex items-start gap-2 rounded-lg p-3 mt-2 text-[12px] leading-relaxed"
+    style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", color: "#1E3A8A" }}
+  >
+    <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" /> <span>{children}</span>
+  </div>
+);
