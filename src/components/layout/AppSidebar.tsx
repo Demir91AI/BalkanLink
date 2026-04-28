@@ -209,46 +209,59 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         {/* User info (only when logged in) */}
         {user && (
           <div className="px-3 pt-4 pb-3">
-            <div className="px-3">
+            <button
+              onClick={() => handleNav("/profil")}
+              className="w-full px-3 py-2.5 rounded-xl text-left hover:bg-[#F5F0E8]/60 transition-colors group"
+              aria-label={t("sidebar.openProfile", "Otvori profil")}
+            >
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-sm font-bold text-[hsl(var(--primary))] shadow-[0_10px_28px_hsl(var(--gold)/0.22)]">
-                  {initials}
+                <div className="relative shrink-0">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--gold))] to-[hsl(var(--gold))]/70 text-[13px] font-semibold text-[hsl(var(--primary))] shadow-sm ring-1 ring-[hsl(var(--gold))]/30">
+                    {initials}
+                  </div>
+                  {isPremium && (
+                    <div className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[hsl(var(--gold))] ring-2 ring-white">
+                      <Crown className="h-2.5 w-2.5 text-white" strokeWidth={2.5} />
+                    </div>
+                  )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold text-[#2D2D2D] truncate">
-                    {t("sidebar.greeting", { name: firstName })}
+                  <p className="text-[14px] font-semibold text-[#2D2D2D] truncate leading-tight">
+                    {firstName}
                   </p>
-                  <p className="mt-0.5 truncate text-xs text-muted-foreground">{user.email}</p>
+                  <p
+                    className="mt-0.5 truncate text-[11px] text-[#6B6B6B]/80 leading-tight"
+                    title={user.email}
+                  >
+                    {maskEmail(user.email || "")}
+                  </p>
                 </div>
               </div>
-              {/* Status badge: Premium / Free */}
-              {isPremium ? (
-                <div className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[hsl(var(--gold))]/15 to-[hsl(var(--gold))]/5 border border-[hsl(var(--gold))]/25">
-                  <Crown className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]">{t("sidebar.statusPremium", "Premium aktivan")}</span>
-                </div>
-              ) : (
+            </button>
+
+            <div className="px-3 mt-2">
+              {!isPremium && (
                 <button
                   onClick={() => handleNav("/paketi")}
-                  className="mt-3 group flex items-center gap-2 w-full px-3 py-1.5 rounded-lg bg-muted/50 hover:bg-[hsl(var(--gold))]/10 transition-colors"
+                  className="group flex items-center justify-between gap-2 w-full px-3 py-1.5 rounded-lg bg-[hsl(var(--gold))]/8 hover:bg-[hsl(var(--gold))]/14 border border-[hsl(var(--gold))]/20 transition-colors"
                 >
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{t("sidebar.statusFree", "Free plan")}</span>
-                  <span className="ml-auto flex items-center gap-1 text-[11px] font-bold text-[hsl(var(--gold))] group-hover:gap-1.5 transition-all">
+                  <span className="text-[11px] font-semibold tracking-wide text-[#6B6B6B]">{t("sidebar.statusFree", "Free plan")}</span>
+                  <span className="flex items-center gap-1 text-[11px] font-bold text-[hsl(var(--gold))]">
                     {t("sidebar.upgrade", "Nadogradi")}
-                    <ArrowRight className="h-3 w-3" />
+                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </button>
               )}
               <button
                 onClick={() => handleNav("/profil/placanja")}
-                className={`mt-2 flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-all duration-200 ${
+                className={`${!isPremium ? "mt-1.5" : ""} flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-colors duration-200 ${
                   location.pathname === "/profil/placanja"
                     ? "bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
                     : "text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D]"
                 }`}
               >
-                <Receipt className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/profil/placanja" ? "text-[hsl(var(--gold))]" : ""}`} />
-                <span className="text-[14px] font-medium">{t("sidebar.paymentHistory")}</span>
+                <Receipt className={`h-[16px] w-[16px] shrink-0 ${location.pathname === "/profil/placanja" ? "text-[hsl(var(--gold))]" : ""}`} />
+                <span className="text-[13px] font-medium">{t("sidebar.paymentHistory")}</span>
               </button>
               <div className="mt-4 h-px bg-border/80" />
             </div>
