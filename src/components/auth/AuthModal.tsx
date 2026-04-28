@@ -242,30 +242,37 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
 
               {/* Terms checkbox (register only) */}
               {tab === "register" && (
-                <div className="flex items-start gap-3">
+                <label
+                  htmlFor="terms-accept"
+                  className={`flex items-start gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+                    termsAccepted
+                      ? "border-[hsl(var(--gold))]/50 bg-[hsl(var(--gold))]/5"
+                      : "border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/[0.04] hover:bg-[hsl(var(--gold))]/[0.08]"
+                  }`}
+                >
                   <input
                     type="checkbox"
                     id="terms-accept"
                     checked={termsAccepted}
                     onChange={(e) => setTermsAccepted(e.target.checked)}
-                    className="mt-1 h-4 w-4 rounded border-[#E8E0D0] accent-[hsl(var(--gold))]"
+                    className="mt-0.5 h-5 w-5 rounded border-2 border-[hsl(var(--gold))] accent-[hsl(var(--gold))] cursor-pointer"
                   />
-                  <label htmlFor="terms-accept" className="text-[11px] text-[#6B6B6B] leading-relaxed">
+                  <span className="text-[12px] text-[#3a3a3a] leading-relaxed font-medium select-none">
                     {t("auth.register.consentText")}{" "}
-                    <a href="/agb" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
+                    <a href="/agb" target="_blank" className="font-semibold text-[hsl(var(--gold))] underline underline-offset-2 hover:no-underline">
                       {t("auth.register.consentTermsLink")}
                     </a>
                     ,{" "}
-                    <a href="/datenschutz" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
+                    <a href="/datenschutz" target="_blank" className="font-semibold text-[hsl(var(--gold))] underline underline-offset-2 hover:no-underline">
                       {t("auth.register.consentPrivacyLink")}
                     </a>{" "}
                     {t("auth.register.consentAiPrefix")}{" "}
-                    <a href="/ki-hinweis" target="_blank" className="text-[hsl(var(--gold))] hover:underline">
+                    <a href="/ki-hinweis" target="_blank" className="font-semibold text-[hsl(var(--gold))] underline underline-offset-2 hover:no-underline">
                       {t("auth.register.consentAiLink")}
                     </a>
                     {t("auth.register.consentAiSuffix")}
-                  </label>
-                </div>
+                  </span>
+                </label>
               )}
 
               {/* Submit */}
