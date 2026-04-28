@@ -55,19 +55,19 @@ serve(async (req) => {
       confirm_email?: string;
       confirm_text?: string;
     };
-    const emailMatches =
-      typeof confirm_email === "string" &&
-      confirm_email.trim().toLowerCase() === (userEmail ?? "").toLowerCase() &&
-      (userEmail ?? "").length > 0;
-    const textMatches = confirm_text === "OBRIŠI";
+    // Sesija je već autentifikovana (token validiran iznad). Tražimo samo
+    // tipkanu potvrdu "OBRIŠI" — case-insensitive, trim — kako bi se izbjegli
+    // slučajni klikovi. Email kompariranje je uklonjeno jer je sesija dovoljna.
+    const textMatches =
+      typeof confirm_text === "string" &&
+      confirm_text.trim().toUpperCase() === "OBRIŠI";
 
-    if (!emailMatches || !textMatches) {
+    if (!textMatches) {
       log("confirmation guard FAILED — aborting before any destructive op", {
-        emailMatches,
         textMatches,
       });
       return new Response(
-        JSON.stringify({ error: "Potvrda nije ispravna. Ukucaj svoj email i riječ OBRIŠI." }),
+        JSON.stringify({ error: "Potvrda nije ispravna. Ukucaj OBRIŠI." }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
