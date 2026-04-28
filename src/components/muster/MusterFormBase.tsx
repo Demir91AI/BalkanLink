@@ -40,7 +40,7 @@ export const S = {
   sigLine: { borderBottom: "1px solid #374151", height: 50, marginBottom: 4 } as React.CSSProperties,
 };
 
-export const Field = ({ label, flex, width, type, value, onChange, disabled }: { label: string; flex?: number; width?: string | number; type?: string; value?: string; onChange?: (v: string) => void; disabled?: boolean }) => {
+export const Field = ({ label, flex, width, type, value, onChange, disabled, example, placeholder }: { label: string; flex?: number; width?: string | number; type?: string; value?: string; onChange?: (v: string) => void; disabled?: boolean; example?: string; placeholder?: string }) => {
   const lang = useFormLang();
   const display = tLabel(label, lang);
   return (
@@ -49,7 +49,8 @@ export const Field = ({ label, flex, width, type, value, onChange, disabled }: {
         {display}
         <FieldTooltip label={label} />
       </div>
-      <input style={{ ...S.inp, width: width ?? "100%" }} type={type ?? "text"} value={value ?? ""} onChange={e => onChange?.(e.target.value)} disabled={disabled} />
+      <input style={{ ...S.inp, width: width ?? "100%" }} type={type ?? "text"} value={value ?? ""} onChange={e => onChange?.(e.target.value)} disabled={disabled} placeholder={placeholder ?? example ?? ""} />
+      {example ? <p style={S.example}>z.B. {example}</p> : null}
     </div>
   );
 };
