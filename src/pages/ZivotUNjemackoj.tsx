@@ -714,15 +714,6 @@ export default function ZivotUNjemackoj() {
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-8">
         <PageNavBar />
 
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 mb-6 text-[13px]">
-          <button onClick={() => navigate("/")} className="text-[#9CA3AF] hover:underline">
-            {t("breadcrumbHome")}
-          </button>
-          <span className="text-[#9CA3AF]">›</span>
-          <span className="text-[#2D2D2D] font-medium">{t("pageTitle")}</span>
-        </nav>
-
         {/* Header */}
         <div className="rounded-2xl p-6 sm:p-10 mb-8" style={{ background: "linear-gradient(135deg, #1a3a5c, #2d6a9f)" }}>
           <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">{t("pageTitle")}</h1>
