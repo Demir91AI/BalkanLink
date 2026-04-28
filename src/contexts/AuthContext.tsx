@@ -94,15 +94,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             window.dispatchEvent(new CustomEvent("bl:user-signed-in"));
           } catch { /* best-effort */ }
 
-          // Pending influencer trial code? Redeem now (works for both fresh signup
-          // with auto-confirm and post-email-confirmation logins).
+          // Pending influencer trial code? Redeem now (works after email confirmation,
+          // even if localStorage was lost, because signup stores it in user metadata too).
           try {
-            const pending = localStorage.getItem("pending_trial_code");
+            const storedPending = localStorage.getItem("pending_trial_code");
+            const metadataPending = typeof session.user.user_metadata?.pending_trial_code === "string"
+              ? session.user.user_metadata.pending_trial_code
+              : null;
+            const pending = storedPending || metadataPending;
             if (pending && /^[A-Z0-9_-]{1,64}$/.test(pending)) {
-              localStorage.removeItem("pending_trial_code");
               supabase.functions.invoke("redeem-trial", { body: { code: pending } })
                 .then(({ data, error }) => {
                   if (!error && (data as any)?.success) {
+                    localStorage.removeItem("pending_trial_code");
+                    setIsPremium(true);
+                    setSubscriptionEnd((data as any)?.expires_at ?? null);
+                    try { window.dispatchEvent(new CustomEvent("bl:subscription-refreshed")); } catch { /* noop */ }
                     setTimeout(() => {
                       if (session?.user) fetchUserMeta(session.user.id);
                     }, 300);
