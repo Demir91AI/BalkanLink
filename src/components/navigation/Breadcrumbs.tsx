@@ -16,36 +16,44 @@ interface BreadcrumbsProps {
   hideBack?: boolean;
   /** Custom back handler (default: hierarchical navigateBackOrHome) */
   onBack?: () => void;
-  /** Variant — "dark" for navy/glass pages, "light" for cream pages */
-  variant?: "dark" | "light";
+  /**
+   * Variant — "dark" for navy/glass pages, "light" for cream pages,
+   * "auto" uses semantic tokens that work on either background (default).
+   */
+  variant?: "dark" | "light" | "auto";
   /** Inline mode — no bottom margin */
   inline?: boolean;
   className?: string;
+  /** Hide the auto-derived crumb trail (only show Back + Home buttons) */
+  hideTrail?: boolean;
 }
 
 /**
- * Unified Breadcrumbs component.
+ * Unified Breadcrumbs component — single source of truth for page navigation.
+ *
+ * Layout:
+ *   [< Nazad]  [🏠 Početna]
+ *   🏠 › Section › Subsection › Current
  *
  * - Auto-derives crumbs from the current URL pathname
  * - Translates each segment via `common:breadcrumb.routes.<segment>`
- * - Falls back to title-cased segment if no translation exists
  * - Strips language prefix (/de, /hr, /sr) from crumb path computation
  * - Provides Back + Home shortcuts (translated)
+ * - "auto" variant uses semantic tokens — works on any background
  */
 export default function Breadcrumbs({
   currentLabel,
   overrides = {},
   hideBack = false,
   onBack,
-  variant = "dark",
+  variant = "auto",
   inline = false,
   className = "",
+  hideTrail = false,
 }: BreadcrumbsProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation("common");
-
-  const isDark = variant === "dark";
 
   const { crumbs, langPrefix } = useMemo(() => {
     const path = (location.pathname || "/").replace(/\/+$/, "") || "/";
@@ -83,51 +91,81 @@ export default function Breadcrumbs({
   const homeHref = langPrefix || "/";
 
   // Theme classes
-  const btnBase =
-    "flex items-center gap-1.5 text-[13px] font-medium transition-colors px-3 py-1.5 rounded-lg";
-  const btnTheme = isDark
-    ? "text-white/50 hover:text-white/80 hover:bg-white/[0.06]"
-    : "text-[#6B6B6B] hover:text-[#2D2D2D] hover:bg-[#F0EAD8]";
+  const themes = {
+    dark: {
+      btn: "text-white/60 hover:text-white hover:bg-white/[0.08] border-white/10",
+      link: "text-white/45 hover:text-white/80",
+      last: "text-white/85",
+      sep: "text-white/25",
+      trailHome: "text-white/45 hover:text-white/80",
+    },
+    light: {
+      btn: "text-[#6B6B6B] hover:text-[#2D2D2D] hover:bg-[#F0EAD8] border-[#E5DFC9]",
+      link: "text-[#8A8A8A] hover:text-[#2D2D2D]",
+      last: "text-[#2D2D2D]",
+      sep: "text-[#B5A87E]",
+      trailHome: "text-[#8A8A8A] hover:text-[#2D2D2D]",
+    },
+    auto: {
+      btn: "text-muted-foreground hover:text-foreground hover:bg-muted/60 border-border/50",
+      link: "text-muted-foreground hover:text-foreground",
+      last: "text-foreground",
+      sep: "text-muted-foreground/50",
+      trailHome: "text-muted-foreground hover:text-foreground",
+    },
+  } as const;
 
-  const linkTheme = isDark ? "text-white/40 hover:text-white/70" : "text-[#8A8A8A] hover:text-[#2D2D2D]";
-  const lastTheme = isDark ? "text-white/70" : "text-[#2D2D2D]";
-  const sepTheme = isDark ? "text-white/20" : "text-[#B5A87E]";
+  const theme = themes[variant];
+
+  const btnBase =
+    "inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors px-3 py-1.5 rounded-full border";
 
   return (
-    <div className={`${inline ? "" : "mb-4"} ${className}`}>
-      {/* Back + Home shortcuts */}
-      <div className="flex items-center gap-2 mb-2">
+    <div className={`${inline ? "" : "mb-5"} ${className}`}>
+      {/* Action shortcuts: Back + Home */}
+      <div className="flex items-center gap-2 mb-2.5">
         {!hideBack && (
-          <button onClick={handleBack} className={`${btnBase} ${btnTheme}`} aria-label={t("breadcrumb.back")}>
-            <ChevronLeft className="h-4 w-4" />
+          <button
+            onClick={handleBack}
+            className={`${btnBase} ${theme.btn}`}
+            aria-label={t("breadcrumb.back")}
+          >
+            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             {t("breadcrumb.back")}
           </button>
         )}
         <button
           onClick={() => navigate(homeHref)}
-          className={`${btnBase} ${btnTheme}`}
+          className={`${btnBase} ${theme.btn}`}
           aria-label={t("breadcrumb.home")}
         >
-          <Home className="h-4 w-4" />
+          <Home className="h-4 w-4" aria-hidden="true" />
           {t("breadcrumb.home")}
         </button>
       </div>
 
       {/* Crumb trail */}
-      {crumbs.length > 0 && (
-        <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-1 text-xs">
-          <Link to={homeHref} className={`font-medium transition-colors ${linkTheme}`}>
-            {t("breadcrumb.home")}
+      {!hideTrail && crumbs.length > 0 && (
+        <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs">
+          <Link
+            to={homeHref}
+            className={`flex items-center transition-colors ${theme.trailHome}`}
+            aria-label={t("breadcrumb.home")}
+          >
+            <Home className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
           {crumbs.map((c, i) => (
-            <span key={i} className="flex items-center gap-1">
-              <ChevronRight className={`h-3 w-3 ${sepTheme}`} />
+            <span key={i} className="flex items-center gap-1.5">
+              <ChevronRight className={`h-3 w-3 ${theme.sep}`} aria-hidden="true" />
               {c.isLast ? (
-                <span className={`font-semibold ${lastTheme}`} aria-current="page">
+                <span className={`font-semibold ${theme.last}`} aria-current="page">
                   {c.label}
                 </span>
               ) : (
-                <Link to={c.href} className={`font-medium transition-colors ${linkTheme}`}>
+                <Link
+                  to={c.href}
+                  className={`font-medium transition-colors ${theme.link}`}
+                >
                   {c.label}
                 </Link>
               )}

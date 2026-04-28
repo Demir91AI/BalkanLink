@@ -44,38 +44,20 @@ export default function Viza() {
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
       <SEO title={t("visa.navTitle")} description={t("visa.subtitle")} path="/viza" />
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 py-6 lg:py-8">
-        <PageNavBar />
+        <PageNavBar
+          variant="light"
+          onBack={selectedRoute ? handleClearRoute : selectedCountry ? handleClearAll : undefined}
+        />
 
-        <div className="mb-4">
-          <h1 className="text-[28px] font-bold text-[#2D2D2D]">{t("visa.navTitle")}</h1>
+        <div className="mb-8">
+          <h1 className="text-[28px] font-bold text-[#2D2D2D]">
+            {selectedRoute && country
+              ? country.routes.find(r => r.id === selectedRoute)?.title || t("visa.navTitle")
+              : selectedCountry && country
+              ? country.name
+              : t("visa.navTitle")}
+          </h1>
           <p className="text-[16px] text-[#6B6B6B] mt-1">{t("visa.navSubtitle")}</p>
-        </div>
-
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-1.5 mb-8 overflow-x-auto whitespace-nowrap">
-          <button onClick={handleClearAll}
-            className="text-[13px] transition-colors hover:underline"
-            style={{ color: selectedCountry ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedCountry ? 400 : 500 }}>
-            {t("visa.navTitle")}
-          </button>
-          {selectedCountry && country && (
-            <>
-              <span className="text-[13px] text-[#9CA3AF]">›</span>
-              <button onClick={handleClearRoute}
-                className="text-[13px] transition-colors hover:underline"
-                style={{ color: selectedRoute ? '#9CA3AF' : '#2D2D2D', fontWeight: selectedRoute ? 400 : 500 }}>
-                {country.name}
-              </button>
-            </>
-          )}
-          {selectedRoute && country && (
-            <>
-              <span className="text-[13px] text-[#9CA3AF]">›</span>
-              <span className="text-[13px] text-[#2D2D2D] font-medium">
-                {country.routes.find(r => r.id === selectedRoute)?.title || selectedRoute}
-              </span>
-            </>
-          )}
         </div>
 
         {/* 3-col layout */}
