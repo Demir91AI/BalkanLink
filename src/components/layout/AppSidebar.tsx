@@ -128,9 +128,9 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           </button>
         </div>
 
-        {/* Auth section */}
-        <div className="px-3 pt-4 pb-3">
-          {user ? (
+        {/* User info (only when logged in) */}
+        {user && (
+          <div className="px-3 pt-4 pb-3">
             <div className="px-3">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-sm font-bold text-[hsl(var(--primary))] shadow-[0_10px_28px_hsl(var(--gold)/0.22)]">
@@ -156,44 +156,10 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               </button>
               <div className="mt-4 h-px bg-border/80" />
             </div>
-          ) : (
-            <button
-              onClick={handleAuthClick}
-              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
-            >
-              <LogIn className="h-[18px] w-[18px] shrink-0" />
-              <span className="text-[14px] font-medium">{t("sidebar.loginRegister")}</span>
-            </button>
-          )}
-        </div>
+          </div>
+        )}
 
-        {/* Paketi */}
-        <div className="px-3 pt-2 pb-1 border-b border-[#E8E0D0]">
-          <nav className="flex flex-col gap-0.5">
-            <button
-              onClick={() => handleNav("/paketi")}
-              className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left transition-all duration-200 ${
-                location.pathname === "/paketi"
-                  ? "bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]"
-                  : "text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D]"
-              }`}
-            >
-              <CreditCard className={`h-[18px] w-[18px] shrink-0 ${location.pathname === "/paketi" ? "text-[hsl(var(--gold))]" : ""}`} />
-              <span className="text-[14px] font-medium">{t("sidebar.packagesPricing")}</span>
-            </button>
-            {user && (
-              <button
-                onClick={handleSignOut}
-                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
-              >
-                <LogOut className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">{t("sidebar.logout")}</span>
-              </button>
-            )}
-          </nav>
-        </div>
-
-        <div className="px-3 pt-4">
+        <div className={`px-3 ${user ? "pt-0" : "pt-4"}`}>
           <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mainSectionLabel")}</p>
           <nav className="flex flex-col gap-0.5">
             {mainItems.map((item) => {
