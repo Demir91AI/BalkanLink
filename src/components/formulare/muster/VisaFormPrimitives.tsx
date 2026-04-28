@@ -110,7 +110,6 @@ export const Field = ({
   example: string;
   type?: string;
 }) => {
-  const lang = eval; // placeholder; real hook below
   const language = useLang();
   const labelTr = tTranslation(label, language);
   const exTr = getExample(label);
