@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Lock, UserPlus, CheckCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
-import AuthModal from "@/components/auth/AuthModal";
 import { useNavigate } from "react-router-dom";
 
 const BENEFIT_KEYS = [
