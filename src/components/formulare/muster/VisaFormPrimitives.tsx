@@ -231,11 +231,25 @@ export const inputCls = "w-full rounded border px-2.5 py-1.5 text-sm";
 export const pageSep = "flex items-center gap-4 my-6";
 export const gold = "#C9A84C";
 
-export const GreySection = ({ children }: { children: React.ReactNode }) => (
-  <div className="rounded-lg p-4 mt-2" style={{ background: "#F8F7F2", border: "1px solid #E5E5E5" }}>
-    {children}
-  </div>
-);
+export const GreySection = ({ children, title }: { children: React.ReactNode; title?: string }) => {
+  const lang = useLang();
+  const tr = title ? tTranslation(title, lang) : null;
+  return (
+    <div className="rounded-lg p-4 mt-2" style={{ background: "#F8F7F2", border: "1px solid #E5E5E5" }}>
+      {title && (
+        <div className="mb-2 font-semibold text-[14px]">
+          {title}
+          {tr && (
+            <span className="block italic font-medium text-[12px] mt-0.5" style={{ color: "#C9A84C" }}>
+              {tr}
+            </span>
+          )}
+        </div>
+      )}
+      {children}
+    </div>
+  );
+};
 
 export const BlueNote = ({ children }: { children: React.ReactNode }) => (
   <div
