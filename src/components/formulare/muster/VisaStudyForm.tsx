@@ -1,46 +1,14 @@
-import { AlertCircle, Info } from "lucide-react";
-
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="font-bold text-[15px] border-b-2 mb-3 pb-1" style={{ borderColor: "#E0D0B0" }}>{children}</h3>
-);
-const GoldNote = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex items-start gap-2 rounded-lg p-3 mt-2 text-[12px] leading-relaxed" style={{ background: "#FFF8EC", border: "1px solid #E8D9B0", color: "#92400E" }}>
-    <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: "#C9A84C" }} /> <span>{children}</span>
-  </div>
-);
-const RedNote = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex items-start gap-2 rounded-lg p-3 mt-2 text-[12px] leading-relaxed" style={{ background: "#FEF2F2", border: "1px solid #FECACA", color: "#991B1B" }}>
-    <AlertCircle className="h-3.5 w-3.5 shrink-0 mt-0.5" /> <span>{children}</span>
-  </div>
-);
-const Label = ({ children }: { children: React.ReactNode }) => (
-  <label className="block text-[11px] uppercase text-[#6B6B6B] mb-1 font-medium">{children}</label>
-);
-const Example = ({ children }: { children: React.ReactNode }) => (
-  <span className="italic text-[13px]" style={{ color: "#C9A84C" }}>{children}</span>
-);
-const FieldRow = ({ children, cols = 2 }: { children: React.ReactNode; cols?: number }) => (
-  <div className="grid gap-4 mb-3" style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>{children}</div>
-);
-const Field = ({ label, example, type = "text" }: { label: string; example: string; type?: string }) => (
-  <div>
-    <Label>{label}</Label>
-    <input type={type} defaultValue={example} className="w-full rounded border px-2.5 py-1.5 text-sm" style={{ borderColor: "#C0C0C0" }} />
-    <Example>z.B. {example}</Example>
-  </div>
-);
-const CB = ({ checked = false, label }: { checked?: boolean; label: string }) => (
-  <label className="flex items-center gap-2 text-sm cursor-pointer">
-    <input type="checkbox" defaultChecked={checked} className="accent-[#C9A84C] h-4 w-4" /> {label}
-  </label>
-);
-const PageBreak = ({ n, total = 4 }: { n: number; total?: number }) => (
-  <div className="flex items-center gap-4 my-6">
-    <div className="flex-1 border-t" style={{ borderColor: "#E0D0B0" }} />
-    <span className="text-xs font-semibold text-muted-foreground">Seite {n} von {total}</span>
-    <div className="flex-1 border-t" style={{ borderColor: "#E0D0B0" }} />
-  </div>
-);
+import {
+  SectionTitle,
+  GoldNote,
+  RedNote,
+  Label,
+  Example,
+  FieldRow,
+  Field,
+  CB,
+  PageBreak,
+} from "./VisaFormPrimitives";
 
 export default function VisaStudyForm() {
   return (
