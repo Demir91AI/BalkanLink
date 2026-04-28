@@ -857,146 +857,146 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     name: 'Sjeverna Makedonija',
     flag: 'https://flagcdn.com/h24/mk.png',
     isEU: false,
-    embassyName: 'Германска амбасада Скопје',
+    embassyName: 'Njemačka ambasada Skoplje',
     embassyUrl: 'https://skopje.diplo.de',
-    embassyNote: 'Термини TAGESAKTUELL — проверувај секое утро на skopje.diplo.de. Амбасадата го нарекува §19c AufenthG + §26 Abs. 2 BeschV.',
+    embassyNote: 'Termini TAGESAKTUELL — provjeravaj svako jutro na skopje.diplo.de. Ambasada koristi §19c AufenthG + §26 Abs. 2 BeschV.',
     schengenFree: true,
-    schengenNote: 'Македонски државјани со биометриски пасош може без виза во Шенген до 90 дена. За работа обавезна виза!',
+    schengenNote: 'Makedonski državljani s biometrijskim pasošem mogu bez vize u Schengen do 90 dana. Za rad je obavezna viza!',
     routes: [
       {
         id: 'work',
-        title: 'Работна виза §18/§19c AufenthG',
+        title: 'Radna viza §18/§19c AufenthG',
         legalBasis: '§ 19c AufenthG + § 26 Abs. 2 BeschV (Westbalkan)',
-        subtitle: 'Дозвола за престој за вработување. Македонија е дел на Westbalkan-Regelung. Амбасадата во Скопје го нарекува §19c AufenthG.',
-        westbalkanNote: 'WESTBALKAN-REGELUNG: Македонски државјани можат да работат во Германија без проверка на приоритет и БЕЗ признаена квалификација. 50.000 визи годишно. ВАЖНО: Амбасадата Скопје го наведува §19c AufenthG + §26 Abs. 2 BeschV — тоа е исто, само поинакво именување. Термини: TAGESAKTUELL.',
+        subtitle: 'Boravišna dozvola za zaposlenje. Makedonija je dio Westbalkan-Regelung. Ambasada u Skoplju koristi §19c AufenthG.',
+        westbalkanNote: 'WESTBALKAN-REGELUNG: Makedonski državljani mogu raditi u Njemačkoj bez provjere prioriteta i BEZ priznate kvalifikacije. 50.000 viza godišnje. VAŽNO: Ambasada Skoplje navodi §19c AufenthG + §26 Abs. 2 BeschV — to je isto, samo drugačije imenovano. Termini: TAGESAKTUELL.',
         steps: [
-          'Најди работа кај германски работодавач.',
-          'Vorabzustimmung — Работодавачот ја бара Vorabzustimmung од Bundesagentur für Arbeit.',
-          'Термин кај амбасадата Скопје — skopje.diplo.de, TAGESAKTUELL.',
-          'Документација — EzB (пополнува работодавачот), Vorabzustimmung, пасош, 2 дигитални биометриски фотографии.',
-          'Аплицирај лично. Влез со Д-виза. Anmeldung. Ausländerbehörde §18/§19c.'
+          'Pronađi posao kod njemačkog poslodavca.',
+          'Vorabzustimmung — Poslodavac traži Vorabzustimmung od Bundesagentur für Arbeit.',
+          'Termin u ambasadi Skoplje — skopje.diplo.de, TAGESAKTUELL.',
+          'Dokumentacija — EzB (popunjava poslodavac), Vorabzustimmung, pasoš, 2 digitalne biometrijske fotografije.',
+          'Apliciraj lično. Ulazak s D-vizom. Anmeldung. Ausländerbehörde §18/§19c.'
         ],
-        documents: ['Пасош (мин. 18 мес.)', '2 дигитални биометриски фотографии', 'EzB — потпишува РАБОТОДАВАЧОТ', 'Vorabzustimmung BA', 'Договор за работа', 'Здравствено осигурување'],
-        costs: ['Д-Виза: 75 €', 'Aufenthaltserlaubnis: 100–110 €'],
-        errors: ['EzB непотполна или без потпис', 'Недигитални фотографии!'],
+        documents: ['Pasoš (min. 18 mj.)', '2 digitalne biometrijske fotografije', 'EzB — potpisuje POSLODAVAC', 'Vorabzustimmung BA', 'Ugovor o radu', 'Zdravstveno osiguranje'],
+        costs: ['D-Viza: 75 €', 'Aufenthaltserlaubnis: 100–110 €'],
+        errors: ['EzB nepotpuna ili bez potpisa', 'Nedigitalne fotografije!'],
         sources: [
-          { label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' },
+          { label: 'Ambasada Skoplje', url: 'https://skopje.diplo.de' },
           { label: 'Westbalkan-Regelung', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' }
         ],
         musterformulare: [
-          { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18/§19c', subtitle: 'Пример за Македонија', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: EzB', subtitle: 'Формулар на работодавачот', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
+          { title: 'Musterformular 1: Antrag Aufenthaltserlaubnis §18/§19c', subtitle: 'Primjer za Makedoniju', formKey: 'VisaWorkForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Musterformular 2: EzB', subtitle: 'Formular poslodavca', formKey: 'VisaWorkForm2', downloadUrl: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' }
         ]
       },
       {
         id: 'family',
-        title: 'Спојување на семејство §§27-36 AufenthG',
+        title: 'Spajanje porodice §§27-36 AufenthG',
         legalBasis: '§ 30 + § 32 AufenthG',
-        subtitle: 'Сопружници и деца можат да дојдат кај лице кое живее во Германија.',
+        subtitle: 'Supružnici i djeca mogu doći k osobi koja živi u Njemačkoj.',
         steps: [
-          'A1 германски — Гете-Институт или ÖSD во Македонија ПРЕД доаѓање.',
-          'Апостил на македонски документи — ЗАДОЛЖИТЕЛЕН.',
-          'Овластен превод на германски.',
-          'Термин амбасада Скопје. Аплицирај. Влез. Anmeldung. Ausländerbehörde §30/§32.'
+          'A1 njemački — Goethe-Institut ili ÖSD u Makedoniji PRIJE dolaska.',
+          'Apostille na makedonskim dokumentima — OBAVEZAN.',
+          'Ovjereni prijevod na njemački.',
+          'Termin u ambasadi Skoplje. Apliciraj. Ulazak. Anmeldung. Ausländerbehörde §30/§32.'
         ],
-        documents: ['Пасош', '2 дигитални биометриски фотографии', 'Венчаница со Апостил + превод', 'Гете А1 или ÖSD А1', 'Платни листови (3 мес.) на лицето во Германија', 'Договор за кирија'],
-        costs: ['Д-Виза: 75 €', 'А1 курс + испит: 150–400 €'],
-        errors: ['Без А1 виза одбиена!', 'Апостил задолжителен за МК документи!'],
-        sources: [{ label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' }],
+        documents: ['Pasoš', '2 digitalne biometrijske fotografije', 'Vjenčani list s Apostille + prijevod', 'Goethe A1 ili ÖSD A1', 'Platne liste (3 mj.) osobe u Njemačkoj', 'Ugovor o najmu'],
+        costs: ['D-Viza: 75 €', 'A1 kurs + ispit: 150–400 €'],
+        errors: ['Bez A1 viza odbijena!', 'Apostille obavezan za MK dokumente!'],
+        sources: [{ label: 'Ambasada Skoplje', url: 'https://skopje.diplo.de' }],
         musterformulare: [
-          { title: 'Musterformular: Antrag Aufenthaltserlaubnis (Спојување)', subtitle: '§§27-36 пример за Македонија', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de' }
+          { title: 'Musterformular: Antrag Aufenthaltserlaubnis (Spajanje)', subtitle: '§§27-36 primjer za Makedoniju', formKey: 'VisaFamilyForm', downloadUrl: 'https://www.bamf.de' }
         ]
       },
       {
         id: 'permanent',
-        title: 'Постојан престој §9 + Daueraufenthalt-EU §9a',
+        title: 'Stalni boravak §9 + Daueraufenthalt-EU §9a',
         legalBasis: '§ 9 + § 9a AufenthG',
-        subtitle: 'Неограничено право на престој. Аплицирај за ДВЕТЕ истовремено!',
-        steps: ['5 год. законит престој', 'B1 германски', '60 мес. пензиски (drv.de)', 'Термин Ausländerbehörde', 'ДВАТА барања заедно'],
-        documents: ['Пасош', 'AUFENTHG-009 + AUFENTHG-014', 'Rentenversicherungsverlauf', 'B1 сертификат'],
-        costs: ['113 € (двете заедно)'],
-        errors: ['< 60 мес. пензиски!', 'Нема B1!'],
+        subtitle: 'Neograničeno pravo boravka. Apliciraj za OBA istovremeno!',
+        steps: ['5 god. zakonit boravak', 'B1 njemački', '60 mj. penzijskog (drv.de)', 'Termin Ausländerbehörde', 'OBA zahtjeva zajedno'],
+        documents: ['Pasoš', 'AUFENTHG-009 + AUFENTHG-014', 'Rentenversicherungsverlauf', 'B1 certifikat'],
+        costs: ['113 € (oba zajedno)'],
+        errors: ['< 60 mj. penzijskog!', 'Nema B1!'],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
         musterformulare: [
-          { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 пример МК', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 пример МК', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
+          { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 primjer MK', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Musterformular 2: Daueraufenthalt-EU', subtitle: 'AUFENTHG-014 primjer MK', formKey: 'VisaPermanentForm2', downloadUrl: 'https://www.bamf.de' }
         ]
       }
 ,
       {
         id: 'ausbildung',
-        title: 'Ausbildung виза §16a AufenthG',
+        title: 'Ausbildung viza §16a AufenthG',
         legalBasis: '§ 16a AufenthG',
-        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Дозвола за престој за стручно оспособување (Ausbildung) во Германија.',
+        subtitle: 'Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj.',
         ausbildungHighlight: [
-          '✅ Можеш да аплицираш директно од Македонија',
-          '✅ Не е потребна нострификација на школски дипломи',
-          '✅ Фирмата мора да го пријави Ausbildungsvertrag кај Kammer (IHK/HWK)',
-          '✅ Bundesagentur für Arbeit дава согласност (автоматски)',
-          '✅ По завршување: можност за останување 18 месеци за барање работа (§20 AufenthG)',
-          '⚠️ Важно: Ausbildung ≠ Студии — не мешај со §16b AufenthG (Studium)'
+          '✅ Možeš aplicirati direktno iz Makedonije',
+          '✅ Nije potrebna nostrifikacija školskih diploma',
+          '✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)',
+          '✅ Bundesagentur für Arbeit daje saglasnost (automatski)',
+          '✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)',
+          '⚠️ Važno: Ausbildung ≠ Studij — ne miješaj sa §16b AufenthG (Studium)'
         ],
         countryNotes: [
-          '💰 Такса: 75€',
-          '📅 Термин: skopje.diplo.de',
-          '📄 Документи: Апостил + овластен превод на германски — Апостил при надлежни судови / Министерство за правда',
-          '🗣️ Јазички сертификат: ALTE-сертифицирани провајдери'
+          '💰 Taksa: 75€',
+          '📅 Termin: skopje.diplo.de',
+          '📄 Dokumenti: Apostille + ovjereni prijevod na njemački — Apostille kod nadležnih sudova / Ministarstva pravde',
+          '🗣️ Jezički certifikat: ALTE-certificirani provajderi'
         ],
-        countryBadge: '75€ — Апостил МК',
+        countryBadge: '75€ — Apostille MK',
         steps: [
-          'Најди Ausbildung место — Потпишан Ausbildungsvertrag ПРЕД аплицирање. Користи: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
-          'Провери јазички услови — Минимално B1 GER. Препорачано B2 за технички професии. Сертификати: Goethe, telc, ÖSD, TestDaF',
-          'Подготви документација — Апостил при суд/Министерство за правда + овластен превод.',
-          'Закажи термин кај амбасадата Скопје — skopje.diplo.de. Рокови: 4–12 недели.',
-          'Поднеси барање за Д-виза — Лично. Такса: 75 €.',
-          'Чекање и одлука — 4–12 недели. Д-виза важи 3–6 месеци.',
-          'Доаѓање во Германија — Anmeldung во рок 14 дена.',
-          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 година, се обновува. Такса: 100–110 €.'
+          'Pronađi Ausbildung mjesto — Potpisan Ausbildungsvertrag PRIJE apliciranja. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com',
+          'Provjeri jezičke uslove — Minimalno B1 GER. Preporučeno B2 za tehničke profesije. Certifikati: Goethe, telc, ÖSD, TestDaF',
+          'Pripremi dokumentaciju — Apostille kod suda/Ministarstva pravde + ovjereni prijevod.',
+          'Zakaži termin u ambasadi Skoplje — skopje.diplo.de. Rokovi: 4–12 sedmica.',
+          'Podnesi zahtjev za D-vizu — Lično. Taksa: 75 €.',
+          'Čekanje i odluka — 4–12 sedmica. D-viza važi 3–6 mjeseci.',
+          'Dolazak u Njemačku — Anmeldung u roku 14 dana.',
+          'Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 godina, obnavlja se. Taksa: 100–110 €.'
         ],
         documents: [
-          'Важечки пасош (мин. 12–18 мес. важност)',
-          'Потпишан Ausbildungsvertrag (оригинал + копија)',
-          'Потврда IHK/HWK регистрација',
-          'Lebenslauf / CV (на германски)',
-          'Диплома / свидетелство (Апостил + овластен превод)',
-          'Доказ за германски јазик (мин. B1 — ALTE провајдери)',
-          'Доказ за сместување во Германија',
-          'Здравствено осигурување',
-          'Финансиски доказ: плата ИЛИ Sperrkonto ИЛИ Verpflichtungserklärung',
-          'Виза формулари (пополнети, потпишани)',
-          'Биометриска фотографија (45x35mm)',
-          'Такса: 75 €'
+          'Važeći pasoš (min. 12–18 mj. važnosti)',
+          'Potpisan Ausbildungsvertrag (original + kopija)',
+          'Potvrda IHK/HWK registracije',
+          'Lebenslauf / CV (na njemačkom)',
+          'Diploma / svjedočanstvo (Apostille + ovjereni prijevod)',
+          'Dokaz o znanju njemačkog (min. B1 — ALTE provajderi)',
+          'Dokaz o smještaju u Njemačkoj',
+          'Zdravstveno osiguranje',
+          'Finansijski dokaz: plata ILI Sperrkonto ILI Verpflichtungserklärung',
+          'Viza formulari (popunjeni, potpisani)',
+          'Biometrijska fotografija (45x35mm)',
+          'Taksa: 75 €'
         ],
         costs: [
-          'Д-Виза такса: 75 €',
+          'D-Viza taksa: 75 €',
           'Aufenthaltstitel: 100–110 €',
-          'Обработка амбасада: 4–12 недели',
-          'Обработка Ausländerbehörde: 4–8 недели',
-          'Sperrkonto (ако треба): мин. 1.091 €/мес. (2026)',
-          'Д-виза важност: 3–6 месеци',
-          'Aufenthaltserlaubnis: 1 год. (се обновува)',
-          'Jobsuche: 18 месеци (§20 AufenthG)'
+          'Obrada ambasada: 4–12 sedmica',
+          'Obrada Ausländerbehörde: 4–8 sedmica',
+          'Sperrkonto (ako treba): min. 1.091 €/mj. (2026)',
+          'D-viza važnost: 3–6 mjeseci',
+          'Aufenthaltserlaubnis: 1 god. (obnavlja se)',
+          'Jobsuche: 18 mjeseci (§20 AufenthG)'
         ],
         errors: [
-          'Нема Ausbildungsvertrag → автоматско одбивање',
-          'Јазик под B1 → одбивање',
-          'Непотполни или непреведени документи',
-          'Погрешен тип виза (§16b наместо §16a)',
-          'Доцна аплицирање',
-          'Нема доказ за сместување',
-          'Доцно Anmeldung (рок 14 дена)',
-          'Почеток на Ausbildung без Aufenthaltstitel'
+          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          'Jezik ispod B1 → odbijanje',
+          'Nepotpuni ili neprevedeni dokumenti',
+          'Pogrešan tip vize (§16b umjesto §16a)',
+          'Kasno apliciranje',
+          'Nema dokaza o smještaju',
+          'Kasno Anmeldung (rok 14 dana)',
+          'Početak Ausbildunga bez Aufenthaltstitel'
         ],
         sources: [
-          { label: 'Амбасада Скопје', url: 'https://skopje.diplo.de' },
+          { label: 'Ambasada Skoplje', url: 'https://skopje.diplo.de' },
           { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
         musterformulare: [
-          { title: 'VIDEX — Виза формулар (Ausbildung)', subtitle: 'Универзален формулар — пополнува се онлајн', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
-          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Демо/преглед — поднесува се во Германија', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
-          { title: 'Lebenslauf (CV) — Template', subtitle: 'Предлошка за животопис за Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
+          { title: 'VIDEX — Viza formular (Ausbildung)', subtitle: 'Univerzalni formular — popunjava se online', formKey: 'VisaAusbildungVidex', downloadUrl: 'https://digital.diplo.de' },
+          { title: 'Antrag auf Aufenthaltstitel §16a', subtitle: 'Demo/preview — podnosi se u Njemačkoj', formKey: 'VisaAusbildungAufenthalt', downloadUrl: 'https://www.bamf.de' },
+          { title: 'Lebenslauf (CV) — Template', subtitle: 'Predložak biografije za Ausbildung', formKey: 'VisaAusbildungCV', downloadUrl: 'https://www.make-it-in-germany.com' }
         ]
       }
     ]
