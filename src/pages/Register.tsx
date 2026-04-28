@@ -67,7 +67,10 @@ export default function Register() {
       password,
       options: {
         emailRedirectTo: window.location.origin,
-        data: { first_name: firstName.trim() },
+        data: {
+          first_name: firstName.trim(),
+          ...(trialCode ? { pending_trial_code: trialCode } : {}),
+        },
       },
     });
 
