@@ -93,15 +93,28 @@ export const IdBoxes = ({ count, value, onChange }: { count: number; value: stri
 
 export const SecHeader = ({ num, title }: { num: number; title: string }) => {
   const lang = useFormLang();
-  return <div style={S.secHead}><span style={S.secNum}>{num}</span>{tLabel(title, lang)}</div>;
+  const translation = tTranslation(title, lang);
+  return (
+    <div style={S.secHead}>
+      <span style={S.secNum}>{num}</span>
+      <div style={S.secTitleWrap}>
+        <span>{title}</span>
+        {translation ? <span style={S.secSub}>({translation})</span> : null}
+      </div>
+    </div>
+  );
 };
 
 export const Signature = ({ label }: { label: string }) => {
   const lang = useFormLang();
+  const translation = tTranslation(label, lang);
   return (
     <div style={{ flex: 1 }}>
       <div style={S.sigLine} />
-      <div style={{ fontSize: 9, color: "#6b7280", textAlign: "center" }}>{tLabel(label, lang)}</div>
+      <div style={{ fontSize: 10, color: "#6b7280", textAlign: "center", lineHeight: 1.3 }}>
+        <div>{label}</div>
+        {translation ? <div style={{ color: "#C9A84C", fontStyle: "italic" }}>({translation})</div> : null}
+      </div>
     </div>
   );
 };
