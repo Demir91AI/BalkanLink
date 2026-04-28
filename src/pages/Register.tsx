@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Check, X, Crown } from "lucide-react";
+import { Check, X, Crown, Eye, EyeOff } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 
 const TRIAL_STORAGE_KEY = "pending_trial_code";
@@ -20,6 +20,8 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [trialCode, setTrialCode] = useState<string | null>(null);
   const [searchParams] = useSearchParams();
@@ -153,7 +155,12 @@ export default function Register() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">{t("auth.register.labelPassword")}</Label>
-              <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.register.passwordHint")} />
+              <div className="relative">
+                <Input id="password" type={showPassword ? "text" : "password"} required value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.register.passwordHint")} className="pr-10" />
+                <button type="button" onClick={() => setShowPassword(v => !v)} aria-label={showPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-primary transition-colors">
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
               {password.length > 0 && (
                 <div className="mt-2 space-y-1 rounded-lg border bg-muted/30 p-3">
                   <p className="text-[11px] font-semibold text-muted-foreground mb-1">{t("auth.register.rulesTitle")}</p>
@@ -174,7 +181,12 @@ export default function Register() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">{t("auth.register.labelConfirmPassword")}</Label>
-              <Input id="confirmPassword" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" />
+              <div className="relative">
+                <Input id="confirmPassword" type={showConfirmPassword ? "text" : "password"} required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="••••••••" className="pr-10" />
+                <button type="button" onClick={() => setShowConfirmPassword(v => !v)} aria-label={showConfirmPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-primary transition-colors">
+                  {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
               {confirmPassword.length > 0 && !passwordsMatch && (
                 <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
                   <X className="h-3 w-3" /> {t("auth.register.passwordMismatch")}
