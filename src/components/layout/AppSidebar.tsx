@@ -25,7 +25,10 @@ function getInitials(name: string) {
 
 export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
   const [isOpen, setIsOpen] = useState(false);
-  
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const { isPremium } = usePremiumAccess();
+  const recentPages = useRecentPages();
   const debounceRef = useRef(0);
   const navigate = useLocalizedNavigate();
   const location = useLocation();
