@@ -1,6 +1,6 @@
-import { ExternalLink, Calculator, AlertTriangle, Euro, ChevronLeft } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { navigateBackOrHome } from "@/lib/navigation";
+import { ExternalLink, Calculator, AlertTriangle, Euro } from "lucide-react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { label } from "@/lib/de-labels";
 
 /* ───────── OFFICIAL CALCULATORS ───────── */
@@ -13,16 +13,12 @@ const officialTools = [
 ];
 
 export default function Generatoren() {
-  const navigate = useNavigate();
-
   return (
     <>
       {/* Hero */}
       <section className="border-b bg-primary py-12">
         <div className="container">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <Breadcrumbs variant="dark" />
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{"Alati i kalkulatori"}</h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{"Korisni alati za svakodnevnicu"}</p>

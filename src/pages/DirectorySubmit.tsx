@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { navigateBackOrHome } from "@/lib/navigation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,8 +12,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { ORIGIN_COUNTRIES, DIRECTORY_CATEGORIES, GERMAN_CITIES } from "@/lib/directory-constants";
-import { ChevronLeft, Send } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Send } from "lucide-react";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Minimalno 2 karaktera").max(100),
@@ -80,9 +79,7 @@ export default function DirectorySubmit() {
 
   return (
     <div className="container max-w-2xl py-8">
-      <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-        <ChevronLeft className="h-4 w-4" /> Nazad
-      </button>
+      <Breadcrumbs />
 
       <h1 className="mb-2 text-2xl font-bold">{"Dodaj firmu"}</h1>
       <p className="mb-8 text-muted-foreground">{"Dodaj svoju firmu u imenik"}</p>

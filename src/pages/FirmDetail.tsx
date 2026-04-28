@@ -1,29 +1,26 @@
-import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Phone, MapPin, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { useParams } from "react-router-dom";
+import { Phone, MapPin, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+
 export default function FirmDetail() {
   const { slug } = useParams<{ slug: string }>();
   const firm = premiumShowcaseFirms.find((f) => f.slug === slug);
   const [selectedImage, setSelectedImage] = useState(0);
   if (!firm) {
     return (
-      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">Firma nije pronađena</h1>
-        <Button asChild variant="outline">
-          <Link to="/"><ArrowLeft className="mr-2 h-4 w-4" /> Nazad</Link>
-        </Button>
+      <div className="mx-auto max-w-4xl px-4 py-8">
+        <Breadcrumbs />
+        <h1 className="mt-6 text-center text-2xl font-bold text-foreground">Firma nije pronađena</h1>
       </div>
     );
   }
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
-      {/* Back */}
-      <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-        <ChevronLeft className="h-4 w-4" /> Nazad
-      </Link>
+      <Breadcrumbs currentLabel={firm.name} />
 
       {/* Hero image */}
       <div className="relative mt-4 overflow-hidden rounded-2xl">

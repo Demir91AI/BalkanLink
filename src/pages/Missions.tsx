@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info, ChevronLeft } from "lucide-react";
+import { MapPin, Building, Landmark, Filter, Phone, Mail, Globe, Info } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useMissions } from "@/hooks/useMissions";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { ORIGIN_COUNTRIES } from "@/lib/directory-constants";
 import { navigateBackOrHome } from "@/lib/navigation";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 const MISSION_TYPES = ["Embassy", "Consulate General"] as const;
 
@@ -18,9 +19,9 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
 
   if (isLoading) return <div className="container py-8"><div className="h-48 animate-pulse rounded-xl border bg-muted" /></div>;
   if (!mission) return (
-    <div className="container py-8 text-center">
-      <p className="text-muted-foreground">{t("noResults", { defaultValue: "Nema rezultata" })}</p>
-      <button onClick={onBack} className="back-button"><ChevronLeft className="h-4 w-4" />{t("nav.back", { defaultValue: "Nazad" })}</button>
+    <div className="container py-8">
+      <Breadcrumbs onBack={onBack} hideTrail />
+      <p className="mt-4 text-center text-muted-foreground">{t("noResults", { defaultValue: "Nema rezultata" })}</p>
     </div>
   );
 
@@ -31,10 +32,7 @@ function MissionDetail({ id, onBack }: { id: string; onBack: () => void }) {
 
   return (
     <div className="container py-8">
-      <button onClick={onBack} className="back-button">
-        <ChevronLeft className="h-4 w-4" />
-        Nazad
-      </button>
+      <Breadcrumbs onBack={onBack} currentLabel={mission.country_name} />
 
       <div className="mx-auto max-w-lg rounded-xl border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
@@ -117,9 +115,7 @@ export default function Missions() {
   return (
     <div className="container py-8">
       <div className="mb-8">
-        <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-          <ChevronLeft className="h-4 w-4" /> Nazad
-        </button>
+        <Breadcrumbs />
         <h1 className="text-2xl font-bold md:text-3xl">{"Ambasade i konzulati"}</h1>
         <p className="mt-1 text-muted-foreground">{"Pronađi diplomatska predstavništva"}</p>
       </div>

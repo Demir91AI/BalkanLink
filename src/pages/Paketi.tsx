@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { Check, X, Crown, ChevronLeft } from "lucide-react";
-import { navigateBackOrHome } from "@/lib/navigation";
+import { Check, X, Crown } from "lucide-react";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { motion } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
@@ -40,13 +40,7 @@ export default function Paketi() {
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-4xl px-4 py-10">
-        <button
-          onClick={() => navigateBackOrHome(navigate)}
-          className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <ChevronLeft className="h-4 w-4" />
-          Nazad
-        </button>
+        <Breadcrumbs />
 
         <motion.div
           className="text-center mb-10"
