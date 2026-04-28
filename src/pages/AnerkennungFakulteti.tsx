@@ -339,8 +339,6 @@ export default function AnerkennungFakulteti() {
   const { isPremium } = usePremiumAccess();
   const [openCase, setOpenCase] = useState<string | null>("ekonomski");
 
-  const handleBack = () => navigateBackOrHome(navigate);
-
   return (
     <div className="mx-auto max-w-5xl px-4 py-6 min-h-screen">
       <SEO
@@ -348,7 +346,7 @@ export default function AnerkennungFakulteti() {
         description="Detaljan vodič kako priznati Bachelor/Master/Magistar diplomu sa Balkana u Njemačkoj. Anabin, ZAB Zeugnisbewertung, primjeri sa Sarajevskog, Zagrebačkog i Beogradskog univerziteta."
         path="/anerkennung-fakulteti"
       />
-      <PageNavBar onBack={handleBack} />
+      <Breadcrumbs />
 
       {/* HEADER */}
       <header className="mb-6">
