@@ -13,6 +13,8 @@ import PageNav from "@/components/navigation/PageNav";
 export default function ResetPassword() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ready, setReady] = useState(false);
   const navigate = useNavigate();
