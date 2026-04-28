@@ -77,6 +77,9 @@ export function getDirectAudioUrl(sentence: TTSSentence): string | null {
     stability: String(TTS_CONFIG.stability),
     similarityBoost: String(TTS_CONFIG.similarityBoost),
     format: "audio",
+    // apikey in query — <audio>.src cannot send headers, but Supabase
+    // edge functions require either the JWT header or this query param.
+    apikey: SUPABASE_KEY,
   });
 
   return `${SUPABASE_URL}/functions/v1/${TTS_CONFIG.edgeFunctionName}?${params.toString()}`;
