@@ -1,0 +1,2010 @@
+[
+  {
+    "path": "0.name",
+    "text": "Hrvatska"
+  },
+  {
+    "path": "0.embassyName",
+    "text": "Njemačka ambasada Zagreb"
+  },
+  {
+    "path": "0.embassyNote",
+    "text": "Kao građanin EU ne trebaš vizu za Njemačku."
+  },
+  {
+    "path": "0.routes.0.id",
+    "text": "eu_info"
+  },
+  {
+    "path": "0.routes.0.title",
+    "text": "EU sloboda kretanja — FreizügG/EU"
+  },
+  {
+    "path": "0.routes.0.legalBasis",
+    "text": "FreizügG/EU + § 4a FreizügG/EU"
+  },
+  {
+    "path": "0.routes.0.subtitle",
+    "text": "Kao hrvatski državljanin imaš pravo na slobodno kretanje u cijeloj EU. Bez vize, bez posebnih dozvola."
+  },
+  {
+    "path": "0.routes.0.steps.0",
+    "text": "Ulazak u Njemačku — bez vize, bez posebnih dozvola. Samo važeća lična karta ili pasoš."
+  },
+  {
+    "path": "0.routes.0.steps.1",
+    "text": "Anmeldung (prijava boravišta) — u roku od 14 dana od useljenja u lokalnom Einwohnermeldeamt. Potrebno: Wohnungsgeberbestätigung od stanodavca."
+  },
+  {
+    "path": "0.routes.0.steps.2",
+    "text": "Zdravstveno osiguranje — zakonsko (GKV: TK, AOK, DAK) ili privatno. Obavezno za sve."
+  },
+  {
+    "path": "0.routes.0.steps.3",
+    "text": "Bankovni račun — otvori tekući račun (DKB, N26, Commerzbank, Sparkasse)."
+  },
+  {
+    "path": "0.routes.0.steps.4",
+    "text": "Steuer-ID — automatski se dodjeljuje nakon Anmeldunga, stiže poštom za 2–4 sedmice."
+  },
+  {
+    "path": "0.routes.0.steps.5",
+    "text": "Zaposlenje — ne treba ti radna dozvola. Direktna prijava kod poslodavca ili registracija na Jobcenter-u."
+  },
+  {
+    "path": "0.routes.0.steps.6",
+    "text": "Stalni boravak — nakon 5 godina neprekidnog boravka aplicirati za Niederlassungserlaubnis (§ 4a FreizügG/EU) u lokalnoj Ausländerbehörde."
+  },
+  {
+    "path": "0.routes.0.documents.0",
+    "text": "Važeća lična karta ili pasoš"
+  },
+  {
+    "path": "0.routes.0.documents.1",
+    "text": "Za Anmeldung: Wohnungsgeberbestätigung od stanodavca (obavezno!)"
+  },
+  {
+    "path": "0.routes.0.documents.2",
+    "text": "Za zaposlenje: biografija (CV), diplome, certifikati"
+  },
+  {
+    "path": "0.routes.0.documents.3",
+    "text": "Za Niederlassungserlaubnis (nakon 5 god.): dokaz neprekidnog boravka, njemački B1, penzijsko osiguranje"
+  },
+  {
+    "path": "0.routes.0.costs.0",
+    "text": "Ulazak: besplatno"
+  },
+  {
+    "path": "0.routes.0.costs.1",
+    "text": "Anmeldung: besplatno"
+  },
+  {
+    "path": "0.routes.0.costs.2",
+    "text": "Zdravstveno osiguranje: od 110 €/mj. (GKV studenti) do 200+ €/mj."
+  },
+  {
+    "path": "0.routes.0.costs.3",
+    "text": "Niederlassungserlaubnis (nakon 5 god.): 113 €"
+  },
+  {
+    "path": "0.routes.0.errors.0",
+    "text": "Ne prijaviti boravište (Anmeldung) u roku od 14 dana — kazna do 1.000 €!"
+  },
+  {
+    "path": "0.routes.0.errors.1",
+    "text": "Zaboraviti zdravstveno osiguranje — obavezno za sve, bez izuzetka"
+  },
+  {
+    "path": "0.routes.0.errors.2",
+    "text": "Misliti da ti kao građaninu EU ne treba ništa — Anmeldung je OBAVEZNA!"
+  },
+  {
+    "path": "0.routes.0.sources.0.label",
+    "text": "Your Europe — EU Freizügigkeit"
+  },
+  {
+    "path": "0.routes.0.sources.1.label",
+    "text": "Make it in Germany — EU Bürger"
+  },
+  {
+    "path": "0.routes.0.sources.2.label",
+    "text": "BAMF — EU Freizügigkeit"
+  },
+  {
+    "path": "1.name",
+    "text": "Slovenija"
+  },
+  {
+    "path": "1.embassyName",
+    "text": "Njemačka ambasada Ljubljana"
+  },
+  {
+    "path": "1.embassyNote",
+    "text": "Kao građanin EU ne trebaš vizu za Njemačku."
+  },
+  {
+    "path": "1.routes.0.id",
+    "text": "eu_info"
+  },
+  {
+    "path": "1.routes.0.title",
+    "text": "EU sloboda kretanja — FreizügG/EU"
+  },
+  {
+    "path": "1.routes.0.legalBasis",
+    "text": "FreizügG/EU + § 4a FreizügG/EU"
+  },
+  {
+    "path": "1.routes.0.subtitle",
+    "text": "Kao slovenski državljanin imaš pravo na slobodno kretanje u cijeloj EU. Bez vize, bez posebnih dozvola."
+  },
+  {
+    "path": "1.routes.0.steps.0",
+    "text": "Ulazak u Njemačku — bez vize, samo važeća lična karta ili pasoš."
+  },
+  {
+    "path": "1.routes.0.steps.1",
+    "text": "Anmeldung — u roku od 14 dana od useljenja u lokalnom Einwohnermeldeamt. Potrebno: Wohnungsgeberbestätigung od stanodavca."
+  },
+  {
+    "path": "1.routes.0.steps.2",
+    "text": "Zdravstveno osiguranje — zakonsko (GKV) ili privatno. Obavezno za sve."
+  },
+  {
+    "path": "1.routes.0.steps.3",
+    "text": "Bankovni račun — otvori tekući račun (DKB, N26, Commerzbank)."
+  },
+  {
+    "path": "1.routes.0.steps.4",
+    "text": "Steuer-ID — automatski se dodjeljuje nakon Anmeldunga, stiže poštom za 2–4 sedmice."
+  },
+  {
+    "path": "1.routes.0.steps.5",
+    "text": "Zaposlenje — ne treba ti radna dozvola."
+  },
+  {
+    "path": "1.routes.0.steps.6",
+    "text": "Stalni boravak — nakon 5 godina neprekidnog boravka (§ 4a FreizügG/EU)."
+  },
+  {
+    "path": "1.routes.0.documents.0",
+    "text": "Važeća lična karta ili pasoš"
+  },
+  {
+    "path": "1.routes.0.documents.1",
+    "text": "Za Anmeldung: Wohnungsgeberbestätigung"
+  },
+  {
+    "path": "1.routes.0.documents.2",
+    "text": "Za zaposlenje: biografija (CV), diplome, certifikati"
+  },
+  {
+    "path": "1.routes.0.costs.0",
+    "text": "Ulazak: besplatno"
+  },
+  {
+    "path": "1.routes.0.costs.1",
+    "text": "Anmeldung: besplatno"
+  },
+  {
+    "path": "1.routes.0.costs.2",
+    "text": "Stalni boravak (nakon 5 godina): 113 €"
+  },
+  {
+    "path": "1.routes.0.errors.0",
+    "text": "Zaboraviti Anmeldung u roku od 14 dana — kazna do 1.000 €!"
+  },
+  {
+    "path": "1.routes.0.errors.1",
+    "text": "Zaboraviti zdravstveno osiguranje — obavezno!"
+  },
+  {
+    "path": "1.routes.0.sources.0.label",
+    "text": "Your Europe — EU Freizügigkeit"
+  },
+  {
+    "path": "1.routes.0.sources.1.label",
+    "text": "Make it in Germany"
+  },
+  {
+    "path": "5.name",
+    "text": "Sjeverna Makedonija"
+  },
+  {
+    "path": "5.embassyName",
+    "text": "Njemačka ambasada Skoplje"
+  },
+  {
+    "path": "5.embassyNote",
+    "text": "Termini TAGESAKTUELL — provjeravaj svako jutro na skopje.diplo.de. Ambasada koristi §19c AufenthG + §26 Abs. 2 BeschV."
+  },
+  {
+    "path": "5.schengenNote",
+    "text": "Makedonski državljani s biometrijskim pasošem mogu bez vize u Schengen do 90 dana. Za rad je obavezna viza!"
+  },
+  {
+    "path": "5.routes.0.id",
+    "text": "work"
+  },
+  {
+    "path": "5.routes.0.title",
+    "text": "Radna viza §18/§19c AufenthG"
+  },
+  {
+    "path": "5.routes.0.legalBasis",
+    "text": "§ 19c AufenthG + § 26 Abs. 2 BeschV (Westbalkan)"
+  },
+  {
+    "path": "5.routes.0.subtitle",
+    "text": "Boravišna dozvola za zaposlenje. Makedonija je dio Westbalkan-Regelung. Ambasada u Skoplju koristi §19c AufenthG."
+  },
+  {
+    "path": "5.routes.0.westbalkanNote",
+    "text": "WESTBALKAN-REGELUNG: Makedonski državljani mogu raditi u Njemačkoj bez provjere prioriteta i BEZ priznate kvalifikacije. 50.000 viza godišnje. VAŽNO: Ambasada Skoplje navodi §19c AufenthG + §26 Abs. 2 BeschV — to je isto, samo drugačije imenovano. Termini: TAGESAKTUELL."
+  },
+  {
+    "path": "5.routes.0.steps.0",
+    "text": "Pronađi posao kod njemačkog poslodavca."
+  },
+  {
+    "path": "5.routes.0.steps.1",
+    "text": "Vorabzustimmung — Poslodavac traži Vorabzustimmung od Bundesagentur für Arbeit."
+  },
+  {
+    "path": "5.routes.0.steps.2",
+    "text": "Termin u ambasadi Skoplje — skopje.diplo.de, TAGESAKTUELL."
+  },
+  {
+    "path": "5.routes.0.steps.3",
+    "text": "Dokumentacija — EzB (popunjava poslodavac), Vorabzustimmung, pasoš, 2 digitalne biometrijske fotografije."
+  },
+  {
+    "path": "5.routes.0.steps.4",
+    "text": "Apliciraj lično. Ulazak s D-vizom. Anmeldung. Ausländerbehörde §18/§19c."
+  },
+  {
+    "path": "5.routes.0.documents.0",
+    "text": "Pasoš (min. 18 mj.)"
+  },
+  {
+    "path": "5.routes.0.documents.1",
+    "text": "2 digitalne biometrijske fotografije"
+  },
+  {
+    "path": "5.routes.0.documents.2",
+    "text": "EzB — potpisuje POSLODAVAC"
+  },
+  {
+    "path": "5.routes.0.documents.3",
+    "text": "Vorabzustimmung BA"
+  },
+  {
+    "path": "5.routes.0.documents.4",
+    "text": "Ugovor o radu"
+  },
+  {
+    "path": "5.routes.0.documents.5",
+    "text": "Zdravstveno osiguranje"
+  },
+  {
+    "path": "5.routes.0.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "5.routes.0.costs.1",
+    "text": "Aufenthaltserlaubnis: 100–110 €"
+  },
+  {
+    "path": "5.routes.0.errors.0",
+    "text": "EzB nepotpuna ili bez potpisa"
+  },
+  {
+    "path": "5.routes.0.errors.1",
+    "text": "Nedigitalne fotografije!"
+  },
+  {
+    "path": "5.routes.0.sources.0.label",
+    "text": "Ambasada Skoplje"
+  },
+  {
+    "path": "5.routes.0.sources.1.label",
+    "text": "Westbalkan-Regelung"
+  },
+  {
+    "path": "5.routes.0.musterformulare.0.title",
+    "text": "Musterformular 1: Antrag Aufenthaltserlaubnis §18/§19c"
+  },
+  {
+    "path": "5.routes.0.musterformulare.0.subtitle",
+    "text": "Primjer za Makedoniju"
+  },
+  {
+    "path": "5.routes.0.musterformulare.1.title",
+    "text": "Musterformular 2: EzB"
+  },
+  {
+    "path": "5.routes.0.musterformulare.1.subtitle",
+    "text": "Formular poslodavca"
+  },
+  {
+    "path": "5.routes.1.id",
+    "text": "family"
+  },
+  {
+    "path": "5.routes.1.title",
+    "text": "Spajanje porodice §§27-36 AufenthG"
+  },
+  {
+    "path": "5.routes.1.legalBasis",
+    "text": "§ 30 + § 32 AufenthG"
+  },
+  {
+    "path": "5.routes.1.subtitle",
+    "text": "Supružnici i djeca mogu doći k osobi koja živi u Njemačkoj."
+  },
+  {
+    "path": "5.routes.1.steps.0",
+    "text": "A1 njemački — Goethe-Institut ili ÖSD u Makedoniji PRIJE dolaska."
+  },
+  {
+    "path": "5.routes.1.steps.1",
+    "text": "Apostille na makedonskim dokumentima — OBAVEZAN."
+  },
+  {
+    "path": "5.routes.1.steps.2",
+    "text": "Ovjereni prijevod na njemački."
+  },
+  {
+    "path": "5.routes.1.steps.3",
+    "text": "Termin u ambasadi Skoplje. Apliciraj. Ulazak. Anmeldung. Ausländerbehörde §30/§32."
+  },
+  {
+    "path": "5.routes.1.documents.0",
+    "text": "Pasoš"
+  },
+  {
+    "path": "5.routes.1.documents.1",
+    "text": "2 digitalne biometrijske fotografije"
+  },
+  {
+    "path": "5.routes.1.documents.2",
+    "text": "Vjenčani list s Apostille + prijevod"
+  },
+  {
+    "path": "5.routes.1.documents.3",
+    "text": "Goethe A1 ili ÖSD A1"
+  },
+  {
+    "path": "5.routes.1.documents.4",
+    "text": "Platne liste (3 mj.) osobe u Njemačkoj"
+  },
+  {
+    "path": "5.routes.1.documents.5",
+    "text": "Ugovor o najmu"
+  },
+  {
+    "path": "5.routes.1.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "5.routes.1.costs.1",
+    "text": "A1 kurs + ispit: 150–400 €"
+  },
+  {
+    "path": "5.routes.1.errors.0",
+    "text": "Bez A1 viza odbijena!"
+  },
+  {
+    "path": "5.routes.1.errors.1",
+    "text": "Apostille obavezan za MK dokumente!"
+  },
+  {
+    "path": "5.routes.1.sources.0.label",
+    "text": "Ambasada Skoplje"
+  },
+  {
+    "path": "5.routes.1.musterformulare.0.title",
+    "text": "Musterformular: Antrag Aufenthaltserlaubnis (Spajanje)"
+  },
+  {
+    "path": "5.routes.1.musterformulare.0.subtitle",
+    "text": "§§27-36 primjer za Makedoniju"
+  },
+  {
+    "path": "5.routes.2.id",
+    "text": "permanent"
+  },
+  {
+    "path": "5.routes.2.title",
+    "text": "Stalni boravak §9 + Daueraufenthalt-EU §9a"
+  },
+  {
+    "path": "5.routes.2.legalBasis",
+    "text": "§ 9 + § 9a AufenthG"
+  },
+  {
+    "path": "5.routes.2.subtitle",
+    "text": "Neograničeno pravo boravka. Apliciraj za OBA istovremeno!"
+  },
+  {
+    "path": "5.routes.2.steps.0",
+    "text": "5 god. zakonit boravak"
+  },
+  {
+    "path": "5.routes.2.steps.1",
+    "text": "B1 njemački"
+  },
+  {
+    "path": "5.routes.2.steps.2",
+    "text": "60 mj. penzijskog (drv.de)"
+  },
+  {
+    "path": "5.routes.2.steps.3",
+    "text": "Termin Ausländerbehörde"
+  },
+  {
+    "path": "5.routes.2.steps.4",
+    "text": "OBA zahtjeva zajedno"
+  },
+  {
+    "path": "5.routes.2.documents.0",
+    "text": "Pasoš"
+  },
+  {
+    "path": "5.routes.2.documents.1",
+    "text": "AUFENTHG-009 + AUFENTHG-014"
+  },
+  {
+    "path": "5.routes.2.documents.2",
+    "text": "Rentenversicherungsverlauf"
+  },
+  {
+    "path": "5.routes.2.documents.3",
+    "text": "B1 certifikat"
+  },
+  {
+    "path": "5.routes.2.costs.0",
+    "text": "113 € (oba zajedno)"
+  },
+  {
+    "path": "5.routes.2.errors.0",
+    "text": "< 60 mj. penzijskog!"
+  },
+  {
+    "path": "5.routes.2.errors.1",
+    "text": "Nema B1!"
+  },
+  {
+    "path": "5.routes.2.sources.0.label",
+    "text": "BAMF"
+  },
+  {
+    "path": "5.routes.2.musterformulare.0.title",
+    "text": "Musterformular 1: Niederlassungserlaubnis"
+  },
+  {
+    "path": "5.routes.2.musterformulare.0.subtitle",
+    "text": "AUFENTHG-009 primjer MK"
+  },
+  {
+    "path": "5.routes.2.musterformulare.1.title",
+    "text": "Musterformular 2: Daueraufenthalt-EU"
+  },
+  {
+    "path": "5.routes.2.musterformulare.1.subtitle",
+    "text": "AUFENTHG-014 primjer MK"
+  },
+  {
+    "path": "5.routes.3.id",
+    "text": "ausbildung"
+  },
+  {
+    "path": "5.routes.3.title",
+    "text": "Ausbildung viza §16a AufenthG"
+  },
+  {
+    "path": "5.routes.3.legalBasis",
+    "text": "§ 16a AufenthG"
+  },
+  {
+    "path": "5.routes.3.subtitle",
+    "text": "Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj."
+  },
+  {
+    "path": "5.routes.3.ausbildungHighlight.0",
+    "text": "✅ Možeš aplicirati direktno iz Makedonije"
+  },
+  {
+    "path": "5.routes.3.ausbildungHighlight.1",
+    "text": "✅ Nije potrebna nostrifikacija školskih diploma"
+  },
+  {
+    "path": "5.routes.3.ausbildungHighlight.2",
+    "text": "✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)"
+  },
+  {
+    "path": "5.routes.3.ausbildungHighlight.3",
+    "text": "✅ Bundesagentur für Arbeit daje saglasnost (automatski)"
+  },
+  {
+    "path": "5.routes.3.ausbildungHighlight.4",
+    "text": "✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)"
+  },
+  {
+    "path": "5.routes.3.ausbildungHighlight.5",
+    "text": "⚠️ Važno: Ausbildung ≠ Studij — ne miješaj sa §16b AufenthG (Studium)"
+  },
+  {
+    "path": "5.routes.3.countryNotes.0",
+    "text": "💰 Taksa: 75€"
+  },
+  {
+    "path": "5.routes.3.countryNotes.1",
+    "text": "📅 Termin: skopje.diplo.de"
+  },
+  {
+    "path": "5.routes.3.countryNotes.2",
+    "text": "📄 Dokumenti: Apostille + ovjereni prijevod na njemački — Apostille kod nadležnih sudova / Ministarstva pravde"
+  },
+  {
+    "path": "5.routes.3.countryNotes.3",
+    "text": "🗣️ Jezički certifikat: ALTE-certificirani provajderi"
+  },
+  {
+    "path": "5.routes.3.countryBadge",
+    "text": "75€ — Apostille MK"
+  },
+  {
+    "path": "5.routes.3.steps.0",
+    "text": "Pronađi Ausbildung mjesto — Potpisan Ausbildungsvertrag PRIJE apliciranja. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com"
+  },
+  {
+    "path": "5.routes.3.steps.1",
+    "text": "Provjeri jezičke uslove — Minimalno B1 GER. Preporučeno B2 za tehničke profesije. Certifikati: Goethe, telc, ÖSD, TestDaF"
+  },
+  {
+    "path": "5.routes.3.steps.2",
+    "text": "Pripremi dokumentaciju — Apostille kod suda/Ministarstva pravde + ovjereni prijevod."
+  },
+  {
+    "path": "5.routes.3.steps.3",
+    "text": "Zakaži termin u ambasadi Skoplje — skopje.diplo.de. Rokovi: 4–12 sedmica."
+  },
+  {
+    "path": "5.routes.3.steps.4",
+    "text": "Podnesi zahtjev za D-vizu — Lično. Taksa: 75 €."
+  },
+  {
+    "path": "5.routes.3.steps.5",
+    "text": "Čekanje i odluka — 4–12 sedmica. D-viza važi 3–6 mjeseci."
+  },
+  {
+    "path": "5.routes.3.steps.6",
+    "text": "Dolazak u Njemačku — Anmeldung u roku 14 dana."
+  },
+  {
+    "path": "5.routes.3.steps.7",
+    "text": "Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 godina, obnavlja se. Taksa: 100–110 €."
+  },
+  {
+    "path": "5.routes.3.documents.0",
+    "text": "Važeći pasoš (min. 12–18 mj. važnosti)"
+  },
+  {
+    "path": "5.routes.3.documents.1",
+    "text": "Potpisan Ausbildungsvertrag (original + kopija)"
+  },
+  {
+    "path": "5.routes.3.documents.2",
+    "text": "Potvrda IHK/HWK registracije"
+  },
+  {
+    "path": "5.routes.3.documents.3",
+    "text": "Lebenslauf / CV (na njemačkom)"
+  },
+  {
+    "path": "5.routes.3.documents.4",
+    "text": "Diploma / svjedočanstvo (Apostille + ovjereni prijevod)"
+  },
+  {
+    "path": "5.routes.3.documents.5",
+    "text": "Dokaz o znanju njemačkog (min. B1 — ALTE provajderi)"
+  },
+  {
+    "path": "5.routes.3.documents.6",
+    "text": "Dokaz o smještaju u Njemačkoj"
+  },
+  {
+    "path": "5.routes.3.documents.7",
+    "text": "Zdravstveno osiguranje"
+  },
+  {
+    "path": "5.routes.3.documents.8",
+    "text": "Finansijski dokaz: plata ILI Sperrkonto ILI Verpflichtungserklärung"
+  },
+  {
+    "path": "5.routes.3.documents.9",
+    "text": "Viza formulari (popunjeni, potpisani)"
+  },
+  {
+    "path": "5.routes.3.documents.10",
+    "text": "Biometrijska fotografija (45x35mm)"
+  },
+  {
+    "path": "5.routes.3.documents.11",
+    "text": "Taksa: 75 €"
+  },
+  {
+    "path": "5.routes.3.costs.0",
+    "text": "D-Viza taksa: 75 €"
+  },
+  {
+    "path": "5.routes.3.costs.1",
+    "text": "Aufenthaltstitel: 100–110 €"
+  },
+  {
+    "path": "5.routes.3.costs.2",
+    "text": "Obrada ambasada: 4–12 sedmica"
+  },
+  {
+    "path": "5.routes.3.costs.3",
+    "text": "Obrada Ausländerbehörde: 4–8 sedmica"
+  },
+  {
+    "path": "5.routes.3.costs.4",
+    "text": "Sperrkonto (ako treba): min. 1.091 €/mj. (2026)"
+  },
+  {
+    "path": "5.routes.3.costs.5",
+    "text": "D-viza važnost: 3–6 mjeseci"
+  },
+  {
+    "path": "5.routes.3.costs.6",
+    "text": "Aufenthaltserlaubnis: 1 god. (obnavlja se)"
+  },
+  {
+    "path": "5.routes.3.costs.7",
+    "text": "Jobsuche: 18 mjeseci (§20 AufenthG)"
+  },
+  {
+    "path": "5.routes.3.errors.0",
+    "text": "Nema Ausbildungsvertrag → automatsko odbijanje"
+  },
+  {
+    "path": "5.routes.3.errors.1",
+    "text": "Jezik ispod B1 → odbijanje"
+  },
+  {
+    "path": "5.routes.3.errors.2",
+    "text": "Nepotpuni ili neprevedeni dokumenti"
+  },
+  {
+    "path": "5.routes.3.errors.3",
+    "text": "Pogrešan tip vize (§16b umjesto §16a)"
+  },
+  {
+    "path": "5.routes.3.errors.4",
+    "text": "Kasno apliciranje"
+  },
+  {
+    "path": "5.routes.3.errors.5",
+    "text": "Nema dokaza o smještaju"
+  },
+  {
+    "path": "5.routes.3.errors.6",
+    "text": "Kasno Anmeldung (rok 14 dana)"
+  },
+  {
+    "path": "5.routes.3.errors.7",
+    "text": "Početak Ausbildunga bez Aufenthaltstitel"
+  },
+  {
+    "path": "5.routes.3.sources.0.label",
+    "text": "Ambasada Skoplje"
+  },
+  {
+    "path": "5.routes.3.sources.1.label",
+    "text": "Make it in Germany — Berufsausbildung"
+  },
+  {
+    "path": "5.routes.3.sources.2.label",
+    "text": "BAMF — §16a AufenthG"
+  },
+  {
+    "path": "5.routes.3.sources.3.label",
+    "text": "Gesetze im Internet — §16a"
+  },
+  {
+    "path": "5.routes.3.musterformulare.0.title",
+    "text": "VIDEX — Viza formular (Ausbildung)"
+  },
+  {
+    "path": "5.routes.3.musterformulare.0.subtitle",
+    "text": "Univerzalni formular — popunjava se online"
+  },
+  {
+    "path": "5.routes.3.musterformulare.1.title",
+    "text": "Antrag auf Aufenthaltstitel §16a"
+  },
+  {
+    "path": "5.routes.3.musterformulare.1.subtitle",
+    "text": "Demo/preview — podnosi se u Njemačkoj"
+  },
+  {
+    "path": "5.routes.3.musterformulare.2.title",
+    "text": "Lebenslauf (CV) — Template"
+  },
+  {
+    "path": "5.routes.3.musterformulare.2.subtitle",
+    "text": "Predložak biografije za Ausbildung"
+  },
+  {
+    "path": "6.name",
+    "text": "Albanija"
+  },
+  {
+    "path": "6.embassyName",
+    "text": "Njemačka ambasada Tirana"
+  },
+  {
+    "path": "6.embassyNote",
+    "text": "Termini TAGESAKTUELL — provjeravaj svaki dan stranicu tirana.diplo.de."
+  },
+  {
+    "path": "6.schengenNote",
+    "text": "Albanski državljani s biometrijskim pasošem mogu bez vize u Schengen do 90 dana. Za rad je obavezna viza!"
+  },
+  {
+    "path": "6.routes.0.id",
+    "text": "work"
+  },
+  {
+    "path": "6.routes.0.title",
+    "text": "Radna viza §18 AufenthG"
+  },
+  {
+    "path": "6.routes.0.legalBasis",
+    "text": "§ 18 AufenthG + § 26 Abs. 2 BeschV (Westbalkan)"
+  },
+  {
+    "path": "6.routes.0.subtitle",
+    "text": "Boravišna dozvola za zaposlenje. Albanija je dio Westbalkan-Regelung."
+  },
+  {
+    "path": "6.routes.0.westbalkanNote",
+    "text": "WESTBALKAN-REGELUNG: Kao albanski državljanin možeš raditi u Njemačkoj bez provjere prioriteta i BEZ dokaza o kvalifikaciji. 50.000 viza godišnje. Termini Tirana: TAGESAKTUELL. Vorabzustimmung od BA ubrzava postupak."
+  },
+  {
+    "path": "6.routes.0.steps.0",
+    "text": "Pronađi posao kod njemačkog poslodavca — s obavezujućom ponudom posla."
+  },
+  {
+    "path": "6.routes.0.steps.1",
+    "text": "Vorabzustimmung — Poslodavac traži od Bundesagentur für Arbeit."
+  },
+  {
+    "path": "6.routes.0.steps.2",
+    "text": "Termin u ambasadi Tirana — tirana.diplo.de, TAGESAKTUELL."
+  },
+  {
+    "path": "6.routes.0.steps.3",
+    "text": "Dokumentacija — EzB (popunjava poslodavac), Vorabzustimmung, pasoš, 2 digitalne biometrijske fotografije."
+  },
+  {
+    "path": "6.routes.0.steps.4",
+    "text": "Apliciraj lično. Ulazak s D-vizom. Anmeldung. Ausländerbehörde §18."
+  },
+  {
+    "path": "6.routes.0.documents.0",
+    "text": "Pasoš (min. 18 mj.)"
+  },
+  {
+    "path": "6.routes.0.documents.1",
+    "text": "2 digitalne biometrijske fotografije"
+  },
+  {
+    "path": "6.routes.0.documents.2",
+    "text": "EzB — potpisuje POSLODAVAC"
+  },
+  {
+    "path": "6.routes.0.documents.3",
+    "text": "Vorabzustimmung BA"
+  },
+  {
+    "path": "6.routes.0.documents.4",
+    "text": "Ugovor o radu"
+  },
+  {
+    "path": "6.routes.0.documents.5",
+    "text": "Zdravstveno osiguranje"
+  },
+  {
+    "path": "6.routes.0.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "6.routes.0.costs.1",
+    "text": "Aufenthaltserlaubnis: 100–110 €"
+  },
+  {
+    "path": "6.routes.0.errors.0",
+    "text": "EzB nepotpuna ili bez potpisa"
+  },
+  {
+    "path": "6.routes.0.errors.1",
+    "text": "Nedigitalne fotografije!"
+  },
+  {
+    "path": "6.routes.0.sources.0.label",
+    "text": "Ambasada Tirana"
+  },
+  {
+    "path": "6.routes.0.sources.1.label",
+    "text": "Westbalkan-Regelung"
+  },
+  {
+    "path": "6.routes.0.musterformulare.0.title",
+    "text": "Musterformular 1: Antrag Aufenthaltserlaubnis §18"
+  },
+  {
+    "path": "6.routes.0.musterformulare.0.subtitle",
+    "text": "Primjer za Albaniju"
+  },
+  {
+    "path": "6.routes.0.musterformulare.1.title",
+    "text": "Musterformular 2: EzB"
+  },
+  {
+    "path": "6.routes.0.musterformulare.1.subtitle",
+    "text": "Formular poslodavca"
+  },
+  {
+    "path": "6.routes.1.id",
+    "text": "family"
+  },
+  {
+    "path": "6.routes.1.title",
+    "text": "Spajanje porodice §§27-36 AufenthG"
+  },
+  {
+    "path": "6.routes.1.legalBasis",
+    "text": "§ 30 + § 32 AufenthG"
+  },
+  {
+    "path": "6.routes.1.subtitle",
+    "text": "Supružnici i djeca mogu doći k osobi koja živi u Njemačkoj."
+  },
+  {
+    "path": "6.routes.1.steps.0",
+    "text": "Ispit A1 njemački — Goethe-Institut Tirana PRIJE dolaska."
+  },
+  {
+    "path": "6.routes.1.steps.1",
+    "text": "Apostille na albanskim dokumentima — OBAVEZAN."
+  },
+  {
+    "path": "6.routes.1.steps.2",
+    "text": "Ovjereni prijevod od sudskog tumača."
+  },
+  {
+    "path": "6.routes.1.steps.3",
+    "text": "Termin u ambasadi Tirana. Apliciraj. Ulazak. Anmeldung. Ausländerbehörde §30/§32."
+  },
+  {
+    "path": "6.routes.1.documents.0",
+    "text": "Pasoš"
+  },
+  {
+    "path": "6.routes.1.documents.1",
+    "text": "2 digitalne biometrijske fotografije"
+  },
+  {
+    "path": "6.routes.1.documents.2",
+    "text": "Vjenčani list s Apostille + prijevod"
+  },
+  {
+    "path": "6.routes.1.documents.3",
+    "text": "Goethe A1 ili ÖSD A1"
+  },
+  {
+    "path": "6.routes.1.documents.4",
+    "text": "Platne liste (3 mj.) osobe u Njemačkoj"
+  },
+  {
+    "path": "6.routes.1.documents.5",
+    "text": "Ugovor o najmu"
+  },
+  {
+    "path": "6.routes.1.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "6.routes.1.costs.1",
+    "text": "Kurs + ispit A1: 150–400 €"
+  },
+  {
+    "path": "6.routes.1.errors.0",
+    "text": "Bez A1 viza odbijena!"
+  },
+  {
+    "path": "6.routes.1.errors.1",
+    "text": "Apostille obavezan!"
+  },
+  {
+    "path": "6.routes.1.sources.0.label",
+    "text": "Ambasada Tirana"
+  },
+  {
+    "path": "6.routes.1.sources.1.label",
+    "text": "Goethe-Institut Albanija"
+  },
+  {
+    "path": "6.routes.1.musterformulare.0.title",
+    "text": "Musterformular: Antrag Aufenthaltserlaubnis (Spajanje)"
+  },
+  {
+    "path": "6.routes.1.musterformulare.0.subtitle",
+    "text": "§§27-36 primjer Albanija"
+  },
+  {
+    "path": "6.routes.2.id",
+    "text": "permanent"
+  },
+  {
+    "path": "6.routes.2.title",
+    "text": "Stalni boravak §9 + §9a AufenthG"
+  },
+  {
+    "path": "6.routes.2.legalBasis",
+    "text": "§ 9 + § 9a AufenthG"
+  },
+  {
+    "path": "6.routes.2.subtitle",
+    "text": "Pravo neograničenog boravka. Apliciraj za OBA istovremeno!"
+  },
+  {
+    "path": "6.routes.2.steps.0",
+    "text": "5 godina zakonitog boravka"
+  },
+  {
+    "path": "6.routes.2.steps.1",
+    "text": "Njemački B1"
+  },
+  {
+    "path": "6.routes.2.steps.2",
+    "text": "60 mj. penzijskog (drv.de)"
+  },
+  {
+    "path": "6.routes.2.steps.3",
+    "text": "Termin Ausländerbehörde"
+  },
+  {
+    "path": "6.routes.2.steps.4",
+    "text": "OBA zahtjeva zajedno"
+  },
+  {
+    "path": "6.routes.2.documents.0",
+    "text": "Pasoš"
+  },
+  {
+    "path": "6.routes.2.documents.1",
+    "text": "AUFENTHG-009 + AUFENTHG-014"
+  },
+  {
+    "path": "6.routes.2.documents.2",
+    "text": "Rentenversicherungsverlauf"
+  },
+  {
+    "path": "6.routes.2.documents.3",
+    "text": "B1 certifikat"
+  },
+  {
+    "path": "6.routes.2.costs.0",
+    "text": "113 € (oba zajedno)"
+  },
+  {
+    "path": "6.routes.2.errors.0",
+    "text": "< 60 mj. penzijskog!"
+  },
+  {
+    "path": "6.routes.2.errors.1",
+    "text": "Nema B1!"
+  },
+  {
+    "path": "6.routes.2.sources.0.label",
+    "text": "BAMF"
+  },
+  {
+    "path": "6.routes.2.musterformulare.0.title",
+    "text": "Musterformular 1: Niederlassungserlaubnis"
+  },
+  {
+    "path": "6.routes.2.musterformulare.0.subtitle",
+    "text": "AUFENTHG-009 Albanija"
+  },
+  {
+    "path": "6.routes.2.musterformulare.1.title",
+    "text": "Musterformular 2: Daueraufenthalt-EU"
+  },
+  {
+    "path": "6.routes.2.musterformulare.1.subtitle",
+    "text": "AUFENTHG-014 Albanija"
+  },
+  {
+    "path": "6.routes.3.id",
+    "text": "ausbildung"
+  },
+  {
+    "path": "6.routes.3.title",
+    "text": "Ausbildung viza §16a AufenthG"
+  },
+  {
+    "path": "6.routes.3.legalBasis",
+    "text": "§ 16a AufenthG"
+  },
+  {
+    "path": "6.routes.3.subtitle",
+    "text": "Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj."
+  },
+  {
+    "path": "6.routes.3.ausbildungHighlight.0",
+    "text": "✅ Možeš aplicirati direktno iz Albanije"
+  },
+  {
+    "path": "6.routes.3.ausbildungHighlight.1",
+    "text": "✅ Nije potrebno priznavanje diplome škole za apliciranje"
+  },
+  {
+    "path": "6.routes.3.ausbildungHighlight.2",
+    "text": "✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)"
+  },
+  {
+    "path": "6.routes.3.ausbildungHighlight.3",
+    "text": "✅ Bundesagentur für Arbeit daje saglasnost (automatski)"
+  },
+  {
+    "path": "6.routes.3.ausbildungHighlight.4",
+    "text": "✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)"
+  },
+  {
+    "path": "6.routes.3.ausbildungHighlight.5",
+    "text": "⚠️ Važno: Ausbildung ≠ Studij — ne miješaj sa §16b AufenthG (Studium)"
+  },
+  {
+    "path": "6.routes.3.countryNotes.0",
+    "text": "💰 Taksa: 75€"
+  },
+  {
+    "path": "6.routes.3.countryNotes.1",
+    "text": "📅 Termin: tirana.diplo.de"
+  },
+  {
+    "path": "6.routes.3.countryNotes.2",
+    "text": "📄 Dokumenti: Apostille + ovjereni prijevod — Albanija je potpisnica Haške konvencije"
+  },
+  {
+    "path": "6.routes.3.countryNotes.3",
+    "text": "🗣️ Jezički certifikat: ALTE certificiran, max. 1 godina"
+  },
+  {
+    "path": "6.routes.3.countryBadge",
+    "text": "75€ — Apostille Haag"
+  },
+  {
+    "path": "6.routes.3.steps.0",
+    "text": "Pronađi Ausbildung mjesto — Potpisan Ausbildungsvertrag PRIJE apliciranja. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com"
+  },
+  {
+    "path": "6.routes.3.steps.1",
+    "text": "Provjeri jezičke uslove — Min. B1 njemački. Preporučeno B2. Certifikati: Goethe, telc, ÖSD, TestDaF (max. 1 god.)"
+  },
+  {
+    "path": "6.routes.3.steps.2",
+    "text": "Pripremi dokumentaciju — Apostille + ovjereni prijevod."
+  },
+  {
+    "path": "6.routes.3.steps.3",
+    "text": "Zakaži termin u ambasadi Tirana — tirana.diplo.de. Rokovi: 4–12 sedmica."
+  },
+  {
+    "path": "6.routes.3.steps.4",
+    "text": "Podnesi zahtjev za D-vizu — Lično. Taksa: 75 €."
+  },
+  {
+    "path": "6.routes.3.steps.5",
+    "text": "Čekanje i odluka — 4–12 sedmica. D-viza važi 3–6 mjeseci."
+  },
+  {
+    "path": "6.routes.3.steps.6",
+    "text": "Dolazak u Njemačku — Anmeldung u roku 14 dana."
+  },
+  {
+    "path": "6.routes.3.steps.7",
+    "text": "Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 godina, obnavlja se. Taksa: 100–110 €."
+  },
+  {
+    "path": "6.routes.3.documents.0",
+    "text": "Važeći pasoš (min. 12–18 mjeseci)"
+  },
+  {
+    "path": "6.routes.3.documents.1",
+    "text": "Potpisan Ausbildungsvertrag (original + kopija)"
+  },
+  {
+    "path": "6.routes.3.documents.2",
+    "text": "Potvrda IHK/HWK registracije"
+  },
+  {
+    "path": "6.routes.3.documents.3",
+    "text": "Lebenslauf / CV (na njemačkom)"
+  },
+  {
+    "path": "6.routes.3.documents.4",
+    "text": "Diploma / svjedočanstvo (Apostille + ovjereni prijevod)"
+  },
+  {
+    "path": "6.routes.3.documents.5",
+    "text": "Dokaz o znanju njemačkog (min. B1 — ALTE, max. 1 god.)"
+  },
+  {
+    "path": "6.routes.3.documents.6",
+    "text": "Dokaz o smještaju u Njemačkoj"
+  },
+  {
+    "path": "6.routes.3.documents.7",
+    "text": "Zdravstveno osiguranje"
+  },
+  {
+    "path": "6.routes.3.documents.8",
+    "text": "Finansijski dokaz: plata ILI Sperrkonto ILI Verpflichtungserklärung"
+  },
+  {
+    "path": "6.routes.3.documents.9",
+    "text": "Viza formulari (popunjeni, potpisani)"
+  },
+  {
+    "path": "6.routes.3.documents.10",
+    "text": "Biometrijska fotografija (45x35mm)"
+  },
+  {
+    "path": "6.routes.3.documents.11",
+    "text": "Taksa: 75 €"
+  },
+  {
+    "path": "6.routes.3.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "6.routes.3.costs.1",
+    "text": "Aufenthaltstitel: 100–110 €"
+  },
+  {
+    "path": "6.routes.3.costs.2",
+    "text": "Obrada ambasada: 4–12 sedmica"
+  },
+  {
+    "path": "6.routes.3.costs.3",
+    "text": "Obrada Ausländerbehörde: 4–8 sedmica"
+  },
+  {
+    "path": "6.routes.3.costs.4",
+    "text": "Sperrkonto (ako treba): min. 1.091 €/mj. (2026)"
+  },
+  {
+    "path": "6.routes.3.costs.5",
+    "text": "Važnost D-vize: 3–6 mjeseci"
+  },
+  {
+    "path": "6.routes.3.costs.6",
+    "text": "Aufenthaltserlaubnis: 1 god. (obnavlja se)"
+  },
+  {
+    "path": "6.routes.3.costs.7",
+    "text": "Jobsuche: 18 mjeseci (§20 AufenthG)"
+  },
+  {
+    "path": "6.routes.3.errors.0",
+    "text": "Nema Ausbildungsvertrag → automatsko odbijanje"
+  },
+  {
+    "path": "6.routes.3.errors.1",
+    "text": "Jezik ispod B1 → odbijanje"
+  },
+  {
+    "path": "6.routes.3.errors.2",
+    "text": "Nepotpuni ili neprevedeni dokumenti"
+  },
+  {
+    "path": "6.routes.3.errors.3",
+    "text": "Pogrešan tip vize (§16b umjesto §16a)"
+  },
+  {
+    "path": "6.routes.3.errors.4",
+    "text": "Kasno apliciranje"
+  },
+  {
+    "path": "6.routes.3.errors.5",
+    "text": "Nema dokaza o smještaju"
+  },
+  {
+    "path": "6.routes.3.errors.6",
+    "text": "Kasno Anmeldung (rok 14 dana)"
+  },
+  {
+    "path": "6.routes.3.errors.7",
+    "text": "Početak Ausbildunga bez Aufenthaltstitel"
+  },
+  {
+    "path": "6.routes.3.sources.0.label",
+    "text": "Ambasada Tirana"
+  },
+  {
+    "path": "6.routes.3.sources.1.label",
+    "text": "Make it in Germany — Berufsausbildung"
+  },
+  {
+    "path": "6.routes.3.sources.2.label",
+    "text": "BAMF — §16a AufenthG"
+  },
+  {
+    "path": "6.routes.3.sources.3.label",
+    "text": "Gesetze im Internet — §16a"
+  },
+  {
+    "path": "6.routes.3.musterformulare.0.title",
+    "text": "VIDEX — Viza formular (Ausbildung)"
+  },
+  {
+    "path": "6.routes.3.musterformulare.0.subtitle",
+    "text": "Univerzalni formular — popunjava se online"
+  },
+  {
+    "path": "6.routes.3.musterformulare.1.title",
+    "text": "Antrag auf Aufenthaltstitel §16a"
+  },
+  {
+    "path": "6.routes.3.musterformulare.1.subtitle",
+    "text": "Demo/preview — podnosi se u Njemačkoj"
+  },
+  {
+    "path": "6.routes.3.musterformulare.2.title",
+    "text": "Lebenslauf (CV) — Template"
+  },
+  {
+    "path": "6.routes.3.musterformulare.2.subtitle",
+    "text": "Predložak CV-a za Ausbildung"
+  },
+  {
+    "path": "7.name",
+    "text": "Kosovo"
+  },
+  {
+    "path": "7.embassyName",
+    "text": "Ambasada gjermane Prishtinë (VisaMetric)"
+  },
+  {
+    "path": "7.embassyNote",
+    "text": "KRITIČNO: Sve vize ISKLJUČIVO preko VisaMetric (visametric.com/Kosovo/Germany) — NE direktno u ambasadi! Naknada VisaMetric: 30 € + 30 € dostava pasoša."
+  },
+  {
+    "path": "7.kosovoNote",
+    "text": "NOVO od 01.01.2024: Svi državljani Kosova s BIOMETRIJSKIM pasošem mogu bez vize u Schengen prostor do 90 dana (turizam, poslovni posjeti — NE za rad!). Za rad i duži boravak i dalje OBAVEZNA viza kroz VisaMetric."
+  },
+  {
+    "path": "7.routes.0.id",
+    "text": "work"
+  },
+  {
+    "path": "7.routes.0.title",
+    "text": "Radna viza §18 AufenthG"
+  },
+  {
+    "path": "7.routes.0.legalBasis",
+    "text": "§ 18 AufenthG + § 26 Abs. 2 BeschV (Westbalkan)"
+  },
+  {
+    "path": "7.routes.0.subtitle",
+    "text": "Boravišna dozvola za zaposlenje. Kosovo je u Westbalkan-Regelung. Vize ISKLJUČIVO kroz VisaMetric!"
+  },
+  {
+    "path": "7.routes.0.westbalkanNote",
+    "text": "WESTBALKAN-REGELUNG: Kao kosovski državljanin možeš raditi u Njemačkoj bez provjere prioriteta i BEZ dokaza o kvalifikaciji. 50.000 viza godišnje."
+  },
+  {
+    "path": "7.routes.0.kosovoNote",
+    "text": "POSEBNO ZA KOSOVO: Sve vize se apliciraju ISKLJUČIVO kroz VisaMetric centar u Prištini — nikako direktno u ambasadu! VisaMetric naknada: 30 € + 30 € dostava pasoša. Od 01.07.2025 nema više Remonstration — odbijanje se može osporiti samo tužbom na Verwaltungsgericht Berlin. TELC jezični certifikati s ispitnim mjestima u SRBIJI se NE prihvaćaju u Prištini!"
+  },
+  {
+    "path": "7.routes.0.steps.0",
+    "text": "Pronađi posao — Njemacki poslodavac s obavezujućom ponudom posla ili ugovorom o radu."
+  },
+  {
+    "path": "7.routes.0.steps.1",
+    "text": "Vorabzustimmung — Poslodavac pribavlja od Bundesagentur für Arbeit. S Vorabzustimmung + Kundennummer apliciraš brže."
+  },
+  {
+    "path": "7.routes.0.steps.2",
+    "text": "VisaMetric termin — Zakaži ISKLJUČIVO na visametric.com/Kosovo/Germany. NE u ambasadu direktno!"
+  },
+  {
+    "path": "7.routes.0.steps.3",
+    "text": "Plati VisaMetric naknadu: 30 € (+ 30 € za dostavu pasoša poštom)."
+  },
+  {
+    "path": "7.routes.0.steps.4",
+    "text": "Predaj dokumentaciju u VisaMetric centru Priština. VisaMetric prosljeđuje ambasadi (rok do 15 radnih dana)."
+  },
+  {
+    "path": "7.routes.0.steps.5",
+    "text": "Ulazak u Njemačku s D-vizom."
+  },
+  {
+    "path": "7.routes.0.steps.6",
+    "text": "Anmeldung — 14 dana."
+  },
+  {
+    "path": "7.routes.0.steps.7",
+    "text": "Ausländerbehörde — Aufenthaltserlaubnis §18 PRE isteka vize."
+  },
+  {
+    "path": "7.routes.0.documents.0",
+    "text": "Biometrijski pasoš Kosovo (min. 18 mj.)"
+  },
+  {
+    "path": "7.routes.0.documents.1",
+    "text": "2 digitalne biometrijske fotografije"
+  },
+  {
+    "path": "7.routes.0.documents.2",
+    "text": "EzB — popunjava POSLODAVAC (ne ti!)"
+  },
+  {
+    "path": "7.routes.0.documents.3",
+    "text": "Vorabzustimmung Bundesagentur für Arbeit"
+  },
+  {
+    "path": "7.routes.0.documents.4",
+    "text": "Ugovor o radu"
+  },
+  {
+    "path": "7.routes.0.documents.5",
+    "text": "Zdravstveno osiguranje"
+  },
+  {
+    "path": "7.routes.0.documents.6",
+    "text": "Dokaz o stanovanju"
+  },
+  {
+    "path": "7.routes.0.documents.7",
+    "text": "NAPOMENA: TELC certifikati s ispitnih mjesta u Srbiji se NE prihvaćaju!"
+  },
+  {
+    "path": "7.routes.0.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "7.routes.0.costs.1",
+    "text": "VisaMetric usluga: 30 € (+ 30 € dostava pasoša)"
+  },
+  {
+    "path": "7.routes.0.costs.2",
+    "text": "Aufenthaltserlaubnis: 100–110 €"
+  },
+  {
+    "path": "7.routes.0.costs.3",
+    "text": "Rok obrade VisaMetric → ambasada: do 15 radnih dana + dostava"
+  },
+  {
+    "path": "7.routes.0.errors.0",
+    "text": "Apliciranje direktno u ambasadu Priština — NE! Samo VisaMetric!"
+  },
+  {
+    "path": "7.routes.0.errors.1",
+    "text": "TELC certifikat s ispitnog mjesta u Srbiji — NE prihvaća se u Prištini!"
+  },
+  {
+    "path": "7.routes.0.errors.2",
+    "text": "EzB nepotpuna ili bez potpisa poslodavca"
+  },
+  {
+    "path": "7.routes.0.errors.3",
+    "text": "Nedigitalne fotografije!"
+  },
+  {
+    "path": "7.routes.0.errors.4",
+    "text": "Od 01.07.2025: nema Remonstration — samo tužba na sudu u Berlinu!"
+  },
+  {
+    "path": "7.routes.0.sources.0.label",
+    "text": "Ambasada Priština"
+  },
+  {
+    "path": "7.routes.0.sources.1.label",
+    "text": "VisaMetric Kosovo — termini"
+  },
+  {
+    "path": "7.routes.0.sources.2.label",
+    "text": "Westbalkan-Regelung"
+  },
+  {
+    "path": "7.routes.0.sources.3.label",
+    "text": "Ambasada Priština — Westbalkan"
+  },
+  {
+    "path": "7.routes.0.musterformulare.0.title",
+    "text": "Musterformular 1: Antrag Aufenthaltserlaubnis §18"
+  },
+  {
+    "path": "7.routes.0.musterformulare.0.subtitle",
+    "text": "Primjer za Kosovo — VisaMetric procedura"
+  },
+  {
+    "path": "7.routes.0.musterformulare.1.title",
+    "text": "Musterformular 2: EzB"
+  },
+  {
+    "path": "7.routes.0.musterformulare.1.subtitle",
+    "text": "Formular koji popunjava poslodavac"
+  },
+  {
+    "path": "7.routes.1.id",
+    "text": "bluecard"
+  },
+  {
+    "path": "7.routes.1.title",
+    "text": "EU Plava karta §18g AufenthG"
+  },
+  {
+    "path": "7.routes.1.legalBasis",
+    "text": "§ 18g AufenthG"
+  },
+  {
+    "path": "7.routes.1.subtitle",
+    "text": "Za visokokvalificirane. Online apliciranje DOSTUPNO za Kosovo!"
+  },
+  {
+    "path": "7.routes.1.kosovoNote",
+    "text": "POSEBNO ZA KOSOVO: Dostupno online apliciranje (Auslandsportal) za Blue Card, studijske vize i Chancenkarte. Provjeri pristina.diplo.de za aktuelne informacije. Vize kroz VisaMetric ILI Auslandsportal."
+  },
+  {
+    "path": "7.routes.1.steps.0",
+    "text": "Provjeri diplomu na anabin.kmk.org."
+  },
+  {
+    "path": "7.routes.1.steps.1",
+    "text": "Ugovor o radu min. 45.300 €/god."
+  },
+  {
+    "path": "7.routes.1.steps.2",
+    "text": "Online apliciraj na Auslandsportal ILI VisaMetric termin."
+  },
+  {
+    "path": "7.routes.1.steps.3",
+    "text": "Uplodi dokumentaciju online ILI predaj u VisaMetric."
+  },
+  {
+    "path": "7.routes.1.steps.4",
+    "text": "Ulazak s D-vizom. Anmeldung. Ausländerbehörde §18g."
+  },
+  {
+    "path": "7.routes.1.documents.0",
+    "text": "Biometrijski pasoš"
+  },
+  {
+    "path": "7.routes.1.documents.1",
+    "text": "2 digitalne biometrijske fotografije"
+  },
+  {
+    "path": "7.routes.1.documents.2",
+    "text": "AUFENTHG-034"
+  },
+  {
+    "path": "7.routes.1.documents.3",
+    "text": "Diploma + ovjereni prijevod"
+  },
+  {
+    "path": "7.routes.1.documents.4",
+    "text": "Ugovor o radu (min. 45.300 €)"
+  },
+  {
+    "path": "7.routes.1.documents.5",
+    "text": "Zdravstveno osiguranje"
+  },
+  {
+    "path": "7.routes.1.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "7.routes.1.costs.1",
+    "text": "VisaMetric: 30 € (ako nije online)"
+  },
+  {
+    "path": "7.routes.1.costs.2",
+    "text": "EU Plava karta: 100–110 €"
+  },
+  {
+    "path": "7.routes.1.errors.0",
+    "text": "Diploma nije provjerna na anabin!"
+  },
+  {
+    "path": "7.routes.1.errors.1",
+    "text": "Plata ispod minimuma"
+  },
+  {
+    "path": "7.routes.1.sources.0.label",
+    "text": "Ambasada Priština — Nationale Visa"
+  },
+  {
+    "path": "7.routes.1.sources.1.label",
+    "text": "BAMF — Blue Card"
+  },
+  {
+    "path": "7.routes.1.musterformulare.0.title",
+    "text": "Musterformular: Antrag Blaue Karte EU (AUFENTHG-034)"
+  },
+  {
+    "path": "7.routes.1.musterformulare.0.subtitle",
+    "text": "Primjer za Kosovo — online ili VisaMetric"
+  },
+  {
+    "path": "7.routes.2.id",
+    "text": "family"
+  },
+  {
+    "path": "7.routes.2.title",
+    "text": "Spajanje porodice §§27-36 AufenthG"
+  },
+  {
+    "path": "7.routes.2.legalBasis",
+    "text": "§ 30 + § 32 AufenthG"
+  },
+  {
+    "path": "7.routes.2.subtitle",
+    "text": "Supružnici i djeca mogu doći k osobi koja živi u Njemačkoj. Sve vize isključivo VisaMetric!"
+  },
+  {
+    "path": "7.routes.2.kosovoNote",
+    "text": "POSEBNO ZA KOSOVO: Vize ISKLJUČIVO VisaMetric. TELC iz Srbije NE prihvaća se! Koristiti Goethe-Institut Kosovo ili ÖSD. Naknada VisaMetric: 30 € + 30 € dostava."
+  },
+  {
+    "path": "7.routes.2.steps.0",
+    "text": "A1 njemacki — Goethe-Institut Kosovo ili ÖSD PRE dolaska. TELC iz Srbije se NE prihvaća!"
+  },
+  {
+    "path": "7.routes.2.steps.1",
+    "text": "Dokumenta — potvrda o braku, rodni list s ovjerenim prijevodom. Provjeri treba li Apostille."
+  },
+  {
+    "path": "7.routes.2.steps.2",
+    "text": "VisaMetric termin — visametric.com/Kosovo/Germany."
+  },
+  {
+    "path": "7.routes.2.steps.3",
+    "text": "Plati: 30 € + 30 € dostava."
+  },
+  {
+    "path": "7.routes.2.steps.4",
+    "text": "Predaj u VisaMetric centru Priština. Ulazak. Anmeldung. Ausländerbehörde §30/§32."
+  },
+  {
+    "path": "7.routes.2.documents.0",
+    "text": "Biometrijski pasoš"
+  },
+  {
+    "path": "7.routes.2.documents.1",
+    "text": "2 digitalne biometrijske fotografije"
+  },
+  {
+    "path": "7.routes.2.documents.2",
+    "text": "Potvrda o braku + ovjereni prijevod"
+  },
+  {
+    "path": "7.routes.2.documents.3",
+    "text": "Goethe A1 Kosovo ili ÖSD (NE TELC iz Srbije!)"
+  },
+  {
+    "path": "7.routes.2.documents.4",
+    "text": "Platne liste (3 mj.) osobe u Njemačkoj"
+  },
+  {
+    "path": "7.routes.2.documents.5",
+    "text": "Ugovor o najmu"
+  },
+  {
+    "path": "7.routes.2.costs.0",
+    "text": "D-Viza: 75 €"
+  },
+  {
+    "path": "7.routes.2.costs.1",
+    "text": "VisaMetric: 30 € + 30 €"
+  },
+  {
+    "path": "7.routes.2.costs.2",
+    "text": "Goethe A1: 100–200 €"
+  },
+  {
+    "path": "7.routes.2.errors.0",
+    "text": "Vize samo VisaMetric — ne direktno u ambasadu!"
+  },
+  {
+    "path": "7.routes.2.errors.1",
+    "text": "TELC iz Srbije NE prihvaća se!"
+  },
+  {
+    "path": "7.routes.2.errors.2",
+    "text": "Bez A1 viza odbijena"
+  },
+  {
+    "path": "7.routes.2.sources.0.label",
+    "text": "Ambasada Priština"
+  },
+  {
+    "path": "7.routes.2.sources.1.label",
+    "text": "VisaMetric Kosovo"
+  },
+  {
+    "path": "7.routes.2.musterformulare.0.title",
+    "text": "Musterformular: Antrag Aufenthaltserlaubnis (Spajanje)"
+  },
+  {
+    "path": "7.routes.2.musterformulare.0.subtitle",
+    "text": "§§27-36 primjer Kosovo"
+  },
+  {
+    "path": "7.routes.3.id",
+    "text": "permanent"
+  },
+  {
+    "path": "7.routes.3.title",
+    "text": "Stalni boravak §9 + Daueraufenthalt-EU §9a"
+  },
+  {
+    "path": "7.routes.3.legalBasis",
+    "text": "§ 9 + § 9a AufenthG"
+  },
+  {
+    "path": "7.routes.3.subtitle",
+    "text": "Neograničeno pravo boravka. Apliciraj za OBA istovremeno!"
+  },
+  {
+    "path": "7.routes.3.kosovoNote",
+    "text": "POSEBNO ZA KOSOVO: Kosovske penzijske anuitete (Trusti) NE mogu se koristiti kao dokaz penzijskog osiguranja za NE! Samo njemacki ili međunarodni penzijski doprinosi."
+  },
+  {
+    "path": "7.routes.3.steps.0",
+    "text": "5 god. zakonit boravak"
+  },
+  {
+    "path": "7.routes.3.steps.1",
+    "text": "B1 njemacki"
+  },
+  {
+    "path": "7.routes.3.steps.2",
+    "text": "60 mj. penzijskog — Kosovo Trusti NE vrijedi!"
+  },
+  {
+    "path": "7.routes.3.steps.3",
+    "text": "Termin Ausländerbehörde"
+  },
+  {
+    "path": "7.routes.3.steps.4",
+    "text": "OBA zahtjeva zajedno"
+  },
+  {
+    "path": "7.routes.3.documents.0",
+    "text": "Pasoš"
+  },
+  {
+    "path": "7.routes.3.documents.1",
+    "text": "AUFENTHG-009 + AUFENTHG-014"
+  },
+  {
+    "path": "7.routes.3.documents.2",
+    "text": "Rentenversicherungsverlauf (Trusti Kosovo NE!)"
+  },
+  {
+    "path": "7.routes.3.documents.3",
+    "text": "B1 certifikat"
+  },
+  {
+    "path": "7.routes.3.costs.0",
+    "text": "113 € (oba zajedno)"
+  },
+  {
+    "path": "7.routes.3.errors.0",
+    "text": "Kosovo Trusti penzija NE prihvaća se za NE!"
+  },
+  {
+    "path": "7.routes.3.errors.1",
+    "text": "< 60 mj. penzijskog!"
+  },
+  {
+    "path": "7.routes.3.errors.2",
+    "text": "Nema B1!"
+  },
+  {
+    "path": "7.routes.3.sources.0.label",
+    "text": "Ambasada Priština"
+  },
+  {
+    "path": "7.routes.3.sources.1.label",
+    "text": "BAMF"
+  },
+  {
+    "path": "7.routes.3.musterformulare.0.title",
+    "text": "Musterformular 1: Niederlassungserlaubnis"
+  },
+  {
+    "path": "7.routes.3.musterformulare.0.subtitle",
+    "text": "AUFENTHG-009 Kosovo"
+  },
+  {
+    "path": "7.routes.3.musterformulare.1.title",
+    "text": "Musterformular 2: Daueraufenthalt-EU"
+  },
+  {
+    "path": "7.routes.3.musterformulare.1.subtitle",
+    "text": "AUFENTHG-014 Kosovo"
+  },
+  {
+    "path": "7.routes.4.id",
+    "text": "ausbildung"
+  },
+  {
+    "path": "7.routes.4.title",
+    "text": "Ausbildung viza §16a AufenthG"
+  },
+  {
+    "path": "7.routes.4.legalBasis",
+    "text": "§ 16a AufenthG"
+  },
+  {
+    "path": "7.routes.4.subtitle",
+    "text": "Aufenthaltserlaubnis zur Berufsausbildung — Dozvola boravka za stručno osposobljavanje (Ausbildung) u Njemačkoj."
+  },
+  {
+    "path": "7.routes.4.ausbildungHighlight.0",
+    "text": "✅ Možeš aplicirati direktno iz Kosova"
+  },
+  {
+    "path": "7.routes.4.ausbildungHighlight.1",
+    "text": "✅ Nije potrebna nostrifikacija školskih diploma za aplikaciju"
+  },
+  {
+    "path": "7.routes.4.ausbildungHighlight.2",
+    "text": "✅ Firma mora prijaviti Ausbildungsvertrag kod Kammer (IHK/HWK)"
+  },
+  {
+    "path": "7.routes.4.ausbildungHighlight.3",
+    "text": "✅ Bundesagentur für Arbeit daje saglasnost (automatski)"
+  },
+  {
+    "path": "7.routes.4.ausbildungHighlight.4",
+    "text": "✅ Nakon završetka: mogućnost ostanka 18 mjeseci za traženje posla (§20 AufenthG)"
+  },
+  {
+    "path": "7.routes.4.ausbildungHighlight.5",
+    "text": "⚠️ Važno: Ausbildung ≠ Studij — ne miješati sa §16b AufenthG (Studium)"
+  },
+  {
+    "path": "7.routes.4.kosovoNote",
+    "text": "POSEBNO ZA KOSOVO: Sve vize ISKLJUČIVO kroz Auslandsportal ili VisaMetric. Botschaft sarađuje s DHL za povrat pasoša — kupi DHL koverat na dan termina!"
+  },
+  {
+    "path": "7.routes.4.countryNotes.0",
+    "text": "💰 Taksa: 75€"
+  },
+  {
+    "path": "7.routes.4.countryNotes.1",
+    "text": "📅 Termin: Auslandsportal Auswärtiges Amt — pristina.diplo.de"
+  },
+  {
+    "path": "7.routes.4.countryNotes.2",
+    "text": "📄 Dokumenti: Prijevod + Apostille za sve dokumente koji nisu na njemačkom/engleskom"
+  },
+  {
+    "path": "7.routes.4.countryNotes.3",
+    "text": "📦 Dostava pasoša: Botschaft sarađuje s DHL — kupi DHL koverat na dan termina!"
+  },
+  {
+    "path": "7.routes.4.countryNotes.4",
+    "text": "🔄 Vorabzustimmung (preporučeno za ubrzanje postupka)"
+  },
+  {
+    "path": "7.routes.4.countryBadge",
+    "text": "DHL koverat — donesi na termin"
+  },
+  {
+    "path": "7.routes.4.steps.0",
+    "text": "Pronađi Ausbildung mjesto — Potpisan Ausbildungsvertrag PRIJE zahtjeva za vizu. Koristi: bundesagentur.de, ausbildung.de, make-it-in-germany.com"
+  },
+  {
+    "path": "7.routes.4.steps.1",
+    "text": "Provjeri jezičke uslove — Minimalno B1 GER. Preporučeno B2. Certifikati: Goethe, telc, ÖSD, TestDaF"
+  },
+  {
+    "path": "7.routes.4.steps.2",
+    "text": "Pripremi dokumentaciju — Prijevod + Apostille za sve dokumente. Pripremi DHL koverat za povrat pasoša."
+  },
+  {
+    "path": "7.routes.4.steps.3",
+    "text": "Zakaži termin — Auslandsportal ili VisaMetric (pristina.diplo.de). Rokovi: 4–12 sedmica."
+  },
+  {
+    "path": "7.routes.4.steps.4",
+    "text": "Podnesi zahtjev za D-vizu — Lično. Donesi DHL koverat! Taksa: 75 €."
+  },
+  {
+    "path": "7.routes.4.steps.5",
+    "text": "Čekanje i odluka — 4–12 sedmica. D-viza važi 3–6 mjeseci."
+  },
+  {
+    "path": "7.routes.4.steps.6",
+    "text": "Dolazak u Njemačku — Anmeldung u roku 14 dana."
+  },
+  {
+    "path": "7.routes.4.steps.7",
+    "text": "Aufenthaltstitel — Ausländerbehörde, §16a AufenthG. 1 godina, obnavlja se. Taksa: 100–110 €."
+  },
+  {
+    "path": "7.routes.4.documents.0",
+    "text": "Biometrijski pasoš Kosovo (min. 12–18 mj. važnosti)"
+  },
+  {
+    "path": "7.routes.4.documents.1",
+    "text": "Potpisan Ausbildungsvertrag (original + kopija)"
+  },
+  {
+    "path": "7.routes.4.documents.2",
+    "text": "Potvrda IHK/HWK registracije"
+  },
+  {
+    "path": "7.routes.4.documents.3",
+    "text": "Lebenslauf / CV (na njemačkom)"
+  },
+  {
+    "path": "7.routes.4.documents.4",
+    "text": "Diploma / svjedočanstvo (Apostille + ovjereni prijevod)"
+  },
+  {
+    "path": "7.routes.4.documents.5",
+    "text": "Dokaz o znanju njemačkog (min. B1)"
+  },
+  {
+    "path": "7.routes.4.documents.6",
+    "text": "Dokaz o smještaju u Njemačkoj"
+  },
+  {
+    "path": "7.routes.4.documents.7",
+    "text": "Zdravstveno osiguranje"
+  },
+  {
+    "path": "7.routes.4.documents.8",
+    "text": "Finansijski dokaz: platna lista ILI Sperrkonto ILI Verpflichtungserklärung"
+  },
+  {
+    "path": "7.routes.4.documents.9",
+    "text": "Viza formulari (popunjeni, potpisani)"
+  },
+  {
+    "path": "7.routes.4.documents.10",
+    "text": "Biometrijska fotografija (45x35mm)"
+  },
+  {
+    "path": "7.routes.4.documents.11",
+    "text": "DHL koverat za povrat pasoša"
+  },
+  {
+    "path": "7.routes.4.documents.12",
+    "text": "Taksa: 75 €"
+  },
+  {
+    "path": "7.routes.4.costs.0",
+    "text": "D-Viza taksa: 75 €"
+  },
+  {
+    "path": "7.routes.4.costs.1",
+    "text": "DHL koverat: cca. 5–10 €"
+  },
+  {
+    "path": "7.routes.4.costs.2",
+    "text": "Aufenthaltstitel: 100–110 €"
+  },
+  {
+    "path": "7.routes.4.costs.3",
+    "text": "Obrada: 4–12 sedmica"
+  },
+  {
+    "path": "7.routes.4.costs.4",
+    "text": "Sperrkonto (ako treba): min. 1.091 €/mj. (2026)"
+  },
+  {
+    "path": "7.routes.4.costs.5",
+    "text": "D-viza važnost: 3–6 mjeseci"
+  },
+  {
+    "path": "7.routes.4.costs.6",
+    "text": "Aufenthaltserlaubnis: 1 god. (obnavlja se)"
+  },
+  {
+    "path": "7.routes.4.costs.7",
+    "text": "Jobsuche: 18 mjeseci (§20 AufenthG)"
+  },
+  {
+    "path": "7.routes.4.errors.0",
+    "text": "Nema Ausbildungsvertrag → automatsko odbijanje"
+  },
+  {
+    "path": "7.routes.4.errors.1",
+    "text": "Jezik ispod B1 → odbijanje"
+  },
+  {
+    "path": "7.routes.4.errors.2",
+    "text": "Nepotpuni ili neprevedeni dokumenti"
+  },
+  {
+    "path": "7.routes.4.errors.3",
+    "text": "Pogrešan tip vize (§16b umjesto §16a)"
+  },
+  {
+    "path": "7.routes.4.errors.4",
+    "text": "Bez DHL koverta — odgoda povrata pasoša!"
+  },
+  {
+    "path": "7.routes.4.errors.5",
+    "text": "Kasno apliciranje"
+  },
+  {
+    "path": "7.routes.4.errors.6",
+    "text": "Kasno Anmeldung (rok 14 dana)"
+  },
+  {
+    "path": "7.routes.4.errors.7",
+    "text": "Početak Ausbildunga bez Aufenthaltstitel"
+  },
+  {
+    "path": "7.routes.4.sources.0.label",
+    "text": "Ambasada Priština"
+  },
+  {
+    "path": "7.routes.4.sources.1.label",
+    "text": "VisaMetric Kosovo"
+  },
+  {
+    "path": "7.routes.4.sources.2.label",
+    "text": "Make it in Germany — Berufsausbildung"
+  },
+  {
+    "path": "7.routes.4.sources.3.label",
+    "text": "BAMF — §16a AufenthG"
+  },
+  {
+    "path": "7.routes.4.sources.4.label",
+    "text": "Gesetze im Internet — §16a"
+  },
+  {
+    "path": "7.routes.4.musterformulare.0.title",
+    "text": "VIDEX — Viza formular (Ausbildung)"
+  },
+  {
+    "path": "7.routes.4.musterformulare.0.subtitle",
+    "text": "Universal formular — online ili VisaMetric"
+  },
+  {
+    "path": "7.routes.4.musterformulare.1.title",
+    "text": "Antrag auf Aufenthaltstitel §16a"
+  },
+  {
+    "path": "7.routes.4.musterformulare.1.subtitle",
+    "text": "Demo/preview — podnosi se u Njemačkoj"
+  },
+  {
+    "path": "7.routes.4.musterformulare.2.title",
+    "text": "Lebenslauf (CV) — Template"
+  },
+  {
+    "path": "7.routes.4.musterformulare.2.subtitle",
+    "text": "Predložak životopisa za Ausbildung"
+  }
+]
