@@ -101,24 +101,31 @@ export default function Login() {
               </button>
             </div>
 
-            <div className="flex items-start gap-2.5 py-1">
+            <label
+              htmlFor="terms"
+              className={`flex items-start gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+                acceptedTerms
+                  ? "border-[hsl(var(--brand-orange)/0.5)] bg-[hsl(var(--brand-orange)/0.06)]"
+                  : "border-[hsl(var(--brand-orange)/0.4)] bg-[hsl(var(--brand-orange)/0.04)] hover:bg-[hsl(var(--brand-orange)/0.08)] animate-pulse-subtle"
+              }`}
+            >
               <Checkbox
                 id="terms"
                 checked={acceptedTerms}
                 onCheckedChange={(v) => setAcceptedTerms(v === true)}
-                className="mt-0.5 h-3.5 w-3.5 rounded border-border/60"
+                className="mt-0.5 h-5 w-5 rounded border-2 border-[hsl(var(--brand-orange))] data-[state=checked]:bg-[hsl(var(--brand-orange))] data-[state=checked]:border-[hsl(var(--brand-orange))] shadow-sm"
               />
-              <label htmlFor="terms" className="cursor-pointer text-[11px] leading-relaxed text-muted-foreground/70">
+              <span className="text-[12px] leading-relaxed text-foreground/85 font-medium select-none">
                 {t("auth.login.termsPrefix")}{" "}
-                <Link to="/agb" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
+                <Link to="/agb" target="_blank" className="font-semibold text-[hsl(var(--brand-orange))] underline underline-offset-2 hover:brightness-110">
                   {t("auth.login.termsLink")}
                 </Link>{" "}
                 {t("auth.login.termsAnd")}{" "}
-                <Link to="/datenschutz" target="_blank" className="font-medium text-[hsl(var(--brand-orange))] hover:underline">
+                <Link to="/datenschutz" target="_blank" className="font-semibold text-[hsl(var(--brand-orange))] underline underline-offset-2 hover:brightness-110">
                   {t("auth.login.privacyLink")}
                 </Link>
-              </label>
-            </div>
+              </span>
+            </label>
 
             
 
