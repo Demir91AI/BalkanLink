@@ -139,6 +139,13 @@ const DICT: Record<string, Entry> = {
   "Untermieter/in": { bs: "Podstanar" },
   "Erstanmeldung in Deutschland (kein Vorwohnsitz)": { bs: "Prva prijava u Njemačkoj (nema prethodnog prebivališta)", sr: "Prva prijava u Nemačkoj (nema prethodnog prebivališta)", hr: "Prva prijava u Njemačkoj (nema prethodnog prebivališta)" },
   "Ummeldung — bisherige Anschrift:": { bs: "Preprijava — dosadašnja adresa:" },
+  "Sonstiges:": { bs: "Ostalo:" },
+  "Sonstige": { bs: "Ostalo" },
+  "Sonstiger Grund:": { bs: "Drugi razlog:" },
+  "Kein Einkommen": { bs: "Nema prihoda" },
+  "Ausländische Rente": { bs: "Inostrana penzija", sr: "Inostrana penzija", hr: "Inozemna mirovina" },
+  "Andere Religionsgemeinschaft:": { bs: "Druga vjerska zajednica:", sr: "Druga verska zajednica:", hr: "Druga vjerska zajednica:" },
+  "Unterhalt wird nicht gezahlt": { bs: "Alimentacija se ne plaća" },
 };
 
 const lower: Record<string, Entry> = {};
