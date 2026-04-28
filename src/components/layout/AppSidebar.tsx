@@ -39,26 +39,28 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   // and rely on the active-path matcher below to also recognize /steuern.
   const poreziSidebarUrl = lang === "de" ? "/de/steuern" : "/porezi";
 
+  // Glavne funkcije — poredane po prioritetu/vrijednosti za korisnika
   const mainItems = [
     { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true, isNew: false },
     { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true, isNew: false },
-    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
-    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: Camera, premium: true, isNew: false },
-    { title: t("sidebar.items.nebenkostenScan"), url: "/nebenkosten-scan", icon: Receipt, premium: true, isNew: false },
-    { title: t("sidebar.items.bonitetSimulator"), url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
     { title: t("sidebar.items.anerkennungNavigator"), url: "/anerkennung-navigator", icon: GraduationCap, premium: true, isNew: false, isFree: false },
-    { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Landmark, premium: true, matchPaths: ["/porezi", "/steuern"] },
-    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: false },
-    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: FileCheck, premium: false, isNew: false, isFree: false },
+    { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: ScanLine, premium: true, isNew: false },
+    { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
+    { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Coins, premium: true, matchPaths: ["/porezi", "/steuern"] },
+    { title: t("sidebar.items.bonitetSimulator"), url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
+    { title: t("sidebar.items.nebenkostenScan"), url: "/nebenkosten-scan", icon: Receipt, premium: true, isNew: false },
+    // Free funkcije na dnu
+    { title: t("sidebar.items.vorlagen"), url: "/vorlagen", icon: Files, premium: false, isNew: false, isFree: true },
+    { title: t("sidebar.items.nudimTrazim"), url: "/nudim-trazim", icon: Megaphone, premium: false, isNew: false, isFree: true },
   ];
 
   const secondaryItems = [
     { title: t("sidebar.items.zivot"), url: "/zivot-u-njemackoj", icon: Plane },
     { title: t("sidebar.items.radnoPravo"), url: "/radno-pravo", icon: Scale },
     { title: t("sidebar.items.mietrecht"), url: "/mietrecht", icon: Home },
-    { title: t("sidebar.items.biznis"), url: "/biznis", icon: Store },
-    { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: Briefcase },
-    { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building },
+    { title: t("sidebar.items.biznis"), url: "/biznis", icon: Briefcase },
+    { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: BriefcaseBusiness },
+    { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building2 },
     { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
   ];
 
