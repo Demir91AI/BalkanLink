@@ -39,25 +39,30 @@ export function useSubscription(): SubscriptionState {
       return;
     }
 
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("profiles")
       .select("subscription_tier, subscription_expires_at, single_formular_access, is_premium")
       .eq("id", user.id)
-      .single();
+      .maybeSingle();
 
     if (data) {
-      const tier = data.subscription_tier as "free" | "premium";
+      const tier = (data.subscription_tier as string) ?? "free";
       const expired = data.subscription_expires_at
         ? new Date(data.subscription_expires_at) < new Date()
         : false;
 
       const isPremiumField = data.is_premium ?? false;
-      const tierPremium = !expired && tier === "premium";
+      // Any non-"free" tier (premium, influencer_trial, lifetime, ...) counts as premium
+      // as long as it has not expired.
+      const tierPremium = !expired && tier !== "free" && tier !== "";
       const effectiveTier = isPremiumField || tierPremium ? "premium" : "free";
 
       setSubscriptionTier(effectiveTier);
       setExpiresAt(data.subscription_expires_at ? new Date(data.subscription_expires_at) : null);
       setSingleFormularAccess((data.single_formular_access as string[]) || []);
+    } else if (error) {
+      // Network / transient error — do NOT downgrade. Keep previous state.
+      console.warn("[useSubscription] fetch failed, keeping previous state:", error.message);
     }
     setLoading(false);
   }, [user]);
