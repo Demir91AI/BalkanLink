@@ -222,24 +222,8 @@ export const CheckRow = ({
   );
 };
 
-export const ExternalLink = ({
-  href,
-  children,
-  className,
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={className ?? "text-blue-600 underline text-sm hover:text-blue-800"}
-  >
-    {children}
-  </a>
-);
+// In VisaWorkForm2 ExternalLink is used as the lucide icon. Re-export it.
+export const ExternalLink = ExternalLinkIcon;
 
 // Additional aliases for VisaWorkForm1, VisaBluecardForm, VisaFamilyForm, VisaPermanentForm2
 export const exampleCls = "italic text-[13px] mt-0.5 block";
