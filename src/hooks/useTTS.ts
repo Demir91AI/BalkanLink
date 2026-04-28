@@ -171,9 +171,15 @@ export function useTTS() {
       if (!directUrl) return false;
 
       try {
+        // Assign src SYNCHRONOUSLY inside the user gesture, then call play().
+        // The browser will stream the MP3 from the edge function as bytes arrive.
+        // No await before play() → iOS/Android keep the gesture activation.
         audio.src = directUrl;
         audio.load();
-        await audio.play();
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.then === "function") {
+          await playPromise;
+        }
         return true;
       } catch (err) {
         console.error("[TTS] Direct audio play error:", err);
