@@ -1,0 +1,1 @@
+UPDATE public.trial_codes SET max_uses = 1, description = 'Personalni trial za Zijadu - 30 dana Premium (1 korištenje)' WHERE code = 'ZIJADA30';
