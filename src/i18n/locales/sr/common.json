@@ -59,7 +59,8 @@
     "recentSectionLabel": "Nedavno korišćeno",
     "statusPremium": "Premium aktivan",
     "statusFree": "Besplatni plan",
-    "upgrade": "Nadogradi"
+    "upgrade": "Nadogradi",
+    "openProfile": "Otvori profil"
   },
   "mobileNav": {
     "documents": "Dokumenti",
