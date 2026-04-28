@@ -174,7 +174,11 @@
       "successCheckEmail": "Überprüfen Sie Ihre E-Mail zur Bestätigung der Registrierung.",
       "successRegistered": "Erfolgreich registriert!",
       "errorTitleShort": "Fehler bei der Registrierung.",
-      "passwordTooShortShort": "Das Passwort ist zu kurz."
+      "passwordTooShortShort": "Das Passwort ist zu kurz.",
+      "trialBannerTitle": "🎁 7 Tage Premium gratis",
+      "trialBannerDesc": "Dein Code {{code}} wurde erkannt. Premium-Zugang wird direkt nach der Registrierung aktiviert.",
+      "trialActivatedTitle": "Premium aktiviert!",
+      "trialActivatedDesc": "Du hast {{days}} Tage vollen Zugriff. Viel Spaß!"
     },
     "forgotPassword": {
       "title": "Passwort vergessen",
