@@ -1,7 +1,6 @@
-import { ArrowRight, AlertTriangle, FileX, Mail, Wallet, HomeIcon, Briefcase, HeartPulse, ChevronLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { ArrowRight, AlertTriangle, FileX, Mail, Wallet, HomeIcon, Briefcase, HeartPulse } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
-import { navigateBackOrHome } from "@/lib/navigation";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 const problems = [
   {
@@ -78,15 +77,11 @@ function ProblemCard({ item }: { item: typeof problems[number] }) {
 }
 
 export default function TrebamPomoc() {
-  const navigate = useNavigate();
-
   return (
     <>
       <section className="border-b bg-primary py-12">
         <div className="container">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <Breadcrumbs variant="dark" />
           <div className="text-center">
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {"Ich brauche Hilfe"}

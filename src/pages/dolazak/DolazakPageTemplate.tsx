@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ChevronLeft, ExternalLink, FileText, Info, Lock } from "lucide-react";
-import { navigateBackOrHome } from "@/lib/navigation";
+import { ExternalLink, FileText, Info, Lock } from "lucide-react";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import { useSubscription } from "@/hooks/useSubscription";
@@ -27,21 +26,14 @@ interface DolazakPageProps {
 const fade = (i: number) => ({ initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { delay: i * 0.06 } });
 
 export default function DolazakPageTemplate({ title, subtitle, sections, links }: DolazakPageProps) {
-  const navigate = useNavigate();
   const { isPremium } = useSubscription();
   const [showPremiumModal, setShowPremiumModal] = useState(false);
-
-  const handleBack = () => {
-    navigateBackOrHome(navigate);
-  };
 
   return (
     <>
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
-          <button onClick={handleBack} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <Breadcrumbs variant="dark" currentLabel={title} />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">{title}</h1>
           <p className="mt-2 text-sm text-primary-foreground/80 md:text-base">{subtitle}</p>
         </div>

@@ -1,11 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft, GraduationCap } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { navigateBackOrHome } from "@/lib/navigation";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 export default function TrainerFaq() {
-  const navigate = useNavigate();
   const faqs = [
     { q: "Šta je uključeno u besplatnu verziju?", a: "Dobijaš 3 lekcije po nivou sa zadacima i 3 rečenice govorne pomoći po lekciji — besplatno." },
     { q: "Šta je uključeno u Ultimate paket?", a: "Sa Ultimate paketom dobijaš sve lekcije, puni pristup govornoj pomoći i dinamički generisane zadatke." },
@@ -22,12 +20,7 @@ export default function TrainerFaq() {
     <>
       <section className="border-b bg-primary py-6">
         <div className="container max-w-2xl">
-          <button
-            onClick={() => navigateBackOrHome(navigate)}
-            className="mb-3 flex items-center gap-1.5 text-sm text-primary-foreground/60 hover:text-primary-foreground"
-          >
-            <ArrowLeft className="h-4 w-4" /> Nazad
-          </button>
+          <Breadcrumbs variant="dark" />
           <div className="flex items-center gap-3">
             <GraduationCap className="h-7 w-7 text-gold" />
             <div>

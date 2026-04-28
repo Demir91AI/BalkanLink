@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { SEO } from "@/components/SEO";
-import { Link, useNavigate } from "react-router-dom";
-import { Search, MapPin, Phone, Globe, Plus, Building2, Filter, ChevronLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Search, MapPin, Phone, Globe, Plus, Building2, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useDirectoryListings } from "@/hooks/useDirectoryListings";
 import { ORIGIN_COUNTRIES, DIRECTORY_CATEGORIES, GERMAN_CITIES } from "@/lib/directory-constants";
-import { navigateBackOrHome } from "@/lib/navigation";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 export default function Directory() {
-  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [city, setCity] = useState("");
   const [category, setCategory] = useState("");
@@ -31,11 +30,9 @@ export default function Directory() {
     <div className="container py-8">
       <SEO title="Balkanski Imenik u Njemačkoj" description="Pronađi balkanske firme i usluge u Njemačkoj — restorani, majstori, prevodioci i više." path="/directory" />
       {/* Header */}
+      <Breadcrumbs />
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
           <h1 className="text-2xl font-bold md:text-3xl">Balkanske firme</h1>
           <p className="mt-1 text-muted-foreground">Pronađi usluge naše zajednice</p>
         </div>

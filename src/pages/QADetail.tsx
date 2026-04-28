@@ -1,14 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ChevronLeft, ExternalLink, Calendar, Crown, Lock } from "lucide-react";
+import { ExternalLink, Calendar, Crown, Lock } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQaItem } from "@/hooks/useQaItems";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 import { getCategoryBySlug } from "@/lib/categories";
-import { navigateBackOrHome } from "@/lib/navigation";
 
 function FormattedContent({ text }: { text: string }) {
   const lines = text.split(/\\n|\n/).filter((l) => l.trim() !== "");
@@ -70,12 +70,9 @@ export default function QADetail() {
 
   if (error || !item) {
     return (
-      <div className="container max-w-3xl py-16 text-center">
-        <p className="text-muted-foreground">Pitanje nije pronađeno.</p>
-        <button className="back-button" onClick={() => navigateBackOrHome(navigate)}>
-          <ChevronLeft className="h-4 w-4" />
-          Nazad
-        </button>
+      <div className="container max-w-3xl py-16">
+        <Breadcrumbs />
+        <p className="mt-6 text-center text-muted-foreground">Pitanje nije pronađeno.</p>
       </div>
     );
   }
@@ -84,14 +81,12 @@ export default function QADetail() {
 
   return (
     <div className="container max-w-3xl py-10">
-      {/* Back */}
-      <button
-        onClick={() => navigateBackOrHome(navigate)}
-        className="back-button"
-      >
-        <ChevronLeft className="h-4 w-4" />
-        Nazad
-      </button>
+      <Breadcrumbs
+        items={[
+          { label: "Q&A", href: "/qa" },
+          { label: item.question },
+        ]}
+      />
 
       {/* Meta */}
       <div className="mb-4 flex flex-wrap items-center gap-2">

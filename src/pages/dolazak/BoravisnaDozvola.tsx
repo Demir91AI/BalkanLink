@@ -1,12 +1,12 @@
 import { label } from "@/lib/de-labels";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { navigateBackOrHome } from "@/lib/navigation";
 import {
   ChevronLeft, Search, ChevronRight, AlertTriangle, ClipboardList,
   PenLine, ExternalLink, Info, Lock, Crown, Check, FileText,
   Briefcase, GraduationCap, Users, RefreshCw, Award, Plane,
 } from "lucide-react";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -304,12 +304,7 @@ export default function BoravisnaDozvola() {
   if (isMobile && activeVisa) {
     return (
       <div className="px-4 py-6">
-        <button
-          onClick={() => navigateBackOrHome(navigate)}
-          className="back-button"
-        >
-          <ChevronLeft className="h-4 w-4" /> {label("back_to_routes")}
-        </button>
+        <Breadcrumbs />
         <VisaDetail visa={activeVisa} />
       </div>
     );
@@ -320,12 +315,7 @@ export default function BoravisnaDozvola() {
       {/* Hero */}
       <section className="border-b bg-primary py-10">
         <div className="container max-w-5xl">
-          <button
-            onClick={() => navigateBackOrHome(navigate)}
-            className="back-button"
-          >
-            <ChevronLeft className="h-4 w-4" /> {label("back_to_countries")}
-          </button>
+          <Breadcrumbs variant="dark" />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             {label("title")}
           </h1>
