@@ -294,8 +294,8 @@ export default function MojiPodaci() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            confirm_email: confirmEmail,
-            confirm_text: confirmText,
+            confirm_email: user.email ?? "",
+            confirm_text: confirmText.trim().toUpperCase(),
           }),
         }
       );
