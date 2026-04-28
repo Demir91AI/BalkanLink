@@ -272,7 +272,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           <nav className="flex flex-col gap-0.5">
             <button
               onClick={() => {
-                const url = "https://balkan-navi-deutsch.lovable.app";
+                const url = "https://www.balkanlink.de/";
                 if (navigator.share) {
                   navigator.share({ title: "BalkanLink", url }).catch(() => {});
                 } else {
