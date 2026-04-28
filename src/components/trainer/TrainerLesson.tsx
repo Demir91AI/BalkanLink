@@ -207,7 +207,6 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   // Build breadcrumbs
   const buildBreadcrumbs = (): BreadcrumbItem[] => {
     const crumbs: BreadcrumbItem[] = [
-      { label: t("common.home", { defaultValue: "Početna", ns: "common" }), onClick: () => navigate("/") },
       { label: t("deutschTrainer.brand"), onClick: () => { onBack(); } },
       { label: lesson.level, onClick: () => { onBack(); } },
     ];

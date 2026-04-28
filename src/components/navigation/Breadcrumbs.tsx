@@ -10,6 +10,8 @@ const LANG_PREFIXES = SUPPORTED_LANGUAGES.filter((l) => l !== "bs");
 interface BreadcrumbsProps {
   /** Override last crumb (current page) — useful for dynamic pages like /firma/:id */
   currentLabel?: string;
+  /** Custom crumb trail for state-based screens that don't change URL */
+  items?: Array<{ label: string; href?: string; onClick?: () => void }>;
   /** Override intermediate crumb labels by segment */
   overrides?: Record<string, string>;
   /** Hide the standalone Back button */
@@ -43,6 +45,7 @@ interface BreadcrumbsProps {
  */
 export default function Breadcrumbs({
   currentLabel,
+  items,
   overrides = {},
   hideBack = false,
   onBack,
@@ -65,7 +68,7 @@ export default function Breadcrumbs({
       segments.shift();
     }
 
-    const crumbs = segments.map((seg, idx) => {
+    const autoCrumbs = segments.map((seg, idx) => {
       const isLast = idx === segments.length - 1;
       const href = langPrefix + "/" + segments.slice(0, idx + 1).join("/");
       const override = overrides[seg];
@@ -80,8 +83,12 @@ export default function Breadcrumbs({
       return { label, href, isLast };
     });
 
+    const crumbs = items?.length
+      ? items.map((item, idx) => ({ ...item, isLast: idx === items.length - 1 }))
+      : autoCrumbs;
+
     return { crumbs, langPrefix };
-  }, [location.pathname, t, overrides, currentLabel]);
+  }, [location.pathname, t, overrides, currentLabel, items]);
 
   const handleBack = () => {
     if (onBack) onBack();
@@ -120,10 +127,11 @@ export default function Breadcrumbs({
   const btnBase =
     "inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors px-3 py-1.5 rounded-full border";
 
+  const showCrumbs = !hideTrail && crumbs.length > 0;
+
   return (
     <div className={`${inline ? "" : "mb-5"} ${className}`}>
-      {/* Action shortcuts: Back + Home */}
-      <div className="flex items-center gap-2 mb-2.5">
+      <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-2">
         {!hideBack && (
           <button
             onClick={handleBack}
@@ -134,26 +142,17 @@ export default function Breadcrumbs({
             {t("breadcrumb.back")}
           </button>
         )}
-        <button
-          onClick={() => navigate(homeHref)}
+        <Link
+          to={homeHref}
           className={`${btnBase} ${theme.btn}`}
           aria-label={t("breadcrumb.home")}
         >
           <Home className="h-4 w-4" aria-hidden="true" />
           {t("breadcrumb.home")}
-        </button>
-      </div>
+        </Link>
 
-      {/* Crumb trail */}
-      {!hideTrail && crumbs.length > 0 && (
-        <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs">
-          <Link
-            to={homeHref}
-            className={`flex items-center transition-colors ${theme.trailHome}`}
-            aria-label={t("breadcrumb.home")}
-          >
-            <Home className="h-3.5 w-3.5" aria-hidden="true" />
-          </Link>
+        {showCrumbs && (
+          <div className="flex min-w-0 flex-wrap items-center gap-1.5 text-xs">
           {crumbs.map((c, i) => (
             <span key={i} className="flex items-center gap-1.5">
               <ChevronRight className={`h-3 w-3 ${theme.sep}`} aria-hidden="true" />
@@ -161,9 +160,17 @@ export default function Breadcrumbs({
                 <span className={`font-semibold ${theme.last}`} aria-current="page">
                   {c.label}
                 </span>
+              ) : c.onClick ? (
+                <button
+                  type="button"
+                  onClick={c.onClick}
+                  className={`font-medium transition-colors ${theme.link}`}
+                >
+                  {c.label}
+                </button>
               ) : (
                 <Link
-                  to={c.href}
+                  to={c.href || homeHref}
                   className={`font-medium transition-colors ${theme.link}`}
                 >
                   {c.label}
@@ -171,8 +178,9 @@ export default function Breadcrumbs({
               )}
             </span>
           ))}
-        </nav>
-      )}
+          </div>
+        )}
+      </nav>
     </div>
   );
 }

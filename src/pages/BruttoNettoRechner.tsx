@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import {
-  ChevronRight, Info, RotateCcw, Share2, Euro, AlertTriangle,
+  Info, RotateCcw, Share2, Euro, AlertTriangle,
   ChevronDown, ChevronUp, Building2
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -128,14 +128,6 @@ export default function BruttoNettoRechner() {
   return (
     <div className="min-h-screen bg-background">
       <PageNav />
-      {/* Breadcrumb */}
-      <div className="border-b bg-card">
-        <div className="container flex items-center gap-1.5 py-3 text-xs text-muted-foreground">
-          <Link to="/" className="hover:text-foreground transition-colors">BalkanLink</Link>
-          <ChevronRight className="h-3 w-3" />
-          <span className="text-foreground font-medium">{"Kalkulator"}</span>
-        </div>
-      </div>
 
       {/* Header */}
       <section className="border-b bg-primary py-8 md:py-10">
