@@ -31,7 +31,7 @@ export default function MobileBottomNav() {
   const handleClick = (path: string) => {
     if (path === "__auth__") {
       if (user) navigate("/profil");
-      else setAuthOpen(true);
+      else navigate("/login");
     } else {
       navigate(path);
     }
