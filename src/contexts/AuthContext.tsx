@@ -45,17 +45,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setProfileLoading(true);
     try {
       const [profileRes, roleRes] = await Promise.all([
-        supabase.from("profiles").select("is_premium, first_name").eq("id", userId).single(),
+        supabase
+          .from("profiles")
+          .select("is_premium, first_name, subscription_tier, subscription_expires_at")
+          .eq("id", userId)
+          .maybeSingle(),
         supabase.from("user_roles").select("role").eq("user_id", userId),
       ]);
-      setIsPremium(profileRes.data?.is_premium ?? false);
-      setProfileData({ first_name: (profileRes.data as any)?.first_name ?? null });
-      setIsAdmin(roleRes.data?.some((r) => r.role === "admin") ?? false);
+
+      if (profileRes.data) {
+        const tier = (profileRes.data as any).subscription_tier ?? "free";
+        const expiresAt = (profileRes.data as any).subscription_expires_at as string | null;
+        const expired = expiresAt ? new Date(expiresAt) < new Date() : false;
+        // Trial / lifetime / premium — anything non-free that has not expired
+        const tierPremium = !expired && tier && tier !== "free";
+        const premium = !!(profileRes.data.is_premium || tierPremium);
+        setIsPremium(premium);
+        setProfileData({ first_name: (profileRes.data as any)?.first_name ?? null });
+      } else if (profileRes.error) {
+        // Transient fetch error — DO NOT downgrade. Keep existing state.
+        console.warn("[AuthContext] profile fetch error, keeping previous state:", profileRes.error.message);
+      }
+
+      if (roleRes.data) {
+        setIsAdmin(roleRes.data.some((r) => r.role === "admin"));
+      }
     } catch (err) {
-      console.error("fetchUserMeta failed:", err);
-      setIsPremium(false);
-      setIsAdmin(false);
-      setProfileData(null);
+      // Network error — do not flip premium off; users with active trial would be unfairly locked out.
+      console.error("fetchUserMeta failed (keeping previous state):", err);
     } finally {
       setProfileLoading(false);
     }
