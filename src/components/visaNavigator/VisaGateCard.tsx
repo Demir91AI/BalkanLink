@@ -23,7 +23,6 @@ export default function VisaGateCard() {
   const { t } = useTranslation("pages");
   const { user } = useAuth();
   const { isPremium } = useSubscription();
-  const [authOpen, setAuthOpen] = useState(false);
   const navigate = useNavigate();
 
   if (isPremium) return null;
