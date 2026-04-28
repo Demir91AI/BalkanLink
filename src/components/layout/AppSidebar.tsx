@@ -451,6 +451,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
             )}
           </nav>
         </div>
+        )}
 
       </aside>
     </>
