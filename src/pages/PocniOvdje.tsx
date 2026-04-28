@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { ArrowRight, ChevronLeft, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
-import { navigateBackOrHome } from "@/lib/navigation";
+import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
+import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 const T: Record<string, Record<string, string>> = {
   bs: {
@@ -102,9 +102,7 @@ export default function PocniOvdje() {
       <SEO title="Počni Ovdje — Prvi Koraci u Njemačkoj" description="Najvažniji koraci za tvoj početak u Njemačkoj — prijava, dozvola, osiguranje, banka i više." path="/dolazak" />
       <section className="border-b bg-primary py-10">
         <div className="container max-w-3xl">
-          <button onClick={() => navigateBackOrHome(navigate)} className="back-button">
-            <ChevronLeft className="h-4 w-4" /> Nazad
-          </button>
+          <Breadcrumbs variant="dark" />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl text-center">
             {pt("de", "title")}
           </h1>
