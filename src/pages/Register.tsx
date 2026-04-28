@@ -87,7 +87,7 @@ export default function Register() {
             body: { code: trialCode },
           });
           if (!redeemErr && (redeemData as any)?.success) {
-            try { sessionStorage.removeItem(TRIAL_STORAGE_KEY); } catch {}
+            try { localStorage.removeItem(TRIAL_STORAGE_KEY); } catch {}
             toast({
               title: t("auth.register.trialActivatedTitle"),
               description: t("auth.register.trialActivatedDesc", { days: (redeemData as any)?.days ?? 30 }),
