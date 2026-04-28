@@ -160,7 +160,7 @@ export default function AdminTrialovi() {
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="days">Trajanje (dana)</Label>
-                <Input id="days" type="number" min={1} max={365} value={newDays} onChange={(e) => setNewDays(parseInt(e.target.value, 10) || 7)} />
+                <Input id="days" type="number" min={1} max={365} value={newDays} onChange={(e) => setNewDays(parseInt(e.target.value, 10) || 30)} />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="maxUses">Limit korištenja (prazno = neograničeno)</Label>
