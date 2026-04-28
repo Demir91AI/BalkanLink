@@ -96,7 +96,7 @@ export default function KindergeldMuster() {
             {fsList.map(fs => (
               <label key={fs.value} style={S.chk}>
                 <input type="checkbox" checked={f.familienstand === fs.value} onChange={() => set("familienstand", f.familienstand === fs.value ? "" : fs.value)} />
-                {fs.label}
+                <TOpt value={fs.label} />
               </label>
             ))}
           </div>
