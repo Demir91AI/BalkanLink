@@ -491,15 +491,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               <Sparkles className="h-[18px] w-[18px] shrink-0 text-[hsl(var(--gold))]" />
               <span className="text-[14px] font-semibold">{t("sidebar.packagesPricing")}</span>
             </button>
-            {user ? (
-              <button
-                onClick={handleSignOut}
-                className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
-              >
-                <LogOut className="h-[18px] w-[18px] shrink-0" />
-                <span className="text-[14px] font-medium">{t("sidebar.logout")}</span>
-              </button>
-            ) : (
+            {!user && (
               <button
                 onClick={handleAuthClick}
                 className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5 hover:bg-[hsl(var(--primary))]/10 transition-all duration-200"

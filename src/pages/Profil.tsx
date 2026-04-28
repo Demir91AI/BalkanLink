@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LogOut, Crown, User, Calendar, Settings, AlertTriangle } from "lucide-react";
+import { LogOut, Crown, Calendar, Settings, AlertTriangle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { openCustomerPortal, STRIPE_PRODUCT_IDS } from "@/lib/stripe";
 import { toast } from "@/hooks/use-toast";
@@ -112,17 +112,35 @@ export default function Profil() {
   const daysLeft = daysUntil(endDate);
   const willCancel = details?.cancel_at_period_end === true;
 
+  const initials = (displayName || "?")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p.charAt(0).toUpperCase())
+    .join("") || "?";
+
   return (
     <>
       <PageNav />
-      <div className="container max-w-lg py-12">
-        <Card className="border-border/60 bg-card/80 backdrop-blur">
-          <CardHeader className="text-center pb-2">
-            <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-              <User className="h-8 w-8 text-primary" />
+      <div className="container max-w-lg py-10">
+        <Card className="border-border/60 bg-card/80 backdrop-blur overflow-hidden">
+          <CardHeader className="pb-4">
+            <div className="flex items-center gap-4">
+              <div className="relative shrink-0">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-gold to-gold/70 text-base font-semibold text-primary shadow-sm ring-1 ring-gold/30">
+                  {initials}
+                </div>
+                {isPremium && (
+                  <div className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-gold ring-2 ring-card">
+                    <Crown className="h-3 w-3 text-white" strokeWidth={2.5} />
+                  </div>
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <CardTitle className="text-lg leading-tight truncate">{displayName}</CardTitle>
+                <p className="mt-0.5 text-xs text-muted-foreground truncate">{user.email}</p>
+              </div>
             </div>
-            <CardTitle className="text-xl">Dobro došao/la, {displayName} 👋</CardTitle>
-            <p className="text-sm text-muted-foreground">{user.email}</p>
           </CardHeader>
           <CardContent className="space-y-5">
             <div className="rounded-lg border border-border/40 bg-muted/30 px-4 py-3 space-y-1.5">
