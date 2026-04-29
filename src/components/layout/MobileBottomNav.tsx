@@ -34,38 +34,58 @@ export default function MobileBottomNav() {
   const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
 
-  // SET A — primary 8 (4 left + 4 right)
+  // SET A — 9 left + 9 right
   const leftA: Item[] = [
     { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
     { icon: Shield, label: t("mobileNav.visa"), path: "/viza" },
     { icon: GraduationCap, label: t("mobileNav.anerkennung"), path: "/anerkennung-navigator" },
     { icon: ScanLine, label: t("mobileNav.docCheck"), path: "/dokumenten-check" },
+    { icon: Calculator, label: t("mobileNav.calc"), path: "/brutto-netto-rechner" },
+    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/stellenangebote" },
+    { icon: KeyRound, label: t("mobileNav.rent"), path: "/wohnungen" },
+    { icon: Building2, label: t("mobileNav.business"), path: "/biznis-njemacka" },
+    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
   ];
   const rightA: Item[] = [
     { icon: BookOpen, label: t("mobileNav.trainer"), path: "/deutsch-trainer" },
     { icon: Coins, label: t("mobileNav.taxes"), path: poreziPath },
     { icon: Gauge, label: t("mobileNav.schufa"), path: "/schufa-simulator" },
     { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
+    { icon: Calculator, label: t("mobileNav.taxes"), path: "/kalkulatori" },
+    { icon: Shield, label: t("mobileNav.visa"), path: "/familie" },
+    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/zivot-savjeti" },
+    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/karijera" },
+    { icon: KeyRound, label: t("mobileNav.rent"), path: "/stanovanje" },
   ];
 
-  // SET B — secondary 8 (4 left + 4 right)
+  // SET B — alternative 9 + 9
   const leftB: Item[] = [
     { icon: Calculator, label: t("mobileNav.calc"), path: "/brutto-netto-rechner" },
     { icon: Briefcase, label: t("mobileNav.jobs"), path: "/stellenangebote" },
     { icon: KeyRound, label: t("mobileNav.rent"), path: "/wohnungen" },
     { icon: Building2, label: t("mobileNav.business"), path: "/biznis-njemacka" },
+    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
+    { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
+    { icon: Shield, label: t("mobileNav.visa"), path: "/viza" },
+    { icon: GraduationCap, label: t("mobileNav.anerkennung"), path: "/anerkennung-navigator" },
+    { icon: ScanLine, label: t("mobileNav.docCheck"), path: "/dokumenten-check" },
   ];
   const rightB: Item[] = [
-    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
     { icon: Calculator, label: t("mobileNav.taxes"), path: "/kalkulatori" },
     { icon: Shield, label: t("mobileNav.visa"), path: "/familie" },
     { icon: BookOpen, label: t("mobileNav.trainer"), path: "/zivot-savjeti" },
+    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/deutsch-trainer" },
+    { icon: Coins, label: t("mobileNav.taxes"), path: poreziPath },
+    { icon: Gauge, label: t("mobileNav.schufa"), path: "/schufa-simulator" },
+    { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
+    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/karijera" },
+    { icon: KeyRound, label: t("mobileNav.rent"), path: "/stanovanje" },
   ];
 
-  // Rotate between Set A and Set B every 5s
+  // Rotate between Set A and Set B every 10s
   const [setIdx, setSetIdx] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 5000);
+    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 10000);
     return () => clearInterval(id);
   }, []);
 
