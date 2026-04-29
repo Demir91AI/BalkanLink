@@ -1526,51 +1526,93 @@
     "fabAria": "Šta je BalkanLink?",
     "fabLabel": "Šta je BalkanLink?",
     "fabLabelShort": "Info",
-    "kicker": "Upoznaj platformu",
-    "title": "Šta je BalkanLink?",
-    "tagline": "Tvoj digitalni vodič kroz Njemačku — na maternjem jeziku.",
-    "pitch": "BalkanLink je platforma koja ti pomaže da se snađeš u njemačkoj birokratiji, jeziku i svakodnevnim formularima — bez prevoditelja, bez čekanja, 24/7 na bosanskom, hrvatskom, srpskom i njemačkom.",
-    "forWhomTitle": "Za koga je",
+    "kicker": "Dobrodošao na BalkanLink",
+    "title": "Njemačka, ali na tvom jeziku.",
+    "tagline": "Sve što ti treba da preživiš birokratiju, naučiš jezik i živiš normalno u Njemačkoj — na jednom mjestu.",
+    "pitch": "Bez prevoditelja. Bez čekanja na termin. Bez panike pred pismom od Finanzamta. BalkanLink je tvoj digitalni komšija koji zna kako sistem funkcioniše — i objašnjava ti to na bosanskom, hrvatskom, srpskom ili njemačkom.",
+    "stats": {
+      "languages": "4 jezika",
+      "languagesDesc": "BS · HR · SR · DE",
+      "tools": "30+ alata",
+      "toolsDesc": "Formulari, vodiči, check liste",
+      "available": "24/7",
+      "availableDesc": "Asistent uvijek dostupan"
+    },
+    "problemTitle": "Znaš ovaj osjećaj?",
+    "problems": {
+      "p1": "Stigne pismo od Finanzamta — ne razumiješ ni pola riječi.",
+      "p2": "Trebaš Bürgergeld ili Wohngeld — formular ima 12 stranica na njemačkom.",
+      "p3": "Diploma iz BiH/HR/SR — ne znaš odakle početi sa priznavanjem.",
+      "p4": "Termin u Bürgeramtu — strah te šta će te pitati."
+    },
+    "solutionTitle": "Mi to rješavamo:",
+    "forWhomTitle": "Za koga je BalkanLink",
     "audience": {
       "newcomer": {
-        "title": "Tek si stigao u Njemačku",
-        "desc": "Anmeldung, Steuer-ID, Krankenversicherung, otvaranje računa.",
-        "b1": "Vodič 'Prvi koraci' — sve po redu",
-        "b2": "Anmeldung simulator — vježbaj termin",
-        "b3": "Asistent ti odgovara na bosanskom"
+        "title": "Tek si stigao",
+        "subtitle": "Prvih 6 mjeseci u Njemačkoj",
+        "desc": "Anmeldung, Steuer-ID, banka, zdravstveno — sve po redu, korak po korak.",
+        "b1": "Vodič 'Prvi koraci' — checklist od aerodroma do prve plate",
+        "b2": "Anmeldung simulator — vježbaj termin u Bürgeramtu prije nego odeš",
+        "b3": "Asistent ti odgovara 24/7 — na bosanskom, bez sramote",
+        "b4": "Dolazak hub — bankovni račun, vozačka, Rundfunk, sve objašnjeno",
+        "cta": "Počni sa 'Prvi koraci'"
       },
       "language": {
-        "title": "Ne razumiješ njemački dovoljno",
-        "desc": "Pisma od Finanzamta, ugovori, kompliciran formular.",
-        "b1": "Dokumenten-Check — fotografiši pismo, dobiješ objašnjenje",
-        "b2": "Deutsch Trainer — A1 do C2, 240 lekcija",
-        "b3": "Bilingvalni formulari (njemački + naš jezik)"
+        "title": "Ne razumiješ njemački",
+        "subtitle": "Ili razumiješ, ali ne dovoljno za papire",
+        "desc": "Službena pisma, ugovori, kompliciran formular — fotografiši ili pitaj, dobiješ jasno objašnjenje.",
+        "b1": "Dokumenten-Check — slikaš pismo, dobiješ prevod + šta da uradiš",
+        "b2": "Deutsch Trainer — 240 lekcija od A1 do C2, izgovor, gramatika",
+        "b3": "Bilingvalni formulari — njemačko polje + objašnjenje na našem",
+        "b4": "Vorlagen — gotova pisma (Kündigung, žalba, prigovor)",
+        "cta": "Probaj Dokumenten-Check"
       },
       "established": {
         "title": "Već si duže ovdje",
-        "desc": "Porezi, Bürgergeld, Kindergeld, priznavanje diplome, biznis.",
-        "b1": "Tax Wizard — vodič kroz Steuererklärung",
-        "b2": "Anerkennung Navigator — priznaj diplomu",
-        "b3": "Vorlagen — Kündigung, žalbe, prigovori"
+        "subtitle": "5+ godina, znaš osnove, ali ima rupa",
+        "desc": "Porezi, priznavanje diplome, biznis, Kindergeld, Elterngeld — kompleksne stvari koje ti vrijede pare.",
+        "b1": "Tax Wizard — vodič kroz Steuererklärung, šta odbiti, šta ne",
+        "b2": "Anerkennung Navigator — priznavanje diplome po Bundeslandu",
+        "b3": "Biznis u Njemačkoj — Gewerbe, Kleinunternehmer, Freiberufler",
+        "b4": "Premium check liste — vjenčanje, razvod, naslijeđe, Riester",
+        "cta": "Otvori Tax Wizard"
       }
     },
-    "premium": {
-      "kicker": "Premium",
-      "title": "Sve otključano za",
-      "subtitle": "Otkaži kad hoćeš. Bez skrivenih troškova.",
-      "p1": "Neograničen Asistent + memorija razgovora",
-      "p2": "Neograničen Dokumenten-Check + detaljan izvještaj",
-      "p3": "Svi formulari (Bürgergeld, Wohngeld, Elterngeld...)",
-      "p4": "Tax Wizard + sve porezne check liste",
-      "p5": "Premium check liste (Kindergeld, Anmeldung, vjenčanje...)",
-      "cta": "Pogledaj pakete"
+    "featuresTitle": "Šta sve imaš",
+    "features": {
+      "f1": { "title": "Asistent", "desc": "Chat na bosanskom, zna njemački sistem, pamti razgovor." },
+      "f2": { "title": "Dokumenten-Check", "desc": "Fotografiši pismo → analiza, prevod, sljedeći korak." },
+      "f3": { "title": "Formulari", "desc": "Bürgergeld, Wohngeld, Elterngeld — popunjavaj bilingvalno." },
+      "f4": { "title": "Vorlagen", "desc": "Gotova pisma: Kündigung, žalba, prigovor — DIN 5008." },
+      "f5": { "title": "Tax Wizard", "desc": "Steuererklärung korak po korak, ELSTER objašnjen." },
+      "f6": { "title": "Deutsch Trainer", "desc": "240 lekcija, A1–C2, izgovor sa Laura glasom." },
+      "f7": { "title": "Anerkennung", "desc": "Priznavanje diplome — IHK, HWK, fakulteti." },
+      "f8": { "title": "Check liste", "desc": "Vjenčanje, dijete, smrt, selidba, naslijeđe — sve po redu." }
     },
-    "exploreTitle": "Brzo istraži",
+    "premium": {
+      "kicker": "✨ Premium",
+      "badge": "Najpopularnije",
+      "title": "Sve otključano",
+      "price": "9,99 €",
+      "priceUnit": "/mjesec",
+      "subtitle": "Manje od jedne kafe sedmično. Otkaži kad hoćeš.",
+      "p1": "Neograničen Asistent — sva pitanja, sva memorija",
+      "p2": "Neograničen Dokumenten-Check + detaljan PDF izvještaj",
+      "p3": "Svi premium formulari (Bürgergeld, Wohngeld, Elterngeld, BAföG...)",
+      "p4": "Tax Wizard + sve porezne check liste i kalkulatori",
+      "p5": "Premium check liste (Kindergeld, Anmeldung, vjenčanje, naslijeđe)",
+      "p6": "Bez reklama, prioritetna podrška",
+      "cta": "Postani Premium",
+      "ctaFree": "Probaj besplatno prvo"
+    },
+    "exploreTitle": "Ili odmah skoči na:",
     "links": {
       "dolazak": "Dolazak u Njemačku",
       "asistent": "Asistent (chat)",
       "formulari": "Formulari",
       "docCheck": "Dokumenten-Check"
-    }
+    },
+    "footer": "Napravljeno od dijaspore, za dijasporu. 🇧🇦 🇭🇷 🇷🇸 → 🇩🇪"
   }
 }
