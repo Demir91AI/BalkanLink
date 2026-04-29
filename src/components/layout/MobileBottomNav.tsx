@@ -53,12 +53,36 @@ export default function MobileBottomNav() {
     { icon: Plane, label: t("mobileNav.lifeArrival"), path: "/zivot-u-njemackoj" },
   ];
 
-  // Rotate every 10s between two sets of 3
+  // Rotate every 10s between two sets of 3.
+  // Manual swipe / tap pauses auto-rotation; resumes after 15s of inactivity.
   const [setIdx, setSetIdx] = useState(0);
+  const [manualPausedAt, setManualPausedAt] = useState<number | null>(null);
+
   useEffect(() => {
-    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 10000);
+    const id = setInterval(() => {
+      // Skip tick while user-paused (within 15s of last manual interaction)
+      if (manualPausedAt && Date.now() - manualPausedAt < 15000) return;
+      setSetIdx((i) => (i + 1) % 2);
+    }, 10000);
     return () => clearInterval(id);
-  }, []);
+  }, [manualPausedAt]);
+
+  const cycleSet = (dir: 1 | -1) => {
+    setSetIdx((i) => (i + (dir === 1 ? 1 : 1)) % 2); // only 2 sets → either dir flips
+    setManualPausedAt(Date.now());
+  };
+
+  // Swipe handling on each side strip
+  const touchStartX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current == null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(dx) > 30) cycleSet(dx < 0 ? 1 : -1);
+  };
 
   const left = setIdx === 0 ? leftPool.slice(0, 3) : leftPool.slice(3, 6);
   const right = setIdx === 0 ? rightPool.slice(0, 3) : rightPool.slice(3, 6);
