@@ -911,7 +911,7 @@ export default function ChatAssistant() {
       {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
-        {!open && (
+        {!open && location.pathname !== "/" && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
