@@ -80,23 +80,30 @@ export default function ShareButton({
     };
   }, [open]);
 
+  const hasNativeShare =
+    typeof navigator !== "undefined" && typeof (navigator as any).share === "function";
+
   const handleNative = async () => {
-    if (typeof navigator !== "undefined" && (navigator as any).share) {
-      try {
-        await (navigator as any).share({ title: shareTitle, text: shareText, url: shareUrl });
-        return true;
-      } catch {
-        return false;
-      }
+    if (!hasNativeShare) return false;
+    try {
+      await (navigator as any).share({ title: shareTitle, text: shareText, url: shareUrl });
+    } catch {
+      /* user cancelled or share failed — do nothing */
     }
-    return false;
+    return true;
   };
 
   const handleClick = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const ok = await handleNative();
-    if (!ok) setOpen((v) => !v);
+    // If the device supports native share, ALWAYS use it.
+    // Never open the fallback panel when native is available — otherwise the
+    // panel stays visible after the user dismisses the native share sheet.
+    if (hasNativeShare) {
+      await handleNative();
+      return;
+    }
+    setOpen((v) => !v);
   };
 
   const handleCopy = async () => {
