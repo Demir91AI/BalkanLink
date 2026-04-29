@@ -125,9 +125,15 @@ export default function MobileBottomNav() {
 
         {/* CENTER: fixed Home */}
         <button
-          onClick={() => navigate("/")}
+          onClick={() => {
+            if (homeActive) {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              navigate("/");
+            }
+          }}
           className="flex flex-col items-center active:scale-95 transition-transform shrink-0 mx-0.5"
-          aria-label={t("mobileNav.home")}
+          aria-label={homeActive ? t("mobileNav.toTop") : t("mobileNav.home")}
         >
           <span
             className="flex items-center justify-center rounded-full"
