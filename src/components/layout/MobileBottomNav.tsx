@@ -162,7 +162,7 @@ export default function MobileBottomNav() {
               letterSpacing: 0.2,
             }}
           >
-            {t("mobileNav.home")}
+            {homeActive ? t("mobileNav.toTop") : t("mobileNav.home")}
           </span>
         </button>
 
