@@ -363,6 +363,24 @@
       "partnerView": "Ansehen",
       "partnerContact": "Kontakt",
       "partnerRecommended": "Empfohlen"
+    },
+    "pitch": {
+      "eyebrow": "Was ist BalkanLink?",
+      "headline": "Dein Übersetzer für deutsche Bürokratie.",
+      "subline": "Formulare, Visa, Steuern und Dokumente — erklärt auf Bosnisch/Kroatisch/Serbisch, klar und ohne Papierkram-Stress.",
+      "bullets": [
+        "📋 Deutsche Anträge mit BHS-Anleitung ausfüllen",
+        "✈️ Visa, Anmeldung, Anerkennung — Schritt für Schritt",
+        "🤖 Assistent antwortet 24/7",
+        "🇩🇪 Deutsch lernen von A1 bis C2"
+      ],
+      "ctaPrimary": "Alle Funktionen ansehen",
+      "ctaSecondary": "So funktioniert es"
+    },
+    "moreFeatures": {
+      "heading": "Suchst du mehr?",
+      "text": "Weitere Formulare und Tools findest du in der Seitenleiste — Visa, Dokumenten-Check, Steuern, Deutsch Trainer und mehr.",
+      "cta": "Alle Plattform-Funktionen"
     }
   },
   "documentCheck": {
