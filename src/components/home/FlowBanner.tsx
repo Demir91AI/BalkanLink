@@ -294,21 +294,7 @@ export default function FlowBanner() {
         ))}
       </div>
 
-      {/* CTA below */}
-      <div className="relative z-10 text-center pb-16 sm:pb-24">
-        <Link
-          to="/formulari"
-          className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-[15px] font-extrabold text-[hsl(220,50%,8%)] transition-all duration-200 hover:-translate-y-1 hover:scale-[1.04] active:scale-[0.98]"
-          style={{
-            background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--brand-orange)) 100%)",
-            boxShadow: "0 12px 40px hsla(43,70%,55%,0.35)",
-          }}
-        >
-          {t("home.flowBanner.ctaStart")}
-          <ArrowRight className="h-4 w-4" />
-        </Link>
-        <p className="text-xs text-white/40 mt-3">{t("home.flowBanner.registerNote")}</p>
-      </div>
+      {/* CTA removed — overlapped partner cards above */}
 
       {/* Bottom edge fade */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[hsl(220,55%,5%)] to-transparent pointer-events-none" />
