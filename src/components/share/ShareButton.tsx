@@ -1,17 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  Share2,
-  Copy,
-  Check,
-  MessageCircle,
-  Send,
-  Facebook,
-  Mail,
-  Linkedin,
-  Twitter,
-  Instagram,
-} from "lucide-react";
+import { Share2, Copy, Check, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   buildEmailLink,
@@ -22,6 +11,15 @@ import {
   buildWhatsAppLink,
   buildXLink,
 } from "./shareLinks";
+import {
+  FacebookLogo,
+  InstagramLogo,
+  LinkedInLogo,
+  TelegramLogo,
+  ViberLogo,
+  WhatsAppLogo,
+  XLogo,
+} from "./BrandIcons";
 
 type Variant = "icon" | "compact" | "full";
 
@@ -127,65 +125,65 @@ export default function ShareButton({
       key: "whatsapp",
       label: "WhatsApp",
       href: buildWhatsAppLink(target),
-      icon: <MessageCircle className="h-4 w-4" />,
-      bg: "bg-[#25D366]/15",
-      fg: "text-[#25D366]",
+      icon: <WhatsAppLogo className="h-4 w-4" />,
+      bg: "bg-[#25D366]",
+      fg: "text-white",
     },
     {
       key: "telegram",
       label: "Telegram",
       href: buildTelegramLink(target),
-      icon: <Send className="h-4 w-4" />,
-      bg: "bg-[#229ED9]/15",
-      fg: "text-[#229ED9]",
+      icon: <TelegramLogo className="h-4 w-4" />,
+      bg: "bg-[#229ED9]",
+      fg: "text-white",
     },
     {
       key: "viber",
       label: "Viber",
       href: buildViberLink(target),
-      icon: <MessageCircle className="h-4 w-4" />,
-      bg: "bg-[#7360F2]/15",
-      fg: "text-[#9d8cff]",
+      icon: <ViberLogo className="h-4 w-4" />,
+      bg: "bg-[#7360F2]",
+      fg: "text-white",
     },
     {
       key: "facebook",
       label: "Facebook",
       href: buildFacebookLink(target),
-      icon: <Facebook className="h-4 w-4" />,
-      bg: "bg-[#1877F2]/15",
-      fg: "text-[#4f9bff]",
+      icon: <FacebookLogo className="h-4 w-4" />,
+      bg: "bg-[#1877F2]",
+      fg: "text-white",
     },
     {
       key: "instagram",
       label: t("share.instagram", "Instagram"),
       onClick: handleInstagram,
-      icon: <Instagram className="h-4 w-4" />,
-      bg: "bg-gradient-to-br from-[#f09433]/20 via-[#dc2743]/20 to-[#bc1888]/20",
-      fg: "text-[#f5a06a]",
+      icon: <InstagramLogo className="h-4 w-4" />,
+      bg: "bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]",
+      fg: "text-white",
     },
     {
       key: "x",
-      label: "X / Twitter",
+      label: "X",
       href: buildXLink(target),
-      icon: <Twitter className="h-4 w-4" />,
-      bg: "bg-white/10",
+      icon: <XLogo className="h-4 w-4" />,
+      bg: "bg-black ring-1 ring-white/20",
       fg: "text-white",
     },
     {
       key: "linkedin",
       label: "LinkedIn",
       href: buildLinkedInLink(target),
-      icon: <Linkedin className="h-4 w-4" />,
-      bg: "bg-[#0A66C2]/15",
-      fg: "text-[#4f9bff]",
+      icon: <LinkedInLogo className="h-4 w-4" />,
+      bg: "bg-[#0A66C2]",
+      fg: "text-white",
     },
     {
       key: "email",
       label: t("share.email", "Email"),
       href: buildEmailLink(target),
       icon: <Mail className="h-4 w-4" />,
-      bg: "bg-white/10",
-      fg: "text-white/80",
+      bg: "bg-white/15",
+      fg: "text-white",
     },
   ];
 
@@ -231,7 +229,7 @@ export default function ShareButton({
                   className="flex items-center gap-2.5 bg-[#0b1224] px-3 py-2.5 text-[12.5px] text-white/90 transition-colors hover:bg-white/[0.06]"
                   onClick={() => setOpen(false)}
                 >
-                  <span className={cn("flex h-7 w-7 items-center justify-center rounded-full", ch.bg, ch.fg)}>
+                  <span className={cn("flex h-8 w-8 items-center justify-center rounded-full shadow-sm", ch.bg, ch.fg)}>
                     {ch.icon}
                   </span>
                   <span className="font-medium truncate">{ch.label}</span>
@@ -245,7 +243,7 @@ export default function ShareButton({
                   }}
                   className="flex items-center gap-2.5 bg-[#0b1224] px-3 py-2.5 text-left text-[12.5px] text-white/90 transition-colors hover:bg-white/[0.06]"
                 >
-                  <span className={cn("flex h-7 w-7 items-center justify-center rounded-full", ch.bg, ch.fg)}>
+                  <span className={cn("flex h-8 w-8 items-center justify-center rounded-full shadow-sm", ch.bg, ch.fg)}>
                     {ch.icon}
                   </span>
                   <span className="font-medium truncate">{ch.label}</span>
