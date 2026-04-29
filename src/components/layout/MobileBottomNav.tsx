@@ -12,7 +12,7 @@ import {
   Home,
   Calculator,
   Briefcase,
-  KeyRound,
+  Heart,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
