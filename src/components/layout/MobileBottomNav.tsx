@@ -65,7 +65,7 @@ export default function MobileBottomNav() {
     const Icon = item.icon;
     return (
       <button
-        key={`${side}-${setIdx}-${idx}`}
+        key={`${side}-${idx}`}
         onClick={() => navigate(item.path)}
         className="flex flex-col items-center justify-center gap-[1px] active:scale-95 transition-all duration-150 animate-fade-in"
         style={{ width: 40, height: 30 }}
