@@ -80,7 +80,10 @@
     "calc": "Gehalt",
     "jobs": "Jobs",
     "rent": "Miete",
-    "business": "Business"
+    "business": "Business",
+    "templates": "Vorlagen",
+    "offers": "Anzeigen",
+    "lifeArrival": "Leben"
   },
   "footer": {
     "tagline": "Alles, was Sie für das Leben in Deutschland brauchen",
