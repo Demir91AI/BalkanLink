@@ -22,6 +22,7 @@ import PricingWarning from "@/components/home/PricingWarning";
 import WhatIsWhat from "@/components/home/WhatIsWhat";
 import FlowBanner from "@/components/home/FlowBanner";
 import PitchSection from "@/components/home/PitchSection";
+import CommunityHighlights from "@/components/home/CommunityHighlights";
 import ShareButton from "@/components/share/ShareButton";
 
 function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () => void }) {
