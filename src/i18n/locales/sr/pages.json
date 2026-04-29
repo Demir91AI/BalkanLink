@@ -489,7 +489,10 @@
       "multiPageHint": "Učitaj sve stranice odjednom (do 10 fajlova) — analiziramo ih kao jedan dokument. Možeš slikati svaku stranicu telefonom ili učitati PDF.",
       "filesCount": "{{count}} od {{max}} fajlova",
       "addMore": "Dodaj još stranica",
-      "remove": "Ukloni"
+      "remove": "Ukloni",
+      "chooseFile": "Izaberi fajl",
+      "takePhoto": "Slikaj kamerom",
+      "or": "ili"
     },
     "confirm": "Potvrđujem da ne učitavam/unosim osetljive podatke (broj lične karte, Steuer-ID, IBAN, zdravstvene podatke).",
     "buttons": {
@@ -1539,7 +1542,7 @@
   "whatIs": {
     "fabAria": "Šta je BalkanLink?",
     "fabLabel": "Šta je BalkanLink?",
-    "fabLabelShort": "Info",
+    "fabLabelShort": "Šta je ovo?",
     "kicker": "Dobrodošao na BalkanLink",
     "title": "Nemačka, ali na tvom jeziku.",
     "tagline": "BalkanLink je platforma napravljena za ljude sa Balkana koji žive, rade ili tek dolaze u Nemačku — da bi sistem koji nas okružuje konačno imao smisla.",

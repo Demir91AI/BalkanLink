@@ -489,7 +489,10 @@
       "multiPageHint": "Lade alle Seiten auf einmal hoch (bis zu 10 Dateien) — wir analysieren sie als ein Dokument. Du kannst jede Seite mit dem Handy fotografieren oder als PDF hochladen.",
       "filesCount": "{{count}} von {{max}} Dateien",
       "addMore": "Weitere Seite hinzufügen",
-      "remove": "Entfernen"
+      "remove": "Entfernen",
+      "chooseFile": "Datei auswählen",
+      "takePhoto": "Mit Kamera fotografieren",
+      "or": "oder"
     },
     "confirm": "Ich bestätige, dass ich keine sensiblen Daten hochlade/eingebe (Personalausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).",
     "buttons": {
@@ -1539,7 +1542,7 @@
   "whatIs": {
     "fabAria": "Was ist BalkanLink?",
     "fabLabel": "Was ist BalkanLink?",
-    "fabLabelShort": "Info",
+    "fabLabelShort": "Was ist das?",
     "kicker": "Willkommen bei BalkanLink",
     "title": "Deutschland, aber in deiner Sprache.",
     "tagline": "BalkanLink ist eine Plattform für Menschen vom Balkan, die in Deutschland leben, arbeiten oder gerade ankommen — damit das System um uns herum endlich Sinn ergibt.",
