@@ -1,7 +1,27 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Share2, Copy, Check, MessageCircle } from "lucide-react";
+import {
+  Share2,
+  Copy,
+  Check,
+  MessageCircle,
+  Send,
+  Facebook,
+  Mail,
+  Linkedin,
+  Twitter,
+  Instagram,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  buildEmailLink,
+  buildFacebookLink,
+  buildLinkedInLink,
+  buildTelegramLink,
+  buildViberLink,
+  buildWhatsAppLink,
+  buildXLink,
+} from "./shareLinks";
 
 type Variant = "icon" | "compact" | "full";
 
@@ -13,11 +33,20 @@ interface ShareButtonProps {
   className?: string;
 }
 
+interface Channel {
+  key: string;
+  label: string;
+  href?: string;
+  onClick?: () => void;
+  icon: React.ReactNode;
+  bg: string;
+  fg: string;
+}
+
 /**
  * Universal share component.
- * - Mobile: uses Web Share API when available
- * - Desktop / fallback: WhatsApp link + Copy link
- * Fully i18n via "common:share" namespace.
+ * - Mobile: tries Web Share API first (covers Instagram, Snapchat, etc.)
+ * - Fallback panel: WhatsApp, Telegram, Viber, Facebook, X, LinkedIn, Email, Copy
  */
 export default function ShareButton({
   url,
@@ -29,13 +58,29 @@ export default function ShareButton({
   const { t } = useTranslation("common");
   const [copied, setCopied] = useState(false);
   const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   const shareUrl = url || (typeof window !== "undefined" ? window.location.href : "");
   const shareTitle = title || (typeof document !== "undefined" ? document.title : "BalkanLink");
   const shareText = text || t("share.defaultText", "Pogledaj ovo na BalkanLink:");
+  const target = { url: shareUrl, title: shareTitle, text: shareText };
 
-  const message = `${shareText} ${shareUrl}`;
-  const waLink = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  // Close on outside click / Escape
+  useEffect(() => {
+    if (!open) return;
+    const onDoc = (e: MouseEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDoc);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   const handleNative = async () => {
     if (typeof navigator !== "undefined" && (navigator as any).share) {
@@ -62,19 +107,99 @@ export default function ShareButton({
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      // ignore
+      /* ignore */
     }
   };
+
+  const handleInstagram = async () => {
+    // Instagram has no web share URL; copy link, then prompt user.
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2400);
+    } catch {
+      /* ignore */
+    }
+  };
+
+  const channels: Channel[] = [
+    {
+      key: "whatsapp",
+      label: "WhatsApp",
+      href: buildWhatsAppLink(target),
+      icon: <MessageCircle className="h-4 w-4" />,
+      bg: "bg-[#25D366]/15",
+      fg: "text-[#25D366]",
+    },
+    {
+      key: "telegram",
+      label: "Telegram",
+      href: buildTelegramLink(target),
+      icon: <Send className="h-4 w-4" />,
+      bg: "bg-[#229ED9]/15",
+      fg: "text-[#229ED9]",
+    },
+    {
+      key: "viber",
+      label: "Viber",
+      href: buildViberLink(target),
+      icon: <MessageCircle className="h-4 w-4" />,
+      bg: "bg-[#7360F2]/15",
+      fg: "text-[#9d8cff]",
+    },
+    {
+      key: "facebook",
+      label: "Facebook",
+      href: buildFacebookLink(target),
+      icon: <Facebook className="h-4 w-4" />,
+      bg: "bg-[#1877F2]/15",
+      fg: "text-[#4f9bff]",
+    },
+    {
+      key: "instagram",
+      label: t("share.instagram", "Instagram"),
+      onClick: handleInstagram,
+      icon: <Instagram className="h-4 w-4" />,
+      bg: "bg-gradient-to-br from-[#f09433]/20 via-[#dc2743]/20 to-[#bc1888]/20",
+      fg: "text-[#f5a06a]",
+    },
+    {
+      key: "x",
+      label: "X / Twitter",
+      href: buildXLink(target),
+      icon: <Twitter className="h-4 w-4" />,
+      bg: "bg-white/10",
+      fg: "text-white",
+    },
+    {
+      key: "linkedin",
+      label: "LinkedIn",
+      href: buildLinkedInLink(target),
+      icon: <Linkedin className="h-4 w-4" />,
+      bg: "bg-[#0A66C2]/15",
+      fg: "text-[#4f9bff]",
+    },
+    {
+      key: "email",
+      label: t("share.email", "Email"),
+      href: buildEmailLink(target),
+      icon: <Mail className="h-4 w-4" />,
+      bg: "bg-white/10",
+      fg: "text-white/80",
+    },
+  ];
 
   const baseBtn =
     "inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-[13px] font-medium text-white/85 backdrop-blur transition-all hover:bg-white/[0.08] hover:border-[hsl(45,93%,49%)]/40 active:scale-[0.97]";
 
   return (
-    <div className={cn("relative inline-block", className)}>
+    <div ref={wrapRef} className={cn("relative inline-block", className)}>
       <button
         type="button"
         onClick={handleClick}
         aria-label={t("share.aria", "Podijeli")}
+        aria-expanded={open}
+        aria-haspopup="dialog"
         className={cn(
           baseBtn,
           variant === "icon" && "h-10 w-10 p-0",
@@ -89,25 +214,50 @@ export default function ShareButton({
         <div
           role="dialog"
           aria-label={t("share.aria", "Podijeli")}
-          className="absolute right-0 z-50 mt-2 w-64 overflow-hidden rounded-2xl border border-white/10 bg-[#0b1224]/95 shadow-2xl backdrop-blur-xl"
-          onMouseLeave={() => setOpen(false)}
+          className="absolute right-0 z-50 mt-2 w-72 overflow-hidden rounded-2xl border border-white/10 bg-[#0b1224]/95 shadow-2xl backdrop-blur-xl animate-fade-in"
         >
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-4 py-3 text-[13px] text-white/90 transition-colors hover:bg-white/[0.06]"
-            onClick={() => setOpen(false)}
-          >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
-              <MessageCircle className="h-4 w-4" />
-            </span>
-            <span className="font-medium">WhatsApp</span>
-          </a>
+          <div className="border-b border-white/5 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-white/50">
+            {t("share.heading", "Podijeli stranicu")}
+          </div>
+
+          <div className="grid grid-cols-2 gap-px bg-white/5">
+            {channels.map((ch) =>
+              ch.href ? (
+                <a
+                  key={ch.key}
+                  href={ch.href}
+                  target={ch.href.startsWith("mailto:") || ch.href.startsWith("viber://") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 bg-[#0b1224] px-3 py-2.5 text-[12.5px] text-white/90 transition-colors hover:bg-white/[0.06]"
+                  onClick={() => setOpen(false)}
+                >
+                  <span className={cn("flex h-7 w-7 items-center justify-center rounded-full", ch.bg, ch.fg)}>
+                    {ch.icon}
+                  </span>
+                  <span className="font-medium truncate">{ch.label}</span>
+                </a>
+              ) : (
+                <button
+                  key={ch.key}
+                  type="button"
+                  onClick={() => {
+                    ch.onClick?.();
+                  }}
+                  className="flex items-center gap-2.5 bg-[#0b1224] px-3 py-2.5 text-left text-[12.5px] text-white/90 transition-colors hover:bg-white/[0.06]"
+                >
+                  <span className={cn("flex h-7 w-7 items-center justify-center rounded-full", ch.bg, ch.fg)}>
+                    {ch.icon}
+                  </span>
+                  <span className="font-medium truncate">{ch.label}</span>
+                </button>
+              ),
+            )}
+          </div>
+
           <button
             type="button"
             onClick={handleCopy}
-            className="flex w-full items-center gap-3 border-t border-white/5 px-4 py-3 text-left text-[13px] text-white/90 transition-colors hover:bg-white/[0.06]"
+            className="flex w-full items-center gap-3 border-t border-white/10 px-4 py-3 text-left text-[13px] text-white/90 transition-colors hover:bg-white/[0.06]"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/80">
               {copied ? <Check className="h-4 w-4 text-[hsl(45,93%,55%)]" /> : <Copy className="h-4 w-4" />}

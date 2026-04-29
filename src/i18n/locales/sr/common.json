@@ -375,7 +375,10 @@
     "aria": "Podeli ovu stranicu",
     "copy": "Kopiraj link",
     "copied": "Link kopiran!",
-    "defaultText": "Pogledaj ovo na BalkanLink:"
+    "defaultText": "Pogledaj ovo na BalkanLink:",
+    "heading": "Podeli stranicu",
+    "instagram": "Instagram (kopiraj)",
+    "email": "Email"
   },
   "socialProof": {
     "usersOnPlatform": "korisnika koristi BalkanLink",

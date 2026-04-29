@@ -375,7 +375,10 @@
     "aria": "Diese Seite teilen",
     "copy": "Link kopieren",
     "copied": "Link kopiert!",
-    "defaultText": "Schau dir das auf BalkanLink an:"
+    "defaultText": "Schau dir das auf BalkanLink an:",
+    "heading": "Seite teilen",
+    "instagram": "Instagram (kopieren)",
+    "email": "E-Mail"
   },
   "socialProof": {
     "usersOnPlatform": "Nutzer auf BalkanLink",
