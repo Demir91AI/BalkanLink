@@ -50,7 +50,7 @@ export default function MobileBottomNav() {
     { icon: FileText, label: t("mobileNav.templates"), path: "/vorlagen" },
     { icon: Briefcase, label: t("mobileNav.offers"), path: "/nudim-trazim" },
     { icon: Calculator, label: t("mobileNav.calc"), path: "/kalkulatori" },
-    { icon: Heart, label: t("mobileNav.lifeArrival"), path: "/zivot" },
+    { icon: Plane, label: t("mobileNav.lifeArrival"), path: "/zivot-u-njemackoj" },
   ];
 
   // Rotate every 10s between two sets of 3
