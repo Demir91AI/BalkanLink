@@ -545,6 +545,9 @@ export default function FormCenter() {
           ) : (
             <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
           )}
+
+          {/* ── More features hint ── */}
+          <MoreFeaturesHint />
         </main>
         <FormRightPanel
           activeSlug={activeSlug}
