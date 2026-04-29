@@ -252,11 +252,11 @@ export default function WhatIsBalkanLink() {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="px-6 py-9 sm:px-12 sm:py-11"
               >
-                <div className="flex items-center gap-3">
-                  <span className="relative inline-flex h-7 w-10 items-center justify-center rounded-md bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30 font-heading text-xs font-bold tracking-[0.18em] text-[hsl(var(--gold))]">
+                <div className="group/num flex items-center gap-3">
+                  <span className="relative inline-flex h-7 w-10 items-center justify-center rounded-md bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30 font-heading text-xs font-bold tracking-[0.18em] text-[hsl(var(--gold))] transition-all duration-300 group-hover/num:bg-[hsl(var(--gold))]/25 group-hover/num:ring-[hsl(var(--gold))]/60 group-hover/num:shadow-[0_0_18px_rgba(217,165,54,0.45)] group-hover/num:text-amber-200">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/50 via-[hsl(var(--gold))]/15 to-transparent" />
+                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/50 via-[hsl(var(--gold))]/15 to-transparent transition-all duration-500 group-hover/num:from-[hsl(var(--gold))]/80 group-hover/num:via-[hsl(var(--gold))]/30" />
                 </div>
                 <h3 className="mt-4 font-heading text-2xl font-bold leading-tight sm:text-[1.7rem]">
                   <span className="bg-gradient-to-r from-white to-white/85 bg-clip-text text-transparent">
