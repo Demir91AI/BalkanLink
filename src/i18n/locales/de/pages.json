@@ -1526,51 +1526,93 @@
     "fabAria": "Was ist BalkanLink?",
     "fabLabel": "Was ist BalkanLink?",
     "fabLabelShort": "Info",
-    "kicker": "Lerne die Plattform kennen",
-    "title": "Was ist BalkanLink?",
-    "tagline": "Dein digitaler Wegweiser durch Deutschland — in deiner Muttersprache.",
-    "pitch": "BalkanLink hilft dir, dich in der deutschen Bürokratie, Sprache und im Alltag zurechtzufinden — ohne Übersetzer, ohne Warten, 24/7 auf Bosnisch, Kroatisch, Serbisch und Deutsch.",
-    "forWhomTitle": "Für wen",
+    "kicker": "Willkommen bei BalkanLink",
+    "title": "Deutschland, aber in deiner Sprache.",
+    "tagline": "Alles, was du brauchst, um die Bürokratie zu überleben, die Sprache zu lernen und in Deutschland normal zu leben — an einem Ort.",
+    "pitch": "Ohne Übersetzer. Ohne Wartezeit auf Termine. Ohne Panik vor dem Brief vom Finanzamt. BalkanLink ist dein digitaler Nachbar, der das System kennt — und es dir auf Deutsch, Bosnisch, Kroatisch oder Serbisch erklärt.",
+    "stats": {
+      "languages": "4 Sprachen",
+      "languagesDesc": "DE · BS · HR · SR",
+      "tools": "30+ Tools",
+      "toolsDesc": "Formulare, Guides, Checklisten",
+      "available": "24/7",
+      "availableDesc": "Asistent immer erreichbar"
+    },
+    "problemTitle": "Kennst du das Gefühl?",
+    "problems": {
+      "p1": "Brief vom Finanzamt kommt — du verstehst kaum die Hälfte.",
+      "p2": "Du brauchst Bürgergeld oder Wohngeld — Antrag hat 12 Seiten auf Deutsch.",
+      "p3": "Diplom aus dem Ausland — du weißt nicht, wo du anfangen sollst.",
+      "p4": "Termin im Bürgeramt — Angst, was sie fragen werden."
+    },
+    "solutionTitle": "Wir lösen das:",
+    "forWhomTitle": "Für wen ist BalkanLink",
     "audience": {
       "newcomer": {
-        "title": "Du bist neu in Deutschland",
-        "desc": "Anmeldung, Steuer-ID, Krankenversicherung, Konto eröffnen.",
-        "b1": "Leitfaden 'Erste Schritte' — alles der Reihe nach",
-        "b2": "Anmeldung-Simulator — übe den Termin",
-        "b3": "Asistent antwortet auf deiner Sprache"
+        "title": "Du bist neu hier",
+        "subtitle": "Erste 6 Monate in Deutschland",
+        "desc": "Anmeldung, Steuer-ID, Bank, Krankenversicherung — alles der Reihe nach.",
+        "b1": "Leitfaden 'Erste Schritte' — Checkliste vom Flughafen bis zum ersten Gehalt",
+        "b2": "Anmeldung-Simulator — übe den Bürgeramt-Termin vorher",
+        "b3": "Asistent antwortet 24/7 — in deiner Sprache, ohne Scham",
+        "b4": "Ankunft-Hub — Konto, Führerschein, Rundfunk, alles erklärt",
+        "cta": "Mit 'Erste Schritte' starten"
       },
       "language": {
-        "title": "Du verstehst Deutsch noch nicht genug",
-        "desc": "Briefe vom Finanzamt, Verträge, komplizierte Formulare.",
-        "b1": "Dokumenten-Check — Foto vom Brief, sofort Erklärung",
-        "b2": "Deutsch-Trainer — A1 bis C2, 240 Lektionen",
-        "b3": "Zweisprachige Formulare (Deutsch + deine Sprache)"
+        "title": "Dein Deutsch reicht nicht",
+        "subtitle": "Oder reicht, aber nicht für Behörden",
+        "desc": "Amtliche Briefe, Verträge, komplizierte Formulare — fotografiere oder frage, du bekommst eine klare Erklärung.",
+        "b1": "Dokumenten-Check — Foto vom Brief → Übersetzung + nächster Schritt",
+        "b2": "Deutsch-Trainer — 240 Lektionen A1 bis C2, Aussprache, Grammatik",
+        "b3": "Zweisprachige Formulare — deutsches Feld + Erklärung in deiner Sprache",
+        "b4": "Vorlagen — fertige Briefe (Kündigung, Widerspruch, Einspruch)",
+        "cta": "Dokumenten-Check probieren"
       },
       "established": {
         "title": "Du bist schon länger hier",
-        "desc": "Steuern, Bürgergeld, Kindergeld, Anerkennung, Business.",
-        "b1": "Tax Wizard — Wegweiser durch die Steuererklärung",
-        "b2": "Anerkennung Navigator — Diplom anerkennen",
-        "b3": "Vorlagen — Kündigung, Widerspruch, Einspruch"
+        "subtitle": "5+ Jahre, Grundlagen sitzen, aber Lücken bleiben",
+        "desc": "Steuern, Anerkennung, Business, Kindergeld, Elterngeld — komplexe Themen, die bares Geld wert sind.",
+        "b1": "Tax Wizard — Wegweiser durch die Steuererklärung, was absetzen",
+        "b2": "Anerkennung Navigator — Diplom-Anerkennung pro Bundesland",
+        "b3": "Business in Deutschland — Gewerbe, Kleinunternehmer, Freiberufler",
+        "b4": "Premium-Checklisten — Hochzeit, Scheidung, Erbschaft, Riester",
+        "cta": "Tax Wizard öffnen"
       }
     },
-    "premium": {
-      "kicker": "Premium",
-      "title": "Alles freigeschaltet für",
-      "subtitle": "Jederzeit kündbar. Keine versteckten Kosten.",
-      "p1": "Unbegrenzter Asistent + Chat-Verlauf",
-      "p2": "Unbegrenzter Dokumenten-Check + Detailbericht",
-      "p3": "Alle Formulare (Bürgergeld, Wohngeld, Elterngeld...)",
-      "p4": "Tax Wizard + alle Steuer-Checklisten",
-      "p5": "Premium-Checklisten (Kindergeld, Anmeldung, Hochzeit...)",
-      "cta": "Pakete ansehen"
+    "featuresTitle": "Was du alles bekommst",
+    "features": {
+      "f1": { "title": "Asistent", "desc": "Chat in deiner Sprache, kennt das deutsche System, merkt sich Verlauf." },
+      "f2": { "title": "Dokumenten-Check", "desc": "Brief fotografieren → Analyse, Übersetzung, nächster Schritt." },
+      "f3": { "title": "Formulare", "desc": "Bürgergeld, Wohngeld, Elterngeld — zweisprachig ausfüllen." },
+      "f4": { "title": "Vorlagen", "desc": "Fertige Briefe: Kündigung, Widerspruch, Einspruch — DIN 5008." },
+      "f5": { "title": "Tax Wizard", "desc": "Steuererklärung Schritt für Schritt, ELSTER erklärt." },
+      "f6": { "title": "Deutsch-Trainer", "desc": "240 Lektionen, A1–C2, Aussprache mit Laura-Stimme." },
+      "f7": { "title": "Anerkennung", "desc": "Diplom-Anerkennung — IHK, HWK, Hochschulen." },
+      "f8": { "title": "Checklisten", "desc": "Hochzeit, Kind, Todesfall, Umzug, Erbschaft — alles geordnet." }
     },
-    "exploreTitle": "Schnell entdecken",
+    "premium": {
+      "kicker": "✨ Premium",
+      "badge": "Beliebteste Wahl",
+      "title": "Alles freigeschaltet",
+      "price": "9,99 €",
+      "priceUnit": "/Monat",
+      "subtitle": "Weniger als ein Kaffee pro Woche. Jederzeit kündbar.",
+      "p1": "Unbegrenzter Asistent — alle Fragen, voller Verlauf",
+      "p2": "Unbegrenzter Dokumenten-Check + detaillierter PDF-Bericht",
+      "p3": "Alle Premium-Formulare (Bürgergeld, Wohngeld, Elterngeld, BAföG...)",
+      "p4": "Tax Wizard + alle Steuer-Checklisten und Rechner",
+      "p5": "Premium-Checklisten (Kindergeld, Anmeldung, Hochzeit, Erbschaft)",
+      "p6": "Werbefrei, Priority-Support",
+      "cta": "Premium werden",
+      "ctaFree": "Erst kostenlos testen"
+    },
+    "exploreTitle": "Oder direkt einsteigen:",
     "links": {
       "dolazak": "Ankunft in Deutschland",
       "asistent": "Asistent (Chat)",
       "formulari": "Formulare",
       "docCheck": "Dokumenten-Check"
-    }
+    },
+    "footer": "Von der Diaspora, für die Diaspora. 🇧🇦 🇭🇷 🇷🇸 → 🇩🇪"
   }
 }
