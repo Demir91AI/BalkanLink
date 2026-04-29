@@ -271,6 +271,12 @@
   .animate-scroll-x:hover {
     animation-play-state: paused;
   }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
