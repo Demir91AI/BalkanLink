@@ -383,6 +383,34 @@
       "cta": "Sve mogućnosti platforme"
     }
   },
+  "dolazakStart": {
+    "seoTitle": "Počni ovde — prvi koraci u Nemačkoj",
+    "seoDescription": "Najvažniji koraci za početak u Nemačkoj: Anmeldung, boravak, osiguranje, banka, Steuer-ID i više.",
+    "title": "Počni ovde",
+    "subtitle": "Najvažniji koraci za tvoj početak u Nemačkoj.",
+    "cards": {
+      "schritte": "Prvi koraci",
+      "schritteDesc": "Kompletna lista šta uraditi u prve nedelje.",
+      "anmeldung": "Prijava prebivališta",
+      "anmeldungDesc": "Prijavi svoju adresu u roku od 14 dana.",
+      "aufenthalt": "Boravišna dozvola",
+      "aufenthaltDesc": "Viza, Blaue Karte ili slobodan pristup — saznaj šta ti treba.",
+      "steuer": "Steuer-ID i poreska klasa",
+      "steuerDesc": "Steuer-ID dobijaš automatski nakon Anmeldung.",
+      "kranken": "Zdravstveno osiguranje",
+      "krankenDesc": "Zakonsko ili privatno — obavezno za sve.",
+      "bank": "Bankovni račun",
+      "bankDesc": "Otvori račun u prvoj nedelji.",
+      "sozial": "Sozialversicherung",
+      "sozialDesc": "5 stubova socijalnog osiguranja za zaposlene.",
+      "gez": "Rundfunkbeitrag (GEZ)",
+      "gezDesc": "TV/radio taksa — 18,36 € mesečno po domaćinstvu.",
+      "fuehrerschein": "Vozačka dozvola",
+      "fuehrerscheinDesc": "Zamena ili priznavanje — rok 6 meseci.",
+      "auto": "Prijava vozila (Kfz, Lkw...)",
+      "autoDesc": "Registracija motornih vozila u Nemačkoj."
+    }
+  },
   "documentCheck": {
     "title": "Provera dokumenata",
     "subtitle": "Učitaj pismo ili dokument — dobiješ objašnjenje na svom jeziku u sekundi",
