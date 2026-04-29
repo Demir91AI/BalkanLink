@@ -231,6 +231,11 @@
         "i3": "Nerazumevanje dokumenta = ozbiljne pravne posledice"
       }
     },
+    "share": {
+      "label": "Podeli",
+      "heading": "Pomozi prijateljima — podeli BalkanLink",
+      "subline": "Jedan klik, neko drugi dobije pomoć."
+    },
     "pricing": {
       "heading": "Odaberi plan koji ti odgovara",
       "subline": "Počni besplatno — nadogradi kad trebaš više. Bez ugovora, otkaži kad hoćeš.",

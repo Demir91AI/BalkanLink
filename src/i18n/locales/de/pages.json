@@ -231,6 +231,11 @@
         "i3": "Missverstandenes Dokument = ernste rechtliche Folgen"
       }
     },
+    "share": {
+      "label": "Teilen",
+      "heading": "Hilf deinen Freunden — teile BalkanLink",
+      "subline": "Ein Klick, jemand anderes bekommt Hilfe."
+    },
     "pricing": {
       "heading": "Wählen Sie den passenden Plan",
       "subline": "Kostenlos starten — upgraden, wenn Sie mehr brauchen. Ohne Vertrag, jederzeit kündbar.",
