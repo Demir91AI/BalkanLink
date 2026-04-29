@@ -363,6 +363,24 @@
       "partnerView": "Pogledaj",
       "partnerContact": "Kontakt",
       "partnerRecommended": "Preporučeno"
+    },
+    "pitch": {
+      "eyebrow": "Što je BalkanLink?",
+      "headline": "Tvoj prevoditelj za njemačku birokraciju.",
+      "subline": "Sve formulare, vize, poreze i dokumente — objašnjeno na hrvatskom, jasno i bez papirologije od koje boli glava.",
+      "bullets": [
+        "📋 Ispunjavaj njemačke obrasce uz HR upute",
+        "✈️ Vize, Anmeldung, Anerkennung — korak po korak",
+        "🤖 Asistent odgovara na pitanja 24/7",
+        "🇩🇪 Uči njemački od A1 do C2"
+      ],
+      "ctaPrimary": "Pogledaj sve mogućnosti",
+      "ctaSecondary": "Kako funkcionira"
+    },
+    "moreFeatures": {
+      "heading": "Tražiš još?",
+      "text": "Ostale formulare i alate naći ćeš u bočnom izborniku — Vize, Dokumenten-Check, Porezi, Deutsch Trainer i još.",
+      "cta": "Sve mogućnosti platforme"
     }
   },
   "documentCheck": {
