@@ -116,8 +116,43 @@ export default function WhatIsBalkanLink() {
 
           {/* HERO */}
           <div className="relative overflow-hidden border-b border-white/10 px-6 pt-10 pb-8 sm:px-12 sm:pt-14 sm:pb-12">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(217,165,54,0.18),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(56,189,248,0.12),transparent_60%)]" />
-            <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[hsl(var(--gold))]/20 blur-3xl" />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-60 blur-3xl"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, rgba(217,165,54,0.35), rgba(56,189,248,0.18), rgba(217,165,54,0.35))",
+              }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-40 -left-32 h-72 w-72 rounded-full opacity-40 blur-3xl"
+              style={{
+                background:
+                  "conic-gradient(from 180deg, rgba(56,189,248,0.25), rgba(217,165,54,0.2), rgba(56,189,248,0.25))",
+              }}
+              animate={{ rotate: -360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(217,165,54,0.15),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(56,189,248,0.1),transparent_60%)]" />
+
+            {[
+              { top: "12%", left: "15%", delay: 0 },
+              { top: "28%", left: "78%", delay: 1.2 },
+              { top: "62%", left: "8%", delay: 2.1 },
+              { top: "70%", left: "85%", delay: 0.8 },
+            ].map((p, i) => (
+              <motion.span
+                key={i}
+                aria-hidden
+                className="pointer-events-none absolute h-1 w-1 rounded-full bg-[hsl(var(--gold))]"
+                style={{ top: p.top, left: p.left, boxShadow: "0 0 8px hsl(var(--gold))" }}
+                animate={{ opacity: [0, 1, 0], scale: [0.5, 1.4, 0.5] }}
+                transition={{ duration: 2.6, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
+              />
+            ))}
 
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -125,14 +160,36 @@ export default function WhatIsBalkanLink() {
               transition={{ duration: 0.4 }}
               className="relative"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--gold))]">
-                <Sparkles className="h-3 w-3" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
+                className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--gold))] shadow-[0_0_24px_rgba(217,165,54,0.25)]"
+              >
+                <motion.span
+                  animate={{ rotate: [0, 15, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Sparkles className="h-3 w-3" />
+                </motion.span>
                 {t("whatIs.kicker")}
-              </div>
+              </motion.div>
+
               <h2 className="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-[2.6rem]">
-                {t("whatIs.title")}
+                <span className="bg-gradient-to-br from-white via-white to-[hsl(var(--gold))]/85 bg-clip-text text-transparent">
+                  {t("whatIs.title")}
+                </span>
               </h2>
-              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/75 sm:text-base">
+
+              <div className="relative mt-3 h-px w-32 overflow-hidden rounded-full bg-white/10">
+                <motion.div
+                  className="absolute inset-y-0 w-12 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent"
+                  animate={{ x: ["-50%", "200%"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </div>
+
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/75 sm:text-base">
                 {t("whatIs.tagline")}
               </p>
 
@@ -141,33 +198,46 @@ export default function WhatIsBalkanLink() {
                   { Icon: Globe2, k: "languages" },
                   { Icon: Wrench, k: "tools" },
                   { Icon: Clock3, k: "available" },
-                ].map(({ Icon, k }) => (
-                  <div
+                ].map(({ Icon, k }, idx) => (
+                  <motion.div
                     key={k}
-                    className="rounded-xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur"
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 + idx * 0.08, duration: 0.4 }}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-3 backdrop-blur transition-all hover:border-[hsl(var(--gold))]/40 hover:shadow-[0_8px_30px_rgba(217,165,54,0.2)]"
                   >
-                    <Icon className="h-4 w-4 text-[hsl(var(--gold))]" />
-                    <div className="mt-2 text-base font-bold sm:text-lg">
-                      {t(`whatIs.stats.${k}`)}
+                    <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                    <div className="relative">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[hsl(var(--gold))]/15 ring-1 ring-[hsl(var(--gold))]/30">
+                        <Icon className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
+                      </div>
+                      <div className="mt-2 text-[13px] font-bold leading-tight sm:text-sm">
+                        {t(`whatIs.stats.${k}`)}
+                      </div>
+                      <div className="mt-0.5 text-[10px] uppercase tracking-wider text-white/45 sm:text-[10.5px]">
+                        {t(`whatIs.stats.${k}Desc`)}
+                      </div>
                     </div>
-                    <div className="text-[10px] uppercase tracking-wider text-white/50 sm:text-[11px]">
-                      {t(`whatIs.stats.${k}Desc`)}
-                    </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
           </div>
 
           {/* PULL QUOTE */}
-          <div className="relative border-b border-white/10 px-6 py-8 sm:px-12 sm:py-10">
-            <Quote className="absolute left-6 top-6 h-8 w-8 text-[hsl(var(--gold))]/25 sm:left-10 sm:top-8" />
-            <p className="ml-10 max-w-2xl font-heading text-lg italic leading-relaxed text-white/90 sm:ml-12 sm:text-xl">
+          <div className="relative overflow-hidden border-b border-white/10 px-6 py-8 sm:px-12 sm:py-10">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,165,54,0.06),transparent_70%)]" />
+            <Quote className="absolute left-6 top-6 h-8 w-8 text-[hsl(var(--gold))]/30 sm:left-10 sm:top-8" />
+            <p className="relative ml-10 max-w-2xl font-heading text-lg italic leading-relaxed text-white/95 sm:ml-12 sm:text-xl">
               {t("whatIs.pullQuote")}
             </p>
-            <p className="ml-10 mt-3 text-xs uppercase tracking-[0.18em] text-white/40 sm:ml-12">
-              — {t("whatIs.pullQuoteAuthor")}
-            </p>
+            <div className="relative ml-10 mt-3 flex items-center gap-3 sm:ml-12">
+              <span className="h-px w-8 bg-gradient-to-r from-[hsl(var(--gold))]/60 to-transparent" />
+              <p className="text-xs uppercase tracking-[0.22em] text-[hsl(var(--gold))]/70">
+                {t("whatIs.pullQuoteAuthor")}
+              </p>
+            </div>
           </div>
 
           {/* NARRATIVE SECTIONS */}
@@ -182,13 +252,15 @@ export default function WhatIsBalkanLink() {
                 className="px-6 py-9 sm:px-12 sm:py-11"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-heading text-xs font-bold tracking-[0.22em] text-[hsl(var(--gold))]">
+                  <span className="relative inline-flex h-7 w-10 items-center justify-center rounded-md bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30 font-heading text-xs font-bold tracking-[0.18em] text-[hsl(var(--gold))]">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/40 to-transparent" />
+                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/50 via-[hsl(var(--gold))]/15 to-transparent" />
                 </div>
-                <h3 className="mt-3 font-heading text-2xl font-bold leading-tight sm:text-[1.7rem]">
-                  {t(`whatIs.sections.${key}.title`)}
+                <h3 className="mt-4 font-heading text-2xl font-bold leading-tight sm:text-[1.7rem]">
+                  <span className="bg-gradient-to-r from-white to-white/85 bg-clip-text text-transparent">
+                    {t(`whatIs.sections.${key}.title`)}
+                  </span>
                 </h3>
                 <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-white/75 sm:text-base">
                   {Array.from({ length: paragraphs }).map((_, p) => (
@@ -201,44 +273,71 @@ export default function WhatIsBalkanLink() {
 
           {/* PREMIUM SHOWCASE */}
           <div className="relative border-t border-white/10 px-6 py-10 sm:px-12">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,165,54,0.15),transparent_70%)]" />
-            <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/10 via-amber-500/5 to-transparent p-6 sm:p-8">
-              <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,165,54,0.18),transparent_70%)]" />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))]/30 blur-3xl"
+              animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.15, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            <div className="relative overflow-hidden rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-gradient-to-br from-[hsl(var(--gold))]/12 via-amber-500/5 to-transparent p-6 shadow-[0_20px_60px_-20px_rgba(217,165,54,0.4)] sm:p-8">
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent"
+                animate={{ x: ["-100%", "300%"] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
+              />
+
+              <div className="relative flex flex-wrap items-start justify-between gap-3">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--gold))]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]">
-                    <Crown className="h-3 w-3" />
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--gold))]/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] ring-1 ring-[hsl(var(--gold))]/40 shadow-[0_0_20px_rgba(217,165,54,0.3)]"
+                  >
+                    <motion.span
+                      animate={{ rotate: [0, -8, 8, 0] }}
+                      transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Crown className="h-3 w-3" />
+                    </motion.span>
                     {t("whatIs.premium.kicker")}
-                  </div>
+                  </motion.div>
                   <h3 className="mt-3 font-heading text-2xl font-extrabold sm:text-3xl">
-                    {t("whatIs.premium.title")}
+                    <span className="bg-gradient-to-br from-white via-[hsl(var(--gold))]/95 to-amber-300 bg-clip-text text-transparent">
+                      {t("whatIs.premium.title")}
+                    </span>
                   </h3>
                 </div>
                 <div className="text-right">
                   <div className="flex items-baseline gap-0.5">
-                    <span className="font-heading text-3xl font-extrabold text-[hsl(var(--gold))] sm:text-4xl">
+                    <span
+                      className="font-heading text-3xl font-extrabold sm:text-4xl bg-gradient-to-br from-[hsl(var(--gold))] to-amber-300 bg-clip-text text-transparent"
+                      style={{ filter: "drop-shadow(0 0 12px rgba(217,165,54,0.45))" }}
+                    >
                       {t("whatIs.premium.price")}
                     </span>
                     <span className="text-sm text-white/60">{t("whatIs.premium.priceUnit")}</span>
                   </div>
-                  <span className="mt-1 inline-block rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                  <span className="mt-1 inline-block rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-300 ring-1 ring-emerald-400/30">
                     {t("whatIs.premium.badge")}
                   </span>
                 </div>
               </div>
 
-              <p className="mt-4 text-[15px] leading-relaxed text-white/80">
+              <p className="relative mt-4 text-[15px] leading-relaxed text-white/85">
                 {t("whatIs.premium.narrative")}
               </p>
 
-              <div className="mt-5 flex items-start gap-2 text-sm text-white/70">
+              <div className="relative mt-5 flex items-start gap-2 text-sm text-white/75">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--gold))]" />
                 <span>{t("whatIs.premium.summary")}</span>
               </div>
 
-              <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+              <div className="relative mt-6 flex flex-col gap-2 sm:flex-row">
                 <Button
                   asChild
-                  className="flex-1 bg-[hsl(var(--gold))] text-slate-950 hover:bg-[hsl(var(--gold))]/90"
+                  className="flex-1 bg-gradient-to-r from-[hsl(var(--gold))] to-amber-400 text-slate-950 font-bold shadow-[0_8px_30px_rgba(217,165,54,0.45)] hover:from-amber-400 hover:to-[hsl(var(--gold))] hover:shadow-[0_12px_40px_rgba(217,165,54,0.6)] transition-all"
                   onClick={close}
                 >
                   <Link to={href("/paketi")}>
