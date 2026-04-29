@@ -12,7 +12,7 @@ import {
   Home,
   Calculator,
   Briefcase,
-  Heart,
+  Plane,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
