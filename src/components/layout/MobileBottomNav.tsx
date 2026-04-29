@@ -12,7 +12,7 @@ import {
   Home,
   Calculator,
   Briefcase,
-  KeyRound,
+  Heart,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
@@ -50,7 +50,7 @@ export default function MobileBottomNav() {
     { icon: FileText, label: t("mobileNav.templates"), path: "/vorlagen" },
     { icon: Briefcase, label: t("mobileNav.offers"), path: "/nudim-trazim" },
     { icon: Calculator, label: t("mobileNav.calc"), path: "/kalkulatori" },
-    { icon: KeyRound, label: t("mobileNav.lifeArrival"), path: "/zivot" },
+    { icon: Heart, label: t("mobileNav.lifeArrival"), path: "/zivot" },
   ];
 
   // Rotate every 10s between two sets of 3
