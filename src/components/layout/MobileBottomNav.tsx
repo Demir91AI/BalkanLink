@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import {
   FileText,
   Shield,
@@ -29,15 +29,6 @@ export default function MobileBottomNav() {
 
   const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  // Center the scroll on mount so Home isn't covering left/right items
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const center = (el.scrollWidth - el.clientWidth) / 2;
-    el.scrollLeft = center;
-  }, []);
 
   const left: Item[] = [
     { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
@@ -53,25 +44,36 @@ export default function MobileBottomNav() {
     { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
   ];
 
+  // Rotation: each side shows 2 items at a time (top + bottom row).
+  // Cycle through 2 pairs per side every 5 seconds.
+  const [pairIdx, setPairIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setPairIdx((i) => (i + 1) % 2), 5000);
+    return () => clearInterval(id);
+  }, []);
+
+  const leftPair: [Item, Item] = pairIdx === 0 ? [left[0], left[1]] : [left[2], left[3]];
+  const rightPair: [Item, Item] = pairIdx === 0 ? [right[0], right[1]] : [right[2], right[3]];
+
   const stripped = location.pathname.replace(/^\/(de|hr|sr)(?=\/|$)/, "") || "/";
   const isActive = (path: string) => {
     if (path === "/") return stripped === "/";
     return stripped === path || stripped.startsWith(path + "/");
   };
 
-  const renderTab = (item: Item) => {
+  const renderTab = (item: Item, key: string) => {
     const active = isActive(item.path);
     const Icon = item.icon;
     return (
       <button
-        key={item.label}
+        key={key}
         onClick={() => navigate(item.path)}
-        className="flex shrink-0 flex-col items-center justify-center gap-0.5 min-h-[44px] active:scale-95 transition-all duration-150"
-        style={{ width: 64 }}
+        className="flex flex-col items-center justify-center gap-0.5 animate-fade-in active:scale-95 transition-all duration-150"
+        style={{ width: 72, height: 36 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[19px] w-[19px] transition-all"
+          className="h-[16px] w-[16px] transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
@@ -79,7 +81,7 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[9.5px] leading-tight w-full text-center truncate transition-all px-0.5"
+          className="text-[8.5px] leading-tight w-full text-center truncate transition-all px-0.5"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
             fontWeight: active ? 700 : 500,
@@ -107,66 +109,24 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="relative h-[68px]">
-        {/* Scrollable rails - left + spacer + right */}
-        <div
-          ref={scrollRef}
-          className="absolute inset-0 flex items-center overflow-x-auto overflow-y-hidden hide-scrollbar"
-          style={{ WebkitOverflowScrolling: "touch", scrollSnapType: "x proximity" }}
-        >
-          {/* Left items */}
-          <div className="flex items-center">
-            {left.map(renderTab)}
-          </div>
-
-          {/* Center spacer (Home button sits absolute over this) */}
-          <div className="shrink-0" style={{ width: 88 }} aria-hidden />
-
-          {/* Right items */}
-          <div className="flex items-center">
-            {right.map(renderTab)}
-          </div>
+      <div className="relative h-[88px] flex items-center justify-between px-2">
+        {/* LEFT: 2 rows × 1 visible item, rotating */}
+        <div className="flex flex-col items-center gap-1">
+          {renderTab(leftPair[0], `L0-${pairIdx}`)}
+          {renderTab(leftPair[1], `L1-${pairIdx}`)}
         </div>
 
-        {/* Edge fades to hint scrollability */}
-        <div
-          className="pointer-events-none absolute left-0 top-0 bottom-0"
-          style={{
-            width: 24,
-            background:
-              "linear-gradient(90deg, rgba(10,15,28,0.95), rgba(10,15,28,0))",
-          }}
-        />
-        <div
-          className="pointer-events-none absolute right-0 top-0 bottom-0"
-          style={{
-            width: 24,
-            background:
-              "linear-gradient(270deg, rgba(10,15,28,0.95), rgba(10,15,28,0))",
-          }}
-        />
-
-        {/* Center fade behind Home (so scrolling icons fade under it) */}
-        <div
-          className="pointer-events-none absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: 96,
-            background:
-              "radial-gradient(ellipse at center, rgba(10,15,28,0.95) 35%, rgba(10,15,28,0) 75%)",
-          }}
-        />
-
-        {/* Sticky Home button — absolute center */}
+        {/* CENTER: fixed Home button */}
         <button
           onClick={() => navigate("/")}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[58%] flex flex-col items-center active:scale-95 transition-transform"
+          className="flex flex-col items-center active:scale-95 transition-transform"
           aria-label={t("mobileNav.home")}
         >
           <span
             className="flex items-center justify-center rounded-full"
             style={{
-              width: 50,
-              height: 50,
+              width: 54,
+              height: 54,
               background: homeActive
                 ? "linear-gradient(135deg, #C9A84C, #F0C040)"
                 : "linear-gradient(135deg, rgba(201,168,76,0.3), rgba(240,192,64,0.15))",
@@ -177,7 +137,7 @@ export default function MobileBottomNav() {
             }}
           >
             <Home
-              className="h-[22px] w-[22px]"
+              className="h-[24px] w-[24px]"
               style={{ color: homeActive ? "#0F1626" : "#F0C040" }}
               strokeWidth={2.5}
             />
@@ -192,12 +152,13 @@ export default function MobileBottomNav() {
             {t("mobileNav.home")}
           </span>
         </button>
-      </div>
 
-      <style>{`
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
-      `}</style>
+        {/* RIGHT: 2 rows × 1 visible item, rotating */}
+        <div className="flex flex-col items-center gap-1">
+          {renderTab(rightPair[0], `R0-${pairIdx}`)}
+          {renderTab(rightPair[1], `R1-${pairIdx}`)}
+        </div>
+      </div>
     </nav>
   );
 }
