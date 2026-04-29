@@ -293,6 +293,57 @@ export type Database = {
         }
         Relationships: []
       }
+      community_questions: {
+        Row: {
+          answer: string | null
+          answered_at: string | null
+          answered_by: string | null
+          author_name: string | null
+          body: string
+          category: string | null
+          created_at: string
+          id: string
+          lang: string
+          status: string
+          title: string
+          updated_at: string
+          user_id: string | null
+          view_count: number
+        }
+        Insert: {
+          answer?: string | null
+          answered_at?: string | null
+          answered_by?: string | null
+          author_name?: string | null
+          body: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          lang?: string
+          status?: string
+          title: string
+          updated_at?: string
+          user_id?: string | null
+          view_count?: number
+        }
+        Update: {
+          answer?: string | null
+          answered_at?: string | null
+          answered_by?: string | null
+          author_name?: string | null
+          body?: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          lang?: string
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string | null
+          view_count?: number
+        }
+        Relationships: []
+      }
       directory_listings: {
         Row: {
           address: string | null
@@ -829,10 +880,14 @@ export type Database = {
         Row: {
           created_at: string
           email: string
+          email_opt_out: boolean | null
           first_name: string | null
           id: string
           is_premium: boolean
           last_login_at: string | null
+          preferred_lang: string | null
+          reengagement_30d_sent_at: string | null
+          reengagement_7d_sent_at: string | null
           single_formular_access: string[]
           subscription_expires_at: string | null
           subscription_tier: string
@@ -840,10 +895,14 @@ export type Database = {
         Insert: {
           created_at?: string
           email: string
+          email_opt_out?: boolean | null
           first_name?: string | null
           id: string
           is_premium?: boolean
           last_login_at?: string | null
+          preferred_lang?: string | null
+          reengagement_30d_sent_at?: string | null
+          reengagement_7d_sent_at?: string | null
           single_formular_access?: string[]
           subscription_expires_at?: string | null
           subscription_tier?: string
@@ -851,10 +910,14 @@ export type Database = {
         Update: {
           created_at?: string
           email?: string
+          email_opt_out?: boolean | null
           first_name?: string | null
           id?: string
           is_premium?: boolean
           last_login_at?: string | null
+          preferred_lang?: string | null
+          reengagement_30d_sent_at?: string | null
+          reengagement_7d_sent_at?: string | null
           single_formular_access?: string[]
           subscription_expires_at?: string | null
           subscription_tier?: string
@@ -1243,6 +1306,7 @@ export type Database = {
         Returns: boolean
       }
       consume_doc_check_credit: { Args: { uid: string }; Returns: boolean }
+      cq_increment_view: { Args: { _id: string }; Returns: undefined }
       deactivate_expired_trials: { Args: never; Returns: number }
       delete_email: {
         Args: { message_id: number; queue_name: string }

@@ -128,6 +128,10 @@ const PoreziMistakes = lazy(() => import("./pages/PoreziMistakes"));
 const CheckListe = lazy(() => import("./pages/CheckListe"));
 const CheckListaDetail = lazy(() => import("./pages/CheckListaDetail"));
 const AnmeldungSimulator = lazy(() => import("./pages/AnmeldungSimulator"));
+const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
+const PitajDijasporu = lazy(() => import("./pages/PitajDijasporu"));
+const PitajDijasporuDetail = lazy(() => import("./pages/PitajDijasporuDetail"));
+const AdminPitanja = lazy(() => import("./pages/admin/AdminPitanja"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -266,12 +270,16 @@ function LocalizedRoutes() {
         {/* Anmeldung Simulator — interaktivni intervju */}
         <Route path="anmeldung-simulator" element={<AnmeldungSimulator />} />
         <Route path="anmeldung-simulation" element={<AnmeldungSimulator />} />
+        <Route path="pitaj-dijasporu" element={<PitajDijasporu />} />
+        <Route path="pitaj-dijasporu/:id" element={<PitajDijasporuDetail />} />
+        <Route path="frag-die-diaspora" element={<PitajDijasporu />} />
         <Route path="porezi/najceste-pogreske" element={<PoreziMistakes />} />
         <Route path="steuern/haeufigste-fehler" element={<PoreziMistakes />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
           <Route path="admin/trialovi" element={<AdminTrialovi />} />
+          <Route path="admin/pitanja" element={<AdminPitanja />} />
         </Route>
         <Route path="qa" element={<QA />} />
         <Route path="qa/:id" element={<QADetail />} />
@@ -294,6 +302,8 @@ function LocalizedRoutes() {
         <Route path="dsa" element={<DSA />} />
         
         <Route path="cookie-richtlinie" element={<CookieRichtlinie />} />
+        <Route path="unsubscribe" element={<Unsubscribe />} />
+        <Route path="email-preferences/unsubscribe" element={<Unsubscribe />} />
         <Route path="nudim-trazim" element={<NudimTrazim />} />
         <Route path="nach-deutschland" element={<NachDeutschland />} />
         <Route path="nach-deutschland/:countryCode" element={<NachDeutschland />} />
