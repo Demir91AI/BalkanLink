@@ -1253,6 +1253,7 @@ export type Database = {
         Returns: number
       }
       get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
+      get_live_stats: { Args: never; Returns: Json }
       grant_doc_check_credit: {
         Args: {
           amt_cents?: number
