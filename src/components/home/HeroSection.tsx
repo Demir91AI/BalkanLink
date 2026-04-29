@@ -406,7 +406,7 @@ export default function HeroSection() {
                       onBlur={() => setAskFocused(false)}
                       placeholder=" "
                       aria-label={t("home.assistantCta.title")}
-                      className="peer w-full bg-transparent py-3 pr-1 text-[15px] sm:text-[16.5px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
+                      className="peer w-full bg-transparent py-3 pr-1 text-[12.5px] sm:text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none truncate"
                     />
                     {/* Typewriter placeholder (only when input is empty AND not focused) */}
                     {askValue.length === 0 && !askFocused && (
