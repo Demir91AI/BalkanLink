@@ -29,6 +29,7 @@ export default function HeroSection() {
   const [typed, setTyped] = useState("");
   const [phraseKey, setPhraseKey] = useState(0);
   const [phraseVisible, setPhraseVisible] = useState(true);
+  const [askFocused, setAskFocused] = useState(false);
 
   const trustBadges = [
     t("home.trustBadges.officialSources"),
