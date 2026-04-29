@@ -1,0 +1,152 @@
+{
+  "anmeldung": {
+    "seo": {
+      "title": "Anmeldung Simulator — vežbaj termin u Bürgeramtu | BalkanLink",
+      "description": "Simulacija razgovora sa nemačkim službenikom. 8 pitanja, scoring sistem, saveti za uspješan termin."
+    },
+    "hub": {
+      "title": "Anmeldung Simulator",
+      "subtitle": "Vežbaj termin u Bürgeramtu prije nego što odeš. Službenik ti postavlja prava pitanja na njemačkom — ti odgovaraš, mi ti dajemo feedback.",
+      "badge": "Stand 2026",
+      "free": "Besplatno",
+      "stats": {
+        "questions": "8 pitanja",
+        "duration": "~5 minuta",
+        "topics": "stvarna pitanja"
+      },
+      "intro": {
+        "title": "Kako funkcioniše?",
+        "items": [
+          "Službenik (mi simuliramo) postavlja pitanje na njemačkom",
+          "Ti biraš jedan od 3–4 odgovora",
+          "Odmah dobijaš objašnjenje zašto je tačno ili netačno",
+          "Na kraju: tvoj rezultat + saveti gdje treba još učiti"
+        ]
+      },
+      "ctaStart": "Pokreni simulaciju",
+      "ctaResume": "Nastavi gdje si stao",
+      "officialNote": "Ovo je samo simulacija. Pravi termin se zakazuje preko stranice tvog grada."
+    },
+    "ui": {
+      "questionOf": "Pitanje {{current}} od {{total}}",
+      "beamtePrompt": "Službenik kaže:",
+      "translationLabel": "Šta to znači:",
+      "tipLabel": "💡 Savet:",
+      "yourAnswer": "Tvoj odgovor:",
+      "feedbackCorrect": "✅ Tačno!",
+      "feedbackPartial": "⚠️ Djelomično tačno",
+      "feedbackWrong": "❌ Netačno",
+      "next": "Sljedeće pitanje",
+      "finish": "Vidi rezultat",
+      "score": "Tvoj rezultat",
+      "scoreOf": "{{score}} od {{max}} bodova",
+      "scoreExcellent": "Odlično! Spreman/spremna si za pravi termin.",
+      "scoreGood": "Dobro! Pregledaj greške i bićeš spreman/spremna.",
+      "scorePoor": "Treba još vežbe. Provjeri Anmeldung check listu prije termina.",
+      "yourMistakes": "Šta provjeriti prije termina:",
+      "noMistakes": "Bez grešaka! Sjajno.",
+      "ctaRestart": "Pokreni ponovo",
+      "ctaChecklist": "Otvori Anmeldung check listu",
+      "ctaForm": "Otvori Anmeldung Musterformular",
+      "exitConfirm": "Sigurno želiš izaći? Napredak se gubi."
+    },
+    "questions": [
+      {
+        "id": "q1_purpose",
+        "de": "Guten Tag. Was kann ich für Sie tun?",
+        "context": "Službenik te pita zašto si došao. Treba samo kratko reći da želiš prijaviti prebivalište.",
+        "tip": "Reci jasno 'Anmeldung' — to je magična riječ.",
+        "options": [
+          { "text": "Ich möchte mich anmelden, bitte.", "score": 10, "feedback": "Savršeno — kratko i jasno. Službenik odmah zna o čemu se radi." },
+          { "text": "Ich brauche einen Wohnsitz.", "score": 5, "feedback": "Razumljivo, ali nije precizno. Bolje 'Anmeldung'." },
+          { "text": "Ja bih da se prijavim.", "score": 0, "feedback": "Službenik ne govori bosanski. Uvijek probaj nemački — ako ne znaš, reci 'Anmeldung'." },
+          { "text": "Wo ist die Anmeldung?", "score": 0, "feedback": "Već si na pravom mjestu — službenik te zove na šalter. Reci direktno šta hoćeš." }
+        ]
+      },
+      {
+        "id": "q2_documents",
+        "de": "Haben Sie alle Unterlagen dabei?",
+        "context": "Pita imaš li sve dokumente. Treba potvrditi i pripremiti ih da pokažeš.",
+        "tip": "Imaj uredan folder sa: pasoš, Wohnungsgeberbestätigung, Mietvertrag, venčani list, rodne listove dece.",
+        "options": [
+          { "text": "Ja, hier bitte: Reisepass, Wohnungsgeberbestätigung und Mietvertrag.", "score": 10, "feedback": "Odlično — već nabrajaš ključne dokumente. Službenik vidi da si pripremljen." },
+          { "text": "Ja, alles dabei.", "score": 5, "feedback": "OK, ali bolje konkretno nabrojati — ubrzava postupak." },
+          { "text": "Ich glaube schon...", "score": 0, "feedback": "Nesigurnost je crveni znak. Provjeri prije termina sa Anmeldung check listom." },
+          { "text": "Was brauche ich denn?", "score": 0, "feedback": "Dolazak nepripremljen = vraćanje kući bez Anmeldunga. Termini su rezervisani 4–6 nedelja unaprijed." }
+        ]
+      },
+      {
+        "id": "q3_wohnungsgeber",
+        "de": "Wer ist Ihr Wohnungsgeber?",
+        "context": "Pita ko je vlasnik/najmodavac stana. To je ime na Wohnungsgeberbestätigung.",
+        "tip": "Wohnungsgeber = ko ti daje stan. Može biti vlasnik, glavni najmoprimac, ili agencija.",
+        "options": [
+          { "text": "Mein Vermieter, Herr/Frau [ime] — hier ist die Wohnungsgeberbestätigung.", "score": 10, "feedback": "Tačno. Wohnungsgeberbestätigung je obavezna potvrda — bez nje nema Anmeldunga." },
+          { "text": "Ich wohne bei einem Freund.", "score": 5, "feedback": "U redu, ali i tvoj prijatelj mora ti dati Wohnungsgeberbestätigung kao Untervermieter ili Hauptmieter." },
+          { "text": "Das weiß ich nicht.", "score": 0, "feedback": "Loše — bez Wohnungsgebera nema Anmeldunga. Uvijek pitaj stanodavca prije nego što potpišeš ugovor." },
+          { "text": "Hotel.", "score": 0, "feedback": "Hotel/AirBnB nije priznat kao prebivalište. Treba pravi stan + Wohnungsgeberbestätigung." }
+        ]
+      },
+      {
+        "id": "q4_einzugsdatum",
+        "de": "Seit wann wohnen Sie an dieser Adresse?",
+        "context": "Pita kada si se uselio. Datum mora biti u zadnjih 14 dana — to je rok!",
+        "tip": "Rok je 14 dana od useljenja. Ako je prošlo više — može biti kazna (rijetko, ali pravno mogućno).",
+        "options": [
+          { "text": "Seit dem [datum] — also seit etwa zehn Tagen.", "score": 10, "feedback": "Tačno — u roku od 14 dana. Sve je legalno." },
+          { "text": "Seit drei Wochen.", "score": 5, "feedback": "Već si prekoračio rok. Službenik može pitati zašto kasniš — pripremi izgovor (čekanje termina je validno)." },
+          { "text": "Schon seit 2 Monaten.", "score": 0, "feedback": "Loše — rizikuješ kaznu do 1.000 €. Reci da nisi mogao dobiti termin ranije." },
+          { "text": "Ich weiß nicht genau.", "score": 0, "feedback": "Datum useljenja MORA biti precizan — to je u Mietvertragu." }
+        ]
+      },
+      {
+        "id": "q5_familie",
+        "de": "Ziehen Sie alleine ein oder mit Familie?",
+        "context": "Pita useljavaš li sam ili sa porodicom. Svi moraju biti fizički prisutni!",
+        "tip": "Sva djeca i partner moraju doći lično — i bebe.",
+        "options": [
+          { "text": "Mit meiner Frau und zwei Kindern — sie sind auch hier.", "score": 10, "feedback": "Savršeno. Svi članovi su prisutni, službenik može sve odjednom prijaviti." },
+          { "text": "Mit Familie, aber sie sind zu Hause.", "score": 0, "feedback": "Loše — svi moraju doći lično. Termin se ne može završiti, dolaziš opet." },
+          { "text": "Alleine.", "score": 10, "feedback": "OK ako stvarno živiš sam. Ako imaš porodicu u istom stanu, moraju i oni doći." },
+          { "text": "Meine Frau kommt später.", "score": 5, "feedback": "Ne radi — ili svi sada, ili treba novi termin za nju." }
+        ]
+      },
+      {
+        "id": "q6_steuerid",
+        "de": "Brauchen Sie eine Steuer-ID?",
+        "context": "Pita treba li ti Steuer-ID. To je porezni broj koji ti automatski šalju poštom.",
+        "tip": "Steuer-ID dobijaš automatski poštom za 2–3 nedelje. NE plaćaj da je 'ubrzaš' — to je prevara.",
+        "options": [
+          { "text": "Ja, bitte. Ich erwarte sie per Post.", "score": 10, "feedback": "Tačno. Službenik ti automatski generiše zahtjev. Stiže poštom za 2–3 nedelje." },
+          { "text": "Ja, kann ich sie heute mitnehmen?", "score": 5, "feedback": "Ne stiže odmah — uvijek poštom. Ali dobro što pitaš." },
+          { "text": "Nein, brauche ich nicht.", "score": 0, "feedback": "Pogrešno — Steuer-ID je obavezan za posao, banku, sve. Uvijek 'Ja'." },
+          { "text": "Was ist das?", "score": 0, "feedback": "Pitaj prije termina — službenik nije nastavnik. Steuer-ID = porezni identifikacijski broj." }
+        ]
+      },
+      {
+        "id": "q7_religion",
+        "de": "Welche Religionszugehörigkeit haben Sie?",
+        "context": "Pita za veroispovest. Ako kažeš 'katolička' ili 'protestantska', AUTOMATSKI plaćaš Kirchensteuer (8–9% od poreza).",
+        "tip": "PAŽNJA: Ovo je porezno pitanje, ne lično. Većina muslimana, pravoslavaca i ateista treba reći 'keine' ili 'islamisch' (islam ne plaća Kirchensteuer u Nemačkoj).",
+        "options": [
+          { "text": "Keine.", "score": 10, "feedback": "Tačno za one bez registrovane konfesije — nema Kirchensteuera." },
+          { "text": "Islamisch.", "score": 10, "feedback": "Tačno — islam u Nemačkoj NE plaća Kirchensteuer." },
+          { "text": "Orthodox.", "score": 10, "feedback": "Srpska/bosanska/grčka pravoslavna NE plaća Kirchensteuer (rumunska da). Provjeri u svom Bundeslandu." },
+          { "text": "Katholisch.", "score": 0, "feedback": "Pažljivo! Ako se prijaviš kao katolik, oduzima se 8–9% od svog poreza svaki mesec. Ako želiš izaći — Kirchenaustritt (košta i traži termin)." }
+        ]
+      },
+      {
+        "id": "q8_meldebestaetigung",
+        "de": "Brauchen Sie eine Meldebestätigung in Papierform?",
+        "context": "Pita želiš li potvrdu prijave na papiru. Uvijek 'Ja' — treba ti za banku, posao, sve.",
+        "tip": "Meldebestätigung je dokaz da postojiš. Bez nje ne možeš otvoriti banku ni dobiti zdravstveno.",
+        "options": [
+          { "text": "Ja, bitte. Mehrere Exemplare wenn möglich.", "score": 10, "feedback": "Savršeno — neki gradovi daju i kopije besplatno. Sačuvaj ih sve." },
+          { "text": "Ja, eine bitte.", "score": 10, "feedback": "Dobro — minimum jedna. Bolje pitati za 2–3 ako su besplatne." },
+          { "text": "Nein, schicken Sie sie per Post.", "score": 5, "feedback": "OK ali sporo (1–2 nedelje). Banka ti treba sutra." },
+          { "text": "Nein, brauche ich nicht.", "score": 0, "feedback": "Loše — bez Meldebestätigung ne možeš ništa. Uvijek 'Ja'." }
+        ]
+      }
+    ]
+  }
+}
