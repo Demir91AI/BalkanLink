@@ -1528,8 +1528,9 @@
     "fabLabelShort": "Info",
     "kicker": "Willkommen bei BalkanLink",
     "title": "Deutschland, aber in deiner Sprache.",
-    "tagline": "Alles, was du brauchst, um die Bürokratie zu überleben, die Sprache zu lernen und in Deutschland normal zu leben — an einem Ort.",
-    "pitch": "Ohne Übersetzer. Ohne Wartezeit auf Termine. Ohne Panik vor dem Brief vom Finanzamt. BalkanLink ist dein digitaler Nachbar, der das System kennt — und es dir auf Deutsch, Bosnisch, Kroatisch oder Serbisch erklärt.",
+    "tagline": "BalkanLink ist eine Plattform für Menschen vom Balkan, die in Deutschland leben, arbeiten oder gerade ankommen — damit das System um uns herum endlich Sinn ergibt.",
+    "pullQuote": "Niemand in Deutschland erklärt dir das deutsche System auf Bosnisch, Kroatisch oder Serbisch. Wir schon.",
+    "pullQuoteAuthor": "Mission von BalkanLink",
     "stats": {
       "languages": "4 Sprachen",
       "languagesDesc": "DE · BS · HR · SR",
@@ -1538,80 +1539,44 @@
       "available": "24/7",
       "availableDesc": "Asistent immer erreichbar"
     },
-    "problemTitle": "Kennst du das Gefühl?",
-    "problems": {
-      "p1": "Brief vom Finanzamt kommt — du verstehst kaum die Hälfte.",
-      "p2": "Du brauchst Bürgergeld oder Wohngeld — Antrag hat 12 Seiten auf Deutsch.",
-      "p3": "Diplom aus dem Ausland — du weißt nicht, wo du anfangen sollst.",
-      "p4": "Termin im Bürgeramt — Angst, was sie fragen werden."
-    },
-    "solutionTitle": "Wir lösen das:",
-    "forWhomTitle": "Für wen ist BalkanLink",
-    "audience": {
-      "newcomer": {
-        "title": "Du bist neu hier",
-        "subtitle": "Erste 6 Monate in Deutschland",
-        "desc": "Anmeldung, Steuer-ID, Bank, Krankenversicherung — alles der Reihe nach.",
-        "b1": "Leitfaden 'Erste Schritte' — Checkliste vom Flughafen bis zum ersten Gehalt",
-        "b2": "Anmeldung-Simulator — übe den Bürgeramt-Termin vorher",
-        "b3": "Asistent antwortet 24/7 — in deiner Sprache, ohne Scham",
-        "b4": "Ankunft-Hub — Konto, Führerschein, Rundfunk, alles erklärt",
-        "cta": "Mit 'Erste Schritte' starten"
+    "sections": {
+      "why": {
+        "title": "Warum es BalkanLink überhaupt gibt",
+        "p1": "Jeder von uns, der nach Deutschland gekommen ist, kennt dieses Gefühl — du stehst am Schalter, hältst einen Brief in der Hand, den du nicht verstehst, und hinter dir bildet sich eine Schlange. Du fragst Nachbarn, Geschwister, Freunde auf Viber — jeder sagt etwas anderes. Du googelst, die Übersetzung ist halbgar, und die Hälfte der Ratschläge stammt aus 2014 und gilt längst nicht mehr.",
+        "p2": "BalkanLink ist genau deshalb entstanden. Damit du an einem Ort, in einer Sprache, die du verstehst, eine verlässliche Antwort bekommst — keine Meinung, kein 'mir hat einer gesagt', sondern eine geprüfte, für 2026 aktualisierte Information, die jemand versteht, der gerade gelandet ist, und jemand, der schon zwanzig Jahre hier lebt."
       },
-      "language": {
-        "title": "Dein Deutsch reicht nicht",
-        "subtitle": "Oder reicht, aber nicht für Behörden",
-        "desc": "Amtliche Briefe, Verträge, komplizierte Formulare — fotografiere oder frage, du bekommst eine klare Erklärung.",
-        "b1": "Dokumenten-Check — Foto vom Brief → Übersetzung + nächster Schritt",
-        "b2": "Deutsch-Trainer — 240 Lektionen A1 bis C2, Aussprache, Grammatik",
-        "b3": "Zweisprachige Formulare — deutsches Feld + Erklärung in deiner Sprache",
-        "b4": "Vorlagen — fertige Briefe (Kündigung, Widerspruch, Einspruch)",
-        "cta": "Dokumenten-Check probieren"
+      "how": {
+        "title": "Wie es funktioniert",
+        "p1": "Alles beginnt mit einer einfachen Idee: Die deutsche Bürokratie ist nicht kompliziert, weil sie schwer wäre — sie ist kompliziert, weil sie auf Deutsch ist. Wir haben alles, was du im Alltag hier brauchen kannst (von der Anmeldung der Wohnung bis zur Anerkennung des Diploms), in nachvollziehbare Schritte zerlegt, ins Bosnische, Kroatische und Serbische übersetzt und neben die deutschen Originalbegriffe gestellt, die du am Schalter brauchst.",
+        "p2": "Du musst nichts installieren, niemanden anrufen, auf keinen Termin warten. Du öffnest die Seite, wählst, was du brauchst — eine Frage an den Asistent, ein Formular ausfüllen, einen Brief fotografieren zur Übersetzung, eine Deutschübung oder eine Checkliste für eine Lebenssituation — und arbeitest in deinem Tempo, wann es dir passt."
       },
-      "established": {
-        "title": "Du bist schon länger hier",
-        "subtitle": "5+ Jahre, Grundlagen sitzen, aber Lücken bleiben",
-        "desc": "Steuern, Anerkennung, Business, Kindergeld, Elterngeld — komplexe Themen, die bares Geld wert sind.",
-        "b1": "Tax Wizard — Wegweiser durch die Steuererklärung, was absetzen",
-        "b2": "Anerkennung Navigator — Diplom-Anerkennung pro Bundesland",
-        "b3": "Business in Deutschland — Gewerbe, Kleinunternehmer, Freiberufler",
-        "b4": "Premium-Checklisten — Hochzeit, Scheidung, Erbschaft, Riester",
-        "cta": "Tax Wizard öffnen"
+      "principle": {
+        "title": "Wie wir arbeiten — ohne Schauspiel",
+        "p1": "BalkanLink ist kein Anwalt, kein Berater, kein Ersatz für den Steuerberater, wenn du ihn wirklich brauchst. Wir sind Orientierung. Der Punkt, an dem du anfängst. Der Ort, an dem du in fünf Minuten verstehst, was eine Prozedur bedeutet, welche Papiere du brauchst, an wen du dich wendest und was dich erwartet — und dann gehst du, falls nötig, vorbereitet weiter.",
+        "p2": "Alles, was wir schreiben, basiert auf offiziellen Quellen (Bundesagentur für Arbeit, Finanzamt, BAMF, Bundesministerium...) mit dem Stand 2026. Ändert sich etwas, ändern wir es auch. Kein 'aus dem Forum kopiert', kein 'wird schon stimmen', keine zufälligen Tipps."
+      },
+      "audience": {
+        "title": "Für wen das eigentlich ist",
+        "p1": "Wenn du gerade angekommen bist — BalkanLink ist die ersten sechs Monate wie ein älterer Bruder. Es führt dich durch Anmeldung, Steuer-ID, Bank, Krankenversicherung, bis zum ersten Gehalt und Mietvertrag. Du überspringst keine Schritte, weil dir niemand sagt 'aber zuerst musst du das, dann jenes' — wir sagen es dir, der Reihe nach.",
+        "p2": "Wenn du schon eine Weile da bist und dein Deutsch irgendwie geht, aber Behördenpost und Steuern weiterhin ein Albtraum sind — BalkanLink ist das Werkzeug, das Nerven spart. Du fotografierst den Brief vom Finanzamt, bekommst eine klare Übersetzung und Erklärung, was jetzt zu tun ist. Du öffnest den Tax Wizard, machst die Steuererklärung ohne Steuerberater. Du prüfst, ob dir Wohngeld, Kindergeld oder Bürgergeld zusteht — ohne eine Stunde googeln zu müssen.",
+        "p3": "Wenn du seit Jahren hier bist und das System kennst — BalkanLink ist deine Reserve. Für den Moment, in dem ein Diplom anerkannt, ein Gewerbe angemeldet, eine Erbschaft geregelt, eine Ehe registriert oder jemandem aus deinem Umfeld geholfen werden muss, der gerade ankommt. Du musst nicht alles im Kopf haben — es reicht zu wissen, wo du nachschauen kannst."
+      },
+      "trust": {
+        "title": "Warum du uns vertrauen kannst",
+        "p1": "BalkanLink ist aus der Diaspora für die Diaspora gemacht. Hinter dem Projekt stehen Menschen, die selbst durch dasselbe gegangen sind — die Anmeldung im Keller des Bürgeramts, der erste Brief vom Finanzamt, den wir dreimal geöffnet haben, weil wir nichts verstanden haben, das erste Mal, als der Arzt 'Praxisgebühr' sagte und wir nicht wussten, was das ist. Wir schreiben über Dinge, die wir selbst jemandem erklären mussten.",
+        "p2": "Datenschutz ist heilig — wir verkaufen keine Daten, geben sie an niemanden weiter, Fotos im Dokumenten-Check werden verarbeitet und gelöscht. Alles ist in Frankfurt gehostet (eu-central-1), unter europäischem Recht. Wenn du eines Tages entscheidest, nicht mehr Teil der Plattform sein zu wollen — ein Klick, und alles ist weg, ohne Nachfragen, ohne Hinhalten."
       }
-    },
-    "featuresTitle": "Was du alles bekommst",
-    "features": {
-      "f1": { "title": "Asistent", "desc": "Chat in deiner Sprache, kennt das deutsche System, merkt sich Verlauf." },
-      "f2": { "title": "Dokumenten-Check", "desc": "Brief fotografieren → Analyse, Übersetzung, nächster Schritt." },
-      "f3": { "title": "Formulare", "desc": "Bürgergeld, Wohngeld, Elterngeld — zweisprachig ausfüllen." },
-      "f4": { "title": "Vorlagen", "desc": "Fertige Briefe: Kündigung, Widerspruch, Einspruch — DIN 5008." },
-      "f5": { "title": "Tax Wizard", "desc": "Steuererklärung Schritt für Schritt, ELSTER erklärt." },
-      "f6": { "title": "Deutsch-Trainer", "desc": "240 Lektionen, A1–C2, Aussprache mit Laura-Stimme." },
-      "f7": { "title": "Anerkennung", "desc": "Diplom-Anerkennung — IHK, HWK, Hochschulen." },
-      "f8": { "title": "Checklisten", "desc": "Hochzeit, Kind, Todesfall, Umzug, Erbschaft — alles geordnet." }
     },
     "premium": {
       "kicker": "✨ Premium",
       "badge": "Beliebteste Wahl",
-      "title": "Alles freigeschaltet",
+      "title": "Alles freigeschaltet — wenn es tiefer wird",
       "price": "9,99 €",
       "priceUnit": "/Monat",
-      "subtitle": "Weniger als ein Kaffee pro Woche. Jederzeit kündbar.",
-      "p1": "Unbegrenzter Asistent — alle Fragen, voller Verlauf",
-      "p2": "Unbegrenzter Dokumenten-Check + detaillierter PDF-Bericht",
-      "p3": "Alle Premium-Formulare (Bürgergeld, Wohngeld, Elterngeld, BAföG...)",
-      "p4": "Tax Wizard + alle Steuer-Checklisten und Rechner",
-      "p5": "Premium-Checklisten (Kindergeld, Anmeldung, Hochzeit, Erbschaft)",
-      "p6": "Werbefrei, Priority-Support",
+      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Dokumenten-Check ist einmal täglich frei, der Anmeldung-Simulator ist offen, die ersten Schritte ins System kosten dich nichts. Premium schaltest du dann frei, wenn das Leben komplizierter wird — wenn du die Steuererklärung machst, einen Bürgergeld-Antrag brauchst, dein Diplom anerkennen lässt, ein Kind hast und Elterngeld- und Kindergeld-Guide brauchst, oder wenn du einfach keine Asistent-Anfragen mehr zählen willst.",
+      "summary": "Weniger als ein Kaffee pro Woche. Jederzeit mit einem Klick kündbar, ohne Erklärung.",
       "cta": "Premium werden",
       "ctaFree": "Erst kostenlos testen"
-    },
-    "exploreTitle": "Oder direkt einsteigen:",
-    "links": {
-      "dolazak": "Ankunft in Deutschland",
-      "asistent": "Asistent (Chat)",
-      "formulari": "Formulare",
-      "docCheck": "Dokumenten-Check"
     },
     "footer": "Von der Diaspora, für die Diaspora. 🇧🇦 🇭🇷 🇷🇸 → 🇩🇪"
   }
