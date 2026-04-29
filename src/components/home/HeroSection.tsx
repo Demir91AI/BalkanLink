@@ -265,40 +265,56 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.0, ease }}
-            className="mt-14 w-full max-w-xl"
+            className="mt-20 w-full max-w-xl"
           >
-            {/* Brand name above bar — visually attached to bar */}
-            <div className="mb-1 flex items-center justify-center gap-2.5">
-              <Sparkles
-                className="h-4 w-4 text-[hsl(var(--gold))]"
+            {/* Unified Asistent block: label tab + bar feel like one piece */}
+            <div className="relative flex flex-col items-center">
+              {/* Label "tab" — sits on top of bar, shares border/background */}
+              <div
+                className="relative z-10 -mb-3 inline-flex items-center gap-2.5 rounded-t-[14px] px-5 pt-2 pb-4"
                 style={{
-                  filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
-                  animation: "blSparkleA 3.6s ease-in-out infinite",
-                }}
-              />
-              <h2
-                className="text-[17px] font-extrabold tracking-[0.04em] sm:text-[18.5px]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, hsl(var(--gold-light)) 0%, #fff 35%, hsl(var(--gold)) 65%, hsl(var(--gold-light)) 100%)",
-                  backgroundSize: "220% 100%",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                  animation: "blChipShine 5s ease-in-out infinite",
-                  textShadow: "0 0 24px hsla(43,70%,55%,0.25)",
+                  background:
+                    "linear-gradient(180deg, rgba(22,30,52,0.92) 0%, rgba(15,20,38,0.92) 100%)",
+                  borderTop: "1px solid rgba(255,255,255,0.10)",
+                  borderLeft: "1px solid rgba(255,255,255,0.10)",
+                  borderRight: "1px solid rgba(255,255,255,0.10)",
+                  borderBottom: "none",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  boxShadow:
+                    "0 -8px 30px -10px hsla(43,70%,55%,0.25), inset 0 1px 0 rgba(255,255,255,0.08)",
                 }}
               >
-                BalkanLink Asistent
-              </h2>
-              <Sparkles
-                className="h-4 w-4 text-[hsl(var(--gold))]"
-                style={{
-                  filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
-                  animation: "blSparkleB 3.6s ease-in-out infinite",
-                }}
-              />
-            </div>
+                <Sparkles
+                  className="h-4 w-4 text-[hsl(var(--gold))]"
+                  style={{
+                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                    animation: "blSparkleA 3.6s ease-in-out infinite",
+                  }}
+                />
+                <h2
+                  className="text-[17px] font-extrabold tracking-[0.04em] sm:text-[18.5px]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(90deg, hsl(var(--gold-light)) 0%, #fff 35%, hsl(var(--gold)) 65%, hsl(var(--gold-light)) 100%)",
+                    backgroundSize: "220% 100%",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                    animation: "blChipShine 5s ease-in-out infinite",
+                    textShadow: "0 0 24px hsla(43,70%,55%,0.25)",
+                  }}
+                >
+                  BalkanLink Asistent
+                </h2>
+                <Sparkles
+                  className="h-4 w-4 text-[hsl(var(--gold))]"
+                  style={{
+                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                    animation: "blSparkleB 3.6s ease-in-out infinite",
+                  }}
+                />
+              </div>
 
             {/* Ask bar — premium dual-glow */}
             <form
@@ -447,6 +463,7 @@ export default function HeroSection() {
                 </div>
               </div>
             </form>
+            </div>
           </motion.div>
         </div>
       </div>
