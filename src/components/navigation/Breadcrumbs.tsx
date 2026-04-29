@@ -58,7 +58,7 @@ export default function Breadcrumbs({
   inline = false,
   className = "",
   hideTrail = false,
-  showShare = false,
+  showShare = true,
   shareTitle,
 }: BreadcrumbsProps) {
   const navigate = useNavigate();
