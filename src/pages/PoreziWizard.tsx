@@ -95,7 +95,7 @@ export default function PoreziWizard() {
           path="/porezi/da-li-moram"
         />
         <div className="mx-auto max-w-2xl px-4 py-6 pb-28">
-          <PageNavBar />
+          <PageNavBar  showShare />
           <Card className="rounded-2xl border border-[hsl(var(--gold))]/30 shadow-sm">
             <CardContent className="p-6 sm:p-8 text-center">
               <Crown className="mx-auto h-10 w-10 text-[hsl(var(--gold))] mb-3" />
@@ -195,7 +195,7 @@ export default function PoreziWizard() {
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
-        <PageNavBar />
+        <PageNavBar  showShare />
 
         {/* Header */}
         <div className="rounded-2xl bg-[#F5F0E8] p-5 sm:p-6 mb-5">

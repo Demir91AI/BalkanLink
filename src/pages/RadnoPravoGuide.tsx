@@ -20,7 +20,7 @@ export default function RadnoPravoGuide() {
   if (!guide) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
-        <PageNavBar />
+        <PageNavBar  showShare />
         <p className="text-muted-foreground text-center mt-8">Vodič nije pronađen.</p>
       </div>
     );
@@ -34,7 +34,7 @@ export default function RadnoPravoGuide() {
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
-        <PageNavBar />
+        <PageNavBar  showShare />
 
         {/* Title */}
         <div className="mb-6">

@@ -262,7 +262,7 @@ export default function AnerkennungNavigator() {
         path="/anerkennung-navigator"
       />
 
-      <PageNavBar onBack={handleBack} />
+      <PageNavBar onBack={handleBack} showShare />
 
       <div className="mb-6">
         <div className="flex items-center gap-3 mb-2">

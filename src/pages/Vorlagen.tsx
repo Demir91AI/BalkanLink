@@ -107,7 +107,7 @@ export default function Vorlagen() {
     if (!tpl) {
       return (
         <div className="container max-w-3xl py-8 px-4">
-          <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
+          <PageNavBar onBack={() => navigateBackOrHome(navigate)} showShare />
           <p className="text-muted-foreground">{t("vorlagen.ui.notFound")}</p>
         </div>
       );
@@ -120,7 +120,7 @@ export default function Vorlagen() {
 
     return (
       <div className="container max-w-3xl py-8 px-4">
-        <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
+        <PageNavBar onBack={() => navigateBackOrHome(navigate)} showShare />
 
         <div className="flex items-center gap-3 mb-6">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
@@ -147,7 +147,7 @@ export default function Vorlagen() {
   return (
     <div className="container max-w-3xl py-8 px-4">
       <SEO title={t("vorlagen.ui.seoTitle")} description={t("vorlagen.ui.seoDescription")} path="/vorlagen" />
-      <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
+      <PageNavBar onBack={() => navigateBackOrHome(navigate)} showShare />
       <h1 className="text-2xl font-bold mb-1 text-foreground">{t("vorlagen.ui.pageTitle")}</h1>
       <p className="text-sm text-muted-foreground mb-8">
         {t("vorlagen.ui.pageSubtitle")}

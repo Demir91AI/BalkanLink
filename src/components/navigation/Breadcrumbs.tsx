@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
+import ShareButton from "@/components/share/ShareButton";
 
 const LANG_PREFIXES = SUPPORTED_LANGUAGES.filter((l) => l !== "bs");
 
@@ -28,6 +29,10 @@ interface BreadcrumbsProps {
   className?: string;
   /** Hide the auto-derived crumb trail (only show Back + Home buttons) */
   hideTrail?: boolean;
+  /** Show share button on the right side */
+  showShare?: boolean;
+  /** Override share title (defaults to document.title) */
+  shareTitle?: string;
 }
 
 /**
@@ -53,6 +58,8 @@ export default function Breadcrumbs({
   inline = false,
   className = "",
   hideTrail = false,
+  showShare = false,
+  shareTitle,
 }: BreadcrumbsProps) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -178,6 +185,12 @@ export default function Breadcrumbs({
               )}
             </span>
           ))}
+          </div>
+        )}
+
+        {showShare && (
+          <div className="ml-auto">
+            <ShareButton variant="compact" title={shareTitle} />
           </div>
         )}
       </nav>

@@ -712,7 +712,7 @@ export default function ZivotUNjemackoj() {
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-8">
-        <PageNavBar />
+        <PageNavBar  showShare />
 
         {/* Header */}
         <div className="rounded-2xl p-6 sm:p-10 mb-8" style={{ background: "linear-gradient(135deg, #1a3a5c, #2d6a9f)" }}>

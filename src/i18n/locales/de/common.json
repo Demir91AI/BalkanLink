@@ -369,5 +369,56 @@
       "firma": "Firma",
       "submit": "Einreichen"
     }
+  },
+  "share": {
+    "label": "Teilen",
+    "aria": "Diese Seite teilen",
+    "copy": "Link kopieren",
+    "copied": "Link kopiert!",
+    "defaultText": "Schau dir das auf BalkanLink an:"
+  },
+  "socialProof": {
+    "usersOnPlatform": "Nutzer auf BalkanLink",
+    "today": "heute",
+    "totalUsers": "Nutzer",
+    "chatQueries": "Asistent-Anfragen heute",
+    "docsChecked": "Dokumente heute",
+    "newUsersToday": "neu heute"
+  },
+  "onboarding": {
+    "welcomeMsg": "Hallo! Willkommen bei BalkanLink 👋 Soll ich einen persönlichen Plan erstellen? Beantworte 3 kurze Fragen.",
+    "q1": {
+      "question": "Bist du gerade erst nach Deutschland gekommen?",
+      "optNew": "Bin gerade erst hier (weniger als 6 Mon.)",
+      "optEstablished": "Lebe schon länger hier",
+      "optAbroad": "Noch im Heimatland"
+    },
+    "q2": {
+      "question": "Hast du Kinder?",
+      "opt1": "Ja, eines",
+      "opt2": "Ja, zwei oder mehr",
+      "opt0": "Keine Kinder"
+    },
+    "q3": {
+      "question": "Arbeitest du schon in Deutschland?",
+      "optEmployed": "Ja, ich arbeite",
+      "optSeeking": "Suche Arbeit",
+      "optStudent": "Bin Student",
+      "optUnemployed": "Arbeite zurzeit nicht"
+    },
+    "plan": {
+      "title": "✅ Dein persönlicher Plan für Deutschland:",
+      "urgent": "🔴 DRINGEND (Frist 14 Tage):",
+      "thisWeek": "🟡 DIESE WOCHE:",
+      "dontForget": "🟢 NICHT VERGESSEN (Geldleistungen!):",
+      "anmeldung": "Anmeldung — Adressanmeldung beim Bürgeramt",
+      "steuerId": "Steuer-ID — kommt automatisch per Post nach Anmeldung",
+      "krankenkasse": "Krankenkasse — teile dem Arbeitgeber deine Wahl mit",
+      "kindergeldOne": "Kindergeld — {{kg}}€/Mon. für 1 Kind!",
+      "kindergeldMany": "Kindergeld — {{kg}}€/Mon. für {{count}}+ Kinder!",
+      "elterngeld": "Elterngeld — wenn das Kind jünger als 14 Mon. ist",
+      "buergergeld": "Bürgergeld — 563€/Mon. + Mietkosten während Jobsuche",
+      "estimate": "💡 Auf Basis deines Profils kannst du etwa **{{amount}}€+** jährlich an Leistungen erhalten, die viele Zugewanderte verpassen!"
+    }
   }
 }

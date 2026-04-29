@@ -369,5 +369,56 @@
       "firma": "Firma",
       "submit": "Prijavi"
     }
+  },
+  "share": {
+    "label": "Podijeli",
+    "aria": "Podijeli ovu stranicu",
+    "copy": "Kopiraj link",
+    "copied": "Link kopiran!",
+    "defaultText": "Pogledaj ovo na BalkanLink:"
+  },
+  "socialProof": {
+    "usersOnPlatform": "korisnika koristi BalkanLink",
+    "today": "danas",
+    "totalUsers": "Korisnika",
+    "chatQueries": "Asistent upita danas",
+    "docsChecked": "dokumenata danas",
+    "newUsersToday": "novih danas"
+  },
+  "onboarding": {
+    "welcomeMsg": "Hej! Dobrodošao na BalkanLink 👋 Da ti napravim personalni plan? Odgovori na 3 brza pitanja.",
+    "q1": {
+      "question": "Jesi li tek došao u Njemačku?",
+      "optNew": "Tek sam došao (manje od 6 mj)",
+      "optEstablished": "Živim već duže",
+      "optAbroad": "Još sam u matičnoj zemlji"
+    },
+    "q2": {
+      "question": "Imaš li djecu?",
+      "opt1": "Da, jedno",
+      "opt2": "Da, dvoje ili više",
+      "opt0": "Nemam djece"
+    },
+    "q3": {
+      "question": "Radiš li već u Njemačkoj?",
+      "optEmployed": "Da, radim",
+      "optSeeking": "Tražim posao",
+      "optStudent": "Student sam",
+      "optUnemployed": "Ne radim trenutno"
+    },
+    "plan": {
+      "title": "✅ Tvoj personalni plan za Njemačku:",
+      "urgent": "🔴 HITNO (rok 14 dana):",
+      "thisWeek": "🟡 OVO SEDMICE:",
+      "dontForget": "🟢 NE ZABORAVI (možeš dobiti novac!):",
+      "anmeldung": "Anmeldung — prijava adrese u Bürgeramt",
+      "steuerId": "Steuer-ID — stiže poštom automatski nakon Anmeldung",
+      "krankenkasse": "Krankenkasse — javi poslodavcu koji odabiraš",
+      "kindergeldOne": "Kindergeld — {{kg}}€/mj za 1 dijete!",
+      "kindergeldMany": "Kindergeld — {{kg}}€/mj za {{count}}+ djece!",
+      "elterngeld": "Elterngeld — ako je dijete mlađe od 14 mj",
+      "buergergeld": "Bürgergeld — 563€/mj + troškovi stana dok tražiš posao",
+      "estimate": "💡 Na osnovu tvog profila možeš dobiti procijenjeno **{{amount}}€+** godišnje u naknadama koje mnogi Balkanci propuste!"
+    }
   }
 }

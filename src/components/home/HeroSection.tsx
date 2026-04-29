@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { BLIcon } from "@/components/BrandLogo";
 import { useIsMobile } from "@/hooks/use-mobile";
+import LiveSocialProof from "@/components/social/LiveSocialProof";
 
 const slides = [
   { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
@@ -285,6 +286,16 @@ export default function HeroSection() {
               <span className="relative tracking-tight">{t("home.ctaSecondary")}</span>
               <ArrowRight className="relative h-[15px] w-[15px] opacity-60 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100" strokeWidth={2.4} />
             </button>
+          </motion.div>
+
+          {/* ─── Live social proof ─── */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9, ease }}
+            className="mt-8 flex justify-center"
+          >
+            <LiveSocialProof variant="ticker" />
           </motion.div>
 
 

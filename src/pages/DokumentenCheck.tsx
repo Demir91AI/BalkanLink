@@ -415,7 +415,7 @@ export default function DokumentenCheck() {
       {/* ── HEADER ── */}
       <section className="border-b bg-primary py-10 sm:py-14">
         <div className="container max-w-4xl px-4">
-          <PageNavBar onBack={handleBack} />
+          <PageNavBar onBack={handleBack} showShare />
           <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
             {t("documentCheck.title")}
           </h1>

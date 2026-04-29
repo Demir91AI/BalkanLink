@@ -1,22 +1,25 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { ONBOARDING_STEPS, type UserProfile, saveProfile, generateTodoList } from "./chatUtils";
+import { useTranslation } from "react-i18next";
+import { buildLocalizedOnboardingSteps, type UserProfile, saveProfile, generateTodoList } from "./chatUtils";
 
 interface Props {
   onComplete: (profile: UserProfile, todoMessage: string) => void;
 }
 
 export default function ChatOnboarding({ onComplete }: Props) {
+  const { t } = useTranslation("common");
+  const steps = useMemo(() => buildLocalizedOnboardingSteps((k, d) => t(k, { defaultValue: d || "" }) as string), [t]);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
-  const current = ONBOARDING_STEPS[step];
+  const current = steps[step];
 
   const handleSelect = (value: string) => {
     const newAnswers = [...answers, value];
     setAnswers(newAnswers);
 
-    if (step < ONBOARDING_STEPS.length - 1) {
+    if (step < steps.length - 1) {
       setStep(step + 1);
     } else {
       const profile: UserProfile = {
@@ -41,12 +44,12 @@ export default function ChatOnboarding({ onComplete }: Props) {
         <div key={i} className="space-y-1.5">
           <div className="flex justify-start">
             <div className="rounded-xl rounded-bl-none px-4 py-2.5 text-[13px] text-white/90 max-w-[88%]" style={{ background: "#1F2937" }}>
-              {ONBOARDING_STEPS[i].question}
+              {steps[i].question}
             </div>
           </div>
           <div className="flex justify-end">
             <div className="rounded-xl rounded-br-none px-4 py-2.5 text-[13px] text-black max-w-[88%] bg-[hsl(45,93%,49%)]">
-              {ONBOARDING_STEPS[i].options.find(o => o.value === ans)?.label}
+              {steps[i].options.find(o => o.value === ans)?.label}
             </div>
           </div>
         </div>

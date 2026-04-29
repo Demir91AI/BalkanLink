@@ -369,5 +369,56 @@
       "firma": "Preduzeće",
       "submit": "Prijavi"
     }
+  },
+  "share": {
+    "label": "Podeli",
+    "aria": "Podeli ovu stranicu",
+    "copy": "Kopiraj link",
+    "copied": "Link kopiran!",
+    "defaultText": "Pogledaj ovo na BalkanLink:"
+  },
+  "socialProof": {
+    "usersOnPlatform": "korisnika koristi BalkanLink",
+    "today": "danas",
+    "totalUsers": "Korisnika",
+    "chatQueries": "Asistent upita danas",
+    "docsChecked": "dokumenata danas",
+    "newUsersToday": "novih danas"
+  },
+  "onboarding": {
+    "welcomeMsg": "Zdravo! Dobrodošao na BalkanLink 👋 Da ti napravim lični plan? Odgovori na 3 brza pitanja.",
+    "q1": {
+      "question": "Da li si tek došao u Nemačku?",
+      "optNew": "Tek sam došao (manje od 6 meseci)",
+      "optEstablished": "Živim već duže",
+      "optAbroad": "Još sam u matičnoj zemlji"
+    },
+    "q2": {
+      "question": "Da li imaš decu?",
+      "opt1": "Da, jedno",
+      "opt2": "Da, dvoje ili više",
+      "opt0": "Nemam dece"
+    },
+    "q3": {
+      "question": "Da li radiš već u Nemačkoj?",
+      "optEmployed": "Da, radim",
+      "optSeeking": "Tražim posao",
+      "optStudent": "Student sam",
+      "optUnemployed": "Trenutno ne radim"
+    },
+    "plan": {
+      "title": "✅ Tvoj lični plan za Nemačku:",
+      "urgent": "🔴 HITNO (rok 14 dana):",
+      "thisWeek": "🟡 OVE NEDELJE:",
+      "dontForget": "🟢 NE ZABORAVI (možeš dobiti novac!):",
+      "anmeldung": "Anmeldung — prijava adrese u Bürgeramtu",
+      "steuerId": "Steuer-ID — stiže poštom automatski nakon Anmeldunga",
+      "krankenkasse": "Krankenkasse — javi poslodavcu koji biraš",
+      "kindergeldOne": "Kindergeld — {{kg}}€/mes za 1 dete!",
+      "kindergeldMany": "Kindergeld — {{kg}}€/mes za {{count}}+ dece!",
+      "elterngeld": "Elterngeld — ako je dete mlađe od 14 meseci",
+      "buergergeld": "Bürgergeld — 563€/mes + troškovi stana dok tražiš posao",
+      "estimate": "💡 Na osnovu tvog profila možeš dobiti procenjeno **{{amount}}€+** godišnje u naknadama koje mnogi propuste!"
+    }
   }
 }

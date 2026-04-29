@@ -49,7 +49,7 @@ export default function Mietrecht() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
       <SEO title="Mietrecht – Prava podstanara" description="Sva vaša prava kao podstanar u Njemačkoj — jasno, provjereno i na vašem jeziku." />
-      <PageNavBar />
+      <PageNavBar  showShare />
 
       {/* Hero */}
       <div className="rounded-2xl bg-[#F5F0E8] p-6 sm:p-8 mb-6 text-center">
