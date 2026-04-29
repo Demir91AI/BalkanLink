@@ -5,6 +5,13 @@
 @layer base {
   html, body {
     min-width: 0;
+    /* Prevent pinch-zoom and double-tap zoom in PWA / mobile browsers.
+       Keeps layout rock-solid; small mistaps no longer shift the page. */
+    touch-action: pan-x pan-y;
+    -ms-touch-action: pan-x pan-y;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overscroll-behavior-y: none;
   }
 
   :root {
