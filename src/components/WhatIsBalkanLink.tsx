@@ -3,65 +3,27 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import {
   Sparkles,
-  Plane,
-  Languages,
-  Briefcase,
   Crown,
   ArrowRight,
   X,
   Check,
-  MessageSquare,
-  FileSearch,
-  FileText,
-  Mail,
-  Calculator,
-  GraduationCap,
-  Award,
-  ListChecks,
-  AlertCircle,
+  Quote,
   Globe2,
   Wrench,
   Clock3,
 } from "lucide-react";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
-import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "balkanlink_whatis_seen_v1";
 const AUTO_OPEN_DELAY_MS = 8000;
-
-type AudienceKey = "newcomer" | "language" | "established";
-
-const AUDIENCES: Array<{
-  key: AudienceKey;
-  Icon: typeof Plane;
-  accent: string;
-  to: string;
-}> = [
-  { key: "newcomer", Icon: Plane, accent: "from-sky-500/20 to-blue-500/5", to: "/dolazak/prvi-koraci" },
-  { key: "language", Icon: Languages, accent: "from-emerald-500/20 to-teal-500/5", to: "/dokumenten-check" },
-  { key: "established", Icon: Briefcase, accent: "from-amber-500/20 to-orange-500/5", to: "/porezi/wizard" },
-];
-
-const FEATURES: Array<{ key: string; Icon: typeof MessageSquare; to: string }> = [
-  { key: "f1", Icon: MessageSquare, to: "/asistent" },
-  { key: "f2", Icon: FileSearch, to: "/dokumenten-check" },
-  { key: "f3", Icon: FileText, to: "/formulari" },
-  { key: "f4", Icon: Mail, to: "/vorlagen" },
-  { key: "f5", Icon: Calculator, to: "/porezi/wizard" },
-  { key: "f6", Icon: GraduationCap, to: "/deutsch-trainer" },
-  { key: "f7", Icon: Award, to: "/anerkennung" },
-  { key: "f8", Icon: ListChecks, to: "/check-liste" },
-];
 
 export default function WhatIsBalkanLink() {
   const { t } = useTranslation("pages");
   const [open, setOpen] = useState(false);
   const [showFab, setShowFab] = useState(true);
-  const [activeAudience, setActiveAudience] = useState<AudienceKey>("newcomer");
   const href = useLocalizedHref();
   const location = useLocation();
 
@@ -106,6 +68,15 @@ export default function WhatIsBalkanLink() {
 
   const close = () => handleOpenChange(false);
 
+  // Narrative sections — pure prose, no bullets/cards
+  const sections: Array<{ key: string; paragraphs: number }> = [
+    { key: "why", paragraphs: 2 },
+    { key: "how", paragraphs: 2 },
+    { key: "principle", paragraphs: 2 },
+    { key: "audience", paragraphs: 3 },
+    { key: "trust", paragraphs: 2 },
+  ];
+
   return (
     <>
       {/* Floating action button */}
@@ -139,15 +110,12 @@ export default function WhatIsBalkanLink() {
       </AnimatePresence>
 
       <Dialog open={open} onOpenChange={handleOpenChange}>
-        <DialogContent
-          className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto"
-        >
+        <DialogContent className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto">
           <DialogTitle className="sr-only">{t("whatIs.title")}</DialogTitle>
           <DialogDescription className="sr-only">{t("whatIs.tagline")}</DialogDescription>
 
           {/* HERO */}
-          <div className="relative overflow-hidden border-b border-white/10 px-6 pt-10 pb-8 sm:px-10 sm:pt-12 sm:pb-10">
-            {/* gradient bg */}
+          <div className="relative overflow-hidden border-b border-white/10 px-6 pt-10 pb-8 sm:px-12 sm:pt-14 sm:pb-12">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(217,165,54,0.18),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(56,189,248,0.12),transparent_60%)]" />
             <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[hsl(var(--gold))]/20 blur-3xl" />
 
@@ -161,15 +129,14 @@ export default function WhatIsBalkanLink() {
                 <Sparkles className="h-3 w-3" />
                 {t("whatIs.kicker")}
               </div>
-              <h2 className="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              <h2 className="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-[2.6rem]">
                 {t("whatIs.title")}
               </h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
+              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/75 sm:text-base">
                 {t("whatIs.tagline")}
               </p>
 
-              {/* Stats */}
-              <div className="mt-6 grid grid-cols-3 gap-3">
+              <div className="mt-7 grid grid-cols-3 gap-3">
                 {[
                   { Icon: Globe2, k: "languages" },
                   { Icon: Wrench, k: "tools" },
@@ -192,154 +159,50 @@ export default function WhatIsBalkanLink() {
             </motion.div>
           </div>
 
-          {/* PITCH */}
-          <div className="border-b border-white/10 px-6 py-6 sm:px-10">
-            <p className="text-[15px] leading-relaxed text-white/80">{t("whatIs.pitch")}</p>
+          {/* PULL QUOTE */}
+          <div className="relative border-b border-white/10 px-6 py-8 sm:px-12 sm:py-10">
+            <Quote className="absolute left-6 top-6 h-8 w-8 text-[hsl(var(--gold))]/25 sm:left-10 sm:top-8" />
+            <p className="ml-10 max-w-2xl font-heading text-lg italic leading-relaxed text-white/90 sm:ml-12 sm:text-xl">
+              {t("whatIs.pullQuote")}
+            </p>
+            <p className="ml-10 mt-3 text-xs uppercase tracking-[0.18em] text-white/40 sm:ml-12">
+              — {t("whatIs.pullQuoteAuthor")}
+            </p>
           </div>
 
-          {/* PROBLEM → SOLUTION */}
-          <div className="border-b border-white/10 px-6 py-7 sm:px-10">
-            <div className="flex items-center gap-2 text-[hsl(var(--gold))]">
-              <AlertCircle className="h-4 w-4" />
-              <h3 className="text-sm font-bold uppercase tracking-wider">
-                {t("whatIs.problemTitle")}
-              </h3>
-            </div>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {(["p1", "p2", "p3", "p4"] as const).map((p) => (
-                <li
-                  key={p}
-                  className="flex items-start gap-2 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-sm text-white/70"
-                >
-                  <span className="mt-0.5 text-base">😰</span>
-                  <span>{t(`whatIs.problems.${p}`)}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-5 flex items-center gap-2 text-emerald-400">
-              <Check className="h-4 w-4" />
-              <p className="text-sm font-semibold">{t("whatIs.solutionTitle")}</p>
-            </div>
-          </div>
-
-          {/* AUDIENCE TABS */}
-          <div className="border-b border-white/10 px-6 py-7 sm:px-10">
-            <h3 className="font-heading text-lg font-bold sm:text-xl">
-              {t("whatIs.forWhomTitle")}
-            </h3>
-
-            <Tabs
-              value={activeAudience}
-              onValueChange={(v) => setActiveAudience(v as AudienceKey)}
-              className="mt-4"
-            >
-              <TabsList className="grid w-full grid-cols-3 gap-1 bg-white/[0.04] p-1">
-                {AUDIENCES.map(({ key, Icon }) => (
-                  <TabsTrigger
-                    key={key}
-                    value={key}
-                    className="flex items-center gap-1.5 text-xs font-semibold data-[state=active]:bg-[hsl(var(--gold))] data-[state=active]:text-slate-950 sm:text-sm"
-                  >
-                    <Icon className="h-3.5 w-3.5" />
-                    <span className="hidden sm:inline">{t(`whatIs.audience.${key}.title`)}</span>
-                    <span className="sm:hidden">{t(`whatIs.audience.${key}.title`).split(" ")[0]}</span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              {AUDIENCES.map(({ key, Icon, accent, to }) => (
-                <TabsContent key={key} value={key} className="mt-5">
-                  <motion.div
-                    key={key}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={cn(
-                      "rounded-2xl border border-white/10 bg-gradient-to-br p-5 sm:p-6",
-                      accent,
-                    )}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div className="min-w-0">
-                        <h4 className="text-base font-bold sm:text-lg">
-                          {t(`whatIs.audience.${key}.title`)}
-                        </h4>
-                        <p className="text-xs text-white/50 sm:text-[13px]">
-                          {t(`whatIs.audience.${key}.subtitle`)}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="mt-4 text-sm text-white/75">
-                      {t(`whatIs.audience.${key}.desc`)}
-                    </p>
-
-                    <ul className="mt-4 space-y-2">
-                      {(["b1", "b2", "b3", "b4"] as const).map((b) => (
-                        <li key={b} className="flex items-start gap-2 text-sm text-white/85">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--gold))]" />
-                          <span>{t(`whatIs.audience.${key}.${b}`)}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      asChild
-                      variant="secondary"
-                      className="mt-5 bg-white/10 text-white hover:bg-white/15"
-                      onClick={close}
-                    >
-                      <Link to={href(to)}>
-                        {t(`whatIs.audience.${key}.cta`)}
-                        <ArrowRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </motion.div>
-                </TabsContent>
-              ))}
-            </Tabs>
-          </div>
-
-          {/* FEATURES GRID */}
-          <div className="border-b border-white/10 px-6 py-7 sm:px-10">
-            <h3 className="font-heading text-lg font-bold sm:text-xl">
-              {t("whatIs.featuresTitle")}
-            </h3>
-            <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {FEATURES.map(({ key, Icon, to }) => (
-                <Link
-                  key={key}
-                  to={href(to)}
-                  onClick={close}
-                  className="group flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3 transition-all hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.06]"
-                >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]">
-                    <Icon className="h-4 w-4" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-semibold text-white">
-                        {t(`whatIs.features.${key}.title`)}
-                      </span>
-                      <ArrowRight className="h-3.5 w-3.5 text-white/30 transition-all group-hover:translate-x-0.5 group-hover:text-[hsl(var(--gold))]" />
-                    </div>
-                    <p className="mt-0.5 text-[12px] leading-relaxed text-white/55">
-                      {t(`whatIs.features.${key}.desc`)}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+          {/* NARRATIVE SECTIONS */}
+          <div className="divide-y divide-white/10">
+            {sections.map(({ key, paragraphs }, idx) => (
+              <motion.section
+                key={key}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="px-6 py-9 sm:px-12 sm:py-11"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="font-heading text-xs font-bold tracking-[0.22em] text-[hsl(var(--gold))]">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/40 to-transparent" />
+                </div>
+                <h3 className="mt-3 font-heading text-2xl font-bold leading-tight sm:text-[1.7rem]">
+                  {t(`whatIs.sections.${key}.title`)}
+                </h3>
+                <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-white/75 sm:text-base">
+                  {Array.from({ length: paragraphs }).map((_, p) => (
+                    <p key={p}>{t(`whatIs.sections.${key}.p${p + 1}`)}</p>
+                  ))}
+                </div>
+              </motion.section>
+            ))}
           </div>
 
           {/* PREMIUM SHOWCASE */}
-          <div className="relative px-6 py-8 sm:px-10">
+          <div className="relative border-t border-white/10 px-6 py-10 sm:px-12">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,165,54,0.15),transparent_70%)]" />
-            <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/10 via-amber-500/5 to-transparent p-6 sm:p-7">
+            <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/10 via-amber-500/5 to-transparent p-6 sm:p-8">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <div className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--gold))]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]">
@@ -363,16 +226,14 @@ export default function WhatIsBalkanLink() {
                 </div>
               </div>
 
-              <p className="mt-2 text-sm text-white/60">{t("whatIs.premium.subtitle")}</p>
+              <p className="mt-4 text-[15px] leading-relaxed text-white/80">
+                {t("whatIs.premium.narrative")}
+              </p>
 
-              <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                {(["p1", "p2", "p3", "p4", "p5", "p6"] as const).map((p) => (
-                  <li key={p} className="flex items-start gap-2 text-sm text-white/85">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--gold))]" />
-                    <span>{t(`whatIs.premium.${p}`)}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-5 flex items-start gap-2 text-sm text-white/70">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--gold))]" />
+                <span>{t("whatIs.premium.summary")}</span>
+              </div>
 
               <div className="mt-6 flex flex-col gap-2 sm:flex-row">
                 <Button
@@ -396,7 +257,7 @@ export default function WhatIsBalkanLink() {
               </div>
             </div>
 
-            <p className="mt-6 text-center text-xs text-white/40">{t("whatIs.footer")}</p>
+            <p className="mt-7 text-center text-xs text-white/40">{t("whatIs.footer")}</p>
           </div>
         </DialogContent>
       </Dialog>
