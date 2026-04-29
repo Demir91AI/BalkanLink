@@ -103,33 +103,180 @@
       "body": "Ovaj vodič je informativni alat. Ne predstavlja poreski savet i ne daje konkretne iznose povraćaja. Za pojedinačnu odluku obratite se Steuerberateru ili priznatom Lohnsteuerhilfevereinu."
     },
     "steps": {
-      "heading": "Kako da znaš da li MORAŠ predati",
-      "intro": "Pet jasnih okidača koji pretvaraju dobrovoljnu prijavu u OBAVEZNU (Pflichtveranlagung).",
-      "list": {
-        "s1": {
-          "title": "Imao/la si više poslodavaca u istoj godini",
-          "body": "Lohnsteuer je obračunavan paralelno → država traži korekciju.",
-          "zeile": "§ 46 Abs. 2 EStG"
-        },
-        "s2": {
-          "title": "Lohnsteuerklassa kombinacija III/V ili IV-Faktor",
-          "body": "Bračni par sa ovim kombinacijama je automatski Pflicht.",
-          "zeile": "§ 46 Abs. 2 Nr. 3a EStG"
-        },
-        "s3": {
-          "title": "Sporedni prihodi > 410 € (npr. iznajmljivanje, freelance)",
-          "body": "Sve preko Härteausgleich-a aktivira obavezu.",
-          "zeile": "§ 46 Abs. 2 Nr. 1 EStG"
-        },
-        "s4": {
-          "title": "Primao/la si Lohnersatzleistungen > 410 € (Kurzarbeit, Elterngeld, ALG I)",
-          "body": "Ovi prihodi su porezno slobodni ali utiču na stopu (Progressionsvorbehalt).",
-          "zeile": "§ 46 Abs. 2 Nr. 1 EStG"
-        },
-        "s5": {
-          "title": "Razveden/la i ponovo oženjen/udana iste godine",
-          "body": "Klasičan trigger — Finanzamt traži pojašnjenje.",
-          "zeile": "§ 46 Abs. 2 Nr. 6 EStG"
+      "year": {
+        "title": "Za koju poresku godinu radiš prijavu?",
+        "help": "Wizard pravi razliku između 2024. i 2025. zbog rokova i pravila.",
+        "options": {
+          "2024": {
+            "label": "Poreska godina 2024.",
+            "desc": "Prijava za prihode ostvarene u 2024. godini."
+          },
+          "2025": {
+            "label": "Poreska godina 2025.",
+            "desc": "Prijava za prihode ostvarene u 2025. godini."
+          }
+        }
+      },
+      "residency": {
+        "title": "Da li si bio/la poreski rezident u Nemačkoj?",
+        "help": "Poreski rezident si ako si imao/la prebivalište ili uobičajeno boravište u Nemačkoj.",
+        "options": {
+          "yesFullYear": {
+            "label": "Da, celu godinu",
+            "desc": "Živeo/la sam u Nemačkoj celu godinu."
+          },
+          "yesPartial": {
+            "label": "Da, deo godine",
+            "desc": "Doselio/la sam se ili odselio tokom godine."
+          },
+          "no": {
+            "label": "Ne",
+            "desc": "Nisam bio/la poreski rezident — ovde se wizard završava."
+          }
+        }
+      },
+      "employer": {
+        "title": "Kako si bio/la zaposlen/a tokom godine?",
+        "help": "Više poslodavaca u istoj godini često znači obaveznu prijavu.",
+        "options": {
+          "singleEmployer": {
+            "label": "Jedan poslodavac",
+            "desc": "Celu godinu sam radio/la kod jednog poslodavca."
+          },
+          "multipleEmployers": {
+            "label": "Više poslodavaca",
+            "desc": "Imao/la sam dva ili više poslodavaca u istoj godini."
+          },
+          "noEmployment": {
+            "label": "Nisam bio/la zaposlen/a",
+            "desc": "Bez radnog odnosa u toj godini."
+          }
+        }
+      },
+      "wageReplacement": {
+        "title": "Da li si primao/la neku zamensku platu (Lohnersatz)?",
+        "help": "Kurzarbeit, Eltern-, Kranken- ili Arbeitslosengeld obično pokreću obaveznu prijavu (Progressionsvorbehalt).",
+        "options": {
+          "none": {
+            "label": "Ništa od navedenog",
+            "desc": "Nisam primao/la nijednu zamensku platu."
+          },
+          "kurzarbeit": {
+            "label": "Kurzarbeitergeld",
+            "desc": "Primao/la sam naknadu za skraćeno radno vreme."
+          },
+          "elterngeld": {
+            "label": "Elterngeld",
+            "desc": "Primao/la sam roditeljsku naknadu."
+          },
+          "krankengeld": {
+            "label": "Krankengeld",
+            "desc": "Primao/la sam bolovanje preko 6 nedelja."
+          },
+          "arbeitslosengeld": {
+            "label": "Arbeitslosengeld I",
+            "desc": "Primao/la sam naknadu za nezaposlene (ALG I)."
+          }
+        }
+      },
+      "maritalStatus": {
+        "title": "Bračni status i poreska klasa",
+        "help": "Kombinacija III/V i IV/IV s Faktorom obično znači obaveznu prijavu.",
+        "options": {
+          "single": {
+            "label": "Sam/a (klasa I ili II)",
+            "desc": "Neoženjen/neudata, razveden/a ili udovac/udovica."
+          },
+          "marriedClass3or5": {
+            "label": "U braku — klasa III/V",
+            "desc": "Partner/ka i ja imamo kombinaciju III/V."
+          },
+          "marriedClass4Faktor": {
+            "label": "U braku — IV/IV s Faktorom",
+            "desc": "Koristimo Faktor-Verfahren."
+          },
+          "marriedClass4": {
+            "label": "U braku — IV/IV bez Faktora",
+            "desc": "Standardna kombinacija bez Faktora."
+          }
+        }
+      },
+      "sideIncome": {
+        "title": "Da li si imao/la dodatne prihode mimo plate?",
+        "help": "Veći sporedni prihodi (preko granice neoporezivosti) pokreću obaveznu prijavu.",
+        "options": {
+          "none": {
+            "label": "Nisam",
+            "desc": "Samo plata, bez sporednih prihoda."
+          },
+          "minor": {
+            "label": "Manji prihodi",
+            "desc": "Mali iznosi (npr. ispod opšte granice)."
+          },
+          "significant": {
+            "label": "Značajni prihodi",
+            "desc": "Izdavanje, samostalna delatnost, kapital — značajni iznosi."
+          }
+        }
+      },
+      "freibetrag": {
+        "title": "Da li si imao/la upisan Lohnsteuer-Freibetrag?",
+        "help": "Upisan Freibetrag na poreskoj kartici automatski znači obaveznu prijavu.",
+        "options": {
+          "yes": {
+            "label": "Da",
+            "desc": "Imao/la sam upisan Freibetrag (npr. zbog troškova puta)."
+          },
+          "no": {
+            "label": "Ne",
+            "desc": "Nisam imao/la nikakav Freibetrag."
+          }
+        }
+      },
+      "deductibles": {
+        "title": "Šta od ovog imaš da odbiješ?",
+        "help": "Označi sve što ti se odnosi — više stavki znači veću šansu za povraćaj.",
+        "options": {
+          "commute": {
+            "label": "Put do posla (Pendlerpauschale)",
+            "desc": "Svakodnevni put kući → posao."
+          },
+          "homeOffice": {
+            "label": "Home-Office",
+            "desc": "Rad od kuće."
+          },
+          "doppelHaushalt": {
+            "label": "Dvostruko domaćinstvo",
+            "desc": "Drugi stan zbog posla u drugom mestu."
+          },
+          "workClothing": {
+            "label": "Radna odeća / oprema",
+            "desc": "Specifična radna odeća, alat, stručna literatura."
+          },
+          "training": {
+            "label": "Stručno usavršavanje",
+            "desc": "Kursevi, sertifikati, jezici vezani za posao."
+          },
+          "donations": {
+            "label": "Donacije",
+            "desc": "Donacije priznatim organizacijama."
+          },
+          "childcare": {
+            "label": "Briga o deci (Kita, Hort)",
+            "desc": "Troškovi vrtića ili produženog boravka."
+          },
+          "healthExtras": {
+            "label": "Veći zdravstveni troškovi",
+            "desc": "Zubar, naočare, terapije iznad pokrivenog."
+          },
+          "householdServices": {
+            "label": "Kućne usluge / zanatlije",
+            "desc": "Haushaltsnahe Dienstleistungen, Handwerker."
+          },
+          "none": {
+            "label": "Ništa od navedenog",
+            "desc": "Nemam odbitnih stavki."
+          }
         }
       }
     },
