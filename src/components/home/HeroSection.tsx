@@ -31,6 +31,7 @@ export default function HeroSection() {
   const [phraseKey, setPhraseKey] = useState(0);
   const [phraseVisible, setPhraseVisible] = useState(true);
   const [askFocused, setAskFocused] = useState(false);
+  const isMobile = useIsMobile();
 
   const trustBadges = [
     t("home.trustBadges.officialSources"),
@@ -38,7 +39,11 @@ export default function HeroSection() {
     t("home.trustBadges.stepByStep"),
   ];
 
-  const askPlaceholdersRaw = t("home.assistantCta.examples", { returnObjects: true }) as string[];
+  const askPlaceholdersFull = t("home.assistantCta.examples", { returnObjects: true }) as string[];
+  const askPlaceholdersShortRaw = t("home.assistantCta.examplesShort", { returnObjects: true }) as string[];
+  const askPlaceholdersRaw = isMobile && Array.isArray(askPlaceholdersShortRaw) && askPlaceholdersShortRaw.length > 0
+    ? askPlaceholdersShortRaw
+    : askPlaceholdersFull;
   const askPlaceholdersKey = Array.isArray(askPlaceholdersRaw) ? askPlaceholdersRaw.join("|") : "";
   const askPlaceholders = useMemo(
     () => (Array.isArray(askPlaceholdersRaw) ? askPlaceholdersRaw : []),
