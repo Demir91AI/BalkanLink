@@ -126,7 +126,7 @@ export default function MobileBottomNav() {
         {/* CENTER: fixed Home */}
         <button
           onClick={() => navigate("/")}
-          className="flex flex-col items-center active:scale-95 transition-transform shrink-0 mx-1"
+          className="flex flex-col items-center active:scale-95 transition-transform shrink-0 mx-0.5"
           aria-label={t("mobileNav.home")}
         >
           <span
