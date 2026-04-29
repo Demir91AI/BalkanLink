@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronLeft, ChevronRight, Sparkles, ArrowRight } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
+import { BLIcon } from "@/components/BrandLogo";
 
 const slides = [
   { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
