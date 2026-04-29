@@ -116,8 +116,43 @@ export default function WhatIsBalkanLink() {
 
           {/* HERO */}
           <div className="relative overflow-hidden border-b border-white/10 px-6 pt-10 pb-8 sm:px-12 sm:pt-14 sm:pb-12">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(217,165,54,0.18),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(56,189,248,0.12),transparent_60%)]" />
-            <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[hsl(var(--gold))]/20 blur-3xl" />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-60 blur-3xl"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, rgba(217,165,54,0.35), rgba(56,189,248,0.18), rgba(217,165,54,0.35))",
+              }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-40 -left-32 h-72 w-72 rounded-full opacity-40 blur-3xl"
+              style={{
+                background:
+                  "conic-gradient(from 180deg, rgba(56,189,248,0.25), rgba(217,165,54,0.2), rgba(56,189,248,0.25))",
+              }}
+              animate={{ rotate: -360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(217,165,54,0.15),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(56,189,248,0.1),transparent_60%)]" />
+
+            {[
+              { top: "12%", left: "15%", delay: 0 },
+              { top: "28%", left: "78%", delay: 1.2 },
+              { top: "62%", left: "8%", delay: 2.1 },
+              { top: "70%", left: "85%", delay: 0.8 },
+            ].map((p, i) => (
+              <motion.span
+                key={i}
+                aria-hidden
+                className="pointer-events-none absolute h-1 w-1 rounded-full bg-[hsl(var(--gold))]"
+                style={{ top: p.top, left: p.left, boxShadow: "0 0 8px hsl(var(--gold))" }}
+                animate={{ opacity: [0, 1, 0], scale: [0.5, 1.4, 0.5] }}
+                transition={{ duration: 2.6, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
+              />
+            ))}
 
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -125,14 +160,36 @@ export default function WhatIsBalkanLink() {
               transition={{ duration: 0.4 }}
               className="relative"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--gold))]">
-                <Sparkles className="h-3 w-3" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
+                className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--gold))] shadow-[0_0_24px_rgba(217,165,54,0.25)]"
+              >
+                <motion.span
+                  animate={{ rotate: [0, 15, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Sparkles className="h-3 w-3" />
+                </motion.span>
                 {t("whatIs.kicker")}
-              </div>
+              </motion.div>
+
               <h2 className="mt-4 font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-[2.6rem]">
-                {t("whatIs.title")}
+                <span className="bg-gradient-to-br from-white via-white to-[hsl(var(--gold))]/85 bg-clip-text text-transparent">
+                  {t("whatIs.title")}
+                </span>
               </h2>
-              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/75 sm:text-base">
+
+              <div className="relative mt-3 h-px w-32 overflow-hidden rounded-full bg-white/10">
+                <motion.div
+                  className="absolute inset-y-0 w-12 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent"
+                  animate={{ x: ["-50%", "200%"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </div>
+
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/75 sm:text-base">
                 {t("whatIs.tagline")}
               </p>
 
@@ -141,33 +198,46 @@ export default function WhatIsBalkanLink() {
                   { Icon: Globe2, k: "languages" },
                   { Icon: Wrench, k: "tools" },
                   { Icon: Clock3, k: "available" },
-                ].map(({ Icon, k }) => (
-                  <div
+                ].map(({ Icon, k }, idx) => (
+                  <motion.div
                     key={k}
-                    className="rounded-xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur"
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 + idx * 0.08, duration: 0.4 }}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-3 backdrop-blur transition-all hover:border-[hsl(var(--gold))]/40 hover:shadow-[0_8px_30px_rgba(217,165,54,0.2)]"
                   >
-                    <Icon className="h-4 w-4 text-[hsl(var(--gold))]" />
-                    <div className="mt-2 text-base font-bold sm:text-lg">
-                      {t(`whatIs.stats.${k}`)}
+                    <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                    <div className="relative">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[hsl(var(--gold))]/15 ring-1 ring-[hsl(var(--gold))]/30">
+                        <Icon className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
+                      </div>
+                      <div className="mt-2 text-[13px] font-bold leading-tight sm:text-sm">
+                        {t(`whatIs.stats.${k}`)}
+                      </div>
+                      <div className="mt-0.5 text-[10px] uppercase tracking-wider text-white/45 sm:text-[10.5px]">
+                        {t(`whatIs.stats.${k}Desc`)}
+                      </div>
                     </div>
-                    <div className="text-[10px] uppercase tracking-wider text-white/50 sm:text-[11px]">
-                      {t(`whatIs.stats.${k}Desc`)}
-                    </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
           </div>
 
           {/* PULL QUOTE */}
-          <div className="relative border-b border-white/10 px-6 py-8 sm:px-12 sm:py-10">
-            <Quote className="absolute left-6 top-6 h-8 w-8 text-[hsl(var(--gold))]/25 sm:left-10 sm:top-8" />
-            <p className="ml-10 max-w-2xl font-heading text-lg italic leading-relaxed text-white/90 sm:ml-12 sm:text-xl">
+          <div className="relative overflow-hidden border-b border-white/10 px-6 py-8 sm:px-12 sm:py-10">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,165,54,0.06),transparent_70%)]" />
+            <Quote className="absolute left-6 top-6 h-8 w-8 text-[hsl(var(--gold))]/30 sm:left-10 sm:top-8" />
+            <p className="relative ml-10 max-w-2xl font-heading text-lg italic leading-relaxed text-white/95 sm:ml-12 sm:text-xl">
               {t("whatIs.pullQuote")}
             </p>
-            <p className="ml-10 mt-3 text-xs uppercase tracking-[0.18em] text-white/40 sm:ml-12">
-              — {t("whatIs.pullQuoteAuthor")}
-            </p>
+            <div className="relative ml-10 mt-3 flex items-center gap-3 sm:ml-12">
+              <span className="h-px w-8 bg-gradient-to-r from-[hsl(var(--gold))]/60 to-transparent" />
+              <p className="text-xs uppercase tracking-[0.22em] text-[hsl(var(--gold))]/70">
+                {t("whatIs.pullQuoteAuthor")}
+              </p>
+            </div>
           </div>
 
           {/* NARRATIVE SECTIONS */}
