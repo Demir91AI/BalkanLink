@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,6 +26,11 @@ export default function WhatIsBalkanLink() {
   const [showFab, setShowFab] = useState(true);
   const href = useLocalizedHref();
   const location = useLocation();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ container: scrollRef });
+  const progressX = useSpring(scrollYProgress, { stiffness: 120, damping: 22, mass: 0.4 });
+  const orbY1 = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const orbY2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   const hidden =
     location.pathname.includes("/admin") ||
@@ -110,9 +115,19 @@ export default function WhatIsBalkanLink() {
       </AnimatePresence>
 
       <Dialog open={open} onOpenChange={handleOpenChange}>
-        <DialogContent className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto">
+        <DialogContent
+          ref={scrollRef}
+          className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto"
+        >
           <DialogTitle className="sr-only">{t("whatIs.title")}</DialogTitle>
           <DialogDescription className="sr-only">{t("whatIs.tagline")}</DialogDescription>
+
+          {/* Scroll progress bar */}
+          <motion.div
+            aria-hidden
+            style={{ scaleX: progressX, transformOrigin: "0% 50%" }}
+            className="pointer-events-none sticky top-0 z-50 h-[2px] w-full bg-gradient-to-r from-[hsl(var(--gold))] via-amber-300 to-[hsl(var(--gold))] shadow-[0_0_8px_rgba(217,165,54,0.6)]"
+          />
 
           {/* HERO */}
           <div className="relative overflow-hidden border-b border-white/10 px-6 pt-10 pb-8 sm:px-12 sm:pt-14 sm:pb-12">
