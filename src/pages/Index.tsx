@@ -21,6 +21,7 @@ import TrustSection from "@/components/home/TrustSection";
 import PricingWarning from "@/components/home/PricingWarning";
 import WhatIsWhat from "@/components/home/WhatIsWhat";
 import FlowBanner from "@/components/home/FlowBanner";
+import PitchSection from "@/components/home/PitchSection";
 
 function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () => void }) {
   return (
@@ -117,6 +118,9 @@ export default function Index() {
 
       {/* ─── HERO ─── */}
       <HeroSection />
+
+      {/* ─── ELEVATOR PITCH — "Šta je BalkanLink?" ─── */}
+      <PitchSection />
 
       {/* ─── FEATURE CARDS ─── */}
       <FeatureCards />
