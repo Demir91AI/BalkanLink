@@ -142,8 +142,12 @@ export default function MobileBottomNav() {
       }}
     >
       <div className="relative h-[68px] flex items-center justify-between px-1 gap-0.5">
-        {/* LEFT: 3 in a row */}
-        <div className="flex items-center justify-around flex-1 gap-0">
+        {/* LEFT: 3 in a row — swipeable */}
+        <div
+          className="flex items-center justify-around flex-1 gap-0 touch-pan-y"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
           {left.map((it, i) => renderTab(it, i, "L"))}
         </div>
 
