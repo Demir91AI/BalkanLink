@@ -192,7 +192,7 @@ export default function NebenkostenScan() {
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0a1230] via-[#0f1a3d] to-[#0a1230] py-12 sm:py-16 lg:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.12),transparent_60%)]" />
         <div className="container max-w-5xl px-4 relative">
-          <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
+          <PageNavBar onBack={() => navigateBackOrHome(navigate)} showShare />
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--gold))]/10 border border-[hsl(var(--gold))]/30 px-3 py-1 text-[10px] font-bold tracking-wider text-[hsl(var(--gold))] uppercase">
