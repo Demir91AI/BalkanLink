@@ -523,6 +523,14 @@ export default function HeroSection() {
           0%, 100% { transform: scale(1); opacity: 0.55 }
           50% { transform: scale(1.08); opacity: 0.85 }
         }
+        @keyframes blChipPulse {
+          0%, 100% { transform: scale(1); opacity: 0.5 }
+          50% { transform: scale(1.6); opacity: 0 }
+        }
+        @keyframes blChipShine {
+          0%, 100% { background-position: 0% 50% }
+          50% { background-position: 100% 50% }
+        }
       `}</style>
 
       {/* Dots */}
