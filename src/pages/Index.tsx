@@ -139,6 +139,9 @@ export default function Index() {
       {/* ─── TRUST ─── */}
       <TrustSection />
 
+      {/* ─── COMMUNITY HIGHLIGHTS — Pitaj dijasporu ─── */}
+      <CommunityHighlights />
+
       {/* ─── "ŠTA JE ŠTA?" EXPLAINER ─── */}
       <section className="py-14 px-4" style={{ background: "hsl(220 50% 6%)" }}>
         <WhatIsWhat />
