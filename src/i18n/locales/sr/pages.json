@@ -19,11 +19,14 @@
       "prompt": "Pitaj npr.",
       "send": "Pošalji pitanje",
       "examples": [
-        "Kako da prijavim adresu (Anmeldung)?",
-        "Šta je Steuer-ID i kako ga dobijam?",
-        "Koja poreska klasa je za bračni par?",
-        "Da li mi treba krankenversicherung odmah?",
-        "Kako da se prijavim za Kindergeld?"
+        "Kako da prijavim stan u Nemačkoj (Anmeldung)?",
+        "Koliko je neto plata od 2800€ bruto u klasi 1?",
+        "Da li imam pravo na Bürgergeld ako sam tek došao?",
+        "Kako da prebacim vozačku iz Srbije u nemačku?",
+        "Koja poreska klasa je najbolja kad se oženim?",
+        "Da li mi treba privatno ili javno zdravstveno osiguranje?",
+        "Kako da otkažem ugovor o radu (Kündigung)?",
+        "Koliko Kindergeld dobijam za dvoje dece?"
       ]
     },
     "servicesTitle": "Naši servisi",
