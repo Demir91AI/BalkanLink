@@ -135,6 +135,7 @@ export default function WhatIsBalkanLink() {
               aria-hidden
               className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-60 blur-3xl"
               style={{
+                y: orbY1,
                 background:
                   "conic-gradient(from 0deg, rgba(217,165,54,0.35), rgba(56,189,248,0.18), rgba(217,165,54,0.35))",
               }}
@@ -145,6 +146,7 @@ export default function WhatIsBalkanLink() {
               aria-hidden
               className="pointer-events-none absolute -bottom-40 -left-32 h-72 w-72 rounded-full opacity-40 blur-3xl"
               style={{
+                y: orbY2,
                 background:
                   "conic-gradient(from 180deg, rgba(56,189,248,0.25), rgba(217,165,54,0.2), rgba(56,189,248,0.25))",
               }}
