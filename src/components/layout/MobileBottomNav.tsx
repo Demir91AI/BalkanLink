@@ -29,6 +29,15 @@ export default function MobileBottomNav() {
 
   const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Center the scroll on mount so Home isn't covering left/right items
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const center = (el.scrollWidth - el.clientWidth) / 2;
+    el.scrollLeft = center;
+  }, []);
 
   const left: Item[] = [
     { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
