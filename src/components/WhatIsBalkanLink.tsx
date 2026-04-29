@@ -105,7 +105,7 @@ export default function WhatIsBalkanLink() {
       </AnimatePresence>
 
       <Dialog open={open} onOpenChange={handleOpenChange}>
-        <DialogContent className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto">
+        <DialogContent className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto scrollbar-hide">
           <DialogTitle className="sr-only">{t("whatIs.title")}</DialogTitle>
           <DialogDescription className="sr-only">{t("whatIs.tagline")}</DialogDescription>
 
