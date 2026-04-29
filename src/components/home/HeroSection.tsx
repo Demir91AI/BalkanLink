@@ -510,6 +510,14 @@ export default function HeroSection() {
           0%, 100% { background-position: 0% 50% }
           50% { background-position: 100% 50% }
         }
+        @keyframes blSparkleA {
+          0%, 100% { opacity: 0.55; transform: scale(1) rotate(0deg) }
+          50% { opacity: 1; transform: scale(1.2) rotate(15deg) }
+        }
+        @keyframes blSparkleB {
+          0%, 100% { opacity: 1; transform: scale(1.2) rotate(-15deg) }
+          50% { opacity: 0.55; transform: scale(1) rotate(0deg) }
+        }
       `}</style>
 
       {/* Dots */}
