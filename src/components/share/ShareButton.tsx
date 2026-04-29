@@ -1,17 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  Share2,
-  Copy,
-  Check,
-  MessageCircle,
-  Send,
-  Facebook,
-  Mail,
-  Linkedin,
-  Twitter,
-  Instagram,
-} from "lucide-react";
+import { Share2, Copy, Check, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   buildEmailLink,
@@ -22,6 +11,15 @@ import {
   buildWhatsAppLink,
   buildXLink,
 } from "./shareLinks";
+import {
+  FacebookLogo,
+  InstagramLogo,
+  LinkedInLogo,
+  TelegramLogo,
+  ViberLogo,
+  WhatsAppLogo,
+  XLogo,
+} from "./BrandIcons";
 
 type Variant = "icon" | "compact" | "full";
 
