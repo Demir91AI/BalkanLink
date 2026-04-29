@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -36,11 +36,17 @@ export default function HeroSection() {
     t("home.trustBadges.stepByStep"),
   ];
 
-  const askPlaceholders = t("home.assistantCta.examples", { returnObjects: true }) as string[];
+  const askPlaceholdersRaw = t("home.assistantCta.examples", { returnObjects: true }) as string[];
+  const askPlaceholdersKey = Array.isArray(askPlaceholdersRaw) ? askPlaceholdersRaw.join("|") : "";
+  const askPlaceholders = useMemo(
+    () => (Array.isArray(askPlaceholdersRaw) ? askPlaceholdersRaw : []),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [askPlaceholdersKey],
+  );
 
   // Typewriter: type full phrase → hold → fade-out → switch to next
   useEffect(() => {
-    if (!Array.isArray(askPlaceholders) || askPlaceholders.length === 0) return;
+    if (askPlaceholders.length === 0) return;
     let i = 0;
     let charIdx = 0;
     let mode: "typing" | "holding" | "swapping" = "typing";
