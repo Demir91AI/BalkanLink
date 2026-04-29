@@ -101,19 +101,20 @@ export default function MobileBottomNav() {
       <div className="relative h-[68px]">
         {/* Scrollable rails - left + spacer + right */}
         <div
-          className="absolute inset-0 flex items-center overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar"
-          style={{ WebkitOverflowScrolling: "touch" }}
+          ref={scrollRef}
+          className="absolute inset-0 flex items-center overflow-x-auto overflow-y-hidden hide-scrollbar"
+          style={{ WebkitOverflowScrolling: "touch", scrollSnapType: "x proximity" }}
         >
           {/* Left items */}
-          <div className="flex items-center pl-2">
+          <div className="flex items-center">
             {left.map(renderTab)}
           </div>
 
           {/* Center spacer (Home button sits absolute over this) */}
-          <div className="shrink-0" style={{ width: 72 }} aria-hidden />
+          <div className="shrink-0" style={{ width: 88 }} aria-hidden />
 
           {/* Right items */}
-          <div className="flex items-center pr-2">
+          <div className="flex items-center">
             {right.map(renderTab)}
           </div>
         </div>
