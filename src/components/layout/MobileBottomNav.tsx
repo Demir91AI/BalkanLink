@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import {
   FileText,
   Shield,
@@ -13,7 +12,6 @@ import {
   Calculator,
   Briefcase,
   KeyRound,
-  Building2,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
