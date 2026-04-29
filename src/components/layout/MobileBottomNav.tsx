@@ -65,12 +65,12 @@ export default function MobileBottomNav() {
       <button
         key={`${side}-${idx}`}
         onClick={() => navigate(item.path)}
-        className="flex flex-col items-center justify-center gap-[1px] active:scale-95 transition-all duration-150 animate-fade-in"
-        style={{ width: 40, height: 30 }}
+        className="flex flex-col items-center justify-center gap-[2px] active:scale-95 transition-all duration-150"
+        style={{ width: 46, height: 36 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[13px] w-[13px] transition-all"
+          className="h-[15px] w-[15px] transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
@@ -78,7 +78,7 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[6.5px] leading-tight w-full text-center truncate transition-all"
+          className="text-[7.5px] leading-tight w-full text-center truncate transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
             fontWeight: active ? 700 : 500,
