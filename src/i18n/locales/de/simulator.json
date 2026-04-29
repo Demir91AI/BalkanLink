@@ -1,0 +1,152 @@
+{
+  "anmeldung": {
+    "seo": {
+      "title": "Anmeldung Simulator — Bürgeramt-Termin üben | BalkanLink",
+      "description": "Simulation eines Gesprächs mit einem deutschen Beamten. 8 Fragen, Bewertungssystem, Tipps für einen erfolgreichen Termin."
+    },
+    "hub": {
+      "title": "Anmeldung Simulator",
+      "subtitle": "Übe deinen Bürgeramt-Termin bevor du hingehst. Der Beamte stellt echte Fragen auf Deutsch — du antwortest, wir geben dir Feedback.",
+      "badge": "Stand 2026",
+      "free": "Kostenlos",
+      "stats": {
+        "questions": "8 Fragen",
+        "duration": "~5 Minuten",
+        "topics": "echte Fragen"
+      },
+      "intro": {
+        "title": "Wie funktioniert es?",
+        "items": [
+          "Der Beamte (von uns simuliert) stellt eine Frage auf Deutsch",
+          "Du wählst eine von 3–4 Antworten",
+          "Du bekommst sofort eine Erklärung warum richtig oder falsch",
+          "Am Ende: dein Ergebnis + Tipps wo du noch lernen musst"
+        ]
+      },
+      "ctaStart": "Simulation starten",
+      "ctaResume": "Wo du aufgehört hast fortsetzen",
+      "officialNote": "Dies ist nur eine Simulation. Den echten Termin buchst du auf der Stadtseite."
+    },
+    "ui": {
+      "questionOf": "Frage {{current}} von {{total}}",
+      "beamtePrompt": "Der Beamte sagt:",
+      "translationLabel": "Was bedeutet das:",
+      "tipLabel": "💡 Tipp:",
+      "yourAnswer": "Deine Antwort:",
+      "feedbackCorrect": "✅ Richtig!",
+      "feedbackPartial": "⚠️ Teilweise richtig",
+      "feedbackWrong": "❌ Falsch",
+      "next": "Nächste Frage",
+      "finish": "Ergebnis sehen",
+      "score": "Dein Ergebnis",
+      "scoreOf": "{{score}} von {{max}} Punkten",
+      "scoreExcellent": "Ausgezeichnet! Du bist bereit für den echten Termin.",
+      "scoreGood": "Gut! Schau dir die Fehler an und du bist bereit.",
+      "scorePoor": "Du brauchst noch Übung. Schau dir die Anmeldung-Checkliste vor dem Termin an.",
+      "yourMistakes": "Was vor dem Termin zu prüfen ist:",
+      "noMistakes": "Keine Fehler! Großartig.",
+      "ctaRestart": "Neu starten",
+      "ctaChecklist": "Anmeldung-Checkliste öffnen",
+      "ctaForm": "Anmeldung-Musterformular öffnen",
+      "exitConfirm": "Wirklich beenden? Der Fortschritt geht verloren."
+    },
+    "questions": [
+      {
+        "id": "q1_purpose",
+        "de": "Guten Tag. Was kann ich für Sie tun?",
+        "context": "Der Beamte fragt warum du da bist. Du sollst nur kurz sagen, dass du dich anmelden möchtest.",
+        "tip": "Sag klar 'Anmeldung' — das ist das Zauberwort.",
+        "options": [
+          { "text": "Ich möchte mich anmelden, bitte.", "score": 10, "feedback": "Perfekt — kurz und klar. Der Beamte weiß sofort, worum es geht." },
+          { "text": "Ich brauche einen Wohnsitz.", "score": 5, "feedback": "Verständlich, aber nicht präzise. Besser 'Anmeldung'." },
+          { "text": "Hallo, schönen Tag!", "score": 0, "feedback": "Höflich, aber sag direkt warum du da bist. Der Beamte hat wenig Zeit." },
+          { "text": "Wo ist die Anmeldung?", "score": 0, "feedback": "Du bist schon am richtigen Ort — der Beamte ruft dich. Sag direkt was du willst." }
+        ]
+      },
+      {
+        "id": "q2_documents",
+        "de": "Haben Sie alle Unterlagen dabei?",
+        "context": "Er fragt ob du alle Dokumente hast. Bestätigen und vorbereiten zum Zeigen.",
+        "tip": "Ordentlicher Ordner mit: Reisepass, Wohnungsgeberbestätigung, Mietvertrag, Heiratsurkunde, Geburtsurkunden der Kinder.",
+        "options": [
+          { "text": "Ja, hier bitte: Reisepass, Wohnungsgeberbestätigung und Mietvertrag.", "score": 10, "feedback": "Ausgezeichnet — du nennst die Schlüsseldokumente. Der Beamte sieht, dass du vorbereitet bist." },
+          { "text": "Ja, alles dabei.", "score": 5, "feedback": "OK, aber besser konkret aufzählen — beschleunigt das Verfahren." },
+          { "text": "Ich glaube schon...", "score": 0, "feedback": "Unsicherheit ist ein rotes Zeichen. Vor dem Termin mit der Anmeldung-Checkliste prüfen." },
+          { "text": "Was brauche ich denn?", "score": 0, "feedback": "Unvorbereitet erscheinen = Heimweg ohne Anmeldung. Termine sind 4–6 Wochen im Voraus reserviert." }
+        ]
+      },
+      {
+        "id": "q3_wohnungsgeber",
+        "de": "Wer ist Ihr Wohnungsgeber?",
+        "context": "Er fragt wer Eigentümer/Vermieter der Wohnung ist. Das ist der Name auf der Wohnungsgeberbestätigung.",
+        "tip": "Wohnungsgeber = wer dir die Wohnung gibt. Eigentümer, Hauptmieter oder Agentur.",
+        "options": [
+          { "text": "Mein Vermieter, Herr/Frau [Name] — hier ist die Wohnungsgeberbestätigung.", "score": 10, "feedback": "Richtig. Wohnungsgeberbestätigung ist Pflicht — ohne sie keine Anmeldung." },
+          { "text": "Ich wohne bei einem Freund.", "score": 5, "feedback": "OK, aber dein Freund muss dir auch eine Wohnungsgeberbestätigung als Untervermieter oder Hauptmieter geben." },
+          { "text": "Das weiß ich nicht.", "score": 0, "feedback": "Schlecht — ohne Wohnungsgeber keine Anmeldung. Immer den Vermieter fragen vor Vertragsunterschrift." },
+          { "text": "Hotel.", "score": 0, "feedback": "Hotel/AirBnB gilt nicht als Wohnsitz. Es braucht eine echte Wohnung + Wohnungsgeberbestätigung." }
+        ]
+      },
+      {
+        "id": "q4_einzugsdatum",
+        "de": "Seit wann wohnen Sie an dieser Adresse?",
+        "context": "Er fragt wann du eingezogen bist. Datum muss in den letzten 14 Tagen liegen — das ist die Frist!",
+        "tip": "Frist ist 14 Tage ab Einzug. Wenn länger her — kann Strafe geben (selten, aber rechtlich möglich).",
+        "options": [
+          { "text": "Seit dem [Datum] — also seit etwa zehn Tagen.", "score": 10, "feedback": "Richtig — innerhalb der 14-Tage-Frist. Alles legal." },
+          { "text": "Seit drei Wochen.", "score": 5, "feedback": "Du hast die Frist überschritten. Der Beamte kann fragen warum — bereite eine Erklärung vor (Termin-Wartezeit ist gültig)." },
+          { "text": "Schon seit 2 Monaten.", "score": 0, "feedback": "Schlecht — Strafe bis 1.000 € möglich. Sag, dass du keinen Termin früher bekommen hast." },
+          { "text": "Ich weiß nicht genau.", "score": 0, "feedback": "Einzugsdatum MUSS genau sein — steht im Mietvertrag." }
+        ]
+      },
+      {
+        "id": "q5_familie",
+        "de": "Ziehen Sie alleine ein oder mit Familie?",
+        "context": "Er fragt ob du alleine oder mit Familie einziehst. Alle müssen physisch anwesend sein!",
+        "tip": "Alle Kinder und Partner müssen persönlich kommen — auch Babys.",
+        "options": [
+          { "text": "Mit meiner Frau und zwei Kindern — sie sind auch hier.", "score": 10, "feedback": "Perfekt. Alle Mitglieder anwesend, der Beamte kann alle gleichzeitig anmelden." },
+          { "text": "Mit Familie, aber sie sind zu Hause.", "score": 0, "feedback": "Schlecht — alle müssen persönlich kommen. Termin kann nicht abgeschlossen werden, du kommst wieder." },
+          { "text": "Alleine.", "score": 10, "feedback": "OK wenn du wirklich alleine wohnst. Wenn du Familie in derselben Wohnung hast, müssen sie auch kommen." },
+          { "text": "Meine Frau kommt später.", "score": 5, "feedback": "Geht nicht — entweder alle jetzt oder neuer Termin für sie." }
+        ]
+      },
+      {
+        "id": "q6_steuerid",
+        "de": "Brauchen Sie eine Steuer-ID?",
+        "context": "Er fragt ob du eine Steuer-ID brauchst. Das ist die Steuernummer, die du automatisch per Post bekommst.",
+        "tip": "Steuer-ID kommt automatisch per Post in 2–3 Wochen. NICHT zahlen um sie zu 'beschleunigen' — das ist Betrug.",
+        "options": [
+          { "text": "Ja, bitte. Ich erwarte sie per Post.", "score": 10, "feedback": "Richtig. Der Beamte generiert automatisch den Antrag. Kommt per Post in 2–3 Wochen." },
+          { "text": "Ja, kann ich sie heute mitnehmen?", "score": 5, "feedback": "Nicht sofort verfügbar — immer per Post. Aber gut dass du fragst." },
+          { "text": "Nein, brauche ich nicht.", "score": 0, "feedback": "Falsch — Steuer-ID ist Pflicht für Job, Bank, alles. Immer 'Ja'." },
+          { "text": "Was ist das?", "score": 0, "feedback": "Vor dem Termin fragen — der Beamte ist kein Lehrer. Steuer-ID = Steueridentifikationsnummer." }
+        ]
+      },
+      {
+        "id": "q7_religion",
+        "de": "Welche Religionszugehörigkeit haben Sie?",
+        "context": "Er fragt nach Konfession. Wenn du 'katholisch' oder 'evangelisch' sagst, zahlst du AUTOMATISCH Kirchensteuer (8–9% der Steuer).",
+        "tip": "ACHTUNG: Das ist eine Steuerfrage, nicht persönlich. Die meisten Muslime, Orthodoxen und Atheisten sollten 'keine' oder 'islamisch' sagen (Islam zahlt keine Kirchensteuer in Deutschland).",
+        "options": [
+          { "text": "Keine.", "score": 10, "feedback": "Richtig für Konfessionslose — keine Kirchensteuer." },
+          { "text": "Islamisch.", "score": 10, "feedback": "Richtig — Islam in Deutschland zahlt KEINE Kirchensteuer." },
+          { "text": "Orthodox.", "score": 10, "feedback": "Serbisch/bosnisch/griechisch-orthodox zahlt KEINE Kirchensteuer (rumänisch ja). In deinem Bundesland prüfen." },
+          { "text": "Katholisch.", "score": 0, "feedback": "Vorsicht! Wenn du dich als Katholik anmeldest, werden 8–9% der gesamten Steuer monatlich abgezogen. Wenn du raus willst — Kirchenaustritt (kostet und braucht Termin)." }
+        ]
+      },
+      {
+        "id": "q8_meldebestaetigung",
+        "de": "Brauchen Sie eine Meldebestätigung in Papierform?",
+        "context": "Er fragt ob du die Anmeldebestätigung auf Papier willst. Immer 'Ja' — du brauchst sie für Bank, Job, alles.",
+        "tip": "Meldebestätigung ist der Beweis dass du existierst. Ohne sie keine Bank, keine Krankenversicherung.",
+        "options": [
+          { "text": "Ja, bitte. Mehrere Exemplare wenn möglich.", "score": 10, "feedback": "Perfekt — manche Städte geben Kopien kostenlos. Alle aufbewahren." },
+          { "text": "Ja, eine bitte.", "score": 10, "feedback": "Gut — Minimum eine. Besser nach 2–3 fragen wenn kostenlos." },
+          { "text": "Nein, schicken Sie sie per Post.", "score": 5, "feedback": "OK aber langsam (1–2 Wochen). Bank braucht sie morgen." },
+          { "text": "Nein, brauche ich nicht.", "score": 0, "feedback": "Schlecht — ohne Meldebestätigung kannst du nichts. Immer 'Ja'." }
+        ]
+      }
+    ]
+  }
+}
