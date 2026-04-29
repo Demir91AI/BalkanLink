@@ -272,96 +272,109 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 1.0, ease }}
             className="mt-7 w-full max-w-xl"
           >
-            {/* Tiny brand label above bar */}
-            <div className="mb-2 flex items-center justify-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--gold))]/25 bg-[hsl(var(--gold))]/8 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[hsl(var(--gold))]">
+            {/* Brand label above bar */}
+            <div className="mb-2.5 flex items-center justify-center">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.22em]"
+                style={{
+                  background: "linear-gradient(135deg, hsla(43,70%,55%,0.14), hsla(43,70%,55%,0.04))",
+                  border: "1px solid hsla(43,70%,55%,0.30)",
+                  color: "hsl(var(--gold))",
+                  boxShadow: "0 0 24px -8px hsla(43,70%,55%,0.4)",
+                }}
+              >
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 </span>
-                {t("home.assistantCta.badge")}
+                BalkanLinkAsistent
               </span>
             </div>
 
-            {/* Ask bar */}
+            {/* Ask bar — premium dual-glow */}
             <form
               onSubmit={(e) => { e.preventDefault(); submitAsk(); }}
-              className="group relative overflow-hidden rounded-2xl transition-all duration-300 focus-within:-translate-y-0.5"
-              style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.025) 100%)",
-                border: "1px solid rgba(255,255,255,0.10)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
-                boxShadow: "0 14px 50px -14px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06)",
-              }}
+              className="group relative rounded-[18px] transition-all duration-300 focus-within:-translate-y-0.5"
             >
-              {/* Gold focus ring */}
+              {/* Outer ambient gold glow (always visible, intensifies on focus) */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-60"
-                style={{ boxShadow: "0 0 0 1px hsla(43,70%,55%,0.45), 0 0 36px -8px hsla(43,70%,55%,0.40)" }}
+                className="pointer-events-none absolute -inset-[2px] rounded-[20px] opacity-50 blur-md transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-100"
+                style={{
+                  background: "linear-gradient(120deg, hsla(43,70%,55%,0.55) 0%, hsla(220,80%,60%,0.0) 35%, hsla(43,70%,55%,0.0) 60%, hsla(43,70%,55%,0.55) 100%)",
+                }}
               />
+              {/* Bar surface */}
+              <div
+                className="relative overflow-hidden rounded-[18px]"
+                style={{
+                  background: "linear-gradient(135deg, rgba(20,28,48,0.85) 0%, rgba(8,12,24,0.85) 100%)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  backdropFilter: "blur(18px)",
+                  WebkitBackdropFilter: "blur(18px)",
+                  boxShadow: "0 18px 60px -18px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.07)",
+                }}
+              >
+                {/* Sheen sweep on hover */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-1000 group-hover:translate-x-full"
+                />
 
-              <div className="relative flex items-center gap-2.5 p-2 sm:gap-3 sm:p-2.5">
-                {/* Brand avatar — real BL logo */}
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/10 shadow-[0_4px_18px_-6px_rgba(0,0,0,0.6)]">
-                  <BLIcon size={36} />
-                </span>
+                <div className="relative flex items-center gap-2.5 p-2 sm:gap-3 sm:p-2.5">
+                  {/* Brand avatar — real BL logo */}
+                  <span
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/10"
+                    style={{ boxShadow: "0 4px 18px -6px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08)" }}
+                  >
+                    <BLIcon size={36} />
+                  </span>
 
-                {/* Input */}
-                <div className="relative min-w-0 flex-1">
-                  <input
-                    type="text"
-                    value={askValue}
-                    onChange={(e) => setAskValue(e.target.value)}
-                    placeholder=" "
-                    aria-label={t("home.assistantCta.title")}
-                    className="peer w-full bg-transparent py-2 pr-1 text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
-                  />
-                  {/* Animated rotating placeholder (shown only when empty) */}
-                  {askValue.length === 0 && Array.isArray(askPlaceholders) && askPlaceholders.length > 0 && (
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center text-[15px] text-white/45">
-                      <span className="hidden sm:inline">{t("home.assistantCta.prompt")}&nbsp;</span>
-                      <span key={placeholderIdx} className="animate-fade-in font-medium text-white/65">
-                        "{askPlaceholders[placeholderIdx]}"
-                      </span>
-                    </div>
-                  )}
+                  {/* Input */}
+                  <div className="relative min-w-0 flex-1">
+                    <input
+                      type="text"
+                      value={askValue}
+                      onChange={(e) => setAskValue(e.target.value)}
+                      placeholder=" "
+                      aria-label={t("home.assistantCta.title")}
+                      className="peer w-full bg-transparent py-2.5 pr-1 text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
+                    />
+                    {/* Typewriter placeholder (only when input is empty) */}
+                    {askValue.length === 0 && (
+                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center text-[15px] text-white/55">
+                        <span>{typed}</span>
+                        <span
+                          aria-hidden
+                          className="ml-0.5 inline-block h-[1.05em] w-[2px] bg-[hsl(var(--gold))]"
+                          style={{ animation: "blCaret 1s steps(2) infinite" }}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    aria-label={t("home.assistantCta.send")}
+                    className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[#0a0a0a] transition-all duration-200 hover:scale-[1.06] active:scale-95"
+                    style={{
+                      background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%)",
+                      boxShadow: "0 8px 26px -6px hsla(43,70%,55%,0.65), inset 0 1px 0 rgba(255,255,255,0.5)",
+                    }}
+                  >
+                    <ArrowRight className="h-5 w-5" strokeWidth={2.6} />
+                  </button>
                 </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  aria-label={t("home.assistantCta.send")}
-                  className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[#0a0a0a] transition-all duration-200 hover:scale-105 active:scale-95"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%)",
-                    boxShadow: "0 6px 22px -6px hsla(43,70%,55%,0.6)",
-                  }}
-                >
-                  <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
-                </button>
               </div>
             </form>
-
-            {/* Quick chips */}
-            {Array.isArray(askPlaceholders) && askPlaceholders.length > 0 && (
-              <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5">
-                {askPlaceholders.slice(0, 3).map((q) => (
-                  <button
-                    key={q}
-                    type="button"
-                    onClick={() => submitAsk(q)}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/70 backdrop-blur-md transition-all duration-200 hover:border-[hsl(var(--gold))]/40 hover:bg-[hsl(var(--gold))]/10 hover:text-white"
-                  >
-                    {q}
-                  </button>
-                ))}
-              </div>
-            )}
           </motion.div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes blCaret { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
+      `}</style>
 
       {/* Dots */}
       <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
