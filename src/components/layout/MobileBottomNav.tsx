@@ -66,7 +66,7 @@ export default function MobileBottomNav() {
       <button
         key={item.label}
         onClick={() => navigate(item.path)}
-        className="flex shrink-0 snap-center flex-col items-center justify-center gap-0.5 min-h-[44px] active:scale-95 transition-all duration-150"
+        className="flex shrink-0 flex-col items-center justify-center gap-0.5 min-h-[44px] active:scale-95 transition-all duration-150"
         style={{ width: 64 }}
         aria-label={item.label}
       >
