@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
+import ShareButton from "@/components/share/ShareButton";
 
 const LANG_PREFIXES = SUPPORTED_LANGUAGES.filter((l) => l !== "bs");
 
