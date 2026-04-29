@@ -274,7 +274,7 @@ export default function HeroSection() {
                 className="relative z-10 -mb-3 inline-flex items-center gap-3 rounded-t-[16px] px-7 pt-2.5 pb-5"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(22,30,52,0.95) 0%, rgba(15,20,38,0.95) 100%)",
+                    "linear-gradient(180deg, rgba(22,30,52,0.18) 0%, rgba(15,20,38,0.18) 100%)",
                   borderTop: "1px solid hsla(43,70%,55%,0.35)",
                   borderLeft: "1px solid hsla(43,70%,55%,0.20)",
                   borderRight: "1px solid hsla(43,70%,55%,0.20)",
