@@ -126,9 +126,9 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="relative h-[96px] flex items-center justify-between px-1.5 gap-1">
+      <div className="relative h-[80px] flex items-center justify-between px-2 gap-1.5">
         {/* LEFT: 2x2 grid */}
-        <div className="grid grid-cols-2 gap-x-0.5 gap-y-1">
+        <div className="grid grid-cols-2 gap-x-1 gap-y-0.5">
           {left.map((it, i) => renderTab(it, i, "L"))}
         </div>
 
@@ -141,8 +141,8 @@ export default function MobileBottomNav() {
           <span
             className="flex items-center justify-center rounded-full"
             style={{
-              width: 54,
-              height: 54,
+              width: 46,
+              height: 46,
               background: homeActive
                 ? "linear-gradient(135deg, #C9A84C, #F0C040)"
                 : "linear-gradient(135deg, rgba(201,168,76,0.3), rgba(240,192,64,0.15))",
@@ -153,13 +153,13 @@ export default function MobileBottomNav() {
             }}
           >
             <Home
-              className="h-[24px] w-[24px]"
+              className="h-[20px] w-[20px]"
               style={{ color: homeActive ? "#0F1626" : "#F0C040" }}
               strokeWidth={2.5}
             />
           </span>
           <span
-            className="text-[9px] leading-none mt-1 font-bold"
+            className="text-[8.5px] leading-none mt-1 font-bold"
             style={{
               color: homeActive ? "#F0C040" : "rgba(240,192,64,0.9)",
               letterSpacing: 0.2,
@@ -170,7 +170,7 @@ export default function MobileBottomNav() {
         </button>
 
         {/* RIGHT: 2x2 grid */}
-        <div className="grid grid-cols-2 gap-x-0.5 gap-y-1">
+        <div className="grid grid-cols-2 gap-x-1 gap-y-0.5">
           {right.map((it, i) => renderTab(it, i, "R"))}
         </div>
       </div>
