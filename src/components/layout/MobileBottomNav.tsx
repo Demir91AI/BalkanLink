@@ -34,38 +34,58 @@ export default function MobileBottomNav() {
   const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
 
-  // SET A — primary 8 (4 left + 4 right)
+  // SET A — 9 left + 9 right
   const leftA: Item[] = [
     { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
     { icon: Shield, label: t("mobileNav.visa"), path: "/viza" },
     { icon: GraduationCap, label: t("mobileNav.anerkennung"), path: "/anerkennung-navigator" },
     { icon: ScanLine, label: t("mobileNav.docCheck"), path: "/dokumenten-check" },
+    { icon: Calculator, label: t("mobileNav.calc"), path: "/brutto-netto-rechner" },
+    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/stellenangebote" },
+    { icon: KeyRound, label: t("mobileNav.rent"), path: "/wohnungen" },
+    { icon: Building2, label: t("mobileNav.business"), path: "/biznis-njemacka" },
+    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
   ];
   const rightA: Item[] = [
     { icon: BookOpen, label: t("mobileNav.trainer"), path: "/deutsch-trainer" },
     { icon: Coins, label: t("mobileNav.taxes"), path: poreziPath },
     { icon: Gauge, label: t("mobileNav.schufa"), path: "/schufa-simulator" },
     { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
+    { icon: Calculator, label: t("mobileNav.taxes"), path: "/kalkulatori" },
+    { icon: Shield, label: t("mobileNav.visa"), path: "/familie" },
+    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/zivot-savjeti" },
+    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/karijera" },
+    { icon: KeyRound, label: t("mobileNav.rent"), path: "/stanovanje" },
   ];
 
-  // SET B — secondary 8 (4 left + 4 right)
+  // SET B — alternative 9 + 9
   const leftB: Item[] = [
     { icon: Calculator, label: t("mobileNav.calc"), path: "/brutto-netto-rechner" },
     { icon: Briefcase, label: t("mobileNav.jobs"), path: "/stellenangebote" },
     { icon: KeyRound, label: t("mobileNav.rent"), path: "/wohnungen" },
     { icon: Building2, label: t("mobileNav.business"), path: "/biznis-njemacka" },
+    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
+    { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
+    { icon: Shield, label: t("mobileNav.visa"), path: "/viza" },
+    { icon: GraduationCap, label: t("mobileNav.anerkennung"), path: "/anerkennung-navigator" },
+    { icon: ScanLine, label: t("mobileNav.docCheck"), path: "/dokumenten-check" },
   ];
   const rightB: Item[] = [
-    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
     { icon: Calculator, label: t("mobileNav.taxes"), path: "/kalkulatori" },
     { icon: Shield, label: t("mobileNav.visa"), path: "/familie" },
     { icon: BookOpen, label: t("mobileNav.trainer"), path: "/zivot-savjeti" },
+    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/deutsch-trainer" },
+    { icon: Coins, label: t("mobileNav.taxes"), path: poreziPath },
+    { icon: Gauge, label: t("mobileNav.schufa"), path: "/schufa-simulator" },
+    { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
+    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/karijera" },
+    { icon: KeyRound, label: t("mobileNav.rent"), path: "/stanovanje" },
   ];
 
-  // Rotate between Set A and Set B every 5s
+  // Rotate between Set A and Set B every 10s
   const [setIdx, setSetIdx] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 5000);
+    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 10000);
     return () => clearInterval(id);
   }, []);
 
@@ -86,11 +106,11 @@ export default function MobileBottomNav() {
         key={`${side}-${setIdx}-${idx}`}
         onClick={() => navigate(item.path)}
         className="flex flex-col items-center justify-center gap-[1px] active:scale-95 transition-all duration-150 animate-fade-in"
-        style={{ width: 54, height: 32 }}
+        style={{ width: 40, height: 30 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[14px] w-[14px] transition-all"
+          className="h-[13px] w-[13px] transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
@@ -98,7 +118,7 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[7.5px] leading-tight w-full text-center truncate transition-all"
+          className="text-[6.5px] leading-tight w-full text-center truncate transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
             fontWeight: active ? 700 : 500,
@@ -126,9 +146,9 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="relative h-[80px] flex items-center justify-between px-2 gap-1.5">
-        {/* LEFT: 2x2 grid */}
-        <div className="grid grid-cols-2 gap-x-1 gap-y-0.5">
+      <div className="relative h-[112px] flex items-center justify-between px-1.5 gap-1">
+        {/* LEFT: 3x3 grid */}
+        <div className="grid grid-cols-3 gap-x-0.5 gap-y-0.5">
           {left.map((it, i) => renderTab(it, i, "L"))}
         </div>
 
@@ -169,8 +189,8 @@ export default function MobileBottomNav() {
           </span>
         </button>
 
-        {/* RIGHT: 2x2 grid */}
-        <div className="grid grid-cols-2 gap-x-1 gap-y-0.5">
+        {/* RIGHT: 3x3 grid */}
+        <div className="grid grid-cols-3 gap-x-0.5 gap-y-0.5">
           {right.map((it, i) => renderTab(it, i, "R"))}
         </div>
       </div>
