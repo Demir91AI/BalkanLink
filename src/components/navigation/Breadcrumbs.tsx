@@ -187,6 +187,12 @@ export default function Breadcrumbs({
           ))}
           </div>
         )}
+
+        {showShare && (
+          <div className="ml-auto">
+            <ShareButton variant="compact" title={shareTitle} />
+          </div>
+        )}
       </nav>
     </div>
   );
