@@ -12,6 +12,11 @@
       "updated": "Stand 2026",
       "stepByStep": "Schritt-für-Schritt-Leitfäden"
     },
+    "assistantCta": {
+      "badge": "BalkanLink Asistent",
+      "title": "Frag in deiner Sprache — sofort eine Antwort",
+      "subtitle": "Formulare, Fristen, Rechte — ohne Warteschlange"
+    },
     "servicesTitle": "Unsere Leistungen",
     "partnersTitle": "Unsere Partner",
     "featureCards": {
