@@ -129,6 +129,9 @@ const CheckListe = lazy(() => import("./pages/CheckListe"));
 const CheckListaDetail = lazy(() => import("./pages/CheckListaDetail"));
 const AnmeldungSimulator = lazy(() => import("./pages/AnmeldungSimulator"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
+const PitajDijasporu = lazy(() => import("./pages/PitajDijasporu"));
+const PitajDijasporuDetail = lazy(() => import("./pages/PitajDijasporuDetail"));
+const AdminPitanja = lazy(() => import("./pages/admin/AdminPitanja"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
