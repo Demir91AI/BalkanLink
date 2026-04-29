@@ -269,25 +269,22 @@ export default function HeroSection() {
             {t("home.disclaimer")}
           </motion.p>
 
-          {/* Trust badges */}
+          {/* Trust badges — subtle micro-row */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-5 flex flex-wrap items-center justify-center gap-4"
+            className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5"
           >
-            {trustBadges.map((badge) => (
-              <span
-                key={badge}
-                className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[0.8rem] font-medium text-white/90"
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(212,175,55,0.25)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF37]" />
-                {badge}
+            {trustBadges.map((badge, idx) => (
+              <span key={badge} className="flex items-center gap-3">
+                {idx > 0 && (
+                  <span aria-hidden className="h-1 w-1 rounded-full bg-white/25" />
+                )}
+                <span className="flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-[0.12em] text-white/55">
+                  <CheckCircle2 className="h-3 w-3 text-[hsl(var(--gold))]/80" />
+                  {badge}
+                </span>
               </span>
             ))}
           </motion.div>
