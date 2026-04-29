@@ -296,48 +296,6 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 1.0, ease }}
             className="mt-7 w-full max-w-xl"
           >
-            {/* Brand label above bar — editorial premium block */}
-            <div className="mb-3.5 flex flex-col items-center gap-1.5">
-              {/* Top tiny tagline */}
-              <span className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.4em] text-white/40">
-                <span aria-hidden className="h-px w-6 bg-gradient-to-r from-transparent to-white/30" />
-                {t("home.assistantCta.subtitle")}
-                <span aria-hidden className="h-px w-6 bg-gradient-to-l from-transparent to-white/30" />
-              </span>
-              {/* Big brand name — gradient, sparkle accents */}
-              <div className="flex items-center gap-2.5">
-                <Sparkles
-                  className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
-                  style={{
-                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
-                    animation: "blSparkleA 3.6s ease-in-out infinite",
-                  }}
-                />
-                <h2
-                  className="text-[15px] font-extrabold tracking-[0.04em] sm:text-[16px]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg, hsl(var(--gold-light)) 0%, #fff 35%, hsl(var(--gold)) 65%, hsl(var(--gold-light)) 100%)",
-                    backgroundSize: "220% 100%",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                    animation: "blChipShine 5s ease-in-out infinite",
-                    textShadow: "0 0 24px hsla(43,70%,55%,0.25)",
-                  }}
-                >
-                  BalkanLink Asistent
-                </h2>
-                <Sparkles
-                  className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
-                  style={{
-                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
-                    animation: "blSparkleB 3.6s ease-in-out infinite",
-                  }}
-                />
-              </div>
-            </div>
-
             {/* Ask bar — premium dual-glow */}
             <form
               onSubmit={(e) => { e.preventDefault(); submitAsk(); }}
@@ -485,23 +443,6 @@ export default function HeroSection() {
                 </div>
               </div>
             </form>
-            {/* Micro-meta row under bar */}
-            <div className="mt-2.5 flex items-center justify-center gap-4 text-[10.5px] font-medium text-white/45">
-              <span className="inline-flex items-center gap-1.5">
-                <kbd
-                  className="inline-flex h-[18px] items-center rounded-[5px] border border-white/15 bg-white/[0.06] px-1.5 text-[9px] font-bold tracking-wider text-white/70"
-                  style={{ boxShadow: "inset 0 -1px 0 rgba(0,0,0,0.4)" }}
-                >
-                  ↵ Enter
-                </kbd>
-                <span>{t("home.assistantCta.enterHint")}</span>
-              </span>
-              <span aria-hidden className="h-1 w-1 rounded-full bg-white/25" />
-              <span className="inline-flex items-center gap-1.5">
-                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_hsla(150,80%,60%,0.7)]" />
-                {t("home.assistantCta.freeHint")}
-              </span>
-            </div>
           </motion.div>
         </div>
       </div>
