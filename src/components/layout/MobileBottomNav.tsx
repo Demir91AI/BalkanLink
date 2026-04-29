@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import {
   FileText,
   Shield,
@@ -32,8 +33,8 @@ export default function MobileBottomNav() {
   const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
 
-  // LEFT: 6 items (3x2) — Premium core
-  const left: Item[] = [
+  // LEFT pool — 3 visible per rotation
+  const leftPool: Item[] = [
     { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
     { icon: Shield, label: t("mobileNav.visa"), path: "/viza" },
     { icon: GraduationCap, label: t("mobileNav.anerkennung"), path: "/anerkennung-navigator" },
@@ -42,8 +43,8 @@ export default function MobileBottomNav() {
     { icon: Coins, label: t("mobileNav.taxes"), path: poreziPath },
   ];
 
-  // RIGHT: 6 items (3x2) — Premium + Free
-  const right: Item[] = [
+  // RIGHT pool — 3 visible per rotation
+  const rightPool: Item[] = [
     { icon: Gauge, label: t("mobileNav.schufa"), path: "/schufa-simulator" },
     { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
     { icon: FileText, label: t("mobileNav.templates"), path: "/vorlagen" },
@@ -51,6 +52,16 @@ export default function MobileBottomNav() {
     { icon: Calculator, label: t("mobileNav.calc"), path: "/kalkulatori" },
     { icon: KeyRound, label: t("mobileNav.lifeArrival"), path: "/zivot" },
   ];
+
+  // Rotate every 10s between two sets of 3
+  const [setIdx, setSetIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 10000);
+    return () => clearInterval(id);
+  }, []);
+
+  const left = setIdx === 0 ? leftPool.slice(0, 3) : leftPool.slice(3, 6);
+  const right = setIdx === 0 ? rightPool.slice(0, 3) : rightPool.slice(3, 6);
 
   const stripped = location.pathname.replace(/^\/(de|hr|sr)(?=\/|$)/, "") || "/";
   const isActive = (path: string) => {
@@ -63,14 +74,14 @@ export default function MobileBottomNav() {
     const Icon = item.icon;
     return (
       <button
-        key={`${side}-${idx}`}
+        key={`${side}-${setIdx}-${idx}`}
         onClick={() => navigate(item.path)}
-        className="flex flex-col items-center justify-center gap-[2px] active:scale-95 transition-all duration-150"
-        style={{ width: 46, height: 36 }}
+        className="flex flex-col items-center justify-center gap-[3px] active:scale-95 transition-all duration-150 animate-fade-in"
+        style={{ minWidth: 56, height: 44 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[15px] w-[15px] transition-all"
+          className="h-[18px] w-[18px] transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
@@ -78,9 +89,9 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[7.5px] leading-tight w-full text-center truncate transition-all"
+          className="text-[9px] leading-none w-full text-center transition-all whitespace-nowrap"
           style={{
-            color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
+            color: active ? "#C9A84C" : "rgba(255,255,255,0.75)",
             fontWeight: active ? 700 : 500,
           }}
         >
@@ -106,16 +117,16 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="relative h-[112px] flex items-center justify-between px-1.5 gap-1">
-        {/* LEFT: 3x3 grid */}
-        <div className="grid grid-cols-3 gap-x-0.5 gap-y-0.5">
+      <div className="relative h-[72px] flex items-center justify-between px-2 gap-1">
+        {/* LEFT: 3 in a row */}
+        <div className="flex items-center justify-around flex-1 gap-1">
           {left.map((it, i) => renderTab(it, i, "L"))}
         </div>
 
         {/* CENTER: fixed Home */}
         <button
           onClick={() => navigate("/")}
-          className="flex flex-col items-center active:scale-95 transition-transform shrink-0"
+          className="flex flex-col items-center active:scale-95 transition-transform shrink-0 mx-1"
           aria-label={t("mobileNav.home")}
         >
           <span
@@ -149,8 +160,8 @@ export default function MobileBottomNav() {
           </span>
         </button>
 
-        {/* RIGHT: 3x3 grid */}
-        <div className="grid grid-cols-3 gap-x-0.5 gap-y-0.5">
+        {/* RIGHT: 3 in a row */}
+        <div className="flex items-center justify-around flex-1 gap-1">
           {right.map((it, i) => renderTab(it, i, "R"))}
         </div>
       </div>
