@@ -138,22 +138,6 @@ export default function WhatIsBalkanLink() {
             />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(217,165,54,0.15),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(56,189,248,0.1),transparent_60%)]" />
 
-            {[
-              { top: "12%", left: "15%", delay: 0 },
-              { top: "28%", left: "78%", delay: 1.2 },
-              { top: "62%", left: "8%", delay: 2.1 },
-              { top: "70%", left: "85%", delay: 0.8 },
-            ].map((p, i) => (
-              <motion.span
-                key={i}
-                aria-hidden
-                className="pointer-events-none absolute h-1 w-1 rounded-full bg-[hsl(var(--gold))]"
-                style={{ top: p.top, left: p.left, boxShadow: "0 0 8px hsl(var(--gold))" }}
-                animate={{ opacity: [0, 1, 0], scale: [0.5, 1.4, 0.5] }}
-                transition={{ duration: 2.6, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-              />
-            ))}
-
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -181,11 +165,11 @@ export default function WhatIsBalkanLink() {
                 </span>
               </h2>
 
-              <div className="relative mt-3 h-px w-32 overflow-hidden rounded-full bg-white/10">
+              <div className="relative mt-4 h-px w-full max-w-2xl overflow-hidden rounded-full bg-gradient-to-r from-[hsl(var(--gold))]/30 via-white/10 to-transparent">
                 <motion.div
-                  className="absolute inset-y-0 w-12 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent"
-                  animate={{ x: ["-50%", "200%"] }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent"
+                  animate={{ x: ["-100%", "350%"] }}
+                  transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
                 />
               </div>
 
