@@ -265,19 +265,19 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.0, ease }}
-            className="mt-7 w-full max-w-xl"
+            className="mt-14 w-full max-w-xl"
           >
-            {/* Brand name above bar */}
-            <div className="mb-3.5 flex items-center justify-center gap-2.5">
+            {/* Brand name above bar — visually attached to bar */}
+            <div className="mb-1 flex items-center justify-center gap-2.5">
               <Sparkles
-                className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
+                className="h-4 w-4 text-[hsl(var(--gold))]"
                 style={{
                   filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
                   animation: "blSparkleA 3.6s ease-in-out infinite",
                 }}
               />
               <h2
-                className="text-[15px] font-extrabold tracking-[0.04em] sm:text-[16px]"
+                className="text-[17px] font-extrabold tracking-[0.04em] sm:text-[18.5px]"
                 style={{
                   backgroundImage:
                     "linear-gradient(90deg, hsl(var(--gold-light)) 0%, #fff 35%, hsl(var(--gold)) 65%, hsl(var(--gold-light)) 100%)",
@@ -292,7 +292,7 @@ export default function HeroSection() {
                 BalkanLink Asistent
               </h2>
               <Sparkles
-                className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
+                className="h-4 w-4 text-[hsl(var(--gold))]"
                 style={{
                   filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
                   animation: "blSparkleB 3.6s ease-in-out infinite",
