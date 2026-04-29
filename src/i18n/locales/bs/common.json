@@ -376,5 +376,13 @@
     "copy": "Kopiraj link",
     "copied": "Link kopiran!",
     "defaultText": "Pogledaj ovo na BalkanLink:"
+  },
+  "socialProof": {
+    "usersOnPlatform": "korisnika koristi BalkanLink",
+    "today": "danas",
+    "totalUsers": "Korisnika",
+    "chatQueries": "Asistent upita danas",
+    "docsChecked": "dokumenata danas",
+    "newUsersToday": "novih danas"
   }
 }

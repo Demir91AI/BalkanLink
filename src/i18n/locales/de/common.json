@@ -376,5 +376,13 @@
     "copy": "Link kopieren",
     "copied": "Link kopiert!",
     "defaultText": "Schau dir das auf BalkanLink an:"
+  },
+  "socialProof": {
+    "usersOnPlatform": "Nutzer auf BalkanLink",
+    "today": "heute",
+    "totalUsers": "Nutzer",
+    "chatQueries": "Asistent-Anfragen heute",
+    "docsChecked": "Dokumente heute",
+    "newUsersToday": "neu heute"
   }
 }
