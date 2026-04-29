@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { ONBOARDING_STEPS, type UserProfile, saveProfile, generateTodoList } from "./chatUtils";
+import { useTranslation } from "react-i18next";
+import { buildLocalizedOnboardingSteps, type UserProfile, saveProfile, generateTodoList } from "./chatUtils";
 
 interface Props {
   onComplete: (profile: UserProfile, todoMessage: string) => void;
 }
 
 export default function ChatOnboarding({ onComplete }: Props) {
+  const { t } = useTranslation("common");
+  const steps = useMemo(() => buildLocalizedOnboardingSteps((k, d) => t(k, { defaultValue: d || "" }) as string), [t]);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
-  const current = ONBOARDING_STEPS[step];
+  const current = steps[step];
 
   const handleSelect = (value: string) => {
     const newAnswers = [...answers, value];
