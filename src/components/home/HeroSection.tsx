@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { BLIcon } from "@/components/BrandLogo";
 import { useIsMobile } from "@/hooks/use-mobile";
+import LiveSocialProof from "@/components/social/LiveSocialProof";
 
 const slides = [
   { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
