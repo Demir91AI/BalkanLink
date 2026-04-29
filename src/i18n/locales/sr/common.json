@@ -369,5 +369,12 @@
       "firma": "Preduzeće",
       "submit": "Prijavi"
     }
+  },
+  "share": {
+    "label": "Podeli",
+    "aria": "Podeli ovu stranicu",
+    "copy": "Kopiraj link",
+    "copied": "Link kopiran!",
+    "defaultText": "Pogledaj ovo na BalkanLink:"
   }
 }

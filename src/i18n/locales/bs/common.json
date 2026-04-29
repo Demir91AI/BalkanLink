@@ -369,5 +369,12 @@
       "firma": "Firma",
       "submit": "Prijavi"
     }
+  },
+  "share": {
+    "label": "Podijeli",
+    "aria": "Podijeli ovu stranicu",
+    "copy": "Kopiraj link",
+    "copied": "Link kopiran!",
+    "defaultText": "Pogledaj ovo na BalkanLink:"
   }
 }

@@ -369,5 +369,12 @@
       "firma": "Firma",
       "submit": "Einreichen"
     }
+  },
+  "share": {
+    "label": "Teilen",
+    "aria": "Diese Seite teilen",
+    "copy": "Link kopieren",
+    "copied": "Link kopiert!",
+    "defaultText": "Schau dir das auf BalkanLink an:"
   }
 }
