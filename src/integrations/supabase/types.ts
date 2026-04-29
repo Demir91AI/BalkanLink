@@ -829,10 +829,14 @@ export type Database = {
         Row: {
           created_at: string
           email: string
+          email_opt_out: boolean | null
           first_name: string | null
           id: string
           is_premium: boolean
           last_login_at: string | null
+          preferred_lang: string | null
+          reengagement_30d_sent_at: string | null
+          reengagement_7d_sent_at: string | null
           single_formular_access: string[]
           subscription_expires_at: string | null
           subscription_tier: string
@@ -840,10 +844,14 @@ export type Database = {
         Insert: {
           created_at?: string
           email: string
+          email_opt_out?: boolean | null
           first_name?: string | null
           id: string
           is_premium?: boolean
           last_login_at?: string | null
+          preferred_lang?: string | null
+          reengagement_30d_sent_at?: string | null
+          reengagement_7d_sent_at?: string | null
           single_formular_access?: string[]
           subscription_expires_at?: string | null
           subscription_tier?: string
@@ -851,10 +859,14 @@ export type Database = {
         Update: {
           created_at?: string
           email?: string
+          email_opt_out?: boolean | null
           first_name?: string | null
           id?: string
           is_premium?: boolean
           last_login_at?: string | null
+          preferred_lang?: string | null
+          reengagement_30d_sent_at?: string | null
+          reengagement_7d_sent_at?: string | null
           single_formular_access?: string[]
           subscription_expires_at?: string | null
           subscription_tier?: string
