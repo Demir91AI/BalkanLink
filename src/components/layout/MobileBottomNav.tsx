@@ -26,7 +26,7 @@ export default function MobileBottomNav() {
   const location = useLocation();
   const { t } = useTranslation("common");
 
-  const lang = langFromPath(location.pathname) as SupportedLanguage;
+  const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
 
   const left: Item[] = [
