@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronLeft, ChevronRight, Sparkles, ArrowRight } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
+import { BLIcon } from "@/components/BrandLogo";
 
 const slides = [
   { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
@@ -24,12 +25,31 @@ export default function HeroSection() {
   const navigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
   const btnRef = useRef<HTMLButtonElement>(null);
+  const [askValue, setAskValue] = useState("");
+  const [placeholderIdx, setPlaceholderIdx] = useState(0);
 
   const trustBadges = [
     t("home.trustBadges.officialSources"),
     t("home.trustBadges.updated"),
     t("home.trustBadges.stepByStep"),
   ];
+
+  const askPlaceholders = t("home.assistantCta.examples", { returnObjects: true }) as string[];
+
+  // Rotate placeholder examples
+  useEffect(() => {
+    if (!Array.isArray(askPlaceholders) || askPlaceholders.length < 2) return;
+    const id = setInterval(() => {
+      setPlaceholderIdx((i) => (i + 1) % askPlaceholders.length);
+    }, 2800);
+    return () => clearInterval(id);
+  }, [askPlaceholders]);
+
+  const submitAsk = (prefill?: string) => {
+    const value = (prefill ?? askValue).trim();
+    window.dispatchEvent(new CustomEvent("open-assistant", { detail: { prefill: value || undefined } }));
+    setAskValue("");
+  };
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -226,70 +246,101 @@ export default function HeroSection() {
             ))}
           </motion.div>
 
-          {/* ─── Asistent CTA — premium glassmorphism card ─── */}
-          <motion.button
-            type="button"
+          {/* ─── Asistent — interactive ask bar ─── */}
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.0, ease }}
-            onClick={() => window.dispatchEvent(new CustomEvent("open-assistant"))}
-            className="group relative mt-7 w-full max-w-md overflow-hidden rounded-2xl text-left transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]/60"
-            style={{
-              background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
-              border: "1px solid rgba(212,175,55,0.22)",
-              backdropFilter: "blur(14px)",
-              WebkitBackdropFilter: "blur(14px)",
-              boxShadow: "0 10px 40px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)",
-            }}
-            aria-label={t("home.assistantCta.title")}
+            className="mt-7 w-full max-w-xl"
           >
-            {/* subtle gold sheen sweep on hover */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[hsla(43,70%,55%,0.10)] to-transparent transition-transform duration-700 group-hover:translate-x-full"
-            />
-            {/* soft gold glow on hover */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              style={{ boxShadow: "0 0 0 1px rgba(212,175,55,0.35), 0 0 40px -8px rgba(212,175,55,0.35)" }}
-            />
-
-            <div className="relative flex items-center gap-3.5 p-3.5 sm:gap-4 sm:p-4">
-              {/* Icon orb */}
-              <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                style={{
-                  background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%)",
-                  boxShadow: "0 6px 20px -6px hsla(43,70%,55%,0.55)",
-                }}
-              >
-                <Sparkles className="h-[18px] w-[18px] text-[#0a0a0a]" strokeWidth={2.4} />
-                {/* pulsing live dot */}
-                <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5">
+            {/* Tiny brand label above bar */}
+            <div className="mb-2 flex items-center justify-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--gold))]/25 bg-[hsl(var(--gold))]/8 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[hsl(var(--gold))]">
+                <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-[hsl(215_55%_4%)]" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 </span>
-              </span>
-
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[hsl(var(--gold))]">
-                    📋 {t("home.assistantCta.badge")}
-                  </span>
-                </div>
-                <p className="mt-0.5 truncate text-sm font-semibold text-white sm:text-[15px]">
-                  {t("home.assistantCta.title")}
-                </p>
-                <p className="mt-0.5 truncate text-[11px] text-white/55 sm:text-xs">
-                  {t("home.assistantCta.subtitle")}
-                </p>
-              </div>
-
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition-all duration-300 group-hover:border-[hsl(var(--gold))]/40 group-hover:bg-[hsl(var(--gold))]/15 group-hover:text-[hsl(var(--gold))]">
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                {t("home.assistantCta.badge")}
               </span>
             </div>
-          </motion.button>
+
+            {/* Ask bar */}
+            <form
+              onSubmit={(e) => { e.preventDefault(); submitAsk(); }}
+              className="group relative overflow-hidden rounded-2xl transition-all duration-300 focus-within:-translate-y-0.5"
+              style={{
+                background: "linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.025) 100%)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                boxShadow: "0 14px 50px -14px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06)",
+              }}
+            >
+              {/* Gold focus ring */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-60"
+                style={{ boxShadow: "0 0 0 1px hsla(43,70%,55%,0.45), 0 0 36px -8px hsla(43,70%,55%,0.40)" }}
+              />
+
+              <div className="relative flex items-center gap-2.5 p-2 sm:gap-3 sm:p-2.5">
+                {/* Brand avatar — real BL logo */}
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/10 shadow-[0_4px_18px_-6px_rgba(0,0,0,0.6)]">
+                  <BLIcon size={36} />
+                </span>
+
+                {/* Input */}
+                <div className="relative min-w-0 flex-1">
+                  <input
+                    type="text"
+                    value={askValue}
+                    onChange={(e) => setAskValue(e.target.value)}
+                    placeholder=" "
+                    aria-label={t("home.assistantCta.title")}
+                    className="peer w-full bg-transparent py-2 pr-1 text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
+                  />
+                  {/* Animated rotating placeholder (shown only when empty) */}
+                  {askValue.length === 0 && Array.isArray(askPlaceholders) && askPlaceholders.length > 0 && (
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center text-[15px] text-white/45">
+                      <span className="hidden sm:inline">{t("home.assistantCta.prompt")}&nbsp;</span>
+                      <span key={placeholderIdx} className="animate-fade-in font-medium text-white/65">
+                        "{askPlaceholders[placeholderIdx]}"
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  aria-label={t("home.assistantCta.send")}
+                  className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[#0a0a0a] transition-all duration-200 hover:scale-105 active:scale-95"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%)",
+                    boxShadow: "0 6px 22px -6px hsla(43,70%,55%,0.6)",
+                  }}
+                >
+                  <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
+                </button>
+              </div>
+            </form>
+
+            {/* Quick chips */}
+            {Array.isArray(askPlaceholders) && askPlaceholders.length > 0 && (
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5">
+                {askPlaceholders.slice(0, 3).map((q) => (
+                  <button
+                    key={q}
+                    type="button"
+                    onClick={() => submitAsk(q)}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/70 backdrop-blur-md transition-all duration-200 hover:border-[hsl(var(--gold))]/40 hover:bg-[hsl(var(--gold))]/10 hover:text-white"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            )}
+          </motion.div>
         </div>
       </div>
 

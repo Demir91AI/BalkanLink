@@ -13,9 +13,18 @@
       "stepByStep": "Schritt-für-Schritt-Leitfäden"
     },
     "assistantCta": {
-      "badge": "BalkanLink Asistent",
-      "title": "Frag in deiner Sprache — sofort eine Antwort",
-      "subtitle": "Formulare, Fristen, Rechte — ohne Warteschlange"
+      "badge": "BalkanLink Asistent · Online",
+      "title": "Frag den Asistent",
+      "subtitle": "Sofort eine Antwort, in deiner Sprache",
+      "prompt": "Frag z. B.",
+      "send": "Frage senden",
+      "examples": [
+        "Wie melde ich meine Adresse an (Anmeldung)?",
+        "Was ist die Steuer-ID und wie bekomme ich sie?",
+        "Welche Steuerklasse für Ehepaare?",
+        "Brauche ich sofort eine Krankenversicherung?",
+        "Wie beantrage ich Kindergeld?"
+      ]
     },
     "servicesTitle": "Unsere Leistungen",
     "partnersTitle": "Unsere Partner",
