@@ -58,6 +58,8 @@ export default function Breadcrumbs({
   inline = false,
   className = "",
   hideTrail = false,
+  showShare = false,
+  shareTitle,
 }: BreadcrumbsProps) {
   const navigate = useNavigate();
   const location = useLocation();
