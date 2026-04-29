@@ -252,13 +252,15 @@ export default function WhatIsBalkanLink() {
                 className="px-6 py-9 sm:px-12 sm:py-11"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-heading text-xs font-bold tracking-[0.22em] text-[hsl(var(--gold))]">
+                  <span className="relative inline-flex h-7 w-10 items-center justify-center rounded-md bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30 font-heading text-xs font-bold tracking-[0.18em] text-[hsl(var(--gold))]">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/40 to-transparent" />
+                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/50 via-[hsl(var(--gold))]/15 to-transparent" />
                 </div>
-                <h3 className="mt-3 font-heading text-2xl font-bold leading-tight sm:text-[1.7rem]">
-                  {t(`whatIs.sections.${key}.title`)}
+                <h3 className="mt-4 font-heading text-2xl font-bold leading-tight sm:text-[1.7rem]">
+                  <span className="bg-gradient-to-r from-white to-white/85 bg-clip-text text-transparent">
+                    {t(`whatIs.sections.${key}.title`)}
+                  </span>
                 </h3>
                 <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-white/75 sm:text-base">
                   {Array.from({ length: paragraphs }).map((_, p) => (
@@ -271,44 +273,71 @@ export default function WhatIsBalkanLink() {
 
           {/* PREMIUM SHOWCASE */}
           <div className="relative border-t border-white/10 px-6 py-10 sm:px-12">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,165,54,0.15),transparent_70%)]" />
-            <div className="relative rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/10 via-amber-500/5 to-transparent p-6 sm:p-8">
-              <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(217,165,54,0.18),transparent_70%)]" />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))]/30 blur-3xl"
+              animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.15, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            <div className="relative overflow-hidden rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-gradient-to-br from-[hsl(var(--gold))]/12 via-amber-500/5 to-transparent p-6 shadow-[0_20px_60px_-20px_rgba(217,165,54,0.4)] sm:p-8">
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent"
+                animate={{ x: ["-100%", "300%"] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
+              />
+
+              <div className="relative flex flex-wrap items-start justify-between gap-3">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--gold))]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--gold))]">
-                    <Crown className="h-3 w-3" />
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--gold))]/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] ring-1 ring-[hsl(var(--gold))]/40 shadow-[0_0_20px_rgba(217,165,54,0.3)]"
+                  >
+                    <motion.span
+                      animate={{ rotate: [0, -8, 8, 0] }}
+                      transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Crown className="h-3 w-3" />
+                    </motion.span>
                     {t("whatIs.premium.kicker")}
-                  </div>
+                  </motion.div>
                   <h3 className="mt-3 font-heading text-2xl font-extrabold sm:text-3xl">
-                    {t("whatIs.premium.title")}
+                    <span className="bg-gradient-to-br from-white via-[hsl(var(--gold))]/95 to-amber-300 bg-clip-text text-transparent">
+                      {t("whatIs.premium.title")}
+                    </span>
                   </h3>
                 </div>
                 <div className="text-right">
                   <div className="flex items-baseline gap-0.5">
-                    <span className="font-heading text-3xl font-extrabold text-[hsl(var(--gold))] sm:text-4xl">
+                    <span
+                      className="font-heading text-3xl font-extrabold sm:text-4xl bg-gradient-to-br from-[hsl(var(--gold))] to-amber-300 bg-clip-text text-transparent"
+                      style={{ filter: "drop-shadow(0 0 12px rgba(217,165,54,0.45))" }}
+                    >
                       {t("whatIs.premium.price")}
                     </span>
                     <span className="text-sm text-white/60">{t("whatIs.premium.priceUnit")}</span>
                   </div>
-                  <span className="mt-1 inline-block rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                  <span className="mt-1 inline-block rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-300 ring-1 ring-emerald-400/30">
                     {t("whatIs.premium.badge")}
                   </span>
                 </div>
               </div>
 
-              <p className="mt-4 text-[15px] leading-relaxed text-white/80">
+              <p className="relative mt-4 text-[15px] leading-relaxed text-white/85">
                 {t("whatIs.premium.narrative")}
               </p>
 
-              <div className="mt-5 flex items-start gap-2 text-sm text-white/70">
+              <div className="relative mt-5 flex items-start gap-2 text-sm text-white/75">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--gold))]" />
                 <span>{t("whatIs.premium.summary")}</span>
               </div>
 
-              <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+              <div className="relative mt-6 flex flex-col gap-2 sm:flex-row">
                 <Button
                   asChild
-                  className="flex-1 bg-[hsl(var(--gold))] text-slate-950 hover:bg-[hsl(var(--gold))]/90"
+                  className="flex-1 bg-gradient-to-r from-[hsl(var(--gold))] to-amber-400 text-slate-950 font-bold shadow-[0_8px_30px_rgba(217,165,54,0.45)] hover:from-amber-400 hover:to-[hsl(var(--gold))] hover:shadow-[0_12px_40px_rgba(217,165,54,0.6)] transition-all"
                   onClick={close}
                 >
                   <Link to={href("/paketi")}>
