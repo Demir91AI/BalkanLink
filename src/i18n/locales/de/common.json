@@ -386,7 +386,13 @@
     "totalUsers": "Nutzer",
     "chatQueries": "Asistent-Anfragen heute",
     "docsChecked": "Dokumente heute",
-    "newUsersToday": "neu heute"
+    "newUsersToday": "neu heute",
+    "joinedToday": "neue Nutzer heute",
+    "chatTodayMsg": "Fragen an den Asistent heute",
+    "docsTodayMsg": "Dokumente heute geprüft",
+    "qTodayMsg": "neue Fragen in der Community heute",
+    "trending": "Im Trend:",
+    "qTotalMsg": "Fragen in der Community"
   },
   "onboarding": {
     "welcomeMsg": "Hallo! Willkommen bei BalkanLink 👋 Soll ich einen persönlichen Plan erstellen? Beantworte 3 kurze Fragen.",

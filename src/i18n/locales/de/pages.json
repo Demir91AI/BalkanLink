@@ -386,6 +386,15 @@
       "heading": "Suchst du mehr?",
       "text": "Weitere Formulare und Tools findest du in der Seitenleiste — Visa, Dokumenten-Check, Steuern, Deutsch Trainer und mehr.",
       "cta": "Alle Plattform-Funktionen"
+    },
+    "community": {
+      "label": "Frag die Diaspora",
+      "heading": "Fragen aus der Community — und Antworten",
+      "subline": "Stell deine Frage, bekomm eine konkrete Antwort von Menschen, die dasselbe erlebt haben. Ohne Warteschlange.",
+      "askCta": "Frage stellen",
+      "answered": "Beantwortet",
+      "pending": "Neu",
+      "read": "Lesen"
     }
   },
   "dolazakStart": {

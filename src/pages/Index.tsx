@@ -22,6 +22,7 @@ import PricingWarning from "@/components/home/PricingWarning";
 import WhatIsWhat from "@/components/home/WhatIsWhat";
 import FlowBanner from "@/components/home/FlowBanner";
 import PitchSection from "@/components/home/PitchSection";
+import CommunityHighlights from "@/components/home/CommunityHighlights";
 import ShareButton from "@/components/share/ShareButton";
 
 function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () => void }) {
@@ -137,6 +138,9 @@ export default function Index() {
 
       {/* ─── TRUST ─── */}
       <TrustSection />
+
+      {/* ─── COMMUNITY HIGHLIGHTS — Pitaj dijasporu ─── */}
+      <CommunityHighlights />
 
       {/* ─── "ŠTA JE ŠTA?" EXPLAINER ─── */}
       <section className="py-14 px-4" style={{ background: "hsl(220 50% 6%)" }}>

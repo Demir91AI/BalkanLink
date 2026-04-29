@@ -386,7 +386,13 @@
     "totalUsers": "Korisnika",
     "chatQueries": "Asistent upita danas",
     "docsChecked": "dokumenata danas",
-    "newUsersToday": "novih danas"
+    "newUsersToday": "novih danas",
+    "joinedToday": "novih korisnika danas",
+    "chatTodayMsg": "pitanja Asistentu danas",
+    "docsTodayMsg": "dokumenata provereno danas",
+    "qTodayMsg": "novih pitanja u zajednici danas",
+    "trending": "U trendu:",
+    "qTotalMsg": "pitanja u zajednici"
   },
   "onboarding": {
     "welcomeMsg": "Zdravo! Dobrodošao na BalkanLink 👋 Da ti napravim lični plan? Odgovori na 3 brza pitanja.",

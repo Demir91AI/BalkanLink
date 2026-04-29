@@ -386,6 +386,15 @@
       "heading": "Tražiš još?",
       "text": "Ostale formulare i alate naći ćeš u bočnom izborniku — Vize, Dokumenten-Check, Porezi, Deutsch Trainer i još.",
       "cta": "Sve mogućnosti platforme"
+    },
+    "community": {
+      "label": "Pitaj dijasporu",
+      "heading": "Pitanja iz zajednice — i odgovori",
+      "subline": "Postavi pitanje, dobij konkretan odgovor od ljudi koji su prošli isto. Bez čekanja na šalteru.",
+      "askCta": "Postavi pitanje",
+      "answered": "Odgovoreno",
+      "pending": "Novo",
+      "read": "Pročitaj"
     }
   },
   "dolazakStart": {
