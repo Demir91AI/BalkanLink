@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
-import { langFromPath, type SupportedLanguage } from "@/i18n/routes";
-import { POREZI_HUB_PATH } from "@/i18n/routes";
+import { langFromPath } from "@/lib/i18n-paths";
+import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 
 type Item = {
   icon: typeof Home;
