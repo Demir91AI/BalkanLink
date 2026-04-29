@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import {
   FileText,
   Shield,
@@ -28,6 +29,15 @@ export default function MobileBottomNav() {
 
   const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Center the scroll on mount so Home isn't covering left/right items
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const center = (el.scrollWidth - el.clientWidth) / 2;
+    el.scrollLeft = center;
+  }, []);
 
   const left: Item[] = [
     { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
@@ -56,7 +66,7 @@ export default function MobileBottomNav() {
       <button
         key={item.label}
         onClick={() => navigate(item.path)}
-        className="flex shrink-0 snap-center flex-col items-center justify-center gap-0.5 min-h-[44px] active:scale-95 transition-all duration-150"
+        className="flex shrink-0 flex-col items-center justify-center gap-0.5 min-h-[44px] active:scale-95 transition-all duration-150"
         style={{ width: 64 }}
         aria-label={item.label}
       >
@@ -100,19 +110,20 @@ export default function MobileBottomNav() {
       <div className="relative h-[68px]">
         {/* Scrollable rails - left + spacer + right */}
         <div
-          className="absolute inset-0 flex items-center overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar"
-          style={{ WebkitOverflowScrolling: "touch" }}
+          ref={scrollRef}
+          className="absolute inset-0 flex items-center overflow-x-auto overflow-y-hidden hide-scrollbar"
+          style={{ WebkitOverflowScrolling: "touch", scrollSnapType: "x proximity" }}
         >
           {/* Left items */}
-          <div className="flex items-center pl-2">
+          <div className="flex items-center">
             {left.map(renderTab)}
           </div>
 
           {/* Center spacer (Home button sits absolute over this) */}
-          <div className="shrink-0" style={{ width: 72 }} aria-hidden />
+          <div className="shrink-0" style={{ width: 88 }} aria-hidden />
 
           {/* Right items */}
-          <div className="flex items-center pr-2">
+          <div className="flex items-center">
             {right.map(renderTab)}
           </div>
         </div>
