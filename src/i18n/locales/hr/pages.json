@@ -1528,8 +1528,9 @@
     "fabLabelShort": "Info",
     "kicker": "Dobrodošao na BalkanLink",
     "title": "Njemačka, ali na tvom jeziku.",
-    "tagline": "Sve što ti treba da preživiš birokraciju, naučiš jezik i živiš normalno u Njemačkoj — na jednom mjestu.",
-    "pitch": "Bez prevoditelja. Bez čekanja na termin. Bez panike pred pismom od Finanzamta. BalkanLink je tvoj digitalni susjed koji zna kako sustav funkcionira — i objašnjava ti to na hrvatskom, bosanskom, srpskom ili njemačkom.",
+    "tagline": "BalkanLink je platforma napravljena za ljude s Balkana koji žive, rade ili tek dolaze u Njemačku — kako bi sustav koji nas okružuje konačno imao smisla.",
+    "pullQuote": "Nitko ti u Njemačkoj neće objasniti njemački sustav na hrvatskom. Mi hoćemo.",
+    "pullQuoteAuthor": "Misija BalkanLinka",
     "stats": {
       "languages": "4 jezika",
       "languagesDesc": "HR · BS · SR · DE",
@@ -1538,80 +1539,44 @@
       "available": "24/7",
       "availableDesc": "Asistent uvijek dostupan"
     },
-    "problemTitle": "Znaš ovaj osjećaj?",
-    "problems": {
-      "p1": "Stigne pismo od Finanzamta — ne razumiješ ni pola riječi.",
-      "p2": "Trebaš Bürgergeld ili Wohngeld — obrazac ima 12 stranica na njemačkom.",
-      "p3": "Diploma iz HR/BiH/SR — ne znaš odakle početi s priznavanjem.",
-      "p4": "Termin u Bürgeramtu — strah te što će te pitati."
-    },
-    "solutionTitle": "Mi to rješavamo:",
-    "forWhomTitle": "Za koga je BalkanLink",
-    "audience": {
-      "newcomer": {
-        "title": "Tek si stigao",
-        "subtitle": "Prvih 6 mjeseci u Njemačkoj",
-        "desc": "Anmeldung, Steuer-ID, banka, zdravstveno — sve po redu, korak po korak.",
-        "b1": "Vodič 'Prvi koraci' — checklist od aerodroma do prve plaće",
-        "b2": "Anmeldung simulator — vježbaj termin u Bürgeramtu prije nego odeš",
-        "b3": "Asistent ti odgovara 24/7 — na hrvatskom, bez srama",
-        "b4": "Dolazak hub — bankovni račun, vozačka, Rundfunk, sve objašnjeno",
-        "cta": "Počni sa 'Prvi koraci'"
+    "sections": {
+      "why": {
+        "title": "Zašto BalkanLink uopće postoji",
+        "p1": "Svatko od nas tko je došao u Njemačku zna onaj osjećaj — stojiš pred šalterom, držiš pismo koje ne razumiješ, a iza tebe red. Pitaš susjeda, brata, prijatelja na Viberu — svatko ti kaže nešto drugo. Ideš na Google, prevodi ti pola-pola, a polovica savjeta je iz 2014. i više ne vrijedi.",
+        "p2": "BalkanLink je napravljen točno zbog toga. Da na jednom mjestu, na jeziku koji razumiješ, dobiješ točan odgovor — ne mišljenje, ne 'meni je rekao jedan čovjek', nego informaciju koja je provjerena, ažurirana za 2026. i napisana tako da je razumije i onaj tko je tek sletio i onaj tko je ovdje već dvadeset godina."
       },
-      "language": {
-        "title": "Ne razumiješ njemački",
-        "subtitle": "Ili razumiješ, ali ne dovoljno za papire",
-        "desc": "Službena pisma, ugovori, kompliciran obrazac — fotografiraj ili pitaj, dobiješ jasno objašnjenje.",
-        "b1": "Dokumenten-Check — slikaš pismo, dobiješ prijevod + što napraviti",
-        "b2": "Deutsch Trainer — 240 lekcija od A1 do C2, izgovor, gramatika",
-        "b3": "Dvojezični obrasci — njemačko polje + objašnjenje na našem",
-        "b4": "Vorlagen — gotova pisma (Kündigung, žalba, prigovor)",
-        "cta": "Probaj Dokumenten-Check"
+      "how": {
+        "title": "Kako funkcionira",
+        "p1": "Sve počinje od jednostavne ideje: njemačka birokracija nije komplicirana zato što je teška — komplicirana je zato što je na njemačkom. Mi smo uzeli sve što ti može zatrebati u životu ovdje (od prijave stana do priznavanja diplome), razložili na korake, preveli na hrvatski, bosanski i srpski, te stavili pored originalnih njemačkih termina koje moraš znati za šaltere.",
+        "p2": "Ne moraš ništa instalirati, ne moraš zvati, ne moraš čekati termin. Otvoriš stranicu, izabereš što ti treba — pitanje Asistentu, popunjavanje obrasca, fotografiranje pisma za prijevod, vježbu njemačkog ili kontrolnu listu za neku životnu situaciju — i radiš svojim tempom, kad ti odgovara."
       },
-      "established": {
-        "title": "Već si duže ovdje",
-        "subtitle": "5+ godina, znaš osnove, ali ima rupa",
-        "desc": "Porezi, priznavanje diplome, biznis, Kindergeld, Elterngeld — kompleksne stvari koje ti vrijede novca.",
-        "b1": "Tax Wizard — vodič kroz Steuererklärung, što odbiti, što ne",
-        "b2": "Anerkennung Navigator — priznavanje diplome po Bundeslandu",
-        "b3": "Biznis u Njemačkoj — Gewerbe, Kleinunternehmer, Freiberufler",
-        "b4": "Premium kontrolne liste — vjenčanje, razvod, naslijeđe, Riester",
-        "cta": "Otvori Tax Wizard"
+      "principle": {
+        "title": "Princip rada — bez pretvaranja",
+        "p1": "BalkanLink nije odvjetnik, nije savjetnik, nije zamjena za Steuerberatera kad ti baš treba. Mi smo orijentacija. Točka u kojoj počinješ. Mjesto gdje ćeš za pet minuta razumjeti što neka procedura znači, koje papire trebaš, kome se obraćaš i što te očekuje — pa onda, ako treba, ideš dalje pripremljen.",
+        "p2": "Sve što pišemo radi se sa službenim izvorima u ruci (Bundesagentur für Arbeit, Finanzamt, BAMF, Bundesministerium...) i datumom 'Stand 2026'. Kad se nešto promijeni, mijenjamo i mi. Nema 'kopirano s foruma', nema 'sigurno je tako', nema slučajnih savjeta."
+      },
+      "audience": {
+        "title": "Za koga je ovo zapravo",
+        "p1": "Ako si tek stigao — BalkanLink ti je prvih šest mjeseci kao stariji brat. Vodi te kroz Anmeldung, Steuer-ID, banku, zdravstveno, pa do prve plaće i ugovora o stanu. Ne preskačeš korake jer ti nitko ne kaže 'ali moraš prvo ovo, pa onda ono' — mi ti kažemo, redom.",
+        "p2": "Ako si tu već neko vrijeme i njemački ide nekako, ali službena pisma i porezi i dalje budu noćna mora — BalkanLink ti je alat koji štedi živce. Fotografiraš pismo od Finanzamta, dobiješ jasan prijevod i objašnjenje što sad. Otvoriš Tax Wizard, popuniš Steuererklärung bez Steuerberatera. Provjeriš pripada li ti Wohngeld, Kindergeld ili Bürgergeld — bez sat vremena traženja po Googleu.",
+        "p3": "Ako si ovdje godinama i znaš sustav — BalkanLink ti je rezerva. Za onaj trenutak kad treba priznati diplomu, otvoriti Gewerbe, riješiti naslijeđe, registrirati brak ili pomoći nekome svom tko tek dolazi. Ne moraš sve pamtiti — dovoljno je da znaš gdje pogledati."
+      },
+      "trust": {
+        "title": "Zašto nam možeš vjerovati",
+        "p1": "BalkanLink je napravljen iz dijaspore, za dijasporu. Iza projekta stoje ljudi koji su sami prošli kroz isto — Anmeldung u podrumu Bürgeramta, prvo pismo od Finanzamta koje smo otvarali tri puta jer ne razumijemo, prvi put kad nam je liječnik rekao 'Praxisgebühr' i nismo znali što je. Pišemo o stvarima koje smo i sami morali nekome objasniti.",
+        "p2": "Privatnost ti je sveta — ne prodajemo podatke, ne dijelimo ih ni s kim, fotografije pisama u Dokumenten-Checku obrađuju se i brišu. Sve je hostano u Frankfurtu (eu-central-1), pod europskim zakonima. Ako jednog dana odlučiš da više ne želiš biti dio platforme, jedan klik i nestaje sve — bez pitanja, bez zadržavanja."
       }
-    },
-    "featuresTitle": "Što sve imaš",
-    "features": {
-      "f1": { "title": "Asistent", "desc": "Chat na hrvatskom, zna njemački sustav, pamti razgovor." },
-      "f2": { "title": "Dokumenten-Check", "desc": "Fotografiraj pismo → analiza, prijevod, sljedeći korak." },
-      "f3": { "title": "Obrasci", "desc": "Bürgergeld, Wohngeld, Elterngeld — popunjavaj dvojezično." },
-      "f4": { "title": "Vorlagen", "desc": "Gotova pisma: Kündigung, žalba, prigovor — DIN 5008." },
-      "f5": { "title": "Tax Wizard", "desc": "Steuererklärung korak po korak, ELSTER objašnjen." },
-      "f6": { "title": "Deutsch Trainer", "desc": "240 lekcija, A1–C2, izgovor s Laura glasom." },
-      "f7": { "title": "Anerkennung", "desc": "Priznavanje diplome — IHK, HWK, fakulteti." },
-      "f8": { "title": "Kontrolne liste", "desc": "Vjenčanje, dijete, smrt, selidba, naslijeđe — sve po redu." }
     },
     "premium": {
       "kicker": "✨ Premium",
       "badge": "Najpopularnije",
-      "title": "Sve otključano",
+      "title": "Sve otključano — kad ti zatreba dublje",
       "price": "9,99 €",
       "priceUnit": "/mjesec",
-      "subtitle": "Manje od jedne kave tjedno. Otkaži kad želiš.",
-      "p1": "Neograničen Asistent — sva pitanja, sva memorija",
-      "p2": "Neograničen Dokumenten-Check + detaljan PDF izvještaj",
-      "p3": "Svi premium obrasci (Bürgergeld, Wohngeld, Elterngeld, BAföG...)",
-      "p4": "Tax Wizard + sve porezne kontrolne liste i kalkulatori",
-      "p5": "Premium kontrolne liste (Kindergeld, Anmeldung, vjenčanje, naslijeđe)",
-      "p6": "Bez reklama, prioritetna podrška",
+      "narrative": "Besplatna verzija je stvarno besplatna — Asistent radi, vodiči su otvoreni, Dokumenten-Check imaš jednom dnevno, Anmeldung simulator je otvoren, prve korake kroz sustav nitko ti ne naplaćuje. Premium otključavaš onda kad ti život postane kompliciraniji — kad pišeš Steuererklärung, kad ti treba Bürgergeld obrazac, kad priznaješ diplomu, kad imaš dijete pa ti treba Elterngeld i Kindergeld vodič, ili kad jednostavno ne želiš brojati upite Asistentu.",
+      "summary": "Manje od jedne kave tjedno. Otkažeš kad želiš, jednim klikom, bez objašnjavanja.",
       "cta": "Postani Premium",
       "ctaFree": "Probaj besplatno prvo"
-    },
-    "exploreTitle": "Ili odmah skoči na:",
-    "links": {
-      "dolazak": "Dolazak u Njemačku",
-      "asistent": "Asistent (chat)",
-      "formulari": "Obrasci",
-      "docCheck": "Dokumenten-Check"
     },
     "footer": "Napravljeno od dijaspore, za dijasporu. 🇭🇷 🇧🇦 🇷🇸 → 🇩🇪"
   }
