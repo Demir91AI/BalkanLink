@@ -12,6 +12,11 @@
       "updated": "Ažurirano 2026",
       "stepByStep": "Korak-po-korak vodiči"
     },
+    "assistantCta": {
+      "badge": "BalkanLink Asistent",
+      "title": "Pitaj na svom jeziku — odgovor odmah",
+      "subtitle": "Formulari, rokovi, prava — bez čekanja u redu"
+    },
     "servicesTitle": "Naši servisi",
     "partnersTitle": "Naši partneri",
     "featureCards": {
