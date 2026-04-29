@@ -127,6 +127,7 @@ const PoreziRental = lazy(() => import("./pages/PoreziRental"));
 const PoreziMistakes = lazy(() => import("./pages/PoreziMistakes"));
 const CheckListe = lazy(() => import("./pages/CheckListe"));
 const CheckListaDetail = lazy(() => import("./pages/CheckListaDetail"));
+const AnmeldungSimulator = lazy(() => import("./pages/AnmeldungSimulator"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -262,6 +263,9 @@ function LocalizedRoutes() {
         <Route path="check-liste/:slug" element={<CheckListaDetail />} />
         <Route path="checklisten" element={<CheckListe />} />
         <Route path="checklisten/:slug" element={<CheckListaDetail />} />
+        {/* Anmeldung Simulator — interaktivni intervju */}
+        <Route path="anmeldung-simulator" element={<AnmeldungSimulator />} />
+        <Route path="anmeldung-simulation" element={<AnmeldungSimulator />} />
         <Route path="porezi/najceste-pogreske" element={<PoreziMistakes />} />
         <Route path="steuern/haeufigste-fehler" element={<PoreziMistakes />} />
         <Route element={<AdminGuard />}>
