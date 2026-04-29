@@ -321,16 +321,6 @@ export default function HeroSection() {
               onSubmit={(e) => { e.preventDefault(); submitAsk(); }}
               className="group relative w-full rounded-[22px] transition-all duration-300 focus-within:-translate-y-0.5"
             >
-              {/* Rotating conic gold ring (always-on subtle, intensifies on focus) */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -inset-[2px] rounded-[24px] opacity-70 blur-[7px] transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100"
-                style={{
-                  background:
-                    "conic-gradient(from var(--bl-angle, 0deg), hsla(43,70%,55%,0.0) 0deg, hsla(43,70%,55%,0.85) 60deg, hsla(220,80%,60%,0.0) 140deg, hsla(43,70%,55%,0.0) 220deg, hsla(43,70%,55%,0.85) 300deg, hsla(43,70%,55%,0.0) 360deg)",
-                  animation: "blRingSpin 7s linear infinite",
-                }}
-              />
               {/* Soft outer halo */}
               <span
                 aria-hidden
@@ -345,12 +335,12 @@ export default function HeroSection() {
                 className="relative overflow-hidden rounded-[20px]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(22,30,52,0.95) 0%, rgba(8,12,24,0.95) 100%)",
+                    "linear-gradient(135deg, rgba(22,30,52,0.45) 0%, rgba(8,12,24,0.45) 100%)",
                   border: "1px solid hsla(43,70%,55%,0.25)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   boxShadow:
-                    "0 30px 90px -25px rgba(0,0,0,0.95), 0 0 60px -20px hsla(43,70%,55%,0.35), inset 0 1px 0 rgba(255,255,255,0.10)",
+                    "0 30px 90px -25px rgba(0,0,0,0.85), 0 0 60px -20px hsla(43,70%,55%,0.35), inset 0 1px 0 rgba(255,255,255,0.10)",
                 }}
               >
                 {/* Continuous slow sheen sweep */}
