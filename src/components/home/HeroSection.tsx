@@ -225,6 +225,71 @@ export default function HeroSection() {
               </span>
             ))}
           </motion.div>
+
+          {/* ─── Asistent CTA — premium glassmorphism card ─── */}
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.0, ease }}
+            onClick={() => window.dispatchEvent(new CustomEvent("open-assistant"))}
+            className="group relative mt-7 w-full max-w-md overflow-hidden rounded-2xl text-left transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]/60"
+            style={{
+              background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
+              border: "1px solid rgba(212,175,55,0.22)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+              boxShadow: "0 10px 40px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)",
+            }}
+            aria-label={t("home.assistantCta.title")}
+          >
+            {/* subtle gold sheen sweep on hover */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[hsla(43,70%,55%,0.10)] to-transparent transition-transform duration-700 group-hover:translate-x-full"
+            />
+            {/* soft gold glow on hover */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{ boxShadow: "0 0 0 1px rgba(212,175,55,0.35), 0 0 40px -8px rgba(212,175,55,0.35)" }}
+            />
+
+            <div className="relative flex items-center gap-3.5 p-3.5 sm:gap-4 sm:p-4">
+              {/* Icon orb */}
+              <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                style={{
+                  background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%)",
+                  boxShadow: "0 6px 20px -6px hsla(43,70%,55%,0.55)",
+                }}
+              >
+                <Sparkles className="h-[18px] w-[18px] text-[#0a0a0a]" strokeWidth={2.4} />
+                {/* pulsing live dot */}
+                <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-[hsl(215_55%_4%)]" />
+                </span>
+              </span>
+
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[hsl(var(--gold))]">
+                    📋 {t("home.assistantCta.badge")}
+                  </span>
+                </div>
+                <p className="mt-0.5 truncate text-sm font-semibold text-white sm:text-[15px]">
+                  {t("home.assistantCta.title")}
+                </p>
+                <p className="mt-0.5 truncate text-[11px] text-white/55 sm:text-xs">
+                  {t("home.assistantCta.subtitle")}
+                </p>
+              </div>
+
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition-all duration-300 group-hover:border-[hsl(var(--gold))]/40 group-hover:bg-[hsl(var(--gold))]/15 group-hover:text-[hsl(var(--gold))]">
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </span>
+            </div>
+          </motion.button>
         </div>
       </div>
 
