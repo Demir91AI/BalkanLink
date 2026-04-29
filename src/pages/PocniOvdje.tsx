@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
-import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound } from "lucide-react";
+import { ArrowRight, Home, FileText, CreditCard, Heart, Landmark, ClipboardList, Shield, Radio, Car, KeyRound, MessageSquare } from "lucide-react";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
@@ -16,6 +16,7 @@ const cards = [
   { icon: Radio, titleKey: "gez", descKey: "gezDesc", to: "/dolazak/rundfunkbeitrag" },
   { icon: KeyRound, titleKey: "fuehrerschein", descKey: "fuehrerscheinDesc", to: "/dolazak/fuehrerschein" },
   { icon: Car, titleKey: "auto", descKey: "autoDesc", to: "/dolazak/auto-anmelden" },
+  { icon: MessageSquare, titleKey: "simulator", descKey: "simulatorDesc", to: "/anmeldung-simulator" },
 ];
 
 export default function PocniOvdje() {
