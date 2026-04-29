@@ -26,7 +26,7 @@ export default function HeroSection() {
   const { t } = useTranslation("pages");
   const btnRef = useRef<HTMLButtonElement>(null);
   const [askValue, setAskValue] = useState("");
-  const [placeholderIdx, setPlaceholderIdx] = useState(0);
+  const [typed, setTyped] = useState("");
 
   const trustBadges = [
     t("home.trustBadges.officialSources"),
@@ -36,13 +36,32 @@ export default function HeroSection() {
 
   const askPlaceholders = t("home.assistantCta.examples", { returnObjects: true }) as string[];
 
-  // Rotate placeholder examples
+  // Typewriter effect for placeholder examples
   useEffect(() => {
-    if (!Array.isArray(askPlaceholders) || askPlaceholders.length < 2) return;
-    const id = setInterval(() => {
-      setPlaceholderIdx((i) => (i + 1) % askPlaceholders.length);
-    }, 2800);
-    return () => clearInterval(id);
+    if (!Array.isArray(askPlaceholders) || askPlaceholders.length === 0) return;
+    let i = 0;
+    let charIdx = 0;
+    let mode: "typing" | "pausing" | "deleting" = "typing";
+    let timer: ReturnType<typeof setTimeout>;
+
+    const tick = () => {
+      const current = askPlaceholders[i];
+      if (mode === "typing") {
+        charIdx++;
+        setTyped(current.slice(0, charIdx));
+        if (charIdx >= current.length) { mode = "pausing"; timer = setTimeout(tick, 1800); return; }
+        timer = setTimeout(tick, 38 + Math.random() * 30);
+      } else if (mode === "pausing") {
+        mode = "deleting"; timer = setTimeout(tick, 30);
+      } else {
+        charIdx -= 2;
+        if (charIdx <= 0) { charIdx = 0; setTyped(""); i = (i + 1) % askPlaceholders.length; mode = "typing"; timer = setTimeout(tick, 250); return; }
+        setTyped(current.slice(0, charIdx));
+        timer = setTimeout(tick, 18);
+      }
+    };
+    timer = setTimeout(tick, 600);
+    return () => clearTimeout(timer);
   }, [askPlaceholders]);
 
   const submitAsk = (prefill?: string) => {
