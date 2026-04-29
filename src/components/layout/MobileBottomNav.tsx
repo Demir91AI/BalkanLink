@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   FileText,
   Shield,
@@ -53,12 +53,36 @@ export default function MobileBottomNav() {
     { icon: Plane, label: t("mobileNav.lifeArrival"), path: "/zivot-u-njemackoj" },
   ];
 
-  // Rotate every 10s between two sets of 3
+  // Rotate every 10s between two sets of 3.
+  // Manual swipe / tap pauses auto-rotation; resumes after 15s of inactivity.
   const [setIdx, setSetIdx] = useState(0);
+  const [manualPausedAt, setManualPausedAt] = useState<number | null>(null);
+
   useEffect(() => {
-    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 10000);
+    const id = setInterval(() => {
+      // Skip tick while user-paused (within 15s of last manual interaction)
+      if (manualPausedAt && Date.now() - manualPausedAt < 15000) return;
+      setSetIdx((i) => (i + 1) % 2);
+    }, 10000);
     return () => clearInterval(id);
-  }, []);
+  }, [manualPausedAt]);
+
+  const cycleSet = (dir: 1 | -1) => {
+    setSetIdx((i) => (i + (dir === 1 ? 1 : 1)) % 2); // only 2 sets → either dir flips
+    setManualPausedAt(Date.now());
+  };
+
+  // Swipe handling on each side strip
+  const touchStartX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current == null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(dx) > 30) cycleSet(dx < 0 ? 1 : -1);
+  };
 
   const left = setIdx === 0 ? leftPool.slice(0, 3) : leftPool.slice(3, 6);
   const right = setIdx === 0 ? rightPool.slice(0, 3) : rightPool.slice(3, 6);
@@ -117,9 +141,34 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
+      {/* Pager dots — tap to switch sets manually */}
+      <div className="absolute top-1 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        {[0, 1].map((i) => (
+          <button
+            key={i}
+            onClick={() => {
+              setSetIdx(i);
+              setManualPausedAt(Date.now());
+            }}
+            aria-label={`Set ${i + 1}`}
+            className="rounded-full transition-all"
+            style={{
+              width: setIdx === i ? 14 : 6,
+              height: 4,
+              background:
+                setIdx === i ? "#C9A84C" : "rgba(255,255,255,0.35)",
+            }}
+          />
+        ))}
+      </div>
+
       <div className="relative h-[68px] flex items-center justify-between px-1 gap-0.5">
-        {/* LEFT: 3 in a row */}
-        <div className="flex items-center justify-around flex-1 gap-0">
+        {/* LEFT: 3 in a row — swipeable */}
+        <div
+          className="flex items-center justify-around flex-1 gap-0 touch-pan-y"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
           {left.map((it, i) => renderTab(it, i, "L"))}
         </div>
 
@@ -166,8 +215,12 @@ export default function MobileBottomNav() {
           </span>
         </button>
 
-        {/* RIGHT: 3 in a row */}
-        <div className="flex items-center justify-around flex-1 gap-0">
+        {/* RIGHT: 3 in a row — swipeable */}
+        <div
+          className="flex items-center justify-around flex-1 gap-0 touch-pan-y"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
           {right.map((it, i) => renderTab(it, i, "R"))}
         </div>
       </div>
