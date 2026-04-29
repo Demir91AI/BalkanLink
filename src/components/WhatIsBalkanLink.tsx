@@ -90,11 +90,6 @@ export default function WhatIsBalkanLink() {
             aria-label={t("whatIs.fabAria")}
             className="fixed bottom-24 left-4 z-40 group flex items-center gap-2 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-amber-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_8px_30px_rgba(217,165,54,0.4)] transition-all hover:scale-105 hover:shadow-[0_12px_40px_rgba(217,165,54,0.55)] md:bottom-6"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-slate-950 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-slate-950" />
-            </span>
-            <Sparkles className="h-4 w-4" />
             <span className="hidden sm:inline">{t("whatIs.fabLabel")}</span>
             <span className="sm:hidden">{t("whatIs.fabLabelShort")}</span>
             <span
