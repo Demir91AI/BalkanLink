@@ -288,6 +288,16 @@ export default function HeroSection() {
             </button>
           </motion.div>
 
+          {/* ─── Live social proof ─── */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9, ease }}
+            className="mt-8 flex justify-center"
+          >
+            <LiveSocialProof variant="ticker" />
+          </motion.div>
+
 
           {/* ─── Asistent — interactive ask bar ─── */}
           <motion.div
