@@ -218,44 +218,66 @@ export default function HeroSection() {
             {t("home.heroSubline")}
           </motion.p>
 
-          {/* CTA */}
+          {/* CTA — premium split duo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, ease }}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+            className="mt-10 flex flex-col sm:flex-row items-center gap-3.5"
           >
+            {/* Primary — gold with shimmer + arrow */}
             <button
               ref={btnRef}
               onClick={() => navigate("/formulari")}
-              className="relative group transition-all duration-200 will-change-transform active:scale-[0.97]"
+              aria-label={t("home.ctaPrimary")}
+              className="group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-xl px-9 py-[15px] text-[15px] font-extrabold text-[#0a0a0a] transition-all duration-200 will-change-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.97]"
               style={{
-                background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%)",
-                color: "#000",
-                fontWeight: 800,
-                padding: "15px 44px",
-                borderRadius: 10,
-                fontSize: "1rem",
-                border: "1px solid rgba(255,255,255,0.15)",
+                background:
+                  "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%)",
+                backgroundSize: "200% 100%",
+                border: "1px solid hsla(43,80%,70%,0.45)",
+                boxShadow:
+                  "0 14px 36px -10px hsla(43,70%,55%,0.65), 0 0 0 1px hsla(43,70%,55%,0.15) inset, inset 0 1px 0 rgba(255,255,255,0.55)",
               }}
             >
-              <span className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ boxShadow: "0 0 30px hsla(43,70%,55%,0.5), 0 0 60px hsla(43,70%,55%,0.2)" }} />
-              <span className="relative">{t("home.ctaPrimary")}</span>
+              {/* Shimmer sweep on hover */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/55 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+              />
+              {/* Soft outer glow on hover */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-1 rounded-[14px] opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-70"
+                style={{ background: "radial-gradient(60% 60% at 50% 50%, hsla(43,70%,55%,0.55), transparent 70%)" }}
+              />
+              <Sparkles className="relative h-[17px] w-[17px]" strokeWidth={2.5} />
+              <span className="relative tracking-tight">{t("home.ctaPrimary")}</span>
+              <ArrowRight className="relative h-[17px] w-[17px] transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2.7} />
             </button>
+
+            {/* Secondary — ghost with gold accent on hover */}
             <button
               onClick={() => navigate("/paketi")}
-              className="transition-all duration-200 hover:bg-white/10 active:scale-[0.97]"
+              aria-label={t("home.ctaSecondary")}
+              className="group relative inline-flex items-center justify-center gap-2 rounded-xl px-9 py-[15px] text-[15px] font-semibold text-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:text-white active:scale-[0.97]"
               style={{
-                background: "transparent",
-                border: "1.5px solid rgba(255,255,255,0.25)",
-                color: "white",
-                fontWeight: 600,
-                padding: "15px 44px",
-                borderRadius: 10,
-                backdropFilter: "blur(8px)",
+                background:
+                  "linear-gradient(135deg, rgba(22,30,52,0.35) 0%, rgba(8,12,24,0.35) 100%)",
+                border: "1.5px solid rgba(255,255,255,0.18)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
               }}
             >
-              {t("home.ctaSecondary")}
+              {/* Gold border tint on hover */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{ boxShadow: "inset 0 0 0 1.5px hsla(43,70%,55%,0.55)" }}
+              />
+              <span className="relative tracking-tight">{t("home.ctaSecondary")}</span>
+              <ArrowRight className="relative h-[15px] w-[15px] opacity-60 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100" strokeWidth={2.4} />
             </button>
           </motion.div>
 
