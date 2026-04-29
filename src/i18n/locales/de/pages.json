@@ -1521,5 +1521,56 @@
       "q4": "Was kostet es?",
       "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. Premium (9,99 €/Mon.): unbegrenzt + Detailbericht + Text für den Vermieter."
     }
+  },
+  "whatIs": {
+    "fabAria": "Was ist BalkanLink?",
+    "fabLabel": "Was ist BalkanLink?",
+    "fabLabelShort": "Info",
+    "kicker": "Lerne die Plattform kennen",
+    "title": "Was ist BalkanLink?",
+    "tagline": "Dein digitaler Wegweiser durch Deutschland — in deiner Muttersprache.",
+    "pitch": "BalkanLink hilft dir, dich in der deutschen Bürokratie, Sprache und im Alltag zurechtzufinden — ohne Übersetzer, ohne Warten, 24/7 auf Bosnisch, Kroatisch, Serbisch und Deutsch.",
+    "forWhomTitle": "Für wen",
+    "audience": {
+      "newcomer": {
+        "title": "Du bist neu in Deutschland",
+        "desc": "Anmeldung, Steuer-ID, Krankenversicherung, Konto eröffnen.",
+        "b1": "Leitfaden 'Erste Schritte' — alles der Reihe nach",
+        "b2": "Anmeldung-Simulator — übe den Termin",
+        "b3": "Asistent antwortet auf deiner Sprache"
+      },
+      "language": {
+        "title": "Du verstehst Deutsch noch nicht genug",
+        "desc": "Briefe vom Finanzamt, Verträge, komplizierte Formulare.",
+        "b1": "Dokumenten-Check — Foto vom Brief, sofort Erklärung",
+        "b2": "Deutsch-Trainer — A1 bis C2, 240 Lektionen",
+        "b3": "Zweisprachige Formulare (Deutsch + deine Sprache)"
+      },
+      "established": {
+        "title": "Du bist schon länger hier",
+        "desc": "Steuern, Bürgergeld, Kindergeld, Anerkennung, Business.",
+        "b1": "Tax Wizard — Wegweiser durch die Steuererklärung",
+        "b2": "Anerkennung Navigator — Diplom anerkennen",
+        "b3": "Vorlagen — Kündigung, Widerspruch, Einspruch"
+      }
+    },
+    "premium": {
+      "kicker": "Premium",
+      "title": "Alles freigeschaltet für",
+      "subtitle": "Jederzeit kündbar. Keine versteckten Kosten.",
+      "p1": "Unbegrenzter Asistent + Chat-Verlauf",
+      "p2": "Unbegrenzter Dokumenten-Check + Detailbericht",
+      "p3": "Alle Formulare (Bürgergeld, Wohngeld, Elterngeld...)",
+      "p4": "Tax Wizard + alle Steuer-Checklisten",
+      "p5": "Premium-Checklisten (Kindergeld, Anmeldung, Hochzeit...)",
+      "cta": "Pakete ansehen"
+    },
+    "exploreTitle": "Schnell entdecken",
+    "links": {
+      "dolazak": "Ankunft in Deutschland",
+      "asistent": "Asistent (Chat)",
+      "formulari": "Formulare",
+      "docCheck": "Dokumenten-Check"
+    }
   }
 }

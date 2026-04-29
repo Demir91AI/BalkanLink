@@ -1521,5 +1521,56 @@
       "q4": "Koliko košta?",
       "a4": "Besplatno: 1 provera dnevno, osnovni rezultat. Premium (9,99 €/mes): neograničeno + detaljan izveštaj + tekst za gazdu."
     }
+  },
+  "whatIs": {
+    "fabAria": "Šta je BalkanLink?",
+    "fabLabel": "Šta je BalkanLink?",
+    "fabLabelShort": "Info",
+    "kicker": "Upoznaj platformu",
+    "title": "Šta je BalkanLink?",
+    "tagline": "Tvoj digitalni vodič kroz Nemačku — na maternjem jeziku.",
+    "pitch": "BalkanLink je platforma koja ti pomaže da se snađeš u nemačkoj birokratiji, jeziku i svakodnevnim formularima — bez prevodioca, bez čekanja, 24/7 na bosanskom, hrvatskom, srpskom i nemačkom.",
+    "forWhomTitle": "Za koga je",
+    "audience": {
+      "newcomer": {
+        "title": "Tek si stigao u Nemačku",
+        "desc": "Anmeldung, Steuer-ID, Krankenversicherung, otvaranje računa.",
+        "b1": "Vodič 'Prvi koraci' — sve po redu",
+        "b2": "Anmeldung simulator — vežbaj termin",
+        "b3": "Asistent ti odgovara na srpskom"
+      },
+      "language": {
+        "title": "Ne razumeš nemački dovoljno",
+        "desc": "Pisma od Finanzamta, ugovori, komplikovani formulari.",
+        "b1": "Dokumenten-Check — fotografiši pismo, dobiješ objašnjenje",
+        "b2": "Deutsch Trainer — A1 do C2, 240 lekcija",
+        "b3": "Dvojezični formulari (nemački + tvoj jezik)"
+      },
+      "established": {
+        "title": "Već si duže ovde",
+        "desc": "Porezi, Bürgergeld, Kindergeld, priznavanje diplome, biznis.",
+        "b1": "Tax Wizard — vodič kroz Steuererklärung",
+        "b2": "Anerkennung Navigator — priznaj diplomu",
+        "b3": "Vorlagen — Kündigung, žalbe, prigovori"
+      }
+    },
+    "premium": {
+      "kicker": "Premium",
+      "title": "Sve otključano za",
+      "subtitle": "Otkaži kad hoćeš. Bez skrivenih troškova.",
+      "p1": "Neograničen Asistent + istorija razgovora",
+      "p2": "Neograničen Dokumenten-Check + detaljan izveštaj",
+      "p3": "Svi formulari (Bürgergeld, Wohngeld, Elterngeld...)",
+      "p4": "Tax Wizard + sve porezne check liste",
+      "p5": "Premium check liste (Kindergeld, Anmeldung, venčanje...)",
+      "cta": "Pogledaj pakete"
+    },
+    "exploreTitle": "Brzo istraži",
+    "links": {
+      "dolazak": "Dolazak u Nemačku",
+      "asistent": "Asistent (chat)",
+      "formulari": "Formulari",
+      "docCheck": "Dokumenten-Check"
+    }
   }
 }
