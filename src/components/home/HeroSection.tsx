@@ -27,6 +27,8 @@ export default function HeroSection() {
   const btnRef = useRef<HTMLButtonElement>(null);
   const [askValue, setAskValue] = useState("");
   const [typed, setTyped] = useState("");
+  const [phraseKey, setPhraseKey] = useState(0);
+  const [phraseVisible, setPhraseVisible] = useState(true);
 
   const trustBadges = [
     t("home.trustBadges.officialSources"),
