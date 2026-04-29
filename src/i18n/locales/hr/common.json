@@ -80,7 +80,10 @@
     "calc": "Plaća",
     "jobs": "Posao",
     "rent": "Najam",
-    "business": "Biznis"
+    "business": "Biznis",
+    "templates": "Predlošci",
+    "offers": "Oglasi",
+    "lifeArrival": "Život"
   },
   "footer": {
     "tagline": "Sve što ti treba za život u Njemačkoj",

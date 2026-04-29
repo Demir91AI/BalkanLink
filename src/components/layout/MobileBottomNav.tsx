@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import {
   FileText,
   Shield,
@@ -13,7 +12,6 @@ import {
   Calculator,
   Briefcase,
   KeyRound,
-  Building2,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
@@ -34,63 +32,25 @@ export default function MobileBottomNav() {
   const lang = langFromPath(location.pathname);
   const poreziPath = POREZI_HUB_PATH[lang] ?? "/porezi";
 
-  // SET A — 9 left + 9 right
-  const leftA: Item[] = [
+  // LEFT: 6 items (3x2) — Premium core
+  const left: Item[] = [
     { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
     { icon: Shield, label: t("mobileNav.visa"), path: "/viza" },
     { icon: GraduationCap, label: t("mobileNav.anerkennung"), path: "/anerkennung-navigator" },
     { icon: ScanLine, label: t("mobileNav.docCheck"), path: "/dokumenten-check" },
-    { icon: Calculator, label: t("mobileNav.calc"), path: "/brutto-netto-rechner" },
-    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/stellenangebote" },
-    { icon: KeyRound, label: t("mobileNav.rent"), path: "/wohnungen" },
-    { icon: Building2, label: t("mobileNav.business"), path: "/biznis-njemacka" },
-    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
-  ];
-  const rightA: Item[] = [
     { icon: BookOpen, label: t("mobileNav.trainer"), path: "/deutsch-trainer" },
     { icon: Coins, label: t("mobileNav.taxes"), path: poreziPath },
+  ];
+
+  // RIGHT: 6 items (3x2) — Premium + Free
+  const right: Item[] = [
     { icon: Gauge, label: t("mobileNav.schufa"), path: "/schufa-simulator" },
     { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
-    { icon: Calculator, label: t("mobileNav.taxes"), path: "/kalkulatori" },
-    { icon: Shield, label: t("mobileNav.visa"), path: "/familie" },
-    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/zivot-savjeti" },
-    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/karijera" },
-    { icon: KeyRound, label: t("mobileNav.rent"), path: "/stanovanje" },
+    { icon: FileText, label: t("mobileNav.templates"), path: "/vorlagen" },
+    { icon: Briefcase, label: t("mobileNav.offers"), path: "/nudim-trazim" },
+    { icon: Calculator, label: t("mobileNav.calc"), path: "/kalkulatori" },
+    { icon: KeyRound, label: t("mobileNav.lifeArrival"), path: "/zivot" },
   ];
-
-  // SET B — alternative 9 + 9
-  const leftB: Item[] = [
-    { icon: Calculator, label: t("mobileNav.calc"), path: "/brutto-netto-rechner" },
-    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/stellenangebote" },
-    { icon: KeyRound, label: t("mobileNav.rent"), path: "/wohnungen" },
-    { icon: Building2, label: t("mobileNav.business"), path: "/biznis-njemacka" },
-    { icon: FileText, label: t("mobileNav.documents"), path: "/vorlagen" },
-    { icon: FileText, label: t("mobileNav.formulari"), path: "/formulari" },
-    { icon: Shield, label: t("mobileNav.visa"), path: "/viza" },
-    { icon: GraduationCap, label: t("mobileNav.anerkennung"), path: "/anerkennung-navigator" },
-    { icon: ScanLine, label: t("mobileNav.docCheck"), path: "/dokumenten-check" },
-  ];
-  const rightB: Item[] = [
-    { icon: Calculator, label: t("mobileNav.taxes"), path: "/kalkulatori" },
-    { icon: Shield, label: t("mobileNav.visa"), path: "/familie" },
-    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/zivot-savjeti" },
-    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/deutsch-trainer" },
-    { icon: Coins, label: t("mobileNav.taxes"), path: poreziPath },
-    { icon: Gauge, label: t("mobileNav.schufa"), path: "/schufa-simulator" },
-    { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
-    { icon: Briefcase, label: t("mobileNav.jobs"), path: "/karijera" },
-    { icon: KeyRound, label: t("mobileNav.rent"), path: "/stanovanje" },
-  ];
-
-  // Rotate between Set A and Set B every 10s
-  const [setIdx, setSetIdx] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setSetIdx((i) => (i + 1) % 2), 10000);
-    return () => clearInterval(id);
-  }, []);
-
-  const left = setIdx === 0 ? leftA : leftB;
-  const right = setIdx === 0 ? rightA : rightB;
 
   const stripped = location.pathname.replace(/^\/(de|hr|sr)(?=\/|$)/, "") || "/";
   const isActive = (path: string) => {
@@ -103,14 +63,14 @@ export default function MobileBottomNav() {
     const Icon = item.icon;
     return (
       <button
-        key={`${side}-${setIdx}-${idx}`}
+        key={`${side}-${idx}`}
         onClick={() => navigate(item.path)}
-        className="flex flex-col items-center justify-center gap-[1px] active:scale-95 transition-all duration-150 animate-fade-in"
-        style={{ width: 40, height: 30 }}
+        className="flex flex-col items-center justify-center gap-[2px] active:scale-95 transition-all duration-150"
+        style={{ width: 46, height: 36 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[13px] w-[13px] transition-all"
+          className="h-[15px] w-[15px] transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
@@ -118,7 +78,7 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[6.5px] leading-tight w-full text-center truncate transition-all"
+          className="text-[7.5px] leading-tight w-full text-center truncate transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
             fontWeight: active ? 700 : 500,
