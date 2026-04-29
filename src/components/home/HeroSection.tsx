@@ -313,40 +313,83 @@ export default function HeroSection() {
             {/* Ask bar — premium dual-glow */}
             <form
               onSubmit={(e) => { e.preventDefault(); submitAsk(); }}
-              className="group relative rounded-[18px] transition-all duration-300 focus-within:-translate-y-0.5"
+              className="group relative rounded-[20px] transition-all duration-300 focus-within:-translate-y-0.5"
             >
-              {/* Outer ambient gold glow (always visible, intensifies on focus) */}
+              {/* Rotating conic gold ring (always-on subtle, intensifies on focus) */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -inset-[2px] rounded-[20px] opacity-50 blur-md transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-100"
+                className="pointer-events-none absolute -inset-[2px] rounded-[22px] opacity-60 blur-[6px] transition-opacity duration-500 group-hover:opacity-95 group-focus-within:opacity-100"
                 style={{
-                  background: "linear-gradient(120deg, hsla(43,70%,55%,0.55) 0%, hsla(220,80%,60%,0.0) 35%, hsla(43,70%,55%,0.0) 60%, hsla(43,70%,55%,0.55) 100%)",
+                  background:
+                    "conic-gradient(from var(--bl-angle, 0deg), hsla(43,70%,55%,0.0) 0deg, hsla(43,70%,55%,0.75) 60deg, hsla(220,80%,60%,0.0) 140deg, hsla(43,70%,55%,0.0) 220deg, hsla(43,70%,55%,0.75) 300deg, hsla(43,70%,55%,0.0) 360deg)",
+                  animation: "blRingSpin 7s linear infinite",
+                }}
+              />
+              {/* Soft outer halo */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-[10px] rounded-[28px] opacity-40 blur-2xl transition-opacity duration-500 group-focus-within:opacity-70"
+                style={{
+                  background:
+                    "radial-gradient(60% 60% at 50% 50%, hsla(43,70%,55%,0.35) 0%, hsla(43,70%,55%,0) 70%)",
                 }}
               />
               {/* Bar surface */}
               <div
                 className="relative overflow-hidden rounded-[18px]"
                 style={{
-                  background: "linear-gradient(135deg, rgba(20,28,48,0.85) 0%, rgba(8,12,24,0.85) 100%)",
+                  background:
+                    "linear-gradient(135deg, rgba(22,30,52,0.92) 0%, rgba(8,12,24,0.92) 100%)",
                   border: "1px solid rgba(255,255,255,0.10)",
-                  backdropFilter: "blur(18px)",
-                  WebkitBackdropFilter: "blur(18px)",
-                  boxShadow: "0 18px 60px -18px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.07)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  boxShadow:
+                    "0 22px 70px -22px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.08)",
                 }}
               >
-                {/* Sheen sweep on hover */}
+                {/* Continuous slow sheen sweep */}
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent transition-transform duration-1000 group-hover:translate-x-full"
+                  className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 skew-x-12"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)",
+                    animation: "blSheen 5.5s ease-in-out infinite",
+                  }}
+                />
+                {/* Top inner highlight */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-3 top-0 h-px"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)",
+                  }}
                 />
 
                 <div className="relative flex items-center gap-2.5 p-2 sm:gap-3 sm:p-2.5">
-                  {/* Brand avatar — real BL logo */}
-                  <span
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/10"
-                    style={{ boxShadow: "0 4px 18px -6px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08)" }}
-                  >
-                    <BLIcon size={36} />
+                  {/* Brand avatar — real BL logo with pulsing gold ring */}
+                  <span className="relative flex h-11 w-11 shrink-0 items-center justify-center">
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 rounded-xl opacity-70"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, hsla(43,70%,55%,0.35), hsla(43,70%,55%,0.05))",
+                        animation: "blAvatarPulse 3.2s ease-in-out infinite",
+                      }}
+                    />
+                    <span
+                      className="relative flex h-11 w-11 items-center justify-center rounded-xl ring-1 ring-[hsla(43,70%,55%,0.35)]"
+                      style={{
+                        boxShadow:
+                          "0 6px 22px -6px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.10)",
+                        background:
+                          "linear-gradient(135deg, rgba(20,28,48,0.9), rgba(8,12,24,0.9))",
+                      }}
+                    >
+                      <BLIcon size={36} />
+                    </span>
                   </span>
 
                   {/* Input */}
@@ -361,15 +404,19 @@ export default function HeroSection() {
                     />
                     {/* Typewriter placeholder (only when input is empty) */}
                     {askValue.length === 0 && (
-                      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center text-[14px] sm:text-[15px] text-white/55">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center text-[14px] sm:text-[15px] text-white/60">
                         <div
                           className="flex w-full items-center justify-end overflow-hidden whitespace-nowrap"
                           style={{ direction: "rtl" }}
                         >
                           <span
                             aria-hidden
-                            className="ml-0.5 inline-block h-[1.05em] w-[2px] shrink-0 bg-[hsl(var(--gold))]"
-                            style={{ animation: "blCaret 1s steps(2) infinite", direction: "ltr" }}
+                            className="ml-1 inline-block h-[1.1em] w-[2.5px] shrink-0 rounded-[1px] bg-[hsl(var(--gold))]"
+                            style={{
+                              animation: "blCaret 1s steps(2) infinite",
+                              direction: "ltr",
+                              boxShadow: "0 0 8px hsla(43,70%,55%,0.7)",
+                            }}
                           />
                           <span
                             key={phraseKey}
@@ -391,13 +438,19 @@ export default function HeroSection() {
                   <button
                     type="submit"
                     aria-label={t("home.assistantCta.send")}
-                    className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[#0a0a0a] transition-all duration-200 hover:scale-[1.06] active:scale-95"
+                    className="group/btn relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl text-[#0a0a0a] transition-all duration-200 hover:scale-[1.07] active:scale-95"
                     style={{
-                      background: "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%)",
-                      boxShadow: "0 8px 26px -6px hsla(43,70%,55%,0.65), inset 0 1px 0 rgba(255,255,255,0.5)",
+                      background:
+                        "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%)",
+                      boxShadow:
+                        "0 10px 28px -6px hsla(43,70%,55%,0.7), inset 0 1px 0 rgba(255,255,255,0.55)",
                     }}
                   >
-                    <ArrowRight className="h-5 w-5" strokeWidth={2.6} />
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full"
+                    />
+                    <ArrowRight className="relative h-5 w-5" strokeWidth={2.7} />
                   </button>
                 </div>
               </div>
