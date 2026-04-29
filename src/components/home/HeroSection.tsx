@@ -299,23 +299,64 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 1.0, ease }}
             className="mt-7 w-full max-w-xl"
           >
-            {/* Brand label above bar */}
-            <div className="mb-2.5 flex items-center justify-center">
+            {/* Brand label above bar — premium glow chip */}
+            <div className="mb-3 flex items-center justify-center gap-3">
+              {/* Decorative line left */}
               <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.22em]"
+                aria-hidden
+                className="hidden h-px w-10 sm:block"
                 style={{
-                  background: "linear-gradient(135deg, hsla(43,70%,55%,0.14), hsla(43,70%,55%,0.04))",
-                  border: "1px solid hsla(43,70%,55%,0.30)",
-                  color: "hsl(var(--gold))",
-                  boxShadow: "0 0 24px -8px hsla(43,70%,55%,0.4)",
+                  background:
+                    "linear-gradient(90deg, transparent, hsla(43,70%,55%,0.5))",
+                }}
+              />
+              <span
+                className="group/chip relative inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.28em]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsla(43,70%,55%,0.18) 0%, hsla(43,70%,55%,0.06) 50%, hsla(43,70%,55%,0.18) 100%)",
+                  border: "1px solid hsla(43,70%,55%,0.45)",
+                  boxShadow:
+                    "0 0 32px -6px hsla(43,70%,55%,0.55), inset 0 1px 0 hsla(43,70%,55%,0.25)",
                 }}
               >
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                {/* Sparkle pulse */}
+                <span aria-hidden className="relative flex h-3 w-3 items-center justify-center">
+                  <span
+                    className="absolute h-3 w-3 rounded-full opacity-60"
+                    style={{
+                      background: "hsla(43,70%,55%,0.5)",
+                      animation: "blChipPulse 2.4s ease-in-out infinite",
+                    }}
+                  />
+                  <svg viewBox="0 0 12 12" className="relative h-3 w-3" fill="none">
+                    <path
+                      d="M6 0.5 L7.2 4.8 L11.5 6 L7.2 7.2 L6 11.5 L4.8 7.2 L0.5 6 L4.8 4.8 Z"
+                      fill="hsl(var(--gold))"
+                    />
+                  </svg>
                 </span>
-                BalkanLinkAsistent
+                <span
+                  className="bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(90deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-light)) 100%)",
+                    backgroundSize: "200% 100%",
+                    animation: "blChipShine 4.5s ease-in-out infinite",
+                  }}
+                >
+                  BalkanLink&nbsp;Asistent
+                </span>
               </span>
+              {/* Decorative line right */}
+              <span
+                aria-hidden
+                className="hidden h-px w-10 sm:block"
+                style={{
+                  background:
+                    "linear-gradient(90deg, hsla(43,70%,55%,0.5), transparent)",
+                }}
+              />
             </div>
 
             {/* Ask bar — premium dual-glow */}
