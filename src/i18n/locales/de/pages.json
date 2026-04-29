@@ -383,6 +383,34 @@
       "cta": "Alle Plattform-Funktionen"
     }
   },
+  "dolazakStart": {
+    "seoTitle": "Hier starten — erste Schritte in Deutschland",
+    "seoDescription": "Die wichtigsten Schritte für den Start in Deutschland: Anmeldung, Aufenthalt, Versicherung, Bank, Steuer-ID und mehr.",
+    "title": "Hier starten",
+    "subtitle": "Die wichtigsten Schritte für deinen Start in Deutschland.",
+    "cards": {
+      "schritte": "Erste Schritte",
+      "schritteDesc": "Die vollständige Checkliste für die ersten Wochen.",
+      "anmeldung": "Anmeldung & Wohnsitz",
+      "anmeldungDesc": "Melde deine Adresse innerhalb von 14 Tagen an.",
+      "aufenthalt": "Aufenthalt & Visum",
+      "aufenthaltDesc": "Visum, Blaue Karte oder freier Zugang — finde heraus, was du brauchst.",
+      "steuer": "Steuer-ID & Steuerklasse",
+      "steuerDesc": "Die Steuer-ID bekommst du automatisch nach der Anmeldung.",
+      "kranken": "Krankenversicherung",
+      "krankenDesc": "Gesetzlich oder privat — Pflicht für alle.",
+      "bank": "Bankkonto eröffnen",
+      "bankDesc": "Eröffne dein Konto in der ersten Woche.",
+      "sozial": "Sozialversicherung",
+      "sozialDesc": "5 Säulen der Sozialversicherung für alle Beschäftigten.",
+      "gez": "Rundfunkbeitrag (GEZ)",
+      "gezDesc": "TV-/Radioabgabe — 18,36 € monatlich pro Haushalt.",
+      "fuehrerschein": "Führerschein",
+      "fuehrerscheinDesc": "Umschreibung oder Anerkennung — Frist 6 Monate.",
+      "auto": "Fahrzeugzulassung (Kfz, Lkw...)",
+      "autoDesc": "Registrierung von Kraftfahrzeugen in Deutschland."
+    }
+  },
   "documentCheck": {
     "title": "Dokumentenprüfung",
     "subtitle": "Laden Sie ein Schreiben oder Dokument hoch — Sie erhalten in Sekunden eine Erklärung in Ihrer Sprache.",
