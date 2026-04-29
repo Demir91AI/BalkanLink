@@ -233,7 +233,7 @@ async function fileToCompressedBase64(file: File): Promise<{ base64: string; mim
   return { base64: compressed.split(",")[1], mimeType: "image/jpeg" };
 }
 
-/* ── Example document types ── */
+/* ── Example document types (endless marquee) ── */
 const DOC_EXAMPLE_KEYS = [
   { emoji: "📬", key: "letterFromFinanzamt" },
   { emoji: "🏠", key: "rentalContract" },
@@ -241,6 +241,18 @@ const DOC_EXAMPLE_KEYS = [
   { emoji: "🏥", key: "insuranceLetter" },
   { emoji: "⚠️", key: "mahnung" },
   { emoji: "📋", key: "jobcenterDecision" },
+  { emoji: "👶", key: "kindergeldNotice" },
+  { emoji: "🍼", key: "elterngeldNotice" },
+  { emoji: "💊", key: "krankenkasseLetter" },
+  { emoji: "👴", key: "rentenversicherung" },
+  { emoji: "📊", key: "schufaReport" },
+  { emoji: "💶", key: "lohnabrechnung" },
+  { emoji: "🧾", key: "steuerbescheid" },
+  { emoji: "✋", key: "kuendigung" },
+  { emoji: "💼", key: "arbeitsvertrag" },
+  { emoji: "🔥", key: "nebenkostenabrechnung" },
+  { emoji: "🚗", key: "bussgeld" },
+  { emoji: "🎓", key: "anerkennungBescheid" },
 ] as const;
 
 export default function DokumentenCheck() {
@@ -423,31 +435,23 @@ export default function DokumentenCheck() {
             {t("documentCheck.subtitle")}
           </p>
 
-          {/* Document type examples — horizontal scroll */}
-          <div className="mt-5 flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
-            {DOC_EXAMPLE_KEYS.map((ex) => (
-              <span key={ex.key} className="shrink-0 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-1.5 text-xs font-medium text-primary-foreground whitespace-nowrap">
-                {ex.emoji} {t(`documentCheck.examples.${ex.key}`)}
-              </span>
-            ))}
-          </div>
-
-          {/* What you get */}
-          <div className="mt-6 space-y-2">
-            <p className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider">{t("documentCheck.whatYouGet.label")}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-              {[
-                "translation",
-                "whatIsAsked",
-                "urgency",
-                "nextStep",
-                "institutions",
-                "warning",
-              ].map((key) => (
-                <div key={key} className="flex items-start gap-1.5 text-xs text-primary-foreground/80">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
-                  <span>{t(`documentCheck.whatYouGet.items.${key}`)}</span>
-                </div>
+          {/* Document type examples — endless marquee */}
+          <div
+            className="mt-6 relative overflow-hidden -mx-4 px-0"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            }}
+            aria-label={t("documentCheck.examples.letterFromFinanzamt") + ", …"}
+          >
+            <div className="flex gap-2 w-max animate-marquee">
+              {[...DOC_EXAMPLE_KEYS, ...DOC_EXAMPLE_KEYS].map((ex, i) => (
+                <span
+                  key={`${ex.key}-${i}`}
+                  className="shrink-0 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-1.5 text-xs font-medium text-primary-foreground whitespace-nowrap"
+                >
+                  {ex.emoji} {t(`documentCheck.examples.${ex.key}`)}
+                </span>
               ))}
             </div>
           </div>
