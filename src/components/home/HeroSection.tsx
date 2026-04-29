@@ -485,6 +485,23 @@ export default function HeroSection() {
                 </div>
               </div>
             </form>
+            {/* Micro-meta row under bar */}
+            <div className="mt-2.5 flex items-center justify-center gap-4 text-[10.5px] font-medium text-white/45">
+              <span className="inline-flex items-center gap-1.5">
+                <kbd
+                  className="inline-flex h-[18px] items-center rounded-[5px] border border-white/15 bg-white/[0.06] px-1.5 text-[9px] font-bold tracking-wider text-white/70"
+                  style={{ boxShadow: "inset 0 -1px 0 rgba(0,0,0,0.4)" }}
+                >
+                  ↵ Enter
+                </kbd>
+                <span>{t("home.assistantCta.enterHint")}</span>
+              </span>
+              <span aria-hidden className="h-1 w-1 rounded-full bg-white/25" />
+              <span className="inline-flex items-center gap-1.5">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_hsla(150,80%,60%,0.7)]" />
+                {t("home.assistantCta.freeHint")}
+              </span>
+            </div>
           </motion.div>
         </div>
       </div>
