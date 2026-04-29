@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,11 +26,6 @@ export default function WhatIsBalkanLink() {
   const [showFab, setShowFab] = useState(true);
   const href = useLocalizedHref();
   const location = useLocation();
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ container: scrollRef });
-  const progressX = useSpring(scrollYProgress, { stiffness: 120, damping: 22, mass: 0.4 });
-  const orbY1 = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const orbY2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   const hidden =
     location.pathname.includes("/admin") ||
