@@ -384,5 +384,41 @@
     "chatQueries": "Asistent upita danas",
     "docsChecked": "dokumenata danas",
     "newUsersToday": "novih danas"
+  },
+  "onboarding": {
+    "welcomeMsg": "Bok! Dobrodošao na BalkanLink 👋 Da ti napravim osobni plan? Odgovori na 3 brza pitanja.",
+    "q1": {
+      "question": "Jesi li tek došao u Njemačku?",
+      "optNew": "Tek sam došao (manje od 6 mj)",
+      "optEstablished": "Živim već dulje",
+      "optAbroad": "Još sam u matičnoj zemlji"
+    },
+    "q2": {
+      "question": "Imaš li djece?",
+      "opt1": "Da, jedno",
+      "opt2": "Da, dvoje ili više",
+      "opt0": "Nemam djece"
+    },
+    "q3": {
+      "question": "Radiš li već u Njemačkoj?",
+      "optEmployed": "Da, radim",
+      "optSeeking": "Tražim posao",
+      "optStudent": "Student sam",
+      "optUnemployed": "Trenutno ne radim"
+    },
+    "plan": {
+      "title": "✅ Tvoj osobni plan za Njemačku:",
+      "urgent": "🔴 HITNO (rok 14 dana):",
+      "thisWeek": "🟡 OVAJ TJEDAN:",
+      "dontForget": "🟢 NE ZABORAVI (možeš dobiti novac!):",
+      "anmeldung": "Anmeldung — prijava adrese u Bürgeramtu",
+      "steuerId": "Steuer-ID — stiže poštom automatski nakon Anmeldunga",
+      "krankenkasse": "Krankenkasse — javi poslodavcu koji odabireš",
+      "kindergeldOne": "Kindergeld — {{kg}}€/mj za 1 dijete!",
+      "kindergeldMany": "Kindergeld — {{kg}}€/mj za {{count}}+ djece!",
+      "elterngeld": "Elterngeld — ako je dijete mlađe od 14 mj",
+      "buergergeld": "Bürgergeld — 563€/mj + troškovi stana dok tražiš posao",
+      "estimate": "💡 Na temelju tvog profila možeš dobiti procijenjeno **{{amount}}€+** godišnje u naknadama koje mnogi propuste!"
+    }
   }
 }
