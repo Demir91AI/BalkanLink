@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import {
   FileText,
   Shield,
@@ -44,32 +43,21 @@ export default function MobileBottomNav() {
     { icon: Receipt, label: t("mobileNav.nebenkosten"), path: "/nebenkosten-scan" },
   ];
 
-  // Rotation: each side shows 2 items at a time (top + bottom row).
-  // Cycle through 2 pairs per side every 5 seconds.
-  const [pairIdx, setPairIdx] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setPairIdx((i) => (i + 1) % 2), 5000);
-    return () => clearInterval(id);
-  }, []);
-
-  const leftPair: [Item, Item] = pairIdx === 0 ? [left[0], left[1]] : [left[2], left[3]];
-  const rightPair: [Item, Item] = pairIdx === 0 ? [right[0], right[1]] : [right[2], right[3]];
-
   const stripped = location.pathname.replace(/^\/(de|hr|sr)(?=\/|$)/, "") || "/";
   const isActive = (path: string) => {
     if (path === "/") return stripped === "/";
     return stripped === path || stripped.startsWith(path + "/");
   };
 
-  const renderTab = (item: Item, key: string) => {
+  const renderTab = (item: Item) => {
     const active = isActive(item.path);
     const Icon = item.icon;
     return (
       <button
-        key={key}
+        key={item.label}
         onClick={() => navigate(item.path)}
-        className="flex flex-col items-center justify-center gap-0.5 animate-fade-in active:scale-95 transition-all duration-150"
-        style={{ width: 72, height: 36 }}
+        className="flex flex-col items-center justify-center gap-0.5 active:scale-95 transition-all duration-150"
+        style={{ width: 60, height: 38 }}
         aria-label={item.label}
       >
         <Icon
@@ -81,7 +69,7 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[8.5px] leading-tight w-full text-center truncate transition-all px-0.5"
+          className="text-[8px] leading-tight w-full text-center truncate transition-all px-0.5"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
             fontWeight: active ? 700 : 500,
@@ -109,17 +97,16 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="relative h-[88px] flex items-center justify-between px-2">
-        {/* LEFT: 2 rows × 1 visible item, rotating */}
-        <div className="flex flex-col items-center gap-1">
-          {renderTab(leftPair[0], `L0-${pairIdx}`)}
-          {renderTab(leftPair[1], `L1-${pairIdx}`)}
+      <div className="relative h-[96px] flex items-center justify-between px-1.5 gap-1">
+        {/* LEFT: 2x2 grid (2 columns × 2 rows) */}
+        <div className="grid grid-cols-2 gap-x-0.5 gap-y-1">
+          {left.map(renderTab)}
         </div>
 
         {/* CENTER: fixed Home button */}
         <button
           onClick={() => navigate("/")}
-          className="flex flex-col items-center active:scale-95 transition-transform"
+          className="flex flex-col items-center active:scale-95 transition-transform shrink-0"
           aria-label={t("mobileNav.home")}
         >
           <span
@@ -153,10 +140,9 @@ export default function MobileBottomNav() {
           </span>
         </button>
 
-        {/* RIGHT: 2 rows × 1 visible item, rotating */}
-        <div className="flex flex-col items-center gap-1">
-          {renderTab(rightPair[0], `R0-${pairIdx}`)}
-          {renderTab(rightPair[1], `R1-${pairIdx}`)}
+        {/* RIGHT: 2x2 grid (2 columns × 2 rows) */}
+        <div className="grid grid-cols-2 gap-x-0.5 gap-y-1">
+          {right.map(renderTab)}
         </div>
       </div>
     </nav>
