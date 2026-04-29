@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { FileText, Globe, Sparkles, User, Tag, Home, Calculator } from "lucide-react";
+import { FileText, Globe, User, Tag, Home, Calculator, BookOpen } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
