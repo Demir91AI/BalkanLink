@@ -4,6 +4,7 @@ import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from "l
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { BLIcon } from "@/components/BrandLogo";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const slides = [
   { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
