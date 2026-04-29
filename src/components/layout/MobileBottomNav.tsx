@@ -106,11 +106,11 @@ export default function MobileBottomNav() {
         key={`${side}-${setIdx}-${idx}`}
         onClick={() => navigate(item.path)}
         className="flex flex-col items-center justify-center gap-[1px] active:scale-95 transition-all duration-150 animate-fade-in"
-        style={{ width: 54, height: 32 }}
+        style={{ width: 40, height: 30 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[14px] w-[14px] transition-all"
+          className="h-[13px] w-[13px] transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
@@ -118,7 +118,7 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[7.5px] leading-tight w-full text-center truncate transition-all"
+          className="text-[6.5px] leading-tight w-full text-center truncate transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
             fontWeight: active ? 700 : 500,
@@ -146,9 +146,9 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="relative h-[80px] flex items-center justify-between px-2 gap-1.5">
-        {/* LEFT: 2x2 grid */}
-        <div className="grid grid-cols-2 gap-x-1 gap-y-0.5">
+      <div className="relative h-[112px] flex items-center justify-between px-1.5 gap-1">
+        {/* LEFT: 3x3 grid */}
+        <div className="grid grid-cols-3 gap-x-0.5 gap-y-0.5">
           {left.map((it, i) => renderTab(it, i, "L"))}
         </div>
 
