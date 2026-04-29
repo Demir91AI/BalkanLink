@@ -269,22 +269,8 @@ export default function HeroSection() {
           >
             {/* Unified Asistent block: label tab + bar feel like one piece */}
             <div className="relative flex flex-col items-center">
-              {/* Label "tab" — sits on top of bar, shares border/background */}
-              <div
-                className="relative z-10 -mb-3 inline-flex items-center gap-3 rounded-t-[16px] px-7 pt-2.5 pb-5"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(22,30,52,0.18) 0%, rgba(15,20,38,0.18) 100%)",
-                  borderTop: "1px solid hsla(43,70%,55%,0.35)",
-                  borderLeft: "1px solid hsla(43,70%,55%,0.20)",
-                  borderRight: "1px solid hsla(43,70%,55%,0.20)",
-                  borderBottom: "none",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                  boxShadow:
-                    "0 -10px 36px -8px hsla(43,70%,55%,0.45), inset 0 1px 0 rgba(255,255,255,0.10)",
-                }}
-              >
+              {/* Floating brand label — no box, just glowing text above bar */}
+              <div className="relative z-10 mb-2 inline-flex items-center gap-2.5">
                 <Sparkles
                   className="h-[18px] w-[18px] text-[hsl(var(--gold))]"
                   style={{
@@ -302,7 +288,7 @@ export default function HeroSection() {
                     backgroundClip: "text",
                     color: "transparent",
                     animation: "blChipShine 5s ease-in-out infinite",
-                    textShadow: "0 0 28px hsla(43,70%,55%,0.35)",
+                    textShadow: "0 0 28px hsla(43,70%,55%,0.45)",
                   }}
                 >
                   BalkanLink Asistent
