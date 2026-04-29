@@ -356,7 +356,16 @@ export default function HeroSection() {
                     {/* Typewriter placeholder (only when input is empty) */}
                     {askValue.length === 0 && (
                       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center text-[15px] text-white/55">
-                        <span>{typed}</span>
+                        <span
+                          key={phraseKey}
+                          className="inline-flex items-center transition-all duration-300 ease-out"
+                          style={{
+                            opacity: phraseVisible ? 1 : 0,
+                            transform: phraseVisible ? "translateY(0)" : "translateY(-6px)",
+                          }}
+                        >
+                          {typed}
+                        </span>
                         <span
                           aria-hidden
                           className="ml-0.5 inline-block h-[1.05em] w-[2px] bg-[hsl(var(--gold))]"
