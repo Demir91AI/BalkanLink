@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback, useMemo, useEffect } from "react";
-import { FileText, Upload, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Crown, ChevronDown, Plus, Info } from "lucide-react";
+import { FileText, Upload, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Crown, ChevronDown, Plus, Info, Camera } from "lucide-react";
 import AuthGate from "@/components/AuthGate";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { motion } from "framer-motion";
@@ -265,6 +265,7 @@ export default function DokumentenCheck() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
   const [creditCount, setCreditCount] = useState<number>(0);
@@ -542,20 +543,44 @@ export default function DokumentenCheck() {
               </div>
 
               <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
+                {/* Glavni dropzone — samo file picker, BEZ capture (rješava Android/PWA bug) */}
                 <label className="relative flex flex-col items-center justify-center min-h-[160px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
                   <input
                     type="file"
                     multiple
-                    accept=".pdf,.jpg,.jpeg,.png,image/*"
-                    capture="environment"
+                    accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
                     ref={fileInputRef}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     onChange={(e) => addFiles(e.target.files)}
                   />
                   <Upload className="h-10 w-10 text-[hsl(var(--gold))] mb-2" />
-                  <strong className="text-base">{t("documentCheck.upload.label")}</strong>
+                  <strong className="text-base">{t("documentCheck.upload.chooseFile")}</strong>
                   <span className="text-sm text-muted-foreground mt-1">{t("documentCheck.upload.hint")}</span>
                 </label>
+
+                {/* Posebno dugme za kameru — single shot, capture=environment radi pouzdano */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 h-px bg-border" />
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">{t("documentCheck.upload.or")}</span>
+                  <div className="flex-1 h-px bg-border" />
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => cameraInputRef.current?.click()}
+                  className="flex items-center justify-center gap-2 w-full min-h-[56px] rounded-xl border-2 border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/5 transition-colors px-4 py-3 font-semibold text-foreground"
+                >
+                  <Camera className="h-5 w-5 text-[hsl(var(--gold))]" />
+                  {t("documentCheck.upload.takePhoto")}
+                </button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  ref={cameraInputRef}
+                  className="hidden"
+                  onChange={(e) => { addFiles(e.target.files); if (cameraInputRef.current) cameraInputRef.current.value = ""; }}
+                />
 
                 <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
                   <Lock className="h-3 w-3" />
