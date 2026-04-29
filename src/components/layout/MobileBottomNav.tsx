@@ -141,6 +141,27 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
+      {/* Pager dots — tap to switch sets manually */}
+      <div className="absolute top-1 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        {[0, 1].map((i) => (
+          <button
+            key={i}
+            onClick={() => {
+              setSetIdx(i);
+              setManualPausedAt(Date.now());
+            }}
+            aria-label={`Set ${i + 1}`}
+            className="rounded-full transition-all"
+            style={{
+              width: setIdx === i ? 14 : 6,
+              height: 4,
+              background:
+                setIdx === i ? "#C9A84C" : "rgba(255,255,255,0.35)",
+            }}
+          />
+        ))}
+      </div>
+
       <div className="relative h-[68px] flex items-center justify-between px-1 gap-0.5">
         {/* LEFT: 3 in a row — swipeable */}
         <div
