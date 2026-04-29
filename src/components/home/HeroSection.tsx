@@ -25,12 +25,31 @@ export default function HeroSection() {
   const navigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
   const btnRef = useRef<HTMLButtonElement>(null);
+  const [askValue, setAskValue] = useState("");
+  const [placeholderIdx, setPlaceholderIdx] = useState(0);
 
   const trustBadges = [
     t("home.trustBadges.officialSources"),
     t("home.trustBadges.updated"),
     t("home.trustBadges.stepByStep"),
   ];
+
+  const askPlaceholders = t("home.assistantCta.examples", { returnObjects: true }) as string[];
+
+  // Rotate placeholder examples
+  useEffect(() => {
+    if (!Array.isArray(askPlaceholders) || askPlaceholders.length < 2) return;
+    const id = setInterval(() => {
+      setPlaceholderIdx((i) => (i + 1) % askPlaceholders.length);
+    }, 2800);
+    return () => clearInterval(id);
+  }, [askPlaceholders]);
+
+  const submitAsk = (prefill?: string) => {
+    const value = (prefill ?? askValue).trim();
+    window.dispatchEvent(new CustomEvent("open-assistant", { detail: { prefill: value || undefined } }));
+    setAskValue("");
+  };
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
