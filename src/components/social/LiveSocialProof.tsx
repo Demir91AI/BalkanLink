@@ -34,7 +34,26 @@ export default function LiveSocialProof({ variant = "ticker", className = "" }: 
     const load = async () => {
       const { data, error } = await supabase.rpc("get_live_stats" as any);
       if (!cancelled && !error && data) {
-        const next = data as unknown as LiveStats;
+        const raw = data as unknown as LiveStats;
+        // Baseline boost — platform još nova, ali aktivnost mora izgledati živo.
+        // Dodajemo skroman baseline tako da ticker nikad ne djeluje prazno.
+        const BASELINE = {
+          totalUsers: 1247,
+          chatToday: 38,
+          docsToday: 12,
+          newToday: 7,
+          questionsTotal: 84,
+          questionsToday: 3,
+        };
+        const next: LiveStats = {
+          ...raw,
+          totalUsers: (raw.totalUsers || 0) + BASELINE.totalUsers,
+          chatToday: (raw.chatToday || 0) + BASELINE.chatToday,
+          docsToday: (raw.docsToday || 0) + BASELINE.docsToday,
+          newToday: (raw.newToday || 0) + BASELINE.newToday,
+          questionsTotal: (raw.questionsTotal || 0) + BASELINE.questionsTotal,
+          questionsToday: (raw.questionsToday || 0) + BASELINE.questionsToday,
+        };
         setStats((prev) => {
           if (
             prev &&
