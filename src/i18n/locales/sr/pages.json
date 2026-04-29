@@ -13,9 +13,18 @@
       "stepByStep": "Korak-po-korak vodiči"
     },
     "assistantCta": {
-      "badge": "BalkanLink Asistent",
-      "title": "Pitaj na svom jeziku — odgovor odmah",
-      "subtitle": "Formulari, rokovi, prava — bez čekanja u redu"
+      "badge": "BalkanLink Asistent · Online",
+      "title": "Pitaj asistenta",
+      "subtitle": "Odgovor odmah, na tvom jeziku",
+      "prompt": "Pitaj npr.",
+      "send": "Pošalji pitanje",
+      "examples": [
+        "Kako da prijavim adresu (Anmeldung)?",
+        "Šta je Steuer-ID i kako ga dobijam?",
+        "Koja poreska klasa je za bračni par?",
+        "Da li mi treba krankenversicherung odmah?",
+        "Kako da se prijavim za Kindergeld?"
+      ]
     },
     "servicesTitle": "Naši servisi",
     "partnersTitle": "Naši partneri",
