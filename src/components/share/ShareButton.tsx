@@ -229,7 +229,7 @@ export default function ShareButton({
                   className="flex items-center gap-2.5 bg-[#0b1224] px-3 py-2.5 text-[12.5px] text-white/90 transition-colors hover:bg-white/[0.06]"
                   onClick={() => setOpen(false)}
                 >
-                  <span className={cn("flex h-7 w-7 items-center justify-center rounded-full", ch.bg, ch.fg)}>
+                  <span className={cn("flex h-8 w-8 items-center justify-center rounded-full shadow-sm", ch.bg, ch.fg)}>
                     {ch.icon}
                   </span>
                   <span className="font-medium truncate">{ch.label}</span>
@@ -243,7 +243,7 @@ export default function ShareButton({
                   }}
                   className="flex items-center gap-2.5 bg-[#0b1224] px-3 py-2.5 text-left text-[12.5px] text-white/90 transition-colors hover:bg-white/[0.06]"
                 >
-                  <span className={cn("flex h-7 w-7 items-center justify-center rounded-full", ch.bg, ch.fg)}>
+                  <span className={cn("flex h-8 w-8 items-center justify-center rounded-full shadow-sm", ch.bg, ch.fg)}>
                     {ch.icon}
                   </span>
                   <span className="font-medium truncate">{ch.label}</span>
