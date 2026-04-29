@@ -294,10 +294,8 @@ export default function FlowBanner() {
         ))}
       </div>
 
-      {/* CTA removed — overlapped partner cards above */}
 
-      {/* Bottom edge fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[hsl(220,55%,5%)] to-transparent pointer-events-none" />
+
     </section>
   );
 }
