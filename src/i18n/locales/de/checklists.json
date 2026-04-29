@@ -1,0 +1,381 @@
+{
+  "hub": {
+    "seo": {
+      "title": "Premium Checklisten — alle deutschen Behördengänge | BalkanLink",
+      "description": "Detaillierte PDF-Checklisten für Kindergeld, Bürgergeld, Wohngeld, Elterngeld, Anerkennung, Einbürgerung, Steuererklärung und Anmeldung."
+    },
+    "title": "Premium Checklisten",
+    "subtitle": "Alles was du für einen deutschen Behördengang brauchst — Dokumente, Schritte, Fristen, Fehler und Tipps. Druckbar als PDF.",
+    "badge": "Stand 2026",
+    "freeBadge": "Kostenlos",
+    "premiumBadge": "Premium",
+    "ctaOpen": "Checkliste öffnen",
+    "stats": {
+      "documents": "{{count}} Dokumente",
+      "steps": "{{count}} Schritte",
+      "deadlines": "{{count}} Fristen"
+    },
+    "footerNote": "Alle Checklisten sind Stand 2026 und auf die Diaspora abgestimmt. Sie ersetzen keine Rechtsberatung."
+  },
+  "ui": {
+    "documents": "Dokumente vorbereiten",
+    "steps": "Schritt-für-Schritt-Verfahren",
+    "deadlines": "Fristen und Zeitrahmen",
+    "warnings": "Häufige Fehler und Fallen",
+    "tips": "Profi-Tipps",
+    "officialLink": "Offizielle Seite",
+    "downloadPdf": "PDF herunterladen",
+    "print": "Drucken",
+    "progress": "{{done}} von {{total}} erledigt",
+    "reset": "Zurücksetzen",
+    "checklistSaved": "Dein Fortschritt wird automatisch in diesem Browser gespeichert.",
+    "backToHub": "Alle Checklisten",
+    "premiumGate": {
+      "title": "Premium-Checkliste",
+      "body": "Schließe ein Abo ab, um alle Checklisten mit kompletten Dokumenten, Schritten, Fristen und Tipps freizuschalten.",
+      "cta": "Premium werden",
+      "ctaLogin": "Anmelden",
+      "preview": "Vorschau"
+    },
+    "disclaimer": "Diese Checkliste ist eine informative Hilfe. Stand 2026. Keine Rechtsberatung — bitte vor Antragstellung immer die offizielle Seite prüfen."
+  },
+  "kindergeld": {
+    "title": "Kindergeld",
+    "subtitle": "255 €/Monat pro Kind. Diese Checkliste führt dich durch die Vorbereitung, Dokumente und Antragstellung bei der Familienkasse.",
+    "documents": [
+      "Geburtsurkunde des Kindes — Original + deutsche Übersetzung bei Ausstellung im Ausland",
+      "Aufenthaltstitel oder EU-Personalausweis",
+      "Steuer-ID für dich und jedes Kind (kommt per Post nach der Anmeldung)",
+      "IBAN (deutsches Konto, lautend auf den Antragsteller)",
+      "Anmeldebestätigung — Wohnsitzbescheinigung",
+      "Heiratsurkunde — bei verheirateten Antragstellern (deutsche Übersetzung)",
+      "Schulbescheinigung — für Kinder über 6 Jahre",
+      "Haushaltsbescheinigung wenn das Kind beim anderen Elternteil lebt"
+    ],
+    "steps": [
+      "Öffne das KG1-Formular auf arbeitsagentur.de oder nutze BalkanLinks Musterformular",
+      "Fülle die Anlage Kind für jedes Kind separat aus",
+      "Scanne alle Dokumente als PDF (max. 10 MB pro Datei)",
+      "Reiche online ein über das Familienkasse-Direkt-Portal (ELSTER oder BundID erforderlich)",
+      "Alternative: per Post an die zuständige Familienkasse senden",
+      "Warte 4–8 Wochen auf den Bescheid — Auszahlung rückwirkend bis 6 Monate"
+    ],
+    "deadlines": [
+      "Antrag rückwirkend nur 6 Monate möglich — nicht warten!",
+      "Bei Geburt eines Kindes innerhalb von 6 Monaten beantragen",
+      "Adresse, Konto oder Schulwechsel innerhalb von 30 Tagen melden"
+    ],
+    "warnings": [
+      "Keine Originale per Post senden — immer beglaubigte Kopien",
+      "Übersetzungen MÜSSEN von einem in Deutschland vereidigten Übersetzer stammen",
+      "Steuer-ID des Kindes ist Pflicht — ohne keine Auszahlung",
+      "Wenn beide Elternteile in zwei EU-Ländern arbeiten, zuerst Zuständigkeit prüfen",
+      "Konto MUSS auf den Antragsteller lauten, nicht auf den Partner"
+    ],
+    "tips": [
+      "Online einreichen — 2–3 Wochen schneller als per Post",
+      "Alle Dokumente VOR dem Ausfüllen sammeln",
+      "Kopie des gesamten Antrags als PDF archivieren",
+      "Bei Ablehnung 1 Monat Zeit für Widerspruch — nutze unsere Vorlage"
+    ]
+  },
+  "buergergeld": {
+    "title": "Bürgergeld",
+    "subtitle": "563 €/Monat für Alleinstehende + Miete + Heizung. Hilfe für Arbeitslose und Geringverdiener.",
+    "documents": [
+      "Personalausweis oder Reisepass + Aufenthalt (für Nicht-EU)",
+      "Anmeldebestätigung",
+      "Kontoauszüge der letzten 3 Monate (alle Konten)",
+      "Mietvertrag + letzte Nebenkostenabrechnung",
+      "Rechnungen für Heizung, Strom, Gas",
+      "Einkommensnachweise (Lohn, Unterhalt, Rente) — Lohnabrechnungen",
+      "Vermögensnachweise (Auto, Immobilien, Sparguthaben über 15.000 €)",
+      "Krankenversicherungskarte",
+      "Kündigungsschreiben bei Jobverlust",
+      "Steuer-ID und IBAN"
+    ],
+    "steps": [
+      "Online über jobcenter.digital oder beim lokalen Jobcenter beantragen",
+      "Du erhältst Hauptantrag + mehrere Anlagen (KdU, EK, VM, KI...)",
+      "Alle Formulare ausfüllen — nutze unser Bürgergeld-Musterformular als Leitfaden",
+      "Termin im Jobcenter vereinbaren — erstes Gespräch oft Pflicht",
+      "Alle Dokumente im Original + Kopien mitbringen",
+      "Eingliederungsvereinbarung unterschreiben",
+      "Bescheid abwarten — Auszahlung innerhalb von 14 Tagen wenn alles passt"
+    ],
+    "deadlines": [
+      "Antrag SOFORT bei Jobverlust stellen — Anspruch ab Tag der Antragstellung",
+      "Veränderungen (neuer Job, Umzug) innerhalb 7 Tagen melden",
+      "Weiterbewilligung 6 Wochen vor Ablauf einreichen"
+    ],
+    "warnings": [
+      "Vermögen über Freibetrag (15.000 € pro Person) kann Auszahlung blockieren",
+      "Ablehnung eines zumutbaren Jobs ohne Grund — Sanktion bis 30%",
+      "Keine größeren Geldgeschäfte mit Verwandten 1 Monat vor Antrag (Schenkungsregel)",
+      "Miete muss im lokalen Rahmen liegen (Angemessenheit)",
+      "Termine im Jobcenter nicht versäumen — Sanktionen ab erstem Versäumnis",
+      "Auto über 15.000 € Wert — eventuell Verkaufspflicht"
+    ],
+    "tips": [
+      "Alle Dokumente schon zum ersten Termin bringen — spart 2–3 Wochen",
+      "Nach Mehrbedarf fragen bei Schwangerschaft, Alleinerziehende, Diabetes — 17–60% extra",
+      "Jeden Bescheid aufbewahren — kann Jahre später noch wichtig sein",
+      "Recht auf Bildungsgutschein für Umschulung — nutzen!"
+    ]
+  },
+  "wohngeld": {
+    "title": "Wohngeld",
+    "subtitle": "Mietzuschuss für Arbeitende, die kein Bürgergeld beziehen. Durchschnitt: 370 €/Monat.",
+    "documents": [
+      "Personalausweis + Aufenthalt",
+      "Mietvertrag — komplett",
+      "Letzte Nebenkostenabrechnung",
+      "Einkommensnachweise aller Haushaltsmitglieder (12 Monate Lohnabrechnungen)",
+      "Kontoauszüge der letzten 3 Monate",
+      "Geburtsurkunden der Kinder (deutsche Übersetzung)",
+      "Anmeldebestätigung",
+      "Heiratsurkunde oder Partnerschaftsnachweis",
+      "IBAN (deutsches Konto)"
+    ],
+    "steps": [
+      "Anspruch online prüfen (Wohngeldrechner der Stadt)",
+      "Wohngeldantrag von der Wohngeldstelle herunterladen",
+      "Formular ausfüllen — nutze unser Wohngeld-Musterformular",
+      "Alle Nachweise sortiert in einer Mappe sammeln",
+      "Persönlich bei der Wohngeldstelle oder per Post einreichen — manche Städte online",
+      "Bescheid in 6–12 Wochen; Zahlung rückwirkend ab Antragsmonat"
+    ],
+    "deadlines": [
+      "Wohngeld beginnt im Antragsmonat — nicht warten!",
+      "Weiterbewilligung 2 Monate vor Ablauf einreichen",
+      "Einkommensänderungen über 15% innerhalb 30 Tagen melden"
+    ],
+    "warnings": [
+      "Wohngeld und Bürgergeld schließen sich aus — eines wählen",
+      "Studierende mit BAföG haben kein Wohngeld (außer Ausnahmen)",
+      "Einkommenssteigerung nicht melden — Rückzahlung mit Zinsen",
+      "Es zählt Bruttoeinkommen minus 10/20/30% Pauschale",
+      "Umzug in teurere Wohnung — Anspruch evtl. weg"
+    ],
+    "tips": [
+      "Jährlich neu prüfen — Grenzen 2026 angehoben",
+      "Bei Ablehnung schriftliche Begründung verlangen, Widerspruch in 1 Monat",
+      "Wohngeld + Kindergeld + Kinderzuschlag kombinieren — alles prüfen",
+      "Persönliche Abgabe einfacher — Beamter zeigt Mängel sofort"
+    ]
+  },
+  "elterngeld": {
+    "title": "Elterngeld",
+    "subtitle": "300–1.800 €/Monat für Eltern in Elternzeit. Bis 14 Monate wenn beide Eltern teilnehmen.",
+    "documents": [
+      "Geburtsurkunde des Kindes (Original)",
+      "Bescheinigung über Mutterschutz (für Mütter)",
+      "Lohnabrechnungen der letzten 12 Monate vor Geburt",
+      "Steuerbescheid des Vorjahres (bei Selbständigkeit)",
+      "Krankenversicherungsnachweis",
+      "Bescheinigung Mutterschaftsgeld",
+      "Arbeitgeberbescheinigung über Elternzeit",
+      "Heiratsurkunde / Elternschaftsnachweis",
+      "IBAN und Steuer-ID"
+    ],
+    "steps": [
+      "Anspruch und Höhe online prüfen (familienportal.de)",
+      "Elterngeldantrag bei der zuständigen Elterngeldstelle herunterladen",
+      "Mit Partner abstimmen: wer welche Monate (Basiselterngeld vs. ElterngeldPlus)",
+      "Beide Eltern unterschreiben (auch wenn nur einer bezieht)",
+      "Mit allen Nachweisen einreichen — spätestens 3 Monate nach Geburt!",
+      "Bescheid in 6–10 Wochen; monatliche Auszahlung"
+    ],
+    "deadlines": [
+      "Antrag innerhalb 3 Monate nach Geburt für vollen Rückwirkungsbetrag",
+      "Mutterschutz 7 Wochen vor Geburtstermin anmelden",
+      "Planänderungen vor Beginn melden",
+      "Frist nicht mit Kindergeld verwechseln (KG = 6 Monate)"
+    ],
+    "warnings": [
+      "Über 32h/Woche während Elternzeit — Anspruch verloren",
+      "ElterngeldPlus nicht rückwirkend in Basiselterngeld umwandelbar",
+      "Bei weniger als 12 Monaten Beschäftigung in DE — pro rata",
+      "Außerehelich — Vaterschaftsanerkennung nötig",
+      "Selbständige: Steuerbescheid kann Monate dauern"
+    ],
+    "tips": [
+      "Monate klug aufteilen — Partnermonate verlängern auf 14",
+      "ElterngeldPlus doppelt so lang aber halb so viel — gut bei Teilzeit",
+      "Mutterschaftsgeld wird angerechnet — realistisch rechnen",
+      "Telefonische Beratung der Elterngeldstelle VOR Antrag — kostenlos"
+    ]
+  },
+  "anerkennung": {
+    "title": "Anerkennung ausländischer Abschlüsse",
+    "subtitle": "Verfahren zur Anerkennung ausländischer Bildung in Deutschland — von Dokumenten bis Bescheid.",
+    "documents": [
+      "Diplom/Zeugnis — Original + Apostille aus dem Herkunftsland",
+      "Notenübersicht mit Stundenzahl",
+      "Beglaubigte Übersetzung von einem in Deutschland vereidigten Übersetzer",
+      "Tabellarischer Lebenslauf auf Deutsch mit Daten",
+      "Personalausweis oder Reisepass + Aufenthalt",
+      "Berufserfahrungsnachweise (Arbeitszeugnisse)",
+      "Anerkennungsantrag der zuständigen Stelle (HWK/IHK/ZAB)",
+      "Deutschzertifikat (B2 Minimum bei reglementierten Berufen)",
+      "Praktikums-/Stagenachweis bei Pflichtberufen (z.B. Gesundheit)"
+    ],
+    "steps": [
+      "Zuständige Stelle bestimmen: ZAB (akademisch), HWK (Handwerk), IHK (Wirtschaft), Bezirksregierung (Gesundheit/Lehrer)",
+      "Reglementierten Beruf prüfen — anerkennung-in-deutschland.de",
+      "Alle Dokumente sammeln und vereidigt übersetzen lassen",
+      "Originale im Herkunftsland apostillieren (Gericht)",
+      "Antrag bei zuständiger Stelle einreichen + Gebühr (100–600 €)",
+      "Entscheidung in 3–6 Monaten — eventuell Auflage (Anpassung)",
+      "Bei Auflage: Anpassungslehrgang oder Kenntnisprüfung absolvieren"
+    ],
+    "deadlines": [
+      "Verfahren dauert 3–6 Monate — möglichst aus dem Herkunftsland starten",
+      "Auflagen meist 2 Jahre Zeit zur Erfüllung",
+      "Apostille gilt unbegrenzt, Übersetzung nicht älter als 6 Monate"
+    ],
+    "warnings": [
+      "Originale NICHT per Post ins Ausland — persönlich oder Kurier",
+      "Übersetzungen aus dem Herkunftsland NICHT anerkannt — vereidigter Übersetzer in DE",
+      "Apostille kommt aufs Original, nicht auf die Übersetzung",
+      "Ohne Anerkennung kein reglementierter Beruf (Medizin, Recht, Lehrer)",
+      "Bei nicht reglementierten Berufen Arbeit möglich, aber geringeres Gehalt",
+      "Anabin-Datenbank zeigt nur Orientierung — offizielle Entscheidung über zuständige Stelle"
+    ],
+    "tips": [
+      "Verfahren noch im Herkunftsland starten — Apostille und Übersetzungen günstiger",
+      "BalkanLink Anerkennung-Navigator — kostenlos durch das Verfahren",
+      "IQ Netzwerk im Bundesland — kostenlose Beratung",
+      "Mangelberufe (Medizin, IT) — oft beschleunigte Verfahren",
+      "Quittungen aufbewahren — manche Gebühren steuerlich absetzbar"
+    ]
+  },
+  "einbuergerung": {
+    "title": "Einbürgerung — Deutsche Staatsbürgerschaft",
+    "subtitle": "Seit 2024 reichen 5 Jahre Aufenthalt (3 mit Integration). Stand 2026 — doppelte Staatsbürgerschaft erlaubt.",
+    "documents": [
+      "Reisepass + Aufenthaltstitel (Niederlassungserlaubnis oder EU-Daueraufenthalt)",
+      "Anmeldebestätigung aller Adressen der letzten 5 Jahre",
+      "Einkommensnachweise — Lohnabrechnungen + Arbeitsvertrag (12 Monate)",
+      "Steuerbescheid des Vorjahres",
+      "Krankenversicherungsnachweis",
+      "Deutschzertifikat B1 (Goethe, telc, ÖSD)",
+      "Einbürgerungstest-Zertifikat (17+ von 33 Fragen)",
+      "Rentenversicherungsnachweis (60+ Monate)",
+      "Geburtsurkunde + Heiratsurkunde (deutsche Übersetzung)",
+      "Führungszeugnis aus dem Herkunftsland (max. 6 Monate alt)"
+    ],
+    "steps": [
+      "Voraussetzungen prüfen: 5 Jahre Aufenthalt (3 mit C1 + Ehrenamt)",
+      "Einbürgerungstest absolvieren — 33 Fragen, ab 17 richtig bestanden",
+      "Antrag bei der Einbürgerungsbehörde einreichen",
+      "Gebühr 255 € (Stand 2026) pro Person zahlen",
+      "Fingerabdrücke und Unterschrift abgeben — Biometrie",
+      "Bescheid in 6–24 Monaten (je nach Bundesland)",
+      "Einbürgerungsfeier besuchen — Urkunde und Pass erhalten"
+    ],
+    "deadlines": [
+      "Test zeitlich unbegrenzt gültig, Sprachzertifikat aktuell (max. 5 Jahre)",
+      "Führungszeugnis nicht älter als 6 Monate",
+      "Dokumente schrittweise sammeln — nicht auf den letzten Drücker"
+    ],
+    "warnings": [
+      "Vorstrafen können Verfahren blockieren — mit Anwalt klären",
+      "Bei Bürgergeldbezug — Voraussetzung Selbstunterhalt nicht erfüllt (Ausnahmen)",
+      "Adressänderung im Verfahren sofort melden — sonst Verzögerung",
+      "Hassrede, Extremismus — automatische Ablehnung",
+      "Nach 5 Jahren reicht 'kann kein Deutsch' nicht — B1-Nachweis Pflicht",
+      "Manche Bundesländer verlangen C1 für beschleunigtes Verfahren (3 Jahre)"
+    ],
+    "tips": [
+      "Einbürgerungstest auf bamf.de vorbereiten — kostenlose Übungsseiten",
+      "Lob vom Arbeitgeber, Ehrenamtsnachweis — hilft bei beschleunigtem Verfahren",
+      "Bei niedrigem Einkommen Gebührenermäßigung beantragen",
+      "Kinder unter 16 Jahren kostenlos mit den Eltern",
+      "Stand 2026: Verzicht auf alte Staatsbürgerschaft NICHT mehr nötig"
+    ]
+  },
+  "steuererklaerung": {
+    "title": "Steuererklärung",
+    "subtitle": "Frist 31.07.2027 für 2026. Durchschnittliche Erstattung: 1.095 €. Alles was du für ELSTER brauchst.",
+    "documents": [
+      "Lohnsteuerbescheinigung — Jahresübersicht vom Arbeitgeber",
+      "Kontoauszüge aller Konten (Zinsen)",
+      "Steuer-ID und Steuernummer",
+      "IBAN für Erstattung",
+      "Belege für Beruf (Homeoffice, Computer, Reisen, Kurse)",
+      "Belege für Gesundheit (Arzt, Medikamente über Freibetrag)",
+      "Spendenbescheinigungen",
+      "Handwerkerleistungen-Belege (20% Abzug)",
+      "Unterhaltsnachweise an Verwandte im Ausland",
+      "Eingangsbescheinigung Kindergarten (Kinderbetreuungskosten)"
+    ],
+    "steps": [
+      "ELSTER-Konto auf elster.de eröffnen — kostenlos (Aktivierungs-PIN per Post, 2 Wochen)",
+      "Neue Einkommensteuererklärung für 2026 starten",
+      "Mantelbogen + Anlage N (Arbeit) + weitere Anlagen je nach Situation ausfüllen",
+      "Alle Belege als Anhang hochladen (PDF, max. 5 MB pro Datei)",
+      "Berechnung prüfen — ELSTER zeigt erwartete Erstattung/Nachzahlung",
+      "Elektronisch absenden (digital signiert)"
+    ],
+    "deadlines": [
+      "Freiwillige Abgabe: 4 Jahre rückwirkend (bis 31.12.2030 für 2026)",
+      "Pflichtveranlagung (Aufforderung vom Finanzamt): 31.07.2027",
+      "Mit Steuerberater: bis 31.05.2028",
+      "Widerspruch gegen Steuerbescheid: 1 Monat nach Erhalt"
+    ],
+    "warnings": [
+      "Frist nicht versäumen wenn PFLICHT — Strafe min. 25 €/Monat Verzug",
+      "Werbungskostenpauschale 1.230 € — bei weniger keine Belege nötig",
+      "Beiträge für Rentenversicherung im Ausland werden NICHT abgezogen",
+      "Kindergeld nicht steuerpflichtig, aber beeinflusst Kinderfreibetrag-Berechnung",
+      "Lohn aus zwei EU-Ländern — DBA-Regeln (mit Berater klären)",
+      "Auslandseinkünfte MÜSSEN angegeben werden auch wenn dort versteuert"
+    ],
+    "tips": [
+      "Durchschnittliche Erstattung 1.095 € — lohnt sich auch ohne Berater",
+      "WISO Steuer oder Smartsteuer (35 €/Jahr) wenn ELSTER zu kompliziert",
+      "BalkanLink Tax Wizard zeigt kostenlos welche Anlagen nötig sind",
+      "Belege 10 Jahre aufbewahren — Finanzamt kann Nachweise verlangen",
+      "Doppelte Haushaltsführung — Wohnung im Ausland und Arbeit in DE, bis 12.000 € absetzbar"
+    ]
+  },
+  "anmeldung": {
+    "title": "Anmeldung — Wohnsitzanmeldung",
+    "subtitle": "Erster und wichtigster Schritt nach der Ankunft. Ohne Anmeldung keine Bank, keine Verträge, keine Krankenversicherung. Frist: 14 Tage!",
+    "documents": [
+      "Reisepass oder Personalausweis (alle Familienmitglieder)",
+      "Wohnungsgeberbestätigung — Bescheinigung des Vermieters (max. 14 Tage alt)",
+      "Mietvertrag — Kopie",
+      "Heiratsurkunde (mit Apostille + Übersetzung)",
+      "Geburtsurkunden der Kinder (mit Apostille + Übersetzung)",
+      "Anmeldeformular — ausgefüllt (von der Stadtseite)",
+      "Aufenthaltstitel für Nicht-EU-Bürger"
+    ],
+    "steps": [
+      "Termin im Bürgeramt sofort nach Ankunft buchen (online)",
+      "Anmeldeformular ausfüllen — nutze unser Anmeldung-Musterformular",
+      "Mit allen Dokumenten zum Termin (alle Familienmitglieder anwesend)",
+      "Dokumente abgeben — Beamter gibt sofort die Anmeldebestätigung",
+      "Steuer-ID kommt per Post in 2–3 Wochen"
+    ],
+    "deadlines": [
+      "FRIST: 14 Tage ab Einzug in die Wohnung (nicht ab Einreise!)",
+      "Adressänderung (Ummeldung) innerhalb 14 Tagen",
+      "Wohnungsgeberbestätigung NICHT älter als 14 Tage"
+    ],
+    "warnings": [
+      "Ohne Anmeldebestätigung KEINE Bank, KEINE Krankenversicherung, KEIN Job",
+      "Strafe für Versäumnis: bis 1.000 € (selten verhängt, aber rechtlich möglich)",
+      "Vermieter MUSS Wohnungsgeberbestätigung ausstellen — sonst Stadt melden",
+      "Falsche Anmeldung (z.B. bei Freunden) — strafbar",
+      "Termin im Bürgeramt 2–6 Wochen Wartezeit in Großstädten — sofort buchen"
+    ],
+    "tips": [
+      "Termine sind kostenlos — niemals Vermittler bezahlen",
+      "Originale + Kopien mitbringen — Beamter kann beides verlangen",
+      "Anmeldebestätigung für immer aufbewahren — wichtig für alle künftigen Verfahren",
+      "Bei fehlenden Deutschkenntnissen Recht auf Dolmetscher (selten angeboten, aber möglich)"
+    ]
+  }
+}
