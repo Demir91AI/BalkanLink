@@ -19,11 +19,14 @@
       "prompt": "Frag z. B.",
       "send": "Frage senden",
       "examples": [
-        "Wie melde ich meine Adresse an (Anmeldung)?",
-        "Was ist die Steuer-ID und wie bekomme ich sie?",
-        "Welche Steuerklasse für Ehepaare?",
-        "Brauche ich sofort eine Krankenversicherung?",
-        "Wie beantrage ich Kindergeld?"
+        "Wie melde ich meine Wohnung in Deutschland an?",
+        "Wie viel Netto bleibt von 2800€ Brutto in Klasse 1?",
+        "Habe ich Anspruch auf Bürgergeld als Neuankömmling?",
+        "Wie schreibe ich meinen Führerschein aus dem Balkan um?",
+        "Welche Steuerklasse ist nach der Heirat am besten?",
+        "Brauche ich private oder gesetzliche Krankenversicherung?",
+        "Wie kündige ich meinen Arbeitsvertrag richtig?",
+        "Wie viel Kindergeld bekomme ich für zwei Kinder?"
       ]
     },
     "servicesTitle": "Unsere Leistungen",
