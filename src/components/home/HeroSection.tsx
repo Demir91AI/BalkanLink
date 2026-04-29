@@ -265,35 +265,35 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.0, ease }}
-            className="mt-20 w-full max-w-xl"
+            className="mt-20 w-full max-w-3xl"
           >
             {/* Unified Asistent block: label tab + bar feel like one piece */}
             <div className="relative flex flex-col items-center">
               {/* Label "tab" — sits on top of bar, shares border/background */}
               <div
-                className="relative z-10 -mb-3 inline-flex items-center gap-2.5 rounded-t-[14px] px-5 pt-2 pb-4"
+                className="relative z-10 -mb-3 inline-flex items-center gap-3 rounded-t-[16px] px-7 pt-2.5 pb-5"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(22,30,52,0.92) 0%, rgba(15,20,38,0.92) 100%)",
-                  borderTop: "1px solid rgba(255,255,255,0.10)",
-                  borderLeft: "1px solid rgba(255,255,255,0.10)",
-                  borderRight: "1px solid rgba(255,255,255,0.10)",
+                    "linear-gradient(180deg, rgba(22,30,52,0.95) 0%, rgba(15,20,38,0.95) 100%)",
+                  borderTop: "1px solid hsla(43,70%,55%,0.35)",
+                  borderLeft: "1px solid hsla(43,70%,55%,0.20)",
+                  borderRight: "1px solid hsla(43,70%,55%,0.20)",
                   borderBottom: "none",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   boxShadow:
-                    "0 -8px 30px -10px hsla(43,70%,55%,0.25), inset 0 1px 0 rgba(255,255,255,0.08)",
+                    "0 -10px 36px -8px hsla(43,70%,55%,0.45), inset 0 1px 0 rgba(255,255,255,0.10)",
                 }}
               >
                 <Sparkles
-                  className="h-4 w-4 text-[hsl(var(--gold))]"
+                  className="h-[18px] w-[18px] text-[hsl(var(--gold))]"
                   style={{
-                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                    filter: "drop-shadow(0 0 8px hsla(43,70%,55%,0.8))",
                     animation: "blSparkleA 3.6s ease-in-out infinite",
                   }}
                 />
                 <h2
-                  className="text-[17px] font-extrabold tracking-[0.04em] sm:text-[18.5px]"
+                  className="text-[19px] font-extrabold tracking-[0.04em] sm:text-[21px]"
                   style={{
                     backgroundImage:
                       "linear-gradient(90deg, hsl(var(--gold-light)) 0%, #fff 35%, hsl(var(--gold)) 65%, hsl(var(--gold-light)) 100%)",
@@ -302,55 +302,55 @@ export default function HeroSection() {
                     backgroundClip: "text",
                     color: "transparent",
                     animation: "blChipShine 5s ease-in-out infinite",
-                    textShadow: "0 0 24px hsla(43,70%,55%,0.25)",
+                    textShadow: "0 0 28px hsla(43,70%,55%,0.35)",
                   }}
                 >
                   BalkanLink Asistent
                 </h2>
                 <Sparkles
-                  className="h-4 w-4 text-[hsl(var(--gold))]"
+                  className="h-[18px] w-[18px] text-[hsl(var(--gold))]"
                   style={{
-                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                    filter: "drop-shadow(0 0 8px hsla(43,70%,55%,0.8))",
                     animation: "blSparkleB 3.6s ease-in-out infinite",
                   }}
                 />
               </div>
 
-            {/* Ask bar — premium dual-glow */}
+            {/* Ask bar — premium dual-glow, full width */}
             <form
               onSubmit={(e) => { e.preventDefault(); submitAsk(); }}
-              className="group relative rounded-[20px] transition-all duration-300 focus-within:-translate-y-0.5"
+              className="group relative w-full rounded-[22px] transition-all duration-300 focus-within:-translate-y-0.5"
             >
               {/* Rotating conic gold ring (always-on subtle, intensifies on focus) */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -inset-[2px] rounded-[22px] opacity-60 blur-[6px] transition-opacity duration-500 group-hover:opacity-95 group-focus-within:opacity-100"
+                className="pointer-events-none absolute -inset-[2px] rounded-[24px] opacity-70 blur-[7px] transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100"
                 style={{
                   background:
-                    "conic-gradient(from var(--bl-angle, 0deg), hsla(43,70%,55%,0.0) 0deg, hsla(43,70%,55%,0.75) 60deg, hsla(220,80%,60%,0.0) 140deg, hsla(43,70%,55%,0.0) 220deg, hsla(43,70%,55%,0.75) 300deg, hsla(43,70%,55%,0.0) 360deg)",
+                    "conic-gradient(from var(--bl-angle, 0deg), hsla(43,70%,55%,0.0) 0deg, hsla(43,70%,55%,0.85) 60deg, hsla(220,80%,60%,0.0) 140deg, hsla(43,70%,55%,0.0) 220deg, hsla(43,70%,55%,0.85) 300deg, hsla(43,70%,55%,0.0) 360deg)",
                   animation: "blRingSpin 7s linear infinite",
                 }}
               />
               {/* Soft outer halo */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -inset-[10px] rounded-[28px] opacity-40 blur-2xl transition-opacity duration-500 group-focus-within:opacity-70"
+                className="pointer-events-none absolute -inset-[14px] rounded-[32px] opacity-50 blur-2xl transition-opacity duration-500 group-focus-within:opacity-80"
                 style={{
                   background:
-                    "radial-gradient(60% 60% at 50% 50%, hsla(43,70%,55%,0.35) 0%, hsla(43,70%,55%,0) 70%)",
+                    "radial-gradient(60% 60% at 50% 50%, hsla(43,70%,55%,0.45) 0%, hsla(43,70%,55%,0) 70%)",
                 }}
               />
               {/* Bar surface */}
               <div
-                className="relative overflow-hidden rounded-[18px]"
+                className="relative overflow-hidden rounded-[20px]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(22,30,52,0.92) 0%, rgba(8,12,24,0.92) 100%)",
-                  border: "1px solid rgba(255,255,255,0.10)",
+                    "linear-gradient(135deg, rgba(22,30,52,0.95) 0%, rgba(8,12,24,0.95) 100%)",
+                  border: "1px solid hsla(43,70%,55%,0.25)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
                   boxShadow:
-                    "0 22px 70px -22px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.08)",
+                    "0 30px 90px -25px rgba(0,0,0,0.95), 0 0 60px -20px hsla(43,70%,55%,0.35), inset 0 1px 0 rgba(255,255,255,0.10)",
                 }}
               >
                 {/* Continuous slow sheen sweep */}
@@ -359,7 +359,7 @@ export default function HeroSection() {
                   className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 skew-x-12"
                   style={{
                     background:
-                      "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)",
+                      "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)",
                     animation: "blSheen 5.5s ease-in-out infinite",
                   }}
                 />
@@ -369,32 +369,32 @@ export default function HeroSection() {
                   className="pointer-events-none absolute inset-x-3 top-0 h-px"
                   style={{
                     background:
-                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)",
+                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent)",
                   }}
                 />
 
-                <div className="relative flex items-center gap-2.5 p-2 sm:gap-3 sm:p-2.5">
+                <div className="relative flex items-center gap-3 p-2.5 sm:gap-3.5 sm:p-3">
                   {/* Brand avatar — real BL logo with pulsing gold ring */}
-                  <span className="relative flex h-11 w-11 shrink-0 items-center justify-center">
+                  <span className="relative flex h-12 w-12 sm:h-[52px] sm:w-[52px] shrink-0 items-center justify-center">
                     <span
                       aria-hidden
-                      className="absolute inset-0 rounded-xl opacity-70"
+                      className="absolute inset-0 rounded-xl opacity-80"
                       style={{
                         background:
-                          "linear-gradient(135deg, hsla(43,70%,55%,0.35), hsla(43,70%,55%,0.05))",
+                          "linear-gradient(135deg, hsla(43,70%,55%,0.45), hsla(43,70%,55%,0.05))",
                         animation: "blAvatarPulse 3.2s ease-in-out infinite",
                       }}
                     />
                     <span
-                      className="relative flex h-11 w-11 items-center justify-center rounded-xl ring-1 ring-[hsla(43,70%,55%,0.35)]"
+                      className="relative flex h-12 w-12 sm:h-[52px] sm:w-[52px] items-center justify-center rounded-xl ring-1 ring-[hsla(43,70%,55%,0.45)]"
                       style={{
                         boxShadow:
-                          "0 6px 22px -6px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.10)",
+                          "0 8px 26px -6px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.12)",
                         background:
                           "linear-gradient(135deg, rgba(20,28,48,0.9), rgba(8,12,24,0.9))",
                       }}
                     >
-                      <BLIcon size={36} />
+                      <BLIcon size={40} />
                     </span>
                   </span>
 
@@ -408,11 +408,11 @@ export default function HeroSection() {
                       onBlur={() => setAskFocused(false)}
                       placeholder=" "
                       aria-label={t("home.assistantCta.title")}
-                      className="peer w-full bg-transparent py-2.5 pr-1 text-[14px] sm:text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
+                      className="peer w-full bg-transparent py-3 pr-1 text-[15px] sm:text-[16.5px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
                     />
                     {/* Typewriter placeholder (only when input is empty AND not focused) */}
                     {askValue.length === 0 && !askFocused && (
-                      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center text-[14px] sm:text-[15px] text-white/60">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center text-[15px] sm:text-[16.5px] text-white/65">
                         <div
                           className="flex w-full items-center justify-end overflow-hidden whitespace-nowrap"
                           style={{ direction: "rtl" }}
@@ -442,23 +442,24 @@ export default function HeroSection() {
                     )}
                   </div>
 
-                  {/* Submit */}
+                  {/* Submit — premium pill with text */}
                   <button
                     type="submit"
                     aria-label={t("home.assistantCta.send")}
-                    className="group/btn relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl text-[#0a0a0a] transition-all duration-200 hover:scale-[1.07] active:scale-95"
+                    className="group/btn relative flex h-12 sm:h-[52px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-xl px-4 sm:px-5 text-[#0a0a0a] font-extrabold text-[14px] sm:text-[15px] tracking-tight transition-all duration-200 hover:scale-[1.04] active:scale-95"
                     style={{
                       background:
                         "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%)",
                       boxShadow:
-                        "0 10px 28px -6px hsla(43,70%,55%,0.7), inset 0 1px 0 rgba(255,255,255,0.55)",
+                        "0 12px 32px -6px hsla(43,70%,55%,0.75), inset 0 1px 0 rgba(255,255,255,0.6)",
                     }}
                   >
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full"
+                      className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full"
                     />
-                    <ArrowRight className="relative h-5 w-5" strokeWidth={2.7} />
+                    <span className="relative hidden sm:inline">{t("home.assistantCta.send")}</span>
+                    <ArrowRight className="relative h-5 w-5" strokeWidth={2.8} />
                   </button>
                 </div>
               </div>
