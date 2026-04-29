@@ -296,6 +296,39 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 1.0, ease }}
             className="mt-7 w-full max-w-xl"
           >
+            {/* Brand name above bar */}
+            <div className="mb-3.5 flex items-center justify-center gap-2.5">
+              <Sparkles
+                className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
+                style={{
+                  filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                  animation: "blSparkleA 3.6s ease-in-out infinite",
+                }}
+              />
+              <h2
+                className="text-[15px] font-extrabold tracking-[0.04em] sm:text-[16px]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, hsl(var(--gold-light)) 0%, #fff 35%, hsl(var(--gold)) 65%, hsl(var(--gold-light)) 100%)",
+                  backgroundSize: "220% 100%",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  animation: "blChipShine 5s ease-in-out infinite",
+                  textShadow: "0 0 24px hsla(43,70%,55%,0.25)",
+                }}
+              >
+                BalkanLink Asistent
+              </h2>
+              <Sparkles
+                className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
+                style={{
+                  filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                  animation: "blSparkleB 3.6s ease-in-out infinite",
+                }}
+              />
+            </div>
+
             {/* Ask bar — premium dual-glow */}
             <form
               onSubmit={(e) => { e.preventDefault(); submitAsk(); }}
