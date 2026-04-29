@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,6 +26,11 @@ export default function WhatIsBalkanLink() {
   const [showFab, setShowFab] = useState(true);
   const href = useLocalizedHref();
   const location = useLocation();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ container: scrollRef });
+  const progressX = useSpring(scrollYProgress, { stiffness: 120, damping: 22, mass: 0.4 });
+  const orbY1 = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const orbY2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   const hidden =
     location.pathname.includes("/admin") ||
@@ -110,9 +115,19 @@ export default function WhatIsBalkanLink() {
       </AnimatePresence>
 
       <Dialog open={open} onOpenChange={handleOpenChange}>
-        <DialogContent className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto">
+        <DialogContent
+          ref={scrollRef}
+          className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto"
+        >
           <DialogTitle className="sr-only">{t("whatIs.title")}</DialogTitle>
           <DialogDescription className="sr-only">{t("whatIs.tagline")}</DialogDescription>
+
+          {/* Scroll progress bar */}
+          <motion.div
+            aria-hidden
+            style={{ scaleX: progressX, transformOrigin: "0% 50%" }}
+            className="pointer-events-none sticky top-0 z-50 h-[2px] w-full bg-gradient-to-r from-[hsl(var(--gold))] via-amber-300 to-[hsl(var(--gold))] shadow-[0_0_8px_rgba(217,165,54,0.6)]"
+          />
 
           {/* HERO */}
           <div className="relative overflow-hidden border-b border-white/10 px-6 pt-10 pb-8 sm:px-12 sm:pt-14 sm:pb-12">
@@ -120,6 +135,7 @@ export default function WhatIsBalkanLink() {
               aria-hidden
               className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-60 blur-3xl"
               style={{
+                y: orbY1,
                 background:
                   "conic-gradient(from 0deg, rgba(217,165,54,0.35), rgba(56,189,248,0.18), rgba(217,165,54,0.35))",
               }}
@@ -130,6 +146,7 @@ export default function WhatIsBalkanLink() {
               aria-hidden
               className="pointer-events-none absolute -bottom-40 -left-32 h-72 w-72 rounded-full opacity-40 blur-3xl"
               style={{
+                y: orbY2,
                 background:
                   "conic-gradient(from 180deg, rgba(56,189,248,0.25), rgba(217,165,54,0.2), rgba(56,189,248,0.25))",
               }}
@@ -235,11 +252,11 @@ export default function WhatIsBalkanLink() {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="px-6 py-9 sm:px-12 sm:py-11"
               >
-                <div className="flex items-center gap-3">
-                  <span className="relative inline-flex h-7 w-10 items-center justify-center rounded-md bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30 font-heading text-xs font-bold tracking-[0.18em] text-[hsl(var(--gold))]">
+                <div className="group/num flex items-center gap-3">
+                  <span className="relative inline-flex h-7 w-10 items-center justify-center rounded-md bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30 font-heading text-xs font-bold tracking-[0.18em] text-[hsl(var(--gold))] transition-all duration-300 group-hover/num:bg-[hsl(var(--gold))]/25 group-hover/num:ring-[hsl(var(--gold))]/60 group-hover/num:shadow-[0_0_18px_rgba(217,165,54,0.45)] group-hover/num:text-amber-200">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/50 via-[hsl(var(--gold))]/15 to-transparent" />
+                  <span className="h-px flex-1 bg-gradient-to-r from-[hsl(var(--gold))]/50 via-[hsl(var(--gold))]/15 to-transparent transition-all duration-500 group-hover/num:from-[hsl(var(--gold))]/80 group-hover/num:via-[hsl(var(--gold))]/30" />
                 </div>
                 <h3 className="mt-4 font-heading text-2xl font-bold leading-tight sm:text-[1.7rem]">
                   <span className="bg-gradient-to-r from-white to-white/85 bg-clip-text text-transparent">
