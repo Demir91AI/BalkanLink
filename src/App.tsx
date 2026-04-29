@@ -270,12 +270,16 @@ function LocalizedRoutes() {
         {/* Anmeldung Simulator — interaktivni intervju */}
         <Route path="anmeldung-simulator" element={<AnmeldungSimulator />} />
         <Route path="anmeldung-simulation" element={<AnmeldungSimulator />} />
+        <Route path="pitaj-dijasporu" element={<PitajDijasporu />} />
+        <Route path="pitaj-dijasporu/:id" element={<PitajDijasporuDetail />} />
+        <Route path="frag-die-diaspora" element={<PitajDijasporu />} />
         <Route path="porezi/najceste-pogreske" element={<PoreziMistakes />} />
         <Route path="steuern/haeufigste-fehler" element={<PoreziMistakes />} />
         <Route element={<AdminGuard />}>
           <Route path="admin/forms" element={<AdminForms />} />
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
           <Route path="admin/trialovi" element={<AdminTrialovi />} />
+          <Route path="admin/pitanja" element={<AdminPitanja />} />
         </Route>
         <Route path="qa" element={<QA />} />
         <Route path="qa/:id" element={<QADetail />} />
