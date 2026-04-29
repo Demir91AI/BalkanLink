@@ -76,7 +76,11 @@
     "anerkennung": "Anerkennung",
     "docCheck": "Dokumenti",
     "schufa": "Schufa",
-    "nebenkosten": "Režije"
+    "nebenkosten": "Režije",
+    "calc": "Plata",
+    "jobs": "Posao",
+    "rent": "Najam",
+    "business": "Biznis"
   },
   "footer": {
     "tagline": "Sve što ti treba za život u Njemačkoj",
