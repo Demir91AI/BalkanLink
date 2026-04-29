@@ -408,7 +408,9 @@
       "fuehrerschein": "Vozačka dozvola",
       "fuehrerscheinDesc": "Zamjena ili priznavanje — rok 6 mjeseci.",
       "auto": "Prijava vozila (Kfz, Lkw...)",
-      "autoDesc": "Registracija motornih vozila u Njemačkoj."
+      "autoDesc": "Registracija motornih vozila u Njemačkoj.",
+      "simulator": "Anmeldung simulator",
+      "simulatorDesc": "Vježbaj termin u Bürgeramtu prije nego odeš."
     }
   },
   "documentCheck": {

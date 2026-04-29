@@ -408,7 +408,9 @@
       "fuehrerschein": "Führerschein",
       "fuehrerscheinDesc": "Umschreibung oder Anerkennung — Frist 6 Monate.",
       "auto": "Fahrzeugzulassung (Kfz, Lkw...)",
-      "autoDesc": "Registrierung von Kraftfahrzeugen in Deutschland."
+      "autoDesc": "Registrierung von Kraftfahrzeugen in Deutschland.",
+      "simulator": "Anmeldung-Simulator",
+      "simulatorDesc": "Übe den Bürgeramt-Termin, bevor du hingehst."
     }
   },
   "documentCheck": {
