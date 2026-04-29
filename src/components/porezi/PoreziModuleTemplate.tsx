@@ -95,7 +95,7 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
           path={seoPath}
         />
         <div className="mx-auto max-w-2xl px-4 py-6 pb-28">
-          <PageNavBar />
+          <PageNavBar  showShare />
           <Card className="rounded-2xl border border-[hsl(var(--gold))]/30 shadow-sm">
             <CardContent className="p-6 sm:p-8 text-center">
               <Crown className="mx-auto h-10 w-10 text-[hsl(var(--gold))] mb-3" />
@@ -148,7 +148,7 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
-        <PageNavBar />
+        <PageNavBar  showShare />
 
         {/* Hero */}
         <div className="rounded-2xl bg-[#F5F0E8] p-6 sm:p-8 mb-6">

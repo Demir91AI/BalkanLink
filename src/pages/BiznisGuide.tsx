@@ -19,7 +19,7 @@ export default function BiznisGuide() {
   if (!guide) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
-        <PageNavBar />
+        <PageNavBar  showShare />
         <p className="text-muted-foreground text-center mt-8">Vodič nije pronađen.</p>
       </div>
     );
@@ -33,7 +33,7 @@ export default function BiznisGuide() {
       />
 
       <div className="mx-auto max-w-3xl px-4 py-6 pb-28">
-        <PageNavBar />
+        <PageNavBar  showShare />
 
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-1">
