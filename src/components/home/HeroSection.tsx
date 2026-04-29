@@ -335,7 +335,7 @@ export default function HeroSection() {
                 className="relative overflow-hidden rounded-[20px]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(22,30,52,0.45) 0%, rgba(8,12,24,0.45) 100%)",
+                    "linear-gradient(135deg, rgba(22,30,52,0.18) 0%, rgba(8,12,24,0.18) 100%)",
                   border: "1px solid hsla(43,70%,55%,0.25)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
