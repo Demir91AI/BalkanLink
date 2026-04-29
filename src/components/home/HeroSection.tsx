@@ -48,6 +48,13 @@ export default function HeroSection() {
   // Typewriter: type full phrase → hold → fade-out → switch to next
   useEffect(() => {
     if (askPlaceholders.length === 0) return;
+    // Pause animation when input is focused or has user content
+    if (askFocused || askValue.length > 0) {
+      setTyped("");
+      setPhraseVisible(false);
+      return;
+    }
+    setPhraseVisible(true);
     let i = 0;
     let charIdx = 0;
     let mode: "typing" | "holding" | "swapping" = "typing";
@@ -82,7 +89,7 @@ export default function HeroSection() {
     };
     timer = setTimeout(tick, 600);
     return () => clearTimeout(timer);
-  }, [askPlaceholders]);
+  }, [askPlaceholders, askFocused, askValue.length === 0 ? 0 : 1]);
 
   const submitAsk = (prefill?: string) => {
     const value = (prefill ?? askValue).trim();
