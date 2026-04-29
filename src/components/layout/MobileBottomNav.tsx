@@ -76,12 +76,12 @@ export default function MobileBottomNav() {
       <button
         key={`${side}-${setIdx}-${idx}`}
         onClick={() => navigate(item.path)}
-        className="flex flex-col items-center justify-center gap-[3px] active:scale-95 transition-all duration-150 animate-fade-in"
-        style={{ minWidth: 56, height: 44 }}
+        className="flex flex-col items-center justify-center gap-[2px] active:scale-95 transition-all duration-150 animate-fade-in shrink-0"
+        style={{ minWidth: 40, height: 42 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[18px] w-[18px] transition-all"
+          className="h-[15px] w-[15px] transition-all"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
@@ -89,7 +89,7 @@ export default function MobileBottomNav() {
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[9px] leading-none w-full text-center transition-all whitespace-nowrap"
+          className="text-[8px] leading-none w-full text-center transition-all whitespace-nowrap"
           style={{
             color: active ? "#C9A84C" : "rgba(255,255,255,0.75)",
             fontWeight: active ? 700 : 500,
@@ -117,23 +117,23 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="relative h-[72px] flex items-center justify-between px-2 gap-1">
+      <div className="relative h-[68px] flex items-center justify-between px-1 gap-0.5">
         {/* LEFT: 3 in a row */}
-        <div className="flex items-center justify-around flex-1 gap-1">
+        <div className="flex items-center justify-around flex-1 gap-0">
           {left.map((it, i) => renderTab(it, i, "L"))}
         </div>
 
         {/* CENTER: fixed Home */}
         <button
           onClick={() => navigate("/")}
-          className="flex flex-col items-center active:scale-95 transition-transform shrink-0 mx-1"
+          className="flex flex-col items-center active:scale-95 transition-transform shrink-0 mx-0.5"
           aria-label={t("mobileNav.home")}
         >
           <span
             className="flex items-center justify-center rounded-full"
             style={{
-              width: 46,
-              height: 46,
+              width: 40,
+              height: 40,
               background: homeActive
                 ? "linear-gradient(135deg, #C9A84C, #F0C040)"
                 : "linear-gradient(135deg, rgba(201,168,76,0.3), rgba(240,192,64,0.15))",
@@ -161,7 +161,7 @@ export default function MobileBottomNav() {
         </button>
 
         {/* RIGHT: 3 in a row */}
-        <div className="flex items-center justify-around flex-1 gap-1">
+        <div className="flex items-center justify-around flex-1 gap-0">
           {right.map((it, i) => renderTab(it, i, "R"))}
         </div>
       </div>
