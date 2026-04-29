@@ -132,8 +132,8 @@ export default function MobileBottomNav() {
           <span
             className="flex items-center justify-center rounded-full"
             style={{
-              width: 46,
-              height: 46,
+              width: 40,
+              height: 40,
               background: homeActive
                 ? "linear-gradient(135deg, #C9A84C, #F0C040)"
                 : "linear-gradient(135deg, rgba(201,168,76,0.3), rgba(240,192,64,0.15))",
