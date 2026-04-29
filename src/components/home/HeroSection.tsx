@@ -344,33 +344,39 @@ export default function HeroSection() {
                   </span>
 
                   {/* Input */}
-                  <div className="relative min-w-0 flex-1">
+                  <div className="relative min-w-0 flex-1 overflow-hidden">
                     <input
                       type="text"
                       value={askValue}
                       onChange={(e) => setAskValue(e.target.value)}
                       placeholder=" "
                       aria-label={t("home.assistantCta.title")}
-                      className="peer w-full bg-transparent py-2.5 pr-1 text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
+                      className="peer w-full bg-transparent py-2.5 pr-1 text-[14px] sm:text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
                     />
                     {/* Typewriter placeholder (only when input is empty) */}
                     {askValue.length === 0 && (
-                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center text-[15px] text-white/55">
-                        <span
-                          key={phraseKey}
-                          className="inline-flex items-center transition-all duration-300 ease-out"
-                          style={{
-                            opacity: phraseVisible ? 1 : 0,
-                            transform: phraseVisible ? "translateY(0)" : "translateY(-6px)",
-                          }}
+                      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center text-[14px] sm:text-[15px] text-white/55">
+                        <div
+                          className="flex w-full items-center justify-end overflow-hidden whitespace-nowrap"
+                          style={{ direction: "rtl" }}
                         >
-                          {typed}
-                        </span>
-                        <span
-                          aria-hidden
-                          className="ml-0.5 inline-block h-[1.05em] w-[2px] bg-[hsl(var(--gold))]"
-                          style={{ animation: "blCaret 1s steps(2) infinite" }}
-                        />
+                          <span
+                            aria-hidden
+                            className="ml-0.5 inline-block h-[1.05em] w-[2px] shrink-0 bg-[hsl(var(--gold))]"
+                            style={{ animation: "blCaret 1s steps(2) infinite", direction: "ltr" }}
+                          />
+                          <span
+                            key={phraseKey}
+                            className="inline-block transition-all duration-300 ease-out"
+                            style={{
+                              direction: "ltr",
+                              opacity: phraseVisible ? 1 : 0,
+                              transform: phraseVisible ? "translateY(0)" : "translateY(-6px)",
+                            }}
+                          >
+                            {typed}
+                          </span>
+                        </div>
                       </div>
                     )}
                   </div>
