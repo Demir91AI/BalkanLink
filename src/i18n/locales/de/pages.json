@@ -393,7 +393,19 @@
       "buergergeldNotice": "Bürgergeld-Bescheid",
       "insuranceLetter": "Schreiben der Versicherung",
       "mahnung": "Mahnung",
-      "jobcenterDecision": "Jobcenter-Bescheid"
+      "jobcenterDecision": "Jobcenter-Bescheid",
+      "kindergeldNotice": "Kindergeld-Bescheid",
+      "elterngeldNotice": "Elterngeld-Bescheid",
+      "krankenkasseLetter": "Krankenkassen-Schreiben",
+      "rentenversicherung": "Rentenversicherung",
+      "schufaReport": "SCHUFA-Auskunft",
+      "lohnabrechnung": "Lohnabrechnung",
+      "steuerbescheid": "Steuerbescheid",
+      "kuendigung": "Kündigung",
+      "arbeitsvertrag": "Arbeitsvertrag",
+      "nebenkostenabrechnung": "Nebenkostenabrechnung",
+      "bussgeld": "Bußgeldbescheid",
+      "anerkennungBescheid": "Anerkennungsbescheid"
     },
     "whatYouGet": {
       "label": "Das erhalten Sie mit der Analyse:",

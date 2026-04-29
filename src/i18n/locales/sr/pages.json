@@ -393,7 +393,19 @@
       "buergergeldNotice": "Bürgergeld obaveštenje",
       "insuranceLetter": "Pismo od osiguranja",
       "mahnung": "Mahnung (opomena)",
-      "jobcenterDecision": "Jobcenter odluka"
+      "jobcenterDecision": "Jobcenter odluka",
+      "kindergeldNotice": "Kindergeld obaveštenje",
+      "elterngeldNotice": "Elterngeld obaveštenje",
+      "krankenkasseLetter": "Pismo od Krankenkasse",
+      "rentenversicherung": "Rentenversicherung pismo",
+      "schufaReport": "SCHUFA izveštaj",
+      "lohnabrechnung": "Lohnabrechnung (plata)",
+      "steuerbescheid": "Steuerbescheid",
+      "kuendigung": "Kündigung (otkaz)",
+      "arbeitsvertrag": "Ugovor o radu",
+      "nebenkostenabrechnung": "Nebenkosten obračun",
+      "bussgeld": "Bußgeldbescheid (kazna)",
+      "anerkennungBescheid": "Anerkennung rešenje"
     },
     "whatYouGet": {
       "label": "Šta dobijaš analizom:",
