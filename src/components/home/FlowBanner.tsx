@@ -105,12 +105,12 @@ export default function FlowBanner() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 pt-16 sm:pt-24 pb-8 sm:pb-12 text-center px-4"
+        className="relative z-20 pt-10 sm:pt-16 pb-14 sm:pb-20 text-center px-4"
       >
-        <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight px-2">
+        <h2 className="text-xl sm:text-3xl lg:text-5xl font-black text-white tracking-tight leading-tight px-2 max-w-4xl mx-auto">
           {t("home.flowBanner.heading")}
         </h2>
-        <p className="text-base sm:text-lg lg:text-xl text-white/45 mt-4 leading-relaxed max-w-xl mx-auto">
+        <p className="text-sm sm:text-base lg:text-lg text-white/55 mt-4 leading-relaxed max-w-xl mx-auto">
           {t("home.flowBanner.subline")}
         </p>
         <div className="mx-auto mt-6 h-[3px] w-24 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-orange))]" />
