@@ -189,8 +189,8 @@ export default function MobileBottomNav() {
           </span>
         </button>
 
-        {/* RIGHT: 2x2 grid */}
-        <div className="grid grid-cols-2 gap-x-1 gap-y-0.5">
+        {/* RIGHT: 3x3 grid */}
+        <div className="grid grid-cols-3 gap-x-0.5 gap-y-0.5">
           {right.map((it, i) => renderTab(it, i, "R"))}
         </div>
       </div>
