@@ -406,35 +406,32 @@ export default function HeroSection() {
                       onBlur={() => setAskFocused(false)}
                       placeholder=" "
                       aria-label={t("home.assistantCta.title")}
-                      className="peer w-full bg-transparent py-3 pr-1 text-[15px] sm:text-[16.5px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none"
+                      className="peer w-full bg-transparent py-3 pr-1 text-[12.5px] sm:text-[15px] font-medium text-white placeholder-transparent caret-[hsl(var(--gold))] outline-none truncate"
                     />
                     {/* Typewriter placeholder (only when input is empty AND not focused) */}
                     {askValue.length === 0 && !askFocused && (
-                      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center text-[15px] sm:text-[16.5px] text-white/65">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center text-[12.5px] sm:text-[15px] text-white/65">
                         <div
-                          className="flex w-full items-center justify-end overflow-hidden whitespace-nowrap"
-                          style={{ direction: "rtl" }}
+                          className="flex w-full items-center overflow-hidden whitespace-nowrap pr-2"
                         >
                           <span
-                            aria-hidden
-                            className="ml-1 inline-block h-[1.1em] w-[2.5px] shrink-0 rounded-[1px] bg-[hsl(var(--gold))]"
-                            style={{
-                              animation: "blCaret 1s steps(2) infinite",
-                              direction: "ltr",
-                              boxShadow: "0 0 8px hsla(43,70%,55%,0.7)",
-                            }}
-                          />
-                          <span
                             key={phraseKey}
-                            className="inline-block transition-all duration-300 ease-out"
+                            className="inline-block min-w-0 flex-1 truncate transition-all duration-300 ease-out"
                             style={{
-                              direction: "ltr",
                               opacity: phraseVisible ? 1 : 0,
                               transform: phraseVisible ? "translateY(0)" : "translateY(-6px)",
                             }}
                           >
                             {typed}
                           </span>
+                          <span
+                            aria-hidden
+                            className="ml-0.5 inline-block h-[1.1em] w-[2px] shrink-0 rounded-[1px] bg-[hsl(var(--gold))]"
+                            style={{
+                              animation: "blCaret 1s steps(2) infinite",
+                              boxShadow: "0 0 8px hsla(43,70%,55%,0.7)",
+                            }}
+                          />
                         </div>
                       </div>
                     )}

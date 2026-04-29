@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { FileText, Globe, Sparkles, User, Tag, Home, Calculator } from "lucide-react";
+import { FileText, Globe, User, Tag, Home, Calculator, BookOpen } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
@@ -21,7 +21,7 @@ export default function MobileBottomNav() {
     { icon: Home, label: t("mobileNav.home"), path: "/" },
     { icon: FileText, label: t("mobileNav.documents"), path: "/formulari" },
     { icon: Globe, label: t("mobileNav.visa"), path: "/viza" },
-    { icon: Sparkles, label: t("mobileNav.assistant"), path: "/ai-asistent", center: true },
+    { icon: BookOpen, label: t("mobileNav.trainer"), path: "/trainer" },
     { icon: Calculator, label: t("mobileNav.taxes"), path: "/porezi" },
     { icon: Tag, label: t("mobileNav.pricing"), path: "/paketi" },
     { icon: User, label: t("mobileNav.profile"), path: "__auth__" },
