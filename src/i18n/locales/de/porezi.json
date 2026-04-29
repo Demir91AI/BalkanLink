@@ -103,33 +103,180 @@
       "body": "Dieser Wizard ist ein Informationswerkzeug. Er stellt keine Steuerberatung dar und nennt keine konkreten Erstattungsbeträge. Für eine individuelle Entscheidung wenden Sie sich an einen Steuerberater oder anerkannten Lohnsteuerhilfeverein."
     },
     "steps": {
-      "heading": "Kako da znaš da li MORAŠ predati",
-      "intro": "Pet jasnih okidača koji pretvaraju dobrovoljnu prijavu u OBAVEZNU (Pflichtveranlagung).",
-      "list": {
-        "s1": {
-          "title": "Imao/la si više poslodavaca u istoj godini",
-          "body": "Lohnsteuer je obračunavan paralelno → država traži korekciju.",
-          "zeile": "§ 46 Abs. 2 EStG"
-        },
-        "s2": {
-          "title": "Lohnsteuerklassa kombinacija III/V ili IV-Faktor",
-          "body": "Bračni par sa ovim kombinacijama je automatski Pflicht.",
-          "zeile": "§ 46 Abs. 2 Nr. 3a EStG"
-        },
-        "s3": {
-          "title": "Sporedni prihodi > 410 € (npr. iznajmljivanje, freelance)",
-          "body": "Sve preko Härteausgleich-a aktivira obavezu.",
-          "zeile": "§ 46 Abs. 2 Nr. 1 EStG"
-        },
-        "s4": {
-          "title": "Primao/la si LohnerStundezleistungen > 410 € (Kurzarbeit, Elterngeld, ALG I)",
-          "body": "Ovi prihodi su porezno slobodni ali utiču na stopu (Progressionsvorbehalt).",
-          "zeile": "§ 46 Abs. 2 Nr. 1 EStG"
-        },
-        "s5": {
-          "title": "Razveden/la i ponovo oženjen/uTage iste godine",
-          "body": "Klasičan trigger — Finanzamt traži pojašnjenje.",
-          "zeile": "§ 46 Abs. 2 Nr. 6 EStG"
+      "year": {
+        "title": "Für welches Steuerjahr machst du die Erklärung?",
+        "help": "Der Wizard unterscheidet zwischen 2024 und 2025 wegen Fristen und Regeln.",
+        "options": {
+          "2024": {
+            "label": "Steuerjahr 2024",
+            "desc": "Erklärung für Einkünfte aus dem Jahr 2024."
+          },
+          "2025": {
+            "label": "Steuerjahr 2025",
+            "desc": "Erklärung für Einkünfte aus dem Jahr 2025."
+          }
+        }
+      },
+      "residency": {
+        "title": "Warst du in Deutschland steuerlich ansässig?",
+        "help": "Steuerlich ansässig bist du, wenn du Wohnsitz oder gewöhnlichen Aufenthalt in Deutschland hattest.",
+        "options": {
+          "yesFullYear": {
+            "label": "Ja, das ganze Jahr",
+            "desc": "Ich habe das ganze Jahr in Deutschland gelebt."
+          },
+          "yesPartial": {
+            "label": "Ja, einen Teil des Jahres",
+            "desc": "Ich bin im Laufe des Jahres zu- oder weggezogen."
+          },
+          "no": {
+            "label": "Nein",
+            "desc": "Ich war nicht steuerlich ansässig — der Wizard endet hier."
+          }
+        }
+      },
+      "employer": {
+        "title": "Wie warst du im Jahr beschäftigt?",
+        "help": "Mehrere Arbeitgeber im selben Jahr führen oft zur Pflichtveranlagung.",
+        "options": {
+          "singleEmployer": {
+            "label": "Ein Arbeitgeber",
+            "desc": "Das ganze Jahr bei einem Arbeitgeber."
+          },
+          "multipleEmployers": {
+            "label": "Mehrere Arbeitgeber",
+            "desc": "Zwei oder mehr Arbeitgeber im selben Jahr."
+          },
+          "noEmployment": {
+            "label": "Keine Beschäftigung",
+            "desc": "Kein Arbeitsverhältnis in diesem Jahr."
+          }
+        }
+      },
+      "wageReplacement": {
+        "title": "Hast du Lohnersatzleistungen bezogen?",
+        "help": "Kurzarbeit-, Eltern-, Kranken- oder Arbeitslosengeld lösen meist eine Pflichtveranlagung aus (Progressionsvorbehalt).",
+        "options": {
+          "none": {
+            "label": "Nichts davon",
+            "desc": "Keine Lohnersatzleistung erhalten."
+          },
+          "kurzarbeit": {
+            "label": "Kurzarbeitergeld",
+            "desc": "Kurzarbeitergeld bezogen."
+          },
+          "elterngeld": {
+            "label": "Elterngeld",
+            "desc": "Elterngeld bezogen."
+          },
+          "krankengeld": {
+            "label": "Krankengeld",
+            "desc": "Krankengeld über 6 Wochen bezogen."
+          },
+          "arbeitslosengeld": {
+            "label": "Arbeitslosengeld I",
+            "desc": "ALG I bezogen."
+          }
+        }
+      },
+      "maritalStatus": {
+        "title": "Familienstand und Steuerklasse",
+        "help": "Kombination III/V und IV/IV mit Faktor bedeutet meist Pflichtveranlagung.",
+        "options": {
+          "single": {
+            "label": "Allein (Klasse I oder II)",
+            "desc": "Ledig, geschieden oder verwitwet."
+          },
+          "marriedClass3or5": {
+            "label": "Verheiratet — Klasse III/V",
+            "desc": "Wir nutzen die Kombination III/V."
+          },
+          "marriedClass4Faktor": {
+            "label": "Verheiratet — IV/IV mit Faktor",
+            "desc": "Wir nutzen das Faktor-Verfahren."
+          },
+          "marriedClass4": {
+            "label": "Verheiratet — IV/IV ohne Faktor",
+            "desc": "Standardkombination ohne Faktor."
+          }
+        }
+      },
+      "sideIncome": {
+        "title": "Hattest du Nebeneinkünfte neben dem Lohn?",
+        "help": "Höhere Nebeneinkünfte (über der Freigrenze) lösen die Pflichtveranlagung aus.",
+        "options": {
+          "none": {
+            "label": "Nein",
+            "desc": "Nur Lohn, keine Nebeneinkünfte."
+          },
+          "minor": {
+            "label": "Geringe Einkünfte",
+            "desc": "Kleine Beträge (z. B. unter der allgemeinen Freigrenze)."
+          },
+          "significant": {
+            "label": "Erhebliche Einkünfte",
+            "desc": "Vermietung, selbstständige Tätigkeit, Kapital — relevante Beträge."
+          }
+        }
+      },
+      "freibetrag": {
+        "title": "Hattest du einen Lohnsteuer-Freibetrag eingetragen?",
+        "help": "Ein eingetragener Freibetrag führt automatisch zur Pflichtveranlagung.",
+        "options": {
+          "yes": {
+            "label": "Ja",
+            "desc": "Ich hatte einen Freibetrag eingetragen (z. B. Fahrtkosten)."
+          },
+          "no": {
+            "label": "Nein",
+            "desc": "Kein Freibetrag eingetragen."
+          }
+        }
+      },
+      "deductibles": {
+        "title": "Was kannst du absetzen?",
+        "help": "Wähle alles, was zutrifft — mehr Posten, größere Chance auf Erstattung.",
+        "options": {
+          "commute": {
+            "label": "Arbeitsweg (Pendlerpauschale)",
+            "desc": "Tägliche Fahrt zur Arbeit."
+          },
+          "homeOffice": {
+            "label": "Home-Office",
+            "desc": "Arbeit von zu Hause."
+          },
+          "doppelHaushalt": {
+            "label": "Doppelte Haushaltsführung",
+            "desc": "Zweitwohnung aus beruflichen Gründen."
+          },
+          "workClothing": {
+            "label": "Berufskleidung / Ausstattung",
+            "desc": "Spezielle Berufskleidung, Werkzeug, Fachliteratur."
+          },
+          "training": {
+            "label": "Fortbildung",
+            "desc": "Kurse, Zertifikate, berufsbezogene Sprachen."
+          },
+          "donations": {
+            "label": "Spenden",
+            "desc": "Spenden an anerkannte Organisationen."
+          },
+          "childcare": {
+            "label": "Kinderbetreuung (Kita, Hort)",
+            "desc": "Kosten für Kita oder Hort."
+          },
+          "healthExtras": {
+            "label": "Höhere Gesundheitskosten",
+            "desc": "Zahnarzt, Brillen, Therapien über der Erstattung."
+          },
+          "householdServices": {
+            "label": "Haushaltsnahe Dienstleistungen / Handwerker",
+            "desc": "Haushaltsnahe Dienstleistungen, Handwerkerleistungen."
+          },
+          "none": {
+            "label": "Nichts davon",
+            "desc": "Keine absetzbaren Posten."
+          }
         }
       }
     },
