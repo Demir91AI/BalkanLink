@@ -577,12 +577,16 @@ export default function ChatAssistant() {
 
   // Listen for external "open-assistant" events (e.g. hero CTA)
   useEffect(() => {
-    const handler = () => {
+    const handler = (e: Event) => {
       setOpen(true);
+      const detail = (e as CustomEvent<{ prefill?: string }>).detail;
+      if (detail?.prefill) {
+        setInput(detail.prefill);
+      }
       setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 350);
     };
-    window.addEventListener("open-assistant", handler);
-    return () => window.removeEventListener("open-assistant", handler);
+    window.addEventListener("open-assistant", handler as EventListener);
+    return () => window.removeEventListener("open-assistant", handler as EventListener);
   }, []);
 
   useEffect(() => {
