@@ -21,6 +21,8 @@ export type OnboardingStep = {
   options: { label: string; value: string }[];
 };
 
+// NOTE: Static fallback (Bosnian). UI should prefer i18n keys via useTranslation("common")
+// at "onboarding.q1/q2/q3". This array stays for legacy callers that don't have t().
 export const ONBOARDING_STEPS: OnboardingStep[] = [
   {
     question: "Hej! Dobrodošao na BalkanLink 👋 Jesi li tek došao u Njemačku?",
@@ -48,6 +50,37 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
     ],
   },
 ];
+
+/** Build localized onboarding steps from a translator function (common namespace). */
+export function buildLocalizedOnboardingSteps(t: (k: string, d?: string) => string): OnboardingStep[] {
+  return [
+    {
+      question: t("onboarding.q1.question", "Jesi li tek došao u Njemačku?"),
+      options: [
+        { label: t("onboarding.q1.optNew", "Tek sam došao"), value: "new" },
+        { label: t("onboarding.q1.optEstablished", "Živim već duže"), value: "established" },
+        { label: t("onboarding.q1.optAbroad", "Još sam u matičnoj zemlji"), value: "abroad" },
+      ],
+    },
+    {
+      question: t("onboarding.q2.question", "Imaš li djecu?"),
+      options: [
+        { label: t("onboarding.q2.opt1", "Da, jedno"), value: "1" },
+        { label: t("onboarding.q2.opt2", "Da, dvoje ili više"), value: "2+" },
+        { label: t("onboarding.q2.opt0", "Nemam djece"), value: "0" },
+      ],
+    },
+    {
+      question: t("onboarding.q3.question", "Radiš li već u Njemačkoj?"),
+      options: [
+        { label: t("onboarding.q3.optEmployed", "Da, radim"), value: "employed" },
+        { label: t("onboarding.q3.optSeeking", "Tražim posao"), value: "seeking" },
+        { label: t("onboarding.q3.optStudent", "Student sam"), value: "student" },
+        { label: t("onboarding.q3.optUnemployed", "Ne radim trenutno"), value: "unemployed" },
+      ],
+    },
+  ];
+}
 
 export const STATUS_ITEMS = [
   { group: "OBAVEZNO", items: [
