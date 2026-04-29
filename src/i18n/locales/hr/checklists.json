@@ -9,7 +9,7 @@
     "badge": "Stand 2026",
     "freeBadge": "Besplatno",
     "premiumBadge": "Premium",
-    "ctaOpen": "Otvori check listu",
+    "ctaOpen": "Otvorite check listu",
     "stats": {
       "documents": "{{count}} dokumenata",
       "steps": "{{count}} koraka",
@@ -32,19 +32,19 @@
     "backToHub": "Sve check liste",
     "premiumGate": {
       "title": "Premium Check lista",
-      "body": "Pretplati se da otključaš sve check liste sa kompletnim dokumentima, koracima, rokovima i savjetima.",
+      "body": "Pretplatite se da otključaš sve check liste sa kompletnim dokumentima, koracima, rokovima i savjetima.",
       "cta": "Postani Premium",
-      "ctaLogin": "Prijavi se",
+      "ctaLogin": "Prijavite se",
       "preview": "Pregled"
     },
     "disclaimer": "Ova check lista je informativna pomoć. Stand 2026. Nije pravni savjet — provjeri uvijek službenu stranicu prije podnošenja."
   },
   "kindergeld": {
     "title": "Kindergeld — Dječji doplatak",
-    "subtitle": "255 €/mjesec po djetetu. Ova check lista te vodi kroz svu pripremu, dokumente i podnošenje zahtjeva u Familienkasse.",
+    "subtitle": "255 €/mjesec po djetetu. Ova check lista vas vodi kroz svu pripremu, dokumente i podnošenje zahtjeva u Familienkasse.",
     "documents": [
       "Rodni list djeteta (Geburtsurkunde) — original + njemački prijevod ako je izdan u BiH",
-      "Tvoj boravak (Aufenthaltstitel) ili lična karta EU građanina",
+      "Vaš boravak (Aufenthaltstitel) ili lična karta EU građanina",
       "Steuer-ID za sebe i za svako dijete (dolazi poštom nakon Anmeldunga)",
       "IBAN broj računa (njemačka banka, glasi na podnositelja)",
       "Anmeldebestätigung — potvrda prijave prebivališta",
@@ -53,12 +53,12 @@
       "Haushaltsbescheinigung ako dijete živi sa drugim roditeljem"
     ],
     "steps": [
-      "Otvori KG1 obrazac na arbeitsagentur.de ili koristi BalkanLink Musterformular",
-      "Popuni Anlage Kind za svako dijete posebno (jedan KG1 + više Anlage Kind)",
+      "Otvorite KG1 obrazac na arbeitsagentur.de ili koristi BalkanLink Musterformular",
+      "Popunite Anlage Kind za svako dijete posebno (jedan KG1 + više Anlage Kind)",
       "Skeniraj sve dokumente u PDF (max 10 MB po datoteci)",
-      "Predaj online preko Familienkasse Direkt portala (potreban ELSTER ili BundID)",
+      "Predajtete online preko Familienkasse Direkt portala (potreban ELSTER ili BundID)",
       "Alternativa: pošalji poštom na nadležnu Familienkasse (po PLZ)",
-      "Čekaj 4–8 sedmica na rješenje (Bescheid) — isplata ide retroaktivno do 6 mjeseci"
+      "Čekajte 4–8 tjedana na rješenje (Bescheid) — isplata ide retroaktivno do 6 mjeseci"
     ],
     "deadlines": [
       "Zahtjev se može predati retroaktivno samo 6 mjeseci unazad — ne čekaj!",
@@ -66,15 +66,15 @@
       "Promjenu adrese, broja računa ili škole prijavi odmah (max 30 dana)"
     ],
     "warnings": [
-      "Ne šalji originalne dokumente poštom — uvijek ovjerene kopije",
+      "Ne šaljite originalne dokumente poštom — uvijek ovjerene kopije",
       "Prijevodi MORAJU biti od sudskog tumača (vereidigter Übersetzer) priznatog u Njemačkoj",
       "Steuer-ID djeteta je obavezan — bez njega nema isplate",
       "Ako oba roditelja rade u dvije zemlje EU, prvo provjeri koja zemlja je nadležna",
       "Račun MORA glasiti na podnositelja zahtjeva, ne na partnera"
     ],
     "tips": [
-      "Predaj online — brže je 2–3 sedmice nego poštom",
-      "Skupi sve dokumente PRIJE nego što počneš popunjavati obrazac",
+      "Predajtete online — brže je 2–3 tjedna nego poštom",
+      "Skupite sve dokumente PRIJE nego što počneš popunjavati obrazac",
       "Čuvaj kopiju cijelog zahtjeva u PDF-u za svoju arhivu",
       "Ako odbijena, imaš 1 mjesec za Widerspruch — koristi naš Vorlagen šablon"
     ]
@@ -97,16 +97,16 @@
     "steps": [
       "Online prijava preko jobcenter.digital ili idi u lokalni Jobcenter",
       "Dobiješ Hauptantrag + više Anlage formulara (KdU, EK, VM, KI...)",
-      "Popuni sve obrasce — koristi naš Bürgergeld Musterformular kao vodič",
+      "Popunite sve obrasce — koristi naš Bürgergeld Musterformular kao vodič",
       "Zakaži termin (Termin) u Jobcenteru — često prvi razgovor je obavezan",
-      "Donesi sve dokumente u originalu + kopije",
+      "Donesite sve dokumente u originalu + kopije",
       "Potpiši Eingliederungsvereinbarung (sporazum o reintegraciji)",
-      "Čekaj Bescheid — isplata u roku od 14 dana ako je sve OK"
+      "Čekajte Bescheid — isplata u roku od 14 dana ako je sve OK"
     ],
     "deadlines": [
       "Prijavu predaj ODMAH čim ostaneš bez posla — pravo počinje od dana podnošenja",
       "Promjenu situacije (novi posao, selidba) prijavi u roku od 7 dana",
-      "Provjeru prava (Weiterbewilligung) podnesi 6 sedmica prije isteka"
+      "Provjeru prava (Weiterbewilligung) podnesi 6 tjedana prije isteka"
     ],
     "warnings": [
       "Štednja iznad freibetraga (15.000 € po osobi) može blokirati isplatu",
@@ -117,9 +117,9 @@
       "Ako imaš auto vredniji od 15.000 € — možda moraš prodati"
     ],
     "tips": [
-      "Donesi sve dokumente već na prvi termin — štedi 2–3 sedmice",
+      "Donesite sve dokumente već na prvi termin — štedi 2–3 tjedna",
       "Pitaj za Mehrbedarf ako si trudna, samohrana ili dijabetičar — dodatak 17–60%",
-      "Sačuvaj svaki Bescheid — može ti trebati za godinama",
+      "Sačuvajte svaki Bescheid — može ti trebati za godinama",
       "Imaš pravo na Bildungsgutschein za prekvalifikaciju — koristi ga"
     ]
   },
@@ -138,12 +138,12 @@
       "IBAN računa (mora biti u Njemačkoj)"
     ],
     "steps": [
-      "Provjeri da li imaš pravo na Wohngeld kalkulatorom (postoji online kod nadležnog grada)",
+      "Provjerite da li imaš pravo na Wohngeld kalkulatorom (postoji online kod nadležnog grada)",
       "Preuzmi Wohngeldantrag formular sa stranice tvog grada (Wohngeldstelle)",
-      "Popuni obrazac — koristi naš Wohngeld Musterformular vodič",
-      "Skupi sve dokaze u jednu mapu (po redoslijedu obrasca)",
-      "Predaj lično u Wohngeldstelle ili poštom — neki gradovi imaju online prijavu",
-      "Čekaj rješenje 6–12 sedmica; isplata ide retroaktivno od mjeseca podnošenja"
+      "Popunite obrazac — koristi naš Wohngeld Musterformular vodič",
+      "Skupite sve dokaze u jednu mapu (po redoslijedu obrasca)",
+      "Predajtete lično u Wohngeldstelle ili poštom — neki gradovi imaju online prijavu",
+      "Čekajte rješenje 6–12 tjedana; isplata ide retroaktivno od mjeseca podnošenja"
     ],
     "deadlines": [
       "Wohngeld počinje od mjeseca podnošenja — ne kasniti!",
@@ -158,7 +158,7 @@
       "Ako se preseliš u skuplji stan — možda izgubiš pravo"
     ],
     "tips": [
-      "Provjeri svake godine ponovo — granice su podignute 2026",
+      "Provjerite svake godine ponovo — granice su podignute 2026",
       "Ako te odbiju, traži pisano obrazloženje i podnesi Widerspruch u 1 mjesecu",
       "Wohngeld + Kindergeld + Kinderzuschlag se kombinuju — provjeri sve",
       "Lakše je predati lično — službenik ti može odmah ukazati na nedostatke"
@@ -179,21 +179,21 @@
       "IBAN i Steuer-ID"
     ],
     "steps": [
-      "Provjeri pravo i orijentirani iznos kalkulatorom (familienportal.de)",
+      "Provjerite pravo i orijentirani iznos kalkulatorom (familienportal.de)",
       "Preuzmi Elterngeldantrag sa stranice nadležne Elterngeldstelle (po Bundeslandu)",
       "Dogovori sa partnerom: ko uzima koje mjesece (Basiselterngeld vs. ElterngeldPlus)",
-      "Popuni i potpiši oba roditelja (čak i kada samo jedan koristi)",
-      "Predaj sa svim dokazima — najkasnije 3 mjeseca nakon rođenja!",
-      "Čekaj rješenje 6–10 sedmica; isplata mjesečno"
+      "Popunite i potpiši oba roditelja (čak i kada samo jedan koristi)",
+      "Predajtete sa svim dokazima — najkasnije 3 mjeseca nakon rođenja!",
+      "Čekajte rješenje 6–10 tjedana; isplata mjesečno"
     ],
     "deadlines": [
-      "Predaj zahtjev u roku od 3 mjeseca po rođenju za puni iznos retroaktivno",
-      "Mutterschutz se prijavljuje 7 sedmica prije termina porođaja",
+      "Predajtete zahtjev u roku od 3 mjeseca po rođenju za puni iznos retroaktivno",
+      "Mutterschutz se prijavljuje 7 tjedana prije termina porođaja",
       "Promjenu plana (još mjeseci, partner mijenja) prijavi prije početka",
-      "Ne miješaj rok za Elterngeld sa rokom za Kindergeld (KG ima 6 mj.)"
+      "Ne miješajte rok za Elterngeld sa rokom za Kindergeld (KG ima 6 mj.)"
     ],
     "warnings": [
-      "Ako radiš više od 32h/sedmici tokom Elternzeit — gubiš pravo",
+      "Ako radiš više od 32h/tjedna tokom Elternzeit — gubiš pravo",
       "ElterngeldPlus se NE može retroaktivno mijenjati u Basiselterngeld",
       "Ako si bio na njemačkom radu manje od 12 mj. — iznos se računa pro rata",
       "Roditeljstvo van braka — treba dokaz o očinstvu (Vaterschaftsanerkennung)",
@@ -203,7 +203,7 @@
       "Razdvojite mjesece pametno — partnerska 2 mjeseca produžavaju ukupno na 14",
       "ElterngeldPlus je dvostruko duže ali pola iznosa — bolje ako planiraš pola radno",
       "Mutterschaftsgeld se odbija od Elterngelda — računaj realno",
-      "Konzultuj se sa Elterngeldstelle telefonski PRIJE predaje — besplatno je"
+      "Konzultirajtete se sa Elterngeldstelle telefonski PRIJE predaje — besplatno je"
     ]
   },
   "anerkennung": {
@@ -217,16 +217,16 @@
       "Lična karta ili pasoš + boravak",
       "Dokaz o radnom iskustvu u struci (Arbeitszeugnisse)",
       "Anerkennungsantrag — formular nadležne komore (HWK / IHK / ZAB)",
-      "Sertifikat njemačkog jezika (B2 minimum za regulisana zanimanja)",
+      "Certifikat njemačkog jezika (B2 minimum za regulirana zanimanja)",
       "Dokaz o praksi/stažu ako je obavezno (npr. zdravstvo)"
     ],
     "steps": [
       "Odredi nadležno tijelo: ZAB (akademski), HWK (zanati), IHK (poslovni), Bezirksregierung (zdravstvo/učitelji)",
-      "Provjeri da li je tvoje zanimanje regulisano (reglementiert) ili ne — anerkennung-in-deutschland.de",
-      "Skupi sve dokumente i daj prevesti kod sudskog tumača",
+      "Provjerite da li je tvoje zanimanje regulirano (reglementiert) ili ne — anerkennung-in-deutschland.de",
+      "Skupite sve dokumente i daj prevesti kod sudskog tumača",
       "Apostiliraj originale u zemlji izdavanja (sud u BiH/HR/SR)",
-      "Predaj zahtjev nadležnoj instituciji + plati taksu (100–600 €)",
-      "Čekaj odluku 3–6 mjeseci — može doći Auflage (dodatni uslovi)",
+      "Predajtete zahtjev nadležnoj instituciji + plati taksu (100–600 €)",
+      "Čekajte odluku 3–6 mjeseci — može doći Auflage (dodatni uslovi)",
       "Ako Auflage: završi Anpassungslehrgang ili polagaj Kenntnisprüfung"
     ],
     "deadlines": [
@@ -238,16 +238,16 @@
       "NE šalji originale poštom van zemlje — uvijek lično ili kurirom sa potvrdom",
       "Prijevod iz BiH NIJE priznat u Njemačkoj — mora sudski tumač iz Njemačke",
       "Apostila se stavlja na original, ne na prijevod",
-      "Bez priznavanja ne možeš raditi regulisano zanimanje (medicina, pravo, učitelj)",
-      "Za neregulisana zanimanja možeš raditi bez priznavanja, ali plata je manja",
+      "Bez priznavanja ne možeš raditi regulirano zanimanje (medicina, pravo, učitelj)",
+      "Za neregulirana zanimanja možeš raditi bez priznavanja, ali plata je manja",
       "Anabin baza pokazuje samo orijentaciju — službena odluka ide kroz nadležno tijelo"
     ],
     "tips": [
       "Počni proces dok si još u BiH/HR/SR — apostila i prijevodi su jeftiniji",
-      "Koristi BalkanLink Anerkennung Navigator — besplatno te vodi kroz cijeli proces",
-      "Konzultuj IQ Netzwerk u svom Bundeslandu — besplatne savjete daju",
+      "Koristite BalkanLink Anerkennung Navigator — besplatno vas vodi kroz cijeli proces",
+      "Konzultirajtete IQ Netzwerk u svom Bundeslandu — besplatne savjete daju",
       "Za zanimanja u nedostatku (medicina, IT) — često ima ubrzanih programa",
-      "Čuvaj sve uplatnice — neke takse su odbitne od poreza"
+      "Čuvaj sve uplatnice — neke pristojbe su odbitne od poreza"
     ]
   },
   "einbuergerung": {
@@ -259,23 +259,23 @@
       "Dokaz o prihodima — Lohnabrechnungen + Arbeitsvertrag (zadnjih 12 mj.)",
       "Steuerbescheid za zadnju godinu",
       "Krankenversicherungsnachweis",
-      "Sertifikat njemačkog jezika B1 (Goethe, telc, ÖSD)",
-      "Sertifikat Einbürgerungstest (33+ od 33 pitanja)",
+      "Certifikat njemačkog jezika B1 (Goethe, telc, ÖSD)",
+      "Certifikat Einbürgerungstest (33+ od 33 pitanja)",
       "Dokaz o uplati doprinosa za penziono (Rentenversicherung 60+ mj.)",
       "Geburtsurkunde + Heiratsurkunde (njemački prijevod)",
       "Führungszeugnis iz BiH/HR/SR (najnovije, max 6 mj. star)"
     ],
     "steps": [
-      "Provjeri uslove: 5 god. boravka (3 ako imaš C1 + volonterski rad)",
-      "Polaži Einbürgerungstest — 33 pitanja, prolaz sa 17+ tačnih (vlada.de pripremne stranice besplatne)",
-      "Predaj zahtjev u Einbürgerungsbehörde (Ausländerbehörde ili poseban ured)",
-      "Plati taksu 255 € (od 2026.) po osobi",
-      "Daj otiske prstiju i potpis — biometrijski podaci",
-      "Čekaj rješenje 6–24 mjeseca (varira po Bundeslandu)",
-      "Odazovi se na svečanost dodjele (Einbürgerungsfeier) — dobiješ Urkunde i pasoš"
+      "Provjerite uslove: 5 god. boravka (3 ako imaš C1 + volonterski rad)",
+      "Polažite Einbürgerungstest — 33 pitanja, prolaz sa 17+ tačnih (vlada.de pripremne stranice besplatne)",
+      "Predajtete zahtjev u Einbürgerungsbehörde (Ausländerbehörde ili poseban ured)",
+      "Platite taksu 255 € (od 2026.) po osobi",
+      "Dajte otiske prstiju i potpis — biometrijski podaci",
+      "Čekajte rješenje 6–24 mjeseca (varira po Bundeslandu)",
+      "Odazovite se na svečanost dodjele (Einbürgerungsfeier) — dobiješ Urkunde i pasoš"
     ],
     "deadlines": [
-      "Test važi neograničeno, ali jezički sertifikat treba biti aktuelan (max 5 god.)",
+      "Test važi neograničeno, ali jezički certifikat treba biti aktuelan (max 5 god.)",
       "Führungszeugnis ne smije biti stariji od 6 mjeseci",
       "Sve dokumente skupljaj postupno — ne na zadnji čas"
     ],
@@ -288,9 +288,9 @@
       "Neki Bundeslandovi traže C1 ako tražiš ubrzani postupak (3 god.)"
     ],
     "tips": [
-      "Pripremi Einbürgerungstest preko www.bamf.de — besplatne prep-stranice",
-      "Skupi pohvale od poslodavca, volonterskih organizacija — pomažu kod ubrzanog postupka",
-      "Ako imaš male prihode, pitaj za smanjenje takse (Ermäßigung)",
+      "Pripremite Einbürgerungstest preko www.bamf.de — besplatne prep-stranice",
+      "Skupite pohvale od poslodavca, volonterskih organizacija — pomažu kod ubrzanog postupka",
+      "Ako imaš male prihode, pitaj za smanjenje pristojbe (Ermäßigung)",
       "Djeca do 16 god. idu sa roditeljima besplatno",
       "Od 2026. NE moraš odreći se BiH/HR/SR pasoša — dvojno je dozvoljeno"
     ]
@@ -311,12 +311,12 @@
       "Eingangsbescheinigung Kindergartens — za Kinderbetreuungskosten"
     ],
     "steps": [
-      "Otvori ELSTER nalog na elster.de — besplatno (treba aktivacijski PIN poštom, čekaj 2 sed.)",
-      "Pokreni novu Einkommensteuererklärung za 2026.",
-      "Popuni Mantelbogen + Anlage N (rad) + ostale Anlage po situaciji",
-      "Učitaj sve dokumente kao priloge (PDF, max 5 MB svaki)",
-      "Provjeri kalkulaciju — ELSTER prikaže očekivani povrat/uplata",
-      "Pošalji elektronski (potpiši digitalnim certifikatom)"
+      "Otvorite ELSTER nalog na elster.de — besplatno (treba aktivacijski PIN poštom, čekaj 2 sed.)",
+      "Pokrenite novu Einkommensteuererklärung za 2026.",
+      "Popunite Mantelbogen + Anlage N (rad) + ostale Anlage po situaciji",
+      "Učitajte sve dokumente kao priloge (PDF, max 5 MB svaki)",
+      "Provjerite kalkulaciju — ELSTER prikaže očekivani povrat/uplata",
+      "Pošaljite elektronski (potpiši digitalnim certifikatom)"
     ],
     "deadlines": [
       "Dobrovoljna prijava: 4 godine retroaktivno (do 31.12.2030 za 2026.)",
@@ -334,9 +334,9 @@
     ],
     "tips": [
       "Prosječni povrat je 1.095 € — vrijedi truda čak i bez savjetnika",
-      "Koristi WISO Steuer ili Smartsteuer (35 €/god) ako ELSTER prekomplikovan",
+      "Koristite WISO Steuer ili Smartsteuer (35 €/god) ako ELSTER prekomplikovan",
       "BalkanLink Tax Wizard ti besplatno pokazuje koje Anlage trebaš",
-      "Sačuvaj sve račune 10 godina — Finanzamt može tražiti dokaze",
+      "Sačuvajte sve račune 10 godina — Finanzamt može tražiti dokaze",
       "Doppelte Haushaltsführung — ako imaš stan u BiH/HR/SR i radiš u DE, do 12.000 € odbitka"
     ]
   },
@@ -353,11 +353,11 @@
       "Boravisni dokument za one van EU"
     ],
     "steps": [
-      "Zakazi termin u Bürgeramtu / Einwohnermeldeamtu odmah po dolasku (online)",
-      "Popuni Anmeldeformular — koristi naš Anmeldung Musterformular vodič",
-      "Dođi u termin sa svim dokumentima (svi članovi porodice fizički prisutni)",
-      "Predaj dokumente — službenik ti odmah daje Anmeldebestätigung (PDF/papir)",
-      "Čekaj Steuer-ID poštom u roku od 2–3 sedmice"
+      "Zakažite termin u Bürgeramtu / Einwohnermeldeamtu odmah po dolasku (online)",
+      "Popunite Anmeldeformular — koristi naš Anmeldung Musterformular vodič",
+      "Dođite u termin sa svim dokumentima (svi članovi porodice fizički prisutni)",
+      "Predajtete dokumente — službenik ti odmah daje Anmeldebestätigung (PDF/papir)",
+      "Čekajte Steuer-ID poštom u roku od 2–3 tjedna"
     ],
     "deadlines": [
       "ROK: 14 dana od useljenja u stan (ne od ulaska u Njemačku!)",
@@ -369,11 +369,11 @@
       "Kazna za propust 14-dnevnog roka: do 1.000 € (rijetko se naplaćuje, ali pravno postoji)",
       "Stanodavac MORA dati Wohnungsgeberbestätigung — ako ne, prijavi gradu",
       "Lažna Anmeldung (npr. kod prijatelja) — strogo zabranjeno, krivično djelo",
-      "Termin u Bürgeramtu se čeka 2–6 sedmica u velikim gradovima — zakazi ODMAH"
+      "Termin u Bürgeramtu se čeka 2–6 tjedana u velikim gradovima — zakazi ODMAH"
     ],
     "tips": [
       "Termini su besplatni — nikad ne plaćaj posrednike za zakazivanje",
-      "Donesi originale + kopije — službenik može tražiti i jedno i drugo",
+      "Donesite originale + kopije — službenik može tražiti i jedno i drugo",
       "Anmeldebestätigung sačuvaj zauvijek — treba ti za sve buduće postupke",
       "Ako selekcija ne znaš njemački — pravo imaš na prevoditelja (rijetko nude, ali možeš zatražiti)"
     ]
