@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Activity, Users, FileCheck, MessageSquare } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,6 +8,9 @@ interface LiveStats {
   chatToday: number;
   docsToday: number;
   newToday: number;
+  questionsToday?: number;
+  questionsTotal?: number;
+  topQuestion?: { id: string; title: string; view_count: number } | null;
 }
 
 interface Props {
@@ -17,13 +20,14 @@ interface Props {
 }
 
 /**
- * Live social proof widget — shows aggregate platform activity.
- * Refreshes every 60s. Pure aggregate counts (no PII).
+ * Live social proof widget — rotates aggregate platform activity messages.
+ * Refreshes data every 60s; rotates message every 5s. Pure aggregate counts (no PII).
  */
 export default function LiveSocialProof({ variant = "ticker", className = "" }: Props) {
   const { t } = useTranslation("common");
   const [stats, setStats] = useState<LiveStats | null>(null);
   const [pulse, setPulse] = useState(false);
+  const [idx, setIdx] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -32,7 +36,13 @@ export default function LiveSocialProof({ variant = "ticker", className = "" }: 
       if (!cancelled && !error && data) {
         const next = data as unknown as LiveStats;
         setStats((prev) => {
-          if (prev && (prev.chatToday !== next.chatToday || prev.docsToday !== next.docsToday || prev.newToday !== next.newToday)) {
+          if (
+            prev &&
+            (prev.chatToday !== next.chatToday ||
+              prev.docsToday !== next.docsToday ||
+              prev.newToday !== next.newToday ||
+              prev.questionsToday !== next.questionsToday)
+          ) {
             setPulse(true);
             setTimeout(() => setPulse(false), 1000);
           }
@@ -42,35 +52,130 @@ export default function LiveSocialProof({ variant = "ticker", className = "" }: 
     };
     load();
     const interval = setInterval(load, 60_000);
-    return () => { cancelled = true; clearInterval(interval); };
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
   }, []);
+
+  // Build rotating message list based on what's active
+  const messages = useMemo(() => {
+    if (!stats) return [];
+    const list: { key: string; node: JSX.Element }[] = [];
+
+    // Always: total users
+    list.push({
+      key: "users",
+      node: (
+        <>
+          <span className="font-medium text-white/85">{stats.totalUsers.toLocaleString("de-DE")}</span>
+          <span>{t("socialProof.usersOnPlatform", "korisnika koristi BalkanLink")}</span>
+        </>
+      ),
+    });
+
+    if (stats.newToday > 0) {
+      list.push({
+        key: "new",
+        node: (
+          <>
+            <span className="font-medium text-[hsl(45,93%,60%)]">+{stats.newToday}</span>
+            <span>{t("socialProof.joinedToday", "novih korisnika danas")}</span>
+          </>
+        ),
+      });
+    }
+    if (stats.chatToday > 0) {
+      list.push({
+        key: "chat",
+        node: (
+          <>
+            <span className="font-medium text-white/85">{stats.chatToday}</span>
+            <span>{t("socialProof.chatTodayMsg", "Asistent upita danas")}</span>
+          </>
+        ),
+      });
+    }
+    if (stats.docsToday > 0) {
+      list.push({
+        key: "docs",
+        node: (
+          <>
+            <span className="font-medium text-white/85">{stats.docsToday}</span>
+            <span>{t("socialProof.docsTodayMsg", "dokumenata provjereno danas")}</span>
+          </>
+        ),
+      });
+    }
+    if (stats.questionsToday && stats.questionsToday > 0) {
+      list.push({
+        key: "qToday",
+        node: (
+          <>
+            <span className="font-medium text-white/85">{stats.questionsToday}</span>
+            <span>{t("socialProof.qTodayMsg", "novih pitanja u zajednici")}</span>
+          </>
+        ),
+      });
+    }
+    if (stats.topQuestion && stats.topQuestion.view_count > 0) {
+      list.push({
+        key: "topQ",
+        node: (
+          <>
+            <span className="text-white/70">{t("socialProof.trending", "U trendu:")}</span>
+            <span className="font-medium text-white/90 truncate max-w-[220px] sm:max-w-[340px]">
+              {stats.topQuestion.title}
+            </span>
+          </>
+        ),
+      });
+    }
+    if (stats.questionsTotal && stats.questionsTotal > 0) {
+      list.push({
+        key: "qTotal",
+        node: (
+          <>
+            <span className="font-medium text-white/85">{stats.questionsTotal}</span>
+            <span>{t("socialProof.qTotalMsg", "odgovorenih pitanja u zajednici")}</span>
+          </>
+        ),
+      });
+    }
+    return list;
+  }, [stats, t]);
+
+  // Rotate every 5s
+  useEffect(() => {
+    if (messages.length <= 1) return;
+    const id = setInterval(() => setIdx((i) => (i + 1) % messages.length), 5000);
+    return () => clearInterval(id);
+  }, [messages.length]);
 
   if (!stats) return null;
 
-  // Hide widget if no meaningful activity yet
-  const totalActivity = stats.chatToday + stats.docsToday + stats.newToday;
-  if (totalActivity < 3 && stats.totalUsers < 10) return null;
+  // Hide widget if there's truly nothing to show
+  const totalActivity = stats.chatToday + stats.docsToday + stats.newToday + (stats.questionsToday || 0);
+  if (totalActivity === 0 && stats.totalUsers < 5) return null;
 
   if (variant === "ticker") {
+    const current = messages[idx % Math.max(messages.length, 1)];
     return (
       <div
-        className={`inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[12px] text-white/70 backdrop-blur ${pulse ? "ring-1 ring-[hsl(45,93%,55%)]/40" : ""} ${className}`}
+        className={`inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[12px] text-white/70 backdrop-blur transition-all ${pulse ? "ring-1 ring-[hsl(45,93%,55%)]/40" : ""} ${className}`}
         role="status"
         aria-live="polite"
       >
-        <span className="relative flex h-2 w-2">
+        <span className="relative flex h-2 w-2 shrink-0">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60"></span>
           <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
         </span>
-        <span className="font-medium text-white/85">{stats.totalUsers.toLocaleString("de-DE")}</span>
-        <span>{t("socialProof.usersOnPlatform", "korisnika koristi BalkanLink")}</span>
-        {stats.newToday > 0 && (
-          <>
-            <span className="text-white/30">·</span>
-            <span className="font-medium text-[hsl(45,93%,60%)]">+{stats.newToday}</span>
-            <span>{t("socialProof.today", "danas")}</span>
-          </>
-        )}
+        <span
+          key={current?.key}
+          className="inline-flex items-center gap-1.5 animate-fade-in"
+        >
+          {current?.node}
+        </span>
       </div>
     );
   }
