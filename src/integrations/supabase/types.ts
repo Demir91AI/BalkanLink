@@ -1236,15 +1236,6 @@ export type Database = {
         }
         Relationships: []
       }
-      public_live_stats: {
-        Row: {
-          chat_today: number | null
-          docs_today: number | null
-          new_today: number | null
-          total_users: number | null
-        }
-        Relationships: []
-      }
     }
     Functions: {
       consume_doc_check: {
@@ -1262,6 +1253,7 @@ export type Database = {
         Returns: number
       }
       get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
+      get_live_stats: { Args: never; Returns: Json }
       grant_doc_check_credit: {
         Args: {
           amt_cents?: number
