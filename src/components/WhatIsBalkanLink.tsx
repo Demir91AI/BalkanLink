@@ -181,11 +181,11 @@ export default function WhatIsBalkanLink() {
                 </span>
               </h2>
 
-              <div className="relative mt-3 h-px w-32 overflow-hidden rounded-full bg-white/10">
+              <div className="relative mt-4 h-px w-full max-w-2xl overflow-hidden rounded-full bg-gradient-to-r from-[hsl(var(--gold))]/30 via-white/10 to-transparent">
                 <motion.div
-                  className="absolute inset-y-0 w-12 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent"
-                  animate={{ x: ["-50%", "200%"] }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent"
+                  animate={{ x: ["-100%", "350%"] }}
+                  transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
                 />
               </div>
 
