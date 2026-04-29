@@ -38,12 +38,12 @@ export default function HeroSection() {
 
   const askPlaceholders = t("home.assistantCta.examples", { returnObjects: true }) as string[];
 
-  // Typewriter effect for placeholder examples
+  // Typewriter: type full phrase → hold → fade-out → switch to next
   useEffect(() => {
     if (!Array.isArray(askPlaceholders) || askPlaceholders.length === 0) return;
     let i = 0;
     let charIdx = 0;
-    let mode: "typing" | "pausing" | "deleting" = "typing";
+    let mode: "typing" | "holding" | "swapping" = "typing";
     let timer: ReturnType<typeof setTimeout>;
 
     const tick = () => {
@@ -51,15 +51,26 @@ export default function HeroSection() {
       if (mode === "typing") {
         charIdx++;
         setTyped(current.slice(0, charIdx));
-        if (charIdx >= current.length) { mode = "pausing"; timer = setTimeout(tick, 1800); return; }
-        timer = setTimeout(tick, 38 + Math.random() * 30);
-      } else if (mode === "pausing") {
-        mode = "deleting"; timer = setTimeout(tick, 30);
+        if (charIdx >= current.length) {
+          mode = "holding";
+          timer = setTimeout(tick, 2400); // hold full phrase
+          return;
+        }
+        timer = setTimeout(tick, 42 + Math.random() * 32);
+      } else if (mode === "holding") {
+        // fade-out current
+        setPhraseVisible(false);
+        mode = "swapping";
+        timer = setTimeout(tick, 350);
       } else {
-        charIdx -= 2;
-        if (charIdx <= 0) { charIdx = 0; setTyped(""); i = (i + 1) % askPlaceholders.length; mode = "typing"; timer = setTimeout(tick, 250); return; }
-        setTyped(current.slice(0, charIdx));
-        timer = setTimeout(tick, 18);
+        // swap to next + fade-in fresh typing
+        i = (i + 1) % askPlaceholders.length;
+        charIdx = 0;
+        setTyped("");
+        setPhraseKey((k) => k + 1);
+        setPhraseVisible(true);
+        mode = "typing";
+        timer = setTimeout(tick, 180);
       }
     };
     timer = setTimeout(tick, 600);
