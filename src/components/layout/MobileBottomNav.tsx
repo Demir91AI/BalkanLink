@@ -56,23 +56,23 @@ export default function MobileBottomNav() {
       <button
         key={item.label}
         onClick={() => navigate(item.path)}
-        className="flex flex-1 flex-col items-center justify-center gap-0.5 min-w-0 min-h-[44px] active:scale-95 transition-all duration-150 px-0.5"
+        className="flex shrink-0 snap-center flex-col items-center justify-center gap-0.5 min-h-[44px] active:scale-95 transition-all duration-150"
+        style={{ width: 64 }}
         aria-label={item.label}
       >
         <Icon
-          className="h-[17px] w-[17px] shrink-0 transition-all"
+          className="h-[19px] w-[19px] transition-all"
           style={{
-            color: active ? "#C9A84C" : "rgba(255,255,255,0.72)",
+            color: active ? "#C9A84C" : "rgba(255,255,255,0.78)",
             filter: active ? "drop-shadow(0 0 5px rgba(201,168,76,0.7))" : "none",
           }}
           strokeWidth={active ? 2.4 : 2}
         />
         <span
-          className="text-[8.5px] leading-tight w-full text-center truncate transition-all"
+          className="text-[9.5px] leading-tight w-full text-center truncate transition-all px-0.5"
           style={{
-            color: active ? "#C9A84C" : "rgba(255,255,255,0.65)",
+            color: active ? "#C9A84C" : "rgba(255,255,255,0.7)",
             fontWeight: active ? 700 : 500,
-            letterSpacing: 0.05,
           }}
         >
           {item.label}
@@ -88,7 +88,7 @@ export default function MobileBottomNav() {
       className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
       style={{
         background:
-          "linear-gradient(180deg, rgba(15,22,38,0.92) 0%, rgba(10,15,28,0.96) 100%)",
+          "linear-gradient(180deg, rgba(15,22,38,0.94) 0%, rgba(10,15,28,0.97) 100%)",
         backdropFilter: "blur(18px)",
         WebkitBackdropFilter: "blur(18px)",
         borderTop: "1px solid rgba(201,168,76,0.22)",
@@ -97,35 +97,78 @@ export default function MobileBottomNav() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
     >
-      <div className="mx-auto flex max-w-xl items-stretch h-[64px] px-1">
-        {/* Left 4 */}
-        {left.map(renderTab)}
+      <div className="relative h-[68px]">
+        {/* Scrollable rails - left + spacer + right */}
+        <div
+          className="absolute inset-0 flex items-center overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {/* Left items */}
+          <div className="flex items-center pl-2">
+            {left.map(renderTab)}
+          </div>
 
-        {/* Center: Početna */}
+          {/* Center spacer (Home button sits absolute over this) */}
+          <div className="shrink-0" style={{ width: 72 }} aria-hidden />
+
+          {/* Right items */}
+          <div className="flex items-center pr-2">
+            {right.map(renderTab)}
+          </div>
+        </div>
+
+        {/* Edge fades to hint scrollability */}
+        <div
+          className="pointer-events-none absolute left-0 top-0 bottom-0"
+          style={{
+            width: 24,
+            background:
+              "linear-gradient(90deg, rgba(10,15,28,0.95), rgba(10,15,28,0))",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute right-0 top-0 bottom-0"
+          style={{
+            width: 24,
+            background:
+              "linear-gradient(270deg, rgba(10,15,28,0.95), rgba(10,15,28,0))",
+          }}
+        />
+
+        {/* Center fade behind Home (so scrolling icons fade under it) */}
+        <div
+          className="pointer-events-none absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
+          style={{
+            width: 96,
+            background:
+              "radial-gradient(ellipse at center, rgba(10,15,28,0.95) 35%, rgba(10,15,28,0) 75%)",
+          }}
+        />
+
+        {/* Sticky Home button — absolute center */}
         <button
           onClick={() => navigate("/")}
-          className="flex flex-col items-center justify-center min-w-[52px] px-1 active:scale-95 transition-transform"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[58%] flex flex-col items-center active:scale-95 transition-transform"
           aria-label={t("mobileNav.home")}
-          style={{ transform: "translateY(-10px)" }}
         >
           <span
             className="flex items-center justify-center rounded-full"
             style={{
-              width: 46,
-              height: 46,
+              width: 50,
+              height: 50,
               background: homeActive
                 ? "linear-gradient(135deg, #C9A84C, #F0C040)"
-                : "linear-gradient(135deg, rgba(201,168,76,0.25), rgba(240,192,64,0.12))",
-              border: "1.5px solid rgba(201,168,76,0.55)",
+                : "linear-gradient(135deg, rgba(201,168,76,0.3), rgba(240,192,64,0.15))",
+              border: "1.5px solid rgba(201,168,76,0.6)",
               boxShadow: homeActive
-                ? "0 6px 18px rgba(201,168,76,0.6), inset 0 1px 0 rgba(255,255,255,0.3)"
-                : "0 3px 12px rgba(201,168,76,0.3)",
+                ? "0 6px 20px rgba(201,168,76,0.65), inset 0 1px 0 rgba(255,255,255,0.3)"
+                : "0 4px 14px rgba(201,168,76,0.35), inset 0 1px 0 rgba(255,255,255,0.1)",
             }}
           >
             <Home
-              className="h-[20px] w-[20px]"
+              className="h-[22px] w-[22px]"
               style={{ color: homeActive ? "#0F1626" : "#F0C040" }}
-              strokeWidth={2.4}
+              strokeWidth={2.5}
             />
           </span>
           <span
@@ -138,10 +181,12 @@ export default function MobileBottomNav() {
             {t("mobileNav.home")}
           </span>
         </button>
-
-        {/* Right 4 */}
-        {right.map(renderTab)}
       </div>
+
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+      `}</style>
     </nav>
   );
 }
