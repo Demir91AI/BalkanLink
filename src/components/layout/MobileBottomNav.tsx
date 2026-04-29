@@ -161,7 +161,7 @@ export default function MobileBottomNav() {
         </button>
 
         {/* RIGHT: 3 in a row */}
-        <div className="flex items-center justify-around flex-1 gap-1">
+        <div className="flex items-center justify-around flex-1 gap-0">
           {right.map((it, i) => renderTab(it, i, "R"))}
         </div>
       </div>
