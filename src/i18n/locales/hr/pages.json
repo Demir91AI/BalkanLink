@@ -18,6 +18,8 @@
       "subtitle": "Odgovor odmah, na tvojem jeziku",
       "prompt": "Pitaj npr.",
       "send": "Pošalji pitanje",
+      "enterHint": "Pritisni Enter za slanje",
+      "freeHint": "Besplatno · bez registracije",
       "examples": [
         "Kako prijaviti stan u Njemačkoj (Anmeldung)?",
         "Koliko je netto plaća od 2800€ bruto u klasi 1?",
