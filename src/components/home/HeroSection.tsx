@@ -461,6 +461,17 @@ export default function HeroSection() {
 
       <style>{`
         @keyframes blCaret { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
+        @keyframes blRingSpin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+        @keyframes blSheen {
+          0% { transform: translateX(0) skewX(12deg); opacity: 0 }
+          15% { opacity: 1 }
+          60% { transform: translateX(450%) skewX(12deg); opacity: 0.8 }
+          100% { transform: translateX(450%) skewX(12deg); opacity: 0 }
+        }
+        @keyframes blAvatarPulse {
+          0%, 100% { transform: scale(1); opacity: 0.55 }
+          50% { transform: scale(1.08); opacity: 0.85 }
+        }
       `}</style>
 
       {/* Dots */}
