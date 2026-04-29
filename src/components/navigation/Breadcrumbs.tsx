@@ -29,6 +29,10 @@ interface BreadcrumbsProps {
   className?: string;
   /** Hide the auto-derived crumb trail (only show Back + Home buttons) */
   hideTrail?: boolean;
+  /** Show share button on the right side */
+  showShare?: boolean;
+  /** Override share title (defaults to document.title) */
+  shareTitle?: string;
 }
 
 /**
