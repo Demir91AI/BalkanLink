@@ -128,6 +128,7 @@ const PoreziMistakes = lazy(() => import("./pages/PoreziMistakes"));
 const CheckListe = lazy(() => import("./pages/CheckListe"));
 const CheckListaDetail = lazy(() => import("./pages/CheckListaDetail"));
 const AnmeldungSimulator = lazy(() => import("./pages/AnmeldungSimulator"));
+const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -294,6 +295,8 @@ function LocalizedRoutes() {
         <Route path="dsa" element={<DSA />} />
         
         <Route path="cookie-richtlinie" element={<CookieRichtlinie />} />
+        <Route path="unsubscribe" element={<Unsubscribe />} />
+        <Route path="email-preferences/unsubscribe" element={<Unsubscribe />} />
         <Route path="nudim-trazim" element={<NudimTrazim />} />
         <Route path="nach-deutschland" element={<NachDeutschland />} />
         <Route path="nach-deutschland/:countryCode" element={<NachDeutschland />} />
