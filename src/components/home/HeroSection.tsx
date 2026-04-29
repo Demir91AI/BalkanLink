@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { BLIcon } from "@/components/BrandLogo";
@@ -269,25 +269,22 @@ export default function HeroSection() {
             {t("home.disclaimer")}
           </motion.p>
 
-          {/* Trust badges */}
+          {/* Trust badges — subtle micro-row */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-5 flex flex-wrap items-center justify-center gap-4"
+            className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5"
           >
-            {trustBadges.map((badge) => (
-              <span
-                key={badge}
-                className="flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[0.8rem] font-medium text-white/90"
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(212,175,55,0.25)",
-                  backdropFilter: "blur(12px)",
-                }}
-              >
-                <CheckCircle2 className="h-3.5 w-3.5 text-[#D4AF37]" />
-                {badge}
+            {trustBadges.map((badge, idx) => (
+              <span key={badge} className="flex items-center gap-3">
+                {idx > 0 && (
+                  <span aria-hidden className="h-1 w-1 rounded-full bg-white/25" />
+                )}
+                <span className="flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-[0.12em] text-white/55">
+                  <CheckCircle2 className="h-3 w-3 text-[hsl(var(--gold))]/80" />
+                  {badge}
+                </span>
               </span>
             ))}
           </motion.div>
@@ -299,64 +296,46 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 1.0, ease }}
             className="mt-7 w-full max-w-xl"
           >
-            {/* Brand label above bar — premium glow chip */}
-            <div className="mb-3 flex items-center justify-center gap-3">
-              {/* Decorative line left */}
-              <span
-                aria-hidden
-                className="hidden h-px w-10 sm:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent, hsla(43,70%,55%,0.5))",
-                }}
-              />
-              <span
-                className="group/chip relative inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.28em]"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsla(43,70%,55%,0.18) 0%, hsla(43,70%,55%,0.06) 50%, hsla(43,70%,55%,0.18) 100%)",
-                  border: "1px solid hsla(43,70%,55%,0.45)",
-                  boxShadow:
-                    "0 0 32px -6px hsla(43,70%,55%,0.55), inset 0 1px 0 hsla(43,70%,55%,0.25)",
-                }}
-              >
-                {/* Sparkle pulse */}
-                <span aria-hidden className="relative flex h-3 w-3 items-center justify-center">
-                  <span
-                    className="absolute h-3 w-3 rounded-full opacity-60"
-                    style={{
-                      background: "hsla(43,70%,55%,0.5)",
-                      animation: "blChipPulse 2.4s ease-in-out infinite",
-                    }}
-                  />
-                  <svg viewBox="0 0 12 12" className="relative h-3 w-3" fill="none">
-                    <path
-                      d="M6 0.5 L7.2 4.8 L11.5 6 L7.2 7.2 L6 11.5 L4.8 7.2 L0.5 6 L4.8 4.8 Z"
-                      fill="hsl(var(--gold))"
-                    />
-                  </svg>
-                </span>
-                <span
-                  className="bg-clip-text text-transparent"
+            {/* Brand label above bar — editorial premium block */}
+            <div className="mb-3.5 flex flex-col items-center gap-1.5">
+              {/* Top tiny tagline */}
+              <span className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.4em] text-white/40">
+                <span aria-hidden className="h-px w-6 bg-gradient-to-r from-transparent to-white/30" />
+                {t("home.assistantCta.subtitle")}
+                <span aria-hidden className="h-px w-6 bg-gradient-to-l from-transparent to-white/30" />
+              </span>
+              {/* Big brand name — gradient, sparkle accents */}
+              <div className="flex items-center gap-2.5">
+                <Sparkles
+                  className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
+                  style={{
+                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                    animation: "blSparkleA 3.6s ease-in-out infinite",
+                  }}
+                />
+                <h2
+                  className="text-[15px] font-extrabold tracking-[0.04em] sm:text-[16px]"
                   style={{
                     backgroundImage:
-                      "linear-gradient(90deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-light)) 100%)",
-                    backgroundSize: "200% 100%",
-                    animation: "blChipShine 4.5s ease-in-out infinite",
+                      "linear-gradient(90deg, hsl(var(--gold-light)) 0%, #fff 35%, hsl(var(--gold)) 65%, hsl(var(--gold-light)) 100%)",
+                    backgroundSize: "220% 100%",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                    animation: "blChipShine 5s ease-in-out infinite",
+                    textShadow: "0 0 24px hsla(43,70%,55%,0.25)",
                   }}
                 >
-                  BalkanLink&nbsp;Asistent
-                </span>
-              </span>
-              {/* Decorative line right */}
-              <span
-                aria-hidden
-                className="hidden h-px w-10 sm:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, hsla(43,70%,55%,0.5), transparent)",
-                }}
-              />
+                  BalkanLink Asistent
+                </h2>
+                <Sparkles
+                  className="h-3.5 w-3.5 text-[hsl(var(--gold))]"
+                  style={{
+                    filter: "drop-shadow(0 0 6px hsla(43,70%,55%,0.7))",
+                    animation: "blSparkleB 3.6s ease-in-out infinite",
+                  }}
+                />
+              </div>
             </div>
 
             {/* Ask bar — premium dual-glow */}
@@ -506,6 +485,23 @@ export default function HeroSection() {
                 </div>
               </div>
             </form>
+            {/* Micro-meta row under bar */}
+            <div className="mt-2.5 flex items-center justify-center gap-4 text-[10.5px] font-medium text-white/45">
+              <span className="inline-flex items-center gap-1.5">
+                <kbd
+                  className="inline-flex h-[18px] items-center rounded-[5px] border border-white/15 bg-white/[0.06] px-1.5 text-[9px] font-bold tracking-wider text-white/70"
+                  style={{ boxShadow: "inset 0 -1px 0 rgba(0,0,0,0.4)" }}
+                >
+                  ↵ Enter
+                </kbd>
+                <span>{t("home.assistantCta.enterHint")}</span>
+              </span>
+              <span aria-hidden className="h-1 w-1 rounded-full bg-white/25" />
+              <span className="inline-flex items-center gap-1.5">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_hsla(150,80%,60%,0.7)]" />
+                {t("home.assistantCta.freeHint")}
+              </span>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -530,6 +526,14 @@ export default function HeroSection() {
         @keyframes blChipShine {
           0%, 100% { background-position: 0% 50% }
           50% { background-position: 100% 50% }
+        }
+        @keyframes blSparkleA {
+          0%, 100% { opacity: 0.55; transform: scale(1) rotate(0deg) }
+          50% { opacity: 1; transform: scale(1.2) rotate(15deg) }
+        }
+        @keyframes blSparkleB {
+          0%, 100% { opacity: 1; transform: scale(1.2) rotate(-15deg) }
+          50% { opacity: 0.55; transform: scale(1) rotate(0deg) }
         }
       `}</style>
 

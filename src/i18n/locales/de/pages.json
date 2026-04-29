@@ -18,6 +18,8 @@
       "subtitle": "Sofort eine Antwort, in deiner Sprache",
       "prompt": "Frag z. B.",
       "send": "Frage senden",
+      "enterHint": "Enter drücken zum Senden",
+      "freeHint": "Kostenlos · ohne Anmeldung",
       "examples": [
         "Wie melde ich meine Wohnung in Deutschland an?",
         "Wie viel Netto bleibt von 2800€ Brutto in Klasse 1?",
