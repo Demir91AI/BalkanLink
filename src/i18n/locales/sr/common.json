@@ -65,13 +65,18 @@
   },
   "mobileNav": {
     "documents": "Dokumenti",
-    "visa": "Vize",
+    "visa": "Viza",
     "assistant": "Asistent",
     "pricing": "Cene",
     "profile": "Profil",
     "home": "Početna",
     "taxes": "Porezi",
-    "trainer": "Trener"
+    "trainer": "Nemački",
+    "formulari": "Formulari",
+    "anerkennung": "Anerkennung",
+    "docCheck": "Dokumenti",
+    "schufa": "Schufa",
+    "nebenkosten": "Režije"
   },
   "footer": {
     "tagline": "Sve što ti treba za život u Nemačkoj",

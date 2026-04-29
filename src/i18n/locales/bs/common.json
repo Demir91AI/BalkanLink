@@ -65,13 +65,18 @@
   },
   "mobileNav": {
     "documents": "Dokumenti",
-    "visa": "Vize",
+    "visa": "Viza",
     "assistant": "Asistent",
     "pricing": "Cijene",
     "profile": "Profil",
     "home": "Početna",
     "taxes": "Porezi",
-    "trainer": "Trener"
+    "trainer": "Njemački",
+    "formulari": "Formulari",
+    "anerkennung": "Anerkennung",
+    "docCheck": "Dokumenti",
+    "schufa": "Schufa",
+    "nebenkosten": "Režije"
   },
   "footer": {
     "tagline": "Sve što ti treba za život u Njemačkoj",
