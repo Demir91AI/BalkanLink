@@ -72,6 +72,7 @@ const BussgeldAssistent = lazy(() => import("./pages/BussgeldAssistent"));
 const ChatAssistant = lazy(() => import("./components/ChatAssistant"));
 const KindergeldMuster = lazy(() => import("./pages/muster/KindergeldMuster"));
 const AnmeldungMuster = lazy(() => import("./pages/muster/AnmeldungMuster"));
+const WhatIsBalkanLink = lazy(() => import("./components/WhatIsBalkanLink"));
 
 const PaymentSuccess = lazy(() => import("./pages/PaymentSuccess"));
 const PaymentCancel = lazy(() => import("./pages/PaymentCancel"));
@@ -379,6 +380,7 @@ const App = () => (
             <AuthProvider>
               <Suspense fallback={null}>
                 <AppRoutes />
+                <WhatIsBalkanLink />
               </Suspense>
             </AuthProvider>
           </CountryProvider>
