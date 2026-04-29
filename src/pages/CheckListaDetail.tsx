@@ -5,8 +5,8 @@ import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
 export default function CheckListaDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const hubHref = useLocalizedHref("/check-liste");
+  const localize = useLocalizedHref();
   const cl = slug ? getChecklist(slug) : undefined;
-  if (!cl) return <Navigate to={hubHref} replace />;
+  if (!cl) return <Navigate to={localize("/check-liste")} replace />;
   return <ChecklistPage checklist={cl} />;
 }
