@@ -6,7 +6,7 @@ import {
   FileText, Shield, BookOpen, ScanLine, Megaphone, Plane,
   Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
   Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
-  Coins, Search, Crown, Clock, ArrowRight, ChevronDown, User, Mail,
+  Coins, Search, Crown, Clock, ArrowRight, ChevronDown, User, Mail, MessageSquare,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
@@ -471,6 +471,14 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                 <span className="text-[14px] font-medium">{t("sidebar.downloadApp")}</span>
               </button>
             )}
+            <a
+              href={`mailto:kontakt@balkanlink.de?subject=${encodeURIComponent(t("sidebar.sendFeedbackSubject"))}&body=${encodeURIComponent(t("sidebar.sendFeedbackBody"))}`}
+              onClick={close}
+              className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
+            >
+              <MessageSquare className="h-[18px] w-[18px] shrink-0" />
+              <span className="text-[14px] font-medium">{t("sidebar.sendFeedback")}</span>
+            </a>
           </nav>
         </div>
         )}

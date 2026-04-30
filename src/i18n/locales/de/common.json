@@ -32,6 +32,9 @@
     "shareApp": "BalkanLink teilen",
     "shareSuccess": "Link kopiert!",
     "downloadApp": "BalkanLink App installieren",
+    "sendFeedback": "Feedback senden",
+    "sendFeedbackSubject": "Feedback / Vorschlag / Fehler – BalkanLink",
+    "sendFeedbackBody": "Hallo,\n\nich möchte mitteilen:\n(Lob / Vorschlag / Kritik / Fehlermeldung)\n\n",
     "items": {
       "formulari": "Formulare",
       "viza": "Visa-Navigator",

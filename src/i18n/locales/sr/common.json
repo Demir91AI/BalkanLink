@@ -32,6 +32,9 @@
     "shareApp": "Podijeli BalkanLink",
     "shareSuccess": "Link kopiran!",
     "downloadApp": "Preuzmi BalkanLink App",
+    "sendFeedback": "Pošalji feedback",
+    "sendFeedbackSubject": "Feedback / Predlog / Greška – BalkanLink",
+    "sendFeedbackBody": "Zdravo,\n\nželim da podelim:\n(pohvala / predlog / kritika / prijava greške)\n\n",
     "items": {
       "formulari": "Formulari",
       "viza": "Viza Navigator",
