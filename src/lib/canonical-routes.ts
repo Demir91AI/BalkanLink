@@ -90,6 +90,7 @@ export const VALID_PRODUCTION_ROUTES = new Set([
   "/anerkennung",
   "/porezi", "/steuern",
   "/profil", "/historija-placanja",
+  "/dvojno-drzavljanstvo", "/doppelte-staatsbuergerschaft",
 ]);
 
 export function isValidProductionRoute(path: string): boolean {

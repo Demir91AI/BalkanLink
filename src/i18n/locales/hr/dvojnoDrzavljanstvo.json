@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "Dvojno državljanstvo — BiH, Srbija, Kosovo, HR, CG, MK, AL i Njemačka",
+    "description": "Pregled pravila o dvojnom državljanstvu između Njemačke i zemalja Zapadnog Balkana nakon StARModG zakona od 27.06.2024. Stand 2026."
+  },
+  "page": {
+    "title": "Dvojno državljanstvo",
+    "subtitle": "Možeš li zadržati svoju putovnicu kad uzmeš njemačku? Pregled po zemljama.",
+    "infoBannerTitle": "Novi njemački zakon — Stand 27.06.2024",
+    "infoBannerBody": "Stupanjem na snagu Zakona o modernizaciji prava o državljanstvu (StARModG), Njemačka općenito prihvaća višestruko državljanstvo. Više se ne mora odreći prethodnog državljanstva pri njemačkoj naturalizaciji — ali pravila države podrijetla i dalje vrijede."
+  },
+  "status": {
+    "ok": "Dvojno državljanstvo dopušteno",
+    "okEu": "Dvojno državljanstvo dopušteno (EU)",
+    "warning": "Posebna pravila — potreban bilateralni sporazum"
+  },
+  "disclaimer": {
+    "title": "Pravna napomena",
+    "body": "Informacije su općenitog karaktera i ne predstavljaju pravni savjet. Zakonodavstvo se može mijenjati. Za individualni slučaj konzultiraj odvjetnika specijaliziranog za državljansko pravo ili nadležno diplomatsko-konzularno predstavništvo."
+  },
+  "countries": {
+    "bih": {
+      "name": "Bosna i Hercegovina",
+      "sections": {
+        "germanLaw": {
+          "title": "Njemački zakon (od 27.06.2024.)",
+          "body": "Od stupanja na snagu Zakona o modernizaciji prava o državljanstvu (StARModG) 27. lipnja 2024., Njemačka općenito prihvaća višestruko državljanstvo. Tko se naturalizira u Njemačkoj, više se ne mora odreći bosanskog državljanstva. Isto vrijedi i obrnuto — Nijemac koji uzme strano državljanstvo više ne gubi automatski njemačko."
+        },
+        "bihLaw": {
+          "title": "BiH zakon — bilateralni sporazum",
+          "body": "Ustav BiH, Članak I/7.d propisuje da državljani BiH mogu imati državljanstvo druge države isključivo ako postoji bilateralni sporazum između BiH i te države. BiH ima takve sporazume s Hrvatskom, Srbijom i Švedskom — ali NE i s Njemačkom. Njemačka općenito ne sklapa bilateralne sporazume o dvojnom državljanstvu."
+        },
+        "practical": {
+          "title": "Praktična situacija — što to znači za tebe",
+          "body": "BiH ustav ne propisuje da se MORA odreći stranog državljanstva ako nema bilateralnog sporazuma — samo kaže da dvojno državljanstvo nije formalno priznato. U praksi: BiH ti ne oduzima automatski putovnicu kad uzmeš njemačku. Mnogi dijasporci faktički imaju oba dokumenta. Međutim, formalno dvojno državljanstvo BiH–Njemačka nije regulirano, te BiH ne može službeno evidentirati taj status. Za rješenje je potrebna izmjena zakona u BiH ili potpisivanje bilateralnog sporazuma. Preporučujemo konzultaciju s odvjetnikom ili BiH konzulatom."
+        },
+        "note": {
+          "title": "Važna napomena",
+          "body": "Informacije su općenitog karaktera i ne predstavljaju pravni savjet. Zakonski okvir se može mijenjati. Za tvoj individualni slučaj konzultiraj se s odvjetnikom specijaliziranim za državljansko pravo ili BiH diplomatsko-konzularnim predstavništvom u Njemačkoj."
+        }
+      }
+    },
+    "srbija": {
+      "name": "Srbija",
+      "sections": {
+        "germanLaw": {
+          "title": "Njemački zakon (od 27.06.2024.)",
+          "body": "Od 27. lipnja 2024. Njemačka općenito prihvaća višestruko državljanstvo. Srpski državljanin koji se naturalizira u Njemačkoj ne mora se odreći srpske putovnice."
+        },
+        "ownLaw": {
+          "title": "Srpski zakon",
+          "body": "Srbija dopušta dvojno državljanstvo. Srpski Zakon o državljanstvu ne zahtijeva odricanje od srpskog državljanstva pri stjecanju stranog. Stoga Srbin koji uzme njemačku putovnicu zadržava srpsku — bez formalnih prepreka s obje strane."
+        }
+      }
+    },
+    "kosovo": {
+      "name": "Kosovo",
+      "sections": {
+        "germanLaw": {
+          "title": "Njemački zakon (od 27.06.2024.)",
+          "body": "Od 27. lipnja 2024. Njemačka općenito prihvaća višestruko državljanstvo. Kosovski državljanin koji se naturalizira u Njemačkoj ne mora se odreći kosovske putovnice."
+        },
+        "ownLaw": {
+          "title": "Kosovski zakon",
+          "body": "Kosovo dopušta dvojno državljanstvo. Kosovski Zakon o državljanstvu prihvaća da državljani Kosova imaju i drugo strano državljanstvo."
+        }
+      }
+    },
+    "hrvatska": {
+      "name": "Hrvatska",
+      "sections": {
+        "euStatus": {
+          "title": "EU status",
+          "body": "Hrvatska je članica EU, što znači da je dvojno državljanstvo Hrvatska–Njemačka bilo dopušteno i prije novog zakona iz 2024. EU državljani su uvijek imali iznimku od starih njemačkih pravila o odricanju."
+        },
+        "ownLaw": {
+          "title": "Hrvatski zakon",
+          "body": "Hrvatska dopušta dvojno državljanstvo. Uz to, Hrvatska ima bilateralni sporazum s Bosnom i Hercegovinom iz 2011. koji izričito uređuje dvojno državljanstvo između tih dviju država."
+        }
+      }
+    },
+    "crnaGora": {
+      "name": "Crna Gora",
+      "sections": {
+        "bothLaws": {
+          "title": "Crnogorski i njemački zakon",
+          "body": "I Crna Gora i Njemačka (od 27.06.2024.) dopuštaju dvojno državljanstvo. Crnogorac koji se naturalizira u Njemačkoj zadržava crnogorsku putovnicu bez formalnih prepreka s obje strane."
+        }
+      }
+    },
+    "albanija": {
+      "name": "Albanija",
+      "sections": {
+        "bothLaws": {
+          "title": "Albanski i njemački zakon",
+          "body": "I Albanija i Njemačka (od 27.06.2024.) dopuštaju dvojno državljanstvo. Albanac koji se naturalizira u Njemačkoj zadržava albansku putovnicu bez formalnih prepreka s obje strane."
+        }
+      }
+    },
+    "sjevernaMakedonija": {
+      "name": "Sjeverna Makedonija",
+      "sections": {
+        "bothLaws": {
+          "title": "Makedonski i njemački zakon",
+          "body": "I Sjeverna Makedonija i Njemačka (od 27.06.2024.) dopuštaju dvojno državljanstvo. Makedonac koji se naturalizira u Njemačkoj zadržava makedonsku putovnicu bez formalnih prepreka s obje strane."
+        }
+      }
+    }
+  }
+}

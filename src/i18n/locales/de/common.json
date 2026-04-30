@@ -52,7 +52,8 @@
       "bonitetSimulator": "Bonitäts-Simulator",
       "anerkennungNavigator": "Anerkennung-Navigator",
       "porezi": "Steuern",
-      "nebenkostenScan": "Nebenkosten-Scan"
+      "nebenkostenScan": "Nebenkosten-Scan",
+      "dvojnoDrzavljanstvo": "Doppelte Staatsbürgerschaft"
     },
     "premiumBadge": "PREMIUM",
     "accountSectionLabel": "Konto",
@@ -370,7 +371,8 @@
       "smart-guide": "Smart Guide",
       "guide": "Anleitung",
       "firma": "Firma",
-      "submit": "Einreichen"
+      "submit": "Einreichen",
+      "dvojno-drzavljanstvo": "Doppelte Staatsbürgerschaft"
     }
   },
   "share": {

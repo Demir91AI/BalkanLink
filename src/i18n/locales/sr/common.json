@@ -52,7 +52,8 @@
       "bonitetSimulator": "Bonitet Simulator",
       "anerkennungNavigator": "Anerkennung Navigator",
       "porezi": "Porezi",
-      "nebenkostenScan": "Skener režija"
+      "nebenkostenScan": "Skener režija",
+      "dvojnoDrzavljanstvo": "Dvojno državljanstvo"
     },
     "premiumBadge": "PREMIUM",
     "accountSectionLabel": "Račun",
@@ -370,7 +371,8 @@
       "smart-guide": "Smart Guide",
       "guide": "Vodič",
       "firma": "Preduzeće",
-      "submit": "Prijavi"
+      "submit": "Prijavi",
+      "dvojno-drzavljanstvo": "Dvojno državljanstvo"
     }
   },
   "share": {

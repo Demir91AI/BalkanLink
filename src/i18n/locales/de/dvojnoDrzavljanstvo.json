@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "Doppelte Staatsbürgerschaft — Westbalkan & Deutschland",
+    "description": "Übersicht der Regelungen zur Mehrstaatigkeit zwischen Deutschland und den Westbalkanstaaten nach Inkrafttreten des StARModG am 27.06.2024. Stand 2026."
+  },
+  "page": {
+    "title": "Doppelte Staatsbürgerschaft",
+    "subtitle": "Können Sie Ihren Pass behalten, wenn Sie den deutschen erwerben? Übersicht nach Ländern.",
+    "infoBannerTitle": "Neues deutsches Recht — Stand 27.06.2024",
+    "infoBannerBody": "Mit Inkrafttreten des Staatsangehörigkeitsmodernisierungsgesetzes (StARModG) ist Mehrstaatigkeit in Deutschland generell erlaubt. Bei der deutschen Einbürgerung muss die bisherige Staatsangehörigkeit nicht mehr aufgegeben werden — die Regeln des Herkunftsstaates gelten jedoch weiterhin."
+  },
+  "status": {
+    "ok": "Mehrstaatigkeit erlaubt",
+    "okEu": "Mehrstaatigkeit erlaubt (EU)",
+    "warning": "Sonderregelung — bilaterales Abkommen erforderlich"
+  },
+  "disclaimer": {
+    "title": "Rechtlicher Hinweis",
+    "body": "Die Informationen sind allgemeiner Natur und stellen keine Rechtsberatung dar. Die Rechtslage kann sich ändern. Für Ihren Einzelfall wenden Sie sich bitte an einen auf Staatsangehörigkeitsrecht spezialisierten Anwalt oder die zuständige diplomatisch-konsularische Vertretung."
+  },
+  "countries": {
+    "bih": {
+      "name": "Bosnien und Herzegowina",
+      "sections": {
+        "germanLaw": {
+          "title": "Deutsches Recht (ab 27.06.2024)",
+          "body": "Seit Inkrafttreten des Staatsangehörigkeitsmodernisierungsgesetzes (StARModG) am 27. Juni 2024 ist Mehrstaatigkeit in Deutschland generell erlaubt. Wer sich in Deutschland einbürgern lässt, muss die bosnische Staatsangehörigkeit nicht mehr aufgeben. Umgekehrt verliert ein Deutscher seine Staatsangehörigkeit nicht mehr automatisch, wenn er eine ausländische erwirbt."
+        },
+        "bihLaw": {
+          "title": "BiH-Recht — bilaterales Abkommen",
+          "body": "Die Verfassung von BiH, Artikel I/7.d, schreibt vor, dass BiH-Bürger die Staatsangehörigkeit eines anderen Landes nur besitzen dürfen, wenn ein bilaterales Abkommen zwischen BiH und diesem Land besteht. BiH hat solche Abkommen mit Kroatien, Serbien und Schweden — aber NICHT mit Deutschland. Deutschland schließt generell keine bilateralen Abkommen über Mehrstaatigkeit ab."
+        },
+        "practical": {
+          "title": "Praktische Situation — was das für Sie bedeutet",
+          "body": "Die Verfassung von BiH schreibt nicht vor, dass die ausländische Staatsangehörigkeit aufgegeben werden MUSS, wenn kein bilaterales Abkommen besteht — sie sagt nur, dass die Mehrstaatigkeit nicht formal anerkannt ist. In der Praxis: BiH entzieht den Pass nicht automatisch, wenn Sie die deutsche Staatsangehörigkeit erwerben. Viele Diaspora-Angehörige besitzen faktisch beide Pässe. Die doppelte Staatsbürgerschaft BiH–Deutschland ist jedoch formal nicht geregelt, weshalb BiH diesen Status nicht offiziell eintragen kann. Für eine Lösung wäre eine Gesetzesänderung in BiH oder ein bilaterales Abkommen erforderlich. Wir empfehlen die Beratung durch einen Anwalt oder das BiH-Konsulat."
+        },
+        "note": {
+          "title": "Wichtiger Hinweis",
+          "body": "Die Informationen sind allgemeiner Natur und stellen keine Rechtsberatung dar. Der gesetzliche Rahmen kann sich ändern. Für Ihren Einzelfall wenden Sie sich bitte an einen auf Staatsangehörigkeitsrecht spezialisierten Anwalt oder an die diplomatisch-konsularische Vertretung von BiH in Deutschland."
+        }
+      }
+    },
+    "srbija": {
+      "name": "Serbien",
+      "sections": {
+        "germanLaw": {
+          "title": "Deutsches Recht (ab 27.06.2024)",
+          "body": "Seit dem 27.06.2024 ist Mehrstaatigkeit in Deutschland generell erlaubt. Ein serbischer Staatsangehöriger, der sich in Deutschland einbürgern lässt, muss den serbischen Pass nicht mehr abgeben."
+        },
+        "ownLaw": {
+          "title": "Serbisches Recht",
+          "body": "Serbien erlaubt die Mehrstaatigkeit. Das serbische Staatsangehörigkeitsgesetz verlangt bei Erwerb einer ausländischen Staatsangehörigkeit keinen Verzicht auf die serbische. Ein Serbe, der den deutschen Pass erwirbt, behält daher den serbischen — ohne formale Hindernisse auf beiden Seiten. Serbien hat zudem ein bilaterales Abkommen über die Mehrstaatigkeit mit Bosnien und Herzegowina."
+        }
+      }
+    },
+    "kosovo": {
+      "name": "Kosovo",
+      "sections": {
+        "germanLaw": {
+          "title": "Deutsches Recht (ab 27.06.2024)",
+          "body": "Seit dem 27.06.2024 ist Mehrstaatigkeit in Deutschland generell erlaubt. Ein kosovarischer Staatsangehöriger, der sich in Deutschland einbürgern lässt, muss den kosovarischen Pass nicht mehr abgeben."
+        },
+        "ownLaw": {
+          "title": "Kosovarisches Recht",
+          "body": "Kosovo erlaubt die Mehrstaatigkeit. Das kosovarische Staatsangehörigkeitsgesetz akzeptiert, dass kosovarische Staatsangehörige auch eine ausländische Staatsangehörigkeit besitzen. In bestimmten Fällen wird die kosovarische Staatsangehörigkeit automatisch erworben — z. B. bei Eintragung ins Geburtenregister oder wenn beide Eltern kosovarische Staatsangehörige sind."
+        }
+      }
+    },
+    "hrvatska": {
+      "name": "Kroatien",
+      "sections": {
+        "euStatus": {
+          "title": "EU-Status",
+          "body": "Kroatien ist EU-Mitglied, weshalb die doppelte Staatsbürgerschaft Kroatien–Deutschland bereits vor dem neuen Gesetz von 2024 erlaubt war. EU-Bürger waren immer von der alten deutschen Verzichtspflicht ausgenommen."
+        },
+        "ownLaw": {
+          "title": "Kroatisches Recht",
+          "body": "Kroatien erlaubt die Mehrstaatigkeit. Zudem hat Kroatien ein bilaterales Abkommen mit Bosnien und Herzegowina aus dem Jahr 2011, das die Mehrstaatigkeit zwischen diesen beiden Staaten ausdrücklich regelt."
+        }
+      }
+    },
+    "crnaGora": {
+      "name": "Montenegro",
+      "sections": {
+        "bothLaws": {
+          "title": "Montenegrinisches und deutsches Recht",
+          "body": "Sowohl Montenegro als auch Deutschland (seit 27.06.2024) erlauben die Mehrstaatigkeit. Ein Montenegriner, der sich in Deutschland einbürgern lässt, behält den montenegrinischen Pass ohne formale Hindernisse auf beiden Seiten."
+        }
+      }
+    },
+    "albanija": {
+      "name": "Albanien",
+      "sections": {
+        "bothLaws": {
+          "title": "Albanisches und deutsches Recht",
+          "body": "Sowohl Albanien als auch Deutschland (seit 27.06.2024) erlauben die Mehrstaatigkeit. Ein Albaner, der sich in Deutschland einbürgern lässt, behält den albanischen Pass ohne formale Hindernisse auf beiden Seiten."
+        }
+      }
+    },
+    "sjevernaMakedonija": {
+      "name": "Nordmazedonien",
+      "sections": {
+        "bothLaws": {
+          "title": "Nordmazedonisches und deutsches Recht",
+          "body": "Sowohl Nordmazedonien als auch Deutschland (seit 27.06.2024) erlauben die Mehrstaatigkeit. Ein Nordmazedonier, der sich in Deutschland einbürgern lässt, behält den nordmazedonischen Pass ohne formale Hindernisse auf beiden Seiten."
+        }
+      }
+    }
+  }
+}

@@ -101,6 +101,7 @@ const AnlageSEMuster = lazy(() => import("./pages/muster/AnlageSEMuster"));
 const ArbeitsbescheinigungMuster = lazy(() => import("./pages/muster/ArbeitsbescheinigungMuster"));
 const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/AntragsruecknahmeMuster"));
 const Viza = lazy(() => import("./pages/Viza"));
+const DvojnoDrzavljanstvo = lazy(() => import("./pages/DvojnoDrzavljanstvo"));
 const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
 const RadnoPravo = lazy(() => import("./pages/RadnoPravo"));
 const RadnoPravoGuide = lazy(() => import("./pages/RadnoPravoGuide"));
@@ -327,6 +328,8 @@ function LocalizedRoutes() {
         
         <Route path="zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
         <Route path="viza" element={<Viza />} />
+        <Route path="dvojno-drzavljanstvo" element={<DvojnoDrzavljanstvo />} />
+        <Route path="doppelte-staatsbuergerschaft" element={<Navigate to="../dvojno-drzavljanstvo" replace />} />
         <Route path="radno-pravo" element={<RadnoPravo />} />
         <Route path="radno-pravo/:slug" element={<RadnoPravoGuide />} />
         <Route path="biznis" element={<BiznisNjemacka />} />
