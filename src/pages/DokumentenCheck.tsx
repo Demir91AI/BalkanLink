@@ -46,17 +46,17 @@ interface AnalysisSection {
 
 const SECTION_CONFIG: Record<string, { icon: React.ReactNode; colorClass: string; iconColorClass: string; isPremium: boolean }> = {
   // Bosanski naslovi koje vraća edge funkcija (matchaju se kroz substring includes na normalizovan tekst)
-  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-50 dark:bg-blue-950/20", iconColorClass: "text-blue-500", isPremium: false },
-  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-50 dark:bg-emerald-950/20", iconColorClass: "text-emerald-500", isPremium: false },
-  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-50 dark:bg-purple-950/20", iconColorClass: "text-purple-500", isPremium: true },
-  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-50 dark:bg-amber-950/20", iconColorClass: "text-amber-500", isPremium: true },
-  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-50 dark:bg-red-950/20", iconColorClass: "text-red-500", isPremium: true },
-  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-50 dark:bg-green-950/20", iconColorClass: "text-green-600", isPremium: true },
-  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/20", iconColorClass: "text-indigo-500", isPremium: true },
-  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-50 dark:bg-orange-950/20", iconColorClass: "text-orange-500", isPremium: true },
-  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-50 dark:bg-rose-950/20", iconColorClass: "text-rose-500", isPremium: true },
-  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
-  "sazetak": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/20", iconColorClass: "text-cyan-500", isPremium: true },
+  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-950/30", iconColorClass: "text-blue-400", isPremium: false },
+  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-950/30", iconColorClass: "text-emerald-400", isPremium: false },
+  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-950/30", iconColorClass: "text-purple-400", isPremium: true },
+  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-950/30", iconColorClass: "text-amber-400", isPremium: true },
+  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-950/30", iconColorClass: "text-red-400", isPremium: true },
+  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-950/30", iconColorClass: "text-green-400", isPremium: true },
+  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-950/30", iconColorClass: "text-indigo-400", isPremium: true },
+  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-950/30", iconColorClass: "text-orange-400", isPremium: true },
+  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-950/30", iconColorClass: "text-rose-400", isPremium: true },
+  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-950/30", iconColorClass: "text-cyan-400", isPremium: true },
+  "sazetak": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-950/30", iconColorClass: "text-cyan-400", isPremium: true },
   "pravna napomena": { icon: <Scale className="h-5 w-5" />, colorClass: "border-muted bg-muted/30", iconColorClass: "text-muted-foreground", isPremium: false },
 };
 
@@ -595,10 +595,10 @@ export default function DokumentenCheck() {
                     </div>
                     <ul className="space-y-2">
                       {files.map((f, idx) => (
-                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-2.5">
+                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-800 bg-emerald-900/20 px-3 py-2.5">
                           <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <FileText className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                            <span className="text-sm text-emerald-700 dark:text-emerald-400 truncate">{f.name}</span>
+                            <FileText className="h-4 w-4 text-emerald-400 shrink-0" />
+                            <span className="text-sm text-emerald-400 truncate">{f.name}</span>
                             <span className="text-[11px] text-muted-foreground shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
                           </div>
                           <button
@@ -706,8 +706,8 @@ export default function DokumentenCheck() {
                 <ChevronDown className={`h-4 w-4 transition-transform ${showExample ? "rotate-180" : ""}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="mt-3">
-                <div className="rounded-2xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/20 p-5 sm:p-6 space-y-3">
-                  <div className="flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-400">
+                <div className="rounded-2xl border border-amber-900/40 bg-amber-950/30 p-5 sm:p-6 space-y-3">
+                  <div className="flex items-center gap-2 text-sm font-bold text-amber-400">
                     <FileWarning className="h-4 w-4" />
                     {t("documentCheck.example.heading")}
                   </div>
