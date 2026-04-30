@@ -56,10 +56,10 @@ const STEPS: StepData[] = [
       "Originalna potvrda o položenom testu (Sprachzertifikat). Mora biti od priznatog izdavaoca (Telc, Goethe, ÖSD, BAMF za DTZ).",
     format: "Naziv testa + level + datum, npr. „telc Deutsch B1 — bestanden am 15.05.2024“.",
     commonMistake:
-      "Prilagati interne potvrde Volkshochschule koje NISU službeni testovi. Mora biti zvanični Sprachzertifikat. Za zaposlene — Ausbildung-zertifikat na njemačkom često važi kao dokaz B1.",
+      "Prilagati interne potvrde Volkshochschule koje NISU službeni testovi. Mora biti zvanični Sprachzertifikat — OSIM ako spadaš u izuzetke (vidi dolje).",
     example: "Goethe-Zertifikat B1 — Gesamtnote: gut (bestanden) — Datum: 22.06.2023",
     note:
-      "Za „turbo-naturalizaciju“ nakon 3 godine treba B2 + dokazane „besondere Integrationsleistungen“ (volontiranje, izvrsne školske ocjene, redovan posao).",
+      "🎓 OSLOBOĐENI ste jezičkog testa ako imate: (1) njemački školski završetak — Hauptschulabschluss ili viši; (2) ZAVRŠEN AUSBILDUNG u Njemačkoj na njemačkom (3 godine, IHK/HWK završni ispit) — Ausbildungszeugnis se priznaje kao dokaz B1; (3) studij na njemačkom univerzitetu (završen ili u toku). U tom slučaju umjesto Sprachzertifikata prilažeš kopiju Zeugnis-a. Za turbo-naturalizaciju (3 god.) treba B2 + posebne integracijske dostignuća.",
   },
   {
     deField: "Einbürgerungstest — bestanden",
@@ -74,7 +74,7 @@ const STEPS: StepData[] = [
     example:
       "Einbürgerungstest — bestanden am 18.03.2024 — Volkshochschule Berlin Mitte — 28 von 33 richtig.",
     note:
-      "Oslobođeni su samo: Nijemci školovani u DE (Hauptschulabschluss ili više), osobe sa kognitivnim oštećenjima i osobe ispod 16 godina.",
+      "🎓 OSLOBOĐENI ste Einbürgerungstesta ako imate: (1) njemački školski završetak — Hauptschulabschluss, Realschulabschluss, Abitur ili viši (sadržaj testa je dio nastavnog plana); (2) završen studij prava, političkih ili društvenih nauka na njemačkom univerzitetu; (3) ispod 16 godina; (4) trajna nesposobnost zbog bolesti/invaliditeta/starosti (uz ljekarsku potvrdu). VAŽNO: završen Ausbildung u Njemačkoj NE oslobađa od Einbürgerungstesta — oslobađa samo od jezičkog testa. Test (33 pitanja) se polaže u akreditovanoj Volkshochschule, cijena ~25€.",
   },
   {
     deField: "Lebensunterhalt — Sicherung des eigenen Einkommens",
@@ -199,8 +199,8 @@ export default function EinbuergerungGuideContent() {
           "Minimum 5 godina legalnog neprekidnog boravka (3 sa posebnim integracijama)",
           "Trajna boravišna dozvola (Niederlassungserlaubnis) ili stabilan Aufenthaltstitel",
           "Sigurnost vlastitih prihoda — bez Bürgergeld/Sozialhilfe",
-          "Znanje njemačkog jezika — minimum B1 (za turbo-postupak B2)",
-          "Položen Einbürgerungstest (33 pitanja, prag 17)",
+          "Znanje njemačkog jezika — minimum B1 (za turbo-postupak B2). 🎓 Izuzetak: završen Ausbildung u DE, njemačka škola ili studij — nije potreban Sprachzertifikat",
+          "Položen Einbürgerungstest (33 pitanja, prag 17). 🎓 Izuzetak: njemački školski završetak (Hauptschulabschluss+) ili studij prava/političkih nauka",
           "Priznavanje slobodnog demokratskog uređenja (Loyalitätserklärung)",
           "Bez teških krivičnih presuda (provjerava Verfassungsschutz)",
           "Plaćena taksa: 255 € po osobi (51 € po djetetu)",
@@ -211,6 +211,7 @@ export default function EinbuergerungGuideContent() {
           "Predati zahtjev bez kompletne dokumentacije — produžava obradu sa 6 na 24 mjeseca",
           "Tražiti Beibehaltungsgenehmigung — više nije potrebno (StARModG ukinuo zahtjev)",
           "Polagati Einbürgerungstest van akreditovane institucije — rezultat ne važi",
+          "Misliti da završen Ausbildung oslobađa i jezika i Einbürgerungstesta — oslobađa SAMO jezika; test i dalje moraš polagati",
           "Uplatiti taksu bez Aktenzeichen u Verwendungszweck — uplata se ne pripisuje predmetu",
         ]}
       />
