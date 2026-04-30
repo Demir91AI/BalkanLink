@@ -79,7 +79,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: BriefcaseBusiness },
     { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building2 },
     { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
-    { title: t("sidebar.items.obnovaPasosa"), url: "/obnova-pasosa", icon: BadgeCheck },
+    { title: t("sidebar.items.obnovaPasosa"), url: "/obnova-pasosa", icon: BadgeCheck, isNew: true },
   ];
 
   const toggle = useCallback(() => {
@@ -437,6 +437,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                     <span className="text-[14px] font-medium whitespace-nowrap overflow-visible">
                       {item.title}
                     </span>
+                    {(item as any).isNew && (
+                      <span className="ml-auto shrink-0 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white animate-pulse">
+                        {t("sidebar.newBadge", "NOVO")}
+                      </span>
+                    )}
                   </button>
                 );
               })}
