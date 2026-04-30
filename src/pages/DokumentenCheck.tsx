@@ -595,10 +595,10 @@ export default function DokumentenCheck() {
                     </div>
                     <ul className="space-y-2">
                       {files.map((f, idx) => (
-                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-2.5">
+                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-800 bg-emerald-900/20 px-3 py-2.5">
                           <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <FileText className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                            <span className="text-sm text-emerald-700 dark:text-emerald-400 truncate">{f.name}</span>
+                            <FileText className="h-4 w-4 text-emerald-400 shrink-0" />
+                            <span className="text-sm text-emerald-400 truncate">{f.name}</span>
                             <span className="text-[11px] text-muted-foreground shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
                           </div>
                           <button
@@ -706,8 +706,8 @@ export default function DokumentenCheck() {
                 <ChevronDown className={`h-4 w-4 transition-transform ${showExample ? "rotate-180" : ""}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="mt-3">
-                <div className="rounded-2xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/20 p-5 sm:p-6 space-y-3">
-                  <div className="flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-400">
+                <div className="rounded-2xl border border-amber-900/40 bg-amber-950/30 p-5 sm:p-6 space-y-3">
+                  <div className="flex items-center gap-2 text-sm font-bold text-amber-400">
                     <FileWarning className="h-4 w-4" />
                     {t("documentCheck.example.heading")}
                   </div>
