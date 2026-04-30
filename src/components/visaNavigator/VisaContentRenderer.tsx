@@ -54,7 +54,7 @@ const StepCircle = ({ n }: { n: number }) => (
 );
 
 const InlineFormPlaceholder = ({ title, onClose, closeLabel }: { title: string; onClose: () => void; closeLabel: string }) => (
-  <div style={{ background: 'white', border: '1px solid #E8D9B0', borderRadius: 12, padding: 32, textAlign: 'center', position: 'relative' }}>
+  <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 12, padding: 32, textAlign: 'center', position: 'relative' }}>
     <button onClick={onClose} style={{ position: 'absolute', top: 10, right: 10, background: '#EF4444', color: 'white', border: 'none', borderRadius: 6, padding: '4px 10px', cursor: 'pointer', fontSize: 12 }}>×</button>
     <div style={{ fontSize: 40, marginBottom: 12 }}>📋</div>
     <h3 style={{ color: CHARCOAL, marginBottom: 8 }}>{title}</h3>
@@ -69,7 +69,7 @@ const BlurredBlock = ({ children }: { children: React.ReactNode }) => (
       {children}
     </div>
     <div className="absolute inset-0 flex items-center justify-center">
-      <Lock className="h-4 w-4 text-[#9CA3AF]" />
+      <Lock className="h-4 w-4 text-[rgba(255,255,255,0.55)]" />
     </div>
   </div>
 );
@@ -218,7 +218,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           </>
         )}
 
-        <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
+        <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: 'rgba(255,255,255,0.55)' }}>
           <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
           {t('visa.renderer.disclaimer')}
         </div>
@@ -236,7 +236,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           <span style={{ background: 'rgba(245,158,11,0.15)', color: 'rgba(252,211,77,0.95)', borderRadius: 20, padding: '3px 12px', fontSize: 12, fontWeight: 600 }}>{t('visa.renderer.westbalkan')}</span>
         </div>
 
-        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 10, padding: '12px 16px', marginBottom: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 10, padding: '12px 16px', marginBottom: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <MapPin size={16} color={GOLD} />
             <span style={{ fontSize: 14, fontWeight: 600, color: CHARCOAL }}>{country.embassyName}</span>
@@ -250,14 +250,14 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', marginBottom: 12 }}>{country.embassyNote}</p>
 
         {country.schengenFree && (
-          <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
+          <div style={{ background: 'rgba(59,130,246,0.10)', border: '1px solid rgba(59,130,246,0.30)', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
             <Info size={14} color="#3B82F6" style={{ marginRight: 8, verticalAlign: 'middle' }} />
             <span style={{ fontSize: 13, color: '#1D4ED8' }}>{country.schengenNote}</span>
           </div>
         )}
 
         {country.code === 'xk' && country.kosovoNote && (
-          <div style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid #FDE68A', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
+          <div style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.30)', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
             <AlertTriangle size={14} color="#D97706" style={{ marginRight: 8, verticalAlign: 'middle' }} />
             <span style={{ fontSize: 13, color: '#92400E', fontWeight: 600 }}>{country.kosovoNote}</span>
           </div>
@@ -268,13 +268,13 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {country.routes.map(r => (
             <div key={r.id} onClick={() => onSelectRoute(r.id)}
-              style={{ background: 'white', border: '1.5px solid rgba(255,255,255,0.10)', borderRadius: 12, padding: '18px 20px', cursor: 'pointer', transition: 'all 200ms ease' }}
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1.5px solid rgba(255,255,255,0.10)', borderRadius: 12, padding: '18px 20px', cursor: 'pointer', transition: 'all 200ms ease' }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = GOLD; el.style.transform = 'translateY(-2px)'; el.style.boxShadow = '0 6px 20px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.10)'; el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ fontSize: 15, fontWeight: 700, color: CHARCOAL, marginBottom: 4 }}>{r.title}</div>
-                  <div style={{ fontSize: 12, color: '#9CA3AF', fontFamily: 'monospace' }}>{r.legalBasis}</div>
+                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', fontFamily: 'monospace' }}>{r.legalBasis}</div>
                 </div>
                 <ChevronRight size={18} color={GOLD} />
               </div>
@@ -296,12 +296,12 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
       {/* FREE: Title + legal basis + subtitle */}
       <h1 style={{ fontSize: 24, fontWeight: 700, color: CHARCOAL, marginBottom: 4 }}>{route.title}</h1>
-      <p style={{ fontSize: 13, fontFamily: 'monospace', color: '#9CA3AF', marginBottom: 8 }}>{route.legalBasis}</p>
+      <p style={{ fontSize: 13, fontFamily: 'monospace', color: 'rgba(255,255,255,0.55)', marginBottom: 8 }}>{route.legalBasis}</p>
       <p style={{ fontSize: 15, color: '#4A4A4A', lineHeight: 1.7, marginBottom: 24 }}>{route.subtitle}</p>
 
       {/* FREE: Westbalkan note */}
       {route.westbalkanNote && (
-        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
@@ -319,7 +319,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
       {/* FREE: Kosovo note */}
       {route.kosovoNote && (
-        <div style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid #FDE68A', borderRadius: 12, padding: '14px 18px', marginBottom: 16 }}>
+        <div style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.30)', borderRadius: 12, padding: '14px 18px', marginBottom: 16 }}>
           <AlertTriangle size={16} color="#D97706" style={{ marginRight: 8, verticalAlign: 'middle' }} />
           <span style={{ fontSize: 13, color: '#92400E', fontWeight: 600 }}>{route.kosovoNote}</span>
         </div>
@@ -327,7 +327,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
       {/* FREE: Ausbildung highlight */}
       {route.ausbildungHighlight && route.ausbildungHighlight.length > 0 && (
-        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
@@ -342,7 +342,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
       {/* Country-specific notes */}
       {route.countryNotes && route.countryNotes.length > 0 && (
-        <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+        <div style={{ background: 'rgba(59,130,246,0.10)', border: '1px solid rgba(59,130,246,0.30)', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Info size={18} color="#3B82F6" style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
@@ -504,7 +504,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       )}
 
       {/* Disclaimer */}
-      <div style={{ background: '#F9F6F0', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: '#9CA3AF' }}>
+      <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 10, padding: '14px 18px', fontSize: 12, color: 'rgba(255,255,255,0.55)' }}>
         <Info size={13} style={{ marginRight: 6, verticalAlign: 'middle' }} />
         {t('visa.renderer.disclaimer')}
         <br />

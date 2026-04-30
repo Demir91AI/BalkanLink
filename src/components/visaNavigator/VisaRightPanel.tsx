@@ -18,7 +18,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
   // STATE 1: Nothing selected
   if (!country) return (
     <div
-      className="w-[280px] flex-shrink-0 bg-white rounded-2xl sticky top-6 overflow-y-auto"
+      className="w-[280px] flex-shrink-0 bg-white/[0.04] border border-white/10 rounded-2xl sticky top-6 overflow-y-auto"
       style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.07)", maxHeight: "calc(100vh - 48px)", scrollbarWidth: "none" }}
     >
       <div style={{ padding: 20 }}>
@@ -43,7 +43,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           ))}
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 4 }}>
-          <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
           </p>
         </div>
@@ -54,7 +54,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
   // STATE 2: Country selected, no route
   if (!route) return (
     <div
-      className="w-[280px] flex-shrink-0 bg-white rounded-2xl sticky top-6 overflow-y-auto"
+      className="w-[280px] flex-shrink-0 bg-white/[0.04] border border-white/10 rounded-2xl sticky top-6 overflow-y-auto"
       style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.07)", maxHeight: "calc(100vh - 48px)", scrollbarWidth: "none" }}
     >
       <div style={{ padding: 20 }}>
@@ -63,21 +63,21 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <span style={{ fontSize: 16, fontWeight: 700, color: '#1A1A2E' }}>{country.name}</span>
         </div>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 12 }}>
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 12 }}>
           <span style={{ fontSize: 13, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={14} color="#C9A84C" />
         </a>
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginBottom: 16, lineHeight: 1.5 }}>{country.embassyNote}</p>
         {country.routes.slice(0, 3).map((r, i) => (
           <div key={i} onClick={() => onSelectRoute(r.id)}
-            style={{ background: 'white', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '10px 14px', marginBottom: 8, cursor: 'pointer' }}
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '10px 14px', marginBottom: 8, cursor: 'pointer' }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#C9A84C'}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'}>
             <p style={{ fontSize: 13, fontWeight: 600, color: '#1A1A2E', margin: 0 }}>{r.title}</p>
           </div>
         ))}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
-          <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
           </p>
         </div>
@@ -88,7 +88,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
   // STATE 3: Country + Route selected
   return (
     <div
-      className="w-[280px] flex-shrink-0 bg-white rounded-2xl sticky top-6 overflow-y-auto"
+      className="w-[280px] flex-shrink-0 bg-white/[0.04] border border-white/10 rounded-2xl sticky top-6 overflow-y-auto"
       style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.07)", maxHeight: "calc(100vh - 48px)", scrollbarWidth: "none" }}
     >
       <div style={{ padding: 20 }}>
@@ -97,9 +97,9 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)' }}>{country.name}</span>
         </div>
         <h3 style={{ fontSize: 15, fontWeight: 700, color: '#1A1A2E', marginBottom: 4 }}>{route.title}</h3>
-        <p style={{ fontSize: 12, fontFamily: 'monospace', color: '#9CA3AF', marginBottom: 12 }}>{route.legalBasis}</p>
+        <p style={{ fontSize: 12, fontFamily: 'monospace', color: 'rgba(255,255,255,0.55)', marginBottom: 12 }}>{route.legalBasis}</p>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 16, width: '100%', boxSizing: 'border-box' }}>
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 16, width: '100%', boxSizing: 'border-box' }}>
           <span style={{ fontSize: 12, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={13} color="#C9A84C" />
         </a>
@@ -115,7 +115,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           ))}
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 10, marginTop: 8 }}>
-          <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
           </p>
         </div>
