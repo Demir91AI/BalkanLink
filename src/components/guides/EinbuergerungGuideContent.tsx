@@ -200,18 +200,10 @@ export default function EinbuergerungGuideContent() {
           "Trajna boravišna dozvola (Niederlassungserlaubnis) ili stabilan Aufenthaltstitel",
           "Sigurnost vlastitih prihoda — bez Bürgergeld/Sozialhilfe",
           "Znanje njemačkog jezika — minimum B1 (za turbo-postupak B2). 🎓 Izuzetak: završen Ausbildung u DE, njemačka škola ili studij — nije potreban Sprachzertifikat",
-          "Položen Einbürgerungstest (33 pitanja, prag 17). 🎓 Izuzetak: njemački školski završetak (Hauptschulabschluss+) ili studij prava/političkih nauka",
-          "Priznavanje slobodnog demokratskog uređenja (Loyalitätserklärung)",
-          "Bez teških krivičnih presuda (provjerava Verfassungsschutz)",
-          "Plaćena taksa: 255 € po osobi (51 € po djetetu)",
-        ]}
-        commonMistakes={[
-          "Brojati godine boravka od dolaska kao turista — broji se samo legalan boravak sa Anmeldung",
-          "Misliti da Kindergeld/Wohngeld diskvalifikuju — NE; samo Bürgergeld/Sozialhilfe",
-          "Predati zahtjev bez kompletne dokumentacije — produžava obradu sa 6 na 24 mjeseca",
-          "Tražiti Beibehaltungsgenehmigung — više nije potrebno (StARModG ukinuo zahtjev)",
+          "Položen Einbürgerungstest (33 pitanja, prag 17). 🎓 Izuzetak: njemački Schulabschluss (Hauptschulabschluss+) ILI Berufsschulzeugnis uz završen Ausbildung (priznato u Bayernu, varira po Bundesland-u) ILI studij prava/političkih nauka",
+...
           "Polagati Einbürgerungstest van akreditovane institucije — rezultat ne važi",
-          "Misliti da završen Ausbildung oslobađa i jezika i Einbürgerungstesta — oslobađa SAMO jezika; test i dalje moraš polagati",
+          "Platiti 25€ za Einbürgerungstest, a imati pravo na oslobađanje (Ausbildung + Berufsschulzeugnis u Bayernu) — uvijek prvo pitaj Behörde",
           "Uplatiti taksu bez Aktenzeichen u Verwendungszweck — uplata se ne pripisuje predmetu",
         ]}
       />
