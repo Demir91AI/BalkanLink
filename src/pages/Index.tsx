@@ -171,24 +171,6 @@ export default function Index() {
         <ShowcaseCarousel />
       </section>
 
-      {/* ─── SHARE STRIP ─── */}
-      <section className="py-10 px-4" style={{ background: "hsl(220 50% 6%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="container max-w-[900px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">
-              {t("home.share.label")}
-            </p>
-            <h3 className="mt-1 font-heading text-xl sm:text-2xl font-extrabold text-white">
-              {t("home.share.heading")}
-            </h3>
-            <p className="mt-1 text-sm text-white/55">
-              {t("home.share.subline")}
-            </p>
-          </div>
-          <ShareButton variant="compact" />
-        </div>
-      </section>
-
       {/* ─── PRICING SECTION ─── */}
       <section className="py-16" style={{ background: "hsl(220 50% 5%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container max-w-[1200px] mx-auto">
