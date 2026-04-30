@@ -919,6 +919,9 @@ export default function ChatAssistant() {
     }
   }, [loading, messages, isPremium, chatLang, location.pathname, canChat, recordQuery, remaining]);
 
+  // Keep ref in sync so the open-assistant listener can invoke the latest version
+  useEffect(() => { sendMessageRef.current = sendMessageWithText; }, [sendMessageWithText]);
+
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
   const handleKeyDown = (e: React.KeyboardEvent) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
   const handleClose = () => setOpen(false);
