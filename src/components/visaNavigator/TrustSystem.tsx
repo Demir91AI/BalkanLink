@@ -17,8 +17,8 @@ const TrustSystem = ({ variant, showSources = true }: Props) => {
   if (variant === "compact") {
     return (
       <div className="flex items-start gap-1.5">
-        <Info size={14} className="mt-0.5 flex-shrink-0" style={{ color: "#9CA3AF" }} />
-        <p className="text-[12px] leading-[1.5]" style={{ color: "#9CA3AF" }}>
+        <Info size={14} className="mt-0.5 flex-shrink-0" style={{ color: "rgba(255,255,255,0.55)" }} />
+        <p className="text-[12px] leading-[1.5]" style={{ color: "rgba(255,255,255,0.55)" }}>
           {"disclaimer"}
         </p>
       </div>
@@ -30,17 +30,17 @@ const TrustSystem = ({ variant, showSources = true }: Props) => {
       {/* Disclaimer block */}
       <div
         className="rounded-xl px-6 py-5"
-        style={{ background: "#F9F6F0", border: "1px solid #E8E0D0" }}
+        style={{ background: "rgba(255,255,255,0.05)", border: "1px solid #E8E0D0" }}
       >
         <div className="flex items-start gap-2.5">
-          <Info size={16} className="mt-0.5 flex-shrink-0" style={{ color: "#6B6B6B" }} />
+          <Info size={16} className="mt-0.5 flex-shrink-0" style={{ color: "rgba(255,255,255,0.65)" }} />
           <p className="text-[14px] leading-[1.7]" style={{ color: "#4A4A4A" }}>
             {"disclaimer"}
           </p>
         </div>
         <div className="flex items-start gap-2.5 mt-2.5">
           <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" style={{ color: "#D97706" }} />
-          <p className="text-[13px] leading-[1.6]" style={{ color: "#6B6B6B" }}>
+          <p className="text-[13px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.65)" }}>
             {"warning"}
           </p>
         </div>
@@ -76,7 +76,7 @@ const TrustSystem = ({ variant, showSources = true }: Props) => {
       )}
 
       {/* Legal notice */}
-      <p className="text-[12px] text-center" style={{ color: "#9CA3AF" }}>
+      <p className="text-[12px] text-center" style={{ color: "rgba(255,255,255,0.55)" }}>
         § AufenthG · § FreizügG/EU · BAMF · Auswärtiges Amt · Stand 2026
       </p>
     </div>
