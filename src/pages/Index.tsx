@@ -121,6 +121,17 @@ export default function Index() {
       {/* ─── HERO ─── */}
       <HeroSection />
 
+      {/* ─── SHARE STRIP (slim, ispod hera) ─── */}
+      <section className="px-4 py-2.5" style={{ background: "hsl(220 50% 6%)", borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="container max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-center">
+          <span className="text-[12px] sm:text-[13px] text-white/70">
+            <span className="text-[hsl(var(--gold))] font-semibold">{t("home.share.heading")}</span>
+            <span className="hidden sm:inline text-white/45"> — {t("home.share.subline")}</span>
+          </span>
+          <ShareButton variant="compact" />
+        </div>
+      </section>
+
       {/* ─── ELEVATOR PITCH — "Šta je BalkanLink?" ─── */}
       <PitchSection />
 
@@ -158,24 +169,6 @@ export default function Index() {
           </motion.div>
         </div>
         <ShowcaseCarousel />
-      </section>
-
-      {/* ─── SHARE STRIP ─── */}
-      <section className="py-10 px-4" style={{ background: "hsl(220 50% 6%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="container max-w-[900px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">
-              {t("home.share.label")}
-            </p>
-            <h3 className="mt-1 font-heading text-xl sm:text-2xl font-extrabold text-white">
-              {t("home.share.heading")}
-            </h3>
-            <p className="mt-1 text-sm text-white/55">
-              {t("home.share.subline")}
-            </p>
-          </div>
-          <ShareButton variant="compact" />
-        </div>
       </section>
 
       {/* ─── PRICING SECTION ─── */}
