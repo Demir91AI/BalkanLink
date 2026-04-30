@@ -199,7 +199,89 @@ export default function DvojnoDrzavljanstvo() {
           </div>
         </section>
 
-        {/* Smart Guide CTA — Vodič kako uzeti njemačko državljanstvo */}
+        {/* Comparison: old vs new law */}
+        {(() => {
+          const lang = (["bs", "hr", "sr", "de"].includes(i18n.language) ? i18n.language : "bs") as LangKey;
+          const cmp = COMPARISON_I18N[lang];
+          return (
+            <section className="mb-7" aria-label={cmp.trigger}>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="comparison" className="border-0">
+                  <AccordionTrigger
+                    className="rounded-2xl border border-[#E5DFC9] bg-white px-4 sm:px-5 py-4 text-left hover:no-underline shadow-sm hover:shadow-md transition-all data-[state=open]:rounded-b-none data-[state=open]:border-b-0"
+                  >
+                    <div className="flex items-center gap-3 min-w-0 pr-2">
+                      <div className="h-9 w-9 shrink-0 rounded-lg flex items-center justify-center bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]">
+                        <GitCompareArrows className="h-5 w-5" />
+                      </div>
+                      <span className="text-[14px] sm:text-[15px] font-bold text-[#2D2D2D]">
+                        {cmp.trigger}
+                      </span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="rounded-b-2xl border border-t-0 border-[#E5DFC9] bg-white px-4 sm:px-5 pb-5 pt-0">
+                    <p className="text-[13px] text-[#6B6B6B] mb-4 leading-relaxed">
+                      {cmp.intro}
+                    </p>
+
+                    <div className="-mx-4 sm:mx-0 overflow-x-auto rounded-xl border border-[#F0EAD8]">
+                      <table className="w-full text-[13px] sm:text-[13.5px] border-collapse min-w-[560px]">
+                        <thead>
+                          <tr className="bg-[#FFF8EC] text-[#8A6B1F]">
+                            <th className="text-left font-bold px-3 sm:px-4 py-3 border-b border-[#E5DFC9] w-[34%]">
+                              {cmp.th.criterion}
+                            </th>
+                            <th className="text-left font-bold px-3 sm:px-4 py-3 border-b border-[#E5DFC9] w-[33%]">
+                              {cmp.th.before}
+                            </th>
+                            <th className="text-left font-bold px-3 sm:px-4 py-3 border-b border-[#E5DFC9] w-[33%]">
+                              {cmp.th.after}
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {cmp.rows.map((row, idx) => (
+                            <tr
+                              key={idx}
+                              className={
+                                row.highlight
+                                  ? "bg-amber-50/80 border-t border-amber-200"
+                                  : idx % 2 === 0
+                                    ? "bg-white border-t border-[#F0EAD8]"
+                                    : "bg-[#FBF8F0] border-t border-[#F0EAD8]"
+                              }
+                            >
+                              <td className={`px-3 sm:px-4 py-3 align-top font-semibold ${row.highlight ? "text-amber-900" : "text-[#2D2D2D]"}`}>
+                                {row.k}
+                              </td>
+                              <td className={`px-3 sm:px-4 py-3 align-top leading-relaxed ${row.highlight ? "text-amber-900/90" : "text-[#3D3D3D]"}`}>
+                                {row.b}
+                              </td>
+                              <td className={`px-3 sm:px-4 py-3 align-top leading-relaxed ${row.highlight ? "text-amber-900/90 font-medium" : "text-[#3D3D3D]"}`}>
+                                {row.a}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div className="mt-4 rounded-xl border border-[#E5E5E5] bg-[#F5F5F2] p-4">
+                      <p className="text-[12.5px] font-bold text-[#4A4A4A] mb-1 uppercase tracking-wide">
+                        {cmp.noteTitle}
+                      </p>
+                      <p className="text-[13px] leading-relaxed text-[#3D3D3D]">
+                        {cmp.note}
+                      </p>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </section>
+          );
+        })()}
+
+
         <Link
           to="/dvojno-drzavljanstvo/einbuergerung-vodic"
           className="mb-7 flex items-center justify-between gap-3 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition-all group"
