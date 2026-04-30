@@ -1,4 +1,11 @@
 {
+  "notFound": {
+    "title": "Stranica nije pronađena",
+    "description": "Tražena stranica ne postoji ili je premještena. Vrati se na početnu ili pitaj BalkanLink Asistenta.",
+    "backHome": "Nazad na početnu",
+    "askAssistant": "Pitaj Asistenta",
+    "goBack": "Vrati se nazad"
+  },
   "nav": {
     "home": "Početna",
     "smartGuides": "Smart vodiči",

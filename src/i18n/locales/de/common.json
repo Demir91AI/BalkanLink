@@ -1,4 +1,11 @@
 {
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Gehe zurück zur Startseite oder frage den BalkanLink Asistent.",
+    "backHome": "Zurück zur Startseite",
+    "askAssistant": "Asistent fragen",
+    "goBack": "Zurück"
+  },
   "nav": {
     "home": "Startseite",
     "smartGuides": "Smart Guides",
