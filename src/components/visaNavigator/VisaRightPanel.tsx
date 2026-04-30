@@ -107,7 +107,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>{t("visa.rightPanel.officialSources")}</p>
           {route.sources.slice(0, 3).map((s, i) => (
             <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
-              style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4A4A4A', fontSize: 12, textDecoration: 'none', marginBottom: 6 }}
+              style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.78)', fontSize: 12, textDecoration: 'none', marginBottom: 6 }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#C9A84C'}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4A4A4A'}>
               <ExternalLink size={11} color="#C9A84C" />{s.label}
