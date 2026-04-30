@@ -198,8 +198,8 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         aria-modal="true"
         aria-label={t("sidebar.navAriaLabel")}
         style={{
-          width: "300px",
-          minWidth: "280px",
+          width: "min(340px, 88vw)",
+          minWidth: "300px",
           transform: isOpen ? "translateX(0)" : "translateX(-100%)",
         }}
       >
