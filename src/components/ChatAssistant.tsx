@@ -579,15 +579,50 @@ export default function ChatAssistant() {
   useEffect(() => {
     const handler = (e: Event) => {
       setOpen(true);
-      const detail = (e as CustomEvent<{ prefill?: string }>).detail;
-      if (detail?.prefill) {
-        setInput(detail.prefill);
+      const detail = (e as CustomEvent<{ prefill?: string; autoSend?: boolean }>).detail;
+      const prefill = detail?.prefill?.trim();
+      // If a prefill is provided, auto-send it (unless explicitly disabled).
+      // Default behaviour is to send right away so the user doesn't have to press send again.
+      if (prefill && detail?.autoSend !== false) {
+        setInput("");
+        // Small delay so the panel is mounted before sending
+        setTimeout(() => { sendMessageWithText(prefill); }, 120);
+      } else if (prefill) {
+        setInput(prefill);
+        setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 350);
+      } else {
+        setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 350);
       }
-      setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 350);
     };
     window.addEventListener("open-assistant", handler as EventListener);
     return () => window.removeEventListener("open-assistant", handler as EventListener);
-  }, []);
+  }, [sendMessageWithText]);
+
+  // Minimize on hardware Back button (mobile): push a history state when opening,
+  // and on popstate close the panel instead of navigating away.
+  useEffect(() => {
+    if (!open) return;
+    const STATE_FLAG = "bl-assistant-open";
+    try {
+      if (!window.history.state || window.history.state[STATE_FLAG] !== true) {
+        window.history.pushState({ ...(window.history.state || {}), [STATE_FLAG]: true }, "");
+      }
+    } catch {}
+    const onPop = () => {
+      // User pressed Back → just minimize the assistant
+      setOpen(false);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => {
+      window.removeEventListener("popstate", onPop);
+      // When closing via UI, pop the synthetic state we pushed (if still on top)
+      try {
+        if (window.history.state && window.history.state[STATE_FLAG] === true) {
+          window.history.back();
+        }
+      } catch {}
+    };
+  }, [open]);
 
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
