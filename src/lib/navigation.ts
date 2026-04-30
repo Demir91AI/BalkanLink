@@ -7,7 +7,10 @@ import type { NavigateFunction } from "react-router-dom";
  * Ključ = prefiks rute (bez završne kose crte, bez jezičkog prefiksa).
  * Vrijednost = stvarni roditeljski path na koji vraćamo.
  */
-const PARENT_OVERRIDES: { prefix: string; parent: string }[] = [
+const PARENT_OVERRIDES: { prefix: string; parent: string; exact?: boolean }[] = [
+  // Exact-match overrides (provjeravaju se prije prefix pravila)
+  { prefix: "/musterformular/einbuergerung", parent: "/dvojno-drzavljanstvo/einbuergerung-vodic", exact: true },
+  // Prefix overrides
   { prefix: "/musterformular", parent: "/formulari" },
   { prefix: "/firma", parent: "/directory" },
   { prefix: "/smart-guide", parent: "/formulari" },
@@ -64,7 +67,14 @@ export function navigateBackOrHome(navigate: NavigateFunction) {
   }
 
   // 1) Posebna mapiranja
-  for (const { prefix, parent } of PARENT_OVERRIDES) {
+  for (const { prefix, parent, exact } of PARENT_OVERRIDES) {
+    if (exact) {
+      if (cleanRest === prefix) {
+        navigate(withLang(lang, parent));
+        return;
+      }
+      continue;
+    }
     if (cleanRest.startsWith(prefix + "/") && cleanRest !== prefix) {
       navigate(withLang(lang, parent));
       return;
