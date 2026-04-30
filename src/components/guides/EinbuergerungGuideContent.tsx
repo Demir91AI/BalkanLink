@@ -56,10 +56,10 @@ const STEPS: StepData[] = [
       "Originalna potvrda o položenom testu (Sprachzertifikat). Mora biti od priznatog izdavaoca (Telc, Goethe, ÖSD, BAMF za DTZ).",
     format: "Naziv testa + level + datum, npr. „telc Deutsch B1 — bestanden am 15.05.2024“.",
     commonMistake:
-      "Prilagati interne potvrde Volkshochschule koje NISU službeni testovi. Mora biti zvanični Sprachzertifikat. Za zaposlene — Ausbildung-zertifikat na njemačkom često važi kao dokaz B1.",
+      "Prilagati interne potvrde Volkshochschule koje NISU službeni testovi. Mora biti zvanični Sprachzertifikat — OSIM ako spadaš u izuzetke (vidi dolje).",
     example: "Goethe-Zertifikat B1 — Gesamtnote: gut (bestanden) — Datum: 22.06.2023",
     note:
-      "Za „turbo-naturalizaciju“ nakon 3 godine treba B2 + dokazane „besondere Integrationsleistungen“ (volontiranje, izvrsne školske ocjene, redovan posao).",
+      "🎓 OSLOBOĐENI ste jezičkog testa ako imate: (1) njemački školski završetak — Hauptschulabschluss ili viši; (2) ZAVRŠEN AUSBILDUNG u Njemačkoj na njemačkom (3 godine, IHK/HWK završni ispit) — Ausbildungszeugnis se priznaje kao dokaz B1; (3) studij na njemačkom univerzitetu (završen ili u toku). U tom slučaju umjesto Sprachzertifikata prilažeš kopiju Zeugnis-a. Za turbo-naturalizaciju (3 god.) treba B2 + posebne integracijske dostignuća.",
   },
   {
     deField: "Einbürgerungstest — bestanden",
