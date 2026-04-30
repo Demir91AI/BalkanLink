@@ -9,11 +9,14 @@ interface Props {
   showShare?: boolean;
   /** Override share title */
   shareTitle?: string;
+  /** Hide auto-derived crumb trail (only show Back + Home buttons) */
+  hideTrail?: boolean;
 }
 
 /**
  * @deprecated Use <Breadcrumbs /> directly. Kept as thin wrapper for backward compatibility.
  */
-export default function PageNavBar({ onBack, inline, variant = "auto", showShare, shareTitle }: Props) {
-  return <Breadcrumbs onBack={onBack} inline={inline} variant={variant} showShare={showShare} shareTitle={shareTitle} />;
+export default function PageNavBar({ onBack, inline, variant = "auto", showShare, shareTitle, hideTrail }: Props) {
+  return <Breadcrumbs onBack={onBack} inline={inline} variant={variant} showShare={showShare} shareTitle={shareTitle} hideTrail={hideTrail} />;
 }
+
