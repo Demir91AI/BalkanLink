@@ -92,28 +92,48 @@ export default function WhatIsBalkanLink() {
 
   return (
     <>
-      {/* Floating action button */}
-      <AnimatePresence>
-        {showFab && (
+      {/* Floating action button — collapsible left tab */}
+      <AnimatePresence mode="wait" initial={false}>
+        {collapsed ? (
           <motion.button
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            onClick={() => setOpen(true)}
+            key="fab-collapsed"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.2 }}
+            onClick={toggleCollapsed}
             aria-label={t("whatIs.fabAria")}
-            className="fixed bottom-24 left-4 z-40 group flex items-center gap-2 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-amber-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_8px_30px_rgba(217,165,54,0.4)] transition-all hover:scale-105 hover:shadow-[0_12px_40px_rgba(217,165,54,0.55)] md:bottom-6"
+            className="fixed bottom-24 left-0 z-40 flex h-9 w-6 items-center justify-center rounded-r-md bg-[hsl(var(--gold))]/85 text-slate-950 shadow-[0_4px_14px_rgba(217,165,54,0.35)] backdrop-blur transition-all hover:w-7 hover:bg-[hsl(var(--gold))] md:bottom-6"
           >
-            <span className="hidden sm:inline">{t("whatIs.fabLabel")}</span>
-            <span className="sm:hidden">{t("whatIs.fabLabelShort")}</span>
-            <span
-              role="button"
-              aria-label="Close"
-              onClick={handleDismissFab}
-              className="ml-1 inline-flex h-5 w-5 cursor-pointer items-center justify-center rounded-full bg-slate-950/15 hover:bg-slate-950/30"
-            >
-              <X className="h-3 w-3" />
-            </span>
+            <ChevronRight className="h-4 w-4" />
           </motion.button>
+        ) : (
+          <motion.div
+            key="fab-expanded"
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-24 left-3 z-40 flex items-center gap-1 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-amber-500 pl-3 pr-1 py-1.5 text-xs font-semibold text-slate-950 shadow-[0_6px_24px_rgba(217,165,54,0.4)] md:bottom-6"
+          >
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              aria-label={t("whatIs.fabAria")}
+              className="flex items-center gap-1.5"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>{t("whatIs.fabLabelShort")}</span>
+            </button>
+            <button
+              type="button"
+              onClick={toggleCollapsed}
+              aria-label="Collapse"
+              className="ml-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950/15 hover:bg-slate-950/30"
+            >
+              <ChevronLeft className="h-3.5 w-3.5" />
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
