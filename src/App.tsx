@@ -102,6 +102,8 @@ const ArbeitsbescheinigungMuster = lazy(() => import("./pages/muster/Arbeitsbesc
 const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/AntragsruecknahmeMuster"));
 const Viza = lazy(() => import("./pages/Viza"));
 const DvojnoDrzavljanstvo = lazy(() => import("./pages/DvojnoDrzavljanstvo"));
+const EinbuergerungVodic = lazy(() => import("./pages/EinbuergerungVodic"));
+const EinbuergerungMuster = lazy(() => import("./pages/muster/EinbuergerungMuster"));
 const ZivotUNjemackoj = lazy(() => import("./pages/ZivotUNjemackoj"));
 const RadnoPravo = lazy(() => import("./pages/RadnoPravo"));
 const RadnoPravoGuide = lazy(() => import("./pages/RadnoPravoGuide"));
@@ -200,6 +202,7 @@ function LocalizedRoutes() {
         <Route path="musterformular/kindergeld" element={<KindergeldMuster />} />
         <Route path="musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
         <Route path="musterformular/wirtschaftliche-jugendhilfe" element={<WirtschaftlicheJugendhilfeMuster />} />
+        <Route path="musterformular/einbuergerung" element={<EinbuergerungMuster />} />
         
         <Route path="formulari/:slug" element={<FormCenter />} />
         <Route path="familie" element={<Familie />} />
@@ -329,6 +332,7 @@ function LocalizedRoutes() {
         <Route path="zivot-u-njemackoj" element={<ZivotUNjemackoj />} />
         <Route path="viza" element={<Viza />} />
         <Route path="dvojno-drzavljanstvo" element={<DvojnoDrzavljanstvo />} />
+        <Route path="dvojno-drzavljanstvo/einbuergerung-vodic" element={<EinbuergerungVodic />} />
         <Route path="doppelte-staatsbuergerschaft" element={<Navigate to="../dvojno-drzavljanstvo" replace />} />
         <Route path="radno-pravo" element={<RadnoPravo />} />
         <Route path="radno-pravo/:slug" element={<RadnoPravoGuide />} />
