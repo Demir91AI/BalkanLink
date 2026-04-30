@@ -31,7 +31,7 @@ interface Props {
 }
 
 const GOLD = '#C9A84C';
-const CHARCOAL = '#1A1A2E';
+const CHARCOAL = 'rgba(255,255,255,0.92)';
 
 const FREE_STEPS = 3;
 const FREE_ERRORS = 2;
