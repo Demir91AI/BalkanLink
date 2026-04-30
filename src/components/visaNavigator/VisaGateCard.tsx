@@ -95,7 +95,7 @@ export default function VisaGateCard() {
       </button>
       <button
         onClick={() => navigate("/login")}
-        className="mt-2 w-full text-xs text-[#9CA3AF] hover:text-[#6B6B6B] transition-colors"
+        className="mt-2 w-full text-xs text-[#9CA3AF] hover:text-[rgba(255,255,255,0.65)] transition-colors"
       >
         {t("visa.gateCard.haveAccount")} <span className="underline">{t("visa.gateCard.signIn")}</span>
       </button>

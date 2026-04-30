@@ -36,7 +36,7 @@ const CHARCOAL = '#1A1A2E';
 const FREE_STEPS = 3;
 const FREE_ERRORS = 2;
 
-const Card = ({ children, bg = '#FFFFFF', border = '#F0EAD8', mb = 16 }: { children: React.ReactNode; bg?: string; border?: string; mb?: number }) => (
+const Card = ({ children, bg = '#FFFFFF', border = 'rgba(255,255,255,0.10)', mb = 16 }: { children: React.ReactNode; bg?: string; border?: string; mb?: number }) => (
   <div style={{ background: bg, border: `1px solid ${border}`, borderRadius: 14, padding: '20px 24px', marginBottom: mb, boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
     {children}
   </div>
@@ -58,7 +58,7 @@ const InlineFormPlaceholder = ({ title, onClose, closeLabel }: { title: string; 
     <button onClick={onClose} style={{ position: 'absolute', top: 10, right: 10, background: '#EF4444', color: 'white', border: 'none', borderRadius: 6, padding: '4px 10px', cursor: 'pointer', fontSize: 12 }}>×</button>
     <div style={{ fontSize: 40, marginBottom: 12 }}>📋</div>
     <h3 style={{ color: CHARCOAL, marginBottom: 8 }}>{title}</h3>
-    <p style={{ color: '#6B6B6B', fontSize: 14 }}>{closeLabel}</p>
+    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 14 }}>{closeLabel}</p>
   </div>
 );
 
@@ -115,7 +115,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
   // ── EMPTY STATE ──
   if (!country) return (
-    <div style={{ textAlign: 'center', padding: '80px 20px', color: '#6B6B6B' }}>
+    <div style={{ textAlign: 'center', padding: '80px 20px', color: 'rgba(255,255,255,0.65)' }}>
       <FileText size={56} style={{ margin: '0 auto 20px', display: 'block', opacity: 0.2, color: CHARCOAL }} />
       <h2 style={{ fontSize: 22, fontWeight: 700, color: CHARCOAL, marginBottom: 8 }}>{t('visa.renderer.welcome')}</h2>
       <p style={{ fontSize: 15, lineHeight: 1.7 }}>{t('visa.renderer.welcomeBody')}</p>
@@ -129,7 +129,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
     const r = country.routes[0];
     return (
       <div>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#DCFCE7', color: '#166534', borderRadius: 20, padding: '4px 16px', fontSize: 13, fontWeight: 600, marginBottom: 16 }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(16,185,129,0.15)', color: 'rgba(110,231,183,0.95)', borderRadius: 20, padding: '4px 16px', fontSize: 13, fontWeight: 600, marginBottom: 16 }}>
           {t('visa.renderer.freizuegigkeit')}
         </div>
 
@@ -149,7 +149,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
                 <BlurredBlock key={i}>
                   <div style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
                     <StepCircle n={i + 1} />
-                    <p style={{ fontSize: 14, color: '#2D2D2D', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+                    <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
                   </div>
                 </BlurredBlock>
               );
@@ -157,7 +157,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
             return (
               <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
                 <StepCircle n={i + 1} />
-                <p style={{ fontSize: 14, color: '#2D2D2D', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
               </div>
             );
           })}
@@ -169,7 +169,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           {r.documents.map((doc: string, i: number) => (
             <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
               <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
-              <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', margin: 0 }}>
                 {hasFullAccess ? doc : doc.split('—')[0].split(':')[0].split('(')[0].trim()}
               </p>
             </div>
@@ -188,7 +188,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
                 {r.costs.map((c: string, i: number) => (
                   <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
                     <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
-                    <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>{c}</p>
+                    <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', margin: 0 }}>{c}</p>
                   </div>
                 ))}
               </Card>
@@ -233,10 +233,10 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
           <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} />
           <h1 style={{ fontSize: 26, fontWeight: 700, color: CHARCOAL, margin: 0 }}>{country.name}</h1>
-          <span style={{ background: '#FEF9C3', color: '#854D0E', borderRadius: 20, padding: '3px 12px', fontSize: 12, fontWeight: 600 }}>{t('visa.renderer.westbalkan')}</span>
+          <span style={{ background: 'rgba(245,158,11,0.15)', color: 'rgba(252,211,77,0.95)', borderRadius: 20, padding: '3px 12px', fontSize: 12, fontWeight: 600 }}>{t('visa.renderer.westbalkan')}</span>
         </div>
 
-        <div style={{ background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 10, padding: '12px 16px', marginBottom: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 10, padding: '12px 16px', marginBottom: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <MapPin size={16} color={GOLD} />
             <span style={{ fontSize: 14, fontWeight: 600, color: CHARCOAL }}>{country.embassyName}</span>
@@ -247,7 +247,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           </a>
         </div>
 
-        <p style={{ fontSize: 13, color: '#6B6B6B', marginBottom: 12 }}>{country.embassyNote}</p>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', marginBottom: 12 }}>{country.embassyNote}</p>
 
         {country.schengenFree && (
           <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
@@ -257,7 +257,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         )}
 
         {country.code === 'xk' && country.kosovoNote && (
-          <div style={{ background: '#FEF9C3', border: '1px solid #FDE68A', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
+          <div style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid #FDE68A', borderRadius: 10, padding: '12px 16px', marginBottom: 12 }}>
             <AlertTriangle size={14} color="#D97706" style={{ marginRight: 8, verticalAlign: 'middle' }} />
             <span style={{ fontSize: 13, color: '#92400E', fontWeight: 600 }}>{country.kosovoNote}</span>
           </div>
@@ -268,9 +268,9 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {country.routes.map(r => (
             <div key={r.id} onClick={() => onSelectRoute(r.id)}
-              style={{ background: 'white', border: '1.5px solid #F0EAD8', borderRadius: 12, padding: '18px 20px', cursor: 'pointer', transition: 'all 200ms ease' }}
+              style={{ background: 'white', border: '1.5px solid rgba(255,255,255,0.10)', borderRadius: 12, padding: '18px 20px', cursor: 'pointer', transition: 'all 200ms ease' }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = GOLD; el.style.transform = 'translateY(-2px)'; el.style.boxShadow = '0 6px 20px rgba(0,0,0,0.1)'; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#F0EAD8'; el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; }}>
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.10)'; el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ fontSize: 15, fontWeight: 700, color: CHARCOAL, marginBottom: 4 }}>{r.title}</div>
@@ -301,7 +301,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
       {/* FREE: Westbalkan note */}
       {route.westbalkanNote && (
-        <div style={{ background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
@@ -319,7 +319,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
       {/* FREE: Kosovo note */}
       {route.kosovoNote && (
-        <div style={{ background: '#FEF9C3', border: '1px solid #FDE68A', borderRadius: 12, padding: '14px 18px', marginBottom: 16 }}>
+        <div style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid #FDE68A', borderRadius: 12, padding: '14px 18px', marginBottom: 16 }}>
           <AlertTriangle size={16} color="#D97706" style={{ marginRight: 8, verticalAlign: 'middle' }} />
           <span style={{ fontSize: 13, color: '#92400E', fontWeight: 600 }}>{route.kosovoNote}</span>
         </div>
@@ -327,7 +327,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
       {/* FREE: Ausbildung highlight */}
       {route.ausbildungHighlight && route.ausbildungHighlight.length > 0 && (
-        <div style={{ background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
+        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
@@ -346,10 +346,10 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <Info size={18} color="#3B82F6" style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
-              <p style={{ fontSize: 13, fontWeight: 700, color: '#1E40AF', margin: '0 0 10px' }}>
+              <p style={{ fontSize: 13, fontWeight: 700, color: 'rgba(147,197,253,0.95)', margin: '0 0 10px' }}>
                 {t('visa.renderer.countryNotesTitle')}
                 {route.countryBadge && (
-                  <span style={{ marginLeft: 8, background: '#DBEAFE', color: '#1E40AF', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 600 }}>{route.countryBadge}</span>
+                  <span style={{ marginLeft: 8, background: 'rgba(59,130,246,0.15)', color: 'rgba(147,197,253,0.95)', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 600 }}>{route.countryBadge}</span>
                 )}
               </p>
               {route.countryNotes.map((note: string, i: number) => (
@@ -369,7 +369,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
               <BlurredBlock key={i}>
                 <div style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
                   <StepCircle n={i + 1} />
-                  <p style={{ fontSize: 14, color: '#2D2D2D', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+                  <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
                 </div>
               </BlurredBlock>
             );
@@ -377,7 +377,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
           return (
             <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
               <StepCircle n={i + 1} />
-              <p style={{ fontSize: 14, color: '#2D2D2D', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
             </div>
           );
         })}
@@ -389,7 +389,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         {route.documents.map((doc: string, i: number) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
             <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
-            <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', margin: 0 }}>
               {hasFullAccess ? doc : doc.split('—')[0].split(':')[0].split('(')[0].trim()}
             </p>
           </div>
@@ -433,7 +433,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
             {route.costs.map((c: string, i: number) => (
               <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
                 <span style={{ color: GOLD, fontWeight: 700, flexShrink: 0 }}>•</span>
-                <p style={{ fontSize: 14, color: '#2D2D2D', margin: 0 }}>{c}</p>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', margin: 0 }}>{c}</p>
               </div>
             ))}
           </Card>

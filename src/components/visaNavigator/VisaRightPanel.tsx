@@ -24,11 +24,11 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
       <div style={{ padding: 20 }}>
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <Globe size={40} color="#C9A84C" style={{ margin: '0 auto 12px', display: 'block' }} />
-          <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>
             {t("visa.rightPanel.introBody")}
           </p>
         </div>
-        <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 16 }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 16 }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 10 }}>{t("visa.rightPanel.usefulLinks")}</p>
           {[
             { label: 'BAMF', url: 'https://www.bamf.de' },
@@ -42,7 +42,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             </a>
           ))}
         </div>
-        <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12, marginTop: 4 }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 4 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
           </p>
@@ -63,20 +63,20 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <span style={{ fontSize: 16, fontWeight: 700, color: '#1A1A2E' }}>{country.name}</span>
         </div>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 12 }}>
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 12 }}>
           <span style={{ fontSize: 13, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={14} color="#C9A84C" />
         </a>
-        <p style={{ fontSize: 12, color: '#6B6B6B', marginBottom: 16, lineHeight: 1.5 }}>{country.embassyNote}</p>
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginBottom: 16, lineHeight: 1.5 }}>{country.embassyNote}</p>
         {country.routes.slice(0, 3).map((r, i) => (
           <div key={i} onClick={() => onSelectRoute(r.id)}
-            style={{ background: 'white', border: '1px solid #F0EAD8', borderRadius: 8, padding: '10px 14px', marginBottom: 8, cursor: 'pointer' }}
+            style={{ background: 'white', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '10px 14px', marginBottom: 8, cursor: 'pointer' }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#C9A84C'}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = '#F0EAD8'}>
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'}>
             <p style={{ fontSize: 13, fontWeight: 600, color: '#1A1A2E', margin: 0 }}>{r.title}</p>
           </div>
         ))}
-        <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12, marginTop: 8 }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
           </p>
@@ -94,16 +94,16 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
       <div style={{ padding: 20 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
           <img src={country.flag} alt="" style={{ height: 18, borderRadius: 2 }} />
-          <span style={{ fontSize: 13, color: '#6B6B6B' }}>{country.name}</span>
+          <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)' }}>{country.name}</span>
         </div>
         <h3 style={{ fontSize: 15, fontWeight: 700, color: '#1A1A2E', marginBottom: 4 }}>{route.title}</h3>
         <p style={{ fontSize: 12, fontFamily: 'monospace', color: '#9CA3AF', marginBottom: 12 }}>{route.legalBasis}</p>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#FFF8EC', border: '1px solid #E8D9B0', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 16, width: '100%', boxSizing: 'border-box' }}>
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid #E8D9B0', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 16, width: '100%', boxSizing: 'border-box' }}>
           <span style={{ fontSize: 12, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={13} color="#C9A84C" />
         </a>
-        <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 12 }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12 }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>{t("visa.rightPanel.officialSources")}</p>
           {route.sources.slice(0, 3).map((s, i) => (
             <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
@@ -114,7 +114,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             </a>
           ))}
         </div>
-        <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 10, marginTop: 8 }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 10, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: '#9CA3AF', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
           </p>

@@ -33,14 +33,14 @@ const TrustSystem = ({ variant, showSources = true }: Props) => {
         style={{ background: "#F9F6F0", border: "1px solid #E8E0D0" }}
       >
         <div className="flex items-start gap-2.5">
-          <Info size={16} className="mt-0.5 flex-shrink-0" style={{ color: "#6B6B6B" }} />
+          <Info size={16} className="mt-0.5 flex-shrink-0" style={{ color: "rgba(255,255,255,0.65)" }} />
           <p className="text-[14px] leading-[1.7]" style={{ color: "#4A4A4A" }}>
             {"disclaimer"}
           </p>
         </div>
         <div className="flex items-start gap-2.5 mt-2.5">
           <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" style={{ color: "#D97706" }} />
-          <p className="text-[13px] leading-[1.6]" style={{ color: "#6B6B6B" }}>
+          <p className="text-[13px] leading-[1.6]" style={{ color: "rgba(255,255,255,0.65)" }}>
             {"warning"}
           </p>
         </div>
