@@ -376,10 +376,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         {/* Nedavno korišteno (samo kad nema search) */}
         {!hasSearch && recentItems.length > 0 && (
           <div className="px-3 pt-2">
-            <p className="px-3 pb-2 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">
-              <Clock className="h-3 w-3" />
-              {t("sidebar.recentSectionLabel", "Nedavno")}
-            </p>
+            <SectionHeader
+              icon={Clock}
+              accent="slate"
+              label={t("sidebar.recentSectionLabel", "Nedavno")}
+            />
             <nav className="flex flex-col gap-0.5">
               {recentItems.map((item, idx) => (
                 <button
@@ -398,9 +399,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
         {filteredMain.length > 0 && (
           <div className={`px-3 ${(!hasSearch && recentItems.length > 0) ? "pt-4" : "pt-2"}`}>
-            <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">
-              {hasSearch ? t("sidebar.searchResultsLabel", "Rezultati") : t("sidebar.mainSectionLabel")}
-            </p>
+            <SectionHeader
+              icon={hasSearch ? Search : LayoutGrid}
+              accent="gold"
+              label={hasSearch ? t("sidebar.searchResultsLabel", "Rezultati") : t("sidebar.mainSectionLabel")}
+            />
             <nav className="flex flex-col gap-0.5">
               {filteredMain.map((item, idx) => {
                 const matchers = (item as any).matchPaths as string[] | undefined;
@@ -451,7 +454,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
         {filteredSecondary.length > 0 && (
           <div className="px-3 pt-5">
-            <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.otherSectionLabel")}</p>
+            <SectionHeader icon={Boxes} accent="blue" label={t("sidebar.otherSectionLabel")} />
             <nav className="flex flex-col gap-0.5">
               {filteredSecondary.map((item, idx) => {
                 const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
@@ -485,7 +488,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         {/* Mobile sekcija — sakrij tokom search */}
         {!hasSearch && (
         <div className="px-3 pt-5 pb-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mobileSectionLabel")}</p>
+          <SectionHeader icon={Smartphone} accent="indigo" label={t("sidebar.mobileSectionLabel")} />
           <nav className="flex flex-col gap-0.5">
             <button
               onClick={() => {
@@ -527,7 +530,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         {/* Account & Paketi (dno) — sakrij tokom search */}
         {!hasSearch && (
         <div className="px-3 pt-3 pb-4 mt-auto border-t-2 border-[hsl(var(--gold))]/25">
-          <p className="px-3 pb-2 pt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.accountSectionLabel", "Račun")}</p>
+          <SectionHeader icon={UserCircle2} accent="amber" label={t("sidebar.accountSectionLabel", "Račun")} />
           <nav className="flex flex-col gap-0.5">
             <button
               onClick={() => handleNav("/paketi")}
