@@ -7,7 +7,7 @@ import {
   Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
   Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
   Coins, Search, Crown, Clock, ArrowRight, ChevronDown, User, Mail, MessageSquare,
-  ScrollText,
+  ScrollText, BadgeCheck,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
@@ -79,6 +79,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.stellenangebote"), url: "/stellenangebote", icon: BriefcaseBusiness },
     { title: t("sidebar.items.wohnungen"), url: "/wohnungen", icon: Building2 },
     { title: t("sidebar.items.kalkulatori"), url: "/kalkulatori", icon: Calculator },
+    { title: t("sidebar.items.obnovaPasosa"), url: "/obnova-pasosa", icon: BadgeCheck },
   ];
 
   const toggle = useCallback(() => {
