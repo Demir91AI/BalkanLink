@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
-import { CheckCircle2, AlertTriangle, ScrollText, FileText } from "lucide-react";
+import { CheckCircle2, AlertTriangle, ScrollText, FileText, GitCompareArrows } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import {
