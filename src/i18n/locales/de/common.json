@@ -250,7 +250,8 @@
   "cookies": {
     "banner": {
       "title": "Ihre Privatsphäre ist uns wichtig",
-      "description": "Wir verwenden notwendige Cookies für den Betrieb der Seite und – mit Ihrer Zustimmung – zusätzliche Cookies für Analyse, Funktionalität und ein besseres Nutzererlebnis."
+      "description": "Wir verwenden notwendige Cookies für den Betrieb der Seite und – mit Ihrer Zustimmung – zusätzliche Cookies für Analyse, Funktionalität und ein besseres Nutzererlebnis.",
+      "descriptionShort": "Wir verwenden Cookies für ein besseres Erlebnis."
     },
     "actions": {
       "acceptAll": "Alle akzeptieren",

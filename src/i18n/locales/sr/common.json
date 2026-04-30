@@ -250,7 +250,8 @@
   "cookies": {
     "banner": {
       "title": "Vaša privatnost je važna",
-      "description": "Koristimo neophodne kolačiće za rad stranice, a uz vašu dozvolu i dodatne kolačiće za analitiku, funkcionalnosti i poboljšanje korisničkog iskustva."
+      "description": "Koristimo neophodne kolačiće za rad stranice, a uz vašu dozvolu i dodatne kolačiće za analitiku, funkcionalnosti i poboljšanje korisničkog iskustva.",
+      "descriptionShort": "Koristimo kolačiće za bolje iskustvo."
     },
     "actions": {
       "acceptAll": "Prihvati sve",
