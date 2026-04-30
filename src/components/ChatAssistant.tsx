@@ -575,6 +575,10 @@ export default function ChatAssistant() {
     }
   }, [open]);
 
+  // Ref to sendMessageWithText so the open-assistant listener can call it
+  // even though the function is declared further below in the component body.
+  const sendMessageRef = useRef<((text: string) => void) | null>(null);
+
   // Listen for external "open-assistant" events (e.g. hero CTA)
   useEffect(() => {
     const handler = (e: Event) => {
@@ -582,11 +586,10 @@ export default function ChatAssistant() {
       const detail = (e as CustomEvent<{ prefill?: string; autoSend?: boolean }>).detail;
       const prefill = detail?.prefill?.trim();
       // If a prefill is provided, auto-send it (unless explicitly disabled).
-      // Default behaviour is to send right away so the user doesn't have to press send again.
+      // Default: send right away so the user doesn't have to press send again.
       if (prefill && detail?.autoSend !== false) {
         setInput("");
-        // Small delay so the panel is mounted before sending
-        setTimeout(() => { sendMessageWithText(prefill); }, 120);
+        setTimeout(() => { sendMessageRef.current?.(prefill); }, 120);
       } else if (prefill) {
         setInput(prefill);
         setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 350);
@@ -596,7 +599,7 @@ export default function ChatAssistant() {
     };
     window.addEventListener("open-assistant", handler as EventListener);
     return () => window.removeEventListener("open-assistant", handler as EventListener);
-  }, [sendMessageWithText]);
+  }, []);
 
   // Minimize on hardware Back button (mobile): push a history state when opening,
   // and on popstate close the panel instead of navigating away.
