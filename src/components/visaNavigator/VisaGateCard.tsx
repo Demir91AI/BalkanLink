@@ -32,7 +32,7 @@ export default function VisaGateCard() {
   // ── Premium upsell for logged-in users ──
   if (user) {
     return (
-      <div className="my-6 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white/[0.04] border border-white/10 px-6 py-8 shadow-md">
+      <div className="my-6 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white/[0.04] px-6 py-8 shadow-md">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
             <Lock className="h-5 w-5 text-[hsl(var(--gold))]" />
@@ -65,7 +65,7 @@ export default function VisaGateCard() {
 
   // ── Auth gate for anonymous users ──
   return (
-    <div className="my-6 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white/[0.04] border border-white/10 px-6 py-8 shadow-md">
+    <div className="my-6 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white/[0.04] px-6 py-8 shadow-md">
       <div className="flex items-center gap-3 mb-4">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
           <UserPlus className="h-5 w-5 text-[hsl(var(--gold))]" />
