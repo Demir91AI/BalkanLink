@@ -201,7 +201,11 @@ export default function EinbuergerungGuideContent() {
           "Sigurnost vlastitih prihoda — bez Bürgergeld/Sozialhilfe",
           "Znanje njemačkog jezika — minimum B1 (za turbo-postupak B2). 🎓 Izuzetak: završen Ausbildung u DE, njemačka škola ili studij — nije potreban Sprachzertifikat",
           "Položen Einbürgerungstest (33 pitanja, prag 17). 🎓 Izuzetak: njemački Schulabschluss (Hauptschulabschluss+) ILI Berufsschulzeugnis uz završen Ausbildung (priznato u Bayernu, varira po Bundesland-u) ILI studij prava/političkih nauka",
-...
+          "Čista kaznena evidencija (bez osuda preko 90 dana zatvora)",
+          "Bekenntnis zur freiheitlichen demokratischen Grundordnung (potvrda lojalnosti njemačkom Ustavu)",
+          "Plaćena taksa od 255€ (odrasli) / 51€ (djeca uz roditelje)",
+        ]}
+        commonMistakes={[
           "Polagati Einbürgerungstest van akreditovane institucije — rezultat ne važi",
           "Platiti 25€ za Einbürgerungstest, a imati pravo na oslobađanje (Ausbildung + Berufsschulzeugnis u Bayernu) — uvijek prvo pitaj Behörde",
           "Uplatiti taksu bez Aktenzeichen u Verwendungszweck — uplata se ne pripisuje predmetu",
