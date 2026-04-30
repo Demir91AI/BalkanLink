@@ -121,6 +121,17 @@ export default function Index() {
       {/* ─── HERO ─── */}
       <HeroSection />
 
+      {/* ─── SHARE STRIP (slim, ispod hera) ─── */}
+      <section className="px-4 py-2.5" style={{ background: "hsl(220 50% 6%)", borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="container max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-center">
+          <span className="text-[12px] sm:text-[13px] text-white/70">
+            <span className="text-[hsl(var(--gold))] font-semibold">{t("home.share.heading")}</span>
+            <span className="hidden sm:inline text-white/45"> — {t("home.share.subline")}</span>
+          </span>
+          <ShareButton variant="compact" />
+        </div>
+      </section>
+
       {/* ─── ELEVATOR PITCH — "Šta je BalkanLink?" ─── */}
       <PitchSection />
 
