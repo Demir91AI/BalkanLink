@@ -118,19 +118,20 @@ export default function Index() {
     <div className="relative" style={{ background: "hsl(215 55% 4%)" }}>
       <SEO path="/" />
 
-      {/* ─── HERO ─── */}
-      <HeroSection />
-
-      {/* ─── SHARE STRIP (slim, ispod hera) ─── */}
-      <section className="px-4 py-2.5" style={{ background: "hsl(220 50% 6%)", borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="container max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-center">
-          <span className="text-[12px] sm:text-[13px] text-white/70">
-            <span className="text-[hsl(var(--gold))] font-semibold">{t("home.share.heading")}</span>
-            <span className="hidden sm:inline text-white/45"> — {t("home.share.subline")}</span>
+      {/* ─── SHARE STRIP (slim, IZNAD hera — odmah vidljivo) ─── */}
+      <section className="px-4 py-3" style={{ background: "linear-gradient(90deg, hsl(220 50% 7%), hsl(220 55% 9%), hsl(220 50% 7%))", borderBottom: "1px solid hsla(43,52%,54%,0.18)" }}>
+        <div className="container max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
+          <span className="text-[12.5px] sm:text-[13.5px] text-white/85 leading-tight">
+            <span className="mr-1">📣</span>
+            <span className="text-[hsl(var(--gold))] font-bold">{t("home.share.heading")}</span>
+            <span className="hidden sm:inline text-white/55"> — {t("home.share.subline")}</span>
           </span>
           <ShareButton variant="compact" />
         </div>
       </section>
+
+      {/* ─── HERO ─── */}
+      <HeroSection />
 
       {/* ─── ELEVATOR PITCH — "Šta je BalkanLink?" ─── */}
       <PitchSection />
