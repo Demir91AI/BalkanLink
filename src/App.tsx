@@ -136,6 +136,7 @@ const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const PitajDijasporu = lazy(() => import("./pages/PitajDijasporu"));
 const PitajDijasporuDetail = lazy(() => import("./pages/PitajDijasporuDetail"));
 const AdminPitanja = lazy(() => import("./pages/admin/AdminPitanja"));
+const ObnovaPasosPage = lazy(() => import("./pages/ObnovaPasosPage"));
 
 // Dev-only visual fixtures (excluded from production bundle behaviour via guard).
 const VisualFlagBA = lazy(() => import("./pages/__visual/VisualFlagBA"));
@@ -339,6 +340,8 @@ function LocalizedRoutes() {
         <Route path="biznis" element={<BiznisNjemacka />} />
         <Route path="biznis/:slug" element={<BiznisGuide />} />
         <Route path="mietrecht" element={<Mietrecht />} />
+        <Route path="obnova-pasosa" element={<ObnovaPasosPage />} />
+        <Route path="pass-erneuern" element={<Navigate to="../obnova-pasosa" replace />} />
         <Route path="oglasi" element={<Navigate to="../nudim-trazim" replace />} />
         <Route path="deutsch" element={<Navigate to="../deutsch-trainer" replace />} />
         <Route path="sabloni" element={<Navigate to="../vorlagen" replace />} />
