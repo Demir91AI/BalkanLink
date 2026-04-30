@@ -33,6 +33,39 @@ function maskEmail(email: string) {
   return `${local.slice(0, 2)}${"•".repeat(3)}${local.slice(-2)}@${domain}`;
 }
 
+type SectionAccent = "slate" | "gold" | "blue" | "indigo" | "amber";
+
+const ACCENT_STYLES: Record<SectionAccent, { iconBg: string; iconColor: string; line: string; text: string }> = {
+  slate:  { iconBg: "bg-slate-100",   iconColor: "text-slate-600",   line: "from-slate-300/60",   text: "text-slate-600" },
+  gold:   { iconBg: "bg-[hsl(var(--gold))]/12", iconColor: "text-[hsl(var(--gold))]", line: "from-[hsl(var(--gold))]/40", text: "text-[#3D3526]" },
+  blue:   { iconBg: "bg-sky-100",     iconColor: "text-sky-600",     line: "from-sky-300/60",     text: "text-sky-700" },
+  indigo: { iconBg: "bg-indigo-100",  iconColor: "text-indigo-600",  line: "from-indigo-300/60",  text: "text-indigo-700" },
+  amber:  { iconBg: "bg-amber-100",   iconColor: "text-amber-600",   line: "from-amber-300/60",   text: "text-amber-700" },
+};
+
+function SectionHeader({
+  icon: Icon,
+  label,
+  accent = "slate",
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  accent?: SectionAccent;
+}) {
+  const a = ACCENT_STYLES[accent];
+  return (
+    <div className="flex items-center gap-2 px-3 pb-2.5 pt-1">
+      <span className={`inline-flex h-6 w-6 items-center justify-center rounded-md ${a.iconBg} shadow-sm`}>
+        <Icon className={`h-3.5 w-3.5 ${a.iconColor}`} />
+      </span>
+      <span className={`text-[11px] font-bold uppercase tracking-[0.16em] ${a.text}`}>
+        {label}
+      </span>
+      <span className={`ml-1 h-px flex-1 bg-gradient-to-r ${a.line} to-transparent`} />
+    </div>
+  );
+}
+
 export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
