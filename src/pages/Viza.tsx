@@ -41,47 +41,46 @@ export default function Viza() {
   const nonEuCountries = COUNTRY_CONTENT.filter(c => !c.isEU);
 
   return (
-    <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
+    <div className="min-h-screen bg-[#020617] text-white/90">
       <SEO title={t("visa.navTitle")} description={t("visa.subtitle")} path="/viza" />
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 py-6 lg:py-8">
         <PageNavBar
-          variant="light"
+          variant="dark"
           onBack={selectedRoute ? handleClearRoute : selectedCountry ? handleClearAll : undefined}
         />
 
         <div className="mb-8">
-          <h1 className="text-[28px] font-bold text-[#2D2D2D]">
+          <h1 className="text-[28px] font-bold text-white">
             {selectedRoute && country
               ? country.routes.find(r => r.id === selectedRoute)?.title || t("visa.navTitle")
               : selectedCountry && country
               ? country.name
               : t("visa.navTitle")}
           </h1>
-          <p className="text-[16px] text-[#6B6B6B] mt-1">{t("visa.navSubtitle")}</p>
+          <p className="text-[16px] text-white/60 mt-1">{t("visa.navSubtitle")}</p>
         </div>
 
         {/* 3-col layout */}
         <div className="flex flex-col md:flex-row gap-6">
           {/* LEFT SIDEBAR */}
           <div className="hidden md:block w-[220px] flex-shrink-0">
-            <div className="sticky top-6">
+            <div className="sticky top-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-3">
               <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">{t("visa.sidebar.euCountries")}</p>
               <div className="flex flex-col gap-1 mb-5">
                 {euCountries.map(c => {
                   const active = selectedCountry === c.code;
                   return (
                     <button key={c.code} onClick={() => handleSelectCountry(c.code)}
-                      className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
+                      className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-white/[0.06] rounded-md"
                       style={{
-                        background: active ? '#FFF8EC' : 'transparent',
+                        background: active ? 'rgba(201,168,76,0.12)' : 'transparent',
                         borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
-                        borderRadius: 6,
                       }}>
                       <img src={c.flag} alt="" className="h-5 rounded-sm" />
-                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : '#2D2D2D' }}>
+                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : 'rgba(255,255,255,0.85)' }}>
                         {c.name}
                       </span>
-                      <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#DCFCE7', color: '#166534' }}>EU</span>
+                      <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300">EU</span>
                     </button>
                   );
                 })}
@@ -93,17 +92,16 @@ export default function Viza() {
                   const active = selectedCountry === c.code;
                   return (
                     <button key={c.code} onClick={() => handleSelectCountry(c.code)}
-                      className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-[#FFF8EC]"
+                      className="flex items-center gap-2.5 px-3 py-2 text-left transition-all duration-150 hover:bg-white/[0.06] rounded-md"
                       style={{
-                        background: active ? '#FFF8EC' : 'transparent',
+                        background: active ? 'rgba(201,168,76,0.12)' : 'transparent',
                         borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
-                        borderRadius: 6,
                       }}>
                       <img src={c.flag} alt="" className="h-5 rounded-sm" />
-                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : '#2D2D2D' }}>
+                      <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : 'rgba(255,255,255,0.85)' }}>
                         {c.name}
                       </span>
-                      <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: '#FEF9C3', color: '#854D0E' }}>WB</span>
+                      <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300">WB</span>
                     </button>
                   );
                 })}
@@ -112,23 +110,22 @@ export default function Viza() {
               {/* Route list when non-EU country selected */}
               {country && !country.isEU && (
                 <>
-                  <div className="h-px my-4" style={{ background: '#F0EAD8' }} />
+                  <div className="h-px my-4 bg-white/10" />
                   <p className="text-[11px] font-semibold uppercase tracking-[0.1em] mb-3 text-[hsl(var(--gold))]">{t("visa.sidebar.routes")}</p>
                   <div className="flex flex-col gap-1">
                     {country.routes.map((r) => {
                       const active = selectedRoute === r.id;
                       return (
                         <button key={r.id} onClick={() => handleSelectRoute(r.id)}
-                          className="text-left px-3 py-2 transition-all duration-150 hover:bg-[#FFF8EC]"
+                          className="text-left px-3 py-2 transition-all duration-150 hover:bg-white/[0.06] rounded-md"
                           style={{
-                            background: active ? '#FFF8EC' : 'transparent',
+                            background: active ? 'rgba(201,168,76,0.12)' : 'transparent',
                             borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
-                            borderRadius: 6,
                           }}>
-                          <span className="text-[13px] block" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : '#2D2D2D' }}>
+                          <span className="text-[13px] block" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : 'rgba(255,255,255,0.85)' }}>
                             {r.title}
                           </span>
-                          <span className="text-[11px] block" style={{ color: '#9CA3AF', fontFamily: 'monospace' }}>
+                          <span className="text-[11px] block text-white/40" style={{ fontFamily: 'monospace' }}>
                             {r.legalBasis.split('+')[0].trim()}
                           </span>
                         </button>
@@ -151,8 +148,8 @@ export default function Viza() {
                     onClick={() => handleSelectCountry(c.code)}
                     className={`shrink-0 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium border transition-all ${
                       active
-                        ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
-                        : "border-border/40 text-[#2D2D2D] hover:bg-[#FFF8EC]"
+                        ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/15 text-[hsl(var(--gold))] font-bold"
+                        : "border-white/15 text-white/80 hover:bg-white/[0.06]"
                     }`}
                   >
                     <img src={c.flag} alt="" className="h-4 rounded-sm" />
@@ -171,8 +168,8 @@ export default function Viza() {
                       onClick={() => handleSelectRoute(r.id)}
                       className={`shrink-0 rounded-full px-3 py-1.5 text-[11px] font-medium border transition-all ${
                         active
-                          ? "border-[#C9A84C] bg-[#FFF8EC] text-[#C9A84C] font-bold"
-                          : "border-border/40 text-[#6B6B6B] hover:bg-[#FFF8EC]"
+                          ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/15 text-[hsl(var(--gold))] font-bold"
+                          : "border-white/15 text-white/65 hover:bg-white/[0.06]"
                       }`}
                     >
                       {r.title}
