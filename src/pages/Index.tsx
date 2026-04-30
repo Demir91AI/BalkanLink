@@ -118,8 +118,11 @@ export default function Index() {
     <div className="relative" style={{ background: "hsl(215 55% 4%)" }}>
       <SEO path="/" />
 
-      {/* ─── SHARE STRIP (slim, IZNAD hera — odmah vidljivo) ─── */}
-      <section className="px-4 py-3" style={{ background: "linear-gradient(90deg, hsl(220 50% 7%), hsl(220 55% 9%), hsl(220 50% 7%))", borderBottom: "1px solid hsla(43,52%,54%,0.18)" }}>
+      {/* ─── HERO ─── */}
+      <HeroSection />
+
+      {/* ─── SHARE STRIP (ispod Asistenta u Heru) ─── */}
+      <section className="px-4 py-3" style={{ background: "linear-gradient(90deg, hsl(220 50% 7%), hsl(220 55% 9%), hsl(220 50% 7%))", borderTop: "1px solid hsla(43,52%,54%,0.18)", borderBottom: "1px solid hsla(43,52%,54%,0.18)" }}>
         <div className="container max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
           <span className="text-[12.5px] sm:text-[13.5px] text-white/85 leading-tight">
             <span className="mr-1">📣</span>
@@ -129,9 +132,6 @@ export default function Index() {
           <ShareButton variant="compact" />
         </div>
       </section>
-
-      {/* ─── HERO ─── */}
-      <HeroSection />
 
       {/* ─── ELEVATOR PITCH — "Šta je BalkanLink?" ─── */}
       <PitchSection />
