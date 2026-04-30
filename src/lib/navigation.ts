@@ -67,7 +67,14 @@ export function navigateBackOrHome(navigate: NavigateFunction) {
   }
 
   // 1) Posebna mapiranja
-  for (const { prefix, parent } of PARENT_OVERRIDES) {
+  for (const { prefix, parent, exact } of PARENT_OVERRIDES) {
+    if (exact) {
+      if (cleanRest === prefix) {
+        navigate(withLang(lang, parent));
+        return;
+      }
+      continue;
+    }
     if (cleanRest.startsWith(prefix + "/") && cleanRest !== prefix) {
       navigate(withLang(lang, parent));
       return;
