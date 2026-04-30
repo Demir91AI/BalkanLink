@@ -40,8 +40,88 @@ const STATUS_BADGE: Record<
   },
 };
 
+type LangKey = "bs" | "hr" | "sr" | "de";
+
+const COMPARISON_I18N: Record<LangKey, {
+  trigger: string;
+  intro: string;
+  th: { criterion: string; before: string; after: string };
+  rows: Array<{ k: string; b: string; a: string; highlight?: boolean }>;
+  noteTitle: string;
+  note: string;
+}> = {
+  bs: {
+    trigger: "Šta se promijenilo? Stari vs. novi zakon",
+    intro: "Pregled ključnih razlika između starog i novog Zakona o državljanstvu (StARModG, na snazi od 27.06.2024.).",
+    th: { criterion: "Kriterij", before: "Prije 27.06.2024.", after: "Od 27.06.2024." },
+    rows: [
+      { k: "Min. boravak", b: "8 godina", a: "5 godina" },
+      { k: "Matično državljanstvo", b: "❌ Moraš se odreći", a: "✅ Zadržavaš automatski" },
+      { k: "EU državljani", b: "✅ Oduvijek izuzetak", a: "✅ Kao i dosad" },
+      { k: "Djeca rođena u DE", b: "Roditelj mora 8g. boravka", a: "Roditelj mora 5g. boravka" },
+      { k: "Opcijska obaveza (djeca)", b: "✅ Postoji — birali do 21g.", a: "❌ Ukinuta" },
+      { k: "Gastarbajteri", b: "Puni test + B1 pismeno", a: "Samo usmeno sporazumijevanje" },
+      { k: "Jezik", b: "B1 pismeno i usmeno", a: "B1 (gastarbajteri: samo usmeno)" },
+      { k: "\"Turbo\" naturalizacija (3g.)", b: "❌ Nije postojala", a: "⚠️ Uvedena 2024., ali UKINUTA 30.10.2025.", highlight: true },
+    ],
+    noteTitle: "Uvjeti koji se NISU promijenili",
+    note: "B1 jezik + Einbürgerungstest, vlastito osiguranje troškova života (bez Bürgergeld/Sozialhilfe), čista kaznena evidencija, potvrda vjernosti Ustavu. Vrijedi jednako za sve balkanske državljane.",
+  },
+  hr: {
+    trigger: "Šta se promijenilo? Stari vs. novi zakon",
+    intro: "Pregled ključnih razlika između starog i novog Zakona o državljanstvu (StARModG, na snazi od 27.06.2024.).",
+    th: { criterion: "Kriterij", before: "Prije 27.06.2024.", after: "Od 27.06.2024." },
+    rows: [
+      { k: "Min. boravak", b: "8 godina", a: "5 godina" },
+      { k: "Matično državljanstvo", b: "❌ Moraš se odreći", a: "✅ Zadržavaš automatski" },
+      { k: "EU državljani", b: "✅ Oduvijek izuzetak", a: "✅ Kao i dosad" },
+      { k: "Djeca rođena u DE", b: "Roditelj mora 8g. boravka", a: "Roditelj mora 5g. boravka" },
+      { k: "Opcijska obaveza (djeca)", b: "✅ Postoji — birali do 21g.", a: "❌ Ukinuta" },
+      { k: "Gastarbajteri", b: "Puni test + B1 pismeno", a: "Samo usmeno sporazumijevanje" },
+      { k: "Jezik", b: "B1 pismeno i usmeno", a: "B1 (gastarbajteri: samo usmeno)" },
+      { k: "\"Turbo\" naturalizacija (3g.)", b: "❌ Nije postojala", a: "⚠️ Uvedena 2024., ali UKINUTA 30.10.2025.", highlight: true },
+    ],
+    noteTitle: "Uvjeti koji se NISU promijenili",
+    note: "B1 jezik + Einbürgerungstest, vlastito osiguranje troškova života (bez Bürgergeld/Sozialhilfe), čista kaznena evidencija, potvrda vjernosti Ustavu. Vrijedi jednako za sve balkanske državljane.",
+  },
+  sr: {
+    trigger: "Šta se promenilo? Stari vs. novi zakon",
+    intro: "Pregled ključnih razlika između starog i novog Zakona o državljanstvu (StARModG, na snazi od 27.06.2024.).",
+    th: { criterion: "Kriterijum", before: "Pre 27.06.2024.", after: "Od 27.06.2024." },
+    rows: [
+      { k: "Min. boravak", b: "8 godina", a: "5 godina" },
+      { k: "Matično državljanstvo", b: "❌ Moraš da se odrekneš", a: "✅ Zadržavaš automatski" },
+      { k: "EU državljani", b: "✅ Oduvijek izuzetak", a: "✅ Kao i dosad" },
+      { k: "Deca rođena u DE", b: "Roditelj mora 8g. boravka", a: "Roditelj mora 5g. boravka" },
+      { k: "Opcijska obaveza (deca)", b: "✅ Postoji — birali do 21g.", a: "❌ Ukinuta" },
+      { k: "Gastarbajteri", b: "Puni test + B1 pismeno", a: "Samo usmeno sporazumevanje" },
+      { k: "Jezik", b: "B1 pismeno i usmeno", a: "B1 (gastarbajteri: samo usmeno)" },
+      { k: "\"Turbo\" naturalizacija (3g.)", b: "❌ Nije postojala", a: "⚠️ Uvedena 2024., ali UKINUTA 30.10.2025.", highlight: true },
+    ],
+    noteTitle: "Uslovi koji se NISU promenili",
+    note: "B1 jezik + Einbürgerungstest, vlastito osiguranje troškova života (bez Bürgergeld/Sozialhilfe), čista krivična evidencija, potvrda vernosti Ustavu. Važi jednako za sve balkanske državljane.",
+  },
+  de: {
+    trigger: "Was hat sich geändert? Altes vs. neues Recht",
+    intro: "Übersicht der wichtigsten Änderungen durch das Staatsangehörigkeitsmodernisierungsgesetz (StARModG, in Kraft seit 27.06.2024).",
+    th: { criterion: "Kriterium", before: "Vor dem 27.06.2024", after: "Ab dem 27.06.2024" },
+    rows: [
+      { k: "Mindestaufenthalt", b: "8 Jahre", a: "5 Jahre" },
+      { k: "Bisherige Staatsangehörigkeit", b: "❌ Musste aufgegeben werden", a: "✅ Wird automatisch behalten" },
+      { k: "EU-Bürger", b: "✅ Immer ausgenommen", a: "✅ Wie bisher" },
+      { k: "In DE geborene Kinder", b: "Elternteil braucht 8 Jahre", a: "Elternteil braucht 5 Jahre" },
+      { k: "Optionspflicht (Kinder)", b: "✅ Galt bis zum 21. Lj.", a: "❌ Abgeschafft" },
+      { k: "Gastarbeitergeneration", b: "Voller Test + B1 schriftlich", a: "Nur mündliche Verständigung" },
+      { k: "Sprache", b: "B1 schriftlich + mündlich", a: "B1 (Gastarbeiter: nur mündlich)" },
+      { k: "\"Turbo\"-Einbürgerung (3 J.)", b: "❌ Nicht vorhanden", a: "⚠️ 2024 eingeführt, aber am 30.10.2025 wieder abgeschafft", highlight: true },
+    ],
+    noteTitle: "Unveränderte Voraussetzungen",
+    note: "B1-Sprachkenntnisse + Einbürgerungstest, eigenständige Sicherung des Lebensunterhalts (kein Bürgergeld/Sozialhilfe), keine Vorstrafen, Bekenntnis zur freiheitlichen demokratischen Grundordnung. Gilt einheitlich für alle Staatsangehörigen der Westbalkan-Staaten.",
+  },
+};
+
 export default function DvojnoDrzavljanstvo() {
-  const { t } = useTranslation("dvojnoDrzavljanstvo");
+  const { t, i18n } = useTranslation("dvojnoDrzavljanstvo");
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedId =
