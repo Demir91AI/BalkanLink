@@ -1,4 +1,11 @@
 {
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Gehe zurück zur Startseite oder frage den BalkanLink Asistent.",
+    "backHome": "Zurück zur Startseite",
+    "askAssistant": "Asistent fragen",
+    "goBack": "Zurück"
+  },
   "nav": {
     "home": "Startseite",
     "smartGuides": "Smart Guides",
@@ -250,7 +257,8 @@
   "cookies": {
     "banner": {
       "title": "Ihre Privatsphäre ist uns wichtig",
-      "description": "Wir verwenden notwendige Cookies für den Betrieb der Seite und – mit Ihrer Zustimmung – zusätzliche Cookies für Analyse, Funktionalität und ein besseres Nutzererlebnis."
+      "description": "Wir verwenden notwendige Cookies für den Betrieb der Seite und – mit Ihrer Zustimmung – zusätzliche Cookies für Analyse, Funktionalität und ein besseres Nutzererlebnis.",
+      "descriptionShort": "Wir verwenden Cookies für ein besseres Erlebnis."
     },
     "actions": {
       "acceptAll": "Alle akzeptieren",

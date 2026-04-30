@@ -323,6 +323,9 @@ function LocalizedRoutes() {
         <Route path="firma/:slug" element={<FirmDetail />} />
         <Route path="bussgeld" element={<BussgeldAssistent />} />
         <Route path="ai-asistent" element={<ChatAssistant />} />
+        <Route path="asistent" element={<Navigate to="../ai-asistent" replace />} />
+        <Route path="assistent" element={<Navigate to="../ai-asistent" replace />} />
+        <Route path="assistant" element={<Navigate to="../ai-asistent" replace />} />
         <Route path="paketi" element={<Paketi />} />
         <Route path="pricing" element={<Navigate to="../paketi" replace />} />
         <Route path="payment-success" element={<PaymentSuccess />} />
