@@ -199,8 +199,8 @@ export default function EinbuergerungGuideContent() {
           "Minimum 5 godina legalnog neprekidnog boravka (3 sa posebnim integracijama)",
           "Trajna boravišna dozvola (Niederlassungserlaubnis) ili stabilan Aufenthaltstitel",
           "Sigurnost vlastitih prihoda — bez Bürgergeld/Sozialhilfe",
-          "Znanje njemačkog jezika — minimum B1 (za turbo-postupak B2)",
-          "Položen Einbürgerungstest (33 pitanja, prag 17)",
+          "Znanje njemačkog jezika — minimum B1 (za turbo-postupak B2). 🎓 Izuzetak: završen Ausbildung u DE, njemačka škola ili studij — nije potreban Sprachzertifikat",
+          "Položen Einbürgerungstest (33 pitanja, prag 17). 🎓 Izuzetak: njemački školski završetak (Hauptschulabschluss+) ili studij prava/političkih nauka",
           "Priznavanje slobodnog demokratskog uređenja (Loyalitätserklärung)",
           "Bez teških krivičnih presuda (provjerava Verfassungsschutz)",
           "Plaćena taksa: 255 € po osobi (51 € po djetetu)",
@@ -211,6 +211,7 @@ export default function EinbuergerungGuideContent() {
           "Predati zahtjev bez kompletne dokumentacije — produžava obradu sa 6 na 24 mjeseca",
           "Tražiti Beibehaltungsgenehmigung — više nije potrebno (StARModG ukinuo zahtjev)",
           "Polagati Einbürgerungstest van akreditovane institucije — rezultat ne važi",
+          "Misliti da završen Ausbildung oslobađa i jezika i Einbürgerungstesta — oslobađa SAMO jezika; test i dalje moraš polagati",
           "Uplatiti taksu bez Aktenzeichen u Verwendungszweck — uplata se ne pripisuje predmetu",
         ]}
       />
