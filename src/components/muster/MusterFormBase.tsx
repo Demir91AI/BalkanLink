@@ -237,9 +237,9 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
 
   return (
     <div id={rootId} style={S.page}>
-      <div style={{ background: '#F5F0E8', borderBottom: '1px solid #F0EAD8' }} className="flex items-center gap-4 px-4 md:px-8 py-2.5 overflow-x-auto whitespace-nowrap">
-        <div style={{ display: 'contents' }}><PageNavBar inline showShare /></div>
-        <span style={{ color: '#E8D9B0', margin: '0 4px' }}>|</span>
+      <div style={{ background: '#F5F0E8', borderBottom: '1px solid #F0EAD8' }} className="flex items-center gap-3 px-4 md:px-8 py-2.5 overflow-x-auto whitespace-nowrap">
+        <PageNavBar inline showShare={false} hideTrail />
+        <span style={{ color: '#E8D9B0' }}>|</span>
         <span style={{ fontSize: 12, color: '#9CA3AF', cursor: 'pointer' }} onClick={() => navigate('/formulari')}>Formulari</span>
         <span style={{ fontSize: 12, color: '#9CA3AF' }}>›</span>
         <span style={{ fontSize: 12, color: '#9CA3AF', cursor: 'pointer' }} onClick={() => navigate('/formulari')}>Musterformulari</span>
