@@ -7,7 +7,7 @@ import {
   Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
   Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
   Coins, Search, Crown, Clock, ArrowRight, ChevronDown, User, Mail, MessageSquare,
-  ScrollText, BadgeCheck,
+  ScrollText, BadgeCheck, LayoutGrid, Boxes, UserCircle2,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
@@ -31,6 +31,39 @@ function maskEmail(email: string) {
   if (local.length <= 2) return `${local}@${domain}`;
   if (local.length <= 6) return `${local[0]}${"•".repeat(local.length - 2)}${local.slice(-1)}@${domain}`;
   return `${local.slice(0, 2)}${"•".repeat(3)}${local.slice(-2)}@${domain}`;
+}
+
+type SectionAccent = "slate" | "gold" | "blue" | "indigo" | "amber";
+
+const ACCENT_STYLES: Record<SectionAccent, { iconBg: string; iconColor: string; line: string; text: string }> = {
+  slate:  { iconBg: "bg-slate-100",   iconColor: "text-slate-600",   line: "from-slate-300/60",   text: "text-slate-600" },
+  gold:   { iconBg: "bg-[hsl(var(--gold))]/12", iconColor: "text-[hsl(var(--gold))]", line: "from-[hsl(var(--gold))]/40", text: "text-[#3D3526]" },
+  blue:   { iconBg: "bg-sky-100",     iconColor: "text-sky-600",     line: "from-sky-300/60",     text: "text-sky-700" },
+  indigo: { iconBg: "bg-indigo-100",  iconColor: "text-indigo-600",  line: "from-indigo-300/60",  text: "text-indigo-700" },
+  amber:  { iconBg: "bg-amber-100",   iconColor: "text-amber-600",   line: "from-amber-300/60",   text: "text-amber-700" },
+};
+
+function SectionHeader({
+  icon: Icon,
+  label,
+  accent = "slate",
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  accent?: SectionAccent;
+}) {
+  const a = ACCENT_STYLES[accent];
+  return (
+    <div className="flex items-center gap-2 px-3 pb-2.5 pt-1">
+      <span className={`inline-flex h-6 w-6 items-center justify-center rounded-md ${a.iconBg} shadow-sm`}>
+        <Icon className={`h-3.5 w-3.5 ${a.iconColor}`} />
+      </span>
+      <span className={`text-[11px] font-bold uppercase tracking-[0.16em] ${a.text}`}>
+        {label}
+      </span>
+      <span className={`ml-1 h-px flex-1 bg-gradient-to-r ${a.line} to-transparent`} />
+    </div>
+  );
 }
 
 export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {}) {
@@ -343,10 +376,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         {/* Nedavno korišteno (samo kad nema search) */}
         {!hasSearch && recentItems.length > 0 && (
           <div className="px-3 pt-2">
-            <p className="px-3 pb-2 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">
-              <Clock className="h-3 w-3" />
-              {t("sidebar.recentSectionLabel", "Nedavno")}
-            </p>
+            <SectionHeader
+              icon={Clock}
+              accent="slate"
+              label={t("sidebar.recentSectionLabel", "Nedavno")}
+            />
             <nav className="flex flex-col gap-0.5">
               {recentItems.map((item, idx) => (
                 <button
@@ -365,9 +399,11 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
         {filteredMain.length > 0 && (
           <div className={`px-3 ${(!hasSearch && recentItems.length > 0) ? "pt-4" : "pt-2"}`}>
-            <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">
-              {hasSearch ? t("sidebar.searchResultsLabel", "Rezultati") : t("sidebar.mainSectionLabel")}
-            </p>
+            <SectionHeader
+              icon={hasSearch ? Search : LayoutGrid}
+              accent="gold"
+              label={hasSearch ? t("sidebar.searchResultsLabel", "Rezultati") : t("sidebar.mainSectionLabel")}
+            />
             <nav className="flex flex-col gap-0.5">
               {filteredMain.map((item, idx) => {
                 const matchers = (item as any).matchPaths as string[] | undefined;
@@ -418,7 +454,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
 
         {filteredSecondary.length > 0 && (
           <div className="px-3 pt-5">
-            <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.otherSectionLabel")}</p>
+            <SectionHeader icon={Boxes} accent="blue" label={t("sidebar.otherSectionLabel")} />
             <nav className="flex flex-col gap-0.5">
               {filteredSecondary.map((item, idx) => {
                 const active = currentPath === item.url || currentPath.startsWith(item.url + "/");
@@ -452,7 +488,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         {/* Mobile sekcija — sakrij tokom search */}
         {!hasSearch && (
         <div className="px-3 pt-5 pb-4">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.mobileSectionLabel")}</p>
+          <SectionHeader icon={Smartphone} accent="indigo" label={t("sidebar.mobileSectionLabel")} />
           <nav className="flex flex-col gap-0.5">
             <button
               onClick={() => {
@@ -494,7 +530,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         {/* Account & Paketi (dno) — sakrij tokom search */}
         {!hasSearch && (
         <div className="px-3 pt-3 pb-4 mt-auto border-t-2 border-[hsl(var(--gold))]/25">
-          <p className="px-3 pb-2 pt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6B6B6B]/50">{t("sidebar.accountSectionLabel", "Račun")}</p>
+          <SectionHeader icon={UserCircle2} accent="amber" label={t("sidebar.accountSectionLabel", "Račun")} />
           <nav className="flex flex-col gap-0.5">
             <button
               onClick={() => handleNav("/paketi")}
