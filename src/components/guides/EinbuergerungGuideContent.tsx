@@ -74,7 +74,7 @@ const STEPS: StepData[] = [
     example:
       "Einbürgerungstest — bestanden am 18.03.2024 — Volkshochschule Berlin Mitte — 28 von 33 richtig.",
     note:
-      "Oslobođeni su samo: Nijemci školovani u DE (Hauptschulabschluss ili više), osobe sa kognitivnim oštećenjima i osobe ispod 16 godina.",
+      "🎓 OSLOBOĐENI ste Einbürgerungstesta ako imate: (1) njemački školski završetak — Hauptschulabschluss, Realschulabschluss, Abitur ili viši (sadržaj testa je dio nastavnog plana); (2) završen studij prava, političkih ili društvenih nauka na njemačkom univerzitetu; (3) ispod 16 godina; (4) trajna nesposobnost zbog bolesti/invaliditeta/starosti (uz ljekarsku potvrdu). VAŽNO: završen Ausbildung u Njemačkoj NE oslobađa od Einbürgerungstesta — oslobađa samo od jezičkog testa. Test (33 pitanja) se polaže u akreditovanoj Volkshochschule, cijena ~25€.",
   },
   {
     deField: "Lebensunterhalt — Sicherung des eigenen Einkommens",
