@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
-import { CheckCircle2, AlertTriangle, ScrollText, FileText } from "lucide-react";
+import { CheckCircle2, AlertTriangle, ScrollText, FileText, GitCompareArrows } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import {
@@ -40,8 +40,88 @@ const STATUS_BADGE: Record<
   },
 };
 
+type LangKey = "bs" | "hr" | "sr" | "de";
+
+const COMPARISON_I18N: Record<LangKey, {
+  trigger: string;
+  intro: string;
+  th: { criterion: string; before: string; after: string };
+  rows: Array<{ k: string; b: string; a: string; highlight?: boolean }>;
+  noteTitle: string;
+  note: string;
+}> = {
+  bs: {
+    trigger: "Šta se promijenilo? Stari vs. novi zakon",
+    intro: "Pregled ključnih razlika između starog i novog Zakona o državljanstvu (StARModG, na snazi od 27.06.2024.).",
+    th: { criterion: "Kriterij", before: "Prije 27.06.2024.", after: "Od 27.06.2024." },
+    rows: [
+      { k: "Min. boravak", b: "8 godina", a: "5 godina" },
+      { k: "Matično državljanstvo", b: "❌ Moraš se odreći", a: "✅ Zadržavaš automatski" },
+      { k: "EU državljani", b: "✅ Oduvijek izuzetak", a: "✅ Kao i dosad" },
+      { k: "Djeca rođena u DE", b: "Roditelj mora 8g. boravka", a: "Roditelj mora 5g. boravka" },
+      { k: "Opcijska obaveza (djeca)", b: "✅ Postoji — birali do 21g.", a: "❌ Ukinuta" },
+      { k: "Gastarbajteri", b: "Puni test + B1 pismeno", a: "Samo usmeno sporazumijevanje" },
+      { k: "Jezik", b: "B1 pismeno i usmeno", a: "B1 (gastarbajteri: samo usmeno)" },
+      { k: "\"Turbo\" naturalizacija (3g.)", b: "❌ Nije postojala", a: "⚠️ Uvedena 2024., ali UKINUTA 30.10.2025.", highlight: true },
+    ],
+    noteTitle: "Uvjeti koji se NISU promijenili",
+    note: "B1 jezik + Einbürgerungstest, vlastito osiguranje troškova života (bez Bürgergeld/Sozialhilfe), čista kaznena evidencija, potvrda vjernosti Ustavu. Vrijedi jednako za sve balkanske državljane.",
+  },
+  hr: {
+    trigger: "Šta se promijenilo? Stari vs. novi zakon",
+    intro: "Pregled ključnih razlika između starog i novog Zakona o državljanstvu (StARModG, na snazi od 27.06.2024.).",
+    th: { criterion: "Kriterij", before: "Prije 27.06.2024.", after: "Od 27.06.2024." },
+    rows: [
+      { k: "Min. boravak", b: "8 godina", a: "5 godina" },
+      { k: "Matično državljanstvo", b: "❌ Moraš se odreći", a: "✅ Zadržavaš automatski" },
+      { k: "EU državljani", b: "✅ Oduvijek izuzetak", a: "✅ Kao i dosad" },
+      { k: "Djeca rođena u DE", b: "Roditelj mora 8g. boravka", a: "Roditelj mora 5g. boravka" },
+      { k: "Opcijska obaveza (djeca)", b: "✅ Postoji — birali do 21g.", a: "❌ Ukinuta" },
+      { k: "Gastarbajteri", b: "Puni test + B1 pismeno", a: "Samo usmeno sporazumijevanje" },
+      { k: "Jezik", b: "B1 pismeno i usmeno", a: "B1 (gastarbajteri: samo usmeno)" },
+      { k: "\"Turbo\" naturalizacija (3g.)", b: "❌ Nije postojala", a: "⚠️ Uvedena 2024., ali UKINUTA 30.10.2025.", highlight: true },
+    ],
+    noteTitle: "Uvjeti koji se NISU promijenili",
+    note: "B1 jezik + Einbürgerungstest, vlastito osiguranje troškova života (bez Bürgergeld/Sozialhilfe), čista kaznena evidencija, potvrda vjernosti Ustavu. Vrijedi jednako za sve balkanske državljane.",
+  },
+  sr: {
+    trigger: "Šta se promenilo? Stari vs. novi zakon",
+    intro: "Pregled ključnih razlika između starog i novog Zakona o državljanstvu (StARModG, na snazi od 27.06.2024.).",
+    th: { criterion: "Kriterijum", before: "Pre 27.06.2024.", after: "Od 27.06.2024." },
+    rows: [
+      { k: "Min. boravak", b: "8 godina", a: "5 godina" },
+      { k: "Matično državljanstvo", b: "❌ Moraš da se odrekneš", a: "✅ Zadržavaš automatski" },
+      { k: "EU državljani", b: "✅ Oduvijek izuzetak", a: "✅ Kao i dosad" },
+      { k: "Deca rođena u DE", b: "Roditelj mora 8g. boravka", a: "Roditelj mora 5g. boravka" },
+      { k: "Opcijska obaveza (deca)", b: "✅ Postoji — birali do 21g.", a: "❌ Ukinuta" },
+      { k: "Gastarbajteri", b: "Puni test + B1 pismeno", a: "Samo usmeno sporazumevanje" },
+      { k: "Jezik", b: "B1 pismeno i usmeno", a: "B1 (gastarbajteri: samo usmeno)" },
+      { k: "\"Turbo\" naturalizacija (3g.)", b: "❌ Nije postojala", a: "⚠️ Uvedena 2024., ali UKINUTA 30.10.2025.", highlight: true },
+    ],
+    noteTitle: "Uslovi koji se NISU promenili",
+    note: "B1 jezik + Einbürgerungstest, vlastito osiguranje troškova života (bez Bürgergeld/Sozialhilfe), čista krivična evidencija, potvrda vernosti Ustavu. Važi jednako za sve balkanske državljane.",
+  },
+  de: {
+    trigger: "Was hat sich geändert? Altes vs. neues Recht",
+    intro: "Übersicht der wichtigsten Änderungen durch das Staatsangehörigkeitsmodernisierungsgesetz (StARModG, in Kraft seit 27.06.2024).",
+    th: { criterion: "Kriterium", before: "Vor dem 27.06.2024", after: "Ab dem 27.06.2024" },
+    rows: [
+      { k: "Mindestaufenthalt", b: "8 Jahre", a: "5 Jahre" },
+      { k: "Bisherige Staatsangehörigkeit", b: "❌ Musste aufgegeben werden", a: "✅ Wird automatisch behalten" },
+      { k: "EU-Bürger", b: "✅ Immer ausgenommen", a: "✅ Wie bisher" },
+      { k: "In DE geborene Kinder", b: "Elternteil braucht 8 Jahre", a: "Elternteil braucht 5 Jahre" },
+      { k: "Optionspflicht (Kinder)", b: "✅ Galt bis zum 21. Lj.", a: "❌ Abgeschafft" },
+      { k: "Gastarbeitergeneration", b: "Voller Test + B1 schriftlich", a: "Nur mündliche Verständigung" },
+      { k: "Sprache", b: "B1 schriftlich + mündlich", a: "B1 (Gastarbeiter: nur mündlich)" },
+      { k: "\"Turbo\"-Einbürgerung (3 J.)", b: "❌ Nicht vorhanden", a: "⚠️ 2024 eingeführt, aber am 30.10.2025 wieder abgeschafft", highlight: true },
+    ],
+    noteTitle: "Unveränderte Voraussetzungen",
+    note: "B1-Sprachkenntnisse + Einbürgerungstest, eigenständige Sicherung des Lebensunterhalts (kein Bürgergeld/Sozialhilfe), keine Vorstrafen, Bekenntnis zur freiheitlichen demokratischen Grundordnung. Gilt einheitlich für alle Staatsangehörigen der Westbalkan-Staaten.",
+  },
+};
+
 export default function DvojnoDrzavljanstvo() {
-  const { t } = useTranslation("dvojnoDrzavljanstvo");
+  const { t, i18n } = useTranslation("dvojnoDrzavljanstvo");
   const [searchParams, setSearchParams] = useSearchParams();
 
   const selectedId =
@@ -119,7 +199,89 @@ export default function DvojnoDrzavljanstvo() {
           </div>
         </section>
 
-        {/* Smart Guide CTA — Vodič kako uzeti njemačko državljanstvo */}
+        {/* Comparison: old vs new law */}
+        {(() => {
+          const lang = (["bs", "hr", "sr", "de"].includes(i18n.language) ? i18n.language : "bs") as LangKey;
+          const cmp = COMPARISON_I18N[lang];
+          return (
+            <section className="mb-7" aria-label={cmp.trigger}>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="comparison" className="border-0">
+                  <AccordionTrigger
+                    className="rounded-2xl border border-[#E5DFC9] bg-white px-4 sm:px-5 py-4 text-left hover:no-underline shadow-sm hover:shadow-md transition-all data-[state=open]:rounded-b-none data-[state=open]:border-b-0"
+                  >
+                    <div className="flex items-center gap-3 min-w-0 pr-2">
+                      <div className="h-9 w-9 shrink-0 rounded-lg flex items-center justify-center bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]">
+                        <GitCompareArrows className="h-5 w-5" />
+                      </div>
+                      <span className="text-[14px] sm:text-[15px] font-bold text-[#2D2D2D]">
+                        {cmp.trigger}
+                      </span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="rounded-b-2xl border border-t-0 border-[#E5DFC9] bg-white px-4 sm:px-5 pb-5 pt-0">
+                    <p className="text-[13px] text-[#6B6B6B] mb-4 leading-relaxed">
+                      {cmp.intro}
+                    </p>
+
+                    <div className="-mx-4 sm:mx-0 overflow-x-auto rounded-xl border border-[#F0EAD8]">
+                      <table className="w-full text-[13px] sm:text-[13.5px] border-collapse min-w-[560px]">
+                        <thead>
+                          <tr className="bg-[#FFF8EC] text-[#8A6B1F]">
+                            <th className="text-left font-bold px-3 sm:px-4 py-3 border-b border-[#E5DFC9] w-[34%]">
+                              {cmp.th.criterion}
+                            </th>
+                            <th className="text-left font-bold px-3 sm:px-4 py-3 border-b border-[#E5DFC9] w-[33%]">
+                              {cmp.th.before}
+                            </th>
+                            <th className="text-left font-bold px-3 sm:px-4 py-3 border-b border-[#E5DFC9] w-[33%]">
+                              {cmp.th.after}
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {cmp.rows.map((row, idx) => (
+                            <tr
+                              key={idx}
+                              className={
+                                row.highlight
+                                  ? "bg-amber-50/80 border-t border-amber-200"
+                                  : idx % 2 === 0
+                                    ? "bg-white border-t border-[#F0EAD8]"
+                                    : "bg-[#FBF8F0] border-t border-[#F0EAD8]"
+                              }
+                            >
+                              <td className={`px-3 sm:px-4 py-3 align-top font-semibold ${row.highlight ? "text-amber-900" : "text-[#2D2D2D]"}`}>
+                                {row.k}
+                              </td>
+                              <td className={`px-3 sm:px-4 py-3 align-top leading-relaxed ${row.highlight ? "text-amber-900/90" : "text-[#3D3D3D]"}`}>
+                                {row.b}
+                              </td>
+                              <td className={`px-3 sm:px-4 py-3 align-top leading-relaxed ${row.highlight ? "text-amber-900/90 font-medium" : "text-[#3D3D3D]"}`}>
+                                {row.a}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div className="mt-4 rounded-xl border border-[#E5E5E5] bg-[#F5F5F2] p-4">
+                      <p className="text-[12.5px] font-bold text-[#4A4A4A] mb-1 uppercase tracking-wide">
+                        {cmp.noteTitle}
+                      </p>
+                      <p className="text-[13px] leading-relaxed text-[#3D3D3D]">
+                        {cmp.note}
+                      </p>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </section>
+          );
+        })()}
+
+
         <Link
           to="/dvojno-drzavljanstvo/einbuergerung-vodic"
           className="mb-7 flex items-center justify-between gap-3 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition-all group"
