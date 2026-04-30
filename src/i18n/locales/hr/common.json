@@ -53,7 +53,8 @@
       "anerkennungNavigator": "Anerkennung Navigator",
       "porezi": "Porezi",
       "nebenkostenScan": "Skener režija",
-      "dvojnoDrzavljanstvo": "Dvojno državljanstvo"
+      "dvojnoDrzavljanstvo": "Dvojno državljanstvo",
+      "obnovaPasosa": "Obnova Putovnice"
     },
     "premiumBadge": "PREMIUM",
     "accountSectionLabel": "Račun",
@@ -373,7 +374,8 @@
       "firma": "Tvrtka",
       "submit": "Prijavi",
       "dvojno-drzavljanstvo": "Dvojno državljanstvo",
-      "einbuergerung-vodic": "Vodič — Njemačko državljanstvo"
+      "einbuergerung-vodic": "Vodič — Njemačko državljanstvo",
+      "obnova-pasosa": "Obnova Putovnice"
     }
   },
   "share": {

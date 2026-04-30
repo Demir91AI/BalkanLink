@@ -53,7 +53,8 @@
       "anerkennungNavigator": "Anerkennung-Navigator",
       "porezi": "Steuern",
       "nebenkostenScan": "Nebenkosten-Scan",
-      "dvojnoDrzavljanstvo": "Doppelte Staatsbürgerschaft"
+      "dvojnoDrzavljanstvo": "Doppelte Staatsbürgerschaft",
+      "obnovaPasosa": "Pass erneuern"
     },
     "premiumBadge": "PREMIUM",
     "accountSectionLabel": "Konto",
@@ -373,7 +374,8 @@
       "firma": "Firma",
       "submit": "Einreichen",
       "dvojno-drzavljanstvo": "Doppelte Staatsbürgerschaft",
-      "einbuergerung-vodic": "Leitfaden — Einbürgerung"
+      "einbuergerung-vodic": "Leitfaden — Einbürgerung",
+      "obnova-pasosa": "Pass erneuern"
     }
   },
   "share": {
