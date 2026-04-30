@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
-import { CheckCircle2, AlertTriangle, ScrollText } from "lucide-react";
+import { Link, useSearchParams } from "react-router-dom";
+import { CheckCircle2, AlertTriangle, ScrollText, FileText } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import {
@@ -119,7 +119,35 @@ export default function DvojnoDrzavljanstvo() {
           </div>
         </section>
 
-        {/* Country tabs */}
+        {/* Smart Guide CTA — Vodič kako uzeti njemačko državljanstvo */}
+        <Link
+          to="/dvojno-drzavljanstvo/einbuergerung-vodic"
+          className="mb-7 flex items-center justify-between gap-3 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition-all group"
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="h-10 w-10 shrink-0 rounded-xl flex items-center justify-center bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))]">
+              <FileText className="h-5 w-5" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[14px] sm:text-[15px] font-bold text-[#2D2D2D] mb-0.5">
+                {t("einbuergerung.ctaCard.title")}
+              </p>
+              <p className="text-[12.5px] sm:text-[13px] text-[#6B6B6B] truncate">
+                {t("einbuergerung.ctaCard.subtitle")}
+              </p>
+            </div>
+          </div>
+          <span
+            className="shrink-0 rounded-full px-3 py-1.5 text-[11px] font-bold whitespace-nowrap"
+            style={{
+              background: "hsl(var(--gold))",
+              color: "hsl(var(--gold-foreground))",
+            }}
+          >
+            {t("einbuergerung.ctaCard.cta")}
+          </span>
+        </Link>
+
         <div
           className="mb-6 -mx-4 px-4 sm:mx-0 sm:px-0 flex gap-2 overflow-x-auto scrollbar-hide"
           role="tablist"
