@@ -60,7 +60,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.formulari"), url: "/formulari", icon: FileText, premium: true, isNew: false },
     { title: t("sidebar.items.viza"), url: "/viza", icon: Shield, premium: true, isNew: false },
     { title: t("sidebar.items.anerkennungNavigator"), url: "/anerkennung-navigator", icon: GraduationCap, premium: true, isNew: false, isFree: false },
-    { title: t("sidebar.items.dvojnoDrzavljanstvo"), url: "/dvojno-drzavljanstvo", icon: ScrollText, premium: false, isFree: true, isNew: true },
+    { title: t("sidebar.items.dvojnoDrzavljanstvo"), url: "/dvojno-drzavljanstvo", icon: ScrollText, premium: true, isFree: false, isNew: true },
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: ScanLine, premium: true, isNew: false },
     { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
     { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Coins, premium: true, matchPaths: ["/porezi", "/steuern"] },
