@@ -14,16 +14,19 @@ import {
   Globe2,
   Wrench,
   Clock3,
+  ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
 const STORAGE_KEY = "balkanlink_whatis_seen_v1";
+const FAB_COLLAPSED_KEY = "balkanlink_whatis_fab_collapsed_v1";
 const AUTO_OPEN_DELAY_MS = 8000;
 
 export default function WhatIsBalkanLink() {
   const { t } = useTranslation("pages");
   const [open, setOpen] = useState(false);
-  const [showFab, setShowFab] = useState(true);
+  const [collapsed, setCollapsed] = useState(true);
   const href = useLocalizedHref();
   const location = useLocation();
 
@@ -34,6 +37,14 @@ export default function WhatIsBalkanLink() {
     location.pathname.includes("/payment") ||
     location.pathname.includes("/reset-password") ||
     location.pathname.includes("/forgot-password");
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(FAB_COLLAPSED_KEY);
+      // Default: collapsed unless user previously expanded
+      setCollapsed(stored !== "0");
+    } catch { /* ignore */ }
+  }, []);
 
   useEffect(() => {
     if (hidden) return;
@@ -59,9 +70,11 @@ export default function WhatIsBalkanLink() {
     }
   };
 
-  const handleDismissFab = (e: React.MouseEvent) => {
+  const toggleCollapsed = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setShowFab(false);
+    const next = !collapsed;
+    setCollapsed(next);
+    try { localStorage.setItem(FAB_COLLAPSED_KEY, next ? "1" : "0"); } catch { /* ignore */ }
   };
 
   if (hidden) return null;
