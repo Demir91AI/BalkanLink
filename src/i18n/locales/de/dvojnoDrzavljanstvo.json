@@ -106,5 +106,26 @@
         }
       }
     }
+  },
+  "einbuergerung": {
+    "seo": {
+      "title": "Leitfaden — Deutsche Einbürgerung Stand 2026",
+      "description": "Schritt für Schritt — Antrag auf Einbürgerung. Voraussetzungen, Unterlagen, Verfahren. 2 Schritte kostenlos + Musterformular."
+    },
+    "page": {
+      "title": "Leitfaden — Deutsche Einbürgerung",
+      "subtitle": "Schritt für Schritt: Wie du den Antrag auf Einbürgerung vorbereitest und einreichst. Stand 2026 (StARModG)."
+    },
+    "backLink": "← Zurück zur doppelten Staatsbürgerschaft",
+    "musterCard": {
+      "title": "Musterformular — Antrag auf Einbürgerung",
+      "subtitle": "Interaktives Beispielformular — ausfüllen und ausdrucken zur Orientierung",
+      "cta": "Öffnen →"
+    },
+    "ctaCard": {
+      "title": "📋 Leitfaden: Wie du die deutsche Staatsbürgerschaft erhältst",
+      "subtitle": "Schritt für Schritt — Voraussetzungen, Unterlagen, Einbürgerungsfeier",
+      "cta": "Leitfaden öffnen →"
+    }
   }
 }

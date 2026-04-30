@@ -106,5 +106,26 @@
         }
       }
     }
+  },
+  "einbuergerung": {
+    "seo": {
+      "title": "Vodič — Njemačko državljanstvo (Einbürgerung) Stand 2026",
+      "description": "Korak po korak — Antrag auf Einbürgerung. Uslovi, dokumenti, tok postupka. 2 koraka besplatno + Musterformular."
+    },
+    "page": {
+      "title": "Vodič — Njemačko državljanstvo",
+      "subtitle": "Korak po korak: kako pripremiti i predati Antrag auf Einbürgerung. Stand 2026 (StARModG)."
+    },
+    "backLink": "← Nazad na Dvojno državljanstvo",
+    "musterCard": {
+      "title": "Musterformular — Antrag auf Einbürgerung",
+      "subtitle": "Interaktivni primjer obrasca — popuni i isprintaj kao orijentaciju",
+      "cta": "Otvori →"
+    },
+    "ctaCard": {
+      "title": "📋 Vodič: Kako uzeti njemačko državljanstvo",
+      "subtitle": "Korak po korak — uslovi, dokumenti, ceremonija uručenja",
+      "cta": "Otvori vodič →"
+    }
   }
 }
