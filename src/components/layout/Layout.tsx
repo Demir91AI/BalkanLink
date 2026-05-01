@@ -56,14 +56,14 @@ class ErrorBoundary extends Component<
 export default function Layout() {
   const cookie = useCookieConsent();
   const pwa = usePWAInstall();
-  const pullToRefresh = usePullToRefresh();
+  
   usePageViewTracker();
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
       <AppSidebar onPWAInstall={pwa.canShowMenuEntry ? pwa.triggerManual : undefined} />
       <div className="flex flex-col min-h-screen w-full">
-        <PullToRefreshIndicator distance={pullToRefresh.distance} refreshing={pullToRefresh.refreshing} />
+        <PullToRefreshIndicator />
         {DEV_MODE && (
           <div className="w-full h-8 flex items-center justify-center text-[12px] font-bold text-black" style={{ background: '#EAB308' }}>
             🔧 ADMIN MODE — Premium aktivan
