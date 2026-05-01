@@ -37,8 +37,8 @@ export default function TrialPromoCTA() {
       }
     } catch { /* noop */ }
 
-    // Small delay so it never competes with cookie banner / first paint
-    const timer = setTimeout(() => setVisible(true), 1500);
+    // Delay 60s — popups must never compete with first paint or cookie banner
+    const timer = setTimeout(() => setVisible(true), 60_000);
     return () => clearTimeout(timer);
   }, [isPremium, loading, profileLoading]);
 

@@ -62,7 +62,7 @@ export function HeaderInstallPopup() {
         if (sessionStorage.getItem(SS_DISMISS_KEY) === "1") return;
         // Mark as shown immediately so a second event in the same session is a no-op.
         sessionStorage.setItem(SS_DISMISS_KEY, "1");
-        window.setTimeout(() => setOpen(true), 600);
+        window.setTimeout(() => setOpen(true), 60_000);
       } catch {
         /* ignore */
       }

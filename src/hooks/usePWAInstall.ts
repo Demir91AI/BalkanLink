@@ -13,7 +13,7 @@ const LS_LAST_SEEN = "pwaInstallLastSeenAt";
 
 const COOLDOWN_DAYS = 7;
 const HEAVY_COOLDOWN_DAYS = 30;
-const TIME_THRESHOLD_MS = 45_000;
+const TIME_THRESHOLD_MS = 60_000;
 const ROUTE_THRESHOLD = 2;
 
 const TRIGGER_PATHS = ["/formulari", "/viza", "/kalkulatori", "/deutsch-trainer"];
