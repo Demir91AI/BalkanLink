@@ -483,6 +483,15 @@
       "premiumFeature3": "+ sve Premium funkcije platforme",
       "buyPremium": "Kupi Premium →"
     },
+    "quota": {
+      "remaining": "Ostalo ti je {{count}} besplatnih provjera danas",
+      "exhausted": "Iskoristio si dnevni Premium limit (5/dan)",
+      "resetHint": "Brojač se resetira sutra u 00:00 (Berlin)",
+      "usingPaid": "Imaš {{count}} dodatnih plaćenih provjera",
+      "buyExtra": "Dodatne provjere danas: 2,99€/kom ili pričekaj sutra",
+      "paidAvailable": "Imaš {{count}} plaćenih provjera spremnih",
+      "paidHint": "Bez isteka — koristi kad god trebaš"
+    },
     "privacy": {
       "title": "Zaštita podataka",
       "body": "Molimo zacrnite ime, adresu i broj predmeta prije učitavanja. Datoteke se ne pohranjuju — obrađuju se samo kratko za analizu i odmah brišu."

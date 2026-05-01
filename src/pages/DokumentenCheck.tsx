@@ -269,21 +269,38 @@ export default function DokumentenCheck() {
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
   const [creditCount, setCreditCount] = useState<number>(0);
+  const [premiumRemainingToday, setPremiumRemainingToday] = useState<number>(5);
+  const [premiumDailyLimit, setPremiumDailyLimit] = useState<number>(5);
   const [checkoutPending, setCheckoutPending] = useState(false);
   const submittingRef = useRef(false);
 
   const { isPremium } = useSubscription();
   const { user } = useAuth();
 
-  // Fetch unconsumed Document-Check credits for the current user.
+  // Single source of truth: get_doc_check_status RPC vraća sve odjednom
+  // (premium + dnevna kvota + plaćeni krediti). Edge funkcija koristi isti RPC.
   const refreshCredits = useCallback(async () => {
-    if (!user?.id) { setCreditCount(0); return; }
-    const { count } = await supabase
-      .from("doc_check_credits")
-      .select("id", { count: "exact", head: true })
-      .eq("user_id", user.id)
-      .is("consumed_at", null);
-    setCreditCount(count ?? 0);
+    if (!user?.id) {
+      setCreditCount(0);
+      setPremiumRemainingToday(5);
+      return;
+    }
+    const { data, error } = await supabase.rpc("get_doc_check_status", { uid: user.id });
+    if (error) {
+      console.error("[DokumentenCheck] get_doc_check_status error:", error.message);
+      // Fallback: stari način brojanja kredita
+      const { count } = await supabase
+        .from("doc_check_credits")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id)
+        .is("consumed_at", null);
+      setCreditCount(count ?? 0);
+      return;
+    }
+    const row = Array.isArray(data) ? data[0] : data;
+    setCreditCount(Number(row?.paid_credits ?? 0));
+    setPremiumRemainingToday(Number(row?.premium_remaining_today ?? 5));
+    setPremiumDailyLimit(Number(row?.premium_daily_limit ?? 5));
   }, [user?.id]);
 
   // Initial + visibility-change refresh (so returning from Stripe tab updates credits).
@@ -356,8 +373,10 @@ export default function DokumentenCheck() {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
-    // Premium → free unlimited. Non-premium → must already hold an unconsumed credit.
-    if (!isPremium && creditCount < 1) { setShowPaywall(true); return; }
+    // Pristup: Premium ima dnevnu kvotu (5/dan); ako je istrošena → mora imati plaćeni kredit.
+    // Non-premium: mora imati plaćeni kredit (2,99€).
+    const hasPremiumQuota = isPremium && premiumRemainingToday > 0;
+    if (!hasPremiumQuota && creditCount < 1) { setShowPaywall(true); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -393,8 +412,14 @@ export default function DokumentenCheck() {
       if (!data?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
 
       setAnalysis(data.analysis);
-      // Refresh credits after the backend has consumed one (non-premium only).
-      if (!isPremium) await refreshCredits();
+      // Ako edge funkcija vrati ažurirani status, primijeni odmah (sinhrono);
+      // u protivnom uradi RPC refresh kao fallback.
+      if (data?.status) {
+        setPremiumRemainingToday(Number(data.status.premiumRemainingToday ?? premiumRemainingToday));
+        setCreditCount(Number(data.status.paidCredits ?? creditCount));
+      } else {
+        await refreshCredits();
+      }
     } catch (err: any) {
       const message = err.message || t("documentCheck.errors.fallback");
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
@@ -406,7 +431,7 @@ export default function DokumentenCheck() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, files, isPremium, creditCount, loading, refreshCredits, t]);
+  }, [confirmed, files, isPremium, creditCount, premiumRemainingToday, loading, refreshCredits, t]);
 
   const handleClear = useCallback(() => {
     clearFiles();
@@ -514,6 +539,67 @@ export default function DokumentenCheck() {
               </button>
             </div>
           </div>
+
+          {/* ── Live brojač: koliko je provjera ostalo (Premium dnevna kvota ili plaćeni krediti) ── */}
+          {isPremium && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+              className={`flex items-center justify-between gap-3 rounded-2xl border p-4 sm:p-5 ${
+                premiumRemainingToday > 0
+                  ? "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5"
+                  : "border-amber-500/30 bg-amber-500/5"
+              }`}
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <div
+                  aria-hidden
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-base font-black"
+                  style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}
+                >
+                  {premiumRemainingToday}/{premiumDailyLimit}
+                </div>
+                <div className="min-w-0">
+                  <p className="font-bold text-sm">
+                    {premiumRemainingToday > 0
+                      ? t("documentCheck.quota.remaining", { count: premiumRemainingToday, defaultValue: "Ostalo ti je {{count}} besplatnih provjera danas" })
+                      : t("documentCheck.quota.exhausted", "Iskoristio si dnevni Premium limit")}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {premiumRemainingToday > 0
+                      ? t("documentCheck.quota.resetHint", "Brojač se resetuje sutra u 00:00 (Berlin)")
+                      : creditCount > 0
+                        ? t("documentCheck.quota.usingPaid", { count: creditCount, defaultValue: "Imaš {{count}} dodatnih plaćenih provjera" })
+                        : t("documentCheck.quota.buyExtra", "Dodatne provjere danas: 2,99€/kom ili sačekaj sutra")}
+                  </p>
+                </div>
+              </div>
+              {premiumRemainingToday === 0 && creditCount === 0 && (
+                <button
+                  onClick={startOneOffCheckout}
+                  className="shrink-0 rounded-xl bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-black hover:opacity-90"
+                >
+                  + 2,99€
+                </button>
+              )}
+            </motion.div>
+          )}
+          {!isPremium && creditCount > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+              className="flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-4"
+            >
+              <div
+                aria-hidden
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-500/20 text-emerald-300 text-lg font-black"
+              >
+                {creditCount}
+              </div>
+              <div>
+                <p className="font-bold text-sm">{t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
+              </div>
+            </motion.div>
+          )}
 
           {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}

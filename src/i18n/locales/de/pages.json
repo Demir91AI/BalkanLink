@@ -483,6 +483,15 @@
       "premiumFeature3": "+ alle Premium-Funktionen der Plattform",
       "buyPremium": "Premium kaufen →"
     },
+    "quota": {
+      "remaining": "Du hast heute noch {{count}} kostenlose Prüfungen",
+      "exhausted": "Tägliches Premium-Limit erreicht (5/Tag)",
+      "resetHint": "Der Zähler wird morgen um 00:00 (Berlin) zurückgesetzt",
+      "usingPaid": "Du hast {{count}} zusätzliche bezahlte Prüfungen",
+      "buyExtra": "Weitere Prüfungen heute: 2,99 €/Stück oder bis morgen warten",
+      "paidAvailable": "Du hast {{count}} bezahlte Prüfungen bereit",
+      "paidHint": "Ohne Ablauf — nutze sie jederzeit"
+    },
     "privacy": {
       "title": "Datenschutz",
       "body": "Bitte schwärzen Sie Name, Adresse und Aktenzeichen vor dem Hochladen. Dateien werden nicht gespeichert — sie werden nur kurz zur Analyse verarbeitet und sofort gelöscht."

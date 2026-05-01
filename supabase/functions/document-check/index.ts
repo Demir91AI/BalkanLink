@@ -35,46 +35,48 @@ Deno.serve(async (req) => {
     }
     const userId = claimsData.claims.sub as string;
 
-    // ── Premium check or pre-paid one-off credit ──
+    // ── Status check: Premium dobija 5/dan besplatno → poslije 2,99€/kom ──
     const adminSupabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
       { auth: { persistSession: false } }
     );
 
-    const { data: profile } = await adminSupabase
-      .from("profiles")
-      .select("is_premium, subscription_expires_at")
-      .eq("id", userId)
-      .maybeSingle();
+    const { data: statusRows, error: statusErr } = await adminSupabase
+      .rpc("get_doc_check_status", { uid: userId });
 
-    const now = new Date();
-    const isPremium = !!profile?.is_premium &&
-      (!profile.subscription_expires_at || new Date(profile.subscription_expires_at) > now);
+    if (statusErr) {
+      console.error("get_doc_check_status error:", statusErr.message);
+      return new Response(
+        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera dostupnosti nije uspjela." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
 
-    // Non-premium: must have at least one unconsumed Document-Check credit (one-off 2.99€).
-    // We check existence first; the credit is only consumed AFTER a successful analysis,
-    // so a server-side AI failure does not waste the user's purchase.
-    if (!isPremium) {
-      const { count, error: countErr } = await adminSupabase
-        .from("doc_check_credits")
-        .select("id", { count: "exact", head: true })
-        .eq("user_id", userId)
-        .is("consumed_at", null);
+    const status = Array.isArray(statusRows) ? statusRows[0] : statusRows;
+    const isPremium: boolean = !!status?.is_premium;
+    const premiumRemaining: number = Number(status?.premium_remaining_today ?? 0);
+    const paidCredits: number = Number(status?.paid_credits ?? 0);
 
-      if (countErr) {
-        console.error("doc_check_credits count error:", countErr.message);
-        return new Response(
-          JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera plaćanja nije uspjela." }),
-          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      if (!count || count < 1) {
-        return new Response(
-          JSON.stringify({ success: false, errorCode: "PAYMENT_REQUIRED", message: "Za provjeru dokumenta potrebno je jednokratno plaćanje 2,99€ ili Premium pretplata." }),
-          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
+    // Pristup: Premium ima dnevnu kvotu, inače mora imati plaćeni kredit (2,99€)
+    // - Premium s preostalim danom → koristi premium_usage
+    // - Premium s istrošenom kvotom + plaćeni kredit → koristi kredit
+    // - Inače → 402 Payment Required
+    const usePremiumFreeQuota = isPremium && premiumRemaining > 0;
+    const usePaidCredit = !usePremiumFreeQuota && paidCredits >= 1;
+
+    if (!usePremiumFreeQuota && !usePaidCredit) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          errorCode: "PAYMENT_REQUIRED",
+          message: isPremium
+            ? "Iskoristio si svojih 5 besplatnih provjera danas. Dodatne provjere su 2,99€/kom — ili pričekaj sutra."
+            : "Za provjeru dokumenta potrebno je jednokratno plaćanje 2,99€ ili Premium pretplata.",
+          premiumExhausted: isPremium,
+        }),
+        { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     const body = await req.json();
@@ -320,16 +322,36 @@ Ako NE → prosiri prije slanja.`;
 
     console.log("Analysis completed successfully, length:", result.length);
 
-    // Consume one credit for non-premium users only AFTER a successful analysis,
-    // so a failed AI request does not waste their 2,99€ purchase.
-    if (!isPremium) {
-      const { data: consumed, error: consumeErr } = await adminSupabase.rpc("consume_doc_check_credit", { uid: userId });
+    // Trošenje SAMO nakon uspješne analize (ne troši ako AI padne):
+    // - Premium s preostalom dnevnom kvotom → consume_premium_doc_check
+    // - Inače → consume_doc_check_credit (plaćeni 2,99€ kredit)
+    if (usePremiumFreeQuota) {
+      const { data: consumed, error: consumeErr } = await adminSupabase
+        .rpc("consume_premium_doc_check", { uid: userId });
+      if (consumeErr) console.error("consume_premium_doc_check error:", consumeErr.message);
+      else if (!consumed) console.warn("Premium daily quota race for user", userId);
+    } else {
+      const { data: consumed, error: consumeErr } = await adminSupabase
+        .rpc("consume_doc_check_credit", { uid: userId });
       if (consumeErr) console.error("consume_doc_check_credit error:", consumeErr.message);
-      else if (!consumed) console.warn("No credit was consumed even though one was expected for user", userId);
+      else if (!consumed) console.warn("No paid credit was consumed for user", userId);
     }
 
+    // Vrati ažurirani status nazad u UI radi brojača (one-shot, bez dodatnog poziva)
+    const { data: postRows } = await adminSupabase
+      .rpc("get_doc_check_status", { uid: userId });
+    const postStatus = Array.isArray(postRows) ? postRows[0] : postRows;
+
     return new Response(
-      JSON.stringify({ success: true, analysis: result }),
+      JSON.stringify({
+        success: true,
+        analysis: result,
+        status: {
+          isPremium: !!postStatus?.is_premium,
+          premiumRemainingToday: Number(postStatus?.premium_remaining_today ?? 0),
+          paidCredits: Number(postStatus?.paid_credits ?? 0),
+        },
+      }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
