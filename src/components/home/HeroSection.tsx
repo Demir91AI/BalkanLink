@@ -350,6 +350,9 @@ export default function HeroSection() {
                     <span className="mt-1 text-[11px] font-semibold text-slate-900/75 sm:text-[12.5px]">
                       {tc("trialCta.heroSubtext")}
                     </span>
+                    <span className="text-[11px] font-semibold text-slate-900/75 sm:text-[12.5px]">
+                      {tc("trialCta.heroSubtextLine2")}
+                    </span>
                   </span>
 
                   {/* Right: arrow */}
