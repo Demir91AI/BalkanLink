@@ -11,7 +11,7 @@
     -ms-touch-action: pan-x pan-y;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    overscroll-behavior-y: none;
+    overscroll-behavior-y: auto;
   }
 
   :root {
