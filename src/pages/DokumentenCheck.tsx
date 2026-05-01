@@ -373,8 +373,10 @@ export default function DokumentenCheck() {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
-    // Premium → free unlimited. Non-premium → must already hold an unconsumed credit.
-    if (!isPremium && creditCount < 1) { setShowPaywall(true); return; }
+    // Pristup: Premium ima dnevnu kvotu (5/dan); ako je istrošena → mora imati plaćeni kredit.
+    // Non-premium: mora imati plaćeni kredit (2,99€).
+    const hasPremiumQuota = isPremium && premiumRemainingToday > 0;
+    if (!hasPremiumQuota && creditCount < 1) { setShowPaywall(true); return; }
 
     submittingRef.current = true;
     setLoading(true);
