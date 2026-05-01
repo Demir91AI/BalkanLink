@@ -355,6 +355,20 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
           </div>
         )}
 
+        {/* Admin quick access (visible only to admins) */}
+        {isAdmin && (
+          <div className="px-3 pt-2 pb-1">
+            <button
+              onClick={() => handleNav("/admin")}
+              className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-left bg-gradient-to-r from-[#1E293B] to-[#334155] text-white hover:from-[#0F172A] hover:to-[#1E293B] transition-all shadow-sm"
+            >
+              <Shield className="h-[18px] w-[18px] shrink-0 text-[hsl(var(--gold))]" />
+              <span className="text-[13px] font-semibold tracking-wide">Admin Dashboard</span>
+              <ArrowRight className="ml-auto h-3.5 w-3.5 text-white/70" />
+            </button>
+          </div>
+        )}
+
         {/* Search bar */}
         <div className={`px-5 ${user ? "pt-1" : "pt-4"} pb-2`}>
           <div className="relative">
