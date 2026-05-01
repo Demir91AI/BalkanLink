@@ -64,7 +64,7 @@ export default function CommunityHighlights() {
 
   return (
     <section
-      className="py-16 px-4"
+      className="py-10 sm:py-12 px-4"
       style={{ background: "hsl(215 55% 4%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}
     >
       <div className="container max-w-[1100px] mx-auto">
