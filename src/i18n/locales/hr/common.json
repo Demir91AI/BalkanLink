@@ -445,5 +445,10 @@
       "buergergeld": "Bürgergeld — 563€/mj + troškovi stana dok tražiš posao",
       "estimate": "💡 Na temelju tvog profila možeš dobiti procijenjeno **{{amount}}€+** godišnje u naknadama koje mnogi propuste!"
     }
+  },
+  "trialCta": {
+    "text": "7 dana Premium besplatno — isprobaj odmah",
+    "aria": "Premium probno razdoblje",
+    "dismiss": "Zatvori"
   }
 }

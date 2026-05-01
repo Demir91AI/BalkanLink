@@ -1307,6 +1307,7 @@ export type Database = {
       }
       consume_doc_check_credit: { Args: { uid: string }; Returns: boolean }
       cq_increment_view: { Args: { _id: string }; Returns: undefined }
+      deactivate_expired_launch_trials: { Args: never; Returns: number }
       deactivate_expired_trials: { Args: never; Returns: number }
       delete_email: {
         Args: { message_id: number; queue_name: string }

@@ -8,6 +8,7 @@ import MobileBottomNav from "./MobileBottomNav";
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import TrialPromoCTA from "@/components/TrialPromoCTA";
 import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
@@ -87,6 +88,7 @@ export default function Layout() {
         <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
         <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
+        <TrialPromoCTA />
       </div>
     </div>
   );
