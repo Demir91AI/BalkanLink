@@ -104,6 +104,7 @@ export default function HeroSection() {
     const value = (prefill ?? askValue).trim();
     window.dispatchEvent(new CustomEvent("open-assistant", { detail: { prefill: value || undefined } }));
     setAskValue("");
+    if (!value) navigate("/ai-asistent");
   };
 
   const nextSlide = useCallback(() => {

@@ -73,7 +73,8 @@
     "statusFree": "Free plan",
     "upgrade": "Nadogradi",
     "openProfile": "Otvori profil",
-    "toggleAccount": "Otvori račun"
+    "toggleAccount": "Otvori račun",
+    "adminDashboard": "Admin Dashboard"
   },
   "mobileNav": {
     "documents": "Dokumenti",

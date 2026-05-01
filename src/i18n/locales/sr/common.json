@@ -73,7 +73,8 @@
     "statusFree": "Besplatni plan",
     "upgrade": "Nadogradi",
     "openProfile": "Otvori profil",
-    "toggleAccount": "Otvori nalog"
+    "toggleAccount": "Otvori nalog",
+    "adminDashboard": "Admin Dashboard"
   },
   "mobileNav": {
     "documents": "Dokumenti",
