@@ -13,6 +13,7 @@ import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
 import type { SupportedLanguage } from "@/i18n";
 import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import { useRecentPages } from "@/hooks/useRecentPages";
 import { toast } from "sonner";
@@ -223,23 +224,25 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
       setSidebarAdmin(false);
       return;
     }
-    if (isAdmin) {
+    if (isAdmin || sidebarAdmin) {
       setSidebarAdmin(true);
       return;
     }
 
     let cancelled = false;
-    import("@/integrations/supabase/client").then(({ supabase }) => {
-      supabase.rpc("has_role", { _user_id: user.id, _role: "admin" }).then(({ data, error }) => {
+    supabase.rpc("has_role", { _user_id: user.id, _role: "admin" })
+      .then(({ data, error }) => {
         if (cancelled) return;
         const allowed = !error && data === true;
         setSidebarAdmin(allowed);
         if (allowed) void refreshUserMeta();
+      })
+      .catch(() => {
+        if (!cancelled) setSidebarAdmin(false);
       });
-    });
 
     return () => { cancelled = true; };
-  }, [isAdmin, loading, refreshUserMeta, user]);
+  }, [isAdmin, loading, refreshUserMeta, sidebarAdmin, user?.id]);
 
   const canShowAdmin = isAdmin || sidebarAdmin;
 
