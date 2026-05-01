@@ -264,7 +264,9 @@
         "f5": "Vorlagen (PDF-Download)",
         "f6": "BalkanLink Assistent unbegrenzt",
         "f7": "2 Pro-Anzeigen/Monat",
-        "cta": "Premium werden →"
+        "cta": "Premium werden",
+        "trialHint": "7 Tage kostenlos · jederzeit kündbar",
+        "trustline": "Sichere Zahlung · Stripe · §19 UStG"
       },
       "docCheck": {
         "label": "Dokumentenprüfung",
