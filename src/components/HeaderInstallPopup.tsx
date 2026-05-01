@@ -67,8 +67,21 @@ export function HeaderInstallPopup() {
         /* ignore */
       }
     };
+    // Manual open — always opens regardless of dismiss state (UserMenu trigger).
+    const manualOpen = () => {
+      try {
+        if (isStandalone()) return;
+      } catch {
+        /* ignore */
+      }
+      setOpen(true);
+    };
     window.addEventListener("bl:user-signed-in", tryOpen);
-    return () => window.removeEventListener("bl:user-signed-in", tryOpen);
+    window.addEventListener("bl:open-install-popup", manualOpen);
+    return () => {
+      window.removeEventListener("bl:user-signed-in", tryOpen);
+      window.removeEventListener("bl:open-install-popup", manualOpen);
+    };
   }, []);
 
   // Close on Esc + outside click
