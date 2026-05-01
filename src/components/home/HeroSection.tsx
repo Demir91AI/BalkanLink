@@ -288,6 +288,23 @@ export default function HeroSection() {
             </button>
           </motion.div>
 
+          {/* "Šta je BalkanLink?" — diskretan link koji otvara modal (zamjena za uklonjeni FAB) */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7, ease }}
+            className="mt-4 flex justify-center"
+          >
+            <button
+              type="button"
+              onClick={() => { try { window.dispatchEvent(new CustomEvent("bl:open-whatis")); } catch { /* noop */ } }}
+              className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium text-white/65 transition-all hover:text-[hsl(var(--gold))] hover:bg-white/[0.04]"
+            >
+              <Sparkles className="h-3 w-3 opacity-70 transition-opacity group-hover:opacity-100" />
+              <span>{t("home.whatIsLink")}</span>
+            </button>
+          </motion.div>
+
           {/* ─── Live social proof ─── */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}

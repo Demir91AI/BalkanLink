@@ -62,9 +62,10 @@ export default function TrialPromoCTA() {
         <Sparkles className="h-4 w-4 shrink-0 text-slate-900" aria-hidden />
         <Link
           to={ctaHref}
-          className="flex-1 truncate text-[13px] font-semibold text-slate-900 hover:underline"
+          className="flex flex-1 items-center justify-center gap-1.5 truncate text-[13px] font-semibold text-slate-900 hover:underline"
         >
-          {t("trialCta.text", "7 dana Premium besplatno — testiraj odmah")}
+          <span className="truncate">{t("trialCta.text", "7 dana Premium besplatno — testiraj odmah")}</span>
+          <Sparkles className="h-4 w-4 shrink-0 text-slate-900" aria-hidden />
         </Link>
         <button
           type="button"
