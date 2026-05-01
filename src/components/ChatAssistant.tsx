@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { SEO } from "@/components/SEO";
-import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User, Trash2 } from "lucide-react";
+import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User, Trash2, Minus } from "lucide-react";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
@@ -152,11 +152,15 @@ const KEYWORD_LINKS: [RegExp, string][] = [
   [/\b(BAföG|bafög|stipendija)\b/gi, "/formulari/bafog"],
   [/\b(Führungszeugnis|führungszeugnis|potvrda o nekažnjavanju)\b/gi, "/formulari/fuhrungszeugnis"],
   [/\b(Steuerklassenwechsel|steuerklassenwechsel|Steuerklasse|steuerklasse|porezna klasa)\b/gi, "/formulari/steuerklassenwechsel"],
-  // AUFENTHALTSTITEL / VIZA
+  // VIZA NAVIGATOR (državljanstvo, Staatsangehörigkeit, vize, ulazak)
+  [/\b(Staatsangehörigkeit|staatsangehorigkeit|državljanstvo|drzavljanstvo|dvojno državljanstvo|dvojno drzavljanstvo|državljanin|drzavljanin|naturalizacija|Einbürgerung|einburgerung)\b/gi, "/viza"],
+  [/\b(viza za Njemačku|viza za njemacku|koja viza|vizni režim|vizni rezim|Visum|visum|nacionalna viza)\b/gi, "/viza"],
+  [/\b(spajanje porodice|Familiennachzug|familiennachzug)\b/gi, "/viza"],
+  // AUFENTHALTSTITEL (boravišne dozvole — već u Njemačkoj)
   [/\b(Aufenthaltstitel|aufenthaltstitel|boravišna dozvola|boravisna dozvola)\b/gi, "/formulari/aufenthaltstitel"],
   [/\b(Niederlassungserlaubnis|niederlassungserlaubnis|stalni boravak)\b/gi, "/formulari/aufenthaltstitel"],
   [/\b(Blaue Karte|blaue karte|plava karta)\b/gi, "/formulari/aufenthaltstitel"],
-  [/\b(Arbeitsvisum|arbeitsvisum|radna viza)\b/gi, "/formulari/aufenthaltstitel"],
+  [/\b(Arbeitsvisum|arbeitsvisum|radna viza)\b/gi, "/viza"],
   // DEUTSCH
   [/\b(BalkanLink Deutsch|balkanlink deutsch)\b/gi, "/deutsch-trainer"],
   [/\b(učenje njemačkog|ucenje njemackog)\b/gi, "/deutsch-trainer"],
@@ -565,8 +569,44 @@ export default function ChatAssistant() {
     if (saved === "de") setChatLang("de");
   }, []);
 
+  // Smart scroll: kada user pošalje novo pitanje (zadnji msg = user) ILI stigne novi assistant odgovor,
+  // skrolaj zadnju USER poruku na vrh vidljivog područja, da korisnik vidi pitanje + početak odgovora
+  // umjesto da bude bačen na dno (gdje je input/loading/kraj odgovora).
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+
+    // Tokom onboarding/benefit calc — klasično dno
+    if (showOnboarding || showBenefitCalc) {
+      container.scrollTop = container.scrollHeight;
+      return;
+    }
+
+    if (messages.length === 0) return;
+    const last = messages[messages.length - 1];
+
+    // Ako je zadnji msg user (tek poslao) ILI je assistant koji upravo stigao (nije loading streaming), skrolaj zadnji user msg na vrh
+    if (last.role === "user" || (last.role === "assistant" && !loading)) {
+      // Pronađi indeks zadnje user poruke
+      let lastUserIdx = -1;
+      for (let i = messages.length - 1; i >= 0; i--) {
+        if (messages[i].role === "user") { lastUserIdx = i; break; }
+      }
+      if (lastUserIdx >= 0) {
+        const userEl = container.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
+        if (userEl) {
+          // Scroll user msg na vrh (sa malim offsetom za dah)
+          const offset = userEl.offsetTop - 12;
+          container.scrollTo({ top: offset, behavior: "smooth" });
+          return;
+        }
+      }
+    }
+
+    // Streaming assistant odgovor → drži dno
+    if (loading) {
+      container.scrollTop = container.scrollHeight;
+    }
   }, [messages, loading, showOnboarding, showBenefitCalc]);
 
   useEffect(() => {
@@ -1025,6 +1065,10 @@ export default function ChatAssistant() {
                         <Trash2 className="h-4 w-4" />
                       </button>
                     )}
+                    {/* Minimize — sakriva panel ali čuva razgovor (isti efekat kao Close, eksplicitan UX) */}
+                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-[hsl(45,93%,49%)] hover:bg-white/5 transition-all" title="Minimiziraj" aria-label="Minimiziraj asistenta">
+                      <Minus className="h-5 w-5" />
+                    </button>
                     {/* Close */}
                     <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Zatvori" aria-label="Zatvori asistenta">
                       <X className="h-5 w-5" />
@@ -1175,7 +1219,7 @@ export default function ChatAssistant() {
                     )}
 
                     {messages.map((msg, i) => (
-                      <motion.div key={i} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.1 }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                      <motion.div key={i} data-msg-idx={i} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.1 }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                         <div className="max-w-[88%] space-y-1">
                           <div className={`px-4 py-3 text-[13px] leading-relaxed ${msg.role === "user" ? "rounded-xl rounded-br-none bg-[hsl(45,93%,49%)] text-black" : "rounded-xl rounded-bl-none text-white/90"}`} style={msg.role === "assistant" ? { background: "#1F2937" } : undefined}>
                             {msg.role === "assistant" ? (
