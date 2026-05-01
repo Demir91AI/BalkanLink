@@ -268,6 +268,26 @@ function ResponseActions({ msg }: { msg: Msg }) {
 
 // ── Tabs ──
 type PanelTab = "chat" | "deadlines" | "profile";
+type AssistantPanelState = "open" | "minimized" | "closed";
+
+const ASSISTANT_PANEL_STATE_KEY = "bl_assistant_panel_state_v1";
+
+function getStoredAssistantPanelState(): AssistantPanelState | null {
+  try {
+    const state = localStorage.getItem(ASSISTANT_PANEL_STATE_KEY);
+    return state === "open" || state === "minimized" || state === "closed" ? state : null;
+  } catch {
+    return null;
+  }
+}
+
+function storeAssistantPanelState(state: AssistantPanelState) {
+  try {
+    localStorage.setItem(ASSISTANT_PANEL_STATE_KEY, state);
+  } catch {
+    /* ignore */
+  }
+}
 
 // ── Main Component ──
 export default function ChatAssistant() {
@@ -275,9 +295,21 @@ export default function ChatAssistant() {
   const { canChat, remaining, recordQuery } = useChatLimit();
   const location = useLocation();
 
-  const [open, setOpen] = useState(location.pathname === "/ai-asistent");
-  const [dismissedOnHome, setDismissedOnHome] = useState(false);
+  const [panelState, setPanelState] = useState<AssistantPanelState>(() => {
+    const stored = getStoredAssistantPanelState();
+    if (stored) return stored;
+    return location.pathname === "/ai-asistent" ? "open" : "minimized";
+  });
+  const open = panelState === "open";
   const { user } = useAuth();
+
+  const setPersistentPanelState = useCallback((state: AssistantPanelState) => {
+    setPanelState(state);
+    storeAssistantPanelState(state);
+  }, []);
+  const openAssistant = useCallback(() => setPersistentPanelState("open"), [setPersistentPanelState]);
+  const minimizeAssistant = useCallback(() => setPersistentPanelState("minimized"), [setPersistentPanelState]);
+  const closeAssistant = useCallback(() => setPersistentPanelState("closed"), [setPersistentPanelState]);
 
   // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
   const chatStorageKey = user ? `bl-chat-${user.id}` : ACTIVE_CHAT_STORAGE_KEY;
@@ -624,7 +656,7 @@ export default function ChatAssistant() {
   // Listen for external "open-assistant" events (e.g. hero CTA)
   useEffect(() => {
     const handler = (e: Event) => {
-      setOpen(true);
+      openAssistant();
       const detail = (e as CustomEvent<{ prefill?: string; autoSend?: boolean }>).detail;
       const prefill = detail?.prefill?.trim();
       // If a prefill is provided, auto-send it (unless explicitly disabled).
@@ -641,7 +673,7 @@ export default function ChatAssistant() {
     };
     window.addEventListener("open-assistant", handler as EventListener);
     return () => window.removeEventListener("open-assistant", handler as EventListener);
-  }, []);
+  }, [openAssistant]);
 
   // Minimize on hardware Back button (mobile): push a history state when opening,
   // and on popstate close the panel instead of navigating away.
@@ -655,7 +687,7 @@ export default function ChatAssistant() {
     } catch {}
     const onPop = () => {
       // User pressed Back → just minimize the assistant
-      setOpen(false);
+      minimizeAssistant();
     };
     window.addEventListener("popstate", onPop);
     return () => {
@@ -667,7 +699,7 @@ export default function ChatAssistant() {
         }
       } catch {}
     };
-  }, [open]);
+  }, [open, minimizeAssistant]);
 
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
@@ -966,13 +998,10 @@ export default function ChatAssistant() {
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
   const handleKeyDown = (e: React.KeyboardEvent) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
-  // Minimize: zatvara panel ali ostavlja FAB vidljiv svugdje (default)
-  const handleMinimize = () => setOpen(false);
-  // Close (X): zatvara panel i sakriva FAB na home dok korisnik ne napusti home/refresh
-  const handleClose = () => { setOpen(false); if (location.pathname === "/") setDismissedOnHome(true); };
-
-  // Reset dismissal kad korisnik ode sa home
-  useEffect(() => { if (location.pathname !== "/") setDismissedOnHome(false); }, [location.pathname]);
+  // Minimize: zatvara panel, FAB ostaje vidljiv i stanje ostaje nakon refresh-a.
+  const handleMinimize = minimizeAssistant;
+  // Close: zatvara panel i sakriva FAB trajno dok ga korisnik ne otvori eksternim CTA-om.
+  const handleClose = closeAssistant;
 
   const handleOnboardingComplete = (_profile: UserProfile, todoMessage: string) => {
     setShowOnboarding(false);
@@ -1006,14 +1035,14 @@ export default function ChatAssistant() {
       {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
-        {!open && !(location.pathname === "/" && dismissedOnHome) && (
+        {panelState === "minimized" && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             className="fixed bottom-20 right-4 z-50 group cursor-pointer md:bottom-6 md:right-6"
-            onClick={() => setOpen(true)}
+            onClick={openAssistant}
           >
             <div className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg bg-[hsl(220,30%,12%)] border border-white/10 px-2.5 py-1 text-[10px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
               Pitaj Asistenta
