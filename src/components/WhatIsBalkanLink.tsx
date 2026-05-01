@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {
   Sparkles,
   Crown,
   ArrowRight,
-  X,
   Check,
   Quote,
   Globe2,
   Wrench,
   Clock3,
-  ChevronRight,
-  ChevronLeft,
 } from "lucide-react";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
