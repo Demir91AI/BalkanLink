@@ -439,7 +439,7 @@
   },
   "documentCheck": {
     "title": "Provjera dokumenata",
-    "subtitle": "Učitaj pismo ili dokument — dobiješ objašnjenje na svom jeziku u sekundi",
+    "subtitle": "Slikaj ili učitaj pismo — za par sekundi ti objasnimo što piše, što moraš učiniti i do kada. Sve na našem jeziku, bez stručnih riječi.",
     "ctaPrimary": "Provjeri dokument",
     "examples": {
       "letterFromFinanzamt": "Pismo od Finanzamt",
@@ -497,23 +497,28 @@
       "paidHint": "Bez isteka — koristi kad god trebaš"
     },
     "privacy": {
-      "title": "Zaštita podataka",
-      "body": "Molimo zacrnite ime, adresu i broj predmeta prije učitavanja. Datoteke se ne pohranjuju — obrađuju se samo kratko za analizu i odmah brišu."
+      "title": "Tvoji podaci su sigurni",
+      "body": "Prije slanja, sakrij ime, adresu i broj predmeta (npr. crnim flomasterom ili olovkom u editoru). Mi ne čuvamo dokumente — pogledamo ih, objasnimo i odmah izbrišemo."
     },
     "upload": {
-      "label": "Učitaj dokument",
-      "hint": "PDF, JPG, PNG — maks. 25 MB ukupno",
-      "deletedAfter": "Dokument se briše odmah nakon analize. Ništa se ne pohranjuje.",
-      "multiPageTitle": "Imaš dokument s više stranica?",
-      "multiPageHint": "Učitaj sve stranice odjednom (do 10 fajlova) — analiziramo ih kao jedan dokument. Možeš slikati svaku stranicu mobitelom ili učitati PDF.",
-      "filesCount": "{{count}} od {{max}} datoteka",
-      "addMore": "Dodaj još stranica",
+      "label": "Učitaj svoj dokument",
+      "hint": "PDF ili slika (JPG, PNG) — do 25 MB ukupno",
+      "deletedAfter": "Tvoj dokument se odmah briše nakon analize. Ne čuvamo ništa.",
+      "multiPageTitle": "Imaš pismo s više stranica?",
+      "multiPageHint": "Slikaj svaku stranicu mobitelom (do 10 slika) ili učitaj jedan PDF — gledamo sve zajedno kao jedan dokument.",
+      "filesCount": "{{count}} od {{max}} dokumenata",
+      "addMore": "Dodaj još jednu stranicu",
       "remove": "Ukloni",
-      "chooseFile": "Odaberi datoteku",
-      "takePhoto": "Slikaj kamerom",
-      "or": "ili"
+      "chooseFile": "Klikni ovdje da učitaš dokument",
+      "tipPhotoFromGallery": "💡 Savjet: ako si slikao pismo mobitelom, samo odaberi sliku iz galerije.",
+      "step1Title": "Učitaj",
+      "step1Desc": "PDF ili slika s mobitela",
+      "step2Title": "Mi čitamo",
+      "step2Desc": "Asistent prevodi i objašnjava",
+      "step3Title": "Saznaš sve",
+      "step3Desc": "Što, do kada, koliko košta"
     },
-    "confirm": "Potvrđujem da ne učitavam/unosim osjetljive podatke (broj osobne iskaznice, Steuer-ID, IBAN, zdravstvene podatke).",
+    "confirm": "Razumijem da ne smijem slati osjetljive podatke (broj osobne iskaznice, porezni broj/Steuer-ID, broj računa/IBAN, zdravstvene podatke).",
     "buttons": {
       "checking": "Provjeravam…",
       "checkDocument": "Provjeri dokument →",
