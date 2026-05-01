@@ -965,7 +965,13 @@ export default function ChatAssistant() {
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
   const handleKeyDown = (e: React.KeyboardEvent) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
-  const handleClose = () => setOpen(false);
+  // Minimize: zatvara panel ali ostavlja FAB vidljiv svugdje (default)
+  const handleMinimize = () => setOpen(false);
+  // Close (X): zatvara panel i sakriva FAB na home dok korisnik ne napusti home/refresh
+  const handleClose = () => { setOpen(false); if (location.pathname === "/") setDismissedOnHome(true); };
+
+  // Reset dismissal kad korisnik ode sa home
+  useEffect(() => { if (location.pathname !== "/") setDismissedOnHome(false); }, [location.pathname]);
 
   const handleOnboardingComplete = (_profile: UserProfile, todoMessage: string) => {
     setShowOnboarding(false);
