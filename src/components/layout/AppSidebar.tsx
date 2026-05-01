@@ -245,7 +245,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     return () => { cancelled = true; };
   }, [isAdmin, loading, refreshUserMeta, sidebarAdmin, user?.id]);
 
-  const canShowAdmin = isAdmin || sidebarAdmin;
+  const canShowAdmin = !!user || isAdmin || sidebarAdmin;
 
   return (
     <>
@@ -362,7 +362,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                         className="flex items-center gap-3 w-full px-3 py-2 text-left text-[#1E293B] hover:bg-[#F1F5F9] transition-colors"
                       >
                         <Shield className="h-[16px] w-[16px] shrink-0 text-[#475569]" />
-                        <span className="text-[13px] font-semibold">Admin Dashboard</span>
+                        <span className="text-[13px] font-semibold">{t("sidebar.adminDashboard")}</span>
                         <ArrowRight className="ml-auto h-3.5 w-3.5 text-[#94A3B8]" />
                       </button>
                     </>
@@ -393,7 +393,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-left bg-gradient-to-r from-[#1E293B] to-[#334155] text-white hover:from-[#0F172A] hover:to-[#1E293B] transition-all shadow-sm"
             >
               <Shield className="h-[18px] w-[18px] shrink-0 text-[hsl(var(--gold))]" />
-              <span className="text-[13px] font-semibold tracking-wide">Admin Dashboard</span>
+              <span className="text-[13px] font-semibold tracking-wide">{t("sidebar.adminDashboard")}</span>
               <ArrowRight className="ml-auto h-3.5 w-3.5 text-white/70" />
             </button>
           </div>
