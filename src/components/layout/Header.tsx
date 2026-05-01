@@ -1,10 +1,11 @@
 import { useRef, useCallback, useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
-import { Menu, ShieldCheck, Crown, UserCircle } from "lucide-react";
+import { Menu, ShieldCheck, Crown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { HeaderInstallPopup } from "@/components/HeaderInstallPopup";
+import { UserMenu } from "@/components/layout/UserMenu";
 import { useLocalizedHref, useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 export default function Header() {
