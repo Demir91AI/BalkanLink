@@ -285,11 +285,20 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
       {/* REVIEWS / RECENZIJE — auto-računa iz baze */}
       {reviewCount > 0 && (
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px 8px" }}>
-          <div style={{ textAlign: "center", marginBottom: 20 }}>
-            <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 2, fontWeight: 700, marginBottom: 10 }}>
-              Recenzije korisnika
-            </p>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 20px 8px" }}>
+          <div
+            style={{
+              borderRadius: 16,
+              padding: "22px 18px 18px",
+              background: "linear-gradient(180deg, rgba(234,179,8,0.07) 0%, rgba(234,179,8,0.015) 100%)",
+              border: "1px solid rgba(234,179,8,0.2)",
+              boxShadow: "0 0 32px -8px rgba(234,179,8,0.18), inset 0 1px 0 rgba(255,255,255,0.04)",
+            }}
+          >
+            <div style={{ textAlign: "center", marginBottom: 20 }}>
+              <p style={{ fontSize: 10, color: "rgba(234,179,8,0.85)", textTransform: "uppercase", letterSpacing: 2, fontWeight: 700, marginBottom: 10 }}>
+                Recenzije korisnika
+              </p>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
               <span style={{ fontSize: 28, fontWeight: 900, color: "#EAB308", letterSpacing: -0.5 }}>
                 {avgRating.toFixed(1)}
