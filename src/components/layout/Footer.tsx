@@ -285,87 +285,91 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
 
-      {/* REVIEWS / RECENZIJE */}
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px 8px" }}>
-        <div style={{ textAlign: "center", marginBottom: 20 }}>
-          <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 2, fontWeight: 700, marginBottom: 10 }}>
-            Recenzije korisnika
-          </p>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-            <span style={{ fontSize: 28, fontWeight: 900, color: "#EAB308", letterSpacing: -0.5 }}>4.4</span>
-            <span style={{ fontSize: 14, color: "rgba(255,255,255,0.55)" }}>/ 5</span>
-            <span aria-hidden style={{ fontSize: 16, letterSpacing: 2, color: "#EAB308" }}>★★★★<span style={{ color: "rgba(234,179,8,0.35)" }}>★</span></span>
-            <span style={{ fontSize: 12, color: "rgba(255,255,255,0.5)" }}>(7 recenzija)</span>
+      {/* REVIEWS / RECENZIJE — auto-računa iz baze */}
+      {reviewCount > 0 && (
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px 8px" }}>
+          <div style={{ textAlign: "center", marginBottom: 20 }}>
+            <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 2, fontWeight: 700, marginBottom: 10 }}>
+              Recenzije korisnika
+            </p>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+              <span style={{ fontSize: 28, fontWeight: 900, color: "#EAB308", letterSpacing: -0.5 }}>
+                {avgRating.toFixed(1)}
+              </span>
+              <span style={{ fontSize: 14, color: "rgba(255,255,255,0.55)" }}>/ 5</span>
+              <span aria-hidden style={{ fontSize: 16, letterSpacing: 2, color: "#EAB308" }}>
+                {"★".repeat(avgRounded)}
+                <span style={{ color: "rgba(234,179,8,0.35)" }}>{"★".repeat(Math.max(0, 5 - avgRounded))}</span>
+              </span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.5)" }}>
+                ({reviewCount} {reviewCount === 1 ? "recenzija" : reviewCount < 5 ? "recenzije" : "recenzija"})
+              </span>
+            </div>
           </div>
+
+          <details style={{ marginBottom: 28, textAlign: "center" }}>
+            <summary
+              style={{
+                cursor: "pointer",
+                listStyle: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                fontSize: 12,
+                fontWeight: 600,
+                color: "rgba(255,255,255,0.7)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                background: "rgba(255,255,255,0.03)",
+                borderRadius: 20,
+                padding: "6px 14px",
+                userSelect: "none",
+              }}
+              className="footer-reviews-summary"
+            >
+              Prikaži sve recenzije
+              <ChevronDown size={14} style={{ opacity: 0.6 }} />
+            </summary>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                gap: 12,
+                marginTop: 16,
+                textAlign: "left",
+              }}
+            >
+              {reviews.map((r) => {
+                const hasComment = !!r.comment && r.comment.trim().length > 0;
+                return (
+                  <div
+                    key={r.id}
+                    style={{
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: 10,
+                      padding: "14px 14px 12px",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6, gap: 8 }}>
+                      <span style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.85)" }}>
+                        {r.username || "Anoniman korisnik"}
+                      </span>
+                      <span aria-label={`${r.rating}/5`} style={{ fontSize: 11, letterSpacing: 1, color: "#EAB308", whiteSpace: "nowrap" }}>
+                        {"★".repeat(r.rating)}
+                        <span style={{ color: "rgba(234,179,8,0.25)" }}>{"★".repeat(Math.max(0, 5 - r.rating))}</span>
+                      </span>
+                    </div>
+                    <p style={{ fontSize: 12.5, color: hasComment ? "rgba(255,255,255,0.65)" : "rgba(255,255,255,0.4)", lineHeight: 1.55, margin: 0, fontStyle: hasComment ? "normal" : "italic" }}>
+                      {hasComment ? `„${r.comment}"` : "Ocjena bez komentara"}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </details>
         </div>
-
-        <details style={{ marginBottom: 28, textAlign: "center" }}>
-          <summary
-            style={{
-              cursor: "pointer",
-              listStyle: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              fontSize: 12,
-              fontWeight: 600,
-              color: "rgba(255,255,255,0.7)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              background: "rgba(255,255,255,0.03)",
-              borderRadius: 20,
-              padding: "6px 14px",
-              userSelect: "none",
-            }}
-            className="footer-reviews-summary"
-          >
-            Prikaži pisane recenzije
-            <ChevronDown size={14} style={{ opacity: 0.6 }} />
-          </summary>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 12,
-              marginTop: 16,
-              textAlign: "left",
-            }}
-          >
-            {[
-              { name: "Edina H.", city: "München", rating: 5, text: "Konačno sam našla sve formulare i objašnjenja na bosanskom. Anmeldung sam riješila za pola sata. Svaka čast!" },
-              { name: "Marko P.", city: "Stuttgart", rating: 5, text: "Asistent mi je objasnio Steuerklasse bolje nego Steuerberater. Vrijedi svake marke za Premium." },
-              { name: "Senad B.", city: "Berlin", rating: 5, text: "Dokumenten-Check mi je uštedio termin kod prevoditelja. Brzo, jasno, na našem jeziku." },
-              { name: "Ivana K.", city: "Frankfurt", rating: 5, text: "Deutsch Trainer je top, koristim ga svaki dan u pauzi na poslu. Lekcije su kratke i konkretne." },
-              { name: "Damir N.", city: "Hamburg", rating: 4, text: "Sve super, samo bi mogli dodati više primjera za Anerkennung diplome iz Srbije. Inače preporuka." },
-              { name: "Jelena S.", city: "Köln", rating: 4, text: "Sviđa mi se ideja i dizajn. Ponekad asistent malo sporije odgovori, ali informacije su tačne. Pohvala za trud." },
-              { name: "Amer Č.", city: "Düsseldorf", rating: 3, text: "Dobra platforma, ali fali mi sekcija za priznavanje zanata (HWK) sa konkretnim primjerima. Sugestija za update." },
-            ].map((r) => (
-              <div
-                key={r.name}
-                style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 10,
-                  padding: "14px 14px 12px",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
-                  <span style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.85)" }}>
-                    {r.name} <span style={{ color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>· {r.city}</span>
-                  </span>
-                  <span aria-label={`${r.rating}/5`} style={{ fontSize: 11, letterSpacing: 1, color: "#EAB308" }}>
-                    {"★".repeat(r.rating)}
-                    <span style={{ color: "rgba(234,179,8,0.25)" }}>{"★".repeat(5 - r.rating)}</span>
-                  </span>
-                </div>
-                <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.65)", lineHeight: 1.55, margin: 0 }}>
-                  „{r.text}"
-                </p>
-              </div>
-            ))}
-          </div>
-        </details>
-      </div>
+      )}
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
