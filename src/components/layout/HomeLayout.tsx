@@ -12,13 +12,17 @@ import { usePWAInstall } from "@/hooks/usePWAInstall";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
 import PWAManualGuide from "@/components/PWAManualGuide";
+import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 
 export default function HomeLayout() {
   const cookie = useCookieConsent();
   const pwa = usePWAInstall();
+  const pullToRefresh = usePullToRefresh();
 
   return (
     <div className="relative min-h-screen w-full flex-col">
+      <PullToRefreshIndicator distance={pullToRefresh.distance} refreshing={pullToRefresh.refreshing} />
       <AppSidebar onPWAInstall={pwa.canShowMenuEntry ? pwa.triggerManual : undefined} />
       <Header />
       <main className="flex-1 pb-16 md:pb-0" style={{ background: "hsl(215 55% 4%)" }}>
