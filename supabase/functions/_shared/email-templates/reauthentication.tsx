@@ -8,26 +8,58 @@ import {
   Head,
   Heading,
   Html,
+  Html as _Html,
+  Link,
   Preview,
+  Section,
   Text,
 } from 'npm:@react-email/components@0.0.22'
 
-interface ReauthenticationEmailProps {
+import { BRAND, styles } from './_brand.ts'
+
+interface ReauthEmailProps {
+  siteName: string
+  siteUrl: string
+  recipient: string
   token: string
 }
 
-export const ReauthenticationEmail = ({ token }: ReauthenticationEmailProps) => (
-  <Html lang="en" dir="ltr">
+export const ReauthenticationEmail = ({
+  siteUrl,
+  recipient,
+  token,
+}: ReauthEmailProps) => (
+  <Html lang="bs" dir="ltr">
     <Head />
-    <Preview>Your verification code</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Heading style={h1}>Confirm reauthentication</Heading>
-        <Text style={text}>Use the code below to confirm your identity:</Text>
-        <Text style={codeStyle}>{token}</Text>
-        <Text style={footer}>
-          This code will expire shortly. If you didn't request this, you can
-          safely ignore this email.
+    <Preview>Vaš sigurnosni kod za {BRAND.name}</Preview>
+    <Body style={styles.main}>
+      <Container style={styles.container}>
+        <Section style={styles.header}>
+          <Heading style={styles.brand}>{BRAND.name}</Heading>
+        </Section>
+        <Section style={styles.card}>
+          <Heading style={styles.h1}>Sigurnosni kod</Heading>
+          <Text style={styles.text}>
+            Za potvrdu identiteta za <strong>{recipient}</strong>, unesite ovaj kod u aplikaciju:
+          </Text>
+          <div style={{ textAlign: 'center', margin: '24px 0' }}>
+            <span style={styles.code}>{token}</span>
+          </div>
+          <Text style={styles.textMuted}>
+            Kod je ispravan 10 minuta. Nikome ga ne dijelite — {BRAND.name} osoblje vas
+            nikada neće tražiti ovaj kod.
+          </Text>
+          <hr style={styles.hr} />
+          <Text style={styles.textMuted}>
+            Ako niste vi tražili ovu radnju, odmah promijenite lozinku.
+          </Text>
+        </Section>
+        <Text style={styles.footer}>
+          {BRAND.name}
+          <br />
+          <Link href={siteUrl} style={{ color: BRAND.textMuted }}>
+            {siteUrl.replace(/^https?:\/\//, '')}
+          </Link>
         </Text>
       </Container>
     </Body>
@@ -35,26 +67,3 @@ export const ReauthenticationEmail = ({ token }: ReauthenticationEmailProps) => 
 )
 
 export default ReauthenticationEmail
-
-const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }
-const container = { padding: '20px 25px' }
-const h1 = {
-  fontSize: '22px',
-  fontWeight: 'bold' as const,
-  color: '#000000',
-  margin: '0 0 20px',
-}
-const text = {
-  fontSize: '14px',
-  color: '#55575d',
-  lineHeight: '1.5',
-  margin: '0 0 25px',
-}
-const codeStyle = {
-  fontFamily: 'Courier, monospace',
-  fontSize: '22px',
-  fontWeight: 'bold' as const,
-  color: '#000000',
-  margin: '0 0 30px',
-}
-const footer = { fontSize: '12px', color: '#999999', margin: '30px 0 0' }
