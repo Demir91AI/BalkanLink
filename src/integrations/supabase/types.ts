@@ -839,6 +839,33 @@ export type Database = {
         }
         Relationships: []
       }
+      page_views: {
+        Row: {
+          created_at: string
+          id: string
+          path: string
+          referrer: string | null
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          path: string
+          referrer?: string | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          path?: string
+          referrer?: string | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       payments: {
         Row: {
           amount: number
@@ -1382,6 +1409,33 @@ export type Database = {
       enqueue_email: {
         Args: { payload: Json; queue_name: string }
         Returns: number
+      }
+      get_admin_payments: {
+        Args: { _limit?: number }
+        Returns: {
+          amount: number
+          created_at: string
+          currency: string
+          email: string
+          id: string
+          paid_at: string
+          status: string
+          user_id: string
+        }[]
+      }
+      get_admin_stats: { Args: never; Returns: Json }
+      get_admin_users: {
+        Args: { _limit?: number; _search?: string }
+        Returns: {
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          is_premium: boolean
+          last_login_at: string
+          subscription_expires_at: string
+          subscription_tier: string
+        }[]
       }
       get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
       get_doc_check_status: {
