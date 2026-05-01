@@ -1065,6 +1065,10 @@ export default function ChatAssistant() {
                         <Trash2 className="h-4 w-4" />
                       </button>
                     )}
+                    {/* Minimize — sakriva panel ali čuva razgovor (isti efekat kao Close, eksplicitan UX) */}
+                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-[hsl(45,93%,49%)] hover:bg-white/5 transition-all" title="Minimiziraj" aria-label="Minimiziraj asistenta">
+                      <Minus className="h-5 w-5" />
+                    </button>
                     {/* Close */}
                     <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Zatvori" aria-label="Zatvori asistenta">
                       <X className="h-5 w-5" />
