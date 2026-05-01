@@ -1008,18 +1008,13 @@ export default function ChatAssistant() {
             className="fixed bottom-20 right-4 z-50 group cursor-pointer md:bottom-6 md:right-6"
             onClick={() => setOpen(true)}
           >
-            <div className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg bg-[hsl(220,30%,12%)] border border-white/10 px-3 py-1.5 text-[11px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-              Pitaj BalkanLink Asistenta
+            <div className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg bg-[hsl(220,30%,12%)] border border-white/10 px-2.5 py-1 text-[10px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+              Pitaj Asistenta
             </div>
-            <motion.div
-              animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 rounded-full bg-[hsl(45,93%,49%)]"
-            />
-            <div className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-[0_4px_20px_rgba(234,179,8,0.4)] overflow-hidden" style={{ background: "linear-gradient(135deg, #EAB308 0%, #F59E0B 100%)" }}>
-              <BLIcon size={28} />
+            <div className="relative flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full shadow-md ring-1 ring-amber-300/40 overflow-hidden" style={{ background: "linear-gradient(135deg, #EAB308 0%, #F59E0B 100%)" }}>
+              <BLIcon size={22} />
               {hasUnread && (
-                <span className="absolute top-0 right-0 h-3 w-3 rounded-full bg-red-500 border-2 border-[#0d1526]" />
+                <span className="absolute top-0.5 right-0.5 h-2 w-2 rounded-full bg-red-500 border border-[#0d1526]" />
               )}
             </div>
           </motion.div>
