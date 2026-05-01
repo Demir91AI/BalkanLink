@@ -133,46 +133,9 @@ export function HeaderInstallPopup() {
 
   return (
     <>
-      <div ref={wrapperRef} className="relative">
-        {/* Trigger button — matches header glassy style */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={t("install.ariaTrigger", "Instaliraj aplikaciju")}
-          aria-expanded={open}
-          className="flex items-center justify-center transition-all duration-250 ease-in-out relative"
-          style={{
-            width: 36,
-            height: 36,
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: "50%",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "rgba(212,175,55,0.3)";
-            e.currentTarget.style.background = "rgba(212,175,55,0.06)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-            e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-          }}
-        >
-          <Smartphone
-            className="h-[18px] w-[18px]"
-            style={{ color: "rgba(255,255,255,0.78)" }}
-            strokeWidth={1.9}
-          />
-          {/* Subtle gold dot to hint there's something to discover */}
-          <span
-            aria-hidden="true"
-            className="absolute top-1 right-1 h-1.5 w-1.5 rounded-full animate-pulse"
-            style={{
-              background: "#D4AF37",
-              boxShadow: "0 0 6px rgba(212,175,55,0.6)",
-            }}
-          />
-        </button>
-      </div>
+      {/* Trigger button is now provided by <UserMenu /> in the header.
+          This component only renders the popup, anchored to the user menu corner. */}
+      <div ref={wrapperRef} className="hidden" aria-hidden="true" />
 
       {/* Popup is rendered through a portal to escape header's backdrop-filter
           containing block (which would otherwise clip a fixed child). */}
