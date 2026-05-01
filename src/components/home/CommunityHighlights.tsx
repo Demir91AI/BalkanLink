@@ -76,16 +76,19 @@ export default function CommunityHighlights() {
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8"
         >
           <div>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-              {t("home.community.label", "Pitaj dijasporu")}
-            </h2>
-            <p className="mt-3 text-lg sm:text-xl font-semibold text-[hsl(var(--gold))]">
+            <div className="inline-flex items-center gap-2 rounded-2xl border border-[hsl(var(--gold))]/40 bg-gradient-to-r from-[hsl(var(--gold))]/15 to-[hsl(var(--gold))]/5 px-4 py-2 shadow-[0_0_24px_-8px_hsl(var(--gold)/0.5)]">
+              <MessageSquarePlus className="h-5 w-5 sm:h-6 sm:w-6 text-[hsl(var(--gold))]" />
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-[hsl(var(--gold))] tracking-tight">
+                {t("home.community.label", "Pitaj dijasporu")}
+              </h2>
+            </div>
+            <p className="mt-4 text-lg sm:text-xl font-semibold text-white">
               {t("home.community.heading", "Pitanja i odgovori iz zajednice")}
             </p>
             <p className="mt-3 text-sm sm:text-base text-white/60 max-w-xl leading-relaxed">
               {t(
                 "home.community.subline",
-                "Postavi pitanje, pitaj za iskustvo i dobij konkretan odgovor od ljudi koji su prošli isto. Bez čekanja na šalteru.",
+                "Postavi pitanje, pitaj za iskustvo i dobij konkretan odgovor od ljudi koji su prošli isto.",
               )}
             </p>
           </div>
