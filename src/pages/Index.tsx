@@ -133,8 +133,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── ELEVATOR PITCH — "Šta je BalkanLink?" ─── */}
-      <PitchSection />
+      {/* PitchSection removed per user request */}
 
       {/* ─── FEATURE CARDS ─── */}
       <FeatureCards />
