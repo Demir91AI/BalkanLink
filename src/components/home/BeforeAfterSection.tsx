@@ -105,7 +105,7 @@ export default function BeforeAfterSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 px-4"
+      className="relative py-10 sm:py-14 px-4"
       style={{ background: "hsl(220 50% 5%)" }}
     >
       <div className="max-w-4xl mx-auto">
