@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { ChevronDown } from "lucide-react";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
 const colTitleStyle: React.CSSProperties = {
@@ -21,11 +23,14 @@ const linkStyle: React.CSSProperties = {
   transition: "color 0.2s",
 };
 
+type LinkItem = { label: string; to: string; action?: boolean };
+
 export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?: () => void } = {}) {
   const { t } = useTranslation();
   const localize = useLocalizedHref();
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
-  const NAV_LINKS: { label: string; to: string }[] = [
+  const NAV_LINKS: LinkItem[] = [
     { label: t("common:nav.smartGuides"), to: "/formulari" },
     { label: t("common:nav.visa"), to: "/viza" },
     { label: t("common:nav.germanTrainer"), to: "/deutsch-trainer" },
@@ -34,7 +39,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
     { label: t("common:nav.classifieds"), to: "/nudim-trazim" },
   ];
 
-  const LEGAL_LINKS: { label: string; to: string; action?: boolean }[] = [
+  const LEGAL_LINKS: LinkItem[] = [
     { label: t("common:footer.imprintAlt"), to: "/impressum" },
     { label: t("common:footer.privacy"), to: "/datenschutz" },
     { label: t("common:footer.terms"), to: "/agb" },
@@ -44,8 +49,65 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
     { label: t("common:footer.cookies"), to: "/cookie-richtlinie", action: true },
   ];
 
+  const renderLink = (l: LinkItem) =>
+    l.action && onOpenCookieSettings ? (
+      <button
+        key={l.to}
+        onClick={onOpenCookieSettings}
+        style={{ ...linkStyle, cursor: "pointer", background: "none", border: "none", textAlign: "left", width: "100%" }}
+        className="footer-link"
+      >
+        {l.label}
+      </button>
+    ) : (
+      <Link key={l.to} to={localize(l.to)} style={linkStyle} className="footer-link">
+        {l.label}
+      </Link>
+    );
+
+  const toggle = (key: string) => setOpenSection((cur) => (cur === key ? null : key));
+
+  const AccordionSection = ({ id, title, children }: { id: string; title: string; children: React.ReactNode }) => {
+    const isOpen = openSection === id;
+    return (
+      <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <button
+          onClick={() => toggle(id)}
+          aria-expanded={isOpen}
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            background: "none",
+            border: "none",
+            padding: "16px 0",
+            cursor: "pointer",
+            color: "rgba(255,255,255,0.85)",
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: 1.2,
+            textTransform: "uppercase",
+          }}
+        >
+          {title}
+          <ChevronDown
+            size={18}
+            style={{
+              transition: "transform 0.2s",
+              transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+              color: "rgba(255,255,255,0.5)",
+            }}
+          />
+        </button>
+        {isOpen && <div style={{ paddingBottom: 16 }}>{children}</div>}
+      </div>
+    );
+  };
+
   return (
     <footer style={{ background: "#0d1526" }}>
+      {/* DESKTOP / TABLET grid */}
       <div
         style={{
           maxWidth: 1200,
@@ -55,7 +117,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
           gridTemplateColumns: "repeat(4, 1fr)",
           gap: 40,
         }}
-        className="footer-grid"
+        className="footer-grid-desktop"
       >
         <div>
           <Link to={localize("/")} style={{ textDecoration: "none" }}>
@@ -73,31 +135,12 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
         <div>
           <p style={colTitleStyle}>{t("common:footer.navigation")}</p>
-          {NAV_LINKS.map((l) => (
-            <Link key={l.to} to={localize(l.to)} style={linkStyle} className="footer-link">
-              {l.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(renderLink)}
         </div>
 
         <div>
           <p style={colTitleStyle}>{t("common:footer.legalShort")}</p>
-          {LEGAL_LINKS.map((l) =>
-            l.action && onOpenCookieSettings ? (
-              <button
-                key={l.to}
-                onClick={onOpenCookieSettings}
-                style={{ ...linkStyle, cursor: "pointer", background: "none", border: "none", textAlign: "left", width: "100%" }}
-                className="footer-link"
-              >
-                {l.label}
-              </button>
-            ) : (
-              <Link key={l.to} to={localize(l.to)} style={linkStyle} className="footer-link">
-                {l.label}
-              </Link>
-            ),
-          )}
+          {LEGAL_LINKS.map(renderLink)}
         </div>
 
         <div>
@@ -106,6 +149,30 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
             kontakt@realcore-digital.de
           </a>
         </div>
+      </div>
+
+      {/* MOBILE accordion */}
+      <div className="footer-mobile" style={{ display: "none", padding: "32px 20px 16px" }}>
+        <Link to={localize("/")} style={{ textDecoration: "none" }}>
+          <span style={{ fontSize: 18, fontWeight: 900, color: "#fff", letterSpacing: -0.5 }}>
+            <span style={{ color: "#EAB308" }}>BL</span> BalkanLink
+          </span>
+        </Link>
+        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", marginTop: 10, lineHeight: 1.5, marginBottom: 20 }}>
+          {t("common:footer.brandTagline")}
+        </p>
+
+        <AccordionSection id="nav" title={t("common:footer.navigation")}>
+          {NAV_LINKS.map(renderLink)}
+        </AccordionSection>
+        <AccordionSection id="legal" title={t("common:footer.legalShort")}>
+          {LEGAL_LINKS.map(renderLink)}
+        </AccordionSection>
+        <AccordionSection id="contact" title={t("common:footer.contactTitle")}>
+          <a href="mailto:kontakt@realcore-digital.de" style={linkStyle} className="footer-link">
+            kontakt@realcore-digital.de
+          </a>
+        </AccordionSection>
       </div>
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
@@ -177,10 +244,11 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
       <style>{`
         .footer-link:hover { color: #EAB308 !important; }
         @media (max-width: 1023px) {
-          .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .footer-grid-desktop { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 639px) {
-          .footer-grid { grid-template-columns: 1fr !important; }
+          .footer-grid-desktop { display: none !important; }
+          .footer-mobile { display: block !important; }
         }
       `}</style>
     </footer>
