@@ -9,7 +9,7 @@ import { UserMenu } from "@/components/layout/UserMenu";
 import { useLocalizedHref, useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 export default function Header() {
-  const { loading, isAdmin, user, isPremium } = useAuth();
+  const { loading, isAdmin, isPremium } = useAuth();
   const { t } = useTranslation();
   const navigate = useLocalizedNavigate();
   const localize = useLocalizedHref();
