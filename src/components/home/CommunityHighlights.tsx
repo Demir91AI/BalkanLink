@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-import { MessageSquarePlus, ArrowRight, CheckCircle2, Eye } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageSquarePlus, ArrowRight, CheckCircle2, Eye, ChevronDown, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 interface CQ {
