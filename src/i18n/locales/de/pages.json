@@ -399,7 +399,11 @@
       "askCta": "Frage stellen",
       "answered": "Beantwortet",
       "pending": "Neu",
-      "read": "Lesen"
+      "read": "Lesen",
+      "showList": "Neueste Fragen anzeigen",
+      "hideList": "Fragen ausblenden",
+      "questionOne": "Frage",
+      "questionMany": "Fragen"
     },
     "whatIsLink": "Was ist BalkanLink?"
   },
