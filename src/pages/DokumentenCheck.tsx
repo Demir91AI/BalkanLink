@@ -269,21 +269,38 @@ export default function DokumentenCheck() {
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
   const [creditCount, setCreditCount] = useState<number>(0);
+  const [premiumRemainingToday, setPremiumRemainingToday] = useState<number>(5);
+  const [premiumDailyLimit, setPremiumDailyLimit] = useState<number>(5);
   const [checkoutPending, setCheckoutPending] = useState(false);
   const submittingRef = useRef(false);
 
   const { isPremium } = useSubscription();
   const { user } = useAuth();
 
-  // Fetch unconsumed Document-Check credits for the current user.
+  // Single source of truth: get_doc_check_status RPC vraća sve odjednom
+  // (premium + dnevna kvota + plaćeni krediti). Edge funkcija koristi isti RPC.
   const refreshCredits = useCallback(async () => {
-    if (!user?.id) { setCreditCount(0); return; }
-    const { count } = await supabase
-      .from("doc_check_credits")
-      .select("id", { count: "exact", head: true })
-      .eq("user_id", user.id)
-      .is("consumed_at", null);
-    setCreditCount(count ?? 0);
+    if (!user?.id) {
+      setCreditCount(0);
+      setPremiumRemainingToday(5);
+      return;
+    }
+    const { data, error } = await supabase.rpc("get_doc_check_status", { uid: user.id });
+    if (error) {
+      console.error("[DokumentenCheck] get_doc_check_status error:", error.message);
+      // Fallback: stari način brojanja kredita
+      const { count } = await supabase
+        .from("doc_check_credits")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id)
+        .is("consumed_at", null);
+      setCreditCount(count ?? 0);
+      return;
+    }
+    const row = Array.isArray(data) ? data[0] : data;
+    setCreditCount(Number(row?.paid_credits ?? 0));
+    setPremiumRemainingToday(Number(row?.premium_remaining_today ?? 5));
+    setPremiumDailyLimit(Number(row?.premium_daily_limit ?? 5));
   }, [user?.id]);
 
   // Initial + visibility-change refresh (so returning from Stripe tab updates credits).
