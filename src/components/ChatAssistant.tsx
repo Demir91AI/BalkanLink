@@ -1055,21 +1055,9 @@ export default function ChatAssistant() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1">
-                    {/* Save */}
-                    {messages.length > 0 && (
-                      <button onClick={saveConversation} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Spremi razgovor (.txt)" aria-label="Spremi razgovor">
-                        <Save className="h-4 w-4" />
-                      </button>
-                    )}
-                    {/* Clear chat */}
-                    {messages.length > 0 && (
-                      <button onClick={clearChat} className="rounded-lg p-1.5 text-white/30 hover:text-red-400 hover:bg-red-500/10 transition-all" title="Obriši razgovor" aria-label="Obriši razgovor">
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    )}
                     {/* Minimize — sakriva panel, FAB ostaje */}
-                    <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/30 hover:text-[hsl(45,93%,49%)] hover:bg-white/5 transition-all" title="Minimiziraj" aria-label="Minimiziraj asistenta">
-                      <Minus className="h-5 w-5" />
+                    <button onClick={handleMinimize} className="rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white/60 hover:text-[hsl(45,93%,49%)] hover:bg-white/10 transition-all" title="Minimiziraj asistenta" aria-label="Minimiziraj asistenta">
+                      Minimiziraj
                     </button>
                     {/* Close — zatvori (na home sakriva i FAB do navigacije) */}
                     <button onClick={handleClose} className="rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-all" title="Zatvori asistenta" aria-label="Zatvori asistenta">
