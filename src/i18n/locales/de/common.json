@@ -73,7 +73,8 @@
     "statusFree": "Free Plan",
     "upgrade": "Upgrade",
     "openProfile": "Profil öffnen",
-    "toggleAccount": "Konto öffnen"
+    "toggleAccount": "Konto öffnen",
+    "adminDashboard": "Admin Dashboard"
   },
   "mobileNav": {
     "documents": "Dokumente",
