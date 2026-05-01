@@ -11,6 +11,7 @@ import CookieConsentBanner from "@/components/CookieConsentBanner";
 import TrialPromoCTA from "@/components/TrialPromoCTA";
 import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
+import { usePageViewTracker } from "@/hooks/usePageViewTracker";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
 import PWAManualGuide from "@/components/PWAManualGuide";
@@ -53,6 +54,7 @@ class ErrorBoundary extends Component<
 export default function Layout() {
   const cookie = useCookieConsent();
   const pwa = usePWAInstall();
+  usePageViewTracker();
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">

@@ -76,7 +76,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const debounceRef = useRef(0);
   const navigate = useLocalizedNavigate();
   const location = useLocation();
-  const { user, signOut, displayName } = useAuth();
+  const { user, signOut, displayName, isAdmin } = useAuth();
   const { t } = useTranslation("common");
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
   const initials = getInitials(displayName);
@@ -322,6 +322,20 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                       <span className="text-[13px] font-semibold text-[hsl(var(--gold))]">{t("sidebar.upgrade", "Nadogradi")}</span>
                       <ArrowRight className="ml-auto h-3.5 w-3.5 text-[hsl(var(--gold))]" />
                     </button>
+                  )}
+
+                  {isAdmin && (
+                    <>
+                      <div className="my-1 mx-3 h-px bg-[#E8E0D0]" />
+                      <button
+                        onClick={() => { setAccountOpen(false); handleNav("/admin"); }}
+                        className="flex items-center gap-3 w-full px-3 py-2 text-left text-[#1E293B] hover:bg-[#F1F5F9] transition-colors"
+                      >
+                        <Shield className="h-[16px] w-[16px] shrink-0 text-[#475569]" />
+                        <span className="text-[13px] font-semibold">Admin Dashboard</span>
+                        <ArrowRight className="ml-auto h-3.5 w-3.5 text-[#94A3B8]" />
+                      </button>
+                    </>
                   )}
 
                   <div className="my-1 mx-3 h-px bg-[#E8E0D0]" />
