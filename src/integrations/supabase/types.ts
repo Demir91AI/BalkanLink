@@ -463,6 +463,27 @@ export type Database = {
         }
         Relationships: []
       }
+      doc_check_premium_usage: {
+        Row: {
+          check_date: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          check_date?: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          check_date?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       doc_check_usage: {
         Row: {
           count: number
@@ -1350,6 +1371,7 @@ export type Database = {
         Returns: boolean
       }
       consume_doc_check_credit: { Args: { uid: string }; Returns: boolean }
+      consume_premium_doc_check: { Args: { uid: string }; Returns: boolean }
       cq_increment_view: { Args: { _id: string }; Returns: undefined }
       deactivate_expired_launch_trials: { Args: never; Returns: number }
       deactivate_expired_trials: { Args: never; Returns: number }
@@ -1362,6 +1384,16 @@ export type Database = {
         Returns: number
       }
       get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
+      get_doc_check_status: {
+        Args: { uid: string }
+        Returns: {
+          is_premium: boolean
+          paid_credits: number
+          premium_daily_limit: number
+          premium_remaining_today: number
+          premium_used_today: number
+        }[]
+      }
       get_live_stats: { Args: never; Returns: Json }
       grant_doc_check_credit: {
         Args: {
