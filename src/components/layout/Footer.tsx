@@ -279,13 +279,9 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
       {/* MOBILE payments — sada unutar footer-mobile akordiona iznad */}
 
-      <div className="footer-divider-desktop" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
-      </div>
-
       {/* REVIEWS / RECENZIJE — auto-računa iz baze */}
       {reviewCount > 0 && (
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 20px 8px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 20px 8px" }}>
           <div
             style={{
               borderRadius: 16,
