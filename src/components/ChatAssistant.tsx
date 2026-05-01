@@ -1032,7 +1032,7 @@ export default function ChatAssistant() {
       <AnimatePresence>
         {open && (
           <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} onClick={handleClose} className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm" />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} onClick={handleMinimize} className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm" />},
 
             <motion.div
               initial={{ x: "100%" }}
