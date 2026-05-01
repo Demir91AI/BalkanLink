@@ -208,7 +208,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         </AccordionSection>
       </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div className="footer-divider-desktop" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
 
@@ -414,6 +414,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
           .footer-mobile { display: block !important; }
           .footer-payments-desktop { display: none !important; }
           .footer-payments-mobile { display: block !important; }
+          .footer-divider-desktop { display: none !important; }
         }
       `}</style>
     </footer>
