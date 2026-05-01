@@ -327,6 +327,10 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.95, ease }}
               className="mt-12 w-full flex flex-col items-center px-2"
             >
+              {/* Diskretan Promo chip — iznad banera, "etiketa" */}
+              <span className="relative z-20 -mb-2 inline-flex items-center justify-center whitespace-nowrap rounded-full border border-[hsl(var(--gold))]/40 bg-slate-950/80 px-3 py-1 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-[hsl(var(--gold))] shadow-sm backdrop-blur-sm sm:px-4 sm:text-[10px] sm:tracking-[0.12em]">
+                {tc("trialCta.promoLabel")}
+              </span>
               <button
                 type="button"
                 onClick={() => navigate("/register")}
