@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ChevronDown } from "lucide-react";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
+import { supabase } from "@/integrations/supabase/client";
+
+type ReviewRow = {
+  id: string;
+  username: string | null;
+  rating: number;
+  comment: string | null;
+  created_at: string;
+};
 
 const colTitleStyle: React.CSSProperties = {
   fontSize: 11,
