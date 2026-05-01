@@ -17,7 +17,7 @@ import {
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
 const STORAGE_KEY = "balkanlink_whatis_seen_v1";
-const AUTO_OPEN_DELAY_MS = 8000;
+const AUTO_OPEN_DELAY_MS = 60_000;
 export const OPEN_WHATIS_EVENT = "bl:open-whatis";
 
 export default function WhatIsBalkanLink() {
