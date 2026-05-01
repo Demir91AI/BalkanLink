@@ -11,7 +11,7 @@ const rows: { label: string; free: string; premium: string }[] = [
   { label: "DeutschTrainer",   free: "3 lekcije/nivo", premium: "✅ 240 lekcija"         },
   { label: "Sprachassistent",  free: "3/500",          premium: "✅ 500 rečenica"        },
   { label: "Wertgutschein",    free: "❌",             premium: "✅ Amazon 30€"          },
-  { label: "Pro oglasi",       free: "1,99€/7 dana",   premium: "✅ Gratis (max 10 dana)"},
+  { label: "Pro oglasi",       free: "1,99€/7 dana ili 4,99€/30 dana",   premium: "✅ Gratis (max 10 dana)"},
 ];
 
 export default function PricingComparisonTable() {
