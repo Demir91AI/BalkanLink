@@ -513,38 +513,10 @@
   line-height: 1.5;
 }
 
-/* === Launch Trial WOW banner === */
-@keyframes blTrialPulseRing {
-  0%   { box-shadow: 0 0 0 0 hsla(43, 90%, 60%, 0.55), 0 14px 40px -10px hsla(43, 80%, 55%, 0.6); }
-  70%  { box-shadow: 0 0 0 14px hsla(43, 90%, 60%, 0),    0 14px 40px -10px hsla(43, 80%, 55%, 0.6); }
-  100% { box-shadow: 0 0 0 0 hsla(43, 90%, 60%, 0),       0 14px 40px -10px hsla(43, 80%, 55%, 0.6); }
-}
-@keyframes blTrialShine {
-  0%   { transform: translateX(-120%) skewX(-18deg); }
-  60%  { transform: translateX(220%)  skewX(-18deg); }
-  100% { transform: translateX(220%)  skewX(-18deg); }
-}
-@keyframes blTrialFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-3px); }
-}
-@keyframes blTrialBgShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
-}
+/* === Launch Trial banner — diskretno === */
 .bl-trial-banner {
   position: relative;
-  background: linear-gradient(120deg, #f59e0b 0%, #fbbf24 25%, #fde047 50%, #fbbf24 75%, #f59e0b 100%);
-  background-size: 220% 100%;
-  animation: blTrialPulseRing 2.6s ease-out infinite, blTrialFloat 4s ease-in-out infinite, blTrialBgShift 6s ease-in-out infinite;
-}
-.bl-trial-banner::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0; left: 0;
-  width: 35%;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
-  animation: blTrialShine 3.2s ease-in-out infinite;
-  pointer-events: none;
-  border-radius: inherit;
+  background: linear-gradient(180deg, hsl(220 40% 14% / 0.85) 0%, hsl(220 45% 11% / 0.9) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
