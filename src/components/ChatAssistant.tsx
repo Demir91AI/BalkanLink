@@ -1006,7 +1006,7 @@ export default function ChatAssistant() {
       {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
-        {!open && (
+        {!open && !(location.pathname === "/" && dismissedOnHome) && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -1067,13 +1067,13 @@ export default function ChatAssistant() {
                         <Trash2 className="h-4 w-4" />
                       </button>
                     )}
-                    {/* Minimize — sakriva panel ali čuva razgovor (isti efekat kao Close, eksplicitan UX) */}
-                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-[hsl(45,93%,49%)] hover:bg-white/5 transition-all" title="Minimiziraj" aria-label="Minimiziraj asistenta">
+                    {/* Minimize — sakriva panel, FAB ostaje */}
+                    <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/30 hover:text-[hsl(45,93%,49%)] hover:bg-white/5 transition-all" title="Minimiziraj" aria-label="Minimiziraj asistenta">
                       <Minus className="h-5 w-5" />
                     </button>
-                    {/* Close */}
-                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Zatvori" aria-label="Zatvori asistenta">
-                      <X className="h-5 w-5" />
+                    {/* Close — zatvori (na home sakriva i FAB do navigacije) */}
+                    <button onClick={handleClose} className="rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-all" title="Zatvori asistenta" aria-label="Zatvori asistenta">
+                      Zatvori
                     </button>
                   </div>
                 </div>
