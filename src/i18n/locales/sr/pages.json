@@ -399,7 +399,11 @@
       "askCta": "Postavi pitanje",
       "answered": "Odgovoreno",
       "pending": "Novo",
-      "read": "Pročitaj"
+      "read": "Pročitaj",
+      "showList": "Prikaži najnovija pitanja",
+      "hideList": "Sakrij pitanja",
+      "questionOne": "pitanje",
+      "questionMany": "pitanja"
     },
     "whatIsLink": "Šta je BalkanLink?"
   },

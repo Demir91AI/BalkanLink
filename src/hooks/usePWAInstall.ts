@@ -109,14 +109,32 @@ export function usePWAInstall() {
     if (!triggerReady) return;
     if (!cookieConsentGiven()) return;
 
+    // Per-session guard: if banner was already shown this session, skip.
+    // Prevents re-appearance on every page refresh.
+    try {
+      if (sessionStorage.getItem("pwaInstallShownThisSession") === "1") return;
+    } catch { /* noop */ }
+
     const isMobileWidth = window.innerWidth < 768;
     if (!isMobileWidth) return;
 
+    const markShown = () => {
+      try {
+        sessionStorage.setItem("pwaInstallShownThisSession", "1");
+        // Also start a soft cooldown so it won't appear on the very next visit
+        // even if the user never explicitly dismisses it.
+        if (!localStorage.getItem(LS_DISMISS_KEY)) {
+          localStorage.setItem(LS_DISMISS_KEY, new Date().toISOString());
+        }
+      } catch { /* noop */ }
+    };
+
     if (deferredPrompt) {
       setShowBanner(true);
+      markShown();
     } else if (isIOS()) {
       const isSafari = /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|OPiOS/.test(navigator.userAgent);
-      if (isSafari) setShowIOSGuide(true);
+      if (isSafari) { setShowIOSGuide(true); markShown(); }
     }
   }, [triggerReady, deferredPrompt]);
 
