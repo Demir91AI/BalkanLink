@@ -17,6 +17,6 @@ export const PRICING = {
   firmBasic: "9.99€/mj.",
   firmFeatured: "19.99€/mj.",
   docCheck: "2.99€ / dokument",
-  docCheckPremium: "1x dnevno gratis uz Premium",
+  docCheckPremium: "5× dnevno gratis uz Premium",
   vatNote: "Sve cijene bez PDV-a. §19 UStG.",
 } as const;

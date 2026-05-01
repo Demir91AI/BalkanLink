@@ -312,9 +312,9 @@
           "doc": {
             "feature": "Dokumentenprüfung",
             "free": "2,99 € pro Prüfung",
-            "premium": "✅ 1× täglich gratis",
+            "premium": "✅ 5× täglich gratis",
             "freeShort": "2,99 €",
-            "premiumShort": "✅ 1×/Tag"
+            "premiumShort": "✅ 5×/Tag"
           },
           "templates": {
             "feature": "Vorlagen",
@@ -1605,7 +1605,7 @@
       "title": "Alles freigeschaltet — wenn es tiefer wird",
       "price": "9,99 €",
       "priceUnit": "/Monat",
-      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Dokumenten-Check ist einmal täglich frei, der Anmeldung-Simulator ist offen, die ersten Schritte ins System kosten dich nichts. Premium schaltest du dann frei, wenn das Leben komplizierter wird — wenn du die Steuererklärung machst, einen Bürgergeld-Antrag brauchst, dein Diplom anerkennen lässt, ein Kind hast und Elterngeld- und Kindergeld-Guide brauchst, oder wenn du einfach keine Asistent-Anfragen mehr zählen willst.",
+      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Dokumenten-Check ist 5× täglich für Premium frei (oder 2,99 € pro Prüfung), der Anmeldung-Simulator ist offen, die ersten Schritte ins System kosten dich nichts. Premium schaltest du dann frei, wenn das Leben komplizierter wird — wenn du die Steuererklärung machst, einen Bürgergeld-Antrag brauchst, dein Diplom anerkennen lässt, ein Kind hast und Elterngeld- und Kindergeld-Guide brauchst, oder wenn du einfach keine Asistent-Anfragen mehr zählen willst.",
       "summary": "Weniger als ein Kaffee pro Woche. Jederzeit mit einem Klick kündbar, ohne Erklärung.",
       "cta": "Premium werden",
       "ctaFree": "Erst kostenlos testen"
