@@ -445,5 +445,10 @@
       "buergergeld": "Bürgergeld — 563€/Mon. + Mietkosten während Jobsuche",
       "estimate": "💡 Auf Basis deines Profils kannst du etwa **{{amount}}€+** jährlich an Leistungen erhalten, die viele Zugewanderte verpassen!"
     }
+  },
+  "trialCta": {
+    "text": "7 Tage Premium gratis — jetzt testen",
+    "aria": "Premium-Probezeitraum",
+    "dismiss": "Schließen"
   }
 }
