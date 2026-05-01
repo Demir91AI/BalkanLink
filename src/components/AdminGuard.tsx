@@ -21,16 +21,17 @@ export default function AdminGuard() {
 
     let cancelled = false;
     setVerifiedAdmin(null);
-    supabase.rpc("has_role", { _user_id: session.user.id, _role: "admin" })
-      .then(({ data, error }) => {
+    void (async () => {
+      try {
+        const { data, error } = await supabase.rpc("has_role", { _user_id: session.user.id, _role: "admin" });
         if (cancelled) return;
         const allowed = !error && data === true;
         setVerifiedAdmin(allowed);
         if (allowed) void refreshUserMeta();
-      })
-      .catch(() => {
+      } catch {
         if (!cancelled) setVerifiedAdmin(false);
-      });
+      }
+    })();
 
     return () => { cancelled = true; };
   }, [isAdmin, loading, profileLoading, refreshUserMeta, session?.user]);
