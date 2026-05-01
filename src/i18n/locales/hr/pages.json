@@ -264,7 +264,9 @@
         "f5": "Šabloni (PDF download)",
         "f6": "BalkanLink Asistent neograničeno",
         "f7": "2 Pro oglasa/mjesečno",
-        "cta": "Postani Premium →"
+        "cta": "Postani Premium",
+        "trialHint": "7 dana besplatno · otkaži bilo kada",
+        "trustline": "Sigurno plaćanje · Stripe · §19 UStG"
       },
       "docCheck": {
         "label": "Dokumenten-Check",
