@@ -216,22 +216,7 @@ export default function HeroSection() {
             {t("home.heroHeadlineBeforeAccent")}{t("home.heroHeadlineAccent")}{t("home.heroHeadlineAfterAccent")}
           </motion.h1>
 
-          {/* 🎉 Launch Trial baner — vidljiv samo do 31.05.2026 */}
-          {trialActive && (
-            <motion.button
-              type="button"
-              onClick={() => navigate("/register")}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.22, ease }}
-              className="group mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-amber-300/55 bg-gradient-to-r from-amber-400/95 via-yellow-300/95 to-amber-400/95 px-4 py-2 text-[12.5px] font-extrabold text-slate-900 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.7)] backdrop-blur-sm transition-all hover:scale-[1.03] hover:shadow-[0_14px_38px_-10px_rgba(245,158,11,0.85)] active:scale-[0.98] sm:text-[13.5px]"
-              aria-label={tc("trialCta.heroBanner")}
-            >
-              <Sparkles className="h-3.5 w-3.5 shrink-0" strokeWidth={2.7} aria-hidden />
-              <span className="tracking-tight">{tc("trialCta.heroBanner")}</span>
-              <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" strokeWidth={2.6} aria-hidden />
-            </motion.button>
-          )}
+          {/* Stari baner uklonjen — premješten iznad Asistent bloka */}
 
           {/* Subheadline */}
           <motion.p
@@ -334,13 +319,51 @@ export default function HeroSection() {
             <LiveSocialProof variant="ticker" />
           </motion.div>
 
+          {/* 🎉 Launch Trial WOW baner — premješten iznad Asistent bloka, pulse + shine + float */}
+          {trialActive && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.95, ease }}
+              className="mt-12 w-full flex justify-center"
+            >
+              <button
+                type="button"
+                onClick={() => navigate("/register")}
+                aria-label={tc("trialCta.heroBanner")}
+                className="bl-trial-banner group relative overflow-hidden rounded-2xl border-2 border-amber-200/70 px-5 py-3 text-slate-900 transition-transform duration-200 hover:scale-[1.04] active:scale-[0.98] sm:px-7 sm:py-3.5"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2.5 sm:gap-3">
+                  <span
+                    className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-slate-900/15 text-[15px]"
+                    aria-hidden
+                  >
+                    🎁
+                  </span>
+                  <span className="flex flex-col items-start leading-tight text-left">
+                    <span className="text-[13.5px] font-black tracking-tight sm:text-[15px]">
+                      {tc("trialCta.heroBanner")}
+                    </span>
+                    <span className="text-[10.5px] font-semibold text-slate-900/75 sm:text-[11.5px]">
+                      {tc("trialCta.heroSubtext")}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+                    strokeWidth={2.8}
+                    aria-hidden
+                  />
+                </span>
+              </button>
+            </motion.div>
+          )}
 
           {/* ─── Asistent — interactive ask bar ─── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.0, ease }}
-            className="mt-20 w-full max-w-3xl"
+            className="mt-10 w-full max-w-3xl"
           >
             {/* Unified Asistent block: label tab + bar feel like one piece */}
             <div className="relative flex flex-col items-center">
