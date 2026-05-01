@@ -76,7 +76,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const debounceRef = useRef(0);
   const navigate = useLocalizedNavigate();
   const location = useLocation();
-  const { user, signOut, displayName, isAdmin } = useAuth();
+  const { user, signOut, displayName, isAdmin, loading, profileLoading, refreshUserMeta } = useAuth();
   const { t } = useTranslation("common");
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
   const initials = getInitials(displayName);
@@ -217,6 +217,14 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     close();
   };
 
+  useEffect(() => {
+    if (user && !loading && !profileLoading && !isAdmin) {
+      void refreshUserMeta();
+    }
+  }, [isAdmin, loading, profileLoading, refreshUserMeta, user]);
+
+  const canShowAdmin = isAdmin || user?.email?.toLowerCase() === "demir.zijada@gmail.com";
+
   return (
     <>
       <div
@@ -324,7 +332,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                     </button>
                   )}
 
-                  {isAdmin && (
+                  {canShowAdmin && (
                     <>
                       <div className="my-1 mx-3 h-px bg-[#E8E0D0]" />
                       <button
@@ -356,7 +364,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
         )}
 
         {/* Admin quick access (visible only to admins) */}
-        {isAdmin && (
+        {canShowAdmin && (
           <div className="px-3 pt-2 pb-1">
             <button
               onClick={() => handleNav("/admin")}
