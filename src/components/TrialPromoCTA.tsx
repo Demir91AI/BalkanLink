@@ -1,8 +1,27 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Sparkles, X } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+
+/**
+ * Routes where Premium promotion is FORBIDDEN.
+ * Premium should only surface contextually (after a user hits a limit
+ * or visits a premium-gated page) — never as a homepage push.
+ */
+const NO_PREMIUM_PUSH_ROUTES = [
+  "/", "/index",
+  "/login", "/register", "/forgot-password", "/reset-password",
+  "/cookies", "/cookie-richtlinie",
+  "/impressum", "/datenschutz", "/agb", "/disclaimer", "/dsa",
+  "/nutzungsbedingungen", "/ki-hinweis", "/napomena-o-ki",
+];
+
+function isHomeOrLegal(pathname: string): boolean {
+  // Strip locale prefix (/hr, /sr, /de)
+  const stripped = pathname.replace(/^\/(hr|sr|de)(?=\/|$)/, "") || "/";
+  return NO_PREMIUM_PUSH_ROUTES.includes(stripped);
+}
 
 const PROMO_END = new Date("2026-05-31T23:59:59Z");
 const DISMISS_KEY = "bl_trial_promo_dismissed_v1";
