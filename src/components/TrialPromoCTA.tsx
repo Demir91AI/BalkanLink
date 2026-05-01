@@ -58,12 +58,12 @@ export default function TrialPromoCTA() {
       role="region"
       aria-label={t("trialCta.aria", "Premium probni period")}
     >
-      <div className="flex items-center gap-2 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/95 to-yellow-400/95 px-3 py-2 shadow-lg backdrop-blur-sm">
-        <Sparkles className="h-4 w-4 shrink-0 text-slate-900" aria-hidden />
+      <div className="flex items-center gap-1 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/95 to-yellow-400/95 py-2 pl-3 pr-1 shadow-lg backdrop-blur-sm">
         <Link
           to={ctaHref}
-          className="flex flex-1 items-center justify-center gap-1.5 truncate text-[13px] font-semibold text-slate-900 hover:underline"
+          className="flex flex-1 items-center justify-center gap-2 truncate text-[13px] font-semibold text-slate-900 hover:underline"
         >
+          <Sparkles className="h-4 w-4 shrink-0 text-slate-900" aria-hidden />
           <span className="truncate">{t("trialCta.text", "7 dana Premium besplatno — testiraj odmah")}</span>
           <Sparkles className="h-4 w-4 shrink-0 text-slate-900" aria-hidden />
         </Link>
@@ -71,7 +71,7 @@ export default function TrialPromoCTA() {
           type="button"
           onClick={dismiss}
           aria-label={t("trialCta.dismiss", "Zatvori")}
-          className="grid h-6 w-6 place-items-center rounded-full text-slate-900/70 hover:bg-slate-900/10 hover:text-slate-900"
+          className="grid h-6 w-6 shrink-0 place-items-center rounded-full text-slate-900/70 hover:bg-slate-900/10 hover:text-slate-900"
         >
           <X className="h-3.5 w-3.5" />
         </button>
