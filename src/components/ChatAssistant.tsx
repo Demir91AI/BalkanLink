@@ -569,8 +569,44 @@ export default function ChatAssistant() {
     if (saved === "de") setChatLang("de");
   }, []);
 
+  // Smart scroll: kada user pošalje novo pitanje (zadnji msg = user) ILI stigne novi assistant odgovor,
+  // skrolaj zadnju USER poruku na vrh vidljivog područja, da korisnik vidi pitanje + početak odgovora
+  // umjesto da bude bačen na dno (gdje je input/loading/kraj odgovora).
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+
+    // Tokom onboarding/benefit calc — klasično dno
+    if (showOnboarding || showBenefitCalc) {
+      container.scrollTop = container.scrollHeight;
+      return;
+    }
+
+    if (messages.length === 0) return;
+    const last = messages[messages.length - 1];
+
+    // Ako je zadnji msg user (tek poslao) ILI je assistant koji upravo stigao (nije loading streaming), skrolaj zadnji user msg na vrh
+    if (last.role === "user" || (last.role === "assistant" && !loading)) {
+      // Pronađi indeks zadnje user poruke
+      let lastUserIdx = -1;
+      for (let i = messages.length - 1; i >= 0; i--) {
+        if (messages[i].role === "user") { lastUserIdx = i; break; }
+      }
+      if (lastUserIdx >= 0) {
+        const userEl = container.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
+        if (userEl) {
+          // Scroll user msg na vrh (sa malim offsetom za dah)
+          const offset = userEl.offsetTop - 12;
+          container.scrollTo({ top: offset, behavior: "smooth" });
+          return;
+        }
+      }
+    }
+
+    // Streaming assistant odgovor → drži dno
+    if (loading) {
+      container.scrollTop = container.scrollHeight;
+    }
   }, [messages, loading, showOnboarding, showBenefitCalc]);
 
   useEffect(() => {
