@@ -439,7 +439,7 @@
   },
   "documentCheck": {
     "title": "Dokumentenprüfung",
-    "subtitle": "Laden Sie ein Schreiben oder Dokument hoch — Sie erhalten in Sekunden eine Erklärung in Ihrer Sprache.",
+    "subtitle": "Foto machen oder Datei hochladen — in Sekunden erklären wir dir in einfachen Worten, was im Brief steht, was du tun musst und bis wann.",
     "ctaPrimary": "Dokument prüfen",
     "examples": {
       "letterFromFinanzamt": "Schreiben vom Finanzamt",
@@ -497,23 +497,28 @@
       "paidHint": "Ohne Ablauf — nutze sie jederzeit"
     },
     "privacy": {
-      "title": "Datenschutz",
-      "body": "Bitte schwärzen Sie Name, Adresse und Aktenzeichen vor dem Hochladen. Dateien werden nicht gespeichert — sie werden nur kurz zur Analyse verarbeitet und sofort gelöscht."
+      "title": "Deine Daten sind sicher",
+      "body": "Bitte schwärze vor dem Hochladen Name, Adresse und Aktenzeichen (z. B. mit schwarzem Stift). Wir speichern keine Dokumente — wir lesen sie kurz, erklären sie und löschen sie sofort."
     },
     "upload": {
       "label": "Dokument hochladen",
-      "hint": "PDF, JPG, PNG — max. 25 MB gesamt",
-      "deletedAfter": "Das Dokument wird unmittelbar nach der Analyse gelöscht. Es wird nichts gespeichert.",
-      "multiPageTitle": "Mehrseitiges Dokument?",
-      "multiPageHint": "Lade alle Seiten auf einmal hoch (bis zu 10 Dateien) — wir analysieren sie als ein Dokument. Du kannst jede Seite mit dem Handy fotografieren oder als PDF hochladen.",
-      "filesCount": "{{count}} von {{max}} Dateien",
+      "hint": "PDF oder Bild (JPG, PNG) — max. 25 MB gesamt",
+      "deletedAfter": "Dein Dokument wird sofort nach der Analyse gelöscht. Wir speichern nichts.",
+      "multiPageTitle": "Brief mit mehreren Seiten?",
+      "multiPageHint": "Fotografiere jede Seite mit dem Handy (bis 10 Bilder) oder lade ein PDF hoch — wir lesen alles als ein Dokument.",
+      "filesCount": "{{count}} von {{max}} Dokumenten",
       "addMore": "Weitere Seite hinzufügen",
       "remove": "Entfernen",
-      "chooseFile": "Datei auswählen",
-      "takePhoto": "Mit Kamera fotografieren",
-      "or": "oder"
+      "chooseFile": "Hier klicken, um Dokument hochzuladen",
+      "tipPhotoFromGallery": "💡 Tipp: Wenn du den Brief schon fotografiert hast, wähle einfach das Bild aus der Galerie.",
+      "step1Title": "Hochladen",
+      "step1Desc": "PDF oder Foto vom Handy",
+      "step2Title": "Wir lesen",
+      "step2Desc": "Assistent übersetzt & erklärt",
+      "step3Title": "Du weißt alles",
+      "step3Desc": "Was, bis wann, wie viel"
     },
-    "confirm": "Ich bestätige, dass ich keine sensiblen Daten hochlade/eingebe (Personalausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).",
+    "confirm": "Ich verstehe, dass ich keine sensiblen Daten senden darf (Personalausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).",
     "buttons": {
       "checking": "Wird geprüft …",
       "checkDocument": "Dokument prüfen →",
