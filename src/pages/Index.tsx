@@ -135,6 +135,9 @@ export default function Index() {
 
       {/* PitchSection removed per user request */}
 
+      {/* ─── PROCESS — "Kako funkcioniše?" (premješteno iznad Feature Cards) ─── */}
+      <ProcessSection />
+
       {/* ─── FEATURE CARDS ─── */}
       <FeatureCards />
 
@@ -148,9 +151,6 @@ export default function Index() {
 
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
-
-      {/* ─── PROCESS ─── */}
-      <ProcessSection />
 
       {/* ─── TRUST ─── */}
       <TrustSection />
