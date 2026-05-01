@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.consume_premium_doc_check(UUID) FROM PUBLIC, anon, authenticated;
