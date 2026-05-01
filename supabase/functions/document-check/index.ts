@@ -322,16 +322,36 @@ Ako NE → prosiri prije slanja.`;
 
     console.log("Analysis completed successfully, length:", result.length);
 
-    // Consume one credit for non-premium users only AFTER a successful analysis,
-    // so a failed AI request does not waste their 2,99€ purchase.
-    if (!isPremium) {
-      const { data: consumed, error: consumeErr } = await adminSupabase.rpc("consume_doc_check_credit", { uid: userId });
+    // Trošenje SAMO nakon uspješne analize (ne troši ako AI padne):
+    // - Premium s preostalom dnevnom kvotom → consume_premium_doc_check
+    // - Inače → consume_doc_check_credit (plaćeni 2,99€ kredit)
+    if (usePremiumFreeQuota) {
+      const { data: consumed, error: consumeErr } = await adminSupabase
+        .rpc("consume_premium_doc_check", { uid: userId });
+      if (consumeErr) console.error("consume_premium_doc_check error:", consumeErr.message);
+      else if (!consumed) console.warn("Premium daily quota race for user", userId);
+    } else {
+      const { data: consumed, error: consumeErr } = await adminSupabase
+        .rpc("consume_doc_check_credit", { uid: userId });
       if (consumeErr) console.error("consume_doc_check_credit error:", consumeErr.message);
-      else if (!consumed) console.warn("No credit was consumed even though one was expected for user", userId);
+      else if (!consumed) console.warn("No paid credit was consumed for user", userId);
     }
 
+    // Vrati ažurirani status nazad u UI radi brojača (one-shot, bez dodatnog poziva)
+    const { data: postRows } = await adminSupabase
+      .rpc("get_doc_check_status", { uid: userId });
+    const postStatus = Array.isArray(postRows) ? postRows[0] : postRows;
+
     return new Response(
-      JSON.stringify({ success: true, analysis: result }),
+      JSON.stringify({
+        success: true,
+        analysis: result,
+        status: {
+          isPremium: !!postStatus?.is_premium,
+          premiumRemainingToday: Number(postStatus?.premium_remaining_today ?? 0),
+          paidCredits: Number(postStatus?.paid_credits ?? 0),
+        },
+      }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
