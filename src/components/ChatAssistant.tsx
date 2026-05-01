@@ -303,6 +303,14 @@ export default function ChatAssistant() {
   const open = panelState === "open";
   const { user } = useAuth();
 
+  const setPersistentPanelState = useCallback((state: AssistantPanelState) => {
+    setPanelState(state);
+    storeAssistantPanelState(state);
+  }, []);
+  const openAssistant = useCallback(() => setPersistentPanelState("open"), [setPersistentPanelState]);
+  const minimizeAssistant = useCallback(() => setPersistentPanelState("minimized"), [setPersistentPanelState]);
+  const closeAssistant = useCallback(() => setPersistentPanelState("closed"), [setPersistentPanelState]);
+
   // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
   const chatStorageKey = user ? `bl-chat-${user.id}` : ACTIVE_CHAT_STORAGE_KEY;
   const prevUserIdRef = useRef<string | null | undefined>(undefined);
@@ -648,7 +656,7 @@ export default function ChatAssistant() {
   // Listen for external "open-assistant" events (e.g. hero CTA)
   useEffect(() => {
     const handler = (e: Event) => {
-      setOpen(true);
+      openAssistant();
       const detail = (e as CustomEvent<{ prefill?: string; autoSend?: boolean }>).detail;
       const prefill = detail?.prefill?.trim();
       // If a prefill is provided, auto-send it (unless explicitly disabled).
@@ -665,7 +673,7 @@ export default function ChatAssistant() {
     };
     window.addEventListener("open-assistant", handler as EventListener);
     return () => window.removeEventListener("open-assistant", handler as EventListener);
-  }, []);
+  }, [openAssistant]);
 
   // Minimize on hardware Back button (mobile): push a history state when opening,
   // and on popstate close the panel instead of navigating away.
@@ -679,7 +687,7 @@ export default function ChatAssistant() {
     } catch {}
     const onPop = () => {
       // User pressed Back → just minimize the assistant
-      setOpen(false);
+      minimizeAssistant();
     };
     window.addEventListener("popstate", onPop);
     return () => {
@@ -691,7 +699,7 @@ export default function ChatAssistant() {
         }
       } catch {}
     };
-  }, [open]);
+  }, [open, minimizeAssistant]);
 
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
