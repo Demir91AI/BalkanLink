@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const TRIGGER_DISTANCE = 96;
 const MAX_VISUAL_DISTANCE = 92;
@@ -11,13 +11,15 @@ function isEditableTarget(target: EventTarget | null) {
 export function usePullToRefresh() {
   const [distance, setDistance] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
+  const distanceRef = useRef(0);
+  const refreshingRef = useRef(false);
 
   useEffect(() => {
     let startY: number | null = null;
     let active = false;
 
     const onTouchStart = (event: TouchEvent) => {
-      if (refreshing || isEditableTarget(event.target) || window.scrollY > 0) {
+      if (refreshingRef.current || isEditableTarget(event.target) || window.scrollY > 0) {
         startY = null;
         active = false;
         return;
@@ -30,23 +32,29 @@ export function usePullToRefresh() {
       if (!active || startY == null || window.scrollY > 0) return;
       const delta = (event.touches[0]?.clientY ?? startY) - startY;
       if (delta <= 0) {
+        distanceRef.current = 0;
         setDistance(0);
         return;
       }
-      setDistance(Math.min(MAX_VISUAL_DISTANCE, delta * 0.55));
+      const nextDistance = Math.min(MAX_VISUAL_DISTANCE, delta * 0.55);
+      distanceRef.current = nextDistance;
+      setDistance(nextDistance);
     };
 
     const onTouchEnd = () => {
       if (!active) return;
-      const shouldRefresh = distance >= TRIGGER_DISTANCE * 0.55;
+      const shouldRefresh = distanceRef.current >= TRIGGER_DISTANCE * 0.55;
       active = false;
       startY = null;
 
       if (shouldRefresh) {
         setRefreshing(true);
+        refreshingRef.current = true;
+        distanceRef.current = 56;
         setDistance(56);
         window.location.reload();
       } else {
+        distanceRef.current = 0;
         setDistance(0);
       }
     };
@@ -62,7 +70,7 @@ export function usePullToRefresh() {
       window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("touchcancel", onTouchEnd);
     };
-  }, [distance, refreshing]);
+  }, []);
 
   return { distance, refreshing };
 }
