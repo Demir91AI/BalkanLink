@@ -26,6 +26,8 @@ export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
+  const { t: tc } = useTranslation("common");
+  const trialActive = new Date() < new Date("2026-05-31T23:59:59Z");
   const btnRef = useRef<HTMLButtonElement>(null);
   const [askValue, setAskValue] = useState("");
   const [typed, setTyped] = useState("");
@@ -213,6 +215,23 @@ export default function HeroSection() {
           >
             {t("home.heroHeadlineBeforeAccent")}{t("home.heroHeadlineAccent")}{t("home.heroHeadlineAfterAccent")}
           </motion.h1>
+
+          {/* 🎉 Launch Trial baner — vidljiv samo do 31.05.2026 */}
+          {trialActive && (
+            <motion.button
+              type="button"
+              onClick={() => navigate("/register")}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.22, ease }}
+              className="group mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-amber-300/55 bg-gradient-to-r from-amber-400/95 via-yellow-300/95 to-amber-400/95 px-4 py-2 text-[12.5px] font-extrabold text-slate-900 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.7)] backdrop-blur-sm transition-all hover:scale-[1.03] hover:shadow-[0_14px_38px_-10px_rgba(245,158,11,0.85)] active:scale-[0.98] sm:text-[13.5px]"
+              aria-label={tc("trialCta.heroBanner")}
+            >
+              <Sparkles className="h-3.5 w-3.5 shrink-0" strokeWidth={2.7} aria-hidden />
+              <span className="tracking-tight">{tc("trialCta.heroBanner")}</span>
+              <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" strokeWidth={2.6} aria-hidden />
+            </motion.button>
+          )}
 
           {/* Subheadline */}
           <motion.p
