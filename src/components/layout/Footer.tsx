@@ -206,6 +206,36 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
             kontakt@realcore-digital.de
           </a>
         </AccordionSection>
+        <AccordionSection id="payments" title={t("common:footer.paymentMethods")}>
+          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", letterSpacing: 0.3, marginBottom: 12 }}>
+            {t("common:footer.paymentList")}
+          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            {[
+              { icon: "🔒", text: "SSL" },
+              { icon: "🛡️", text: "DSGVO" },
+              { icon: "✅", text: "Stripe Verified" },
+            ].map((badge) => (
+              <span
+                key={badge.text}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 5,
+                  fontSize: 10,
+                  color: "rgba(255,255,255,0.5)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: 20,
+                  padding: "4px 10px",
+                  letterSpacing: 0.5,
+                }}
+              >
+                <span style={{ fontSize: 12 }}>{badge.icon}</span>
+                {badge.text}
+              </span>
+            ))}
+          </div>
+        </AccordionSection>
       </div>
 
       <div className="footer-divider-desktop" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
