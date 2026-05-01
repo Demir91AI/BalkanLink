@@ -18,8 +18,14 @@ interface Stats {
   docsToday: number;
   viewsToday: number; views7d: number; views30d: number;
   pendingQuestions: number;
+  uniqueVisitorsToday: number; uniqueVisitors7d: number; uniqueVisitors30d: number;
+  loggedInViews7d: number; anonViews7d: number;
+  avgViewsPerDay30d: number;
   topPages: Array<{ path: string; views: number }>;
+  topPages30d: Array<{ path: string; views: number; unique_visitors: number }>;
+  topReferrers: Array<{ source: string; views: number }>;
   viewsByDay: Array<{ day: string; views: number }>;
+  viewsByHourToday: Array<{ hour: number; views: number }>;
 }
 
 interface AdminUser {
