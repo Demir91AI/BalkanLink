@@ -18,8 +18,14 @@ interface Stats {
   docsToday: number;
   viewsToday: number; views7d: number; views30d: number;
   pendingQuestions: number;
+  uniqueVisitorsToday: number; uniqueVisitors7d: number; uniqueVisitors30d: number;
+  loggedInViews7d: number; anonViews7d: number;
+  avgViewsPerDay30d: number;
   topPages: Array<{ path: string; views: number }>;
+  topPages30d: Array<{ path: string; views: number; unique_visitors: number }>;
+  topReferrers: Array<{ source: string; views: number }>;
   viewsByDay: Array<{ day: string; views: number }>;
+  viewsByHourToday: Array<{ hour: number; views: number }>;
 }
 
 interface AdminUser {
@@ -156,10 +162,92 @@ export default function AdminDashboard() {
             <section>
               <h2 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Aktivnost (posjete)</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <StatCard icon={Eye} label="Posjete danas" value={stats.viewsToday} />
-                <StatCard icon={Eye} label="Posjete 7 dana" value={stats.views7d} accent="blue" />
-                <StatCard icon={Eye} label="Posjete 30 dana" value={stats.views30d} />
+                <StatCard icon={Eye} label="Posjete danas" value={stats.viewsToday} sub={`${stats.uniqueVisitorsToday} jedinstvenih`} />
+                <StatCard icon={Eye} label="Posjete 7 dana" value={stats.views7d} sub={`${stats.uniqueVisitors7d} jedinstvenih`} accent="blue" />
+                <StatCard icon={Eye} label="Posjete 30 dana" value={stats.views30d} sub={`${stats.uniqueVisitors30d} jedinstvenih`} />
                 <StatCard icon={MessageSquare} label="Asistent danas" value={stats.chatToday} sub={`${stats.chat7d} u 7 dana`} />
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">Detaljna statistika posjeta</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                <StatCard icon={TrendingUp} label="Prosjek/dan (30d)" value={stats.avgViewsPerDay30d} accent="blue" />
+                <StatCard icon={Users} label="Prijavljeni (7d)" value={stats.loggedInViews7d} sub={`${stats.views7d > 0 ? Math.round((stats.loggedInViews7d / stats.views7d) * 100) : 0}% od ukupno`} accent="gold" />
+                <StatCard icon={Eye} label="Anonimni (7d)" value={stats.anonViews7d} sub={`${stats.views7d > 0 ? Math.round((stats.anonViews7d / stats.views7d) * 100) : 0}% od ukupno`} />
+                <StatCard icon={FileText} label="Dokumenti danas" value={stats.docsToday} accent="green" />
+              </div>
+
+              {/* Hourly views today + Top referrers */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="rounded-xl border border-border/40 bg-card/60 p-5">
+                  <h3 className="font-semibold mb-3 flex items-center gap-2 text-sm"><Calendar className="h-4 w-4" /> Posjete po satu (danas)</h3>
+                  {stats.viewsByHourToday.length === 0 ? (
+                    <p className="text-sm text-muted-foreground">Nema podataka za danas.</p>
+                  ) : (
+                    <div className="space-y-1">
+                      {(() => {
+                        const max = Math.max(...stats.viewsByHourToday.map(d => d.views), 1);
+                        return stats.viewsByHourToday.map((d) => (
+                          <div key={d.hour} className="flex items-center gap-2 text-xs">
+                            <span className="w-10 text-muted-foreground tabular-nums">{String(d.hour).padStart(2, "0")}h</span>
+                            <div className="flex-1 bg-muted/40 rounded h-3 overflow-hidden">
+                              <div className="h-full bg-sky-500/60" style={{ width: `${(d.views / max) * 100}%` }} />
+                            </div>
+                            <span className="w-10 text-right font-semibold tabular-nums">{d.views}</span>
+                          </div>
+                        ));
+                      })()}
+                    </div>
+                  )}
+                </div>
+                <div className="rounded-xl border border-border/40 bg-card/60 p-5">
+                  <h3 className="font-semibold mb-3 flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4" /> Izvori posjeta (7d)</h3>
+                  {stats.topReferrers.length === 0 ? (
+                    <p className="text-sm text-muted-foreground">Nema podataka.</p>
+                  ) : (
+                    <ol className="space-y-1.5 text-sm">
+                      {stats.topReferrers.map((r, i) => (
+                        <li key={r.source} className="flex items-center gap-2 py-1 border-b border-border/20 last:border-0">
+                          <span className="text-muted-foreground w-5 text-xs">{i + 1}.</span>
+                          <span className="flex-1 truncate text-xs" title={r.source}>{r.source}</span>
+                          <span className="font-semibold text-sm tabular-nums">{r.views}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  )}
+                </div>
+              </div>
+
+              {/* Top pages 30d with unique visitors */}
+              <div className="rounded-xl border border-border/40 bg-card/60 p-5 mt-4">
+                <h3 className="font-semibold mb-3 flex items-center gap-2 text-sm"><TrendingUp className="h-4 w-4" /> Top stranice (30 dana) — sa jedinstvenim posjetiocima</h3>
+                {stats.topPages30d.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">Nema podataka.</p>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="text-left text-xs text-muted-foreground border-b border-border/40">
+                          <th className="py-2 pr-3">#</th>
+                          <th className="py-2 pr-3">Stranica</th>
+                          <th className="py-2 pr-3 text-right">Posjete</th>
+                          <th className="py-2 pr-3 text-right">Jedinstveni</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {stats.topPages30d.map((p, i) => (
+                          <tr key={p.path} className="border-b border-border/20 hover:bg-muted/20">
+                            <td className="py-2 pr-3 text-muted-foreground text-xs">{i + 1}</td>
+                            <td className="py-2 pr-3"><code className="text-xs">{p.path}</code></td>
+                            <td className="py-2 pr-3 text-right font-semibold tabular-nums">{p.views}</td>
+                            <td className="py-2 pr-3 text-right text-muted-foreground tabular-nums">{p.unique_visitors}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
             </section>
 
