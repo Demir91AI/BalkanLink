@@ -998,13 +998,10 @@ export default function ChatAssistant() {
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
   const handleKeyDown = (e: React.KeyboardEvent) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
-  // Minimize: zatvara panel ali ostavlja FAB vidljiv svugdje (default)
-  const handleMinimize = () => setOpen(false);
-  // Close (X): zatvara panel i sakriva FAB na home dok korisnik ne napusti home/refresh
-  const handleClose = () => { setOpen(false); if (location.pathname === "/") setDismissedOnHome(true); };
-
-  // Reset dismissal kad korisnik ode sa home
-  useEffect(() => { if (location.pathname !== "/") setDismissedOnHome(false); }, [location.pathname]);
+  // Minimize: zatvara panel, FAB ostaje vidljiv i stanje ostaje nakon refresh-a.
+  const handleMinimize = minimizeAssistant;
+  // Close: zatvara panel i sakriva FAB trajno dok ga korisnik ne otvori eksternim CTA-om.
+  const handleClose = closeAssistant;
 
   const handleOnboardingComplete = (_profile: UserProfile, todoMessage: string) => {
     setShowOnboarding(false);
@@ -1038,14 +1035,14 @@ export default function ChatAssistant() {
       {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
-        {!open && !(location.pathname === "/" && dismissedOnHome) && (
+        {panelState === "minimized" && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             className="fixed bottom-20 right-4 z-50 group cursor-pointer md:bottom-6 md:right-6"
-            onClick={() => setOpen(true)}
+            onClick={openAssistant}
           >
             <div className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg bg-[hsl(220,30%,12%)] border border-white/10 px-2.5 py-1 text-[10px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
               Pitaj Asistenta
