@@ -46,7 +46,7 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
         </Category>
 
         <Category icon="🔍" title="DOKUMENTEN-CHECK">
-          <Ft>1 provjera dokumenta dnevno gratis</Ft>
+          <Ft>5 provjera dokumenata dnevno gratis</Ft>
           <Ft>Dodatne provjere isti dan — 2,99€/kom</Ft>
           <Ft>Objašnjenje na tvom jeziku</Ft>
         </Category>
