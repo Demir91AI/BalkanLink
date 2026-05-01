@@ -1054,13 +1054,13 @@ export default function ChatAssistant() {
                       <span className="text-[10px] text-white/40">Tvoj vodič kroz Njemačku</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1.5">
                     {/* Minimize — sakriva panel, FAB ostaje */}
-                    <button onClick={handleMinimize} className="rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white/60 hover:text-[hsl(45,93%,49%)] hover:bg-white/10 transition-all" title="Minimiziraj asistenta" aria-label="Minimiziraj asistenta">
+                    <button onClick={handleMinimize} className="rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/70 hover:text-[hsl(45,93%,49%)] hover:border-[hsl(45,93%,49%)]/40 hover:bg-white/10 transition-all" title="Minimiziraj asistenta" aria-label="Minimiziraj asistenta">
                       Minimiziraj
                     </button>
                     {/* Close — zatvori (na home sakriva i FAB do navigacije) */}
-                    <button onClick={handleClose} className="rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-all" title="Zatvori asistenta" aria-label="Zatvori asistenta">
+                    <button onClick={handleClose} className="rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/70 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all" title="Zatvori asistenta" aria-label="Zatvori asistenta">
                       Zatvori
                     </button>
                   </div>
