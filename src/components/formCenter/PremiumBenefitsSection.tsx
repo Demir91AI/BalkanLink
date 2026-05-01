@@ -132,6 +132,9 @@ export default function PremiumBenefitsSection() {
           <p className="text-sm font-bold text-foreground">
             9.99€/mj. ili 99.90€/godišnje <span className="text-emerald-600 text-xs font-semibold">(2 mj. gratis)</span>
           </p>
+          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+            🎁 7 dana besplatno · do 31.05.2026
+          </span>
           <p className="text-[10px] text-muted-foreground">
             Svi iznosi bez PDV-a (§19 UStG)
           </p>
