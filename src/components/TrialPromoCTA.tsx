@@ -9,8 +9,10 @@ import { useAuth } from "@/contexts/AuthContext";
  * Premium should only surface contextually (after a user hits a limit
  * or visits a premium-gated page) — never as a homepage push.
  */
+// NOTE: Home (/) is intentionally allowed during the Launch Trial window
+// (until 31.05.2026) — the 7-day free trial is a launch hook, not a generic
+// premium upsell. Only legal/auth pages stay forbidden.
 const NO_PREMIUM_PUSH_ROUTES = [
-  "/", "/index",
   "/login", "/register", "/forgot-password", "/reset-password",
   "/cookies", "/cookie-richtlinie",
   "/impressum", "/datenschutz", "/agb", "/disclaimer", "/dsa",
