@@ -1,8 +1,27 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Sparkles, X } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+
+/**
+ * Routes where Premium promotion is FORBIDDEN.
+ * Premium should only surface contextually (after a user hits a limit
+ * or visits a premium-gated page) — never as a homepage push.
+ */
+const NO_PREMIUM_PUSH_ROUTES = [
+  "/", "/index",
+  "/login", "/register", "/forgot-password", "/reset-password",
+  "/cookies", "/cookie-richtlinie",
+  "/impressum", "/datenschutz", "/agb", "/disclaimer", "/dsa",
+  "/nutzungsbedingungen", "/ki-hinweis", "/napomena-o-ki",
+];
+
+function isHomeOrLegal(pathname: string): boolean {
+  // Strip locale prefix (/hr, /sr, /de)
+  const stripped = pathname.replace(/^\/(hr|sr|de)(?=\/|$)/, "") || "/";
+  return NO_PREMIUM_PUSH_ROUTES.includes(stripped);
+}
 
 const PROMO_END = new Date("2026-05-31T23:59:59Z");
 const DISMISS_KEY = "bl_trial_promo_dismissed_v1";
@@ -18,12 +37,15 @@ const DISMISS_DAYS = 3;
 export default function TrialPromoCTA() {
   const { t } = useTranslation("common");
   const { user, isPremium, loading, profileLoading } = useAuth();
+  const location = useLocation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (loading || profileLoading) return;
     if (isPremium) { setVisible(false); return; }
     if (new Date() > PROMO_END) { setVisible(false); return; }
+    // ⛔ Never push Premium on home or legal pages — only contextually deeper in app
+    if (isHomeOrLegal(location.pathname)) { setVisible(false); return; }
 
     try {
       const raw = localStorage.getItem(DISMISS_KEY);
@@ -40,7 +62,7 @@ export default function TrialPromoCTA() {
     // Delay 60s — popups must never compete with first paint or cookie banner
     const timer = setTimeout(() => setVisible(true), 60_000);
     return () => clearTimeout(timer);
-  }, [isPremium, loading, profileLoading]);
+  }, [isPremium, loading, profileLoading, location.pathname]);
 
   if (!visible) return null;
 
