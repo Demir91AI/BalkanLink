@@ -12,9 +12,11 @@ import TrialPromoCTA from "@/components/TrialPromoCTA";
 import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import { usePageViewTracker } from "@/hooks/usePageViewTracker";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
 import PWAManualGuide from "@/components/PWAManualGuide";
+import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
 // TranslationPendingBanner removed (apr 2026): all UI strings ship fully
 // translated; the platform must never advertise "translation pending".
 
@@ -54,12 +56,14 @@ class ErrorBoundary extends Component<
 export default function Layout() {
   const cookie = useCookieConsent();
   const pwa = usePWAInstall();
+  const pullToRefresh = usePullToRefresh();
   usePageViewTracker();
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
       <AppSidebar onPWAInstall={pwa.canShowMenuEntry ? pwa.triggerManual : undefined} />
       <div className="flex flex-col min-h-screen w-full">
+        <PullToRefreshIndicator distance={pullToRefresh.distance} refreshing={pullToRefresh.refreshing} />
         {DEV_MODE && (
           <div className="w-full h-8 flex items-center justify-center text-[12px] font-bold text-black" style={{ background: '#EAB308' }}>
             🔧 ADMIN MODE — Premium aktivan
