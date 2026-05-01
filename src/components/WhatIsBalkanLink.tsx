@@ -20,13 +20,12 @@ import {
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 
 const STORAGE_KEY = "balkanlink_whatis_seen_v1";
-const FAB_COLLAPSED_KEY = "balkanlink_whatis_fab_collapsed_v1";
 const AUTO_OPEN_DELAY_MS = 8000;
+export const OPEN_WHATIS_EVENT = "bl:open-whatis";
 
 export default function WhatIsBalkanLink() {
   const { t } = useTranslation("pages");
   const [open, setOpen] = useState(false);
-  const [collapsed, setCollapsed] = useState(true);
   const href = useLocalizedHref();
   const location = useLocation();
 
@@ -38,14 +37,7 @@ export default function WhatIsBalkanLink() {
     location.pathname.includes("/reset-password") ||
     location.pathname.includes("/forgot-password");
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(FAB_COLLAPSED_KEY);
-      // Default: collapsed unless user previously expanded
-      setCollapsed(stored !== "0");
-    } catch { /* ignore */ }
-  }, []);
-
+  // Auto-open once on first visit (after delay) — preserves prior behavior
   useEffect(() => {
     if (hidden) return;
     try {
@@ -59,6 +51,13 @@ export default function WhatIsBalkanLink() {
     }
   }, [hidden]);
 
+  // External trigger (Hero "Šta je BalkanLink?" link)
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener(OPEN_WHATIS_EVENT, handler);
+    return () => window.removeEventListener(OPEN_WHATIS_EVENT, handler);
+  }, []);
+
   const handleOpenChange = (next: boolean) => {
     setOpen(next);
     if (!next) {
@@ -68,13 +67,6 @@ export default function WhatIsBalkanLink() {
         /* ignore */
       }
     }
-  };
-
-  const toggleCollapsed = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    const next = !collapsed;
-    setCollapsed(next);
-    try { localStorage.setItem(FAB_COLLAPSED_KEY, next ? "1" : "0"); } catch { /* ignore */ }
   };
 
   if (hidden) return null;
@@ -92,50 +84,8 @@ export default function WhatIsBalkanLink() {
 
   return (
     <>
-      {/* Floating action button — collapsible left tab */}
-      <AnimatePresence mode="wait" initial={false}>
-        {collapsed ? (
-          <motion.button
-            key="fab-collapsed"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.2 }}
-            onClick={toggleCollapsed}
-            aria-label={t("whatIs.fabAria")}
-            className="fixed bottom-24 left-0 z-40 flex h-9 w-6 items-center justify-center rounded-r-md bg-[hsl(var(--gold))]/85 text-slate-950 shadow-[0_4px_14px_rgba(217,165,54,0.35)] backdrop-blur transition-all hover:w-7 hover:bg-[hsl(var(--gold))] md:bottom-6"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </motion.button>
-        ) : (
-          <motion.div
-            key="fab-expanded"
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-24 left-3 z-40 flex items-center gap-1 rounded-full bg-gradient-to-r from-[hsl(var(--gold))] to-amber-500 pl-3 pr-1 py-1.5 text-xs font-semibold text-slate-950 shadow-[0_6px_24px_rgba(217,165,54,0.4)] md:bottom-6"
-          >
-            <button
-              type="button"
-              onClick={() => setOpen(true)}
-              aria-label={t("whatIs.fabAria")}
-              className="flex items-center gap-1.5"
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>{t("whatIs.fabLabelShort")}</span>
-            </button>
-            <button
-              type="button"
-              onClick={toggleCollapsed}
-              aria-label="Collapse"
-              className="ml-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-950/15 hover:bg-slate-950/30"
-            >
-              <ChevronLeft className="h-3.5 w-3.5" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* FAB removed — trigger lives in Hero ("Šta je BalkanLink?" link).
+          Modal still auto-opens once on first visit. */}
 
       <Dialog open={open} onOpenChange={handleOpenChange}>
         <DialogContent className="max-w-3xl gap-0 overflow-hidden border-white/10 bg-[#020617] p-0 text-white sm:rounded-2xl max-h-[92vh] overflow-y-auto scrollbar-hide">
