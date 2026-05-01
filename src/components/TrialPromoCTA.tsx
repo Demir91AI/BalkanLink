@@ -37,12 +37,15 @@ const DISMISS_DAYS = 3;
 export default function TrialPromoCTA() {
   const { t } = useTranslation("common");
   const { user, isPremium, loading, profileLoading } = useAuth();
+  const location = useLocation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (loading || profileLoading) return;
     if (isPremium) { setVisible(false); return; }
     if (new Date() > PROMO_END) { setVisible(false); return; }
+    // ⛔ Never push Premium on home or legal pages — only contextually deeper in app
+    if (isHomeOrLegal(location.pathname)) { setVisible(false); return; }
 
     try {
       const raw = localStorage.getItem(DISMISS_KEY);
@@ -59,7 +62,7 @@ export default function TrialPromoCTA() {
     // Delay 60s — popups must never compete with first paint or cookie banner
     const timer = setTimeout(() => setVisible(true), 60_000);
     return () => clearTimeout(timer);
-  }, [isPremium, loading, profileLoading]);
+  }, [isPremium, loading, profileLoading, location.pathname]);
 
   if (!visible) return null;
 
