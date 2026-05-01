@@ -319,48 +319,54 @@ export default function HeroSection() {
             <LiveSocialProof variant="ticker" />
           </motion.div>
 
-          {/* 🎁 Launch Trial banner — symmetric, premium */}
+          {/* Launch Trial banner — diskretno, paketić ostaje */}
           {trialActive && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 14 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.95, ease }}
-              className="mt-12 w-full flex justify-center px-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.95, ease }}
+              className="mt-12 w-full flex flex-col items-center px-2"
             >
               <button
                 type="button"
                 onClick={() => navigate("/register")}
                 aria-label={tc("trialCta.heroBanner")}
-                className="bl-trial-banner group relative w-full max-w-xl overflow-hidden rounded-2xl border border-amber-200/60 px-5 py-4 text-slate-900 shadow-[0_10px_40px_-12px_rgba(212,165,40,0.55)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99] sm:px-7 sm:py-5"
+                className="bl-trial-banner group relative w-full max-w-xl overflow-hidden rounded-2xl border border-[hsl(var(--gold))]/30 px-5 py-3.5 text-foreground transition-all duration-200 hover:border-[hsl(var(--gold))]/60 hover:shadow-[0_8px_30px_-12px_hsl(var(--gold)/0.4)] sm:px-7 sm:py-4"
               >
                 <span className="relative z-10 grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-5">
-                  {/* Left: gift icon */}
+                  {/* Left: paketić */}
                   <span
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-900/15 text-[18px] sm:h-11 sm:w-11 sm:text-[20px]"
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/10 text-[16px] sm:h-10 sm:w-10 sm:text-[18px]"
                     aria-hidden
                   >
                     🎁
                   </span>
 
-                  {/* Center: text block, perfectly centered */}
+                  {/* Center: text */}
                   <span className="flex min-w-0 flex-col items-center text-center leading-tight">
-                    <span className="text-[14px] font-black tracking-tight sm:text-[16px]">
+                    <span className="text-[13.5px] font-bold tracking-tight text-foreground sm:text-[15px]">
                       {tc("trialCta.heroBanner")}
                     </span>
-                    <span className="mt-1 text-[11px] font-semibold text-slate-900/70 sm:text-[12.5px]">
+                    <span className="mt-1 text-[11px] font-medium text-muted-foreground sm:text-[12px]">
                       {tc("trialCta.heroSubtext")}
                     </span>
                   </span>
 
-                  {/* Right: CTA arrow pill */}
+                  {/* Right: arrow */}
                   <span
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-900 text-amber-100 transition-transform duration-200 group-hover:translate-x-0.5 sm:h-11 sm:w-11"
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))] transition-transform duration-200 group-hover:translate-x-0.5 sm:h-10 sm:w-10"
                     aria-hidden
                   >
-                    <ArrowRight className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={2.8} />
+                    <ArrowRight className="h-4 w-4 sm:h-[17px] sm:w-[17px]" strokeWidth={2.6} />
                   </span>
                 </span>
               </button>
+
+              {/* Diskretan Promo chip ispod banera */}
+              <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/40 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em] text-muted-foreground/80">
+                <span className="h-1 w-1 rounded-full bg-[hsl(var(--gold))]/80" aria-hidden />
+                {tc("trialCta.promoLabel")}
+              </span>
             </motion.div>
           )}
 
