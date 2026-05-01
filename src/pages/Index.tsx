@@ -218,18 +218,32 @@ export default function Index() {
                   </AccordionContent>
                 </AccordionItem>
 
-                {/* Premium */}
-                <AccordionItem value="premium" className="rounded-xl overflow-hidden" style={{ border: "1.5px solid hsla(43,52%,54%,0.4)", background: "rgba(255,255,255,0.04)", boxShadow: "0 4px 24px hsla(43,52%,54%,0.1)" }}>
-                  <AccordionTrigger className="px-4 py-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
-                    <span className="flex items-center gap-3 text-left">
-                      <span className="text-lg">⭐</span>
-                      <span className="font-bold text-white">{t("home.pricing.premium.title")}</span>
-                      <span className="ml-auto mr-2 rounded-full px-2 py-0.5 text-[9px] font-bold uppercase" style={{ background: "hsl(var(--gold))", color: "#000" }}>{t("home.pricing.premium.recommended")}</span>
+                {/* Premium — pojačan vizuelni hook */}
+                <AccordionItem
+                  value="premium"
+                  className="rounded-2xl overflow-hidden relative"
+                  style={{
+                    border: "2px solid hsla(43,72%,58%,0.6)",
+                    background: "linear-gradient(135deg, hsla(43,52%,54%,0.18) 0%, hsla(43,52%,54%,0.04) 60%, rgba(255,255,255,0.02) 100%)",
+                    boxShadow: "0 8px 32px hsla(43,52%,54%,0.25), inset 0 1px 0 hsla(43,72%,70%,0.15)",
+                  }}
+                >
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, hsla(43,72%,70%,0.6), transparent)" }} />
+                  <span className="absolute -top-2 left-4 z-10 rounded-full px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider shadow-md" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))", color: "#000" }}>
+                    {t("home.pricing.premium.recommended")}
+                  </span>
+                  <AccordionTrigger className="px-4 pt-5 pb-3.5 hover:no-underline [&>svg]:text-[hsl(var(--gold))]">
+                    <span className="flex items-center gap-3 text-left w-full">
+                      <span className="text-2xl drop-shadow-[0_0_8px_hsla(43,72%,58%,0.6)]">⭐</span>
+                      <span className="flex flex-col">
+                        <span className="font-black text-white text-base leading-tight">{t("home.pricing.premium.title")}</span>
+                        <span className="text-[11px] font-semibold text-[hsl(var(--gold))]/90 mt-0.5">{t("home.pricing.premium.trialHint")}</span>
+                      </span>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="px-4 pb-4">
-                    <p className="text-xs text-white/40 mb-3">{t("home.pricing.premium.subtitle")}</p>
-                    <ul className="space-y-2 text-sm text-white/80 mb-4">
+                  <AccordionContent className="px-4 pb-5">
+                    <p className="text-xs text-white/50 mb-4">{t("home.pricing.premium.subtitle")}</p>
+                    <ul className="space-y-2.5 text-sm text-white/85 mb-5">
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f1")}</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f2")}</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f3")}</li>
@@ -238,9 +252,17 @@ export default function Index() {
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f6")}</li>
                       <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[hsl(var(--gold))] shrink-0" /> {t("home.pricing.premium.f7")}</li>
                     </ul>
-                    <Button className="w-full rounded-full font-bold text-black" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))", boxShadow: "0 4px 20px hsla(43,52%,54%,0.35)" }} onClick={() => navigate("/paketi")}>
-                      {t("home.pricing.premium.cta")}
+                    <Button
+                      className="w-full rounded-full font-black text-black h-12 text-[15px] tracking-tight"
+                      style={{
+                        background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)))",
+                        boxShadow: "0 6px 28px hsla(43,52%,54%,0.5), inset 0 1px 0 rgba(255,255,255,0.4)",
+                      }}
+                      onClick={() => navigate("/paketi")}
+                    >
+                      {t("home.pricing.premium.cta")} →
                     </Button>
+                    <p className="text-center text-[10px] text-white/40 mt-2">{t("home.pricing.premium.trustline")}</p>
                   </AccordionContent>
                 </AccordionItem>
 
