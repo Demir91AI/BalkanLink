@@ -215,7 +215,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ height: 1, background: "rgba(255,255,255,0.08)" }} />
       </div>
-      <div style={{ textAlign: "center", padding: "24px 24px 28px" }}>
+      <div style={{ textAlign: "center", padding: "24px 24px 120px" }}>
         <p
           style={{
             fontSize: 10,
@@ -223,18 +223,22 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
             textTransform: "uppercase",
             letterSpacing: 2,
             fontWeight: 700,
-            marginBottom: 14,
+            marginBottom: 16,
           }}
         >
           {t("common:footer.poweredBy")}
         </p>
-        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 6, letterSpacing: 0.2 }}>
-          <span style={{ color: "#EAB308", fontWeight: 800 }}>RealCore Digital</span>
-          <span style={{ color: "rgba(255,255,255,0.55)", fontWeight: 400 }}> — {t("common:footer.poweredTagline")}</span>
+        <p style={{ fontSize: 14, color: "#EAB308", fontWeight: 800, letterSpacing: 0.2, marginBottom: 4 }}>
+          RealCore Digital
         </p>
-        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 16, letterSpacing: 0.2 }}>
-          <span style={{ color: "#EAB308", fontWeight: 800 }}>Bosnischer Kulturverein Freilassing e.V.</span>
-          <span style={{ color: "rgba(255,255,255,0.55)", fontWeight: 400 }}> — Kultura, zajednica, integracija.</span>
+        <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", fontWeight: 400, marginBottom: 18 }}>
+          {t("common:footer.poweredTagline")}
+        </p>
+        <p style={{ fontSize: 14, color: "#EAB308", fontWeight: 800, letterSpacing: 0.2, marginBottom: 4 }}>
+          Bosnischer Kulturverein Freilassing e.V.
+        </p>
+        <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", fontWeight: 400, marginBottom: 20 }}>
+          Kultura, zajednica, integracija.
         </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
           {t("common:footer.copyright")}
