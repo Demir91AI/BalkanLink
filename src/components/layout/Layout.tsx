@@ -12,7 +12,7 @@ import TrialPromoCTA from "@/components/TrialPromoCTA";
 import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import { usePageViewTracker } from "@/hooks/usePageViewTracker";
-import { usePullToRefresh } from "@/hooks/usePullToRefresh";
+
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
 import PWAManualGuide from "@/components/PWAManualGuide";
