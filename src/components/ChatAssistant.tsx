@@ -276,6 +276,7 @@ export default function ChatAssistant() {
   const location = useLocation();
 
   const [open, setOpen] = useState(location.pathname === "/ai-asistent");
+  const [dismissedOnHome, setDismissedOnHome] = useState(false);
   const { user } = useAuth();
 
   // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
@@ -965,7 +966,13 @@ export default function ChatAssistant() {
 
   const sendMessage = useCallback(() => sendMessageWithText(input), [input, sendMessageWithText]);
   const handleKeyDown = (e: React.KeyboardEvent) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
-  const handleClose = () => setOpen(false);
+  // Minimize: zatvara panel ali ostavlja FAB vidljiv svugdje (default)
+  const handleMinimize = () => setOpen(false);
+  // Close (X): zatvara panel i sakriva FAB na home dok korisnik ne napusti home/refresh
+  const handleClose = () => { setOpen(false); if (location.pathname === "/") setDismissedOnHome(true); };
+
+  // Reset dismissal kad korisnik ode sa home
+  useEffect(() => { if (location.pathname !== "/") setDismissedOnHome(false); }, [location.pathname]);
 
   const handleOnboardingComplete = (_profile: UserProfile, todoMessage: string) => {
     setShowOnboarding(false);
@@ -999,7 +1006,7 @@ export default function ChatAssistant() {
       {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
       {/* ── Floating Trigger ── */}
       <AnimatePresence>
-        {!open && (
+        {!open && !(location.pathname === "/" && dismissedOnHome) && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -1025,7 +1032,7 @@ export default function ChatAssistant() {
       <AnimatePresence>
         {open && (
           <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} onClick={handleClose} className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm" />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} onClick={handleMinimize} className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm" />
 
             <motion.div
               initial={{ x: "100%" }}
@@ -1060,13 +1067,13 @@ export default function ChatAssistant() {
                         <Trash2 className="h-4 w-4" />
                       </button>
                     )}
-                    {/* Minimize — sakriva panel ali čuva razgovor (isti efekat kao Close, eksplicitan UX) */}
-                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-[hsl(45,93%,49%)] hover:bg-white/5 transition-all" title="Minimiziraj" aria-label="Minimiziraj asistenta">
+                    {/* Minimize — sakriva panel, FAB ostaje */}
+                    <button onClick={handleMinimize} className="rounded-lg p-1.5 text-white/30 hover:text-[hsl(45,93%,49%)] hover:bg-white/5 transition-all" title="Minimiziraj" aria-label="Minimiziraj asistenta">
                       <Minus className="h-5 w-5" />
                     </button>
-                    {/* Close */}
-                    <button onClick={handleClose} className="rounded-lg p-1.5 text-white/30 hover:text-white/60 hover:bg-white/5 transition-all" title="Zatvori" aria-label="Zatvori asistenta">
-                      <X className="h-5 w-5" />
+                    {/* Close — zatvori (na home sakriva i FAB do navigacije) */}
+                    <button onClick={handleClose} className="rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white/60 hover:text-white hover:bg-white/10 transition-all" title="Zatvori asistenta" aria-label="Zatvori asistenta">
+                      Zatvori
                     </button>
                   </div>
                 </div>
