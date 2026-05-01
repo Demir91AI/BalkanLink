@@ -267,7 +267,7 @@ const BS: Record<string, string> = {
   "dokcheck.ok": "✅ Dokument je u redu",
   "dokcheck.issues": "⚠️ Pronađeni problemi",
   "dokcheck.price": "2,99€ po dokumentu",
-  "dokcheck.premiumFree": "Premium: 1x dnevno besplatno",
+  "dokcheck.premiumFree": "Premium: 5× dnevno besplatno",
   "docCheck.analyzeBtn": "Analiziraj dokument",
   "docCheck.analyzing": "Analiziram…",
   "docCheck.confirmLabel": "Potvrđujem da ne učitavam osjetljive podatke (br. dokumenta, Steuer-ID, IBAN, zdravstveni podaci).",
