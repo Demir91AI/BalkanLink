@@ -1,14 +1,15 @@
 import { useRef, useCallback, useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
-import { Menu, ShieldCheck, Crown, UserCircle } from "lucide-react";
+import { Menu, ShieldCheck, Crown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { HeaderInstallPopup } from "@/components/HeaderInstallPopup";
+import { UserMenu } from "@/components/layout/UserMenu";
 import { useLocalizedHref, useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 
 export default function Header() {
-  const { loading, isAdmin, user, isPremium } = useAuth();
+  const { loading, isAdmin, isPremium } = useAuth();
   const { t } = useTranslation();
   const navigate = useLocalizedNavigate();
   const localize = useLocalizedHref();
@@ -207,35 +208,12 @@ export default function Header() {
           {/* Language switcher — visible on all viewports */}
           <LanguageSwitcher variant="header" />
 
-          {/* App install popup (shown after every login until installed) */}
+          {/* App install popup — trigger is provided by UserMenu below;
+              this only renders the popup itself + auto-open on login. */}
           <HeaderInstallPopup />
 
-          {/* User/profile icon button */}
-          <button
-            onClick={() => navigate(user ? "/profil" : "/login")}
-            aria-label={user ? t("common:nav.profile") : t("common:nav.login")}
-            className="flex items-center justify-center transition-all duration-250 ease-in-out"
-            style={{
-              width: 36,
-              height: 36,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: "50%",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "rgba(212,175,55,0.3)";
-              e.currentTarget.style.background = "rgba(212,175,55,0.06)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-              e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-            }}
-          >
-            <UserCircle
-              className="h-5 w-5"
-              style={{ color: "rgba(255,255,255,0.7)" }}
-            />
-          </button>
+          {/* Unified user menu: Profile / Login / Install / Logout */}
+          <UserMenu />
         </div>
       </div>
     </header>
