@@ -298,9 +298,9 @@ export default function HeroSection() {
             <button
               type="button"
               onClick={() => { try { window.dispatchEvent(new CustomEvent("bl:open-whatis")); } catch { /* noop */ } }}
-              className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium text-white/65 transition-all hover:text-[hsl(var(--gold))] hover:bg-white/[0.04]"
+              className="group inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/10 px-3.5 py-1.5 text-[12px] font-semibold text-[hsl(var(--gold))]/90 shadow-[0_0_18px_-6px_hsla(43,70%,55%,0.55)] backdrop-blur-sm transition-all hover:border-[hsl(var(--gold))]/70 hover:bg-[hsl(var(--gold))]/15 hover:text-[hsl(var(--gold))]"
             >
-              <Sparkles className="h-3 w-3 opacity-70 transition-opacity group-hover:opacity-100" />
+              <Sparkles className="h-3 w-3 opacity-90 transition-opacity group-hover:opacity-100" />
               <span>{t("home.whatIsLink")}</span>
             </button>
           </motion.div>
