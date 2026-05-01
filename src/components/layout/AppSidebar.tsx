@@ -76,7 +76,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const debounceRef = useRef(0);
   const navigate = useLocalizedNavigate();
   const location = useLocation();
-  const { user, signOut, displayName, isAdmin, loading, profileLoading, refreshUserMeta } = useAuth();
+  const { user, signOut, displayName, isAdmin, loading, refreshUserMeta } = useAuth();
   const { t } = useTranslation("common");
   const [sidebarAdmin, setSidebarAdmin] = useState(false);
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
