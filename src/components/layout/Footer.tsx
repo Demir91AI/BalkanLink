@@ -38,6 +38,30 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
   const { t } = useTranslation();
   const localize = useLocalizedHref();
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const [reviews, setReviews] = useState<ReviewRow[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    supabase
+      .from("reviews")
+      .select("id, username, rating, comment, created_at")
+      .eq("is_approved", true)
+      .order("created_at", { ascending: false })
+      .limit(50)
+      .then(({ data }) => {
+        if (!cancelled && data) setReviews(data as ReviewRow[]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const reviewCount = reviews.length;
+  const avgRating =
+    reviewCount > 0
+      ? reviews.reduce((sum, r) => sum + (r.rating || 0), 0) / reviewCount
+      : 0;
+  const avgRounded = Math.round(avgRating);
 
   const NAV_LINKS: LinkItem[] = [
     { label: t("common:nav.smartGuides"), to: "/formulari" },
