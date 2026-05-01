@@ -276,6 +276,7 @@ export default function ChatAssistant() {
   const location = useLocation();
 
   const [open, setOpen] = useState(location.pathname === "/ai-asistent");
+  const [dismissedOnHome, setDismissedOnHome] = useState(false);
   const { user } = useAuth();
 
   // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
