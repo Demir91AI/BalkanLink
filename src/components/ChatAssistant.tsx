@@ -951,6 +951,8 @@ export default function ChatAssistant() {
   const showStartScreen = messages.length === 0 && !showOnboarding && !showBenefitCalc;
   const contextWelcome = getContextualWelcome(location.pathname);
   const welcomeMsg = contextWelcome || DEFAULT_WELCOME;
+  const pageTopic = getPageTopicLabel(location.pathname);
+  const contextualChips = getContextualPromptChips(location.pathname);
 
   return (
     <>
