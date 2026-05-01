@@ -152,11 +152,15 @@ const KEYWORD_LINKS: [RegExp, string][] = [
   [/\b(BAföG|bafög|stipendija)\b/gi, "/formulari/bafog"],
   [/\b(Führungszeugnis|führungszeugnis|potvrda o nekažnjavanju)\b/gi, "/formulari/fuhrungszeugnis"],
   [/\b(Steuerklassenwechsel|steuerklassenwechsel|Steuerklasse|steuerklasse|porezna klasa)\b/gi, "/formulari/steuerklassenwechsel"],
-  // AUFENTHALTSTITEL / VIZA
+  // VIZA NAVIGATOR (državljanstvo, Staatsangehörigkeit, vize, ulazak)
+  [/\b(Staatsangehörigkeit|staatsangehorigkeit|državljanstvo|drzavljanstvo|dvojno državljanstvo|dvojno drzavljanstvo|državljanin|drzavljanin|naturalizacija|Einbürgerung|einburgerung)\b/gi, "/viza"],
+  [/\b(viza za Njemačku|viza za njemacku|koja viza|vizni režim|vizni rezim|Visum|visum|nacionalna viza)\b/gi, "/viza"],
+  [/\b(spajanje porodice|Familiennachzug|familiennachzug)\b/gi, "/viza"],
+  // AUFENTHALTSTITEL (boravišne dozvole — već u Njemačkoj)
   [/\b(Aufenthaltstitel|aufenthaltstitel|boravišna dozvola|boravisna dozvola)\b/gi, "/formulari/aufenthaltstitel"],
   [/\b(Niederlassungserlaubnis|niederlassungserlaubnis|stalni boravak)\b/gi, "/formulari/aufenthaltstitel"],
   [/\b(Blaue Karte|blaue karte|plava karta)\b/gi, "/formulari/aufenthaltstitel"],
-  [/\b(Arbeitsvisum|arbeitsvisum|radna viza)\b/gi, "/formulari/aufenthaltstitel"],
+  [/\b(Arbeitsvisum|arbeitsvisum|radna viza)\b/gi, "/viza"],
   // DEUTSCH
   [/\b(BalkanLink Deutsch|balkanlink deutsch)\b/gi, "/deutsch-trainer"],
   [/\b(učenje njemačkog|ucenje njemackog)\b/gi, "/deutsch-trainer"],
