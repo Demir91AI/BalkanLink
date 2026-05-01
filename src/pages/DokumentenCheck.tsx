@@ -616,6 +616,21 @@ export default function DokumentenCheck() {
             <div>
               <label className="mb-3 block text-sm font-bold">{t("documentCheck.upload.label")}</label>
 
+              {/* Kako funkcioniše — 3 koraka, jednostavnim jezikom */}
+              <div className="mb-4 grid grid-cols-3 gap-2 sm:gap-3">
+                {[
+                  { n: "1", title: t("documentCheck.upload.step1Title"), desc: t("documentCheck.upload.step1Desc") },
+                  { n: "2", title: t("documentCheck.upload.step2Title"), desc: t("documentCheck.upload.step2Desc") },
+                  { n: "3", title: t("documentCheck.upload.step3Title"), desc: t("documentCheck.upload.step3Desc") },
+                ].map((s) => (
+                  <div key={s.n} className="rounded-xl border border-border/60 bg-muted/30 p-3 text-center">
+                    <div className="mx-auto mb-1.5 grid h-7 w-7 place-items-center rounded-full bg-[hsl(var(--gold))]/15 text-xs font-black text-[hsl(var(--gold))]">{s.n}</div>
+                    <p className="text-[11px] sm:text-xs font-bold text-foreground leading-tight">{s.title}</p>
+                    <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+
               {/* Info: više stranica */}
               <div className="mb-4 rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-3 sm:p-4">
                 <div className="flex items-start gap-2.5">
@@ -628,8 +643,8 @@ export default function DokumentenCheck() {
               </div>
 
               <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
-                {/* Glavni dropzone — samo file picker, BEZ capture (rješava Android/PWA bug) */}
-                <label className="relative flex flex-col items-center justify-center min-h-[160px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
+                {/* Glavni dropzone — file picker (PDF ili slike već snimljene na telefonu) */}
+                <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
                   <input
                     type="file"
                     multiple
@@ -638,34 +653,13 @@ export default function DokumentenCheck() {
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     onChange={(e) => addFiles(e.target.files)}
                   />
-                  <Upload className="h-10 w-10 text-[hsl(var(--gold))] mb-2" />
-                  <strong className="text-base">{t("documentCheck.upload.chooseFile")}</strong>
-                  <span className="text-sm text-muted-foreground mt-1">{t("documentCheck.upload.hint")}</span>
+                  <Upload className="h-12 w-12 text-[hsl(var(--gold))] mb-3" />
+                  <strong className="text-base sm:text-lg">{t("documentCheck.upload.chooseFile")}</strong>
+                  <span className="text-sm text-muted-foreground mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
+                  <span className="mt-3 text-[11px] text-muted-foreground/80 text-center max-w-xs">
+                    {t("documentCheck.upload.tipPhotoFromGallery")}
+                  </span>
                 </label>
-
-                {/* Posebno dugme za kameru — single shot, capture=environment radi pouzdano */}
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 h-px bg-border" />
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">{t("documentCheck.upload.or")}</span>
-                  <div className="flex-1 h-px bg-border" />
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => cameraInputRef.current?.click()}
-                  className="flex items-center justify-center gap-2 w-full min-h-[56px] rounded-xl border-2 border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/5 transition-colors px-4 py-3 font-semibold text-foreground"
-                >
-                  <Camera className="h-5 w-5 text-[hsl(var(--gold))]" />
-                  {t("documentCheck.upload.takePhoto")}
-                </button>
-                <input
-                  type="file"
-                  accept="image/*"
-                  capture="environment"
-                  ref={cameraInputRef}
-                  className="hidden"
-                  onChange={(e) => { addFiles(e.target.files); if (cameraInputRef.current) cameraInputRef.current.value = ""; }}
-                />
 
                 <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
                   <Lock className="h-3 w-3" />
