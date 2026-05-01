@@ -449,6 +449,11 @@
   "trialCta": {
     "text": "7 Tage Premium gratis — jetzt testen",
     "aria": "Premium-Probezeitraum",
-    "dismiss": "Schließen"
+    "dismiss": "Schließen",
+    "heroBanner": "🎉 7 Tage Premium gratis — bis 31.05.2026",
+    "heroSubtext": "Keine Kartendaten im Voraus · jederzeit kündbar",
+    "badge": "7 Tage gratis",
+    "badgeShort": "7 Tage frei",
+    "ctaWithTrial": "Premium aktivieren — 7 Tage gratis"
   }
 }

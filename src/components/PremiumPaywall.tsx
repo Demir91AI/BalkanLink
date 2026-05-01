@@ -85,7 +85,7 @@ export default function PremiumPaywall({ variant = "generic", overlay = false, c
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="flex flex-col gap-2 sm:flex-row"
+        className="flex flex-col items-center gap-2"
       >
         <Button className="btn-gold-gradient rounded-xl px-6 shadow-md" asChild>
           <Link to={user ? "/premium" : "/login"}>
@@ -93,6 +93,11 @@ export default function PremiumPaywall({ variant = "generic", overlay = false, c
             {c.cta}
           </Link>
         </Button>
+        {new Date() < new Date("2026-05-31T23:59:59Z") && (
+          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+            🎁 7 dana besplatno · do 31.05.2026
+          </span>
+        )}
       </motion.div>
     </div>
   );
