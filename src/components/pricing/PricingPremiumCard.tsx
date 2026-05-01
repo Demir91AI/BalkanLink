@@ -14,15 +14,23 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
       <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[hsl(var(--gold))] px-3 py-1 text-[10px] font-bold text-white whitespace-nowrap">
         NAJPOPULARNIJE
       </span>
-      <h2 className="text-lg font-bold mt-2">Premium</h2>
+      <div className="flex items-center justify-between gap-2 mt-2">
+        <h2 className="text-lg font-bold">Premium</h2>
+        <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 whitespace-nowrap">
+          🎁 7 dana free
+        </span>
+      </div>
       <p className="mt-1 text-3xl font-bold">
         {yearly ? "99,90€" : "9,99€"}
         <span className="text-sm font-normal text-muted-foreground">
           /{yearly ? "god." : "mj."}
         </span>
       </p>
-      <p className="text-xs text-muted-foreground mb-6">
+      <p className="text-xs text-muted-foreground mb-1">
         {yearly ? "8,33€/mj. — uštedi 20€" : "Otkaži u bilo kojem trenutku"}
+      </p>
+      <p className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 mb-6">
+        Probaj 7 dana besplatno · do 31.05.2026
       </p>
 
       <div className="flex-1 space-y-4 text-sm">
