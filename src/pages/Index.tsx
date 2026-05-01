@@ -179,7 +179,7 @@ export default function Index() {
       </section>
 
       {/* ─── PRICING SECTION ─── */}
-      <section className="py-16" style={{ background: "hsl(220 50% 5%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+      <section className="py-10 sm:py-12" style={{ background: "hsl(220 50% 5%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container max-w-[1200px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="text-center mb-10">
