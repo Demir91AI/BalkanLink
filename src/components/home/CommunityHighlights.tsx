@@ -22,6 +22,7 @@ export default function CommunityHighlights() {
   const { t } = useTranslation("pages");
   const [items, setItems] = useState<CQ[]>([]);
   const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
