@@ -230,16 +230,17 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     }
 
     let cancelled = false;
-    supabase.rpc("has_role", { _user_id: user.id, _role: "admin" })
-      .then(({ data, error }) => {
+    void (async () => {
+      try {
+        const { data, error } = await supabase.rpc("has_role", { _user_id: user.id, _role: "admin" });
         if (cancelled) return;
         const allowed = !error && data === true;
         setSidebarAdmin(allowed);
         if (allowed) void refreshUserMeta();
-      })
-      .catch(() => {
+      } catch {
         if (!cancelled) setSidebarAdmin(false);
-      });
+      }
+    })();
 
     return () => { cancelled = true; };
   }, [isAdmin, loading, refreshUserMeta, sidebarAdmin, user?.id]);
