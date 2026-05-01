@@ -248,7 +248,8 @@
         "f2": "Formularübersicht",
         "f3": "Brutto-Netto-Rechner",
         "f4": "Kleinanzeigen (kostenlos)",
-        "cta": "Kostenlos starten"
+        "cta": "Kostenlos starten",
+        "tagline": "Ohne Anmeldung · für immer"
       },
       "premium": {
         "label": "Premium",
@@ -277,10 +278,12 @@
         "f2": "11 Erklärungsabschnitte",
         "f3": "Fristen und finanzielle Auswirkungen",
         "f4": "PDF, JPG, PNG bis 10 MB",
-        "cta": "Dokument prüfen"
+        "cta": "Dokument prüfen",
+        "tagline": "Brief in 30 Sekunden verstehen"
       },
       "compare": {
         "title": "Kostenlos vs. Premium",
+        "tagline": "Alle Unterschiede ansehen",
         "feature": "Funktion",
         "free": "Kostenlos",
         "premium": "Premium",
