@@ -540,6 +540,67 @@ export default function DokumentenCheck() {
             </div>
           </div>
 
+          {/* ── Live brojač: koliko je provjera ostalo (Premium dnevna kvota ili plaćeni krediti) ── */}
+          {isPremium && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+              className={`flex items-center justify-between gap-3 rounded-2xl border p-4 sm:p-5 ${
+                premiumRemainingToday > 0
+                  ? "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5"
+                  : "border-amber-500/30 bg-amber-500/5"
+              }`}
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <div
+                  aria-hidden
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-base font-black"
+                  style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}
+                >
+                  {premiumRemainingToday}/{premiumDailyLimit}
+                </div>
+                <div className="min-w-0">
+                  <p className="font-bold text-sm">
+                    {premiumRemainingToday > 0
+                      ? t("documentCheck.quota.remaining", { count: premiumRemainingToday, defaultValue: "Ostalo ti je {{count}} besplatnih provjera danas" })
+                      : t("documentCheck.quota.exhausted", "Iskoristio si dnevni Premium limit")}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {premiumRemainingToday > 0
+                      ? t("documentCheck.quota.resetHint", "Brojač se resetuje sutra u 00:00 (Berlin)")
+                      : creditCount > 0
+                        ? t("documentCheck.quota.usingPaid", { count: creditCount, defaultValue: "Imaš {{count}} dodatnih plaćenih provjera" })
+                        : t("documentCheck.quota.buyExtra", "Dodatne provjere danas: 2,99€/kom ili sačekaj sutra")}
+                  </p>
+                </div>
+              </div>
+              {premiumRemainingToday === 0 && creditCount === 0 && (
+                <button
+                  onClick={startOneOffCheckout}
+                  className="shrink-0 rounded-xl bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-black hover:opacity-90"
+                >
+                  + 2,99€
+                </button>
+              )}
+            </motion.div>
+          )}
+          {!isPremium && creditCount > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+              className="flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-4"
+            >
+              <div
+                aria-hidden
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-500/20 text-emerald-300 text-lg font-black"
+              >
+                {creditCount}
+              </div>
+              <div>
+                <p className="font-bold text-sm">{t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
+              </div>
+            </motion.div>
+          )}
+
           {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
