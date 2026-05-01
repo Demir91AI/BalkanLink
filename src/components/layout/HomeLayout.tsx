@@ -21,7 +21,7 @@ export default function HomeLayout() {
     <div className="relative min-h-screen w-full flex-col">
       <AppSidebar onPWAInstall={pwa.canShowMenuEntry ? pwa.triggerManual : undefined} />
       <Header />
-      <main className="flex-1 pb-16 md:pb-0">
+      <main className="flex-1 pb-16 md:pb-0" style={{ background: "hsl(215 55% 4%)" }}>
         <Outlet />
       </main>
       <Footer onOpenCookieSettings={cookie.openPreferences} />
