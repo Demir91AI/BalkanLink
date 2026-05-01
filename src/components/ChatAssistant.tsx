@@ -1215,7 +1215,7 @@ export default function ChatAssistant() {
                     )}
 
                     {messages.map((msg, i) => (
-                      <motion.div key={i} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.1 }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                      <motion.div key={i} data-msg-idx={i} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.1 }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                         <div className="max-w-[88%] space-y-1">
                           <div className={`px-4 py-3 text-[13px] leading-relaxed ${msg.role === "user" ? "rounded-xl rounded-br-none bg-[hsl(45,93%,49%)] text-black" : "rounded-xl rounded-bl-none text-white/90"}`} style={msg.role === "assistant" ? { background: "#1F2937" } : undefined}>
                             {msg.role === "assistant" ? (
