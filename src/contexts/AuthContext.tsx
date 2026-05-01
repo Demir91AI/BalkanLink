@@ -17,6 +17,7 @@ interface AuthContextType {
   displayName: string;
   signOut: () => Promise<void>;
   refreshSubscription: () => Promise<void>;
+  refreshUserMeta: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -30,6 +31,7 @@ const AuthContext = createContext<AuthContextType>({
   displayName: "Korisniče",
   signOut: async () => {},
   refreshSubscription: async () => {},
+  refreshUserMeta: async () => {},
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -91,6 +93,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch {
       // silently fail
     }
+  }, []);
+
+  const refreshUserMeta = useCallback(async () => {
+    const { data } = await supabase.auth.getSession();
+    const userId = data.session?.user?.id;
+    if (userId) await fetchUserMeta(userId);
   }, []);
 
   useEffect(() => {
@@ -229,6 +237,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       displayName,
       signOut,
       refreshSubscription,
+      refreshUserMeta,
     }}>
       {children}
     </AuthContext.Provider>
