@@ -138,13 +138,13 @@ export default function Index() {
       {/* ─── PROCESS — "Kako funkcioniše?" (premješteno iznad Feature Cards) ─── */}
       <ProcessSection />
 
-      {/* ─── FEATURE CARDS ─── */}
-      <FeatureCards />
-
-      {/* ─── "ŠTA JE ŠTA?" EXPLAINER (odmah ispod gridova) ─── */}
+      {/* ─── "ŠTA JE ŠTA?" EXPLAINER (premješteno iznad Feature Cards) ─── */}
       <section className="py-14 px-4" style={{ background: "hsl(220 50% 6%)" }}>
         <WhatIsWhat />
       </section>
+
+      {/* ─── FEATURE CARDS ─── */}
+      <FeatureCards />
 
       {/* ─── BEFORE / AFTER ─── */}
       <BeforeAfterSection />
