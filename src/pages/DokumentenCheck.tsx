@@ -412,8 +412,14 @@ export default function DokumentenCheck() {
       if (!data?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
 
       setAnalysis(data.analysis);
-      // Refresh credits after the backend has consumed one (non-premium only).
-      if (!isPremium) await refreshCredits();
+      // Ako edge funkcija vrati ažurirani status, primijeni odmah (sinhrono);
+      // u protivnom uradi RPC refresh kao fallback.
+      if (data?.status) {
+        setPremiumRemainingToday(Number(data.status.premiumRemainingToday ?? premiumRemainingToday));
+        setCreditCount(Number(data.status.paidCredits ?? creditCount));
+      } else {
+        await refreshCredits();
+      }
     } catch (err: any) {
       const message = err.message || t("documentCheck.errors.fallback");
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
@@ -425,7 +431,7 @@ export default function DokumentenCheck() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, files, isPremium, creditCount, loading, refreshCredits, t]);
+  }, [confirmed, files, isPremium, creditCount, premiumRemainingToday, loading, refreshCredits, t]);
 
   const handleClear = useCallback(() => {
     clearFiles();
