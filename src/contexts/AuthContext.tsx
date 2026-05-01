@@ -67,10 +67,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         console.warn("[AuthContext] profile fetch error, keeping previous state:", profileRes.error.message);
       }
 
-      if (typeof adminRes.data === "boolean") {
-        setIsAdmin(adminRes.data);
-      } else if (adminRes.error) {
+      if (adminRes.error) {
         console.warn("[AuthContext] admin role check failed, keeping previous state:", adminRes.error.message);
+      } else {
+        setIsAdmin(!!adminRes.data);
       }
     } catch (err) {
       // Network error — do not flip premium off; users with active trial would be unfairly locked out.
