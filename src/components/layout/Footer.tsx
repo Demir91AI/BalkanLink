@@ -289,6 +289,8 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         @media (max-width: 639px) {
           .footer-grid-desktop { display: none !important; }
           .footer-mobile { display: block !important; }
+          .footer-payments-desktop { display: none !important; }
+          .footer-payments-mobile { display: block !important; }
         }
       `}</style>
     </footer>
