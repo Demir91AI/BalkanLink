@@ -249,38 +249,83 @@ export default function PitajDijasporu() {
             </div>
           ) : (
             <div className="grid gap-4">
-              {items.map((q) => (
-                <Link
-                  key={q.id}
-                  to={`/pitaj-dijasporu/${q.id}`}
-                  className="group rounded-2xl border p-5 transition hover:-translate-y-0.5"
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    borderColor: "rgba(255,255,255,0.08)",
-                  }}
-                >
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <h2 className="text-lg font-semibold text-white group-hover:text-[hsl(var(--gold))] transition">{q.title}</h2>
-                    {q.answer ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-300 border border-emerald-500/20 shrink-0">
-                        <CheckCircle2 className="h-3 w-3" />{T.answered}
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/50 border border-white/10 shrink-0">
-                        <Clock className="h-3 w-3" />
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-white/55 line-clamp-2 mb-3 leading-relaxed">{q.body}</p>
-                  <div className="flex items-center gap-3 text-xs text-white/40">
-                    <span>{T.by}: {q.author_name || T.anon}</span>
-                    {q.category && (
-                      <span className="rounded-full border border-white/15 px-2 py-0.5 text-[10px]">{q.category}</span>
-                    )}
-                    <span className="ml-auto flex items-center gap-1"><Eye className="h-3 w-3" />{q.view_count} {T.views}</span>
-                  </div>
-                </Link>
-              ))}
+              {items.map((q) => {
+                const initials = (q.author_name || "?")
+                  .split(" ")
+                  .map((s) => s[0])
+                  .filter(Boolean)
+                  .slice(0, 2)
+                  .join("")
+                  .toUpperCase();
+                return (
+                  <Link
+                    key={q.id}
+                    to={`/pitaj-dijasporu/${q.id}`}
+                    className="group relative rounded-2xl p-[1px] transition-all hover:-translate-y-0.5"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 50%, rgba(212,175,55,0.18) 100%)",
+                    }}
+                  >
+                    <div
+                      className="relative rounded-2xl p-5 sm:p-6 h-full backdrop-blur-sm transition-colors group-hover:bg-[hsl(215_55%_5%)]"
+                      style={{ background: "hsl(215 55% 4%)" }}
+                    >
+                      {/* Header: avatar + ime + status */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-black shadow-lg"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(45 80% 55%) 100%)",
+                          }}
+                        >
+                          {initials}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-sm font-semibold text-white truncate">
+                            {q.author_name || T.anon}
+                          </p>
+                          <p className="text-[11px] text-white/40">
+                            {new Date(q.created_at).toLocaleDateString(lang)}
+                          </p>
+                        </div>
+                        {q.answer ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300 border border-emerald-500/20 shrink-0">
+                            <CheckCircle2 className="h-3 w-3" />
+                            {T.answered}
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/50 border border-white/10 shrink-0">
+                            <Clock className="h-3 w-3" />
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Naslov + body */}
+                      <h2 className="text-lg sm:text-xl font-bold text-white leading-snug mb-2 group-hover:text-[hsl(var(--gold))] transition-colors">
+                        {q.title}
+                      </h2>
+                      <p className="text-sm text-white/55 line-clamp-2 leading-relaxed mb-4">
+                        {q.body}
+                      </p>
+
+                      {/* Footer: kategorija + views */}
+                      <div className="flex items-center gap-3 text-xs">
+                        {q.category && (
+                          <span className="rounded-full border border-[hsl(var(--gold))]/25 bg-[hsl(var(--gold))]/5 px-2.5 py-1 text-[10px] font-semibold text-[hsl(var(--gold))]">
+                            {q.category}
+                          </span>
+                        )}
+                        <span className="ml-auto flex items-center gap-1 text-white/40">
+                          <Eye className="h-3 w-3" />
+                          {q.view_count} {T.views}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>
