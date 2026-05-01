@@ -97,10 +97,15 @@ export function HeaderInstallPopup() {
       if (!insideTrigger && !insidePopup) handleDismiss();
     };
     window.addEventListener("keydown", onKey);
-    // Capture phase so it runs before other handlers
-    document.addEventListener("mousedown", onClick);
+    // Defer attaching mousedown listener by one tick so the click that opened
+    // the popup (e.g. from the UserMenu dropdown item) does not immediately
+    // trigger an "outside click" close.
+    const attachId = window.setTimeout(() => {
+      document.addEventListener("mousedown", onClick);
+    }, 0);
     return () => {
       window.removeEventListener("keydown", onKey);
+      window.clearTimeout(attachId);
       document.removeEventListener("mousedown", onClick);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
