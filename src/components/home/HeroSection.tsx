@@ -362,9 +362,9 @@ export default function HeroSection() {
                 </span>
               </button>
 
-              {/* Diskretan Promo chip ispod banera */}
-              <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/40 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em] text-muted-foreground/80">
-                <span className="h-1 w-1 rounded-full bg-[hsl(var(--gold))]/80" aria-hidden />
+              {/* Diskretan Promo chip — odvojen od pulse ring-a banera */}
+              <span className="relative z-20 mt-6 inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--gold))]/40 bg-slate-950/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[hsl(var(--gold))] shadow-sm backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--gold))]" aria-hidden />
                 {tc("trialCta.promoLabel")}
               </span>
             </motion.div>
