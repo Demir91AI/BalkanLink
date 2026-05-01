@@ -44,13 +44,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const fetchUserMeta = async (userId: string) => {
     setProfileLoading(true);
     try {
-      const [profileRes, roleRes] = await Promise.all([
+      const [profileRes, adminRes] = await Promise.all([
         supabase
           .from("profiles")
           .select("is_premium, first_name, subscription_tier, subscription_expires_at")
           .eq("id", userId)
           .maybeSingle(),
-        supabase.from("user_roles").select("role").eq("user_id", userId),
+        supabase.rpc("has_role", { _user_id: userId, _role: "admin" }),
       ]);
 
       if (profileRes.data) {
@@ -67,8 +67,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         console.warn("[AuthContext] profile fetch error, keeping previous state:", profileRes.error.message);
       }
 
-      if (roleRes.data) {
-        setIsAdmin(roleRes.data.some((r) => r.role === "admin"));
+      if (typeof adminRes.data === "boolean") {
+        setIsAdmin(adminRes.data);
+      } else if (adminRes.error) {
+        console.warn("[AuthContext] admin role check failed, keeping previous state:", adminRes.error.message);
       }
     } catch (err) {
       // Network error — do not flip premium off; users with active trial would be unfairly locked out.
