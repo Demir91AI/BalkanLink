@@ -239,9 +239,9 @@ export default function Pricing() {
                   <Crown className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
                   Premium
                 </p>
-                <p className="text-xs text-muted-foreground">Dodatne provjere isti dan = 2,99€/kom</p>
+                <p className="text-xs text-muted-foreground">Nakon 5 provjera isti dan = 2,99€/kom</p>
               </div>
-              <span className="font-bold text-[hsl(var(--gold))]">1×/dan gratis</span>
+              <span className="font-bold text-[hsl(var(--gold))]">5×/dan gratis</span>
             </div>
           </div>
         </div>

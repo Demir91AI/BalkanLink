@@ -140,7 +140,7 @@ export default function Paketi() {
                 <Ft yes>Personalizirani savjeti za tvoju situaciju</Ft>
               </Cat>
               <Cat title="🔍 DOKUMENTEN-CHECK">
-                <Ft yes>1 provjera dokumenta dnevno gratis</Ft>
+                <Ft yes>5 provjera dokumenata dnevno gratis</Ft>
                 <Ft yes>Objašnjenje na tvom jeziku</Ft>
               </Cat>
               <Cat title="🇩🇪 DEUTSCH TRAINER">
@@ -227,7 +227,7 @@ const comparisonRows = [
   { label: "Musterformulari", free: "❌", premium: "✅ Svi uključeni" },
   { label: "Smart Guides", free: "❌", premium: "✅ Svi koraci" },
   { label: "Viza Navigator", free: "Osnovno", premium: "✅ Kompletno" },
-  { label: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 1×/dan gratis" },
+  { label: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 5×/dan gratis" },
   { label: "Šabloni", free: "✅ 2 gratis", premium: "✅ Svi + PDF" },
   { label: "Asistent", free: "⚠️ 5/dan", premium: "✅ Neograničeno" },
   { label: "DeutschTrainer", free: "3 lekcije/nivo", premium: "✅ A1–C2 sve" },
