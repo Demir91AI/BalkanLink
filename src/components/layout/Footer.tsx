@@ -404,8 +404,11 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         <p style={{ fontSize: 14, color: "#EAB308", fontWeight: 800, letterSpacing: 0.2, marginBottom: 4 }}>
           Bosnischer Kulturverein Freilassing e.V.
         </p>
-        <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", fontWeight: 400, marginBottom: 20 }}>
+        <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", fontWeight: 400, marginBottom: 4 }}>
           Kultura, zajednica, integracija.
+        </p>
+        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", fontWeight: 400, marginBottom: 20 }}>
+          Am Feuerhaus 3, 83395 Freilassing
         </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
           {t("common:footer.copyright")}
