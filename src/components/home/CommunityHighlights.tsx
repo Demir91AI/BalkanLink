@@ -76,16 +76,16 @@ export default function CommunityHighlights() {
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8"
         >
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[hsl(var(--gold))]">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               {t("home.community.label", "Pitaj dijasporu")}
-            </p>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl font-extrabold text-white">
-              {t("home.community.heading", "Pitanja iz zajednice — i odgovori")}
             </h2>
-            <p className="mt-2 text-sm text-white/55 max-w-xl">
+            <p className="mt-3 text-lg sm:text-xl font-semibold text-[hsl(var(--gold))]">
+              {t("home.community.heading", "Pitanja i odgovori iz zajednice")}
+            </p>
+            <p className="mt-3 text-sm sm:text-base text-white/60 max-w-xl leading-relaxed">
               {t(
                 "home.community.subline",
-                "Postavi pitanje, dobij konkretan odgovor od ljudi koji su prošli isto. Bez čekanja na šalteru.",
+                "Postavi pitanje, pitaj za iskustvo i dobij konkretan odgovor od ljudi koji su prošli isto. Bez čekanja na šalteru.",
               )}
             </p>
           </div>
