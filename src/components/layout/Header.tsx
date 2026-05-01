@@ -155,12 +155,6 @@ export default function Header() {
             </span>
           </Link>
 
-          {!loading && isAdmin && (
-            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-400 backdrop-blur-sm">
-              <ShieldCheck className="h-2.5 w-2.5" />
-              Admin
-            </span>
-          )}
         </div>
 
         {/* RIGHT: Premium CTA + User icon */}
