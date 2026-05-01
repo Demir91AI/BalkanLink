@@ -19,6 +19,7 @@ import {
   type UserProfile, type Feedback,
   isOnboardingDone, loadFeedback, saveFeedback, loadProfile,
   extractSuggestions, getPageContext, getContextualWelcome,
+  getPageTopicLabel, getContextualPromptChips,
 } from "@/components/chat/chatUtils";
 
 type SiteTopicAction = { url: string; label: string };
