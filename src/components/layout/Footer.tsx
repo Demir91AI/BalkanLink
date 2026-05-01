@@ -266,47 +266,72 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
           </div>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 12,
-            marginBottom: 28,
-          }}
-        >
-          {[
-            { name: "Edina H.", city: "München", rating: 5, text: "Konačno sam našla sve formulare i objašnjenja na bosanskom. Anmeldung sam riješila za pola sata. Svaka čast!" },
-            { name: "Marko P.", city: "Stuttgart", rating: 5, text: "Asistent mi je objasnio Steuerklasse bolje nego Steuerberater. Vrijedi svake marke za Premium." },
-            { name: "Senad B.", city: "Berlin", rating: 5, text: "Dokumenten-Check mi je uštedio termin kod prevoditelja. Brzo, jasno, na našem jeziku." },
-            { name: "Ivana K.", city: "Frankfurt", rating: 5, text: "Deutsch Trainer je top, koristim ga svaki dan u pauzi na poslu. Lekcije su kratke i konkretne." },
-            { name: "Damir N.", city: "Hamburg", rating: 4, text: "Sve super, samo bi mogli dodati više primjera za Anerkennung diplome iz Srbije. Inače preporuka." },
-            { name: "Jelena S.", city: "Köln", rating: 4, text: "Sviđa mi se ideja i dizajn. Ponekad asistent malo sporije odgovori, ali informacije su tačne. Pohvala za trud." },
-            { name: "Amer Č.", city: "Düsseldorf", rating: 3, text: "Dobra platforma, ali fali mi sekcija za priznavanje zanata (HWK) sa konkretnim primjerima. Sugestija za update." },
-          ].map((r) => (
-            <div
-              key={r.name}
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: 10,
-                padding: "14px 14px 12px",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
-                <span style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.85)" }}>
-                  {r.name} <span style={{ color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>· {r.city}</span>
-                </span>
-                <span aria-label={`${r.rating}/5`} style={{ fontSize: 11, letterSpacing: 1, color: "#EAB308" }}>
-                  {"★".repeat(r.rating)}
-                  <span style={{ color: "rgba(234,179,8,0.25)" }}>{"★".repeat(5 - r.rating)}</span>
-                </span>
+        <details style={{ marginBottom: 28, textAlign: "center" }}>
+          <summary
+            style={{
+              cursor: "pointer",
+              listStyle: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 12,
+              fontWeight: 600,
+              color: "rgba(255,255,255,0.7)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              background: "rgba(255,255,255,0.03)",
+              borderRadius: 20,
+              padding: "6px 14px",
+              userSelect: "none",
+            }}
+            className="footer-reviews-summary"
+          >
+            Prikaži pisane recenzije
+            <ChevronDown size={14} style={{ opacity: 0.6 }} />
+          </summary>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 12,
+              marginTop: 16,
+              textAlign: "left",
+            }}
+          >
+            {[
+              { name: "Edina H.", city: "München", rating: 5, text: "Konačno sam našla sve formulare i objašnjenja na bosanskom. Anmeldung sam riješila za pola sata. Svaka čast!" },
+              { name: "Marko P.", city: "Stuttgart", rating: 5, text: "Asistent mi je objasnio Steuerklasse bolje nego Steuerberater. Vrijedi svake marke za Premium." },
+              { name: "Senad B.", city: "Berlin", rating: 5, text: "Dokumenten-Check mi je uštedio termin kod prevoditelja. Brzo, jasno, na našem jeziku." },
+              { name: "Ivana K.", city: "Frankfurt", rating: 5, text: "Deutsch Trainer je top, koristim ga svaki dan u pauzi na poslu. Lekcije su kratke i konkretne." },
+              { name: "Damir N.", city: "Hamburg", rating: 4, text: "Sve super, samo bi mogli dodati više primjera za Anerkennung diplome iz Srbije. Inače preporuka." },
+              { name: "Jelena S.", city: "Köln", rating: 4, text: "Sviđa mi se ideja i dizajn. Ponekad asistent malo sporije odgovori, ali informacije su tačne. Pohvala za trud." },
+              { name: "Amer Č.", city: "Düsseldorf", rating: 3, text: "Dobra platforma, ali fali mi sekcija za priznavanje zanata (HWK) sa konkretnim primjerima. Sugestija za update." },
+            ].map((r) => (
+              <div
+                key={r.name}
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: 10,
+                  padding: "14px 14px 12px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.85)" }}>
+                    {r.name} <span style={{ color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>· {r.city}</span>
+                  </span>
+                  <span aria-label={`${r.rating}/5`} style={{ fontSize: 11, letterSpacing: 1, color: "#EAB308" }}>
+                    {"★".repeat(r.rating)}
+                    <span style={{ color: "rgba(234,179,8,0.25)" }}>{"★".repeat(5 - r.rating)}</span>
+                  </span>
+                </div>
+                <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.65)", lineHeight: 1.55, margin: 0 }}>
+                  „{r.text}"
+                </p>
               </div>
-              <p style={{ fontSize: 12.5, color: "rgba(255,255,255,0.65)", lineHeight: 1.55, margin: 0 }}>
-                „{r.text}"
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </details>
       </div>
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
