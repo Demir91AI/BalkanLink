@@ -157,8 +157,10 @@ export default function Index() {
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />
 
-      {/* ─── TRUST ─── */}
-      <TrustSection />
+      {/* ─── COLLAPSIBLE: TRUST — "Zašto korisnici vjeruju BalkanLink-u?" ─── */}
+      <CollapsibleSection title={t("home.trust.heading")} background="hsl(215 55% 4%)">
+        <TrustSection />
+      </CollapsibleSection>
 
       {/* ─── COMMUNITY HIGHLIGHTS — Pitaj dijasporu ─── */}
       <CommunityHighlights />
