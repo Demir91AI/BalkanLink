@@ -139,6 +139,11 @@ export default function Index() {
       {/* ─── FEATURE CARDS ─── */}
       <FeatureCards />
 
+      {/* ─── "ŠTA JE ŠTA?" EXPLAINER (odmah ispod gridova) ─── */}
+      <section className="py-14 px-4" style={{ background: "hsl(220 50% 6%)" }}>
+        <WhatIsWhat />
+      </section>
+
       {/* ─── BEFORE / AFTER ─── */}
       <BeforeAfterSection />
 
@@ -153,11 +158,6 @@ export default function Index() {
 
       {/* ─── COMMUNITY HIGHLIGHTS — Pitaj dijasporu ─── */}
       <CommunityHighlights />
-
-      {/* ─── "ŠTA JE ŠTA?" EXPLAINER ─── */}
-      <section className="py-14 px-4" style={{ background: "hsl(220 50% 6%)" }}>
-        <WhatIsWhat />
-      </section>
 
       {/* ─── PARTNERS / SHOWCASE ─── */}
       <section className="py-16" style={{ background: "hsl(215 55% 4%)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>

@@ -48,16 +48,18 @@ export default function WhatIsWhat() {
               borderLeft: "3px solid hsl(var(--gold))",
             }}
           >
-            <AccordionTrigger className="px-4 py-3.5 hover:no-underline gap-3 [&>svg]:text-[hsl(var(--gold))]">
-              <span className="flex items-center gap-3 text-left">
-                <span className="text-lg shrink-0">{card.emoji}</span>
-                <span className="text-[15px] font-bold text-white">{t(`home.whatIsWhat.${card.key}.name`)}</span>
+            <AccordionTrigger className="px-4 py-3 hover:no-underline gap-3 [&>svg]:text-[hsl(var(--gold))] [&>svg]:shrink-0 [&>svg]:self-start [&>svg]:mt-1.5">
+              <span className="flex items-start gap-3 text-left flex-1 min-w-0">
+                <span className="text-lg shrink-0 mt-0.5">{card.emoji}</span>
+                <span className="flex flex-col gap-0.5 min-w-0">
+                  <span className="text-[15px] font-bold text-white leading-tight">{t(`home.whatIsWhat.${card.key}.name`)}</span>
+                  <span className="text-[12px] text-[hsl(var(--gold))]/85 leading-snug font-medium line-clamp-2">
+                    {t(`home.whatIsWhat.${card.key}.tagline`)}
+                  </span>
+                </span>
               </span>
             </AccordionTrigger>
             <AccordionContent className="px-4 pb-4 pt-0">
-              <p className="text-sm font-semibold text-[hsl(var(--gold))] mb-2">
-                {t(`home.whatIsWhat.${card.key}.tagline`)}
-              </p>
               <p className="text-sm text-white/60 leading-relaxed mb-2">
                 {t(`home.whatIsWhat.${card.key}.explanation`)}
               </p>
