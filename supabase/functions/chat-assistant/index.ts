@@ -1288,6 +1288,222 @@ function buildContextualPremiumRedirect(userText: string, lang: string): { text:
 }
 
 // ══════════════════════════════════════════════════
+// PAGE → OFFICIAL SOURCES MAP
+// Used to give Asistent EXACT, AUTHORITATIVE context when the user
+// is on a specific topic page and asks "Pitaj o ovom...".
+// ══════════════════════════════════════════════════
+
+type PageSource = { topic: string; sources: string[] };
+
+const PAGE_OFFICIAL_SOURCES: { match: RegExp; data: PageSource }[] = [
+  // ── Formulari (Smart Guides) ──
+  { match: /\/formulari\/anmeldung/i, data: { topic: "Anmeldung (prijava prebivališta)",
+    sources: [
+      "service.berlin.de/dienstleistung/120335/ — Berlin Anmeldung",
+      "muenchen.de/rathaus/wohnen/anmeldung — München Anmeldung",
+      "Bundesmeldegesetz §17 (rok 14 dana, kazna do 1.000€)",
+      "Wohnungsgeberbestätigung — obavezna potvrda stanodavca (§19 BMG)",
+    ]}},
+  { match: /\/formulari\/kindergeld/i, data: { topic: "Kindergeld",
+    sources: [
+      "arbeitsagentur.de/familie-und-kinder/kindergeld",
+      "familienkasse.de — online zahtjev (KG1 + KG1-Anlage Kind)",
+      "Stand 2026: 255€/mjesečno po djetetu",
+      "Retroaktivno max 6 mjeseci unazad (§70 EStG)",
+    ]}},
+  { match: /\/formulari\/elterngeld/i, data: { topic: "Elterngeld",
+    sources: [
+      "familienportal.de/elterngeld",
+      "elterngeld-digital.de — online zahtjev",
+      "BEEG (Bundeselterngeld- und Elternzeitgesetz)",
+      "65–67% neto plate, min 300€, max 1.800€/mj",
+    ]}},
+  { match: /\/formulari\/buergergeld/i, data: { topic: "Bürgergeld",
+    sources: [
+      "arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld",
+      "Stand 2026: 563€/mj. samac + Miete + Heizung",
+      "SGB II — Sozialgesetzbuch II",
+      "Zahtjev se predaje u nadležni Jobcenter (po Anmeldung adresi)",
+    ]}},
+  { match: /\/formulari\/wohngeld/i, data: { topic: "Wohngeld",
+    sources: [
+      "bmwsb.bund.de/wohngeld — savezni info portal",
+      "Wohngeldgesetz (WoGG)",
+      "Zahtjev se predaje u Wohngeldstelle nadležne općine",
+    ]}},
+  { match: /\/formulari\/bafoeg/i, data: { topic: "BAföG",
+    sources: [
+      "bafoeg-digital.de — online zahtjev",
+      "Bundesausbildungsförderungsgesetz (BAföG)",
+      "Stand 2026: max 992€/mj.",
+    ]}},
+  { match: /\/formulari\/arbeitslosengeld/i, data: { topic: "Arbeitslosengeld I",
+    sources: [
+      "arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld",
+      "SGB III — uslov: 12 mj. uplaćivanog osiguranja u zadnje 30 mj.",
+      "Prijava OBAVEZNA najkasnije 3 dana nakon saznanja o otkazu",
+    ]}},
+  { match: /\/formulari\/krankengeld/i, data: { topic: "Krankengeld",
+    sources: [
+      "Tvoja Krankenkasse (TK, AOK, Barmer, DAK, IKK)",
+      "SGB V §44–51",
+      "70% bruto / 90% neto, max 78 sedmica za istu dijagnozu",
+    ]}},
+  { match: /\/formulari\/fuehrungszeugnis/i, data: { topic: "Führungszeugnis",
+    sources: [
+      "bundesjustizamt.de/DE/Themen/Buergerdienste/BZR/Fuehrungszeugnis",
+      "Online preko Bürgerportal sa novim ličnim (eID)",
+      "Trošak: 13€",
+    ]}},
+  { match: /\/formulari\/integrationskurs/i, data: { topic: "Integrationskurs",
+    sources: [
+      "bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse",
+      "AufenthG §44 — pravo i obaveza",
+      "600 sati jezika + 100 sati orijentacije",
+    ]}},
+
+  // ── Dolazak ──
+  { match: /\/dolazak\/prijava-prebivalista/i, data: { topic: "Anmeldung (prijava prebivališta)",
+    sources: [
+      "Bundesmeldegesetz (BMG) §17 — rok 14 dana",
+      "Lokalni Bürgeramt / KVR / Einwohnermeldeamt",
+      "Wohnungsgeberbestätigung obavezna",
+    ]}},
+  { match: /\/dolazak\/zdravstveno-osiguranje/i, data: { topic: "Zdravstveno osiguranje",
+    sources: [
+      "gkv-spitzenverband.de — savez gesetzliche kasa",
+      "Stand 2026: doprinos 14,6% + Zusatzbeitrag (~1,7%)",
+      "TK, AOK, Barmer, DAK, IKK",
+    ]}},
+  { match: /\/dolazak\/steuer-id-i-porezna-klasa/i, data: { topic: "Steuer-ID i porezne klase",
+    sources: [
+      "bzst.de — Bundeszentralamt für Steuern (Steuer-ID)",
+      "elster.de — promjena Steuerklasse (Antrag auf Steuerklassenwechsel)",
+      "Steuerklasse I, II, III/V, IV, IV+Faktor, VI",
+    ]}},
+  { match: /\/dolazak\/fuehrerschein/i, data: { topic: "Vozačka dozvola u Njemačkoj",
+    sources: [
+      "bmdv.bund.de — Bundesministerium für Digitales und Verkehr",
+      "FeV (Fahrerlaubnis-Verordnung)",
+      "BiH/SR/MK/AL/XK — vozačka važi 6 mjeseci nakon Anmeldunga, zatim Umschreibung u Führerscheinstelle",
+    ]}},
+  { match: /\/dolazak\/auto-anmelden/i, data: { topic: "Registracija auta",
+    sources: [
+      "Lokalna Zulassungsstelle / KFZ-Zulassungsbehörde",
+      "Treba: eVB-Nummer (osiguranje), TÜV/HU, lični, vlasnički",
+    ]}},
+  { match: /\/dolazak\/bankovni-racun/i, data: { topic: "Bankovni račun",
+    sources: [
+      "ZKG (Zahlungskontengesetz) — pravo na Basiskonto za sve",
+      "N26, DKB, ING, Sparkasse, Volksbank, Comdirect",
+    ]}},
+  { match: /\/dolazak\/rundfunkbeitrag/i, data: { topic: "Rundfunkbeitrag (GEZ)",
+    sources: [
+      "rundfunkbeitrag.de",
+      "Stand 2026: 18,36€/mj. po stanu (ne po osobi)",
+      "Befreiung mogu Bürgergeld/BAföG primaoci",
+    ]}},
+  { match: /\/dolazak\/sozialversicherung/i, data: { topic: "Sozialversicherung",
+    sources: [
+      "Deutsche Rentenversicherung (deutsche-rentenversicherung.de)",
+      "5 stubova: KV, RV, ALV, PV, UV",
+    ]}},
+
+  // ── Porezi ──
+  { match: /\/porezi\/elster/i, data: { topic: "ELSTER",
+    sources: [
+      "elster.de — službeni portal Finanzamta",
+      "Registracija sa Steuer-ID, certifikat stiže poštom (oko 14 dana)",
+    ]}},
+  { match: /\/porezi\/rokovi-i-kazne/i, data: { topic: "Porezni rokovi i kazne",
+    sources: [
+      "AO (Abgabenordnung) §149, §152",
+      "Standardni rok prijave: 31.07. naredne godine",
+      "Sa Steuerberaterom: kraj februara druge naredne godine",
+      "Verspätungszuschlag: min 25€/mj. zakašnjenja",
+    ]}},
+  { match: /\/porezi\/porodica-i-klase/i, data: { topic: "Porezne klase",
+    sources: [
+      "EStG §38b",
+      "elster.de — Antrag auf Steuerklassenwechsel bei Ehegatten",
+      "Promjena vrijedi od narednog mjeseca",
+    ]}},
+  { match: /\/porezi/i, data: { topic: "Porezi u Njemačkoj",
+    sources: [
+      "elster.de — službeni online portal Finanzamta",
+      "EStG (Einkommensteuergesetz)",
+      "Tvoj nadležni Finanzamt (po adresi Anmeldunga)",
+    ]}},
+
+  // ── Anerkennung ──
+  { match: /\/anerkennung/i, data: { topic: "Anerkennung (priznavanje diplome)",
+    sources: [
+      "anerkennung-in-deutschland.de — savezni portal (BIBB)",
+      "anabin.kmk.org — baza fakulteta i diploma",
+      "Nadležna Kammer (HWK, IHK, Ärztekammer, Ingenieurkammer)",
+      "BQFG — Berufsqualifikationsfeststellungsgesetz",
+    ]}},
+
+  // ── Visa ──
+  { match: /\/viza/i, data: { topic: "Vize i boravišne dozvole",
+    sources: [
+      "auswaertiges-amt.de — Ministarstvo vanjskih poslova",
+      "make-it-in-germany.com — savezni portal za radnike",
+      "AufenthG (Aufenthaltsgesetz)",
+      "Westbalkan-Regelung §26 Abs. 2 BeschV (BA, RS, ME, MK, AL, XK)",
+    ]}},
+
+  // ── Radno pravo / Mietrecht / Biznis ──
+  { match: /\/radno-pravo/i, data: { topic: "Radno pravo (Arbeitsrecht)",
+    sources: [
+      "BGB §611a–§630 (radni odnos)",
+      "KSchG (Kündigungsschutzgesetz)",
+      "ArbZG (Arbeitszeitgesetz) — max 8h/dan, 48h/sedmica",
+      "Stand 2026: minimalna plata 12,82€/h",
+    ]}},
+  { match: /\/mietrecht/i, data: { topic: "Mietrecht (stanarsko pravo)",
+    sources: [
+      "BGB §535–§580a",
+      "Mietspiegel grada (npr. Berlin, München, Hamburg)",
+      "Mieterbund / Mieterverein — savjetovanje",
+    ]}},
+  { match: /\/biznis/i, data: { topic: "Biznis u Njemačkoj (Gewerbe/Selbständigkeit)",
+    sources: [
+      "Gewerbeamt (lokalna prijava)",
+      "Finanzamt — Fragebogen zur steuerlichen Erfassung (preko ELSTER)",
+      "IHK / HWK po branši",
+      "§19 UStG — Kleinunternehmer (granica 25.000€/22.000€)",
+    ]}},
+];
+
+function detectPageSources(currentPage: string): PageSource | null {
+  if (!currentPage) return null;
+  for (const entry of PAGE_OFFICIAL_SOURCES) {
+    if (entry.match.test(currentPage)) return entry.data;
+  }
+  return null;
+}
+
+function buildEnrichedPageContext(currentPage: string): string {
+  if (!currentPage) return "";
+  const src = detectPageSources(currentPage);
+  if (!src) {
+    return `Korisnik se trenutno nalazi na stranici: ${currentPage}`;
+  }
+  return `Korisnik se trenutno nalazi na stranici: ${currentPage}
+TEMA STRANICE: ${src.topic}
+
+⚠️ KONTEKSTUALNA TAČNOST — OBAVEZNO:
+Korisnik je na konkretnoj stranici i može pitati "Pitaj o ovom...". Tvoj odgovor MORA:
+1. Biti vezan ISKLJUČIVO za temu "${src.topic}"
+2. Koristiti SAMO informacije iz ovih oficijelnih izvora:
+${src.sources.map(s => `   • ${s}`).join("\n")}
+3. Ako pitanje izlazi iz teme — kratko reci da je za to bolja druga BalkanLink stranica i predloži link
+4. Ako odgovor nije u oficijelnim izvorima — reci direktno: "Za tačan odgovor provjeri direktno na zvaničnoj stranici [link]" — NIKAD ne improvizuj brojeve, rokove, paragrafe
+5. Citiraj ime izvora kad navodiš konkretan podatak (npr. "Prema Bundesmeldegesetz §17, rok je 14 dana...")`;
+}
+
+// ══════════════════════════════════════════════════
 // MAIN HANDLER
 // ══════════════════════════════════════════════════
 
@@ -1298,7 +1514,7 @@ serve(async (req) => {
 
   try {
     const { messages, isPremium, language, currentPage } = await req.json();
-    const pageContext = currentPage ? `Korisnik se trenutno nalazi na stranici: ${currentPage}` : "";
+    const pageContext = buildEnrichedPageContext(currentPage || "");
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 

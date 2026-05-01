@@ -19,6 +19,7 @@ import {
   type UserProfile, type Feedback,
   isOnboardingDone, loadFeedback, saveFeedback, loadProfile,
   extractSuggestions, getPageContext, getContextualWelcome,
+  getPageTopicLabel, getContextualPromptChips,
 } from "@/components/chat/chatUtils";
 
 type SiteTopicAction = { url: string; label: string };
@@ -950,6 +951,8 @@ export default function ChatAssistant() {
   const showStartScreen = messages.length === 0 && !showOnboarding && !showBenefitCalc;
   const contextWelcome = getContextualWelcome(location.pathname);
   const welcomeMsg = contextWelcome || DEFAULT_WELCOME;
+  const pageTopic = getPageTopicLabel(location.pathname);
+  const contextualChips = getContextualPromptChips(location.pathname);
 
   return (
     <>
@@ -1115,12 +1118,39 @@ export default function ChatAssistant() {
                     {showStartScreen && (
                       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
                         <div className="flex justify-start">
-                          <div className="max-w-[88%]">
+                          <div className="max-w-[88%] space-y-2">
+                            {pageTopic && (
+                              <div className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(45,93%,49%)]/30 bg-[hsl(45,93%,49%)]/10 px-2.5 py-1 text-[10px] font-semibold text-[hsl(45,93%,49%)]">
+                                <span className="h-1.5 w-1.5 rounded-full bg-[hsl(45,93%,49%)]" />
+                                Pitam o: {pageTopic}
+                              </div>
+                            )}
                             <div className="rounded-xl rounded-bl-none px-4 py-3 text-[13px] leading-relaxed text-white/90" style={{ background: "#1F2937" }}>
                               {welcomeMsg}
                             </div>
                           </div>
                         </div>
+
+                        {contextualChips.length > 0 && (
+                          <div className="space-y-1.5 px-1">
+                            <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">Brzi prijedlozi za ovu stranicu</p>
+                            <div className="flex flex-col gap-1.5">
+                              {contextualChips.map((chip, i) => (
+                                <motion.button
+                                  key={i}
+                                  initial={{ opacity: 0, x: -4 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.2, delay: 0.1 + i * 0.05 }}
+                                  onClick={() => sendMessageWithText(chip)}
+                                  className="flex items-center gap-2 rounded-xl border border-[hsl(45,93%,49%)]/20 bg-[hsl(45,93%,49%)]/5 px-3 py-2.5 text-left text-[12px] font-medium text-white/85 transition-all hover:bg-[hsl(45,93%,49%)]/10 hover:border-[hsl(45,93%,49%)]/40 active:scale-[0.98]"
+                                >
+                                  <span className="text-[hsl(45,93%,49%)]">→</span>
+                                  <span className="flex-1">{chip}</span>
+                                </motion.button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
 
                         <div className="grid grid-cols-2 gap-2 px-1">
                           {STARTER_QUESTIONS.map((q, i) => (

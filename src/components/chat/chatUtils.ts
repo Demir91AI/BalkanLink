@@ -335,3 +335,50 @@ export function getContextualWelcome(pathname: string): string | null {
   if (pathname.startsWith("/wohnungen")) return "Tražiš stan? 🏠 Mogu ti pomoći s pretragom ili objasniti na šta obratiti pažnju.";
   return null;
 }
+
+// Returns a short topic label for "Pitam o: [topic]" badge in the chat header.
+export function getPageTopicLabel(pathname: string): string | null {
+  if (pathname.startsWith("/formulari/anmeldung")) return "Anmeldung";
+  if (pathname.startsWith("/formulari/kindergeld")) return "Kindergeld";
+  if (pathname.startsWith("/formulari/elterngeld")) return "Elterngeld";
+  if (pathname.startsWith("/formulari/buergergeld")) return "Bürgergeld";
+  if (pathname.startsWith("/formulari/wohngeld")) return "Wohngeld";
+  if (pathname.startsWith("/formulari/bafoeg")) return "BAföG";
+  if (pathname.startsWith("/formulari/arbeitslosengeld")) return "Arbeitslosengeld I";
+  if (pathname.startsWith("/formulari/krankengeld")) return "Krankengeld";
+  if (pathname.startsWith("/formulari/fuehrungszeugnis")) return "Führungszeugnis";
+  if (pathname.startsWith("/formulari/integrationskurs")) return "Integrationskurs";
+  if (pathname.startsWith("/formulari/")) {
+    const slug = pathname.replace("/formulari/", "").split("/")[0];
+    return slug.charAt(0).toUpperCase() + slug.slice(1);
+  }
+  if (pathname.startsWith("/dolazak/prijava-prebivalista")) return "Anmeldung";
+  if (pathname.startsWith("/dolazak/zdravstveno-osiguranje")) return "Zdravstveno osiguranje";
+  if (pathname.startsWith("/dolazak/steuer-id-i-porezna-klasa")) return "Steuer-ID i porezne klase";
+  if (pathname.startsWith("/dolazak/fuehrerschein")) return "Vozačka dozvola";
+  if (pathname.startsWith("/dolazak/auto-anmelden")) return "Registracija auta";
+  if (pathname.startsWith("/dolazak/bankovni-racun")) return "Bankovni račun";
+  if (pathname.startsWith("/dolazak/rundfunkbeitrag")) return "Rundfunkbeitrag";
+  if (pathname.startsWith("/dolazak/sozialversicherung")) return "Sozialversicherung";
+  if (pathname.startsWith("/porezi/elster")) return "ELSTER";
+  if (pathname.startsWith("/porezi/rokovi-i-kazne")) return "Porezni rokovi";
+  if (pathname.startsWith("/porezi/porodica-i-klase")) return "Porezne klase";
+  if (pathname.startsWith("/porezi")) return "Porezi";
+  if (pathname.startsWith("/anerkennung")) return "Anerkennung";
+  if (pathname.startsWith("/viza")) return "Vize";
+  if (pathname.startsWith("/radno-pravo")) return "Radno pravo";
+  if (pathname.startsWith("/mietrecht")) return "Mietrecht";
+  if (pathname.startsWith("/biznis")) return "Biznis u Njemačkoj";
+  return null;
+}
+
+// Returns 3 contextual starter prompts for the topic the user is on.
+export function getContextualPromptChips(pathname: string): string[] {
+  const topic = getPageTopicLabel(pathname);
+  if (!topic) return [];
+  return [
+    `Pitaj o ovom: ${topic} — objasni mi ukratko`,
+    `Koji su rokovi i kazne za ${topic}?`,
+    `Gdje se predaje zahtjev za ${topic} i šta mi treba?`,
+  ];
+}
