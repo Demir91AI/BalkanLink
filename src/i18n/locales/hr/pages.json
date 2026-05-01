@@ -248,7 +248,8 @@
         "f2": "Pregled formulara",
         "f3": "Brutto-Netto kalkulator",
         "f4": "Oglasi (besplatno)",
-        "cta": "Počni besplatno"
+        "cta": "Počni besplatno",
+        "tagline": "Bez registracije · zauvijek"
       },
       "premium": {
         "label": "Premium",
@@ -277,10 +278,12 @@
         "f2": "11 sekcija objašnjenja",
         "f3": "Rokovi i financijski uticaj",
         "f4": "PDF, JPG, PNG do 10 MB",
-        "cta": "Provjeri dokument"
+        "cta": "Provjeri dokument",
+        "tagline": "Razumi pismo za 30 sekundi"
       },
       "compare": {
         "title": "Besplatno vs. Premium",
+        "tagline": "Pogledaj sve razlike",
         "feature": "Funkcija",
         "free": "Besplatno",
         "premium": "Premium",
