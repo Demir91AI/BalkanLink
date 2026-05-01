@@ -1,11 +1,16 @@
 import { Loader2, RotateCw } from "lucide-react";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 
 interface PullToRefreshIndicatorProps {
-  distance: number;
-  refreshing: boolean;
+  distance?: number;
+  refreshing?: boolean;
 }
 
-export default function PullToRefreshIndicator({ distance, refreshing }: PullToRefreshIndicatorProps) {
+export default function PullToRefreshIndicator(props: PullToRefreshIndicatorProps = {}) {
+  const internal = usePullToRefresh();
+  const distance = props.distance ?? internal.distance;
+  const refreshing = props.refreshing ?? internal.refreshing;
+
   const visible = distance > 4 || refreshing;
   const progress = Math.min(1, distance / 56);
 
