@@ -179,6 +179,50 @@ export type Database = {
         }
         Relationships: []
       }
+      community_answers: {
+        Row: {
+          author_name: string | null
+          body: string
+          created_at: string
+          id: string
+          question_id: string
+          status: string
+          updated_at: string
+          upvotes: number
+          user_id: string | null
+        }
+        Insert: {
+          author_name?: string | null
+          body: string
+          created_at?: string
+          id?: string
+          question_id: string
+          status?: string
+          updated_at?: string
+          upvotes?: number
+          user_id?: string | null
+        }
+        Update: {
+          author_name?: string | null
+          body?: string
+          created_at?: string
+          id?: string
+          question_id?: string
+          status?: string
+          updated_at?: string
+          upvotes?: number
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "community_answers_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "community_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       community_listings: {
         Row: {
           address: string | null

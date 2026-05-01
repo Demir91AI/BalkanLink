@@ -45,7 +45,7 @@ export default function AdminPitanja() {
     setBusy(id);
     const { error } = await supabase.from("community_questions").update({
       answer,
-      answered_by: user?.user_metadata?.first_name || "BalkanLink Tim",
+      answered_by: user?.user_metadata?.first_name || "Dijaspora",
       answered_at: new Date().toISOString(),
       status: "published",
     }).eq("id", id);

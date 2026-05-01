@@ -7,7 +7,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,
 } from "@/components/ui/dialog";
@@ -31,7 +30,7 @@ interface CQ {
 const COPY = {
   bs: {
     title: "Pitaj dijasporu",
-    intro: "Postavi pitanje – odgovorit će ti tim BalkanLink ili neko iz dijaspore koji je prošao isto.",
+    intro: "Postavi pitanje – odgovorit će ti neko iz dijaspore koji je prošao isto.",
     ask: "Postavi pitanje",
     askLogin: "Prijavi se da postaviš pitanje",
     formTitle: "Tvoje pitanje",
@@ -42,19 +41,18 @@ const COPY = {
     fCat: "Kategorija (opcionalno)",
     submit: "Pošalji pitanje",
     submitting: "Slanje...",
-    success: "Pitanje poslano! Odgovorit ćemo ti u roku 24-48h.",
+    success: "Pitanje poslano! Odgovor stiže u roku 24-48h.",
     error: "Greška pri slanju. Pokušaj ponovo.",
     none: "Još nema objavljenih pitanja. Budi prvi!",
     answered: "Odgovoreno",
     views: "pregleda",
-    open: "Otvori",
     by: "Pita",
     anon: "Anonimno",
     loading: "Učitavanje...",
   },
   de: {
     title: "Frag die Diaspora",
-    intro: "Stell deine Frage – das BalkanLink-Team oder jemand aus der Diaspora antwortet.",
+    intro: "Stell deine Frage – jemand aus der Diaspora, der dasselbe erlebt hat, antwortet.",
     ask: "Frage stellen",
     askLogin: "Anmelden, um eine Frage zu stellen",
     formTitle: "Deine Frage",
@@ -65,19 +63,18 @@ const COPY = {
     fCat: "Kategorie (optional)",
     submit: "Frage senden",
     submitting: "Wird gesendet...",
-    success: "Frage gesendet! Wir antworten innerhalb von 24-48h.",
+    success: "Frage gesendet! Antwort kommt innerhalb von 24-48h.",
     error: "Fehler beim Senden. Versuche es erneut.",
     none: "Noch keine veröffentlichten Fragen. Sei der Erste!",
     answered: "Beantwortet",
     views: "Aufrufe",
-    open: "Öffnen",
     by: "Fragt",
     anon: "Anonym",
     loading: "Lädt...",
   },
   hr: {
     title: "Pitaj dijasporu",
-    intro: "Postavi pitanje – odgovorit će ti tim BalkanLink ili netko iz dijaspore koji je prošao isto.",
+    intro: "Postavi pitanje – odgovorit će ti netko iz dijaspore koji je prošao isto.",
     ask: "Postavi pitanje",
     askLogin: "Prijavi se da postaviš pitanje",
     formTitle: "Tvoje pitanje",
@@ -88,19 +85,18 @@ const COPY = {
     fCat: "Kategorija (opcionalno)",
     submit: "Pošalji pitanje",
     submitting: "Slanje...",
-    success: "Pitanje poslano! Odgovorit ćemo ti u roku 24-48h.",
+    success: "Pitanje poslano! Odgovor stiže u roku 24-48h.",
     error: "Greška pri slanju. Pokušaj ponovno.",
     none: "Još nema objavljenih pitanja. Budi prvi!",
     answered: "Odgovoreno",
     views: "pregleda",
-    open: "Otvori",
     by: "Pita",
     anon: "Anonimno",
     loading: "Učitavanje...",
   },
   sr: {
     title: "Pitaj dijasporu",
-    intro: "Postavi pitanje – odgovoriće ti tim BalkanLink ili neko iz dijaspore koji je prošao isto.",
+    intro: "Postavi pitanje – odgovoriće ti neko iz dijaspore ko je prošao isto.",
     ask: "Postavi pitanje",
     askLogin: "Prijavi se da postaviš pitanje",
     formTitle: "Tvoje pitanje",
@@ -111,12 +107,11 @@ const COPY = {
     fCat: "Kategorija (opciono)",
     submit: "Pošalji pitanje",
     submitting: "Slanje...",
-    success: "Pitanje poslato! Odgovorićemo ti u roku 24-48h.",
+    success: "Pitanje poslato! Odgovor stiže u roku 24-48h.",
     error: "Greška pri slanju. Pokušaj ponovo.",
     none: "Još nema objavljenih pitanja. Budi prvi!",
     answered: "Odgovoreno",
     views: "pregleda",
-    open: "Otvori",
     by: "Pita",
     anon: "Anonimno",
     loading: "Učitavanje...",
@@ -181,101 +176,114 @@ export default function PitajDijasporu() {
         <title>{T.title} | BalkanLink</title>
         <meta name="description" content={T.intro} />
       </Helmet>
-      <div className="container py-8 md:py-12">
-        <Breadcrumbs />
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold">{T.title}</h1>
-            <p className="mt-2 text-muted-foreground max-w-xl">{T.intro}</p>
-          </div>
-          {user ? (
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button size="lg" className="gap-2">
-                  <MessageSquarePlus className="h-5 w-5" />
-                  {T.ask}
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-lg">
-                <DialogHeader>
-                  <DialogTitle>{T.formTitle}</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 mt-2">
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">{T.fTitle}</label>
-                    <Input
-                      value={form.title}
-                      onChange={(e) => setForm({ ...form, title: e.target.value })}
-                      placeholder={T.fTitlePh}
-                      maxLength={200}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">{T.fBody}</label>
-                    <Textarea
-                      value={form.body}
-                      onChange={(e) => setForm({ ...form, body: e.target.value })}
-                      placeholder={T.fBodyPh}
-                      rows={6}
-                      maxLength={4000}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">{T.fCat}</label>
-                    <Input
-                      value={form.category}
-                      onChange={(e) => setForm({ ...form, category: e.target.value })}
-                      placeholder="Anmeldung, Kindergeld, Wohnen..."
-                      maxLength={50}
-                    />
-                  </div>
-                  <Button onClick={submit} disabled={submitting} className="w-full">
-                    {submitting ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" />{T.submitting}</> : T.submit}
+      <div className="min-h-screen" style={{ background: "hsl(215 55% 4%)" }}>
+        <div className="container py-8 md:py-12 max-w-4xl">
+          <Breadcrumbs />
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold text-white">{T.title}</h1>
+              <p className="mt-2 text-white/60 max-w-xl">{T.intro}</p>
+            </div>
+            {user ? (
+              <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                  <Button size="lg" className="gap-2 bg-[hsl(var(--gold))] text-black hover:bg-[hsl(var(--gold))]/90">
+                    <MessageSquarePlus className="h-5 w-5" />
+                    {T.ask}
                   </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
+                </DialogTrigger>
+                <DialogContent className="max-w-lg">
+                  <DialogHeader>
+                    <DialogTitle>{T.formTitle}</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4 mt-2">
+                    <div>
+                      <label className="text-sm font-medium mb-1 block">{T.fTitle}</label>
+                      <Input
+                        value={form.title}
+                        onChange={(e) => setForm({ ...form, title: e.target.value })}
+                        placeholder={T.fTitlePh}
+                        maxLength={200}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium mb-1 block">{T.fBody}</label>
+                      <Textarea
+                        value={form.body}
+                        onChange={(e) => setForm({ ...form, body: e.target.value })}
+                        placeholder={T.fBodyPh}
+                        rows={6}
+                        maxLength={4000}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium mb-1 block">{T.fCat}</label>
+                      <Input
+                        value={form.category}
+                        onChange={(e) => setForm({ ...form, category: e.target.value })}
+                        placeholder="Anmeldung, Kindergeld, Wohnen..."
+                        maxLength={50}
+                      />
+                    </div>
+                    <Button onClick={submit} disabled={submitting} className="w-full">
+                      {submitting ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" />{T.submitting}</> : T.submit}
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            ) : (
+              <Button asChild size="lg" variant="outline" className="border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10">
+                <Link to="/login">{T.askLogin}</Link>
+              </Button>
+            )}
+          </div>
+
+          {loading ? (
+            <div className="flex items-center justify-center py-20 text-white/50">
+              <Loader2 className="h-6 w-6 animate-spin mr-2" />{T.loading}
+            </div>
+          ) : items.length === 0 ? (
+            <div className="rounded-2xl border border-dashed p-12 text-center text-white/50"
+              style={{ borderColor: "rgba(255,255,255,0.1)" }}>
+              {T.none}
+            </div>
           ) : (
-            <Button asChild size="lg" variant="outline">
-              <Link to="/login">{T.askLogin}</Link>
-            </Button>
+            <div className="grid gap-4">
+              {items.map((q) => (
+                <Link
+                  key={q.id}
+                  to={`/pitaj-dijasporu/${q.id}`}
+                  className="group rounded-2xl border p-5 transition hover:-translate-y-0.5"
+                  style={{
+                    background: "rgba(255,255,255,0.03)",
+                    borderColor: "rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <h2 className="text-lg font-semibold text-white group-hover:text-[hsl(var(--gold))] transition">{q.title}</h2>
+                    {q.answer ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-300 border border-emerald-500/20 shrink-0">
+                        <CheckCircle2 className="h-3 w-3" />{T.answered}
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/50 border border-white/10 shrink-0">
+                        <Clock className="h-3 w-3" />
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-white/55 line-clamp-2 mb-3 leading-relaxed">{q.body}</p>
+                  <div className="flex items-center gap-3 text-xs text-white/40">
+                    <span>{T.by}: {q.author_name || T.anon}</span>
+                    {q.category && (
+                      <span className="rounded-full border border-white/15 px-2 py-0.5 text-[10px]">{q.category}</span>
+                    )}
+                    <span className="ml-auto flex items-center gap-1"><Eye className="h-3 w-3" />{q.view_count} {T.views}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           )}
         </div>
-
-        {loading ? (
-          <div className="flex items-center justify-center py-20 text-muted-foreground">
-            <Loader2 className="h-6 w-6 animate-spin mr-2" />{T.loading}
-          </div>
-        ) : items.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-border/50 p-12 text-center text-muted-foreground">
-            {T.none}
-          </div>
-        ) : (
-          <div className="grid gap-4">
-            {items.map((q) => (
-              <Link
-                key={q.id}
-                to={`/pitaj-dijasporu/${q.id}`}
-                className="group rounded-2xl border border-border/40 bg-card/60 backdrop-blur p-5 hover:border-primary/40 hover:bg-card/80 transition"
-              >
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <h2 className="text-lg font-semibold group-hover:text-primary transition">{q.title}</h2>
-                  {q.answer ? (
-                    <Badge variant="default" className="gap-1 shrink-0"><CheckCircle2 className="h-3 w-3" />{T.answered}</Badge>
-                  ) : (
-                    <Badge variant="secondary" className="gap-1 shrink-0"><Clock className="h-3 w-3" /></Badge>
-                  )}
-                </div>
-                <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{q.body}</p>
-                <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                  <span>{T.by}: {q.author_name || T.anon}</span>
-                  {q.category && <Badge variant="outline" className="text-xs">{q.category}</Badge>}
-                  <span className="ml-auto flex items-center gap-1"><Eye className="h-3 w-3" />{q.view_count} {T.views}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        )}
       </div>
     </>
   );
