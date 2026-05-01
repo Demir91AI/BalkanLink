@@ -414,6 +414,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
           .footer-mobile { display: block !important; }
           .footer-payments-desktop { display: none !important; }
           .footer-payments-mobile { display: block !important; }
+          .footer-divider-desktop { display: none !important; }
         }
       `}</style>
     </footer>
