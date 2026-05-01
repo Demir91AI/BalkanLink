@@ -268,6 +268,26 @@ function ResponseActions({ msg }: { msg: Msg }) {
 
 // ── Tabs ──
 type PanelTab = "chat" | "deadlines" | "profile";
+type AssistantPanelState = "open" | "minimized" | "closed";
+
+const ASSISTANT_PANEL_STATE_KEY = "bl_assistant_panel_state_v1";
+
+function getStoredAssistantPanelState(): AssistantPanelState | null {
+  try {
+    const state = localStorage.getItem(ASSISTANT_PANEL_STATE_KEY);
+    return state === "open" || state === "minimized" || state === "closed" ? state : null;
+  } catch {
+    return null;
+  }
+}
+
+function storeAssistantPanelState(state: AssistantPanelState) {
+  try {
+    localStorage.setItem(ASSISTANT_PANEL_STATE_KEY, state);
+  } catch {
+    /* ignore */
+  }
+}
 
 // ── Main Component ──
 export default function ChatAssistant() {
@@ -275,8 +295,12 @@ export default function ChatAssistant() {
   const { canChat, remaining, recordQuery } = useChatLimit();
   const location = useLocation();
 
-  const [open, setOpen] = useState(location.pathname === "/ai-asistent");
-  const [dismissedOnHome, setDismissedOnHome] = useState(false);
+  const [panelState, setPanelState] = useState<AssistantPanelState>(() => {
+    const stored = getStoredAssistantPanelState();
+    if (stored) return stored;
+    return location.pathname === "/ai-asistent" ? "open" : "minimized";
+  });
+  const open = panelState === "open";
   const { user } = useAuth();
 
   // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
