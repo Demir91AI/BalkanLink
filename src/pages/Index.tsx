@@ -22,6 +22,7 @@ import PricingWarning from "@/components/home/PricingWarning";
 import WhatIsWhat from "@/components/home/WhatIsWhat";
 import FlowBanner from "@/components/home/FlowBanner";
 import PitchSection from "@/components/home/PitchSection";
+import CollapsibleSection from "@/components/home/CollapsibleSection";
 import CommunityHighlights from "@/components/home/CommunityHighlights";
 import ShareButton from "@/components/share/ShareButton";
 
@@ -135,16 +136,20 @@ export default function Index() {
 
       {/* PitchSection removed per user request */}
 
-      {/* ─── PROCESS — "Kako funkcioniše?" (premješteno iznad Feature Cards) ─── */}
-      <ProcessSection />
+      {/* ─── COLLAPSIBLE: PROCESS — "Kako funkcioniše?" ─── */}
+      <CollapsibleSection title={t("home.process.heading")} background="hsl(215 55% 4%)">
+        <ProcessSection />
+      </CollapsibleSection>
 
-      {/* ─── "ŠTA JE ŠTA?" EXPLAINER (premješteno iznad Feature Cards) ─── */}
-      <section className="py-14 px-4" style={{ background: "hsl(220 50% 6%)" }}>
+      {/* ─── COLLAPSIBLE: "ŠTA JE ŠTA?" ─── */}
+      <CollapsibleSection title={t("home.whatIsWhat.heading")} background="hsl(220 50% 6%)">
         <WhatIsWhat />
-      </section>
+      </CollapsibleSection>
 
-      {/* ─── FEATURE CARDS ─── */}
-      <FeatureCards />
+      {/* ─── COLLAPSIBLE: FEATURE CARDS — "Šta ti danas treba?" ─── */}
+      <CollapsibleSection title={t("home.featureCards.heading")} background="hsl(215 55% 4%)">
+        <FeatureCards />
+      </CollapsibleSection>
 
       {/* ─── BEFORE / AFTER ─── */}
       <BeforeAfterSection />
