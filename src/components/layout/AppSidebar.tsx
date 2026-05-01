@@ -78,6 +78,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   const location = useLocation();
   const { user, signOut, displayName, isAdmin, loading, profileLoading, refreshUserMeta } = useAuth();
   const { t } = useTranslation("common");
+  const [sidebarAdmin, setSidebarAdmin] = useState(false);
   const firstName = displayName.split(/\s+/).filter(Boolean)[0] || t("sidebar.defaultUser");
   const initials = getInitials(displayName);
   const currentPath = location.pathname.replace(/^\/de(?=\/|$)/, "") || "/";
@@ -218,12 +219,29 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
   };
 
   useEffect(() => {
-    if (user && !loading && !profileLoading && !isAdmin) {
-      void refreshUserMeta();
+    if (!user || loading) {
+      setSidebarAdmin(false);
+      return;
     }
-  }, [isAdmin, loading, profileLoading, refreshUserMeta, user]);
+    if (isAdmin) {
+      setSidebarAdmin(true);
+      return;
+    }
 
-  const canShowAdmin = isAdmin || user?.email?.toLowerCase() === "demir.zijada@gmail.com";
+    let cancelled = false;
+    import("@/integrations/supabase/client").then(({ supabase }) => {
+      supabase.rpc("has_role", { _user_id: user.id, _role: "admin" }).then(({ data, error }) => {
+        if (cancelled) return;
+        const allowed = !error && data === true;
+        setSidebarAdmin(allowed);
+        if (allowed) void refreshUserMeta();
+      });
+    });
+
+    return () => { cancelled = true; };
+  }, [isAdmin, loading, refreshUserMeta, user]);
+
+  const canShowAdmin = isAdmin || sidebarAdmin;
 
   return (
     <>
