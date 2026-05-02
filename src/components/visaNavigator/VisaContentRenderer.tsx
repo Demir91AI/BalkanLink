@@ -33,8 +33,8 @@ interface Props {
 const GOLD = '#C9A84C';
 const CHARCOAL = 'rgba(255,255,255,0.92)';
 
-const FREE_STEPS = 3;
-const FREE_ERRORS = 2;
+const FREE_STEPS = 2;
+const FREE_ERRORS = 0;
 
 const Card = ({ children, bg = '#FFFFFF', border = 'rgba(255,255,255,0.10)', mb = 16 }: { children: React.ReactNode; bg?: string; border?: string; mb?: number }) => (
   <div style={{ background: bg, border: `1px solid ${border}`, borderRadius: 14, padding: '20px 24px', marginBottom: mb, boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
