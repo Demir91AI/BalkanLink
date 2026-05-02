@@ -13,6 +13,7 @@ import {
 import { MessageSquarePlus, Eye, CheckCircle2, Clock, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { SaveStarButton } from "@/components/saved/SaveStarButton";
 
 interface CQ {
   id: string;
