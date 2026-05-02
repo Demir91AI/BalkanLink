@@ -45,6 +45,41 @@ serve(async (req) => {
     { auth: { persistSession: false } }
   );
 
+  const ADMIN_EMAIL = "demir.zijada@gmail.com";
+  const formatAmount = (cents: number) => (cents / 100).toFixed(2);
+  const notifyAdminPayment = async (payload: {
+    email?: string | null;
+    productLabel: string;
+    amountCents: number;
+    currency: string;
+    mode: "subscription" | "payment";
+    transactionId: string;
+    paidAt: string;
+  }) => {
+    try {
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "admin-new-payment",
+          recipientEmail: ADMIN_EMAIL,
+          idempotencyKey: `admin-payment-${payload.transactionId}`,
+          templateData: {
+            email: payload.email ?? "—",
+            productLabel: payload.productLabel,
+            amountFormatted: formatAmount(payload.amountCents),
+            currency: payload.currency,
+            mode: payload.mode,
+            transactionId: payload.transactionId,
+            paidAt: payload.paidAt,
+          },
+        },
+      });
+      if (error) log("admin email error", { error: error.message });
+      else log("admin payment notified", { txId: payload.transactionId });
+    } catch (e) {
+      log("admin email threw", { error: e instanceof Error ? e.message : String(e) });
+    }
+  };
+
   try {
     switch (event.type) {
       // ── Checkout completed ──────────────────────────────────
@@ -89,6 +124,16 @@ serve(async (req) => {
             });
             if (payErr) log("ERROR inserting payment", { userId, error: payErr.message });
             else log("Payment recorded", { userId, txId, amountTotal });
+
+            await notifyAdminPayment({
+              email: customerEmail,
+              productLabel: "Premium pretplata",
+              amountCents: amountTotal,
+              currency,
+              mode: "subscription",
+              transactionId: txId,
+              paidAt: new Date().toISOString(),
+            });
           }
         }
 
@@ -135,6 +180,16 @@ serve(async (req) => {
           });
           if (payErr) log("ERROR inserting one-time payment", { userId, error: payErr.message });
           else log("One-time payment recorded", { userId, txId, amountTotal });
+
+          await notifyAdminPayment({
+            email: customerEmail,
+            productLabel: isDocCheck ? "Dokumenten-Check (2,99€)" : (formSlug ? `Forma: ${formSlug}` : "Jednokratna uplata"),
+            amountCents: amountTotal,
+            currency,
+            mode: "payment",
+            transactionId: txId,
+            paidAt: new Date().toISOString(),
+          });
         }
         break;
       }
@@ -175,6 +230,16 @@ serve(async (req) => {
         });
         if (payErr) log("ERROR inserting renewal payment", { email, error: payErr.message });
         else log("Renewal payment recorded", { email, txId });
+
+        await notifyAdminPayment({
+          email,
+          productLabel: "Premium obnova pretplate",
+          amountCents: invoice.amount_paid ?? 0,
+          currency: (invoice.currency ?? "eur").toUpperCase(),
+          mode: "subscription",
+          transactionId: txId,
+          paidAt: new Date().toISOString(),
+        });
         break;
       }
 
