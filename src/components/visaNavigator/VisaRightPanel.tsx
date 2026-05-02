@@ -64,7 +64,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
         </div>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 12 }}>
-          <span style={{ fontSize: 13, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
+          <span style={{ fontSize: 13, color: '#C9A84C', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={14} color="#C9A84C" />
         </a>
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginBottom: 16, lineHeight: 1.5 }}>{country.embassyNote}</p>
