@@ -60,11 +60,11 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
       <div style={{ padding: 20 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
           <img src={country.flag} alt={country.name} style={{ height: 22, borderRadius: 2 }} loading="lazy" decoding="async" />
-          <span style={{ fontSize: 16, fontWeight: 700, color: '#1A1A2E' }}>{country.name}</span>
+          <span style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,0.92)' }}>{country.name}</span>
         </div>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 12 }}>
-          <span style={{ fontSize: 13, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
+          <span style={{ fontSize: 13, color: '#C9A84C', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={14} color="#C9A84C" />
         </a>
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginBottom: 16, lineHeight: 1.5 }}>{country.embassyNote}</p>
@@ -73,7 +73,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '10px 14px', marginBottom: 8, cursor: 'pointer' }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#C9A84C'}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'}>
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#1A1A2E', margin: 0 }}>{r.title}</p>
+            <p style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.88)', margin: 0 }}>{r.title}</p>
           </div>
         ))}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
@@ -96,11 +96,11 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <img src={country.flag} alt="" loading="lazy" decoding="async" style={{ height: 18, borderRadius: 2 }} />
           <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)' }}>{country.name}</span>
         </div>
-        <h3 style={{ fontSize: 15, fontWeight: 700, color: '#1A1A2E', marginBottom: 4 }}>{route.title}</h3>
+        <h3 style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,0.95)', marginBottom: 4 }}>{route.title}</h3>
         <p style={{ fontSize: 12, fontFamily: 'monospace', color: 'rgba(255,255,255,0.55)', marginBottom: 12 }}>{route.legalBasis}</p>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 16, width: '100%', boxSizing: 'border-box' }}>
-          <span style={{ fontSize: 12, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
+          <span style={{ fontSize: 12, color: '#C9A84C', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={13} color="#C9A84C" />
         </a>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12 }}>
@@ -109,7 +109,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
               style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.78)', fontSize: 12, textDecoration: 'none', marginBottom: 6 }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#C9A84C'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4A4A4A'}>
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.78)'}>
               <ExternalLink size={11} color="#C9A84C" />{s.label}
             </a>
           ))}
