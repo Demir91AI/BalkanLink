@@ -301,6 +301,13 @@ export default function PitajDijasporu() {
                             <Clock className="h-3 w-3" />
                           </span>
                         )}
+                        <SaveStarButton
+                          type="qa"
+                          id={q.id}
+                          title={q.title}
+                          path={`/pitaj-dijasporu/${q.id}`}
+                          className="-mr-1"
+                        />
                       </div>
 
                       {/* Naslov + body */}
