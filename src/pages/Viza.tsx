@@ -76,7 +76,7 @@ export default function Viza() {
                         background: active ? 'rgba(201,168,76,0.12)' : 'transparent',
                         borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
                       }}>
-                      <img src={c.flag} alt="" className="h-5 rounded-sm" />
+                      <img src={c.flag} alt="" className="h-5 rounded-sm" loading="lazy" decoding="async" />
                       <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : 'rgba(255,255,255,0.85)' }}>
                         {c.name}
                       </span>
@@ -97,7 +97,7 @@ export default function Viza() {
                         background: active ? 'rgba(201,168,76,0.12)' : 'transparent',
                         borderLeft: active ? '3px solid hsl(var(--gold))' : '3px solid transparent',
                       }}>
-                      <img src={c.flag} alt="" className="h-5 rounded-sm" />
+                      <img src={c.flag} alt="" className="h-5 rounded-sm" loading="lazy" decoding="async" />
                       <span className="text-[14px]" style={{ fontWeight: active ? 700 : 500, color: active ? 'hsl(var(--gold))' : 'rgba(255,255,255,0.85)' }}>
                         {c.name}
                       </span>
@@ -152,7 +152,7 @@ export default function Viza() {
                         : "border-white/15 text-white/80 hover:bg-white/[0.06]"
                     }`}
                   >
-                    <img src={c.flag} alt="" className="h-4 rounded-sm" />
+                    <img src={c.flag} alt="" className="h-4 rounded-sm" loading="lazy" decoding="async" />
                     {c.name}
                   </button>
                 );
