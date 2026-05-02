@@ -96,11 +96,11 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
           <img src={country.flag} alt="" loading="lazy" decoding="async" style={{ height: 18, borderRadius: 2 }} />
           <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)' }}>{country.name}</span>
         </div>
-        <h3 style={{ fontSize: 15, fontWeight: 700, color: '#1A1A2E', marginBottom: 4 }}>{route.title}</h3>
+        <h3 style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,0.95)', marginBottom: 4 }}>{route.title}</h3>
         <p style={{ fontSize: 12, fontFamily: 'monospace', color: 'rgba(255,255,255,0.55)', marginBottom: 12 }}>{route.legalBasis}</p>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 16, width: '100%', boxSizing: 'border-box' }}>
-          <span style={{ fontSize: 12, color: '#1A1A2E', fontWeight: 600 }}>{country.embassyName}</span>
+          <span style={{ fontSize: 12, color: '#C9A84C', fontWeight: 600 }}>{country.embassyName}</span>
           <ExternalLink size={13} color="#C9A84C" />
         </a>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12 }}>
