@@ -38,6 +38,7 @@ import deLegal from "./locales/de/legal.json";
 import deChecklists from "./locales/de/checklists.json";
 import deSimulator from "./locales/de/simulator.json";
 import deDvojnoDrzavljanstvo from "./locales/de/dvojnoDrzavljanstvo.json";
+import deSaved from "./locales/de/saved.json";
 
 import hrCommon from "./locales/hr/common.json";
 import hrForms from "./locales/hr/forms.json";
