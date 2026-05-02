@@ -26,8 +26,10 @@ import { isStandalone } from "@/hooks/usePWAInstall";
 
 export function UserMenu() {
   const { t } = useTranslation("common");
+  const { t: tSaved } = useTranslation("saved");
   const { user, signOut, isPremium, displayName } = useAuth();
   const navigate = useLocalizedNavigate();
+  const { items: savedItems } = useSavedItems();
   const [installed, setInstalled] = useState(false);
 
   useEffect(() => {
