@@ -140,41 +140,29 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
         <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, marginBottom: 24 }}>{r.subtitle}</p>
 
-        {/* FREE: Steps 1-3 */}
+        {/* FREE: only first 2 steps; rest hidden behind gate */}
         <Card>
           <CardHeader icon={CheckCircle} color="#22C55E" title={t('visa.renderer.schnelluebersicht')} />
-          {r.steps.map((step: string, i: number) => {
-            if (!hasFullAccess && i >= FREE_STEPS) {
-              return (
-                <BlurredBlock key={i}>
-                  <div style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
-                    <StepCircle n={i + 1} />
-                    <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
-                  </div>
-                </BlurredBlock>
-              );
-            }
-            return (
-              <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
-                <StepCircle n={i + 1} />
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
-              </div>
-            );
-          })}
-        </Card>
-
-        {/* FREE: Document NAMES only */}
-        <Card>
-          <CardHeader icon={FileText} title={t('visa.renderer.requiredDocuments')} />
-          {r.documents.map((doc: string, i: number) => (
-            <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
-              <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', margin: 0 }}>
-                {hasFullAccess ? doc : doc.split('—')[0].split(':')[0].split('(')[0].trim()}
-              </p>
+          {(hasFullAccess ? r.steps : r.steps.slice(0, FREE_STEPS)).map((step: string, i: number) => (
+            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
+              <StepCircle n={i + 1} />
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
             </div>
           ))}
         </Card>
+
+        {/* Documents only for premium */}
+        {hasFullAccess && (
+          <Card>
+            <CardHeader icon={FileText} title={t('visa.renderer.requiredDocuments')} />
+            {r.documents.map((doc: string, i: number) => (
+              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+                <CheckCircle size={14} color="#22C55E" style={{ flexShrink: 0, marginTop: 3 }} />
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', margin: 0 }}>{doc}</p>
+              </div>
+            ))}
+          </Card>
+        )}
 
         {/* Gate card */}
         {!hasFullAccess && <VisaGateCard />}
