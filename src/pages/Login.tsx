@@ -32,7 +32,6 @@ export default function Login() {
     if (error) {
       toast({ title: t("auth.login.wrongCredentials"), description: error.message, variant: "destructive" });
     } else {
-      toast({ title: t("auth.login.successTitle") });
       navigate("/");
     }
   };
