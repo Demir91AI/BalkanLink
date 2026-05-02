@@ -298,7 +298,11 @@ export default function ChatAssistant() {
   const [panelState, setPanelState] = useState<AssistantPanelState>(() => {
     const stored = getStoredAssistantPanelState();
     if (stored) return stored;
-    return location.pathname === "/ai-asistent" ? "open" : "minimized";
+    if (location.pathname === "/ai-asistent") return "open";
+    // Na homepage NE prikazuj floating button by default — hero već ima asistenta.
+    // FAB se pojavljuje tek kad korisnik otvori asistenta i zatim ga minimizira.
+    if (location.pathname === "/") return "closed";
+    return "minimized";
   });
   const open = panelState === "open";
   const { user } = useAuth();
