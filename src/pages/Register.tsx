@@ -85,6 +85,25 @@ export default function Register() {
           first_name: firstName.trim(),
         } as any, { onConflict: "id" });
 
+      // Admin notification — fire & forget (ne blokirati registraciju)
+      try {
+        supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "admin-new-user",
+            recipientEmail: "demir.zijada@gmail.com",
+            idempotencyKey: `admin-new-user-${signUpData.user.id}`,
+            templateData: {
+              email,
+              firstName: firstName.trim(),
+              trialCode: trialCode ?? undefined,
+              registeredAt: new Date().toISOString(),
+            },
+          },
+        }).catch((e) => console.warn("[admin-notify] failed", e));
+      } catch (e) {
+        console.warn("[admin-notify] invoke threw", e);
+      }
+
       // Trial redemption — only if user is already signed in (auto-confirm OFF means session is null)
       if (trialCode && signUpData.session) {
         try {
