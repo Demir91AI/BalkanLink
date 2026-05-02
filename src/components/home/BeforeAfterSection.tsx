@@ -202,7 +202,7 @@ export default function BeforeAfterSection() {
             className="absolute top-0 bottom-0 z-20 w-1 cursor-col-resize"
             style={{ left: `${sliderPos}%`, transform: "translateX(-50%)", background: "hsl(var(--gold))", boxShadow: "0 0 12px hsla(43,52%,54%,0.5)" }}
             onMouseDown={onMouseDown}
-            onTouchStart={onMouseDown}
+            onTouchStart={onTouchStart}
           >
             <div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold"
