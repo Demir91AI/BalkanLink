@@ -384,9 +384,13 @@ function AppRoutes() {
 
 function DeferredWhatIsBalkanLink() {
   const [ready, setReady] = useState(false);
+  const [openOnMount, setOpenOnMount] = useState(false);
 
   useEffect(() => {
-    const open = () => setReady(true);
+    const open = () => {
+      setOpenOnMount(true);
+      setReady(true);
+    };
     window.addEventListener("bl:open-whatis", open, { once: true });
     const ric = (window as typeof window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void }).requestIdleCallback;
     if (ric) {
@@ -404,7 +408,7 @@ function DeferredWhatIsBalkanLink() {
   }, []);
 
   if (!ready) return null;
-  return <WhatIsBalkanLink />;
+  return <WhatIsBalkanLink initialOpen={openOnMount} />;
 }
 
 const App = () => (
