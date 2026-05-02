@@ -10,7 +10,8 @@
  */
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { UserCircle, LogIn, User as UserIcon, Smartphone, LogOut, Crown } from "lucide-react";
+import { UserCircle, LogIn, User as UserIcon, Smartphone, LogOut, Crown, Star } from "lucide-react";
+import { useSavedItems } from "@/hooks/useSavedItems";
 import {
   DropdownMenu,
   DropdownMenuContent,
