@@ -10,7 +10,8 @@
  */
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { UserCircle, LogIn, User as UserIcon, Smartphone, LogOut, Crown } from "lucide-react";
+import { UserCircle, LogIn, User as UserIcon, Smartphone, LogOut, Crown, Star } from "lucide-react";
+import { useSavedItems } from "@/hooks/useSavedItems";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,8 +26,10 @@ import { isStandalone } from "@/hooks/usePWAInstall";
 
 export function UserMenu() {
   const { t } = useTranslation("common");
+  const { t: tSaved } = useTranslation("saved");
   const { user, signOut, isPremium, displayName } = useAuth();
   const navigate = useLocalizedNavigate();
+  const { items: savedItems } = useSavedItems();
   const [installed, setInstalled] = useState(false);
 
   useEffect(() => {
@@ -97,6 +100,19 @@ export function UserMenu() {
           backdropFilter: "blur(20px)",
         }}
       >
+        <DropdownMenuItem
+          onClick={() => navigate("/sacuvano")}
+          className="text-white/85 focus:text-white focus:bg-white/5 cursor-pointer"
+        >
+          <Star className="h-4 w-4 mr-2 text-[hsl(var(--gold))]" fill={savedItems.length > 0 ? "currentColor" : "none"} />
+          <span className="flex-1">{tSaved("sidebarLabel", "Sačuvano")}</span>
+          {savedItems.length > 0 && (
+            <span className="ml-auto rounded-full bg-[hsl(var(--gold))]/20 px-1.5 py-0.5 text-[10px] font-bold text-[hsl(var(--gold))]">
+              {savedItems.length}
+            </span>
+          )}
+        </DropdownMenuItem>
+        <DropdownMenuSeparator className="bg-white/10" />
         {user ? (
           <>
             <DropdownMenuLabel className="text-white/90 truncate">

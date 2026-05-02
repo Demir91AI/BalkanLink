@@ -13,6 +13,7 @@ import {
 import { MessageSquarePlus, Eye, CheckCircle2, Clock, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { SaveStarButton } from "@/components/saved/SaveStarButton";
 
 interface CQ {
   id: string;
@@ -300,6 +301,13 @@ export default function PitajDijasporu() {
                             <Clock className="h-3 w-3" />
                           </span>
                         )}
+                        <SaveStarButton
+                          type="qa"
+                          id={q.id}
+                          title={q.title}
+                          path={`/pitaj-dijasporu/${q.id}`}
+                          className="-mr-1"
+                        />
                       </div>
 
                       {/* Naslov + body */}
