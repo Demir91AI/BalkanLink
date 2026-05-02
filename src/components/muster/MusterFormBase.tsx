@@ -267,10 +267,12 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
               <div style={{ fontSize: 9, color: "#6b7280" }}>{subtitle}</div>
             </div>
             <SaveStarButton
+              variant="button"
               type="form"
               id={`muster:${urlSlug || fId}`}
               title={title}
               path={typeof window !== "undefined" ? window.location.pathname.replace(/^\/(de|hr|sr)(?=\/|$)/, "") : `/musterformular/${urlSlug}`}
+              className="!border-amber-300 !bg-amber-50 !text-amber-900 hover:!bg-amber-100"
             />
           </div>
 
