@@ -8,6 +8,8 @@ export default function BeforeAfterSection() {
   const [sliderPos, setSliderPos] = useState(50);
   const dragging = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  // Cache rect on drag-start to avoid forced reflow on every mousemove
+  const cachedRect = useRef<{ left: number; width: number } | null>(null);
   const { t } = useTranslation("pages");
 
   useEffect(() => {
@@ -19,24 +21,39 @@ export default function BeforeAfterSection() {
     return () => obs.disconnect();
   }, []);
 
+  const refreshRect = useCallback(() => {
+    if (!containerRef.current) return;
+    const r = containerRef.current.getBoundingClientRect();
+    cachedRect.current = { left: r.left, width: r.width };
+  }, []);
+
   const handleMove = useCallback((clientX: number) => {
-    if (!containerRef.current || !dragging.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const pct = Math.min(Math.max(((clientX - rect.left) / rect.width) * 100, 0), 100);
+    if (!dragging.current || !cachedRect.current) return;
+    const { left, width } = cachedRect.current;
+    const pct = Math.min(Math.max(((clientX - left) / width) * 100, 0), 100);
     setSliderPos(pct);
   }, []);
 
-  const onMouseDown = () => { dragging.current = true; };
+  const onMouseDown = () => { refreshRect(); dragging.current = true; };
   const onMouseUp = () => { dragging.current = false; };
   const onMouseMove = (e: React.MouseEvent) => handleMove(e.clientX);
+  const onTouchStart = () => { refreshRect(); dragging.current = true; };
   const onTouchMove = (e: React.TouchEvent) => handleMove(e.touches[0].clientX);
 
   useEffect(() => {
     const up = () => { dragging.current = false; };
+    const onScrollOrResize = () => { if (dragging.current) refreshRect(); };
     window.addEventListener("mouseup", up);
     window.addEventListener("touchend", up);
-    return () => { window.removeEventListener("mouseup", up); window.removeEventListener("touchend", up); };
-  }, []);
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    return () => {
+      window.removeEventListener("mouseup", up);
+      window.removeEventListener("touchend", up);
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+    };
+  }, [refreshRect]);
 
   const beforeContent = (
     <div className="p-6 sm:p-8 sm:pt-14 h-full" style={{ background: "#f3f4f6", fontFamily: "monospace" }}>
