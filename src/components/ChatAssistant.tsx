@@ -594,6 +594,10 @@ export default function ChatAssistant() {
       localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
       restoredRef.current = false;
       prevUserIdRef.current = null;
+      // Reset panel: na sljedećem ulasku na home FAB se NE smije pojaviti
+      openedThisSessionRef.current = false;
+      try { localStorage.removeItem(ASSISTANT_PANEL_STATE_KEY); } catch {}
+      setPanelState("closed");
       if (signedOutUserId) {
         supabase.from("chat_messages").delete().eq("user_id", signedOutUserId).then(({ error }) => {
           if (error) console.warn("[BL-Chat] Cloud clear on sign-out failed:", error.message);
