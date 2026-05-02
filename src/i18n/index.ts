@@ -72,10 +72,10 @@ export const DEFAULT_LANGUAGE: SupportedLanguage = "bs";
 export const LANG_STORAGE_KEY = "balkanlink-lang";
 
 const resources = {
-  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi, legal: bsLegal, checklists: bsChecklists, simulator: bsSimulator, dvojnoDrzavljanstvo: bsDvojnoDrzavljanstvo },
-  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi, legal: deLegal, checklists: deChecklists, simulator: deSimulator, dvojnoDrzavljanstvo: deDvojnoDrzavljanstvo },
-  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi, legal: hrLegal, checklists: hrChecklists, simulator: hrSimulator, dvojnoDrzavljanstvo: hrDvojnoDrzavljanstvo },
-  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi, legal: srLegal, checklists: srChecklists, simulator: srSimulator, dvojnoDrzavljanstvo: srDvojnoDrzavljanstvo },
+  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi, legal: bsLegal, checklists: bsChecklists, simulator: bsSimulator, dvojnoDrzavljanstvo: bsDvojnoDrzavljanstvo, saved: bsSaved },
+  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi, legal: deLegal, checklists: deChecklists, simulator: deSimulator, dvojnoDrzavljanstvo: deDvojnoDrzavljanstvo, saved: deSaved },
+  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi, legal: hrLegal, checklists: hrChecklists, simulator: hrSimulator, dvojnoDrzavljanstvo: hrDvojnoDrzavljanstvo, saved: hrSaved },
+  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi, legal: srLegal, checklists: srChecklists, simulator: srSimulator, dvojnoDrzavljanstvo: srDvojnoDrzavljanstvo, saved: srSaved },
 };
 
 i18n
