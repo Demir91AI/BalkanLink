@@ -307,7 +307,12 @@ export default function ChatAssistant() {
   const open = panelState === "open";
   const { user } = useAuth();
 
+  // Prati da li je korisnik otvorio asistenta u ovoj sesiji.
+  // Na homepageu FAB smije da se vidi SAMO ako je panel bio otvoren bar jednom.
+  const openedThisSessionRef = useRef<boolean>(panelState === "open");
+
   const setPersistentPanelState = useCallback((state: AssistantPanelState) => {
+    if (state === "open") openedThisSessionRef.current = true;
     setPanelState(state);
     storeAssistantPanelState(state);
   }, []);
