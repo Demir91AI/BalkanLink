@@ -20,9 +20,9 @@ const STORAGE_KEY = "balkanlink_whatis_seen_v1";
 const AUTO_OPEN_DELAY_MS = 60_000;
 export const OPEN_WHATIS_EVENT = "bl:open-whatis";
 
-export default function WhatIsBalkanLink() {
+export default function WhatIsBalkanLink({ initialOpen = false }: { initialOpen?: boolean }) {
   const { t } = useTranslation("pages");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(initialOpen);
   const href = useLocalizedHref();
   const location = useLocation();
 
@@ -54,6 +54,10 @@ export default function WhatIsBalkanLink() {
     window.addEventListener(OPEN_WHATIS_EVENT, handler);
     return () => window.removeEventListener(OPEN_WHATIS_EVENT, handler);
   }, []);
+
+  useEffect(() => {
+    if (initialOpen) setOpen(true);
+  }, [initialOpen]);
 
   const handleOpenChange = (next: boolean) => {
     setOpen(next);

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import LiveSocialProof from "@/components/social/LiveSocialProof";
 
 const slides = [
-  { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
+  { image: "/assets/hero-frankfurt-1280.webp", city: "FRANKFURT", srcSet: "/assets/hero-frankfurt-768.webp 768w, /assets/hero-frankfurt-1280.webp 1280w" },
   { image: "/assets/hero-berlin.jpg", city: "BERLIN" },
   { image: "/assets/hero-muenchen.jpg", city: "MÜNCHEN" },
   { image: "/assets/hero-hamburg.jpg", city: "HAMBURG" },
@@ -20,6 +20,8 @@ const slides = [
   { image: "/assets/hero-leipzig.jpg", city: "LEIPZIG" },
 ];
 
+const INITIAL_SLIDE_COUNT = 2;
+
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroSection() {
@@ -28,12 +30,12 @@ export default function HeroSection() {
   const { t } = useTranslation("pages");
   const { t: tc } = useTranslation("common");
   const trialActive = new Date() < new Date("2026-05-31T23:59:59Z");
-  const btnRef = useRef<HTMLButtonElement>(null);
   const [askValue, setAskValue] = useState("");
   const [typed, setTyped] = useState("");
   const [phraseKey, setPhraseKey] = useState(0);
   const [phraseVisible, setPhraseVisible] = useState(true);
   const [askFocused, setAskFocused] = useState(false);
+  const [renderAllSlides, setRenderAllSlides] = useState(false);
   const isMobile = useIsMobile();
 
   const trustBadges = [
@@ -116,35 +118,21 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
-  /* Magnetic hover effect */
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!btnRef.current) return;
-    const rect = btnRef.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 120) {
-      const pull = (1 - dist / 120) * 8;
-      btnRef.current.style.transform = `translate(${dx * pull / 120}px, ${dy * pull / 120}px)`;
-    } else {
-      btnRef.current.style.transform = "";
+  useEffect(() => {
+    const loadRest = () => setRenderAllSlides(true);
+    const ric = (window as typeof window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void }).requestIdleCallback;
+    if (ric) {
+      const id = ric(loadRest, { timeout: 3500 });
+      return () => (window as typeof window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
     }
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    if (btnRef.current) btnRef.current.style.transform = "";
+    const id = window.setTimeout(loadRest, 2200);
+    return () => window.clearTimeout(id);
   }, []);
 
   return (
-    <section
-      className="relative min-h-[92vh] overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
+    <section className="relative min-h-[92vh] overflow-hidden">
       {/* Background slides with slow zoom */}
-      {slides.map((slide, idx) => (
+      {(renderAllSlides ? slides : slides.slice(0, INITIAL_SLIDE_COUNT)).map((slide, idx) => (
         <div
           key={idx}
           className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
@@ -152,6 +140,8 @@ export default function HeroSection() {
         >
           <img
             src={slide.image}
+            srcSet={slide.srcSet}
+            sizes="100vw"
             alt={slide.city}
             className="h-full w-full object-cover"
             style={{
@@ -239,7 +229,6 @@ export default function HeroSection() {
           >
             {/* Primary — gold with shimmer + arrow */}
             <button
-              ref={btnRef}
               onClick={() => navigate("/formulari")}
               aria-label={t("home.ctaPrimary")}
               className="group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-xl px-9 py-[15px] text-[15px] font-extrabold text-[#0a0a0a] transition-all duration-200 will-change-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.97]"
