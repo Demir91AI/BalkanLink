@@ -69,11 +69,22 @@ export default function LiveSocialProof({ variant = "ticker", className = "" }: 
         });
       }
     };
-    load();
+    // Defer initial fetch to idle time so it doesn't compete with critical resources / LCP
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+    const startHandle = ric
+      ? ric(() => { if (!cancelled) load(); }, { timeout: 2500 })
+      : (window.setTimeout(() => { if (!cancelled) load(); }, 1500) as unknown as number);
     const interval = setInterval(load, 60_000);
     return () => {
       cancelled = true;
       clearInterval(interval);
+      if (ric && (window as any).cancelIdleCallback) {
+        (window as any).cancelIdleCallback(startHandle);
+      } else {
+        clearTimeout(startHandle);
+      }
     };
   }, []);
 
