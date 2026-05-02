@@ -79,8 +79,10 @@ export default function AdminDashboard() {
   const [search, setSearch] = useState("");
   const [searchBusy, setSearchBusy] = useState(false);
 
-  const loadAll = async () => {
-    setLoading(true);
+  const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
+
+  const loadAll = async (silent = false) => {
+    if (!silent) setLoading(true);
     const [statsRes, usersRes, paymentsRes] = await Promise.all([
       supabase.rpc("get_admin_stats" as any),
       supabase.rpc("get_admin_users" as any, { _search: null, _limit: 50 }),
@@ -89,10 +91,17 @@ export default function AdminDashboard() {
     if (statsRes.data) setStats(statsRes.data as any);
     if (usersRes.data) setUsers(usersRes.data as any);
     if (paymentsRes.data) setPayments(paymentsRes.data as any);
-    setLoading(false);
+    setLastRefresh(new Date());
+    if (!silent) setLoading(false);
   };
 
-  useEffect(() => { loadAll(); }, []);
+  useEffect(() => {
+    loadAll();
+    const id = setInterval(() => { loadAll(true); }, 30000);
+    const onVis = () => { if (document.visibilityState === "visible") loadAll(true); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, []);
 
   // debounced search
   useEffect(() => {
