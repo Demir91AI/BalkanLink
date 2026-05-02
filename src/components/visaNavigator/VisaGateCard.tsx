@@ -1,104 +1,87 @@
-import { Lock, UserPlus, CheckCircle } from "lucide-react";
+import { Lock, Crown, CheckCircle2, UserPlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
 
-const BENEFIT_KEYS = [
-  "docDetails",
-  "allSteps",
-  "addresses",
-  "tips",
-  "ifRejected",
-  "muster",
-] as const;
+const BENEFITS = [
+  "Kompletan vodič — svaki korak detaljno objašnjen",
+  "Tačno koje dokumente pripremiti i gdje ih nabaviti",
+  "Adrese ambasada, konzulata i nadležnih institucija",
+  "Musterformulari — primjeri pravilno popunjenih zahtjeva",
+  "Najčešće greške i kako ih izbjeći",
+  "Šta raditi ako viza bude odbijena",
+  "Direktni linkovi na zvanične izvore",
+];
+
+interface Props {
+  routeTitle?: string;
+}
 
 /**
- * Inline gate card shown after free preview content.
- * - Not logged in → auth gate (register/login)
- * - Logged in, not premium → premium upsell
- * - Premium → nothing rendered
+ * Premium paywall for Visa Navigator — matches Mutterschaftsgeld style.
  */
-export default function VisaGateCard() {
-  const { t } = useTranslation("pages");
+export default function VisaGateCard({ routeTitle }: Props) {
   const { user } = useAuth();
   const { isPremium } = useSubscription();
   const navigate = useNavigate();
 
   if (isPremium) return null;
 
-  const benefits = BENEFIT_KEYS.map((k) => t(`visa.gateCard.benefits.${k}`));
+  const isAnon = !user;
+  const title = routeTitle ? `Otključaj ${routeTitle}` : "Otključaj kompletan vodič";
 
-  // ── Premium upsell for logged-in users ──
-  if (user) {
-    return (
-      <div className="my-6 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white/[0.04] px-6 py-8 shadow-md">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
-            <Lock className="h-5 w-5 text-[hsl(var(--gold))]" />
-          </div>
-          <h3 className="text-lg font-bold text-[#1A1A2E]">{t("visa.gateCard.premiumTitle")}</h3>
+  return (
+    <div className="my-6 rounded-2xl border border-[hsl(var(--gold))]/25 bg-white/[0.03] px-6 py-10 shadow-xl backdrop-blur-sm">
+      <div className="flex flex-col items-center text-center max-w-md mx-auto gap-5">
+        <div className="h-14 w-14 rounded-2xl bg-[hsl(var(--gold))]/10 flex items-center justify-center ring-1 ring-[hsl(var(--gold))]/25">
+          <Lock className="h-7 w-7 text-[hsl(var(--gold))]" />
         </div>
 
-        <ul className="space-y-2 mb-6">
-          {benefits.map((b) => (
-            <li key={b} className="flex items-start gap-2 text-sm text-[#4A4A4A]">
-              <CheckCircle className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
-              {b}
+        <div>
+          <h3 className="text-lg font-bold text-white">{title}</h3>
+          <p className="mt-3 text-sm font-semibold text-white/70">Šta dobijaš uz Premium:</p>
+        </div>
+
+        <ul className="text-left text-xs text-white/75 space-y-2 w-full">
+          {BENEFITS.map((b) => (
+            <li key={b} className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+              <span>{b}</span>
             </li>
           ))}
         </ul>
 
-        <button
-          onClick={() => navigate("/paketi")}
-          className="w-full rounded-xl py-3.5 text-sm font-bold transition-all hover:brightness-110"
-          style={{
-            background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
-            color: "hsl(var(--gold-foreground))",
-          }}
-        >
-          {t("visa.gateCard.premiumCta")}
-        </button>
-      </div>
-    );
-  }
-
-  // ── Auth gate for anonymous users ──
-  return (
-    <div className="my-6 rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-white/[0.04] px-6 py-8 shadow-md">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
-          <UserPlus className="h-5 w-5 text-[hsl(var(--gold))]" />
+        <div className="w-full space-y-2 mt-2">
+          {isAnon ? (
+            <>
+              <button
+                onClick={() => navigate("/register")}
+                className="w-full rounded-full py-3 text-sm font-bold text-white flex items-center justify-center gap-2"
+                style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
+              >
+                <UserPlus className="h-4 w-4" />
+                Registruj se besplatno
+              </button>
+              <button
+                onClick={() => navigate("/login")}
+                className="w-full text-xs text-white/55 hover:text-white/75 transition-colors"
+              >
+                Već imaš nalog? <span className="underline">Prijavi se</span>
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => navigate("/paketi")}
+              className="w-full rounded-full py-3 text-sm font-bold text-white flex items-center justify-center gap-2"
+              style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
+            >
+              <Crown className="h-4 w-4" />
+              Otključaj Premium — 9.99€/mj.
+            </button>
+          )}
         </div>
-        <h3 className="text-lg font-bold text-[#1A1A2E]">{t("visa.gateCard.anonTitle")}</h3>
       </div>
-
-      <ul className="space-y-2 mb-6">
-        {benefits.map((b) => (
-          <li key={b} className="flex items-start gap-2 text-sm text-[#4A4A4A]">
-            <CheckCircle className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
-            {b}
-          </li>
-        ))}
-      </ul>
-
-      <button
-        onClick={() => navigate("/register")}
-        className="w-full flex items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-bold transition-all hover:brightness-110"
-        style={{
-          background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
-          color: "hsl(var(--gold-foreground))",
-        }}
-      >
-        <UserPlus className="h-4 w-4" />
-        {t("visa.gateCard.registerCta")}
-      </button>
-      <button
-        onClick={() => navigate("/login")}
-        className="mt-2 w-full text-xs text-[rgba(255,255,255,0.55)] hover:text-[rgba(255,255,255,0.65)] transition-colors"
-      >
-        {t("visa.gateCard.haveAccount")} <span className="underline">{t("visa.gateCard.signIn")}</span>
-      </button>
     </div>
   );
 }

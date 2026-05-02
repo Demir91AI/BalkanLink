@@ -33,7 +33,7 @@ interface Props {
 const GOLD = '#C9A84C';
 const CHARCOAL = 'rgba(255,255,255,0.92)';
 
-const FREE_STEPS = 2;
+const FREE_STEPS = 0;
 const FREE_ERRORS = 0;
 
 const Card = ({ children, bg = '#FFFFFF', border = 'rgba(255,255,255,0.10)', mb = 16 }: { children: React.ReactNode; bg?: string; border?: string; mb?: number }) => (
@@ -140,16 +140,18 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
 
         <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, marginBottom: 24 }}>{r.subtitle}</p>
 
-        {/* FREE: only first 2 steps; rest hidden behind gate */}
-        <Card>
-          <CardHeader icon={CheckCircle} color="#22C55E" title={t('visa.renderer.schnelluebersicht')} />
-          {(hasFullAccess ? r.steps : r.steps.slice(0, FREE_STEPS)).map((step: string, i: number) => (
-            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
-              <StepCircle n={i + 1} />
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
-            </div>
-          ))}
-        </Card>
+        {/* Steps — premium only */}
+        {hasFullAccess && (
+          <Card>
+            <CardHeader icon={CheckCircle} color="#22C55E" title={t('visa.renderer.schnelluebersicht')} />
+            {r.steps.map((step: string, i: number) => (
+              <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
+                <StepCircle n={i + 1} />
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+              </div>
+            ))}
+          </Card>
+        )}
 
         {/* Documents only for premium */}
         {hasFullAccess && (
@@ -165,7 +167,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         )}
 
         {/* Gate card */}
-        {!hasFullAccess && <VisaGateCard />}
+        {!hasFullAccess && <VisaGateCard routeTitle={r.title} />}
 
         {/* Full content for premium users */}
         {hasFullAccess && (
@@ -348,16 +350,18 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         </div>
       )}
 
-      {/* FREE: Steps — show only first 2, hide the rest entirely (no blur ghosts) */}
-      <Card>
-        <CardHeader icon={CheckCircle} color="#22C55E" title={t('visa.renderer.steps')} />
-        {(hasFullAccess ? route.steps : route.steps.slice(0, FREE_STEPS)).map((step: string, i: number) => (
-          <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
-            <StepCircle n={i + 1} />
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
-          </div>
-        ))}
-      </Card>
+      {/* Steps — premium only */}
+      {hasFullAccess && (
+        <Card>
+          <CardHeader icon={CheckCircle} color="#22C55E" title={t('visa.renderer.steps')} />
+          {route.steps.map((step: string, i: number) => (
+            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
+              <StepCircle n={i + 1} />
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.92)', lineHeight: 1.6, margin: 0, paddingTop: 6 }}>{step}</p>
+            </div>
+          ))}
+        </Card>
+      )}
 
       {/* Documents + Errors only for premium — gate replaces them for free */}
       {hasFullAccess && (
@@ -385,7 +389,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       )}
 
       {/* ── GATE CARD ── shown inline after free preview */}
-      {!hasFullAccess && <VisaGateCard />}
+      {!hasFullAccess && <VisaGateCard routeTitle={route.title} />}
 
       {/* ── FULL CONTENT for premium users ── */}
       {hasFullAccess && (
