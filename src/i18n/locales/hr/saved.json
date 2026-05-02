@@ -1,0 +1,39 @@
+{
+  "page": {
+    "title": "Sačuvano",
+    "subtitle": "Tvoja lista označenih obrazaca, vodiča i pitanja. Brzo nastavi gdje si stao.",
+    "empty": {
+      "title": "Još nisi ništa sačuvao",
+      "body": "Klikni zvjezdicu ⭐ na bilo kojoj kartici da je dodaš ovdje. Sve ostaje u tvom uređaju — ne treba ti račun.",
+      "cta": "Pregledaj obrasce"
+    },
+    "registerHint": {
+      "title": "Otvori račun da ne izgubiš popis",
+      "body": "Sačuvane stavke su trenutno samo u ovom pregledniku. Registriraj se besplatno da ti se sinkroniziraju na svim uređajima.",
+      "cta": "Registriraj se besplatno"
+    }
+  },
+  "groups": {
+    "form": "Obrasci",
+    "checklist": "Check liste",
+    "qa": "Pitanja"
+  },
+  "actions": {
+    "save": "Sačuvaj",
+    "saved": "Sačuvano",
+    "remove": "Ukloni",
+    "open": "Otvori",
+    "clearAll": "Obriši sve",
+    "viewAll": "Pogledaj sve sačuvano"
+  },
+  "toast": {
+    "added": "Sačuvano. Pogledaj popis →",
+    "removed": "Uklonjeno iz sačuvanih"
+  },
+  "header": {
+    "ariaLabel": "Sačuvane stavke",
+    "emptyTitle": "Nema sačuvanih stavki",
+    "emptyBody": "Klikni zvjezdicu na karticama da dodaš ovdje."
+  },
+  "sidebarLabel": "Sačuvano"
+}
