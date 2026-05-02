@@ -1042,9 +1042,13 @@ export default function ChatAssistant() {
   return (
     <>
       {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
-      {/* ── Floating Trigger ── */}
+      {/* ── Floating Trigger ──
+          Na homepage ('/') FAB se prikazuje SAMO ako je korisnik otvorio
+          asistenta u ovoj sesiji (preko hero CTA) i zatim ga minimizirao.
+          U svakoj drugoj situaciji na homepage se ne pojavljuje. */}
       <AnimatePresence>
-        {panelState === "minimized" && (
+        {panelState === "minimized" &&
+          (location.pathname !== "/" || openedThisSessionRef.current) && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
