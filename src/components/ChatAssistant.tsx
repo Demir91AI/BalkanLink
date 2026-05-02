@@ -298,12 +298,21 @@ export default function ChatAssistant() {
   const [panelState, setPanelState] = useState<AssistantPanelState>(() => {
     const stored = getStoredAssistantPanelState();
     if (stored) return stored;
-    return location.pathname === "/ai-asistent" ? "open" : "minimized";
+    if (location.pathname === "/ai-asistent") return "open";
+    // Na homepage NE prikazuj floating button by default — hero već ima asistenta.
+    // FAB se pojavljuje tek kad korisnik otvori asistenta i zatim ga minimizira.
+    if (location.pathname === "/") return "closed";
+    return "minimized";
   });
   const open = panelState === "open";
   const { user } = useAuth();
 
+  // Prati da li je korisnik otvorio asistenta u ovoj sesiji.
+  // Na homepageu FAB smije da se vidi SAMO ako je panel bio otvoren bar jednom.
+  const openedThisSessionRef = useRef<boolean>(panelState === "open");
+
   const setPersistentPanelState = useCallback((state: AssistantPanelState) => {
+    if (state === "open") openedThisSessionRef.current = true;
     setPanelState(state);
     storeAssistantPanelState(state);
   }, []);
@@ -585,6 +594,10 @@ export default function ChatAssistant() {
       localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
       restoredRef.current = false;
       prevUserIdRef.current = null;
+      // Reset panel: na sljedećem ulasku na home FAB se NE smije pojaviti
+      openedThisSessionRef.current = false;
+      try { localStorage.removeItem(ASSISTANT_PANEL_STATE_KEY); } catch {}
+      setPanelState("closed");
       if (signedOutUserId) {
         supabase.from("chat_messages").delete().eq("user_id", signedOutUserId).then(({ error }) => {
           if (error) console.warn("[BL-Chat] Cloud clear on sign-out failed:", error.message);
@@ -1033,9 +1046,13 @@ export default function ChatAssistant() {
   return (
     <>
       {location.pathname === "/ai-asistent" && <SEO title="BalkanLink Asistent — Pitaj na Svom Jeziku" description="Postavi pitanje o životu u Njemačkoj i dobij odgovor odmah." path="/ai-asistent" />}
-      {/* ── Floating Trigger ── */}
+      {/* ── Floating Trigger ──
+          Na homepage ('/') FAB se prikazuje SAMO ako je korisnik otvorio
+          asistenta u ovoj sesiji (preko hero CTA) i zatim ga minimizirao.
+          U svakoj drugoj situaciji na homepage se ne pojavljuje. */}
       <AnimatePresence>
-        {panelState === "minimized" && (
+        {panelState === "minimized" &&
+          (location.pathname !== "/" || openedThisSessionRef.current) && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
