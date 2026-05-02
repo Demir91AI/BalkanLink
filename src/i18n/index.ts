@@ -25,6 +25,7 @@ import bsLegal from "./locales/bs/legal.json";
 import bsChecklists from "./locales/bs/checklists.json";
 import bsSimulator from "./locales/bs/simulator.json";
 import bsDvojnoDrzavljanstvo from "./locales/bs/dvojnoDrzavljanstvo.json";
+import bsSaved from "./locales/bs/saved.json";
 
 import deCommon from "./locales/de/common.json";
 import deForms from "./locales/de/forms.json";
