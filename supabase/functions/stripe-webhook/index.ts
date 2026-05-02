@@ -45,6 +45,41 @@ serve(async (req) => {
     { auth: { persistSession: false } }
   );
 
+  const ADMIN_EMAIL = "demir.zijada@gmail.com";
+  const formatAmount = (cents: number) => (cents / 100).toFixed(2);
+  const notifyAdminPayment = async (payload: {
+    email?: string | null;
+    productLabel: string;
+    amountCents: number;
+    currency: string;
+    mode: "subscription" | "payment";
+    transactionId: string;
+    paidAt: string;
+  }) => {
+    try {
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "admin-new-payment",
+          recipientEmail: ADMIN_EMAIL,
+          idempotencyKey: `admin-payment-${payload.transactionId}`,
+          templateData: {
+            email: payload.email ?? "—",
+            productLabel: payload.productLabel,
+            amountFormatted: formatAmount(payload.amountCents),
+            currency: payload.currency,
+            mode: payload.mode,
+            transactionId: payload.transactionId,
+            paidAt: payload.paidAt,
+          },
+        },
+      });
+      if (error) log("admin email error", { error: error.message });
+      else log("admin payment notified", { txId: payload.transactionId });
+    } catch (e) {
+      log("admin email threw", { error: e instanceof Error ? e.message : String(e) });
+    }
+  };
+
   try {
     switch (event.type) {
       // ── Checkout completed ──────────────────────────────────
