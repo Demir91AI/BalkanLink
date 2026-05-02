@@ -56,8 +56,21 @@ export default function CommunityHighlights() {
         setLoading(false);
       }
     };
-    load();
-    return () => { cancelled = true; };
+    // Defer to idle so it doesn't extend the critical request chain / LCP
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+    const handle = ric
+      ? ric(() => { if (!cancelled) load(); }, { timeout: 3000 })
+      : (window.setTimeout(() => { if (!cancelled) load(); }, 1800) as unknown as number);
+    return () => {
+      cancelled = true;
+      if (ric && (window as any).cancelIdleCallback) {
+        (window as any).cancelIdleCallback(handle);
+      } else {
+        clearTimeout(handle);
+      }
+    };
   }, []);
 
   // Don't render section if there's no content yet
