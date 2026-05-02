@@ -60,7 +60,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
       <div style={{ padding: 20 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
           <img src={country.flag} alt={country.name} style={{ height: 22, borderRadius: 2 }} loading="lazy" decoding="async" />
-          <span style={{ fontSize: 16, fontWeight: 700, color: '#1A1A2E' }}>{country.name}</span>
+          <span style={{ fontSize: 16, fontWeight: 700, color: 'rgba(255,255,255,0.92)' }}>{country.name}</span>
         </div>
         <a href={country.embassyUrl} target="_blank" rel="noopener noreferrer"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 8, padding: '10px 14px', textDecoration: 'none', marginBottom: 12 }}>
