@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -20,6 +20,8 @@ const slides = [
   { image: "/assets/hero-leipzig.jpg", city: "LEIPZIG" },
 ];
 
+const preloadSlides = slides.slice(0, 2);
+
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function HeroSection() {
@@ -28,7 +30,6 @@ export default function HeroSection() {
   const { t } = useTranslation("pages");
   const { t: tc } = useTranslation("common");
   const trialActive = new Date() < new Date("2026-05-31T23:59:59Z");
-  const btnRef = useRef<HTMLButtonElement>(null);
   const [askValue, setAskValue] = useState("");
   const [typed, setTyped] = useState("");
   const [phraseKey, setPhraseKey] = useState(0);
@@ -116,35 +117,10 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
-  /* Magnetic hover effect */
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!btnRef.current) return;
-    const rect = btnRef.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 120) {
-      const pull = (1 - dist / 120) * 8;
-      btnRef.current.style.transform = `translate(${dx * pull / 120}px, ${dy * pull / 120}px)`;
-    } else {
-      btnRef.current.style.transform = "";
-    }
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    if (btnRef.current) btnRef.current.style.transform = "";
-  }, []);
-
   return (
-    <section
-      className="relative min-h-[92vh] overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
+    <section className="relative min-h-[92vh] overflow-hidden">
       {/* Background slides with slow zoom */}
-      {slides.map((slide, idx) => (
+      {preloadSlides.map((slide, idx) => (
         <div
           key={idx}
           className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
