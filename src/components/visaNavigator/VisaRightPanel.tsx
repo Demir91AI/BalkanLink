@@ -109,7 +109,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
               style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.78)', fontSize: 12, textDecoration: 'none', marginBottom: 6 }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#C9A84C'}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4A4A4A'}>
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.78)'}>
               <ExternalLink size={11} color="#C9A84C" />{s.label}
             </a>
           ))}
