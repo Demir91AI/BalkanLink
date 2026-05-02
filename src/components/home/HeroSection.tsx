@@ -8,7 +8,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import LiveSocialProof from "@/components/social/LiveSocialProof";
 
 const slides = [
-  { image: "/assets/hero-frankfurt.jpg", city: "FRANKFURT" },
+  { image: "/assets/hero-frankfurt-1280.webp", city: "FRANKFURT", srcSet: "/assets/hero-frankfurt-768.webp 768w, /assets/hero-frankfurt-1280.webp 1280w" },
   { image: "/assets/hero-berlin.jpg", city: "BERLIN" },
   { image: "/assets/hero-muenchen.jpg", city: "MÜNCHEN" },
   { image: "/assets/hero-hamburg.jpg", city: "HAMBURG" },
@@ -140,6 +140,8 @@ export default function HeroSection() {
         >
           <img
             src={slide.image}
+            srcSet={slide.srcSet}
+            sizes="100vw"
             alt={slide.city}
             className="h-full w-full object-cover"
             style={{
