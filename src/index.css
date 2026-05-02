@@ -513,30 +513,23 @@
   line-height: 1.5;
 }
 
-/* === Launch Trial WOW banner === */
-@keyframes blTrialPulseRing {
-  0%   { box-shadow: 0 0 0 0 hsla(43, 90%, 60%, 0.55), 0 14px 40px -10px hsla(43, 80%, 55%, 0.6); }
-  70%  { box-shadow: 0 0 0 14px hsla(43, 90%, 60%, 0),    0 14px 40px -10px hsla(43, 80%, 55%, 0.6); }
-  100% { box-shadow: 0 0 0 0 hsla(43, 90%, 60%, 0),       0 14px 40px -10px hsla(43, 80%, 55%, 0.6); }
-}
+/* === Launch Trial WOW banner ===
+ * Mobile scroll-jank fix: avoid animating box-shadow / background-position
+ * (both force paint of a large area on every frame). Use a static drop
+ * shadow + GPU-only transform/opacity animations on pseudo-elements. */
 @keyframes blTrialShine {
-  0%   { transform: translateX(-120%) skewX(-18deg); }
-  60%  { transform: translateX(220%)  skewX(-18deg); }
-  100% { transform: translateX(220%)  skewX(-18deg); }
-}
-@keyframes blTrialFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-3px); }
-}
-@keyframes blTrialBgShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
+  0%   { transform: translate3d(-120%, 0, 0) skewX(-18deg); }
+  60%  { transform: translate3d(260%, 0, 0)  skewX(-18deg); }
+  100% { transform: translate3d(260%, 0, 0)  skewX(-18deg); }
 }
 .bl-trial-banner {
   position: relative;
-  background: linear-gradient(120deg, #f59e0b 0%, #fbbf24 25%, #fde047 50%, #fbbf24 75%, #f59e0b 100%);
-  background-size: 220% 100%;
-  animation: blTrialPulseRing 2.6s ease-out infinite, blTrialFloat 4s ease-in-out infinite, blTrialBgShift 6s ease-in-out infinite;
+  background: linear-gradient(120deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+  box-shadow: 0 14px 40px -10px hsla(43, 80%, 55%, 0.55);
+  /* Isolate paint so scroll over the banner doesn't repaint surroundings */
+  contain: paint;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .bl-trial-banner::after {
   content: "";
@@ -547,4 +540,8 @@
   animation: blTrialShine 3.2s ease-in-out infinite;
   pointer-events: none;
   border-radius: inherit;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bl-trial-banner::after { animation: none; }
 }
