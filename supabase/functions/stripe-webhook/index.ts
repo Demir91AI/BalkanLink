@@ -124,6 +124,16 @@ serve(async (req) => {
             });
             if (payErr) log("ERROR inserting payment", { userId, error: payErr.message });
             else log("Payment recorded", { userId, txId, amountTotal });
+
+            await notifyAdminPayment({
+              email: customerEmail,
+              productLabel: "Premium pretplata",
+              amountCents: amountTotal,
+              currency,
+              mode: "subscription",
+              transactionId: txId,
+              paidAt: new Date().toISOString(),
+            });
           }
         }
 
@@ -170,6 +180,16 @@ serve(async (req) => {
           });
           if (payErr) log("ERROR inserting one-time payment", { userId, error: payErr.message });
           else log("One-time payment recorded", { userId, txId, amountTotal });
+
+          await notifyAdminPayment({
+            email: customerEmail,
+            productLabel: isDocCheck ? "Dokumenten-Check (2,99€)" : (formSlug ? `Forma: ${formSlug}` : "Jednokratna uplata"),
+            amountCents: amountTotal,
+            currency,
+            mode: "payment",
+            transactionId: txId,
+            paidAt: new Date().toISOString(),
+          });
         }
         break;
       }
@@ -210,6 +230,16 @@ serve(async (req) => {
         });
         if (payErr) log("ERROR inserting renewal payment", { email, error: payErr.message });
         else log("Renewal payment recorded", { email, txId });
+
+        await notifyAdminPayment({
+          email,
+          productLabel: "Premium obnova pretplate",
+          amountCents: invoice.amount_paid ?? 0,
+          currency: (invoice.currency ?? "eur").toUpperCase(),
+          mode: "subscription",
+          transactionId: txId,
+          paidAt: new Date().toISOString(),
+        });
         break;
       }
 
