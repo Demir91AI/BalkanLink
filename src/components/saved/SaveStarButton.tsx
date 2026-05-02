@@ -81,10 +81,10 @@ export function SaveStarButton({
       aria-pressed={saved}
       aria-label={label}
       title={label}
-      className={`inline-flex h-8 w-8 items-center justify-center rounded-full transition-all hover:scale-110 ${
+      className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-background/60 backdrop-blur-sm border border-border shadow-sm transition-all hover:scale-110 hover:border-[hsl(var(--gold))]/60 ${
         saved
-          ? "text-[hsl(var(--gold))]"
-          : "text-white/40 hover:text-[hsl(var(--gold))]"
+          ? "text-[hsl(var(--gold))] border-[hsl(var(--gold))]/60"
+          : "text-muted-foreground hover:text-[hsl(var(--gold))]"
       } ${className}`}
     >
       <Star className="h-5 w-5" fill={saved ? "currentColor" : "none"} strokeWidth={2} />
