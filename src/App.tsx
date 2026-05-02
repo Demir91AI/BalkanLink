@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -382,6 +382,31 @@ function AppRoutes() {
   );
 }
 
+function DeferredWhatIsBalkanLink() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const open = () => setReady(true);
+    window.addEventListener("bl:open-whatis", open, { once: true });
+    const ric = (window as typeof window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void }).requestIdleCallback;
+    if (ric) {
+      const id = ric(() => setReady(true), { timeout: 6500 });
+      return () => {
+        window.removeEventListener("bl:open-whatis", open);
+        (window as typeof window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
+      };
+    }
+    const id = window.setTimeout(() => setReady(true), 4200);
+    return () => {
+      window.removeEventListener("bl:open-whatis", open);
+      window.clearTimeout(id);
+    };
+  }, []);
+
+  if (!ready) return null;
+  return <WhatIsBalkanLink />;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -395,7 +420,7 @@ const App = () => (
             <AuthProvider>
               <Suspense fallback={null}>
                 <AppRoutes />
-                <WhatIsBalkanLink />
+                <DeferredWhatIsBalkanLink />
               </Suspense>
             </AuthProvider>
           </CountryProvider>
