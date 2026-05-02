@@ -64,6 +64,7 @@ import srLegal from "./locales/sr/legal.json";
 import srChecklists from "./locales/sr/checklists.json";
 import srSimulator from "./locales/sr/simulator.json";
 import srDvojnoDrzavljanstvo from "./locales/sr/dvojnoDrzavljanstvo.json";
+import srSaved from "./locales/sr/saved.json";
 
 export const SUPPORTED_LANGUAGES = ["bs", "de", "hr", "sr"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
