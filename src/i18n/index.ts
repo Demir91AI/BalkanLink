@@ -51,6 +51,7 @@ import hrLegal from "./locales/hr/legal.json";
 import hrChecklists from "./locales/hr/checklists.json";
 import hrSimulator from "./locales/hr/simulator.json";
 import hrDvojnoDrzavljanstvo from "./locales/hr/dvojnoDrzavljanstvo.json";
+import hrSaved from "./locales/hr/saved.json";
 
 import srCommon from "./locales/sr/common.json";
 import srForms from "./locales/sr/forms.json";
