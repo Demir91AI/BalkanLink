@@ -20,7 +20,7 @@ const slides = [
   { image: "/assets/hero-leipzig.jpg", city: "LEIPZIG" },
 ];
 
-const preloadSlides = slides.slice(0, 2);
+const INITIAL_SLIDE_COUNT = 2;
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -35,6 +35,7 @@ export default function HeroSection() {
   const [phraseKey, setPhraseKey] = useState(0);
   const [phraseVisible, setPhraseVisible] = useState(true);
   const [askFocused, setAskFocused] = useState(false);
+  const [renderAllSlides, setRenderAllSlides] = useState(false);
   const isMobile = useIsMobile();
 
   const trustBadges = [
@@ -117,10 +118,21 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
+  useEffect(() => {
+    const loadRest = () => setRenderAllSlides(true);
+    const ric = (window as typeof window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void }).requestIdleCallback;
+    if (ric) {
+      const id = ric(loadRest, { timeout: 3500 });
+      return () => (window as typeof window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
+    }
+    const id = window.setTimeout(loadRest, 2200);
+    return () => window.clearTimeout(id);
+  }, []);
+
   return (
     <section className="relative min-h-[92vh] overflow-hidden">
       {/* Background slides with slow zoom */}
-      {preloadSlides.map((slide, idx) => (
+      {(renderAllSlides ? slides : slides.slice(0, INITIAL_SLIDE_COUNT)).map((slide, idx) => (
         <div
           key={idx}
           className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
