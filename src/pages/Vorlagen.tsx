@@ -171,24 +171,34 @@ export default function Vorlagen() {
                   const Icon = ICON_MAP[item.icon] ?? FileCheck;
                   const isFree = FREE_TEMPLATE_SLUGS.has(item.slug);
                   return (
-                    <Link
+                    <div
                       key={item.slug}
-                      to={`/vorlagen/${item.slug}`}
-                      className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 hover:bg-accent/50 transition-colors"
+                      className="relative flex items-center gap-4 rounded-xl border border-border bg-card p-4 hover:bg-accent/50 transition-colors"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                        <Icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
-                          <p className="font-semibold text-foreground">{item.titleDe}</p>
-                          {isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />}
+                      <Link
+                        to={`/vorlagen/${item.slug}`}
+                        className="flex flex-1 min-w-0 items-center gap-4"
+                      >
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                          <Icon className="h-5 w-5 text-primary" />
                         </div>
-                        <p className="text-xs text-muted-foreground mt-0.5">
-                          {tplTitle(item.slug, item.titleBs)}
-                        </p>
-                      </div>
-                    </Link>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <p className="font-semibold text-foreground">{item.titleDe}</p>
+                            {isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />}
+                          </div>
+                          <p className="text-xs text-muted-foreground mt-0.5">
+                            {tplTitle(item.slug, item.titleBs)}
+                          </p>
+                        </div>
+                      </Link>
+                      <SaveStarButton
+                        type="form"
+                        id={`vorlage:${item.slug}`}
+                        title={item.titleDe}
+                        path={`/vorlagen/${item.slug}`}
+                      />
+                    </div>
                   );
                 })}
               </div>
