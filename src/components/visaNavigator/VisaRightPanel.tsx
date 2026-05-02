@@ -73,7 +73,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '10px 14px', marginBottom: 8, cursor: 'pointer' }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = '#C9A84C'}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'}>
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#1A1A2E', margin: 0 }}>{r.title}</p>
+            <p style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.88)', margin: 0 }}>{r.title}</p>
           </div>
         ))}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
