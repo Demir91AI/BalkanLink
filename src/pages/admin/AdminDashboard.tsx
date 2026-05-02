@@ -79,8 +79,10 @@ export default function AdminDashboard() {
   const [search, setSearch] = useState("");
   const [searchBusy, setSearchBusy] = useState(false);
 
-  const loadAll = async () => {
-    setLoading(true);
+  const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
+
+  const loadAll = async (silent = false) => {
+    if (!silent) setLoading(true);
     const [statsRes, usersRes, paymentsRes] = await Promise.all([
       supabase.rpc("get_admin_stats" as any),
       supabase.rpc("get_admin_users" as any, { _search: null, _limit: 50 }),
@@ -89,10 +91,17 @@ export default function AdminDashboard() {
     if (statsRes.data) setStats(statsRes.data as any);
     if (usersRes.data) setUsers(usersRes.data as any);
     if (paymentsRes.data) setPayments(paymentsRes.data as any);
-    setLoading(false);
+    setLastRefresh(new Date());
+    if (!silent) setLoading(false);
   };
 
-  useEffect(() => { loadAll(); }, []);
+  useEffect(() => {
+    loadAll();
+    const id = setInterval(() => { loadAll(true); }, 30000);
+    const onVis = () => { if (document.visibilityState === "visible") loadAll(true); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, []);
 
   // debounced search
   useEffect(() => {
@@ -137,9 +146,17 @@ export default function AdminDashboard() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-            <p className="text-sm text-muted-foreground mt-1">Pregled korisnika, prometa i prihoda</p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Pregled korisnika, prometa i prihoda
+              {lastRefresh && (
+                <span className="ml-2 inline-flex items-center gap-1 text-xs text-muted-foreground/70">
+                  · <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" /> auto-refresh 30s · {lastRefresh.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                </span>
+              )}
+            </p>
           </div>
           <div className="flex gap-2">
+            <Button variant="outline" size="sm" onClick={() => loadAll(true)}>Osvježi</Button>
             <Button variant="outline" size="sm" asChild><Link to="/admin/pitanja">Pitanja {stats && stats.pendingQuestions > 0 && <Badge className="ml-2">{stats.pendingQuestions}</Badge>}</Link></Button>
             <Button variant="outline" size="sm" asChild><Link to="/admin/trialovi">Trialovi</Link></Button>
             <Button variant="outline" size="sm" asChild><Link to="/admin/forms">Formulari</Link></Button>
