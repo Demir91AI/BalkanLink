@@ -361,7 +361,7 @@ export default function BoravisnaDozvola() {
                         : "border-l-[3px] border-l-transparent hover:bg-muted/50 text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" />
+                    <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" loading="lazy" decoding="async" />
                     <span>{label(country.nameKey)}</span>
                     <Badge variant="outline" className="ml-auto text-[9px] px-1.5 py-0 border-emerald-300 text-emerald-600 shrink-0">
                       {label("badge_eu")}
@@ -383,7 +383,7 @@ export default function BoravisnaDozvola() {
                         : "border-l-[3px] border-l-transparent hover:bg-muted/50 text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" />
+                    <img src={country.flagUrl} alt="" className="h-[18px] w-auto rounded-[2px] shrink-0" loading="lazy" decoding="async" />
                     <span>{label(country.nameKey)}</span>
                   </button>
                 ))}

@@ -134,7 +134,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-          <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} />
+          <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} loading="lazy" decoding="async" />
           <h1 style={{ fontSize: 26, fontWeight: 700, color: CHARCOAL, margin: 0 }}>{country.name}</h1>
         </div>
 
@@ -231,7 +231,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
     return (
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-          <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} />
+          <img src={country.flag} alt={country.name} style={{ height: 28, borderRadius: 3 }} loading="lazy" decoding="async" />
           <h1 style={{ fontSize: 26, fontWeight: 700, color: CHARCOAL, margin: 0 }}>{country.name}</h1>
           <span style={{ background: 'rgba(245,158,11,0.15)', color: 'rgba(252,211,77,0.95)', borderRadius: 20, padding: '3px 12px', fontSize: 12, fontWeight: 600 }}>{t('visa.renderer.westbalkan')}</span>
         </div>

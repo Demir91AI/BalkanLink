@@ -33,7 +33,7 @@ export default function FirmDetail() {
 
         {/* Logo overlay */}
         <div className="absolute left-4 top-4 flex items-center gap-2 rounded-xl border border-white/25 bg-white/20 px-4 py-2.5 backdrop-blur-md">
-          <img src={firm.logoUrl} alt={firm.logoAlt} className="h-8 max-w-[120px] object-contain" />
+          <img src={firm.logoUrl} alt={firm.logoAlt} className="h-8 max-w-[120px] object-contain" loading="lazy" decoding="async" />
         </div>
 
         {/* Premium badge */}
@@ -86,7 +86,7 @@ export default function FirmDetail() {
                 i === selectedImage ? "border-gold shadow-md" : "border-transparent opacity-60 hover:opacity-90"
               }`}
             >
-              <img src={img} alt={`${firm.name} ${i + 1}`} className="h-16 w-24 object-cover" />
+              <img src={img} alt={`${firm.name} ${i + 1}`} className="h-16 w-24 object-cover" loading="lazy" decoding="async" width="96" height="64" />
             </button>
           ))}
         </div>

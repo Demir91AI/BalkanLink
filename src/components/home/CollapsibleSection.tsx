@@ -29,19 +29,24 @@ export default function CollapsibleSection({
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
-    if (open) {
-      // Expand: set to scrollHeight, then to 'none' after transition for responsive content.
-      const h = el.scrollHeight;
-      setMaxHeight(`${h}px`);
-      const t = setTimeout(() => setMaxHeight("none"), 450);
-      return () => clearTimeout(t);
-    } else {
-      // Collapse: from current height to 0.
-      const h = el.scrollHeight;
-      setMaxHeight(`${h}px`);
-      // next tick → 0
-      requestAnimationFrame(() => setMaxHeight("0px"));
-    }
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    // Defer DOM reads to next animation frame to avoid forced reflow when
+    // the effect runs synchronously after a state change.
+    const rafId = requestAnimationFrame(() => {
+      if (open) {
+        const h = el.scrollHeight;
+        setMaxHeight(`${h}px`);
+        timeoutId = setTimeout(() => setMaxHeight("none"), 450);
+      } else {
+        const h = el.scrollHeight;
+        setMaxHeight(`${h}px`);
+        requestAnimationFrame(() => setMaxHeight("0px"));
+      }
+    });
+    return () => {
+      cancelAnimationFrame(rafId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [open]);
 
   return (
