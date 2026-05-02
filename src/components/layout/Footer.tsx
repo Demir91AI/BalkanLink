@@ -42,17 +42,31 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
   useEffect(() => {
     let cancelled = false;
-    supabase
-      .from("reviews")
-      .select("id, username, rating, comment, created_at")
-      .eq("is_approved", true)
-      .order("created_at", { ascending: false })
-      .limit(50)
-      .then(({ data }) => {
-        if (!cancelled && data) setReviews(data as ReviewRow[]);
-      });
+    const load = () => {
+      supabase
+        .from("reviews")
+        .select("id, username, rating, comment, created_at")
+        .eq("is_approved", true)
+        .order("created_at", { ascending: false })
+        .limit(50)
+        .then(({ data }) => {
+          if (!cancelled && data) setReviews(data as ReviewRow[]);
+        });
+    };
+    // Footer is below the fold — defer to idle so it doesn't extend the critical chain
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+    const handle = ric
+      ? ric(() => { if (!cancelled) load(); }, { timeout: 4000 })
+      : (window.setTimeout(() => { if (!cancelled) load(); }, 2000) as unknown as number);
     return () => {
       cancelled = true;
+      if (ric && (window as any).cancelIdleCallback) {
+        (window as any).cancelIdleCallback(handle);
+      } else {
+        clearTimeout(handle);
+      }
     };
   }, []);
 
