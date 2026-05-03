@@ -101,7 +101,17 @@ function FormRow({
           {item.desc}
         </p>
       </div>
-      <ArrowRight className="h-4 w-4 mt-1 shrink-0 text-white/20 transition-all group-hover:translate-x-0.5 group-hover:text-white/60" />
+      <div className="flex items-center gap-1 shrink-0 mt-0.5">
+        <span onClick={(e) => e.stopPropagation()}>
+          <SaveStarButton
+            type="form"
+            id={`form:${item.slug}`}
+            title={item.label}
+            path={`/formulari/${item.slug}`}
+          />
+        </span>
+        <ArrowRight className="h-4 w-4 text-white/20 transition-all group-hover:translate-x-0.5 group-hover:text-white/60" />
+      </div>
     </motion.button>
   );
 }
