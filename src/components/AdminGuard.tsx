@@ -3,7 +3,7 @@ import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, ShieldAlert, Loader2, LogIn, Home } from "lucide-react";
+import { ShieldAlert, Loader2, LogIn, Home } from "lucide-react";
 
 type AccessState =
   | { status: "checking" }
@@ -153,18 +153,5 @@ export default function AdminGuard() {
     );
   }
 
-  // Allowed — show small confirmation strip above admin content
-  return (
-    <>
-      <div className="border-b border-emerald-500/20 bg-emerald-500/5">
-        <div className="container max-w-7xl py-2 flex items-center gap-2 text-xs">
-          <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-          <span className="text-emerald-400 font-semibold">Status: admin</span>
-          <span className="text-muted-foreground">·</span>
-          <span className="text-muted-foreground truncate">{session?.user?.email}</span>
-        </div>
-      </div>
-      <Outlet />
-    </>
-  );
+  return <Outlet />;
 }
