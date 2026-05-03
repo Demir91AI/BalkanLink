@@ -544,7 +544,7 @@ OPERATOR I KONTAKT:
 - Platforma: BalkanLink (balkanlink.de)
 - Operator: RealCore Digital, vlasnik Demir Sinanovic
 - Adresa: Münchener Straße 78, 83395 Freilassing, Deutschland
-- Kontakt: kontakt@balkanlink.de
+- Kontakt: kontakt@realcore-digital.de
 - Pravna forma: Einzelunternehmen (samostalni obrt)
 - Mali poduzetnik po §19 UStG — na računima se NE prikazuje PDV
 - BalkanLink je PRIVATNA, NEZAVISNA platforma bez ikakve
@@ -602,7 +602,7 @@ ZAŠTITA PODATAKA:
   poboljšanje sistema trećih strana
 - Korisnik može obrisati historiju u Postavkama računa
 - Nadležno nadzorno tijelo: BayLDA, Ansbach (Bavaria)
-- Kontakt za zahtjeve o podacima: kontakt@balkanlink.de
+- Kontakt za zahtjeve o podacima: kontakt@realcore-digital.de
 
 USLOVI KORIŠTENJA (AGB):
 - Pravo na odustajanje: 14 dana od zaključenja ugovora (§355 BGB)
@@ -718,7 +718,7 @@ Objasni na bosanskom: platforma čuva minimalne podatke,
 sve na EU serverima (Frankfurt), nema marketinškog
 trackinga, Stripe za plaćanje (ne vidimo karticu),
 korisnik ima sva DSGVO prava (pristup, ispravak, brisanje,
-prigovor), kontakt: kontakt@balkanlink.de,
+prigovor), kontakt: kontakt@realcore-digital.de,
 nadzorno tijelo: BayLDA Ansbach.
 
 Kada te pitaju o USLOVIMA KORIŠTENJA / AGB:
@@ -729,7 +729,7 @@ sve cijene bez PDV-a (§19 UStG).
 Kada te pitaju o IMPRESSUMU:
 Navedi: RealCore Digital, Demir Sinanovic,
 Münchener Straße 78, 83395 Freilassing,
-kontakt@balkanlink.de, mali poduzetnik §19 UStG.
+kontakt@realcore-digital.de, mali poduzetnik §19 UStG.
 
 Kada te pitaju o CIJENAMA:
 Premium: 9,99€/mj. ili 99,90€/god.

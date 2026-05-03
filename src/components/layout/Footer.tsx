@@ -192,8 +192,8 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
         <div>
           <p style={colTitleStyle}>{t("common:footer.contactTitle")}</p>
-          <a href="mailto:kontakt@balkanlink.de" style={linkStyle} className="footer-link">
-            kontakt@balkanlink.de
+          <a href="mailto:kontakt@realcore-digital.de" style={linkStyle} className="footer-link">
+            kontakt@realcore-digital.de
           </a>
         </div>
       </div>
@@ -216,8 +216,8 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
           {LEGAL_LINKS.map(renderLink)}
         </AccordionSection>
         <AccordionSection id="contact" title={t("common:footer.contactTitle")}>
-          <a href="mailto:kontakt@balkanlink.de" style={linkStyle} className="footer-link">
-            kontakt@balkanlink.de
+          <a href="mailto:kontakt@realcore-digital.de" style={linkStyle} className="footer-link">
+            kontakt@realcore-digital.de
           </a>
         </AccordionSection>
         <AccordionSection id="payments" title={t("common:footer.paymentMethods")}>
