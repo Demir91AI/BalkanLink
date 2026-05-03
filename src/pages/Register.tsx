@@ -130,9 +130,22 @@ export default function Register() {
               title: t("auth.register.trialActivatedTitle"),
               description: t("auth.register.trialActivatedDesc", { days: (redeemData as any)?.days ?? 30 }),
             });
+          } else {
+            const reason = (redeemData as any)?.error ?? "invalid_code";
+            try { localStorage.removeItem(TRIAL_STORAGE_KEY); } catch {}
+            toast({
+              title: t("auth.register.trialFailedTitle"),
+              description: t(`auth.register.trialError.${reason}`, { defaultValue: t("auth.register.trialError.invalid_code") }),
+              variant: "destructive",
+            });
           }
         } catch (err) {
           console.error("[trial] redeem failed", err);
+          toast({
+            title: t("auth.register.trialFailedTitle"),
+            description: t("auth.register.trialError.invalid_code"),
+            variant: "destructive",
+          });
         }
       }
     }
