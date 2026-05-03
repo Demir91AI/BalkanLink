@@ -63,9 +63,10 @@ export default function Register() {
       toast({ title: t("auth.register.passwordTooShortShort"), variant: "destructive" });
       return;
     }
+    const normalizedEmail = email.trim().toLowerCase();
     setLoading(true);
     const { data: signUpData, error } = await supabase.auth.signUp({
-      email,
+      email: normalizedEmail,
       password,
       options: {
         emailRedirectTo: window.location.origin,
@@ -79,7 +80,7 @@ export default function Register() {
     // Supabase ne vraća grešku za duplikate (security) — detektujemo preko praznog identities array
     const isDuplicate = !!signUpData.user && Array.isArray((signUpData.user as any).identities) && (signUpData.user as any).identities.length === 0;
 
-    if (isDuplicate) {
+    if (isDuplicate || error?.message?.toLowerCase().includes("already")) {
       setLoading(false);
       toast({
         title: t("auth.register.errorTitleShort"),
@@ -94,7 +95,7 @@ export default function Register() {
         .from("profiles")
         .upsert({
           id: signUpData.user.id,
-          email,
+          email: normalizedEmail,
           first_name: firstName.trim(),
         } as any, { onConflict: "id" });
 
@@ -106,7 +107,7 @@ export default function Register() {
             recipientEmail: "demir.zijada@gmail.com",
             idempotencyKey: `admin-new-user-${signUpData.user.id}`,
             templateData: {
-              email,
+              email: normalizedEmail,
               firstName: firstName.trim(),
               trialCode: trialCode ?? undefined,
               registeredAt: new Date().toISOString(),
