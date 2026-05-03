@@ -36,7 +36,7 @@ const EMAIL_TEMPLATES: Record<string, React.ComponentType<any>> = {
 }
 
 // Configuration
-const SITE_NAME = "balkan-navi-deutsch"
+const SITE_NAME = "BalkanLink"
 const SENDER_DOMAIN = "notify.balkanlink.de"
 const ROOT_DOMAIN = "balkanlink.de"
 const FROM_DOMAIN = "balkanlink.de" // Domain shown in From address (may be root or sender subdomain)
