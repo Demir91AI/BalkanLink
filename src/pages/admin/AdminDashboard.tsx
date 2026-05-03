@@ -29,7 +29,7 @@ interface Stats {
   loggedInViews7d: number; anonViews7d: number;
   avgViewsPerDay30d: number;
   revenueToday: number; revenue7d: number; revenue30d: number; revenueAllTime: number;
-  paidCount30d: number; estimatedMrr: number;
+  paidCount30d: number; estimatedMrr: number; lifetimeUsers: number;
   funnel: { visitors: number; signups: number; trialActive: number; paid: number };
   trialEndingSoon: Array<{ id: string; email: string; first_name: string | null; subscription_tier: string; expires_at: string }>;
   topActiveUsers: Array<{ email: string; first_name: string | null; chat_count: number }>;
