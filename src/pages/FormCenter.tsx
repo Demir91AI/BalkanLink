@@ -13,6 +13,7 @@ import { formCatalog, getAllFormEntries, isFormFree, hasMuster, getMusterPath, t
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
+import { SaveStarButton } from "@/components/saved/SaveStarButton";
 import MoreFeaturesHint from "@/components/MoreFeaturesHint";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import KindergeldGuideContent from "@/components/KindergeldGuideContent";
@@ -540,6 +541,15 @@ export default function FormCenter() {
               {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
             </h1>
             <ItemBadge slug={activeSlug} />
+            {activeSlug && (
+              <SaveStarButton
+                type="form"
+                id={`form:${activeSlug}`}
+                title={allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
+                path={`/formulari/${activeSlug}`}
+                className="ml-auto"
+              />
+            )}
           </div>
           {canAccess ? (
             <GuideContent key={activeSlug} slug={activeSlug} />
