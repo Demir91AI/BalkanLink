@@ -134,12 +134,6 @@ export default function Vorlagen() {
             </div>
             <p className="text-sm text-muted-foreground">{localTitle}</p>
           </div>
-          <SaveStarButton
-            type="form"
-            id={`vorlage:${tpl.slug}`}
-            title={tpl.titleDe}
-            path={`/vorlagen/${tpl.slug}`}
-          />
         </div>
         {canAccess ? (
           <VorlagenGenerator template={tpl} />
