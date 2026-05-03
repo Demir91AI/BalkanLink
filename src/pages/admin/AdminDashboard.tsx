@@ -11,7 +11,7 @@ import {
   Users, TrendingUp, Crown, Eye, MessageSquare, FileText,
   Loader2, Search, ArrowRight, Calendar, CreditCard, Mail,
   AlertTriangle, Building2, HelpCircle, Activity, Euro, Zap,
-  CheckCircle2, XCircle, Clock,
+  CheckCircle2, XCircle, Clock, Globe, MapPin,
 } from "lucide-react";
 
 // ──────────────────────── Types ────────────────────────
@@ -43,6 +43,8 @@ interface Stats {
   newUsersByDay: Array<{ day: string; signups: number }>;
   chatByDay: Array<{ day: string; queries: number }>;
   revenueByDay: Array<{ day: string; amount_cents: number; tx_count: number }>;
+  topCountries: Array<{ country: string; views: number; unique_visitors: number }>;
+  topCities: Array<{ city: string; country: string | null; views: number; unique_visitors: number }>;
 }
 
 interface AdminUser {
@@ -262,6 +264,9 @@ export default function AdminDashboard() {
               )}
             </TabsTrigger>
             <TabsTrigger value="traffic">Saobraćaj</TabsTrigger>
+            <TabsTrigger value="geo">
+              <Globe className="h-3.5 w-3.5 mr-1" /> Geo
+            </TabsTrigger>
             <TabsTrigger value="email">
               Email
               {stats.emailStats.failed > 0 && (
@@ -271,77 +276,90 @@ export default function AdminDashboard() {
           </TabsList>
 
           {/* ──────────── PREGLED ──────────── */}
-          <TabsContent value="overview" className="space-y-4 mt-4">
-            {/* Funnel */}
-            <Section title="Konverzioni lijevak (30 dana)" icon={Activity}>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[
-                  { label: "Posjetioci", value: stats.funnel.visitors, color: "violet" as const, base: stats.funnel.visitors },
-                  { label: "Registracije", value: stats.funnel.signups, color: "blue" as const, base: stats.funnel.visitors },
-                  { label: "Trial aktivni", value: stats.funnel.trialActive, color: "gold" as const, base: stats.funnel.signups },
-                  { label: "Plaćeni Premium", value: stats.funnel.paid, color: "green" as const, base: stats.funnel.signups },
-                ].map((s) => (
-                  <div key={s.label} className="rounded-lg border border-border/40 bg-background/40 p-3">
-                    <div className="text-xs text-muted-foreground">{s.label}</div>
-                    <div className="text-xl font-bold tabular-nums mt-1">{s.value.toLocaleString("bs-BA")}</div>
-                    <div className="text-[11px] text-muted-foreground mt-0.5">{pct(s.value, s.base)}% konverzija</div>
+          <TabsContent value="overview" className="space-y-2 mt-4">
+            <Accordion type="multiple" defaultValue={["funnel"]} className="space-y-2">
+              <AccordionItem value="funnel" className="rounded-xl border border-border/40 bg-card/60 px-5">
+                <AccordionTrigger className="font-semibold text-sm">
+                  <span className="flex items-center gap-2"><Activity className="h-4 w-4" /> Konverzioni lijevak (30 dana)</span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {[
+                      { label: "Posjetioci", value: stats.funnel.visitors, base: stats.funnel.visitors },
+                      { label: "Registracije", value: stats.funnel.signups, base: stats.funnel.visitors },
+                      { label: "Trial aktivni", value: stats.funnel.trialActive, base: stats.funnel.signups },
+                      { label: "Plaćeni Premium", value: stats.funnel.paid, base: stats.funnel.signups },
+                    ].map((s) => (
+                      <div key={s.label} className="rounded-lg border border-border/40 bg-background/40 p-3">
+                        <div className="text-xs text-muted-foreground">{s.label}</div>
+                        <div className="text-xl font-bold tabular-nums mt-1">{s.value.toLocaleString("bs-BA")}</div>
+                        <div className="text-[11px] text-muted-foreground mt-0.5">{pct(s.value, s.base)}% konverzija</div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <div className="mt-3 text-xs text-muted-foreground">
-                Stopa konverzije registracije → trial/Premium: <strong className="text-foreground">{conversionRate}%</strong>
-              </div>
-            </Section>
+                  <div className="mt-3 text-xs text-muted-foreground">
+                    Stopa konverzije registracije → trial/Premium: <strong className="text-foreground">{conversionRate}%</strong>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <Section title="Aktivnost po danima (14d)" icon={TrendingUp}>
-                <Accordion type="multiple" defaultValue={["views"]} className="w-full">
-                  <AccordionItem value="views" className="border-border/40">
-                    <AccordionTrigger className="text-xs py-2">Posjete</AccordionTrigger>
-                    <AccordionContent>
-                      <MiniBars data={stats.viewsByDay} color="gold" labelKey="day" valueKey="views" />
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="signups" className="border-border/40">
-                    <AccordionTrigger className="text-xs py-2">Nove registracije</AccordionTrigger>
-                    <AccordionContent>
-                      <MiniBars data={stats.newUsersByDay} color="blue" labelKey="day" valueKey="signups" />
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="chat" className="border-border/40">
-                    <AccordionTrigger className="text-xs py-2">Asistent upiti</AccordionTrigger>
-                    <AccordionContent>
-                      <MiniBars data={stats.chatByDay} color="violet" labelKey="day" valueKey="queries" />
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="revenue" className="border-border/40 border-b-0">
-                    <AccordionTrigger className="text-xs py-2">Prihodi (30d)</AccordionTrigger>
-                    <AccordionContent>
-                      <MiniBars
-                        data={stats.revenueByDay.map((d) => ({ ...d, eur: +(d.amount_cents / 100).toFixed(2) }))}
-                        color="green" labelKey="day" valueKey="eur"
-                      />
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </Section>
+              <AccordionItem value="activity" className="rounded-xl border border-border/40 bg-card/60 px-5">
+                <AccordionTrigger className="font-semibold text-sm">
+                  <span className="flex items-center gap-2"><TrendingUp className="h-4 w-4" /> Aktivnost po danima (14d)</span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <Accordion type="single" collapsible defaultValue="views" className="w-full">
+                    <AccordionItem value="views" className="border-border/40">
+                      <AccordionTrigger className="text-xs py-2">Posjete</AccordionTrigger>
+                      <AccordionContent><MiniBars data={stats.viewsByDay} color="gold" labelKey="day" valueKey="views" /></AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="signups" className="border-border/40">
+                      <AccordionTrigger className="text-xs py-2">Nove registracije</AccordionTrigger>
+                      <AccordionContent><MiniBars data={stats.newUsersByDay} color="blue" labelKey="day" valueKey="signups" /></AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="chat" className="border-border/40">
+                      <AccordionTrigger className="text-xs py-2">Asistent upiti</AccordionTrigger>
+                      <AccordionContent><MiniBars data={stats.chatByDay} color="violet" labelKey="day" valueKey="queries" /></AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="revenue" className="border-border/40 border-b-0">
+                      <AccordionTrigger className="text-xs py-2">Prihodi (30d)</AccordionTrigger>
+                      <AccordionContent>
+                        <MiniBars
+                          data={stats.revenueByDay.map((d) => ({ ...d, eur: +(d.amount_cents / 100).toFixed(2) }))}
+                          color="green" labelKey="day" valueKey="eur"
+                        />
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </AccordionContent>
+              </AccordionItem>
 
-              <Section title="Posjete po satu (danas)" icon={Calendar}>
-                <MiniBars
-                  data={stats.viewsByHourToday.map((d) => ({ hour: `${String(d.hour).padStart(2, "0")}h`, views: d.views }))}
-                  color="blue" labelKey="hour" valueKey="views"
-                />
-              </Section>
-            </div>
+              <AccordionItem value="hourly" className="rounded-xl border border-border/40 bg-card/60 px-5">
+                <AccordionTrigger className="font-semibold text-sm">
+                  <span className="flex items-center gap-2"><Calendar className="h-4 w-4" /> Posjete po satu (danas)</span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <MiniBars
+                    data={stats.viewsByHourToday.map((d) => ({ hour: `${String(d.hour).padStart(2, "0")}h`, views: d.views }))}
+                    color="blue" labelKey="hour" valueKey="views"
+                  />
+                </AccordionContent>
+              </AccordionItem>
 
-            <Section title="Brze akcije" icon={Zap}>
-              <div className="flex flex-wrap gap-2 text-sm">
-                <Button variant="outline" size="sm" asChild><Link to="/admin/pitanja">Moderacija pitanja ({stats.pendingQuestions})</Link></Button>
-                <Button variant="outline" size="sm" asChild><Link to="/admin/trialovi">Generiši trial kod</Link></Button>
-                <Button variant="outline" size="sm" asChild><Link to="/admin/forms">Forms mapper</Link></Button>
-                <Button variant="outline" size="sm" asChild><Link to="/firma/submit">Pregledaj submissions</Link></Button>
-              </div>
-            </Section>
+              <AccordionItem value="actions" className="rounded-xl border border-border/40 bg-card/60 px-5">
+                <AccordionTrigger className="font-semibold text-sm">
+                  <span className="flex items-center gap-2"><Zap className="h-4 w-4" /> Brze akcije</span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="flex flex-wrap gap-2 text-sm">
+                    <Button variant="outline" size="sm" asChild><Link to="/admin/pitanja">Moderacija pitanja ({stats.pendingQuestions})</Link></Button>
+                    <Button variant="outline" size="sm" asChild><Link to="/admin/trialovi">Generiši trial kod</Link></Button>
+                    <Button variant="outline" size="sm" asChild><Link to="/admin/forms">Forms mapper</Link></Button>
+                    <Button variant="outline" size="sm" asChild><Link to="/firma/submit">Pregledaj submissions</Link></Button>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </TabsContent>
 
           {/* ──────────── KORISNICI ──────────── */}
@@ -615,6 +633,50 @@ export default function AdminDashboard() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+          </TabsContent>
+
+          {/* ──────────── GEO ──────────── */}
+          <TabsContent value="geo" className="space-y-4 mt-4">
+            <p className="text-xs text-muted-foreground">
+              Geolokacija putem IP adrese (preko vanjskog GeoJS servisa). Podaci se prikupljaju od sada — stari posjeti nemaju lokaciju.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <Section title="Top zemlje (7d)" icon={Globe}>
+                {!stats.topCountries || stats.topCountries.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">Još nema geo podataka.</p>
+                ) : (
+                  <ol className="space-y-1.5 text-sm">
+                    {stats.topCountries.map((c, i) => (
+                      <li key={c.country} className="flex items-center gap-2 py-1 border-b border-border/20 last:border-0">
+                        <span className="text-muted-foreground w-5 text-xs">{i + 1}.</span>
+                        <span className="flex-1 font-medium">{c.country}</span>
+                        <span className="text-xs text-muted-foreground tabular-nums">{c.unique_visitors} jedin.</span>
+                        <span className="font-semibold text-sm tabular-nums w-12 text-right">{c.views}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </Section>
+              <Section title="Top gradovi (7d)" icon={MapPin}>
+                {!stats.topCities || stats.topCities.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">Još nema geo podataka.</p>
+                ) : (
+                  <ol className="space-y-1.5 text-sm">
+                    {stats.topCities.map((c, i) => (
+                      <li key={`${c.city}-${i}`} className="flex items-center gap-2 py-1 border-b border-border/20 last:border-0">
+                        <span className="text-muted-foreground w-5 text-xs">{i + 1}.</span>
+                        <span className="flex-1 truncate">
+                          <span className="font-medium">{c.city}</span>
+                          {c.country && <span className="text-xs text-muted-foreground ml-1">· {c.country}</span>}
+                        </span>
+                        <span className="text-xs text-muted-foreground tabular-nums">{c.unique_visitors}</span>
+                        <span className="font-semibold text-sm tabular-nums w-12 text-right">{c.views}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </Section>
+            </div>
           </TabsContent>
 
           {/* ──────────── EMAIL ──────────── */}

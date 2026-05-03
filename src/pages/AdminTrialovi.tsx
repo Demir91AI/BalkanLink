@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
-import { Copy, Check, Plus, Crown, Users, Calendar, RefreshCw } from "lucide-react";
+import { Copy, Check, Plus, Crown, Users, Calendar, RefreshCw, Trash2 } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import { SEO } from "@/components/SEO";
 
@@ -83,6 +83,20 @@ export default function AdminTrialovi() {
     toast({ title: "Kod kreiran", description: `${cleanCode} — ${newDays} dana Premium.` });
     setNewCode(""); setNewDescription(""); setNewMaxUses(""); setNewDays(30);
     fetchCodes();
+  };
+
+  const deleteCode = async (id: string, code: string, usedCount: number) => {
+    const msg = usedCount > 0
+      ? `Kod "${code}" je iskorišten ${usedCount}x. Trajno obrisati?\n\n(Postojeći aktivirani trialovi ostaju netaknuti.)`
+      : `Trajno obrisati kod "${code}"?`;
+    if (!confirm(msg)) return;
+    const { error } = await supabase.from("trial_codes").delete().eq("id", id);
+    if (error) {
+      toast({ title: "Greška pri brisanju", description: error.message, variant: "destructive" });
+    } else {
+      toast({ title: "Kod obrisan", description: code });
+      fetchCodes();
+    }
   };
 
   const toggleActive = async (id: string, currentValue: boolean) => {
@@ -212,6 +226,15 @@ export default function AdminTrialovi() {
                         </div>
                         <div className="flex items-center gap-2">
                           <Switch checked={c.is_active} onCheckedChange={() => toggleActive(c.id, c.is_active)} />
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
+                            onClick={() => deleteCode(c.id, c.code, c.used_count)}
+                            title="Trajno obriši"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2">

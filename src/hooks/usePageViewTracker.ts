@@ -5,9 +5,8 @@ import { useAuth } from "@/contexts/AuthContext";
 
 /**
  * Lightweight page-view logger.
- * - Fires once per pathname change (no double counts on re-renders).
- * - Strips query string + hash to keep aggregation clean.
- * - Best-effort: silently ignores failures (no UI impact).
+ * Routes via `track-page-view` edge function which adds country+city via IP geo lookup.
+ * Falls back to direct insert if function call fails.
  */
 export function usePageViewTracker() {
   const { pathname } = useLocation();
@@ -20,18 +19,24 @@ export function usePageViewTracker() {
 
     const path = pathname.replace(/\/+$/, "") || "/";
     const referrer = typeof document !== "undefined" ? document.referrer || null : null;
-    const ua = typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 255) : null;
 
-    // fire-and-forget
     (async () => {
       try {
-        await supabase.from("page_views" as any).insert({
-          path,
-          user_id: user?.id ?? null,
-          referrer,
-          user_agent: ua,
+        const { error } = await supabase.functions.invoke("track-page-view", {
+          body: { path, referrer },
         });
-      } catch { /* silent */ }
+        if (error) throw error;
+      } catch {
+        // Fallback: best-effort direct insert without geo
+        try {
+          await supabase.from("page_views" as any).insert({
+            path,
+            user_id: user?.id ?? null,
+            referrer,
+            user_agent: typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 255) : null,
+          });
+        } catch { /* silent */ }
+      }
     })();
   }, [pathname, user?.id]);
 }
