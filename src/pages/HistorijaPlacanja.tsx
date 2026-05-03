@@ -38,7 +38,6 @@ import {
   Copy,
   Check,
   Loader2,
-  ShieldCheck,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -143,7 +142,7 @@ function ProgressFill({
 }
 
 export default function HistorijaPlacanja() {
-  const { user, session, isAdmin, loading: authLoading } = useAuth();
+  const { user, session, loading: authLoading } = useAuth();
   const { isPremium, expiresAt: profileExpiresAt } = useSubscription();
   const navigate = useNavigate();
 
@@ -319,13 +318,12 @@ export default function HistorijaPlacanja() {
   };
 
   useEffect(() => {
-    // Ne učitavaj billing podatke za admin sesije — admin ide na kontrolnu rutu.
-    if (user && !isAdmin) {
+    if (user) {
       loadPayments();
       loadSubscription();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, isAdmin]);
+  }, [user]);
 
   // Striktni guard: traži i `user` i `session` (access token mora postojati).
   if (authLoading || !user || !session) {
@@ -333,52 +331,6 @@ export default function HistorijaPlacanja() {
       <div className="flex min-h-[60vh] items-center justify-center">
         <p className="text-sm text-muted-foreground">Učitavanje...</p>
       </div>
-    );
-  }
-
-  // Admin: ne prikazujemo ličnu listu plaćanja na ovoj ruti — samo kontrolna
-  // kartica koja vodi u Admin panel. Time se osigurava da admin nikada ne
-  // miješa svoj billing prikaz sa upravljačkim alatima nad tuđim podacima.
-  if (isAdmin) {
-    return (
-      <>
-        <PageNav />
-        <div className="container max-w-2xl mx-auto px-4 py-10">
-          <Card className="border-border/40">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-base">
-                <ShieldCheck className="h-5 w-5 text-primary" />
-                Admin preusmjeravanje
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm">
-              <p className="text-muted-foreground">
-                Stranica „Historija plaćanja" namijenjena je krajnjim korisnicima i
-                prikazuje isključivo lične transakcije prijavljenog naloga. Kao
-                administrator, za pregled, refundove i ručne korekcije koristi
-                Admin panel.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <Button asChild size="sm">
-                  <Link to="/admin/forms">
-                    <ShieldCheck className="h-4 w-4 mr-1.5" />
-                    Otvori Admin panel
-                  </Link>
-                </Button>
-                <Button asChild size="sm" variant="outline">
-                  <Link to="/profil">
-                    <ArrowLeft className="h-4 w-4 mr-1.5" />
-                    Nazad na profil
-                  </Link>
-                </Button>
-              </div>
-              <p className="text-[11px] text-muted-foreground/70">
-                Ova ruta ne učitava podatke o plaćanjima dok je admin sesija aktivna.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </>
     );
   }
 
