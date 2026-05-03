@@ -157,7 +157,7 @@ function buildTextReport(opts: {
   out += "  Ovo je tvoja kompletna kopija podataka u skladu sa\n";
   out += "  GDPR članom 15. Za brisanje računa (čl. 17) koristi\n";
   out += "  opciju u 'Postavke računa' na profilu.\n";
-  out += "\n  Kontakt: kontakt@balkanlink.de\n";
+  out += "\n  Kontakt: kontakt@realcore-digital.de\n";
   out += "═══════════════════════════════════════════════════════════\n";
 
   return out;
@@ -339,7 +339,7 @@ function buildPdfReport(opts: {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
     doc.setTextColor(140, 140, 140);
-    doc.text("BalkanLink — kontakt@balkanlink.de", marginX, pageHeight - 22);
+    doc.text("BalkanLink — kontakt@realcore-digital.de", marginX, pageHeight - 22);
     doc.text(`Strana ${i} / ${pageCount}`, pageWidth - marginX, pageHeight - 22, { align: "right" });
   }
 
