@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -16,8 +16,13 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { toast } = useToast();
   const { t } = useTranslation("common");
+  const redirectTo = (() => {
+    const value = searchParams.get("redirect");
+    return value && value.startsWith("/") && !value.startsWith("//") ? value : "/";
+  })();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +37,7 @@ export default function Login() {
     if (error) {
       toast({ title: t("auth.login.wrongCredentials"), description: error.message, variant: "destructive" });
     } else {
-      navigate("/");
+      navigate(redirectTo, { replace: true });
     }
   };
 
@@ -65,6 +70,9 @@ export default function Login() {
               <LogIn className="w-5 h-5 text-[hsl(var(--brand-orange))]" />
             </div>
             <h1 className="text-2xl font-bold text-foreground tracking-tight">{t("auth.login.title")}</h1>
+            {redirectTo === "/admin" && (
+              <p className="mt-2 text-sm text-muted-foreground">{t("auth.login.adminRedirectHint")}</p>
+            )}
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
