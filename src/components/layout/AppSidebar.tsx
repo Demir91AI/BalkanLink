@@ -246,7 +246,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     return () => { cancelled = true; };
   }, [isAdmin, loading, refreshUserMeta, sidebarAdmin, user?.id]);
 
-  const canShowAdmin = !!user || isAdmin || sidebarAdmin;
+  const canShowAdmin = isAdmin || sidebarAdmin;
 
   return (
     <>
