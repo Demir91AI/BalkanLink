@@ -7,7 +7,7 @@ import { VORLAGEN_TEMPLATES, getTemplate } from "@/lib/vorlagen-templates";
 import VorlagenGenerator from "@/components/vorlagen/VorlagenGenerator";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useTranslation } from "react-i18next";
-import { SaveStarButton } from "@/components/saved/SaveStarButton";
+
 import type { LucideIcon } from "lucide-react";
 
 const ICON_MAP: Record<string, LucideIcon> = {
