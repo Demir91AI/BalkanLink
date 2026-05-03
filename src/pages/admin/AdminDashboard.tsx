@@ -11,7 +11,7 @@ import {
   Users, TrendingUp, Crown, Eye, MessageSquare, FileText,
   Loader2, Search, ArrowRight, Calendar, CreditCard, Mail,
   AlertTriangle, Building2, HelpCircle, Activity, Euro, Zap,
-  CheckCircle2, XCircle, Clock,
+  CheckCircle2, XCircle, Clock, Globe, MapPin,
 } from "lucide-react";
 
 // ──────────────────────── Types ────────────────────────
@@ -43,6 +43,8 @@ interface Stats {
   newUsersByDay: Array<{ day: string; signups: number }>;
   chatByDay: Array<{ day: string; queries: number }>;
   revenueByDay: Array<{ day: string; amount_cents: number; tx_count: number }>;
+  topCountries: Array<{ country: string; views: number; unique_visitors: number }>;
+  topCities: Array<{ city: string; country: string | null; views: number; unique_visitors: number }>;
 }
 
 interface AdminUser {
