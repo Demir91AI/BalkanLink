@@ -28,12 +28,22 @@ export function PageSaveStar({
   const navigate = useLocalizedNavigate();
   const location = useLocation();
 
-  const { id, type, path, title } = useMemo(() => {
+  const { id, type, path, title, hidden } = useMemo(() => {
     const raw = (location.pathname || "/").replace(/\/+$/, "") || "/";
     const segs = raw.split("/").filter(Boolean);
     if (segs.length && (LANG_PREFIXES as readonly string[]).includes(segs[0])) segs.shift();
     const cleanPath = "/" + segs.join("/");
     const first = segs[0] || "home";
+    // Routes where saving makes no sense — auth, legal, payment status, admin, account
+    const HIDDEN_ROOTS = new Set([
+      "login", "register", "forgot-password", "reset-password", "unsubscribe",
+      "agb", "nutzungsbedingungen", "datenschutz", "impressum", "disclaimer",
+      "dsa", "ki-hinweis", "napomena-o-ki", "cookie-richtlinie",
+      "payment-success", "payment-cancel", "checkout-success", "checkout-cancel",
+      "admin", "profil", "moji-podaci", "historija-placanja", "sacuvano",
+      "mitgliedschaft", "paketi", "pricing", "premium",
+    ]);
+    const hidden = first === "home" || HIDDEN_ROOTS.has(first);
     let type: SavedItemType = "page";
     if (first === "vorlagen" || first === "musterformular" || first === "formulari") type = "form";
     else if (first === "check-liste") type = "checklist";
