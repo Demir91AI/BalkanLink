@@ -7,7 +7,7 @@ import { VORLAGEN_TEMPLATES, getTemplate } from "@/lib/vorlagen-templates";
 import VorlagenGenerator from "@/components/vorlagen/VorlagenGenerator";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useTranslation } from "react-i18next";
-import { SaveStarButton } from "@/components/saved/SaveStarButton";
+
 import type { LucideIcon } from "lucide-react";
 
 const ICON_MAP: Record<string, LucideIcon> = {
@@ -134,12 +134,6 @@ export default function Vorlagen() {
             </div>
             <p className="text-sm text-muted-foreground">{localTitle}</p>
           </div>
-          <SaveStarButton
-            type="form"
-            id={`vorlage:${tpl.slug}`}
-            title={tpl.titleDe}
-            path={`/vorlagen/${tpl.slug}`}
-          />
         </div>
         {canAccess ? (
           <VorlagenGenerator template={tpl} />
@@ -198,12 +192,6 @@ export default function Vorlagen() {
                           </p>
                         </div>
                       </Link>
-                      <SaveStarButton
-                        type="form"
-                        id={`vorlage:${item.slug}`}
-                        title={item.titleDe}
-                        path={`/vorlagen/${item.slug}`}
-                      />
                     </div>
                   );
                 })}

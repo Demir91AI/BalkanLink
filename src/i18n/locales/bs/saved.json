@@ -16,7 +16,9 @@
   "groups": {
     "form": "Formulari",
     "checklist": "Check liste",
-    "qa": "Pitanja"
+    "qa": "Pitanja",
+    "directory": "Firme",
+    "page": "Stranice"
   },
   "actions": {
     "save": "Sačuvaj",
@@ -35,5 +37,10 @@
     "emptyTitle": "Nema sačuvanih stavki",
     "emptyBody": "Klikni zvjezdicu na karticama da dodaš ovdje."
   },
-  "sidebarLabel": "Sačuvano"
+  "sidebarLabel": "Sačuvano",
+  "premiumGate": {
+    "title": "Samo za Premium",
+    "body": "Sačuvaj za kasnije je Premium funkcija. Otključaj Premium da sačuvaš ovu stranicu.",
+    "cta": "Aktiviraj Premium"
+  }
 }

@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
 import ShareButton from "@/components/share/ShareButton";
+import { PageSaveStar } from "@/components/saved/PageSaveStar";
 
 const LANG_PREFIXES = SUPPORTED_LANGUAGES.filter((l) => l !== "bs");
 
@@ -189,7 +190,8 @@ export default function Breadcrumbs({
         )}
 
         {showShare && (
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-2">
+            <PageSaveStar title={shareTitle} />
             <ShareButton variant="compact" title={shareTitle} />
           </div>
         )}

@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { CHECKLISTS } from "@/lib/checklists-data";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
-import { SaveStarButton } from "@/components/saved/SaveStarButton";
+
 
 const ACCENTS: Record<string, string> = {
   emerald: "bg-emerald-500",
@@ -56,14 +56,6 @@ export default function CheckListe() {
                 key={cl.id}
                 className="relative rounded-2xl border border-border hover:border-[hsl(var(--gold))]/40 hover:shadow-md transition-all cursor-pointer group"
               >
-                <div className="absolute top-3 right-3 z-10">
-                  <SaveStarButton
-                    type="checklist"
-                    id={cl.id}
-                    title={t(`${cl.id}.title`)}
-                    path={`/check-liste/${cl.id}`}
-                  />
-                </div>
                 <CardContent className="p-5" onClick={() => navigate(`/check-liste/${cl.id}`)}>
                   <div className="flex items-start justify-between mb-3 pr-10">
                     <div className={cn("flex h-11 w-11 items-center justify-center rounded-xl shadow-sm", ACCENTS[cl.accent])}>

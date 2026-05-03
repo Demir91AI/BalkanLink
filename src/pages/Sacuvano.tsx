@@ -5,7 +5,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Star, FileText, ListChecks, MessageSquare, Trash2, ArrowRight, Lock } from "lucide-react";
+import { Star, FileText, ListChecks, MessageSquare, Trash2, ArrowRight, Lock, Building2, BookmarkIcon } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { useSavedItems, type SavedItemType } from "@/hooks/useSavedItems";
@@ -16,9 +16,11 @@ const ICONS: Record<SavedItemType, typeof FileText> = {
   form: FileText,
   checklist: ListChecks,
   qa: MessageSquare,
+  directory: Building2,
+  page: BookmarkIcon,
 };
 
-const ORDER: SavedItemType[] = ["form", "checklist", "qa"];
+const ORDER: SavedItemType[] = ["form", "checklist", "qa", "directory", "page"];
 
 export default function Sacuvano() {
   const { t } = useTranslation("saved");
@@ -28,7 +30,7 @@ export default function Sacuvano() {
   const { user } = useAuth();
 
   const grouped = useMemo(() => {
-    const map: Record<SavedItemType, typeof items> = { form: [], checklist: [], qa: [] };
+    const map: Record<SavedItemType, typeof items> = { form: [], checklist: [], qa: [], directory: [], page: [] };
     items.forEach((it) => map[it.type]?.push(it));
     return map;
   }, [items]);

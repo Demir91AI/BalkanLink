@@ -12,7 +12,9 @@ import { useCallback, useEffect, useSyncExternalStore } from "react";
 export type SavedItemType =
   | "form"        // Vorlagen ili Musterformular
   | "checklist"   // /check-liste/:slug
-  | "qa";         // /pitaj-dijasporu pitanje
+  | "qa"          // /pitaj-dijasporu pitanje
+  | "directory"   // /directory ili /firma/:id
+  | "page";       // bilo koja druga ruta
 
 export interface SavedItem {
   /** stabilan ključ unutar tipa (npr. slug) */

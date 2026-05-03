@@ -8,7 +8,7 @@ import { useSubscription } from "@/hooks/useSubscription";
 import AuthGate from "@/components/AuthGate";
 import { isFormFree } from "@/lib/form-catalog";
 import { tLabel, tOption, tTranslation, getExample } from "@/lib/muster-i18n";
-import { SaveStarButton } from "@/components/saved/SaveStarButton";
+
 
 type Lang = "bs" | "de" | "hr" | "sr";
 function useFormLang(): Lang {
@@ -239,7 +239,7 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
   return (
     <div id={rootId} style={S.page}>
       <div style={{ background: '#F5F0E8', borderBottom: '1px solid #F0EAD8' }} className="flex items-center gap-3 px-4 md:px-8 py-2.5 overflow-x-auto whitespace-nowrap">
-        <PageNavBar inline showShare={false} hideTrail />
+        <PageNavBar inline showShare shareTitle={title} hideTrail />
         <span style={{ color: '#E8D9B0' }}>|</span>
         <span style={{ fontSize: 12, color: '#9CA3AF', cursor: 'pointer' }} onClick={() => navigate('/formulari')}>Formulari</span>
         <span style={{ fontSize: 12, color: '#9CA3AF' }}>›</span>
@@ -261,19 +261,9 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
 
       <div style={{ padding: "0 16px" }}>
         <div id={`${rootId}-paper`} style={S.paper}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16, gap: 12 }}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 20, fontWeight: 700 }}>{title}</div>
-              <div style={{ fontSize: 9, color: "#6b7280" }}>{subtitle}</div>
-            </div>
-            <SaveStarButton
-              variant="button"
-              type="form"
-              id={`muster:${urlSlug || fId}`}
-              title={title}
-              path={typeof window !== "undefined" ? window.location.pathname.replace(/^\/(de|hr|sr)(?=\/|$)/, "") : `/musterformular/${urlSlug}`}
-              className="!border-amber-300 !bg-amber-50 !text-amber-900 hover:!bg-amber-100"
-            />
+          <div style={{ marginBottom: 16 }}>
+            <div style={{ fontSize: 20, fontWeight: 700 }}>{title}</div>
+            <div style={{ fontSize: 9, color: "#6b7280" }}>{subtitle}</div>
           </div>
 
           {isFree ? (
