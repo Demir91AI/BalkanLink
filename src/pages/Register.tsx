@@ -76,6 +76,19 @@ export default function Register() {
       },
     });
 
+    // Supabase ne vraća grešku za duplikate (security) — detektujemo preko praznog identities array
+    const isDuplicate = !!signUpData.user && Array.isArray((signUpData.user as any).identities) && (signUpData.user as any).identities.length === 0;
+
+    if (isDuplicate) {
+      setLoading(false);
+      toast({
+        title: t("auth.register.errorTitleShort"),
+        description: "Račun s ovom email adresom već postoji. Prijavi se ili koristi 'Zaboravljena lozinka'.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     if (!error && signUpData.user) {
       await supabase
         .from("profiles")
