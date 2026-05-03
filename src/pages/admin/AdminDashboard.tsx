@@ -29,7 +29,7 @@ interface Stats {
   loggedInViews7d: number; anonViews7d: number;
   avgViewsPerDay30d: number;
   revenueToday: number; revenue7d: number; revenue30d: number; revenueAllTime: number;
-  paidCount30d: number; estimatedMrr: number;
+  paidCount30d: number; estimatedMrr: number; lifetimeUsers: number;
   funnel: { visitors: number; signups: number; trialActive: number; paid: number };
   trialEndingSoon: Array<{ id: string; email: string; first_name: string | null; subscription_tier: string; expires_at: string }>;
   topActiveUsers: Array<{ email: string; first_name: string | null; chat_count: number }>;
@@ -240,7 +240,7 @@ export default function AdminDashboard() {
         {/* KPI bar — uvijek vidljivo */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           <StatCard icon={Users} label="Korisnici" value={stats.totalUsers} sub={`+${stats.newToday} danas`} />
-          <StatCard icon={Crown} label="Aktivni Premium" value={stats.activePremium} sub={`MRR ~${eur(stats.estimatedMrr)}`} accent="gold" />
+          <StatCard icon={Crown} label="Aktivni Premium" value={stats.activePremium} sub={`MRR ${eur(stats.estimatedMrr)} · ${stats.lifetimeUsers ?? 0} lifetime`} accent="gold" />
           <StatCard icon={Calendar} label="Trial aktivni" value={stats.trialUsers} sub={`${stats.launchTrialUsers}L · ${stats.influencerTrialUsers}I`} accent="blue" />
           <StatCard icon={Euro} label="Prihod 30d" value={eur(stats.revenue30d)} sub={`${stats.paidCount30d} transakcija`} accent="green" />
           <StatCard icon={Eye} label="Posjete danas" value={stats.viewsToday} sub={`${stats.uniqueVisitorsToday} jedinstvenih`} accent="violet" />
