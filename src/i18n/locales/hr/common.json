@@ -219,6 +219,16 @@
       "trialBannerDesc": "Tvoj kod {{code}} je prepoznat. Premium pristup aktivira se odmah nakon registracije.",
       "trialActivatedTitle": "Premium aktiviran!",
       "trialActivatedDesc": "Imaš {{days}} dana puni pristup. Uživaj!",
+      "trialFailedTitle": "Trial link nije aktiviran",
+      "trialError": {
+        "invalid_code": "Trial link je nevažeći ili više ne postoji.",
+        "code_exhausted": "Ovaj trial link je već iskorišten i više nije aktivan.",
+        "code_expired": "Ovaj trial link je istekao.",
+        "already_redeemed": "Već si iskoristio/la trial kod na ovom računu.",
+        "invalid_input": "Trial kod nije ispravan.",
+        "user_not_found": "Korisnik nije pronađen.",
+        "server_error": "Greška na serveru. Pokušaj ponovo kasnije."
+      },
       "emailAlreadyExists": "Račun s ovom email adresom već postoji. Prijavi se ili koristi 'Zaboravljena lozinka'."
     },
     "forgotPassword": {

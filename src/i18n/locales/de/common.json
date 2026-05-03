@@ -219,6 +219,16 @@
       "trialBannerDesc": "Dein Code {{code}} wurde erkannt. Premium-Zugang wird direkt nach der Registrierung aktiviert.",
       "trialActivatedTitle": "Premium aktiviert!",
       "trialActivatedDesc": "Du hast {{days}} Tage vollen Zugriff. Viel Spaß!",
+      "trialFailedTitle": "Trial-Link nicht aktiviert",
+      "trialError": {
+        "invalid_code": "Der Trial-Link ist ungültig oder existiert nicht mehr.",
+        "code_exhausted": "Dieser Trial-Link wurde bereits verwendet und ist nicht mehr aktiv.",
+        "code_expired": "Dieser Trial-Link ist abgelaufen.",
+        "already_redeemed": "Du hast bereits einen Trial-Code für dieses Konto eingelöst.",
+        "invalid_input": "Trial-Code ist ungültig.",
+        "user_not_found": "Benutzer nicht gefunden.",
+        "server_error": "Serverfehler. Bitte später erneut versuchen."
+      },
       "emailAlreadyExists": "Ein Konto mit dieser E-Mail-Adresse existiert bereits. Bitte einloggen oder 'Passwort vergessen' verwenden."
     },
     "forgotPassword": {
