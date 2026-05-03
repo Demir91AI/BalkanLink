@@ -52,12 +52,20 @@ function FormRow({
 }) {
   const free = isFormFree(item.slug);
   return (
-    <motion.button
+    <motion.div
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2 }}
       onClick={() => onSelect(item.slug)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect(item.slug);
+        }
+      }}
       className={cn(
-        "group relative w-full text-left flex items-start gap-3 rounded-2xl border p-4 transition-all duration-200",
+        "group relative w-full text-left flex items-start gap-3 rounded-2xl border p-4 transition-all duration-200 cursor-pointer",
         free
           ? "border-white/[0.06] bg-white/[0.03] hover:border-[hsl(var(--success)/0.3)] hover:shadow-[0_8px_30px_rgba(34,197,94,0.1)]"
           : "border-white/[0.06] bg-white/[0.03] hover:border-white/[0.12] hover:shadow-[0_8px_30px_rgba(59,130,246,0.1)]"
