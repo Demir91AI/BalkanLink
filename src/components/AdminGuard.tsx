@@ -3,14 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 
-/**
- * AdminGuard — gates /admin/* routes.
- *
- * Always re-verifies admin status via `has_role` RPC against the live session,
- * regardless of cached `isAdmin` from AuthContext. This avoids race conditions
- * where the AuthContext profile fetch hasn't yet populated `isAdmin` and the
- * guard would incorrectly redirect a real admin to "/".
- */
+/** AdminGuard — gates /admin/* routes. */
 export default function AdminGuard() {
   const { loading, session, isAdmin, refreshUserMeta } = useAuth();
   // null = still verifying, true = allowed, false = deny
@@ -28,17 +21,18 @@ export default function AdminGuard() {
     let cancelled = false;
     void (async () => {
       try {
-        const { data, error } = await supabase.rpc("has_role", {
-          _user_id: session.user.id,
-          _role: "admin",
-        });
+        const { data, error } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", session.user.id)
+          .eq("role", "admin")
+          .maybeSingle();
         if (cancelled) return;
         if (error) {
-          // On transient error, fall back to cached isAdmin instead of redirecting
           setVerifiedAdmin(isAdmin ? true : false);
           return;
         }
-        const allowed = data === true;
+        const allowed = data?.role === "admin";
         setVerifiedAdmin(allowed);
         if (allowed) void refreshUserMeta();
       } catch {
