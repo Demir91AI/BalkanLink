@@ -541,15 +541,6 @@ export default function FormCenter() {
               {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
             </h1>
             <ItemBadge slug={activeSlug} />
-            {activeSlug && (
-              <SaveStarButton
-                type="form"
-                id={`form:${activeSlug}`}
-                title={allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
-                path={`/formulari/${activeSlug}`}
-                className="ml-auto"
-              />
-            )}
           </div>
           {canAccess ? (
             <GuideContent key={activeSlug} slug={activeSlug} />
