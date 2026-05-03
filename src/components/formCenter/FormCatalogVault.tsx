@@ -120,7 +120,7 @@ function FormRow({
         </span>
         <ArrowRight className="h-4 w-4 text-white/20 transition-all group-hover:translate-x-0.5 group-hover:text-white/60" />
       </div>
-    </motion.button>
+    </motion.div>
   );
 }
 
