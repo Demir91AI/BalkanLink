@@ -13,7 +13,7 @@ import { formCatalog, getAllFormEntries, isFormFree, hasMuster, getMusterPath, t
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import FormFreeContent from "@/components/FormFreeContent";
-import { SaveStarButton } from "@/components/saved/SaveStarButton";
+
 import MoreFeaturesHint from "@/components/MoreFeaturesHint";
 import FormSmartGuide from "@/components/FormSmartGuide";
 import KindergeldGuideContent from "@/components/KindergeldGuideContent";
