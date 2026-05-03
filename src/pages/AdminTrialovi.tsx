@@ -55,7 +55,7 @@ export default function AdminTrialovi() {
   const [newCode, setNewCode] = useState("");
   const [newDescription, setNewDescription] = useState("");
   const [newDays, setNewDays] = useState(30);
-  const [newMaxUses, setNewMaxUses] = useState<string>("");
+  const [newMaxUses, setNewMaxUses] = useState<string>("1");
 
   const fetchCodes = useCallback(async () => {
     setLoading(true);
@@ -91,7 +91,7 @@ export default function AdminTrialovi() {
       code: cleanCode,
       description: newDescription.trim() || null,
       duration_days: newDays,
-      max_uses: newMaxUses.trim() ? parseInt(newMaxUses, 10) : null,
+      max_uses: newMaxUses.trim() ? parseInt(newMaxUses, 10) : 1,
     } as any);
     setCreating(false);
     if (error) {
@@ -99,7 +99,7 @@ export default function AdminTrialovi() {
       return;
     }
     toast({ title: "Kod kreiran", description: `${cleanCode} — ${newDays} dana Premium.` });
-    setNewCode(""); setNewDescription(""); setNewMaxUses(""); setNewDays(30);
+    setNewCode(""); setNewDescription(""); setNewMaxUses("1"); setNewDays(30);
     fetchCodes();
   };
 
@@ -222,8 +222,8 @@ export default function AdminTrialovi() {
                   <Input id="days" type="number" min={1} max={36500} value={newDays} onChange={(e) => setNewDays(parseInt(e.target.value, 10) || 30)} />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="maxUses">Limit korištenja (prazno = neograničeno)</Label>
-                  <Input id="maxUses" type="number" min={1} value={newMaxUses} onChange={(e) => setNewMaxUses(e.target.value)} placeholder="npr. 50" />
+                  <Label htmlFor="maxUses">Limit korištenja (1 = jednokratno)</Label>
+                  <Input id="maxUses" type="number" min={1} value={newMaxUses} onChange={(e) => setNewMaxUses(e.target.value)} placeholder="1" />
                 </div>
               </div>
               <Button type="button" onClick={handleCreate} disabled={creating} className="w-full md:w-auto">
