@@ -42,10 +42,10 @@ Deno.serve(async (req) => {
   try {
     const body = await req.json().catch(() => ({}));
     const path = String(body.path || "/").slice(0, 500);
-    const referrer = body.referrer ? String(body.referrer).slice(0, 500) : null;
-    const userAgent = req.headers.get("user-agent")?.slice(0, 255) || null;
+    const analytics = body.analytics === true;
+    const referrer = analytics && body.referrer ? String(body.referrer).slice(0, 500) : null;
+    const userAgent = analytics ? (req.headers.get("user-agent")?.slice(0, 255) || null) : null;
 
-    // user_id from JWT (optional)
     let userId: string | null = null;
     const auth = req.headers.get("authorization");
     if (auth?.startsWith("Bearer ")) {
@@ -60,9 +60,14 @@ Deno.serve(async (req) => {
       } catch { /* ignore */ }
     }
 
-    const ip = getIP(req);
-    const ipHash = ip ? await sha256(ip + (Deno.env.get("SUPABASE_URL") || "")) : null;
-    const geo = ip ? await geoLookup(ip) : { country: null, city: null };
+    let ipHash: string | null = null;
+    let geo: { country: string | null; city: string | null } = { country: null, city: null };
+
+    if (analytics) {
+      const ip = getIP(req);
+      ipHash = ip ? await sha256(ip + (Deno.env.get("SUPABASE_URL") || "")) : null;
+      geo = ip ? await geoLookup(ip) : { country: null, city: null };
+    }
 
     const admin = createClient(
       Deno.env.get("SUPABASE_URL")!,
