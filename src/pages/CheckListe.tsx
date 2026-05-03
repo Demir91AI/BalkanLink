@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { CHECKLISTS } from "@/lib/checklists-data";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
-import { SaveStarButton } from "@/components/saved/SaveStarButton";
+
 
 const ACCENTS: Record<string, string> = {
   emerald: "bg-emerald-500",
