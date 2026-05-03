@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
 import ShareButton from "@/components/share/ShareButton";
+import { PageSaveStar } from "@/components/saved/PageSaveStar";
 
 const LANG_PREFIXES = SUPPORTED_LANGUAGES.filter((l) => l !== "bs");
 
