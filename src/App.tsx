@@ -148,9 +148,20 @@ const queryClient = new QueryClient({
     queries: {
       retry: 1,
       staleTime: 5 * 60 * 1000,
+      refetchOnWindowFocus: true,
     },
   },
 });
+
+// Refresh all cached data on every login so the user always sees up-to-date info.
+if (typeof window !== "undefined") {
+  window.addEventListener("bl:user-signed-in", () => {
+    try {
+      queryClient.invalidateQueries();
+      queryClient.refetchQueries({ type: "active" });
+    } catch { /* noop */ }
+  });
+}
 
 function LocalizedRoutes() {
   return (

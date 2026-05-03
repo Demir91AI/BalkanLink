@@ -152,8 +152,17 @@ export default function AdminDashboard() {
     loadAll();
     const id = setInterval(() => loadAll(true), 30000);
     const onVis = () => { if (document.visibilityState === "visible") loadAll(true); };
+    const onSignIn = () => loadAll(false);
+    const onFocus = () => loadAll(true);
     document.addEventListener("visibilitychange", onVis);
-    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+    window.addEventListener("bl:user-signed-in", onSignIn);
+    window.addEventListener("focus", onFocus);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", onVis);
+      window.removeEventListener("bl:user-signed-in", onSignIn);
+      window.removeEventListener("focus", onFocus);
+    };
   }, []);
 
   useEffect(() => {
