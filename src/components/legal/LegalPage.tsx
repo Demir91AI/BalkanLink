@@ -56,7 +56,7 @@ export default function LegalPage({ tKey, children }: LegalPageProps) {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6 pb-28">
-      <PageNavBar />
+      <PageNavBar hideTrail shareTitle={title || tKey} />
 
       <h1 className="mb-2 text-3xl font-bold">{title || tKey}</h1>
       {subtitle && (
