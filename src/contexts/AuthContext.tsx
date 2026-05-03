@@ -52,7 +52,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           .select("is_premium, first_name, subscription_tier, subscription_expires_at")
           .eq("id", userId)
           .maybeSingle(),
-        supabase.rpc("has_role", { _user_id: userId, _role: "admin" }),
+        supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", userId)
+          .eq("role", "admin")
+          .maybeSingle(),
       ]);
 
       if (profileRes.data) {
@@ -72,7 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (adminRes.error) {
         console.warn("[AuthContext] admin role check failed, keeping previous state:", adminRes.error.message);
       } else {
-        setIsAdmin(!!adminRes.data);
+        setIsAdmin(adminRes.data?.role === "admin");
       }
     } catch (err) {
       // Network error — do not flip premium off; users with active trial would be unfairly locked out.
