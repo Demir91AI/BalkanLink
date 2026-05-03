@@ -635,6 +635,50 @@ export default function AdminDashboard() {
             </Accordion>
           </TabsContent>
 
+          {/* ──────────── GEO ──────────── */}
+          <TabsContent value="geo" className="space-y-4 mt-4">
+            <p className="text-xs text-muted-foreground">
+              Geolokacija putem IP adrese (preko vanjskog GeoJS servisa). Podaci se prikupljaju od sada — stari posjeti nemaju lokaciju.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <Section title="Top zemlje (7d)" icon={Globe}>
+                {!stats.topCountries || stats.topCountries.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">Još nema geo podataka.</p>
+                ) : (
+                  <ol className="space-y-1.5 text-sm">
+                    {stats.topCountries.map((c, i) => (
+                      <li key={c.country} className="flex items-center gap-2 py-1 border-b border-border/20 last:border-0">
+                        <span className="text-muted-foreground w-5 text-xs">{i + 1}.</span>
+                        <span className="flex-1 font-medium">{c.country}</span>
+                        <span className="text-xs text-muted-foreground tabular-nums">{c.unique_visitors} jedin.</span>
+                        <span className="font-semibold text-sm tabular-nums w-12 text-right">{c.views}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </Section>
+              <Section title="Top gradovi (7d)" icon={MapPin}>
+                {!stats.topCities || stats.topCities.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">Još nema geo podataka.</p>
+                ) : (
+                  <ol className="space-y-1.5 text-sm">
+                    {stats.topCities.map((c, i) => (
+                      <li key={`${c.city}-${i}`} className="flex items-center gap-2 py-1 border-b border-border/20 last:border-0">
+                        <span className="text-muted-foreground w-5 text-xs">{i + 1}.</span>
+                        <span className="flex-1 truncate">
+                          <span className="font-medium">{c.city}</span>
+                          {c.country && <span className="text-xs text-muted-foreground ml-1">· {c.country}</span>}
+                        </span>
+                        <span className="text-xs text-muted-foreground tabular-nums">{c.unique_visitors}</span>
+                        <span className="font-semibold text-sm tabular-nums w-12 text-right">{c.views}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </Section>
+            </div>
+          </TabsContent>
+
           {/* ──────────── EMAIL ──────────── */}
           <TabsContent value="email" className="space-y-4 mt-4">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
