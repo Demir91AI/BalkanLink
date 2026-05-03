@@ -64,6 +64,8 @@ export function PageSaveStar({
 
   const saved = isSaved(type, id);
 
+  if (hidden) return null;
+
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
