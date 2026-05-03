@@ -264,6 +264,9 @@ export default function AdminDashboard() {
               )}
             </TabsTrigger>
             <TabsTrigger value="traffic">Saobraćaj</TabsTrigger>
+            <TabsTrigger value="geo">
+              <Globe className="h-3.5 w-3.5 mr-1" /> Geo
+            </TabsTrigger>
             <TabsTrigger value="email">
               Email
               {stats.emailStats.failed > 0 && (
