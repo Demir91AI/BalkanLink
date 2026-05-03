@@ -16,7 +16,9 @@
   "groups": {
     "form": "Formulare",
     "checklist": "Checklisten",
-    "qa": "Fragen"
+    "qa": "Fragen",
+    "directory": "Firmenverzeichnis",
+    "page": "Seiten"
   },
   "actions": {
     "save": "Speichern",
@@ -35,5 +37,10 @@
     "emptyTitle": "Keine gespeicherten Einträge",
     "emptyBody": "Klicke auf den Stern einer Karte, um sie hier hinzuzufügen."
   },
-  "sidebarLabel": "Gespeichert"
+  "sidebarLabel": "Gespeichert",
+  "premiumGate": {
+    "title": "Nur für Premium",
+    "body": "Speichern für später ist Premium-Funktion. Schalte frei, um diese Seite zu speichern.",
+    "cta": "Premium aktivieren"
+  }
 }
