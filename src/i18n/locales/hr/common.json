@@ -171,7 +171,8 @@
       "noAccount": "Nemaš nalog? Registruj se",
       "mustAcceptTerms": "Moraš prihvatiti uvjete korištenja.",
       "wrongCredentials": "Pogrešan e-mail ili lozinka.",
-      "successTitle": "Uspješno prijavljeni!"
+      "successTitle": "Uspješno prijavljeni!",
+      "adminRedirectHint": "Prijavi se admin nalogom za nastavak na Admin Dashboard."
     },
     "register": {
       "title": "Registracija",
