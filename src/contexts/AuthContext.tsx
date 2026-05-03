@@ -163,11 +163,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               } catch { /* silent */ }
               // Now safe to read fresh profile + verify subscription
               await fetchUserMeta(userId);
+              setLoading(false);
               try { window.dispatchEvent(new CustomEvent("bl:subscription-refreshed")); } catch { /* noop */ }
               setTimeout(() => refreshSubscription(), 200);
             })();
           } else {
-            setTimeout(() => fetchUserMeta(session.user.id), 0);
+            void fetchUserMeta(session.user.id).finally(() => setLoading(false));
             setTimeout(() => refreshSubscription(), 100);
           }
         } else {
@@ -194,7 +195,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             });
           }
         }
-        setLoading(false);
+        if (!session?.user) setLoading(false);
       }
     );
 

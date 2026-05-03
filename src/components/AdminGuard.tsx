@@ -5,38 +5,40 @@ import { supabase } from "@/integrations/supabase/client";
 
 /** AdminGuard — gates /admin/* routes. */
 export default function AdminGuard() {
-  const { loading, session, isAdmin, refreshUserMeta } = useAuth();
+  const { loading, profileLoading, session, isAdmin, refreshUserMeta } = useAuth();
   // null = still verifying, true = allowed, false = deny
   const [verifiedAdmin, setVerifiedAdmin] = useState<boolean | null>(
     isAdmin ? true : null,
   );
 
   useEffect(() => {
-    if (loading) return;
+    if (loading || profileLoading) return;
     if (!session?.user) {
       setVerifiedAdmin(false);
+      return;
+    }
+    if (isAdmin) {
+      setVerifiedAdmin(true);
       return;
     }
 
     let cancelled = false;
     void (async () => {
       try {
-        const { data, error } = await supabase
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", session.user.id)
-          .eq("role", "admin")
-          .maybeSingle();
+        const { data, error } = await supabase.rpc("has_role", {
+          _user_id: session.user.id,
+          _role: "admin",
+        });
         if (cancelled) return;
         if (error) {
-          setVerifiedAdmin(isAdmin ? true : false);
+          setVerifiedAdmin(false);
           return;
         }
-        const allowed = data?.role === "admin";
+        const allowed = data === true;
         setVerifiedAdmin(allowed);
         if (allowed) void refreshUserMeta();
       } catch {
-        if (!cancelled) setVerifiedAdmin(isAdmin ? true : false);
+        if (!cancelled) setVerifiedAdmin(false);
       }
     })();
 
@@ -44,15 +46,15 @@ export default function AdminGuard() {
       cancelled = true;
     };
     // Re-run only when the user identity or auth-loading state actually changes.
-  }, [loading, session?.user?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isAdmin, loading, profileLoading, refreshUserMeta, session?.user?.id]);
 
-  if (loading || verifiedAdmin === null) {
+  if (loading || profileLoading || verifiedAdmin === null) {
     return (
       <div className="flex min-h-[40vh] items-center justify-center text-sm text-muted-foreground">
         Provjeravam pristup…
       </div>
     );
   }
-  if (!verifiedAdmin) return <Navigate to="/" replace />;
+  if (!verifiedAdmin) return <Navigate to="/login?redirect=/admin" replace />;
   return <Outlet />;
 }

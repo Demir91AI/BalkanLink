@@ -171,7 +171,8 @@
       "noAccount": "Noch kein Konto? Registrieren",
       "mustAcceptTerms": "Sie müssen die Nutzungsbedingungen akzeptieren.",
       "wrongCredentials": "Falsche E-Mail oder falsches Passwort.",
-      "successTitle": "Erfolgreich angemeldet!"
+      "successTitle": "Erfolgreich angemeldet!",
+      "adminRedirectHint": "Melde dich mit dem Admin-Konto an, um zum Admin Dashboard fortzufahren."
     },
     "register": {
       "title": "Registrierung",
