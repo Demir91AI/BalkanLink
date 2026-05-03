@@ -58,6 +58,7 @@ export function PageSaveStar({
       type,
       path: cleanPath,
       title: titleProp || fallbackTitle || cleanPath,
+      hidden,
     };
   }, [location.pathname, titleProp]);
 
