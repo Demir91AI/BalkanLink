@@ -261,19 +261,9 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
 
       <div style={{ padding: "0 16px" }}>
         <div id={`${rootId}-paper`} style={S.paper}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16, gap: 12 }}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 20, fontWeight: 700 }}>{title}</div>
-              <div style={{ fontSize: 9, color: "#6b7280" }}>{subtitle}</div>
-            </div>
-            <SaveStarButton
-              variant="button"
-              type="form"
-              id={`muster:${urlSlug || fId}`}
-              title={title}
-              path={typeof window !== "undefined" ? window.location.pathname.replace(/^\/(de|hr|sr)(?=\/|$)/, "") : `/musterformular/${urlSlug}`}
-              className="!border-amber-300 !bg-amber-50 !text-amber-900 hover:!bg-amber-100"
-            />
+          <div style={{ marginBottom: 16 }}>
+            <div style={{ fontSize: 20, fontWeight: 700 }}>{title}</div>
+            <div style={{ fontSize: 9, color: "#6b7280" }}>{subtitle}</div>
           </div>
 
           {isFree ? (
