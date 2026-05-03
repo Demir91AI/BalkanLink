@@ -218,7 +218,8 @@
       "trialBannerTitle": "🎁 30 Tage Premium gratis",
       "trialBannerDesc": "Dein Code {{code}} wurde erkannt. Premium-Zugang wird direkt nach der Registrierung aktiviert.",
       "trialActivatedTitle": "Premium aktiviert!",
-      "trialActivatedDesc": "Du hast {{days}} Tage vollen Zugriff. Viel Spaß!"
+      "trialActivatedDesc": "Du hast {{days}} Tage vollen Zugriff. Viel Spaß!",
+      "emailAlreadyExists": "Ein Konto mit dieser E-Mail-Adresse existiert bereits. Bitte einloggen oder 'Passwort vergessen' verwenden."
     },
     "forgotPassword": {
       "title": "Passwort vergessen",

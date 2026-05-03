@@ -218,7 +218,8 @@
       "trialBannerTitle": "🎁 30 dana Premium besplatno",
       "trialBannerDesc": "Tvoj kod {{code}} je prepoznat. Premium pristup aktivira se odmah nakon registracije.",
       "trialActivatedTitle": "Premium aktiviran!",
-      "trialActivatedDesc": "Imaš {{days}} dana puni pristup. Uživaj!"
+      "trialActivatedDesc": "Imaš {{days}} dana puni pristup. Uživaj!",
+      "emailAlreadyExists": "Račun s ovom email adresom već postoji. Prijavi se ili koristi 'Zaboravljena lozinka'."
     },
     "forgotPassword": {
       "title": "Zaboravljena lozinka",
