@@ -162,20 +162,32 @@ export default function AdminDashboard() {
   const [search, setSearch] = useState("");
   const [searchBusy, setSearchBusy] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   const loadAll = async (silent = false) => {
     if (!silent) setLoading(true); else setRefreshing(true);
-    const [statsRes, usersRes, paymentsRes] = await Promise.all([
-      supabase.rpc("get_admin_stats" as any),
-      supabase.rpc("get_admin_users" as any, { _search: null, _limit: 100 }),
-      supabase.rpc("get_admin_payments" as any, { _limit: 25 }),
-    ]);
-    if (statsRes.data) setStats(statsRes.data as any);
-    if (usersRes.data) setUsers(usersRes.data as any);
-    if (paymentsRes.data) setPayments(paymentsRes.data as any);
-    setLastRefresh(new Date());
-    setLoading(false);
-    setRefreshing(false);
+    try {
+      const [statsRes, usersRes, paymentsRes] = await Promise.all([
+        supabase.rpc("get_admin_stats" as any),
+        supabase.rpc("get_admin_users" as any, { _search: null, _limit: 100 }),
+        supabase.rpc("get_admin_payments" as any, { _limit: 25 }),
+      ]);
+      const errors = [
+        statsRes.error && `Statistika: ${statsRes.error.message}`,
+        usersRes.error && `Korisnici: ${usersRes.error.message}`,
+        paymentsRes.error && `Plaćanja: ${paymentsRes.error.message}`,
+      ].filter(Boolean) as string[];
+      if (statsRes.data) setStats(statsRes.data as any);
+      if (usersRes.data) setUsers(usersRes.data as any);
+      if (paymentsRes.data) setPayments(paymentsRes.data as any);
+      setLoadError(errors.length ? errors.join(" · ") : null);
+      setLastRefresh(new Date());
+    } catch (err: any) {
+      setLoadError(err?.message ?? "Neočekivana greška pri učitavanju admin podataka.");
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
   };
 
   useEffect(() => {
@@ -192,8 +204,9 @@ export default function AdminDashboard() {
   useEffect(() => {
     const t = setTimeout(async () => {
       setSearchBusy(true);
-      const { data } = await supabase.rpc("get_admin_users" as any, { _search: search.trim() || null, _limit: 100 });
+      const { data, error } = await supabase.rpc("get_admin_users" as any, { _search: search.trim() || null, _limit: 100 });
       if (data) setUsers(data as any);
+      if (error) setLoadError(`Pretraga korisnika: ${error.message}`);
       setSearchBusy(false);
     }, 300);
     return () => clearTimeout(t);
@@ -241,7 +254,31 @@ export default function AdminDashboard() {
       </div>
     );
   }
-  if (!stats) return null;
+  if (!stats) {
+    return (
+      <div className="container max-w-2xl py-16">
+        <div className="rounded-2xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-card/40 p-8 backdrop-blur-sm">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-rose-500/15 ring-1 ring-rose-500/40">
+              <AlertTriangle className="h-6 w-6 text-rose-400" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-xl font-bold">Admin Dashboard se nije učitao</h1>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Admin pristup je otvoren, ali podaci iz baze nisu vraćeni.
+              </p>
+              <div className="mt-5 rounded-xl border border-border/40 bg-background/40 p-4 text-xs text-muted-foreground break-words">
+                {loadError ?? "Nema dodatne poruke greške."}
+              </div>
+              <Button className="mt-5" size="sm" onClick={() => loadAll()}>
+                <RefreshCw className="h-3.5 w-3.5 mr-1.5" /> Pokušaj ponovo
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const pendingTotal = stats.pendingQuestions + stats.pendingDirectory;
 
