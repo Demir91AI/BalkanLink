@@ -83,7 +83,7 @@ export default function Register() {
       setLoading(false);
       toast({
         title: t("auth.register.errorTitleShort"),
-        description: "Račun s ovom email adresom već postoji. Prijavi se ili koristi 'Zaboravljena lozinka'.",
+        description: t("auth.register.emailAlreadyExists"),
         variant: "destructive",
       });
       return;
