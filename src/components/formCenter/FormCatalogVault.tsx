@@ -10,6 +10,7 @@ import {
   type FormEntry,
   type FormGroup,
 } from "@/lib/form-catalog";
+import { SaveStarButton } from "@/components/saved/SaveStarButton";
 
 /**
  * Vault — BalkanLink Deutsch styled.
@@ -51,12 +52,20 @@ function FormRow({
 }) {
   const free = isFormFree(item.slug);
   return (
-    <motion.button
+    <motion.div
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2 }}
       onClick={() => onSelect(item.slug)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect(item.slug);
+        }
+      }}
       className={cn(
-        "group relative w-full text-left flex items-start gap-3 rounded-2xl border p-4 transition-all duration-200",
+        "group relative w-full text-left flex items-start gap-3 rounded-2xl border p-4 transition-all duration-200 cursor-pointer",
         free
           ? "border-white/[0.06] bg-white/[0.03] hover:border-[hsl(var(--success)/0.3)] hover:shadow-[0_8px_30px_rgba(34,197,94,0.1)]"
           : "border-white/[0.06] bg-white/[0.03] hover:border-white/[0.12] hover:shadow-[0_8px_30px_rgba(59,130,246,0.1)]"
@@ -100,8 +109,18 @@ function FormRow({
           {item.desc}
         </p>
       </div>
-      <ArrowRight className="h-4 w-4 mt-1 shrink-0 text-white/20 transition-all group-hover:translate-x-0.5 group-hover:text-white/60" />
-    </motion.button>
+      <div className="flex items-center gap-1 shrink-0 mt-0.5">
+        <span onClick={(e) => e.stopPropagation()}>
+          <SaveStarButton
+            type="form"
+            id={`form:${item.slug}`}
+            title={item.label}
+            path={`/formulari/${item.slug}`}
+          />
+        </span>
+        <ArrowRight className="h-4 w-4 text-white/20 transition-all group-hover:translate-x-0.5 group-hover:text-white/60" />
+      </div>
+    </motion.div>
   );
 }
 
