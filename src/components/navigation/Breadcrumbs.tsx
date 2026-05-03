@@ -190,7 +190,8 @@ export default function Breadcrumbs({
         )}
 
         {showShare && (
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-2">
+            <PageSaveStar title={shareTitle} />
             <ShareButton variant="compact" title={shareTitle} />
           </div>
         )}
