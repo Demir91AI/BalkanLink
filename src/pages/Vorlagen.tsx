@@ -192,12 +192,6 @@ export default function Vorlagen() {
                           </p>
                         </div>
                       </Link>
-                      <SaveStarButton
-                        type="form"
-                        id={`vorlage:${item.slug}`}
-                        title={item.titleDe}
-                        path={`/vorlagen/${item.slug}`}
-                      />
                     </div>
                   );
                 })}
