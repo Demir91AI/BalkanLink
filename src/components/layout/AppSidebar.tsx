@@ -580,7 +580,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
               </button>
             )}
             <a
-              href={`mailto:kontakt@balkanlink.de?subject=${encodeURIComponent(t("sidebar.sendFeedbackSubject"))}&body=${encodeURIComponent(t("sidebar.sendFeedbackBody"))}`}
+              href={`mailto:kontakt@realcore-digital.de?subject=${encodeURIComponent(t("sidebar.sendFeedbackSubject"))}&body=${encodeURIComponent(t("sidebar.sendFeedbackBody"))}`}
               onClick={close}
               className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-[#6B6B6B] hover:bg-[#F5F0E8] hover:text-[#2D2D2D] transition-all duration-200"
             >
