@@ -146,31 +146,36 @@ export default function KindergeldPreviewWindow() {
 
       <style>{`
         html, body, #root { background: #e5e7eb; margin: 0; padding: 0; }
-        body { -webkit-text-size-adjust: 100%; }
-        .bl-toolbar { position: sticky; top: 0; z-index: 100; background: #0f172a; color: #fff; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.2); flex-wrap: wrap; }
-        .bl-toolbar button, .bl-toolbar a { background: #1e293b; color: #fff; border: 1px solid #334155; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+        body { -webkit-text-size-adjust: 100%; overflow-x: auto; }
+        .bl-toolbar { position: sticky; top: 0; z-index: 100; background: #0f172a; color: #fff; display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-bottom: 1px solid #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.2); flex-wrap: wrap; }
+        .bl-toolbar button, .bl-toolbar a { background: #1e293b; color: #fff; border: 1px solid #334155; padding: 6px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; line-height: 1; }
         .bl-toolbar button:hover, .bl-toolbar a:hover { background: #334155; }
         .bl-toolbar .bl-pdf-btn { background: #eab308; color: #111; border-color: #ca8a04; }
         .bl-toolbar .bl-pdf-btn:hover { background: #facc15; }
-        .bl-title { font-weight: 700; font-size: 14px; flex: 1; min-width: 180px; }
+        .bl-title { font-weight: 700; font-size: 14px; flex: 1; min-width: 140px; }
+        .bl-zoom-group { display: inline-flex; align-items: center; gap: 4px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 2px; }
+        .bl-zoom-group button { background: transparent; border: none; padding: 4px 8px; font-size: 14px; font-weight: 700; min-width: 28px; }
+        .bl-zoom-group .bl-zoom-val { color: #facc15; font-size: 12px; min-width: 42px; text-align: center; padding: 0 4px; }
         .bl-banner { background: #fef3c7; border-bottom: 2px solid #eab308; color: #92400e; padding: 12px 16px; font-size: 13px; line-height: 1.4; }
         .bl-banner strong { color: #78350f; }
         .bl-banner a { color: #1d4ed8; font-weight: 600; }
-        .bl-doc-wrap { padding: 20px 0 60px; min-width: 820px; position: relative; }
-        .bl-doc-wrap::before {
+        .bl-zoom-outer { padding: 16px 0 60px; overflow-x: auto; position: relative; }
+        .bl-zoom-inner { transform-origin: top center; transition: transform 0.15s ease; position: relative; }
+        .bl-zoom-inner::before {
           content: "PRIMJER · BalkanLink · NUR MUSTER";
-          position: fixed; top: 50%; left: 50%;
+          position: absolute; top: 40%; left: 50%;
           transform: translate(-50%, -50%) rotate(-30deg);
           font-size: 90px; font-weight: 900; color: rgba(220, 38, 38, 0.06);
           pointer-events: none; z-index: 1; white-space: nowrap;
           letter-spacing: 4px;
         }
         @media print {
-          html, body, #root { background: #fff !important; }
+          html, body, #root { background: #fff !important; overflow: visible !important; }
           .bl-toolbar { display: none !important; }
           .bl-banner { background: #fef3c7 !important; border: 2px solid #eab308 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; margin: 0 0 12px; }
-          .bl-doc-wrap { padding: 0; min-width: 0; }
-          .bl-doc-wrap::before {
+          .bl-zoom-outer { padding: 0; overflow: visible; }
+          .bl-zoom-inner { transform: none !important; }
+          .bl-zoom-inner::before {
             content: "PRIMJER · NICHT EINREICHEN";
             position: fixed; top: 50%; left: 50%;
             transform: translate(-50%, -50%) rotate(-30deg);
@@ -184,30 +189,47 @@ export default function KindergeldPreviewWindow() {
 
       <div className="bl-toolbar">
         <button onClick={handleBack} aria-label="Zatvori">← Nazad</button>
-        <div className="bl-title">📋 Musterformular Kindergeld — PRIMJER</div>
-        <button onClick={handleReset} title="Vrati primjer">🔄 Reset</button>
-        <a href={PDF_URL} target="_blank" rel="noopener noreferrer">🔗 Originalni PDF</a>
-        <button className="bl-pdf-btn" onClick={handlePrint}>⬇ Preuzmi kao PDF</button>
+        <div className="bl-title">📋 Musterformular — PRIMJER</div>
+        <div className="bl-zoom-group" role="group" aria-label="Zoom">
+          <button onClick={zoomOut} aria-label="Zoom out" title="Zoom out (−)">−</button>
+          <span className="bl-zoom-val" onClick={zoomReset} role="button" title="Reset 100%" style={{ cursor: "pointer" }}>{Math.round(zoom * 100)}%</span>
+          <button onClick={zoomIn} aria-label="Zoom in" title="Zoom in (+)">+</button>
+          <button onClick={zoomFit} aria-label="Fit to screen" title="Fit širina" style={{ fontSize: 11 }}>⤢</button>
+        </div>
+        <a href={PDF_URL} target="_blank" rel="noopener noreferrer">🔗 PDF</a>
+        <button onClick={handleReset} title="Vrati primjer">🔄</button>
+        <button className="bl-pdf-btn" onClick={handlePrint}>⬇ PDF</button>
       </div>
 
       <div className="bl-banner">
-        ⚠️ <strong>SAMO PRIMJER (Musterformular):</strong> Ovaj dokument je edukativni primjer i <strong>NE MOŽE se poslati u Behörde</strong>.
-        Za zvaničan zahtjev koristite originalni PDF: <a href={PDF_URL} target="_blank" rel="noopener noreferrer">Kindergeld KG1 PDF →</a>
+        ⚠️ <strong>SAMO PRIMJER (Musterformular):</strong> Edukativni primjer — <strong>NE MOŽE se poslati u Behörde</strong>.
+        Za zvaničan zahtjev: <a href={PDF_URL} target="_blank" rel="noopener noreferrer">Kindergeld KG1 PDF →</a>
         <br />
-        <span style={{ fontSize: 11, opacity: 0.85 }}>💡 Zoom: koristite Ctrl/⌘ +/− na računaru ili pinch-zoom na mobitelu. Unosi se automatski čuvaju lokalno.</span>
+        <span style={{ fontSize: 11, opacity: 0.85 }}>💡 Koristi <strong>+ / −</strong> dugmad u toolbar-u za zoom. Unosi se automatski čuvaju.</span>
       </div>
 
-      <div className="bl-doc-wrap">
-        {/* PAGE 1 */}
-        <div className="bl-page" style={page}>
-          <h1 style={titleStyle}>Antrag — Musterformular</h1>
-          <div style={introRow}>
-            <span>Bitte für jede Person ein eigenes Blatt ausfüllen.</span>
-            <span style={{ display: "inline-flex", alignItems: "baseline", gap: 6 }}>
-              Anzahl der Beilagen:
-              <input style={{ ...inpBare, borderBottom: "1px dotted #6b7280", width: 90, fontSize: 12 }} value={f.beilagenAnzahl} onChange={(e) => set("beilagenAnzahl", e.target.value)} />
-            </span>
-          </div>
+      <div className="bl-zoom-outer">
+        <div
+          className="bl-zoom-inner"
+          style={{
+            transform: `scale(${zoom})`,
+            width: 820,
+            height: `${zoom * 100}%`,
+            margin: "0 auto",
+            // Reserve space so scaled height doesn't clip
+            marginBottom: zoom < 1 ? 0 : undefined,
+          }}
+        >
+          {/* PAGE 1 */}
+          <div className="bl-page" style={page}>
+            <h1 style={titleStyle}>Antrag — Musterformular</h1>
+            <div style={introRow}>
+              <span>Bitte für jede Person ein eigenes Blatt ausfüllen.</span>
+              <span style={{ display: "inline-flex", alignItems: "baseline", gap: 6 }}>
+                Anzahl der Beilagen:
+                <input style={{ ...inpBare, borderBottom: "1px dotted #6b7280", width: 90, fontSize: 12 }} value={f.beilagenAnzahl} onChange={(e) => set("beilagenAnzahl", e.target.value)} />
+              </span>
+            </div>
 
           <SecHeader num={1} title="Angaben zur antragstellenden Person" />
           <div style={captionAbove}>Persönliche Identifikationsnummer<br />(soweit vergeben, zwingend auszufüllen)</div>
