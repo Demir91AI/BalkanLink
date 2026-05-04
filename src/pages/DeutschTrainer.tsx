@@ -493,6 +493,31 @@ export default function DeutschTrainer() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Reset progress confirm */}
+      <AlertDialog open={showResetConfirm} onOpenChange={setShowResetConfirm}>
+        <AlertDialogContent className="border-white/10 bg-[hsl(225,45%,8%)] text-white">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-white">
+              {t("deutschTrainer.resetDialog.title")}
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-white/60">
+              {t("deutschTrainer.resetDialog.description")}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="border-white/10 bg-transparent text-white/80 hover:bg-white/5 hover:text-white">
+              {t("deutschTrainer.resetDialog.cancel")}
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => { resetProgress(); setShowResetConfirm(false); }}
+              className="bg-red-600 text-white hover:bg-red-500"
+            >
+              {t("deutschTrainer.resetDialog.confirm")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }
