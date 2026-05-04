@@ -1,7 +1,7 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
-import { getAudio, getCachedAudioUrl, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
+import { getCachedAudioUrl, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
 
 /* ── helpers ── */
 
@@ -132,92 +132,7 @@ export function useTTS() {
     };
   }, []);
 
-  /* ── Play via ElevenLabs (Audio URL) ──
-   * IMPORTANT for iOS PWA (standalone): the <audio> element MUST be created
-   * synchronously inside the user gesture (the click), BEFORE any `await`.
-   * Otherwise iOS WebKit drops the gesture activation and `play()` is rejected,
-   * which silently falls back to the robotic browser speechSynthesis voice.
-   */
-  const playViaProvider = useCallback((requestId: number, id: string, text: string): boolean => {
-    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
-    const cachedUrl = getCachedAudioUrl(sentence);
-    const directUrl = cachedUrl ?? getDirectAudioUrl(sentence);
-    const canPlayDirectly = Boolean(directUrl);
-    if (!canPlayDirectly && !TTS_CONFIG.fallbackEnabled) return false;
-
-    const audio = new Audio();
-    audio.preload = "auto";
-    audio.crossOrigin = "anonymous";
-    applyAudioTuning(audio, rate);
-    audioRef.current = audio;
-
-    const isCurrent = () => requestSeqRef.current === requestId && audioRef.current === audio;
-
-    audio.onplay = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
-    audio.onplaying = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
-    audio.onended = () => {
-      setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); } }, 100);
-    };
-    audio.onerror = () => {
-      if (!isCurrent()) return;
-      console.error(`[TTS] Playback error for ${id}`);
-      setActiveId(null);
-      setPlayState("idle");
-    };
-
-    const playUrl = (url: string) => {
-      audio.src = url;
-      audio.load();
-      const playPromise = audio.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch((err) => {
-          if (!isCurrent()) return;
-          console.error("[TTS] Audio play error:", err);
-          setActiveId(null);
-          setPlayState("idle");
-          toast.error("Audio konnte nicht abgespielt werden.");
-        });
-      }
-    };
-
-    try {
-      if (directUrl) {
-        playUrl(directUrl);
-      } else {
-        getAudio(sentence).then((audioUrl) => {
-          if (!isCurrent()) return;
-          if (audioUrl) {
-            playUrl(audioUrl);
-            return;
-          }
-          resetAudioElement(audio);
-          audioRef.current = null;
-          const fallbackOk = playViaBrowserFallback(requestId, id, text);
-          if (!fallbackOk && isCurrent()) {
-            setActiveId(null);
-            setPlayState("idle");
-            toast.error("Audio konnte nicht abgespielt werden.");
-          }
-        }).catch((err) => {
-          if (!isCurrent()) return;
-          console.error("[TTS] Audio fetch error:", err);
-          setActiveId(null);
-          setPlayState("idle");
-          toast.error("Audio konnte nicht abgespielt werden.");
-        });
-      }
-      return true;
-    } catch (err) {
-      if (isCurrent()) {
-        console.error("[TTS] Direct audio play error:", err);
-        setActiveId(null);
-        setPlayState("idle");
-      }
-      return false;
-    }
-  }, [rate]);
-
-  /* ── Browser fallback (emergency only) ── */
+  /* ── Browser fallback (emergency only) — declared first to avoid TDZ in provider ── */
   const playViaBrowserFallback = useCallback((requestId: number, id: string, text: string): boolean => {
     if (!TTS_CONFIG.fallbackEnabled) return false;
 
@@ -255,6 +170,66 @@ export function useTTS() {
     try { synth.speak(u); } catch { return false; }
     return true;
   }, [rate]);
+
+  /* ── Play via ElevenLabs (Audio URL) ──
+   * IMPORTANT for iOS PWA: <audio> must be created synchronously inside the
+   * tap handler, BEFORE any await — otherwise WebKit drops user activation.
+   * Note: NO crossOrigin="anonymous" — it forces strict CORS that mobile
+   * browsers reject for our edge function, causing silent playback failures.
+   */
+  const playViaProvider = useCallback((requestId: number, id: string, text: string): boolean => {
+    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
+    const cachedUrl = getCachedAudioUrl(sentence);
+    const directUrl = cachedUrl ?? getDirectAudioUrl(sentence);
+    if (!directUrl) return false;
+
+    const audio = new Audio();
+    audio.preload = "auto";
+    applyAudioTuning(audio, rate);
+    audioRef.current = audio;
+
+    const isCurrent = () => requestSeqRef.current === requestId && audioRef.current === audio;
+
+    audio.onplay = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
+    audio.onplaying = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
+    audio.onended = () => {
+      setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); } }, 100);
+    };
+    audio.onerror = () => {
+      if (!isCurrent()) return;
+      console.error(`[TTS] Playback error for ${id}, falling back`);
+      // Try browser TTS as last-resort
+      const ok = playViaBrowserFallback(requestId, id, text);
+      if (!ok && isCurrent()) {
+        setActiveId(null);
+        setPlayState("idle");
+        toast.error("Audio konnte nicht abgespielt werden.");
+      }
+    };
+
+    try {
+      audio.src = directUrl;
+      audio.load();
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch((err) => {
+          if (!isCurrent()) return;
+          console.error("[TTS] play() rejected:", err);
+          // Fall back to browser TTS instead of just toasting
+          const ok = playViaBrowserFallback(requestId, id, text);
+          if (!ok && isCurrent()) {
+            setActiveId(null);
+            setPlayState("idle");
+            toast.error("Audio konnte nicht abgespielt werden.");
+          }
+        });
+      }
+      return true;
+    } catch (err) {
+      console.error("[TTS] Direct audio setup error:", err);
+      return false;
+    }
+  }, [rate, playViaBrowserFallback]);
 
   /* ── Play: ElevenLabs first, browser fallback ── */
   const playNew = useCallback((id: string, text: string) => {
