@@ -272,21 +272,22 @@ export default function KindergeldPreviewWindow() {
           </Row>
 
           <div style={{ ...fieldBox({ marginTop: -1, padding: "6px 8px 8px" }) }}>
-            <div style={{ ...fieldLbl, fontWeight: 700, color: "#111", fontSize: 10, marginBottom: 6 }}>Familienstand</div>
+            <div style={{ ...fieldLbl, fontWeight: 700, color: "#111", fontSize: 10, marginBottom: 2 }}>Familienstand</div>
+            <div style={{ fontSize: 10, color: "#b8860b", fontStyle: "italic", marginBottom: 6 }}>{t("kg1Texts.familienstand")}</div>
             <div style={{ display: "grid", gridTemplateColumns: "minmax(120px,1fr) minmax(160px,1.2fr) minmax(180px,1.6fr) minmax(200px,1.8fr)", gap: 6, alignItems: "center" }}>
-              <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11 }}>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: 6, fontSize: 11 }}>
                 <input type="checkbox" checked={f.familienstand === "ledig"} onChange={() => set("familienstand", f.familienstand === "ledig" ? "" : "ledig")} />
-                ledig
+                <span>ledig<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.ledig")}</span></span>
               </label>
               <label style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11 }}>
-                <span style={{ color: "#374151" }}>seit:</span>
+                <span style={{ color: "#374151" }}>seit / <span style={{ color: "#b8860b", fontStyle: "italic" }}>{t("kg1Texts.seit")}</span></span>
                 <input type="date" value={f.seit} onChange={(e) => set("seit", e.target.value)} style={{ ...inpBare, borderBottom: "1px dotted #6b7280", fontSize: 12, flex: 1, minWidth: 110 }} />
               </label>
               <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                {["verheiratet", "geschieden", "verwitwet"].map((v) => (
-                  <label key={v} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11 }}>
+                {(["verheiratet", "geschieden", "verwitwet"] as const).map((v) => (
+                  <label key={v} style={{ display: "flex", alignItems: "flex-start", gap: 6, fontSize: 11 }}>
                     <input type="checkbox" checked={f.familienstand === v} onChange={() => set("familienstand", f.familienstand === v ? "" : v)} />
-                    {v}
+                    <span>{v}<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t(`kg1Texts.${v}`)}</span></span>
                   </label>
                 ))}
               </div>
@@ -296,17 +297,20 @@ export default function KindergeldPreviewWindow() {
                   { v: "aufgehoben", l: "aufgehobene Lebenspartnerschaft" },
                   { v: "getrennt", l: "dauernd getrennt lebend" },
                 ].map((o) => (
-                  <label key={o.v} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11 }}>
+                  <label key={o.v} style={{ display: "flex", alignItems: "flex-start", gap: 6, fontSize: 11 }}>
                     <input type="checkbox" checked={f.familienstand === o.v} onChange={() => set("familienstand", f.familienstand === o.v ? "" : o.v)} />
-                    {o.l}
+                    <span>{o.l}<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t(`kg1Texts.${o.v}`)}</span></span>
                   </label>
                 ))}
               </div>
             </div>
           </div>
 
-          <SecHeader num={2} title="Angaben zur weiteren Person im gemeinsamen Haushalt" />
-          <div style={captionAbove}>Persönliche Identifikationsnummer<br />(soweit vergeben, bitte ausfüllen)</div>
+          <SecHeader num={2} title="Angaben zur weiteren Person im gemeinsamen Haushalt" bhs={t("kg1Texts.sectionWeiterePerson")} />
+          <div style={captionAbove}>
+            Persönliche Identifikationsnummer<br />(soweit vergeben, bitte ausfüllen)
+            <div style={{ color: "#b8860b", fontStyle: "italic", marginTop: 2 }}>{t("kg1Texts.persoenlicheId")} {t("kg1Texts.soweitVergebenBitte")}</div>
+          </div>
           <div style={{ marginBottom: 10, maxWidth: 360 }}>
             <IdBoxes count={11} value={f.steuerId2} onChange={(v) => set("steuerId2", v)} />
           </div>
