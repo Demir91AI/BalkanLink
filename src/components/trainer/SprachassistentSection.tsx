@@ -71,8 +71,27 @@ const SprachassistentSection = React.forwardRef<HTMLDivElement, Props>(
         )}
       </div>
 
-
-
+      {/* Speed control — persists across lessons via localStorage in useTTS */}
+      <div className="mb-3 flex items-center gap-1.5 overflow-x-auto">
+        <span className="shrink-0 text-[10px] font-semibold text-muted-foreground">
+          {t("deutschTrainer.sprachassistent.speed", { defaultValue: "Brzina" })}:
+        </span>
+        {rateOptions.map((opt) => (
+          <button
+            key={opt}
+            type="button"
+            onClick={() => setRate(opt)}
+            className={cn(
+              "shrink-0 rounded-full px-2.5 py-1 text-[10px] font-bold transition-colors",
+              rate === opt
+                ? "bg-primary text-primary-foreground"
+                : "bg-muted text-muted-foreground hover:bg-muted/80"
+            )}
+          >
+            {SPEED_LABELS[opt] ?? `${opt}×`}
+          </button>
+        ))}
+      </div>
 
       <div className="flex flex-col gap-2">
         {visiblePhrases.map((phrase, i) => {
