@@ -96,7 +96,7 @@ export default function ElterngeldMuster() {
       onSave={() => { /* auto-saved via update() */ }}
       onReset={reset}
     >
-      <MusterDisclaimer formKey="elterngeld-bayern" />
+      <MusterDisclaimer formKey="elterngeld-bayern"><></></MusterDisclaimer>
 
       <div style={{ marginBottom: 16, padding: 14, background: "#FEF3C7", border: "2px solid #EAB308", borderRadius: 8, fontSize: 13, color: "#78350F", lineHeight: 1.5 }}>
         <strong>{t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
