@@ -39,8 +39,8 @@ export const S = {
   lblTr: { fontSize: 11, color: "#C9A84C", marginBottom: 6, fontWeight: 500, fontStyle: "italic" as const, lineHeight: 1.3, textTransform: "none" as const, letterSpacing: 0 } as React.CSSProperties,
   inp: { border: "1px solid #D0C8B0", borderRadius: 4, background: "#fff", fontSize: 14, padding: "9px 11px", outline: "none", width: "100%", boxSizing: "border-box" as const, color: "#111" } as React.CSSProperties,
   example: { fontSize: 12, fontStyle: "italic" as const, color: "#C9A84C", marginTop: 4, lineHeight: 1.3 } as React.CSSProperties,
-  idBox: { width: 28, height: 34, border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: 15, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
-  ibanBox: { width: 22, height: 32, border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: 13, fontWeight: 600, padding: 0, outline: "none", background: "#fff" } as React.CSSProperties,
+  idBox: { width: "100%", minWidth: 0, aspectRatio: "3 / 4", border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: "clamp(11px, 3.2vw, 15px)", fontWeight: 600, padding: 0, outline: "none", background: "#fff", boxSizing: "border-box" as const } as React.CSSProperties,
+  ibanBox: { width: "100%", minWidth: 0, aspectRatio: "2 / 3", border: "1px solid #D0C8B0", borderRadius: 3, textAlign: "center" as const, fontSize: "clamp(9px, 2.2vw, 13px)", fontWeight: 600, padding: 0, outline: "none", background: "#fff", boxSizing: "border-box" as const } as React.CSSProperties,
   chk: { display: "flex", alignItems: "center", gap: 6, fontSize: 13, cursor: "pointer", marginRight: 14 } as React.CSSProperties,
   footer: { fontSize: 10, color: "#6b7280", textAlign: "center" as const, borderTop: "1px solid #E5E5E5", paddingTop: 10, marginTop: 20 },
   sigLine: { borderBottom: "1px solid #374151", height: 50, marginBottom: 4 } as React.CSSProperties,
@@ -84,7 +84,7 @@ export const IdBoxes = ({ count, value, onChange }: { count: number; value: stri
     if (c && i < count - 1) refs.current[i + 1]?.focus();
   }, [chars, count, onChange]);
   return (
-    <div style={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+    <div style={{ display: "grid", gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))`, gap: 2, width: "100%" }}>
       {Array.from({ length: count }).map((_, i) => (
         <input key={i} ref={el => { refs.current[i] = el; }} style={count > 15 ? S.ibanBox : S.idBox} maxLength={2} value={chars[i]?.trim() ?? ""} onChange={e => handleChange(i, e.target.value)} onKeyDown={e => handleKey(i, e)} />
       ))}
