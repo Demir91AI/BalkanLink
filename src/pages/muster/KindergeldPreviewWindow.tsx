@@ -244,7 +244,7 @@ export default function KindergeldPreviewWindow() {
           </Row>
           <Row>
             <Field label="Vorname" bhs={t("kg1Fields.vorname")} example="Max" flex={3} value={f.vorname} onChange={(v) => set("vorname", v)} />
-            <Field label="ggf. Geburtsname und früherer Familienname" bhs={t("kg1Fields.geburtsname")} example="Hodžić" flex={3} value={f.geburtsname} onChange={(v) => set("geburtsname", v)} />
+            <Field label="ggf. Geburtsname und früherer Familienname" bhs={t("kg1Fields.geburtsname")} example="Kovač" flex={3} value={f.geburtsname} onChange={(v) => set("geburtsname", v)} />
           </Row>
           <Row>
             <Field label="Geburtsdatum" bhs={t("kg1Fields.geburtsdatum")} example="01.01.1990" type="date" value={f.geburtsdatum} onChange={(v) => set("geburtsdatum", v)} />
