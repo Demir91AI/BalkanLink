@@ -127,12 +127,20 @@ export default function KindergeldPreviewWindow() {
       setF(initial());
     }
   };
+  const zoomIn = () => setZoom((z) => Math.min(2.5, +(z + 0.1).toFixed(2)));
+  const zoomOut = () => setZoom((z) => Math.max(0.4, +(z - 0.1).toFixed(2)));
+  const zoomReset = () => setZoom(1);
+  const zoomFit = () => {
+    if (typeof window !== "undefined") {
+      setZoom(Math.max(0.4, +((window.innerWidth - 24) / 820).toFixed(2)));
+    }
+  };
 
   return (
     <>
       <Helmet>
         <title>Musterformular Kindergeld — PRIMJER · BalkanLink</title>
-        <meta name="viewport" content="width=820, initial-scale=0.45, maximum-scale=5, user-scalable=yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
