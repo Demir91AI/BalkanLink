@@ -64,6 +64,22 @@ export default function MusterDisclaimer({ formKey, children }: Props) {
           dangerouslySetInnerHTML={{ __html: t("musterFlow.disclaimer.intro") }}
         />
 
+        <div style={{
+          background: "linear-gradient(135deg, rgba(16,185,129,0.15), rgba(16,185,129,0.05))",
+          border: "1.5px solid #10B981", borderRadius: 10, padding: 14, marginBottom: 16,
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+            <span style={{ fontSize: 18 }}>🔒</span>
+            <strong style={{ color: "#34D399", fontSize: 14 }}>{t("musterFlow.privacy.title")}</strong>
+          </div>
+          <ul style={{ paddingLeft: 18, margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+            {["p1","p2","p3"].map(k => (
+              <li key={k} style={{ fontSize: 12.5, lineHeight: 1.5, color: "#D1FAE5" }}
+                dangerouslySetInnerHTML={{ __html: t(`musterFlow.privacy.points.${k}`) }} />
+            ))}
+          </ul>
+        </div>
+
         <ul style={{ paddingLeft: 20, margin: "0 0 20px", display: "flex", flexDirection: "column", gap: 10 }}>
           {Array.isArray(rules) && rules.map((r, i) => (
             <li
