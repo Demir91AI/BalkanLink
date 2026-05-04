@@ -47,6 +47,19 @@ export default function SmartGuideWizardShared({
   const navigate = useNavigate();
   const { isPremium } = useSubscription();
   const { t } = useTranslation("forms");
+  const topRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const el = topRef.current;
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  }, [step]);
 
   const current = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
