@@ -294,18 +294,18 @@ export default function KindergeldPreviewWindow() {
             <IdBoxes count={11} value={f.steuerId2} onChange={(v) => set("steuerId2", v)} />
           </div>
           <Row mb={0}>
-            <Field label="Familienname" flex={3} value={f.eFamilienname} onChange={(v) => set("eFamilienname", v)} />
-            <Field label="Vorname" flex={3} value={f.eVorname} onChange={(v) => set("eVorname", v)} />
-            <Field label="Titel" flex={1} minWidth={70} value={f.eTitel} onChange={(v) => set("eTitel", v)} />
+            <Field label="Familienname" bhs="Prezime (supružnik/partner)" example="Musterfrau" flex={3} value={f.eFamilienname} onChange={(v) => set("eFamilienname", v)} />
+            <Field label="Vorname" bhs="Ime" example="Maja" flex={3} value={f.eVorname} onChange={(v) => set("eVorname", v)} />
+            <Field label="Titel" bhs="Titula" example="Dr." flex={1} minWidth={70} value={f.eTitel} onChange={(v) => set("eTitel", v)} />
           </Row>
           <Row>
-            <Field label="Geburtsdatum" type="date" value={f.eGeburtsdatum} onChange={(v) => set("eGeburtsdatum", v)} />
-            <Field label="Staatsangehörigkeit" flex={2} value={f.eStaatsangehoerigkeit} onChange={(v) => set("eStaatsangehoerigkeit", v)} />
-            <Select label="Geschlecht" value={f.eGeschlecht} onChange={(v) => set("eGeschlecht", v)} options={["männlich", "weiblich", "divers"]} />
-            <Field label="ggf. Geburtsname" flex={2} value={f.eGeburtsname} onChange={(v) => set("eGeburtsname", v)} />
+            <Field label="Geburtsdatum" bhs="Datum rođenja" example="15.05.1992" type="date" value={f.eGeburtsdatum} onChange={(v) => set("eGeburtsdatum", v)} />
+            <Field label="Staatsangehörigkeit" bhs="Državljanstvo" example="bosnisch-herzegowinisch" flex={2} value={f.eStaatsangehoerigkeit} onChange={(v) => set("eStaatsangehoerigkeit", v)} />
+            <Select label="Geschlecht" bhs="Spol" example="weiblich" value={f.eGeschlecht} onChange={(v) => set("eGeschlecht", v)} options={["männlich", "weiblich", "divers"]} />
+            <Field label="ggf. Geburtsname" bhs="Djevojačko prezime" example="Kovač" flex={2} value={f.eGeburtsname} onChange={(v) => set("eGeburtsname", v)} />
           </Row>
           <Row>
-            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" flex={1} value={f.eAnschrift} onChange={(v) => set("eAnschrift", v)} />
+            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" bhs="Adresa (ako se razlikuje)" example="ostaviti prazno ako je ista" flex={1} value={f.eAnschrift} onChange={(v) => set("eAnschrift", v)} />
           </Row>
 
           <SecHeader num={3} title="Angaben zum Zahlungsweg" />
