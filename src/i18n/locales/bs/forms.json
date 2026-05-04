@@ -57,5 +57,25 @@
       "stepInfo": "Korak 1–{{free}} besplatno · Korak {{current}} zahtijeva Premium",
       "cta": "BalkanLink Premium — 9,99€/mj."
     }
+  },
+  "kg1Fields": {
+    "familienname": "Prezime",
+    "titel": "Titula",
+    "vorname": "Ime",
+    "geburtsname": "Djevojačko / ranije prezime",
+    "geburtsdatum": "Datum rođenja",
+    "geburtsort": "Mjesto rođenja",
+    "geschlecht": "Spol",
+    "staatsangehoerigkeit": "Državljanstvo",
+    "anschrift": "Adresa (ulica, broj, poštanski broj, mjesto, država)",
+    "anschriftAbweichend": "Adresa (ako se razlikuje)",
+    "ePartnerFamname": "Prezime (supružnik/partner)",
+    "geburtsnameKurz": "Djevojačko prezime",
+    "bic": "BIC kod banke",
+    "bank": "Naziv banke",
+    "beraterFamname": "Prezime savjetnika",
+    "beraterVorname": "Ime savjetnika",
+    "beraterAdresa": "Adresa savjetnika/odvjetnika",
+    "leaveEmpty": "ostaviti prazno ako se ne odnosi"
   }
 }

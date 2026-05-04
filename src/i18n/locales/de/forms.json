@@ -57,5 +57,25 @@
       "stepInfo": "Schritt 1–{{free}} kostenlos · Schritt {{current}} erfordert Premium",
       "cta": "BalkanLink Premium — 9,99€/Monat"
     }
+  },
+  "kg1Fields": {
+    "familienname": "Familienname",
+    "titel": "Titel",
+    "vorname": "Vorname",
+    "geburtsname": "Geburtsname / früherer Familienname",
+    "geburtsdatum": "Geburtsdatum",
+    "geburtsort": "Geburtsort",
+    "geschlecht": "Geschlecht",
+    "staatsangehoerigkeit": "Staatsangehörigkeit",
+    "anschrift": "Anschrift (Straße, Hausnr., PLZ, Ort, Staat)",
+    "anschriftAbweichend": "Anschrift (falls abweichend)",
+    "ePartnerFamname": "Familienname (Ehepartner/Partner)",
+    "geburtsnameKurz": "Geburtsname",
+    "bic": "BIC der Bank",
+    "bank": "Name der Bank",
+    "beraterFamname": "Familienname des Beraters",
+    "beraterVorname": "Vorname des Beraters",
+    "beraterAdresa": "Anschrift des Beraters/Anwalts",
+    "leaveEmpty": "leer lassen, falls nicht zutreffend"
   }
 }
