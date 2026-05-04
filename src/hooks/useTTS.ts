@@ -1,7 +1,7 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
-import { getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
+import { getAudio, getCachedAudioUrl, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
 
 /* ── helpers ── */
 
@@ -140,8 +140,10 @@ export function useTTS() {
    */
   const playViaProvider = useCallback((requestId: number, id: string, text: string): boolean => {
     const sentence: TTSSentence = { id, text: preprocessGerman(text) };
-    const directUrl = getDirectAudioUrl(sentence);
-    if (!directUrl) return false;
+    const cachedUrl = getCachedAudioUrl(sentence);
+    const directUrl = cachedUrl ?? getDirectAudioUrl(sentence);
+    const canPlayDirectly = Boolean(directUrl);
+    if (!canPlayDirectly && !TTS_CONFIG.fallbackEnabled) return false;
 
     const audio = new Audio();
     audio.preload = "auto";
@@ -163,14 +165,42 @@ export function useTTS() {
       setPlayState("idle");
     };
 
-    try {
-      audio.src = directUrl;
+    const playUrl = (url: string) => {
+      audio.src = url;
       audio.load();
       const playPromise = audio.play();
       if (playPromise && typeof playPromise.catch === "function") {
         playPromise.catch((err) => {
           if (!isCurrent()) return;
-          console.error("[TTS] Direct audio play error:", err);
+          console.error("[TTS] Audio play error:", err);
+          setActiveId(null);
+          setPlayState("idle");
+          toast.error("Audio konnte nicht abgespielt werden.");
+        });
+      }
+    };
+
+    try {
+      if (directUrl) {
+        playUrl(directUrl);
+      } else {
+        getAudio(sentence).then((audioUrl) => {
+          if (!isCurrent()) return;
+          if (audioUrl) {
+            playUrl(audioUrl);
+            return;
+          }
+          resetAudioElement(audio);
+          audioRef.current = null;
+          const fallbackOk = playViaBrowserFallback(requestId, id, text);
+          if (!fallbackOk && isCurrent()) {
+            setActiveId(null);
+            setPlayState("idle");
+            toast.error("Audio konnte nicht abgespielt werden.");
+          }
+        }).catch((err) => {
+          if (!isCurrent()) return;
+          console.error("[TTS] Audio fetch error:", err);
           setActiveId(null);
           setPlayState("idle");
           toast.error("Audio konnte nicht abgespielt werden.");
