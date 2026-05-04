@@ -77,8 +77,14 @@ const Row = ({ children, mb = -1 }: { children: ReactNode; mb?: number }) => (
   <div style={{ display: "flex", gap: 0, marginTop: mb >= 0 ? mb : -1 }}>{children}</div>
 );
 
-const SecHeader = ({ num, title }: { num: number; title: string }) => (
-  <div style={secHead}><div style={secNum}>{num}</div><div style={secTitle}>{title}</div></div>
+const SecHeader = ({ num, title, bhs }: { num: number; title: string; bhs?: string }) => (
+  <div style={secHead}>
+    <div style={secNum}>{num}</div>
+    <div style={{ ...secTitle, flexDirection: "column", alignItems: "flex-start", gap: 1 }}>
+      <span>{title}</span>
+      {bhs && <span style={{ fontSize: 10.5, color: "#b8860b", fontStyle: "italic", fontWeight: 600 }}>{bhs}</span>}
+    </div>
+  </div>
 );
 
 const FooterBar = ({ page: p }: { page: string }) => (
@@ -225,15 +231,24 @@ export default function KindergeldPreviewWindow() {
           <div className="bl-page" style={page}>
             <h1 style={titleStyle}>Antrag — Musterformular</h1>
             <div style={introRow}>
-              <span>Bitte für jede Person ein eigenes Blatt ausfüllen.</span>
+              <span style={{ display: "flex", flexDirection: "column" }}>
+                <span>Bitte für jede Person ein eigenes Blatt ausfüllen.</span>
+                <span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.bitteEinBlatt")}</span>
+              </span>
               <span style={{ display: "inline-flex", alignItems: "baseline", gap: 6 }}>
-                Anzahl der Beilagen:
+                <span style={{ display: "flex", flexDirection: "column" }}>
+                  <span>Anzahl der Beilagen:</span>
+                  <span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.anzahlBeilagen")}</span>
+                </span>
                 <input style={{ ...inpBare, borderBottom: "1px dotted #6b7280", width: 90, fontSize: 12 }} value={f.beilagenAnzahl} onChange={(e) => set("beilagenAnzahl", e.target.value)} />
               </span>
             </div>
 
-          <SecHeader num={1} title="Angaben zur antragstellenden Person" />
-          <div style={captionAbove}>Persönliche Identifikationsnummer<br />(soweit vergeben, zwingend auszufüllen)</div>
+          <SecHeader num={1} title="Angaben zur antragstellenden Person" bhs={t("kg1Texts.sectionAntragsteller")} />
+          <div style={captionAbove}>
+            Persönliche Identifikationsnummer<br />(soweit vergeben, zwingend auszufüllen)
+            <div style={{ color: "#b8860b", fontStyle: "italic", marginTop: 2 }}>{t("kg1Texts.persoenlicheId")} {t("kg1Texts.soweitVergebenZwingend")}</div>
+          </div>
           <div style={{ marginBottom: 10, maxWidth: 360 }}>
             <IdBoxes count={11} value={f.steuerId1} onChange={(v) => set("steuerId1", v)} />
           </div>
@@ -257,21 +272,22 @@ export default function KindergeldPreviewWindow() {
           </Row>
 
           <div style={{ ...fieldBox({ marginTop: -1, padding: "6px 8px 8px" }) }}>
-            <div style={{ ...fieldLbl, fontWeight: 700, color: "#111", fontSize: 10, marginBottom: 6 }}>Familienstand</div>
+            <div style={{ ...fieldLbl, fontWeight: 700, color: "#111", fontSize: 10, marginBottom: 2 }}>Familienstand</div>
+            <div style={{ fontSize: 10, color: "#b8860b", fontStyle: "italic", marginBottom: 6 }}>{t("kg1Texts.familienstand")}</div>
             <div style={{ display: "grid", gridTemplateColumns: "minmax(120px,1fr) minmax(160px,1.2fr) minmax(180px,1.6fr) minmax(200px,1.8fr)", gap: 6, alignItems: "center" }}>
-              <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11 }}>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: 6, fontSize: 11 }}>
                 <input type="checkbox" checked={f.familienstand === "ledig"} onChange={() => set("familienstand", f.familienstand === "ledig" ? "" : "ledig")} />
-                ledig
+                <span>ledig<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.ledig")}</span></span>
               </label>
               <label style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11 }}>
-                <span style={{ color: "#374151" }}>seit:</span>
+                <span style={{ color: "#374151" }}>seit / <span style={{ color: "#b8860b", fontStyle: "italic" }}>{t("kg1Texts.seit")}</span></span>
                 <input type="date" value={f.seit} onChange={(e) => set("seit", e.target.value)} style={{ ...inpBare, borderBottom: "1px dotted #6b7280", fontSize: 12, flex: 1, minWidth: 110 }} />
               </label>
               <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                {["verheiratet", "geschieden", "verwitwet"].map((v) => (
-                  <label key={v} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11 }}>
+                {(["verheiratet", "geschieden", "verwitwet"] as const).map((v) => (
+                  <label key={v} style={{ display: "flex", alignItems: "flex-start", gap: 6, fontSize: 11 }}>
                     <input type="checkbox" checked={f.familienstand === v} onChange={() => set("familienstand", f.familienstand === v ? "" : v)} />
-                    {v}
+                    <span>{v}<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t(`kg1Texts.${v}`)}</span></span>
                   </label>
                 ))}
               </div>
@@ -281,17 +297,20 @@ export default function KindergeldPreviewWindow() {
                   { v: "aufgehoben", l: "aufgehobene Lebenspartnerschaft" },
                   { v: "getrennt", l: "dauernd getrennt lebend" },
                 ].map((o) => (
-                  <label key={o.v} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11 }}>
+                  <label key={o.v} style={{ display: "flex", alignItems: "flex-start", gap: 6, fontSize: 11 }}>
                     <input type="checkbox" checked={f.familienstand === o.v} onChange={() => set("familienstand", f.familienstand === o.v ? "" : o.v)} />
-                    {o.l}
+                    <span>{o.l}<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t(`kg1Texts.${o.v}`)}</span></span>
                   </label>
                 ))}
               </div>
             </div>
           </div>
 
-          <SecHeader num={2} title="Angaben zur weiteren Person im gemeinsamen Haushalt" />
-          <div style={captionAbove}>Persönliche Identifikationsnummer<br />(soweit vergeben, bitte ausfüllen)</div>
+          <SecHeader num={2} title="Angaben zur weiteren Person im gemeinsamen Haushalt" bhs={t("kg1Texts.sectionWeiterePerson")} />
+          <div style={captionAbove}>
+            Persönliche Identifikationsnummer<br />(soweit vergeben, bitte ausfüllen)
+            <div style={{ color: "#b8860b", fontStyle: "italic", marginTop: 2 }}>{t("kg1Texts.persoenlicheId")} {t("kg1Texts.soweitVergebenBitte")}</div>
+          </div>
           <div style={{ marginBottom: 10, maxWidth: 360 }}>
             <IdBoxes count={11} value={f.steuerId2} onChange={(v) => set("steuerId2", v)} />
           </div>
@@ -310,8 +329,8 @@ export default function KindergeldPreviewWindow() {
             <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" bhs={t("kg1Fields.anschriftAbweichend")} example={t("kg1Fields.leaveEmpty")} flex={1} value={f.eAnschrift} onChange={(v) => set("eAnschrift", v)} />
           </Row>
 
-          <SecHeader num={3} title="Angaben zum Zahlungsweg" />
-          <div style={{ ...captionAbove, fontSize: 10, color: "#111", margin: "4px 0" }}>IBAN</div>
+          <SecHeader num={3} title="Angaben zum Zahlungsweg" bhs={t("kg1Texts.sectionZahlungsweg")} />
+          <div style={{ ...captionAbove, fontSize: 10, color: "#111", margin: "4px 0" }}>IBAN <span style={{ color: "#b8860b", fontStyle: "italic" }}>(IBAN bankovnog računa)</span></div>
           <div style={{ marginBottom: 10 }}>
             <IdBoxes count={22} value={f.iban} onChange={(v) => set("iban", v)} />
           </div>
@@ -320,19 +339,25 @@ export default function KindergeldPreviewWindow() {
             <Field label="Bank, Finanzinstitut (ggf. Zweigstelle)" bhs={t("kg1Fields.bank")} example="Deutsche Bank Berlin" flex={3} value={f.bank} onChange={(v) => set("bank", v)} />
           </Row>
 
-          <div style={{ marginTop: 10, fontWeight: 700, fontSize: 11 }}>Kontoinhaber(in) ist</div>
-          <div style={{ marginTop: 6, display: "flex", flexDirection: "column", gap: 4 }}>
-            <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11 }}>
+          <div style={{ marginTop: 10, fontWeight: 700, fontSize: 11 }}>
+            Kontoinhaber(in) ist
+            <div style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10, fontWeight: 600 }}>{t("kg1Texts.kontoinhaber")}</div>
+          </div>
+          <div style={{ marginTop: 6, display: "flex", flexDirection: "column", gap: 6 }}>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 11 }}>
               <input type="radio" name="kh" checked={f.kontoinhaber === "self"} onChange={() => set("kontoinhaber", "self")} />
-              antragstellende Person wie unter Nr. 1
+              <span>antragstellende Person wie unter Nr. 1<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.selbst")}</span></span>
             </label>
-            <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11 }}>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 11 }}>
               <input type="radio" name="kh" checked={f.kontoinhaber === "other"} onChange={() => set("kontoinhaber", "other")} />
-              andere Person, nämlich:
-              <span style={{ flex: 1, borderBottom: "1px dotted #6b7280", marginLeft: 8 }}>
-                {f.kontoinhaber === "other" ? (
-                  <input style={{ ...inpBare, fontSize: 12 }} value={f.khName} onChange={(e) => set("khName", e.target.value)} />
-                ) : null}
+              <span style={{ flex: 1 }}>
+                andere Person, nämlich:<br />
+                <span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.anderePerson")}</span>
+                <span style={{ display: "block", borderBottom: "1px dotted #6b7280", marginTop: 4 }}>
+                  {f.kontoinhaber === "other" ? (
+                    <input style={{ ...inpBare, fontSize: 12 }} value={f.khName} onChange={(e) => set("khName", e.target.value)} />
+                  ) : null}
+                </span>
               </span>
             </label>
           </div>
@@ -342,7 +367,7 @@ export default function KindergeldPreviewWindow() {
 
         {/* PAGE 2 */}
         <div className="bl-page" style={page}>
-          <SecHeader num={4} title="Bescheid soll an folgende Person zugesandt werden (z. B. Berater, Anwalt)" />
+          <SecHeader num={4} title="Bescheid soll an folgende Person zugesandt werden (z. B. Berater, Anwalt)" bhs={t("kg1Texts.sectionBescheid")} />
           <Row mb={0}>
             <Field label="Familienname" bhs={t("kg1Fields.familienname")} example={t("kg1Fields.leaveEmpty")} flex={1} value={f.bFamilienname} onChange={(v) => set("bFamilienname", v)} />
             <Field label="Vorname" bhs={t("kg1Fields.vorname")} example={t("kg1Fields.leaveEmpty")} flex={1} value={f.bVorname} onChange={(v) => set("bVorname", v)} />
@@ -351,16 +376,22 @@ export default function KindergeldPreviewWindow() {
             <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" bhs={t("kg1Fields.beraterAdresa")} example={t("kg1Fields.leaveEmpty")} flex={1} value={f.bAnschrift} onChange={(v) => set("bAnschrift", v)} />
           </Row>
 
-          <SecHeader num={5} title="Angaben zu Kindern" />
-          <p style={{ margin: "2px 0", fontSize: 10.5 }}>Für jedes Kind ist eine separate Anlage einzureichen.</p>
-          <p style={{ margin: "2px 0", fontSize: 10.5 }}><b>Für folgende Kinder bestehen bereits Leistungen</b><br />(auch in Fällen abweichender Kontoverbindung, Abzweigung und Erstattung):</p>
+          <SecHeader num={5} title="Angaben zu Kindern" bhs={t("kg1Texts.sectionKinder")} />
+          <p style={{ margin: "2px 0", fontSize: 10.5 }}>
+            Für jedes Kind ist eine separate Anlage einzureichen.
+            <br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.jedesKindAnlage")}</span>
+          </p>
+          <p style={{ margin: "6px 0 2px", fontSize: 10.5 }}>
+            <b>Für folgende Kinder bestehen bereits Leistungen</b><br />(auch in Fällen abweichender Kontoverbindung, Abzweigung und Erstattung):
+            <br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}><b>{t("kg1Texts.bestehenLeistungen")}</b> {t("kg1Texts.zusatz")}</span>
+          </p>
           <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 8 }}>
             <thead>
               <tr>
-                <th style={{ ...th, width: "32%" }}>Vorname des Kindes<br />ggf. abweichender Familienname</th>
-                <th style={{ ...th, width: "18%" }}>Geburtsdatum</th>
-                <th style={{ ...th, width: "16%" }}>Geschlecht</th>
-                <th style={{ ...th, width: "34%" }}>Bei welcher Stelle (Referenznummer)?</th>
+                <th style={{ ...th, width: "32%" }}>Vorname des Kindes<br />ggf. abweichender Familienname<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblKindVorname")}</span></th>
+                <th style={{ ...th, width: "18%" }}>Geburtsdatum<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblGeburtsdatum")}</span></th>
+                <th style={{ ...th, width: "16%" }}>Geschlecht<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblGeschlecht")}</span></th>
+                <th style={{ ...th, width: "34%" }}>Bei welcher Stelle (Referenznummer)?<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblStelle")}</span></th>
               </tr>
             </thead>
             <tbody>
@@ -379,15 +410,15 @@ export default function KindergeldPreviewWindow() {
             </tbody>
           </table>
 
-          <SecHeader num={6} title="Weitere eigene Kinder, für die eine andere Person Leistungen erhält" />
+          <SecHeader num={6} title="Weitere eigene Kinder, für die eine andere Person Leistungen erhält" bhs={t("kg1Texts.sectionWeitereKinder")} />
           <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 8 }}>
             <thead>
               <tr>
-                <th style={{ ...th, width: "26%" }}>Vorname des Kindes<br />ggf. abweichender Familienname</th>
-                <th style={{ ...th, width: "16%" }}>Geburtsdatum</th>
-                <th style={{ ...th, width: "12%" }}>Geschlecht</th>
-                <th style={{ ...th, width: "23%" }}>Wer erhält Leistungen<br />(Familienname, Vorname)?</th>
-                <th style={{ ...th, width: "23%" }}>Bei welcher Stelle<br />(Referenznummer)?</th>
+                <th style={{ ...th, width: "26%" }}>Vorname des Kindes<br />ggf. abweichender Familienname<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblKindVorname")}</span></th>
+                <th style={{ ...th, width: "16%" }}>Geburtsdatum<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblGeburtsdatum")}</span></th>
+                <th style={{ ...th, width: "12%" }}>Geschlecht<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblGeschlecht")}</span></th>
+                <th style={{ ...th, width: "23%" }}>Wer erhält Leistungen<br />(Familienname, Vorname)?<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblEmpfaenger")}</span></th>
+                <th style={{ ...th, width: "23%" }}>Bei welcher Stelle<br />(Referenznummer)?<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontWeight: 500 }}>{t("kg1Texts.tblStelle")}</span></th>
               </tr>
             </thead>
             <tbody>
@@ -410,11 +441,11 @@ export default function KindergeldPreviewWindow() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, marginTop: 36 }}>
             <div>
               <input style={{ ...inpBare, borderBottom: "1px solid #111", fontSize: 12, padding: "4px 0" }} value={f.ortDatum} onChange={(e) => set("ortDatum", e.target.value)} />
-              <div style={{ fontSize: 10, color: "#374151", marginTop: 2 }}>Ort, Datum</div>
+              <div style={{ fontSize: 10, color: "#374151", marginTop: 2 }}>Ort, Datum<br /><span style={{ color: "#b8860b", fontStyle: "italic" }}>{t("kg1Texts.ortDatum")}</span></div>
             </div>
             <div>
               <div style={{ borderBottom: "1px solid #111", height: 22 }} />
-              <div style={{ fontSize: 10, color: "#374151", marginTop: 2 }}>Unterschrift der antragstellenden Person</div>
+              <div style={{ fontSize: 10, color: "#374151", marginTop: 2 }}>Unterschrift der antragstellenden Person<br /><span style={{ color: "#b8860b", fontStyle: "italic" }}>{t("kg1Texts.unterschrift")}</span></div>
             </div>
           </div>
 
