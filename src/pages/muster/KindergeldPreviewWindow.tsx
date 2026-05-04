@@ -419,6 +419,7 @@ export default function KindergeldPreviewWindow() {
 
           <FooterBar page="2/2" />
         </div>
+        </div>
       </div>
     </>
   );
