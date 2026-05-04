@@ -253,9 +253,11 @@ export default function MusterFormBase({ rootId, title, subtitle, pdfUrl, pdfLab
           <p style={{ fontWeight: 700, color: "#92400e", fontSize: 12, margin: 0 }}>
             ⚠️ Musterformular — nur zur Orientierung. BalkanLink ist eine edukative Plattform. Kein offizielles Dokument.
           </p>
-          <a href={pdfUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontSize: 12 }}>
-            🔗 {pdfLabel}
-          </a>
+          {pdfUrl && (
+            <a href={pdfUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontSize: 12 }}>
+              🔗 {pdfLabel}
+            </a>
+          )}
         </div>
       </div>
 
