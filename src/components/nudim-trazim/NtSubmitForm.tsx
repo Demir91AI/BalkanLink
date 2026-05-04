@@ -58,6 +58,18 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
       });
     } catch {}
 
+    import("@/lib/admin-notify").then(({ notifyAdmin }) => {
+      notifyAdmin("admin-new-business", {
+        kind: "classified",
+        name: form.title.trim(),
+        category: form.category,
+        city: form.city.trim(),
+        description: form.description.trim(),
+        contact: `${form.contact_type}: ${form.contact_value.trim()}`,
+        createdAt: new Date().toISOString(),
+      });
+    }).catch(() => {});
+
     toast.success(t("classifieds.form.success"));
     onClose();
   };

@@ -73,6 +73,18 @@ export default function DirectorySubmit() {
       return;
     }
 
+    import("@/lib/admin-notify").then(({ notifyAdmin }) => {
+      notifyAdmin("admin-new-business", {
+        kind: "directory",
+        name: values.name,
+        category: values.category,
+        city: values.city,
+        description: values.description || null,
+        contact: values.phone || values.website || null,
+        createdAt: new Date().toISOString(),
+      });
+    }).catch(() => {});
+
     toast.success("Erfolgreich hinzugefügt!");
     navigate("/directory");
   };

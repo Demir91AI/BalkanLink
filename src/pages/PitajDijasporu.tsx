@@ -167,6 +167,16 @@ export default function PitajDijasporu() {
       return;
     }
     toast.success(T.success);
+    import("@/lib/admin-notify").then(({ notifyAdmin }) => {
+      notifyAdmin("admin-new-question", {
+        title: form.title.trim(),
+        body: form.body.trim(),
+        category: form.category.trim() || null,
+        authorName: (user.user_metadata?.first_name as string) || null,
+        lang,
+        createdAt: new Date().toISOString(),
+      });
+    }).catch(() => {});
     setForm({ title: "", body: "", category: "" });
     setOpen(false);
   };
