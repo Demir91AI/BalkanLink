@@ -711,13 +711,14 @@
       "backToStages": "Zurück zu den Phasen",
       "situation": "SITUATION",
       "finishStage": "Phase abschließen ✓",
-      "next": "Weiter →",
+      "next": "Weiter",
       "stageCompleted": "{{stage}} abgeschlossen!",
       "answerStats": "{{correct}} / {{total}} richtige Antworten ({{pct}} %)",
       "nextStagePrefix": "Nächste Phase:",
       "backToLesson": "Zurück zur Lektion",
       "restart": "Mit neuen Fragen wiederholen",
-      "commonMistakes": "Typische Fehler"
+      "commonMistakes": "Typische Fehler",
+      "resumed": "Fortsetzung: du machst dort weiter, wo du aufgehört hast"
     },
     "exercise": {
       "correct": "✓ Richtig!",

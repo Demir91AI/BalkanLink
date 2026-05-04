@@ -711,13 +711,14 @@
       "backToStages": "Nazad na faze",
       "situation": "SITUACIJA",
       "finishStage": "Završi fazu ✓",
-      "next": "Dalje →",
+      "next": "Dalje",
       "stageCompleted": "{{stage}} završen!",
       "answerStats": "{{correct}} / {{total}} tačnih odgovora ({{pct}}%)",
       "nextStagePrefix": "Sljedeća faza:",
       "backToLesson": "Nazad na lekciju",
       "restart": "Ponovi s novim pitanjima",
-      "commonMistakes": "Tipične greške"
+      "commonMistakes": "Tipične greške",
+      "resumed": "Nastavak: nastavljaš tamo gdje si stao"
     },
     "exercise": {
       "correct": "✓ Tačno!",
