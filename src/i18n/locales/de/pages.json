@@ -717,7 +717,8 @@
       "nextStagePrefix": "Nächste Phase:",
       "backToLesson": "Zurück zur Lektion",
       "restart": "Mit neuen Fragen wiederholen",
-      "commonMistakes": "Typische Fehler"
+      "commonMistakes": "Typische Fehler",
+      "resumed": "Fortsetzung: du machst dort weiter, wo du aufgehört hast"
     },
     "exercise": {
       "correct": "✓ Richtig!",

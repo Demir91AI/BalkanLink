@@ -717,7 +717,8 @@
       "nextStagePrefix": "Sledeća faza:",
       "backToLesson": "Nazad na lekciju",
       "restart": "Ponovi s novim pitanjima",
-      "commonMistakes": "Tipične greške"
+      "commonMistakes": "Tipične greške",
+      "resumed": "Nastavak: nastavljaš tamo gde si stao"
     },
     "exercise": {
       "correct": "✓ Tačno!",
