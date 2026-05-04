@@ -77,8 +77,14 @@ const Row = ({ children, mb = -1 }: { children: ReactNode; mb?: number }) => (
   <div style={{ display: "flex", gap: 0, marginTop: mb >= 0 ? mb : -1 }}>{children}</div>
 );
 
-const SecHeader = ({ num, title }: { num: number; title: string }) => (
-  <div style={secHead}><div style={secNum}>{num}</div><div style={secTitle}>{title}</div></div>
+const SecHeader = ({ num, title, bhs }: { num: number; title: string; bhs?: string }) => (
+  <div style={secHead}>
+    <div style={secNum}>{num}</div>
+    <div style={{ ...secTitle, flexDirection: "column", alignItems: "flex-start", gap: 1 }}>
+      <span>{title}</span>
+      {bhs && <span style={{ fontSize: 10.5, color: "#b8860b", fontStyle: "italic", fontWeight: 600 }}>{bhs}</span>}
+    </div>
+  </div>
 );
 
 const FooterBar = ({ page: p }: { page: string }) => (
