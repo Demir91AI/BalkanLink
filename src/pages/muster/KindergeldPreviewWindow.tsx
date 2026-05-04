@@ -85,6 +85,12 @@ const td: CSSProperties = { border: C.border, padding: 0, height: 30, verticalAl
 const tdInp: CSSProperties = { ...inpBare, padding: "6px 7px", minHeight: 30, fontSize: 12 };
 
 export default function KindergeldPreviewWindow() {
+  const [zoom, setZoom] = useState(() => {
+    if (typeof window === "undefined") return 1;
+    // Default: fit-to-width on mobile, 100% on desktop
+    return window.innerWidth < 820 ? Math.max(0.5, (window.innerWidth - 24) / 820) : 1;
+  });
+
   const [f, setF] = useState(() => {
     try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch { /* ignore */ }
     return initial();
