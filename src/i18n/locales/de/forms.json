@@ -131,6 +131,85 @@
       "button": "📄 Ausgefülltes PDF herunterladen",
       "hint": "Öffnet den Druckdialog — wähle „Als PDF speichern\""
     },
-    "pdfFooter": "Technische Ausfüllhilfe. Keine Rechts- oder Steuerberatung im Sinne des RDG/StBerG. Der Nutzer ist selbst für die Richtigkeit und Einreichung bei der zuständigen Behörde verantwortlich."
+    "pdfFooter": "Technische Ausfüllhilfe. Keine Rechts- oder Steuerberatung im Sinne des RDG/StBerG. Der Nutzer ist selbst für die Richtigkeit und Einreichung bei der zuständigen Behörde verantwortlich.",
+    "elterngeld": {
+      "subtitle": "Original-Formular Bayern (ZBFS, 05/2025) — wir füllen es mit deinen Daten aus",
+      "originalLink": "Leeres Original öffnen (ZBFS Bayern PDF)",
+      "footerNote": "1:1 Original-Formular ZBFS Bayern • BalkanLink ist nur Ausfüllhilfe",
+      "officialBadgeTitle": "✅ 1:1 Original-Formular",
+      "officialBadgeBody": "Wir füllen den OFFIZIELLEN ZBFS Bayern Elterngeldantrag (Version 05/2025) aus — genau das Formular, das die Elterngeldstelle erhält. Du kannst es ausdrucken und direkt einreichen.",
+      "confirmReset": "Alle Eingaben löschen?",
+      "generating": "PDF wird erstellt...",
+      "download": "📄 Ausgefülltes Original-PDF herunterladen",
+      "downloadHint": "Du kannst es im Adobe Reader öffnen, fehlende Felder ergänzen (Abschnitte 7–14, Anlagen), unterschreiben und an die Elterngeldstelle senden.",
+      "s1": {
+        "title": "Angaben zum Kind",
+        "kindName": "Nachname, Vorname des Kindes",
+        "kindNameHint": "Mustermann, Max",
+        "kindGeb": "Geburtsdatum und -ort",
+        "kindGebHint": "01.01.2026, München (falls geboren)",
+        "entbindung": "Voraussichtlicher Entbindungstermin",
+        "entbindungHint": "falls noch nicht geboren"
+      },
+      "s2": {
+        "title1": "Elternteil 1 (in der Regel die Mutter)",
+        "nachname": "Familienname",
+        "vorname": "Vorname",
+        "geburtsname": "Geburtsname (falls abweichend)",
+        "geburtsdatum": "Geburtsdatum",
+        "geschlecht": "Geschlecht",
+        "gw": "weiblich",
+        "gm": "männlich",
+        "gd": "divers",
+        "go": "ohne Angabe (offen)",
+        "strasse": "Straße / Hausnummer",
+        "plzOrt": "PLZ / Wohnort",
+        "steuerId": "Steuer-Identifikationsnr (11 Ziffern)",
+        "steuerIdHint": "Auf Briefen vom Finanzamt oder auf der Lohnabrechnung",
+        "beruf": "Zuletzt ausgeübter Beruf",
+        "telefon": "Telefon (freiwillig)",
+        "email": "E-Mail (freiwillig)",
+        "familienstand": "Familienstand",
+        "fsVerheiratet": "Verheiratet",
+        "fsLedig": "Ledig",
+        "fsUnverheiratet": "Unverheiratet zusammenlebend",
+        "fsAllein": "Alleinerziehend",
+        "fsSeit": "verheiratet seit",
+        "kinderHaushalt": "Gesamtzahl Kinder im Haushalt",
+        "staat": "Staatsangehörigkeit",
+        "staatDe": "Deutsch",
+        "staatEu": "EU/EWR/Schweiz",
+        "staatAndere": "Andere",
+        "staatLand": "Land"
+      },
+      "s2b": {
+        "title": "Elternteil 2 (Vater / anderer Elternteil)",
+        "hasPartner": "Ich habe einen Partner — wir füllen auch die Daten des zweiten Elternteils aus"
+      },
+      "s5": {
+        "title": "Elterngeld-Variante",
+        "help": "BasisElterngeld = 12 Monate, 300–1.800€/Monat. ElterngeldPlus = 24 Monate, halber Betrag. Kombination = beides. Im Zweifel BasisElterngeld 1–12 wählen.",
+        "e1Variante": "Variante — Elternteil 1",
+        "e2Variante": "Variante — Elternteil 2",
+        "vBasis": "BasisElterngeld",
+        "vPlus": "ElterngeldPlus",
+        "vKombi": "Kombination (Basis + Plus)",
+        "vNone": "Zweiter Elternteil beantragt nicht",
+        "lmVon": "Lebensmonat — von (1–14)",
+        "lmBis": "Lebensmonat — bis (einschließlich)"
+      },
+      "s15": {
+        "title": "Bankverbindung für Auszahlung",
+        "bank": "Geldinstitut",
+        "kontoinhaber": "Kontoinhaber",
+        "kontoinhaberHint": "Name wie auf der Bankkarte"
+      },
+      "sig": {
+        "title": "Ort und Datum der Unterschrift",
+        "ort": "Ort",
+        "datum": "Datum",
+        "hint": "Die Unterschrift wird NICHT digital generiert — du musst das ausgedruckte PDF eigenhändig unterschreiben"
+      }
+    }
   }
 }
