@@ -104,7 +104,7 @@ export default function Register() {
         supabase.functions.invoke("send-transactional-email", {
           body: {
             templateName: "admin-new-user",
-            recipientEmail: "demir.zijada@gmail.com",
+            recipientEmail: "kontakt@balkanlink.de",
             idempotencyKey: `admin-new-user-${signUpData.user.id}`,
             templateData: {
               email: normalizedEmail,
