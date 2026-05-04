@@ -84,7 +84,7 @@ export const IdBoxes = ({ count, value, onChange }: { count: number; value: stri
     if (c && i < count - 1) refs.current[i + 1]?.focus();
   }, [chars, count, onChange]);
   return (
-    <div style={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+    <div style={{ display: "grid", gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))`, gap: 2, width: "100%" }}>
       {Array.from({ length: count }).map((_, i) => (
         <input key={i} ref={el => { refs.current[i] = el; }} style={count > 15 ? S.ibanBox : S.idBox} maxLength={2} value={chars[i]?.trim() ?? ""} onChange={e => handleChange(i, e.target.value)} onKeyDown={e => handleKey(i, e)} />
       ))}
