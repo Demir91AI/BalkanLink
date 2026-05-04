@@ -65,6 +65,9 @@ export interface ElterngeldFormData {
   // Potpis
   ort: string;
   datum: string;
+
+  // Versand — koja ZBFS Außenstelle prima antrag (ovisi o Wohnort + datumu rođenja)
+  versand_aussenstelle_id: string;
 }
 
 export const initialData = (): ElterngeldFormData => ({
