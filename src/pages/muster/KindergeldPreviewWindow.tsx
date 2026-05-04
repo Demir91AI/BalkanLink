@@ -160,7 +160,7 @@ export default function KindergeldPreviewWindow() {
         .bl-banner strong { color: #78350f; }
         .bl-banner a { color: #1d4ed8; font-weight: 600; }
         .bl-zoom-outer { padding: 16px 0 60px; overflow-x: auto; position: relative; }
-        .bl-zoom-inner { transform-origin: top center; transition: transform 0.15s ease; position: relative; }
+        .bl-zoom-inner { transition: zoom 0.15s ease; position: relative; }
         .bl-zoom-inner::before {
           content: "PRIMJER · BalkanLink · NUR MUSTER";
           position: absolute; top: 40%; left: 50%;
