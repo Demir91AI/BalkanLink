@@ -290,7 +290,29 @@ export default function AdminDashboard() {
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
-      <div className="relative min-h-screen bg-[#020617] text-white">
+      <div className="admin-dark-scope relative min-h-screen bg-[#020617] text-white">
+      <style>{`
+        .admin-dark-scope [data-state="active"][role="tab"] { background: hsl(var(--gold) / 0.18); color: hsl(var(--gold)); }
+        .admin-dark-scope [role="tab"] { color: rgba(255,255,255,0.7); }
+        .admin-dark-scope [role="tab"]:hover { color: #fff; }
+        .admin-dark-scope button[class*="border-input"],
+        .admin-dark-scope a[class*="border-input"] {
+          background: hsl(225 45% 10% / 0.8) !important;
+          border-color: hsl(var(--gold) / 0.3) !important;
+          color: #fff !important;
+        }
+        .admin-dark-scope button[class*="border-input"]:hover,
+        .admin-dark-scope a[class*="border-input"]:hover {
+          background: hsl(var(--gold) / 0.12) !important;
+          border-color: hsl(var(--gold) / 0.55) !important;
+          color: hsl(var(--gold)) !important;
+        }
+        .admin-dark-scope input { background: hsl(225 45% 8% / 0.8); border-color: hsl(var(--gold) / 0.2); color: #fff; }
+        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.4); }
+        .admin-dark-scope .text-muted-foreground { color: rgba(255,255,255,0.6) !important; }
+        .admin-dark-scope .text-foreground { color: #fff !important; }
+        .admin-dark-scope [data-radix-accordion-trigger] { color: rgba(255,255,255,0.85); }
+      `}</style>
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)] pointer-events-none" />
       <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.08)] blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full bg-[hsl(var(--brand-orange)/0.06)] blur-[120px] pointer-events-none" />
