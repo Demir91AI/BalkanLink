@@ -328,7 +328,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
                   setStageComplete(false);
                 }}
               >
-                {t("deutschTrainer.lessonView.nextStagePrefix")} {STAGE_LABELS[selectedStage + 1]} →
+                {t("deutschTrainer.lessonView.nextStagePrefix")} {STAGE_LABELS[selectedStage + 1]}
               </Button>
             )}
 
