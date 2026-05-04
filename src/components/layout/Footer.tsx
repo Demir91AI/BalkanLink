@@ -378,6 +378,158 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
             </div>
           </div>
 
+          {/* Forma za ostavljanje recenzije */}
+          {user && !hasReviewed && (
+            <div style={{ marginTop: 4, marginBottom: 20, textAlign: "center" }}>
+              {!showForm ? (
+                <button
+                  type="button"
+                  onClick={() => setShowForm(true)}
+                  style={{
+                    cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
+                    fontSize: 12.5,
+                    fontWeight: 700,
+                    color: "#0a0a0a",
+                    background: "linear-gradient(180deg, #F5C842 0%, #EAB308 100%)",
+                    border: "1px solid rgba(234,179,8,0.5)",
+                    borderRadius: 22,
+                    padding: "8px 16px",
+                    boxShadow: "0 4px 14px -4px rgba(234,179,8,0.45)",
+                  }}
+                >
+                  <Star size={14} fill="currentColor" /> Ostavi recenziju
+                </button>
+              ) : (
+                <div
+                  style={{
+                    maxWidth: 460,
+                    margin: "0 auto",
+                    background: "rgba(255,255,255,0.03)",
+                    border: "1px solid rgba(234,179,8,0.25)",
+                    borderRadius: 14,
+                    padding: "16px 16px 14px",
+                    textAlign: "left",
+                  }}
+                >
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.85)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10, textAlign: "center" }}>
+                    Tvoja ocjena
+                  </p>
+                  <div style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 12 }}>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => setMyRating(n)}
+                        aria-label={`${n} zvjezdica`}
+                        style={{
+                          background: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: 2,
+                          color: n <= myRating ? "#EAB308" : "rgba(234,179,8,0.25)",
+                        }}
+                      >
+                        <Star size={28} fill={n <= myRating ? "currentColor" : "none"} />
+                      </button>
+                    ))}
+                  </div>
+                  <textarea
+                    value={myComment}
+                    onChange={(e) => setMyComment(e.target.value)}
+                    maxLength={500}
+                    rows={3}
+                    placeholder="Napiši komentar (opcionalno, max 500 znakova)"
+                    style={{
+                      width: "100%",
+                      background: "rgba(0,0,0,0.35)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      borderRadius: 10,
+                      padding: "10px 12px",
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: 13,
+                      resize: "vertical",
+                      fontFamily: "inherit",
+                      marginBottom: 10,
+                    }}
+                  />
+                  <div style={{ display: "flex", justifyContent: "flex-end", gap: 8 }}>
+                    <button
+                      type="button"
+                      onClick={() => { setShowForm(false); setMyRating(0); setMyComment(""); }}
+                      disabled={submitting}
+                      style={{
+                        cursor: "pointer",
+                        fontSize: 12,
+                        fontWeight: 600,
+                        color: "rgba(255,255,255,0.7)",
+                        background: "transparent",
+                        border: "1px solid rgba(255,255,255,0.15)",
+                        borderRadius: 8,
+                        padding: "8px 14px",
+                      }}
+                    >
+                      Otkaži
+                    </button>
+                    <button
+                      type="button"
+                      onClick={submitReview}
+                      disabled={submitting || myRating === 0}
+                      style={{
+                        cursor: submitting || myRating === 0 ? "not-allowed" : "pointer",
+                        fontSize: 12,
+                        fontWeight: 700,
+                        color: "#0a0a0a",
+                        background: myRating === 0
+                          ? "rgba(234,179,8,0.4)"
+                          : "linear-gradient(180deg, #F5C842 0%, #EAB308 100%)",
+                        border: "1px solid rgba(234,179,8,0.5)",
+                        borderRadius: 8,
+                        padding: "8px 16px",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        opacity: submitting ? 0.7 : 1,
+                      }}
+                    >
+                      {submitting && <Loader2 size={14} className="animate-spin" />}
+                      Pošalji
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          {user && hasReviewed && (
+            <p style={{ textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.5)", marginBottom: 14 }}>
+              Hvala — već si ostavio/la recenziju.
+            </p>
+          )}
+          {!user && (
+            <div style={{ textAlign: "center", marginBottom: 14 }}>
+              <Link
+                to={localize("/login")}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: "#EAB308",
+                  textDecoration: "none",
+                  border: "1px solid rgba(234,179,8,0.35)",
+                  borderRadius: 20,
+                  padding: "6px 14px",
+                }}
+              >
+                <Star size={12} fill="currentColor" /> Prijavi se da ostaviš recenziju
+              </Link>
+            </div>
+          )}
+
+          {reviewCount > 0 && (
           <details style={{ marginBottom: 28, textAlign: "center" }}>
             <summary
               style={{
