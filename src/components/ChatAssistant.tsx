@@ -631,21 +631,27 @@ export default function ChatAssistant() {
     if (messages.length === 0) return;
     const last = messages[messages.length - 1];
 
-    // Ako je zadnji msg user (tek poslao) ILI je assistant koji upravo stigao (nije loading streaming), skrolaj zadnji user msg na vrh
+    // Ako je zadnji msg user (tek poslao) ILI je assistant koji upravo stigao (nije loading streaming),
+    // skrolaj zadnju USER poruku na vrh vidljivog područja.
     if (last.role === "user" || (last.role === "assistant" && !loading)) {
-      // Pronađi indeks zadnje user poruke
       let lastUserIdx = -1;
       for (let i = messages.length - 1; i >= 0; i--) {
         if (messages[i].role === "user") { lastUserIdx = i; break; }
       }
       if (lastUserIdx >= 0) {
-        const userEl = container.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
-        if (userEl) {
-          // Scroll user msg na vrh (sa malim offsetom za dah)
-          const offset = userEl.offsetTop - 12;
-          container.scrollTo({ top: offset, behavior: "smooth" });
-          return;
-        }
+        // Sačekaj da DOM/animacije stignu da renderuju, pa onda izračunaj poziciju
+        const raf = requestAnimationFrame(() => {
+          if (!scrollRef.current) return;
+          const c = scrollRef.current;
+          const userEl = c.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
+          if (!userEl) return;
+          // getBoundingClientRect je pouzdaniji od offsetTop (koji ovisi o offsetParent)
+          const containerRect = c.getBoundingClientRect();
+          const userRect = userEl.getBoundingClientRect();
+          const target = c.scrollTop + (userRect.top - containerRect.top) - 12;
+          c.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+        });
+        return () => cancelAnimationFrame(raf);
       }
     }
 
