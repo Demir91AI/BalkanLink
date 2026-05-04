@@ -4,9 +4,13 @@ import { SEO } from "@/components/SEO";
 import AuthGate from "@/components/AuthGate";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight } from "lucide-react";
+import { Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, Save, RotateCcw } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
+  AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { LEVELS, LEVEL_COLORS, getLessonsForLevel, loadLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
