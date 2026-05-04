@@ -70,7 +70,7 @@ export default function Layout() {
           </div>
         )}
         <Header />
-        <main className="flex-1 pb-16 md:pb-0">
+        <main className="flex-1 pb-16 md:pb-0" style={{ backgroundColor: "#020617" }}>
           <ErrorBoundary>
             <Outlet />
           </ErrorBoundary>
