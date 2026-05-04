@@ -387,7 +387,7 @@ export default function AdminDashboard() {
 
       <div className="container py-8 max-w-7xl space-y-6">
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="w-full overflow-x-auto justify-start flex-nowrap h-11 bg-card/50 backdrop-blur border border-border/40">
+          <TabsList className="w-full overflow-x-auto justify-start flex-nowrap h-11 bg-[hsl(225,45%,8%)]/80 backdrop-blur-md border border-[hsl(var(--gold)/0.15)]">
             <TabsTrigger value="overview" className="gap-1.5"><BarChart3 className="h-3.5 w-3.5" /> Pregled</TabsTrigger>
             <TabsTrigger value="activity" className="gap-1.5"><Bell className="h-3.5 w-3.5" /> Aktivnost</TabsTrigger>
             <TabsTrigger value="users" className="gap-1.5">
