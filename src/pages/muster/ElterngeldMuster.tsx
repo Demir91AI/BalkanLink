@@ -137,13 +137,8 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
-      {!isAutoFill && (
-        <div style={{ padding: 20, textAlign: "center", color: "#475569", fontSize: 14, lineHeight: 1.6 }}>
-          <p style={{ marginBottom: 8 }}>
-            <strong style={{ color: "#0f172a" }}>{selectedBL?.name}</strong>
-          </p>
-          <p>{t("musterFlow.bundesland.autoFillNo", { name: selectedBL?.name ?? "" })}</p>
-        </div>
+      {!isAutoFill && selectedBL && (
+        <ElterngeldSmartGuide bundesland={selectedBL} />
       )}
 
       {isAutoFill && (<>
