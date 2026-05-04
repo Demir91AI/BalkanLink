@@ -125,13 +125,28 @@ export default function ElterngeldMuster() {
 
       <PrivacyGuarantee />
 
-      <div style={{ marginBottom: 16, padding: 14, background: "#FEF3C7", border: "2px solid #EAB308", borderRadius: 8, fontSize: 13, color: "#78350F", lineHeight: 1.5 }}>
-        <strong>{t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
-        {t("musterFlow.elterngeld.officialBadgeBody")}{" "}
-        <a href={ORIGINAL_INFO} target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontWeight: 600 }}>
-          ZBFS Bayern →
-        </a>
-      </div>
+      <BundeslandSelector value={bundesland} onChange={handleBundeslandChange} />
+
+      {isAutoFill && (
+        <div style={{ marginBottom: 16, padding: 14, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 8, fontSize: 13, color: "#065F46", lineHeight: 1.5 }}>
+          <strong>✅ {t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
+          {t("musterFlow.elterngeld.officialBadgeBody")}{" "}
+          <a href={ORIGINAL_INFO} target="_blank" rel="noopener noreferrer" style={{ color: "#065F46", fontWeight: 700, textDecoration: "underline" }}>
+            ZBFS Bayern →
+          </a>
+        </div>
+      )}
+
+      {!isAutoFill && (
+        <div style={{ padding: 20, textAlign: "center", color: "#475569", fontSize: 14, lineHeight: 1.6 }}>
+          <p style={{ marginBottom: 8 }}>
+            <strong style={{ color: "#0f172a" }}>{selectedBL?.name}</strong>
+          </p>
+          <p>{t("musterFlow.bundesland.autoFillNo", { name: selectedBL?.name ?? "" })}</p>
+        </div>
+      )}
+
+      {isAutoFill && (<>
 
       {/* Sekcija 1 — Kind */}
       <div style={sectionStyle}>
