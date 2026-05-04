@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Star, Loader2 } from "lucide-react";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 
 type ReviewRow = {
   id: string;
@@ -37,8 +39,14 @@ type LinkItem = { label: string; to: string; action?: boolean };
 export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?: () => void } = {}) {
   const { t } = useTranslation();
   const localize = useLocalizedHref();
+  const { user } = useAuth();
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [reviews, setReviews] = useState<ReviewRow[]>([]);
+  const [myRating, setMyRating] = useState<number>(0);
+  const [myComment, setMyComment] = useState<string>("");
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [hasReviewed, setHasReviewed] = useState<boolean>(false);
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -69,6 +77,52 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
       }
     };
   }, []);
+
+  // Detektuj da li je trenutni user već ostavio recenziju
+  useEffect(() => {
+    if (!user) { setHasReviewed(false); return; }
+    let cancelled = false;
+    supabase
+      .from("reviews")
+      .select("id")
+      .eq("user_id", user.id)
+      .limit(1)
+      .maybeSingle()
+      .then(({ data }) => { if (!cancelled) setHasReviewed(!!data); });
+    return () => { cancelled = true; };
+  }, [user]);
+
+  const submitReview = async () => {
+    if (!user) return;
+    if (!myRating || myRating < 1 || myRating > 5) {
+      toast.error("Odaberi ocjenu od 1 do 5 zvjezdica.");
+      return;
+    }
+    const comment = (myComment || "").trim().slice(0, 500);
+    setSubmitting(true);
+    const meta = (user.user_metadata || {}) as Record<string, any>;
+    const fallbackName =
+      meta.first_name || meta.full_name ||
+      (user.email ? user.email.split("@")[0] : "Anonimno");
+    const { error, data } = await supabase
+      .from("reviews")
+      .insert({ user_id: user.id, username: fallbackName, rating: myRating, comment })
+      .select("id, username, rating, comment, created_at, is_approved")
+      .single();
+    setSubmitting(false);
+    if (error) {
+      toast.error("Greška: " + error.message);
+      return;
+    }
+    toast.success("Hvala na recenziji!");
+    setHasReviewed(true);
+    setShowForm(false);
+    setMyRating(0);
+    setMyComment("");
+    if (data && (data as any).is_approved) {
+      setReviews((prev) => [data as ReviewRow, ...prev]);
+    }
+  };
 
   const reviewCount = reviews.length;
   const avgRating =
@@ -293,8 +347,8 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
       {/* MOBILE payments — sada unutar footer-mobile akordiona iznad */}
 
-      {/* REVIEWS / RECENZIJE — auto-računa iz baze */}
-      {reviewCount > 0 && (
+      {/* REVIEWS / RECENZIJE — auto-računa iz baze + forma za prijavljene */}
+      {(reviewCount > 0 || !!user) && (
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 20px 8px" }}>
           <div
             style={{
@@ -324,6 +378,158 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
             </div>
           </div>
 
+          {/* Forma za ostavljanje recenzije */}
+          {user && !hasReviewed && (
+            <div style={{ marginTop: 4, marginBottom: 20, textAlign: "center" }}>
+              {!showForm ? (
+                <button
+                  type="button"
+                  onClick={() => setShowForm(true)}
+                  style={{
+                    cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
+                    fontSize: 12.5,
+                    fontWeight: 700,
+                    color: "#0a0a0a",
+                    background: "linear-gradient(180deg, #F5C842 0%, #EAB308 100%)",
+                    border: "1px solid rgba(234,179,8,0.5)",
+                    borderRadius: 22,
+                    padding: "8px 16px",
+                    boxShadow: "0 4px 14px -4px rgba(234,179,8,0.45)",
+                  }}
+                >
+                  <Star size={14} fill="currentColor" /> Ostavi recenziju
+                </button>
+              ) : (
+                <div
+                  style={{
+                    maxWidth: 460,
+                    margin: "0 auto",
+                    background: "rgba(255,255,255,0.03)",
+                    border: "1px solid rgba(234,179,8,0.25)",
+                    borderRadius: 14,
+                    padding: "16px 16px 14px",
+                    textAlign: "left",
+                  }}
+                >
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.85)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10, textAlign: "center" }}>
+                    Tvoja ocjena
+                  </p>
+                  <div style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 12 }}>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => setMyRating(n)}
+                        aria-label={`${n} zvjezdica`}
+                        style={{
+                          background: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: 2,
+                          color: n <= myRating ? "#EAB308" : "rgba(234,179,8,0.25)",
+                        }}
+                      >
+                        <Star size={28} fill={n <= myRating ? "currentColor" : "none"} />
+                      </button>
+                    ))}
+                  </div>
+                  <textarea
+                    value={myComment}
+                    onChange={(e) => setMyComment(e.target.value)}
+                    maxLength={500}
+                    rows={3}
+                    placeholder="Napiši komentar (opcionalno, max 500 znakova)"
+                    style={{
+                      width: "100%",
+                      background: "rgba(0,0,0,0.35)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      borderRadius: 10,
+                      padding: "10px 12px",
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: 13,
+                      resize: "vertical",
+                      fontFamily: "inherit",
+                      marginBottom: 10,
+                    }}
+                  />
+                  <div style={{ display: "flex", justifyContent: "flex-end", gap: 8 }}>
+                    <button
+                      type="button"
+                      onClick={() => { setShowForm(false); setMyRating(0); setMyComment(""); }}
+                      disabled={submitting}
+                      style={{
+                        cursor: "pointer",
+                        fontSize: 12,
+                        fontWeight: 600,
+                        color: "rgba(255,255,255,0.7)",
+                        background: "transparent",
+                        border: "1px solid rgba(255,255,255,0.15)",
+                        borderRadius: 8,
+                        padding: "8px 14px",
+                      }}
+                    >
+                      Otkaži
+                    </button>
+                    <button
+                      type="button"
+                      onClick={submitReview}
+                      disabled={submitting || myRating === 0}
+                      style={{
+                        cursor: submitting || myRating === 0 ? "not-allowed" : "pointer",
+                        fontSize: 12,
+                        fontWeight: 700,
+                        color: "#0a0a0a",
+                        background: myRating === 0
+                          ? "rgba(234,179,8,0.4)"
+                          : "linear-gradient(180deg, #F5C842 0%, #EAB308 100%)",
+                        border: "1px solid rgba(234,179,8,0.5)",
+                        borderRadius: 8,
+                        padding: "8px 16px",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        opacity: submitting ? 0.7 : 1,
+                      }}
+                    >
+                      {submitting && <Loader2 size={14} className="animate-spin" />}
+                      Pošalji
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          {user && hasReviewed && (
+            <p style={{ textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.5)", marginBottom: 14 }}>
+              Hvala — već si ostavio/la recenziju.
+            </p>
+          )}
+          {!user && (
+            <div style={{ textAlign: "center", marginBottom: 14 }}>
+              <Link
+                to={localize("/login")}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: "#EAB308",
+                  textDecoration: "none",
+                  border: "1px solid rgba(234,179,8,0.35)",
+                  borderRadius: 20,
+                  padding: "6px 14px",
+                }}
+              >
+                <Star size={12} fill="currentColor" /> Prijavi se da ostaviš recenziju
+              </Link>
+            </div>
+          )}
+
+          {reviewCount > 0 && (
           <details style={{ marginBottom: 28, textAlign: "center" }}>
             <summary
               style={{
@@ -385,6 +591,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
               })}
             </div>
           </details>
+          )}
           </div>
         </div>
       )}
