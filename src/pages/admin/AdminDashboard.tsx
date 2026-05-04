@@ -430,16 +430,16 @@ export default function AdminDashboard() {
                   { label: "Trial aktivni", value: stats.funnel.trialActive, base: stats.funnel.signups, color: "gold" },
                   { label: "Plaćeni Premium", value: stats.funnel.paid, base: stats.funnel.signups, color: "green" },
                 ].map((s, i) => (
-                  <div key={s.label} className="relative rounded-xl border border-border/40 bg-background/40 p-4 overflow-hidden">
-                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">{`${i + 1}. ${s.label}`}</div>
-                    <div className="text-2xl font-extrabold tabular-nums mt-2">{num(s.value)}</div>
-                    <div className="mt-2 h-1.5 rounded-full bg-muted/40 overflow-hidden">
+                  <div key={s.label} className="relative rounded-xl border border-[hsl(var(--gold)/0.2)] bg-[hsl(225,45%,6%)]/80 p-4 overflow-hidden">
+                    <div className="text-[10px] uppercase tracking-wider text-white/60 font-semibold">{`${i + 1}. ${s.label}`}</div>
+                    <div className="text-2xl font-extrabold tabular-nums mt-2 text-white">{num(s.value)}</div>
+                    <div className="mt-2 h-1.5 rounded-full bg-white/10 overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-[hsl(var(--gold))]/80 to-[hsl(var(--gold))]/40"
+                        className="h-full bg-gradient-to-r from-[hsl(var(--gold))]/90 to-[hsl(var(--gold))]/50"
                         style={{ width: `${pct(s.value, s.base)}%` }}
                       />
                     </div>
-                    <div className="text-[11px] text-muted-foreground mt-1.5">{pct(s.value, s.base)}% prethodnog</div>
+                    <div className="text-[11px] text-white/55 mt-1.5">{pct(s.value, s.base)}% prethodnog</div>
                   </div>
                 ))}
               </div>
