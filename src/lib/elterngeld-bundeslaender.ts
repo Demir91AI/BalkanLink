@@ -35,7 +35,16 @@ export interface ElterngeldBundesland {
   autoFillSupported: boolean;
   /** Specifičnost (npr. "NRW koristi ELFE online portal — nema klasičnog PDF-a") */
   specialNote?: string;
+  /** Digitalni portal za online prijavu (ako postoji za ovu pokrajinu) */
+  digitalPortalUrl?: string;
+  /** Naziv digitalnog portala (npr. "ElterngeldDigital", "ELFE", "EAplus") */
+  digitalPortalName?: string;
+  /** Da li savezni portal elterngeld-digital.de podržava ovu pokrajinu (Stand 2026) */
+  supportsBundesPortal?: boolean;
 }
+
+/** Nacionalni portal Bundesministerium für Familie — Stand 2026 podržava 13 pokrajina */
+export const BUNDES_PORTAL_URL = "https://www.elterngeld-digital.de/";
 
 export const ELTERNGELD_BUNDESLAENDER: ElterngeldBundesland[] = [
   {
