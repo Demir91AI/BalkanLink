@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { useSavedItems, type SavedItemType } from "@/hooks/useSavedItems";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useAuth } from "@/contexts/AuthContext";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
 
 const LANG_PREFIXES = SUPPORTED_LANGUAGES.filter((l) => l !== "bs");
