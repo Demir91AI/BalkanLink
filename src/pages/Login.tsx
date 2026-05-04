@@ -44,10 +44,10 @@ export default function Login() {
   return (
     <>
     <PageNav />
-    <div className="relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary)/0.03)] via-background to-[hsl(var(--brand-orange)/0.04)]" />
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(var(--brand-orange)/0.06)] blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] rounded-full bg-[hsl(var(--primary)/0.06)] blur-[100px] pointer-events-none" />
+    <div className="relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden bg-[#FBF7F0]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--brand-orange)/0.06)] via-[#FBF7F0] to-[hsl(var(--gold-light)/0.08)]" />
+      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(var(--brand-orange)/0.10)] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] rounded-full bg-[hsl(var(--gold-light)/0.10)] blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[420px]">
         <div className="flex justify-center mb-8">
