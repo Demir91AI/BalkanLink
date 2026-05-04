@@ -238,6 +238,95 @@
       "openPdf": "Preuzmi zvanični PDF",
       "autoFillYes": "BalkanLink podržava 1:1 auto-popunjavanje zvaničnog formulara za {{name}}.",
       "autoFillNo": "Za {{name}} BalkanLink trenutno ne radi auto-popunjavanje. Preuzmi zvanični PDF iznad i ispuni ga ručno — naš Smart Guide ti pomaže korak po korak."
+    },
+    "smartGuide": {
+      "heroLabel": "Profesionalni vodič",
+      "heroTitle": "Kako predati Elterngeld zahtjev — {{name}}",
+      "heroBody": "Elterngeld je savezna naknada (BEEG) — sadržaj zahtjeva je svuda isti, razlikuje se samo nadležna služba i način predaje. Tri puta su moguća — izaberite što vam odgovara.",
+      "way1Label": "1. Online (preporuka)",
+      "way1Body": "Najbrže — popunjavate vođeno, sistem provjerava greške, šalje direktno službi. Potreban BundID ili online ID karta.",
+      "way2Label": "2. Štampani PDF",
+      "way2Title": "Zvanični formular pokrajine",
+      "way2Body": "Skinite, popunite ručno ili u Adobe Reader-u, potpišite, pošaljite poštom (preporučeno preporučenom).",
+      "way3Label": "3. Lično / poštom — adresa nadležne službe",
+      "guideTitle": "Smart Guide — što tačno upisati u svaku sekciju",
+      "guideSubtitle": "Sve sekcije su iste u svim pokrajinama (zakon BEEG). Kliknite na sekciju da vidite šta upisati.",
+      "fields": "Tipična polja",
+      "tip": "Savjet",
+      "bundesPortalTip": "Najlakši put:",
+      "bundesPortalBody": "savezni portal podržava ovu pokrajinu — popunjavanje je vođeno, sve se šalje digitalno bez printanja.",
+      "steps": {
+        "kind": {
+          "title": "Podaci o djetetu",
+          "de": "Angaben zum Kind",
+          "body": "Unesete podatke o djetetu za koje tražite Elterngeld. Ako još nije rođeno (zahtjev prije termina), upisujete očekivani datum poroda i ostavljate stvarni datum prazan.",
+          "fields": "Vor- i Nachname djeteta, Geburtsdatum (datum rođenja) ili voraussichtlicher Entbindungstermin (očekivani datum poroda), Geburtsort (mjesto rođenja).",
+          "tip": "Zahtjev možete predati tek nakon rođenja, ali papire možete pripremiti unaprijed. Ako je više djece (blizanci) — za svako se pravi zaseban zahtjev."
+        },
+        "elternteil1": {
+          "title": "Vaši podaci (roditelj koji podnosi zahtjev)",
+          "de": "Angaben zur antragstellenden Person",
+          "body": "Vaši lični podaci, adresa stanovanja u Njemačkoj (mjesto Anmeldunga), kontakt, poreski broj (Steuer-ID — 11 cifara, dobijete od Finanzamta), zanimanje. Ovo je osnova za određivanje nadležne službe.",
+          "fields": "Familienname, Vorname, Geburtsname, Geburtsdatum, Geburtsort, Geschlecht, Anschrift (Straße + PLZ + Ort), Telefon, E-Mail, Steuer-Identifikationsnummer, Beruf, Staatsangehörigkeit.",
+          "tip": "Steuer-ID NIJE Steuernummer — to su 11 cifara koje ste dobili pismom od BZSt nakon Anmeldunga. Ako nemate, pišite na bzst.de da vam je pošalju."
+        },
+        "elternteil2": {
+          "title": "Drugi roditelj (ako postoji)",
+          "de": "Angaben zur anderen Person",
+          "body": "Podaci partnera/druge osobe sa kojom dijelite roditeljstvo. Obavezno čak i ako on/a NE traži Elterngeld — služba mora znati ukupne prilike u domaćinstvu. Samohrani roditelji označavaju 'allein' i ovaj dio preskaču.",
+          "fields": "Familienname, Vorname, Geburtsdatum, Anschrift (ako je drugačija od vaše), Steuer-ID, Telefon, Beruf, Staatsangehörigkeit.",
+          "tip": "Ako ste samohrani roditelj (alleinerziehend) možete dobiti dodatne mjesece (do 14). Trebate dokazati — npr. presuda o razvodu, potvrda o jednočlanom domaćinstvu."
+        },
+        "familienverhaeltnis": {
+          "title": "Bračno stanje i odnos sa djetetom",
+          "de": "Familienverhältnisse",
+          "body": "Da li ste vjenčani i od kada (Eheschließung), broj djece u domaćinstvu, ko ima starateljstvo (Sorgerecht), gdje dijete živi.",
+          "fields": "Familienstand (verheiratet/ledig/getrennt lebend), Datum der Eheschließung, Anzahl der im Haushalt lebenden Kinder, gemeinsames Sorgerecht ja/nein.",
+          "tip": "Ako niste vjenčani a partner je biološki otac, on automatski NEMA starateljstvo dok se ne potpiše Sorgerechtserklärung kod Jugendamta."
+        },
+        "bezugszeitraum": {
+          "title": "Mjeseci u kojima tražite Elterngeld",
+          "de": "Bezugszeitraum / Lebensmonate",
+          "body": "Najvažnija sekcija — birate VARIJANTU i KOJI mjeseci života djeteta (Lebensmonate) su pokriveni. Tri opcije: Basiselterngeld (max 12 mj × pun iznos), ElterngeldPlus (max 24 mj × pola iznosa, kombinuje se sa skraćenim radom), Partnerschaftsbonus (4 dodatna mjeseca ako oba roditelja rade 24-32h).",
+          "fields": "Variante (Basis / Plus / Partnerschaftsbonus), Lebensmonate von – bis (npr. 1–12), broj mjeseci za partnera.",
+          "tip": "Lebensmonat 1 počinje na rođendan djeteta, NE 1. u mjesecu. Ako se dijete rodilo 15.03., LM 1 = 15.03.–14.04. Pogrešan unos = mjesec se preskače."
+        },
+        "einkommen_vor": {
+          "title": "Prihodi PRIJE rođenja djeteta",
+          "de": "Einkommen vor der Geburt",
+          "body": "Ovaj iznos određuje VISINU vašeg Elterngelda (65–67% neto plate). Računa se 12 mjeseci prije mjeseca rođenja (zaposleni) ili posljednja porezna godina (samostalni). Bruto plate iz Lohnabrechnungen + Steuerklasse.",
+          "fields": "Bruttoeinkommen mjesečno × 12, Steuerklasse u 12 mjeseci prije rođenja, Sozialversicherungsbeiträge, Krankenkasse + naziv osiguranja.",
+          "tip": "Ako planirate dijete — promijenite Steuerklasse na III (ako ste vjenčani sa više zarade) MINIMALNO 7 mjeseci prije rođenja. To može povećati Elterngeld za 200–500 €/mj."
+        },
+        "einkommen_waehrend": {
+          "title": "Prihodi TOKOM Elterngelda (ako radite skraćeno)",
+          "de": "Einkommen während des Bezugs",
+          "body": "Ako planirate raditi do 32h sedmično tokom Elterngelda — morate to prijaviti unaprijed. Prihod se računa svaki mjesec i Elterngeld se proporcionalno smanjuje (Anrechnung). Ako ne radite — ostavljate 0.",
+          "fields": "Voraussichtliches Einkommen pro Monat, Stundenzahl pro Woche, Arbeitgeber, Beginn der Teilzeit.",
+          "tip": "Granica je 32 sata sedmično — ako pređete (i jednu sedmicu), gubite cijeli mjesec Elterngelda. Sa Elterngeld+ ide se kombinacija manjeg posla i duljeg primanja."
+        },
+        "weitere_leistungen": {
+          "title": "Druge socijalne naknade",
+          "de": "Weitere Leistungen",
+          "body": "Prijavite SVE druge naknade koje primate ili ćete primati: Mutterschaftsgeld (porodiljska), Krankengeld (bolovanje), Arbeitslosengeld, Bürgergeld, Wohngeld, krediti za studij. Mutterschaftsgeld se ODBIJA od Elterngelda za prva 2 mjeseca.",
+          "fields": "Vrsta naknade, iznos mjesečno, period (od – do), izvor (Krankenkasse, Bundesagentur za Arbeit, Sozialamt).",
+          "tip": "Ako ste primili jednokratnu Schwangerschaftsbeihilfe od poslodavca (Arbeitgeberzuschuss zum Mutterschaftsgeld) — i to spada ovdje. Skrivanje vodi do povrata novca + kazne."
+        },
+        "bankverbindung": {
+          "title": "Bankovni račun",
+          "de": "Bankverbindung",
+          "body": "Račun na koji se plaća Elterngeld. Mora biti njemački račun (IBAN sa DE) ili EU-račun (SEPA). Mora glasiti na vaše ime ili na ime partnera (zajednički račun je u redu).",
+          "fields": "IBAN, BIC, Name des Geldinstituts (Sparkasse, DKB, Volksbank...), Kontoinhaber (vlasnik računa).",
+          "tip": "Ako koristite N26, Revolut ili neku drugu digitalnu banku — to je u redu. Bitno je samo da IBAN počinje sa DE ili EU-državom. Svejdska/Norveška/Švajcarska NE prolaze."
+        },
+        "anlagen": {
+          "title": "Prilozi (dokumenti uz zahtjev)",
+          "de": "Anlagen / Nachweise",
+          "body": "OBAVEZNI prilozi: Geburtsurkunde (rodni list djeteta) ili Bescheinigung für Elterngeld (kojeg dobijete u rodilištu, prima se umjesto rodnog lista za prvi zahtjev), Lohnabrechnungen 12 mjeseci, Bescheinigung Krankenkasse o Mutterschaftsgeld, Arbeitgeberbescheinigung o Elternzeit. SAMOSTALNI: Steuerbescheid prošle godine, EÜR.",
+          "fields": "Geburtsurkunde, 12× Lohnabrechnung, Mutterschaftsgeld-Bescheinigung, Arbeitgeber-Bestätigung Elternzeit, Personalausweis-Kopie, Aufenthaltstitel (ako niste EU državljanin).",
+          "tip": "Ne šaljite originale — šaljite KOPIJE. Originale dajete samo na zahtjev službe ili lično. Šaljite poštom kao Einschreiben (preporučena pošiljka) — košta 2,75 € ali imate dokaz o predaji."
+        }
+      }
     }
   }
 }

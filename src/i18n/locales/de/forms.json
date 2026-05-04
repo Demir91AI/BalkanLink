@@ -238,6 +238,95 @@
       "openPdf": "Amtliches PDF herunterladen",
       "autoFillYes": "BalkanLink unterstützt 1:1-Autoausfüllung des amtlichen Formulars für {{name}}.",
       "autoFillNo": "Für {{name}} bietet BalkanLink derzeit keine Autoausfüllung. Lade das amtliche PDF oben herunter und fülle es selbst aus — unser Smart Guide hilft dir Schritt für Schritt."
+    },
+    "smartGuide": {
+      "heroLabel": "Professioneller Leitfaden",
+      "heroTitle": "So stellen Sie den Elterngeld-Antrag — {{name}}",
+      "heroBody": "Elterngeld ist eine Bundesleistung (BEEG) — der Antragsinhalt ist überall identisch, nur die zuständige Stelle und der Einreichungsweg unterscheiden sich. Drei Wege stehen zur Verfügung — wählen Sie, was für Sie passt.",
+      "way1Label": "1. Online (Empfehlung)",
+      "way1Body": "Am schnellsten — geführtes Ausfüllen, Plausibilitätsprüfung, direkte digitale Übermittlung. Erfordert BundID oder Online-Ausweis.",
+      "way2Label": "2. Papierformular (PDF)",
+      "way2Title": "Offizielles Antragsformular des Landes",
+      "way2Body": "Herunterladen, manuell oder im Adobe Reader ausfüllen, unterschreiben, per Post senden (empfohlen als Einschreiben).",
+      "way3Label": "3. Persönlich / per Post — Anschrift der zuständigen Stelle",
+      "guideTitle": "Smart Guide — was genau in jeden Abschnitt eintragen",
+      "guideSubtitle": "Alle Abschnitte sind in allen Bundesländern identisch (BEEG). Tippen Sie auf einen Abschnitt für Details.",
+      "fields": "Typische Felder",
+      "tip": "Tipp",
+      "bundesPortalTip": "Einfachster Weg:",
+      "bundesPortalBody": "das Bundesportal unterstützt dieses Bundesland — geführtes Ausfüllen, vollständig digitale Einreichung ohne Druck.",
+      "steps": {
+        "kind": {
+          "title": "Angaben zum Kind",
+          "de": "Angaben zum Kind",
+          "body": "Eintragung der Daten des Kindes, für das Elterngeld beantragt wird. Vor der Geburt bleibt das tatsächliche Geburtsdatum frei; eingetragen wird der voraussichtliche Entbindungstermin.",
+          "fields": "Vor- und Nachname des Kindes, Geburtsdatum oder voraussichtlicher Entbindungstermin, Geburtsort.",
+          "tip": "Antrag erst nach der Geburt zulässig. Bei Mehrlingen je Kind ein eigener Antrag."
+        },
+        "elternteil1": {
+          "title": "Ihre Angaben (antragstellende Person)",
+          "de": "Angaben zur antragstellenden Person",
+          "body": "Persönliche Daten, Wohnanschrift in Deutschland (Anmeldung), Kontakt, Steuer-Identifikationsnummer (11-stellig vom BZSt), Beruf. Bestimmt die Zuständigkeit der Elterngeldstelle.",
+          "fields": "Familienname, Vorname, Geburtsname, Geburtsdatum, Geburtsort, Geschlecht, Straße + PLZ + Ort, Telefon, E-Mail, Steuer-ID, Beruf, Staatsangehörigkeit.",
+          "tip": "Steuer-ID ist NICHT die Steuernummer. Bei Verlust kostenfrei beim BZSt erneut anfordern (bzst.de)."
+        },
+        "elternteil2": {
+          "title": "Anderer Elternteil (falls vorhanden)",
+          "de": "Angaben zur anderen Person",
+          "body": "Daten der zweiten Person, mit der die Elternschaft geteilt wird. Pflichtangabe auch ohne eigenen Bezug. Alleinerziehende wählen 'allein' und überspringen diesen Abschnitt.",
+          "fields": "Familienname, Vorname, Geburtsdatum, Anschrift (falls abweichend), Steuer-ID, Telefon, Beruf, Staatsangehörigkeit.",
+          "tip": "Alleinerziehende können bis zu 14 Monate beziehen — Nachweis erforderlich (Scheidungsurteil, Haushaltsbescheinigung)."
+        },
+        "familienverhaeltnis": {
+          "title": "Familienstand und Verhältnis zum Kind",
+          "de": "Familienverhältnisse",
+          "body": "Verheiratet seit wann (Eheschließung), Kinder im Haushalt, Sorgerecht, Wohnort des Kindes.",
+          "fields": "Familienstand (verheiratet/ledig/getrennt lebend), Datum der Eheschließung, Anzahl im Haushalt lebender Kinder, gemeinsames Sorgerecht ja/nein.",
+          "tip": "Bei nicht verheirateten Eltern: gemeinsames Sorgerecht nur per Sorgerechtserklärung beim Jugendamt."
+        },
+        "bezugszeitraum": {
+          "title": "Bezugszeitraum / Lebensmonate",
+          "de": "Bezugszeitraum / Lebensmonate",
+          "body": "Wichtigster Abschnitt — Wahl der Variante und der Lebensmonate. Drei Optionen: Basiselterngeld (max. 12 LM × voller Betrag), ElterngeldPlus (max. 24 LM × halber Betrag, kombinierbar mit Teilzeit), Partnerschaftsbonus (+4 LM bei 24–32 h beider Eltern).",
+          "fields": "Variante (Basis / Plus / Partnerschaftsbonus), Lebensmonate von – bis (z. B. 1–12), Anzahl Monate für Partner.",
+          "tip": "Lebensmonat 1 startet am Geburtstag des Kindes, NICHT zum 1. des Monats. Beispiel: Geburt am 15.03. → LM 1 = 15.03.–14.04."
+        },
+        "einkommen_vor": {
+          "title": "Einkommen VOR der Geburt",
+          "de": "Einkommen vor der Geburt",
+          "body": "Bestimmt die Höhe des Elterngeldes (65–67 % vom Netto). Bemessungszeitraum: 12 Monate vor Geburtsmonat (Angestellte) oder letzter steuerlicher Veranlagungszeitraum (Selbstständige).",
+          "fields": "Bruttoeinkommen monatlich × 12, Steuerklasse in 12 Monaten vor Geburt, Sozialversicherungsbeiträge, Krankenkasse + Versicherung.",
+          "tip": "Steuerklassenwechsel auf III (bei verheirateten Hauptverdienern) mind. 7 Monate vor Geburt — kann Elterngeld um 200–500 €/Monat erhöhen."
+        },
+        "einkommen_waehrend": {
+          "title": "Einkommen WÄHREND des Bezugs (Teilzeit)",
+          "de": "Einkommen während des Bezugs",
+          "body": "Teilzeit bis 32 h/Woche zulässig — vorab anzeigen. Einkommen wird angerechnet (Anrechnung) und reduziert das Elterngeld anteilig. Ohne Erwerbstätigkeit: 0 eintragen.",
+          "fields": "Voraussichtliches Einkommen pro Monat, Stundenzahl pro Woche, Arbeitgeber, Beginn der Teilzeit.",
+          "tip": "Überschreitung der 32-h-Grenze — auch nur für eine Woche — führt zum Wegfall des Elterngeldes für den Monat."
+        },
+        "weitere_leistungen": {
+          "title": "Weitere Leistungen",
+          "de": "Weitere Leistungen",
+          "body": "Anzugeben: Mutterschaftsgeld, Krankengeld, Arbeitslosengeld, Bürgergeld, Wohngeld, Ausbildungsförderung. Mutterschaftsgeld wird in den ersten 2 Monaten voll auf das Elterngeld angerechnet.",
+          "fields": "Art der Leistung, Höhe pro Monat, Zeitraum (von – bis), Träger (Krankenkasse, Bundesagentur für Arbeit, Sozialamt).",
+          "tip": "Auch der Arbeitgeberzuschuss zum Mutterschaftsgeld ist anzugeben. Verschweigen führt zu Rückforderung und Bußgeld."
+        },
+        "bankverbindung": {
+          "title": "Bankverbindung",
+          "de": "Bankverbindung",
+          "body": "Auszahlungskonto. Erforderlich: deutsches Konto (IBAN DE) oder EU-/SEPA-Konto. Inhaber: Antragsteller oder Partner (Gemeinschaftskonto zulässig).",
+          "fields": "IBAN, BIC, Name des Geldinstituts, Kontoinhaber.",
+          "tip": "N26, DKB, Revolut sind zulässig, sofern IBAN im SEPA-Raum (DE oder EU-Mitglied). Schweiz, Norwegen, Schweden außerhalb EU: nicht zulässig."
+        },
+        "anlagen": {
+          "title": "Anlagen / Nachweise",
+          "de": "Anlagen / Nachweise",
+          "body": "Pflichtanlagen: Geburtsurkunde oder Bescheinigung für Elterngeld (Klinik), Lohnabrechnungen 12 Monate, Krankenkassen-Bescheinigung über Mutterschaftsgeld, Arbeitgeberbestätigung Elternzeit. Selbstständige: Steuerbescheid des Vorjahres, EÜR.",
+          "fields": "Geburtsurkunde, 12× Lohnabrechnung, Mutterschaftsgeld-Bescheinigung, Arbeitgeber-Bestätigung Elternzeit, Personalausweis-Kopie, ggf. Aufenthaltstitel.",
+          "tip": "Nur Kopien einreichen, keine Originale. Versand per Einschreiben empfohlen (Sendungsnachweis)."
+        }
+      }
     }
   }
 }
