@@ -209,6 +209,15 @@
         "ort": "Mjesto",
         "datum": "Datum",
         "hint": "Potpis se NE generiše digitalno — moraš ručno potpisati štampani PDF"
+      },
+      "versand": {
+        "title": "Gdje poslati antrag",
+        "warnTitle": "Adresa ovisi o Wohnort + datumu rođenja djeteta!",
+        "warnBody": "ZBFS Bayern ima 7 Außenstellen po regijama. Tvoja nadležna stanica zavisi od mjesta stanovanja, a ponekad i od mjeseca rođenja djeteta. OBAVEZNO provjeri na ZBFS stranici prije slanja:",
+        "checkLink": "Provjeri nadležnost ZBFS",
+        "label": "Odaberi nadležnu Außenstelle",
+        "choose": "— Odaberi regiju —",
+        "envelopeTitle": "Adresa za kovertu (Empfänger):"
       }
     }
   }

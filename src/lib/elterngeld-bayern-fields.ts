@@ -65,6 +65,9 @@ export interface ElterngeldFormData {
   // Potpis
   ort: string;
   datum: string;
+
+  // Versand — koja ZBFS Außenstelle prima antrag (ovisi o Wohnort + datumu rođenja)
+  versand_aussenstelle_id: string;
 }
 
 export const initialData = (): ElterngeldFormData => ({
@@ -86,6 +89,7 @@ export const initialData = (): ElterngeldFormData => ({
   e2_variante: "basis", e2_lm_von: "1", e2_lm_bis: "2",
   iban: "", bic: "", kontoinhaber: "", geldinstitut: "",
   ort: "", datum: new Date().toISOString().slice(0, 10),
+  versand_aussenstelle_id: "",
 });
 
 const formatDateDE = (iso: string): string => {

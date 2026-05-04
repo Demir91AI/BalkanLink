@@ -622,6 +622,45 @@ export type Database = {
         }
         Relationships: []
       }
+      external_pdf_versions: {
+        Row: {
+          content_length: number | null
+          created_at: string
+          etag: string | null
+          form_key: string
+          id: string
+          last_changed_at: string | null
+          last_checked_at: string | null
+          last_modified: string | null
+          notified_at: string | null
+          source_url: string
+        }
+        Insert: {
+          content_length?: number | null
+          created_at?: string
+          etag?: string | null
+          form_key: string
+          id?: string
+          last_changed_at?: string | null
+          last_checked_at?: string | null
+          last_modified?: string | null
+          notified_at?: string | null
+          source_url: string
+        }
+        Update: {
+          content_length?: number | null
+          created_at?: string
+          etag?: string | null
+          form_key?: string
+          id?: string
+          last_changed_at?: string | null
+          last_checked_at?: string | null
+          last_modified?: string | null
+          notified_at?: string | null
+          source_url?: string
+        }
+        Relationships: []
+      }
       field_mapping: {
         Row: {
           field_key: string
