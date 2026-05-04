@@ -114,7 +114,7 @@ export function PageSaveStar({
       } ${className}`}
     >
       <Star className="h-[18px] w-[18px]" fill={saved ? "currentColor" : "none"} strokeWidth={2} />
-      {!isPremium && (
+      {showLock && (
         <span className="absolute -bottom-1 -right-1 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-black">
           <Lock className="h-2 w-2" strokeWidth={3} />
         </span>
