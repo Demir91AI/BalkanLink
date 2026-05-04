@@ -71,6 +71,7 @@ const FirmDetail = lazy(() => import("./pages/FirmDetail"));
 const BussgeldAssistent = lazy(() => import("./pages/BussgeldAssistent"));
 const ChatAssistant = lazy(() => import("./components/ChatAssistant"));
 const AntragGenericMuster = lazy(() => import("./pages/muster/AntragGenericMuster"));
+const KindergeldPreviewWindow = lazy(() => import("./pages/muster/KindergeldPreviewWindow"));
 const AnmeldungMuster = lazy(() => import("./pages/muster/AnmeldungMuster"));
 const WhatIsBalkanLink = lazy(() => import("./components/WhatIsBalkanLink"));
 
