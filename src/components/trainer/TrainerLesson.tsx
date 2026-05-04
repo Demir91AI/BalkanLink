@@ -70,7 +70,6 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [stageComplete, setStageComplete] = useState(false);
   const [initialLoading, setInitialLoading] = useState(false);
-  const [resumed, setResumed] = useState(false);
   const loadingRef = useRef(false);
 
   const { completeLesson } = useTrainerProgress();
@@ -89,52 +88,23 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
       setAnswered(false);
       setStageComplete(false);
       setInitialLoading(false);
-      setResumed(false);
       return;
     }
 
     const stage = lesson.stages[selectedStage];
     const stageType = STAGE_TYPES[selectedStage] || "Grundlagen";
-
-    // Try restoring saved progress first
-    const saved = loadStageProgress(lesson.id, selectedStage);
-    if (saved && saved.exercises.length > 0 && saved.step < saved.exercises.length) {
-      setExercises(saved.exercises);
-      setStep(saved.step);
-      setResults(saved.results);
-      setAnswered(false);
-      setStageComplete(false);
-      setResumed(true);
-      // Continue generating more if needed
-      if (saved.exercises.length < maxExercises) {
-        loadMore(saved.exercises, stageType);
-      }
-      return;
-    }
-
     const staticEx = (stage?.exercises ?? []).map(shuffleExercise);
 
-    // Start with static exercises immediately
+    // Always start fresh — no mid-lesson resume
     setExercises(staticEx);
     setStep(0);
     setResults([]);
     setAnswered(false);
     setStageComplete(false);
-    setResumed(false);
 
-    // Start AI generation
     if (staticEx.length === 0) setInitialLoading(true);
     loadMore(staticEx, stageType);
   }, [selectedStage, lesson]);
-
-  // ─── Save in-progress state on every step/results change ──
-  useEffect(() => {
-    if (selectedStage === null || stageComplete) return;
-    if (exercises.length === 0) return;
-    saveStageProgress(lesson.id, selectedStage, {
-      step, results, exercises, ts: Date.now(),
-    });
-  }, [step, results, exercises, selectedStage, stageComplete, lesson.id]);
 
 
   // ─── Generiši više pitanja ──────────────────────
