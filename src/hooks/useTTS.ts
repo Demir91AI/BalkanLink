@@ -60,7 +60,7 @@ function preprocessGerman(text: string): string {
     .trim();
 }
 
-type PlayState = "idle" | "playing" | "paused";
+type PlayState = "idle" | "loading" | "playing" | "paused";
 
 function getPersistedSpeed(): number {
   try {
@@ -85,32 +85,24 @@ function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number) {
   tunedAudio.webkitPreservesPitch = true;
 }
 
-function isMobileStandalonePlayback(): boolean {
-  // Use the synchronous direct-stream path on ALL mobile devices (not just PWA).
-  // Mobile browsers (especially Android Chrome + iOS Safari) lose user activation
-  // across awaits, so we MUST assign audio.src synchronously inside the click
-  // handler — otherwise audio.play() rejects and the user has to tap multiple
-  // times before audio actually starts. The edge function streams ElevenLabs
-  // audio directly, so we still get the correct voice.
-  try {
-    const isMobileUA = /android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
-    if (isMobileUA) return true;
-    const standaloneMQ = window.matchMedia?.("(display-mode: standalone)")?.matches === true;
-    const iosStandalone = "standalone" in navigator &&
-      Boolean((navigator as Navigator & { standalone?: boolean }).standalone);
-    return standaloneMQ || iosStandalone;
-  } catch {
-    return false;
-  }
-}
-
 export type SpeechRate = TtsSpeed;
+
+function resetAudioElement(audio: HTMLAudioElement | null) {
+  if (!audio) return;
+  audio.onplay = null;
+  audio.onplaying = null;
+  audio.onended = null;
+  audio.onerror = null;
+  try { audio.pause(); } catch { /* */ }
+  try { audio.removeAttribute("src"); audio.load(); } catch { /* */ }
+}
 
 export function useTTS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [playState, setPlayState] = useState<PlayState>("idle");
   const [rate, setRateState] = useState<number>(getPersistedSpeed);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const requestSeqRef = useRef(0);
 
   const setRate = useCallback((r: number) => {
     setRateState(r);
