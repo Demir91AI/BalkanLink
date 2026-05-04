@@ -230,6 +230,14 @@
         "choose": "— Izaberi regiju —",
         "envelopeTitle": "Adresa za kovertu (Empfänger):"
       }
+    },
+    "bundesland": {
+      "title": "U kojoj saveznoj pokrajini živiš?",
+      "hint": "Elterngeld administrira nadležna služba u tvojoj pokrajini. Izborom dobijaš službu, adresu, telefon i zvanični obrazac.",
+      "openOfficial": "Otvori zvaničnu stranicu",
+      "openPdf": "Preuzmi zvanični PDF",
+      "autoFillYes": "BalkanLink podržava 1:1 auto-popunjavanje zvaničnog obrasca za {{name}}.",
+      "autoFillNo": "Za {{name}} BalkanLink trenutno ne radi auto-popunjavanje. Preuzmi zvanični PDF iznad i popuni ga ručno — naš Smart Guide ti pomaže korak po korak."
     }
   }
 }

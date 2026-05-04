@@ -230,6 +230,14 @@
         "choose": "— Region wählen —",
         "envelopeTitle": "Empfänger-Adresse für den Briefumschlag:"
       }
+    },
+    "bundesland": {
+      "title": "In welchem Bundesland wohnst du?",
+      "hint": "Elterngeld wird von der zuständigen Stelle deines Bundeslandes bearbeitet. Mit der Auswahl erhältst du Behörde, Adresse, Telefon und das amtliche Formular.",
+      "openOfficial": "Amtliche Seite öffnen",
+      "openPdf": "Amtliches PDF herunterladen",
+      "autoFillYes": "BalkanLink unterstützt 1:1-Autoausfüllung des amtlichen Formulars für {{name}}.",
+      "autoFillNo": "Für {{name}} bietet BalkanLink derzeit keine Autoausfüllung. Lade das amtliche PDF oben herunter und fülle es selbst aus — unser Smart Guide hilft dir Schritt für Schritt."
     }
   }
 }
