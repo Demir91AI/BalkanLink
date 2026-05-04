@@ -1,4 +1,4 @@
-import { useState, useCallback, type CSSProperties } from "react";
+import { useState, useCallback, type CSSProperties, type ReactNode } from "react";
 import MusterFormBase, { S, IdBoxes, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "kg1-muster-data";
@@ -78,7 +78,7 @@ const tableInput: CSSProperties = {
   padding: "4px 5px",
 };
 
-const Section = ({ num, title, children }: { num: number; title: string; children: React.ReactNode }) => (
+const Section = ({ num, title, children }: { num: number; title: string; children: ReactNode }) => (
   <section style={{ marginBottom: 14, breakInside: "avoid" }}>
     <div style={{ display: "grid", gridTemplateColumns: "30px 1fr", alignItems: "stretch", marginBottom: 8 }}>
       <div style={{ background: "#e5e7eb", border: "1px solid #9ca3af", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 14 }}>{num}</div>
