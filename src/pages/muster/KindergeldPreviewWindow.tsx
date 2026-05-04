@@ -314,8 +314,8 @@ export default function KindergeldPreviewWindow() {
             <IdBoxes count={22} value={f.iban} onChange={(v) => set("iban", v)} />
           </div>
           <Row mb={0}>
-            <Field label="BIC" flex={1} minWidth={120} value={f.bic} onChange={(v) => set("bic", v)} />
-            <Field label="Bank, Finanzinstitut (ggf. Zweigstelle)" flex={3} value={f.bank} onChange={(v) => set("bank", v)} />
+            <Field label="BIC" bhs="BIC kod banke" example="DEUTDEFF" flex={1} minWidth={120} value={f.bic} onChange={(v) => set("bic", v)} />
+            <Field label="Bank, Finanzinstitut (ggf. Zweigstelle)" bhs="Naziv banke" example="Deutsche Bank Berlin" flex={3} value={f.bank} onChange={(v) => set("bank", v)} />
           </Row>
 
           <div style={{ marginTop: 10, fontWeight: 700, fontSize: 11 }}>Kontoinhaber(in) ist</div>
