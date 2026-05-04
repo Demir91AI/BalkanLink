@@ -423,6 +423,7 @@ export default function ElterngeldMuster() {
           {t("musterFlow.elterngeld.downloadHint")}
         </p>
       </div>
+      </>)}
     </MusterFormBase>
   );
 }
