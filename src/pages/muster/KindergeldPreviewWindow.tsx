@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, type CSSProperties, type ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { IdBoxes } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "kg1-muster-data";
