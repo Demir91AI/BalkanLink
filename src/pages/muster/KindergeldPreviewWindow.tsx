@@ -92,6 +92,7 @@ const td: CSSProperties = { border: C.border, padding: 0, height: 30, verticalAl
 const tdInp: CSSProperties = { ...inpBare, padding: "6px 7px", minHeight: 30, fontSize: 12 };
 
 export default function KindergeldPreviewWindow() {
+  const { t } = useTranslation("forms");
   const [zoom, setZoom] = useState(() => {
     if (typeof window === "undefined") return 1;
     // Default: fit-to-width on mobile, 100% on desktop
