@@ -491,7 +491,7 @@ export default function FormCenter() {
                     <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors text-[hsl(var(--gold))]">
                       <span>{group.icon}</span>
                       <span className="flex-1 text-left">{getGroupTitle(group)}</span>
-                      {group.isFree ? <FreeBadge /> : <PremiumBadge />}
+                      {group.isFree ? <FreeBadge hidden={isPremium} /> : <PremiumBadge hidden={isPremium} />}
                       <ChevronDown
                         className={cn(
                           "h-3.5 w-3.5 transition-transform shrink-0",
