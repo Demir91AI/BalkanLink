@@ -34,7 +34,7 @@ export const S = {
   sec: { padding: "8px 0 22px", marginBottom: 8 } as React.CSSProperties,
   row: { display: "flex", gap: 16, marginBottom: 18, flexWrap: "wrap" as const } as React.CSSProperties,
   // German label (top line) — UPPERCASE, gray
-  lbl: { fontSize: 11, color: "#6b7280", marginBottom: 18, textTransform: "uppercase" as const, letterSpacing: 0.4, fontWeight: 600, lineHeight: 1.3 } as React.CSSProperties,
+  lbl: { fontSize: 11, color: "#6b7280", minHeight: 18, marginBottom: 18, textTransform: "uppercase" as const, letterSpacing: 0.4, fontWeight: 600, lineHeight: 1.3 } as React.CSSProperties,
   // Translation (sub line) — gold, italic, normal case
   lblTr: { fontSize: 11, color: "#C9A84C", marginTop: -18, marginBottom: 4, minHeight: 14, fontWeight: 500, fontStyle: "italic" as const, lineHeight: 1.3, textTransform: "none" as const, letterSpacing: 0 } as React.CSSProperties,
   inp: { border: "1px solid #D0C8B0", borderRadius: 4, background: "#fff", fontSize: 14, padding: "9px 11px", outline: "none", width: "100%", boxSizing: "border-box" as const, color: "#111" } as React.CSSProperties,
