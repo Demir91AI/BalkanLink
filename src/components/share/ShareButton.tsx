@@ -195,7 +195,7 @@ export default function ShareButton({
   ];
 
   const baseBtn =
-    "inline-flex items-center justify-center gap-2 rounded-full border border-border/60 bg-background/60 px-3 py-1.5 text-[13px] font-medium text-foreground/80 backdrop-blur transition-all hover:bg-muted hover:text-foreground hover:border-[hsl(45,93%,49%)]/50 active:scale-[0.97]";
+    "inline-flex items-center justify-center gap-2 rounded-full border border-[hsl(var(--gold)/0.45)] bg-[hsl(var(--gold)/0.10)] px-3 py-1.5 text-[13px] font-semibold text-[hsl(var(--gold))] backdrop-blur transition-all hover:bg-[hsl(var(--gold)/0.18)] hover:border-[hsl(var(--gold)/0.7)] active:scale-[0.97]";
 
   return (
     <div ref={wrapRef} className={cn("relative inline-block", className)}>
