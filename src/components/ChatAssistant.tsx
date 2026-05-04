@@ -631,21 +631,27 @@ export default function ChatAssistant() {
     if (messages.length === 0) return;
     const last = messages[messages.length - 1];
 
-    // Ako je zadnji msg user (tek poslao) ILI je assistant koji upravo stigao (nije loading streaming), skrolaj zadnji user msg na vrh
+    // Ako je zadnji msg user (tek poslao) ILI je assistant koji upravo stigao (nije loading streaming),
+    // skrolaj zadnju USER poruku na vrh vidljivog područja.
     if (last.role === "user" || (last.role === "assistant" && !loading)) {
-      // Pronađi indeks zadnje user poruke
       let lastUserIdx = -1;
       for (let i = messages.length - 1; i >= 0; i--) {
         if (messages[i].role === "user") { lastUserIdx = i; break; }
       }
       if (lastUserIdx >= 0) {
-        const userEl = container.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
-        if (userEl) {
-          // Scroll user msg na vrh (sa malim offsetom za dah)
-          const offset = userEl.offsetTop - 12;
-          container.scrollTo({ top: offset, behavior: "smooth" });
-          return;
-        }
+        // Sačekaj da DOM/animacije stignu da renderuju, pa onda izračunaj poziciju
+        const raf = requestAnimationFrame(() => {
+          if (!scrollRef.current) return;
+          const c = scrollRef.current;
+          const userEl = c.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
+          if (!userEl) return;
+          // getBoundingClientRect je pouzdaniji od offsetTop (koji ovisi o offsetParent)
+          const containerRect = c.getBoundingClientRect();
+          const userRect = userEl.getBoundingClientRect();
+          const target = c.scrollTop + (userRect.top - containerRect.top) - 12;
+          c.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+        });
+        return () => cancelAnimationFrame(raf);
       }
     }
 
@@ -1101,6 +1107,12 @@ export default function ChatAssistant() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5">
+                    {/* Clear chat history */}
+                    {messages.length > 0 && activeTab === "chat" && (
+                      <button onClick={clearChat} className="rounded-lg border border-white/15 bg-white/5 p-1.5 text-white/60 hover:text-red-300 hover:border-red-400/40 hover:bg-red-500/10 transition-all" title="Obriši razgovor" aria-label="Obriši razgovor">
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </button>
+                    )}
                     {/* Minimize — sakriva panel, FAB ostaje */}
                     <button onClick={handleMinimize} className="rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/70 hover:text-[hsl(45,93%,49%)] hover:border-[hsl(45,93%,49%)]/40 hover:bg-white/10 transition-all" title="Minimiziraj asistenta" aria-label="Minimiziraj asistenta">
                       Minimiziraj
