@@ -26,8 +26,12 @@ export function PageSaveStar({
   const { t } = useTranslation("saved");
   const { isSaved, toggle } = useSavedItems();
   const { isPremium } = usePremiumAccess();
+  const { profileLoading, user } = useAuth();
   const navigate = useLocalizedNavigate();
   const location = useLocation();
+  // While profile is loading for a logged-in user, don't render the lock badge
+  // (otherwise it briefly appears on refresh even for premium users).
+  const showLock = !isPremium && !(user && profileLoading);
 
   const { id, type, path, title, hidden } = useMemo(() => {
     const raw = (location.pathname || "/").replace(/\/+$/, "") || "/";
