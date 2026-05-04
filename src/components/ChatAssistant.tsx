@@ -1107,12 +1107,6 @@ export default function ChatAssistant() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    {/* Clear chat history */}
-                    {messages.length > 0 && activeTab === "chat" && (
-                      <button onClick={clearChat} className="rounded-lg border border-white/15 bg-white/5 p-1.5 text-white/60 hover:text-red-300 hover:border-red-400/40 hover:bg-red-500/10 transition-all" title="Obriši razgovor" aria-label="Obriši razgovor">
-                        <Trash2 className="h-3.5 w-3.5" />
-                      </button>
-                    )}
                     {/* Minimize — sakriva panel, FAB ostaje */}
                     <button onClick={handleMinimize} className="rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/70 hover:text-[hsl(45,93%,49%)] hover:border-[hsl(45,93%,49%)]/40 hover:bg-white/10 transition-all" title="Minimiziraj asistenta" aria-label="Minimiziraj asistenta">
                       Minimiziraj
@@ -1124,8 +1118,8 @@ export default function ChatAssistant() {
                   </div>
                 </div>
 
-                {/* Tabs */}
-                <div className="flex gap-1">
+                {/* Tabs + Clear button */}
+                <div className="flex gap-1 items-center">
                   {([
                     { key: "chat" as PanelTab, icon: MessageCircle, label: "Chat" },
                     { key: "deadlines" as PanelTab, icon: Clock, label: "Rokovi" },
@@ -1144,6 +1138,16 @@ export default function ChatAssistant() {
                       {tab.label}
                     </button>
                   ))}
+                  {messages.length > 0 && activeTab === "chat" && (
+                    <button
+                      onClick={clearChat}
+                      className="shrink-0 flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-1.5 text-white/50 hover:text-red-300 hover:border-red-400/40 hover:bg-red-500/10 transition-all"
+                      title="Obriši razgovor"
+                      aria-label="Obriši razgovor"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  )}
                 </div>
               </div>
 
