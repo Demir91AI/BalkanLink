@@ -64,6 +64,19 @@ export default function ElterngeldMuster() {
   });
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [bundesland, setBundesland] = useState<BundeslandId>(() => {
+    try {
+      const s = localStorage.getItem(LS_BL_KEY) as BundeslandId | null;
+      if (s && getBundesland(s)) return s;
+    } catch { /* ignore */ }
+    return DEFAULT_BUNDESLAND;
+  });
+  const handleBundeslandChange = useCallback((id: BundeslandId) => {
+    setBundesland(id);
+    try { localStorage.setItem(LS_BL_KEY, id); } catch { /* ignore */ }
+  }, []);
+  const selectedBL = getBundesland(bundesland);
+  const isAutoFill = !!selectedBL?.autoFillSupported;
 
   const update = useCallback((patch: Partial<ElterngeldFormData>) => {
     setData(prev => {
