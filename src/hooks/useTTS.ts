@@ -86,11 +86,16 @@ function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number) {
 }
 
 function isMobileStandalonePlayback(): boolean {
+  // Only use the synchronous direct-stream path for true PWA standalone
+  // installs (iOS home-screen / Android installed PWA). Regular mobile
+  // browsers handle the async fetch → play() path fine and benefit from
+  // the cached/processed audio URL → guarantees ElevenLabs voice instead
+  // of falling back to the browser's Google/system voice.
   try {
-    const standalone = window.matchMedia?.("(display-mode: standalone)")?.matches ||
-      ("standalone" in navigator && Boolean((navigator as Navigator & { standalone?: boolean }).standalone));
-    const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    return standalone || mobile;
+    const standaloneMQ = window.matchMedia?.("(display-mode: standalone)")?.matches === true;
+    const iosStandalone = "standalone" in navigator &&
+      Boolean((navigator as Navigator & { standalone?: boolean }).standalone);
+    return standaloneMQ || iosStandalone;
   } catch {
     return false;
   }
