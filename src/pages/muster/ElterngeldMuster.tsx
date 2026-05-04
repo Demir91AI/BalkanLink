@@ -4,6 +4,7 @@ import MusterFormBase from "@/components/muster/MusterFormBase";
 import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import BundeslandSelector from "@/components/muster/BundeslandSelector";
+import ElterngeldSmartGuide from "@/components/muster/ElterngeldSmartGuide";
 import { initialData, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { fillElterngeldPdf, downloadBlob } from "@/lib/pdf-fill-elterngeld";
 import { ZBFS_AUSSENSTELLEN, ZBFS_ZUSTAENDIGKEIT_URL, getAussenstelle } from "@/lib/elterngeld-bayern-versand";
@@ -137,13 +138,8 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
-      {!isAutoFill && (
-        <div style={{ padding: 20, textAlign: "center", color: "#475569", fontSize: 14, lineHeight: 1.6 }}>
-          <p style={{ marginBottom: 8 }}>
-            <strong style={{ color: "#0f172a" }}>{selectedBL?.name}</strong>
-          </p>
-          <p>{t("musterFlow.bundesland.autoFillNo", { name: selectedBL?.name ?? "" })}</p>
-        </div>
+      {!isAutoFill && selectedBL && (
+        <ElterngeldSmartGuide bundesland={selectedBL} />
       )}
 
       {isAutoFill && (<>
