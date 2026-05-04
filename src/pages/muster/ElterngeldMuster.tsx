@@ -326,6 +326,42 @@ export default function ElterngeldMuster() {
         <div style={hintStyle}>{t("musterFlow.elterngeld.sig.hint")}</div>
       </div>
 
+      {/* Versand — gdje slati antrag */}
+      <div style={sectionStyle}>
+        <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+        <div style={{ marginBottom: 10, padding: 12, background: "#FEF3C7", border: "1px solid #EAB308", borderRadius: 6, fontSize: 12, color: "#78350F", lineHeight: 1.5 }}>
+          <strong>⚠️ {t("musterFlow.elterngeld.versand.warnTitle")}</strong><br />
+          {t("musterFlow.elterngeld.versand.warnBody")}{" "}
+          <a href={ZBFS_ZUSTAENDIGKEIT_URL} target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontWeight: 600 }}>
+            {t("musterFlow.elterngeld.versand.checkLink")} →
+          </a>
+        </div>
+        <Select
+          label={t("musterFlow.elterngeld.versand.label")}
+          value={data.versand_aussenstelle_id}
+          onChange={v => update({ versand_aussenstelle_id: v })}
+          options={[
+            { value: "", label: t("musterFlow.elterngeld.versand.choose") },
+            ...ZBFS_AUSSENSTELLEN.map(a => ({ value: a.id, label: `${a.region} — ${a.plzOrt}` })),
+          ]}
+        />
+        {(() => {
+          const a = getAussenstelle(data.versand_aussenstelle_id);
+          if (!a) return null;
+          return (
+            <div style={{ marginTop: 12, padding: 14, background: "#fff", border: "2px dashed #15803D", borderRadius: 8, fontSize: 13, lineHeight: 1.6 }}>
+              <div style={{ fontSize: 11, color: "#15803D", fontWeight: 700, marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                {t("musterFlow.elterngeld.versand.envelopeTitle")}
+              </div>
+              <div style={{ fontWeight: 700 }}>{a.name}</div>
+              <div>{a.strasse}</div>
+              <div>{a.plzOrt}</div>
+              {a.telefon && <div style={{ marginTop: 6, fontSize: 12, color: "#6B7280" }}>Tel: {a.telefon}</div>}
+            </div>
+          );
+        })()}
+      </div>
+
       {/* Akcija */}
       <div style={{ position: "sticky", bottom: 0, background: "#fff", padding: "16px 0", borderTop: "1px solid #E5E7EB", marginTop: 16 }} className="no-print">
         {error && (
