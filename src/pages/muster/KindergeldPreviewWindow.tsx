@@ -231,15 +231,24 @@ export default function KindergeldPreviewWindow() {
           <div className="bl-page" style={page}>
             <h1 style={titleStyle}>Antrag — Musterformular</h1>
             <div style={introRow}>
-              <span>Bitte für jede Person ein eigenes Blatt ausfüllen.</span>
+              <span style={{ display: "flex", flexDirection: "column" }}>
+                <span>Bitte für jede Person ein eigenes Blatt ausfüllen.</span>
+                <span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.bitteEinBlatt")}</span>
+              </span>
               <span style={{ display: "inline-flex", alignItems: "baseline", gap: 6 }}>
-                Anzahl der Beilagen:
+                <span style={{ display: "flex", flexDirection: "column" }}>
+                  <span>Anzahl der Beilagen:</span>
+                  <span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.anzahlBeilagen")}</span>
+                </span>
                 <input style={{ ...inpBare, borderBottom: "1px dotted #6b7280", width: 90, fontSize: 12 }} value={f.beilagenAnzahl} onChange={(e) => set("beilagenAnzahl", e.target.value)} />
               </span>
             </div>
 
-          <SecHeader num={1} title="Angaben zur antragstellenden Person" />
-          <div style={captionAbove}>Persönliche Identifikationsnummer<br />(soweit vergeben, zwingend auszufüllen)</div>
+          <SecHeader num={1} title="Angaben zur antragstellenden Person" bhs={t("kg1Texts.sectionAntragsteller")} />
+          <div style={captionAbove}>
+            Persönliche Identifikationsnummer<br />(soweit vergeben, zwingend auszufüllen)
+            <div style={{ color: "#b8860b", fontStyle: "italic", marginTop: 2 }}>{t("kg1Texts.persoenlicheId")} {t("kg1Texts.soweitVergebenZwingend")}</div>
+          </div>
           <div style={{ marginBottom: 10, maxWidth: 360 }}>
             <IdBoxes count={11} value={f.steuerId1} onChange={(v) => set("steuerId1", v)} />
           </div>
