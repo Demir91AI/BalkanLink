@@ -185,7 +185,7 @@ export default function Vorlagen() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
                             <p className="font-semibold text-foreground">{item.titleDe}</p>
-                            {isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />}
+                            {isPremium ? null : (isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />)}
                           </div>
                           <p className="text-xs text-muted-foreground mt-0.5">
                             {tplTitle(item.slug, item.titleBs)}
