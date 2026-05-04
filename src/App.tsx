@@ -215,6 +215,7 @@ function LocalizedRoutes() {
         <Route path="musterformular/anlage-se" element={<AnlageSEMuster />} />
         <Route path="musterformular/arbeitsbescheinigung" element={<ArbeitsbescheinigungMuster />} />
         <Route path="musterformular/kindergeld" element={<KindergeldMuster />} />
+        <Route path="musterformular/antrag-generic" element={<AntragGenericMuster />} />
         <Route path="musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
         <Route path="musterformular/wirtschaftliche-jugendhilfe" element={<WirtschaftlicheJugendhilfeMuster />} />
         <Route path="musterformular/einbuergerung" element={<EinbuergerungMuster />} />
