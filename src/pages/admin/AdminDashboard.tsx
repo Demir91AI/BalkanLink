@@ -76,29 +76,29 @@ function KpiTile({
   trend?: { value: number; positive?: boolean };
 }) {
   const accentMap: Record<string, { border: string; glow: string; iconBg: string; iconFg: string }> = {
-    default: { border: "border-border/40 hover:border-primary/30", glow: "from-primary/[0.04]", iconBg: "bg-primary/10", iconFg: "text-primary" },
-    gold: { border: "border-[hsl(var(--gold))]/20 hover:border-[hsl(var(--gold))]/40", glow: "from-[hsl(var(--gold))]/[0.06]", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
-    green: { border: "border-emerald-500/20 hover:border-emerald-500/40", glow: "from-emerald-500/[0.05]", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-400" },
-    blue: { border: "border-sky-500/20 hover:border-sky-500/40", glow: "from-sky-500/[0.05]", iconBg: "bg-sky-500/15", iconFg: "text-sky-400" },
-    violet: { border: "border-violet-500/20 hover:border-violet-500/40", glow: "from-violet-500/[0.05]", iconBg: "bg-violet-500/15", iconFg: "text-violet-400" },
-    rose: { border: "border-rose-500/20 hover:border-rose-500/40", glow: "from-rose-500/[0.05]", iconBg: "bg-rose-500/15", iconFg: "text-rose-400" },
+    default: { border: "border-white/10 hover:border-[hsl(var(--gold)/0.35)]", glow: "from-white/[0.02]", iconBg: "bg-white/5", iconFg: "text-white/80" },
+    gold: { border: "border-[hsl(var(--gold))]/25 hover:border-[hsl(var(--gold))]/50", glow: "from-[hsl(var(--gold))]/[0.08]", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
+    green: { border: "border-emerald-500/25 hover:border-emerald-500/45", glow: "from-emerald-500/[0.06]", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-300" },
+    blue: { border: "border-sky-500/25 hover:border-sky-500/45", glow: "from-sky-500/[0.06]", iconBg: "bg-sky-500/15", iconFg: "text-sky-300" },
+    violet: { border: "border-violet-500/25 hover:border-violet-500/45", glow: "from-violet-500/[0.06]", iconBg: "bg-violet-500/15", iconFg: "text-violet-300" },
+    rose: { border: "border-rose-500/25 hover:border-rose-500/45", glow: "from-rose-500/[0.06]", iconBg: "bg-rose-500/15", iconFg: "text-rose-300" },
   };
   const c = accentMap[accent];
   return (
-    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-card/60 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-sm transition-all hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5`}>
+    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-[hsl(225,45%,8%)]/80 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-md transition-all hover:shadow-lg hover:shadow-black/40 hover:-translate-y-0.5`}>
       <div className="flex items-start justify-between gap-2">
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/5`}>
+        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/10`}>
           <Icon className={`h-4 w-4 ${c.iconFg}`} />
         </div>
         {trend && (
-          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-400" : "bg-rose-500/15 text-rose-400"}`}>
+          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-300" : "bg-rose-500/15 text-rose-300"}`}>
             {trend.positive ? "▲" : "▼"} {trend.value}%
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight">{value}</div>
-      {sub && <div className="mt-1 text-[11px] text-muted-foreground">{sub}</div>}
+      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-white/50">{label}</div>
+      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white">{value}</div>
+      {sub && <div className="mt-1 text-[11px] text-white/55">{sub}</div>}
     </div>
   );
 }
@@ -135,14 +135,14 @@ function Panel({ title, icon: Icon, children, right, tone = "default" }: {
   tone?: "default" | "warning" | "success";
 }) {
   const toneCls = tone === "warning"
-    ? "border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-card/40"
+    ? "border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-[hsl(225,45%,8%)]/80"
     : tone === "success"
-    ? "border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-card/40"
-    : "border-border/40 bg-card/60";
+    ? "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-[hsl(225,45%,8%)]/80"
+    : "border-[hsl(var(--gold)/0.15)] bg-[hsl(225,45%,8%)]/80";
   return (
-    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-sm`}>
+    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-md shadow-lg shadow-black/30`}>
       <div className="flex items-center justify-between mb-4 gap-3">
-        <h3 className="font-semibold text-sm flex items-center gap-2">
+        <h3 className="font-semibold text-sm flex items-center gap-2 text-white">
           {Icon && <Icon className="h-4 w-4 text-[hsl(var(--gold))]" />} {title}
         </h3>
         {right}
@@ -290,8 +290,13 @@ export default function AdminDashboard() {
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
+      <div className="relative min-h-screen bg-[#020617] text-white">
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.08)] blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full bg-[hsl(var(--brand-orange)/0.06)] blur-[120px] pointer-events-none" />
+
       {/* Premium hero header */}
-      <div className="relative overflow-hidden border-b border-border/30 bg-gradient-to-b from-[hsl(var(--gold))]/5 via-background to-background">
+      <div className="relative overflow-hidden border-b border-[hsl(var(--gold)/0.15)] bg-gradient-to-b from-[hsl(var(--gold))]/[0.06] via-transparent to-transparent">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(var(--gold)/0.15),_transparent_50%)] pointer-events-none" />
         <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[hsl(var(--gold))]/10 blur-3xl pointer-events-none" />
         <div className="container max-w-7xl py-8 relative">
@@ -380,9 +385,9 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="container py-8 max-w-7xl space-y-6">
+      <div className="container py-8 max-w-7xl space-y-6 relative z-10">
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="w-full overflow-x-auto justify-start flex-nowrap h-11 bg-card/50 backdrop-blur border border-border/40">
+          <TabsList className="w-full overflow-x-auto justify-start flex-nowrap h-11 bg-[hsl(225,45%,8%)]/80 backdrop-blur-md border border-[hsl(var(--gold)/0.15)]">
             <TabsTrigger value="overview" className="gap-1.5"><BarChart3 className="h-3.5 w-3.5" /> Pregled</TabsTrigger>
             <TabsTrigger value="activity" className="gap-1.5"><Bell className="h-3.5 w-3.5" /> Aktivnost</TabsTrigger>
             <TabsTrigger value="users" className="gap-1.5">
@@ -799,6 +804,7 @@ export default function AdminDashboard() {
             )}
           </TabsContent>
         </Tabs>
+      </div>
       </div>
     </>
   );
