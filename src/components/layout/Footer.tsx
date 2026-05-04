@@ -347,8 +347,8 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
 
       {/* MOBILE payments — sada unutar footer-mobile akordiona iznad */}
 
-      {/* REVIEWS / RECENZIJE — auto-računa iz baze */}
-      {reviewCount > 0 && (
+      {/* REVIEWS / RECENZIJE — auto-računa iz baze + forma za prijavljene */}
+      {(reviewCount > 0 || !!user) && (
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 20px 8px" }}>
           <div
             style={{
