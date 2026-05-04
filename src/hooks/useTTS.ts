@@ -86,12 +86,15 @@ function applyAudioTuning(audio: HTMLAudioElement, playbackRate: number) {
 }
 
 function isMobileStandalonePlayback(): boolean {
-  // Only use the synchronous direct-stream path for true PWA standalone
-  // installs (iOS home-screen / Android installed PWA). Regular mobile
-  // browsers handle the async fetch → play() path fine and benefit from
-  // the cached/processed audio URL → guarantees ElevenLabs voice instead
-  // of falling back to the browser's Google/system voice.
+  // Use the synchronous direct-stream path on ALL mobile devices (not just PWA).
+  // Mobile browsers (especially Android Chrome + iOS Safari) lose user activation
+  // across awaits, so we MUST assign audio.src synchronously inside the click
+  // handler — otherwise audio.play() rejects and the user has to tap multiple
+  // times before audio actually starts. The edge function streams ElevenLabs
+  // audio directly, so we still get the correct voice.
   try {
+    const isMobileUA = /android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
+    if (isMobileUA) return true;
     const standaloneMQ = window.matchMedia?.("(display-mode: standalone)")?.matches === true;
     const iosStandalone = "standalone" in navigator &&
       Boolean((navigator as Navigator & { standalone?: boolean }).standalone);
