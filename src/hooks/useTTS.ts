@@ -1,7 +1,7 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
-import { getAudio, getCachedAudioUrl, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
+import { getCachedAudioUrl, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
 
 /* ── helpers ── */
 
