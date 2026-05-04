@@ -133,8 +133,8 @@ interface MusterFormBaseProps {
   rootId: string;
   title: string;
   subtitle: string;
-  pdfUrl: string;
-  pdfLabel: string;
+  pdfUrl?: string;
+  pdfLabel?: string;
   footerNote: string;
   lsKey: string;
   formularId?: string;
