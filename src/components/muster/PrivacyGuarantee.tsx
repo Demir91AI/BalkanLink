@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { ShieldCheck, Lock, MonitorSmartphone, EyeOff, ServerOff, Trash2 } from "lucide-react";
+import { useLocalizedHref } from "@/hooks/useLocalizedHref";
+import { Link } from "react-router-dom";
 
 /**
  * Snažan vizuelni "Privacy Guarantee" banner za Muster formulare.
@@ -8,6 +10,7 @@ import { ShieldCheck, Lock, MonitorSmartphone, EyeOff, ServerOff, Trash2 } from 
  */
 export default function PrivacyGuarantee() {
   const { t } = useTranslation("forms");
+  const localize = useLocalizedHref();
 
   const points = [
     { icon: MonitorSmartphone, key: "p1" },
@@ -61,7 +64,12 @@ export default function PrivacyGuarantee() {
         display: "flex", alignItems: "center", gap: 6,
       }}>
         <Lock size={12} />
-        <span>{t("musterFlow.privacy.footer")}</span>
+        <span>
+          {t("musterFlow.privacy.footer")}{" "}
+          <Link to={localize("/datenschutz")} style={{ color: "#065F46", textDecoration: "underline", fontWeight: 600 }}>
+            Datenschutz §6a →
+          </Link>
+        </span>
       </div>
     </div>
   );
