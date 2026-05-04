@@ -350,7 +350,7 @@ export default function FormCenter() {
             <span className="text-[10px] text-muted-foreground truncate block">{item.includes}</span>
           )}
         </div>
-        <ItemBadge slug={item.slug} />
+        <ItemBadge slug={item.slug} hidden={isPremium} />
       </button>
     );
   };
