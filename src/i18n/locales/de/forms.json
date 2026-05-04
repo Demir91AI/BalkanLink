@@ -127,6 +127,17 @@
       "continue": "Weiter zum Ausfüllen",
       "cancel": "Abbrechen"
     },
+    "privacy": {
+      "title": "Deine Daten bleiben bei dir",
+      "subtitle": "100% privat — verlassen niemals dein Gerät",
+      "points": {
+        "p1": "Alle Eingaben bleiben <strong>NUR auf deinem Handy/Computer</strong> — im Speicher deines Browsers.",
+        "p2": "<strong>Nichts wird gesendet</strong> an BalkanLink-Server, Datenbank oder Dritte.",
+        "p3": "<strong>Niemand</strong> — weder wir, Admins noch Entwickler — <strong>kann deine Daten sehen</strong>.",
+        "p4": "Du kannst alles jederzeit über „Formular zurücksetzen\" löschen. Browser-Cache leeren = alles weg."
+      },
+      "footer": "Geprüft: nichts auf dem Server. Alles passiert lokal in deinem Browser."
+    },
     "downloadPdf": {
       "button": "📄 Ausgefülltes PDF herunterladen",
       "hint": "Öffnet den Druckdialog — wähle „Als PDF speichern\""
