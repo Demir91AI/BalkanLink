@@ -173,7 +173,6 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
     if (step + 1 >= maxExercises || step + 1 >= exercises.length) {
       completeLesson(lesson.id);
       setStageComplete(true);
-      if (selectedStage !== null) clearStageProgress(lesson.id, selectedStage);
       return;
     }
 
@@ -186,10 +185,8 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
       setStageComplete(false);
       return;
     }
-    if (step > 0 && !answered) {
-      setStep(s => s - 1);
-      setResults(r => r.slice(0, -1));
-    } else if (selectedStage !== null) {
+    // Back never rewinds individual questions — always exit the stage.
+    if (selectedStage !== null) {
       setSelectedStage(null);
       setStep(0);
       setResults([]);
@@ -200,13 +197,11 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
   };
 
   const handleRestart = () => {
-    if (selectedStage !== null) clearStageProgress(lesson.id, selectedStage);
     setStep(0);
     setResults([]);
     setAnswered(false);
     setStageComplete(false);
     setExercises([]);
-    setResumed(false);
     if (selectedStage !== null) {
       const stageType = STAGE_TYPES[selectedStage] || "Grundlagen";
       const stage = lesson.stages[selectedStage];
