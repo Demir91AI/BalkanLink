@@ -329,8 +329,8 @@ export default function KindergeldPreviewWindow() {
             <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" bhs={t("kg1Fields.anschriftAbweichend")} example={t("kg1Fields.leaveEmpty")} flex={1} value={f.eAnschrift} onChange={(v) => set("eAnschrift", v)} />
           </Row>
 
-          <SecHeader num={3} title="Angaben zum Zahlungsweg" />
-          <div style={{ ...captionAbove, fontSize: 10, color: "#111", margin: "4px 0" }}>IBAN</div>
+          <SecHeader num={3} title="Angaben zum Zahlungsweg" bhs={t("kg1Texts.sectionZahlungsweg")} />
+          <div style={{ ...captionAbove, fontSize: 10, color: "#111", margin: "4px 0" }}>IBAN <span style={{ color: "#b8860b", fontStyle: "italic" }}>(IBAN bankovnog računa)</span></div>
           <div style={{ marginBottom: 10 }}>
             <IdBoxes count={22} value={f.iban} onChange={(v) => set("iban", v)} />
           </div>
@@ -339,19 +339,25 @@ export default function KindergeldPreviewWindow() {
             <Field label="Bank, Finanzinstitut (ggf. Zweigstelle)" bhs={t("kg1Fields.bank")} example="Deutsche Bank Berlin" flex={3} value={f.bank} onChange={(v) => set("bank", v)} />
           </Row>
 
-          <div style={{ marginTop: 10, fontWeight: 700, fontSize: 11 }}>Kontoinhaber(in) ist</div>
-          <div style={{ marginTop: 6, display: "flex", flexDirection: "column", gap: 4 }}>
-            <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11 }}>
+          <div style={{ marginTop: 10, fontWeight: 700, fontSize: 11 }}>
+            Kontoinhaber(in) ist
+            <div style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10, fontWeight: 600 }}>{t("kg1Texts.kontoinhaber")}</div>
+          </div>
+          <div style={{ marginTop: 6, display: "flex", flexDirection: "column", gap: 6 }}>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 11 }}>
               <input type="radio" name="kh" checked={f.kontoinhaber === "self"} onChange={() => set("kontoinhaber", "self")} />
-              antragstellende Person wie unter Nr. 1
+              <span>antragstellende Person wie unter Nr. 1<br /><span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.selbst")}</span></span>
             </label>
-            <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11 }}>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 11 }}>
               <input type="radio" name="kh" checked={f.kontoinhaber === "other"} onChange={() => set("kontoinhaber", "other")} />
-              andere Person, nämlich:
-              <span style={{ flex: 1, borderBottom: "1px dotted #6b7280", marginLeft: 8 }}>
-                {f.kontoinhaber === "other" ? (
-                  <input style={{ ...inpBare, fontSize: 12 }} value={f.khName} onChange={(e) => set("khName", e.target.value)} />
-                ) : null}
+              <span style={{ flex: 1 }}>
+                andere Person, nämlich:<br />
+                <span style={{ color: "#b8860b", fontStyle: "italic", fontSize: 10 }}>{t("kg1Texts.anderePerson")}</span>
+                <span style={{ display: "block", borderBottom: "1px dotted #6b7280", marginTop: 4 }}>
+                  {f.kontoinhaber === "other" ? (
+                    <input style={{ ...inpBare, fontSize: 12 }} value={f.khName} onChange={(e) => set("khName", e.target.value)} />
+                  ) : null}
+                </span>
               </span>
             </label>
           </div>
