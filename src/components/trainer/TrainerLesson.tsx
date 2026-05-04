@@ -48,26 +48,8 @@ interface Props {
   onStageChange?: (stage: number | null) => void;
 }
 
-// ── In-progress save (localStorage) ────────────────
-const SAVE_PREFIX = "balkanlink_trainer_inprogress:";
-type SavedStage = { step: number; results: boolean[]; exercises: Exercise[]; ts: number };
-function loadStageProgress(lessonId: string, stage: number): SavedStage | null {
-  try {
-    const raw = localStorage.getItem(`${SAVE_PREFIX}${lessonId}:${stage}`);
-    if (!raw) return null;
-    const p = JSON.parse(raw) as SavedStage;
-    if (!p.exercises || !Array.isArray(p.exercises)) return null;
-    return p;
-  } catch { return null; }
-}
-function saveStageProgress(lessonId: string, stage: number, data: SavedStage) {
-  try {
-    localStorage.setItem(`${SAVE_PREFIX}${lessonId}:${stage}`, JSON.stringify(data));
-  } catch {}
-}
-function clearStageProgress(lessonId: string, stage: number) {
-  try { localStorage.removeItem(`${SAVE_PREFIX}${lessonId}:${stage}`); } catch {}
-}
+// In-progress mid-lesson resume logic intentionally removed.
+// Only completed lessons persist (via useTrainerProgress).
 
 export default function TrainerLesson({ lesson, onBack, stage: controlledStage, onStageChange }: Props) {
   const { t } = useTranslation("pages");
