@@ -45,7 +45,7 @@ serve(async (req) => {
     { auth: { persistSession: false } }
   );
 
-  const ADMIN_EMAIL = "demir.zijada@gmail.com";
+  const ADMIN_EMAIL = "kontakt@balkanlink.de";
   const formatAmount = (cents: number) => (cents / 100).toFixed(2);
   const notifyAdminPayment = async (payload: {
     email?: string | null;
