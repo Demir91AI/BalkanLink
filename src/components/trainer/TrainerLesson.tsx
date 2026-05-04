@@ -44,6 +44,27 @@ interface Props {
   onBack: () => void;
 }
 
+// ── In-progress save (localStorage) ────────────────
+const SAVE_PREFIX = "balkanlink_trainer_inprogress:";
+type SavedStage = { step: number; results: boolean[]; exercises: Exercise[]; ts: number };
+function loadStageProgress(lessonId: string, stage: number): SavedStage | null {
+  try {
+    const raw = localStorage.getItem(`${SAVE_PREFIX}${lessonId}:${stage}`);
+    if (!raw) return null;
+    const p = JSON.parse(raw) as SavedStage;
+    if (!p.exercises || !Array.isArray(p.exercises)) return null;
+    return p;
+  } catch { return null; }
+}
+function saveStageProgress(lessonId: string, stage: number, data: SavedStage) {
+  try {
+    localStorage.setItem(`${SAVE_PREFIX}${lessonId}:${stage}`, JSON.stringify(data));
+  } catch {}
+}
+function clearStageProgress(lessonId: string, stage: number) {
+  try { localStorage.removeItem(`${SAVE_PREFIX}${lessonId}:${stage}`); } catch {}
+}
+
 export default function TrainerLesson({ lesson, onBack }: Props) {
   const { t } = useTranslation("pages");
   const navigate = useNavigate();
@@ -56,6 +77,7 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [stageComplete, setStageComplete] = useState(false);
   const [initialLoading, setInitialLoading] = useState(false);
+  const [resumed, setResumed] = useState(false);
   const loadingRef = useRef(false);
 
   const { completeLesson } = useTrainerProgress();
@@ -74,12 +96,30 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
       setAnswered(false);
       setStageComplete(false);
       setInitialLoading(false);
+      setResumed(false);
       return;
     }
 
     const stage = lesson.stages[selectedStage];
-    const staticEx = (stage?.exercises ?? []).map(shuffleExercise);
     const stageType = STAGE_TYPES[selectedStage] || "Grundlagen";
+
+    // Try restoring saved progress first
+    const saved = loadStageProgress(lesson.id, selectedStage);
+    if (saved && saved.exercises.length > 0 && saved.step < saved.exercises.length) {
+      setExercises(saved.exercises);
+      setStep(saved.step);
+      setResults(saved.results);
+      setAnswered(false);
+      setStageComplete(false);
+      setResumed(true);
+      // Continue generating more if needed
+      if (saved.exercises.length < maxExercises) {
+        loadMore(saved.exercises, stageType);
+      }
+      return;
+    }
+
+    const staticEx = (stage?.exercises ?? []).map(shuffleExercise);
 
     // Start with static exercises immediately
     setExercises(staticEx);
@@ -87,11 +127,22 @@ export default function TrainerLesson({ lesson, onBack }: Props) {
     setResults([]);
     setAnswered(false);
     setStageComplete(false);
+    setResumed(false);
 
     // Start AI generation
     if (staticEx.length === 0) setInitialLoading(true);
     loadMore(staticEx, stageType);
   }, [selectedStage, lesson]);
+
+  // ─── Save in-progress state on every step/results change ──
+  useEffect(() => {
+    if (selectedStage === null || stageComplete) return;
+    if (exercises.length === 0) return;
+    saveStageProgress(lesson.id, selectedStage, {
+      step, results, exercises, ts: Date.now(),
+    });
+  }, [step, results, exercises, selectedStage, stageComplete, lesson.id]);
+
 
   // ─── Generiši više pitanja ──────────────────────
   const loadMore = useCallback(async (
