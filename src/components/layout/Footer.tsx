@@ -591,6 +591,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
               })}
             </div>
           </details>
+          )}
           </div>
         </div>
       )}
