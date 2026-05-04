@@ -76,29 +76,29 @@ function KpiTile({
   trend?: { value: number; positive?: boolean };
 }) {
   const accentMap: Record<string, { border: string; glow: string; iconBg: string; iconFg: string }> = {
-    default: { border: "border-border/40 hover:border-primary/30", glow: "from-primary/[0.04]", iconBg: "bg-primary/10", iconFg: "text-primary" },
-    gold: { border: "border-[hsl(var(--gold))]/20 hover:border-[hsl(var(--gold))]/40", glow: "from-[hsl(var(--gold))]/[0.06]", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
-    green: { border: "border-emerald-500/20 hover:border-emerald-500/40", glow: "from-emerald-500/[0.05]", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-400" },
-    blue: { border: "border-sky-500/20 hover:border-sky-500/40", glow: "from-sky-500/[0.05]", iconBg: "bg-sky-500/15", iconFg: "text-sky-400" },
-    violet: { border: "border-violet-500/20 hover:border-violet-500/40", glow: "from-violet-500/[0.05]", iconBg: "bg-violet-500/15", iconFg: "text-violet-400" },
-    rose: { border: "border-rose-500/20 hover:border-rose-500/40", glow: "from-rose-500/[0.05]", iconBg: "bg-rose-500/15", iconFg: "text-rose-400" },
+    default: { border: "border-white/10 hover:border-[hsl(var(--gold)/0.35)]", glow: "from-white/[0.02]", iconBg: "bg-white/5", iconFg: "text-white/80" },
+    gold: { border: "border-[hsl(var(--gold))]/25 hover:border-[hsl(var(--gold))]/50", glow: "from-[hsl(var(--gold))]/[0.08]", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
+    green: { border: "border-emerald-500/25 hover:border-emerald-500/45", glow: "from-emerald-500/[0.06]", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-300" },
+    blue: { border: "border-sky-500/25 hover:border-sky-500/45", glow: "from-sky-500/[0.06]", iconBg: "bg-sky-500/15", iconFg: "text-sky-300" },
+    violet: { border: "border-violet-500/25 hover:border-violet-500/45", glow: "from-violet-500/[0.06]", iconBg: "bg-violet-500/15", iconFg: "text-violet-300" },
+    rose: { border: "border-rose-500/25 hover:border-rose-500/45", glow: "from-rose-500/[0.06]", iconBg: "bg-rose-500/15", iconFg: "text-rose-300" },
   };
   const c = accentMap[accent];
   return (
-    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-card/60 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-sm transition-all hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5`}>
+    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-[hsl(225,45%,8%)]/80 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-md transition-all hover:shadow-lg hover:shadow-black/40 hover:-translate-y-0.5`}>
       <div className="flex items-start justify-between gap-2">
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/5`}>
+        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/10`}>
           <Icon className={`h-4 w-4 ${c.iconFg}`} />
         </div>
         {trend && (
-          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-400" : "bg-rose-500/15 text-rose-400"}`}>
+          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-300" : "bg-rose-500/15 text-rose-300"}`}>
             {trend.positive ? "▲" : "▼"} {trend.value}%
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight">{value}</div>
-      {sub && <div className="mt-1 text-[11px] text-muted-foreground">{sub}</div>}
+      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-white/50">{label}</div>
+      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white">{value}</div>
+      {sub && <div className="mt-1 text-[11px] text-white/55">{sub}</div>}
     </div>
   );
 }
