@@ -48,26 +48,8 @@ interface Props {
   onStageChange?: (stage: number | null) => void;
 }
 
-// ── In-progress save (localStorage) ────────────────
-const SAVE_PREFIX = "balkanlink_trainer_inprogress:";
-type SavedStage = { step: number; results: boolean[]; exercises: Exercise[]; ts: number };
-function loadStageProgress(lessonId: string, stage: number): SavedStage | null {
-  try {
-    const raw = localStorage.getItem(`${SAVE_PREFIX}${lessonId}:${stage}`);
-    if (!raw) return null;
-    const p = JSON.parse(raw) as SavedStage;
-    if (!p.exercises || !Array.isArray(p.exercises)) return null;
-    return p;
-  } catch { return null; }
-}
-function saveStageProgress(lessonId: string, stage: number, data: SavedStage) {
-  try {
-    localStorage.setItem(`${SAVE_PREFIX}${lessonId}:${stage}`, JSON.stringify(data));
-  } catch {}
-}
-function clearStageProgress(lessonId: string, stage: number) {
-  try { localStorage.removeItem(`${SAVE_PREFIX}${lessonId}:${stage}`); } catch {}
-}
+// In-progress mid-lesson resume logic intentionally removed.
+// Only completed lessons persist (via useTrainerProgress).
 
 export default function TrainerLesson({ lesson, onBack, stage: controlledStage, onStageChange }: Props) {
   const { t } = useTranslation("pages");
@@ -88,7 +70,6 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [stageComplete, setStageComplete] = useState(false);
   const [initialLoading, setInitialLoading] = useState(false);
-  const [resumed, setResumed] = useState(false);
   const loadingRef = useRef(false);
 
   const { completeLesson } = useTrainerProgress();
@@ -107,52 +88,23 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
       setAnswered(false);
       setStageComplete(false);
       setInitialLoading(false);
-      setResumed(false);
       return;
     }
 
     const stage = lesson.stages[selectedStage];
     const stageType = STAGE_TYPES[selectedStage] || "Grundlagen";
-
-    // Try restoring saved progress first
-    const saved = loadStageProgress(lesson.id, selectedStage);
-    if (saved && saved.exercises.length > 0 && saved.step < saved.exercises.length) {
-      setExercises(saved.exercises);
-      setStep(saved.step);
-      setResults(saved.results);
-      setAnswered(false);
-      setStageComplete(false);
-      setResumed(true);
-      // Continue generating more if needed
-      if (saved.exercises.length < maxExercises) {
-        loadMore(saved.exercises, stageType);
-      }
-      return;
-    }
-
     const staticEx = (stage?.exercises ?? []).map(shuffleExercise);
 
-    // Start with static exercises immediately
+    // Always start fresh — no mid-lesson resume
     setExercises(staticEx);
     setStep(0);
     setResults([]);
     setAnswered(false);
     setStageComplete(false);
-    setResumed(false);
 
-    // Start AI generation
     if (staticEx.length === 0) setInitialLoading(true);
     loadMore(staticEx, stageType);
   }, [selectedStage, lesson]);
-
-  // ─── Save in-progress state on every step/results change ──
-  useEffect(() => {
-    if (selectedStage === null || stageComplete) return;
-    if (exercises.length === 0) return;
-    saveStageProgress(lesson.id, selectedStage, {
-      step, results, exercises, ts: Date.now(),
-    });
-  }, [step, results, exercises, selectedStage, stageComplete, lesson.id]);
 
 
   // ─── Generiši više pitanja ──────────────────────
@@ -221,7 +173,6 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
     if (step + 1 >= maxExercises || step + 1 >= exercises.length) {
       completeLesson(lesson.id);
       setStageComplete(true);
-      if (selectedStage !== null) clearStageProgress(lesson.id, selectedStage);
       return;
     }
 
@@ -234,10 +185,8 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
       setStageComplete(false);
       return;
     }
-    if (step > 0 && !answered) {
-      setStep(s => s - 1);
-      setResults(r => r.slice(0, -1));
-    } else if (selectedStage !== null) {
+    // Back never rewinds individual questions — always exit the stage.
+    if (selectedStage !== null) {
       setSelectedStage(null);
       setStep(0);
       setResults([]);
@@ -248,13 +197,11 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
   };
 
   const handleRestart = () => {
-    if (selectedStage !== null) clearStageProgress(lesson.id, selectedStage);
     setStep(0);
     setResults([]);
     setAnswered(false);
     setStageComplete(false);
     setExercises([]);
-    setResumed(false);
     if (selectedStage !== null) {
       const stageType = STAGE_TYPES[selectedStage] || "Grundlagen";
       const stage = lesson.stages[selectedStage];
@@ -578,15 +525,6 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
             </span>
           </div>
 
-          {resumed && (
-            <motion.div
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-4 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-2.5 text-xs font-semibold text-emerald-300"
-            >
-              ↩ {t("deutschTrainer.lessonView.resumed")}
-            </motion.div>
-          )}
 
           {exercise && (
             <>

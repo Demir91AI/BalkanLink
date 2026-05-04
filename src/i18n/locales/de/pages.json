@@ -673,7 +673,9 @@
     },
     "progress": {
       "label": "Fortschritt",
-      "lessons": "Lektionen"
+      "lessons": "Lektionen",
+      "autoSaved": "Fortschritt wird automatisch gespeichert",
+      "reset": "Fortschritt zurücksetzen"
     },
     "lesson": {
       "free": "Kostenlos",
@@ -748,6 +750,12 @@
       "lockedDefaultLabel": "Inhalte",
       "lockedSubtitle": "Verfügbar mit Premium-Abo",
       "unlockCta": "Premium freischalten"
+    },
+    "resetDialog": {
+      "title": "Gesamten Fortschritt zurücksetzen?",
+      "description": "Alle abgeschlossenen Lektionen, XP und Serien werden gelöscht. Die Aktion ist unwiderruflich. Möchtest du wirklich von vorne beginnen?",
+      "cancel": "Nein, Fortschritt behalten",
+      "confirm": "Ja, alles zurücksetzen"
     }
   },
   "classifieds": {

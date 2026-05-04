@@ -673,7 +673,9 @@
     },
     "progress": {
       "label": "Napredak",
-      "lessons": "lekcija"
+      "lessons": "lekcija",
+      "autoSaved": "Napredak se automatski čuva",
+      "reset": "Resetuj napredak"
     },
     "lesson": {
       "free": "Besplatno",
@@ -748,6 +750,12 @@
       "lockedDefaultLabel": "sadržaja",
       "lockedSubtitle": "Dostupno sa Premium pretplatom",
       "unlockCta": "Otključaj Premium"
+    },
+    "resetDialog": {
+      "title": "Resetovati sav napredak?",
+      "description": "Ovo će obrisati sve završene lekcije, XP i serije. Radnja je nepovratna. Da li sigurno želiš da kreneš od početka?",
+      "cancel": "Ne, zadrži napredak",
+      "confirm": "Da, resetuj sve"
     }
   },
   "classifieds": {

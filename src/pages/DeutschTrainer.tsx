@@ -4,9 +4,13 @@ import { SEO } from "@/components/SEO";
 import AuthGate from "@/components/AuthGate";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight } from "lucide-react";
+import { Lock, GraduationCap, CheckCircle2, X, Crown, ChevronLeft, ChevronRight, Save, RotateCcw } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
+  AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { LEVELS, LEVEL_COLORS, getLessonsForLevel, loadLessonsForLevel, FREE_LESSONS_PER_LEVEL, MAX_LEVEL, type Level, type Lesson } from "@/lib/deutsch-trainer-data";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
@@ -34,8 +38,9 @@ export default function DeutschTrainer() {
   const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
-  const { progress } = useTrainerProgress();
+  const { progress, resetProgress } = useTrainerProgress();
   const { isPremium } = useSubscription();
 
   // Resolve lesson from URL param across all levels (so refresh works)
@@ -302,6 +307,20 @@ export default function DeutschTrainer() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               />
             </div>
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-2.5 py-1 text-[10px] font-semibold text-emerald-300">
+                <Save className="h-3 w-3" />
+                {t("deutschTrainer.progress.autoSaved")}
+              </span>
+              <button
+                onClick={() => setShowResetConfirm(true)}
+                disabled={progress.completedLessons.length === 0 && progress.xp === 0}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[10px] font-bold text-white/55 transition-colors hover:border-red-500/30 hover:text-red-300 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <RotateCcw className="h-3 w-3" />
+                {t("deutschTrainer.progress.reset")}
+              </button>
+            </div>
           </div>
 
           {/* ── LESSON GRID ── */}
@@ -474,6 +493,31 @@ export default function DeutschTrainer() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Reset progress confirm */}
+      <AlertDialog open={showResetConfirm} onOpenChange={setShowResetConfirm}>
+        <AlertDialogContent className="border-white/10 bg-[hsl(225,45%,8%)] text-white">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-white">
+              {t("deutschTrainer.resetDialog.title")}
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-white/60">
+              {t("deutschTrainer.resetDialog.description")}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="border-white/10 bg-transparent text-white/80 hover:bg-white/5 hover:text-white">
+              {t("deutschTrainer.resetDialog.cancel")}
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => { resetProgress(); setShowResetConfirm(false); }}
+              className="bg-red-600 text-white hover:bg-red-500"
+            >
+              {t("deutschTrainer.resetDialog.confirm")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }
