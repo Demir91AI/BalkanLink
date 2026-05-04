@@ -131,6 +131,85 @@
       "button": "📄 Preuzmi popunjen PDF",
       "hint": "Otvara dijalog za štampanje — izaberi „Sačuvaj kao PDF\""
     },
-    "pdfFooter": "Tehnička pomoć pri popunjavanju (Ausfüllhilfe). Nije pravni ni poreski savet u smislu RDG/StBerG. Korisnik sam odgovara za tačnost i predaju nadležnom organu."
+    "pdfFooter": "Tehnička pomoć pri popunjavanju (Ausfüllhilfe). Nije pravni ni poreski savet u smislu RDG/StBerG. Korisnik sam odgovara za tačnost i predaju nadležnom organu.",
+    "elterngeld": {
+      "subtitle": "Originalan Bajern formular (ZBFS, 05/2025) — popunjavamo ga tvojim podacima",
+      "originalLink": "Otvori prazan original (ZBFS Bayern PDF)",
+      "footerNote": "1:1 originalan formular ZBFS Bayern • BalkanLink je samo Ausfüllhilfe",
+      "officialBadgeTitle": "✅ 1:1 originalan formular",
+      "officialBadgeBody": "Popunjavamo ZVANIČAN ZBFS Bayern Elterngeld antrag (verzija 05/2025) — isti onaj koji prima Elterngeldstelle. Možeš ga štampati i poslati direktno.",
+      "confirmReset": "Obrisati sve unete podatke?",
+      "generating": "Generišem PDF...",
+      "download": "📄 Preuzmi popunjen originalan PDF",
+      "downloadHint": "Možeš ga otvoriti u Adobe Reader-u, dopuniti polja koja nismo postavili (sekcije 7–14, prilozi), potpisati i poslati Elterngeldstelle.",
+      "s1": {
+        "title": "Podaci o detetu",
+        "kindName": "Prezime, ime deteta",
+        "kindNameHint": "Mustermann, Max",
+        "kindGeb": "Datum i mesto rođenja",
+        "kindGebHint": "01.01.2026, München (ako je rođeno)",
+        "entbindung": "Predviđeni termin porođaja",
+        "entbindungHint": "ako još nije rođeno"
+      },
+      "s2": {
+        "title1": "Roditelj 1 (najčešće majka)",
+        "nachname": "Familienname (Prezime)",
+        "vorname": "Vorname (Ime)",
+        "geburtsname": "Geburtsname (devojačko, ako se razlikuje)",
+        "geburtsdatum": "Geburtsdatum (Datum rođenja)",
+        "geschlecht": "Geschlecht (Pol)",
+        "gw": "ženski (weiblich)",
+        "gm": "muški (männlich)",
+        "gd": "divers",
+        "go": "bez podatka (offen)",
+        "strasse": "Straße / Hausnummer (Ulica i broj)",
+        "plzOrt": "PLZ / Wohnort (Poštanski broj i mesto)",
+        "steuerId": "Steuer-Identifikationsnr (poreski ID — 11 cifara)",
+        "steuerIdHint": "Na pismu od Finanzamt-a ili na elektronskoj plati",
+        "beruf": "Zuletzt ausgeübter Beruf (poslednje zanimanje)",
+        "telefon": "Telefon (dobrovoljno)",
+        "email": "E-Mail (dobrovoljno)",
+        "familienstand": "Familienstand (Bračno stanje)",
+        "fsVerheiratet": "Verheiratet (u braku)",
+        "fsLedig": "Ledig (samac)",
+        "fsUnverheiratet": "Unverheiratet zusammenlebend (vanbračna zajednica)",
+        "fsAllein": "Alleinerziehend (samohrani roditelj)",
+        "fsSeit": "u braku od",
+        "kinderHaushalt": "Ukupan broj dece u domaćinstvu",
+        "staat": "Staatsangehörigkeit (Državljanstvo)",
+        "staatDe": "Nemačko",
+        "staatEu": "EU/EWR/Švajcarska",
+        "staatAndere": "Drugo",
+        "staatLand": "Država (npr. Srbija)"
+      },
+      "s2b": {
+        "title": "Roditelj 2 (otac / drugi roditelj)",
+        "hasPartner": "Imam partnera/partnerku — popunjavamo i podatke za drugog roditelja"
+      },
+      "s5": {
+        "title": "Varijanta Elterngeld-a",
+        "help": "BasisElterngeld = 12 meseci, 300–1.800€/mes. ElterngeldPlus = 24 meseca, pola iznosa. Kombinacija = oboje. Ako nisi siguran, izaberi BasisElterngeld 1–12.",
+        "e1Variante": "Varijanta — Roditelj 1",
+        "e2Variante": "Varijanta — Roditelj 2",
+        "vBasis": "BasisElterngeld",
+        "vPlus": "ElterngeldPlus",
+        "vKombi": "Kombinacija (Basis + Plus)",
+        "vNone": "Drugi roditelj ne traži",
+        "lmVon": "Životni mesec — od (1–14)",
+        "lmBis": "Životni mesec — do (uključno)"
+      },
+      "s15": {
+        "title": "Bankovni podaci za isplatu",
+        "bank": "Geldinstitut (Naziv banke)",
+        "kontoinhaber": "Kontoinhaber (Vlasnik računa)",
+        "kontoinhaberHint": "Ime i prezime kako stoji na bankovnoj kartici"
+      },
+      "sig": {
+        "title": "Mesto i datum potpisa",
+        "ort": "Mesto",
+        "datum": "Datum",
+        "hint": "Potpis se NE generiše digitalno — moraš ručno potpisati štampani PDF"
+      }
+    }
   }
 }
