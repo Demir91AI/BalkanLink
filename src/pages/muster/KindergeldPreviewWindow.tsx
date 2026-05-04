@@ -46,23 +46,29 @@ const fieldBox = (extra?: CSSProperties): CSSProperties => ({
   background: "#fff", boxSizing: "border-box", ...(extra ?? {}),
 });
 
-const fieldLbl: CSSProperties = { fontSize: 9, color: "#374151", lineHeight: 1.15, marginBottom: 2 };
+const fieldLbl: CSSProperties = { fontSize: 9.5, color: "#374151", lineHeight: 1.15, marginBottom: 2, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.3 };
+const bhsLbl: CSSProperties = { fontSize: 9.5, color: "#b8860b", fontStyle: "italic", lineHeight: 1.15, marginBottom: 3, fontWeight: 600 };
+const exampleHint: CSSProperties = { fontSize: 8.5, color: "#b8860b", fontStyle: "italic", marginTop: 2, lineHeight: 1.1 };
 const inpBare: CSSProperties = { border: "none", outline: "none", background: "transparent", width: "100%", fontSize: 12, fontFamily: C.font, color: "#111", padding: 0, minHeight: 18 };
 
-const Field = ({ label, value, onChange, type = "text", flex = 1, minWidth = 90 }: { label: string; value: string; onChange: (v: string) => void; type?: string; flex?: number; minWidth?: number }) => (
-  <div style={{ ...fieldBox(), flex, minWidth }}>
+const Field = ({ label, bhs, example, value, onChange, type = "text", flex = 1, minWidth = 90 }: { label: string; bhs?: string; example?: string; value: string; onChange: (v: string) => void; type?: string; flex?: number; minWidth?: number }) => (
+  <div style={{ ...fieldBox({ minHeight: 60 }), flex, minWidth }}>
     <div style={fieldLbl}>{label}</div>
-    <input style={inpBare} type={type} value={value ?? ""} onChange={(e) => onChange(e.target.value)} />
+    {bhs && <div style={bhsLbl}>{bhs}</div>}
+    <input style={inpBare} type={type} value={value ?? ""} placeholder={example} onChange={(e) => onChange(e.target.value)} />
+    {example && <div style={exampleHint}>z.B. {example}</div>}
   </div>
 );
 
-const Select = ({ label, value, onChange, options, flex = 1, minWidth = 90 }: { label: string; value: string; onChange: (v: string) => void; options: string[]; flex?: number; minWidth?: number }) => (
-  <div style={{ ...fieldBox(), flex, minWidth }}>
+const Select = ({ label, bhs, example, value, onChange, options, flex = 1, minWidth = 90 }: { label: string; bhs?: string; example?: string; value: string; onChange: (v: string) => void; options: string[]; flex?: number; minWidth?: number }) => (
+  <div style={{ ...fieldBox({ minHeight: 60 }), flex, minWidth }}>
     <div style={fieldLbl}>{label}</div>
+    {bhs && <div style={bhsLbl}>{bhs}</div>}
     <select style={{ ...inpBare, height: 18 }} value={value ?? ""} onChange={(e) => onChange(e.target.value)}>
       <option value="">—</option>
       {options.map((o) => <option key={o} value={o}>{o}</option>)}
     </select>
+    {example && <div style={exampleHint}>z.B. {example}</div>}
   </div>
 );
 
@@ -231,21 +237,21 @@ export default function KindergeldPreviewWindow() {
           </div>
 
           <Row mb={0}>
-            <Field label="Familienname" flex={3} value={f.familienname} onChange={(v) => set("familienname", v)} />
-            <Field label="Titel" flex={1} minWidth={70} value={f.titel} onChange={(v) => set("titel", v)} />
+            <Field label="Familienname" bhs="Prezime" example="Mustermann" flex={3} value={f.familienname} onChange={(v) => set("familienname", v)} />
+            <Field label="Titel" bhs="Titula" example="Dr." flex={1} minWidth={70} value={f.titel} onChange={(v) => set("titel", v)} />
           </Row>
           <Row>
-            <Field label="Vorname" flex={3} value={f.vorname} onChange={(v) => set("vorname", v)} />
-            <Field label="ggf. Geburtsname und früherer Familienname" flex={3} value={f.geburtsname} onChange={(v) => set("geburtsname", v)} />
+            <Field label="Vorname" bhs="Ime" example="Max" flex={3} value={f.vorname} onChange={(v) => set("vorname", v)} />
+            <Field label="ggf. Geburtsname und früherer Familienname" bhs="Djevojačko / ranije prezime" example="Hodžić" flex={3} value={f.geburtsname} onChange={(v) => set("geburtsname", v)} />
           </Row>
           <Row>
-            <Field label="Geburtsdatum" type="date" value={f.geburtsdatum} onChange={(v) => set("geburtsdatum", v)} />
-            <Field label="Geburtsort" flex={2} value={f.geburtsort} onChange={(v) => set("geburtsort", v)} />
-            <Select label="Geschlecht" value={f.geschlecht} onChange={(v) => set("geschlecht", v)} options={["männlich", "weiblich", "divers"]} />
-            <Field label="Staatsangehörigkeit" flex={2} value={f.staatsangehoerigkeit} onChange={(v) => set("staatsangehoerigkeit", v)} />
+            <Field label="Geburtsdatum" bhs="Datum rođenja" example="01.01.1990" type="date" value={f.geburtsdatum} onChange={(v) => set("geburtsdatum", v)} />
+            <Field label="Geburtsort" bhs="Mjesto rođenja" example="Sarajevo" flex={2} value={f.geburtsort} onChange={(v) => set("geburtsort", v)} />
+            <Select label="Geschlecht" bhs="Spol" example="männlich" value={f.geschlecht} onChange={(v) => set("geschlecht", v)} options={["männlich", "weiblich", "divers"]} />
+            <Field label="Staatsangehörigkeit" bhs="Državljanstvo" example="bosnisch-herzegowinisch" flex={2} value={f.staatsangehoerigkeit} onChange={(v) => set("staatsangehoerigkeit", v)} />
           </Row>
           <Row>
-            <Field label="Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)" flex={1} value={f.anschrift1} onChange={(v) => set("anschrift1", v)} />
+            <Field label="Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)" bhs="Adresa (ulica, broj, poštanski broj, mjesto, država)" example="Musterstr. 12, 10115 Berlin, Deutschland" flex={1} value={f.anschrift1} onChange={(v) => set("anschrift1", v)} />
           </Row>
 
           <div style={{ ...fieldBox({ marginTop: -1, padding: "6px 8px 8px" }) }}>
@@ -288,18 +294,18 @@ export default function KindergeldPreviewWindow() {
             <IdBoxes count={11} value={f.steuerId2} onChange={(v) => set("steuerId2", v)} />
           </div>
           <Row mb={0}>
-            <Field label="Familienname" flex={3} value={f.eFamilienname} onChange={(v) => set("eFamilienname", v)} />
-            <Field label="Vorname" flex={3} value={f.eVorname} onChange={(v) => set("eVorname", v)} />
-            <Field label="Titel" flex={1} minWidth={70} value={f.eTitel} onChange={(v) => set("eTitel", v)} />
+            <Field label="Familienname" bhs="Prezime (supružnik/partner)" example="Musterfrau" flex={3} value={f.eFamilienname} onChange={(v) => set("eFamilienname", v)} />
+            <Field label="Vorname" bhs="Ime" example="Maja" flex={3} value={f.eVorname} onChange={(v) => set("eVorname", v)} />
+            <Field label="Titel" bhs="Titula" example="Dr." flex={1} minWidth={70} value={f.eTitel} onChange={(v) => set("eTitel", v)} />
           </Row>
           <Row>
-            <Field label="Geburtsdatum" type="date" value={f.eGeburtsdatum} onChange={(v) => set("eGeburtsdatum", v)} />
-            <Field label="Staatsangehörigkeit" flex={2} value={f.eStaatsangehoerigkeit} onChange={(v) => set("eStaatsangehoerigkeit", v)} />
-            <Select label="Geschlecht" value={f.eGeschlecht} onChange={(v) => set("eGeschlecht", v)} options={["männlich", "weiblich", "divers"]} />
-            <Field label="ggf. Geburtsname" flex={2} value={f.eGeburtsname} onChange={(v) => set("eGeburtsname", v)} />
+            <Field label="Geburtsdatum" bhs="Datum rođenja" example="15.05.1992" type="date" value={f.eGeburtsdatum} onChange={(v) => set("eGeburtsdatum", v)} />
+            <Field label="Staatsangehörigkeit" bhs="Državljanstvo" example="bosnisch-herzegowinisch" flex={2} value={f.eStaatsangehoerigkeit} onChange={(v) => set("eStaatsangehoerigkeit", v)} />
+            <Select label="Geschlecht" bhs="Spol" example="weiblich" value={f.eGeschlecht} onChange={(v) => set("eGeschlecht", v)} options={["männlich", "weiblich", "divers"]} />
+            <Field label="ggf. Geburtsname" bhs="Djevojačko prezime" example="Kovač" flex={2} value={f.eGeburtsname} onChange={(v) => set("eGeburtsname", v)} />
           </Row>
           <Row>
-            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" flex={1} value={f.eAnschrift} onChange={(v) => set("eAnschrift", v)} />
+            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" bhs="Adresa (ako se razlikuje)" example="ostaviti prazno ako je ista" flex={1} value={f.eAnschrift} onChange={(v) => set("eAnschrift", v)} />
           </Row>
 
           <SecHeader num={3} title="Angaben zum Zahlungsweg" />
@@ -308,8 +314,8 @@ export default function KindergeldPreviewWindow() {
             <IdBoxes count={22} value={f.iban} onChange={(v) => set("iban", v)} />
           </div>
           <Row mb={0}>
-            <Field label="BIC" flex={1} minWidth={120} value={f.bic} onChange={(v) => set("bic", v)} />
-            <Field label="Bank, Finanzinstitut (ggf. Zweigstelle)" flex={3} value={f.bank} onChange={(v) => set("bank", v)} />
+            <Field label="BIC" bhs="BIC kod banke" example="DEUTDEFF" flex={1} minWidth={120} value={f.bic} onChange={(v) => set("bic", v)} />
+            <Field label="Bank, Finanzinstitut (ggf. Zweigstelle)" bhs="Naziv banke" example="Deutsche Bank Berlin" flex={3} value={f.bank} onChange={(v) => set("bank", v)} />
           </Row>
 
           <div style={{ marginTop: 10, fontWeight: 700, fontSize: 11 }}>Kontoinhaber(in) ist</div>
@@ -336,11 +342,11 @@ export default function KindergeldPreviewWindow() {
         <div className="bl-page" style={page}>
           <SecHeader num={4} title="Bescheid soll an folgende Person zugesandt werden (z. B. Berater, Anwalt)" />
           <Row mb={0}>
-            <Field label="Familienname" flex={1} value={f.bFamilienname} onChange={(v) => set("bFamilienname", v)} />
-            <Field label="Vorname" flex={1} value={f.bVorname} onChange={(v) => set("bVorname", v)} />
+            <Field label="Familienname" bhs="Prezime" example="ostaviti prazno ako nema savjetnika" flex={1} value={f.bFamilienname} onChange={(v) => set("bFamilienname", v)} />
+            <Field label="Vorname" bhs="Ime" example="ostaviti prazno ako nema savjetnika" flex={1} value={f.bVorname} onChange={(v) => set("bVorname", v)} />
           </Row>
           <Row>
-            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" flex={1} value={f.bAnschrift} onChange={(v) => set("bAnschrift", v)} />
+            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" bhs="Adresa savjetnika/odvjetnika" example="ostaviti prazno ako nema" flex={1} value={f.bAnschrift} onChange={(v) => set("bAnschrift", v)} />
           </Row>
 
           <SecHeader num={5} title="Angaben zu Kindern" />
