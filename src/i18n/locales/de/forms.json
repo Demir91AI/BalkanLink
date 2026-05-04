@@ -136,7 +136,7 @@
         "p3": "<strong>Niemand</strong> — weder wir, Admins noch Entwickler — <strong>kann deine Daten sehen</strong>.",
         "p4": "Du kannst alles jederzeit über „Formular zurücksetzen\" löschen. Browser-Cache leeren = alles weg."
       },
-      "footer": "Geprüft: nichts auf dem Server. Alles passiert lokal in deinem Browser."
+      "footer": "Zero-Knowledge-Architektur — technisch unmöglich, dass jemand außer dir deine Daten sieht."
     },
     "downloadPdf": {
       "button": "📄 Ausgefülltes PDF herunterladen",
