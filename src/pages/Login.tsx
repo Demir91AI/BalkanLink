@@ -51,7 +51,11 @@ export default function Login() {
 
       <div className="relative z-10 w-full max-w-[420px]">
         <div className="flex justify-center mb-8">
-          <Link to="/" className="group relative inline-flex items-center gap-2.5" aria-label="BalkanLink home">
+          <Link
+            to="/"
+            className="group relative inline-flex items-center gap-2.5 rounded-2xl border border-[hsl(var(--brand-orange)/0.25)] bg-card/70 backdrop-blur-sm px-5 py-3 shadow-sm shadow-black/[0.04] transition-all duration-300 hover:border-[hsl(var(--brand-orange)/0.45)] hover:shadow-md hover:shadow-[hsl(var(--brand-orange)/0.12)]"
+            aria-label="BalkanLink home"
+          >
             <span className="absolute -inset-4 rounded-2xl bg-[hsl(var(--brand-orange)/0.08)] blur-2xl group-hover:bg-[hsl(var(--brand-orange)/0.15)] transition-all duration-500 pointer-events-none" />
             <span className="relative font-heading text-[32px] font-extrabold leading-none tracking-tight">
               <span className="text-foreground">B</span>
