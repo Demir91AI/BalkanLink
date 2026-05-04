@@ -84,20 +84,21 @@ function KpiTile({
   };
   const c = accentMap[accent];
   return (
-    <div className={`group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br ${c.glow} to-card/40 p-4 ring-1 ${c.ring} backdrop-blur-sm transition-all hover:shadow-lg hover:-translate-y-0.5`}>
+    <div className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 p-4 ring-1 ${c.ring} shadow-lg shadow-black/20 backdrop-blur-md transition-all hover:shadow-xl hover:-translate-y-0.5`}>
+      <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${c.iconFg.replace("text-", "via-")}/40 to-transparent`} />
       <div className="flex items-start justify-between gap-2">
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg}`}>
-          <Icon className={`h-4 w-4 ${c.iconFg}`} />
+        <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${c.iconBg} ring-1 ${c.ring}`}>
+          <Icon className={`h-5 w-5 ${c.iconFg}`} />
         </div>
         {trend && (
-          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-400" : "bg-rose-500/15 text-rose-400"}`}>
+          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/20 text-emerald-300" : "bg-rose-500/20 text-rose-300"}`}>
             {trend.positive ? "▲" : "▼"} {trend.value}%
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight">{value}</div>
-      {sub && <div className="mt-1 text-[11px] text-muted-foreground">{sub}</div>}
+      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-slate-400">{label}</div>
+      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white">{value}</div>
+      {sub && <div className="mt-1 text-xs text-slate-300">{sub}</div>}
     </div>
   );
 }
