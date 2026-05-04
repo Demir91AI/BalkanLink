@@ -214,10 +214,7 @@ export default function KindergeldPreviewWindow() {
           style={{
             transform: `scale(${zoom})`,
             width: 820,
-            height: `${zoom * 100}%`,
             margin: "0 auto",
-            // Reserve space so scaled height doesn't clip
-            marginBottom: zoom < 1 ? 0 : undefined,
           }}
         >
           {/* PAGE 1 */}
