@@ -1,7 +1,7 @@
 import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
-import { getAudio, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
+import { getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
 
 /* ── helpers ── */
 
@@ -126,11 +126,8 @@ export function useTTS() {
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.src = "";
-        audioRef.current = null;
-      }
+      resetAudioElement(audioRef.current);
+      audioRef.current = null;
       getSynth()?.cancel();
     };
   }, []);
@@ -141,42 +138,54 @@ export function useTTS() {
    * Otherwise iOS WebKit drops the gesture activation and `play()` is rejected,
    * which silently falls back to the robotic browser speechSynthesis voice.
    */
-  const playViaProvider = useCallback(async (id: string, text: string, forceFetch = false): Promise<boolean> => {
-    // Stop any existing audio
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.src = "";
-    }
+  const playViaProvider = useCallback((requestId: number, id: string, text: string): boolean => {
+    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
+    const directUrl = getDirectAudioUrl(sentence);
+    if (!directUrl) return false;
 
-    // Create the Audio element NOW (still inside user gesture)
     const audio = new Audio();
     audio.preload = "auto";
     audio.crossOrigin = "anonymous";
     applyAudioTuning(audio, rate);
     audioRef.current = audio;
 
-    audio.onplay = () => { setActiveId(id); setPlayState("playing"); };
+    const isCurrent = () => requestSeqRef.current === requestId && audioRef.current === audio;
+
+    audio.onplay = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
+    audio.onplaying = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
     audio.onended = () => {
-      setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100);
+      setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); } }, 100);
     };
     audio.onerror = () => {
+      if (!isCurrent()) return;
       console.error(`[TTS] Playback error for ${id}`);
       setActiveId(null);
       setPlayState("idle");
     };
 
-    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
-    if (!forceFetch && isMobileStandalonePlayback()) {
-      const directUrl = getDirectAudioUrl(sentence);
-      if (!directUrl) return false;
-
-      try {
-        // Assign src SYNCHRONOUSLY inside the user gesture, then call play().
-        audio.src = directUrl;
-        audio.load();
-        const playPromise = audio.play();
-        if (playPromise && typeof playPromise.then === "function") {
-          await playPromise;
+    try {
+      audio.src = directUrl;
+      audio.load();
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch((err) => {
+          if (!isCurrent()) return;
+          console.error("[TTS] Direct audio play error:", err);
+          setActiveId(null);
+          setPlayState("idle");
+          toast.error("Audio konnte nicht abgespielt werden.");
+        });
+      }
+      return true;
+    } catch (err) {
+      if (isCurrent()) {
+        console.error("[TTS] Direct audio play error:", err);
+        setActiveId(null);
+        setPlayState("idle");
+      }
+      return false;
+    }
+  }, [rate]);
         }
         return true;
       } catch (err) {
