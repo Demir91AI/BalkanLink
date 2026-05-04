@@ -543,7 +543,7 @@ export default function FormCenter() {
             <h1 className="text-lg sm:text-xl font-semibold text-foreground truncate">
               {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
             </h1>
-            <ItemBadge slug={activeSlug} />
+            <ItemBadge slug={activeSlug} hidden={isPremium} />
           </div>
           {canAccess ? (
             <GuideContent key={activeSlug} slug={activeSlug} />
