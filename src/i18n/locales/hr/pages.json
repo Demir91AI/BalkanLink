@@ -711,7 +711,7 @@
       "backToStages": "Nazad na faze",
       "situation": "SITUACIJA",
       "finishStage": "Završi fazu ✓",
-      "next": "Dalje →",
+      "next": "Dalje",
       "stageCompleted": "{{stage}} završen!",
       "answerStats": "{{correct}} / {{total}} tačnih odgovora ({{pct}}%)",
       "nextStagePrefix": "Sljedeća faza:",

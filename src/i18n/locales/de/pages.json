@@ -711,7 +711,7 @@
       "backToStages": "Zurück zu den Phasen",
       "situation": "SITUATION",
       "finishStage": "Phase abschließen ✓",
-      "next": "Weiter →",
+      "next": "Weiter",
       "stageCompleted": "{{stage}} abgeschlossen!",
       "answerStats": "{{correct}} / {{total}} richtige Antworten ({{pct}} %)",
       "nextStagePrefix": "Nächste Phase:",
