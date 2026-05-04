@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import MusterFormBase from "@/components/muster/MusterFormBase";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import { initialData, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { fillElterngeldPdf, downloadBlob } from "@/lib/pdf-fill-elterngeld";
@@ -105,6 +106,8 @@ export default function ElterngeldMuster() {
       onReset={reset}
     >
       <MusterDisclaimer formKey="elterngeld-bayern"><></></MusterDisclaimer>
+
+      <PrivacyGuarantee />
 
       <div style={{ marginBottom: 16, padding: 14, background: "#FEF3C7", border: "2px solid #EAB308", borderRadius: 8, fontSize: 13, color: "#78350F", lineHeight: 1.5 }}>
         <strong>{t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
