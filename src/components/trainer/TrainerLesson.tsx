@@ -525,15 +525,6 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
             </span>
           </div>
 
-          {resumed && (
-            <motion.div
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-4 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-2.5 text-xs font-semibold text-emerald-300"
-            >
-              ↩ {t("deutschTrainer.lessonView.resumed")}
-            </motion.div>
-          )}
 
           {exercise && (
             <>
