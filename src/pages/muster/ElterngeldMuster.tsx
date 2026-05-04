@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import MusterFormBase from "@/components/muster/MusterFormBase";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import { initialData, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { fillElterngeldPdf, downloadBlob } from "@/lib/pdf-fill-elterngeld";
