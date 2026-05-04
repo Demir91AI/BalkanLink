@@ -211,11 +211,7 @@ export default function KindergeldPreviewWindow() {
       <div className="bl-zoom-outer">
         <div
           className="bl-zoom-inner"
-          style={{
-            zoom,
-            width: 820,
-            margin: "0 auto",
-          } as React.CSSProperties}
+          style={{ ...({ zoom } as CSSProperties), width: 820, margin: "0 auto" }}
         >
           {/* PAGE 1 */}
           <div className="bl-page" style={page}>
