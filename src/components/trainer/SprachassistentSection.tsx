@@ -14,7 +14,7 @@ interface Props {
   totalPhrases: number;
   toggle: (id: string, text: string) => void;
   activeId: string | null;
-  playState: "playing" | "paused" | "idle";
+  playState: "playing" | "loading" | "paused" | "idle";
   onUpgrade: () => void;
   rate: number;
   setRate: (r: number) => void;

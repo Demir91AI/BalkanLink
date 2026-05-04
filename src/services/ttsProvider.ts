@@ -16,11 +16,15 @@ export interface TTSSentence {
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
 
-/** In-memory session cache: id → audioUrl */
+/** In-memory session cache: sentence identity → audioUrl */
 const sessionCache = new Map<string, string>();
 
-/** Pending requests guard: id → Promise */
+/** Pending requests guard: sentence identity → Promise */
 const pendingRequests = new Map<string, Promise<string | null>>();
+
+function sentenceCacheKey(sentence: TTSSentence): string {
+  return `${sentence.id}|${TTS_CONFIG.voiceId}|${sentence.text.trim()}`;
+}
 
 /**
  * Fetch audio URL for a sentence.
@@ -30,8 +34,10 @@ const pendingRequests = new Map<string, Promise<string | null>>();
  * 4. On error → return null (caller should trigger browser fallback)
  */
 export async function getAudio(sentence: TTSSentence): Promise<string | null> {
+  const cacheKey = sentenceCacheKey(sentence);
+
   // 1. Session cache hit
-  const cached = sessionCache.get(sentence.id);
+  const cached = sessionCache.get(cacheKey);
   if (cached) {
     console.log(`[TTS] Session cache hit: ${sentence.id}`);
     return cached;
@@ -39,12 +45,12 @@ export async function getAudio(sentence: TTSSentence): Promise<string | null> {
 
   // 2. Pre-existing audioUrl
   if (sentence.audioUrl && sentence.audioStatus === "ready") {
-    sessionCache.set(sentence.id, sentence.audioUrl);
+    sessionCache.set(cacheKey, sentence.audioUrl);
     return sentence.audioUrl;
   }
 
   // 3. Duplicate request guard
-  const pending = pendingRequests.get(sentence.id);
+  const pending = pendingRequests.get(cacheKey);
   if (pending) {
     console.log(`[TTS] Reusing pending request: ${sentence.id}`);
     return pending;
@@ -52,13 +58,13 @@ export async function getAudio(sentence: TTSSentence): Promise<string | null> {
 
   // 4. Fetch from edge function
   const promise = fetchFromEdge(sentence);
-  pendingRequests.set(sentence.id, promise);
+  pendingRequests.set(cacheKey, promise);
 
   try {
     const url = await promise;
     return url;
   } finally {
-    pendingRequests.delete(sentence.id);
+    pendingRequests.delete(cacheKey);
   }
 }
 
@@ -123,7 +129,7 @@ async function fetchFromEdge(sentence: TTSSentence): Promise<string | null> {
       console.log(
         `[TTS] ${data.fromCache ? "Storage cache hit" : "Generated"} in ${elapsed}ms: ${sentence.id}`
       );
-      sessionCache.set(sentence.id, data.audioUrl);
+      sessionCache.set(sentenceCacheKey(sentence), data.audioUrl);
       return data.audioUrl;
     }
 
@@ -139,7 +145,8 @@ async function fetchFromEdge(sentence: TTSSentence): Promise<string | null> {
  */
 export function preload(sentences: TTSSentence[]): void {
   for (const s of sentences.slice(0, 2)) {
-    if (!sessionCache.has(s.id) && !pendingRequests.has(s.id)) {
+    const cacheKey = sentenceCacheKey(s);
+    if (!sessionCache.has(cacheKey) && !pendingRequests.has(cacheKey)) {
       getAudio(s).catch(() => {});
     }
   }
@@ -149,5 +156,7 @@ export function preload(sentences: TTSSentence[]): void {
  * Remove a cached entry (e.g. if audio was corrupt).
  */
 export function invalidateCache(sentenceId: string): void {
-  sessionCache.delete(sentenceId);
+  for (const key of sessionCache.keys()) {
+    if (key.startsWith(`${sentenceId}|`)) sessionCache.delete(key);
+  }
 }
