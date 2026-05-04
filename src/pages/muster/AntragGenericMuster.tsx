@@ -1,14 +1,16 @@
-import { useState, useCallback } from "react";
-import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import { useState, useCallback, type CSSProperties } from "react";
+import MusterFormBase, { S, IdBoxes, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
-const LS_KEY = "antrag-generic-muster-data";
+const LS_KEY = "kg1-muster-data";
+const PDF_URL = "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf";
 
 const initial = () => ({
+  beilagenAnzahl: "",
   steuerId1: "", familienname: "", titel: "", vorname: "", geburtsname: "", geburtsdatum: "", geburtsort: "", geschlecht: "", staatsangehoerigkeit: "", strasse: "", plz: "", wohnort: "", staat: "Deutschland", familienstand: "", seit: "",
   steuerId2: "", eFamilienname: "", eVorname: "", eTitel: "", eGeburtsdatum: "", eStaatsangehoerigkeit: "", eGeschlecht: "", eGeburtsname: "", eAnschrift: "",
   iban: "", bic: "", bank: "", kontoinhaber: "self" as string, khName: "", khVorname: "",
   bFamilienname: "", bVorname: "", bAnschrift: "",
-  kinder: Array.from({ length: 5 }, () => ({ vorname: "", geburtsdatum: "", geschlecht: "", referenz: "" })),
+  kinder: Array.from({ length: 5 }, () => ({ vorname: "", geburtsdatum: "", geschlecht: "", familienkasse: "" })),
   kinder2: Array.from({ length: 4 }, () => ({ vorname: "", geburtsdatum: "", geschlecht: "", empfaenger: "", referenz: "" })),
   ort: "", datum: "",
 });
@@ -16,18 +18,99 @@ const initial = () => ({
 const fsList = [
   { value: "ledig", label: "ledig" },
   { value: "verheiratet", label: "verheiratet" },
-  { value: "lebenspartnerschaft", label: "in eingetragener Lebenspartnerschaft lebend" },
+  { value: "lebenspartnerschaft", label: "in eingetragener Lebenspartnerschaft" },
   { value: "geschieden", label: "geschieden" },
+  { value: "aufgehoben", label: "aufgehobene Lebenspartnerschaft" },
   { value: "verwitwet", label: "verwitwet" },
   { value: "getrennt", label: "dauernd getrennt lebend" },
 ];
 
-/**
- * Generički "Antrag — Musterformular".
- * Struktura prati layout iz uploaded PDF generatora (sekcije 1-6, IBAN/BIC, tabele djece).
- * Bez ikakvih državnih oznaka, oficijelnog naziva ili broja formulara.
- * Isključivo Übungszweck — jasan disclaimer u headeru i footeru.
- */
+const compactLabel: CSSProperties = {
+  fontSize: 9,
+  color: "#4b5563",
+  lineHeight: 1.2,
+  marginBottom: 3,
+  fontWeight: 600,
+};
+
+const compactInput: CSSProperties = {
+  ...S.inp,
+  minHeight: 28,
+  borderRadius: 0,
+  padding: "5px 7px",
+  fontSize: 12,
+};
+
+const lineBox: CSSProperties = {
+  border: "1px solid #9ca3af",
+  padding: 8,
+  marginBottom: 8,
+};
+
+const row: CSSProperties = {
+  display: "flex",
+  gap: 8,
+  flexWrap: "wrap",
+  marginBottom: 8,
+};
+
+const th: CSSProperties = {
+  border: "1px solid #9ca3af",
+  padding: "5px 6px",
+  background: "#f3f4f6",
+  color: "#374151",
+  fontSize: 9,
+  lineHeight: 1.2,
+  textAlign: "left",
+  fontWeight: 700,
+};
+
+const td: CSSProperties = {
+  border: "1px solid #9ca3af",
+  padding: 2,
+  verticalAlign: "top",
+};
+
+const tableInput: CSSProperties = {
+  ...compactInput,
+  border: "none",
+  minHeight: 30,
+  padding: "4px 5px",
+};
+
+const Section = ({ num, title, children }: { num: number; title: string; children: React.ReactNode }) => (
+  <section style={{ marginBottom: 14, breakInside: "avoid" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "30px 1fr", alignItems: "stretch", marginBottom: 8 }}>
+      <div style={{ background: "#e5e7eb", border: "1px solid #9ca3af", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 14 }}>{num}</div>
+      <div style={{ border: "1px solid #9ca3af", borderLeft: 0, padding: "6px 8px", fontWeight: 700, fontSize: 13 }}>{title}</div>
+    </div>
+    {children}
+  </section>
+);
+
+const CompactField = ({ label, value, onChange, type = "text", flex = 1, width, disabled }: { label: string; value: string; onChange: (v: string) => void; type?: string; flex?: number; width?: number; disabled?: boolean }) => (
+  <div style={{ flex, minWidth: width ?? 120 }}>
+    <div style={compactLabel}>{label}</div>
+    <input style={compactInput} type={type} value={value ?? ""} disabled={disabled} onChange={(e) => onChange(e.target.value)} />
+  </div>
+);
+
+const SelectField = ({ label, value, onChange, options, flex = 1 }: { label: string; value: string; onChange: (v: string) => void; options: string[]; flex?: number }) => (
+  <div style={{ flex, minWidth: 110 }}>
+    <div style={compactLabel}>{label}</div>
+    <select style={compactInput} value={value ?? ""} onChange={(e) => onChange(e.target.value)}>
+      <option value="">—</option>
+      {options.map((option) => <option key={option} value={option}>{option}</option>)}
+    </select>
+  </div>
+);
+
+const PageFooter = ({ page }: { page: string }) => (
+  <div style={{ borderTop: "1px solid #d1d5db", color: "#6b7280", fontSize: 10, margin: "16px 0", paddingTop: 6, textAlign: "center" }}>
+    Musterformular — Seite {page} · Generisano kao primjer (BalkanLink)
+  </div>
+);
+
 export default function AntragGenericMuster() {
   const [f, setF] = useState(() => {
     try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {}
@@ -44,217 +127,190 @@ export default function AntragGenericMuster() {
 
   return (
     <MusterFormBase
-      rootId="antrag-generic-root"
+      rootId="kg1-root"
       title="Antrag — Musterformular"
-      subtitle="Übungsdokument BalkanLink — kein amtliches Formular"
-      footerNote="Übungszweck • Nicht zur Einreichung bei Behörden geeignet • BalkanLink ist keine staatliche Stelle"
+      subtitle="KG1-Übungsvorlage BalkanLink — ohne staatliche Kennzeichen"
+      pdfUrl={PDF_URL}
+      pdfLabel="Preuzmi originalni Kindergeld PDF →"
+      footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der zuständigen Stelle einreichen • BalkanLink ist keine staatliche Stelle"
       lsKey={LS_KEY}
-      formularId="antrag-generic-muster"
+      formularId="kg1-muster"
       data={f}
       onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))}
       onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}
     >
-      {/* Disclaimer banner */}
-      <div style={{
-        marginBottom: 16, padding: "10px 12px", border: "1px dashed #d1d5db",
-        background: "#fffbeb", color: "#92400e", fontSize: 11, borderRadius: 4,
-      }}>
-        ⚠ Übungsdokument — kein amtliches Formular. Nicht zur Einreichung bei Behörden geeignet.
+      <div style={{ border: "1px solid #9ca3af", padding: 10, marginBottom: 12 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap", alignItems: "flex-end" }}>
+          <p style={{ margin: 0, color: "#374151", fontSize: 11 }}>Bitte für jede Person ein eigenes Blatt ausfüllen.</p>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span style={{ ...compactLabel, margin: 0 }}>Anzahl der Beilagen:</span>
+            <input style={{ ...compactInput, width: 72 }} value={f.beilagenAnzahl} onChange={(e) => set("beilagenAnzahl", e.target.value)} />
+          </div>
+        </div>
       </div>
 
-      {/* SEKCIJA 1 */}
-      <div style={S.sec}>
-        <SecHeader num={1} title="Angaben zur antragstellenden Person" />
-        <div style={{ marginBottom: 6 }}>
-          <div style={S.lbl}>Persönliche Identifikationsnummer (soweit vergeben)</div>
-          <IdBoxes count={11} value={f.steuerId1} onChange={v => set("steuerId1", v)} />
+      <Section num={1} title="Angaben zur antragstellenden Person">
+        <div style={lineBox}>
+          <div style={compactLabel}>Persönliche Identifikationsnummer (soweit vergeben, zwingend auszufüllen)</div>
+          <IdBoxes count={11} value={f.steuerId1} onChange={(v) => set("steuerId1", v)} />
         </div>
-        <div style={S.row}>
-          <Field label="Familienname" flex={3} value={f.familienname} onChange={v => set("familienname", v)} />
-          <Field label="Titel" flex={1} value={f.titel} onChange={v => set("titel", v)} />
+        <div style={row}>
+          <CompactField label="Familienname" flex={2} value={f.familienname} onChange={(v) => set("familienname", v)} />
+          <CompactField label="Titel" width={70} value={f.titel} onChange={(v) => set("titel", v)} />
+          <CompactField label="Vorname" flex={2} value={f.vorname} onChange={(v) => set("vorname", v)} />
+          <CompactField label="ggf. Geburtsname und früherer Familienname" flex={2} value={f.geburtsname} onChange={(v) => set("geburtsname", v)} />
         </div>
-        <div style={S.row}>
-          <Field label="Vorname" flex={3} value={f.vorname} onChange={v => set("vorname", v)} />
-          <Field label="ggf. Geburtsname und früherer Familienname" flex={3} value={f.geburtsname} onChange={v => set("geburtsname", v)} />
+        <div style={row}>
+          <CompactField label="Geburtsdatum" type="date" value={f.geburtsdatum} onChange={(v) => set("geburtsdatum", v)} />
+          <CompactField label="Geburtsort" value={f.geburtsort} onChange={(v) => set("geburtsort", v)} />
+          <SelectField label="Geschlecht" value={f.geschlecht} onChange={(v) => set("geschlecht", v)} options={["männlich", "weiblich", "divers"]} />
+          <CompactField label="Staatsangehörigkeit" value={f.staatsangehoerigkeit} onChange={(v) => set("staatsangehoerigkeit", v)} />
         </div>
-        <div style={S.row}>
-          <Field label="Geburtsdatum" type="date" value={f.geburtsdatum} onChange={v => set("geburtsdatum", v)} />
-          <Field label="Geburtsort" value={f.geburtsort} onChange={v => set("geburtsort", v)} />
-          <div style={{ flex: 1 }}>
-            <div style={S.lbl}>Geschlecht</div>
-            <select style={{ ...S.inp }} value={f.geschlecht} onChange={e => set("geschlecht", e.target.value)}>
-              <option value="">—</option>
-              <option value="männlich">männlich</option>
-              <option value="weiblich">weiblich</option>
-              <option value="divers">divers</option>
-            </select>
-          </div>
-          <Field label="Staatsangehörigkeit" value={f.staatsangehoerigkeit} onChange={v => set("staatsangehoerigkeit", v)} />
+        <div style={row}>
+          <CompactField label="Anschrift (Straße/Platz, Hausnummer)" flex={2} value={f.strasse} onChange={(v) => set("strasse", v)} />
+          <CompactField label="Postleitzahl" width={90} value={f.plz} onChange={(v) => set("plz", v)} />
+          <CompactField label="Wohnort" value={f.wohnort} onChange={(v) => set("wohnort", v)} />
+          <CompactField label="Staat" value={f.staat} onChange={(v) => set("staat", v)} />
         </div>
-        <div style={S.row}>
-          <Field label="Anschrift (Straße, Hausnummer)" flex={1} value={f.strasse} onChange={v => set("strasse", v)} />
-        </div>
-        <div style={S.row}>
-          <Field label="PLZ" width={80} value={f.plz} onChange={v => set("plz", v)} />
-          <Field label="Wohnort" flex={1} value={f.wohnort} onChange={v => set("wohnort", v)} />
-          <Field label="Staat" width={120} value={f.staat} onChange={v => set("staat", v)} />
-        </div>
-        <div>
-          <div style={S.lbl}>Familienstand</div>
-          <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}>
-            <Field label="seit" type="date" width={160} value={f.seit} onChange={v => set("seit", v)} />
-          </div>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
-            {fsList.map(fs => (
-              <label key={fs.value} style={S.chk}>
+        <div style={{ ...lineBox, marginBottom: 0 }}>
+          <div style={compactLabel}>Familienstand</div>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
+            {fsList.map((fs) => (
+              <label key={fs.value} style={{ ...S.chk, fontSize: 11, marginRight: 0 }}>
                 <input type="checkbox" checked={f.familienstand === fs.value} onChange={() => set("familienstand", f.familienstand === fs.value ? "" : fs.value)} />
                 <TOpt value={fs.label} />
               </label>
             ))}
+            <div style={{ minWidth: 140 }}>
+              <CompactField label="seit" type="date" value={f.seit} onChange={(v) => set("seit", v)} />
+            </div>
           </div>
         </div>
-      </div>
+      </Section>
 
-      {/* SEKCIJA 2 */}
-      <div style={S.sec}>
-        <SecHeader num={2} title="Angaben zur weiteren Person im gemeinsamen Haushalt" />
-        <div style={{ marginBottom: 6 }}>
-          <div style={S.lbl}>Persönliche Identifikationsnummer (soweit vergeben)</div>
-          <IdBoxes count={11} value={f.steuerId2} onChange={v => set("steuerId2", v)} />
+      <Section num={2} title="Angaben zur weiteren Person im gemeinsamen Haushalt">
+        <div style={lineBox}>
+          <div style={compactLabel}>Persönliche Identifikationsnummer (soweit vergeben, bitte ausfüllen)</div>
+          <IdBoxes count={11} value={f.steuerId2} onChange={(v) => set("steuerId2", v)} />
         </div>
-        <div style={S.row}>
-          <Field label="Familienname" flex={3} value={f.eFamilienname} onChange={v => set("eFamilienname", v)} />
-          <Field label="Vorname" flex={3} value={f.eVorname} onChange={v => set("eVorname", v)} />
-          <Field label="Titel" flex={1} value={f.eTitel} onChange={v => set("eTitel", v)} />
+        <div style={row}>
+          <CompactField label="Familienname" flex={2} value={f.eFamilienname} onChange={(v) => set("eFamilienname", v)} />
+          <CompactField label="Vorname" flex={2} value={f.eVorname} onChange={(v) => set("eVorname", v)} />
+          <CompactField label="Titel" width={70} value={f.eTitel} onChange={(v) => set("eTitel", v)} />
         </div>
-        <div style={S.row}>
-          <Field label="Geburtsdatum" type="date" value={f.eGeburtsdatum} onChange={v => set("eGeburtsdatum", v)} />
-          <Field label="Staatsangehörigkeit" value={f.eStaatsangehoerigkeit} onChange={v => set("eStaatsangehoerigkeit", v)} />
-          <div style={{ flex: 1 }}>
-            <div style={S.lbl}>Geschlecht</div>
-            <select style={{ ...S.inp }} value={f.eGeschlecht} onChange={e => set("eGeschlecht", e.target.value)}>
-              <option value="">—</option>
-              <option value="männlich">männlich</option>
-              <option value="weiblich">weiblich</option>
-              <option value="divers">divers</option>
-            </select>
+        <div style={row}>
+          <CompactField label="Geburtsdatum" type="date" value={f.eGeburtsdatum} onChange={(v) => set("eGeburtsdatum", v)} />
+          <CompactField label="Staatsangehörigkeit" value={f.eStaatsangehoerigkeit} onChange={(v) => set("eStaatsangehoerigkeit", v)} />
+          <SelectField label="Geschlecht" value={f.eGeschlecht} onChange={(v) => set("eGeschlecht", v)} options={["männlich", "weiblich", "divers"]} />
+          <CompactField label="ggf. Geburtsname" value={f.eGeburtsname} onChange={(v) => set("eGeburtsname", v)} />
+        </div>
+        <CompactField label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" value={f.eAnschrift} onChange={(v) => set("eAnschrift", v)} />
+      </Section>
+
+      <Section num={3} title="Angaben zum Zahlungsweg">
+        <div style={lineBox}>
+          <div style={compactLabel}>IBAN</div>
+          <IdBoxes count={22} value={f.iban} onChange={(v) => set("iban", v)} />
+        </div>
+        <div style={row}>
+          <CompactField label="BIC" value={f.bic} onChange={(v) => set("bic", v)} />
+          <CompactField label="Bank, Finanzinstitut (ggf. Zweigstelle)" flex={2} value={f.bank} onChange={(v) => set("bank", v)} />
+        </div>
+        <div style={lineBox}>
+          <div style={compactLabel}>Kontoinhaber(in) ist</div>
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+            <label style={{ ...S.chk, fontSize: 11 }}><input type="radio" name="antrag-kh" checked={f.kontoinhaber === "self"} onChange={() => set("kontoinhaber", "self")} /> antragstellende Person wie unter Nr. 1</label>
+            <label style={{ ...S.chk, fontSize: 11 }}><input type="radio" name="antrag-kh" checked={f.kontoinhaber === "other"} onChange={() => set("kontoinhaber", "other")} /> andere Person, nämlich:</label>
           </div>
-          <Field label="ggf. Geburtsname" value={f.eGeburtsname} onChange={v => set("eGeburtsname", v)} />
+          {f.kontoinhaber === "other" && (
+            <div style={{ ...row, marginTop: 8, marginBottom: 0 }}>
+              <CompactField label="Familienname" value={f.khName} onChange={(v) => set("khName", v)} />
+              <CompactField label="Vorname" value={f.khVorname} onChange={(v) => set("khVorname", v)} />
+            </div>
+          )}
         </div>
-        <div style={S.row}>
-          <Field label="Anschrift, falls abweichend" flex={1} value={f.eAnschrift} onChange={v => set("eAnschrift", v)} />
-        </div>
-      </div>
+      </Section>
 
-      {/* SEKCIJA 3 */}
-      <div style={S.sec}>
-        <SecHeader num={3} title="Angaben zum Zahlungsweg" />
-        <div style={{ marginBottom: 6 }}>
-          <div style={S.lbl}>IBAN</div>
-          <IdBoxes count={22} value={f.iban} onChange={v => set("iban", v)} />
-        </div>
-        <div style={S.row}>
-          <Field label="BIC" flex={1} value={f.bic} onChange={v => set("bic", v)} />
-          <Field label="Bank / Finanzinstitut (ggf. Zweigstelle)" flex={2} value={f.bank} onChange={v => set("bank", v)} />
-        </div>
-        <div>
-          <div style={S.lbl}>Kontoinhaber/in</div>
-          <div style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
-            <label style={S.chk}><input type="radio" name="kh" checked={f.kontoinhaber === "self"} onChange={() => set("kontoinhaber", "self")} /> antragstellende Person</label>
-            <label style={S.chk}><input type="radio" name="kh" checked={f.kontoinhaber === "other"} onChange={() => set("kontoinhaber", "other")} /> andere Person, nämlich:</label>
-            {f.kontoinhaber === "other" && (
-              <div style={{ display: "flex", gap: 8, flex: 1 }}>
-                <Field label="Familienname" value={f.khName} onChange={v => set("khName", v)} />
-                <Field label="Vorname" value={f.khVorname} onChange={v => set("khVorname", v)} />
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+      <PageFooter page="1/2" />
 
-      {/* SEKCIJA 4 */}
-      <div style={S.sec}>
-        <SecHeader num={4} title="Bescheid soll an folgende Person zugesandt werden (z. B. Berater, Anwalt)" />
-        <div style={S.row}>
-          <Field label="Familienname" value={f.bFamilienname} onChange={v => set("bFamilienname", v)} />
-          <Field label="Vorname" value={f.bVorname} onChange={v => set("bVorname", v)} />
+      <Section num={4} title="Bescheid soll an folgende Person zugesandt werden (z. B. Berater, Anwalt)">
+        <div style={row}>
+          <CompactField label="Familienname" value={f.bFamilienname} onChange={(v) => set("bFamilienname", v)} />
+          <CompactField label="Vorname" value={f.bVorname} onChange={(v) => set("bVorname", v)} />
         </div>
-        <div style={S.row}>
-          <Field label="Anschrift, falls abweichend" flex={1} value={f.bAnschrift} onChange={v => set("bAnschrift", v)} />
-        </div>
-      </div>
+        <CompactField label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" value={f.bAnschrift} onChange={(v) => set("bAnschrift", v)} />
+      </Section>
 
-      {/* SEKCIJA 5 */}
-      <div style={S.sec}>
-        <SecHeader num={5} title="Angaben zu Kindern — bestehende Leistungen" />
-        <p style={{ fontSize: 10, color: "#6b7280", margin: "0 0 6px" }}>
-          Für jedes Kind bitte eine separate Zeile. Auch in Fällen abweichender Kontoverbindung.
-        </p>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11 }}>
+      <Section num={5} title="Angaben zu Kindern">
+        <p style={{ color: "#374151", fontSize: 10, margin: "0 0 7px" }}>Für jedes Kind ist eine separate Anlage einzureichen.</p>
+        <p style={{ color: "#374151", fontSize: 10, margin: "0 0 7px" }}>Für folgende Kinder bestehen bereits Leistungen (auch in Fällen abweichender Kontoverbindung, Abzweigung und Erstattung):</p>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11, marginBottom: 6 }}>
           <thead>
             <tr>
-              {["Vorname des Kindes", "Geburtsdatum", "Geschlecht", "Bei welcher Stelle (Referenznummer)?"].map(h => (
-                <th key={h} style={{ border: "1px solid #9ca3af", padding: "4px 6px", background: "#f3f4f6", fontSize: 9, color: "#6b7280", textAlign: "left", fontWeight: 600 }}>{h}</th>
-              ))}
+              {[
+                "Vorname des Kindes / ggf. abweichender Familienname",
+                "Geburtsdatum",
+                "Geschlecht",
+                "Bei welcher Stelle (Referenznummer)?",
+              ].map((h) => <th key={h} style={th}>{h}</th>)}
             </tr>
           </thead>
           <tbody>
             {f.kinder.map((k, i) => (
               <tr key={i}>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.vorname} onChange={e => setKind(i, "vorname", e.target.value)} /></td>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} type="date" value={k.geburtsdatum} onChange={e => setKind(i, "geburtsdatum", e.target.value)} /></td>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}>
-                  <select style={{ ...S.inp, border: "none" }} value={k.geschlecht} onChange={e => setKind(i, "geschlecht", e.target.value)}>
+                <td style={td}><input style={tableInput} value={k.vorname} onChange={(e) => setKind(i, "vorname", e.target.value)} /></td>
+                <td style={td}><input style={tableInput} type="date" value={k.geburtsdatum} onChange={(e) => setKind(i, "geburtsdatum", e.target.value)} /></td>
+                <td style={td}>
+                  <select style={tableInput} value={k.geschlecht} onChange={(e) => setKind(i, "geschlecht", e.target.value)}>
                     <option value="">—</option><option value="m">m</option><option value="w">w</option><option value="d">d</option>
                   </select>
                 </td>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.referenz} onChange={e => setKind(i, "referenz", e.target.value)} /></td>
+                <td style={td}><input style={tableInput} value={k.familienkasse || (k as { referenz?: string }).referenz || ""} onChange={(e) => setKind(i, "familienkasse", e.target.value)} /></td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
+      </Section>
 
-      {/* SEKCIJA 6 */}
-      <div style={S.sec}>
-        <SecHeader num={6} title="Weitere eigene Kinder, für die eine andere Person Leistungen erhält" />
+      <Section num={6} title="Weitere eigene Kinder, für die eine andere Person Leistungen erhält">
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11 }}>
           <thead>
             <tr>
-              {["Vorname des Kindes", "Geburtsdatum", "Geschlecht", "Wer erhält Leistungen", "Bei welcher Stelle"].map(h => (
-                <th key={h} style={{ border: "1px solid #9ca3af", padding: "4px 6px", background: "#f3f4f6", fontSize: 9, color: "#6b7280", textAlign: "left", fontWeight: 600 }}>{h}</th>
-              ))}
+              {[
+                "Vorname des Kindes / ggf. abweichender Familienname",
+                "Geburtsdatum",
+                "Geschlecht",
+                "Wer erhält Leistungen (Familienname, Vorname)?",
+                "Bei welcher Stelle (Referenznummer)?",
+              ].map((h) => <th key={h} style={th}>{h}</th>)}
             </tr>
           </thead>
           <tbody>
             {f.kinder2.map((k, i) => (
               <tr key={i}>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.vorname} onChange={e => setKind2(i, "vorname", e.target.value)} /></td>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} type="date" value={k.geburtsdatum} onChange={e => setKind2(i, "geburtsdatum", e.target.value)} /></td>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}>
-                  <select style={{ ...S.inp, border: "none" }} value={k.geschlecht} onChange={e => setKind2(i, "geschlecht", e.target.value)}>
+                <td style={td}><input style={tableInput} value={k.vorname} onChange={(e) => setKind2(i, "vorname", e.target.value)} /></td>
+                <td style={td}><input style={tableInput} type="date" value={k.geburtsdatum} onChange={(e) => setKind2(i, "geburtsdatum", e.target.value)} /></td>
+                <td style={td}>
+                  <select style={tableInput} value={k.geschlecht} onChange={(e) => setKind2(i, "geschlecht", e.target.value)}>
                     <option value="">—</option><option value="m">m</option><option value="w">w</option><option value="d">d</option>
                   </select>
                 </td>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.empfaenger} onChange={e => setKind2(i, "empfaenger", e.target.value)} /></td>
-                <td style={{ border: "1px solid #9ca3af", padding: 2 }}><input style={{ ...S.inp, border: "none" }} value={k.referenz} onChange={e => setKind2(i, "referenz", e.target.value)} /></td>
+                <td style={td}><input style={tableInput} value={k.empfaenger} onChange={(e) => setKind2(i, "empfaenger", e.target.value)} /></td>
+                <td style={td}><input style={tableInput} value={k.referenz} onChange={(e) => setKind2(i, "referenz", e.target.value)} /></td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
-
-      {/* Datum / Unterschrift */}
-      <div style={S.sec}>
-        <SecHeader num={7} title="Datum und Unterschrift" />
-        <div style={S.row}>
-          <Field label="Ort" value={f.ort} onChange={v => set("ort", v)} />
-          <Field label="Datum" type="date" value={f.datum} onChange={v => set("datum", v)} />
-        </div>
-        <div style={{ display: "flex", gap: 24, marginTop: 12 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(180px, 1fr)", gap: 20, marginTop: 18, alignItems: "end" }}>
+          <div style={row}>
+            <CompactField label="Ort" value={f.ort} onChange={(v) => set("ort", v)} />
+            <CompactField label="Datum" type="date" value={f.datum} onChange={(v) => set("datum", v)} />
+          </div>
           <Signature label="Unterschrift der antragstellenden Person" />
         </div>
-      </div>
+      </Section>
+
+      <PageFooter page="2/2" />
     </MusterFormBase>
   );
 }
