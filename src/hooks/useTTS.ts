@@ -251,14 +251,24 @@ export function useTTS() {
 
   const toggle = useCallback(
     (id: string, text: string) => {
+      if (activeId === id && playState === "loading") {
+        requestSeqRef.current += 1;
+        resetAudioElement(audioRef.current);
+        audioRef.current = null;
+        try { getSynth()?.cancel(); } catch { /* */ }
+        setActiveId(null);
+        setPlayState("idle");
+        return;
+      }
+
       if (activeId === id && (playState === "playing" || playState === "loading")) {
         if (audioRef.current && !audioRef.current.paused) {
           audioRef.current.pause();
-          setPlayState(playState === "loading" ? "idle" : "paused");
+          setPlayState("paused");
           return;
         }
         try { getSynth()?.pause(); } catch { /* */ }
-        setPlayState(playState === "loading" ? "idle" : "paused");
+        setPlayState("paused");
         return;
       }
       if (activeId === id && playState === "paused") {
