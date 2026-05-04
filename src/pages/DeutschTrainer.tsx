@@ -38,8 +38,9 @@ export default function DeutschTrainer() {
   const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
-  const { progress } = useTrainerProgress();
+  const { progress, resetProgress } = useTrainerProgress();
   const { isPremium } = useSubscription();
 
   // Resolve lesson from URL param across all levels (so refresh works)
