@@ -4,6 +4,7 @@ import MusterFormBase from "@/components/muster/MusterFormBase";
 import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import BundeslandSelector from "@/components/muster/BundeslandSelector";
+import ElterngeldSmartGuide from "@/components/muster/ElterngeldSmartGuide";
 import { initialData, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { fillElterngeldPdf, downloadBlob } from "@/lib/pdf-fill-elterngeld";
 import { ZBFS_AUSSENSTELLEN, ZBFS_ZUSTAENDIGKEIT_URL, getAussenstelle } from "@/lib/elterngeld-bayern-versand";
