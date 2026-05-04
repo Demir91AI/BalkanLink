@@ -307,6 +307,20 @@ export default function DeutschTrainer() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               />
             </div>
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-2.5 py-1 text-[10px] font-semibold text-emerald-300">
+                <Save className="h-3 w-3" />
+                {t("deutschTrainer.progress.autoSaved")}
+              </span>
+              <button
+                onClick={() => setShowResetConfirm(true)}
+                disabled={progress.completedLessons.length === 0 && progress.xp === 0}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[10px] font-bold text-white/55 transition-colors hover:border-red-500/30 hover:text-red-300 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <RotateCcw className="h-3 w-3" />
+                {t("deutschTrainer.progress.reset")}
+              </button>
+            </div>
           </div>
 
           {/* ── LESSON GRID ── */}
