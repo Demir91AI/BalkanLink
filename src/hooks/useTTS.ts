@@ -186,39 +186,9 @@ export function useTTS() {
       return false;
     }
   }, [rate]);
-        }
-        return true;
-      } catch (err) {
-        console.error("[TTS] Direct audio play error:", err);
-        return false;
-      }
-    }
-
-    // Prime the element with a silent play() call to keep the gesture alive on iOS PWA.
-    const primingPlay = audio.play().catch(() => { /* expected — no source yet */ });
-
-    // Now fetch the real audio URL (this is the async part)
-    const audioUrl = await getAudio(sentence);
-
-    // Wait for the priming attempt to settle so we don't race with .src assignment
-    await primingPlay;
-
-    if (!audioUrl) return false;
-    if (audioRef.current !== audio) return false; // superseded by another play
-
-    try {
-      audio.src = audioUrl;
-      audio.load();
-      await audio.play();
-      return true;
-    } catch (err) {
-      console.error("[TTS] Audio play error:", err);
-      return false;
-    }
-  }, [rate]);
 
   /* ── Browser fallback (emergency only) ── */
-  const playViaBrowserFallback = useCallback((id: string, text: string): boolean => {
+  const playViaBrowserFallback = useCallback((requestId: number, id: string, text: string): boolean => {
     if (!TTS_CONFIG.fallbackEnabled) return false;
 
     const synth = getSynth();
@@ -239,47 +209,39 @@ export function useTTS() {
     u.volume = 1.0;
 
     let started = false;
+    const isCurrent = () => requestSeqRef.current === requestId;
     const timeout = setTimeout(() => {
-      if (!started) { setActiveId(null); setPlayState("idle"); }
+      if (!started && isCurrent()) { setActiveId(null); setPlayState("idle"); }
     }, 2000);
 
-    u.onstart = () => { started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
-    u.onend = () => { clearTimeout(timeout); setTimeout(() => { setActiveId(null); setPlayState("idle"); }, 100); };
+    u.onstart = () => { if (!isCurrent()) return; started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
+    u.onend = () => { clearTimeout(timeout); setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); } }, 100); };
     u.onerror = (e) => {
       clearTimeout(timeout);
       if (e.error === "interrupted" || e.error === "canceled") return;
-      setActiveId(null); setPlayState("idle");
+      if (isCurrent()) { setActiveId(null); setPlayState("idle"); }
     };
 
-    setTimeout(() => { try { synth.speak(u); } catch { /* */ } }, 120);
+    try { synth.speak(u); } catch { return false; }
     return true;
   }, [rate]);
 
   /* ── Play: ElevenLabs first, browser fallback ── */
-  const playNew = useCallback(async (id: string, text: string) => {
-    // Stop everything
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.src = "";
-    }
+  const playNew = useCallback((id: string, text: string) => {
+    const requestId = requestSeqRef.current + 1;
+    requestSeqRef.current = requestId;
+
+    resetAudioElement(audioRef.current);
     try { getSynth()?.cancel(); } catch { /* */ }
 
     setActiveId(id);
-    setPlayState("playing");
+    setPlayState("loading");
 
-    // Try ElevenLabs first (direct stream on PWA, fetched URL elsewhere)
-    let providerOk = await playViaProvider(id, text);
+    const providerOk = playViaProvider(requestId, id, text);
     if (providerOk) return;
 
-    // If direct-stream failed (PWA only), retry once with the regular fetched
-    // URL path before falling back to the robotic browser/Google voice.
-    if (isMobileStandalonePlayback()) {
-      providerOk = await playViaProvider(id, text, true);
-      if (providerOk) return;
-    }
-
     // Browser fallback (robotic system voice — last resort)
-    const fallbackOk = playViaBrowserFallback(id, text);
+    const fallbackOk = playViaBrowserFallback(requestId, id, text);
     if (fallbackOk) return;
 
     setActiveId(null);
@@ -289,14 +251,14 @@ export function useTTS() {
 
   const toggle = useCallback(
     (id: string, text: string) => {
-      if (activeId === id && playState === "playing") {
+      if (activeId === id && (playState === "playing" || playState === "loading")) {
         if (audioRef.current && !audioRef.current.paused) {
           audioRef.current.pause();
-          setPlayState("paused");
+          setPlayState(playState === "loading" ? "idle" : "paused");
           return;
         }
         try { getSynth()?.pause(); } catch { /* */ }
-        setPlayState("paused");
+        setPlayState(playState === "loading" ? "idle" : "paused");
         return;
       }
       if (activeId === id && playState === "paused") {
@@ -315,11 +277,9 @@ export function useTTS() {
   );
 
   const stop = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.src = "";
-      audioRef.current = null;
-    }
+    requestSeqRef.current += 1;
+    resetAudioElement(audioRef.current);
+    audioRef.current = null;
     try { getSynth()?.cancel(); } catch { /* */ }
     setActiveId(null);
     setPlayState("idle");
