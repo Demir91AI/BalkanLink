@@ -106,8 +106,10 @@ self.addEventListener("fetch", (event) => {
       .catch(async () => {
         const cached = await caches.match(event.request);
         if (cached) return addSecurityHeaders(cached);
-        const fallback = await caches.match("/");
-        return fallback || Response.error();
+        // Do NOT fall back to "/" — that silently redirects deep links
+        // to homepage on offline/refresh and breaks UX. Let the browser
+        // surface the real network error instead.
+        return Response.error();
       })
   );
 });
