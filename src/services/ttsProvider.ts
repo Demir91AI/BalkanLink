@@ -26,6 +26,10 @@ function sentenceCacheKey(sentence: TTSSentence): string {
   return `${sentence.id}|${TTS_CONFIG.voiceId}|${sentence.text.trim()}`;
 }
 
+export function getCachedAudioUrl(sentence: TTSSentence): string | null {
+  return sessionCache.get(sentenceCacheKey(sentence)) ?? null;
+}
+
 /**
  * Fetch audio URL for a sentence.
  * 1. Check session cache
