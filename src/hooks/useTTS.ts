@@ -146,7 +146,7 @@ export function useTTS() {
    * Otherwise iOS WebKit drops the gesture activation and `play()` is rejected,
    * which silently falls back to the robotic browser speechSynthesis voice.
    */
-  const playViaProvider = useCallback(async (id: string, text: string): Promise<boolean> => {
+  const playViaProvider = useCallback(async (id: string, text: string, forceFetch = false): Promise<boolean> => {
     // Stop any existing audio
     if (audioRef.current) {
       audioRef.current.pause();
@@ -171,14 +171,12 @@ export function useTTS() {
     };
 
     const sentence: TTSSentence = { id, text: preprocessGerman(text) };
-    if (isMobileStandalonePlayback()) {
+    if (!forceFetch && isMobileStandalonePlayback()) {
       const directUrl = getDirectAudioUrl(sentence);
       if (!directUrl) return false;
 
       try {
         // Assign src SYNCHRONOUSLY inside the user gesture, then call play().
-        // The browser will stream the MP3 from the edge function as bytes arrive.
-        // No await before play() → iOS/Android keep the gesture activation.
         audio.src = directUrl;
         audio.load();
         const playPromise = audio.play();
@@ -193,7 +191,6 @@ export function useTTS() {
     }
 
     // Prime the element with a silent play() call to keep the gesture alive on iOS PWA.
-    // (The element is empty, so this resolves/rejects quickly without affecting UX.)
     const primingPlay = audio.play().catch(() => { /* expected — no source yet */ });
 
     // Now fetch the real audio URL (this is the async part)
