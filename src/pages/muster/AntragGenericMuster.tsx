@@ -113,7 +113,7 @@ const PageFooter = ({ page }: { page: string }) => (
 
 export default function AntragGenericMuster() {
   const [f, setF] = useState(() => {
-    try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {}
+    try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch { return initial(); }
     return initial();
   });
 
