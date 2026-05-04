@@ -84,21 +84,20 @@ function KpiTile({
   };
   const c = accentMap[accent];
   return (
-    <div className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 p-4 ring-1 ${c.ring} shadow-lg shadow-black/20 backdrop-blur-md transition-all hover:shadow-xl hover:-translate-y-0.5`}>
-      <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${c.iconFg.replace("text-", "via-")}/40 to-transparent`} />
+    <div className={`group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br ${c.glow} to-card/40 p-4 ring-1 ${c.ring} backdrop-blur-sm transition-all hover:shadow-lg hover:-translate-y-0.5`}>
       <div className="flex items-start justify-between gap-2">
-        <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${c.iconBg} ring-1 ${c.ring}`}>
-          <Icon className={`h-5 w-5 ${c.iconFg}`} />
+        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg}`}>
+          <Icon className={`h-4 w-4 ${c.iconFg}`} />
         </div>
         {trend && (
-          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/20 text-emerald-300" : "bg-rose-500/20 text-rose-300"}`}>
+          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-400" : "bg-rose-500/15 text-rose-400"}`}>
             {trend.positive ? "▲" : "▼"} {trend.value}%
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-slate-400">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white">{value}</div>
-      {sub && <div className="mt-1 text-xs text-slate-300">{sub}</div>}
+      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight">{value}</div>
+      {sub && <div className="mt-1 text-[11px] text-muted-foreground">{sub}</div>}
     </div>
   );
 }
@@ -291,52 +290,51 @@ export default function AdminDashboard() {
       </Helmet>
 
       {/* Premium hero header */}
-      <div className="relative overflow-hidden border-b border-white/10 bg-slate-950">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(var(--gold)/0.18),_transparent_60%)] pointer-events-none" />
+      <div className="relative overflow-hidden border-b border-border/30 bg-gradient-to-b from-[hsl(var(--gold))]/5 via-background to-background">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(var(--gold)/0.15),_transparent_50%)] pointer-events-none" />
         <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[hsl(var(--gold))]/10 blur-3xl pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/30 to-transparent pointer-events-none" />
         <div className="container max-w-7xl py-8 relative">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(var(--gold))]/40 to-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/50 shadow-lg shadow-[hsl(var(--gold))]/20">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[hsl(var(--gold))]/30 to-[hsl(var(--gold))]/5 ring-1 ring-[hsl(var(--gold))]/40 shadow-lg shadow-[hsl(var(--gold))]/10">
                 <ShieldCheck className="h-6 w-6 text-[hsl(var(--gold))]" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <Badge variant="outline" className="border-[hsl(var(--gold))]/50 bg-[hsl(var(--gold))]/15 text-[hsl(var(--gold))] text-[10px] font-bold tracking-wider uppercase">
+                  <Badge variant="outline" className="border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/10 text-[hsl(var(--gold))] text-[10px] font-bold tracking-wider uppercase">
                     <Sparkles className="h-3 w-3 mr-1" /> Admin
                   </Badge>
-                  <Badge variant="outline" className="border-emerald-500/50 bg-emerald-500/15 text-emerald-300 text-[10px]">
+                  <Badge variant="outline" className="border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-[10px]">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse mr-1" /> Live
                   </Badge>
                 </div>
-                <h1 className="mt-1 text-2xl md:text-3xl font-extrabold tracking-tight text-white">
+                <h1 className="mt-1 text-2xl md:text-3xl font-extrabold tracking-tight">
                   {greeting()}, {displayName}.
                 </h1>
-                <p className="text-sm text-slate-300 mt-1">
-                  Pregled platforme · BalkanLink
+                <p className="text-sm text-muted-foreground mt-1">
+                  Pregled platforme · BalkanLink ·{" "}
                   {lastRefresh && (
-                    <span className="block text-xs text-slate-400 mt-0.5">auto-refresh 30s · zadnji put {lastRefresh.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}</span>
+                    <span className="text-xs">auto-refresh 30s · zadnji put {lastRefresh.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}</span>
                   )}
                 </p>
               </div>
             </div>
             <div className="flex gap-2 flex-wrap">
-              <Button variant="outline" size="sm" onClick={() => loadAll(true)} disabled={refreshing} className="bg-white/5 border-white/15 text-white hover:bg-white/10 hover:text-white">
+              <Button variant="outline" size="sm" onClick={() => loadAll(true)} disabled={refreshing}>
                 <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${refreshing ? "animate-spin" : ""}`} /> Osvježi
               </Button>
-              <Button variant="outline" size="sm" asChild className="relative bg-white/5 border-white/15 text-white hover:bg-white/10 hover:text-white">
+              <Button variant="outline" size="sm" asChild className="relative">
                 <Link to="/admin/pitanja">
                   <HelpCircle className="h-3.5 w-3.5 mr-1.5" /> Q&A
                   {stats.pendingQuestions > 0 && (
-                    <Badge className="ml-2 h-5 min-w-[20px] px-1.5 bg-rose-500/25 text-rose-200 border-rose-500/50">{stats.pendingQuestions}</Badge>
+                    <Badge className="ml-2 h-5 min-w-[20px] px-1.5 bg-rose-500/20 text-rose-300 border-rose-500/40">{stats.pendingQuestions}</Badge>
                   )}
                 </Link>
               </Button>
-              <Button variant="outline" size="sm" asChild className="bg-white/5 border-white/15 text-white hover:bg-white/10 hover:text-white">
+              <Button variant="outline" size="sm" asChild>
                 <Link to="/admin/trialovi"><Sparkles className="h-3.5 w-3.5 mr-1.5" /> Trialovi</Link>
               </Button>
-              <Button variant="outline" size="sm" asChild className="bg-white/5 border-white/15 text-white hover:bg-white/10 hover:text-white">
+              <Button variant="outline" size="sm" asChild>
                 <Link to="/admin/forms"><FileText className="h-3.5 w-3.5 mr-1.5" /> Formulari</Link>
               </Button>
             </div>
