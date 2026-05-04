@@ -290,8 +290,13 @@ export default function AdminDashboard() {
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
+      <div className="relative min-h-screen bg-[#020617] text-white">
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.08)] blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full bg-[hsl(var(--brand-orange)/0.06)] blur-[120px] pointer-events-none" />
+
       {/* Premium hero header */}
-      <div className="relative overflow-hidden border-b border-border/30 bg-gradient-to-b from-[hsl(var(--gold))]/5 via-background to-background">
+      <div className="relative overflow-hidden border-b border-[hsl(var(--gold)/0.15)] bg-gradient-to-b from-[hsl(var(--gold))]/[0.06] via-transparent to-transparent">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(var(--gold)/0.15),_transparent_50%)] pointer-events-none" />
         <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[hsl(var(--gold))]/10 blur-3xl pointer-events-none" />
         <div className="container max-w-7xl py-8 relative">
