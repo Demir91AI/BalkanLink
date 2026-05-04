@@ -117,7 +117,7 @@ export default function ElterngeldMuster() {
       {/* Sekcija 1 — Kind */}
       <div style={sectionStyle}>
         <h3 style={h3}>1. {t("musterFlow.elterngeld.s1.title")}</h3>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field
             label={t("musterFlow.elterngeld.s1.kindName")}
             hint={t("musterFlow.elterngeld.s1.kindNameHint")}
@@ -163,13 +163,13 @@ export default function ElterngeldMuster() {
             ]} />
           <Field label={t("musterFlow.elterngeld.s2.beruf")} value={data.e1_beruf} onChange={v => update({ e1_beruf: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field label={t("musterFlow.elterngeld.s2.strasse")} value={data.e1_strasse} onChange={v => update({ e1_strasse: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field label={t("musterFlow.elterngeld.s2.plzOrt")} placeholder="80331 München" value={data.e1_plz_ort} onChange={v => update({ e1_plz_ort: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field
             label={t("musterFlow.elterngeld.s2.steuerId")}
             hint={t("musterFlow.elterngeld.s2.steuerIdHint")}
@@ -204,7 +204,7 @@ export default function ElterngeldMuster() {
             ]} />
         </div>
         {data.e1_staat !== "deutsch" && (
-          <div style={{ marginBottom: 10 }}>
+          <div style={fullRowStyle}>
             <Field label={t("musterFlow.elterngeld.s2.staatLand")} value={data.e1_staat_land} onChange={v => update({ e1_staat_land: v })} />
           </div>
         )}
@@ -233,13 +233,13 @@ export default function ElterngeldMuster() {
                   { value: "o", label: t("musterFlow.elterngeld.s2.go") },
                 ]} />
             </div>
-            <div style={{ marginBottom: 10 }}>
+            <div style={fullRowStyle}>
               <Field label={t("musterFlow.elterngeld.s2.strasse")} value={data.e2_strasse} onChange={v => update({ e2_strasse: v })} />
             </div>
-            <div style={{ marginBottom: 10 }}>
+            <div style={fullRowStyle}>
               <Field label={t("musterFlow.elterngeld.s2.plzOrt")} value={data.e2_plz_ort} onChange={v => update({ e2_plz_ort: v })} />
             </div>
-            <div style={{ marginBottom: 10 }}>
+            <div style={fullRowStyle}>
               <Field label={t("musterFlow.elterngeld.s2.steuerId")} placeholder="11 Ziffern" value={data.e2_steuer_id} onChange={v => update({ e2_steuer_id: v })} />
             </div>
             <div style={rowStyle}>
@@ -306,14 +306,14 @@ export default function ElterngeldMuster() {
       {/* Sekcija 15 — Bank */}
       <div style={sectionStyle}>
         <h3 style={h3}>15. {t("musterFlow.elterngeld.s15.title")}</h3>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field label="IBAN" placeholder="DE12 3456 …" value={data.iban} onChange={v => update({ iban: v })} />
         </div>
         <div style={rowStyle}>
           <Field label="BIC" value={data.bic} onChange={v => update({ bic: v })} />
           <Field label={t("musterFlow.elterngeld.s15.bank")} value={data.geldinstitut} onChange={v => update({ geldinstitut: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field
             label={t("musterFlow.elterngeld.s15.kontoinhaber")}
             hint={t("musterFlow.elterngeld.s15.kontoinhaberHint")}
