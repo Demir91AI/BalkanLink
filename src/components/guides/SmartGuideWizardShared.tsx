@@ -129,7 +129,7 @@ export default function SmartGuideWizardShared({
 
   return (
     <AuthGate>
-    <div className="space-y-4">
+    <div ref={topRef} className="space-y-4 scroll-mt-24">
       <div className="text-center">
         <h2 className="text-lg font-bold text-foreground">
           {t("guide.wizardTitle")}
