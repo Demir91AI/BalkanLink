@@ -171,6 +171,66 @@ export function useTTS() {
     return true;
   }, [rate]);
 
+  /* ── Play via ElevenLabs (Audio URL) ──
+   * IMPORTANT for iOS PWA: <audio> must be created synchronously inside the
+   * tap handler, BEFORE any await — otherwise WebKit drops user activation.
+   * Note: NO crossOrigin="anonymous" — it forces strict CORS that mobile
+   * browsers reject for our edge function, causing silent playback failures.
+   */
+  const playViaProvider = useCallback((requestId: number, id: string, text: string): boolean => {
+    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
+    const cachedUrl = getCachedAudioUrl(sentence);
+    const directUrl = cachedUrl ?? getDirectAudioUrl(sentence);
+    if (!directUrl) return false;
+
+    const audio = new Audio();
+    audio.preload = "auto";
+    applyAudioTuning(audio, rate);
+    audioRef.current = audio;
+
+    const isCurrent = () => requestSeqRef.current === requestId && audioRef.current === audio;
+
+    audio.onplay = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
+    audio.onplaying = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
+    audio.onended = () => {
+      setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); } }, 100);
+    };
+    audio.onerror = () => {
+      if (!isCurrent()) return;
+      console.error(`[TTS] Playback error for ${id}, falling back`);
+      // Try browser TTS as last-resort
+      const ok = playViaBrowserFallback(requestId, id, text);
+      if (!ok && isCurrent()) {
+        setActiveId(null);
+        setPlayState("idle");
+        toast.error("Audio konnte nicht abgespielt werden.");
+      }
+    };
+
+    try {
+      audio.src = directUrl;
+      audio.load();
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch((err) => {
+          if (!isCurrent()) return;
+          console.error("[TTS] play() rejected:", err);
+          // Fall back to browser TTS instead of just toasting
+          const ok = playViaBrowserFallback(requestId, id, text);
+          if (!ok && isCurrent()) {
+            setActiveId(null);
+            setPlayState("idle");
+            toast.error("Audio konnte nicht abgespielt werden.");
+          }
+        });
+      }
+      return true;
+    } catch (err) {
+      console.error("[TTS] Direct audio setup error:", err);
+      return false;
+    }
+  }, [rate, playViaBrowserFallback]);
+
   /* ── Play: ElevenLabs first, browser fallback ── */
   const playNew = useCallback((id: string, text: string) => {
     const requestId = requestSeqRef.current + 1;
