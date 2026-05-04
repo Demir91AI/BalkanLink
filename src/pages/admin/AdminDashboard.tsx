@@ -12,8 +12,9 @@ import {
   Users, TrendingUp, Crown, Eye, FileText, Loader2, Search, Calendar, CreditCard,
   AlertTriangle, HelpCircle, Activity, Euro, Zap, CheckCircle2, XCircle, Clock,
   Globe, MapPin, Sparkles, ShieldCheck, RefreshCw, Mail, BarChart3, Inbox,
-  ExternalLink, Building2,
+  ExternalLink, Building2, Bell,
 } from "lucide-react";
+import ActivityFeed from "@/components/admin/ActivityFeed";
 
 // ──────────────────────── Types ────────────────────────
 interface Stats {
@@ -383,6 +384,7 @@ export default function AdminDashboard() {
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="w-full overflow-x-auto justify-start flex-nowrap h-11 bg-card/50 backdrop-blur border border-border/40">
             <TabsTrigger value="overview" className="gap-1.5"><BarChart3 className="h-3.5 w-3.5" /> Pregled</TabsTrigger>
+            <TabsTrigger value="activity" className="gap-1.5"><Bell className="h-3.5 w-3.5" /> Aktivnost</TabsTrigger>
             <TabsTrigger value="users" className="gap-1.5">
               <Users className="h-3.5 w-3.5" /> Korisnici
               {stats.trialEndingSoon.length > 0 && (
@@ -405,6 +407,13 @@ export default function AdminDashboard() {
               )}
             </TabsTrigger>
           </TabsList>
+
+          {/* ──────────── AKTIVNOST ──────────── */}
+          <TabsContent value="activity" className="space-y-4 mt-5">
+            <Panel title="Posljednje aktivnosti korisnika" icon={Bell}>
+              <ActivityFeed />
+            </Panel>
+          </TabsContent>
 
           {/* ──────────── PREGLED ──────────── */}
           <TabsContent value="overview" className="space-y-4 mt-5">

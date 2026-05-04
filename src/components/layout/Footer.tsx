@@ -122,6 +122,14 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
     if (data && (data as any).is_approved) {
       setReviews((prev) => [data as ReviewRow, ...prev]);
     }
+    import("@/lib/admin-notify").then(({ notifyAdmin }) => {
+      notifyAdmin("admin-new-review", {
+        username: fallbackName,
+        rating: myRating,
+        comment,
+        createdAt: new Date().toISOString(),
+      }, `admin-new-review-${(data as any)?.id ?? user.id}-${Date.now()}`);
+    }).catch(() => {});
   };
 
   const reviewCount = reviews.length;
