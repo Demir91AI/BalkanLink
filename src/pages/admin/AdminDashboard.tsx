@@ -135,14 +135,14 @@ function Panel({ title, icon: Icon, children, right, tone = "default" }: {
   tone?: "default" | "warning" | "success";
 }) {
   const toneCls = tone === "warning"
-    ? "border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-card/40"
+    ? "border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-[hsl(225,45%,8%)]/80"
     : tone === "success"
-    ? "border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-card/40"
-    : "border-border/40 bg-card/60";
+    ? "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-[hsl(225,45%,8%)]/80"
+    : "border-[hsl(var(--gold)/0.15)] bg-[hsl(225,45%,8%)]/80";
   return (
-    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-sm`}>
+    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-md shadow-lg shadow-black/30`}>
       <div className="flex items-center justify-between mb-4 gap-3">
-        <h3 className="font-semibold text-sm flex items-center gap-2">
+        <h3 className="font-semibold text-sm flex items-center gap-2 text-white">
           {Icon && <Icon className="h-4 w-4 text-[hsl(var(--gold))]" />} {title}
         </h3>
         {right}
