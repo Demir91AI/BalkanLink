@@ -46,23 +46,29 @@ const fieldBox = (extra?: CSSProperties): CSSProperties => ({
   background: "#fff", boxSizing: "border-box", ...(extra ?? {}),
 });
 
-const fieldLbl: CSSProperties = { fontSize: 9, color: "#374151", lineHeight: 1.15, marginBottom: 2 };
+const fieldLbl: CSSProperties = { fontSize: 9.5, color: "#374151", lineHeight: 1.15, marginBottom: 2, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.3 };
+const bhsLbl: CSSProperties = { fontSize: 9.5, color: "#b8860b", fontStyle: "italic", lineHeight: 1.15, marginBottom: 3, fontWeight: 600 };
+const exampleHint: CSSProperties = { fontSize: 8.5, color: "#b8860b", fontStyle: "italic", marginTop: 2, lineHeight: 1.1 };
 const inpBare: CSSProperties = { border: "none", outline: "none", background: "transparent", width: "100%", fontSize: 12, fontFamily: C.font, color: "#111", padding: 0, minHeight: 18 };
 
-const Field = ({ label, value, onChange, type = "text", flex = 1, minWidth = 90 }: { label: string; value: string; onChange: (v: string) => void; type?: string; flex?: number; minWidth?: number }) => (
-  <div style={{ ...fieldBox(), flex, minWidth }}>
+const Field = ({ label, bhs, example, value, onChange, type = "text", flex = 1, minWidth = 90 }: { label: string; bhs?: string; example?: string; value: string; onChange: (v: string) => void; type?: string; flex?: number; minWidth?: number }) => (
+  <div style={{ ...fieldBox({ minHeight: 60 }), flex, minWidth }}>
     <div style={fieldLbl}>{label}</div>
-    <input style={inpBare} type={type} value={value ?? ""} onChange={(e) => onChange(e.target.value)} />
+    {bhs && <div style={bhsLbl}>{bhs}</div>}
+    <input style={inpBare} type={type} value={value ?? ""} placeholder={example} onChange={(e) => onChange(e.target.value)} />
+    {example && <div style={exampleHint}>z.B. {example}</div>}
   </div>
 );
 
-const Select = ({ label, value, onChange, options, flex = 1, minWidth = 90 }: { label: string; value: string; onChange: (v: string) => void; options: string[]; flex?: number; minWidth?: number }) => (
-  <div style={{ ...fieldBox(), flex, minWidth }}>
+const Select = ({ label, bhs, example, value, onChange, options, flex = 1, minWidth = 90 }: { label: string; bhs?: string; example?: string; value: string; onChange: (v: string) => void; options: string[]; flex?: number; minWidth?: number }) => (
+  <div style={{ ...fieldBox({ minHeight: 60 }), flex, minWidth }}>
     <div style={fieldLbl}>{label}</div>
+    {bhs && <div style={bhsLbl}>{bhs}</div>}
     <select style={{ ...inpBare, height: 18 }} value={value ?? ""} onChange={(e) => onChange(e.target.value)}>
       <option value="">—</option>
       {options.map((o) => <option key={o} value={o}>{o}</option>)}
     </select>
+    {example && <div style={exampleHint}>z.B. {example}</div>}
   </div>
 );
 
