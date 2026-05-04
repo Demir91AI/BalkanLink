@@ -3,11 +3,14 @@ import { useTranslation } from "react-i18next";
 import MusterFormBase from "@/components/muster/MusterFormBase";
 import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import BundeslandSelector from "@/components/muster/BundeslandSelector";
 import { initialData, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { fillElterngeldPdf, downloadBlob } from "@/lib/pdf-fill-elterngeld";
 import { ZBFS_AUSSENSTELLEN, ZBFS_ZUSTAENDIGKEIT_URL, getAussenstelle } from "@/lib/elterngeld-bayern-versand";
+import { DEFAULT_BUNDESLAND, getBundesland, type BundeslandId } from "@/lib/elterngeld-bundeslaender";
 
 const LS_KEY = "elterngeld-bayern-wizard-v1";
+const LS_BL_KEY = "elterngeld-bundesland-v1";
 const ORIGINAL_INFO = "https://www.zbfs.bayern.de/familienleistungen/elterngeld/";
 
 const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 6, display: "block" };
@@ -61,6 +64,19 @@ export default function ElterngeldMuster() {
   });
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [bundesland, setBundesland] = useState<BundeslandId>(() => {
+    try {
+      const s = localStorage.getItem(LS_BL_KEY) as BundeslandId | null;
+      if (s && getBundesland(s)) return s;
+    } catch { /* ignore */ }
+    return DEFAULT_BUNDESLAND;
+  });
+  const handleBundeslandChange = useCallback((id: BundeslandId) => {
+    setBundesland(id);
+    try { localStorage.setItem(LS_BL_KEY, id); } catch { /* ignore */ }
+  }, []);
+  const selectedBL = getBundesland(bundesland);
+  const isAutoFill = !!selectedBL?.autoFillSupported;
 
   const update = useCallback((patch: Partial<ElterngeldFormData>) => {
     setData(prev => {
@@ -109,13 +125,28 @@ export default function ElterngeldMuster() {
 
       <PrivacyGuarantee />
 
-      <div style={{ marginBottom: 16, padding: 14, background: "#FEF3C7", border: "2px solid #EAB308", borderRadius: 8, fontSize: 13, color: "#78350F", lineHeight: 1.5 }}>
-        <strong>{t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
-        {t("musterFlow.elterngeld.officialBadgeBody")}{" "}
-        <a href={ORIGINAL_INFO} target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontWeight: 600 }}>
-          ZBFS Bayern →
-        </a>
-      </div>
+      <BundeslandSelector value={bundesland} onChange={handleBundeslandChange} />
+
+      {isAutoFill && (
+        <div style={{ marginBottom: 16, padding: 14, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 8, fontSize: 13, color: "#065F46", lineHeight: 1.5 }}>
+          <strong>✅ {t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
+          {t("musterFlow.elterngeld.officialBadgeBody")}{" "}
+          <a href={ORIGINAL_INFO} target="_blank" rel="noopener noreferrer" style={{ color: "#065F46", fontWeight: 700, textDecoration: "underline" }}>
+            ZBFS Bayern →
+          </a>
+        </div>
+      )}
+
+      {!isAutoFill && (
+        <div style={{ padding: 20, textAlign: "center", color: "#475569", fontSize: 14, lineHeight: 1.6 }}>
+          <p style={{ marginBottom: 8 }}>
+            <strong style={{ color: "#0f172a" }}>{selectedBL?.name}</strong>
+          </p>
+          <p>{t("musterFlow.bundesland.autoFillNo", { name: selectedBL?.name ?? "" })}</p>
+        </div>
+      )}
+
+      {isAutoFill && (<>
 
       {/* Sekcija 1 — Kind */}
       <div style={sectionStyle}>
@@ -392,6 +423,7 @@ export default function ElterngeldMuster() {
           {t("musterFlow.elterngeld.downloadHint")}
         </p>
       </div>
+      </>)}
     </MusterFormBase>
   );
 }
