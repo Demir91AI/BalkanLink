@@ -78,6 +78,52 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
     };
   }, []);
 
+  // Detektuj da li je trenutni user već ostavio recenziju
+  useEffect(() => {
+    if (!user) { setHasReviewed(false); return; }
+    let cancelled = false;
+    supabase
+      .from("reviews")
+      .select("id")
+      .eq("user_id", user.id)
+      .limit(1)
+      .maybeSingle()
+      .then(({ data }) => { if (!cancelled) setHasReviewed(!!data); });
+    return () => { cancelled = true; };
+  }, [user]);
+
+  const submitReview = async () => {
+    if (!user) return;
+    if (!myRating || myRating < 1 || myRating > 5) {
+      toast.error("Odaberi ocjenu od 1 do 5 zvjezdica.");
+      return;
+    }
+    const comment = (myComment || "").trim().slice(0, 500);
+    setSubmitting(true);
+    const meta = (user.user_metadata || {}) as Record<string, any>;
+    const fallbackName =
+      meta.first_name || meta.full_name ||
+      (user.email ? user.email.split("@")[0] : "Anonimno");
+    const { error, data } = await supabase
+      .from("reviews")
+      .insert({ user_id: user.id, username: fallbackName, rating: myRating, comment })
+      .select("id, username, rating, comment, created_at, is_approved")
+      .single();
+    setSubmitting(false);
+    if (error) {
+      toast.error("Greška: " + error.message);
+      return;
+    }
+    toast.success("Hvala na recenziji!");
+    setHasReviewed(true);
+    setShowForm(false);
+    setMyRating(0);
+    setMyComment("");
+    if (data && (data as any).is_approved) {
+      setReviews((prev) => [data as ReviewRow, ...prev]);
+    }
+  };
+
   const reviewCount = reviews.length;
   const avgRating =
     reviewCount > 0
