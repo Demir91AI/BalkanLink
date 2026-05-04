@@ -392,6 +392,11 @@ function AppRoutes() {
       {!import.meta.env.PROD && (
         <Route path="/__visual/flag-ba" element={<VisualFlagBA />} />
       )}
+      {/* Standalone preview windows — no layout, no sidebar */}
+      <Route path="/muster/kindergeld/preview" element={<KindergeldPreviewWindow />} />
+      <Route path="/de/muster/kindergeld/preview" element={<KindergeldPreviewWindow />} />
+      <Route path="/hr/muster/kindergeld/preview" element={<KindergeldPreviewWindow />} />
+      <Route path="/sr/muster/kindergeld/preview" element={<KindergeldPreviewWindow />} />
       <Route path="/de/*" element={<LocalizedRoutes />} />
       <Route path="/hr/*" element={<LocalizedRoutes />} />
       <Route path="/sr/*" element={<LocalizedRoutes />} />
