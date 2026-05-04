@@ -75,19 +75,19 @@ function KpiTile({
   accent?: "default" | "gold" | "green" | "blue" | "violet" | "rose";
   trend?: { value: number; positive?: boolean };
 }) {
-  const accentMap: Record<string, { ring: string; glow: string; iconBg: string; iconFg: string }> = {
-    default: { ring: "ring-border/40", glow: "from-primary/5", iconBg: "bg-primary/10", iconFg: "text-primary" },
-    gold: { ring: "ring-[hsl(var(--gold))]/40", glow: "from-[hsl(var(--gold))]/15", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
-    green: { ring: "ring-emerald-500/40", glow: "from-emerald-500/10", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-400" },
-    blue: { ring: "ring-sky-500/40", glow: "from-sky-500/10", iconBg: "bg-sky-500/15", iconFg: "text-sky-400" },
-    violet: { ring: "ring-violet-500/40", glow: "from-violet-500/10", iconBg: "bg-violet-500/15", iconFg: "text-violet-400" },
-    rose: { ring: "ring-rose-500/40", glow: "from-rose-500/10", iconBg: "bg-rose-500/15", iconFg: "text-rose-400" },
+  const accentMap: Record<string, { border: string; glow: string; iconBg: string; iconFg: string }> = {
+    default: { border: "border-border/40 hover:border-primary/30", glow: "from-primary/[0.04]", iconBg: "bg-primary/10", iconFg: "text-primary" },
+    gold: { border: "border-[hsl(var(--gold))]/20 hover:border-[hsl(var(--gold))]/40", glow: "from-[hsl(var(--gold))]/[0.06]", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
+    green: { border: "border-emerald-500/20 hover:border-emerald-500/40", glow: "from-emerald-500/[0.05]", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-400" },
+    blue: { border: "border-sky-500/20 hover:border-sky-500/40", glow: "from-sky-500/[0.05]", iconBg: "bg-sky-500/15", iconFg: "text-sky-400" },
+    violet: { border: "border-violet-500/20 hover:border-violet-500/40", glow: "from-violet-500/[0.05]", iconBg: "bg-violet-500/15", iconFg: "text-violet-400" },
+    rose: { border: "border-rose-500/20 hover:border-rose-500/40", glow: "from-rose-500/[0.05]", iconBg: "bg-rose-500/15", iconFg: "text-rose-400" },
   };
   const c = accentMap[accent];
   return (
-    <div className={`group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br ${c.glow} to-card/40 p-4 ring-1 ${c.ring} backdrop-blur-sm transition-all hover:shadow-lg hover:-translate-y-0.5`}>
+    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-card/60 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-sm transition-all hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5`}>
       <div className="flex items-start justify-between gap-2">
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg}`}>
+        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/5`}>
           <Icon className={`h-4 w-4 ${c.iconFg}`} />
         </div>
         {trend && (
