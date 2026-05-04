@@ -209,6 +209,15 @@
         "ort": "Ort",
         "datum": "Datum",
         "hint": "Die Unterschrift wird NICHT digital generiert — du musst das ausgedruckte PDF eigenhändig unterschreiben"
+      },
+      "versand": {
+        "title": "Wohin den Antrag senden",
+        "warnTitle": "Adresse hängt vom Wohnort + Geburtsdatum des Kindes ab!",
+        "warnBody": "ZBFS Bayern hat 7 Außenstellen je Regierungsbezirk. Die zuständige Außenstelle richtet sich nach deinem Wohnort, manchmal auch nach dem Geburtsmonat des Kindes. BITTE prüfe vor dem Versand auf der ZBFS-Seite:",
+        "checkLink": "ZBFS Zuständigkeit prüfen",
+        "label": "Zuständige Außenstelle wählen",
+        "choose": "— Region wählen —",
+        "envelopeTitle": "Empfänger-Adresse für den Briefumschlag:"
       }
     }
   }
