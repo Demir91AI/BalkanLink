@@ -342,11 +342,11 @@ export default function KindergeldPreviewWindow() {
         <div className="bl-page" style={page}>
           <SecHeader num={4} title="Bescheid soll an folgende Person zugesandt werden (z. B. Berater, Anwalt)" />
           <Row mb={0}>
-            <Field label="Familienname" flex={1} value={f.bFamilienname} onChange={(v) => set("bFamilienname", v)} />
-            <Field label="Vorname" flex={1} value={f.bVorname} onChange={(v) => set("bVorname", v)} />
+            <Field label="Familienname" bhs="Prezime" example="ostaviti prazno ako nema savjetnika" flex={1} value={f.bFamilienname} onChange={(v) => set("bFamilienname", v)} />
+            <Field label="Vorname" bhs="Ime" example="ostaviti prazno ako nema savjetnika" flex={1} value={f.bVorname} onChange={(v) => set("bVorname", v)} />
           </Row>
           <Row>
-            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" flex={1} value={f.bAnschrift} onChange={(v) => set("bAnschrift", v)} />
+            <Field label="Anschrift, falls abweichend (Straße/Platz, Hausnr., PLZ, Wohnort, Staat)" bhs="Adresa savjetnika/odvjetnika" example="ostaviti prazno ako nema" flex={1} value={f.bAnschrift} onChange={(v) => set("bAnschrift", v)} />
           </Row>
 
           <SecHeader num={5} title="Angaben zu Kindern" />
