@@ -174,7 +174,7 @@ export default function KindergeldPreviewWindow() {
           .bl-toolbar { display: none !important; }
           .bl-banner { background: #fef3c7 !important; border: 2px solid #eab308 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; margin: 0 0 12px; }
           .bl-zoom-outer { padding: 0; overflow: visible; }
-          .bl-zoom-inner { transform: none !important; }
+          .bl-zoom-inner { zoom: 1 !important; transform: none !important; }
           .bl-zoom-inner::before {
             content: "PRIMJER · NICHT EINREICHEN";
             position: fixed; top: 50%; left: 50%;
