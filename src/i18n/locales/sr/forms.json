@@ -112,5 +112,25 @@
     "tblEmpfaenger": "Ko prima naknadu? (prezime, ime)",
     "ortDatum": "Mesto, datum",
     "unterschrift": "Potpis podnosioca zahteva"
+  },
+  "musterFlow": {
+    "disclaimer": {
+      "title": "Pre nego što nastaviš — pročitaj pažljivo",
+      "intro": "BalkanLink ti pomaže <strong>tehnički</strong> da popuniš formular podacima koje sam unosiš. Mi ti <strong>ne dajemo pravni ni poreski savet</strong> i ne šaljemo ništa u tvoje ime.",
+      "rules": [
+        "Sve što upisuješ ostaje <strong>samo na tvom uređaju</strong> (lokalno u pretraživaču). Mi nemamo pristup tim podacima.",
+        "Tačnost podataka je <strong>tvoja odgovornost</strong>. Proveri sve pre nego što potpišeš i pošalješ.",
+        "Popunjen PDF moraš <strong>sam štampati, potpisati i poslati</strong> nadležnom organu (npr. Elterngeldstelle).",
+        "Ovo <strong>nije pravna ni poreska konsultacija</strong> u smislu nemačkog RDG/StBerG zakona."
+      ],
+      "checkbox": "Razumem i prihvatam — sam šaljem formular i odgovaram za sadržaj",
+      "continue": "Nastavi i popuni",
+      "cancel": "Otkaži"
+    },
+    "downloadPdf": {
+      "button": "📄 Preuzmi popunjen PDF",
+      "hint": "Otvara dijalog za štampanje — izaberi „Sačuvaj kao PDF\""
+    },
+    "pdfFooter": "Tehnička pomoć pri popunjavanju (Ausfüllhilfe). Nije pravni ni poreski savet u smislu RDG/StBerG. Korisnik sam odgovara za tačnost i predaju nadležnom organu."
   }
 }

@@ -1,5 +1,8 @@
 import { useState, useCallback } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import DownloadFilledPdfButton from "@/components/muster/DownloadFilledPdfButton";
+import MusterPrintStyles from "@/components/muster/MusterPrintStyles";
 
 const LS_KEY = "elterngeld-muster-data";
 const PDF_URL = "https://familienportal.de/familienportal/rechner-antraege/antragsformulare";
@@ -353,7 +356,12 @@ export default function ElterngeldMuster() {
   const showEgPlus = f.e1.egPlus || f.e1.egPlusKombi || f.e2.egPlus || f.e2.egPlusKombi;
 
   return (
+    <MusterDisclaimer formKey="elterngeld">
     <MusterFormBase rootId="eg-root" title="Antrag auf Elterngeld" subtitle="Musterformular BEEG — BalkanLink — nur zur Orientierung — Stand 01/2025 — Für Geburten ab 01.01.2025" pdfUrl={PDF_URL} pdfLabel="Sve Antragsformulare po Bundesländer →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der zuständigen Elterngeldstelle einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterPrintStyles paperId="eg-root-paper" />
+      <div className="no-print" style={{ marginBottom: 16 }}>
+        <DownloadFilledPdfButton paperId="eg-root-paper" />
+      </div>
 
       <InfoBox>📋 <strong>Šta je Elterngeld?</strong><br />Elterngeld je naknada za roditelje koji ostanu kod kuće ili smanje rad nakon rođenja djeteta. Iznosi od 300€ do 1.800€ mjesečno, ovisno o prethodnoj plaći. Podnosi se u Elterngeldstelle.</InfoBox>
       <InfoBox variant="yellow">⚠️ <strong>Svaki Bundesland ima svoj formular!</strong><br />Elterngeld formular se razlikuje od savezne države do savezne države. Na linku ispod možeš pronaći tačan formular za tvoj Bundesland. Odaberi svoju saveznu državu i preuzmi odgovarajući PDF.</InfoBox>
@@ -547,5 +555,6 @@ export default function ElterngeldMuster() {
       </div>
 
     </MusterFormBase>
+    </MusterDisclaimer>
   );
 }

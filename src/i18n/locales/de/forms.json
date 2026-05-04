@@ -112,5 +112,25 @@
     "tblEmpfaenger": "Wer erhält Leistungen? (Familienname, Vorname)",
     "ortDatum": "Ort, Datum",
     "unterschrift": "Unterschrift der antragstellenden Person"
+  },
+  "musterFlow": {
+    "disclaimer": {
+      "title": "Bitte vor dem Fortfahren lesen",
+      "intro": "BalkanLink hilft dir <strong>technisch</strong> beim Ausfüllen des Formulars mit Daten, die du selbst eingibst. Wir bieten <strong>keine Rechts- oder Steuerberatung</strong> und senden nichts in deinem Namen.",
+      "rules": [
+        "Alle Eingaben bleiben <strong>nur auf deinem Gerät</strong> (lokal im Browser). Wir haben keinen Zugriff darauf.",
+        "Die Richtigkeit der Daten liegt in <strong>deiner Verantwortung</strong>. Prüfe alles, bevor du unterschreibst und absendest.",
+        "Das ausgefüllte PDF musst du <strong>selbst ausdrucken, unterschreiben und einreichen</strong> (z. B. bei der Elterngeldstelle).",
+        "Dies ist <strong>keine Rechts- oder Steuerberatung</strong> im Sinne des RDG/StBerG."
+      ],
+      "checkbox": "Ich habe verstanden und stimme zu — ich reiche das Formular selbst ein und bin für den Inhalt verantwortlich",
+      "continue": "Weiter zum Ausfüllen",
+      "cancel": "Abbrechen"
+    },
+    "downloadPdf": {
+      "button": "📄 Ausgefülltes PDF herunterladen",
+      "hint": "Öffnet den Druckdialog — wähle „Als PDF speichern\""
+    },
+    "pdfFooter": "Technische Ausfüllhilfe. Keine Rechts- oder Steuerberatung im Sinne des RDG/StBerG. Der Nutzer ist selbst für die Richtigkeit und Einreichung bei der zuständigen Behörde verantwortlich."
   }
 }
