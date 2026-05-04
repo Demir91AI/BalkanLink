@@ -127,6 +127,17 @@
       "continue": "Nastavi i popuni",
       "cancel": "Otkaži"
     },
+    "privacy": {
+      "title": "Tvoji podaci ostaju kod tebe",
+      "subtitle": "100% privatno — nikada ne napuštaju tvoj uređaj",
+      "points": {
+        "p1": "Sve što upišeš ostaje <strong>SAMO na tvom telefonu/računaru</strong> — u memoriji pretraživača.",
+        "p2": "<strong>Ništa se ne šalje</strong> na BalkanLink server, bazu, niti bilo kome trećem.",
+        "p3": "<strong>Niko</strong> — ni mi, ni admin, ni programer — <strong>ne može videti</strong> tvoje podatke.",
+        "p4": "Možeš sve obrisati u svakom trenutku klikom na „Resetuj formular\". Brisanje pretraživača = nestaje sve."
+      },
+      "footer": "Provereno: ničega na serveru. Sve se događa lokalno u tvom pretraživaču."
+    },
     "downloadPdf": {
       "button": "📄 Preuzmi popunjen PDF",
       "hint": "Otvara dijalog za štampanje — izaberi „Sačuvaj kao PDF\""
