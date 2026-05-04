@@ -213,7 +213,8 @@ function GuideContent({ slug }: { slug: string }) {
 }
 
 /* ─── Category badge helpers ─── */
-function FreeBadge() {
+function FreeBadge({ hidden }: { hidden?: boolean }) {
+  if (hidden) return null;
   return (
     <span className="ml-auto shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-2 py-0.5 text-[9px] font-bold uppercase text-emerald-700 dark:text-emerald-400">
       ✓ Besplatno
@@ -221,7 +222,8 @@ function FreeBadge() {
   );
 }
 
-function PremiumBadge() {
+function PremiumBadge({ hidden }: { hidden?: boolean }) {
+  if (hidden) return null;
   return (
     <span className="ml-auto shrink-0 flex items-center gap-0.5 rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold uppercase text-[hsl(var(--gold))]">
       <Lock className="h-2.5 w-2.5" /> Premium
@@ -229,7 +231,8 @@ function PremiumBadge() {
   );
 }
 
-function ItemBadge({ slug }: { slug: string }) {
+function ItemBadge({ slug, hidden }: { slug: string; hidden?: boolean }) {
+  if (hidden) return null;
   if (isFormFree(slug)) {
     return <span className="shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-1.5 py-0.5 text-[8px] font-bold text-emerald-700 dark:text-emerald-400">BESPLATNO</span>;
   }
@@ -347,7 +350,7 @@ export default function FormCenter() {
             <span className="text-[10px] text-muted-foreground truncate block">{item.includes}</span>
           )}
         </div>
-        <ItemBadge slug={item.slug} />
+        <ItemBadge slug={item.slug} hidden={isPremium} />
       </button>
     );
   };
@@ -488,7 +491,7 @@ export default function FormCenter() {
                     <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors text-[hsl(var(--gold))]">
                       <span>{group.icon}</span>
                       <span className="flex-1 text-left">{getGroupTitle(group)}</span>
-                      {group.isFree ? <FreeBadge /> : <PremiumBadge />}
+                      {group.isFree ? <FreeBadge hidden={isPremium} /> : <PremiumBadge hidden={isPremium} />}
                       <ChevronDown
                         className={cn(
                           "h-3.5 w-3.5 transition-transform shrink-0",
@@ -540,7 +543,7 @@ export default function FormCenter() {
             <h1 className="text-lg sm:text-xl font-semibold text-foreground truncate">
               {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
             </h1>
-            <ItemBadge slug={activeSlug} />
+            <ItemBadge slug={activeSlug} hidden={isPremium} />
           </div>
           {canAccess ? (
             <GuideContent key={activeSlug} slug={activeSlug} />

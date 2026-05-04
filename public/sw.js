@@ -1,4 +1,4 @@
-const CACHE_NAME = "bl-cache-v9";
+const CACHE_NAME = "bl-cache-v10";
 const STATIC_ASSETS = ["/", "/manifest.json", "/icons/icon-192x192.png", "/icons/icon-512x512.png"];
 const HASHED_ASSET_RE = /\/assets\/[^/]+-[A-Za-z0-9_-]{6,}\.(js|css|jpg|jpeg|png|svg|woff2?|ttf)$/;
 
@@ -106,8 +106,10 @@ self.addEventListener("fetch", (event) => {
       .catch(async () => {
         const cached = await caches.match(event.request);
         if (cached) return addSecurityHeaders(cached);
-        const fallback = await caches.match("/");
-        return fallback || Response.error();
+        // Do NOT fall back to "/" — that silently redirects deep links
+        // to homepage on offline/refresh and breaks UX. Let the browser
+        // surface the real network error instead.
+        return Response.error();
       })
   );
 });

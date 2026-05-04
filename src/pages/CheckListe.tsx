@@ -61,16 +61,18 @@ export default function CheckListe() {
                     <div className={cn("flex h-11 w-11 items-center justify-center rounded-xl shadow-sm", ACCENTS[cl.accent])}>
                       <Icon className="h-5 w-5 text-white" />
                     </div>
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        "text-[10px]",
-                        cl.premium ? "border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))]" : "border-emerald-500/40 text-emerald-600"
-                      )}
-                    >
-                      {cl.premium && <Crown className="mr-1 h-2.5 w-2.5" />}
-                      {cl.premium ? t("hub.premiumBadge") : t("hub.freeBadge")}
-                    </Badge>
+                    {!isPremium && (
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "text-[10px]",
+                          cl.premium ? "border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))]" : "border-emerald-500/40 text-emerald-600"
+                        )}
+                      >
+                        {cl.premium && <Crown className="mr-1 h-2.5 w-2.5" />}
+                        {cl.premium ? t("hub.premiumBadge") : t("hub.freeBadge")}
+                      </Badge>
+                    )}
                   </div>
                   <h3 className="text-base font-bold mb-1 leading-snug">{t(`${cl.id}.title`)}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">
