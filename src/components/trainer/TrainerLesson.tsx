@@ -42,6 +42,10 @@ const STAGE_LABEL_KEYS = ["basics", "application", "reality"] as const;
 interface Props {
   lesson: Lesson;
   onBack: () => void;
+  /** Controlled stage from URL (null = stage picker view) */
+  stage?: number | null;
+  /** Called when stage changes — parent should sync URL */
+  onStageChange?: (stage: number | null) => void;
 }
 
 // ── In-progress save (localStorage) ────────────────
@@ -65,11 +69,18 @@ function clearStageProgress(lessonId: string, stage: number) {
   try { localStorage.removeItem(`${SAVE_PREFIX}${lessonId}:${stage}`); } catch {}
 }
 
-export default function TrainerLesson({ lesson, onBack }: Props) {
+export default function TrainerLesson({ lesson, onBack, stage: controlledStage, onStageChange }: Props) {
   const { t } = useTranslation("pages");
   const navigate = useNavigate();
   const STAGE_LABELS = STAGE_LABEL_KEYS.map(k => t(`deutschTrainer.stages.${k}`)) as readonly string[];
-  const [selectedStage, setSelectedStage] = useState<number | null>(null);
+  const [internalStage, setInternalStage] = useState<number | null>(null);
+  const isControlled = controlledStage !== undefined;
+  const selectedStage = isControlled ? controlledStage : internalStage;
+  const setSelectedStage = useCallback((s: number | null | ((prev: number | null) => number | null)) => {
+    const next = typeof s === "function" ? s(selectedStage) : s;
+    if (isControlled) onStageChange?.(next);
+    else setInternalStage(next);
+  }, [isControlled, onStageChange, selectedStage]);
   const [step, setStep] = useState(0);
   const [results, setResults] = useState<boolean[]>([]);
   const [answered, setAnswered] = useState(false);

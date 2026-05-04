@@ -23,8 +23,11 @@ const INDIVIDUAL_PRICES: Record<string, string> = {
 export default function DeutschTrainer() {
   const { t } = useTranslation("pages");
   const navigate = useNavigate();
-  const [params] = useSearchParams();
+  const [params, setSearchParams] = useSearchParams();
   const demo = params.get("demo") === "1";
+  const lessonIdParam = params.get("lesson");
+  const stageParam = params.get("stage");
+  const stageFromUrl = stageParam !== null ? Number(stageParam) : null;
 
   const [selectedLevel, setSelectedLevel] = useState<Level>("A1");
   const [levelLoading, setLevelLoading] = useState(true);
@@ -35,12 +38,55 @@ export default function DeutschTrainer() {
   const { progress } = useTrainerProgress();
   const { isPremium } = useSubscription();
 
+  // Resolve lesson from URL param across all levels (so refresh works)
+  useEffect(() => {
+    let cancelled = false;
+    if (!lessonIdParam) {
+      setActiveLesson(null);
+      return;
+    }
+    // Try current level first
+    const inCurrent = getLessonsForLevel(selectedLevel).find((l) => l.id === lessonIdParam);
+    if (inCurrent) {
+      setActiveLesson(inCurrent);
+      return;
+    }
+    // Otherwise scan all levels
+    (async () => {
+      for (const lvl of LEVELS) {
+        const lessons = await loadLessonsForLevel(lvl);
+        if (cancelled) return;
+        const found = lessons.find((l) => l.id === lessonIdParam);
+        if (found) {
+          if (lvl !== selectedLevel) setSelectedLevel(lvl);
+          setActiveLesson(found);
+          return;
+        }
+      }
+      // Not found → clear param
+      if (!cancelled) {
+        setSearchParams((prev) => {
+          const n = new URLSearchParams(prev);
+          n.delete("lesson");
+          n.delete("stage");
+          return n;
+        }, { replace: true });
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [lessonIdParam]);
+
   useEffect(() => {
     setLevelLoading(true);
     loadLessonsForLevel(selectedLevel).then((loaded) => {
       setLevelLoading(false);
-      if (demo && selectedLevel === "A1" && loaded.length > 0 && !activeLesson) {
-        setActiveLesson(loaded[0]);
+      if (demo && selectedLevel === "A1" && loaded.length > 0 && !activeLesson && !lessonIdParam) {
+        // Open demo lesson via URL so back/refresh work
+        setSearchParams((prev) => {
+          const n = new URLSearchParams(prev);
+          n.set("lesson", loaded[0].id);
+          return n;
+        }, { replace: true });
       }
     });
   }, [selectedLevel]);
@@ -63,16 +109,52 @@ export default function DeutschTrainer() {
     setCurrentPage(0);
   };
 
+  const openLesson = (lesson: Lesson) => {
+    setSearchParams((prev) => {
+      const n = new URLSearchParams(prev);
+      n.set("lesson", lesson.id);
+      n.delete("stage");
+      return n;
+    });
+  };
+
+  const closeLesson = () => {
+    setSearchParams((prev) => {
+      const n = new URLSearchParams(prev);
+      n.delete("lesson");
+      n.delete("stage");
+      return n;
+    });
+  };
+
+  const setStageInUrl = (stage: number | null) => {
+    setSearchParams((prev) => {
+      const n = new URLSearchParams(prev);
+      if (stage === null) n.delete("stage");
+      else n.set("stage", String(stage));
+      return n;
+    });
+  };
+
   const handleLessonClick = (lesson: Lesson, isLocked: boolean) => {
     if (isLocked && !isPremium) {
       setShowPaywall(true);
     } else {
-      setActiveLesson(lesson);
+      openLesson(lesson);
     }
   };
 
   if (activeLesson) {
-    return <AuthGate><TrainerLesson lesson={activeLesson} onBack={() => setActiveLesson(null)} /></AuthGate>;
+    return (
+      <AuthGate>
+        <TrainerLesson
+          lesson={activeLesson}
+          onBack={closeLesson}
+          stage={stageFromUrl}
+          onStageChange={setStageInUrl}
+        />
+      </AuthGate>
+    );
   }
 
   return (
