@@ -96,7 +96,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
   };
 
   return (
-    <div className="space-y-4">
+    <div ref={topRef} className="space-y-4 scroll-mt-24">
       <div className="flex items-center gap-3">
         <Progress value={progress} className="h-2 flex-1" />
         <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
