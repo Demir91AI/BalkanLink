@@ -39,8 +39,14 @@ type LinkItem = { label: string; to: string; action?: boolean };
 export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?: () => void } = {}) {
   const { t } = useTranslation();
   const localize = useLocalizedHref();
+  const { user } = useAuth();
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [reviews, setReviews] = useState<ReviewRow[]>([]);
+  const [myRating, setMyRating] = useState<number>(0);
+  const [myComment, setMyComment] = useState<string>("");
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [hasReviewed, setHasReviewed] = useState<boolean>(false);
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
     let cancelled = false;
