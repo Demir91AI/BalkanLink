@@ -9,15 +9,22 @@ import { ZBFS_AUSSENSTELLEN, ZBFS_ZUSTAENDIGKEIT_URL, getAussenstelle } from "@/
 const LS_KEY = "elterngeld-bayern-wizard-v1";
 const ORIGINAL_INFO = "https://www.zbfs.bayern.de/familienleistungen/elterngeld/";
 
-const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 4, display: "block" };
+const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 6, display: "block" };
 const inputStyle: React.CSSProperties = {
-  width: "100%", padding: "10px 12px", fontSize: 14,
-  border: "1px solid #D1D5DB", borderRadius: 6, background: "#fff", color: "#111",
+  width: "100%", padding: "12px 14px", fontSize: 15, lineHeight: 1.4,
+  border: "1px solid #D1D5DB", borderRadius: 8, background: "#fff", color: "#111",
+  boxSizing: "border-box", minHeight: 44,
 };
-const rowStyle: React.CSSProperties = { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 10 };
-const sectionStyle: React.CSSProperties = { background: "#F9FAFB", padding: 16, borderRadius: 8, marginBottom: 16, border: "1px solid #E5E7EB" };
-const h3: React.CSSProperties = { fontSize: 15, fontWeight: 700, color: "#111", marginBottom: 12, paddingBottom: 8, borderBottom: "2px solid #EAB308" };
-const hintStyle: React.CSSProperties = { fontSize: 11, color: "#6B7280", marginTop: 2, fontStyle: "italic" };
+// Responsive: 1 kolona na uskim ekranima, 2 simetrične kolone čim ima mjesta (≥260px po polju).
+const rowStyle: React.CSSProperties = {
+  display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
+  gap: 14, marginBottom: 14, alignItems: "start",
+};
+const fullRowStyle: React.CSSProperties = { marginBottom: 14 };
+const sectionStyle: React.CSSProperties = { background: "#F9FAFB", padding: 18, borderRadius: 10, marginBottom: 18, border: "1px solid #E5E7EB" };
+const h3: React.CSSProperties = { fontSize: 15, fontWeight: 700, color: "#111", marginBottom: 14, paddingBottom: 8, borderBottom: "2px solid #EAB308" };
+const hintStyle: React.CSSProperties = { fontSize: 11, color: "#6B7280", marginTop: 4, fontStyle: "italic", lineHeight: 1.4 };
+
 
 function Field({
   label, hint, value, onChange, type = "text", placeholder,
@@ -110,7 +117,7 @@ export default function ElterngeldMuster() {
       {/* Sekcija 1 — Kind */}
       <div style={sectionStyle}>
         <h3 style={h3}>1. {t("musterFlow.elterngeld.s1.title")}</h3>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field
             label={t("musterFlow.elterngeld.s1.kindName")}
             hint={t("musterFlow.elterngeld.s1.kindNameHint")}
@@ -156,13 +163,13 @@ export default function ElterngeldMuster() {
             ]} />
           <Field label={t("musterFlow.elterngeld.s2.beruf")} value={data.e1_beruf} onChange={v => update({ e1_beruf: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field label={t("musterFlow.elterngeld.s2.strasse")} value={data.e1_strasse} onChange={v => update({ e1_strasse: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field label={t("musterFlow.elterngeld.s2.plzOrt")} placeholder="80331 München" value={data.e1_plz_ort} onChange={v => update({ e1_plz_ort: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field
             label={t("musterFlow.elterngeld.s2.steuerId")}
             hint={t("musterFlow.elterngeld.s2.steuerIdHint")}
@@ -197,7 +204,7 @@ export default function ElterngeldMuster() {
             ]} />
         </div>
         {data.e1_staat !== "deutsch" && (
-          <div style={{ marginBottom: 10 }}>
+          <div style={fullRowStyle}>
             <Field label={t("musterFlow.elterngeld.s2.staatLand")} value={data.e1_staat_land} onChange={v => update({ e1_staat_land: v })} />
           </div>
         )}
@@ -226,13 +233,13 @@ export default function ElterngeldMuster() {
                   { value: "o", label: t("musterFlow.elterngeld.s2.go") },
                 ]} />
             </div>
-            <div style={{ marginBottom: 10 }}>
+            <div style={fullRowStyle}>
               <Field label={t("musterFlow.elterngeld.s2.strasse")} value={data.e2_strasse} onChange={v => update({ e2_strasse: v })} />
             </div>
-            <div style={{ marginBottom: 10 }}>
+            <div style={fullRowStyle}>
               <Field label={t("musterFlow.elterngeld.s2.plzOrt")} value={data.e2_plz_ort} onChange={v => update({ e2_plz_ort: v })} />
             </div>
-            <div style={{ marginBottom: 10 }}>
+            <div style={fullRowStyle}>
               <Field label={t("musterFlow.elterngeld.s2.steuerId")} placeholder="11 Ziffern" value={data.e2_steuer_id} onChange={v => update({ e2_steuer_id: v })} />
             </div>
             <div style={rowStyle}>
@@ -260,14 +267,13 @@ export default function ElterngeldMuster() {
         <div style={{ marginBottom: 10, fontSize: 12, color: "#374151", lineHeight: 1.6 }}>
           {t("musterFlow.elterngeld.s5.help")}
         </div>
-        <div style={rowStyle}>
+        <div style={fullRowStyle}>
           <Select label={t("musterFlow.elterngeld.s5.e1Variante")} value={data.e1_variante} onChange={v => update({ e1_variante: v as ElterngeldFormData["e1_variante"] })}
             options={[
               { value: "basis", label: t("musterFlow.elterngeld.s5.vBasis") },
               { value: "egplus", label: t("musterFlow.elterngeld.s5.vPlus") },
               { value: "kombi", label: t("musterFlow.elterngeld.s5.vKombi") },
             ]} />
-          <div />
         </div>
         <div style={rowStyle}>
           <Field label={t("musterFlow.elterngeld.s5.lmVon")} value={data.e1_lm_von} onChange={v => update({ e1_lm_von: v })} />
@@ -276,7 +282,7 @@ export default function ElterngeldMuster() {
         {data.e2_aktiv && (
           <>
             <div style={{ height: 1, background: "#E5E7EB", margin: "12px 0" }} />
-            <div style={rowStyle}>
+            <div style={fullRowStyle}>
               <Select label={t("musterFlow.elterngeld.s5.e2Variante")} value={data.e2_variante} onChange={v => update({ e2_variante: v as ElterngeldFormData["e2_variante"] })}
                 options={[
                   { value: "none", label: t("musterFlow.elterngeld.s5.vNone") },
@@ -284,7 +290,6 @@ export default function ElterngeldMuster() {
                   { value: "egplus", label: t("musterFlow.elterngeld.s5.vPlus") },
                   { value: "kombi", label: t("musterFlow.elterngeld.s5.vKombi") },
                 ]} />
-              <div />
             </div>
             {data.e2_variante !== "none" && (
               <div style={rowStyle}>
@@ -299,14 +304,14 @@ export default function ElterngeldMuster() {
       {/* Sekcija 15 — Bank */}
       <div style={sectionStyle}>
         <h3 style={h3}>15. {t("musterFlow.elterngeld.s15.title")}</h3>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field label="IBAN" placeholder="DE12 3456 …" value={data.iban} onChange={v => update({ iban: v })} />
         </div>
         <div style={rowStyle}>
           <Field label="BIC" value={data.bic} onChange={v => update({ bic: v })} />
           <Field label={t("musterFlow.elterngeld.s15.bank")} value={data.geldinstitut} onChange={v => update({ geldinstitut: v })} />
         </div>
-        <div style={{ marginBottom: 10 }}>
+        <div style={fullRowStyle}>
           <Field
             label={t("musterFlow.elterngeld.s15.kontoinhaber")}
             hint={t("musterFlow.elterngeld.s15.kontoinhaberHint")}
