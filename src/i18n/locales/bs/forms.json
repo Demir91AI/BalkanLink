@@ -136,7 +136,7 @@
         "p3": "<strong>Niko</strong> — ni mi, ni admin, ni programer — <strong>ne može vidjeti</strong> tvoje podatke.",
         "p4": "Možeš sve obrisati u svakom trenutku klikom na „Resetuj formular\". Brisanje preglednika = nestaje sve."
       },
-      "footer": "Provjereno: ničega na serveru. Sve se događa lokalno u tvom pregledniku."
+      "footer": "Zero-Knowledge arhitektura — tehnički je nemoguće da iko osim tebe vidi tvoje podatke."
     },
     "downloadPdf": {
       "button": "📄 Preuzmi popunjen PDF",
