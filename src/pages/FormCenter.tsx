@@ -213,7 +213,8 @@ function GuideContent({ slug }: { slug: string }) {
 }
 
 /* ─── Category badge helpers ─── */
-function FreeBadge() {
+function FreeBadge({ hidden }: { hidden?: boolean }) {
+  if (hidden) return null;
   return (
     <span className="ml-auto shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-2 py-0.5 text-[9px] font-bold uppercase text-emerald-700 dark:text-emerald-400">
       ✓ Besplatno
@@ -221,7 +222,8 @@ function FreeBadge() {
   );
 }
 
-function PremiumBadge() {
+function PremiumBadge({ hidden }: { hidden?: boolean }) {
+  if (hidden) return null;
   return (
     <span className="ml-auto shrink-0 flex items-center gap-0.5 rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold uppercase text-[hsl(var(--gold))]">
       <Lock className="h-2.5 w-2.5" /> Premium
@@ -229,7 +231,8 @@ function PremiumBadge() {
   );
 }
 
-function ItemBadge({ slug }: { slug: string }) {
+function ItemBadge({ slug, hidden }: { slug: string; hidden?: boolean }) {
+  if (hidden) return null;
   if (isFormFree(slug)) {
     return <span className="shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-1.5 py-0.5 text-[8px] font-bold text-emerald-700 dark:text-emerald-400">BESPLATNO</span>;
   }
