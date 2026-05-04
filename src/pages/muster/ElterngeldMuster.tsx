@@ -267,14 +267,13 @@ export default function ElterngeldMuster() {
         <div style={{ marginBottom: 10, fontSize: 12, color: "#374151", lineHeight: 1.6 }}>
           {t("musterFlow.elterngeld.s5.help")}
         </div>
-        <div style={rowStyle}>
+        <div style={fullRowStyle}>
           <Select label={t("musterFlow.elterngeld.s5.e1Variante")} value={data.e1_variante} onChange={v => update({ e1_variante: v as ElterngeldFormData["e1_variante"] })}
             options={[
               { value: "basis", label: t("musterFlow.elterngeld.s5.vBasis") },
               { value: "egplus", label: t("musterFlow.elterngeld.s5.vPlus") },
               { value: "kombi", label: t("musterFlow.elterngeld.s5.vKombi") },
             ]} />
-          <div />
         </div>
         <div style={rowStyle}>
           <Field label={t("musterFlow.elterngeld.s5.lmVon")} value={data.e1_lm_von} onChange={v => update({ e1_lm_von: v })} />
@@ -283,7 +282,7 @@ export default function ElterngeldMuster() {
         {data.e2_aktiv && (
           <>
             <div style={{ height: 1, background: "#E5E7EB", margin: "12px 0" }} />
-            <div style={rowStyle}>
+            <div style={fullRowStyle}>
               <Select label={t("musterFlow.elterngeld.s5.e2Variante")} value={data.e2_variante} onChange={v => update({ e2_variante: v as ElterngeldFormData["e2_variante"] })}
                 options={[
                   { value: "none", label: t("musterFlow.elterngeld.s5.vNone") },
@@ -291,7 +290,6 @@ export default function ElterngeldMuster() {
                   { value: "egplus", label: t("musterFlow.elterngeld.s5.vPlus") },
                   { value: "kombi", label: t("musterFlow.elterngeld.s5.vKombi") },
                 ]} />
-              <div />
             </div>
             {data.e2_variante !== "none" && (
               <div style={rowStyle}>
