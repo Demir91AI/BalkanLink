@@ -1,66 +1,58 @@
 # Plan — Elterngeld po Bundesländerima (BalkanLink)
 
-**Cilj:** korisnik bira svoj Bundesland i dobija (a) auto-popunjavanje službenog PDF-a ako je podržano, ili (b) profesionalnu info-karticu sa službenom adresom + linkom na zvanični PDF + Smart Guide u 4 jezika.
+**Cilj:** korisnik bira svoj Bundesland i dobija (a) auto-popunjavanje službenog PDF-a ako je podržano, ili (b) profesionalan Smart Guide sa BHS objašnjenjima i njemačkim terminima + linkovi na sve 3 puta predaje (online portal, PDF, lično/poštom).
 
-**Princip:** nema "uskoro", nema poluinformacija. Svaki Bundesland mora imati tačno: naziv službe, adresu, telefon, službeni link, status.
+**Ključni uvid:** Elterngeld je SAVEZNA naknada (BEEG — Bundeselterngeld- und Elternzeitgesetz). Sve pokrajinske formulare imaju IDENTIČNU strukturu sekcija (1. Kind, 2. Eltern, 3. Familienverhältnisse, 4. Bezugszeitraum, 5. Einkommen vor, 6. Einkommen während, 7. weitere Leistungen, 8. Bankverbindung, 9. Anlagen). Razlikuje se SAMO nadležna služba i način predaje.
+
+**Zato:** umjesto manualnog 1:1 PDF mapiranja za svih 16 pokrajina (svaka ~250 polja), pravimo **univerzalni Smart Guide** koji pokriva sve sekcije BHS objašnjenjima + njemačkim terminima — radi za SVE pokrajine osim Bayerna (gdje već imamo full 1:1 auto-fill).
 
 ## Status implementacije
 
-| # | Bundesland | Služba | Auto-fill | Status |
-|---|---|---|---|---|
-| 1 | Baden-Württemberg | L-Bank | ❌ | Info-kartica + službeni link |
-| 2 | **Bayern** | ZBFS | ✅ **DONE** | 1:1 PDF (verzija 05/2025), 7 Außenstellen |
-| 3 | Berlin | Bezirksamt — Jugendamt (12 Bezirke) | ❌ | Info-kartica + službeni link |
-| 4 | Brandenburg | LASV — Landesamt für Soziales und Versorgung | ❌ | Info-kartica + službeni link |
-| 5 | Bremen | Amt für Soziale Dienste | ❌ | Info-kartica + službeni link |
-| 6 | Hamburg | Behörde für Arbeit, Gesundheit, Soziales, Familie und Integration (BAGSFI) | ❌ | Info-kartica + službeni link |
-| 7 | Hessen | Hessisches Amt für Versorgung und Soziales (HAVS) | ❌ | Info-kartica + službeni link |
-| 8 | Mecklenburg-Vorpommern | LAGuS — Landesamt für Gesundheit und Soziales | ❌ | Info-kartica + službeni link |
-| 9 | Niedersachsen | Landesamt für Soziales, Jugend und Familie | ❌ | Info-kartica + službeni link |
-| 10 | Nordrhein-Westfalen | ELFE online portal + Kreis Elterngeldkassen | ❌ | Info-kartica + ELFE link (nema PDF) |
-| 11 | Rheinland-Pfalz | Landesamt für Soziales, Jugend und Versorgung | ❌ | Info-kartica + službeni link |
-| 12 | Saarland | Landesamt für Soziales | ❌ | Info-kartica + službeni link |
-| 13 | Sachsen | KSV Sachsen — Kommunaler Sozialverband | ❌ | Info-kartica + službeni link |
-| 14 | Sachsen-Anhalt | Landesverwaltungsamt | ❌ | Info-kartica + službeni link |
-| 15 | Schleswig-Holstein | Landesamt für soziale Dienste | ❌ | Info-kartica + službeni link |
-| 16 | Thüringen | Thüringer Landesverwaltungsamt | ❌ | Info-kartica + službeni link |
+| # | Bundesland | Služba | Smart Guide | Auto-fill | Digitalni portal |
+|---|---|---|---|---|---|
+| 1 | Baden-Württemberg | L-Bank | ✅ | ❌ | ElterngeldDigital |
+| 2 | **Bayern** | ZBFS | n/a | ✅ **Full 1:1** | ElterngeldDigital |
+| 3 | Berlin | Bezirksamt (12) | ✅ | ❌ | ElterngeldDigital |
+| 4 | Brandenburg | LASV | ✅ | ❌ | ElterngeldDigital |
+| 5 | Bremen | Amt für Soziale Dienste | ✅ | ❌ | ElterngeldDigital |
+| 6 | Hamburg | BAGSFI | ✅ | ❌ | ElterngeldDigital |
+| 7 | Hessen | HAVS | ✅ | ❌ | ElterngeldDigital |
+| 8 | Mecklenburg-V. | LAGuS | ✅ | ❌ | ElterngeldDigital |
+| 9 | Niedersachsen | Landesamt SJF | ✅ | ❌ | ElterngeldDigital |
+| 10 | Nordrhein-Westfalen | Kreis + ELFE | ✅ | ❌ | **ELFE NRW** (vlastiti) |
+| 11 | Rheinland-Pfalz | Landesamt SJV | ✅ | ❌ | ElterngeldDigital |
+| 12 | Saarland | Landesamt Soziales | ✅ | ❌ | ElterngeldDigital |
+| 13 | Sachsen | KSV | ✅ | ❌ | **Amt24 Sachsen** (vlastiti) |
+| 14 | Sachsen-Anhalt | LVwA | ✅ | ❌ | ElterngeldDigital |
+| 15 | Schleswig-H. | LSD | ✅ | ❌ | ElterngeldDigital |
+| 16 | Thüringen | TLVwA | ✅ | ❌ | ElterngeldDigital |
 
-## Prioritet za buduće prompte (po veličini BHS dijaspore)
+## Što Smart Guide pruža
 
-1. **Berlin** — najveća dijaspora; jedinstven Berlin-PDF (svih 12 Bezirka koristi isti)
-2. **Baden-Württemberg** — L-Bank, jedan PDF za cijelu pokrajinu
-3. **Hessen** — HAVS, jedan PDF
-4. **Hamburg** — BAGSFI, jedan PDF
-5. **NRW** — specijalan slučaj (ELFE online portal, ne PDF — možda preusmjerenje + Smart Guide)
-6. Ostale po redu
+Za svaku od 10 BEEG sekcija:
+- **BHS naziv** + **njemački službeni naziv** u zagradi
+- **Opis sekcije** — što tačno tu pripada, koje su zamke
+- **Tipična polja** — popis polja koja se traže (npr. Steuer-ID, IBAN, Lebensmonate)
+- **Praktični savjet** — npr. promjena Steuerklasse 7 mj prije rođenja, granica 32h za partnere
 
-## Tehnička procjena po Bundeslandu
+## 3 puta predaje (univerzalno)
 
-Svaki novi BL zahtijeva:
-1. Preuzimanje službenog PDF-a sa zvanične stranice
-2. Inspekciju AcroForm polja (`pdftk dump_data_fields` ili pdf-lib `getFields()`)
-3. Manualno mapiranje polja → `ElterngeldFormData` (~150-250 polja po PDF-u)
-4. Cron za detekciju verzije (već postoji za Bayern, treba proširiti)
-5. Test
-6. Prevod section labela u 4 jezika
-7. Konfiguracija Versand picker-a (lokalne službe)
+1. **Online** — savezni portal `elterngeld-digital.de` (13 pokrajina) ili pokrajinski (ELFE NRW, Amt24 Sachsen)
+2. **PDF** — link na zvanični formular pokrajine (gdje postoji jedinstveni)
+3. **Lično/poštom** — adresa nadležne službe sa telefonom
 
-**Prosječno vrijeme po BL:** 1-2 prompta s detaljnim radom. Ne forsirati paralelno.
+## Faza 1+2 (DONE — ovaj prompt)
 
-## Faza 1 (DONE — ovaj prompt)
-
-- [x] Registry svih 16 Bundesländer (`src/lib/elterngeld-bundeslaender.ts`)
-- [x] Bundesland selector na vrhu Elterngeld forme
+- [x] Registry svih 16 Bundesländer + digitalni portali
+- [x] Bundesland selector
 - [x] Bayern → ostaje full auto-fill (1:1 ZBFS PDF)
-- [x] Ostale → profesionalna info-kartica (služba, adresa, telefon, link)
-- [x] Profesionalniji tekst "1:1 originalni formular" → konkretno za Bayern
-- [x] i18n u 4 jezika (bs/hr/sr/de)
+- [x] Ostale 15 → univerzalni Smart Guide sa 10 BEEG sekcija u 4 jezika (bs/hr/sr/de)
+- [x] Posebnosti označene (NRW koristi ELFE, Sachsen koristi Amt24)
+- [x] Hero sa 3 puta predaje za svaku pokrajinu
 
-## Faza 2+ (sljedeći prompti — jedan po jedan)
+## Buduća proširenja (opciono, nije hitno)
 
-Svaki sljedeći prompt = jedan Bundesland, full auto-fill. Pristup:
-1. Skinem zvanični PDF
-2. Mapiram polja
-3. Dodam u `bayernFieldFills` ekvivalent za taj BL
-4. Test, dokumentacija
-5. Update plana
+- Dodati 1:1 auto-fill za Berlin (jedan PDF za svih 12 Bezirka)
+- L-Bank BW PDF auto-fill
+- Hamburg BAGSFI PDF auto-fill
+- Cron za detekciju verzija PDF-ova ostalih pokrajina (već postoji za Bayern)
