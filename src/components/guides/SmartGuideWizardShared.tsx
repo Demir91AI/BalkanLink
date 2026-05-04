@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -47,6 +47,19 @@ export default function SmartGuideWizardShared({
   const navigate = useNavigate();
   const { isPremium } = useSubscription();
   const { t } = useTranslation("forms");
+  const topRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const el = topRef.current;
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  }, [step]);
 
   const current = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
@@ -116,7 +129,7 @@ export default function SmartGuideWizardShared({
 
   return (
     <AuthGate>
-    <div className="space-y-4">
+    <div ref={topRef} className="space-y-4 scroll-mt-24">
       <div className="text-center">
         <h2 className="text-lg font-bold text-foreground">
           {t("guide.wizardTitle")}

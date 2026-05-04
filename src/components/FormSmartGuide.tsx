@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   BookOpen, ChevronLeft, ChevronRight, Pencil, MapPin, Hash,
@@ -48,6 +49,19 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
   const progress = ((step + 1) / steps.length) * 100;
   const isStepLocked = !isPremium && step >= FREE_STEPS;
 
+  const topRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const el = topRef.current;
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  }, [step]);
+
   const goToStep = (nextStep: number, replace = false) => {
     const normalized = Math.min(Math.max(nextStep, 0), steps.length - 1);
     setSearchState(
@@ -82,7 +96,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
   };
 
   return (
-    <div className="space-y-4">
+    <div ref={topRef} className="space-y-4 scroll-mt-24">
       <div className="flex items-center gap-3">
         <Progress value={progress} className="h-2 flex-1" />
         <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
