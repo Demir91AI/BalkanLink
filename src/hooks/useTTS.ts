@@ -263,11 +263,18 @@ export function useTTS() {
     setActiveId(id);
     setPlayState("playing");
 
-    // Try ElevenLabs first
-    const providerOk = await playViaProvider(id, text);
+    // Try ElevenLabs first (direct stream on PWA, fetched URL elsewhere)
+    let providerOk = await playViaProvider(id, text);
     if (providerOk) return;
 
-    // Browser fallback
+    // If direct-stream failed (PWA only), retry once with the regular fetched
+    // URL path before falling back to the robotic browser/Google voice.
+    if (isMobileStandalonePlayback()) {
+      providerOk = await playViaProvider(id, text, true);
+      if (providerOk) return;
+    }
+
+    // Browser fallback (robotic system voice — last resort)
     const fallbackOk = playViaBrowserFallback(id, text);
     if (fallbackOk) return;
 
