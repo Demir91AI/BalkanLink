@@ -237,21 +237,21 @@ export default function KindergeldPreviewWindow() {
           </div>
 
           <Row mb={0}>
-            <Field label="Familienname" flex={3} value={f.familienname} onChange={(v) => set("familienname", v)} />
-            <Field label="Titel" flex={1} minWidth={70} value={f.titel} onChange={(v) => set("titel", v)} />
+            <Field label="Familienname" bhs="Prezime" example="Mustermann" flex={3} value={f.familienname} onChange={(v) => set("familienname", v)} />
+            <Field label="Titel" bhs="Titula" example="Dr." flex={1} minWidth={70} value={f.titel} onChange={(v) => set("titel", v)} />
           </Row>
           <Row>
-            <Field label="Vorname" flex={3} value={f.vorname} onChange={(v) => set("vorname", v)} />
-            <Field label="ggf. Geburtsname und früherer Familienname" flex={3} value={f.geburtsname} onChange={(v) => set("geburtsname", v)} />
+            <Field label="Vorname" bhs="Ime" example="Max" flex={3} value={f.vorname} onChange={(v) => set("vorname", v)} />
+            <Field label="ggf. Geburtsname und früherer Familienname" bhs="Djevojačko / ranije prezime" example="Hodžić" flex={3} value={f.geburtsname} onChange={(v) => set("geburtsname", v)} />
           </Row>
           <Row>
-            <Field label="Geburtsdatum" type="date" value={f.geburtsdatum} onChange={(v) => set("geburtsdatum", v)} />
-            <Field label="Geburtsort" flex={2} value={f.geburtsort} onChange={(v) => set("geburtsort", v)} />
-            <Select label="Geschlecht" value={f.geschlecht} onChange={(v) => set("geschlecht", v)} options={["männlich", "weiblich", "divers"]} />
-            <Field label="Staatsangehörigkeit" flex={2} value={f.staatsangehoerigkeit} onChange={(v) => set("staatsangehoerigkeit", v)} />
+            <Field label="Geburtsdatum" bhs="Datum rođenja" example="01.01.1990" type="date" value={f.geburtsdatum} onChange={(v) => set("geburtsdatum", v)} />
+            <Field label="Geburtsort" bhs="Mjesto rođenja" example="Sarajevo" flex={2} value={f.geburtsort} onChange={(v) => set("geburtsort", v)} />
+            <Select label="Geschlecht" bhs="Spol" example="männlich" value={f.geschlecht} onChange={(v) => set("geschlecht", v)} options={["männlich", "weiblich", "divers"]} />
+            <Field label="Staatsangehörigkeit" bhs="Državljanstvo" example="bosnisch-herzegowinisch" flex={2} value={f.staatsangehoerigkeit} onChange={(v) => set("staatsangehoerigkeit", v)} />
           </Row>
           <Row>
-            <Field label="Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)" flex={1} value={f.anschrift1} onChange={(v) => set("anschrift1", v)} />
+            <Field label="Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)" bhs="Adresa (ulica, broj, poštanski broj, mjesto, država)" example="Musterstr. 12, 10115 Berlin, Deutschland" flex={1} value={f.anschrift1} onChange={(v) => set("anschrift1", v)} />
           </Row>
 
           <div style={{ ...fieldBox({ marginTop: -1, padding: "6px 8px 8px" }) }}>
