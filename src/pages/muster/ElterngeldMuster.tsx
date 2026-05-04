@@ -9,15 +9,22 @@ import { ZBFS_AUSSENSTELLEN, ZBFS_ZUSTAENDIGKEIT_URL, getAussenstelle } from "@/
 const LS_KEY = "elterngeld-bayern-wizard-v1";
 const ORIGINAL_INFO = "https://www.zbfs.bayern.de/familienleistungen/elterngeld/";
 
-const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 4, display: "block" };
+const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 6, display: "block" };
 const inputStyle: React.CSSProperties = {
-  width: "100%", padding: "10px 12px", fontSize: 14,
-  border: "1px solid #D1D5DB", borderRadius: 6, background: "#fff", color: "#111",
+  width: "100%", padding: "12px 14px", fontSize: 15, lineHeight: 1.4,
+  border: "1px solid #D1D5DB", borderRadius: 8, background: "#fff", color: "#111",
+  boxSizing: "border-box", minHeight: 44,
 };
-const rowStyle: React.CSSProperties = { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 10 };
-const sectionStyle: React.CSSProperties = { background: "#F9FAFB", padding: 16, borderRadius: 8, marginBottom: 16, border: "1px solid #E5E7EB" };
-const h3: React.CSSProperties = { fontSize: 15, fontWeight: 700, color: "#111", marginBottom: 12, paddingBottom: 8, borderBottom: "2px solid #EAB308" };
-const hintStyle: React.CSSProperties = { fontSize: 11, color: "#6B7280", marginTop: 2, fontStyle: "italic" };
+// Responsive: 1 kolona na uskim ekranima, 2 simetrične kolone čim ima mjesta (≥260px po polju).
+const rowStyle: React.CSSProperties = {
+  display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
+  gap: 14, marginBottom: 14, alignItems: "start",
+};
+const fullRowStyle: React.CSSProperties = { marginBottom: 14 };
+const sectionStyle: React.CSSProperties = { background: "#F9FAFB", padding: 18, borderRadius: 10, marginBottom: 18, border: "1px solid #E5E7EB" };
+const h3: React.CSSProperties = { fontSize: 15, fontWeight: 700, color: "#111", marginBottom: 14, paddingBottom: 8, borderBottom: "2px solid #EAB308" };
+const hintStyle: React.CSSProperties = { fontSize: 11, color: "#6B7280", marginTop: 4, fontStyle: "italic", lineHeight: 1.4 };
+
 
 function Field({
   label, hint, value, onChange, type = "text", placeholder,
