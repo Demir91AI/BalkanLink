@@ -430,6 +430,21 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
+      {/* Versand — Brandenburg: lokalne Elterngeldstellen Landkreise/kreisfreie Städte */}
+      {bundesland === "bb" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ marginBottom: 10, padding: 12, background: "#FEF3C7", border: "1px solid #EAB308", borderRadius: 6, fontSize: 12, color: "#78350F", lineHeight: 1.5 }}>
+            <strong>⚠️ U Brandenburgu nadležne su Elterngeldstellen Landkreisa i kreisfreien Städte.</strong><br />
+            Antrag se predaje nadležnoj službi prema mjestu stanovanja. Pronađi adresu:
+            <br />
+            <a href="https://familienportal.de/familienportal/service/beratung-vor-ort" target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontWeight: 600 }}>
+              Familienportal — pronađi nadležnu službu po PLZ →
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* Versand — Rheinland-Pfalz: lokalne Elterngeldstellen Kreis-/Stadtverwaltungen */}
       {bundesland === "rp" && selectedBL && (
         <div style={sectionStyle}>
