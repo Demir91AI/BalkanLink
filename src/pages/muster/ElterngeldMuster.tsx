@@ -139,7 +139,43 @@ export default function ElterngeldMuster() {
       )}
 
       {!isAutoFill && selectedBL && (
-        <ElterngeldSmartGuide bundesland={selectedBL} />
+        <>
+          <div
+            role="note"
+            style={{
+              marginBottom: 16,
+              padding: 14,
+              background: "#EFF6FF",
+              border: "1px solid #BFDBFE",
+              borderRadius: 8,
+              fontSize: 13,
+              color: "#1E3A8A",
+              lineHeight: 1.55,
+            }}
+          >
+            <div style={{ fontWeight: 700, marginBottom: 6 }}>
+              ℹ️ Auto-popunjavanje PDF-a nije dostupno za pokrajinu {selectedBL.name}
+            </div>
+            <div style={{ color: "#1E40AF" }}>
+              {selectedBL.name} ne nudi jedinstveni interaktivni PDF formular — prijava
+              ide isključivo preko zvaničnog online portala{" "}
+              <strong>{selectedBL.digitalPortalName || "nadležne službe"}</strong>{" "}
+              (sa BundID prijavom). Zato vam ispod nudimo profesionalni{" "}
+              <strong>Smart Guide</strong> sa BHS objašnjenjima svih sekcija
+              zahtjeva, službenim njemačkim terminima, te direktnim linkovima na
+              portal i nadležnu službu.
+              <br />
+              <br />
+              <strong>Trenutno BalkanLink nudi 1:1 auto-popunjavanje PDF-a za 11 od
+              16 pokrajina</strong> (Bayern, Hamburg, Niedersachsen, Bremen, Berlin,
+              Brandenburg, Mecklenburg-Vorpommern, Rheinland-Pfalz, Sachsen-Anhalt,
+              Schleswig-Holstein, Thüringen). Preostalih 5 pokrajina (Baden-Württemberg,
+              Hessen, Nordrhein-Westfalen, Sachsen, Saarland) koristi vlastite
+              digitalne portale za koje PDF auto-fill tehnički nije moguć.
+            </div>
+          </div>
+          <ElterngeldSmartGuide bundesland={selectedBL} />
+        </>
       )}
 
       {isAutoFill && (<>
