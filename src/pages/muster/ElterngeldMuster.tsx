@@ -111,14 +111,14 @@ export default function ElterngeldMuster() {
 
   return (
     <MusterFormBase
-      rootId="elterngeld-bayern"
-      title="Elterngeld Bayern — Antragsassistent"
+      rootId="elterngeld"
+      title={`Elterngeld ${selectedBL?.name || "Bayern"} — Antragsassistent`}
       subtitle={t("musterFlow.elterngeld.subtitle")}
-      pdfUrl="/muster/elterngeld-bayern-2025.pdf"
+      pdfUrl={selectedBL?.pdfUrl || "/muster/elterngeld-bayern-2025.pdf"}
       pdfLabel={t("musterFlow.elterngeld.originalLink")}
       footerNote={t("musterFlow.elterngeld.footerNote")}
       lsKey={LS_KEY}
-      formularId="elterngeld-bayern"
+      formularId={`elterngeld-${bundesland}`}
       data={data}
       onSave={() => { /* auto-saved via update() */ }}
       onReset={reset}
