@@ -455,6 +455,21 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
+      {/* Versand — Berlin: 12 Bezirksamta prema mjestu stanovanja */}
+      {bundesland === "be" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ marginBottom: 10, padding: 12, background: "#FEF3C7", border: "1px solid #EAB308", borderRadius: 6, fontSize: 12, color: "#78350F", lineHeight: 1.5 }}>
+            <strong>⚠️ U Berlinu nadležan je Bezirksamt (Jugendamt — Elterngeldstelle) prema mjestu vaše prijavljene adrese (Anmeldung).</strong><br />
+            Pronađi svoj nadležni Bezirksamt po PLZ-u:
+            <br />
+            <a href="https://service.berlin.de/dienstleistung/326079/" target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontWeight: 600 }}>
+              Service Berlin — pronađi nadležnu Elterngeldstelle →
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* Versand — Brandenburg: lokalne Elterngeldstellen Landkreise/kreisfreie Städte */}
       {bundesland === "bb" && selectedBL && (
         <div style={sectionStyle}>
