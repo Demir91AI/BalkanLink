@@ -21,6 +21,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     builder: buildHamburgFieldFills,
     label: "Hamburg (BAGSFI)",
   },
+  ni: {
+    url: "/muster/elterngeld-niedersachsen-2025.pdf",
+    builder: buildNiedersachsenFieldFills,
+    label: "Niedersachsen (Landkreis/Stadt)",
+  },
 };
 
 export function getPdfConfig(bl: BundeslandId): PdfConfig | undefined {
