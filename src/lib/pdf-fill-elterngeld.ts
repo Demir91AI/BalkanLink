@@ -26,6 +26,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     builder: buildNiedersachsenFieldFills,
     label: "Niedersachsen (Landkreis/Stadt)",
   },
+  rp: {
+    url: "/muster/elterngeld-rheinland-pfalz-2025.pdf",
+    builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
+    label: "Rheinland-Pfalz (Kreis/Stadt)",
+  },
   sh: {
     url: "/muster/elterngeld-schleswig-holstein-2025.pdf",
     builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
