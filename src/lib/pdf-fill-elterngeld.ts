@@ -1,6 +1,7 @@
 import { PDFDocument } from "pdf-lib";
 import { buildFieldFills, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { buildHamburgFieldFills } from "@/lib/elterngeld-hamburg-fields";
+import { buildNiedersachsenFieldFills } from "@/lib/elterngeld-niedersachsen-fields";
 import type { BundeslandId } from "@/lib/elterngeld-bundeslaender";
 
 interface PdfConfig {
