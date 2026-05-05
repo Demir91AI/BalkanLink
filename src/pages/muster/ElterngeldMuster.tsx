@@ -129,12 +129,12 @@ export default function ElterngeldMuster() {
 
       <BundeslandSelector value={bundesland} onChange={handleBundeslandChange} />
 
-      {isAutoFill && (
+      {isAutoFill && selectedBL && (
         <div style={{ marginBottom: 16, padding: 14, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 8, fontSize: 13, color: "#065F46", lineHeight: 1.5 }}>
           <strong>✅ {t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
           {t("musterFlow.elterngeld.officialBadgeBody")}{" "}
-          <a href={ORIGINAL_INFO} target="_blank" rel="noopener noreferrer" style={{ color: "#065F46", fontWeight: 700, textDecoration: "underline" }}>
-            ZBFS Bayern →
+          <a href={selectedBL.officialUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#065F46", fontWeight: 700, textDecoration: "underline" }}>
+            {selectedBL.authority.split("—")[0].trim()} →
           </a>
         </div>
       )}
