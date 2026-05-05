@@ -57,6 +57,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
     label: "Schleswig-Holstein (LASG)",
   },
+  st: {
+    url: "/muster/elterngeld-sachsen-anhalt-2025.pdf",
+    builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
+    label: "Sachsen-Anhalt (Landesverwaltungsamt Halle)",
+  },
 };
 
 export function getPdfConfig(bl: BundeslandId): PdfConfig | undefined {
