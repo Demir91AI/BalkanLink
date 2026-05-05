@@ -59,7 +59,7 @@ export function buildMecklenburgFieldFills(d: ElterngeldFormData): FieldFill[] {
   T("Elternteil1_EMail", d.e1_email);
   T("Elternteil1_TelefonNr", d.e1_telefon);
   T("Elternteil1_IBAN", d.iban);
-  T("Elternteil1_Geldinstitut", d.bank_name);
+  T("Elternteil1_Geldinstitut", d.geldinstitut);
   T("Elternteil1_Kontoinhaber", d.kontoinhaber);
   if (d.e1_staat !== "deutsch") {
     T("Elternteil1_andere Staatsangehörigkeiten", d.e1_staat_land);
