@@ -415,6 +415,22 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
+      {/* Versand — Niedersachsen: 85+ lokalnih ureda → upućujemo na service portal */}
+      {bundesland === "ni" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ marginBottom: 10, padding: 12, background: "#FEF3C7", border: "1px solid #EAB308", borderRadius: 6, fontSize: 12, color: "#78350F", lineHeight: 1.5 }}>
+            <strong>⚠️ Niedersachsen ima 85+ Elterngeldstellen.</strong><br />
+            Antrag se predaje nadležnom Landkreisu / kreisfreien Stadt prema mjestu stanovanja. Pronađi adresu po PLZ-u:
+            <br />
+            <a href="https://service.niedersachsen.de/detail?pstId=8664535" target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontWeight: 600 }}>
+              Pronađi nadležnu Elterngeldstelle →
+            </a>
+          </div>
+        </div>
+      )}
+
+
       {/* Akcija */}
       <div style={{ position: "sticky", bottom: 0, background: "#fff", padding: "16px 0", borderTop: "1px solid #E5E7EB", marginTop: 16 }} className="no-print">
         {error && (
