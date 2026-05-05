@@ -430,6 +430,31 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
+      {/* Versand — Bremen: Amt für Soziale Dienste (Bremen i Bremerhaven odvojeno) */}
+      {bundesland === "hb" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ padding: 14, background: "#fff", border: "2px dashed #15803D", borderRadius: 8, fontSize: 13, lineHeight: 1.6, marginBottom: 10 }}>
+            <div style={{ fontSize: 11, color: "#15803D", fontWeight: 700, marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              {t("musterFlow.elterngeld.versand.envelopeTitle")} — Bremen
+            </div>
+            <div style={{ fontWeight: 700 }}>Amt für Soziale Dienste</div>
+            <div>Elterngeldstelle</div>
+            <div>Bahnhofsplatz 29</div>
+            <div>28195 Bremen</div>
+          </div>
+          <div style={{ padding: 14, background: "#fff", border: "2px dashed #15803D", borderRadius: 8, fontSize: 13, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 11, color: "#15803D", fontWeight: 700, marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              {t("musterFlow.elterngeld.versand.envelopeTitle")} — Bremerhaven
+            </div>
+            <div style={{ fontWeight: 700 }}>Magistrat Bremerhaven</div>
+            <div>Amt für Jugend, Familie und Frauen — Elterngeldstelle</div>
+            <div>Hinrich-Schmalfeldt-Straße</div>
+            <div>27576 Bremerhaven</div>
+          </div>
+        </div>
+      )}
+
       {/* Versand — Brandenburg: lokalne Elterngeldstellen Landkreise/kreisfreie Städte */}
       {bundesland === "bb" && selectedBL && (
         <div style={sectionStyle}>
