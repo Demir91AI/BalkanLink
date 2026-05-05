@@ -12,7 +12,6 @@ import { DEFAULT_BUNDESLAND, getBundesland, type BundeslandId } from "@/lib/elte
 
 const LS_KEY = "elterngeld-bayern-wizard-v1";
 const LS_BL_KEY = "elterngeld-bundesland-v1";
-const ORIGINAL_INFO = "https://www.zbfs.bayern.de/familienleistungen/elterngeld/";
 
 const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 6, display: "block" };
 const inputStyle: React.CSSProperties = {
