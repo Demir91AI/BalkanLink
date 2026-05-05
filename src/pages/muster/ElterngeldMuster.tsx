@@ -12,7 +12,6 @@ import { DEFAULT_BUNDESLAND, getBundesland, type BundeslandId } from "@/lib/elte
 
 const LS_KEY = "elterngeld-bayern-wizard-v1";
 const LS_BL_KEY = "elterngeld-bundesland-v1";
-const ORIGINAL_INFO = "https://www.zbfs.bayern.de/familienleistungen/elterngeld/";
 
 const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, color: "#374151", marginBottom: 6, display: "block" };
 const inputStyle: React.CSSProperties = {
@@ -91,8 +90,9 @@ export default function ElterngeldMuster() {
     setError(null);
     setGenerating(true);
     try {
-      const blob = await fillElterngeldPdf(data);
-      const fname = `Elterngeld-Bayern-${data.e1_nachname || "antrag"}.pdf`.replace(/\s+/g, "_");
+      const blob = await fillElterngeldPdf(data, bundesland);
+      const blName = selectedBL?.name || "Antrag";
+      const fname = `Elterngeld-${blName}-${data.e1_nachname || "antrag"}.pdf`.replace(/\s+/g, "_");
       downloadBlob(blob, fname);
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : String(e);
@@ -110,14 +110,14 @@ export default function ElterngeldMuster() {
 
   return (
     <MusterFormBase
-      rootId="elterngeld-bayern"
-      title="Elterngeld Bayern — Antragsassistent"
+      rootId="elterngeld"
+      title={`Elterngeld ${selectedBL?.name || "Bayern"} — Antragsassistent`}
       subtitle={t("musterFlow.elterngeld.subtitle")}
-      pdfUrl="/muster/elterngeld-bayern-2025.pdf"
+      pdfUrl={selectedBL?.pdfUrl || "/muster/elterngeld-bayern-2025.pdf"}
       pdfLabel={t("musterFlow.elterngeld.originalLink")}
       footerNote={t("musterFlow.elterngeld.footerNote")}
       lsKey={LS_KEY}
-      formularId="elterngeld-bayern"
+      formularId={`elterngeld-${bundesland}`}
       data={data}
       onSave={() => { /* auto-saved via update() */ }}
       onReset={reset}
@@ -128,12 +128,12 @@ export default function ElterngeldMuster() {
 
       <BundeslandSelector value={bundesland} onChange={handleBundeslandChange} />
 
-      {isAutoFill && (
+      {isAutoFill && selectedBL && (
         <div style={{ marginBottom: 16, padding: 14, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 8, fontSize: 13, color: "#065F46", lineHeight: 1.5 }}>
           <strong>✅ {t("musterFlow.elterngeld.officialBadgeTitle")}</strong><br />
           {t("musterFlow.elterngeld.officialBadgeBody")}{" "}
-          <a href={ORIGINAL_INFO} target="_blank" rel="noopener noreferrer" style={{ color: "#065F46", fontWeight: 700, textDecoration: "underline" }}>
-            ZBFS Bayern →
+          <a href={selectedBL.officialUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#065F46", fontWeight: 700, textDecoration: "underline" }}>
+            {selectedBL.authority.split("—")[0].trim()} →
           </a>
         </div>
       )}
@@ -361,7 +361,8 @@ export default function ElterngeldMuster() {
         <div style={hintStyle}>{t("musterFlow.elterngeld.sig.hint")}</div>
       </div>
 
-      {/* Versand — gdje slati antrag */}
+      {/* Versand — gdje slati antrag (samo Bayern ima više Außenstellen; ostali su centralizovani) */}
+      {bundesland === "by" && (
       <div style={sectionStyle}>
         <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
         <div style={{ marginBottom: 10, padding: 12, background: "#FEF3C7", border: "1px solid #EAB308", borderRadius: 6, fontSize: 12, color: "#78350F", lineHeight: 1.5 }}>
@@ -396,6 +397,23 @@ export default function ElterngeldMuster() {
           );
         })()}
       </div>
+      )}
+
+      {/* Versand — Hamburg centralizovano */}
+      {bundesland === "hh" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ padding: 14, background: "#fff", border: "2px dashed #15803D", borderRadius: 8, fontSize: 13, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 11, color: "#15803D", fontWeight: 700, marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              {t("musterFlow.elterngeld.versand.envelopeTitle")}
+            </div>
+            <div style={{ fontWeight: 700 }}>{selectedBL.authority}</div>
+            <div>Hamburger Straße 47</div>
+            <div>22083 Hamburg</div>
+            {selectedBL.phone && <div style={{ marginTop: 6, fontSize: 12, color: "#6B7280" }}>Tel: {selectedBL.phone}</div>}
+          </div>
+        </div>
+      )}
 
       {/* Akcija */}
       <div style={{ position: "sticky", bottom: 0, background: "#fff", padding: "16px 0", borderTop: "1px solid #E5E7EB", marginTop: 16 }} className="no-print">
