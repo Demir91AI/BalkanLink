@@ -361,7 +361,8 @@ export default function ElterngeldMuster() {
         <div style={hintStyle}>{t("musterFlow.elterngeld.sig.hint")}</div>
       </div>
 
-      {/* Versand — gdje slati antrag */}
+      {/* Versand — gdje slati antrag (samo Bayern ima više Außenstellen; ostali su centralizovani) */}
+      {bundesland === "by" && (
       <div style={sectionStyle}>
         <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
         <div style={{ marginBottom: 10, padding: 12, background: "#FEF3C7", border: "1px solid #EAB308", borderRadius: 6, fontSize: 12, color: "#78350F", lineHeight: 1.5 }}>
@@ -396,6 +397,23 @@ export default function ElterngeldMuster() {
           );
         })()}
       </div>
+      )}
+
+      {/* Versand — Hamburg centralizovano */}
+      {bundesland === "hh" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ padding: 14, background: "#fff", border: "2px dashed #15803D", borderRadius: 8, fontSize: 13, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 11, color: "#15803D", fontWeight: 700, marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              {t("musterFlow.elterngeld.versand.envelopeTitle")}
+            </div>
+            <div style={{ fontWeight: 700 }}>{selectedBL.authority}</div>
+            <div>Hamburger Straße 47</div>
+            <div>22083 Hamburg</div>
+            {selectedBL.phone && <div style={{ marginTop: 6, fontSize: 12, color: "#6B7280" }}>Tel: {selectedBL.phone}</div>}
+          </div>
+        </div>
+      )}
 
       {/* Akcija */}
       <div style={{ position: "sticky", bottom: 0, background: "#fff", padding: "16px 0", borderTop: "1px solid #E5E7EB", marginTop: 16 }} className="no-print">
