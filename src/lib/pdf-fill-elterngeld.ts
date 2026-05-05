@@ -26,6 +26,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     builder: buildNiedersachsenFieldFills,
     label: "Niedersachsen (Landkreis/Stadt)",
   },
+  sh: {
+    url: "/muster/elterngeld-schleswig-holstein-2025.pdf",
+    builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
+    label: "Schleswig-Holstein (LASG)",
+  },
 };
 
 export function getPdfConfig(bl: BundeslandId): PdfConfig | undefined {
