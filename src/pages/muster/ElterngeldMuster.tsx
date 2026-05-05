@@ -430,6 +430,21 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
+      {/* Versand — Rheinland-Pfalz: lokalne Elterngeldstellen Kreis-/Stadtverwaltungen */}
+      {bundesland === "rp" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ marginBottom: 10, padding: 12, background: "#FEF3C7", border: "1px solid #EAB308", borderRadius: 6, fontSize: 12, color: "#78350F", lineHeight: 1.5 }}>
+            <strong>⚠️ U Rheinland-Pfalz nadležne su Elterngeldstellen Kreis- i Stadtverwaltungen.</strong><br />
+            Antrag se predaje nadležnoj službi prema mjestu stanovanja. Pronađi adresu:
+            <br />
+            <a href="https://mffki.rlp.de/fileadmin/07/Dokumente/Themen/Familie/Gute_Zukunft_fuer_alle_Kinder_und_Eltern/Elterngeld/Liste_Elterngeldstellen_RLP_2024_10.pdf" target="_blank" rel="noopener noreferrer" style={{ color: "#1d4ed8", fontWeight: 600 }}>
+              Lista svih Elterngeldstellen u RLP (PDF) →
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* Versand — Schleswig-Holstein centralizovano (LASG Neumünster) */}
       {bundesland === "sh" && selectedBL && (
         <div style={sectionStyle}>
