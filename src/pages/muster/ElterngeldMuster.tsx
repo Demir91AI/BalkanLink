@@ -455,6 +455,23 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
+      {/* Versand — Mecklenburg-Vorpommern centralizovano (LAGuS Greifswald) */}
+      {bundesland === "mv" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ padding: 14, background: "#fff", border: "2px dashed #15803D", borderRadius: 8, fontSize: 13, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 11, color: "#15803D", fontWeight: 700, marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              {t("musterFlow.elterngeld.versand.envelopeTitle")}
+            </div>
+            <div style={{ fontWeight: 700 }}>Landesamt für Gesundheit und Soziales M-V</div>
+            <div>Abteilung Soziales — Elterngeldstelle</div>
+            <div>Friedrich-Engels-Platz 5–8</div>
+            <div>17489 Greifswald</div>
+            {selectedBL.phone && <div style={{ marginTop: 6, fontSize: 12, color: "#6B7280" }}>Tel: {selectedBL.phone}</div>}
+          </div>
+        </div>
+      )}
+
       {/* Versand — Berlin: 12 Bezirksamta prema mjestu stanovanja */}
       {bundesland === "be" && selectedBL && (
         <div style={sectionStyle}>

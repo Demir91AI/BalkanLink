@@ -2,6 +2,7 @@ import { PDFDocument } from "pdf-lib";
 import { buildFieldFills, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { buildHamburgFieldFills } from "@/lib/elterngeld-hamburg-fields";
 import { buildNiedersachsenFieldFills } from "@/lib/elterngeld-niedersachsen-fields";
+import { buildMecklenburgFieldFills } from "@/lib/elterngeld-mecklenburg-fields";
 import type { BundeslandId } from "@/lib/elterngeld-bundeslaender";
 
 interface PdfConfig {
@@ -30,6 +31,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     url: "/muster/elterngeld-brandenburg-2025.pdf",
     builder: buildNiedersachsenFieldFills,
     label: "Brandenburg (Landkreis/Stadt)",
+  },
+  mv: {
+    url: "/muster/elterngeld-mecklenburg-vorpommern-2025.pdf",
+    builder: buildMecklenburgFieldFills,
+    label: "Mecklenburg-Vorpommern (LAGuS)",
   },
   be: {
     url: "/muster/elterngeld-berlin-2025.pdf",
