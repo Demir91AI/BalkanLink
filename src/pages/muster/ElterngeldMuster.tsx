@@ -534,6 +534,23 @@ export default function ElterngeldMuster() {
         </div>
       )}
 
+      {/* Versand — Sachsen-Anhalt centralizovano (LVwA Halle) */}
+      {bundesland === "st" && selectedBL && (
+        <div style={sectionStyle}>
+          <h3 style={h3}>📮 {t("musterFlow.elterngeld.versand.title")}</h3>
+          <div style={{ padding: 14, background: "#fff", border: "2px dashed #15803D", borderRadius: 8, fontSize: 13, lineHeight: 1.6 }}>
+            <div style={{ fontSize: 11, color: "#15803D", fontWeight: 700, marginBottom: 6, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              {t("musterFlow.elterngeld.versand.envelopeTitle")}
+            </div>
+            <div style={{ fontWeight: 700 }}>Landesverwaltungsamt Sachsen-Anhalt</div>
+            <div>Referat Elterngeld</div>
+            <div>Maxim-Gorki-Straße 7</div>
+            <div>06114 Halle (Saale)</div>
+            {selectedBL.phone && <div style={{ marginTop: 6, fontSize: 12, color: "#6B7280" }}>Tel: {selectedBL.phone}</div>}
+          </div>
+        </div>
+      )}
+
       <div style={{ position: "sticky", bottom: 0, background: "#fff", padding: "16px 0", borderTop: "1px solid #E5E7EB", marginTop: 16 }} className="no-print">
         {error && (
           <div style={{ marginBottom: 12, padding: 12, background: "#FEE2E2", border: "1px solid #DC2626", borderRadius: 6, fontSize: 13, color: "#991B1B" }}>
