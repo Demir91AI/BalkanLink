@@ -1,6 +1,7 @@
 import { PDFDocument } from "pdf-lib";
 import { buildFieldFills, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { buildHamburgFieldFills } from "@/lib/elterngeld-hamburg-fields";
+import { buildNiedersachsenFieldFills } from "@/lib/elterngeld-niedersachsen-fields";
 import type { BundeslandId } from "@/lib/elterngeld-bundeslaender";
 
 interface PdfConfig {
@@ -19,6 +20,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     url: "/muster/elterngeld-hamburg-2025.pdf",
     builder: buildHamburgFieldFills,
     label: "Hamburg (BAGSFI)",
+  },
+  ni: {
+    url: "/muster/elterngeld-niedersachsen-2025.pdf",
+    builder: buildNiedersachsenFieldFills,
+    label: "Niedersachsen (Landkreis/Stadt)",
   },
 };
 
