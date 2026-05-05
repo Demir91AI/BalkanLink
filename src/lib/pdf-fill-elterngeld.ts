@@ -31,6 +31,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     builder: buildNiedersachsenFieldFills,
     label: "Brandenburg (Landkreis/Stadt)",
   },
+  be: {
+    url: "/muster/elterngeld-berlin-2025.pdf",
+    builder: buildNiedersachsenFieldFills,
+    label: "Berlin (Bezirksamt)",
+  },
   hb: {
     url: "/muster/elterngeld-bremen-2025.pdf",
     builder: buildNiedersachsenFieldFills,
