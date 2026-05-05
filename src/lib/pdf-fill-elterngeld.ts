@@ -3,6 +3,7 @@ import { buildFieldFills, type ElterngeldFormData } from "@/lib/elterngeld-bayer
 import { buildHamburgFieldFills } from "@/lib/elterngeld-hamburg-fields";
 import { buildNiedersachsenFieldFills } from "@/lib/elterngeld-niedersachsen-fields";
 import { buildMecklenburgFieldFills } from "@/lib/elterngeld-mecklenburg-fields";
+import { buildThueringenFieldFills } from "@/lib/elterngeld-thueringen-fields";
 import type { BundeslandId } from "@/lib/elterngeld-bundeslaender";
 
 interface PdfConfig {
@@ -61,6 +62,11 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
     url: "/muster/elterngeld-sachsen-anhalt-2025.pdf",
     builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
     label: "Sachsen-Anhalt (Landesverwaltungsamt Halle)",
+  },
+  th: {
+    url: "/muster/elterngeld-thueringen-2025.pdf",
+    builder: buildThueringenFieldFills,
+    label: "Thüringen (Landesverwaltungsamt Suhl)",
   },
 };
 
