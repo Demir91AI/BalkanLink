@@ -91,8 +91,9 @@ export default function ElterngeldMuster() {
     setError(null);
     setGenerating(true);
     try {
-      const blob = await fillElterngeldPdf(data);
-      const fname = `Elterngeld-Bayern-${data.e1_nachname || "antrag"}.pdf`.replace(/\s+/g, "_");
+      const blob = await fillElterngeldPdf(data, bundesland);
+      const blName = selectedBL?.name || "Antrag";
+      const fname = `Elterngeld-${blName}-${data.e1_nachname || "antrag"}.pdf`.replace(/\s+/g, "_");
       downloadBlob(blob, fname);
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : String(e);
