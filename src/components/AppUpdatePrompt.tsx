@@ -1,34 +1,67 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RefreshCw } from "lucide-react";
 
+const VERSION_URL = "/version.json";
+const POLL_MS = 5 * 60 * 1000; // every 5 minutes
+
 /**
- * Shows a small toast when a new service worker takes control,
- * giving the user a one-tap "reload" so they always get the latest build
- * without needing to reinstall the PWA.
+ * Detects new builds two ways:
+ *  1) Service worker `controllerchange` (when SW preuzme novi build)
+ *  2) Polling /version.json every 5 min (radi i bez SW i odmah nakon deploya)
+ * Shows a toast with one-tap reload.
  */
 export default function AppUpdatePrompt() {
   const [show, setShow] = useState(false);
+  const initialVersion = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!("serviceWorker" in navigator)) return;
-    let reloaded = false;
+    let cancelled = false;
 
-    const onControllerChange = () => {
-      if (reloaded) return;
-      reloaded = true;
-      setShow(true);
-    };
+    async function fetchVersion(): Promise<string | null> {
+      try {
+        const r = await fetch(`${VERSION_URL}?t=${Date.now()}`, { cache: "no-store" });
+        if (!r.ok) return null;
+        const j = await r.json();
+        return typeof j?.version === "string" ? j.version : null;
+      } catch {
+        return null;
+      }
+    }
 
-    navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
+    // Initial baseline
+    fetchVersion().then((v) => {
+      if (!cancelled) initialVersion.current = v;
+    });
 
-    // Periodically ask the SW to check for updates (every 30 min)
-    const interval = window.setInterval(() => {
-      navigator.serviceWorker.getRegistration().then((reg) => reg?.update().catch(() => {}));
-    }, 30 * 60 * 1000);
+    const poll = window.setInterval(async () => {
+      const v = await fetchVersion();
+      if (!v || !initialVersion.current) return;
+      if (v !== initialVersion.current) setShow(true);
+    }, POLL_MS);
+
+    // SW path
+    let swCleanup: (() => void) | null = null;
+    if ("serviceWorker" in navigator) {
+      let reloaded = false;
+      const onControllerChange = () => {
+        if (reloaded) return;
+        reloaded = true;
+        setShow(true);
+      };
+      navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
+      const swInterval = window.setInterval(() => {
+        navigator.serviceWorker.getRegistration().then((reg) => reg?.update().catch(() => {}));
+      }, 30 * 60 * 1000);
+      swCleanup = () => {
+        navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
+        clearInterval(swInterval);
+      };
+    }
 
     return () => {
-      navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
-      clearInterval(interval);
+      cancelled = true;
+      clearInterval(poll);
+      swCleanup?.();
     };
   }, []);
 
