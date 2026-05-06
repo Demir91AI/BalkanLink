@@ -491,6 +491,48 @@ export default function AdminDashboard() {
 
           {/* ──────────── PREGLED ──────────── */}
           <TabsContent value="overview" className="space-y-4 mt-5">
+            {/* Detaljne metrike u brojevima */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              <KpiTile icon={Eye} label="Pregledi 7d" value={num(stats.views7d)} sub={`${stats.viewsToday} danas`} accent="violet" />
+              <KpiTile icon={Eye} label="Pregledi 30d" value={num(stats.views30d)} sub={`Ø ${stats.avgViewsPerDay30d}/dan`} accent="violet" />
+              <KpiTile icon={Users} label="Jedinstveni 7d" value={num(stats.uniqueVisitors7d)} sub={`${stats.uniqueVisitors30d} u 30d`} accent="blue" />
+              <KpiTile icon={Sparkles} label="Asistent upiti 30d" value={num(stats.chat30d)} sub={`${stats.chatToday} danas · ${stats.chat7d} 7d`} accent="violet" />
+              <KpiTile icon={FileText} label="Doc-Check 30d" value={num(stats.docs30d)} sub={`${stats.docsToday} danas · ${stats.docs7d} 7d`} accent="blue" />
+              <KpiTile icon={Crown} label="Lifetime users" value={num(stats.lifetimeUsers ?? 0)} sub="ukupno doživotnih" accent="gold" />
+            </div>
+
+            {/* Engagement & ratio insights */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Pregleda po posjetiocu</div>
+                <div className="mt-2 text-2xl font-black text-white tabular-nums">
+                  {stats.uniqueVisitors30d > 0 ? (stats.views30d / stats.uniqueVisitors30d).toFixed(1) : "0"}
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">prosjek po jedinstvenom (30d)</div>
+              </div>
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Prijavljeni vs anonimni</div>
+                <div className="mt-2 text-2xl font-black text-white tabular-nums">
+                  {pct(stats.loggedInViews7d, stats.loggedInViews7d + stats.anonViews7d)}%
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">{num(stats.loggedInViews7d)} prijavljenih (7d)</div>
+              </div>
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Premium udio</div>
+                <div className="mt-2 text-2xl font-black text-[hsl(var(--gold))] tabular-nums">
+                  {pct(stats.activePremium, stats.totalUsers)}%
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">od {num(stats.totalUsers)} korisnika</div>
+              </div>
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Prosjek prihoda/dan</div>
+                <div className="mt-2 text-2xl font-black text-emerald-300 tabular-nums">
+                  {eur(Math.round(stats.revenue30d / 30))}
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">zadnjih 30 dana</div>
+              </div>
+            </div>
+
             <Panel title="Konverzioni lijevak (zadnjih 30 dana)" icon={Activity}>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
