@@ -333,35 +333,36 @@ export default function AdminDashboard() {
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
-      <div className="admin-dark-scope relative min-h-screen bg-[#020617] text-white">
+      <div className="admin-dark-scope relative min-h-screen bg-slate-900 text-white">
       <style>{`
-        .admin-dark-scope [data-state="active"][role="tab"] { background: hsl(var(--gold) / 0.18); color: hsl(var(--gold)); }
-        .admin-dark-scope [role="tab"] { color: rgba(255,255,255,0.7); }
-        .admin-dark-scope [role="tab"]:hover { color: #fff; }
+        .admin-dark-scope [data-state="active"][role="tab"] { background: hsl(var(--gold) / 0.25); color: hsl(var(--gold)); font-weight: 700; }
+        .admin-dark-scope [role="tab"] { color: rgba(255,255,255,0.85); font-weight: 600; }
+        .admin-dark-scope [role="tab"]:hover { color: #fff; background: rgba(255,255,255,0.05); }
         .admin-dark-scope button[class*="border-input"],
         .admin-dark-scope a[class*="border-input"] {
-          background: hsl(225 45% 10% / 0.8) !important;
-          border-color: hsl(var(--gold) / 0.3) !important;
+          background: rgb(30 41 59 / 0.85) !important;
+          border-color: hsl(var(--gold) / 0.45) !important;
           color: #fff !important;
+          font-weight: 600;
         }
         .admin-dark-scope button[class*="border-input"]:hover,
         .admin-dark-scope a[class*="border-input"]:hover {
-          background: hsl(var(--gold) / 0.12) !important;
-          border-color: hsl(var(--gold) / 0.55) !important;
+          background: hsl(var(--gold) / 0.18) !important;
+          border-color: hsl(var(--gold) / 0.7) !important;
           color: hsl(var(--gold)) !important;
         }
-        .admin-dark-scope input { background: hsl(225 45% 8% / 0.9); border-color: hsl(var(--gold) / 0.35); color: #fff; }
-        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.55); }
-        .admin-dark-scope .text-muted-foreground { color: rgba(255,255,255,0.78) !important; }
+        .admin-dark-scope input { background: rgb(30 41 59 / 0.9); border-color: hsl(var(--gold) / 0.45); color: #fff; }
+        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.65); }
+        .admin-dark-scope .text-muted-foreground { color: rgb(203 213 225) !important; }
         .admin-dark-scope .text-foreground { color: #fff !important; }
-        .admin-dark-scope [data-radix-accordion-trigger] { color: #fff; font-weight: 600; }
-        .admin-dark-scope table thead th { color: rgba(255,255,255,0.85) !important; }
-        .admin-dark-scope table tbody td { color: rgba(255,255,255,0.92); }
-        .admin-dark-scope table tbody tr:hover { background: hsl(var(--gold) / 0.08) !important; }
+        .admin-dark-scope [data-radix-accordion-trigger] { color: #fff; font-weight: 700; }
+        .admin-dark-scope table thead th { color: #fff !important; font-weight: 700; }
+        .admin-dark-scope table tbody td { color: rgb(241 245 249); }
+        .admin-dark-scope table tbody tr:hover { background: hsl(var(--gold) / 0.12) !important; }
       `}</style>
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.08)] blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full bg-[hsl(var(--brand-orange)/0.06)] blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.10)] blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full bg-sky-500/[0.08] blur-[120px] pointer-events-none" />
 
       {/* Premium hero header */}
       <div className="relative overflow-hidden border-b border-[hsl(var(--gold)/0.15)] bg-gradient-to-b from-[hsl(var(--gold))]/[0.06] via-transparent to-transparent">
