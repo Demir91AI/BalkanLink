@@ -273,6 +273,13 @@ export default function AdminDashboard() {
     return pct(stats.funnel.paid + stats.funnel.trialActive, stats.funnel.signups);
   }, [stats]);
 
+  const filteredUsers = useMemo(() => {
+    if (tierFilter === "all") return users;
+    if (tierFilter === "premium") return users.filter((u) => u.is_premium || ["premium", "premium_yearly", "lifetime"].includes(u.subscription_tier));
+    if (tierFilter === "trial") return users.filter((u) => ["launch_trial", "influencer_trial"].includes(u.subscription_tier));
+    return users.filter((u) => !u.is_premium && (u.subscription_tier === "free" || !u.subscription_tier));
+  }, [users, tierFilter]);
+
   const emailHealthPct = useMemo(() => {
     if (!stats) return 100;
     const t = stats.emailStats.total;
