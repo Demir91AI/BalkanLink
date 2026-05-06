@@ -714,7 +714,12 @@ export default function AdminDashboard() {
               />
             </Panel>
 
-            <Panel title="Zadnja plaćanja" icon={CreditCard}>
+            <Panel title="Zadnja plaćanja" icon={CreditCard}
+              right={
+                <Button variant="outline" size="sm" onClick={() => exportCSV(payments.map((p) => ({ ...p, amount_eur: (p.amount/100).toFixed(2) })), "placanja")} className="h-8 gap-1">
+                  <Download className="h-3.5 w-3.5" /> CSV
+                </Button>
+              }>
               {payments.length === 0 ? (
                 <p className="text-sm text-muted-foreground">Nema plaćanja zabilježenih.</p>
               ) : (
