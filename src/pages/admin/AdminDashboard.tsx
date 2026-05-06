@@ -77,29 +77,29 @@ function KpiTile({
   trend?: { value: number; positive?: boolean };
 }) {
   const accentMap: Record<string, { border: string; glow: string; iconBg: string; iconFg: string }> = {
-    default: { border: "border-white/10 hover:border-[hsl(var(--gold)/0.35)]", glow: "from-white/[0.02]", iconBg: "bg-white/5", iconFg: "text-white/80" },
-    gold: { border: "border-[hsl(var(--gold))]/25 hover:border-[hsl(var(--gold))]/50", glow: "from-[hsl(var(--gold))]/[0.08]", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
-    green: { border: "border-emerald-500/25 hover:border-emerald-500/45", glow: "from-emerald-500/[0.06]", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-300" },
-    blue: { border: "border-sky-500/25 hover:border-sky-500/45", glow: "from-sky-500/[0.06]", iconBg: "bg-sky-500/15", iconFg: "text-sky-300" },
-    violet: { border: "border-violet-500/25 hover:border-violet-500/45", glow: "from-violet-500/[0.06]", iconBg: "bg-violet-500/15", iconFg: "text-violet-300" },
-    rose: { border: "border-rose-500/25 hover:border-rose-500/45", glow: "from-rose-500/[0.06]", iconBg: "bg-rose-500/15", iconFg: "text-rose-300" },
+    default: { border: "border-slate-600/50 hover:border-[hsl(var(--gold)/0.55)]", glow: "from-white/[0.04]", iconBg: "bg-slate-700/60", iconFg: "text-white" },
+    gold: { border: "border-[hsl(var(--gold))]/45 hover:border-[hsl(var(--gold))]/70", glow: "from-[hsl(var(--gold))]/[0.14]", iconBg: "bg-[hsl(var(--gold))]/25", iconFg: "text-[hsl(var(--gold))]" },
+    green: { border: "border-emerald-400/45 hover:border-emerald-400/70", glow: "from-emerald-500/[0.14]", iconBg: "bg-emerald-500/25", iconFg: "text-emerald-200" },
+    blue: { border: "border-sky-400/45 hover:border-sky-400/70", glow: "from-sky-500/[0.14]", iconBg: "bg-sky-500/25", iconFg: "text-sky-200" },
+    violet: { border: "border-violet-400/45 hover:border-violet-400/70", glow: "from-violet-500/[0.14]", iconBg: "bg-violet-500/25", iconFg: "text-violet-200" },
+    rose: { border: "border-rose-400/45 hover:border-rose-400/70", glow: "from-rose-500/[0.14]", iconBg: "bg-rose-500/25", iconFg: "text-rose-200" },
   };
   const c = accentMap[accent];
   return (
-    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-[hsl(225,45%,8%)]/80 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-md transition-all hover:shadow-lg hover:shadow-black/40 hover:-translate-y-0.5`}>
+    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-slate-800/70 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-md transition-all hover:shadow-xl hover:shadow-black/40 hover:-translate-y-0.5`}>
       <div className="flex items-start justify-between gap-2">
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/10`}>
-          <Icon className={`h-4 w-4 ${c.iconFg}`} />
+        <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/15`}>
+          <Icon className={`h-5 w-5 ${c.iconFg}`} />
         </div>
         {trend && (
-          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-300" : "bg-rose-500/15 text-rose-300"}`}>
+          <span className={`text-[11px] font-bold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/25 text-emerald-200" : "bg-rose-500/25 text-rose-200"}`}>
             {trend.positive ? "▲" : "▼"} {trend.value}%
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-white/75">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white drop-shadow">{value}</div>
-      {sub && <div className="mt-1 text-[11px] text-white/70">{sub}</div>}
+      <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-slate-300">{label}</div>
+      <div className="mt-1 text-3xl md:text-4xl font-black tabular-nums leading-tight text-white drop-shadow-lg">{value}</div>
+      {sub && <div className="mt-1.5 text-[12px] text-slate-300 font-medium">{sub}</div>}
     </div>
   );
 }
@@ -108,20 +108,20 @@ function MiniBars({ data, color = "gold", labelKey, valueKey }: {
   data: any[]; color?: "gold" | "blue" | "green" | "violet";
   labelKey: string; valueKey: string;
 }) {
-  if (!data || data.length === 0) return <p className="text-sm text-muted-foreground">Nema podataka.</p>;
+  if (!data || data.length === 0) return <p className="text-sm text-slate-300">Nema podataka.</p>;
   const max = Math.max(...data.map((d) => d[valueKey]), 1);
   const cls = {
-    gold: "from-[hsl(var(--gold))]/80 to-[hsl(var(--gold))]/40",
-    blue: "from-sky-500/80 to-sky-500/40",
-    green: "from-emerald-500/80 to-emerald-500/40",
-    violet: "from-violet-500/80 to-violet-500/40",
+    gold: "from-[hsl(var(--gold))] to-[hsl(var(--gold))]/60",
+    blue: "from-sky-400 to-sky-500/60",
+    green: "from-emerald-400 to-emerald-500/60",
+    violet: "from-violet-400 to-violet-500/60",
   }[color];
   return (
     <div className="space-y-1.5">
       {data.map((d, i) => (
         <div key={i} className="flex items-center gap-2 text-xs">
-          <span className="w-16 text-white/70 tabular-nums truncate">{String(d[labelKey]).slice(-5)}</span>
-          <div className="flex-1 bg-white/10 rounded-full h-3 overflow-hidden">
+          <span className="w-16 text-slate-200 tabular-nums truncate font-medium">{String(d[labelKey]).slice(-5)}</span>
+          <div className="flex-1 bg-slate-700/60 rounded-full h-3 overflow-hidden">
             <div className={`h-full bg-gradient-to-r ${cls} rounded-full transition-all`} style={{ width: `${(d[valueKey] / max) * 100}%` }} />
           </div>
           <span className="w-16 text-right font-bold tabular-nums text-white">{d[valueKey]}</span>
@@ -136,14 +136,14 @@ function Panel({ title, icon: Icon, children, right, tone = "default" }: {
   tone?: "default" | "warning" | "success";
 }) {
   const toneCls = tone === "warning"
-    ? "border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-[hsl(225,45%,8%)]/80"
+    ? "border-amber-400/45 bg-gradient-to-br from-amber-500/15 to-slate-800/70"
     : tone === "success"
-    ? "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-[hsl(225,45%,8%)]/80"
-    : "border-[hsl(var(--gold)/0.15)] bg-[hsl(225,45%,8%)]/80";
+    ? "border-emerald-400/45 bg-gradient-to-br from-emerald-500/15 to-slate-800/70"
+    : "border-slate-600/50 bg-slate-800/70";
   return (
-    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-md shadow-lg shadow-black/30`}>
+    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-md shadow-xl shadow-black/30`}>
       <div className="flex items-center justify-between mb-4 gap-3">
-        <h3 className="font-semibold text-sm flex items-center gap-2 text-white">
+        <h3 className="font-bold text-base flex items-center gap-2 text-white">
           {Icon && <Icon className="h-4 w-4 text-[hsl(var(--gold))]" />} {title}
         </h3>
         {right}
@@ -333,35 +333,36 @@ export default function AdminDashboard() {
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
 
-      <div className="admin-dark-scope relative min-h-screen bg-[#020617] text-white">
+      <div className="admin-dark-scope relative min-h-screen bg-slate-900 text-white">
       <style>{`
-        .admin-dark-scope [data-state="active"][role="tab"] { background: hsl(var(--gold) / 0.18); color: hsl(var(--gold)); }
-        .admin-dark-scope [role="tab"] { color: rgba(255,255,255,0.7); }
-        .admin-dark-scope [role="tab"]:hover { color: #fff; }
+        .admin-dark-scope [data-state="active"][role="tab"] { background: hsl(var(--gold) / 0.25); color: hsl(var(--gold)); font-weight: 700; }
+        .admin-dark-scope [role="tab"] { color: rgba(255,255,255,0.85); font-weight: 600; }
+        .admin-dark-scope [role="tab"]:hover { color: #fff; background: rgba(255,255,255,0.05); }
         .admin-dark-scope button[class*="border-input"],
         .admin-dark-scope a[class*="border-input"] {
-          background: hsl(225 45% 10% / 0.8) !important;
-          border-color: hsl(var(--gold) / 0.3) !important;
+          background: rgb(30 41 59 / 0.85) !important;
+          border-color: hsl(var(--gold) / 0.45) !important;
           color: #fff !important;
+          font-weight: 600;
         }
         .admin-dark-scope button[class*="border-input"]:hover,
         .admin-dark-scope a[class*="border-input"]:hover {
-          background: hsl(var(--gold) / 0.12) !important;
-          border-color: hsl(var(--gold) / 0.55) !important;
+          background: hsl(var(--gold) / 0.18) !important;
+          border-color: hsl(var(--gold) / 0.7) !important;
           color: hsl(var(--gold)) !important;
         }
-        .admin-dark-scope input { background: hsl(225 45% 8% / 0.9); border-color: hsl(var(--gold) / 0.35); color: #fff; }
-        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.55); }
-        .admin-dark-scope .text-muted-foreground { color: rgba(255,255,255,0.78) !important; }
+        .admin-dark-scope input { background: rgb(30 41 59 / 0.9); border-color: hsl(var(--gold) / 0.45); color: #fff; }
+        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.65); }
+        .admin-dark-scope .text-muted-foreground { color: rgb(203 213 225) !important; }
         .admin-dark-scope .text-foreground { color: #fff !important; }
-        .admin-dark-scope [data-radix-accordion-trigger] { color: #fff; font-weight: 600; }
-        .admin-dark-scope table thead th { color: rgba(255,255,255,0.85) !important; }
-        .admin-dark-scope table tbody td { color: rgba(255,255,255,0.92); }
-        .admin-dark-scope table tbody tr:hover { background: hsl(var(--gold) / 0.08) !important; }
+        .admin-dark-scope [data-radix-accordion-trigger] { color: #fff; font-weight: 700; }
+        .admin-dark-scope table thead th { color: #fff !important; font-weight: 700; }
+        .admin-dark-scope table tbody td { color: rgb(241 245 249); }
+        .admin-dark-scope table tbody tr:hover { background: hsl(var(--gold) / 0.12) !important; }
       `}</style>
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.08)] blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full bg-[hsl(var(--brand-orange)/0.06)] blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.10)] blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] rounded-full bg-sky-500/[0.08] blur-[120px] pointer-events-none" />
 
       {/* Premium hero header */}
       <div className="relative overflow-hidden border-b border-[hsl(var(--gold)/0.15)] bg-gradient-to-b from-[hsl(var(--gold))]/[0.06] via-transparent to-transparent">
@@ -455,7 +456,7 @@ export default function AdminDashboard() {
 
       <div className="container py-8 max-w-7xl space-y-6 relative z-10">
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="w-full overflow-x-auto justify-start flex-nowrap h-11 bg-[hsl(225,45%,8%)]/80 backdrop-blur-md border border-[hsl(var(--gold)/0.15)]">
+          <TabsList className="w-full overflow-x-auto justify-start flex-nowrap h-12 bg-slate-800/90 backdrop-blur-md border border-slate-600/50 shadow-lg">
             <TabsTrigger value="overview" className="gap-1.5"><BarChart3 className="h-3.5 w-3.5" /> Pregled</TabsTrigger>
             <TabsTrigger value="activity" className="gap-1.5"><Bell className="h-3.5 w-3.5" /> Aktivnost</TabsTrigger>
             <TabsTrigger value="users" className="gap-1.5">
@@ -490,6 +491,48 @@ export default function AdminDashboard() {
 
           {/* ──────────── PREGLED ──────────── */}
           <TabsContent value="overview" className="space-y-4 mt-5">
+            {/* Detaljne metrike u brojevima */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              <KpiTile icon={Eye} label="Pregledi 7d" value={num(stats.views7d)} sub={`${stats.viewsToday} danas`} accent="violet" />
+              <KpiTile icon={Eye} label="Pregledi 30d" value={num(stats.views30d)} sub={`Ø ${stats.avgViewsPerDay30d}/dan`} accent="violet" />
+              <KpiTile icon={Users} label="Jedinstveni 7d" value={num(stats.uniqueVisitors7d)} sub={`${stats.uniqueVisitors30d} u 30d`} accent="blue" />
+              <KpiTile icon={Sparkles} label="Asistent upiti 30d" value={num(stats.chat30d)} sub={`${stats.chatToday} danas · ${stats.chat7d} 7d`} accent="violet" />
+              <KpiTile icon={FileText} label="Doc-Check 30d" value={num(stats.docs30d)} sub={`${stats.docsToday} danas · ${stats.docs7d} 7d`} accent="blue" />
+              <KpiTile icon={Crown} label="Lifetime users" value={num(stats.lifetimeUsers ?? 0)} sub="ukupno doživotnih" accent="gold" />
+            </div>
+
+            {/* Engagement & ratio insights */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Pregleda po posjetiocu</div>
+                <div className="mt-2 text-2xl font-black text-white tabular-nums">
+                  {stats.uniqueVisitors30d > 0 ? (stats.views30d / stats.uniqueVisitors30d).toFixed(1) : "0"}
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">prosjek po jedinstvenom (30d)</div>
+              </div>
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Prijavljeni vs anonimni</div>
+                <div className="mt-2 text-2xl font-black text-white tabular-nums">
+                  {pct(stats.loggedInViews7d, stats.loggedInViews7d + stats.anonViews7d)}%
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">{num(stats.loggedInViews7d)} prijavljenih (7d)</div>
+              </div>
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Premium udio</div>
+                <div className="mt-2 text-2xl font-black text-[hsl(var(--gold))] tabular-nums">
+                  {pct(stats.activePremium, stats.totalUsers)}%
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">od {num(stats.totalUsers)} korisnika</div>
+              </div>
+              <div className="rounded-2xl border border-slate-600/50 bg-slate-800/70 p-4 backdrop-blur-md">
+                <div className="text-[11px] uppercase tracking-wider text-slate-300 font-bold">Prosjek prihoda/dan</div>
+                <div className="mt-2 text-2xl font-black text-emerald-300 tabular-nums">
+                  {eur(Math.round(stats.revenue30d / 30))}
+                </div>
+                <div className="mt-1 text-[11px] text-slate-300">zadnjih 30 dana</div>
+              </div>
+            </div>
+
             <Panel title="Konverzioni lijevak (zadnjih 30 dana)" icon={Activity}>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
