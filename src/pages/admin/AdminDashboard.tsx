@@ -77,29 +77,29 @@ function KpiTile({
   trend?: { value: number; positive?: boolean };
 }) {
   const accentMap: Record<string, { border: string; glow: string; iconBg: string; iconFg: string }> = {
-    default: { border: "border-white/10 hover:border-[hsl(var(--gold)/0.35)]", glow: "from-white/[0.02]", iconBg: "bg-white/5", iconFg: "text-white/80" },
-    gold: { border: "border-[hsl(var(--gold))]/25 hover:border-[hsl(var(--gold))]/50", glow: "from-[hsl(var(--gold))]/[0.08]", iconBg: "bg-[hsl(var(--gold))]/15", iconFg: "text-[hsl(var(--gold))]" },
-    green: { border: "border-emerald-500/25 hover:border-emerald-500/45", glow: "from-emerald-500/[0.06]", iconBg: "bg-emerald-500/15", iconFg: "text-emerald-300" },
-    blue: { border: "border-sky-500/25 hover:border-sky-500/45", glow: "from-sky-500/[0.06]", iconBg: "bg-sky-500/15", iconFg: "text-sky-300" },
-    violet: { border: "border-violet-500/25 hover:border-violet-500/45", glow: "from-violet-500/[0.06]", iconBg: "bg-violet-500/15", iconFg: "text-violet-300" },
-    rose: { border: "border-rose-500/25 hover:border-rose-500/45", glow: "from-rose-500/[0.06]", iconBg: "bg-rose-500/15", iconFg: "text-rose-300" },
+    default: { border: "border-slate-600/50 hover:border-[hsl(var(--gold)/0.55)]", glow: "from-white/[0.04]", iconBg: "bg-slate-700/60", iconFg: "text-white" },
+    gold: { border: "border-[hsl(var(--gold))]/45 hover:border-[hsl(var(--gold))]/70", glow: "from-[hsl(var(--gold))]/[0.14]", iconBg: "bg-[hsl(var(--gold))]/25", iconFg: "text-[hsl(var(--gold))]" },
+    green: { border: "border-emerald-400/45 hover:border-emerald-400/70", glow: "from-emerald-500/[0.14]", iconBg: "bg-emerald-500/25", iconFg: "text-emerald-200" },
+    blue: { border: "border-sky-400/45 hover:border-sky-400/70", glow: "from-sky-500/[0.14]", iconBg: "bg-sky-500/25", iconFg: "text-sky-200" },
+    violet: { border: "border-violet-400/45 hover:border-violet-400/70", glow: "from-violet-500/[0.14]", iconBg: "bg-violet-500/25", iconFg: "text-violet-200" },
+    rose: { border: "border-rose-400/45 hover:border-rose-400/70", glow: "from-rose-500/[0.14]", iconBg: "bg-rose-500/25", iconFg: "text-rose-200" },
   };
   const c = accentMap[accent];
   return (
-    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-[hsl(225,45%,8%)]/80 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-md transition-all hover:shadow-lg hover:shadow-black/40 hover:-translate-y-0.5`}>
+    <div className={`group relative overflow-hidden rounded-2xl border ${c.border} bg-slate-800/70 bg-gradient-to-br ${c.glow} to-transparent p-4 backdrop-blur-md transition-all hover:shadow-xl hover:shadow-black/40 hover:-translate-y-0.5`}>
       <div className="flex items-start justify-between gap-2">
-        <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/10`}>
-          <Icon className={`h-4 w-4 ${c.iconFg}`} />
+        <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${c.iconBg} ring-1 ring-inset ring-white/15`}>
+          <Icon className={`h-5 w-5 ${c.iconFg}`} />
         </div>
         {trend && (
-          <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/15 text-emerald-300" : "bg-rose-500/15 text-rose-300"}`}>
+          <span className={`text-[11px] font-bold rounded-full px-2 py-0.5 ${trend.positive ? "bg-emerald-500/25 text-emerald-200" : "bg-rose-500/25 text-rose-200"}`}>
             {trend.positive ? "▲" : "▼"} {trend.value}%
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-white/75">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white drop-shadow">{value}</div>
-      {sub && <div className="mt-1 text-[11px] text-white/70">{sub}</div>}
+      <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-slate-300">{label}</div>
+      <div className="mt-1 text-3xl md:text-4xl font-black tabular-nums leading-tight text-white drop-shadow-lg">{value}</div>
+      {sub && <div className="mt-1.5 text-[12px] text-slate-300 font-medium">{sub}</div>}
     </div>
   );
 }
