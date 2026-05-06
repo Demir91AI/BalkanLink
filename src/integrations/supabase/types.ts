@@ -1392,8 +1392,6 @@ export type Database = {
           service_category: string | null
           started_at: string | null
           status: Database["public"]["Enums"]["pro_status"] | null
-          updated_at: string | null
-          user_id: string | null
           website: string | null
           whatsapp: string | null
         }
@@ -1412,8 +1410,6 @@ export type Database = {
           service_category?: string | null
           started_at?: string | null
           status?: Database["public"]["Enums"]["pro_status"] | null
-          updated_at?: string | null
-          user_id?: string | null
           website?: string | null
           whatsapp?: string | null
         }
@@ -1432,8 +1428,6 @@ export type Database = {
           service_category?: string | null
           started_at?: string | null
           status?: Database["public"]["Enums"]["pro_status"] | null
-          updated_at?: string | null
-          user_id?: string | null
           website?: string | null
           whatsapp?: string | null
         }
