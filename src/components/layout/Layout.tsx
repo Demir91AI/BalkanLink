@@ -14,6 +14,7 @@ import { usePWAInstall } from "@/hooks/usePWAInstall";
 import { usePageViewTracker } from "@/hooks/usePageViewTracker";
 
 import PWAInstallBanner from "@/components/PWAInstallBanner";
+import AppUpdatePrompt from "@/components/AppUpdatePrompt";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
 import PWAManualGuide from "@/components/PWAManualGuide";
 import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
@@ -95,6 +96,7 @@ export default function Layout() {
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
         <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
         <TrialPromoCTA />
+        <AppUpdatePrompt />
       </div>
     </div>
   );
