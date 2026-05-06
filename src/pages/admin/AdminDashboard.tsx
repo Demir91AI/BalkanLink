@@ -108,20 +108,20 @@ function MiniBars({ data, color = "gold", labelKey, valueKey }: {
   data: any[]; color?: "gold" | "blue" | "green" | "violet";
   labelKey: string; valueKey: string;
 }) {
-  if (!data || data.length === 0) return <p className="text-sm text-muted-foreground">Nema podataka.</p>;
+  if (!data || data.length === 0) return <p className="text-sm text-slate-300">Nema podataka.</p>;
   const max = Math.max(...data.map((d) => d[valueKey]), 1);
   const cls = {
-    gold: "from-[hsl(var(--gold))]/80 to-[hsl(var(--gold))]/40",
-    blue: "from-sky-500/80 to-sky-500/40",
-    green: "from-emerald-500/80 to-emerald-500/40",
-    violet: "from-violet-500/80 to-violet-500/40",
+    gold: "from-[hsl(var(--gold))] to-[hsl(var(--gold))]/60",
+    blue: "from-sky-400 to-sky-500/60",
+    green: "from-emerald-400 to-emerald-500/60",
+    violet: "from-violet-400 to-violet-500/60",
   }[color];
   return (
     <div className="space-y-1.5">
       {data.map((d, i) => (
         <div key={i} className="flex items-center gap-2 text-xs">
-          <span className="w-16 text-white/70 tabular-nums truncate">{String(d[labelKey]).slice(-5)}</span>
-          <div className="flex-1 bg-white/10 rounded-full h-3 overflow-hidden">
+          <span className="w-16 text-slate-200 tabular-nums truncate font-medium">{String(d[labelKey]).slice(-5)}</span>
+          <div className="flex-1 bg-slate-700/60 rounded-full h-3 overflow-hidden">
             <div className={`h-full bg-gradient-to-r ${cls} rounded-full transition-all`} style={{ width: `${(d[valueKey] / max) * 100}%` }} />
           </div>
           <span className="w-16 text-right font-bold tabular-nums text-white">{d[valueKey]}</span>
@@ -136,14 +136,14 @@ function Panel({ title, icon: Icon, children, right, tone = "default" }: {
   tone?: "default" | "warning" | "success";
 }) {
   const toneCls = tone === "warning"
-    ? "border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-[hsl(225,45%,8%)]/80"
+    ? "border-amber-400/45 bg-gradient-to-br from-amber-500/15 to-slate-800/70"
     : tone === "success"
-    ? "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-[hsl(225,45%,8%)]/80"
-    : "border-[hsl(var(--gold)/0.15)] bg-[hsl(225,45%,8%)]/80";
+    ? "border-emerald-400/45 bg-gradient-to-br from-emerald-500/15 to-slate-800/70"
+    : "border-slate-600/50 bg-slate-800/70";
   return (
-    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-md shadow-lg shadow-black/30`}>
+    <div className={`rounded-2xl border ${toneCls} p-5 backdrop-blur-md shadow-xl shadow-black/30`}>
       <div className="flex items-center justify-between mb-4 gap-3">
-        <h3 className="font-semibold text-sm flex items-center gap-2 text-white">
+        <h3 className="font-bold text-base flex items-center gap-2 text-white">
           {Icon && <Icon className="h-4 w-4 text-[hsl(var(--gold))]" />} {title}
         </h3>
         {right}
