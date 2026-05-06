@@ -120,11 +120,11 @@ function MiniBars({ data, color = "gold", labelKey, valueKey }: {
     <div className="space-y-1.5">
       {data.map((d, i) => (
         <div key={i} className="flex items-center gap-2 text-xs">
-          <span className="w-16 text-muted-foreground tabular-nums truncate">{String(d[labelKey]).slice(-5)}</span>
-          <div className="flex-1 bg-muted/30 rounded-full h-3 overflow-hidden">
+          <span className="w-16 text-white/70 tabular-nums truncate">{String(d[labelKey]).slice(-5)}</span>
+          <div className="flex-1 bg-white/10 rounded-full h-3 overflow-hidden">
             <div className={`h-full bg-gradient-to-r ${cls} rounded-full transition-all`} style={{ width: `${(d[valueKey] / max) * 100}%` }} />
           </div>
-          <span className="w-16 text-right font-semibold tabular-nums">{d[valueKey]}</span>
+          <span className="w-16 text-right font-bold tabular-nums text-white">{d[valueKey]}</span>
         </div>
       ))}
     </div>
