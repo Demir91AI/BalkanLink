@@ -603,39 +603,76 @@ export default function AdminDashboard() {
               </Panel>
             )}
 
-            <Panel title={`Svi korisnici (${users.length})`} icon={Users}
+            <Panel title={`Korisnici (${filteredUsers.length}${tierFilter !== "all" ? ` od ${users.length}` : ""})`} icon={Users}
               right={
-                <div className="relative w-56">
-                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-                  <Input placeholder="Email ili ime…" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-8 h-8 text-xs" />
-                  {searchBusy && <Loader2 className="absolute right-2.5 top-1/2 -translate-y-1/2 h-3 w-3 animate-spin text-muted-foreground" />}
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="relative w-48">
+                    <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-white/60" />
+                    <Input placeholder="Email ili ime…" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-8 h-8 text-xs" />
+                    {searchBusy && <Loader2 className="absolute right-2.5 top-1/2 -translate-y-1/2 h-3 w-3 animate-spin text-white/60" />}
+                  </div>
+                  <Button variant="outline" size="sm" onClick={() => exportCSV(filteredUsers, "korisnici")} className="h-8 gap-1">
+                    <Download className="h-3.5 w-3.5" /> CSV
+                  </Button>
                 </div>
               }>
+              <div className="flex items-center gap-1.5 mb-3 flex-wrap">
+                <Filter className="h-3.5 w-3.5 text-white/70 mr-1" />
+                {([
+                  { id: "all", label: "Svi", count: users.length },
+                  { id: "premium", label: "Premium", count: users.filter((u) => u.is_premium || ["premium","premium_yearly","lifetime"].includes(u.subscription_tier)).length },
+                  { id: "trial", label: "Trial", count: users.filter((u) => ["launch_trial","influencer_trial"].includes(u.subscription_tier)).length },
+                  { id: "free", label: "Free", count: users.filter((u) => !u.is_premium && (u.subscription_tier === "free" || !u.subscription_tier)).length },
+                ] as const).map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => setTierFilter(c.id as any)}
+                    className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border transition ${
+                      tierFilter === c.id
+                        ? "bg-[hsl(var(--gold))]/25 border-[hsl(var(--gold))]/60 text-[hsl(var(--gold))]"
+                        : "bg-white/5 border-white/15 text-white/80 hover:bg-white/10"
+                    }`}
+                  >
+                    {c.label} <span className="opacity-70 tabular-nums">({c.count})</span>
+                  </button>
+                ))}
+              </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="text-left text-[11px] uppercase tracking-wider text-muted-foreground border-b border-border/40">
+                    <tr className="text-left text-[11px] uppercase tracking-wider border-b border-white/15">
                       <th className="py-2 pr-3 font-semibold">Email</th>
                       <th className="py-2 pr-3 font-semibold">Ime</th>
                       <th className="py-2 pr-3 font-semibold">Tier</th>
                       <th className="py-2 pr-3 font-semibold">Registrovan</th>
                       <th className="py-2 pr-3 font-semibold">Zadnji login</th>
-                      <th className="py-2 pr-3 font-semibold">Trial do</th>
+                      <th className="py-2 pr-3 font-semibold">Trial / Premium do</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {users.map((u) => (
-                      <tr key={u.id} className="border-b border-border/20 hover:bg-muted/20 transition-colors">
-                        <td className="py-2.5 pr-3 font-medium truncate max-w-[220px]" title={u.email}>{u.email}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground">{u.first_name || "—"}</td>
+                    {filteredUsers.map((u) => (
+                      <tr key={u.id} className="border-b border-white/10 transition-colors">
+                        <td className="py-2.5 pr-3 font-medium max-w-[260px]">
+                          <div className="flex items-center gap-1.5 group">
+                            <span className="truncate" title={u.email}>{u.email}</span>
+                            <button
+                              onClick={() => copyEmail(u.email)}
+                              className="opacity-0 group-hover:opacity-100 transition text-white/60 hover:text-[hsl(var(--gold))]"
+                              title="Kopiraj email"
+                            >
+                              {copiedEmail === u.email ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="py-2.5 pr-3">{u.first_name || "—"}</td>
                         <td className="py-2.5 pr-3">{tierBadge(u.subscription_tier, u.is_premium)}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground text-xs">{fmtDate(u.created_at)}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground text-xs">{fmtDT(u.last_login_at)}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground text-xs">{fmtDate(u.subscription_expires_at)}</td>
+                        <td className="py-2.5 pr-3 text-xs">{fmtDate(u.created_at)}</td>
+                        <td className="py-2.5 pr-3 text-xs">{fmtDT(u.last_login_at)}</td>
+                        <td className="py-2.5 pr-3 text-xs">{fmtDate(u.subscription_expires_at)}</td>
                       </tr>
                     ))}
-                    {users.length === 0 && (
-                      <tr><td colSpan={6} className="py-8 text-center text-muted-foreground">Nema rezultata.</td></tr>
+                    {filteredUsers.length === 0 && (
+                      <tr><td colSpan={6} className="py-8 text-center text-white/60">Nema rezultata za odabrani filter.</td></tr>
                     )}
                   </tbody>
                 </table>
