@@ -97,9 +97,9 @@ function KpiTile({
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-white/50">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white">{value}</div>
-      {sub && <div className="mt-1 text-[11px] text-white/55">{sub}</div>}
+      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-white/75">{label}</div>
+      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white drop-shadow">{value}</div>
+      {sub && <div className="mt-1 text-[11px] text-white/70">{sub}</div>}
     </div>
   );
 }
