@@ -12,8 +12,9 @@ import {
   Users, TrendingUp, Crown, Eye, FileText, Loader2, Search, Calendar, CreditCard,
   AlertTriangle, HelpCircle, Activity, Euro, Zap, CheckCircle2, XCircle, Clock,
   Globe, MapPin, Sparkles, ShieldCheck, RefreshCw, Mail, BarChart3, Inbox,
-  ExternalLink, Building2, Bell,
+  ExternalLink, Building2, Bell, Download, Copy, Check, Filter,
 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import ActivityFeed from "@/components/admin/ActivityFeed";
 
 // ──────────────────────── Types ────────────────────────
@@ -96,9 +97,9 @@ function KpiTile({
           </span>
         )}
       </div>
-      <div className="mt-3 text-[11px] font-medium uppercase tracking-wider text-white/50">{label}</div>
-      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white">{value}</div>
-      {sub && <div className="mt-1 text-[11px] text-white/55">{sub}</div>}
+      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-white/75">{label}</div>
+      <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums leading-tight text-white drop-shadow">{value}</div>
+      {sub && <div className="mt-1 text-[11px] text-white/70">{sub}</div>}
     </div>
   );
 }
@@ -119,11 +120,11 @@ function MiniBars({ data, color = "gold", labelKey, valueKey }: {
     <div className="space-y-1.5">
       {data.map((d, i) => (
         <div key={i} className="flex items-center gap-2 text-xs">
-          <span className="w-16 text-muted-foreground tabular-nums truncate">{String(d[labelKey]).slice(-5)}</span>
-          <div className="flex-1 bg-muted/30 rounded-full h-3 overflow-hidden">
+          <span className="w-16 text-white/70 tabular-nums truncate">{String(d[labelKey]).slice(-5)}</span>
+          <div className="flex-1 bg-white/10 rounded-full h-3 overflow-hidden">
             <div className={`h-full bg-gradient-to-r ${cls} rounded-full transition-all`} style={{ width: `${(d[valueKey] / max) * 100}%` }} />
           </div>
-          <span className="w-16 text-right font-semibold tabular-nums">{d[valueKey]}</span>
+          <span className="w-16 text-right font-bold tabular-nums text-white">{d[valueKey]}</span>
         </div>
       ))}
     </div>
@@ -155,6 +156,7 @@ function Panel({ title, icon: Icon, children, right, tone = "default" }: {
 // ──────────────────────── Page ────────────────────────
 export default function AdminDashboard() {
   const { displayName } = useAuth();
+  const { toast } = useToast();
   const [stats, setStats] = useState<Stats | null>(null);
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [payments, setPayments] = useState<AdminPayment[]>([]);
@@ -164,6 +166,40 @@ export default function AdminDashboard() {
   const [searchBusy, setSearchBusy] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [tierFilter, setTierFilter] = useState<"all" | "premium" | "trial" | "free">("all");
+  const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
+
+  const copyEmail = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopiedEmail(email);
+      toast({ title: "Email kopiran", description: email });
+      setTimeout(() => setCopiedEmail(null), 1500);
+    } catch {
+      toast({ title: "Kopiranje nije uspjelo", variant: "destructive" });
+    }
+  };
+
+  const exportCSV = (rows: any[], filename: string) => {
+    if (!rows || rows.length === 0) {
+      toast({ title: "Nema podataka za export" });
+      return;
+    }
+    const headers = Object.keys(rows[0]);
+    const escape = (v: any) => {
+      const s = v == null ? "" : String(v);
+      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    const csv = [headers.join(","), ...rows.map((r) => headers.map((h) => escape(r[h])).join(","))].join("\n");
+    const blob = new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${filename}-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast({ title: "CSV preuzet", description: `${rows.length} redova` });
+  };
 
   const loadAll = async (silent = false) => {
     if (!silent) setLoading(true); else setRefreshing(true);
@@ -237,6 +273,13 @@ export default function AdminDashboard() {
     return pct(stats.funnel.paid + stats.funnel.trialActive, stats.funnel.signups);
   }, [stats]);
 
+  const filteredUsers = useMemo(() => {
+    if (tierFilter === "all") return users;
+    if (tierFilter === "premium") return users.filter((u) => u.is_premium || ["premium", "premium_yearly", "lifetime"].includes(u.subscription_tier));
+    if (tierFilter === "trial") return users.filter((u) => ["launch_trial", "influencer_trial"].includes(u.subscription_tier));
+    return users.filter((u) => !u.is_premium && (u.subscription_tier === "free" || !u.subscription_tier));
+  }, [users, tierFilter]);
+
   const emailHealthPct = useMemo(() => {
     if (!stats) return 100;
     const t = stats.emailStats.total;
@@ -307,11 +350,14 @@ export default function AdminDashboard() {
           border-color: hsl(var(--gold) / 0.55) !important;
           color: hsl(var(--gold)) !important;
         }
-        .admin-dark-scope input { background: hsl(225 45% 8% / 0.8); border-color: hsl(var(--gold) / 0.2); color: #fff; }
-        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.4); }
-        .admin-dark-scope .text-muted-foreground { color: rgba(255,255,255,0.6) !important; }
+        .admin-dark-scope input { background: hsl(225 45% 8% / 0.9); border-color: hsl(var(--gold) / 0.35); color: #fff; }
+        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.55); }
+        .admin-dark-scope .text-muted-foreground { color: rgba(255,255,255,0.78) !important; }
         .admin-dark-scope .text-foreground { color: #fff !important; }
-        .admin-dark-scope [data-radix-accordion-trigger] { color: rgba(255,255,255,0.85); }
+        .admin-dark-scope [data-radix-accordion-trigger] { color: #fff; font-weight: 600; }
+        .admin-dark-scope table thead th { color: rgba(255,255,255,0.85) !important; }
+        .admin-dark-scope table tbody td { color: rgba(255,255,255,0.92); }
+        .admin-dark-scope table tbody tr:hover { background: hsl(var(--gold) / 0.08) !important; }
       `}</style>
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)] pointer-events-none" />
       <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.08)] blur-[140px] pointer-events-none" />
@@ -557,39 +603,76 @@ export default function AdminDashboard() {
               </Panel>
             )}
 
-            <Panel title={`Svi korisnici (${users.length})`} icon={Users}
+            <Panel title={`Korisnici (${filteredUsers.length}${tierFilter !== "all" ? ` od ${users.length}` : ""})`} icon={Users}
               right={
-                <div className="relative w-56">
-                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-                  <Input placeholder="Email ili ime…" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-8 h-8 text-xs" />
-                  {searchBusy && <Loader2 className="absolute right-2.5 top-1/2 -translate-y-1/2 h-3 w-3 animate-spin text-muted-foreground" />}
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="relative w-48">
+                    <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-white/60" />
+                    <Input placeholder="Email ili ime…" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-8 h-8 text-xs" />
+                    {searchBusy && <Loader2 className="absolute right-2.5 top-1/2 -translate-y-1/2 h-3 w-3 animate-spin text-white/60" />}
+                  </div>
+                  <Button variant="outline" size="sm" onClick={() => exportCSV(filteredUsers, "korisnici")} className="h-8 gap-1">
+                    <Download className="h-3.5 w-3.5" /> CSV
+                  </Button>
                 </div>
               }>
+              <div className="flex items-center gap-1.5 mb-3 flex-wrap">
+                <Filter className="h-3.5 w-3.5 text-white/70 mr-1" />
+                {([
+                  { id: "all", label: "Svi", count: users.length },
+                  { id: "premium", label: "Premium", count: users.filter((u) => u.is_premium || ["premium","premium_yearly","lifetime"].includes(u.subscription_tier)).length },
+                  { id: "trial", label: "Trial", count: users.filter((u) => ["launch_trial","influencer_trial"].includes(u.subscription_tier)).length },
+                  { id: "free", label: "Free", count: users.filter((u) => !u.is_premium && (u.subscription_tier === "free" || !u.subscription_tier)).length },
+                ] as const).map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => setTierFilter(c.id as any)}
+                    className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border transition ${
+                      tierFilter === c.id
+                        ? "bg-[hsl(var(--gold))]/25 border-[hsl(var(--gold))]/60 text-[hsl(var(--gold))]"
+                        : "bg-white/5 border-white/15 text-white/80 hover:bg-white/10"
+                    }`}
+                  >
+                    {c.label} <span className="opacity-70 tabular-nums">({c.count})</span>
+                  </button>
+                ))}
+              </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="text-left text-[11px] uppercase tracking-wider text-muted-foreground border-b border-border/40">
+                    <tr className="text-left text-[11px] uppercase tracking-wider border-b border-white/15">
                       <th className="py-2 pr-3 font-semibold">Email</th>
                       <th className="py-2 pr-3 font-semibold">Ime</th>
                       <th className="py-2 pr-3 font-semibold">Tier</th>
                       <th className="py-2 pr-3 font-semibold">Registrovan</th>
                       <th className="py-2 pr-3 font-semibold">Zadnji login</th>
-                      <th className="py-2 pr-3 font-semibold">Trial do</th>
+                      <th className="py-2 pr-3 font-semibold">Trial / Premium do</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {users.map((u) => (
-                      <tr key={u.id} className="border-b border-border/20 hover:bg-muted/20 transition-colors">
-                        <td className="py-2.5 pr-3 font-medium truncate max-w-[220px]" title={u.email}>{u.email}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground">{u.first_name || "—"}</td>
+                    {filteredUsers.map((u) => (
+                      <tr key={u.id} className="border-b border-white/10 transition-colors">
+                        <td className="py-2.5 pr-3 font-medium max-w-[260px]">
+                          <div className="flex items-center gap-1.5 group">
+                            <span className="truncate" title={u.email}>{u.email}</span>
+                            <button
+                              onClick={() => copyEmail(u.email)}
+                              className="opacity-0 group-hover:opacity-100 transition text-white/60 hover:text-[hsl(var(--gold))]"
+                              title="Kopiraj email"
+                            >
+                              {copiedEmail === u.email ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="py-2.5 pr-3">{u.first_name || "—"}</td>
                         <td className="py-2.5 pr-3">{tierBadge(u.subscription_tier, u.is_premium)}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground text-xs">{fmtDate(u.created_at)}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground text-xs">{fmtDT(u.last_login_at)}</td>
-                        <td className="py-2.5 pr-3 text-muted-foreground text-xs">{fmtDate(u.subscription_expires_at)}</td>
+                        <td className="py-2.5 pr-3 text-xs">{fmtDate(u.created_at)}</td>
+                        <td className="py-2.5 pr-3 text-xs">{fmtDT(u.last_login_at)}</td>
+                        <td className="py-2.5 pr-3 text-xs">{fmtDate(u.subscription_expires_at)}</td>
                       </tr>
                     ))}
-                    {users.length === 0 && (
-                      <tr><td colSpan={6} className="py-8 text-center text-muted-foreground">Nema rezultata.</td></tr>
+                    {filteredUsers.length === 0 && (
+                      <tr><td colSpan={6} className="py-8 text-center text-white/60">Nema rezultata za odabrani filter.</td></tr>
                     )}
                   </tbody>
                 </table>
@@ -631,7 +714,12 @@ export default function AdminDashboard() {
               />
             </Panel>
 
-            <Panel title="Zadnja plaćanja" icon={CreditCard}>
+            <Panel title="Zadnja plaćanja" icon={CreditCard}
+              right={
+                <Button variant="outline" size="sm" onClick={() => exportCSV(payments.map((p) => ({ ...p, amount_eur: (p.amount/100).toFixed(2) })), "placanja")} className="h-8 gap-1">
+                  <Download className="h-3.5 w-3.5" /> CSV
+                </Button>
+              }>
               {payments.length === 0 ? (
                 <p className="text-sm text-muted-foreground">Nema plaćanja zabilježenih.</p>
               ) : (
