@@ -308,11 +308,14 @@ export default function AdminDashboard() {
           border-color: hsl(var(--gold) / 0.55) !important;
           color: hsl(var(--gold)) !important;
         }
-        .admin-dark-scope input { background: hsl(225 45% 8% / 0.8); border-color: hsl(var(--gold) / 0.2); color: #fff; }
-        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.4); }
-        .admin-dark-scope .text-muted-foreground { color: rgba(255,255,255,0.6) !important; }
+        .admin-dark-scope input { background: hsl(225 45% 8% / 0.9); border-color: hsl(var(--gold) / 0.35); color: #fff; }
+        .admin-dark-scope input::placeholder { color: rgba(255,255,255,0.55); }
+        .admin-dark-scope .text-muted-foreground { color: rgba(255,255,255,0.78) !important; }
         .admin-dark-scope .text-foreground { color: #fff !important; }
-        .admin-dark-scope [data-radix-accordion-trigger] { color: rgba(255,255,255,0.85); }
+        .admin-dark-scope [data-radix-accordion-trigger] { color: #fff; font-weight: 600; }
+        .admin-dark-scope table thead th { color: rgba(255,255,255,0.85) !important; }
+        .admin-dark-scope table tbody td { color: rgba(255,255,255,0.92); }
+        .admin-dark-scope table tbody tr:hover { background: hsl(var(--gold) / 0.08) !important; }
       `}</style>
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)] pointer-events-none" />
       <div className="absolute top-0 right-0 w-[520px] h-[520px] rounded-full bg-[hsl(var(--gold)/0.08)] blur-[140px] pointer-events-none" />
