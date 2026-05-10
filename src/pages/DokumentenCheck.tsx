@@ -644,7 +644,7 @@ export default function DokumentenCheck() {
               </div>
 
               <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
-                {/* Glavni dropzone — file picker (PDF ili slike već snimljene na telefonu) */}
+                {/* Glavni dropzone — file picker */}
                 <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
                   <input
                     type="file"
@@ -655,12 +655,30 @@ export default function DokumentenCheck() {
                     onChange={(e) => addFiles(e.target.files)}
                   />
                   <Upload className="h-12 w-12 text-[hsl(var(--gold))] mb-3" />
-                  <strong className="text-base sm:text-lg">{t("documentCheck.upload.chooseFile")}</strong>
+                  <strong className="text-base sm:text-lg text-foreground">{t("documentCheck.upload.chooseFile")}</strong>
                   <span className="text-sm text-muted-foreground mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
                   <span className="mt-3 text-[11px] text-muted-foreground/80 text-center max-w-xs">
                     {t("documentCheck.upload.tipPhotoFromGallery")}
                   </span>
                 </label>
+
+                {/* Hidden camera-only input — opens native camera reliably */}
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  capture="environment"
+                  ref={cameraInputRef}
+                  className="hidden"
+                  onChange={(e) => { addFiles(e.target.files); if (cameraInputRef.current) cameraInputRef.current.value = ""; }}
+                />
+                <button
+                  type="button"
+                  onClick={() => cameraInputRef.current?.click()}
+                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/10 px-4 py-3 text-sm font-semibold text-foreground transition-colors"
+                >
+                  <Camera className="h-5 w-5 text-[hsl(var(--gold))]" />
+                  {t("documentCheck.upload.takePhoto", "Slikaj kamerom")}
+                </button>
 
                 <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
                   <Lock className="h-3 w-3" />
@@ -675,16 +693,16 @@ export default function DokumentenCheck() {
                     </div>
                     <ul className="space-y-2">
                       {files.map((f, idx) => (
-                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-800 bg-emerald-900/20 px-3 py-2.5">
+                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5">
                           <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <FileText className="h-4 w-4 text-emerald-400 shrink-0" />
-                            <span className="text-sm text-emerald-400 truncate">{f.name}</span>
-                            <span className="text-[11px] text-muted-foreground shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
+                            <FileText className="h-4 w-4 text-emerald-300 shrink-0" />
+                            <span className="text-sm text-emerald-100 truncate">{f.name}</span>
+                            <span className="text-[11px] text-emerald-200/70 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
                           </div>
                           <button
                             type="button"
                             onClick={() => removeFile(idx)}
-                            className="text-muted-foreground hover:text-foreground p-1 shrink-0"
+                            className="text-emerald-200/70 hover:text-white p-1 shrink-0"
                             aria-label={t("documentCheck.upload.remove")}
                           >
                             <X className="h-4 w-4" />
