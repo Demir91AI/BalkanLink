@@ -893,9 +893,9 @@ export default function DokumentenCheck() {
                     transition={{ delay: idx * 0.04 }}
                     className={`relative rounded-2xl border ${section.colorClass} overflow-hidden shadow-sm`}
                   >
-                    <div className="flex items-center gap-3 px-6 py-4 border-b border-black/5 dark:border-white/5">
+                    <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10 bg-black/20">
                       <span className={section.iconColorClass}>{section.icon}</span>
-                      <h3 className="text-base font-bold tracking-tight text-foreground">{section.title}</h3>
+                      <h3 className={`text-base font-bold tracking-tight ${section.iconColorClass}`}>{section.title}</h3>
                       {locked && <Lock className="ml-auto h-4 w-4 text-[hsl(var(--gold))]" />}
                     </div>
                     <div className={`px-6 py-5 sm:py-6 ${locked ? "relative" : ""}`}>
