@@ -648,7 +648,7 @@ export default function DokumentenCheck() {
                   <input
                     type="file"
                     multiple
-                    accept=".pdf,.jpg,.jpeg,.png"
+                    accept="application/pdf"
                     ref={fileInputRef}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     onChange={(e) => addFiles(e.target.files)}
@@ -891,12 +891,19 @@ export default function DokumentenCheck() {
                           </button>
                         </div>
                       )}
-                      <div className={`prose prose-sm max-w-none dark:prose-invert
-                        prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
-                        prose-strong:text-white prose-strong:font-semibold
-                        prose-li:text-white/90 prose-li:leading-relaxed
-                        prose-p:text-white/90 prose-p:leading-relaxed
-                        prose-a:text-[hsl(var(--gold))]
+                      <div className={`max-w-none text-[15px] leading-relaxed text-white
+                        [&_p]:text-white [&_p]:leading-relaxed [&_p]:my-3
+                        [&_li]:text-white [&_li]:leading-relaxed [&_li]:my-1.5
+                        [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-3
+                        [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-3
+                        [&_strong]:text-white [&_strong]:font-semibold
+                        [&_em]:text-white/95
+                        [&_h1]:text-white [&_h1]:font-bold [&_h1]:text-lg [&_h1]:mt-4 [&_h1]:mb-2
+                        [&_h2]:text-white [&_h2]:font-bold [&_h2]:text-base [&_h2]:mt-4 [&_h2]:mb-2
+                        [&_h3]:text-white [&_h3]:font-semibold [&_h3]:text-sm [&_h3]:mt-3 [&_h3]:mb-1.5
+                        [&_a]:text-[hsl(var(--gold))] [&_a]:underline
+                        [&_code]:text-[hsl(var(--gold))] [&_code]:bg-white/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded
+                        [&_blockquote]:border-l-2 [&_blockquote]:border-white/30 [&_blockquote]:pl-3 [&_blockquote]:text-white/90
                         ${locked ? "blur-sm select-none pointer-events-none min-h-[100px]" : ""}`}
                       >
                         <ReactMarkdown>{section.content}</ReactMarkdown>
