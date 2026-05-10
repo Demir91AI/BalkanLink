@@ -693,16 +693,16 @@ export default function DokumentenCheck() {
                     </div>
                     <ul className="space-y-2">
                       {files.map((f, idx) => (
-                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5">
+                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-600/35 bg-emerald-50 px-3 py-2.5 dark:border-emerald-400/35 dark:bg-emerald-950/45">
                           <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <FileText className="h-4 w-4 text-emerald-300 shrink-0" />
-                            <span className="text-sm text-emerald-100 truncate">{f.name}</span>
-                            <span className="text-[11px] text-emerald-200/70 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
+                            <FileText className="h-4 w-4 text-emerald-700 dark:text-emerald-300 shrink-0" />
+                            <span className="text-sm font-medium text-emerald-950 dark:text-emerald-50 truncate">{f.name}</span>
+                            <span className="text-[11px] font-medium text-emerald-800 dark:text-emerald-200 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
                           </div>
                           <button
                             type="button"
                             onClick={() => removeFile(idx)}
-                            className="text-emerald-200/70 hover:text-white p-1 shrink-0"
+                            className="text-emerald-800 hover:text-emerald-950 dark:text-emerald-200 dark:hover:text-white p-1 shrink-0"
                             aria-label={t("documentCheck.upload.remove")}
                           >
                             <X className="h-4 w-4" />
