@@ -759,7 +759,7 @@ export default function DokumentenCheck() {
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-primary p-10 text-center">
               <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
               <p className="text-lg font-bold text-primary-foreground mb-2">{t("documentCheck.paywall.title")}</p>
-              <p className="text-sm text-primary-foreground/60 mb-6 max-w-sm">
+              <p className="text-sm text-primary-foreground/85 mb-6 max-w-sm">
                 {t("documentCheck.paywall.subtitle")}
               </p>
               <div className="flex flex-col gap-3 w-full max-w-xs">
@@ -774,21 +774,21 @@ export default function DokumentenCheck() {
                   <Crown className="inline-block mr-1.5 h-4 w-4" />
                   {t("documentCheck.paywall.premiumCta")}
                 </button>
-                <p className="text-[11px] text-primary-foreground/50">
+                <p className="text-[11px] text-primary-foreground/75">
                   {t("documentCheck.paywall.premiumPerk")}
                 </p>
                 <div className="flex items-center gap-2 my-1">
                   <div className="flex-1 h-px bg-primary-foreground/10" />
-                  <span className="text-[11px] text-primary-foreground/40">{t("documentCheck.paywall.or")}</span>
+                  <span className="text-[11px] text-primary-foreground/70">{t("documentCheck.paywall.or")}</span>
                   <div className="flex-1 h-px bg-primary-foreground/10" />
                 </div>
                 <button
                   onClick={startOneOffCheckout}
-                  className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/20 text-primary-foreground/70 hover:text-primary-foreground hover:border-primary-foreground/40 transition-all text-center"
+                  className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/35 text-primary-foreground/90 hover:text-primary-foreground hover:border-primary-foreground/55 transition-all text-center"
                 >
                   {t("documentCheck.paywall.oneTimeCta")}
                 </button>
-                <p className="text-[11px] text-primary-foreground/40">
+                <p className="text-[11px] text-primary-foreground/70">
                   {t("documentCheck.paywall.oneTimeReset")}
                 </p>
               </div>
