@@ -729,7 +729,7 @@ export default function DokumentenCheck() {
           {/* ── Confirm checkbox ── */}
           <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
-            <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
+            <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-card-foreground/85">
               {t("documentCheck.confirm")}
             </label>
           </div>
@@ -748,7 +748,7 @@ export default function DokumentenCheck() {
           {/* ── Error ── */}
           {error && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
+              className="flex items-center gap-3 rounded-xl border border-destructive/40 bg-destructive/10 p-4 text-sm font-medium text-destructive-foreground dark:text-red-100">
               <AlertTriangle className="h-5 w-5 shrink-0" /> {error}
             </motion.div>
           )}
@@ -804,12 +804,12 @@ export default function DokumentenCheck() {
                 <ChevronDown className={`h-4 w-4 transition-transform ${showExample ? "rotate-180" : ""}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="mt-3">
-                <div className="rounded-2xl border border-amber-900/40 bg-amber-950/30 p-5 sm:p-6 space-y-3">
-                  <div className="flex items-center gap-2 text-sm font-bold text-amber-400">
+                  <div className="rounded-2xl border border-amber-600/35 bg-amber-50 p-5 sm:p-6 space-y-3 dark:border-amber-400/35 dark:bg-amber-950/45">
+                  <div className="flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-300">
                     <FileWarning className="h-4 w-4" />
                     {t("documentCheck.example.heading")}
                   </div>
-                  <div className="text-sm text-foreground/80 leading-relaxed space-y-2">
+                  <div className="text-sm text-amber-950 leading-relaxed space-y-2 dark:text-amber-50">
                     <p>
                       <strong>{t("documentCheck.example.docTypeLabel")}</strong> {t("documentCheck.example.docType")}
                     </p>
@@ -935,7 +935,7 @@ export default function DokumentenCheck() {
           )}
 
           {/* ── Disclaimer ── */}
-          <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-muted-foreground leading-relaxed">
+          <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-foreground/80 leading-relaxed dark:text-foreground/75">
             <p>
               <strong>{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
             </p>
