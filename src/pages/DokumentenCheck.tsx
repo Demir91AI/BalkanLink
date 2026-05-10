@@ -491,10 +491,10 @@ export default function DokumentenCheck() {
           {/* ── Pricing cards ── */}
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-2xl border border-border bg-card p-5 text-center flex flex-col">
-              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{t("documentCheck.pricing.oneTimeLabel")}</p>
-              <p className="text-2xl font-black text-foreground">2,99€</p>
-              <p className="text-xs text-muted-foreground mt-1">{t("documentCheck.pricing.oneTimePerCheck")}</p>
-              <p className="text-[11px] text-muted-foreground mt-2 flex-1">
+              <p className="text-xs font-bold uppercase tracking-wider text-card-foreground/70 mb-2">{t("documentCheck.pricing.oneTimeLabel")}</p>
+              <p className="text-2xl font-black text-card-foreground">2,99€</p>
+              <p className="text-xs text-card-foreground/75 mt-1">{t("documentCheck.pricing.oneTimePerCheck")}</p>
+              <p className="text-[11px] text-card-foreground/70 mt-2 flex-1">
                 {t("documentCheck.pricing.oneTimeReset")}
               </p>
               <button
@@ -512,11 +512,11 @@ export default function DokumentenCheck() {
             <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative flex flex-col">
               <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">{t("documentCheck.pricing.premiumBadge")}</span>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">{t("documentCheck.pricing.premiumLabel")}</p>
-              <p className="text-2xl font-black text-foreground">
+              <p className="text-2xl font-black text-card-foreground">
                 9,99€
-                <span className="text-sm font-medium text-muted-foreground">{t("documentCheck.pricing.premiumPerMonth")}</span>
+                <span className="text-sm font-medium text-card-foreground/70">{t("documentCheck.pricing.premiumPerMonth")}</span>
               </p>
-              <ul className="mt-3 text-[11px] text-muted-foreground text-left space-y-1 flex-1">
+              <ul className="mt-3 text-[11px] text-card-foreground/75 text-left space-y-1 flex-1">
                 <li className="flex items-start gap-1">
                   <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
                   {t("documentCheck.pricing.premiumFeature1")}
@@ -564,7 +564,7 @@ export default function DokumentenCheck() {
                       ? t("documentCheck.quota.remaining", { count: premiumRemainingToday, defaultValue: "Ostalo ti je {{count}} besplatnih provjera danas" })
                       : t("documentCheck.quota.exhausted", "Iskoristio si dnevni Premium limit")}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-0.5">
+                  <p className="text-xs text-foreground/75 mt-0.5">
                     {premiumRemainingToday > 0
                       ? t("documentCheck.quota.resetHint", "Brojač se resetuje sutra u 00:00 (Berlin)")
                       : creditCount > 0
@@ -596,7 +596,7 @@ export default function DokumentenCheck() {
               </div>
               <div>
                 <p className="font-bold text-sm">{t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
+                <p className="text-xs text-foreground/75 mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
               </div>
             </motion.div>
           )}
