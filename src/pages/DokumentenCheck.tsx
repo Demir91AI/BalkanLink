@@ -735,7 +735,7 @@ export default function DokumentenCheck() {
           </div>
 
           {/* ── Actions ── */}
-          <div className="flex gap-3">
+            <div className="flex gap-3">
             <Button onClick={handleAnalyze} disabled={loading || !confirmed || files.length === 0} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
               {loading ? t("documentCheck.buttons.checking") : t("documentCheck.buttons.checkDocument")}
@@ -833,7 +833,7 @@ export default function DokumentenCheck() {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
               {summary && (
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                  className="rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 sm:p-8 shadow-lg">
+                  className="rounded-2xl border-2 border-[hsl(var(--gold))]/35 bg-slate-950 p-6 sm:p-8 shadow-lg">
                   <h2 className="text-lg font-black tracking-tight text-white mb-5 flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
                     {t("documentCheck.results.overview")}
@@ -902,7 +902,7 @@ export default function DokumentenCheck() {
                       {locked && (
                         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
                           <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
-                          <p className="text-sm font-bold text-foreground mb-3">{t("documentCheck.results.lockedTitle")}</p>
+                          <p className="text-sm font-bold text-white mb-3">{t("documentCheck.results.lockedTitle")}</p>
                           <button onClick={() => localizedNavigate("/paketi")}
                             className="rounded-full px-5 py-2.5 text-xs font-bold transition-all hover:opacity-90"
                             style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}>
@@ -935,9 +935,9 @@ export default function DokumentenCheck() {
           )}
 
           {/* ── Disclaimer ── */}
-          <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-foreground/80 leading-relaxed dark:text-foreground/75">
+          <div className="rounded-2xl border border-white/20 bg-white/8 p-5 text-xs text-white leading-relaxed">
             <p>
-              <strong>{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
+              <strong className="text-white">{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
             </p>
           </div>
         </div>
