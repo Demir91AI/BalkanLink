@@ -491,10 +491,10 @@ export default function DokumentenCheck() {
           {/* ── Pricing cards ── */}
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-2xl border border-border bg-card p-5 text-center flex flex-col">
-              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{t("documentCheck.pricing.oneTimeLabel")}</p>
-              <p className="text-2xl font-black text-foreground">2,99€</p>
-              <p className="text-xs text-muted-foreground mt-1">{t("documentCheck.pricing.oneTimePerCheck")}</p>
-              <p className="text-[11px] text-muted-foreground mt-2 flex-1">
+              <p className="text-xs font-bold uppercase tracking-wider text-card-foreground/70 mb-2">{t("documentCheck.pricing.oneTimeLabel")}</p>
+              <p className="text-2xl font-black text-card-foreground">2,99€</p>
+              <p className="text-xs text-card-foreground/75 mt-1">{t("documentCheck.pricing.oneTimePerCheck")}</p>
+              <p className="text-[11px] text-card-foreground/70 mt-2 flex-1">
                 {t("documentCheck.pricing.oneTimeReset")}
               </p>
               <button
@@ -512,11 +512,11 @@ export default function DokumentenCheck() {
             <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative flex flex-col">
               <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">{t("documentCheck.pricing.premiumBadge")}</span>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">{t("documentCheck.pricing.premiumLabel")}</p>
-              <p className="text-2xl font-black text-foreground">
+              <p className="text-2xl font-black text-card-foreground">
                 9,99€
-                <span className="text-sm font-medium text-muted-foreground">{t("documentCheck.pricing.premiumPerMonth")}</span>
+                <span className="text-sm font-medium text-card-foreground/70">{t("documentCheck.pricing.premiumPerMonth")}</span>
               </p>
-              <ul className="mt-3 text-[11px] text-muted-foreground text-left space-y-1 flex-1">
+              <ul className="mt-3 text-[11px] text-card-foreground/75 text-left space-y-1 flex-1">
                 <li className="flex items-start gap-1">
                   <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
                   {t("documentCheck.pricing.premiumFeature1")}
@@ -564,7 +564,7 @@ export default function DokumentenCheck() {
                       ? t("documentCheck.quota.remaining", { count: premiumRemainingToday, defaultValue: "Ostalo ti je {{count}} besplatnih provjera danas" })
                       : t("documentCheck.quota.exhausted", "Iskoristio si dnevni Premium limit")}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-0.5">
+                  <p className="text-xs text-foreground/75 mt-0.5">
                     {premiumRemainingToday > 0
                       ? t("documentCheck.quota.resetHint", "Brojač se resetuje sutra u 00:00 (Berlin)")
                       : creditCount > 0
@@ -596,7 +596,7 @@ export default function DokumentenCheck() {
               </div>
               <div>
                 <p className="font-bold text-sm">{t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
+                <p className="text-xs text-foreground/75 mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
               </div>
             </motion.div>
           )}
@@ -606,8 +606,8 @@ export default function DokumentenCheck() {
             className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
             <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
             <div>
-              <p className="font-bold text-foreground">{t("documentCheck.privacy.title")}</p>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{t("documentCheck.privacy.body")}</p>
+              <p className="font-bold text-card-foreground">{t("documentCheck.privacy.title")}</p>
+              <p className="mt-1 text-sm text-card-foreground/80 leading-relaxed">{t("documentCheck.privacy.body")}</p>
             </div>
           </motion.div>
 
@@ -615,7 +615,7 @@ export default function DokumentenCheck() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
             <div>
-              <label className="mb-3 block text-sm font-bold">{t("documentCheck.upload.label")}</label>
+              <label className="mb-3 block text-sm font-bold text-card-foreground">{t("documentCheck.upload.label")}</label>
 
               {/* Kako funkcioniše — 3 koraka, jednostavnim jezikom */}
               <div className="mb-4 grid grid-cols-3 gap-2 sm:gap-3">
@@ -626,8 +626,8 @@ export default function DokumentenCheck() {
                 ].map((s) => (
                   <div key={s.n} className="rounded-xl border border-border/60 bg-muted/30 p-3 text-center">
                     <div className="mx-auto mb-1.5 grid h-7 w-7 place-items-center rounded-full bg-[hsl(var(--gold))]/15 text-xs font-black text-[hsl(var(--gold))]">{s.n}</div>
-                    <p className="text-[11px] sm:text-xs font-bold text-foreground leading-tight">{s.title}</p>
-                    <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
+                    <p className="text-[11px] sm:text-xs font-bold text-card-foreground leading-tight">{s.title}</p>
+                    <p className="text-[10px] sm:text-[11px] text-card-foreground/75 mt-1 leading-snug">{s.desc}</p>
                   </div>
                 ))}
               </div>
@@ -637,8 +637,8 @@ export default function DokumentenCheck() {
                 <div className="flex items-start gap-2.5">
                   <Info className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
                   <div className="text-xs sm:text-sm">
-                    <p className="font-semibold text-foreground">{t("documentCheck.upload.multiPageTitle")}</p>
-                    <p className="text-muted-foreground mt-1">{t("documentCheck.upload.multiPageHint")}</p>
+                    <p className="font-semibold text-card-foreground">{t("documentCheck.upload.multiPageTitle")}</p>
+                    <p className="text-card-foreground/80 mt-1">{t("documentCheck.upload.multiPageHint")}</p>
                   </div>
                 </div>
               </div>
@@ -655,9 +655,9 @@ export default function DokumentenCheck() {
                     onChange={(e) => addFiles(e.target.files)}
                   />
                   <Upload className="h-12 w-12 text-[hsl(var(--gold))] mb-3" />
-                  <strong className="text-base sm:text-lg text-foreground">{t("documentCheck.upload.chooseFile")}</strong>
-                  <span className="text-sm text-muted-foreground mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
-                  <span className="mt-3 text-[11px] text-muted-foreground/80 text-center max-w-xs">
+                  <strong className="text-base sm:text-lg text-card-foreground">{t("documentCheck.upload.chooseFile")}</strong>
+                  <span className="text-sm text-card-foreground/80 mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
+                  <span className="mt-3 text-[11px] text-card-foreground/70 text-center max-w-xs">
                     {t("documentCheck.upload.tipPhotoFromGallery")}
                   </span>
                 </label>
@@ -674,35 +674,35 @@ export default function DokumentenCheck() {
                 <button
                   type="button"
                   onClick={() => cameraInputRef.current?.click()}
-                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/10 px-4 py-3 text-sm font-semibold text-foreground transition-colors"
+                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/10 px-4 py-3 text-sm font-semibold text-card-foreground transition-colors"
                 >
                   <Camera className="h-5 w-5 text-[hsl(var(--gold))]" />
                   {t("documentCheck.upload.takePhoto", "Slikaj kamerom")}
                 </button>
 
-                <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
+                <p className="text-xs text-card-foreground/75 text-center flex items-center justify-center gap-1.5">
                   <Lock className="h-3 w-3" />
                   {t("documentCheck.upload.deletedAfter")}
                 </p>
 
                 {files.length > 0 && (
                   <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
+                    <div className="flex items-center justify-between text-xs font-medium text-card-foreground/75 px-1">
                       <span>{t("documentCheck.upload.filesCount", { count: files.length, max: MAX_FILES })}</span>
                       <span>{(totalSize / 1024 / 1024).toFixed(1)} MB</span>
                     </div>
                     <ul className="space-y-2">
                       {files.map((f, idx) => (
-                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5">
+                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-600/35 bg-emerald-50 px-3 py-2.5 dark:border-emerald-400/35 dark:bg-emerald-950/45">
                           <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <FileText className="h-4 w-4 text-emerald-300 shrink-0" />
-                            <span className="text-sm text-emerald-100 truncate">{f.name}</span>
-                            <span className="text-[11px] text-emerald-200/70 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
+                            <FileText className="h-4 w-4 text-emerald-700 dark:text-emerald-300 shrink-0" />
+                            <span className="text-sm font-medium text-emerald-950 dark:text-emerald-50 truncate">{f.name}</span>
+                            <span className="text-[11px] font-medium text-emerald-800 dark:text-emerald-200 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
                           </div>
                           <button
                             type="button"
                             onClick={() => removeFile(idx)}
-                            className="text-emerald-200/70 hover:text-white p-1 shrink-0"
+                            className="text-emerald-800 hover:text-emerald-950 dark:text-emerald-200 dark:hover:text-white p-1 shrink-0"
                             aria-label={t("documentCheck.upload.remove")}
                           >
                             <X className="h-4 w-4" />
@@ -729,7 +729,7 @@ export default function DokumentenCheck() {
           {/* ── Confirm checkbox ── */}
           <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
             <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
-            <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-muted-foreground">
+            <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-card-foreground/85">
               {t("documentCheck.confirm")}
             </label>
           </div>
@@ -748,7 +748,7 @@ export default function DokumentenCheck() {
           {/* ── Error ── */}
           {error && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
+              className="flex items-center gap-3 rounded-xl border border-destructive/40 bg-destructive/10 p-4 text-sm font-medium text-destructive-foreground dark:text-red-100">
               <AlertTriangle className="h-5 w-5 shrink-0" /> {error}
             </motion.div>
           )}
@@ -759,7 +759,7 @@ export default function DokumentenCheck() {
               className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-primary p-10 text-center">
               <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
               <p className="text-lg font-bold text-primary-foreground mb-2">{t("documentCheck.paywall.title")}</p>
-              <p className="text-sm text-primary-foreground/60 mb-6 max-w-sm">
+              <p className="text-sm text-primary-foreground/85 mb-6 max-w-sm">
                 {t("documentCheck.paywall.subtitle")}
               </p>
               <div className="flex flex-col gap-3 w-full max-w-xs">
@@ -774,21 +774,21 @@ export default function DokumentenCheck() {
                   <Crown className="inline-block mr-1.5 h-4 w-4" />
                   {t("documentCheck.paywall.premiumCta")}
                 </button>
-                <p className="text-[11px] text-primary-foreground/50">
+                <p className="text-[11px] text-primary-foreground/75">
                   {t("documentCheck.paywall.premiumPerk")}
                 </p>
                 <div className="flex items-center gap-2 my-1">
                   <div className="flex-1 h-px bg-primary-foreground/10" />
-                  <span className="text-[11px] text-primary-foreground/40">{t("documentCheck.paywall.or")}</span>
+                  <span className="text-[11px] text-primary-foreground/70">{t("documentCheck.paywall.or")}</span>
                   <div className="flex-1 h-px bg-primary-foreground/10" />
                 </div>
                 <button
                   onClick={startOneOffCheckout}
-                  className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/20 text-primary-foreground/70 hover:text-primary-foreground hover:border-primary-foreground/40 transition-all text-center"
+                  className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/35 text-primary-foreground/90 hover:text-primary-foreground hover:border-primary-foreground/55 transition-all text-center"
                 >
                   {t("documentCheck.paywall.oneTimeCta")}
                 </button>
-                <p className="text-[11px] text-primary-foreground/40">
+                <p className="text-[11px] text-primary-foreground/70">
                   {t("documentCheck.paywall.oneTimeReset")}
                 </p>
               </div>
@@ -804,12 +804,12 @@ export default function DokumentenCheck() {
                 <ChevronDown className={`h-4 w-4 transition-transform ${showExample ? "rotate-180" : ""}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="mt-3">
-                <div className="rounded-2xl border border-amber-900/40 bg-amber-950/30 p-5 sm:p-6 space-y-3">
-                  <div className="flex items-center gap-2 text-sm font-bold text-amber-400">
+                  <div className="rounded-2xl border border-amber-600/35 bg-amber-50 p-5 sm:p-6 space-y-3 dark:border-amber-400/35 dark:bg-amber-950/45">
+                  <div className="flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-300">
                     <FileWarning className="h-4 w-4" />
                     {t("documentCheck.example.heading")}
                   </div>
-                  <div className="text-sm text-foreground/80 leading-relaxed space-y-2">
+                  <div className="text-sm text-amber-950 leading-relaxed space-y-2 dark:text-amber-50">
                     <p>
                       <strong>{t("documentCheck.example.docTypeLabel")}</strong> {t("documentCheck.example.docType")}
                     </p>
@@ -935,7 +935,7 @@ export default function DokumentenCheck() {
           )}
 
           {/* ── Disclaimer ── */}
-          <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-muted-foreground leading-relaxed">
+          <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-foreground/80 leading-relaxed dark:text-foreground/75">
             <p>
               <strong>{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
             </p>
