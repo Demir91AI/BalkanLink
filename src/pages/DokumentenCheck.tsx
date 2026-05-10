@@ -935,7 +935,7 @@ export default function DokumentenCheck() {
           )}
 
           {/* ── Disclaimer ── */}
-          <div className="rounded-2xl border border-white/20 bg-white/8 p-5 text-xs text-white leading-relaxed">
+          <div className="rounded-2xl border border-white/20 bg-white/10 p-5 text-xs text-white leading-relaxed">
             <p>
               <strong className="text-white">{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
             </p>
