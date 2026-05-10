@@ -633,7 +633,7 @@ export default function DokumentenCheck() {
               </div>
 
               {/* Info: više stranica */}
-              <div className="mb-4 rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-3 sm:p-4">
+              <div className="mb-4 rounded-xl border border-[hsl(var(--gold))]/30 bg-card p-3 sm:p-4 shadow-sm">
                 <div className="flex items-start gap-2.5">
                   <Info className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
                   <div className="text-xs sm:text-sm">
@@ -645,7 +645,7 @@ export default function DokumentenCheck() {
 
               <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
                 {/* Glavni dropzone — file picker */}
-                <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
+                <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-card hover:bg-accent transition-colors shadow-sm">
                   <input
                     type="file"
                     multiple
@@ -714,7 +714,7 @@ export default function DokumentenCheck() {
                       <button
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
-                        className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[hsl(var(--gold))]/50 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 px-3 py-2.5 text-xs font-semibold text-[hsl(var(--gold))] transition-colors"
+                        className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[hsl(var(--gold))]/50 bg-card hover:bg-accent px-3 py-2.5 text-xs font-semibold text-[hsl(var(--gold))] transition-colors"
                       >
                         <Plus className="h-4 w-4" />
                         {t("documentCheck.upload.addMore")}
