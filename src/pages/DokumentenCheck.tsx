@@ -606,8 +606,8 @@ export default function DokumentenCheck() {
             className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
             <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
             <div>
-              <p className="font-bold text-foreground">{t("documentCheck.privacy.title")}</p>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{t("documentCheck.privacy.body")}</p>
+              <p className="font-bold text-card-foreground">{t("documentCheck.privacy.title")}</p>
+              <p className="mt-1 text-sm text-card-foreground/80 leading-relaxed">{t("documentCheck.privacy.body")}</p>
             </div>
           </motion.div>
 
@@ -615,7 +615,7 @@ export default function DokumentenCheck() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
             <div>
-              <label className="mb-3 block text-sm font-bold">{t("documentCheck.upload.label")}</label>
+              <label className="mb-3 block text-sm font-bold text-card-foreground">{t("documentCheck.upload.label")}</label>
 
               {/* Kako funkcioniše — 3 koraka, jednostavnim jezikom */}
               <div className="mb-4 grid grid-cols-3 gap-2 sm:gap-3">
@@ -626,8 +626,8 @@ export default function DokumentenCheck() {
                 ].map((s) => (
                   <div key={s.n} className="rounded-xl border border-border/60 bg-muted/30 p-3 text-center">
                     <div className="mx-auto mb-1.5 grid h-7 w-7 place-items-center rounded-full bg-[hsl(var(--gold))]/15 text-xs font-black text-[hsl(var(--gold))]">{s.n}</div>
-                    <p className="text-[11px] sm:text-xs font-bold text-foreground leading-tight">{s.title}</p>
-                    <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1 leading-snug">{s.desc}</p>
+                    <p className="text-[11px] sm:text-xs font-bold text-card-foreground leading-tight">{s.title}</p>
+                    <p className="text-[10px] sm:text-[11px] text-card-foreground/75 mt-1 leading-snug">{s.desc}</p>
                   </div>
                 ))}
               </div>
@@ -637,8 +637,8 @@ export default function DokumentenCheck() {
                 <div className="flex items-start gap-2.5">
                   <Info className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
                   <div className="text-xs sm:text-sm">
-                    <p className="font-semibold text-foreground">{t("documentCheck.upload.multiPageTitle")}</p>
-                    <p className="text-muted-foreground mt-1">{t("documentCheck.upload.multiPageHint")}</p>
+                    <p className="font-semibold text-card-foreground">{t("documentCheck.upload.multiPageTitle")}</p>
+                    <p className="text-card-foreground/80 mt-1">{t("documentCheck.upload.multiPageHint")}</p>
                   </div>
                 </div>
               </div>
