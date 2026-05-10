@@ -509,7 +509,7 @@ export default function DokumentenCheck() {
                 </p>
               )}
             </div>
-            <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-[hsl(var(--gold))]/5 p-5 text-center relative flex flex-col">
+            <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-card p-5 text-center relative flex flex-col shadow-sm">
               <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">{t("documentCheck.pricing.premiumBadge")}</span>
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">{t("documentCheck.pricing.premiumLabel")}</p>
               <p className="text-2xl font-black text-card-foreground">
@@ -544,10 +544,10 @@ export default function DokumentenCheck() {
           {isPremium && (
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className={`flex items-center justify-between gap-3 rounded-2xl border p-4 sm:p-5 ${
+                className={`flex items-center justify-between gap-3 rounded-2xl border bg-card p-4 sm:p-5 shadow-sm ${
                 premiumRemainingToday > 0
-                  ? "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5"
-                  : "border-amber-500/30 bg-amber-500/5"
+                  ? "border-[hsl(var(--gold))]/30"
+                  : "border-amber-500/30"
               }`}
             >
               <div className="flex items-center gap-3 min-w-0">
@@ -559,12 +559,12 @@ export default function DokumentenCheck() {
                   {premiumRemainingToday}/{premiumDailyLimit}
                 </div>
                 <div className="min-w-0">
-                  <p className="font-bold text-sm">
+                  <p className="font-bold text-sm text-card-foreground">
                     {premiumRemainingToday > 0
                       ? t("documentCheck.quota.remaining", { count: premiumRemainingToday, defaultValue: "Ostalo ti je {{count}} besplatnih provjera danas" })
                       : t("documentCheck.quota.exhausted", "Iskoristio si dnevni Premium limit")}
                   </p>
-                  <p className="text-xs text-foreground/75 mt-0.5">
+                  <p className="text-xs text-card-foreground/75 mt-0.5">
                     {premiumRemainingToday > 0
                       ? t("documentCheck.quota.resetHint", "Brojač se resetuje sutra u 00:00 (Berlin)")
                       : creditCount > 0
@@ -586,7 +586,7 @@ export default function DokumentenCheck() {
           {!isPremium && creditCount > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-4"
+              className="flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-card p-4 shadow-sm"
             >
               <div
                 aria-hidden
@@ -595,15 +595,15 @@ export default function DokumentenCheck() {
                 {creditCount}
               </div>
               <div>
-                <p className="font-bold text-sm">{t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}</p>
-                <p className="text-xs text-foreground/75 mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
+                <p className="font-bold text-sm text-card-foreground">{t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}</p>
+                <p className="text-xs text-card-foreground/75 mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
               </div>
             </motion.div>
           )}
 
           {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/20 bg-[hsl(var(--gold))]/5 p-5 sm:p-6">
+            className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/25 bg-card p-5 sm:p-6 shadow-sm">
             <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
             <div>
               <p className="font-bold text-card-foreground">{t("documentCheck.privacy.title")}</p>
@@ -633,7 +633,7 @@ export default function DokumentenCheck() {
               </div>
 
               {/* Info: više stranica */}
-              <div className="mb-4 rounded-xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-3 sm:p-4">
+              <div className="mb-4 rounded-xl border border-[hsl(var(--gold))]/30 bg-card p-3 sm:p-4 shadow-sm">
                 <div className="flex items-start gap-2.5">
                   <Info className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
                   <div className="text-xs sm:text-sm">
@@ -645,7 +645,7 @@ export default function DokumentenCheck() {
 
               <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
                 {/* Glavni dropzone — file picker */}
-                <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
+                <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-card hover:bg-accent transition-colors shadow-sm">
                   <input
                     type="file"
                     multiple
@@ -714,7 +714,7 @@ export default function DokumentenCheck() {
                       <button
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
-                        className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[hsl(var(--gold))]/50 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 px-3 py-2.5 text-xs font-semibold text-[hsl(var(--gold))] transition-colors"
+                        className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[hsl(var(--gold))]/50 bg-card hover:bg-accent px-3 py-2.5 text-xs font-semibold text-[hsl(var(--gold))] transition-colors"
                       >
                         <Plus className="h-4 w-4" />
                         {t("documentCheck.upload.addMore")}
@@ -735,7 +735,7 @@ export default function DokumentenCheck() {
           </div>
 
           {/* ── Actions ── */}
-          <div className="flex gap-3">
+            <div className="flex gap-3">
             <Button onClick={handleAnalyze} disabled={loading || !confirmed || files.length === 0} className="gap-2 rounded-xl px-6">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
               {loading ? t("documentCheck.buttons.checking") : t("documentCheck.buttons.checkDocument")}
@@ -833,7 +833,7 @@ export default function DokumentenCheck() {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
               {summary && (
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                  className="rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 sm:p-8 shadow-lg">
+                  className="rounded-2xl border-2 border-[hsl(var(--gold))]/35 bg-slate-950 p-6 sm:p-8 shadow-lg">
                   <h2 className="text-lg font-black tracking-tight text-white mb-5 flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
                     {t("documentCheck.results.overview")}
@@ -902,7 +902,7 @@ export default function DokumentenCheck() {
                       {locked && (
                         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
                           <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
-                          <p className="text-sm font-bold text-foreground mb-3">{t("documentCheck.results.lockedTitle")}</p>
+                          <p className="text-sm font-bold text-white mb-3">{t("documentCheck.results.lockedTitle")}</p>
                           <button onClick={() => localizedNavigate("/paketi")}
                             className="rounded-full px-5 py-2.5 text-xs font-bold transition-all hover:opacity-90"
                             style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}>
@@ -935,9 +935,9 @@ export default function DokumentenCheck() {
           )}
 
           {/* ── Disclaimer ── */}
-          <div className="rounded-2xl border border-border/40 bg-muted/20 p-5 text-xs text-foreground/80 leading-relaxed dark:text-foreground/75">
+          <div className="rounded-2xl border border-border bg-card p-5 text-xs text-card-foreground leading-relaxed shadow-sm">
             <p>
-              <strong>{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
+              <strong className="text-card-foreground">{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
             </p>
           </div>
         </div>
