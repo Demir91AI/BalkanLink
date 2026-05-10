@@ -892,10 +892,11 @@ export default function DokumentenCheck() {
                         </div>
                       )}
                       <div className={`prose prose-sm max-w-none dark:prose-invert
-                        prose-headings:text-foreground prose-headings:font-bold prose-headings:tracking-tight
-                        prose-strong:text-foreground prose-strong:font-semibold
-                        prose-li:text-muted-foreground prose-li:leading-relaxed
-                        prose-p:text-muted-foreground prose-p:leading-relaxed
+                        prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
+                        prose-strong:text-white prose-strong:font-semibold
+                        prose-li:text-white/90 prose-li:leading-relaxed
+                        prose-p:text-white/90 prose-p:leading-relaxed
+                        prose-a:text-[hsl(var(--gold))]
                         ${locked ? "blur-sm select-none pointer-events-none min-h-[100px]" : ""}`}
                       >
                         <ReactMarkdown>{section.content}</ReactMarkdown>
