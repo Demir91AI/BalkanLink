@@ -516,7 +516,8 @@
       "step2Title": "Mi čitamo",
       "step2Desc": "Asistent prevodi i objašnjava",
       "step3Title": "Saznaš sve",
-      "step3Desc": "Šta, do kada, koliko košta"
+      "step3Desc": "Šta, do kada, koliko košta",
+      "takePhoto": "📷 Slikaj kamerom"
     },
     "confirm": "Razumem da ne smem da šaljem osetljive podatke (broj lične karte, poreski broj/Steuer-ID, broj računa/IBAN, zdravstvene podatke).",
     "buttons": {
