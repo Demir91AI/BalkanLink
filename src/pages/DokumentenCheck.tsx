@@ -46,18 +46,18 @@ interface AnalysisSection {
 
 const SECTION_CONFIG: Record<string, { icon: React.ReactNode; colorClass: string; iconColorClass: string; isPremium: boolean }> = {
   // Bosanski naslovi koje vraća edge funkcija (matchaju se kroz substring includes na normalizovan tekst)
-  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-500/30 bg-blue-950/30", iconColorClass: "text-blue-400", isPremium: false },
-  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-500/30 bg-emerald-950/30", iconColorClass: "text-emerald-400", isPremium: false },
-  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-500/30 bg-purple-950/30", iconColorClass: "text-purple-400", isPremium: true },
-  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-500/30 bg-amber-950/30", iconColorClass: "text-amber-400", isPremium: true },
-  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-500/30 bg-red-950/30", iconColorClass: "text-red-400", isPremium: true },
-  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-500/30 bg-green-950/30", iconColorClass: "text-green-400", isPremium: true },
-  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-500/30 bg-indigo-950/30", iconColorClass: "text-indigo-400", isPremium: true },
-  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-500/30 bg-orange-950/30", iconColorClass: "text-orange-400", isPremium: true },
-  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-500/30 bg-rose-950/30", iconColorClass: "text-rose-400", isPremium: true },
-  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-950/30", iconColorClass: "text-cyan-400", isPremium: true },
-  "sazetak": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-500/30 bg-cyan-950/30", iconColorClass: "text-cyan-400", isPremium: true },
-  "pravna napomena": { icon: <Scale className="h-5 w-5" />, colorClass: "border-muted bg-muted/30", iconColorClass: "text-muted-foreground", isPremium: false },
+  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-400/40 bg-blue-950/60", iconColorClass: "text-blue-300", isPremium: false },
+  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-400/40 bg-emerald-950/60", iconColorClass: "text-emerald-300", isPremium: false },
+  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-400/40 bg-purple-950/60", iconColorClass: "text-purple-300", isPremium: true },
+  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-400/40 bg-amber-950/60", iconColorClass: "text-amber-300", isPremium: true },
+  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-400/40 bg-red-950/60", iconColorClass: "text-red-300", isPremium: true },
+  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-400/40 bg-green-950/60", iconColorClass: "text-green-300", isPremium: true },
+  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-400/40 bg-indigo-950/60", iconColorClass: "text-indigo-300", isPremium: true },
+  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-400/40 bg-orange-950/60", iconColorClass: "text-orange-300", isPremium: true },
+  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-400/40 bg-rose-950/60", iconColorClass: "text-rose-300", isPremium: true },
+  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-400/40 bg-cyan-950/60", iconColorClass: "text-cyan-300", isPremium: true },
+  "sazetak": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-400/40 bg-cyan-950/60", iconColorClass: "text-cyan-300", isPremium: true },
+  "pravna napomena": { icon: <Scale className="h-5 w-5" />, colorClass: "border-slate-400/40 bg-slate-900/60", iconColorClass: "text-slate-300", isPremium: false },
 };
 
 /**
