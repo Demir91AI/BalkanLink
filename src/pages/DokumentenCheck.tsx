@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback, useMemo, useEffect } from "react";
-import { FileText, Upload, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Crown, ChevronDown, Plus, Info } from "lucide-react";
+import { FileText, Upload, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Crown, ChevronDown, Plus, Info, Camera } from "lucide-react";
 import AuthGate from "@/components/AuthGate";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { motion } from "framer-motion";
@@ -265,6 +265,7 @@ export default function DokumentenCheck() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
   const [creditCount, setCreditCount] = useState<number>(0);
@@ -643,7 +644,7 @@ export default function DokumentenCheck() {
               </div>
 
               <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
-                {/* Glavni dropzone — file picker (PDF ili slike već snimljene na telefonu) */}
+                {/* Glavni dropzone — file picker */}
                 <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-[hsl(var(--gold))]/5 hover:bg-[hsl(var(--gold))]/10 transition-colors">
                   <input
                     type="file"
@@ -654,12 +655,30 @@ export default function DokumentenCheck() {
                     onChange={(e) => addFiles(e.target.files)}
                   />
                   <Upload className="h-12 w-12 text-[hsl(var(--gold))] mb-3" />
-                  <strong className="text-base sm:text-lg">{t("documentCheck.upload.chooseFile")}</strong>
+                  <strong className="text-base sm:text-lg text-foreground">{t("documentCheck.upload.chooseFile")}</strong>
                   <span className="text-sm text-muted-foreground mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
                   <span className="mt-3 text-[11px] text-muted-foreground/80 text-center max-w-xs">
                     {t("documentCheck.upload.tipPhotoFromGallery")}
                   </span>
                 </label>
+
+                {/* Hidden camera-only input — opens native camera reliably */}
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  capture="environment"
+                  ref={cameraInputRef}
+                  className="hidden"
+                  onChange={(e) => { addFiles(e.target.files); if (cameraInputRef.current) cameraInputRef.current.value = ""; }}
+                />
+                <button
+                  type="button"
+                  onClick={() => cameraInputRef.current?.click()}
+                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/10 px-4 py-3 text-sm font-semibold text-foreground transition-colors"
+                >
+                  <Camera className="h-5 w-5 text-[hsl(var(--gold))]" />
+                  {t("documentCheck.upload.takePhoto", "Slikaj kamerom")}
+                </button>
 
                 <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
                   <Lock className="h-3 w-3" />
@@ -674,16 +693,16 @@ export default function DokumentenCheck() {
                     </div>
                     <ul className="space-y-2">
                       {files.map((f, idx) => (
-                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-800 bg-emerald-900/20 px-3 py-2.5">
+                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5">
                           <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <FileText className="h-4 w-4 text-emerald-400 shrink-0" />
-                            <span className="text-sm text-emerald-400 truncate">{f.name}</span>
-                            <span className="text-[11px] text-muted-foreground shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
+                            <FileText className="h-4 w-4 text-emerald-300 shrink-0" />
+                            <span className="text-sm text-emerald-100 truncate">{f.name}</span>
+                            <span className="text-[11px] text-emerald-200/70 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
                           </div>
                           <button
                             type="button"
                             onClick={() => removeFile(idx)}
-                            className="text-muted-foreground hover:text-foreground p-1 shrink-0"
+                            className="text-emerald-200/70 hover:text-white p-1 shrink-0"
                             aria-label={t("documentCheck.upload.remove")}
                           >
                             <X className="h-4 w-4" />
@@ -815,49 +834,49 @@ export default function DokumentenCheck() {
               {summary && (
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                   className="rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 sm:p-8 shadow-lg">
-                  <h2 className="text-lg font-black tracking-tight text-foreground mb-5 flex items-center gap-2">
+                  <h2 className="text-lg font-black tracking-tight text-white mb-5 flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
                     {t("documentCheck.results.overview")}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex items-start gap-3 rounded-xl bg-blue-500/10 border border-blue-500/20 p-4">
-                      <FileWarning className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
+                    <div className="flex items-start gap-3 rounded-xl bg-blue-500/15 border border-blue-400/40 p-4">
+                      <FileWarning className="h-5 w-5 text-blue-300 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-500/80 mb-1">{t("documentCheck.results.docType")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.docType}</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-200 mb-1">{t("documentCheck.results.docType")}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.docType}</p>
                       </div>
                     </div>
                     <div className={`flex items-start gap-3 rounded-xl p-4 border ${
-                      summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "bg-red-500/10 border-red-500/20" :
-                      summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "bg-amber-500/10 border-amber-500/20" :
-                      "bg-emerald-500/10 border-emerald-500/20"
+                      summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "bg-red-500/15 border-red-400/40" :
+                      summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "bg-amber-500/15 border-amber-400/40" :
+                      "bg-emerald-500/15 border-emerald-400/40"
                     }`}>
                       <AlertCircle className={`h-5 w-5 mt-0.5 shrink-0 ${
-                        summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-500" :
-                        summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-500" :
-                        "text-emerald-500"
+                        summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-300" :
+                        summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-300" :
+                        "text-emerald-300"
                       }`} />
                       <div>
                         <p className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${
-                          summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-500/80" :
-                          summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-500/80" :
-                          "text-emerald-500/80"
+                          summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-200" :
+                          summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-200" :
+                          "text-emerald-200"
                         }`}>{t("documentCheck.results.actionNeeded")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.action}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.action}</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 rounded-xl bg-green-500/10 border border-green-500/20 p-4">
-                      <Banknote className="h-5 w-5 text-green-600 mt-0.5 shrink-0" />
+                    <div className="flex items-start gap-3 rounded-xl bg-green-500/15 border border-green-400/40 p-4">
+                      <Banknote className="h-5 w-5 text-green-300 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-600/80 mb-1">{t("documentCheck.results.financial")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.financial}</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-200 mb-1">{t("documentCheck.results.financial")}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.financial}</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 rounded-xl bg-purple-500/10 border border-purple-500/20 p-4">
-                      <CalendarClock className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
+                    <div className="flex items-start gap-3 rounded-xl bg-purple-500/15 border border-purple-400/40 p-4">
+                      <CalendarClock className="h-5 w-5 text-purple-300 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-500/80 mb-1">{t("documentCheck.results.deadline")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.deadline}</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-200 mb-1">{t("documentCheck.results.deadline")}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.deadline}</p>
                       </div>
                     </div>
                   </div>
@@ -874,9 +893,9 @@ export default function DokumentenCheck() {
                     transition={{ delay: idx * 0.04 }}
                     className={`relative rounded-2xl border ${section.colorClass} overflow-hidden shadow-sm`}
                   >
-                    <div className="flex items-center gap-3 px-6 py-4 border-b border-black/5 dark:border-white/5">
+                    <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10 bg-black/20">
                       <span className={section.iconColorClass}>{section.icon}</span>
-                      <h3 className="text-base font-bold tracking-tight text-foreground">{section.title}</h3>
+                      <h3 className={`text-base font-bold tracking-tight ${section.iconColorClass}`}>{section.title}</h3>
                       {locked && <Lock className="ml-auto h-4 w-4 text-[hsl(var(--gold))]" />}
                     </div>
                     <div className={`px-6 py-5 sm:py-6 ${locked ? "relative" : ""}`}>

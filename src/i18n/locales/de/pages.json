@@ -516,7 +516,8 @@
       "step2Title": "Wir lesen",
       "step2Desc": "Assistent übersetzt & erklärt",
       "step3Title": "Du weißt alles",
-      "step3Desc": "Was, bis wann, wie viel"
+      "step3Desc": "Was, bis wann, wie viel",
+      "takePhoto": "📷 Mit Kamera fotografieren"
     },
     "confirm": "Ich verstehe, dass ich keine sensiblen Daten senden darf (Personalausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).",
     "buttons": {
