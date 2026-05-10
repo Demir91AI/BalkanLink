@@ -648,7 +648,7 @@ export default function DokumentenCheck() {
                   <input
                     type="file"
                     multiple
-                    accept="application/pdf"
+                    accept="application/pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,.pdf,.jpg,.jpeg,.png,.webp,.heic,.heif"
                     ref={fileInputRef}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     onChange={(e) => addFiles(e.target.files)}
