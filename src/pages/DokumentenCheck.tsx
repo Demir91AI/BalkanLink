@@ -834,49 +834,49 @@ export default function DokumentenCheck() {
               {summary && (
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                   className="rounded-2xl border-2 border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 sm:p-8 shadow-lg">
-                  <h2 className="text-lg font-black tracking-tight text-foreground mb-5 flex items-center gap-2">
+                  <h2 className="text-lg font-black tracking-tight text-white mb-5 flex items-center gap-2">
                     <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
                     {t("documentCheck.results.overview")}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex items-start gap-3 rounded-xl bg-blue-500/10 border border-blue-500/20 p-4">
-                      <FileWarning className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
+                    <div className="flex items-start gap-3 rounded-xl bg-blue-500/15 border border-blue-400/40 p-4">
+                      <FileWarning className="h-5 w-5 text-blue-300 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-500/80 mb-1">{t("documentCheck.results.docType")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.docType}</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-200 mb-1">{t("documentCheck.results.docType")}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.docType}</p>
                       </div>
                     </div>
                     <div className={`flex items-start gap-3 rounded-xl p-4 border ${
-                      summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "bg-red-500/10 border-red-500/20" :
-                      summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "bg-amber-500/10 border-amber-500/20" :
-                      "bg-emerald-500/10 border-emerald-500/20"
+                      summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "bg-red-500/15 border-red-400/40" :
+                      summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "bg-amber-500/15 border-amber-400/40" :
+                      "bg-emerald-500/15 border-emerald-400/40"
                     }`}>
                       <AlertCircle className={`h-5 w-5 mt-0.5 shrink-0 ${
-                        summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-500" :
-                        summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-500" :
-                        "text-emerald-500"
+                        summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-300" :
+                        summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-300" :
+                        "text-emerald-300"
                       }`} />
                       <div>
                         <p className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${
-                          summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-500/80" :
-                          summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-500/80" :
-                          "text-emerald-500/80"
+                          summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-200" :
+                          summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-200" :
+                          "text-emerald-200"
                         }`}>{t("documentCheck.results.actionNeeded")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.action}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.action}</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 rounded-xl bg-green-500/10 border border-green-500/20 p-4">
-                      <Banknote className="h-5 w-5 text-green-600 mt-0.5 shrink-0" />
+                    <div className="flex items-start gap-3 rounded-xl bg-green-500/15 border border-green-400/40 p-4">
+                      <Banknote className="h-5 w-5 text-green-300 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-600/80 mb-1">{t("documentCheck.results.financial")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.financial}</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-200 mb-1">{t("documentCheck.results.financial")}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.financial}</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 rounded-xl bg-purple-500/10 border border-purple-500/20 p-4">
-                      <CalendarClock className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
+                    <div className="flex items-start gap-3 rounded-xl bg-purple-500/15 border border-purple-400/40 p-4">
+                      <CalendarClock className="h-5 w-5 text-purple-300 mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-500/80 mb-1">{t("documentCheck.results.deadline")}</p>
-                        <p className="text-sm font-semibold text-foreground leading-snug">{summary.deadline}</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-200 mb-1">{t("documentCheck.results.deadline")}</p>
+                        <p className="text-sm font-semibold text-white leading-snug">{summary.deadline}</p>
                       </div>
                     </div>
                   </div>
