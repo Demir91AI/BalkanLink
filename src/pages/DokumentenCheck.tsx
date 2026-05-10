@@ -655,9 +655,9 @@ export default function DokumentenCheck() {
                     onChange={(e) => addFiles(e.target.files)}
                   />
                   <Upload className="h-12 w-12 text-[hsl(var(--gold))] mb-3" />
-                  <strong className="text-base sm:text-lg text-foreground">{t("documentCheck.upload.chooseFile")}</strong>
-                  <span className="text-sm text-muted-foreground mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
-                  <span className="mt-3 text-[11px] text-muted-foreground/80 text-center max-w-xs">
+                  <strong className="text-base sm:text-lg text-card-foreground">{t("documentCheck.upload.chooseFile")}</strong>
+                  <span className="text-sm text-card-foreground/80 mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
+                  <span className="mt-3 text-[11px] text-card-foreground/70 text-center max-w-xs">
                     {t("documentCheck.upload.tipPhotoFromGallery")}
                   </span>
                 </label>
@@ -674,20 +674,20 @@ export default function DokumentenCheck() {
                 <button
                   type="button"
                   onClick={() => cameraInputRef.current?.click()}
-                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/10 px-4 py-3 text-sm font-semibold text-foreground transition-colors"
+                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/10 px-4 py-3 text-sm font-semibold text-card-foreground transition-colors"
                 >
                   <Camera className="h-5 w-5 text-[hsl(var(--gold))]" />
                   {t("documentCheck.upload.takePhoto", "Slikaj kamerom")}
                 </button>
 
-                <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
+                <p className="text-xs text-card-foreground/75 text-center flex items-center justify-center gap-1.5">
                   <Lock className="h-3 w-3" />
                   {t("documentCheck.upload.deletedAfter")}
                 </p>
 
                 {files.length > 0 && (
                   <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
+                    <div className="flex items-center justify-between text-xs font-medium text-card-foreground/75 px-1">
                       <span>{t("documentCheck.upload.filesCount", { count: files.length, max: MAX_FILES })}</span>
                       <span>{(totalSize / 1024 / 1024).toFixed(1)} MB</span>
                     </div>
