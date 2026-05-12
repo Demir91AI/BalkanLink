@@ -57,6 +57,6 @@ for (const f of fills) {
 console.log(`OK: ${ok}, MISSING: ${missing.length}`);
 if (missing.length) console.log(missing.join('\n'));
 
-const out = await doc.save();
+const out = await doc.save({ updateFieldAppearances: false });
 fs.writeFileSync('/tmp/kg1-test-filled.pdf', out);
 console.log('Written /tmp/kg1-test-filled.pdf');
