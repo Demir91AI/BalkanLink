@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import { fillBuergergeldPdf, downloadBlob, type BuergergeldFormData } from "@/lib/pdf-fill-buergergeld";
 
 const LS_KEY = "buergergeld-muster-data";
-const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld";
+const PDF_URL = "/muster/buergergeld-hauptantrag-2026.pdf";
 
 const TABS = [
   { key: "ha", label: "Hauptantrag (HA)" },
