@@ -342,6 +342,15 @@
         "pdf": "Ausgefülltes PDF",
         "post": "Post / persönlich"
       }
+    },
+    "buergergeld": {
+      "subtitle": "Musterformular — BalkanLink — nur zur Orientierung",
+      "originalLink": "Leeres Original-HA-PDF herunterladen →",
+      "footerNote": "Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Jobcenter einreichen • BalkanLink ist keine staatliche Stelle",
+      "autofillTitle": "Online ausfüllen → 1:1 Original-Jobcenter-HA-PDF herunterladen",
+      "autofillBody": "Deine HA-Daten werden lokal in deinem Browser in den offiziellen Bürgergeld-Hauptantrag (Stand 04/2026) eingefügt — nichts wird an einen Server gesendet. Anlage EK / KDU / VM separat ausfüllen.",
+      "generating": "PDF wird erstellt…",
+      "downloadFilled": "Ausgefülltes HA-PDF herunterladen"
     }
   }
 }

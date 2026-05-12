@@ -342,6 +342,15 @@
         "pdf": "Ispunjeni PDF",
         "post": "Pošta / osobno"
       }
+    },
+    "buergergeld": {
+      "subtitle": "Musterformular — BalkanLink — samo za orijentaciju",
+      "originalLink": "Preuzmi prazan izvorni HA PDF →",
+      "footerNote": "Musterformular za orijentaciju • Svi navodi bez jamstva • Izvornik predati Jobcenter-u • BalkanLink nije državna ustanova",
+      "autofillTitle": "Ispuni online → preuzmi 1:1 izvorni Jobcenter HA PDF",
+      "autofillBody": "Tvoji HA podaci se popunjavaju u službeni Bürgergeld Hauptantrag (Stand 04/2026) lokalno u tvom pregledniku — ništa ne ide na server. Anlage EK / KDU / VM popunjavaš zasebno.",
+      "generating": "Generiram PDF…",
+      "downloadFilled": "Preuzmi ispunjeni HA PDF"
     }
   }
 }
