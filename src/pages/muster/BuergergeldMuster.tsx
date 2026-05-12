@@ -87,6 +87,32 @@ export default function BuergergeldMuster() {
     } finally { setGenerating(false); }
   };
 
+  const [anlGen, setAnlGen] = useState<AnlageCode | null>(null);
+
+  const toAnlageData = (): AnlageBaseData => {
+    const firstKid = f.personen.find((p: any) => p.verwandtschaft === "Kind");
+    const firstEk = f.ekPersonen[0];
+    const firstVm = f.vmPersonen[0];
+    return {
+      vorname: f.vorname, familienname: f.familienname, geburtsdatum: f.geburtsdatum,
+      strasse: f.strasse, plz: f.plz, ort: f.ort,
+      wohnart: f.wohnart, kaltmiete: f.kaltmiete, nebenkosten: f.nebenkosten, heizkosten: f.heizkosten,
+      kindVorname: firstKid?.vorname, kindNachname: firstKid?.name, kindGeburtsdatum: firstKid?.geburtsdatum,
+      kfzMarke: firstVm?.kfzMarke, kfzBaujahr: firstVm?.kfzBaujahr, kfzWert: firstVm?.kfzWert,
+      arbeitgeber: firstEk?.arbeitgeber,
+    };
+  };
+
+  const handleAnlageDownload = async (code: AnlageCode) => {
+    setPdfError(null); setAnlGen(code);
+    try {
+      const blob = await fillBuergergeldAnlagePdf(code, toAnlageData());
+      downloadBlob(blob, `BG-Anlage-${code.toUpperCase()}-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_"));
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setAnlGen(null); }
+  };
+
   const gesamtMiete = [f.kaltmiete, f.nebenkosten, f.heizkosten, f.warmwasserEnthalten === "Nein" ? f.warmwasser : "0", f.garage].reduce((s, v) => s + (parseFloat(v) || 0), 0);
 
   const getGesamtVermoegen = (i: number) => {
