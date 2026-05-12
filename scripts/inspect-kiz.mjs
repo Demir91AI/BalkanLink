@@ -1,6 +1,6 @@
 import { PDFDocument } from 'pdf-lib';
 import fs from 'fs';
-const bytes = fs.readFileSync('/tmp/kiz.pdf');
+const bytes = fs.readFileSync('/tmp/kiz-ank.pdf');
 const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
 const form = doc.getForm();
 const fields = form.getFields();
