@@ -53,11 +53,38 @@ const initial = () => ({
 });
 
 export default function BuergergeldMuster() {
+  const { t } = useTranslation("forms");
   const [f, setF] = useState(() => { try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {} return initial(); });
+  const [generating, setGenerating] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
   const setPerson = (i: number, k: string, v: string) => setF(p => { const ps = [...p.personen]; ps[i] = { ...ps[i], [k]: v }; return { ...p, personen: ps }; });
   const setEk = (i: number, k: string, v: any) => setF(p => { const ps = [...p.ekPersonen]; ps[i] = { ...ps[i], [k]: v }; return { ...p, ekPersonen: ps }; });
   const setVm = (i: number, k: string, v: any) => setF(p => { const ps = [...p.vmPersonen]; ps[i] = { ...ps[i], [k]: v }; return { ...p, vmPersonen: ps }; });
+
+  const toPdfData = (): BuergergeldFormData => ({
+    familienname: f.familienname, vorname: f.vorname, geburtsdatum: f.geburtsdatum,
+    geburtsort: f.geburtsort, staatsangehoerigkeit: f.staatsangehoerigkeit,
+    steuerId: f.steuerId, svNummer: f.svNummer,
+    strasse: f.strasse, plz: f.plz, ort: f.ort, telefon: f.telefon,
+    iban: f.iban, kontoinhaber: f.kontoinhaber || `${f.vorname} ${f.familienname}`.trim(),
+    aufenthaltstitelArt: f.aufenthaltstitelArt,
+    erwerbstaetig: (f.erwerbstaetig as "Ja" | "Nein" | "") || "",
+    arbeitgeber: f.arbeitgeber,
+    weiterePersonen: (f.weiterePersonen as "Ja" | "Nein" | "") || "",
+    sigDatum: f.sigDatum,
+  });
+
+  const handleAutoFill = async () => {
+    setPdfError(null); setGenerating(true);
+    try {
+      const blob = await fillBuergergeldPdf(toPdfData());
+      const fname = `Buergergeld-HA-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_");
+      downloadBlob(blob, fname);
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setGenerating(false); }
+  };
 
   const gesamtMiete = [f.kaltmiete, f.nebenkosten, f.heizkosten, f.warmwasserEnthalten === "Nein" ? f.warmwasser : "0", f.garage].reduce((s, v) => s + (parseFloat(v) || 0), 0);
 
