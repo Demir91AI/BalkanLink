@@ -291,5 +291,10 @@ export default function KindergeldMuster() {
         </div>
       </div>
     </MusterFormBase>
+    <div style={{ maxWidth: 800, margin: "0 auto 60px", padding: "0 16px" }}>
+      <KindergeldGuideContent />
+    </div>
+    </>
   );
 }
+
