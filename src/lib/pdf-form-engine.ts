@@ -15,7 +15,7 @@ import { PDFDocument, type PDFField, type PDFForm } from "pdf-lib";
 
 export interface FieldFill {
   name: string;
-  type: "text" | "check";
+  type: "text" | "check" | "uncheck";
   value?: string;
 }
 
@@ -66,7 +66,8 @@ export async function fillPdfForm<TData>(
         field = tf;
       } else {
         const cb = form.getCheckBox(fill.name);
-        cb.check();
+        if (fill.type === "uncheck") cb.uncheck();
+        else cb.check();
         field = cb;
       }
       if (cfg.customDraw) {
