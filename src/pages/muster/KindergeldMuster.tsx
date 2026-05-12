@@ -1,17 +1,49 @@
 import { useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import KindergeldGuideContent from "@/components/KindergeldGuideContent";
+import { fillKindergeldPdf, downloadBlob } from "@/lib/pdf-fill-kindergeld";
+import type { KindergeldFormData, Geschlecht, Familienstand } from "@/lib/kindergeld-fields";
 
 const LS_KEY = "kg1-muster-data";
-const PDF_URL = "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf";
+const PDF_URL = "/muster/kg1-antrag-kindergeld-2026.pdf";
 
 const initial = () => ({
-  steuerId1: "", familienname: "", titel: "", vorname: "", geburtsname: "", geburtsdatum: "", geburtsort: "", geschlecht: "", staatsangehoerigkeit: "", strasse: "", plz: "", wohnort: "", staat: "Deutschland", familienstand: "",
+  steuerId1: "", familienname: "", titel: "", vorname: "", geburtsname: "", geburtsdatum: "", geburtsort: "", geschlecht: "", staatsangehoerigkeit: "", strasse: "", plz: "", wohnort: "", staat: "Deutschland", familienstand: "", familienstandSeit: "",
   steuerId2: "", eFamilienname: "", eVorname: "", eTitel: "", eGeburtsdatum: "", eStaatsangehoerigkeit: "", eGeschlecht: "", eGeburtsname: "", eAnschrift: "",
   iban: "", bic: "", bank: "", kontoinhaber: "self" as string, khName: "", khVorname: "",
   bFamilienname: "", bVorname: "", bAnschrift: "",
   kinder: Array.from({ length: 5 }, () => ({ vorname: "", geburtsdatum: "", geschlecht: "", familienkasse: "" })),
   ort: "", datum: "",
 });
+
+function toPdfData(f: ReturnType<typeof initial>): KindergeldFormData {
+  const anschrift = [f.strasse, [f.plz, f.wohnort].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+  const fs = (f.familienstand || "") as Familienstand;
+  return {
+    steuerId1: f.steuerId1, titel: f.titel, familienname: f.familienname, vorname: f.vorname,
+    geburtsname: f.geburtsname, geburtsdatum: f.geburtsdatum, geburtsort: f.geburtsort,
+    geschlecht: (f.geschlecht || "") as Geschlecht,
+    staatsangehoerigkeit: f.staatsangehoerigkeit, anschrift,
+    familienstand: fs, familienstandSeit: f.familienstandSeit,
+    hasPartner: !!(f.eFamilienname || f.eVorname || f.steuerId2),
+    steuerId2: f.steuerId2, pTitel: f.eTitel, pFamilienname: f.eFamilienname,
+    pVorname: f.eVorname, pGeburtsname: f.eGeburtsname, pGeburtsdatum: f.eGeburtsdatum,
+    pStaatsangehoerigkeit: f.eStaatsangehoerigkeit, pGeschlecht: (f.eGeschlecht || "") as Geschlecht,
+    pAnschrift: f.eAnschrift,
+    iban: f.iban, bic: f.bic, bank: f.bank,
+    kontoinhaber: (f.kontoinhaber === "other" ? "other" : "self"),
+    khName: [f.khName, f.khVorname].filter(Boolean).join(", "),
+    hasOther: !!(f.bFamilienname || f.bVorname || f.bAnschrift),
+    bName: f.bFamilienname, bVorname: f.bVorname, bAnschrift: f.bAnschrift,
+    kinder: f.kinder.map(k => ({
+      vorname: k.vorname, geburtsdatum: k.geburtsdatum,
+      geschlecht: k.geschlecht === "m" ? "männlich" : k.geschlecht === "w" ? "weiblich" : k.geschlecht === "d" ? "divers" : "",
+      familienkasse: k.familienkasse,
+    })),
+    ort: f.ort, datum: f.datum,
+  };
+}
 
 const fsList = [
   { value: "ledig", label: "ledig" },
