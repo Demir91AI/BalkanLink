@@ -17,15 +17,20 @@ const pageIndexForField = (name: string) => name.includes("Page2[0]") ? 2 : 1;
 function drawSteuerIdText(pdfDoc: PDFDocument, field: PDFField, fieldName: string, value: string, font: EmbeddedFont) {
   const widget = field.acroField.getWidgets()[0];
   const page = pdfDoc.getPages()[pageIndexForField(fieldName)];
-  const text = value.trim();
+  const text = value.replace(/\D/g, "");
   if (!widget || !page || !text) return;
   const rect = widget.getRectangle();
-  page.drawText(text, {
-    x: rect.x + 3,
-    y: rect.y + 3,
-    size: 9,
-    font,
-    color: rgb(0, 0, 0),
+  const size = 8.5;
+  const cellWidth = rect.width / text.length;
+  [...text].forEach((digit, index) => {
+    const digitWidth = font.widthOfTextAtSize(digit, size);
+    page.drawText(digit, {
+      x: rect.x + (index * cellWidth) + ((cellWidth - digitWidth) / 2),
+      y: rect.y + Math.max(2.4, (rect.height - size) / 2),
+      size,
+      font,
+      color: rgb(0, 0, 0),
+    });
   });
 }
 
