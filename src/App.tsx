@@ -80,6 +80,7 @@ const PaymentCancel = lazy(() => import("./pages/PaymentCancel"));
 const Kalkulatori = lazy(() => import("./pages/Kalkulatori"));
 
 const ElterngeldMuster = lazy(() => import("./pages/muster/ElterngeldMuster"));
+const KindergeldMuster = lazy(() => import("./pages/muster/KindergeldMuster"));
 const WirtschaftlicheJugendhilfeMuster = lazy(() => import("./pages/muster/WirtschaftlicheJugendhilfeMuster"));
 const BuergergeldMuster = lazy(() => import("./pages/muster/BuergergeldMuster"));
 const WohngeldMuster = lazy(() => import("./pages/muster/WohngeldMuster"));
@@ -214,7 +215,7 @@ function LocalizedRoutes() {
         <Route path="musterformular/anlage-uf" element={<AnlageUFMuster />} />
         <Route path="musterformular/anlage-se" element={<AnlageSEMuster />} />
         <Route path="musterformular/arbeitsbescheinigung" element={<ArbeitsbescheinigungMuster />} />
-        <Route path="musterformular/kindergeld" element={<AntragGenericMuster />} />
+        <Route path="musterformular/kindergeld" element={<KindergeldMuster />} />
         <Route path="musterformular/antrag-generic" element={<AntragGenericMuster />} />
         <Route path="musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
         <Route path="musterformular/wirtschaftliche-jugendhilfe" element={<WirtschaftlicheJugendhilfeMuster />} />
