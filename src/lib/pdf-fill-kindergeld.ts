@@ -38,8 +38,9 @@ export async function fillKindergeldPdf(data: KindergeldFormData): Promise<Blob>
     console.warn("[KindergeldPDF] Polja nisu nađena:", missing);
   }
 
-  // NE flatten — polja ostaju editabilna (potpis, dodaci).
-  const out = await pdfDoc.save();
+  // NE flatten i NE update appearances — Adobe Reader sam renderuje
+  // polja sa Unicode fontom (podržava č/š/ž/ć/đ).
+  const out = await pdfDoc.save({ updateFieldAppearances: false });
   return new Blob([out as unknown as ArrayBuffer], { type: "application/pdf" });
 }
 
