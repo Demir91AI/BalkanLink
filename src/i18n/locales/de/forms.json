@@ -327,6 +327,21 @@
           "tip": "Nur Kopien einreichen, keine Originale. Versand per Einschreiben empfohlen (Sendungsnachweis)."
         }
       }
+    },
+    "kindergeld": {
+      "subtitle": "Musterformular KG 1 — BalkanLink — nur zur Orientierung",
+      "originalLink": "Leeres Original-KG1-PDF herunterladen →",
+      "footerNote": "Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei Familienkasse einreichen • BalkanLink ist keine staatliche Stelle",
+      "autofillTitle": "Online ausfüllen → 1:1 Original-Familienkasse-PDF herunterladen",
+      "autofillBody": "Deine Daten werden lokal in deinem Browser in das offizielle KG1-PDF eingefügt — nichts wird an einen Server gesendet. Herunterladen, unterschreiben und an die zuständige Familienkasse senden.",
+      "generating": "PDF wird erstellt…",
+      "downloadFilled": "Ausgefülltes KG1-PDF herunterladen",
+      "delivery": {
+        "title": "3 Wege zur Antragstellung",
+        "online": "Online (BundID)",
+        "pdf": "Ausgefülltes PDF",
+        "post": "Post / persönlich"
+      }
     }
   }
 }

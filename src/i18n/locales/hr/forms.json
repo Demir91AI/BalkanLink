@@ -327,6 +327,21 @@
           "tip": "Ne šaljite originale — šaljite PRESLIKE. Originale dajete samo na zahtjev službe ili osobno. Šaljite poštom kao Einschreiben (preporučena pošiljka) — košta 2,75 € ali imate dokaz o predaji."
         }
       }
+    },
+    "kindergeld": {
+      "subtitle": "Musterformular KG 1 — BalkanLink — samo za orijentaciju",
+      "originalLink": "Preuzmi prazan izvorni KG1 PDF →",
+      "footerNote": "Musterformular za orijentaciju • Svi navodi bez jamstva • Izvornik predati Familienkasse-i • BalkanLink nije državna ustanova",
+      "autofillTitle": "Ispuni online → preuzmi 1:1 izvorni Familienkasse PDF",
+      "autofillBody": "Tvoji podaci se popunjavaju u službeni KG1 PDF lokalno u tvom pregledniku — ništa ne ide na server. Preuzmi, potpiši i pošalji nadležnoj Familienkasse.",
+      "generating": "Generiram PDF…",
+      "downloadFilled": "Preuzmi ispunjeni KG1 PDF",
+      "delivery": {
+        "title": "3 načina dostave zahtjeva",
+        "online": "Online (BundID)",
+        "pdf": "Ispunjeni PDF",
+        "post": "Pošta / osobno"
+      }
     }
   }
 }
