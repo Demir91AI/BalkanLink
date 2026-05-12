@@ -96,6 +96,9 @@ export default function KindergeldMuster() {
       onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))}
       onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}
     >
+      <MusterDisclaimer formKey="kindergeld"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+
       {/* AUTO-FILL PDF + 3-koraka dostave */}
       <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
         <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>
