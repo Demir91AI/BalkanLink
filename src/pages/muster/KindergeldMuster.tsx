@@ -55,30 +55,72 @@ const fsList = [
 ];
 
 export default function KindergeldMuster() {
+  const { t } = useTranslation("forms");
   const [f, setF] = useState(() => {
     try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {}
     return initial();
   });
+  const [generating, setGenerating] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
 
   const set = useCallback((key: string, val: string) => setF(p => ({ ...p, [key]: val })), []);
   const setKind = useCallback((i: number, key: string, val: string) => setF(p => {
     const k = [...p.kinder]; k[i] = { ...k[i], [key]: val }; return { ...p, kinder: k };
   }), []);
 
+  const handleAutoFill = async () => {
+    setPdfError(null); setGenerating(true);
+    try {
+      const blob = await fillKindergeldPdf(toPdfData(f));
+      const fname = `Kindergeld-KG1-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_");
+      downloadBlob(blob, fname);
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setGenerating(false); }
+  };
+
   return (
+    <>
     <MusterFormBase
       rootId="kg1-root"
       title="Antrag auf Kindergeld"
-      subtitle="Musterformular KG 1 — BalkanLink — nur zur Orientierung"
+      subtitle={t("musterFlow.kindergeld.subtitle", "Musterformular KG 1 — BalkanLink — nur zur Orientierung")}
       pdfUrl={PDF_URL}
-      pdfLabel="Preuzmi originalni PDF →"
-      footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei Familienkasse einreichen • BalkanLink ist keine staatliche Stelle"
+      pdfLabel={t("musterFlow.kindergeld.originalLink", "Preuzmi prazan originalni KG1 PDF →")}
+      footerNote={t("musterFlow.kindergeld.footerNote", "Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei Familienkasse einreichen • BalkanLink ist keine staatliche Stelle")}
       lsKey={LS_KEY}
-      formularId="kg1-muster"
+      formularId="kindergeld"
       data={f}
       onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))}
       onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}
     >
+      {/* AUTO-FILL PDF + 3-koraka dostave */}
+      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>
+          ✅ {t("musterFlow.kindergeld.autofillTitle", "Popuni online → preuzmi 1:1 originalni Familienkasse PDF")}
+        </div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>
+          {t("musterFlow.kindergeld.autofillBody", "Tvoji podaci se popunjavaju u zvanični KG1 PDF lokalno u tvom browseru — ništa ne ide na server. Preuzmi, potpiši i pošalji nadležnoj Familienkasse.")}
+        </div>
+        <button
+          onClick={handleAutoFill}
+          disabled={generating}
+          style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}
+        >
+          {generating ? t("musterFlow.kindergeld.generating", "Generiram PDF…") : `📄 ${t("musterFlow.kindergeld.downloadFilled", "Preuzmi popunjeni KG1 PDF")}`}
+        </button>
+        {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
+      </div>
+
+      <div style={{ marginBottom: 18, padding: 14, background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: 8, fontSize: 12, color: "#1E3A8A", lineHeight: 1.55 }}>
+        <div style={{ fontWeight: 700, marginBottom: 8 }}>📬 {t("musterFlow.kindergeld.delivery.title", "3 načina dostave zahtjeva")}</div>
+        <ol style={{ margin: 0, paddingLeft: 18 }}>
+          <li><strong>{t("musterFlow.kindergeld.delivery.online", "Online (BundID)")}</strong> — <a href="https://www.familienkasse.de" target="_blank" rel="noopener noreferrer" style={{ color: "#1E40AF", textDecoration: "underline" }}>familienkasse.de</a> — bez ispisa i potpisa.</li>
+          <li><strong>{t("musterFlow.kindergeld.delivery.pdf", "Popunjeni PDF")}</strong> — preuzmi gore, ispiši, potpiši, pošalji poštom.</li>
+          <li><strong>{t("musterFlow.kindergeld.delivery.post", "Pošta / lično")}</strong> — nadležna Familienkasse: <a href="https://www.arbeitsagentur.de/familienkasse-finden" target="_blank" rel="noopener noreferrer" style={{ color: "#1E40AF", textDecoration: "underline" }}>familienkasse-finden →</a></li>
+        </ol>
+      </div>
+
       {/* HEADER right side */}
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 16 }}>
         <div style={{ textAlign: "right" }}>
