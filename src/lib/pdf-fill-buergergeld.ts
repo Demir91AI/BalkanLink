@@ -16,8 +16,8 @@ const BUERGERGELD_CONFIG: PdfFormConfig<BuergergeldFormData> = {
   url: PDF_URL,
   label: "Bürgergeld Hauptantrag (BA, 04/2026)",
   builder: buildBuergergeldFieldFills,
-  // BA PDF koristi UTF-8 fontove i podržava ASCII setText kroz pdf-lib bez problema.
-  updateFieldAppearances: true,
+  // BHS slova (č/š/ž/ć/đ) — pustimo Adobe Reader da renderuje sa Unicode fontom.
+  updateFieldAppearances: false,
 };
 
 export async function fillBuergergeldPdf(data: BuergergeldFormData): Promise<Blob> {
