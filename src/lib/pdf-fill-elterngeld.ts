@@ -1,18 +1,18 @@
-import { PDFDocument } from "pdf-lib";
+/**
+ * Elterngeld — koristi generički PDF engine, sa per-Bundesland konfiguracijom.
+ * Dodavanje novog Bundeslanda = registruj `PdfFormConfig` u PDF_CONFIGS.
+ */
 import { buildFieldFills, type ElterngeldFormData } from "@/lib/elterngeld-bayern-fields";
 import { buildHamburgFieldFills } from "@/lib/elterngeld-hamburg-fields";
 import { buildNiedersachsenFieldFills } from "@/lib/elterngeld-niedersachsen-fields";
 import { buildMecklenburgFieldFills } from "@/lib/elterngeld-mecklenburg-fields";
 import { buildThueringenFieldFills } from "@/lib/elterngeld-thueringen-fields";
 import type { BundeslandId } from "@/lib/elterngeld-bundeslaender";
+import { fillPdfForm, type PdfFormConfig, downloadBlob } from "@/lib/pdf-form-engine";
 
-interface PdfConfig {
-  url: string;
-  builder: (d: ElterngeldFormData) => ReturnType<typeof buildFieldFills>;
-  label: string;
-}
+export { downloadBlob };
 
-const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
+const PDF_CONFIGS: Partial<Record<BundeslandId, PdfFormConfig<ElterngeldFormData>>> = {
   by: {
     url: "/muster/elterngeld-bayern-2025.pdf",
     builder: buildFieldFills,
@@ -50,17 +50,17 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
   },
   rp: {
     url: "/muster/elterngeld-rheinland-pfalz-2025.pdf",
-    builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
+    builder: buildNiedersachsenFieldFills,
     label: "Rheinland-Pfalz (Kreis/Stadt)",
   },
   sh: {
     url: "/muster/elterngeld-schleswig-holstein-2025.pdf",
-    builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
+    builder: buildNiedersachsenFieldFills,
     label: "Schleswig-Holstein (LASG)",
   },
   st: {
     url: "/muster/elterngeld-sachsen-anhalt-2025.pdf",
-    builder: buildNiedersachsenFieldFills, // identičan "Einheitlicher Antrag" template
+    builder: buildNiedersachsenFieldFills,
     label: "Sachsen-Anhalt (Landesverwaltungsamt Halle)",
   },
   th: {
@@ -70,65 +70,15 @@ const PDF_CONFIGS: Partial<Record<BundeslandId, PdfConfig>> = {
   },
 };
 
-export function getPdfConfig(bl: BundeslandId): PdfConfig | undefined {
+export function getPdfConfig(bl: BundeslandId): PdfFormConfig<ElterngeldFormData> | undefined {
   return PDF_CONFIGS[bl];
 }
 
-/**
- * Učitava originalni Elterngeld PDF za odabrani Bundesland (AcroForm),
- * popunjava polja podacima korisnika lokalno u browseru,
- * vraća popunjeni PDF kao Blob za download.
- *
- * Privatnost: PDF se nikad ne šalje na server.
- */
 export async function fillElterngeldPdf(
   data: ElterngeldFormData,
   bundesland: BundeslandId = "by",
 ): Promise<Blob> {
   const cfg = PDF_CONFIGS[bundesland];
   if (!cfg) throw new Error(`No PDF config for Bundesland: ${bundesland}`);
-
-  const res = await fetch(cfg.url);
-  if (!res.ok) throw new Error(`PDF fetch failed: ${res.status}`);
-  const bytes = await res.arrayBuffer();
-
-  const pdfDoc = await PDFDocument.load(bytes, { ignoreEncryption: true });
-  const form = pdfDoc.getForm();
-
-  const fills = cfg.builder(data);
-  const missing: string[] = [];
-
-  for (const f of fills) {
-    try {
-      if (f.type === "text") {
-        const field = form.getTextField(f.name);
-        field.setText(f.value ?? "");
-      } else if (f.type === "check") {
-        const field = form.getCheckBox(f.name);
-        field.check();
-      }
-    } catch {
-      missing.push(`${f.type}:${f.name}`);
-    }
-  }
-
-  if (missing.length && typeof console !== "undefined") {
-    console.warn(`[ElterngeldPDF/${bundesland}] Polja nisu nađena:`, missing);
-  }
-
-  // NE flatten — ostavljamo polja editabilna da klijent može
-  // dopuniti specifične dijelove (Einkommen, Anlagen).
-  const out = await pdfDoc.save();
-  return new Blob([out as unknown as ArrayBuffer], { type: "application/pdf" });
-}
-
-export function downloadBlob(blob: Blob, filename: string) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  return fillPdfForm(cfg, data, `ElterngeldPDF/${bundesland}`);
 }
