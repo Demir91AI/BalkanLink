@@ -13,9 +13,13 @@
  */
 import { PDFDocument, type PDFField, type PDFForm } from "pdf-lib";
 
+/** Sentinel za radio: prvi option = YES, drugi = NO (npr. "ja"/"nein", "ja, fuegen..." / "nein"). */
+export const RADIO_YES = "__YES__";
+export const RADIO_NO = "__NO__";
+
 export interface FieldFill {
   name: string;
-  type: "text" | "check" | "uncheck";
+  type: "text" | "check" | "uncheck" | "radio";
   value?: string;
 }
 
@@ -64,6 +68,14 @@ export async function fillPdfForm<TData>(
         const tf = form.getTextField(fill.name);
         tf.setText(fill.value ?? "");
         field = tf;
+      } else if (fill.type === "radio") {
+        const rg = form.getRadioGroup(fill.name);
+        const opts = rg.getOptions();
+        let target = fill.value ?? "";
+        if (target === RADIO_YES) target = opts[0] ?? "";
+        else if (target === RADIO_NO) target = opts[1] ?? "";
+        if (target) rg.select(target);
+        field = rg;
       } else {
         const cb = form.getCheckBox(fill.name);
         if (fill.type === "uncheck") cb.uncheck();
