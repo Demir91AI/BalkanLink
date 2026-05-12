@@ -1,0 +1,4008 @@
+{
+  "ek": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBGGebDatum"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnEinkommen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGOrt"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinkommenMonat"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinkommenFolgemonat"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAG2Name"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAG2Str"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAG2HausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAG2Plz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAG2Ort"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWeitereEinkommenMonat"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWeitereEinkommenFolgemonat"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnEinkommenFreiberuflich"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAufwandEhrenamtlich"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeWohngeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeArbeitslosengeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeKrankengeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeÜbergangsgeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeKurzarbeitergeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeInsolvenzgeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeElterngeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeKindergeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeKinderzuschlag"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeUnterhalt"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeUnterhaltsvorschuss"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeBAfoeG"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeBAB"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeAusbildungsgeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeKeine"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAusgabeFahrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfArbeitsstaetteStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfArbeitsstaetteHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfArbeitsstaettePlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfArbeitsstaetteOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfArbeitsstaetteStrecke"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfArbeitsstaetteFahrtWoche"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxArbeitsstaetteFahrtKFZ"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxArbeitsstaetteFahrtOeffis"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxArbeitsstaetteFahrtSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfArbeitsstaetteFahrtSonstiges"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnFahrkostenZuschuss"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAusgabe"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeRenten"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeVermietung"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeSozialhilfe"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeSachbezuege"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeDigital"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEinnahmeSonstige"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfEinnahmeAndere"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKind"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnUnterhaltszahlung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAusbildungsfoerderung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVersicherungKfz"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVersicherungGesetzlich"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVersicherungAltersvorsorge"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVersicherungPrivat"
+    }
+  ],
+  "eks": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfDritteVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfDritteNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateDritteGebDatum"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAngabenZeitVorl"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAngabenZeitAbschl"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBewilligungszeitraumVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBewilligungszeitraumBis"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTaetigkeitFirmenname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTaetigkeitStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTaetigkeitHausnr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTaetigkeitPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTaetigkeitOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTaetigkeitGewerbe"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateTaetigkeitBeginn"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateTaetigkeitEnde"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTaetigkeitRechtsform"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitWohnstaette"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAnzahlRaume"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfFlaeche"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitProdukte"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitPersonal"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAnzahlBeschaeftigte"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitWeiteresPersonal"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAnzahlWeiteresPersonal"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEinstellung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitUStpflicht"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitZuschuesse"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitZuschuessBeantragt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnTaetigkeitDarlehen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfDarlehenHoehe"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateGeldeingang"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateRueckzahlungBeginn"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTilgungsrateMonatlich"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfDarlehenBetriebsausgaben"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfDarlehenBetriebsausgabenHoehe"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxTaetigkeitAngabenVorl"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxTaetigkeitAngabenAbschl"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z2_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z2_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z2_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z2_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z2_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z2_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z3_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z3_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z3_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z3_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z3_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z3_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z4_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z4_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z4_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z4_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z4_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z4_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z5_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z5_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z5_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z5_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z5_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z5_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z6_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z6_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z6_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z6_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z6_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z6_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z7_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z7_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z7_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z7_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z7_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z7_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z8_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z8_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z8_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z8_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z8_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z8_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z9_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z9_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z9_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z9_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z9_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabA_Z9_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtAreaTabaAnmerkungen\r"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTab_Z1_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTab_Z1_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTab_Z1_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTab_Z1_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTab_Z1_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTab_Z1_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z2_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z2_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z2_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z2_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z2_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z2_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z3_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z3_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z3_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z3_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z3_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z3_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z4_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z4_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z4_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z4_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z4_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z4_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z5_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z5_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z5_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z5_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z5_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z5_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z6_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z6_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z6_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z6_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z6_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z6_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z7_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z7_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z7_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z7_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z7_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z7_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z8_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z8_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z8_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z8_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z8_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z8_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z9_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z9_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z9_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z9_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z9_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z9_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z10_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z10_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z10_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z10_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z10_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB1_Z10_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtAreaTabB1Anmerkungen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKilometerBetrieblich"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKilometerPrivat"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z2_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z2_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z2_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z2_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z2_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z2_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z3_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z3_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z3_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z3_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z3_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z3_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z4_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z4_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z4_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z4_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z4_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z4_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z5_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z5_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z5_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z5_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z5_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z5_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z6_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z6_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z6_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z6_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z6_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z6_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z7_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z7_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z7_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z7_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z7_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z7_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z8_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z8_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z8_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z8_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z8_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z8_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z9_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z9_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z9_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z9_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z9_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z9_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z10_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z10_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z10_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z10_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z10_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z10_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z11_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z11_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z11_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z11_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z11_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z11_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z12_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z12_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z12_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z12_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z12_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z12_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z13_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z13_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z13_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z13_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z13_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z13_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z14_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z14_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z14_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z14_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z14_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z14_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z15_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z15_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z15_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z15_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z15_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB2_Z15_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z2_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z2_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z2_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z2_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z2_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z2_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z3_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z3_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z3_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z3_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z3_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z3_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z4_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z4_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z4_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z4_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z4_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z4_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z5_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z5_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z5_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z5_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z5_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z5_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z6_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z6_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z6_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z6_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z6_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z6_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z7_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z7_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z7_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z7_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z7_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z7_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z8_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z8_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z8_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z8_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z8_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z8_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z9_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z9_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z9_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z9_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z9_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z9_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z10_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z10_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z10_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z10_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z10_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z10_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z11_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z11_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z11_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z11_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z11_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z11_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z12_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z12_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z12_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z12_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z12_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z12_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z13_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z13_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z13_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z13_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z13_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z13_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z14_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z14_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z14_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z14_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z14_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z14_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z15_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z15_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z15_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z15_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z15_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z15_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z16_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z16_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z16_S4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z16_S5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z16_S6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabB3_Z16_S7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtAreaTabB3Anmerkungen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z2_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z2_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z3_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z3_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z4_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z4_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z5_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z5_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z6_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z6_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z7_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z7_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z8_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z8_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z9_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z9_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z10_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z10_S3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfTabC_Z11_S2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTabC_Z11_S3"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnDritteKindNichtWohnhaft"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnDritteUnterhalt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnDritteAusgabenFahrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfStreckeWohnungBetrieb"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfStreckeArbeitstage"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnDritteMehraufwandVerpflegung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfArbeitstageMehraufwandVerpflegung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftSelbststaendigePerson"
+    }
+  ],
+  "hg": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfDritteVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfDritteNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVerwandschaftsverhaeltnis"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnUnterstuetzung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUnterstuetzterVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUnterstuetzterNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterstuetzung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfZahlungsrhythmus"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnUnterkunftEigentuemer"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnUnterkunftKostenlos"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftKostenBeteiligung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGUnterkunftKostenlos"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftKosten"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftGesamtzahlung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ],
+  "kdu": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftAnzahlPersonen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUnterkunftBaujahr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftAnzahlRaum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftAnzahlKueche"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftAnzahlBad"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftGesamt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftSelbst"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftVermietet"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftLeer"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUnterkunftGewerbe"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWohnenMiete"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWohnenEigentum"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBedarfGrundmiete"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBedarfGrundmiete"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBedarfNebenkosten"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBedarfNebenkosten"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBedarfHeizkosten"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBedarfHeizkosten"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBedarfPauschalmiete"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBedarfPauschalmiete"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBedarfSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBedarfSonstiges"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnWohneinheit"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfWohneinheitAnzahl"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumSchuldzinsen"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumHeizkosten"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumWartung"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumGrundsteuern"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumVersicherung"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumWasser"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumAbwasser"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumMuell"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumSchornstein"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumStrassenreinigung"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEigentumSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfEigentumSonstige"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEnergiequellenStrom"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEnergiequellenGas"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEnergiequellenOel"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEnergiequellenFernwaerme"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEnergiequellenHolz"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEnergiequellenSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfEnergiequellenSonstiges"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBrenstoff"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxHeizungZentralheizung"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxHeizungsartEinzelofen"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxHeizungsartNachtspeicherofen"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKochenStrom"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKochenGas"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKochenSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKochenSonstiges"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWasserZentral"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWasserDezentral"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWarmwasserStrom"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWarmwasserGas"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWarmwasserHeizoel"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWarmwasserHolz"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWarmwasserKohle"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxWarmwasserSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfWarmwasserSonstiges"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnMieteDirekt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermieterName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermieterStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermieterHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermieterPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermieterOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermieterIBAN"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ],
+  "ki": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKindVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKindNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateKindGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKindGebName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKindGebOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKindGebLand"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKindStaatsangehoerigkeit"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKindMaennlich"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKindWeiblich"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKindDivers"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKindKeine"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKindRVVorhanden"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKindRVNr"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKindRVKeine"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxKindRVBeantragt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfStIDNr"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKindVormund"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAufenthalt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAsylbLG"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAsylbLG"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAZRNr"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKostenUebernahme"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfNatIDNr"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBeziehungAdoptiv"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBeziehungPartner"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBeziehungBruder"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBeziehungSonstiges"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGElternAusserhalb"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnElternHaushalt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchueler"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEinschulung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKostenBuecher"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchulbedarf"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchwanger"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEntbindung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnMEB"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBB"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnStationaer"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfStationaerArt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateStationaerVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateStationaerBis"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnEinnahmen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEinreise"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBUEG"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfLeistungArt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateLeistungVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateLeistungBis"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerOrt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAnspruchDritte"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchadenDritte"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKVPV"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKV"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnPKV"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ],
+  "meb": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfAnlPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAnlPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAnlPersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAnlBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAnlBGVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAnlBGNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAnlBGGebDatum"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAnlBGMehrbedarfErstmalig"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAnlBGMehrbedarfErneut"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAnlUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAnlUnterschriftBetreuer"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBPatVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBPatNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAeBPatGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBArztAnrede"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBArztVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBArztNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBArztStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBArztHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBArztPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBArztOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAeBUnterschriftPatient"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAeBZoeliakie"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAeBMukoviszidose"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAeBNiereninsuff"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAeBSchluckstoerung"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAeBSonstigeErkr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBErkrankungArt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBKostform"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAeBMangelernaehrung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAeBKriterienErfuellt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAeBErhoehterBedarf"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAeBVerordnungVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAeBVerordnungBis"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBGruendeVerordnung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAeBNachuntersuchung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAeBGruendeNachuntersuchung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAeBUnterschriftArzt"
+    }
+  ],
+  "sv": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBGGebDatum"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnPKV"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSelbstaendig"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBeihilfe"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnVersFrei"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKVPVZuschuss"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ],
+  "uh1": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUHBGebDatum"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxUHBVerheiratet"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUHBVerheiratet"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUHBGetrennt"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxUHBScheidungAntrag"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUHBScheidungAntrag"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxUHBScheidung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUHBScheidung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEheVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEheNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dataUHBEheGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEheGebName"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxUHBEheVerstorben"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEheStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEheHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEhePlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEheOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfUHBEheLand"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtareaUHBEheAnschrift"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnUH"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUHZahlung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnUHVereinbarung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfUHZahlungVereinbart"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnVertretung"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVertretungRechtsanwalt"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVertretungBetreuer"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVertretungSonstigeStelle"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVertretungName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVertretungStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVertretungHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVertretungPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVertretungOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtareaSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ],
+  "ve": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVerwandterVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVerwandterNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateVerwandterGebDatum"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnPartner"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnGleicherHaushalt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnGemeinsamesKind"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAngehoeriger"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnVermoegen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfEinstehensgemeinschaft"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ],
+  "vm": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGImmobBewohnt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGImmobWeitere"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBGlImmobAntei"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBGImmobWert"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGGrund"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBGlGrundAntei"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBGGrundWert"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGKfZ"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZModellZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateKfZBaujahrZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZKmStandZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZWertZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZModellZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateKfZBaujahrZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZKmStandZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZWertZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZModellZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateKfZBaujahrZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZKmStandZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZWertZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZModellZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateKfZBaujahrZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZKmStandZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZWertZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZNameZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZModellZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateKfZBaujahrZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZKmStandZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZWertZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZNameZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKfZModellZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateKfZBaujahrZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZKmStandZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKfZWertZ6"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchenkung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGSchenkungName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGSchenkungArt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSchenkungWert"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBargeld"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBargeldNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBargeldGesamtZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBargeldNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBargeldGesamtZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBargeldNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBargeldGesamtZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBargeldNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBargeldGesamtZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBargeldNameZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBargeldGesamtZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBargeldNameZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBargeldGesamtZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBargeldNameZ7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBargeldGesamtZ7"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKonto"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ8"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ8"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ8"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ9"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ9"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ9"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNameZ10"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKontoNrZ10"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfKontoStandZ10"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSparEinlagen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ6"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ7"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageNameZ8"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparEinlageKontoNrZ8"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparEinlageStandZ8"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSparBrief"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefKontoNrZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparBriefWertZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefKontoNrZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparBriefWertZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefKontoNrZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparBriefWertZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefKontoNrZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparBriefWertZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefNameZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSparBriefKontoNrZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSparBriefWertZ5"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBauspar"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparKontoZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBausparStandZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparKontoZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBausparStandZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparKontoZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBausparStandZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparKontoZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBausparStandZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparNameZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBausparKontoZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfBausparStandZ5"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAltersvorsorge"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeVermoegenArtZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAltersvorsorgeWertZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeVermoegenArtZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAltersvorsorgeWertZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeVermoegenArtZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAltersvorsorgeWertZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeVermoegenArtZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAltersvorsorgeWertZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeNameZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAltersvorsorgeVermoegenArtZ5"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfAltersvorsorgeWertZ5"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnVersicherung"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungArtZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfVersicherungWertZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungArtZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfVersicherungWertZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungArtZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfVersicherungWertZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungNameZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVersicherungArtZ4"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfVersicherungWertZ4"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnVermoegen"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermoegenNameZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermoegenArtZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfVermoegenWertZ1"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermoegenNameZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermoegenArtZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfVermoegenWertZ2"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermoegenNameZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfVermoegenArtZ3"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfVermoegenWertZ3"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSelbstaendig"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSelbstaendigName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfSelbstaendigJahre"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSelbstaendigGRV"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfSelbstaendigVermoegen"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSelbstaendigRVPflicht"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ],
+  "wep": [
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfPersonNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "datePersonGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGVorname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGNachname"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBGGebDatum"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGGebName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGGebOrt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGGebLand"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGStaatsangehoerigkeit"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBGMaennlich"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBGWeiblich"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBGDivers"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBGKeine"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxAdoptiv"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxEhegatte"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxPartner"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxVerwandt"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxSonstige"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBGRVVorhanden"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfBGRVNr"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBGRVKeine"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxBGRVBeantragt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "numfStIDNr"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGBetreuer"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAufenthalt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAsylbLG"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateAsylbLG"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAZRNr"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKostenUebernahme"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfNatIDNr"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxFamStandLedig"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxFamStandVerheiratet"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxFamStandVerwitwet"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxFamStandEingetragen"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxFamStandGetrennt"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxFamStandGeschieden"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxFamStandAufgehoben"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateGetrennt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnErwerbsfaehig"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchwanger"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEntbindung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnElternHaushalt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBGElternAusserhalb"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchueler"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKostenBuecher"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAusbildungUnterkunft"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnLeistungAndere"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungBafoeg"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungBAB"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungWohngeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungArbeitslosengeld"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungRente"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungKRG"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungKG"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungKIZ"
+    },
+    {
+      "type": "PDFCheckBox",
+      "name": "chbxLeistungSonstiges"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfLeistungSonstiges"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnMEB"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnMEBBehinderung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBehinderung"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnLeistungTeilhabe"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBB"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnStationaer"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfStationaerArt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateStationaerVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateStationaerBis"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEinreise"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnBUEG"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfLeistungArt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateLeistungVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateLeistungBis"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfTraegerOrt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAngestellt"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBeschaeftigtVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBeschaeftigtBis"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBeschaeftigt2Von"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateBeschaeftigtV2Bis"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnLohnanspruch"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGName"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGStr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGHausNr"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGPlz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfAGOrt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSelbstaendig"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnEntgeltersatz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfEntgeltersatz"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEntgeltersatzVon"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateEntgeltersatzBis"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnWehrdienst"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnPflege"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtareaLebensunterhalt"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnAnspruchDritte"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnSchadenDritte"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnKVPV"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "txtfKV"
+    },
+    {
+      "type": "PDFRadioGroup",
+      "name": "rbtnPKV"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftPerson"
+    },
+    {
+      "type": "PDFTextField",
+      "name": "dateUnterschriftBetreuer"
+    }
+  ]
+}

@@ -350,7 +350,9 @@
       "autofillTitle": "Online ausfüllen → 1:1 Original-Jobcenter-HA-PDF herunterladen",
       "autofillBody": "Deine HA-Daten werden lokal in deinem Browser in den offiziellen Bürgergeld-Hauptantrag (Stand 04/2026) eingefügt — nichts wird an einen Server gesendet. Anlage EK / KDU / VM separat ausfüllen.",
       "generating": "PDF wird erstellt…",
-      "downloadFilled": "Ausgefülltes HA-PDF herunterladen"
+      "downloadFilled": "Ausgefülltes HA-PDF herunterladen",
+      "anlagenTitle": "Begleitende Anlage-PDFs (Original BA, Stand 04/2026)",
+      "anlagenInfo": "Jede Anlage ist ein separates PDF, das zusammen mit dem HA eingereicht wird. Klicke zum Herunterladen mit bereits ausgefülltem Antragsteller-Kopf (Name, Vorname, Geburtsdatum). Detailfelder selbst im Adobe Reader ausfüllen."
     }
   }
 }

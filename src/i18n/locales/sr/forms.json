@@ -350,7 +350,9 @@
       "autofillTitle": "Popuni online → preuzmi 1:1 originalni Jobcenter HA PDF",
       "autofillBody": "Tvoji HA podaci se popunjavaju u zvanični Bürgergeld Hauptantrag (Stand 04/2026) lokalno u tvom pretraživaču — ništa ne ide na server. Anlage EK / KDU / VM popunjavaš zasebno.",
       "generating": "Generišem PDF…",
-      "downloadFilled": "Preuzmi popunjeni HA PDF"
+      "downloadFilled": "Preuzmi popunjeni HA PDF",
+      "anlagenTitle": "Prateći Anlage PDF-ovi (originalni BA, Stand 04/2026)",
+      "anlagenInfo": "Svaka Anlaga je posebni PDF koji se predaje uz HA. Klikni za preuzimanje sa već popunjenim Antragsteller zaglavljem (ime, prezime, datum rođenja). Detaljna polja popuni ručno u Adobe Reader-u."
     }
   }
 }
