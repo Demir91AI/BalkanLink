@@ -17,7 +17,8 @@ const normalizeForPdfOverlay = (value: string) => value
   .replace(/[š]/g, "s").replace(/[Š]/g, "S")
   .replace(/[ž]/g, "z").replace(/[Ž]/g, "Z");
 
-const pageIndexForField = (name: string) => name.includes("Page2[0]") ? 1 : 0;
+// KG1 contains a cover/instruction page before the fillable form pages.
+const pageIndexForField = (name: string) => name.includes("Page2[0]") ? 2 : 1;
 
 function fitText(value: string, font: EmbeddedFont, maxWidth: number, initialSize: number) {
   let size = initialSize;
