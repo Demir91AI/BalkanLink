@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import { fillBuergergeldPdf, downloadBlob, type BuergergeldFormData } from "@/lib/pdf-fill-buergergeld";
 
 const LS_KEY = "buergergeld-muster-data";
-const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld";
+const PDF_URL = "/muster/buergergeld-hauptantrag-2026.pdf";
 
 const TABS = [
   { key: "ha", label: "Hauptantrag (HA)" },
@@ -51,11 +53,38 @@ const initial = () => ({
 });
 
 export default function BuergergeldMuster() {
+  const { t } = useTranslation("forms");
   const [f, setF] = useState(() => { try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {} return initial(); });
+  const [generating, setGenerating] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
   const setPerson = (i: number, k: string, v: string) => setF(p => { const ps = [...p.personen]; ps[i] = { ...ps[i], [k]: v }; return { ...p, personen: ps }; });
   const setEk = (i: number, k: string, v: any) => setF(p => { const ps = [...p.ekPersonen]; ps[i] = { ...ps[i], [k]: v }; return { ...p, ekPersonen: ps }; });
   const setVm = (i: number, k: string, v: any) => setF(p => { const ps = [...p.vmPersonen]; ps[i] = { ...ps[i], [k]: v }; return { ...p, vmPersonen: ps }; });
+
+  const toPdfData = (): BuergergeldFormData => ({
+    familienname: f.familienname, vorname: f.vorname, geburtsdatum: f.geburtsdatum,
+    geburtsort: f.geburtsort, staatsangehoerigkeit: f.staatsangehoerigkeit,
+    steuerId: f.steuerId, svNummer: f.svNummer,
+    strasse: f.strasse, plz: f.plz, ort: f.ort, telefon: f.telefon,
+    iban: f.iban, kontoinhaber: f.kontoinhaber || `${f.vorname} ${f.familienname}`.trim(),
+    aufenthaltstitelArt: f.aufenthaltstitelArt,
+    erwerbstaetig: (f.erwerbstaetig as "Ja" | "Nein" | "") || "",
+    arbeitgeber: f.arbeitgeber,
+    weiterePersonen: (f.weiterePersonen as "Ja" | "Nein" | "") || "",
+    sigDatum: f.sigDatum,
+  });
+
+  const handleAutoFill = async () => {
+    setPdfError(null); setGenerating(true);
+    try {
+      const blob = await fillBuergergeldPdf(toPdfData());
+      const fname = `Buergergeld-HA-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_");
+      downloadBlob(blob, fname);
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setGenerating(false); }
+  };
 
   const gesamtMiete = [f.kaltmiete, f.nebenkosten, f.heizkosten, f.warmwasserEnthalten === "Nein" ? f.warmwasser : "0", f.garage].reduce((s, v) => s + (parseFloat(v) || 0), 0);
 
@@ -67,7 +96,7 @@ export default function BuergergeldMuster() {
   const personCount = f.weiterePersonen === "Ja" ? f.personen.filter(p => p.name || p.vorname).length + 1 : 1;
 
   return (
-    <MusterFormBase rootId="bg-root" title="Antrag auf Bürgergeld" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Jobcenter einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="bg-root" title="Antrag auf Bürgergeld" subtitle={t("musterFlow.buergergeld.subtitle", "Musterformular — BalkanLink — nur zur Orientierung")} pdfUrl={PDF_URL} pdfLabel={t("musterFlow.buergergeld.originalLink", "Preuzmi prazan originalni HA PDF →")} footerNote={t("musterFlow.buergergeld.footerNote", "Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Jobcenter einreichen • BalkanLink ist keine staatliche Stelle")} lsKey={LS_KEY} formularId="buergergeld" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
 
       <Info>
         📋 Bürgergeld se podnosi u 4 dijela. Svi dijelovi se predaju zajedno u Jobcenter. Ovaj Musterformular ti pomaže da se upoznaš sa svakim poljem.
@@ -75,13 +104,29 @@ export default function BuergergeldMuster() {
 
       {/* Tab navigation */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 16 }}>
-        {TABS.map(t => (
-          <button key={t.key} onClick={() => set("tab", t.key)} style={{ padding: "8px 12px", fontSize: 11, fontWeight: f.tab === t.key ? 700 : 400, background: f.tab === t.key ? "#1d4ed8" : "#e5e7eb", color: f.tab === t.key ? "#fff" : "#374151", border: "none", borderRadius: 6, cursor: "pointer", flex: "1 1 auto", minWidth: 120 }}>{t.label}</button>
+        {TABS.map(tb => (
+          <button key={tb.key} onClick={() => set("tab", tb.key)} style={{ padding: "8px 12px", fontSize: 11, fontWeight: f.tab === tb.key ? 700 : 400, background: f.tab === tb.key ? "#1d4ed8" : "#e5e7eb", color: f.tab === tb.key ? "#fff" : "#374151", border: "none", borderRadius: 6, cursor: "pointer", flex: "1 1 auto", minWidth: 120 }}>{tb.label}</button>
         ))}
       </div>
 
       {/* ===== TAB 1: HAUPTANTRAG ===== */}
       {f.tab === "ha" && (<>
+        <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>
+            ✅ {t("musterFlow.buergergeld.autofillTitle", "Popuni online → preuzmi 1:1 originalni Jobcenter HA PDF")}
+          </div>
+          <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>
+            {t("musterFlow.buergergeld.autofillBody", "Tvoji HA podaci se popunjavaju u zvanični Bürgergeld Hauptantrag (Stand 04/2026) lokalno u tvom browseru — ništa ne ide na server. Anlage EK / KDU / VM popunjavaš zasebno.")}
+          </div>
+          <button
+            onClick={handleAutoFill}
+            disabled={generating}
+            style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}
+          >
+            {generating ? t("musterFlow.buergergeld.generating", "Generiram PDF…") : `📄 ${t("musterFlow.buergergeld.downloadFilled", "Preuzmi popunjeni HA PDF")}`}
+          </button>
+          {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
+        </div>
         <Info>Hauptantrag je osnova zahtjeva. Ovdje se upisuju lični podaci, podaci o zajedničkom domaćinstvu i bankovni račun.</Info>
 
         <div style={S.sec}>

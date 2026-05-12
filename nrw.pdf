@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html  lang="de" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" />
+<script>var _paq = _paq || [];(function(){var u=(("https:" == document.location.protocol) ? "https://analytics.nrw.de/" : "https://analytics.nrw.de/");_paq.push(["setSiteId", "46"]);_paq.push(["setTrackerUrl", u+"matomo.php"]);_paq.push(["setDocumentTitle", "404/URL = " + encodeURIComponent(document.location.pathname+document.location.search) + "/From = " + encodeURIComponent(document.referrer)]);_paq.push(["setDoNotTrack", 1]);_paq.push(["disableCookies"]);if (!window.matomo_search_results_active) {_paq.push(["trackPageView"]);}_paq.push(["setIgnoreClasses", ["no-tracking","colorbox"]]);_paq.push(["enableLinkTracking"]);var d=document,g=d.createElement("script"),s=d.getElementsByTagName("script")[0];g.type="text/javascript";g.defer=true;g.async=true;g.src=u+"matomo.js";s.parentNode.insertBefore(g,s);})();</script>
+<link rel="canonical" href="https://www.mhkbd.nrw/404-seite-nicht-gefunden" />
+<meta name="twitter:card" content="summary" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>div#sliding-popup, div#sliding-popup .eu-cookie-withdraw-banner, .eu-cookie-withdraw-tab {background: #DAF9F5} div#sliding-popup.eu-cookie-withdraw-wrapper { background: transparent; } #sliding-popup h1, #sliding-popup h2, #sliding-popup h3, #sliding-popup p, #sliding-popup label, #sliding-popup div, .eu-cookie-compliance-more-button, .eu-cookie-compliance-secondary-button, .eu-cookie-withdraw-tab { color: #000000;} .eu-cookie-withdraw-tab { border-color: #000000;}#sliding-popup.sliding-popup-top { position: fixed; }</style>
+<link rel="icon" href="/themes/custom/mhkbd/public/images/icon/favicon-32x32.png" type="image/png" />
+
+    <title>404 – Seite nicht gefunden | MHKBD.NRW</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_D1DBsUCSAKVySp39V6Q4fz2FHirV_ss6RU7RWY1nuVQ.css?delta=0&amp;language=de&amp;theme=mhkbd&amp;include=eJyFkFFuxCAMRC9EwlfPgww4AcVghM2muX2z221TVa32y_bzWNZMxJVvLh0tYeXGdNj4m5hP0nNITvFd3cK9gDpB1VxXsWHDmJX72yR6EEpCVHleCYcM5MqpgOuidQ4oYnC4wLxlPEtplKEGtH9BF3GBQWrO_5TrZmMfDWh-jmbhqrCjcEH7o5939PdRZt-hRnmto7wmfS0TphxNSZuPVhMWnEDk7rr23TXosHZoZ1w7nyZolCr23435pvJl6yLzqG14ymeo0XSUxlXyDZ2CJ3RLJsVuLz49uJFDFIv1IPgBCkjAtQ" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_edJB9WDScaX1AIZTpH-PHGsnHzwOz5DupWnSMD25Bs0.css?delta=1&amp;language=de&amp;theme=mhkbd&amp;include=eJyFkFFuxCAMRC9EwlfPgww4AcVghM2muX2z221TVa32y_bzWNZMxJVvLh0tYeXGdNj4m5hP0nNITvFd3cK9gDpB1VxXsWHDmJX72yR6EEpCVHleCYcM5MqpgOuidQ4oYnC4wLxlPEtplKEGtH9BF3GBQWrO_5TrZmMfDWh-jmbhqrCjcEH7o5939PdRZt-hRnmto7wmfS0TphxNSZuPVhMWnEDk7rr23TXosHZoZ1w7nyZolCr23435pvJl6yLzqG14ymeo0XSUxlXyDZ2CJ3RLJsVuLz49uJFDFIv1IPgBCkjAtQ" />
+<link rel="stylesheet" media="print" href="/sites/default/files/css/css_MjwXq3E6NlJwX5c3i-lUZtf6qXNrqfLW8YHB_krGaFA.css?delta=2&amp;language=de&amp;theme=mhkbd&amp;include=eJyFkFFuxCAMRC9EwlfPgww4AcVghM2muX2z221TVa32y_bzWNZMxJVvLh0tYeXGdNj4m5hP0nNITvFd3cK9gDpB1VxXsWHDmJX72yR6EEpCVHleCYcM5MqpgOuidQ4oYnC4wLxlPEtplKEGtH9BF3GBQWrO_5TrZmMfDWh-jmbhqrCjcEH7o5939PdRZt-hRnmto7wmfS0TphxNSZuPVhMWnEDk7rr23TXosHZoZ1w7nyZolCr23435pvJl6yLzqG14ymeo0XSUxlXyDZ2CJ3RLJsVuLz49uJFDFIv1IPgBCkjAtQ" />
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"de"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"matomo":{"disableCookies":true,"trackColorbox":false,"trackMailto":true},"clientside_validation_jquery":{"validate_all_ajax_forms":2,"force_validate_on_blur":false,"force_html5_validation":false,"messages":{"required":"Dieses Feld ist ein Pflichtfeld.","remote":"Please fix this field.","email":"Please enter a valid email address.","url":"Bitte eine g\u00fcltige URL eingeben","date":"Please enter a valid date.","dateISO":"Please enter a valid date (ISO).","number":"Please enter a valid number.","digits":"Please enter only digits.","equalTo":"Please enter the same value again.","maxlength":"Please enter no more than {0} characters.","minlength":"Please enter at least {0} characters.","rangelength":"Please enter a value between {0} and {1} characters long.","range":"Please enter a value between {0} and {1}.","max":"Please enter a value less than or equal to {0}.","min":"Please enter a value greater than or equal to {0}.","step":"Please enter a multiple of {0}."}},"degov_hyphenopoly":{"languages":{"de":"Silbentrennungsalgorithmus"},"selectors":{".page-header":{"leftmin":2,"rightmin":6,"orphanControl":1},".teaser-title":{"leftmin":2,"rightmin":6,"orphanControl":1},".paragraph__header":{"leftmin":2,"rightmin":6,"orphanControl":1},".normal-page__teaser-text":{"leftmin":2,"rightmin":6,"orphanControl":1}},"selectors_css":[".page-header",".teaser-title",".paragraph__header",".normal-page__teaser-text"]},"data":{"extlink":{"extTarget":true,"extTargetAppendNewWindowDisplay":true,"extTargetAppendNewWindowLabel":"(opens in a new window)","extTargetNoOverride":false,"extNofollow":false,"extTitleNoOverride":false,"extNoreferrer":true,"extFollowNoOverride":false,"extClass":"0","extLabel":"(link is external)","extImgClass":false,"extSubdomains":true,"extExclude":"","extInclude":"","extCssExclude":"","extCssInclude":"","extCssExplicit":"","extAlert":false,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","extHideIcons":false,"mailtoClass":"0","telClass":"","mailtoLabel":"(link sends email)","telLabel":"(link is a phone number)","extUseFontAwesome":false,"extIconPlacement":"append","extPreventOrphan":false,"extFaLinkClasses":"fa fa-external-link","extFaMailtoClasses":"fa fa-envelope-o","extAdditionalLinkClasses":"","extAdditionalMailtoClasses":"","extAdditionalTelClasses":"","extFaTelClasses":"fa fa-phone","allowedDomains":[],"extExcludeNoreferrer":""}},"eu_cookie_compliance":{"cookie_policy_version":"1.0.0","popup_enabled":true,"popup_agreed_enabled":false,"popup_hide_agreed":false,"popup_clicking_confirmation":false,"popup_scrolling_confirmation":false,"popup_html_info":"\u003Cdiv aria-labelledby=\u0022popup-text\u0022 class=\u0022eu-cookie-compliance-banner eu-cookie-compliance-banner-info p-3\u0022\u003E\n  \u003Cdiv class=\u0022container\u0022\u003E\n    \u003Cdiv class =\u0022popup-content info row text-align-left\u0022\u003E\n      \u003Cdiv id=\u0022popup-text\u0022 class=\u0022col-md-7 col-lg-8\u0022 role=\u0022document\u0022\u003E\n        \u003Cp\u003EDiese Seite verwendet nur f\u00fcr den technischen Betrieb notwendige Cookies. Weitere Informationen finden Sie in den \u003Ca target=\u0022_blank\u0022 href=\u0022\/datenschutz\u0022\u003EDatenschutz-Hinweisen.\u003C\/a\u003E\u003C\/p\u003E\n      \u003C\/div\u003E\n      \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022col-md-5 col-lg-4 d-flex justify-content-md-end align-items-start\u0022\u003E\n        \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button btn btn-primary me-2 \u0022\u003EVerstanden\u003C\/button\u003E\n                  \u003Cbutton type=\u0022button\u0022 class=\u0022btn btn-primary disagree-button find-more-button\u0022\u003EWeitere Informationen\u003C\/button\u003E\n              \u003C\/div\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","use_mobile_message":false,"mobile_popup_html_info":"\u003Cdiv aria-labelledby=\u0022popup-text\u0022 class=\u0022eu-cookie-compliance-banner eu-cookie-compliance-banner-info p-3\u0022\u003E\n  \u003Cdiv class=\u0022container\u0022\u003E\n    \u003Cdiv class =\u0022popup-content info row text-align-left\u0022\u003E\n      \u003Cdiv id=\u0022popup-text\u0022 class=\u0022col-md-7 col-lg-8\u0022 role=\u0022document\u0022\u003E\n        \n      \u003C\/div\u003E\n      \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022col-md-5 col-lg-4 d-flex justify-content-md-end align-items-start\u0022\u003E\n        \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button btn btn-primary me-2 \u0022\u003EVerstanden\u003C\/button\u003E\n                  \u003Cbutton type=\u0022button\u0022 class=\u0022btn btn-primary disagree-button find-more-button\u0022\u003EWeitere Informationen\u003C\/button\u003E\n              \u003C\/div\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","mobile_breakpoint":768,"popup_html_agreed":false,"popup_use_bare_css":false,"popup_height":"auto","popup_width":"100%","popup_delay":1000,"popup_link":"\/datenschutz","popup_link_new_window":true,"popup_position":true,"fixed_top_position":true,"popup_language":"de","store_consent":false,"better_support_for_screen_readers":false,"cookie_name":"","reload_page":false,"domain":"","domain_all_sites":false,"popup_eu_only":false,"popup_eu_only_js":false,"cookie_lifetime":100,"cookie_session":0,"set_cookie_session_zero_on_disagree":0,"disagree_do_not_show_popup":false,"method":"default","automatic_cookies_removal":true,"allowed_cookies":"","withdraw_markup":"\u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-tab\u0022\u003EDatenschutzeinstellungen\u003C\/button\u003E\n\u003Cdiv aria-labelledby=\u0022popup-text\u0022 class=\u0022eu-cookie-withdraw-banner\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info eu-cookie-compliance-content\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022 class=\u0022eu-cookie-compliance-message\u0022 role=\u0022document\u0022\u003E\n      \u003Ch2\u003EWir verwenden Cookies auf dieser Website, um das Nutzungserlebnis zu verbessern\u003C\/h2\u003E\u003Cp\u003ESie haben uns Ihre Zustimmung gegeben, Cookies zu setzen.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022eu-cookie-compliance-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-button \u0022\u003EZustimmung zur\u00fcckziehen\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","withdraw_enabled":false,"reload_options":0,"reload_routes_list":"","withdraw_button_on_info_popup":false,"cookie_categories":["necessary"],"cookie_categories_details":{"necessary":{"uuid":"958694b1-58bb-4b29-adf9-8724536bbb64","langcode":"de","status":true,"dependencies":{"enforced":{"module":["nrw_eu_cookie_compliance"]}},"_core":{"default_config_hash":"Wx01S2ChrG6m46Q4n_DU2Ktp6V8Jiae-4NshLjlHils"},"id":"necessary","label":"Notwendig","description":"Zwingend notwendig (Cookies, die f\u00fcr die Nutzung der Seite zwingend vorhanden sein m\u00fcssen.)","checkbox_default_state":"required","weight":-9}},"enable_save_preferences_button":true,"cookie_value_disagreed":"0","cookie_value_agreed_show_thank_you":"1","cookie_value_agreed":"2","containing_element":"body","settings_tab_enabled":false,"olivero_primary_button_classes":"","olivero_secondary_button_classes":"","close_button_action":"close_banner","open_by_default":true,"modules_allow_popup":true,"hide_the_banner":false,"geoip_match":true,"unverified_scripts":[]},"degov_social_media_settings":{"link":"Sie k\u00f6nnen sie in den \u003Ca role=\u0022button\u0022 href=\u0022#\u0022 data-toggle=\u0022modal\u0022 data-target=\u0022#social-media-settings\u0022 class=\u0022js-social-media-settings-open social-media-settings--menu-item\u0022\u003E\u0022Social Media\u0022-Einstellungen aktivieren\u003C\/a\u003E.","cookie":"Stimmen Sie bitte zuerst unseren Cookie-Richtlinien zu.","mediaMessages":{"facebook":"Die \u0022Social Media\u0022-Quelle Facebook ist deaktiviert.","twitter":"Die \u0022Social Media\u0022-Quelle X\/Twitter ist deaktiviert.","youtube":"Die \u0022Social Media\u0022-Quelle Youtube ist deaktiviert.","pinterest":"Die \u0022Social Media\u0022-Quelle Pinterest ist deaktiviert.","flickr":"Die \u0022Social Media\u0022-Quelle Flickr ist deaktiviert.","vimeo":"Die \u0022Social Media\u0022-Quelle Vimeo ist deaktiviert.","instagram":"Die \u0022Social Media\u0022-Quelle Instagram ist deaktiviert.","other":"Die \u0022Social Media\u0022-Quelle Andere ist deaktiviert."},"successMessage":"Die \u0022Social Media\u0022-Einstellungen wurden gespeichert.","sources":{"facebook":false,"twitter":false,"youtube":false,"pinterest":false,"flickr":false,"vimeo":false,"instagram":false,"other":false}},"user":{"uid":0,"permissionsHash":"dc8f7b2de197008e89fbd38e884307d728e9a101652261369f5d554c18b1624a"}}</script>
+<script src="/core/assets/vendor/jquery/jquery.min.js?v=4.0.0-rc.1"></script>
+<script src="/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
+<script src="/sites/default/files/languages/de_DCkg4FSobaW_Rg_G8-dreqNBKVFHnswKXni0Q-G2BI4.js?teb1wi"></script>
+<script src="/core/misc/drupalSettingsLoader.js?v=11.3.2"></script>
+<script src="/core/misc/drupal.js?v=11.3.2"></script>
+<script src="/core/misc/drupal.init.js?v=11.3.2"></script>
+<script src="/libraries/hyphenopoly/Hyphenopoly_Loader.js?v=5.3.0"></script>
+<script src="/modules/contrib/degov/modules/degov_hyphenopoly/js/degov_hyphenopoly.js?v=10.2.0"></script>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/themes/custom/mhkbd/public/images/icon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/themes/custom/mhkbd/public/images/icon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/themes/custom/mhkbd/public/images/icon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/themes/custom/mhkbd/public/images/icon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/themes/custom/mhkbd/public/images/icon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/themes/custom/mhkbd/public/images/icon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/themes/custom/mhkbd/public/images/icon/apple-touch-icon-x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/themes/custom/mhkbd/public/images/icon/apple-touch-ico152x152.png" />
+    <link rel="icon" type="image/png" href="/themes/custom/mhkbd/public/images/icon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/themes/custom/mhkbd/public/images/icon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/themes/custom/mhkbd/public/images/icon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/themes/custom/mhkbd/public/images/icon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/themes/custom/mhkbd/public/images/icon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/themes/custom/mhkbd/public/images/icon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/themes/custom/mhkbd/public/images/icon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/themes/custom/mhkbd/public/images/icon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/themes/custom/mhkbd/public/images/icon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/themes/custom/mhkbd/public/images/icon/mstile-310x310.png" />
+    <link rel="icon" href="/themes/custom/mhkbd/public/images/icon/favicon.ico">
+  </head>
+  <body class="normal_page subtopic path-sites page-node-type-normal-page">
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      Direkt zum Inhalt
+    </a>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+<header class="header-wrapper">
+
+  <div class="header-main d-block d-xl-none">
+    <div class="container">
+      <div class="header-main-wrapper">
+        <a href="#" class="menu-hamburger d-block d-xl-none">
+          <div class="menu-hamburger-box">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span>Menü</span>
+        </a>
+        <div class="branding">
+          <div class="logo-regular">
+            <a href="/" rel="home">
+              <img src="/themes/custom/mhkbd/logo.png" alt="Ministerium für Heimat, Kommunales, Bau und Digitalisierung des Landes Nordrhein-Westfalen">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-inner-wrapper">
+
+    <button class="mobile-menu-close d-xl-none">Schließen</button>
+
+    <div class="header-bottom d-block d-xl-none">
+      <div class="header-main-navbar header-main-menu header-main-menu-mobile">
+        <div class="container">
+              
+<nav role="navigation" aria-labelledby="block-mainnavigation-mobile-menu" id="block-mainnavigation-mobile">
+            <h2 class="visually-hidden" id="block-mainnavigation-mobile-menu">Main navigation (mobile)</h2>
+
+        
+
+  <ul data-region="top_navigation_mobile" class="menu menu-level-0">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/" class="fa-light fa-house" data-drupal-link-system-path="&lt;front&gt;">Startseite</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/ministerium" class="fa-light fa-hotel" show_only_in_sitemap="0" data-drupal-link-system-path="node/1072">Ministerium</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/ministerin" data-drupal-link-system-path="node/880">Ministerin</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/staatssekretaer" data-drupal-link-system-path="node/886">Staatssekretär</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/parlamentarischer-staatssekretaer" data-drupal-link-system-path="node/885">Parlamentarischer Staatssekretär</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/organisation" data-drupal-link-system-path="node/884">Organisation</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/kontakt" data-drupal-link-system-path="node/879">Kontakt</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/stellenangebote" data-drupal-link-system-path="node/1068">Stellenangebote</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/themenportal" class="fa-light fa-rectangle-list" data-drupal-link-system-path="themenportal">Themenportal</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--collapsed">
+
+                            <a href="/foerderprogramme" class="fa-light fa-coins" data-drupal-link-system-path="foerderprogramme">Förderprogramme</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/presse-und-medien" class="fa-light fa-file-lines" show_only_in_sitemap="0" data-drupal-link-system-path="node/1071">Presse &amp; Medien</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/pressemitteilungen" data-drupal-link-system-path="presse-und-medien/pressemitteilungen">Pressemitteilungen</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/pressekontakt" data-drupal-link-system-path="node/914">Pressekontakt</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/pressefotos" data-drupal-link-system-path="node/1018">Pressefotos</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/soziale-medien" data-drupal-link-system-path="node/1026">Soziale Medien</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/newsletter" data-drupal-link-system-path="node/881">Newsletter</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/rss-feeds" data-drupal-link-system-path="node/1024">RSS-Feeds</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/service" class="fa-light fa-circle-info" show_only_in_sitemap="0" data-drupal-link-system-path="node/1073">Service</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/broschueren" data-drupal-link-system-path="node/1023">Broschüren</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/schreiben-sie-der-ministerin" data-drupal-link-system-path="node/897">Schreiben Sie der Ministerin</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/service/weiterfuehrende-links" data-drupal-link-system-path="node/1030">Weiterführende Links</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/service/kommunenfinder" data-drupal-link-system-path="node/439">Kommunenfinder</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                                        <a href="/suche" data-bs-toggle="modal" data-bs-target="#searchModal" class="fa-solid fa-magnifying-glass" data-drupal-link-system-path="suche">Suche</a>
+                                                                
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+  </nav>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="header-top d-flex">
+      <div class="container-xl">
+        <div class="header-service-navbar">
+              <div class="language-switcher-language-url" id="block-sprachumschalter" role="navigation">
+  
+    
+      <div class="language-dropdown d-flex">
+    <p>Sprache: </p>
+    <div class="dropdown">
+      <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="selected-language">DE</span>
+      </button>
+      <ul class="links dropdown-menu dropdown-menu-end"><li data-drupal-language="en" data-drupal-link-system-path="&lt;front&gt;"><a href="/en" class="language-link dropdown-item" title="English" hreflang="en" data-drupal-link-system-path="&lt;front&gt;">EN</a></li></ul>
+    </div>
+  </div>
+
+  </div>
+
+<nav role="navigation" aria-labelledby="block-mhkbd-language-assistance-menu" id="block-mhkbd-language-assistance">
+            <h2 class="visually-hidden" id="block-mhkbd-language-assistance-menu">Barrierearme Sprachen</h2>
+
+        
+
+  <ul data-region="service" class="menu menu-level-0">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/leichte-sprache" class="fa-light fa-book-open">Leichte Sprache</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentlanguage-assistance view-mode-default menu-dropdown menu-dropdown-0 menu-type-default">
+              
+      </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/gebaerdensprache-ein-angebot-fuer-menschen-die-nicht-oder-nur-schwer-hoeren" class="fa-light fa-hands" show_only_in_sitemap="0" data-drupal-link-system-path="node/1194">Gebärdensprache</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentlanguage-assistance view-mode-default menu-dropdown menu-dropdown-0 menu-type-default">
+              
+      </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/erklaerung-zur-barrierefreiheit" class="fa-regular fa-keyboard" show_only_in_sitemap="0" data-drupal-link-system-path="node/1051">Barrierefreiheit</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentlanguage-assistance view-mode-default menu-dropdown menu-dropdown-0 menu-type-default">
+              
+      </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+  </nav>
+<div id="block-mhkbd-socialmediasettingsblock-2">
+  
+    
+      
+<ul class="social-media-settings-menu">
+  <li class="nav-item ">
+    <a class="js-social-media-settings-open social-media-settings--menu-item nav-link hidden"
+       data-bs-toggle="modal"
+       data-bs-target="#social-media-settings"
+       href="#"
+       role="button"
+       aria-controls="social-media-settings"
+    >
+      Social Media-Einstellungen
+      <i class="fa fa-cogs" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="social-media-settings" class="social-media-settings modal fade"
+     aria-labelledby="social-media-settings-modal-title" role="dialog"
+     aria-describedby="social-media-settings-modal-description"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h2 tabindex="-1" id="social-media-settings-modal-title"
+          class="modal-title">Social Media-Einstellungen</h2>
+      <div class="float-right">
+        <button type="button"
+                class="modal-close modal-button btn btn-default"
+                data-bs-dismiss="modal">
+          <span>Schließen</span>
+          <i aria-hidden="true" class="fa fa-times fa-fw fa-2x"></i>
+        </button>
+      </div>
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="social-media-settings-modal-description" class="social-media-settings__text">
+          <p>
+            Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an die nachfolgenden Dienste übertragen und dort gespeichert:
+          </p>
+          <p>
+            <a href="https://www.youtube.com/" target="_blank">Youtube</a>,
+            <a href="https://vimeo.com/" target="_blank">Vimeo</a>
+          </p>
+          <p>Bitte beachten Sie unsere Informationen und Hinweise zum <a href="/datenschutz" title="Zur Datenschutzseite" target="_blank">Datenschutz</a> und zur <a href="/netiquette" title="Zur Netiquette" target="_blank">Netiquette</a> bevor Sie die einzelnen Sozialen Medien aktivieren.</p>          <p>
+            <strong>Datenfeeds von sozialen Netzwerken dauerhaft aktivieren und Datenübertragung zustimmen:</strong>
+          </p>
+        </div>
+        <ul class="social-media-settings__settings-list">
+          <li>
+            <input id="checkbox-all-keys" class="js-social-media-source-all checkbox-switch" type="checkbox" value="all" />
+            <label for="checkbox-all-keys">All</label>
+          </li>
+                      <li>
+              <input id="checkbox-youtube" class="js-social-media-source checkbox-switch" type="checkbox" value="youtube" aria-label="Aktiviere Youtube" />
+              <label for="checkbox-youtube">Youtube</label>
+            </li>
+                      <li>
+              <input id="checkbox-vimeo" class="js-social-media-source checkbox-switch" type="checkbox" value="vimeo" aria-label="Aktiviere Vimeo" />
+              <label for="checkbox-vimeo">Vimeo</label>
+            </li>
+                  </ul>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button"
+                class="social-media-settings__cancel modal-button btn btn-default"
+                data-bs-dismiss="modal">
+          Abbrechen
+        </button>
+        <button type="submit"
+                class="js-social-media-settings-save modal-button social-media-settings__save btn skin--background-secondary"
+                data-bs-dismiss="modal">
+          Speichern
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+<div id="block-nrw-social-media-links">
+  
+    
+      <ul class="social-media-links">
+          <li class="social-media-links__item facebook first">
+      <a href="https://www.facebook.com/MHKBD.NRW/" target="_blank" tabindex="0" class="social-media-links__link" title="Facebook"><span class="social-media-links__icon fa fa-brands fa-square-facebook" aria-hidden="true"></span><span class="fa fa-external-link" aria-hidden="true"></span>    </li>
+            <li class="social-media-links__item instagram ">
+      <a href="https://www.instagram.com/mhkbd_nrw/" target="_blank" tabindex="0" class="social-media-links__link" title="Instagram"><span class="social-media-links__icon fa fab fa-square-instagram" aria-hidden="true"></span><span class="fa fa-external-link" aria-hidden="true"></span>    </li>
+            <li class="social-media-links__item x ">
+      <a href="https://twitter.com/MHKBD_NRW" target="_blank" tabindex="0" class="social-media-links__link" title="X"><span class="social-media-links__icon fa fab fa-square-x-twitter" aria-hidden="true"></span><span class="fa fa-external-link" aria-hidden="true"></span>    </li>
+            <li class="social-media-links__item linkedin ">
+      <a href="https://www.linkedin.com/company/mhkbdnrw" target="_blank" tabindex="0" class="social-media-links__link" title="LinkedIn"><span class="social-media-links__icon fa fa-brands fa-linkedin" aria-hidden="true"></span><span class="fa fa-external-link" aria-hidden="true"></span>    </li>
+            <li class="social-media-links__item youtube last">
+      <a href="https://www.youtube.com/channel/UCXT1ovLMC7M6jxx14AafPUQ" target="_blank" tabindex="0" class="social-media-links__link" title="YouTube"><span class="social-media-links__icon fa fab fa-youtube-square" aria-hidden="true"></span><span class="fa fa-external-link" aria-hidden="true"></span>    </li>
+    </ul>
+
+  </div>
+
+ 
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main d-none d-xl-block">
+      <div class="container">
+        <div class="header-main-wrapper">
+          <div class="branding">
+            <div class="logo-regular">
+              <a href="/" rel="home">
+                <img src="/themes/custom/mhkbd/logo.png" alt="Ministerium für Heimat, Kommunales, Bau und Digitalisierung des Landes Nordrhein-Westfalen">
+              </a>
+            </div>
+            <div class="logo-small">
+              <a href="/" rel="home">
+                <img src="/themes/custom/mhkbd/logo-small.png" alt="Ministerium für Heimat, Kommunales, Bau und Digitalisierung des Landes Nordrhein-Westfalen">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-bottom d-none d-xl-block">
+      <div class="header-main-navbar header-main-menu header-main-menu-desktop">
+        <div class="container">
+              
+<nav role="navigation" aria-labelledby="block-hauptnavigation-menu" id="block-hauptnavigation">
+            <h2 class="visually-hidden" id="block-hauptnavigation-menu">Hauptnavigation</h2>
+
+        
+
+  <ul data-region="top_navigation" class="menu menu-level-0">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/" class="fa-light fa-house" data-drupal-link-system-path="&lt;front&gt;">Startseite</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/ministerium" class="fa-light fa-hotel" show_only_in_sitemap="0" data-drupal-link-system-path="node/1072">Ministerium</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/ministerin" data-drupal-link-system-path="node/880">Ministerin</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/staatssekretaer" data-drupal-link-system-path="node/886">Staatssekretär</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/parlamentarischer-staatssekretaer" data-drupal-link-system-path="node/885">Parlamentarischer Staatssekretär</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/organisation" data-drupal-link-system-path="node/884">Organisation</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/kontakt" data-drupal-link-system-path="node/879">Kontakt</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/stellenangebote" data-drupal-link-system-path="node/1068">Stellenangebote</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/themenportal" class="fa-light fa-rectangle-list" data-drupal-link-system-path="themenportal">Themenportal</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                  
+                      
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--collapsed">
+
+                            <a href="/foerderprogramme" class="fa-light fa-coins" data-drupal-link-system-path="foerderprogramme">Förderprogramme</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/presse-und-medien" class="fa-light fa-file-lines" show_only_in_sitemap="0" data-drupal-link-system-path="node/1071">Presse &amp; Medien</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/pressemitteilungen" data-drupal-link-system-path="presse-und-medien/pressemitteilungen">Pressemitteilungen</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/pressekontakt" data-drupal-link-system-path="node/914">Pressekontakt</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/pressefotos" data-drupal-link-system-path="node/1018">Pressefotos</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/soziale-medien" data-drupal-link-system-path="node/1026">Soziale Medien</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/newsletter" data-drupal-link-system-path="node/881">Newsletter</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/presse-und-medien/rss-feeds" data-drupal-link-system-path="node/1024">RSS-Feeds</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item menu-item--expanded">
+
+                            <a href="/service" class="fa-light fa-circle-info" show_only_in_sitemap="0" data-drupal-link-system-path="node/1073">Service</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+
+  <ul class="menu menu-level-1">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/broschueren" data-drupal-link-system-path="node/1023">Broschüren</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/ministerium/schreiben-sie-der-ministerin" data-drupal-link-system-path="node/897">Schreiben Sie der Ministerin</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/service/weiterfuehrende-links" data-drupal-link-system-path="node/1030">Weiterführende Links</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/service/kommunenfinder" data-drupal-link-system-path="node/439">Kommunenfinder</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-1 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+          </div>
+  </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                                        <a href="/suche" data-bs-toggle="modal" data-bs-target="#searchModal" class="fa-solid fa-magnifying-glass" data-drupal-link-system-path="suche">Suche</a>
+                                                                
+  
+  <div class="menu_link_content menu-link-contentmain view-mode-default menu-dropdown menu-dropdown-0 menu-type-default second-level-main-menu">
+    <div class="container">
+                    
+          </div>
+  </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+  </nav>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</header>
+
+  <main class="site-main">
+
+
+        <div style="background-color:#B8F2EA;">
+      
+      <div class="container">
+        <div class="row">
+          <div class="page-breadcrumb">
+                          <div>
+  
+    
+        <nav role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Pfadnavigation</h2>
+    <ol>
+          <li>
+                  <a href="/">Startseite</a>
+              </li>
+          <li>
+                  404 – Seite nicht gefunden
+              </li>
+        </ol>
+  </nav>
+
+  </div>
+
+                      </div>
+        </div>
+      </div>
+          </div>
+    
+        
+    <div class="container">
+      <div class="row">
+
+        <span id="main-content" tabindex="-1"></span>            <div data-drupal-messages-fallback class="hidden"></div>
+
+
+<article class="normal-page full clearfix normal_page">
+
+  
+  
+  <div class="content">
+          
+
+    
+    
+    
+    
+                  <h1 class="col-12 col-lg-9 strong">
+<span>404 – Seite nicht gefunden</span>
+</h1>
+          
+    
+        
+                  
+      <div class="field field--name-field-content-paragraphs field--type-entity-reference-revisions field--label-hidden field--items">
+              <div class="field--item">  
+
+    
+    
+  
+      <div class="paragraph paragraph--type--two-column column-2-first paragraph--view-mode--default" id="paragraph_two_column_1186">
+                      <div class="paragraph__content">
+          <div class="row paragraph__row">
+                                          <div class="col-sm-8 col-sm-push-4">
+                  
+      <div class="field field--name-field-column-2 field--type-entity-reference-revisions field--label-hidden field--items">
+              <div class="field--item">  <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+          
+            <div class="field field--name-field-text-text field--type-text-long field--label-hidden field--item"><p>Die von Ihnen gesuchte Seite konnte leider nicht gefunden werden. Das tut uns leid.<br>
+Im Zuge der stetigen Weiterentwicklung unserer Seite, kann es passieren, dass Inhalte verschwinden oder auf bereits bestehenden Seiten zusammengefasst werden.</p>
+
+<p>Sie können die Suche nutzen um Inhalte auf unserer Seite zu finden.</p>
+
+<p><span class="btn btn-primary"><a href="/suche">Zur Suche</a></span></p></div>
+      
+      </div>
+</div>
+          </div>
+  
+                </div>
+                                                        <div class="col-sm-4 col-sm-pull-8">
+                  
+      <div class="field field--name-field-column-1 field--type-entity-reference-revisions field--label-hidden field--items">
+              <div class="field--item"><div class="paragraph media-reference default clearfix">
+  
+      <div class="paragraph__content ">
+                                                                                                                                                                      <div class="even">
+        <div  class="media--view-mode-default image clearfix">
+  
+
+  <div class="image__image">
+      <img loading="lazy" src="/sites/default/files/2023-01/404.svg" alt="Eine Figur zeigt auf eine 404-Seite. " class="img-fluid" />
+
+
+
+  </div>
+
+  
+  
+  </div>
+
+      </div>
+                                </div>
+  </div>
+</div>
+          </div>
+  
+                </div>
+                                    </div>
+        </div>
+          </div>
+  </div>
+          </div>
+  
+            </div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+    </div>
+  </main>
+
+  <div class="footer-top__wrapper mt-5 pt-5">
+    <div class="container">
+          
+<nav role="navigation" aria-labelledby="block-nrw-footer-menu-menu" id="block-nrw-footer-menu">
+            <h2 class="visually-hidden" id="block-nrw-footer-menu-menu">Überblick: Inhalte</h2>
+
+        
+<div class="row  block-nrw-menu-sitemap-block__header nrw-menu">
+  <div class="col-md-12">
+    <h2 class="block-nrw-menu-sitemap-block__title h5 mb-4"><span>Inhalte</span><br><span>Im Überblick</span></h2>
+  </div>
+</div>
+
+<nav class="nrw-menu nrw-menu-sitemap-desktop row d-none d-lg-flex">
+  <h2 id="footer-sitemap-menu-label-desktop" class="visually-hidden"></h2>
+  
+          <div class="nrw-menu-sitemap__col ">
+      <h3 class="nrw-menu-sitemap__header  nrw-menu-sitzemap__single">
+      
+              <a class="link  " href="/"
+           title="">
+          Startseite
+        </a>
+      
+      </h3>
+
+      
+      </div>
+              <div class="nrw-menu-sitemap__col ">
+      <h3 class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a class="link  has-children" href="/ministerium"
+           title="">
+          Ministerium
+        </a>
+      
+      </h3>
+
+              <div id="sitemap-desktop-ministerium" class="">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/ministerin"
+           title="">
+          Ministerin
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/staatssekretaer"
+           title="">
+          Staatssekretär
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/parlamentarischer-staatssekretaer"
+           title="">
+          Parlamentarischer Staatssekretär
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/organisation"
+           title="">
+          Organisation
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/kontakt"
+           title="">
+          Kontakt
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/stellenangebote"
+           title="">
+          Stellenangebote
+        </a>
+      </li>
+      
+        </ul>
+        </div>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col ">
+      <h3 class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a class="link  has-children" href="/themenportal"
+           title="">
+          Themenportal
+        </a>
+      
+      </h3>
+
+              <div id="sitemap-desktop-themenportal" class="">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B751%5D=751"
+           title="">
+          Bau
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B785%5D=785"
+           title="">
+          Denkmalschutz
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B784%5D=784"
+           title="">
+          Digitalisierung
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B753%5D=753"
+           title="">
+          Heimat
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B754%5D=754"
+           title="">
+          Kommunales
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B788%5D=788"
+           title="">
+          Sonderthema
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B786%5D=786"
+           title="">
+          Wiederaufbau
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B787%5D=787"
+           title="">
+          Wohnen
+        </a>
+      </li>
+      
+        </ul>
+        </div>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col ">
+      <h3 class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a class="link  has-children" href="/foerderprogramme"
+           title="">
+          Förderprogramme
+        </a>
+      
+      </h3>
+
+              <div id="sitemap-desktop-förderprogramme" class="">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B18%5D=18"
+           title="">
+          Behörden
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B780%5D=780"
+           title="">
+          Freie Berufe und Selbstständige
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B777%5D=777"
+           title="">
+          Privatpersonen 
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B779%5D=779"
+           title="">
+          Unternehmen und Verbände
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B778%5D=778"
+           title="">
+          Vereine
+        </a>
+      </li>
+      
+        </ul>
+        </div>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col ">
+      <h3 class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a class="link  has-children" href="/presse-und-medien"
+           title="">
+          Presse &amp; Medien
+        </a>
+      
+      </h3>
+
+              <div id="sitemap-desktop-presse--medien" class="">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/pressemitteilungen"
+           title="">
+          Pressemitteilungen
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/pressekontakt"
+           title="">
+          Pressekontakt
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/pressefotos"
+           title="">
+          Pressefotos
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/soziale-medien"
+           title="">
+          Soziale Medien
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/newsletter"
+           title="">
+          Newsletter
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/rss-feeds"
+           title="">
+          RSS-Feeds
+        </a>
+      </li>
+      
+        </ul>
+        </div>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col ">
+      <h3 class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a class="link  has-children" href="/service"
+           title="">
+          Service
+        </a>
+      
+      </h3>
+
+              <div id="sitemap-desktop-service" class="">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/broschueren"
+           title="">
+          Broschüren
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/schreiben-sie-der-ministerin"
+           title="">
+          Schreiben Sie der Ministerin
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/service/weiterfuehrende-links"
+           title="">
+          Weiterführende Links
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/service/kommunenfinder"
+           title="">
+          Kommunenfinder
+        </a>
+      </li>
+      
+        </ul>
+        </div>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col ">
+      <h3 class="nrw-menu-sitemap__header  nrw-menu-sitzemap__single">
+      
+              <a class="link  " href="/suche"
+           title="">
+          Suche
+        </a>
+      
+      </h3>
+
+      
+      </div>
+      
+</nav>
+
+<nav class="nrw-menu nrw-menu-sitemap row d-lg-none m-0">
+  <h2 id="footer-sitemap-menu-label" class="visually-hidden"></h2>
+  
+          <div class="nrw-menu-sitemap__col p-0">
+      <li class="nrw-menu-sitemap__header  nrw-menu-sitzemap__single">
+      
+              <a class="link  " href="/" style="width: 100%;"
+           title="">
+          Startseite
+        </a>
+      
+      </li>
+
+      
+      </div>
+              <div class="nrw-menu-sitemap__col p-0">
+      <li class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a href="#sitemap-ministerium" id="link-ministerium" data-bs-toggle="collapse" class="link  has-children collapsed"
+           title="">
+          Ministerium
+        </a>
+        <i class="nrw-menu-sitemap__toggle-icon fas fa-angle-down d-lg-none" aria-hidden="true" tabindex="0"></i>
+      
+      </li>
+
+              <li id="sitemap-ministerium" class="collapse pt-0">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/ministerin"
+           title="">
+          Ministerin
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/staatssekretaer"
+           title="">
+          Staatssekretär
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/parlamentarischer-staatssekretaer"
+           title="">
+          Parlamentarischer Staatssekretär
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/organisation"
+           title="">
+          Organisation
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/kontakt"
+           title="">
+          Kontakt
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/stellenangebote"
+           title="">
+          Stellenangebote
+        </a>
+      </li>
+      
+        </ul>
+        </li>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col p-0">
+      <li class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a href="#sitemap-themenportal" id="link-themenportal" data-bs-toggle="collapse" class="link  has-children collapsed"
+           title="">
+          Themenportal
+        </a>
+        <i class="nrw-menu-sitemap__toggle-icon fas fa-angle-down d-lg-none" aria-hidden="true" tabindex="0"></i>
+      
+      </li>
+
+              <li id="sitemap-themenportal" class="collapse pt-0">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B751%5D=751"
+           title="">
+          Bau
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B785%5D=785"
+           title="">
+          Denkmalschutz
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B784%5D=784"
+           title="">
+          Digitalisierung
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B753%5D=753"
+           title="">
+          Heimat
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B754%5D=754"
+           title="">
+          Kommunales
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B788%5D=788"
+           title="">
+          Sonderthema
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B786%5D=786"
+           title="">
+          Wiederaufbau
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/themenportal?search=&amp;topic%5B787%5D=787"
+           title="">
+          Wohnen
+        </a>
+      </li>
+      
+        </ul>
+        </li>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col p-0">
+      <li class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a href="#sitemap-förderprogramme" id="link-förderprogramme" data-bs-toggle="collapse" class="link  has-children collapsed"
+           title="">
+          Förderprogramme
+        </a>
+        <i class="nrw-menu-sitemap__toggle-icon fas fa-angle-down d-lg-none" aria-hidden="true" tabindex="0"></i>
+      
+      </li>
+
+              <li id="sitemap-förderprogramme" class="collapse pt-0">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B18%5D=18"
+           title="">
+          Behörden
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B780%5D=780"
+           title="">
+          Freie Berufe und Selbstständige
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B777%5D=777"
+           title="">
+          Privatpersonen 
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B779%5D=779"
+           title="">
+          Unternehmen und Verbände
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/foerderprogramme?audience_mapping%5B778%5D=778"
+           title="">
+          Vereine
+        </a>
+      </li>
+      
+        </ul>
+        </li>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col p-0">
+      <li class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a href="#sitemap-presse--medien" id="link-presse--medien" data-bs-toggle="collapse" class="link  has-children collapsed"
+           title="">
+          Presse &amp; Medien
+        </a>
+        <i class="nrw-menu-sitemap__toggle-icon fas fa-angle-down d-lg-none" aria-hidden="true" tabindex="0"></i>
+      
+      </li>
+
+              <li id="sitemap-presse--medien" class="collapse pt-0">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/pressemitteilungen"
+           title="">
+          Pressemitteilungen
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/pressekontakt"
+           title="">
+          Pressekontakt
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/pressefotos"
+           title="">
+          Pressefotos
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/soziale-medien"
+           title="">
+          Soziale Medien
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/newsletter"
+           title="">
+          Newsletter
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/presse-und-medien/rss-feeds"
+           title="">
+          RSS-Feeds
+        </a>
+      </li>
+      
+        </ul>
+        </li>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col p-0">
+      <li class="nrw-menu-sitemap__header  nrw-menu-sitemap__has-children ">
+      
+              <a href="#sitemap-service" id="link-service" data-bs-toggle="collapse" class="link  has-children collapsed"
+           title="">
+          Service
+        </a>
+        <i class="nrw-menu-sitemap__toggle-icon fas fa-angle-down d-lg-none" aria-hidden="true" tabindex="0"></i>
+      
+      </li>
+
+              <li id="sitemap-service" class="collapse pt-0">
+        <ul class="nrw-menu-sitemap__content">
+          
+                  <li class="nrw-menu__item">
+        <a class="link  " href="/broschueren"
+           title="">
+          Broschüren
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/ministerium/schreiben-sie-der-ministerin"
+           title="">
+          Schreiben Sie der Ministerin
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/service/weiterfuehrende-links"
+           title="">
+          Weiterführende Links
+        </a>
+      </li>
+                      <li class="nrw-menu__item">
+        <a class="link  " href="/service/kommunenfinder"
+           title="">
+          Kommunenfinder
+        </a>
+      </li>
+      
+        </ul>
+        </li>
+      
+      </div>
+              <div class="nrw-menu-sitemap__col p-0">
+      <li class="nrw-menu-sitemap__header  nrw-menu-sitzemap__single">
+      
+              <a class="link  " href="/suche" style="width: 100%;"
+           title="">
+          Suche
+        </a>
+      
+      </li>
+
+      
+      </div>
+      
+</nav>
+
+
+  </nav>
+
+
+    </div>
+  </div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <strong>© 2026 MHKBD NRW</strong>
+      </div>
+      <div class="col-12 col-md-8">
+            
+<nav role="navigation" aria-labelledby="block-mhkbd-menu-footer-menu" id="block-mhkbd-menu-footer">
+            <h2 class="visually-hidden" id="block-mhkbd-menu-footer-menu">Fußzeile</h2>
+
+        
+
+  <ul data-region="footer_bottom_secondary" class="menu menu-level-0">
+    
+                      
+                  <li class="menu-item">
+
+                            <a href="/datenschutz" data-drupal-link-system-path="node/868">Datenschutz</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentfooter view-mode-default menu-dropdown menu-dropdown-0 menu-type-default">
+              
+      </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/impressum" data-drupal-link-system-path="node/438">Impressum</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentfooter view-mode-default menu-dropdown menu-dropdown-0 menu-type-default">
+              
+      </div>
+
+
+
+                      </li>
+                  
+                      
+                  <li class="menu-item">
+
+                            <a href="/netiquette" show_only_in_sitemap="0" data-drupal-link-system-path="node/1079">Netiquette</a>
+                                                      
+  
+  <div class="menu_link_content menu-link-contentfooter view-mode-default menu-dropdown menu-dropdown-0 menu-type-default">
+              
+      </div>
+
+
+
+                      </li>
+                    </ul>
+
+
+  </nav>
+
+
+      </div>
+          </div>
+  </div>
+</footer>
+
+
+
+<!-- Modal -->
+<div class="modal modal-lg fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true"
+     data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen">Schließen
+          <span>&nbsp;</span></button>
+        <form action="/suche" role="search" class="header-search-form">
+          <div class="row">
+            <div class="col-12">
+              <label id="searchModalLabel">Suche</label>
+              <div class="searchModalInput position-relative">
+                <input type="text" name="volltext"
+                       id="nrw-menu-header__search-text"
+                       minlength="2" pattern="\s*(\S\s*){3,}" maxlength="128"
+                       autocomplete="off"
+                       data-autocomplete-path="/search_api_autocomplete/search_content?display=global_search&filter=volltext"
+                       placeholder="Lostippen"
+                       title="Bitte geben Sie einen Suchbegriff mit einer Mindestlänge von 2 Zeichen ein."
+                       class="nrw-menu-header__search-text form-control form-autocomplete form-text">
+              </div>
+              <div class="col-12 text-align-center mt-4">
+                <button class="header-search-form__submit btn btn-primary" type="submit"
+                        title="Suche starten">
+                  Suche starten                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+    
+
+    <div class="scrolltop">
+      <a class="scrolltop__button" href="#main-content">
+        <i class="fa-solid fa-arrow-up scrolltop__button__icon"></i>
+        Zum Seitenanfang scrollen
+      </a>
+    </div>
+
+    <script src="/core/misc/debounce.js?v=11.3.2"></script>
+<script src="/core/misc/announce.js?v=11.3.2"></script>
+<script src="/core/misc/message.js?v=11.3.2"></script>
+<script src="/core/assets/vendor/js-cookie/js.cookie.min.js?v=3.0.5"></script>
+<script src="/modules/contrib/degov/modules/degov_social_media_settings/js/process.js?teb1wi"></script>
+<script src="/modules/contrib/eu_cookie_compliance/js/eu_cookie_compliance.min.js?teb1wi"></script>
+<script src="/modules/contrib/extlink/js/extlink.js?teb1wi"></script>
+<script src="/modules/contrib/matomo/js/matomo.js?teb1wi"></script>
+<script src="/themes/custom/mhkbd/public/js/anchorjs.js?teb1wi"></script>
+<script src="/themes/custom/mhkbd/node_modules/anchor-js/anchor.js?teb1wi"></script>
+<script src="/libraries/autocomplete/dist/js/autocomplete.min.js?teb1wi"></script>
+<script src="/themes/custom/mhkbd/public/js/bootstrap.bundle.js?teb1wi"></script>
+<script src="/themes/custom/mhkbd/public/js/bundle.js?teb1wi"></script>
+<script src="/themes/custom/mhkbd/public/js/timeline-toggle.js?teb1wi"></script>
+<script src="/modules/custom/mhkbd_flag/js/mhkbd_flag.js?teb1wi"></script>
+<script src="/profiles/contrib/nrwgov/modules/nrw_menu/js/nrw_menu.js?v=1"></script>
+<script src="/modules/contrib/obfuscate_email/js/obfuscate_email.js?teb1wi"></script>
+
+    
+  </body>
+</html>
