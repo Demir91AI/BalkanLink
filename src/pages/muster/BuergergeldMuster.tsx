@@ -348,6 +348,34 @@ export default function BuergergeldMuster() {
         })}
       </>)}
 
+      {/* ===== ANLAGEN DOWNLOAD GRID ===== */}
+      <div style={{ marginTop: 24, padding: 16, background: "#FEF9C3", border: "2px solid #EAB308", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#713F12", marginBottom: 6 }}>
+          📎 {t("musterFlow.buergergeld.anlagenTitle", "Pratece Anlage PDF-ovi (originalni BA, Stand 04/2026)")}
+        </div>
+        <div style={{ fontSize: 12, color: "#713F12", lineHeight: 1.55, marginBottom: 12 }}>
+          {t("musterFlow.buergergeld.anlagenInfo", "Svaka Anlage je zasebni PDF koji predaje\u0161 uz HA. Klikni za preuzimanje sa ve\u0107 popunjenim Antragsteller header-om (ime, prezime, datum ro\u0111enja). Detaljna polja popuni ru\u010dno u Adobe Reader-u.")}
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 8 }}>
+          {(Object.keys(ANLAGEN_META) as AnlageCode[]).map(code => {
+            const meta = ANLAGEN_META[code];
+            const busy = anlGen === code;
+            return (
+              <button
+                key={code}
+                onClick={() => handleAnlageDownload(code)}
+                disabled={!!anlGen}
+                style={{ background: busy ? "#9CA3AF" : "#fff", border: "1px solid #D4A017", borderRadius: 6, padding: "10px 12px", textAlign: "left", cursor: anlGen ? "wait" : "pointer", fontSize: 11, color: "#713F12", display: "flex", flexDirection: "column", gap: 2 }}
+              >
+                <div style={{ fontWeight: 700 }}>📄 Anlage {code.toUpperCase()}</div>
+                <div style={{ fontSize: 10, opacity: 0.8 }}>{meta.titleBs}</div>
+                {busy && <div style={{ fontSize: 10, marginTop: 2 }}>⏳ {t("musterFlow.buergergeld.generating", "Generiram PDF…")}</div>}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
     </MusterFormBase>
   );
 }
