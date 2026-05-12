@@ -4,7 +4,7 @@
  *
  * Privatnost: PDF se nikad ne šalje na server.
  */
-import { PDFDocument, PDFField, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb, type PDFField } from "pdf-lib";
 import { buildKindergeldFieldFills, type KindergeldFormData } from "@/lib/kindergeld-fields";
 
 const PDF_URL = "/muster/kg1-antrag-kindergeld-2026.pdf";
