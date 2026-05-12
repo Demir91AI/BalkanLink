@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 import { fillBuergergeldPdf, downloadBlob, type BuergergeldFormData } from "@/lib/pdf-fill-buergergeld";
+import { fillBuergergeldAnlagePdf, ANLAGEN_META, type AnlageBaseData, type AnlageCode } from "@/lib/pdf-fill-buergergeld-anlagen";
 
 const LS_KEY = "buergergeld-muster-data";
 const PDF_URL = "/muster/buergergeld-hauptantrag-2026.pdf";
