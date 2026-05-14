@@ -3,11 +3,17 @@ import logoVrebo from "@/assets/logo-vrebo.jpg";
 import logoEcronix from "@/assets/logo-ecronix.jpg";
 import logoAaaFusspflege from "@/assets/logo-aaa-fusspflege.png";
 import logoAmeiseFilm from "@/assets/logo-ameise-film.webp";
+import logoRusmir from "@/assets/logo-rusmir-kasibovic.jpg";
 import showcaseAmeise1 from "@/assets/showcase-ameise-1.webp";
 import showcaseAmeise2 from "@/assets/showcase-ameise-2.webp";
 import showcaseAmeise3 from "@/assets/showcase-ameise-3.webp";
 import showcaseAmeise4 from "@/assets/showcase-ameise-4.webp";
 import showcaseAmeise5 from "@/assets/showcase-ameise-5.webp";
+import showcaseRusmir1 from "@/assets/showcase-rusmir-1.jpg";
+import showcaseRusmir2 from "@/assets/showcase-rusmir-2.jpg";
+import showcaseRusmir3 from "@/assets/showcase-rusmir-3.jpg";
+import showcaseRusmir4 from "@/assets/showcase-rusmir-4.jpg";
+import showcaseRusmir5 from "@/assets/showcase-rusmir-5.jpg";
 import showcaseAluhome1 from "@/assets/showcase-aluhome-1.jpg";
 import showcaseAluhome2 from "@/assets/showcase-aluhome-2.jpg";
 import showcaseAluhome3 from "@/assets/showcase-aluhome-3.jpg";
@@ -126,6 +132,28 @@ export const premiumShowcaseFirms: PremiumShowcaseFirm[] = [
       "Immobilien- & Tourismusvideo — video za nekretnine i turizam",
       "Drohnenaufnahmen — profesionalni snimci iz vazduha",
       "Business-Fotografie — profesionalna foto produkcija",
+    ],
+  },
+  {
+    name: "Rusmir Kasibović",
+    slug: "rusmir-kasibovic",
+    description: "Autor i inženjer — knjige o disciplini, kontinuiranom napretku i njemačkoj inženjerskoj kulturi. Dostupno na Amazonu.",
+    website: "https://rusmirkasibovic.com/",
+    contactUrl: "https://rusmirkasibovic.com/#card-692kv8862qsbk92",
+    logoUrl: logoRusmir,
+    logoAlt: "Rusmir Kasibović logo",
+    logoWrapperClassName: "w-[4.5rem] sm:w-[5rem] h-[4.5rem]",
+    highlights: ["Made in Germany", "Besser als Gestern", "Made in Yugoslavia", "Blog & Eseji"],
+    images: [showcaseRusmir1, showcaseRusmir2, showcaseRusmir3, showcaseRusmir4, showcaseRusmir5],
+    city: "Njemačka",
+    fullDescription: "Rusmir Kasibović je autor i inženjer koji u svojim knjigama spaja inženjersko razmišljanje, disciplinu i refleksiju o porijeklu i identitetu. Tri objavljene knjige — „Made in Germany“ (hommage njemačkoj inženjerskoj kulturi i preciznosti), „Besser als Gestern“ (manifest svakodnevnog napretka i fokusa) i „Made in Yugoslavia“ (priča o porijeklu, kulturi i identitetu) — destilirane su iz godina rada, čitanja i posmatranja. Pored knjiga, na svojoj platformi objavljuje eseje i ideje o tehnologiji, motivaciji i umjetnosti ličnog rasta.",
+    services: [
+      "📕 Made in Germany — knjiga o njemačkoj inženjerskoj kulturi i kvalitetu kao stavu",
+      "📗 Besser als Gestern — manifest kontinuirane samouspoređenja i discipline",
+      "📘 Made in Yugoslavia — refleksija o porijeklu, identitetu i kulturi",
+      "✍️ Blog & digitalni magazin — eseji o tehnologiji, motivaciji i inženjerstvu",
+      "💡 Ideje & inspiracija — refleksije za sve koji žele biti bolji nego juče",
+      "🛒 Sve knjige dostupne na Amazon (Kindle i print)",
     ],
   },
 ];
