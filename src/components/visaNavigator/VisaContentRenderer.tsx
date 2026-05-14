@@ -36,8 +36,8 @@ const CHARCOAL = 'rgba(255,255,255,0.92)';
 const FREE_STEPS = 0;
 const FREE_ERRORS = 0;
 
-const Card = ({ children, bg = '#FFFFFF', border = 'rgba(255,255,255,0.10)', mb = 16 }: { children: React.ReactNode; bg?: string; border?: string; mb?: number }) => (
-  <div style={{ background: bg, border: `1px solid ${border}`, borderRadius: 14, padding: '20px 24px', marginBottom: mb, boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
+const Card = ({ children, bg = 'rgba(255,255,255,0.04)', border = 'rgba(255,255,255,0.10)', mb = 16 }: { children: React.ReactNode; bg?: string; border?: string; mb?: number }) => (
+  <div style={{ background: bg, border: `1px solid ${border}`, borderRadius: 14, padding: '20px 24px', marginBottom: mb, boxShadow: '0 2px 12px rgba(0,0,0,0.25)', backdropFilter: 'blur(8px)' }}>
     {children}
   </div>
 );
@@ -185,7 +185,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
             )}
 
             {r.errors.length > 0 && (
-              <Card bg="#FEF2F2" border="#FECACA">
+              <Card bg="rgba(239,68,68,0.10)" border="rgba(239,68,68,0.30)">
                 <CardHeader icon={AlertTriangle} color="#EF4444" title={t('visa.renderer.commonErrors')} />
                 {r.errors.map((err: string, i: number) => (
                   <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
@@ -377,7 +377,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       )}
 
       {hasFullAccess && route.errors.length > 0 && (
-        <Card bg="#FEF2F2" border="#FECACA">
+        <Card bg="rgba(239,68,68,0.10)" border="rgba(239,68,68,0.30)">
           <CardHeader icon={AlertTriangle} color="#EF4444" title={t('visa.renderer.errorsToAvoid')} />
           {route.errors.map((err: string, i: number) => (
             <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
