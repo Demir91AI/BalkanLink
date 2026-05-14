@@ -185,7 +185,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
             )}
 
             {r.errors.length > 0 && (
-              <Card bg="#FEF2F2" border="#FECACA">
+              <Card bg="rgba(239,68,68,0.10)" border="rgba(239,68,68,0.30)">
                 <CardHeader icon={AlertTriangle} color="#EF4444" title={t('visa.renderer.commonErrors')} />
                 {r.errors.map((err: string, i: number) => (
                   <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
@@ -377,7 +377,7 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       )}
 
       {hasFullAccess && route.errors.length > 0 && (
-        <Card bg="#FEF2F2" border="#FECACA">
+        <Card bg="rgba(239,68,68,0.10)" border="rgba(239,68,68,0.30)">
           <CardHeader icon={AlertTriangle} color="#EF4444" title={t('visa.renderer.errorsToAvoid')} />
           {route.errors.map((err: string, i: number) => (
             <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
