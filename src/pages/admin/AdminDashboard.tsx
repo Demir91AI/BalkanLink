@@ -926,19 +926,3 @@ function TabPrihodi({
     </div>
   );
 }
-
-/* ═══════════════════════ TAB 3: KORISNICI ═══════════════════════ */
-
-interface MockUser {
-  id: string; email: string; type: "premium_paid" | "trial_active" | "trial_expired" | "lifetime" | "free";
-  registered: string; lastSeen: string; pagesPerSession: number; activity: "high" | "mid" | "low";
-}
-
-const TYPE_META: Record<MockUser["type"], { label: string; color: string }> = {
-  premium_paid: { label: "Premium", color: ACCENT.amber },
-  trial_active: { label: "Trial", color: ACCENT.cyan },
-  trial_expired: { label: "Trial istekao", color: ACCENT.rose },
-  lifetime: { label: "Lifetime", color: ACCENT.violet },
-  free: { label: "Free", color: ACCENT.slate },
-};
-
