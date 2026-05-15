@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { getGuidesByCategory, type Guide } from "@/lib/guide-data";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 
 type LangKey = "de" | "bs" | "en";
 function getLangKey(lang: string): LangKey {
@@ -34,6 +35,7 @@ export default function Foerderungen() {
 
   return (
     <>
+      <SEO title="Pomoći i Naknade — Državne Subvencije" description="Sve državne pomoći u Njemačkoj — stanovanje, posao, zdravlje, obrazovanje, porodica. Sa uputstvima za popunjavanje." path="/foerderungen" />
       <section className="border-b bg-primary py-12">
         <div className="container max-w-3xl">
           <Breadcrumbs variant="dark" />
