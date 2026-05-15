@@ -551,26 +551,14 @@ export default function AdminDashboard() {
         <main className="max-w-[1400px] mx-auto px-6 py-6">
           {tab === "Pregled" && <TabPregled stats={stats} totalUsersAdj={totalUsersAdj} realPaying={realPaying} conversionPct={conversionPct} />}
           {tab === "Prihodi" && <TabPrihodi stats={stats} payments={payments} paymentFilter={paymentFilter} setPaymentFilter={setPaymentFilter} />}
-          {tab !== "Pregled" && tab !== "Prihodi" && (
-            <Card className="p-12 text-center">
-              <BarChart3 className="h-10 w-10 mx-auto mb-3" style={{ color: C.slate }} />
-              <h3 className="font-bold text-lg" style={{ color: C.text }}>{tab}</h3>
-              <p className="text-sm mt-2" style={{ color: C.textDim }}>
-                Ovaj tab dolazi u sljedećoj iteraciji. Pregled i Prihodi su trenutno aktivni.
-              </p>
-              <div className="flex gap-2 justify-center mt-5">
-                <Button asChild size="sm" variant="outline" style={{ background: C.card, border: `1px solid ${C.border}`, color: C.text }}>
-                  <Link to="/admin/pitanja">Q&A moderacija</Link>
-                </Button>
-                <Button asChild size="sm" variant="outline" style={{ background: C.card, border: `1px solid ${C.border}`, color: C.text }}>
-                  <Link to="/admin/trialovi">Trialovi</Link>
-                </Button>
-                <Button asChild size="sm" variant="outline" style={{ background: C.card, border: `1px solid ${C.border}`, color: C.text }}>
-                  <Link to="/admin/forms">Formulari</Link>
-                </Button>
-              </div>
-            </Card>
-          )}
+          {tab === "Korisnici" && <TabKorisnici />}
+          {tab === "Saobraćaj" && <TabSaobracaj />}
+          {tab === "Funkcije" && <TabFunkcije />}
+          {tab === "DeutschTrainer" && <TabTrainer />}
+          {tab === "AI Asistent" && <TabAsistent />}
+          {tab === "Geo" && <TabGeo />}
+          {tab === "Troškovi" && <TabTroskovi />}
+          {tab === "Ciljevi" && <TabCiljevi />}
         </main>
 
         <div className="text-center text-[10px] py-6" style={{ color: C.slate }}>
