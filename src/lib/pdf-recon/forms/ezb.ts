@@ -97,22 +97,31 @@ export async function buildEzbPdf(d: EzbData): Promise<Uint8Array> {
   field(c, { x: xR, y: y - 26, w: colW, label: "5.4 Tarifvertrag", value: d.tarifvertrag });
   y -= 38;
 
-  // 6. Erklärung & Unterschrift Arbeitgeber
-  if (y > 110) {
-    y = sectionHeader(c, y, 6, "Erklärung und Unterschrift des Arbeitgebers");
-    page.drawText(
-      "Der Arbeitgeber erklärt, dass die obigen Angaben richtig und vollständig sind und",
-      { x: MARGIN.left, y: y - 14, size: 8.5, font: regular, color: COL.text },
-    );
-    page.drawText(
-      "die Beschäftigung zu den genannten Bedingungen erfolgt (§ 39 AufenthG, § 26 BeschV).",
-      { x: MARGIN.left, y: y - 26, size: 8.5, font: regular, color: COL.text },
-    );
-    const sigY = Math.max(y - 70, 80);
-    signLine(c, MARGIN.left, sigY, 180, d.ortDatum ? `Ort, Datum: ${d.ortDatum}` : "Ort, Datum");
-    signLine(c, MARGIN.left + 220, sigY, A4.w - MARGIN.right - MARGIN.left - 220, "Unterschrift & Firmenstempel");
+  // 6. Erklärung & Unterschrift Arbeitgeber — uvijek na dnu, ako nema mjesta otvori novu stranicu
+  let secCtx = c;
+  let secY = y;
+  if (y < 170) {
+    const p2 = doc.addPage([A4.w, A4.h]);
+    secCtx = { page: p2, reg: regular, bold };
+    pageHeader(secCtx, { formCode: FORM_CODE, title: FORM_TITLE, subtitle: FORM_SUB, page: 2, total: 2 });
+    secY = A4.h - 76;
   }
+  secY = sectionHeader(secCtx, secY, 6, "Erklärung und Unterschrift des Arbeitgebers");
+  secCtx.page.drawText(
+    "Der Arbeitgeber erklärt, dass die obigen Angaben richtig und vollständig sind und",
+    { x: MARGIN.left, y: secY - 14, size: 8.5, font: regular, color: COL.text },
+  );
+  secCtx.page.drawText(
+    "die Beschäftigung zu den genannten Bedingungen erfolgt (§ 39 AufenthG, § 26 BeschV).",
+    { x: MARGIN.left, y: secY - 26, size: 8.5, font: regular, color: COL.text },
+  );
+  const sigY = secY - 70;
+  signLine(secCtx, MARGIN.left, sigY, 180, d.ortDatum ? `Ort, Datum: ${d.ortDatum}` : "Ort, Datum");
+  signLine(secCtx, MARGIN.left + 220, sigY, A4.w - MARGIN.right - MARGIN.left - 220, "Unterschrift & Firmenstempel");
 
-  pageFooter(c, "BA 146206 EzB / BL-Rekonstruktion", 1, 1);
+  // Update footer pages
+  const total = secCtx.page === c.page ? 1 : 2;
+  pageFooter(c, "BA 146206 EzB / BL-Rekonstruktion", 1, total);
+  if (total === 2) pageFooter(secCtx, "BA 146206 EzB / BL-Rekonstruktion", 2, 2);
   return doc.save();
 }
