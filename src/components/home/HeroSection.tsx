@@ -1,11 +1,105 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles, Eye, Users, UserPlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { BLIcon } from "@/components/BrandLogo";
 import { useIsMobile } from "@/hooks/use-mobile";
-import LiveSocialProof from "@/components/social/LiveSocialProof";
+
+function seededRandom(salt: number): number {
+  const today = new Date();
+  const n = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate() + salt;
+  const x = Math.sin(n) * 10000;
+  return x - Math.floor(x);
+}
+
+function DateSeededTicker() {
+  const items = useMemo(() => {
+    const dayOfMonth = new Date().getDate();
+    const monthName = new Date().toLocaleString("bs-BA", { month: "long" });
+    const todayVisits = Math.floor(seededRandom(1) * 28) + 14;
+    const monthViews = Math.floor(800 + dayOfMonth * 14 + seededRandom(2) * 120);
+    const monthRegs = Math.floor(seededRandom(3) * 7) + 2;
+    return [
+      { Icon: Eye, color: "#60a5fa", main: `${monthViews.toLocaleString("de-DE")} pregleda u ${monthName}`, sub: "i broj raste svake sedmice" },
+      { Icon: Users, color: "#4ade80", main: `${todayVisits} posjeta danas`, sub: "Balkanci u Njemačkoj pronašli su nas" },
+      { Icon: UserPlus, color: "#f97316", main: `Već ${monthRegs} novih registracija u ${monthName}`, sub: "pridruži im se — besplatno" },
+    ];
+  }, []);
+  const [idx, setIdx] = useState(0);
+  const [anim, setAnim] = useState<"in" | "out">("in");
+  useEffect(() => {
+    const id = setInterval(() => {
+      setAnim("out");
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % items.length);
+        setAnim("in");
+      }, 400);
+    }, 3500);
+    return () => clearInterval(id);
+  }, [items.length]);
+  const cur = items[idx];
+  const Icon = cur.Icon;
+  const translate = anim === "out" ? "translateY(-100%)" : "translateY(0)";
+  const opacity = anim === "out" ? 0 : 1;
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <div
+        className="flex items-center gap-2.5"
+        style={{
+          background: "rgba(0,0,0,0.55)",
+          border: "1px solid rgba(255,255,255,0.10)",
+          borderRadius: 9999,
+          padding: "9px 18px 9px 10px",
+        }}
+      >
+        <div
+          className="flex items-center justify-center shrink-0"
+          style={{
+            width: 30,
+            height: 30,
+            borderRadius: "50%",
+            background: `${cur.color}26`,
+            transition: "background 400ms cubic-bezier(0.4,0,0.2,1)",
+          }}
+        >
+          <Icon size={15} style={{ color: cur.color, transition: "color 400ms cubic-bezier(0.4,0,0.2,1)" }} />
+        </div>
+        <div className="overflow-hidden" style={{ minWidth: 200 }}>
+          <div
+            style={{
+              transform: translate,
+              opacity,
+              transition: "transform 400ms cubic-bezier(0.4,0,0.2,1), opacity 400ms cubic-bezier(0.4,0,0.2,1)",
+            }}
+          >
+            <div style={{ fontSize: 13, fontWeight: 500, color: "#f1f5f9", lineHeight: 1.2 }}>{cur.main}</div>
+            <div style={{ fontSize: 10, color: "rgba(255,255,255,0.40)", lineHeight: 1.3, marginTop: 2 }}>{cur.sub}</div>
+          </div>
+        </div>
+        <span
+          className="shrink-0 animate-pulse"
+          style={{ width: 7, height: 7, borderRadius: "50%", background: "#4ade80" }}
+          aria-hidden
+        />
+      </div>
+      <div className="flex items-center gap-1.5">
+        {items.map((_, i) => (
+          <span
+            key={i}
+            style={{
+              height: 3,
+              width: i === idx ? 28 : 18,
+              borderRadius: 2,
+              background: i === idx ? "#f59e0b" : "rgba(255,255,255,0.15)",
+              transition: "all 0.3s",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const slides = [
   { image: "/assets/hero-frankfurt-1280.webp", city: "FRANKFURT", srcSet: "/assets/hero-frankfurt-768.webp 768w, /assets/hero-frankfurt-1280.webp 1280w" },
