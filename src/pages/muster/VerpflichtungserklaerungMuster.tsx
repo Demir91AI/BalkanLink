@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "verpflichtungserklaerung-muster-data";
@@ -20,6 +21,7 @@ export default function VerpflichtungserklaerungMuster() {
 
   return (
     <MusterFormBase rootId="ve-root" title="Verpflichtungserklärung — § 68 AufenthG" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original (BAMF) →" footerNote="Originalformular se popunjava i potpisuje pred službenikom Ausländerbehörde-a • BalkanLink nije državna institucija" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterIntroBlock formKey="verpflichtungserklaerung" paperId="ve-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Verpflichtungsgeber (osoba koja garantuje)" />
         <div style={S.row}><Field label="Familienname" value={f.vFamilienname} onChange={v => set("vFamilienname", v)} /><Field label="Vornamen" value={f.vVornamen} onChange={v => set("vVornamen", v)} /></div>

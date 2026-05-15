@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "krippengeld-bayern-muster-data";
@@ -22,6 +23,7 @@ export default function KrippengeldBayernMuster() {
 
   return (
     <MusterFormBase rootId="krg-root" title="Antrag auf Krippengeld (Bayern)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original beim ZBFS Bayern herunterladen →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterIntroBlock formKey="krippengeldbayern" paperId="krg-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Antragstellende Person" />
         <div style={S.row}><Field label="Vorname" value={f.vorname} onChange={v => set("vorname", v)} /><Field label="Nachname" value={f.nachname} onChange={v => set("nachname", v)} /></div>

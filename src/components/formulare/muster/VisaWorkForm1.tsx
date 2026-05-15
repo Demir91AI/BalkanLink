@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile } from "@/lib/visa-shared-profile";
@@ -33,6 +34,7 @@ export default function VisaWorkForm1() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
+      <MusterIntroBlock formKey="visawork1" paperId="visa-work-1-root-paper" />
       <VisaSharedSections f={f} set={set as never} />
 
       <div style={S.sec}>

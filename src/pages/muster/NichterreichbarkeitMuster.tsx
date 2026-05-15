@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "nichterreichbarkeit-muster-data";
@@ -18,6 +19,7 @@ export default function NichterreichbarkeitMuster() {
 
   return (
     <MusterFormBase rootId="ne-root" title="Nichterreichbarkeit — Antrag auf Ortsabwesenheit" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original bei Jobcenter herunterladen →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterIntroBlock formKey="nichterreichbarkeit" paperId="ne-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Antragstellende Person" />
         <div style={S.row}><Field label="Vorname" value={f.vorname} onChange={v => set("vorname", v)} /><Field label="Nachname" value={f.nachname} onChange={v => set("nachname", v)} /></div>

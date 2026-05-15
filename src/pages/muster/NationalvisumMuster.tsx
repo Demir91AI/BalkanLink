@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "nationalvisum-muster-data";
@@ -22,6 +23,7 @@ export default function NationalvisumMuster() {
 
   return (
     <MusterFormBase rootId="nv-root" title="Antrag auf Erteilung eines nationalen Visums (D-Visum)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original online: VIDEX (Auswärtiges Amt) →" footerNote="Originalantrag se popunjava online preko VIDEX portala (videx-national.diplo.de) i predaje na njemačkoj ambasadi • BalkanLink nije državna institucija" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterIntroBlock formKey="nationalvisum" paperId="nv-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Persönliche Daten" />
         <div style={S.row}><Field label="Familienname" value={f.familienname} onChange={v => set("familienname", v)} /><Field label="Geburtsname" value={f.geburtsname} onChange={v => set("geburtsname", v)} /></div>
