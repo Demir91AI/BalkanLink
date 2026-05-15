@@ -14,10 +14,12 @@ interface SEOProps {
   descKey?: string;
   /** Path to the page WITHOUT language prefix (BS canonical). e.g. '/dokumenten-check'. */
   path?: string;
+  /** Open Graph type — defaults to 'website'. Use 'article' for guides/blog posts. */
+  type?: 'website' | 'article';
 }
 
 const BASE_URL = 'https://www.balkanlink.de';
-const OG_IMAGE = BASE_URL + '/og-image.png';
+const OG_IMAGE = BASE_URL + '/og-image.jpg?v=20260430-2';
 
 const DEFAULTS: Record<SupportedLanguage, { title: string; desc: string }> = {
   bs: {
@@ -56,7 +58,7 @@ function buildHref(path: string, lang: SupportedLanguage): string {
 
 const SUPPORTED: SupportedLanguage[] = ['bs', 'de', 'hr', 'sr'];
 
-export const SEO = ({ title, description, titleKey, descKey, path = '' }: SEOProps) => {
+export const SEO = ({ title, description, titleKey, descKey, path = '', type = 'website' }: SEOProps) => {
   const { t, i18n } = useTranslation();
   const raw = i18n.language as string;
   const lang: SupportedLanguage = (SUPPORTED as string[]).includes(raw)
@@ -87,7 +89,7 @@ export const SEO = ({ title, description, titleKey, descKey, path = '' }: SEOPro
       ))}
       <link rel="alternate" hrefLang="x-default" href={bsHref} />
 
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={resolvedDesc} />
       <meta property="og:url" content={canonical} />
