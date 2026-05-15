@@ -102,6 +102,12 @@ const AnlageUFMuster = lazy(() => import("./pages/muster/AnlageUFMuster"));
 const AnlageSEMuster = lazy(() => import("./pages/muster/AnlageSEMuster"));
 const ArbeitsbescheinigungMuster = lazy(() => import("./pages/muster/ArbeitsbescheinigungMuster"));
 const AntragsruecknahmeMuster = lazy(() => import("./pages/muster/AntragsruecknahmeMuster"));
+const AnlageUH1Muster = lazy(() => import("./pages/muster/AnlageUH1Muster"));
+const AnlageUH2Muster = lazy(() => import("./pages/muster/AnlageUH2Muster"));
+const AnlageUH3Muster = lazy(() => import("./pages/muster/AnlageUH3Muster"));
+const NichterreichbarkeitMuster = lazy(() => import("./pages/muster/NichterreichbarkeitMuster"));
+const MutterschaftsgeldMuster = lazy(() => import("./pages/muster/MutterschaftsgeldMuster"));
+const KrippengeldBayernMuster = lazy(() => import("./pages/muster/KrippengeldBayernMuster"));
 const Viza = lazy(() => import("./pages/Viza"));
 const DvojnoDrzavljanstvo = lazy(() => import("./pages/DvojnoDrzavljanstvo"));
 const EinbuergerungVodic = lazy(() => import("./pages/EinbuergerungVodic"));
@@ -219,7 +225,13 @@ function LocalizedRoutes() {
         <Route path="musterformular/antrag-generic" element={<AntragGenericMuster />} />
         <Route path="musterformular/antragsruecknahme" element={<AntragsruecknahmeMuster />} />
         <Route path="musterformular/wirtschaftliche-jugendhilfe" element={<WirtschaftlicheJugendhilfeMuster />} />
-        <Route path="musterformular/einbuergerung" element={<EinbuergerungMuster />} />
+       <Route path="musterformular/einbuergerung" element={<EinbuergerungMuster />} />
+       <Route path="musterformular/anlage-uh1" element={<AnlageUH1Muster />} />
+       <Route path="musterformular/anlage-uh2" element={<AnlageUH2Muster />} />
+       <Route path="musterformular/anlage-uh3" element={<AnlageUH3Muster />} />
+       <Route path="musterformular/nichterreichbarkeit" element={<NichterreichbarkeitMuster />} />
+       <Route path="musterformular/mutterschaftsgeld" element={<MutterschaftsgeldMuster />} />
+       <Route path="musterformular/krippengeld-bayern" element={<KrippengeldBayernMuster />} />
         
         <Route path="formulari/:slug" element={<FormCenter />} />
         <Route path="familie" element={<Familie />} />
