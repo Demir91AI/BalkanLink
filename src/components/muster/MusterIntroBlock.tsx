@@ -24,6 +24,14 @@ interface Props {
   originalPdfLabel?: string;
   /** When provided, renders extra purple "Preuzmi Datenblatt PDF" CTA + amber explainer note. */
   datenblatt?: DatenblattConfig;
+  /** When provided, renders a blue "1:1 popunjen službeni obrazac" CTA (BalkanLink rekonstrukcija). */
+  originalRecon?: {
+    build: () => Promise<Uint8Array>;
+    fileName: string;
+    title?: string;
+    buttonLabel?: string;
+    note?: string;
+  };
 }
 
 /**
@@ -45,8 +53,10 @@ export default function MusterIntroBlock({
   originalPdfUrl,
   originalPdfLabel = "Original (službeni PDF) →",
   datenblatt,
+  originalRecon,
 }: Props) {
   const [busy, setBusy] = useState(false);
+  const [busyRecon, setBusyRecon] = useState(false);
 
   const handlePrint = () => {
     if (paperId) {
@@ -78,10 +88,61 @@ export default function MusterIntroBlock({
     }
   };
 
+  const handleRecon = async () => {
+    if (!originalRecon || busyRecon) return;
+    setBusyRecon(true);
+    try {
+      const bytes = await originalRecon.build();
+      const blob = new Blob([bytes as BlobPart], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = originalRecon.fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (e) {
+      console.error("Recon PDF error", e);
+      alert("Greška pri generisanju 1:1 PDF-a.");
+    } finally {
+      setBusyRecon(false);
+    }
+  };
+
   return (
     <>
       <MusterDisclaimer formKey={formKey}><></></MusterDisclaimer>
       <PrivacyGuarantee />
+
+      {originalRecon && (
+        <div
+          className="no-print"
+          style={{
+            marginBottom: 18, padding: 16,
+            background: "#EFF6FF", border: "2px solid #2563EB", borderRadius: 10,
+          }}
+        >
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#1E3A8A", marginBottom: 6 }}>
+            {originalRecon.title ?? "📄 Preuzmi popunjen službeni obrazac (1:1)"}
+          </div>
+          <div style={{ fontSize: 12, color: "#1E3A8A", lineHeight: 1.55, marginBottom: 12 }}>
+            {originalRecon.note ?? "BalkanLink vizuelna rekonstrukcija službenog obrasca sa svim tvojim podacima već unesenim (plavom bojom). Ponesi na šalter — sadrži identične sekcije i podatke kao original."}
+          </div>
+          <button
+            onClick={handleRecon}
+            disabled={busyRecon}
+            style={{
+              background: busyRecon ? "#93C5FD" : "#2563EB",
+              color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8,
+              fontWeight: 700, fontSize: 14, cursor: busyRecon ? "default" : "pointer",
+              boxShadow: "0 4px 12px rgba(37,99,235,0.3)",
+            }}
+          >
+            {busyRecon ? "Generišem PDF…" : (originalRecon.buttonLabel ?? "📥 Preuzmi 1:1 popunjen PDF")}
+          </button>
+        </div>
+      )}
 
       {datenblatt && (
         <>
