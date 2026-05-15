@@ -1,8 +1,10 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
+import { buildVisaDatenblatt } from "@/lib/visa-datenblatt-pdf";
+import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
-import { loadFormState, saveFormState, resetVisaProfile } from "@/lib/visa-shared-profile";
+import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
 
 const LS_KEY = "visa-permanent-1-extras";
 const PDF_URL = "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwAndererStaaten/Aufenthaltstitel/aufenthaltstitel-node.html";
@@ -36,7 +38,27 @@ export default function VisaPermanentForm1() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
-      <MusterIntroBlock formKey="visapermanent1" paperId="visa-perm-1-root-paper" />
+      <MusterIntroBlock
+        formKey="visapermanent1"
+        paperId="visa-perm-1-root-paper"
+        datenblatt={{
+          fileName: VISA_DATENBLATT_META.visaPermanent1.fileName,
+          reasonNote: VISA_DATENBLATT_META.visaPermanent1.reasonNote,
+          build: async () => {
+            const meta = VISA_DATENBLATT_META.visaPermanent1;
+            return buildVisaDatenblatt({
+              formTitle: meta.formTitle,
+              formSubtitle: meta.formSubtitle,
+              reasonNote: meta.reasonNote,
+              usageNote: meta.usageNote,
+              officialPdfUrl: meta.officialPdfUrl,
+              officialPdfLabel: meta.officialPdfLabel,
+              profile: loadVisaProfile(),
+              sections: meta.mapExtras(f as Record<string, string>),
+            });
+          },
+        }}
+      />
       <VisaSharedSections f={f} set={set as never} />
 
       <div style={S.sec}>
