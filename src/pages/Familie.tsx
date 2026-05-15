@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { getGuidesByCategory } from "@/lib/guide-data";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 
 type LangKey = "de" | "bs" | "en";
 function getLangKey(lang: string): LangKey {
@@ -38,6 +39,7 @@ export default function Familie() {
 
   return (
     <>
+      <SEO title="Porodica i Djeca — Naknade i Prava" description="Sve naknade i prava za porodice s djecom u Njemačkoj — Kindergeld, Elterngeld, Mutterschutz, Unterhalt i druga davanja." path="/familie" />
       <section className="border-b bg-primary py-12">
         <div className="container max-w-3xl">
           <Breadcrumbs variant="dark" />

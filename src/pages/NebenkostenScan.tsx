@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Upload, FileText, X, Loader2, CheckCircle2, ShieldCheck, Lock, Receipt, Crown, AlertTriangle, ScrollText, Plus, Info } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -183,10 +183,7 @@ export default function NebenkostenScan() {
 
   return (
     <>
-      <Helmet>
-        <title>{t("nebenkostenScan.seoTitle")}</title>
-        <meta name="description" content={t("nebenkostenScan.seoDescription")} />
-      </Helmet>
+      <SEO title={t("nebenkostenScan.seoTitle")} description={t("nebenkostenScan.seoDescription")} path="/nebenkosten-scan" />
 
       {/* HERO — premium dark */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0a1230] via-[#0f1a3d] to-[#0a1230] py-12 sm:py-16 lg:py-20">

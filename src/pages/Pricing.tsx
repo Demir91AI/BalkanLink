@@ -8,6 +8,7 @@ import PageNav from "@/components/navigation/PageNav";
 import PricingFreeCard from "@/components/pricing/PricingFreeCard";
 import PricingPremiumCard from "@/components/pricing/PricingPremiumCard";
 import PricingComparisonTable from "@/components/pricing/PricingComparisonTable";
+import { SEO } from "@/components/SEO";
 
 const deutschLevels = [
   { level: "A1", price: "9,99€",  desc: "Osnove — prvi koraci",          priceId: "DEUTSCH_A1" },
@@ -30,6 +31,7 @@ export default function Pricing() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Cijene i Paketi — Premium 9.99€/mj" description="BalkanLink Premium za 9.99€ mjesečno — sve formulare, viza navigator, Dokumenten-Check, Asistent 24/7. Otkaži kad god želiš." path="/cijene" />
       <PageNav />
       <div className="container max-w-5xl py-10 px-4 space-y-16">
 

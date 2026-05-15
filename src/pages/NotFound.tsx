@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Home, Sparkles, ArrowLeft } from "lucide-react";
 import { useLocalizedHref } from "@/hooks/useLocalizedHref";
+import { SEO } from "@/components/SEO";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,6 +16,7 @@ const NotFound = () => {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#020617] px-5 py-16">
+      <SEO title="404 — Stranica nije pronađena" description="Tražena stranica ne postoji ili je premještena. Vrati se na početnu BalkanLink stranicu i nastavi pretragu." path="/404" />
       {/* Ambient gold glow */}
       <div
         className="pointer-events-none absolute inset-0"

@@ -7,6 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { LogIn, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
+import { SEO } from "@/components/SEO";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -43,6 +44,7 @@ export default function Login() {
 
   return (
     <>
+    <SEO title="Prijava na BalkanLink" description="Prijavi se na svoj BalkanLink nalog i nastavi sa formularima, Asistentom i Premium alatima." path="/login" />
     <PageNav />
     <div className="relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden bg-[#020617]">
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)]" />

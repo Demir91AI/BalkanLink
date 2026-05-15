@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Badge } from "@/components/ui/badge";
@@ -205,10 +205,7 @@ export default function PitajDijasporuDetail() {
 
   return (
     <>
-      <Helmet>
-        <title>{q.title} | BalkanLink</title>
-        <meta name="description" content={q.body.slice(0, 160)} />
-      </Helmet>
+      <SEO title={q.title} description={(q.body || q.title).slice(0, 160)} path={`/pitaj-dijasporu/${q.id}`} type="article" />
       <div className="min-h-screen" style={{ background: "hsl(215 55% 4%)" }}>
         <div className="container py-8 md:py-12 max-w-3xl">
           <Breadcrumbs />

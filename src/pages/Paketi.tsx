@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 import { toast } from "@/hooks/use-toast";
+import { SEO } from "@/components/SEO";
 
 export default function Paketi() {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ export default function Paketi() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Premium Paketi — Mjesečno ili Godišnje" description="Premium pretplata BalkanLink — pristup svim formularima, viza navigatoru, Asistentu i Dokumenten-Checku. Mjesečno ili godišnje." path="/paketi" />
       <div className="mx-auto max-w-4xl px-4 py-10">
         <Breadcrumbs />
 
