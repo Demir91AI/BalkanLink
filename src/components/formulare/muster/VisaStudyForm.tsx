@@ -7,7 +7,7 @@ import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
 
 const LS_KEY = "visa-study-extras";
-const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf";
+const PDF_URL = "https://service.berlin.de/dienstleistung/305249/";
 
 const DEFAULTS = {
   hochschule: "", studiengang: "", abschlussZiel: "",
