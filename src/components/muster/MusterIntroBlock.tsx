@@ -24,6 +24,14 @@ interface Props {
   originalPdfLabel?: string;
   /** When provided, renders extra purple "Preuzmi Datenblatt PDF" CTA + amber explainer note. */
   datenblatt?: DatenblattConfig;
+  /** When provided, renders a blue "1:1 popunjen službeni obrazac" CTA (BalkanLink rekonstrukcija). */
+  originalRecon?: {
+    build: () => Promise<Uint8Array>;
+    fileName: string;
+    title?: string;
+    buttonLabel?: string;
+    note?: string;
+  };
 }
 
 /**
