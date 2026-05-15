@@ -133,23 +133,32 @@ export async function buildAufenthaltstitelPdf(d: AufenthaltstitelData): Promise
     y -= 44;
   }
 
-  // ─── Sekcija 5: Erklärung & Unterschrift ─────────────────────
-  if (y > 130) {
-    y = sectionHeader(c, y - 6, 5, "Erklärung und Unterschrift");
-    page.drawText(
-      "Ich versichere, dass meine Angaben richtig und vollständig sind. Unrichtige oder unvollständige",
-      { x: MARGIN.left, y: y - 14, size: 8.5, font: regular, color: COL.text },
-    );
-    page.drawText(
-      "Angaben können den Widerruf des Aufenthaltstitels und strafrechtliche Folgen nach sich ziehen.",
-      { x: MARGIN.left, y: y - 26, size: 8.5, font: regular, color: COL.text },
-    );
-    const sigY = Math.max(y - 70, 80);
-    signLine(c, MARGIN.left, sigY, 180, "Ort, Datum");
-    signLine(c, MARGIN.left + 220, sigY, A4.w - MARGIN.right - MARGIN.left - 220, "Unterschrift des Antragstellers");
+  // ─── Sekcija 5: Erklärung & Unterschrift (na novoj stranici ako nema mjesta) ──
+  let secCtx = c;
+  let secY = y - 6;
+  let pages = 1;
+  if (secY < 170) {
+    const p2 = doc.addPage([A4.w, A4.h]);
+    secCtx = { page: p2, reg: regular, bold };
+    pageHeader(secCtx, { formCode: "§ 81\nAufenthG", title: FORM_TITLE, subtitle: FORM_SUB, page: 2, total: 2 });
+    secY = A4.h - 76;
+    pages = 2;
   }
+  secY = sectionHeader(secCtx, secY, 5, "Erklärung und Unterschrift");
+  secCtx.page.drawText(
+    "Ich versichere, dass meine Angaben richtig und vollständig sind. Unrichtige oder unvollständige",
+    { x: MARGIN.left, y: secY - 14, size: 8.5, font: regular, color: COL.text },
+  );
+  secCtx.page.drawText(
+    "Angaben können den Widerruf des Aufenthaltstitels und strafrechtliche Folgen nach sich ziehen.",
+    { x: MARGIN.left, y: secY - 26, size: 8.5, font: regular, color: COL.text },
+  );
+  const sigY = secY - 70;
+  signLine(secCtx, MARGIN.left, sigY, 180, "Ort, Datum");
+  signLine(secCtx, MARGIN.left + 220, sigY, A4.w - MARGIN.right - MARGIN.left - 220, "Unterschrift des Antragstellers");
 
-  pageFooter(c, FORM_CODE, 1, TOTAL);
+  pageFooter(c, FORM_CODE, 1, pages);
+  if (pages === 2) pageFooter(secCtx, FORM_CODE, 2, 2);
 
   return doc.save();
 }
