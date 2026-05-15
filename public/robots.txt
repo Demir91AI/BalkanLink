@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.balkanlink.de/sitemap.xml
+Sitemap: https://balkanlink.de/sitemap.xml
