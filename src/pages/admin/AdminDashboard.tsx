@@ -2,13 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
-  AreaChart, Area, LineChart, Line, ResponsiveContainer,
-  XAxis, YAxis, CartesianGrid, Tooltip,
+  AreaChart, Area, LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, Legend,
+  ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip,
 } from "recharts";
 import {
   Crown, Users, Eye, Zap, Bot, FileSearch, Euro, TrendingUp,
   Calendar, AlertTriangle, RefreshCw, ShieldCheck, Sparkles,
-  CheckCircle2, XCircle, Clock, Loader2, BarChart3,
+  CheckCircle2, XCircle, Clock, Loader2, BarChart3, Search,
+  Globe, Smartphone, GraduationCap, Megaphone, Plane, FileText,
+  Target, MapPin, Wallet, Trophy, ArrowUpRight, ArrowDownRight, MoreVertical,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
