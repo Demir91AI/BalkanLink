@@ -1,4 +1,6 @@
-import { Globe, ExternalLink } from "lucide-react";
+import { Globe, ExternalLink, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { getLocalizedCountryContent } from "@/data/viza-i18n";
@@ -11,9 +13,32 @@ interface Props {
 
 const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props) => {
   const { t, i18n } = useTranslation("pages");
+  const localizeHref = useLocalizedHref();
   const COUNTRY_CONTENT = useMemo(() => getLocalizedCountryContent(i18n.language), [i18n.language]);
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
   const route = selectedRoute && country ? country.routes.find(r => r.id === selectedRoute) : null;
+
+  const VISA_MUSTER = [
+    { slug: "nationalvisum", label: "Nationales Visum (D-Visum)" },
+    { slug: "aufenthaltstitel", label: "Aufenthaltstitel — Antrag" },
+    { slug: "niederlassungserlaubnis", label: "Niederlassungserlaubnis" },
+    { slug: "verpflichtungserklaerung", label: "Verpflichtungserklärung" },
+  ];
+
+  const musterBlock = (
+    <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
+      <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Musterformulari</p>
+      {VISA_MUSTER.map((m) => (
+        <Link key={m.slug} to={localizeHref(`/musterformular/${m.slug}`)}
+          style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.85)', fontSize: 12, textDecoration: 'none', padding: '6px 8px', borderRadius: 6, marginBottom: 4, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <FileText size={12} color="#C9A84C" />{m.label}
+        </Link>
+      ))}
+      <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', marginTop: 6, lineHeight: 1.4 }}>
+        Auto-fill • Save lokalno • Print/PDF
+      </p>
+    </div>
+  );
 
   // STATE 1: Nothing selected
   if (!country) return (
@@ -42,6 +67,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             </a>
           ))}
         </div>
+        {musterBlock}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 4 }}>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
@@ -76,6 +102,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             <p style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.88)', margin: 0 }}>{r.title}</p>
           </div>
         ))}
+        {musterBlock}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
@@ -114,6 +141,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             </a>
           ))}
         </div>
+        {musterBlock}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 10, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}

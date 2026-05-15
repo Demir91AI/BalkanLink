@@ -108,6 +108,10 @@ const AnlageUH3Muster = lazy(() => import("./pages/muster/AnlageUH3Muster"));
 const NichterreichbarkeitMuster = lazy(() => import("./pages/muster/NichterreichbarkeitMuster"));
 const MutterschaftsgeldMuster = lazy(() => import("./pages/muster/MutterschaftsgeldMuster"));
 const KrippengeldBayernMuster = lazy(() => import("./pages/muster/KrippengeldBayernMuster"));
+const AufenthaltstitelMuster = lazy(() => import("./pages/muster/AufenthaltstitelMuster"));
+const VerpflichtungserklaerungMuster = lazy(() => import("./pages/muster/VerpflichtungserklaerungMuster"));
+const NationalvisumMuster = lazy(() => import("./pages/muster/NationalvisumMuster"));
+const NiederlassungserlaubnisMuster = lazy(() => import("./pages/muster/NiederlassungserlaubnisMuster"));
 const Viza = lazy(() => import("./pages/Viza"));
 const DvojnoDrzavljanstvo = lazy(() => import("./pages/DvojnoDrzavljanstvo"));
 const EinbuergerungVodic = lazy(() => import("./pages/EinbuergerungVodic"));
@@ -232,6 +236,10 @@ function LocalizedRoutes() {
        <Route path="musterformular/nichterreichbarkeit" element={<NichterreichbarkeitMuster />} />
        <Route path="musterformular/mutterschaftsgeld" element={<MutterschaftsgeldMuster />} />
        <Route path="musterformular/krippengeld-bayern" element={<KrippengeldBayernMuster />} />
+       <Route path="musterformular/aufenthaltstitel" element={<AufenthaltstitelMuster />} />
+       <Route path="musterformular/verpflichtungserklaerung" element={<VerpflichtungserklaerungMuster />} />
+       <Route path="musterformular/nationalvisum" element={<NationalvisumMuster />} />
+       <Route path="musterformular/niederlassungserlaubnis" element={<NiederlassungserlaubnisMuster />} />
         
         <Route path="formulari/:slug" element={<FormCenter />} />
         <Route path="familie" element={<Familie />} />

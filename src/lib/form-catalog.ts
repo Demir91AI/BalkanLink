@@ -139,6 +139,17 @@ export const formCatalog: FormGroup[] = [
       { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Istupanje iz crkve radi ukidanja crkvenog poreza.", includes: "Vodič + Antrag Kirchenaustritt" },
     ],
   },
+  {
+    id: "vize",
+    icon: "🛂",
+    title: "Vize i boravak",
+    items: [
+      { slug: "nationalvisum", label: "Nationales Visum (D-Visum)", desc: "Nacionalna viza za dugoročni boravak (rad, studij, spajanje porodice).", includes: "VIDEX vodič + Musterformular" },
+      { slug: "aufenthaltstitel", label: "Aufenthaltstitel — Antrag", desc: "Zahtjev za izdavanje boravišne dozvole na Ausländerbehörde.", includes: "Smart Guide + Musterformular" },
+      { slug: "niederlassungserlaubnis", label: "Niederlassungserlaubnis", desc: "Stalna boravišna dozvola (§ 9 AufenthG, nakon 5 god.).", includes: "Smart Guide + Musterformular" },
+      { slug: "verpflichtungserklaerung", label: "Verpflichtungserklärung", desc: "Garantno pismo (§ 68 AufenthG) za pozivanje rodbine/posjetilaca.", includes: "Vodič + Musterformular" },
+    ],
+  },
 ];
 
 /** Slugs that have a Musterformular page at /musterformular/:musterSlug */
@@ -174,6 +185,10 @@ export const MUSTER_SLUG_MAP: Record<string, string> = {
   "nichterreichbarkeit": "nichterreichbarkeit",
   "mutterschaftsgeld": "mutterschaftsgeld",
   "krippengeld-bayern": "krippengeld-bayern",
+  "nationalvisum": "nationalvisum",
+  "aufenthaltstitel": "aufenthaltstitel",
+  "niederlassungserlaubnis": "niederlassungserlaubnis",
+  "verpflichtungserklaerung": "verpflichtungserklaerung",
 };
 
 export function hasMuster(slug: string): boolean {
