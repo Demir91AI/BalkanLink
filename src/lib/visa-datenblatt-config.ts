@@ -1,7 +1,7 @@
 /**
  * Per-form configuration for visa Datenblatt PDF generation.
  *
- * Svaka forma ima:
+ * Svaka forma:
  *  - reasonNote — zašto ne pravimo 1:1 popunjen službeni PDF
  *  - usageNote  — kako korisnik koristi Datenblatt
  *  - mapExtras  — pretvara form-specific podatke u DatenblattSection[]
@@ -22,6 +22,9 @@ export interface VisaDatenblattMeta {
   officialPdfLabel?: string;
   mapExtras: (f: AnyExtras) => DatenblattSection[];
 }
+
+const join = (...parts: Array<string | undefined>) =>
+  parts.filter((p) => p && String(p).trim()).join(" — ");
 
 const REASON_BAMF =
   "Službeni BAMF obrazac „Antrag auf Erteilung eines Aufenthaltstitels“ je XFA forma " +
@@ -48,7 +51,7 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
         rows: [
           { label: "Arbeitgeber (Poslodavac)", value: f.arbeitgeber },
           { label: "Anschrift Arbeitgeber", value: f.arbeitgeberAdresse },
-          { label: "Position / Tätigkeit", value: [f.position, f.taetigkeit].filter(Boolean).join(" — ") },
+          { label: "Position / Tätigkeit", value: join(f.position, f.taetigkeit) },
           { label: "Brutto Jahresgehalt (EUR)", value: f.jahresgehalt },
           { label: "Brutto Monatsgehalt (EUR)", value: f.monatsgehalt },
           { label: "Wochenstunden", value: f.wochenstunden },
@@ -96,8 +99,8 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
           { label: "Firma / Arbeitgeber", value: f.agName },
           { label: "Anschrift", value: f.agAdresse },
           { label: "Ansprechpartner", value: f.agAnsprechpartner },
-          { label: "Telefon / E-Mail", value: [f.agTelefon, f.agEmail].filter(Boolean).join(" • ") },
-          { label: "Branche / Betriebsgröße", value: [f.branche, f.betriebsgroesse].filter(Boolean).join(" — ") },
+          { label: "Telefon / E-Mail", value: join(f.agTelefon, f.agEmail) },
+          { label: "Branche / Betriebsgröße", value: join(f.branche, f.betriebsgroesse) },
         ],
       },
       {
@@ -142,10 +145,11 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
       {
         title: "D. Hochschulabschluss (Diploma)",
         rows: [
-          { label: "Hochschule / Univerzitet", value: f.hochschule },
-          { label: "Studiengang", value: f.studiengang },
-          { label: "Abschlussdatum", value: f.abschlussdatum },
-          { label: "Anabin-Bewertung", value: f.anabinBewertung },
+          { label: "Hochschule / Univerzitet", value: f.hochschuleName },
+          { label: "Studienfach", value: f.studienfach },
+          { label: "Hochschulabschluss (Bachelor/Master)", value: f.hochschulabschluss },
+          { label: "Abschlussjahr", value: f.abschlussJahr },
+          { label: "Anabin / ZAB", value: join(f.anabinId, f.anerkennungArt, f.zabBescheinigung) },
         ],
       },
       {
@@ -153,15 +157,18 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
         rows: [
           { label: "Arbeitgeber", value: f.arbeitgeber },
           { label: "Anschrift Arbeitgeber", value: f.arbeitgeberAdresse },
-          { label: "Position", value: f.position },
+          { label: "Tätigkeit", value: f.taetigkeit },
           { label: "Brutto Jahresgehalt (EUR)", value: f.jahresgehalt },
+          { label: "Brutto Monatsgehalt (EUR)", value: f.monatsgehalt },
           { label: "Mangelberuf (MINT/IT/Med)", value: f.mangelberuf },
+          { label: "IT-Erfahrung (godina)", value: f.itBerufErfahrungJahre },
         ],
       },
       {
-        title: "F. Einreise & Versicherung",
+        title: "F. Vertrag & Versicherung",
         rows: [
-          { label: "Geplanter Arbeitsbeginn", value: f.einreiseDatum },
+          { label: "Vertragsbeginn", value: f.vertragsbeginn },
+          { label: "Vertragsdauer", value: f.vertragsdauer },
           { label: "Krankenversicherung", value: f.krankenversicherung },
         ],
       },
@@ -179,29 +186,31 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {
-        title: "D. Stammberechtigte Person (član porodice u DE)",
+        title: "D. Bezugsperson (član porodice u DE)",
         rows: [
-          { label: "Name, Vornamen", value: [f.stammName, f.stammVornamen].filter(Boolean).join(" ") },
-          { label: "Geburtsdatum", value: f.stammGeburtsdatum },
-          { label: "Staatsangehörigkeit", value: f.stammStaats },
-          { label: "Aufenthaltstitel (vrsta)", value: f.stammTitel },
-          { label: "Anschrift in DE", value: f.stammAdresse },
-          { label: "Verhältnis (Ehepartner/Kind/Eltern)", value: f.verhaeltnis },
+          { label: "Name (Ime i prezime)", value: f.bezugspersonName },
+          { label: "Geburtsdatum", value: f.bezugspersonGeburtsdatum },
+          { label: "Staatsangehörigkeit", value: f.bezugspersonStaat },
+          { label: "Aufenthaltsart (vrsta titula)", value: f.bezugspersonAufenthaltsart },
+          { label: "Aufenthalt gültig bis", value: f.bezugspersonAufenthaltGueltigBis },
+          { label: "Anschrift in DE", value: f.bezugspersonAdresseDE },
+          { label: "Verwandtschaft", value: f.verwandtschaft },
         ],
       },
       {
-        title: "E. Eheschließung / Geburt",
+        title: "E. Eheschließung",
         rows: [
-          { label: "Eheschließung — Datum / Ort", value: [f.eheDatum, f.eheOrt].filter(Boolean).join(" — ") },
-          { label: "A1 Sprachzeugnis (Datum/Inst.)", value: f.a1Zeugnis },
+          { label: "Heiratsdatum / Ort", value: join(f.heiratsdatum, f.heiratsort) },
+          { label: "A1 Sprachzertifikat", value: join(f.a1Zertifikat, f.a1Datum, f.a1Institut) },
+          { label: "Kinder", value: f.kinder },
         ],
       },
       {
-        title: "F. Lebensunterhalt",
+        title: "F. Wohnung & Lebensunterhalt",
         rows: [
-          { label: "Einkommen Stammberechtigter (EUR/Monat)", value: f.einkommenStamm },
-          { label: "Wohnung — m² / Anzahl Räume", value: [f.wohnflaeche, f.zimmer].filter(Boolean).join(" m² / ") },
-          { label: "Krankenversicherung", value: f.krankenversicherung },
+          { label: "Wohnraum (m²)", value: f.wohnraumQm },
+          { label: "Anzahl Personen im Haushalt", value: f.anzahlPersonen },
+          { label: "Lebensunterhalt — Nachweis", value: f.lebensunterhaltNachweis },
         ],
       },
       { title: "G. Bemerkungen", rows: [{ label: "Bemerkungen", value: f.bemerkungen }] },
@@ -222,25 +231,30 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
         rows: [
           { label: "Hochschule", value: f.hochschule },
           { label: "Studiengang", value: f.studiengang },
-          { label: "Zulassungsbescheid — Datum", value: f.zulassungDatum },
-          { label: "Studienbeginn", value: f.studienbeginn },
-          { label: "Studiendauer (Sem.)", value: f.studiendauer },
+          { label: "Abschlussziel (Bachelor/Master)", value: f.abschlussZiel },
+          { label: "Zulassungsbescheid Nr.", value: f.zulassungsbescheidNr },
+          { label: "Zulassungsbescheid — Datum", value: f.zulassungsbescheidDatum },
+          { label: "Semesterstart", value: f.semesterStart },
+          { label: "Studienkolleg (falls)", value: f.studienkolleg },
         ],
       },
       {
         title: "E. Finanzierung (Sperrkonto / Bürgschaft)",
         rows: [
           { label: "Sperrkonto Bank", value: f.sperrkontoBank },
+          { label: "Sperrkonto IBAN", value: f.sperrkontoIban },
           { label: "Sperrkonto Betrag (EUR)", value: f.sperrkontoBetrag },
-          { label: "Bürge (Name, Adresse)", value: f.buerge },
-          { label: "Stipendium (falls)", value: f.stipendium },
+          { label: "Stipendium", value: f.stipendium },
+          { label: "Verpflichtungserklärung", value: f.verpflichtungserklaerung },
         ],
       },
       {
-        title: "F. Sprachkenntnisse",
+        title: "F. Sprachkenntnisse & Vorbildung",
         rows: [
-          { label: "Deutschzertifikat (DSH/TestDaF)", value: f.deutschzertifikat },
-          { label: "Englischzertifikat (TOEFL/IELTS)", value: f.englischzertifikat },
+          { label: "Sprachzertifikat / Niveau", value: join(f.sprachzertifikat, f.sprachnivo) },
+          { label: "Datum zertifikata", value: f.sprachDatum },
+          { label: "Vorbildung", value: f.vorbildung },
+          { label: "Krankenversicherung", value: f.krankenversicherung },
         ],
       },
       { title: "G. Bemerkungen", rows: [{ label: "Bemerkungen", value: f.bemerkungen }] },
@@ -257,31 +271,40 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {
-        title: "D. Aufenthaltsdauer & Titel",
+        title: "D. Aktueller Aufenthaltstitel",
         rows: [
-          { label: "Erste Einreise nach DE", value: f.ersteEinreise },
-          { label: "Aktueller Aufenthaltstitel", value: f.aktuellerTitel },
-          { label: "Gültig seit", value: f.titelSeit },
-          { label: "Ununterbrochene Jahre in DE", value: f.jahreInDe },
+          { label: "Aktuelle boravišna dozvola (vrsta)", value: f.aktBoravisnaDozvola },
+          { label: "Vrijedi do", value: f.aktDozvolaGueltigBis },
+          { label: "Erste Einreise nach DE", value: f.einreiseDatum },
+          { label: "Boravak od (datum)", value: f.boravakOd },
         ],
       },
       {
-        title: "E. Lebensunterhalt & Rente",
+        title: "E. Beschäftigung & Rente",
         rows: [
-          { label: "Beschäftigung — Arbeitgeber", value: f.arbeitgeber },
-          { label: "Brutto Monatsgehalt (EUR)", value: f.bruttoMonat },
-          { label: "Rentenversicherung — Monate eingezahlt", value: f.rentenmonate },
+          { label: "Arbeitgeber", value: f.arbeitgeber },
+          { label: "Beruf", value: f.beruf },
+          { label: "Brutto Monatsgehalt (EUR)", value: f.monatsbruttoEinkommen },
+          { label: "Rentenversicherung — Monate", value: f.rentenversicherungMonate },
         ],
       },
       {
-        title: "F. Integration",
+        title: "F. Integration & Wohnen",
         rows: [
-          { label: "Deutschzertifikat (B1)", value: f.deutschzertifikat },
-          { label: "Einbürgerungstest / LiD", value: f.lidTest },
-          { label: "Wohnung — m²", value: f.wohnflaeche },
+          { label: "Sprachzertifikat / Niveau", value: join(f.sprachzertifikat, f.sprachnivo) },
+          { label: "Integrationskurs", value: f.integrationskurs },
+          { label: "Einbürgerungstest / LiD", value: f.einbuergerungstest },
+          { label: "Wohnraum (m²)", value: f.wohnraumQm },
         ],
       },
-      { title: "G. Bemerkungen", rows: [{ label: "Bemerkungen", value: f.bemerkungen }] },
+      {
+        title: "G. Familie",
+        rows: [
+          { label: "Ehepartner", value: f.ehepartnerName },
+          { label: "Kinder", value: f.kinder },
+        ],
+      },
+      { title: "H. Bemerkungen", rows: [{ label: "Bemerkungen", value: f.bemerkungen }] },
     ],
   },
 
@@ -297,26 +320,29 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
       {
         title: "D. Aufenthaltsdauer (5 godina pravilo)",
         rows: [
-          { label: "Erste Einreise nach DE", value: f.ersteEinreise },
-          { label: "Aktueller Aufenthaltstitel", value: f.aktuellerTitel },
-          { label: "Ununterbrochene Jahre", value: f.jahreInDe },
-          { label: "Auslandsaufenthalte > 6 Monate?", value: f.auslandLang },
+          { label: "Aktuelle boravišna dozvola", value: f.aktBoravisnaDozvola },
+          { label: "Vrijedi do", value: f.aktDozvolaGueltigBis },
+          { label: "Erste Einreise nach DE", value: f.einreiseDatum },
+          { label: "Boravak od (datum)", value: f.boravakOd },
+          { label: "Langfristige Beschäftigung (ja/nein)", value: f.langfristigeBeschaeftigung },
+          { label: "Abwesenheiten in EU", value: f.abwesenheitenEU },
         ],
       },
       {
         title: "E. Lebensunterhalt",
         rows: [
           { label: "Arbeitgeber", value: f.arbeitgeber },
-          { label: "Brutto Monatsgehalt (EUR)", value: f.bruttoMonat },
-          { label: "Krankenversicherung", value: f.krankenversicherung },
+          { label: "Beruf", value: f.beruf },
+          { label: "Brutto Monatsgehalt (EUR)", value: f.monatsbruttoEinkommen },
+          { label: "Rentenversicherung — Monate", value: f.rentenversicherungMonate },
+          { label: "Krankenversicherung (Art)", value: f.krankenversicherungArt },
         ],
       },
       {
         title: "F. Integration",
         rows: [
-          { label: "Deutschzertifikat (B1)", value: f.deutschzertifikat },
-          { label: "LiD-Test", value: f.lidTest },
-          { label: "Wohnung — m²", value: f.wohnflaeche },
+          { label: "Sprachzertifikat / Niveau", value: join(f.sprachzertifikat, f.sprachnivo) },
+          { label: "EU Blaue Karte (gehabt?)", value: f.euBlaueKarte },
         ],
       },
       { title: "G. Bemerkungen", rows: [{ label: "Bemerkungen", value: f.bemerkungen }] },
