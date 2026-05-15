@@ -1,4 +1,6 @@
-import { Globe, ExternalLink } from "lucide-react";
+import { Globe, ExternalLink, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLocalizedHref } from "@/hooks/useLocalizedHref";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { getLocalizedCountryContent } from "@/data/viza-i18n";
