@@ -185,6 +185,10 @@ export const MUSTER_SLUG_MAP: Record<string, string> = {
   "nichterreichbarkeit": "nichterreichbarkeit",
   "mutterschaftsgeld": "mutterschaftsgeld",
   "krippengeld-bayern": "krippengeld-bayern",
+  "nationalvisum": "nationalvisum",
+  "aufenthaltstitel": "aufenthaltstitel",
+  "niederlassungserlaubnis": "niederlassungserlaubnis",
+  "verpflichtungserklaerung": "verpflichtungserklaerung",
 };
 
 export function hasMuster(slug: string): boolean {
