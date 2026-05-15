@@ -77,9 +77,29 @@ function ensureSpace(doc: PDFDocument, c: Cursor, needed: number): Cursor {
   return c;
 }
 
+/**
+ * pdf-lib StandardFonts (Helvetica) koristi WinAnsi encoding koji ne podržava
+ * š/č/đ/ž/ć i ostale Unicode znakove → throw "WinAnsi cannot encode...".
+ * Sanitiziramo na najbliži ASCII ekvivalent prije crtanja.
+ */
+const DIACRITIC_MAP: Record<string, string> = {
+  "š": "s", "Š": "S", "č": "c", "Č": "C", "ć": "c", "Ć": "C",
+  "đ": "dj", "Đ": "Dj", "ž": "z", "Ž": "Z",
+  "ä": "ae", "Ä": "Ae", "ö": "oe", "Ö": "Oe", "ü": "ue", "Ü": "Ue", "ß": "ss",
+  "á": "a", "à": "a", "â": "a", "é": "e", "è": "e", "ê": "e",
+  "í": "i", "ì": "i", "î": "i", "ó": "o", "ò": "o", "ô": "o",
+  "ú": "u", "ù": "u", "û": "u", "ñ": "n", "ç": "c",
+  "—": "-", "–": "-", "„": '"', "“": '"', "”": '"', "‚": "'", "‘": "'", "’": "'",
+  "•": "*", "✓": "v", "✕": "x", "⚠": "!", "ℹ": "i", "→": "->",
+};
+function safe(s: string): string {
+  if (!s) return "";
+  return s.split("").map((c) => DIACRITIC_MAP[c] ?? (c.charCodeAt(0) < 256 ? c : "?")).join("");
+}
+
 function wrap(text: string, font: PDFFont, size: number, maxW: number): string[] {
   const out: string[] = [];
-  for (const para of (text || "").split("\n")) {
+  for (const para of (safe(text) || "").split("\n")) {
     const words = para.split(/\s+/);
     let line = "";
     for (const w of words) {
