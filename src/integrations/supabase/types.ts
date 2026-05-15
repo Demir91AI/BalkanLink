@@ -1452,6 +1452,7 @@ export type Database = {
         Args: { payload: Json; queue_name: string }
         Returns: number
       }
+      get_admin_dashboard_extra: { Args: never; Returns: Json }
       get_admin_payments: {
         Args: { _limit?: number }
         Returns: {
@@ -1477,6 +1478,23 @@ export type Database = {
           last_login_at: string
           subscription_expires_at: string
           subscription_tier: string
+        }[]
+      }
+      get_admin_users_list: {
+        Args: { _limit?: number; _search?: string; _tier_filter?: string }
+        Returns: {
+          activity: string
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          is_premium: boolean
+          last_login_at: string
+          pages_per_session: number
+          preferred_lang: string
+          subscription_expires_at: string
+          subscription_tier: string
+          user_type: string
         }[]
       }
       get_daily_chat_count: { Args: { _user_id: string }; Returns: number }
