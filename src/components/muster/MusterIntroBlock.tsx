@@ -53,8 +53,10 @@ export default function MusterIntroBlock({
   originalPdfUrl,
   originalPdfLabel = "Original (službeni PDF) →",
   datenblatt,
+  originalRecon,
 }: Props) {
   const [busy, setBusy] = useState(false);
+  const [busyRecon, setBusyRecon] = useState(false);
 
   const handlePrint = () => {
     if (paperId) {
