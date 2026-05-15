@@ -1,0 +1,55 @@
+# BalkanLink
+
+> Vodič za Balkance u Njemačkoj — formulari (Kindergeld, Bürgergeld, Anmeldung, Elterngeld), viza navigator, asistent 24/7, Deutsch kurs A1–C2 i kalkulatori. Sadržaj na bosanskom, hrvatskom, srpskom i njemačkom (Stand 2026).
+
+BalkanLink (RealCore Digital) pomaže ljudima sa Balkana koji žive u Njemačkoj ili planiraju dolazak: ispunjavanje službenih formulara uz dvojezične objašnjavajuće vodiče, korak-po-korak viza navigator, premium AI asistent ("Asistent"), priznavanje diploma (Anerkennung), porezi (ELSTER), brutto/netto kalkulatori, Schufa simulator i provjera dokumenata.
+
+## Pages
+
+- [Početna](/): Pregled svih alata i sadržaja.
+- [Počni ovdje](/dolazak): Vodič za prve korake po dolasku u Njemačku.
+- [Prijava prebivališta (Anmeldung)](/dolazak/prijava-prebivalista): Kako se prijaviti u Bürgeramt.
+- [Boravišna dozvola](/dolazak/boravisna-dozvola): Aufenthaltstitel objašnjenja.
+- [Steuer-ID i porezna klasa](/dolazak/steuer-id-i-porezna-klasa): Šta je Steueridentifikationsnummer.
+- [Zdravstveno osiguranje](/dolazak/zdravstveno-osiguranje): GKV vs PKV.
+- [Bankovni račun](/dolazak/bankovni-racun): Otvaranje računa u Njemačkoj.
+- [Formulari (Center)](/formulari): Katalog svih službenih formulara i vodiča.
+- [Musterformular Kindergeld](/musterformular/kindergeld): Interaktivno popunjavanje KG1 + Anlage Kind 2026 (PDF).
+- [Musterformular Bürgergeld](/musterformular/buergergeld): Bürgergeld + 11 Anlagen (EK/EKS/HG/KDU/KI/MEB/SV/UH1/VE/VM/WEP).
+- [Musterformular Elterngeld](/musterformular/elterngeld): Elterngeld po Bundeslandu (Bayern, Hamburg, Niedersachsen, MV, Thüringen).
+- [Musterformular Anmeldung](/musterformular/anmeldung): Bürgeramt simulacija.
+- [Vorlagen / Šabloni](/vorlagen): Kündigung, Widerspruch, Einspruch i drugi pisani šabloni (DIN 5008).
+- [Check liste](/check-liste): Premium PDF check liste (Kindergeld, Anmeldung, itd.).
+- [Viza Navigator](/viza): Step-by-step proces za vizu (Bosna i Hercegovina).
+- [Anerkennung Navigator](/anerkennung): Priznavanje diploma i kvalifikacija.
+- [Porezi (Hub)](/porezi): ELSTER vodič, klase, deadlines, deductions.
+- [Porezi Wizard](/porezi/wizard): Personalizovani vodič kroz poreznu prijavu.
+- [Brutto/Netto kalkulator](/brutto-netto-rechner): Plata 2026 (PV 12.82€, Kindergeld 255€).
+- [Schufa Simulator](/schufa-simulator): Procjena Schufa scorea.
+- [Dokumenten-Check](/dokumenten-check): AI provjera njemačkih dokumenata.
+- [Nebenkosten Scan](/nebenkosten-scan): Provjera obračuna režija.
+- [Bußgeld Asistent](/bussgeld-assistent): Provjera kazni u saobraćaju.
+- [Mietrecht](/mietrecht): Stanarsko pravo u Njemačkoj.
+- [Radno pravo](/radno-pravo): Arbeitsrecht vodiči.
+- [Biznis u Njemačkoj](/biznis-njemacka): Gewerbe, Freiberufler, GmbH.
+- [Anmeldung Simulator](/anmeldung-simulator): Interaktivni Bürgeramt intervju.
+- [BalkanLink Deutsch](/deutsch-trainer): Njemački kurs A1–C2 (240 lekcija, 500 zadataka).
+- [Asistent](/asistent): AI asistent na bosanskom (24/7).
+- [Familie / Foerderungen](/familie): Porodica i benefiti (Kindergeld, Elterngeld, Kinderzuschlag).
+- [Wohnungen](/wohnungen): Stanovi — portali i savjeti.
+- [Stellenangebote](/stellenangebote): Posao — portali i savjeti.
+- [Pitaj dijasporu](/pitaj-dijasporu): User-generated Q&A.
+- [Direktorij firmi](/firme): Bosanske/balkanske firme u Njemačkoj.
+- [Sačuvano](/sacuvano): Korisnikove označene stavke.
+- [Premium / Paketi](/paketi): Premium pretplata (9.99€/mj).
+- [Pricing](/cijene): Pregled cijena.
+
+## Optional
+
+- [Impressum](/impressum)
+- [Datenschutz](/datenschutz)
+- [AGB / Nutzungsbedingungen](/agb)
+- [Disclaimer](/disclaimer)
+- [Cookie-Richtlinie](/cookie-richtlinie)
+- [DSA](/dsa)
+- [KI Hinweis](/ki-hinweis)

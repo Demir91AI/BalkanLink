@@ -57,6 +57,36 @@
     <meta name="application-name" content="BalkanLink" />
     <meta name="msapplication-TileColor" content="#020617" />
     <meta name="msapplication-tap-highlight" content="no" />
+    <!-- JSON-LD: Organization + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.balkanlink.de/#organization",
+          "name": "BalkanLink",
+          "url": "https://www.balkanlink.de/",
+          "logo": "https://www.balkanlink.de/icons/apple-touch-icon-180x180.png",
+          "description": "Vodič za Balkance u Njemačkoj — formulari, viza, asistent, Deutsch kurs.",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.balkanlink.de/#website",
+          "url": "https://www.balkanlink.de/",
+          "name": "BalkanLink",
+          "publisher": { "@id": "https://www.balkanlink.de/#organization" },
+          "inLanguage": ["bs", "hr", "sr", "de"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.balkanlink.de/firme?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
