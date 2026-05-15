@@ -1,5 +1,8 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
+import { buildVisaDatenblatt } from "@/lib/visa-datenblatt-pdf";
+import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
+import { loadVisaProfile } from "@/lib/visa-shared-profile";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile } from "@/lib/visa-shared-profile";
@@ -35,7 +38,27 @@ export default function VisaBluecardForm() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
-      <MusterIntroBlock formKey="visabluecard" paperId="visa-bluecard-root-paper" />
+      <MusterIntroBlock
+        formKey="visabluecard"
+        paperId="visa-bluecard-root-paper"
+        datenblatt={{
+          fileName: VISA_DATENBLATT_META.visaBluecard.fileName,
+          reasonNote: VISA_DATENBLATT_META.visaBluecard.reasonNote,
+          build: async () => {
+            const meta = VISA_DATENBLATT_META.visaBluecard;
+            return buildVisaDatenblatt({
+              formTitle: meta.formTitle,
+              formSubtitle: meta.formSubtitle,
+              reasonNote: meta.reasonNote,
+              usageNote: meta.usageNote,
+              officialPdfUrl: meta.officialPdfUrl,
+              officialPdfLabel: meta.officialPdfLabel,
+              profile: loadVisaProfile(),
+              sections: meta.mapExtras(f as Record<string, string>),
+            });
+          },
+        }}
+      />
       <VisaSharedSections f={f} set={set as never} />
 
       <div style={S.sec}>
