@@ -1,231 +1,85 @@
-import {
-  FormField,
-  GoldTip,
-  CheckRow,
-  sectionTitle,
-  labelCls,
-  exampleCls,
-  pageSep,
-  gold,
-} from "./VisaFormPrimitives";
+import { useState } from "react";
+import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import VisaSharedSections from "./VisaSharedSections";
+import { loadFormState, saveFormState, resetVisaProfile } from "@/lib/visa-shared-profile";
+
+const LS_KEY = "visa-work-form1-extras";
+const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf";
+
+const DEFAULTS = {
+  arbeitgeber: "", arbeitgeberAdresse: "", position: "", taetigkeit: "",
+  jahresgehalt: "", monatsgehalt: "", wochenstunden: "",
+  vorabzustimmungAA: "", vorabzustimmungDatum: "", anerkennung: "",
+  einreiseDatum: "", erstesEinreiseDatum: "",
+  westbalkanRegelung: "",
+  krankenversicherung: "", krankenversicherungNr: "",
+  bemerkungen: "",
+};
 
 export default function VisaWorkForm1() {
+  const [f, setF] = useState(() => loadFormState(LS_KEY, DEFAULTS));
+  const set = (k: string, v: string) => setF((p) => ({ ...p, [k]: v }));
+
   return (
-    <div className="mx-auto max-w-[800px] rounded-lg bg-white p-8 space-y-6" style={{ border: "1px solid #D0C8B0" }}>
-      {/* Form Header */}
-      <div className="text-center space-y-1">
-        <h2 className="text-lg font-bold">Antrag auf Erteilung einer Aufenthaltserlaubnis</h2>
-        <p className="text-sm text-muted-foreground">gem. § 81 Abs. 1 Aufenthaltsgesetz (AufenthG)</p>
-        <p className="text-xs text-muted-foreground">AUFENTHG-009-DE-FL – 10-2025</p>
+    <MusterFormBase
+      rootId="visa-work-1-root"
+      title="Antrag auf Aufenthaltserlaubnis — Beschäftigung (§ 18 AufenthG)"
+      subtitle="Musterformular — BalkanLink — auto-fill iz zajedničkog visa profila"
+      pdfUrl={PDF_URL}
+      pdfLabel="Original (BAMF) →"
+      footerNote="Musterformular zur Orientierung • Westbalkan-Regelung (BiH/SR/ME/MK/XK/AL): rad bez priznavanja kvalifikacija (50.000 viza/god). • BalkanLink nije državna institucija"
+      lsKey={LS_KEY}
+      data={f}
+      onSave={() => saveFormState(LS_KEY, f)}
+      onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
+    >
+      <VisaSharedSections f={f} set={set as never} />
+
+      <div style={S.sec}>
+        <SecHeader num={4} title="D. Beschäftigung" />
+        <Field label="Arbeitgeber (Name)" value={f.arbeitgeber} onChange={(v) => set("arbeitgeber", v)} />
+        <Field label="Arbeitgeber — Anschrift" value={f.arbeitgeberAdresse} onChange={(v) => set("arbeitgeberAdresse", v)} />
+        <div style={S.row}>
+          <Field label="Position / Job-Titel" value={f.position} onChange={(v) => set("position", v)} />
+          <Field label="Tätigkeit (Beschreibung)" value={f.taetigkeit} onChange={(v) => set("taetigkeit", v)} />
+        </div>
+        <div style={S.row}>
+          <Field label="Brutto-Jahresgehalt (EUR)" value={f.jahresgehalt} onChange={(v) => set("jahresgehalt", v)} />
+          <Field label="Brutto-Monatsgehalt (EUR)" value={f.monatsgehalt} onChange={(v) => set("monatsgehalt", v)} />
+        </div>
+        <Field label="Wochenstunden" value={f.wochenstunden} onChange={(v) => set("wochenstunden", v)} />
       </div>
 
-      <GoldTip>📸 Seit dem 01.05.2025 sind ausschließlich digitale biometrische Lichtbilder zulässig!</GoldTip>
-
-      {/* SEITE 1 */}
-      <div>
-        <h3 className={sectionTitle} style={{ borderColor: "#E0D0B0" }}>Seite 1 — Antragsteller/in</h3>
-
-        <div className="grid grid-cols-2 gap-4">
-          <FormField label="Familienname, ggf. frühere(r) Name(n)" example="Mustermann" />
-          <FormField label="Vorname(n) (Rufname in Großbuchstaben)" example="MAX" />
+      <div style={S.sec}>
+        <SecHeader num={5} title="E. Vorabzustimmung BA & Anerkennung" />
+        <div style={S.row}>
+          <Field label="Vorabzustimmung BA — Kundennummer" value={f.vorabzustimmungAA} onChange={(v) => set("vorabzustimmungAA", v)} />
+          <Field label="Datum Vorabzustimmung" type="date" value={f.vorabzustimmungDatum} onChange={(v) => set("vorabzustimmungDatum", v)} />
         </div>
-
-        <div className="grid grid-cols-3 gap-4 mt-4">
-          <FormField label="Geburtsdatum" example="01.01.1990" type="text" />
-          <FormField label="Geburtsort" example="Sarajevo, Bosnien" />
-          <FormField label="Geburtsland" example="Bosnien und Herzegowina" />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <FormField label="Staatsangehörigkeit" example="bosnisch-herzegowinisch" />
-          <FormField label="Eventuell frühere Staatsangehörigkeit(en)" example="keine" />
-        </div>
-
-        <div className="mt-4">
-          <label className={labelCls}>Geschlecht</label>
-          <CheckRow options={["männlich", "weiblich"]} selected={0} />
-          <p className={exampleCls} style={{ color: gold }}>Zutreffendes ankreuzen</p>
-        </div>
-
-        <div className="mt-4">
-          <label className={labelCls}>Familienstand</label>
-          <CheckRow options={["ledig", "verheiratet", "eingetr. Lebenspartnerschaft", "geschieden", "verwitwet", "getrennt lebend"]} selected={1} />
-          <p className={exampleCls} style={{ color: gold }}>z.B. verheiratet seit 2015</p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <FormField label="Derzeitiger Wohnsitz in Deutschland (Straße, Hausnr., PLZ, Ort)" example="Musterstraße 1, 99001 Erfurt" />
-          <FormField label="Ersteinreise am" example="15.03.2025" />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <FormField label="Telefon" example="+49 123 456789" />
-          <FormField label="E-Mail" example="max.mustermann@email.de" />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <FormField label="Größe (cm)" example="180 cm" />
-          <FormField label="Augenfarbe" example="braun" />
-        </div>
-
-        {/* Spouse */}
-        <h4 className="font-semibold text-sm mt-6 mb-3">Familienangehörige — Ehegatte/in</h4>
-        <div className="grid grid-cols-2 gap-4">
-          <FormField label="Familienname" example="Mustermann geb. Hodžić" />
-          <FormField label="Vorname(n)" example="MARIA" />
-        </div>
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <FormField label="Geburtsdatum" example="15.06.1992" />
-          <FormField label="Geburtsort" example="Sarajevo" />
-        </div>
-
-        {/* Aufenthalt im Ausland */}
-        <h4 className="font-semibold text-sm mt-6 mb-3">Aufenthalt im Ausland (länger als 6 Monate)</h4>
-        <CheckRow options={["nein", "ja"]} selected={0} />
+        <Field label="Anerkennung der Berufsqualifikation (Status / Anabin-ID)" value={f.anerkennung} onChange={(v) => set("anerkennung", v)} />
+        <Field label="Westbalkan-Regelung (§ 26 Abs. 2 BeschV — ja/nein)" value={f.westbalkanRegelung} onChange={(v) => set("westbalkanRegelung", v)} />
+        <p style={{ fontSize: 10, fontStyle: "italic", color: "#6b7280" }}>
+          Westbalkan: BiH/SR/ME/MK/XK/AL — bez priznavanja kvalifikacija, kontingent 50.000 viza/god, EzB obavezna.
+        </p>
       </div>
 
-      {/* Page Break */}
-      <div className={pageSep}>
-        <div className="flex-1 border-t border-border" />
-        <span className="text-xs text-muted-foreground">Seite 2 von 4</span>
-        <div className="flex-1 border-t border-border" />
-      </div>
-
-      {/* SEITE 2 */}
-      <div>
-        <h3 className={sectionTitle} style={{ borderColor: "#E0D0B0" }}>Seite 2 — Lebensunterhalt</h3>
-
-        <div className="space-y-3">
-          <label className={labelCls}>Lebensunterhalt gesichert durch:</label>
-          <div className="space-y-2 text-sm">
-            <label className="flex items-center gap-2">
-              <input type="checkbox" defaultChecked className="h-3.5 w-3.5 accent-[#C9A84C]" />
-              Einkommen aus eigener Erwerbstätigkeit
-            </label>
-            <div className="ml-6 grid grid-cols-2 gap-4">
-              <FormField label="Monatlicher Netto-Verdienst" example="2.800 €" />
-              <FormField label="Bei / Als" example="TechGmbH München / Softwareentwickler" />
-            </div>
-          </div>
-
-          <div className="mt-3">
-            <label className={labelCls}>Beziehen Sie Leistungen nach SGB II/XII?</label>
-            <CheckRow options={["nein", "ja"]} selected={0} />
-          </div>
+      <div style={S.sec}>
+        <SecHeader num={6} title="F. Einreise & Versicherung" />
+        <div style={S.row}>
+          <Field label="Erste Einreise nach DE" type="date" value={f.erstesEinreiseDatum} onChange={(v) => set("erstesEinreiseDatum", v)} />
+          <Field label="Geplanter Arbeitsbeginn" type="date" value={f.einreiseDatum} onChange={(v) => set("einreiseDatum", v)} />
         </div>
-
-        <h4 className="font-semibold text-sm mt-6 mb-3">Aufenthaltsrechtlicher Status</h4>
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" defaultChecked className="h-3.5 w-3.5 accent-[#C9A84C]" />
-          Aufenthaltserlaubnis
-        </label>
-        <div className="ml-6 grid grid-cols-2 gap-4 mt-2">
-          <FormField label="Bezeichnung" example="§ 18 AufenthG — Arbeitsvisa" />
-          <FormField label="Gültig bis" example="31.12.2025" />
-        </div>
-        <GoldTip>ℹ️ Tragen Sie hier §18 AufenthG ein für Arbeitsvisa</GoldTip>
-
-        <h4 className="font-semibold text-sm mt-6 mb-3">Krankenversicherung</h4>
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" defaultChecked className="h-3.5 w-3.5 accent-[#C9A84C]" />
-          ja, bei:
-        </label>
-        <div className="ml-6 grid grid-cols-2 gap-4 mt-2">
-          <FormField label="Versicherung" example="TK – Techniker Krankenkasse" />
-          <FormField label="Gültig bis" example="unbefristet" />
+        <div style={S.row}>
+          <Field label="Krankenkasse" value={f.krankenversicherung} onChange={(v) => set("krankenversicherung", v)} />
+          <Field label="Versicherten-Nr." value={f.krankenversicherungNr} onChange={(v) => set("krankenversicherungNr", v)} />
         </div>
       </div>
 
-      {/* Page Break */}
-      <div className={pageSep}>
-        <div className="flex-1 border-t border-border" />
-        <span className="text-xs text-muted-foreground">Seite 3 von 4</span>
-        <div className="flex-1 border-t border-border" />
+      <div style={S.sec}>
+        <SecHeader num={7} title="G. Bemerkungen & Unterschrift" />
+        <Field label="Bemerkungen" value={f.bemerkungen} onChange={(v) => set("bemerkungen", v)} />
+        <Signature label="Unterschrift Antragsteller/in" />
       </div>
-
-      {/* SEITE 3 */}
-      <div>
-        <h3 className={sectionTitle} style={{ borderColor: "#E0D0B0" }}>Seite 3 — Wohnraum & Integration</h3>
-
-        <h4 className="font-semibold text-sm mb-3">Wohnraum der Familie</h4>
-        <div className="grid grid-cols-3 gap-4">
-          <FormField label="Wohnfläche" example="65 m²" />
-          <FormField label="Für Personen" example="3" />
-          <div className="flex items-end">
-            <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" defaultChecked className="h-3.5 w-3.5 accent-[#C9A84C]" />
-              Mietvertrag liegt bei
-            </label>
-          </div>
-        </div>
-
-        <h4 className="font-semibold text-sm mt-6 mb-3">Rentenversicherung</h4>
-        <label className="flex items-start gap-2 text-sm">
-          <input type="checkbox" defaultChecked className="h-3.5 w-3.5 accent-[#C9A84C] mt-0.5" />
-          Ich habe mindestens 60 Monate Pflichtbeiträge zur Rentenversicherung geleistet.
-        </label>
-        <GoldTip>ℹ️ Wichtig für spätere Niederlassungserlaubnis (60 Monate erforderlich)</GoldTip>
-
-        <h4 className="font-semibold text-sm mt-6 mb-3">Integration — Sprachkenntnisse</h4>
-        <div className="space-y-2 text-sm">
-          <label className="flex items-center gap-2">
-            <input type="checkbox" defaultChecked className="h-3.5 w-3.5 accent-[#C9A84C]" />
-            Ich habe ausreichende Kenntnisse der deutschen Sprache.
-          </label>
-          <label className="flex items-center gap-2">
-            <input type="checkbox" defaultChecked className="h-3.5 w-3.5 accent-[#C9A84C]" />
-            Ja, ich habe in Deutschland die Schule besucht.
-          </label>
-        </div>
-        <p className={exampleCls} style={{ color: gold }}>Oder: Integrationskurszeugnis / B1-Zertifikat beifügen</p>
-      </div>
-
-      {/* Page Break */}
-      <div className={pageSep}>
-        <div className="flex-1 border-t border-border" />
-        <span className="text-xs text-muted-foreground">Seite 4 von 4</span>
-        <div className="flex-1 border-t border-border" />
-      </div>
-
-      {/* SEITE 4 */}
-      <div>
-        <h3 className={sectionTitle} style={{ borderColor: "#E0D0B0" }}>Seite 4 — Rechtsverstöße & Unterschrift</h3>
-
-        <h4 className="font-semibold text-sm mb-3">Rechtsverstöße</h4>
-        <div className="space-y-2 text-sm">
-          {[
-            "Wurden Sie wegen Rechtsverstößen verurteilt?",
-            "Wurden Sie ausgewiesen oder abgeschoben?",
-            "Wurde ein Einreiseantrag abgelehnt?",
-            "Wird gegen Sie ermittelt?",
-          ].map((q) => (
-            <div key={q}>
-              <p className="text-muted-foreground mb-1">{q}</p>
-              <CheckRow options={["nein", "ja"]} selected={0} />
-            </div>
-          ))}
-        </div>
-
-        <h4 className="font-semibold text-sm mt-6 mb-3">Unterschrift</h4>
-        <div className="grid grid-cols-2 gap-4">
-          <FormField label="Ort, Datum" example="Erfurt, [aktuelles Datum]" />
-          <div>
-            <label className={labelCls}>Unterschrift</label>
-            <div className="h-12 border border-dashed border-border rounded flex items-center justify-center text-xs text-muted-foreground">
-              [Unterschrift]
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-4 rounded-lg border bg-muted/30 p-3 text-xs text-muted-foreground leading-relaxed">
-          Ich versichere, vorstehende Angaben nach bestem Wissen und Gewissen richtig und vollständig gemacht zu haben. Mir ist bekannt, dass falsche oder unvollständige Angaben strafrechtlich verfolgt werden können.
-        </div>
-      </div>
-
-      {/* Download hint */}
-      <div className="rounded-lg p-4 text-xs leading-relaxed" style={{ background: "#FFF8EC", border: "1px solid #E8D9B0", color: "#4A4A4A" }}>
-        {"visa_work_form_hint"}
-      </div>
-    </div>
+    </MusterFormBase>
   );
 }
