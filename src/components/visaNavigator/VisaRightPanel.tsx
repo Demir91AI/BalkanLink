@@ -25,6 +25,21 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
     { slug: "verpflichtungserklaerung", label: "Verpflichtungserklärung" },
   ];
 
+  const musterBlock = (
+    <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
+      <p style={{ fontSize: 11, fontWeight: 600, color: '#C9A84C', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 8 }}>Musterformulari</p>
+      {VISA_MUSTER.map((m) => (
+        <Link key={m.slug} to={localizeHref(`/musterformular/${m.slug}`)}
+          style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.85)', fontSize: 12, textDecoration: 'none', padding: '6px 8px', borderRadius: 6, marginBottom: 4, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <FileText size={12} color="#C9A84C" />{m.label}
+        </Link>
+      ))}
+      <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', marginTop: 6, lineHeight: 1.4 }}>
+        Auto-fill • Save lokalno • Print/PDF
+      </p>
+    </div>
+  );
+
   // STATE 1: Nothing selected
   if (!country) return (
     <div
