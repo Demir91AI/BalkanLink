@@ -403,7 +403,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.9, ease }}
             className="mt-8 flex justify-center"
           >
-            <LiveSocialProof variant="ticker" />
+            <DateSeededTicker />
           </motion.div>
 
           {/* Launch Trial banner — gold WOW (shine + pulse + float), bez 🎉 konfeta */}
