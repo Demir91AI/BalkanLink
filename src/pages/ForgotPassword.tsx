@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import PageNav from "@/components/navigation/PageNav";
+import { SEO } from "@/components/SEO";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -49,6 +50,7 @@ export default function ForgotPassword() {
 
   return (
     <>
+    <SEO title="Zaboravljena Lozinka" description="Resetuj svoju BalkanLink lozinku — pošaljemo ti link na email za postavku nove lozinke." path="/forgot-password" />
     <PageNav />
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">

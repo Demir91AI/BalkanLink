@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
+import { SEO } from "@/components/SEO";
 
 export default function FirmDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -12,6 +13,7 @@ export default function FirmDetail() {
   if (!firm) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8">
+        <SEO title="Firma nije pronađena" description="Tražena firma ne postoji u našem direktoriju. Pretraži druge balkanske firme i partnere u Njemačkoj." path={`/firma/${slug ?? ""}`} />
         <Breadcrumbs />
         <h1 className="mt-6 text-center text-2xl font-bold text-foreground">Firma nije pronađena</h1>
       </div>
@@ -20,6 +22,7 @@ export default function FirmDetail() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
+      <SEO title={`${firm.name} — ${firm.city}`} description={(firm.fullDescription || `${firm.name} u ${firm.city}. Provjerena firma iz balkanske zajednice u Njemačkoj — kontakt, usluge i recenzije.`).slice(0, 160)} path={`/firma/${firm.slug}`} type="article" />
       <Breadcrumbs currentLabel={firm.name} />
 
       {/* Hero image */}

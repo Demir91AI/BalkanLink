@@ -16,6 +16,7 @@ import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
+import { SEO } from "@/components/SEO";
 
 type InputMode = "upload";
 
@@ -450,6 +451,7 @@ export default function DokumentenCheck() {
 
   return (
     <>
+      <SEO title="Dokumenten-Check — AI Analiza Njemačkih Pisama" description="Pošalji njemačko pismo, Bescheid ili ugovor i dobij analizu na bosanskom — šta znači, rokovi, šta uraditi sljedeće." path="/dokumenten-check" />
       {/* ── HEADER ── */}
       <section className="border-b bg-primary py-10 sm:py-14">
         <div className="container max-w-4xl px-4">

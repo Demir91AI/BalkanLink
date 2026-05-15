@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import { Check, X, Crown, Eye, EyeOff } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
+import { SEO } from "@/components/SEO";
 
 const TRIAL_STORAGE_KEY = "pending_trial_code";
 
@@ -162,6 +163,7 @@ export default function Register() {
 
   return (
     <>
+    <SEO title="Registracija — Besplatno" description="Otvori besplatan BalkanLink nalog i dobij 7 dana Premium pristupa svim formularima, viza navigatoru i Asistentu." path="/register" />
     <PageNav />
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">

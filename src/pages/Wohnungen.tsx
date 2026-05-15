@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Building, ExternalLink, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import PageNavBar from "@/components/navigation/PageNavBar";
+import { SEO } from "@/components/SEO";
 
 const portals = [
   { name: "ImmobilienScout24", url: "https://www.immobilienscout24.de", desc: "Najveći njemački portal za stanove i kuće." },
@@ -17,6 +18,7 @@ export default function Wohnungen() {
 
   return (
     <div className="min-h-screen" style={{ background: '#F5F0E8' }}>
+      <SEO title="Stanovi u Njemačkoj — Portali za Pretragu" description="Direktni linkovi na najveće njemačke portale za stanove i sobe — ImmoScout24, Immowelt, WG-Gesucht, Kleinanzeigen i drugi." path="/wohnungen" />
       <div style={{ background: '#F5F0E8' }} className="px-4 pt-8 pb-6 max-w-3xl mx-auto">
         <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
         <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-3 py-1">

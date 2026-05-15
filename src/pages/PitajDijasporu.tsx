@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -183,10 +183,7 @@ export default function PitajDijasporu() {
 
   return (
     <>
-      <Helmet>
-        <title>{T.title} | BalkanLink</title>
-        <meta name="description" content={T.intro} />
-      </Helmet>
+      <SEO title={T.title} description={T.intro} path="/pitaj-dijasporu" />
       <div className="min-h-screen" style={{ background: "hsl(215 55% 4%)" }}>
         <div className="container py-8 md:py-12 max-w-4xl">
           <Breadcrumbs />

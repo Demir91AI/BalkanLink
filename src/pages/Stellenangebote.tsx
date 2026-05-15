@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Briefcase, ExternalLink, Info } from "lucide-react";
 import { navigateBackOrHome } from "@/lib/navigation";
 import PageNavBar from "@/components/navigation/PageNavBar";
+import { SEO } from "@/components/SEO";
 
 const portals = [
   { name: "Indeed Deutschland", url: "https://de.indeed.com", desc: "Globalni job portal sa tisućama oglasa." },
@@ -17,6 +18,7 @@ export default function Stellenangebote() {
 
   return (
     <div className="min-h-screen" style={{ background: '#F5F0E8' }}>
+      <SEO title="Posao u Njemačkoj — Job Portali" description="Pretraži poslove u Njemačkoj na najvećim portalima — Indeed, StepStone, XING, LinkedIn, Bundesagentur für Arbeit." path="/stellenangebote" />
       <div style={{ background: '#F5F0E8' }} className="px-4 pt-8 pb-6 max-w-3xl mx-auto">
         <PageNavBar onBack={() => navigateBackOrHome(navigate)} />
         <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-3 py-1">
