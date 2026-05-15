@@ -2,10 +2,9 @@ import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import { buildVisaDatenblatt } from "@/lib/visa-datenblatt-pdf";
 import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
-import { loadVisaProfile } from "@/lib/visa-shared-profile";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
-import { loadFormState, saveFormState, resetVisaProfile } from "@/lib/visa-shared-profile";
+import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
 
 const LS_KEY = "visa-study-extras";
 const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf";
