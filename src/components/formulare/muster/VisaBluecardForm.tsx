@@ -1,185 +1,85 @@
-import {
-  SectionTitle,
-  GoldNote,
-  RedNote,
-  Label,
-  FieldRow,
-  Field,
-  CB,
-  PageBreak,
-  GreySection,
-  BlueNote,
-} from "./VisaFormPrimitives";
+import { useState } from "react";
+import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import VisaSharedSections from "./VisaSharedSections";
+import { loadFormState, saveFormState, resetVisaProfile } from "@/lib/visa-shared-profile";
+
+const LS_KEY = "visa-bluecard-extras";
+const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-blaue-karte-eu.pdf";
+
+const DEFAULTS = {
+  hochschulabschluss: "", studienfach: "", abschlussJahr: "", hochschuleName: "",
+  anabinId: "", anerkennungArt: "", zabBescheinigung: "",
+  arbeitgeber: "", arbeitgeberAdresse: "", taetigkeit: "",
+  jahresgehalt: "", monatsgehalt: "", mangelberuf: "",
+  vertragsbeginn: "", vertragsdauer: "",
+  itBerufErfahrungJahre: "",
+  krankenversicherung: "",
+  bemerkungen: "",
+};
 
 export default function VisaBluecardForm() {
+  const [f, setF] = useState(() => loadFormState(LS_KEY, DEFAULTS));
+  const set = (k: string, v: string) => setF((p) => ({ ...p, [k]: v }));
+
   return (
-    <div className="rounded-lg border p-8 max-w-[800px] mx-auto space-y-6" style={{ borderColor: "#D0C8B0", background: "white" }}>
-      {/* Header */}
-      <div className="text-center space-y-1">
-        <h2 className="text-lg font-extrabold">Blaue Karte EU nach § 18g des Aufenthaltsgesetzes (AufenthG)</h2>
-        <p className="text-xs text-muted-foreground">AUFENTHG-034-DE-FL – 10-2025</p>
-        <div className="flex justify-center gap-6 mt-3">
-          <CB checked label="Erstantrag" />
-          <CB label="Antrag auf Verlängerung" />
+    <MusterFormBase
+      rootId="visa-bluecard-root"
+      title="Antrag auf Blaue Karte EU (§ 18g AufenthG)"
+      subtitle="Musterformular — auto-fill iz visa profila"
+      pdfUrl={PDF_URL}
+      pdfLabel="Original (BAMF / Ausländerbehörde) →"
+      footerNote="Min. 2026: 45.300 €/god (standard) ili 41.041,80 €/god (Mangelberufe: IT, MINT, medicina, njega) • IT bez diplome: 3+ god. iskustva • BalkanLink nije državna institucija"
+      lsKey={LS_KEY}
+      data={f}
+      onSave={() => saveFormState(LS_KEY, f)}
+      onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
+    >
+      <VisaSharedSections f={f} set={set as never} />
+
+      <div style={S.sec}>
+        <SecHeader num={4} title="D. Hochschulabschluss / IT-Erfahrung" />
+        <div style={S.row}>
+          <Field label="Hochschulabschluss (Bachelor/Master/PhD)" value={f.hochschulabschluss} onChange={(v) => set("hochschulabschluss", v)} />
+          <Field label="Studienfach" value={f.studienfach} onChange={(v) => set("studienfach", v)} />
+        </div>
+        <div style={S.row}>
+          <Field label="Abschlussjahr" value={f.abschlussJahr} onChange={(v) => set("abschlussJahr", v)} />
+          <Field label="Hochschule (Name, Land)" value={f.hochschuleName} onChange={(v) => set("hochschuleName", v)} />
+        </div>
+        <div style={S.row}>
+          <Field label="Anabin-ID / H+" value={f.anabinId} onChange={(v) => set("anabinId", v)} />
+          <Field label="Anerkennungsart (Anabin / ZAB)" value={f.anerkennungArt} onChange={(v) => set("anerkennungArt", v)} />
+        </div>
+        <Field label="ZAB-Bescheinigung Nr. (falls vorhanden)" value={f.zabBescheinigung} onChange={(v) => set("zabBescheinigung", v)} />
+        <Field label="IT-Berufserfahrung — Jahre (nur ohne Diplom)" value={f.itBerufErfahrungJahre} onChange={(v) => set("itBerufErfahrungJahre", v)} />
+      </div>
+
+      <div style={S.sec}>
+        <SecHeader num={5} title="E. Arbeitgeber & Vertrag" />
+        <Field label="Arbeitgeber" value={f.arbeitgeber} onChange={(v) => set("arbeitgeber", v)} />
+        <Field label="Arbeitgeber-Adresse" value={f.arbeitgeberAdresse} onChange={(v) => set("arbeitgeberAdresse", v)} />
+        <Field label="Tätigkeit (Position)" value={f.taetigkeit} onChange={(v) => set("taetigkeit", v)} />
+        <div style={S.row}>
+          <Field label="Brutto-Jahresgehalt (EUR)" value={f.jahresgehalt} onChange={(v) => set("jahresgehalt", v)} />
+          <Field label="Brutto-Monatsgehalt (EUR)" value={f.monatsgehalt} onChange={(v) => set("monatsgehalt", v)} />
+        </div>
+        <Field label="Mangelberuf? (ja/nein — IT, MINT, Medizin, Pflege)" value={f.mangelberuf} onChange={(v) => set("mangelberuf", v)} />
+        <div style={S.row}>
+          <Field label="Vertragsbeginn" type="date" value={f.vertragsbeginn} onChange={(v) => set("vertragsbeginn", v)} />
+          <Field label="Vertragsdauer (Monate)" value={f.vertragsdauer} onChange={(v) => set("vertragsdauer", v)} />
         </div>
       </div>
-      <RedNote>📸 Seit dem 01.05.2025 sind ausschließlich digitale biometrische Lichtbilder zulässig!</RedNote>
 
-      {/* Zeitraum */}
-      <div className="rounded-lg border p-4" style={{ borderColor: "#E0D0B0" }}>
-        <p className="text-sm font-semibold mb-2">Ich beantrage die Blaue Karte EU für den Zeitraum</p>
-        <FieldRow>
-          <Field label="von" example="01.06.2025" type="date" />
-          <Field label="bis" example="31.05.2029" type="date" />
-        </FieldRow>
-        <GoldNote>Maximal 4 Jahre bei unbefristetem Vertrag. Bei befristetem Vertrag: Vertragslaufzeit + 3 Monate.</GoldNote>
+      <div style={S.sec}>
+        <SecHeader num={6} title="F. Krankenversicherung" />
+        <Field label="Krankenkasse" value={f.krankenversicherung} onChange={(v) => set("krankenversicherung", v)} />
       </div>
 
-      {/* SEITE 1 */}
-      <PageBreak n={1} />
-      <SectionTitle>1. Persönliche Angaben des Antragstellers / der Antragstellerin</SectionTitle>
-      <FieldRow><Field label="Familienname, ggf. Geburtsname" example="Mustermann" /><Field label="Vorname(n)" example="Max" /></FieldRow>
-      <FieldRow cols={3}><Field label="Geburtsdatum" example="01.01.1990" /><Field label="Geburtsort" example="Sarajevo" /><Field label="Geburtsstaat" example="Bosnien und Herzegowina" /></FieldRow>
-      <FieldRow><Field label="Staatsangehörigkeit(en)" example="bosnisch-herzegowinisch" /><div><Label>Familienstand</Label><div className="flex flex-wrap gap-3 mt-1"><CB checked label="verheiratet" /><CB label="ledig" /><CB label="Lebenspartnerschaft" /><CB label="geschieden" /></div></div></FieldRow>
-      <FieldRow><Field label="Augenfarbe" example="braun" /><Field label="Größe (cm)" example="180" /></FieldRow>
-
-      <SectionTitle>Vorgesehener Aufenthaltsort im Bundesgebiet</SectionTitle>
-      <FieldRow><Field label="Straße, Haus-Nr., PLZ, Ort" example="Musterstraße 1, 80331 München" /><Field label="zugezogen am" example="20.05.2025" /></FieldRow>
-
-      <SectionTitle>Gegenwärtige Anschrift</SectionTitle>
-      <Field label="Straße, Haus-Nr., PLZ, Ort, Staat" example="Musterstraße 22, 71101 Sarajevo, Bosnien und Herzegowina" />
-
-      <SectionTitle>Ausweispapier</SectionTitle>
-      <FieldRow><Field label="Genaue Bezeichnung" example="Reisepass" /><Field label="Ausstellender Staat" example="Bosnien und Herzegowina" /></FieldRow>
-      <FieldRow cols={3}><Field label="Seriennummer" example="AA1234567" /><Field label="Ausstellungsdatum" example="01.03.2022" /><Field label="Gültigkeitsdauer" example="01.03.2032" /></FieldRow>
-
-      <SectionTitle>Erreichbarkeit</SectionTitle>
-      <FieldRow><Field label="Telefon" example="+49 89 123456" /><Field label="E-Mail" example="max.mustermann@email.de" /></FieldRow>
-
-      <SectionTitle>Einreise</SectionTitle>
-      <FieldRow cols={3}><Field label="Einreise am" example="20.05.2025" /><Field label="Visum der Auslandsvertretung" example="Deutsche Botschaft Sarajevo" /><Field label="am (Datum)" example="15.04.2025" /></FieldRow>
-
-      {/* SEITE 2 */}
-      <PageBreak n={2} />
-      <SectionTitle>2. Ehegatte / Lebenspartner</SectionTitle>
-      <FieldRow><Field label="Familienname" example="Musterfrau" /><Field label="Vorname" example="Maria" /></FieldRow>
-      <FieldRow cols={3}><Field label="Geburtsdatum" example="15.05.1992" /><Field label="Geburtsort" example="Sarajevo" /><Field label="Staatsangehörigkeit" example="bosnisch-herzegowinisch" /></FieldRow>
-      <FieldRow><Field label="Größe (cm)" example="168" /><Field label="Augenfarbe" example="braun" /></FieldRow>
-      <GoldNote>Ehegatte erhält sofort Arbeitserlaubnis ohne Einschränkungen — großer Vorteil der Blauen Karte EU!</GoldNote>
-
-      <SectionTitle>Kinder</SectionTitle>
-      <FieldRow><Field label="Familienname" example="Mustermann" /><Field label="Vorname" example="Lena" /></FieldRow>
-      <FieldRow cols={3}>
-        <div><Label>Geschlecht</Label><div className="flex gap-3 mt-1"><CB label="männl." /><CB checked label="weibl." /></div></div>
-        <Field label="Geburtsdatum" example="10.10.2018" />
-        <Field label="Staatsangehörigkeit" example="bosnisch-herzegowinisch" />
-      </FieldRow>
-      <GoldNote>Kinder unter 18 Jahren erhalten Aufenthaltserlaubnis ohne eigenes Visum.</GoldNote>
-
-      <SectionTitle>3. Hochschulqualifikation</SectionTitle>
-      <FieldRow><Field label="Berufsrichtung" example="Informatik / Softwareentwicklung" /><Field label="Höchster qualifizierter Abschluss" example="Master of Science (MSc)" /></FieldRow>
-      <Field label="Hochschule" example="Universität Sarajevo, Bosnien und Herzegowina" />
-      <div className="mt-2"><CB checked={false} label="Verfügen Sie über eine Blaue Karte EU eines anderen Mitgliedstaates?" /><div className="ml-6 mt-1"><CB checked label="nein" /></div></div>
-
-      <SectionTitle>4. Einreise und Aufenthalt</SectionTitle>
-      <FieldRow cols={3}><Field label="Aufenthaltstitel" example="Visum" /><Field label="Ausstellungsdatum" example="15.04.2025" /><Field label="Gültigkeitsdauer" example="15.10.2025" /></FieldRow>
-      <Field label="Aufenthaltszweck" example="Erwerbstätigkeit (Blaue Karte EU)" />
-
-      {/* SEITE 3 */}
-      <PageBreak n={3} />
-      <SectionTitle>7. Berufstätigkeit</SectionTitle>
-      <FieldRow><Field label="Berufstätigkeit als" example="Softwareentwickler (Full-Stack Developer)" /><Field label="von" example="01.06.2025" /></FieldRow>
-      <Field label="Arbeitgeber" example="TechGmbH, Innovationsweg 42, 80331 München" />
-
-      <SectionTitle>8. Wohnung</SectionTitle>
-      <FieldRow cols={3}><Field label="Anzahl Zimmer" example="3" /><Field label="Größe (m²)" example="75" /><div><Label>erworben durch</Label><CB checked label="Mietvertrag" /></div></FieldRow>
-
-      <SectionTitle>9. Arbeitgeber (Beschäftigung)</SectionTitle>
-      <FieldRow><Field label="Name" example="TechGmbH" /><Field label="Anschrift" example="Innovationsweg 42, 80331 München" /></FieldRow>
-      <FieldRow><Field label="Höhe des Jahresgehalts brutto" example="58.000 €" /><Field label="Netto (ca.)" example="38.000 €" /></FieldRow>
-      <GoldNote>Mindestgehalt 2025: 45.300 € (Standard) / 41.041,80 € (Mangelberufe). Ihr Gehalt liegt darüber ✓</GoldNote>
-      <FieldRow><Field label="Arbeitsvertrag vom" example="01.04.2025" /><Field label="Laufzeit" example="unbefristet" /></FieldRow>
-
-      <GreySection title="10. BZR-Auskunft und Behördenangaben">
-        <GoldNote>Diese Abschnitte werden von der Ausländerbehörde ausgefüllt.</GoldNote>
-      </GreySection>
-
-      <SectionTitle>11. Sprachkenntnisse</SectionTitle>
-      <CB checked label="Einfache deutsche Sprachkenntnisse? — ja, erworben durch Sprachkurs A2" />
-      <div className="mt-2"><CB checked label="Grundkenntnisse der Rechts- und Gesellschaftsordnung? — ja" /></div>
-
-      <SectionTitle>12–14. Wohnung, Familie, Krankenversicherung</SectionTitle>
-      <CB checked label="Wohnung geplant: ja — Angaben wie oben" />
-      <div className="mt-2"><CB checked label="Familienangehörige einreisen: ja — Ehegattin und 1 Kind" /></div>
-      <div className="mt-2"><CB checked label="Krankenversicherungsschutz: ja — TK (Techniker Krankenkasse)" /></div>
-
-      <SectionTitle>15–17. Vorstrafen, Ermittlungsverfahren, Ausweisung</SectionTitle>
-      <div className="space-y-2">
-        <CB checked label="Vorbestraft? — nein" />
-        <CB checked label="Laufende Ermittlungsverfahren? — nein" />
-        <CB checked label="Ausgewiesen / abgeschoben? — nein" />
+      <div style={S.sec}>
+        <SecHeader num={7} title="G. Bemerkungen & Unterschrift" />
+        <Field label="Bemerkungen" value={f.bemerkungen} onChange={(v) => set("bemerkungen", v)} />
+        <Signature label="Unterschrift Antragsteller/in" />
       </div>
-
-      <SectionTitle>18. Erklärungen</SectionTitle>
-      <div className="space-y-2">
-        <CB checked label="Ich versichere, dass die vorstehenden Angaben der Wahrheit entsprechen." />
-        <CB checked label="Ich bin darüber belehrt worden, dass unrichtige Angaben strafrechtliche Folgen haben können." />
-        <CB checked label="Mir ist bekannt, dass ich Änderungen unverzüglich mitzuteilen habe." />
-        <CB checked label="Ich bin mit der Erhebung und Verarbeitung meiner Daten einverstanden." />
-      </div>
-      <GoldNote>Alle Erklärungen müssen wahrheitsgemäß beantwortet werden. Falsche Angaben sind strafbar (§ 95 AufenthG).</GoldNote>
-
-      {/* SEITE 4 */}
-      <PageBreak n={4} />
-      <SectionTitle>Hinweise & Unterschrift</SectionTitle>
-      <BlueNote>
-        § 54 Abs. 2 Nr. 8, 10 und § 82 AufenthG — Hinweise zu Ausweisungsinteresse und Mitwirkungspflichten.
-        § 86 AufenthG — Datenschutzhinweis.
-      </BlueNote>
-      <FieldRow><Field label="Ort" example="München" /><Field label="Datum" example={new Date().toLocaleDateString("de-DE")} /></FieldRow>
-      <div className="border-b-2 border-dashed mt-4 mb-1" style={{ borderColor: "#C0C0C0" }} />
-      <p className="text-[11px] text-muted-foreground text-center">Eigenhändige Unterschrift des Antragstellers / der Antragstellerin</p>
-      <GoldNote>Unterschrift muss eigenhändig und im Original geleistet werden.</GoldNote>
-
-      {/* SEITE 5 */}
-      <PageBreak n={5} />
-      <GreySection title="Bearbeitungsverfügung">
-        <GoldNote>Diese Seite wird ausschließlich von der Ausländerbehörde ausgefüllt. Nicht vom Antragsteller ausfüllen!</GoldNote>
-        <div className="space-y-1.5 mt-3 opacity-60">
-          {[
-            "1. Antrag ist vollständig ausgefüllt",
-            "2. Übereinstimmung mit Ausweispapier",
-            "3. Gültigkeit des Ausweispapiers bis",
-            "4. Einreise mit Visum",
-            "5. Lebensunterhalt gesichert",
-            "6. Krankenversicherungsschutz liegt vor",
-            "7. Zustimmung der Agentur für Arbeit",
-            "8. Wohnraum ausreichend",
-            "9. Ehegatte im Besitz einer Aufenthaltserlaubnis",
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-2 text-[12px] text-[#999]">
-              <input type="checkbox" disabled className="h-3 w-3" /> {item}
-              {i === 6 && (
-                <span className="ml-1 text-[10px] font-bold rounded-full px-2 py-0.5" style={{ background: "#DCFCE7", color: "#166534" }}>
-                  Nicht erforderlich bei Blauer Karte EU!
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      </GreySection>
-
-      {/* Download hint */}
-      <div className="rounded-lg p-4 mt-4" style={{ background: "#FFF8EC", border: "1px solid #E8D9B0" }}>
-        <p className="text-xs" style={{ color: "#92400E" }}>
-          Das offizielle Formular AUFENTHG-034 erhältst du bei deiner zuständigen Ausländerbehörde oder kannst es online herunterladen.
-        </p>
-        <a href="https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/BlaueKarte/blaue-karte-node.html"
-          target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold mt-2 hover:underline" style={{ color: "#C9A84C" }}>
-          🔗 Mehr Infos (BAMF)
-        </a>
-      </div>
-    </div>
+    </MusterFormBase>
   );
 }
