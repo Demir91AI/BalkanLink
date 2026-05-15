@@ -168,6 +168,12 @@ export const MUSTER_SLUG_MAP: Record<string, string> = {
   "arbeitsbescheinigung": "arbeitsbescheinigung",
   "antragsruecknahme": "antragsruecknahme",
   "wirtschaftliche-jugendhilfe": "wirtschaftliche-jugendhilfe",
+  "anlage-uh1": "anlage-uh1",
+  "anlage-uh2": "anlage-uh2",
+  "anlage-uh3": "anlage-uh3",
+  "nichterreichbarkeit": "nichterreichbarkeit",
+  "mutterschaftsgeld": "mutterschaftsgeld",
+  "krippengeld-bayern": "krippengeld-bayern",
 };
 
 export function hasMuster(slug: string): boolean {

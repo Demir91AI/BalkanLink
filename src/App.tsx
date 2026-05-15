@@ -231,7 +231,7 @@ function LocalizedRoutes() {
        <Route path="musterformular/anlage-uh3" element={<AnlageUH3Muster />} />
        <Route path="musterformular/nichterreichbarkeit" element={<NichterreichbarkeitMuster />} />
        <Route path="musterformular/mutterschaftsgeld" element={<MutterschaftsgeldMuster />} />
-       <Route path="musterformular/krippengeld-bayern" element={<KrippengeldBayernMuster /></Route>
+       <Route path="musterformular/krippengeld-bayern" element={<KrippengeldBayernMuster />} />
         
         <Route path="formulari/:slug" element={<FormCenter />} />
         <Route path="familie" element={<Familie />} />
