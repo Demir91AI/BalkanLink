@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "niederlassungserlaubnis-muster-data";
@@ -21,6 +22,7 @@ export default function NiederlassungserlaubnisMuster() {
 
   return (
     <MusterFormBase rootId="ne-root" title="Antrag auf Niederlassungserlaubnis (§ 9 AufenthG)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Originalantrag (Ausländerbehörde) →" footerNote="Originalformular ovisi o Bundeslandu i predaje se na Ausländerbehörde • BalkanLink nije državna institucija" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterIntroBlock formKey="niederlassungserlaubnis" paperId="ne-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Persönliche Daten" />
         <div style={S.row}><Field label="Familienname" value={f.familienname} onChange={v => set("familienname", v)} /><Field label="Vornamen" value={f.vornamen} onChange={v => set("vornamen", v)} /></div>
