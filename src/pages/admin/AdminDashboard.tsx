@@ -557,14 +557,14 @@ export default function AdminDashboard() {
         <main className="max-w-[1400px] mx-auto px-6 py-6">
           {tab === "Pregled" && <TabPregled stats={stats} totalUsersAdj={totalUsersAdj} realPaying={realPaying} conversionPct={conversionPct} />}
           {tab === "Prihodi" && <TabPrihodi stats={stats} payments={payments} paymentFilter={paymentFilter} setPaymentFilter={setPaymentFilter} />}
-          {tab === "Korisnici" && <TabKorisnici />}
-          {tab === "Saobraćaj" && <TabSaobracaj />}
-          {tab === "Funkcije" && <TabFunkcije />}
-          {tab === "DeutschTrainer" && <TabTrainer />}
-          {tab === "AI Asistent" && <TabAsistent />}
-          {tab === "Geo" && <TabGeo />}
-          {tab === "Troškovi" && <TabTroskovi />}
-          {tab === "Ciljevi" && <TabCiljevi />}
+          {tab === "Korisnici" && <TabKorisnici extra={extra} stats={stats} usersList={usersList} />}
+          {tab === "Saobraćaj" && <TabSaobracaj extra={extra} stats={stats} />}
+          {tab === "Funkcije" && <TabFunkcije extra={extra} />}
+          {tab === "DeutschTrainer" && <TabTrainer extra={extra} />}
+          {tab === "AI Asistent" && <TabAsistent extra={extra} />}
+          {tab === "Geo" && <TabGeo extra={extra} />}
+          {tab === "Troškovi" && <TabTroskovi stats={stats} extra={extra} />}
+          {tab === "Ciljevi" && <TabCiljevi stats={stats} extra={extra} />}
         </main>
 
         <div className="text-center text-[10px] py-6" style={{ color: C.slate }}>
