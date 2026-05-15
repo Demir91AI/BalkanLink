@@ -155,10 +155,11 @@ export function field(c: Ctx, o: FieldOpts) {
       size: 9.5, font: bold, color: COL.filled,
     });
   }
-  // hint underneath (optional)
-  if (o.hint) {
-    page.drawText(fit(o.hint, reg, 6.5, o.w), {
-      x: o.x + 2, y: o.y - 8,
+  // hint UNUTAR boxa, desno (ne ispod — sprečava overlap sa sljedećim redom)
+  if (o.hint && !o.value) {
+    const hw = reg.widthOfTextAtSize(o.hint, 6.5);
+    page.drawText(o.hint, {
+      x: o.x + o.w - hw - 4, y: o.y + 5,
       size: 6.5, font: reg, color: COL.muted,
     });
   }
