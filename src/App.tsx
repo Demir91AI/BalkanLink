@@ -236,6 +236,10 @@ function LocalizedRoutes() {
        <Route path="musterformular/nichterreichbarkeit" element={<NichterreichbarkeitMuster />} />
        <Route path="musterformular/mutterschaftsgeld" element={<MutterschaftsgeldMuster />} />
        <Route path="musterformular/krippengeld-bayern" element={<KrippengeldBayernMuster />} />
+       <Route path="musterformular/aufenthaltstitel" element={<AufenthaltstitelMuster />} />
+       <Route path="musterformular/verpflichtungserklaerung" element={<VerpflichtungserklaerungMuster />} />
+       <Route path="musterformular/nationalvisum" element={<NationalvisumMuster />} />
+       <Route path="musterformular/niederlassungserlaubnis" element={<NiederlassungserlaubnisMuster />} />
         
         <Route path="formulari/:slug" element={<FormCenter />} />
         <Route path="familie" element={<Familie />} />
