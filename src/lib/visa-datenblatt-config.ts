@@ -43,7 +43,7 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     reasonNote: REASON_BAMF,
     usageNote: USAGE_DEFAULT,
     fileName: "BalkanLink-Datenblatt-Aufenthaltstitel-Beschaeftigung.pdf",
-    officialPdfUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf",
+    officialPdfUrl: "https://service.berlin.de/dienstleistung/305249/",
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {
@@ -139,7 +139,7 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     reasonNote: REASON_BAMF,
     usageNote: USAGE_DEFAULT,
     fileName: "BalkanLink-Datenblatt-BlaueKarte.pdf",
-    officialPdfUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf",
+    officialPdfUrl: "https://service.berlin.de/dienstleistung/305249/",
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {
@@ -182,7 +182,7 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     reasonNote: REASON_BAMF,
     usageNote: USAGE_DEFAULT,
     fileName: "BalkanLink-Datenblatt-Familiennachzug.pdf",
-    officialPdfUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf",
+    officialPdfUrl: "https://service.berlin.de/dienstleistung/305249/",
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {
@@ -223,7 +223,7 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     reasonNote: REASON_BAMF,
     usageNote: USAGE_DEFAULT,
     fileName: "BalkanLink-Datenblatt-Studium.pdf",
-    officialPdfUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf",
+    officialPdfUrl: "https://service.berlin.de/dienstleistung/305249/",
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {
@@ -267,7 +267,7 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     reasonNote: REASON_BAMF,
     usageNote: USAGE_DEFAULT,
     fileName: "BalkanLink-Datenblatt-Niederlassungserlaubnis.pdf",
-    officialPdfUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf",
+    officialPdfUrl: "https://service.berlin.de/dienstleistung/305249/",
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {
@@ -314,7 +314,7 @@ export const VISA_DATENBLATT_META: Record<string, VisaDatenblattMeta> = {
     reasonNote: REASON_BAMF,
     usageNote: USAGE_DEFAULT,
     fileName: "BalkanLink-Datenblatt-DaueraufenthaltEU.pdf",
-    officialPdfUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf",
+    officialPdfUrl: "https://service.berlin.de/dienstleistung/305249/",
     officialPdfLabel: "Original (BAMF)",
     mapExtras: (f) => [
       {

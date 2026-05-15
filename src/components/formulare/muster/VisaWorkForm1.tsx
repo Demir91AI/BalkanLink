@@ -7,7 +7,7 @@ import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
 
 const LS_KEY = "visa-work-form1-extras";
-const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf";
+const PDF_URL = "https://service.berlin.de/dienstleistung/305249/";
 
 const DEFAULTS = {
   arbeitgeber: "", arbeitgeberAdresse: "", position: "", taetigkeit: "",
@@ -52,7 +52,7 @@ export default function VisaWorkForm1() {
               officialPdfUrl: meta.officialPdfUrl,
               officialPdfLabel: meta.officialPdfLabel,
               profile: loadVisaProfile(),
-              sections: meta.mapExtras(f as Record<string, string>),
+              sections: meta.mapExtras(f as unknown as Record<string, string>),
             });
           },
         }}

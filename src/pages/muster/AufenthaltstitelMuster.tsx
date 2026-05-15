@@ -3,7 +3,7 @@ import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "aufenthaltstitel-muster-data";
-const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-aufenthaltstitel.pdf";
+const PDF_URL = "https://service.berlin.de/dienstleistung/305249/";
 
 const initial = () => ({
   familienname: "", geburtsname: "", vornamen: "", geburtsdatum: "", geburtsort: "", geburtsland: "",
