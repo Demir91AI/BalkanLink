@@ -337,6 +337,8 @@ type TabKey = typeof TABS[number];
 export default function AdminDashboard() {
   const { displayName } = useAuth();
   const [stats, setStats] = useState<Stats | null>(null);
+  const [extra, setExtra] = useState<any>(null);
+  const [usersList, setUsersList] = useState<any[]>([]);
   const [payments, setPayments] = useState<AdminPayment[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -349,12 +351,16 @@ export default function AdminDashboard() {
   const loadAll = async (silent = false) => {
     if (!silent) setLoading(true); else setRefreshing(true);
     try {
-      const [statsRes, paymentsRes] = await Promise.all([
+      const [statsRes, paymentsRes, extraRes, usersRes] = await Promise.all([
         supabase.rpc("get_admin_stats" as any),
         supabase.rpc("get_admin_payments" as any, { _limit: 50 }),
+        supabase.rpc("get_admin_dashboard_extra" as any),
+        supabase.rpc("get_admin_users_list" as any, { _limit: 200 }),
       ]);
       if (statsRes.data) setStats(statsRes.data as any);
       if (paymentsRes.data) setPayments(paymentsRes.data as any);
+      if (extraRes.data) setExtra(extraRes.data);
+      if (usersRes.data) setUsersList(usersRes.data as any[]);
       setLastRefresh(new Date());
     } finally {
       setLoading(false);
