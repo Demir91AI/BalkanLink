@@ -13,9 +13,17 @@ interface Props {
 
 const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props) => {
   const { t, i18n } = useTranslation("pages");
+  const localizeHref = useLocalizedHref();
   const COUNTRY_CONTENT = useMemo(() => getLocalizedCountryContent(i18n.language), [i18n.language]);
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
   const route = selectedRoute && country ? country.routes.find(r => r.id === selectedRoute) : null;
+
+  const VISA_MUSTER = [
+    { slug: "nationalvisum", label: "Nationales Visum (D-Visum)" },
+    { slug: "aufenthaltstitel", label: "Aufenthaltstitel — Antrag" },
+    { slug: "niederlassungserlaubnis", label: "Niederlassungserlaubnis" },
+    { slug: "verpflichtungserklaerung", label: "Verpflichtungserklärung" },
+  ];
 
   // STATE 1: Nothing selected
   if (!country) return (
