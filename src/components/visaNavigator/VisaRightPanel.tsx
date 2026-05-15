@@ -102,6 +102,7 @@ const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props
             <p style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.88)', margin: 0 }}>{r.title}</p>
           </div>
         ))}
+        {musterBlock}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.10)', paddingTop: 12, marginTop: 8 }}>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
             {t("visa.rightPanel.disclaimer")}
