@@ -14,7 +14,9 @@
     "i18n:check": "node scripts/validate-i18n.mjs",
     "i18n:check:warn": "node scripts/validate-i18n.mjs --warn",
     "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots"
+    "test:visual:update": "playwright test --update-snapshots",
+    "predev": "bunx tsx scripts/generate-sitemap.ts",
+    "prebuild": "bunx tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
