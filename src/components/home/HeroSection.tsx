@@ -143,6 +143,9 @@ export default function HeroSection() {
             srcSet={slide.srcSet}
             sizes="100vw"
             alt={slide.city}
+            width={1280}
+            height={720}
+            decoding={idx === 0 ? "sync" : "async"}
             className="h-full w-full object-cover"
             style={{
               filter: "brightness(0.55) saturate(1.15) contrast(1.05)",

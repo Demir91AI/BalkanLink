@@ -1,1174 +1,568 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
   <url>
-    <loc>https://www.balkanlink.de/</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/" />
+    <loc>https://balkanlink.de/</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/formulari</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/formulari" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/formulari" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/formulari" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/formulari" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/formulari" />
+    <loc>https://balkanlink.de/dolazak</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/dolazak" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/dolazak" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/dolazak" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/dolazak" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/dolazak" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de/formulari</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/formulari" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/formulari" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/formulari" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/formulari" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/formulari" />
+    <loc>https://balkanlink.de/zivot</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/zivot" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/zivot" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/zivot" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/zivot" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/zivot" />
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/familie</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/familie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/familie" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/familie" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/familie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/familie" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/foerderungen</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/foerderungen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/foerderungen" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/foerderungen" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/foerderungen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/foerderungen" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/radno-pravo</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/radno-pravo" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/radno-pravo" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/radno-pravo" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/radno-pravo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/radno-pravo" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/biznis</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/biznis" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/biznis" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/biznis" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/biznis" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/biznis" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/porezi</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/porezi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/porezi" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/porezi" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/porezi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/porezi" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/probleme</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/probleme" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/probleme" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/probleme" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/probleme" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/probleme" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/viza</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/viza" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/viza" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/viza" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/viza" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/viza" />
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/hr/formulari</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/formulari" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/formulari" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/formulari" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/formulari" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/formulari" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/formulari</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/formulari" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/formulari" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/formulari" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/formulari" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/formulari" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/viza</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/viza" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/viza" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/viza" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/viza" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/viza" />
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/viza</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/viza" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/viza" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/viza" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/viza" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/viza" />
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/viza</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/viza" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/viza" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/viza" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/viza" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/viza" />
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/viza</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/viza" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/viza" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/viza" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/viza" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/viza" />
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/deutsch-trainer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/deutsch-trainer" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/deutsch-trainer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/deutsch-trainer" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/deutsch-trainer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/deutsch-trainer" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/deutsch-trainer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/deutsch-trainer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/deutsch-trainer" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/dokumenten-check</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dokumenten-check" />
+    <loc>https://balkanlink.de/anerkennung-navigator</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/anerkennung-navigator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/anerkennung-navigator" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/anerkennung-navigator" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/anerkennung-navigator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/anerkennung-navigator" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de/dokumenten-check</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dokumenten-check" />
+    <loc>https://balkanlink.de/dokumenten-check</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/dokumenten-check" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/dokumenten-check" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/dokumenten-check" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/dokumenten-check" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/dokumenten-check" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/hr/dokumenten-check</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dokumenten-check" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/dokumenten-check</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dokumenten-check" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dokumenten-check" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/nudim-trazim</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nudim-trazim" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/nudim-trazim</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nudim-trazim" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/nudim-trazim</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nudim-trazim" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/nudim-trazim</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nudim-trazim" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nudim-trazim" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/dolazak</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dolazak" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url><loc>https://www.balkanlink.de/dolazak/prvi-koraci</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/prijava-prebivalista</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/boravisna-dozvola</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/steuer-id-i-porezna-klasa</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/zdravstveno-osiguranje</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/bankovni-racun</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/sozialversicherung</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/rundfunkbeitrag</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/fuehrerschein</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.balkanlink.de/dolazak/auto-anmelden</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url>
-    <loc>https://www.balkanlink.de/de/dolazak</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dolazak" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/dolazak</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dolazak" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/dolazak</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dolazak" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dolazak" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dolazak" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/zivot</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/zivot" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/zivot" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/zivot" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/zivot" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/zivot" />
+    <loc>https://balkanlink.de/deutsch-trainer</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/deutsch-trainer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/deutsch-trainer" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/deutsch-trainer" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/deutsch-trainer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/deutsch-trainer" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de/zivot</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/zivot" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/zivot" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/zivot" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/zivot" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/zivot" />
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/zivot</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/zivot" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/zivot" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/zivot" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/zivot" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/zivot" />
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/zivot</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/zivot" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/zivot" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/zivot" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/zivot" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/zivot" />
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/radno-pravo</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/radno-pravo" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/radno-pravo</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/radno-pravo" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/radno-pravo</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/radno-pravo" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/radno-pravo</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/radno-pravo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/radno-pravo" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/biznis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/biznis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/biznis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/biznis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/biznis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/biznis" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/biznis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/biznis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/biznis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/biznis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/biznis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/biznis" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/biznis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/biznis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/biznis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/biznis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/biznis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/biznis" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/biznis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/biznis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/biznis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/biznis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/biznis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/biznis" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/familie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/familie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/familie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/familie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/familie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/familie" />
+    <loc>https://balkanlink.de/asistent</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/asistent" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/asistent" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/asistent" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/asistent" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/asistent" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de/familie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/familie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/familie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/familie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/familie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/familie" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/familie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/familie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/familie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/familie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/familie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/familie" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/familie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/familie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/familie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/familie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/familie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/familie" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/foerderungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/foerderungen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/foerderungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/foerderungen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/foerderungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/foerderungen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/foerderungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/foerderungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/foerderungen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/kalkulatori</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/kalkulatori" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/kalkulatori</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/kalkulatori" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/kalkulatori</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/kalkulatori" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/kalkulatori</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/kalkulatori" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/kalkulatori" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/brutto-netto-rechner</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/brutto-netto-rechner</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/brutto-netto-rechner</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/brutto-netto-rechner</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/brutto-netto-rechner" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/brutto-netto-rechner" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/bussgeld</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/bussgeld" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/bussgeld</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/bussgeld" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/bussgeld</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/bussgeld" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/bussgeld</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/bussgeld" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/bussgeld" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/vorlagen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/vorlagen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/vorlagen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/vorlagen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/vorlagen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/vorlagen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/vorlagen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/vorlagen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/vorlagen" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/stellenangebote</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/stellenangebote" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/stellenangebote</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/stellenangebote" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/stellenangebote</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/stellenangebote" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/stellenangebote</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/stellenangebote" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/stellenangebote" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/wohnungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/wohnungen" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/wohnungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/wohnungen" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/wohnungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/wohnungen" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/wohnungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/wohnungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/wohnungen" />
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/nach-deutschland</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nach-deutschland" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/nach-deutschland</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nach-deutschland" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/nach-deutschland</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nach-deutschland" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/nach-deutschland</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nach-deutschland" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nach-deutschland" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/qa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/qa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/qa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/qa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/qa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/qa" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/qa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/qa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/qa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/qa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/qa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/qa" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/qa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/qa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/qa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/qa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/qa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/qa" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/qa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/qa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/qa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/qa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/qa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/qa" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/directory</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/directory" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/directory" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/directory" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/directory" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/directory" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/directory</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/directory" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/directory" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/directory" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/directory" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/directory" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/directory</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/directory" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/directory" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/directory" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/directory" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/directory" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/directory</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/directory" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/directory" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/directory" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/directory" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/directory" />
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/paketi</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/paketi" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/paketi" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/paketi" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/paketi" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/paketi" />
+    <loc>https://balkanlink.de/anmeldung-simulator</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/anmeldung-simulator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/anmeldung-simulator" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/anmeldung-simulator" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/anmeldung-simulator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/anmeldung-simulator" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de/paketi</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/paketi" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/paketi" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/paketi" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/paketi" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/paketi" />
+    <loc>https://balkanlink.de/schufa-simulator</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/schufa-simulator" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/schufa-simulator" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/schufa-simulator" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/schufa-simulator" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/schufa-simulator" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/hr/paketi</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/paketi" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/paketi" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/paketi" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/paketi" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/paketi" />
+    <loc>https://balkanlink.de/nebenkosten-scan</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/nebenkosten-scan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/nebenkosten-scan" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/nebenkosten-scan" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/nebenkosten-scan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/nebenkosten-scan" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/sr/paketi</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/paketi" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/paketi" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/paketi" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/paketi" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/paketi" />
+    <loc>https://balkanlink.de/brutto-netto-rechner</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/brutto-netto-rechner" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/kalkulatori</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/kalkulatori" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/kalkulatori" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/kalkulatori" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/kalkulatori" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/kalkulatori" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/bussgeld</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/bussgeld" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/bussgeld" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/bussgeld" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/bussgeld" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/bussgeld" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/impressum</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/impressum" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/impressum" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/impressum" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/impressum" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/impressum" />
+    <loc>https://balkanlink.de/mietrecht</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/mietrecht" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/mietrecht" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/mietrecht" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/mietrecht" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/mietrecht" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/bonitet</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/bonitet" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/bonitet" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/bonitet" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/bonitet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/bonitet" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/formulare</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/formulare" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/formulare" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/formulare" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/formulare" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/formulare" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/formulari</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/formulari" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/formulari" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/formulari" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/formulari" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/formulari" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/vorlagen</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/vorlagen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/vorlagen" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/vorlagen" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/vorlagen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/vorlagen" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/check-liste</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/check-liste" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/check-liste" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/check-liste" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/check-liste" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/check-liste" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/anmeldung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/kindergeld</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/elterngeld</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/buergergeld</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/wohngeld</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/arbeitslosengeld</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/bafoeg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/einbuergerung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/fuehrungszeugnis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/grundsicherung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/integrationskurs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/kinderzuschlag</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/kirchenaustritt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/schueler-bafoeg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/steuerklasse</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/wirtschaftliche-jugendhilfe</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/arbeitsbescheinigung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/musterformular/antragsruecknahme</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/formulari/kindergeld/muster</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/formulari/anmeldung/muster</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/prvi-koraci</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/prijava-prebivalista</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/boravisna-dozvola</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/bankovni-racun</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/zdravstveno-osiguranje</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/sozialversicherung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/steuer-id-i-porezna-klasa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/rundfunkbeitrag</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/auto-anmelden</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/dolazak/fuehrerschein</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/nach-deutschland</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/nach-deutschland" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/nach-deutschland" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/nach-deutschland" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/nach-deutschland" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/nach-deutschland" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/directory</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/directory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/directory" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/directory" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/directory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/directory" />
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/stellenangebote</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/stellenangebote" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/stellenangebote" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/stellenangebote" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/stellenangebote" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/stellenangebote" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/wohnungen</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/wohnungen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/wohnungen" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/wohnungen" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/wohnungen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/wohnungen" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/nudim-trazim</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/nudim-trazim" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/nudim-trazim" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/nudim-trazim" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/nudim-trazim" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/nudim-trazim" />
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/pitaj-dijasporu</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/pitaj-dijasporu" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/pitaj-dijasporu" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/pitaj-dijasporu" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/pitaj-dijasporu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/pitaj-dijasporu" />
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/qa</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/qa" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/qa" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/qa" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/qa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/qa" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/paketi</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/paketi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/paketi" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/paketi" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/paketi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/paketi" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/pricing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://balkanlink.de/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/impressum" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/impressum" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/impressum" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/impressum" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/impressum" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de/impressum</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/impressum" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/impressum" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/impressum" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/impressum" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/impressum" />
+    <loc>https://balkanlink.de/datenschutz</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/datenschutz" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/datenschutz" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/datenschutz" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/datenschutz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/datenschutz" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/hr/impressum</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/impressum" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/impressum" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/impressum" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/impressum" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/impressum" />
+    <loc>https://balkanlink.de/nutzungsbedingungen</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/nutzungsbedingungen" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/nutzungsbedingungen" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/nutzungsbedingungen" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/nutzungsbedingungen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/nutzungsbedingungen" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/sr/impressum</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/impressum" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/impressum" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/impressum" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/impressum" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/impressum" />
+    <loc>https://balkanlink.de/cookie-richtlinie</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/cookie-richtlinie" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/cookie-richtlinie" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/cookie-richtlinie" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/cookie-richtlinie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/cookie-richtlinie" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/datenschutz</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/datenschutz" />
+    <loc>https://balkanlink.de/disclaimer</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/disclaimer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/disclaimer" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/de/datenschutz</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/datenschutz" />
+    <loc>https://balkanlink.de/dsa</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/dsa" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/dsa" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/dsa" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/dsa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/dsa" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.balkanlink.de/hr/datenschutz</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/datenschutz" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/datenschutz</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/datenschutz" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/datenschutz" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/disclaimer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/disclaimer" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/disclaimer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/disclaimer" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/disclaimer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/disclaimer" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/disclaimer</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/disclaimer" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/disclaimer" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/nutzungsbedingungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/nutzungsbedingungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/nutzungsbedingungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/nutzungsbedingungen</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/nutzungsbedingungen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/nutzungsbedingungen" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/ki-hinweis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/ki-hinweis" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/ki-hinweis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/ki-hinweis" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/ki-hinweis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/ki-hinweis" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/ki-hinweis</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/ki-hinweis" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/ki-hinweis" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/cookie-richtlinie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/cookie-richtlinie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/cookie-richtlinie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/cookie-richtlinie</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/cookie-richtlinie" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/cookie-richtlinie" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/dsa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dsa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dsa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dsa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dsa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dsa" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/de/dsa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dsa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dsa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dsa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dsa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dsa" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/hr/dsa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dsa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dsa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dsa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dsa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dsa" />
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.balkanlink.de/sr/dsa</loc>
-    <xhtml:link rel="alternate" hreflang="bs" href="https://www.balkanlink.de/dsa" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.balkanlink.de/de/dsa" />
-    <xhtml:link rel="alternate" hreflang="hr" href="https://www.balkanlink.de/hr/dsa" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://www.balkanlink.de/sr/dsa" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.balkanlink.de/dsa" />
+    <loc>https://balkanlink.de/ki-hinweis</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://balkanlink.de/ki-hinweis" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://balkanlink.de/de/ki-hinweis" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://balkanlink.de/hr/ki-hinweis" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://balkanlink.de/sr/ki-hinweis" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://balkanlink.de/ki-hinweis" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
