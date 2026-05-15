@@ -49,13 +49,12 @@ export async function buildAufenthaltstitelPdf(d: AufenthaltstitelData): Promise
 
   const page = doc.addPage([A4.w, A4.h]);
   const c: Ctx = { page, reg: regular, bold };
-  const TOTAL = 1;
 
   pageHeader(c, {
     formCode: "§ 81\nAufenthG",
     title: FORM_TITLE,
     subtitle: FORM_SUB,
-    page: 1, total: TOTAL,
+    page: 1, total: 2, // ažurira se kasnije ako nema druge stranice
   });
 
   let y = A4.h - 76;
