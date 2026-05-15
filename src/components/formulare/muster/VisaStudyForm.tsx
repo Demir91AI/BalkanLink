@@ -54,7 +54,7 @@ export default function VisaStudyForm() {
               officialPdfUrl: meta.officialPdfUrl,
               officialPdfLabel: meta.officialPdfLabel,
               profile: loadVisaProfile(),
-              sections: meta.mapExtras(f as Record<string, string>),
+              sections: meta.mapExtras(f as unknown as Record<string, string>),
             });
           },
         }}
