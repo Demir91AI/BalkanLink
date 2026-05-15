@@ -16,7 +16,8 @@ function seededRandom(salt: number): number {
 function DateSeededTicker() {
   const items = useMemo(() => {
     const dayOfMonth = new Date().getDate();
-    const monthName = new Date().toLocaleString("bs-BA", { month: "long" });
+    const monthNames = ["januar","februar","mart","april","maj","juni","juli","august","septembar","oktobar","novembar","decembar"];
+    const monthName = monthNames[new Date().getMonth()];
     const todayVisits = Math.floor(seededRandom(1) * 28) + 14;
     const monthViews = Math.floor(800 + dayOfMonth * 14 + seededRandom(2) * 120);
     const monthRegs = Math.floor(seededRandom(3) * 7) + 2;
