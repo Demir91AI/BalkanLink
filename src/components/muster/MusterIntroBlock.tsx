@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MusterDisclaimer from "./MusterDisclaimer";
 import PrivacyGuarantee from "./PrivacyGuarantee";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 
 export interface DatenblattConfig {
   /** Async builder returning PDF bytes */
@@ -27,6 +29,19 @@ export interface OriginalAutofillConfig {
   buttonLabel?: string;
 }
 
+/** Premium Bewerbungs-Mappe (kompletan paket: cover + Anschreiben + Checkliste + Datenblatt). */
+export interface BewerbungsMappeConfig {
+  /** Async builder returning PDF bytes */
+  build: () => Promise<Uint8Array>;
+  fileName: string;
+  /** Title for the gold premium CTA box */
+  title?: string;
+  /** Tijelo objašnjenja */
+  body?: string;
+  /** Button label */
+  buttonLabel?: string;
+}
+
 interface Props {
   formKey: string;
   paperId?: string;
@@ -39,6 +54,8 @@ interface Props {
   datenblatt?: DatenblattConfig;
   /** When provided, renders blue "1:1 auto-fill" CTA above Datenblatt. */
   originalAutofill?: OriginalAutofillConfig;
+  /** When provided, renders gold Premium "Bewerbungs-Mappe" CTA at the top. */
+  bewerbungsMappe?: BewerbungsMappeConfig;
 }
 
 /**
