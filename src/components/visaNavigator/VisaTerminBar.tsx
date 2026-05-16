@@ -74,7 +74,7 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
           flexWrap: "wrap",
         }}
       >
-        🗓️ Zakaži termin direktno u njemačkoj ambasadi
+        {t("visaTermin.heading")}
         {matched && (
           <span
             style={{
@@ -89,16 +89,12 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
               letterSpacing: 0.4,
             }}
           >
-            Tvoja: {matched.city}
+            {t("visaTermin.yours", { city: matched.city })}
           </span>
         )}
       </div>
       <div style={{ fontSize: 11, color: "#CBD5E1", marginBottom: 10, lineHeight: 1.5 }}>
-        Termin je obavezan korak prije bilo kakvog podnošenja. Klik → zvanični{" "}
-        <code style={{ background: "#1E293B", padding: "1px 6px", borderRadius: 4, color: "#E2E8F0" }}>
-          service2.diplo.de
-        </code>{" "}
-        rktermin sistem Auswärtiges Amt-a. Čekanje 1–8 mjeseci — što ranije, to bolje.
+        {t("visaTermin.intro")}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {sorted.map((e) => {
