@@ -56,20 +56,20 @@ function RegulationBadge({ reg }: { reg: Regulation }) {
   const { t } = useTranslation("anerkennung");
   if (reg === "REG") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-rose-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-rose-600 dark:text-rose-400">
+      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/25">
         <AlertTriangle className="h-3 w-3" /> {t("ui.regBadge")}
       </span>
     );
   }
   if (reg === "PARTIAL") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-600 dark:text-amber-400">
+      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/25">
         <Info className="h-3 w-3" /> {t("ui.partialBadge")}
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-emerald-600 dark:text-emerald-400">
+    <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
       <CheckCircle2 className="h-3 w-3" /> {t("ui.nregBadge")}
     </span>
   );
@@ -410,25 +410,23 @@ export default function AnerkennungNavigator() {
               <button
                 key={p.id}
                 onClick={() => setSelectedProfession(p.id)}
-                className="group rounded-2xl border border-border/40 bg-card p-4 text-left transition hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+                className="group relative flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 cursor-pointer transition-all duration-200 hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08] hover:shadow-lg text-left"
               >
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <div className="min-w-0 flex-1">
-                    <p className="font-bold text-foreground truncate">
-                      {profT(p.id, "name", p.name)}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground italic truncate">
-                      {p.nameDE}
-                    </p>
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-white text-[15px] leading-snug truncate">
+                    {profT(p.id, "name", p.name)}
+                  </p>
+                  <p className="text-xs text-white/55 mt-0.5 leading-relaxed truncate">
+                    {p.nameDE}
+                  </p>
+                  <div className="flex items-center gap-2 flex-wrap mt-2">
+                    <RegulationBadge reg={p.regulation} />
+                    <span className="text-[11px] text-white/45 ml-2">
+                      {p.category}
+                    </span>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-[hsl(var(--gold))] shrink-0 mt-1" />
                 </div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <RegulationBadge reg={p.regulation} />
-                  <span className="text-[10px] text-muted-foreground">
-                    {p.category}
-                  </span>
-                </div>
+                <ChevronRight className="h-4 w-4 shrink-0 transition-colors group-hover:text-[hsl(var(--gold))]" style={{ color: "rgba(255,255,255,0.35)" }} />
               </button>
             ))}
           </div>
