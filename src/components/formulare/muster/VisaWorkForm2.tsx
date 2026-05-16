@@ -56,7 +56,8 @@ export default function VisaWorkForm2() {
               sections: meta.mapExtras(f as unknown as Record<string, string>),
             });
           },
-        }}      />
+        }}
+      />
       <VisaSharedSections f={f} set={set as never} />
 
       <div style={S.sec}>
