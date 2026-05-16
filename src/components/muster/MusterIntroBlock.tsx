@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MusterDisclaimer from "./MusterDisclaimer";
 import PrivacyGuarantee from "./PrivacyGuarantee";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 
 export interface DatenblattConfig {
   /** Async builder returning PDF bytes */
@@ -27,6 +29,19 @@ export interface OriginalAutofillConfig {
   buttonLabel?: string;
 }
 
+/** Premium Bewerbungs-Mappe (kompletan paket: cover + Anschreiben + Checkliste + Datenblatt). */
+export interface BewerbungsMappeConfig {
+  /** Async builder returning PDF bytes */
+  build: () => Promise<Uint8Array>;
+  fileName: string;
+  /** Title for the gold premium CTA box */
+  title?: string;
+  /** Tijelo objašnjenja */
+  body?: string;
+  /** Button label */
+  buttonLabel?: string;
+}
+
 interface Props {
   formKey: string;
   paperId?: string;
@@ -39,6 +54,8 @@ interface Props {
   datenblatt?: DatenblattConfig;
   /** When provided, renders blue "1:1 auto-fill" CTA above Datenblatt. */
   originalAutofill?: OriginalAutofillConfig;
+  /** When provided, renders gold Premium "Bewerbungs-Mappe" CTA at the top. */
+  bewerbungsMappe?: BewerbungsMappeConfig;
 }
 
 /**
@@ -61,9 +78,31 @@ export default function MusterIntroBlock({
   originalPdfLabel = "Original (službeni PDF) →",
   datenblatt,
   originalAutofill,
+  bewerbungsMappe,
 }: Props) {
+  const { isPremium } = usePremiumAccess();
   const [busy, setBusy] = useState(false);
   const [autofillBusy, setAutofillBusy] = useState(false);
+  const [mappeBusy, setMappeBusy] = useState(false);
+
+  const handleMappe = async () => {
+    if (!bewerbungsMappe || mappeBusy || !isPremium) return;
+    setMappeBusy(true);
+    try {
+      const bytes = await bewerbungsMappe.build();
+      const blob = new Blob([bytes as BlobPart], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url; a.download = bewerbungsMappe.fileName;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (err) {
+      console.error("Bewerbungs-Mappe error", err);
+      alert("Greška pri generisanju Bewerbungs-Mappe PDF-a. Pokušaj ponovo.");
+    } finally {
+      setMappeBusy(false);
+    }
+  };
 
   const handleAutofill = async () => {
     if (!originalAutofill || autofillBusy) return;
@@ -120,6 +159,66 @@ export default function MusterIntroBlock({
     <>
       <MusterDisclaimer formKey={formKey}><></></MusterDisclaimer>
       <PrivacyGuarantee />
+
+      {bewerbungsMappe && (
+        <div
+          className="no-print"
+          style={{
+            marginBottom: 14, padding: 18,
+            background: "linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)",
+            border: "2px solid #D97706", borderRadius: 12,
+            boxShadow: "0 6px 20px rgba(217, 119, 6, 0.18)",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute", top: -10, right: 16,
+              background: "#D97706", color: "#fff",
+              padding: "3px 10px", borderRadius: 999,
+              fontSize: 10, fontWeight: 800, letterSpacing: 0.5,
+            }}
+          >
+            ⭐ PREMIUM
+          </div>
+          <div style={{ fontWeight: 800, fontSize: 15, color: "#78350F", marginBottom: 6 }}>
+            {bewerbungsMappe.title ?? "📦 Kompletna Bewerbungs-Mappe za ambasadu (PDF)"}
+          </div>
+          <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55, marginBottom: 12 }}>
+            {bewerbungsMappe.body ?? "Profesionalan paket koji nosiš na termin: naslovnica + Anschreiben (pismo namjere) + kompletan Datenblatt + Checkliste dokumenata sa kvačicama. Ono što ti agenti naplaćuju 200–500 KM — generišeš za par sekundi iz svojih podataka."}
+          </div>
+          {isPremium ? (
+            <button
+              onClick={handleMappe}
+              disabled={mappeBusy}
+              style={{
+                background: mappeBusy
+                  ? "#D97706"
+                  : "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+                color: "#fff", border: "none", padding: "13px 20px", borderRadius: 8,
+                fontWeight: 800, fontSize: 14, cursor: mappeBusy ? "default" : "pointer",
+                boxShadow: "0 6px 16px rgba(180, 83, 9, 0.35)",
+              }}
+            >
+              {mappeBusy ? "Generišem Mappe…" : (bewerbungsMappe.buttonLabel ?? "📥 Preuzmi Bewerbungs-Mappe PDF")}
+            </button>
+          ) : (
+            <Link
+              to="/premium"
+              style={{
+                display: "inline-block",
+                background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",
+                color: "#fff", textDecoration: "none",
+                padding: "13px 20px", borderRadius: 8,
+                fontWeight: 800, fontSize: 14,
+                boxShadow: "0 6px 16px rgba(180, 83, 9, 0.35)",
+              }}
+            >
+              🔒 Otključaj Premium za Bewerbungs-Mappe
+            </Link>
+          )}
+        </div>
+      )}
 
       {originalAutofill && (
         <div

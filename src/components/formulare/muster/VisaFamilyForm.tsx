@@ -5,6 +5,8 @@ import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
+import VisaTerminBar from "@/components/visaNavigator/VisaTerminBar";
+import { makeMappeBuilder, getMappeFileName } from "@/lib/visa-mappe-builder";
 
 const LS_KEY = "visa-family-extras";
 const PDF_URL = "https://service.berlin.de/dienstleistung/305249/";
@@ -38,9 +40,14 @@ export default function VisaFamilyForm() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
+      <VisaTerminBar />
       <MusterIntroBlock
         formKey="visafamily"
         paperId="visa-family-root-paper"
+        bewerbungsMappe={{
+          build: makeMappeBuilder("visaFamily", f as unknown as Record<string, string>),
+          fileName: getMappeFileName("visaFamily"),
+        }}
         datenblatt={{
           fileName: VISA_DATENBLATT_META.visaFamily.fileName,
           reasonNote: VISA_DATENBLATT_META.visaFamily.reasonNote,

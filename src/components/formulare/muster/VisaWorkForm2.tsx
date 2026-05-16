@@ -6,6 +6,8 @@ import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/mus
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
 import { fillEzbPdf } from "@/lib/pdf-fill-ezb";
+import VisaTerminBar from "@/components/visaNavigator/VisaTerminBar";
+import { makeMappeBuilder, getMappeFileName } from "@/lib/visa-mappe-builder";
 
 const LS_KEY = "visa-work-form2-extras";
 const PDF_URL = "/muster/ezb-ba047549.pdf";
@@ -38,9 +40,14 @@ export default function VisaWorkForm2() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
+      <VisaTerminBar />
       <MusterIntroBlock
         formKey="visawork2"
         paperId="visa-work-2-root-paper"
+        bewerbungsMappe={{
+          build: makeMappeBuilder("visaWork2", f as unknown as Record<string, string>),
+          fileName: getMappeFileName("visaWork2"),
+        }}
         originalAutofill={{
           fileName: "EzB-popunjen-BalkanLink.pdf",
           build: () => fillEzbPdf(f as unknown as Record<string, string>, "work"),
