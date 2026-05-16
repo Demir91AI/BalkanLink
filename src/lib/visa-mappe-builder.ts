@@ -31,7 +31,6 @@ export function makeMappeBuilder(formKey: VisaFormKey, extras: Record<string, st
       sections: dbMeta.mapExtras(extras),
       visaType: mappeMeta.visaType,
       countryOfOrigin: profile.staatsangehoerigkeit,
-      paragraphSection: mappeMeta.paragraphSection,
       anschreibenBody: anschreiben,
       checklist: mappeMeta.checklist.map((label) => ({ label, done: false })),
     });
