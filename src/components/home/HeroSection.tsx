@@ -72,7 +72,7 @@ function DateSeededTicker() {
             }}
           >
             <div style={{ fontSize: 13, fontWeight: 500, color: "#f1f5f9", lineHeight: 1.2 }}>{cur.main}</div>
-            <div style={{ fontSize: 10, color: "rgba(255,255,255,0.40)", lineHeight: 1.3, marginTop: 2 }}>{cur.sub}</div>
+            
           </div>
         </div>
         <span
