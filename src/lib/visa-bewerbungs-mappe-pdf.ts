@@ -270,7 +270,7 @@ function drawChecklistPage(
 export async function buildBewerbungsMappe(input: BewerbungsMappeInput): Promise<Uint8Array> {
   // 1. Generiši "intro" doc sa cover + anschreiben + checklist
   const introDoc = await PDFDocument.create();
-  introDoc.setTitle(`Bewerbungs-Mappe - ${input.formTitle}`);
+  introDoc.setTitle(safe(`Bewerbungs-Mappe - ${input.formTitle}`));
   introDoc.setCreator("BalkanLink");
   introDoc.setProducer("BalkanLink Bewerbungs-Mappe Generator");
 
@@ -287,7 +287,7 @@ export async function buildBewerbungsMappe(input: BewerbungsMappeInput): Promise
 
   // 3. Spoji: intro stranice + datenblatt stranice
   const finalDoc = await PDFDocument.create();
-  finalDoc.setTitle(`Bewerbungs-Mappe - ${input.formTitle}`);
+  finalDoc.setTitle(safe(`Bewerbungs-Mappe - ${input.formTitle}`));
   finalDoc.setCreator("BalkanLink");
 
   const introPages = await finalDoc.copyPages(introDoc, introDoc.getPageIndices());
