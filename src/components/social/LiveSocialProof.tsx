@@ -35,15 +35,19 @@ export default function LiveSocialProof({ variant = "ticker", className = "" }: 
       const { data, error } = await supabase.rpc("get_live_stats" as any);
       if (!cancelled && !error && data) {
         const raw = data as unknown as LiveStats;
-        // Baseline boost — platform još nova, ali aktivnost mora izgledati živo.
-        // Dodajemo skroman baseline tako da ticker nikad ne djeluje prazno.
+        // Baseline boost — deterministički po danu, izgleda živo bez hardkodiranih datuma.
+        const dayOfYear = Math.floor(
+          (Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86_400_000
+        );
+        // Seed po danu — svaki dan malo drugačiji broj, ali stabilan cijeli dan
+        const seed = (dayOfYear * 1013 + 7) % 100;
         const BASELINE = {
-          totalUsers: 1247,
-          chatToday: 38,
-          docsToday: 12,
-          newToday: 7,
-          questionsTotal: 84,
-          questionsToday: 3,
+          totalUsers: 1247 + dayOfYear * 2,          // raste svaki dan za ~2
+          chatToday: 28 + (seed % 22),               // između 28–49
+          docsToday: 8 + (seed % 9),                 // između 8–16
+          newToday: 3 + (seed % 7),                  // između 3–9
+          questionsTotal: 84 + dayOfYear,            // raste svaki dan za 1
+          questionsToday: 1 + (seed % 4),            // između 1–4
         };
         const next: LiveStats = {
           ...raw,
@@ -110,7 +114,18 @@ export default function LiveSocialProof({ variant = "ticker", className = "" }: 
         node: (
           <>
             <span className="font-medium text-[hsl(45,93%,60%)]">+{stats.newToday}</span>
-            <span>{t("socialProof.joinedToday", "novih korisnika danas")}</span>
+            <span>{t("socialProof.joinedToday", "novih registracija danas")}</span>
+          </>
+        ),
+      });
+    }
+    if (stats.newToday > 0) {
+      list.push({
+        key: "newAlt",
+        node: (
+          <>
+            <span className="text-white/70">{t("socialProof.joinAlt", "Pridruži im se —")}</span>
+            <span className="font-medium text-[hsl(45,93%,60%)]">{t("socialProof.joinFree", "besplatno")}</span>
           </>
         ),
       });
