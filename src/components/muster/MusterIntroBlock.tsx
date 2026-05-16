@@ -33,7 +33,7 @@ interface Props {
  *  2. Privacy Guarantee box
  *  3. Optional amber "zašto Datenblatt" objašnjenje
  *  4. Optional purple Datenblatt PDF CTA (pdf-lib generated)
- *  5. Green "Popuni online → preuzmi PDF" box (window.print fallback)
+ *  5. Green "Popuni online → preuzmi PDF" box (window.print fallback, hidden when Datenblatt exists)
  *  6. Optional link to the official empty PDF
  */
 export default function MusterIntroBlock({
@@ -83,3 +83,80 @@ export default function MusterIntroBlock({
       <MusterDisclaimer formKey={formKey}><></></MusterDisclaimer>
       <PrivacyGuarantee />
 
+      {datenblatt && (
+        <>
+          <div
+            className="no-print"
+            style={{
+              marginBottom: 14, padding: 14,
+              background: "#FFFBEB", border: "1.5px solid #D97706", borderRadius: 10,
+              fontSize: 12, lineHeight: 1.55, color: "#78350F",
+            }}
+          >
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>ℹ Zašto Datenblatt, a ne popunjen službeni PDF?</div>
+            {datenblatt.reasonNote}
+          </div>
+
+          <div
+            className="no-print"
+            style={{
+              marginBottom: 18, padding: 16,
+              background: "#F5F3FF", border: "2px solid #7C3AED", borderRadius: 10,
+            }}
+          >
+            <div style={{ fontWeight: 700, fontSize: 14, color: "#4C1D95", marginBottom: 6 }}>
+              {datenblatt.title ?? "📋 Preuzmi BalkanLink Datenblatt (PDF)"}
+            </div>
+            <div style={{ fontSize: 12, color: "#4C1D95", lineHeight: 1.55, marginBottom: 12 }}>
+              Strukturirani sažetak svih podataka po sekcijama službenog obrasca, sa BHS i DE labelama.
+              Ponesi ga na šalter ili koristi kao predložak kad popunjavaš službeni PDF / online portal.
+            </div>
+            <button
+              onClick={handleDatenblatt}
+              disabled={busy}
+              style={{
+                background: busy ? "#A78BFA" : "#7C3AED",
+                color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8,
+                fontWeight: 700, fontSize: 14, cursor: busy ? "default" : "pointer",
+                boxShadow: "0 4px 12px rgba(124,58,237,0.3)",
+              }}
+            >
+              {busy ? "Generišem PDF…" : (datenblatt.buttonLabel ?? "📥 Preuzmi Datenblatt PDF")}
+            </button>
+            {datenblatt && originalPdfUrl && (
+              <div style={{ marginTop: 10, fontSize: 12 }}>
+                <a href={originalPdfUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#4C1D95", textDecoration: "underline", fontWeight: 600 }}>
+                  {originalPdfLabel}
+                </a>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      {!datenblatt && (
+        <div className="no-print" style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>
+            {downloadTitle}
+          </div>
+          <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>
+            {downloadBody}
+          </div>
+          <button
+            onClick={handlePrint}
+            style={{ background: "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}
+          >
+            {downloadLabel}
+          </button>
+          {originalPdfUrl && (
+            <div style={{ marginTop: 10, fontSize: 12 }}>
+              <a href={originalPdfUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#065F46", textDecoration: "underline", fontWeight: 600 }}>
+                {originalPdfLabel}
+              </a>
+            </div>
+          )}
+        </div>
+      )}
+    </>
+  );
+}
