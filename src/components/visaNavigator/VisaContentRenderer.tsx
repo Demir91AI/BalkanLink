@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Printer, Euro, ChevronRight, Lock } from 'lucide-react';
+import { ExternalLink, CheckCircle, AlertTriangle, FileText, Clock, MapPin, Zap, Info, Euro, ChevronRight, Lock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useAuth } from '@/contexts/AuthContext';
@@ -436,12 +436,6 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
                         style={{ width: '100%', padding: '10px', background: '#2563EB', color: 'white', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: 'pointer', marginBottom: 8 }}>
                         📋 {openFormKey === form.formKey ? t('visa.renderer.closeForm') : t('visa.renderer.openForm')}
                       </button>
-                      {form.downloadUrl && (
-                        <button onClick={() => window.print()}
-                          style={{ width: '100%', padding: '8px', background: 'transparent', color: '#94A3B8', border: '1px solid #334155', borderRadius: 8, fontSize: 12, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-                          <Printer size={12} /> {t('visa.renderer.pdfPreview')}
-                        </button>
-                      )}
                     </div>
                   ))}
                 </div>
