@@ -354,5 +354,27 @@
       "anlagenTitle": "Begleitende Anlage-PDFs (Original BA, Stand 04/2026)",
       "anlagenInfo": "Jede Anlage ist ein separates PDF, das zusammen mit dem HA eingereicht wird. Klicke zum Herunterladen mit bereits ausgefülltem Antragsteller-Kopf (Name, Vorname, Geburtsdatum). Detailfelder selbst im Adobe Reader ausfüllen."
     }
+  },
+  "muster": {
+    "errors": {
+      "mappe": "Fehler beim Erstellen der Bewerbungs-Mappe (PDF). Bitte erneut versuchen. ({{error}})",
+      "autofill": "Fehler beim Ausfüllen des Original-PDFs. Bitte erneut versuchen. ({{error}})",
+      "datenblatt": "Fehler beim Erstellen des Datenblatt-PDFs. ({{error}})"
+    },
+    "bewerbungsMappe": {
+      "title": "📦 Komplette Bewerbungs-Mappe für die Botschaft (PDF)",
+      "body": "Professionelles Paket für den Termin: Deckblatt + Anschreiben + komplettes Datenblatt + Checkliste der Unterlagen mit Häkchen. Wofür Agenturen 100–250 € verlangen — du erstellst es in Sekunden aus deinen Daten.",
+      "button": "📥 Bewerbungs-Mappe PDF herunterladen",
+      "busy": "Erstelle Mappe…",
+      "premiumCta": "🔒 Premium freischalten für Bewerbungs-Mappe",
+      "badge": "PREMIUM"
+    }
+  },
+  "visaTermin": {
+    "heading": "🗓️ Termin direkt bei der deutschen Botschaft buchen",
+    "yours": "Deine: {{city}}",
+    "intro": "Der Termin ist ein Pflichtschritt vor jeder Antragstellung. Klick → offizielles rktermin-System des Auswärtigen Amts. Wartezeit 1–8 Monate — je früher, desto besser.",
+    "tip": "💡 Tipp: Termine öffnen sich Montagvormittag (CET). Täglich zwischen 7:00–8:00 Uhr prüfen.",
+    "linkTitle": "Deutsche Botschaft {{city}} ({{country}}) — rktermin"
   }
 }

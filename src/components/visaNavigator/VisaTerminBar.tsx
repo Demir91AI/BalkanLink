@@ -10,6 +10,7 @@
  * dostupne kao fallback. Country se može auto-detektovati iz
  * `loadVisaProfile().staatsangehoerigkeit` ako prop nije zadan.
  */
+import { useTranslation } from "react-i18next";
 import { loadVisaProfile } from "@/lib/visa-shared-profile";
 
 const EMBASSIES = [
@@ -42,6 +43,7 @@ interface Props {
 }
 
 export default function VisaTerminBar({ highlightCountry }: Props) {
+  const { t } = useTranslation("forms");
   const active = (highlightCountry || detectCountryFromProfile() || "").toLowerCase();
   const sorted = active
     ? [...EMBASSIES].sort((a, b) => (a.code === active ? -1 : b.code === active ? 1 : 0))
@@ -72,7 +74,7 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
           flexWrap: "wrap",
         }}
       >
-        🗓️ Zakaži termin direktno u njemačkoj ambasadi
+        {t("visaTermin.heading")}
         {matched && (
           <span
             style={{
@@ -87,16 +89,12 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
               letterSpacing: 0.4,
             }}
           >
-            Tvoja: {matched.city}
+            {t("visaTermin.yours", { city: matched.city })}
           </span>
         )}
       </div>
       <div style={{ fontSize: 11, color: "#CBD5E1", marginBottom: 10, lineHeight: 1.5 }}>
-        Termin je obavezan korak prije bilo kakvog podnošenja. Klik → zvanični{" "}
-        <code style={{ background: "#1E293B", padding: "1px 6px", borderRadius: 4, color: "#E2E8F0" }}>
-          service2.diplo.de
-        </code>{" "}
-        rktermin sistem Auswärtiges Amt-a. Čekanje 1–8 mjeseci — što ranije, to bolje.
+        {t("visaTermin.intro")}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {sorted.map((e) => {
@@ -130,7 +128,7 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
                 ev.currentTarget.style.background = isActive ? "rgba(252, 211, 77, 0.28)" : "rgba(252, 211, 77, 0.12)";
                 ev.currentTarget.style.transform = "translateY(0)";
               }}
-              title={`Njemačka ambasada ${e.city} (${e.country}) — rktermin`}
+              title={t("visaTermin.linkTitle", { city: e.city, country: e.country })}
             >
               <span style={{ fontSize: 14 }}>{e.flag}</span>
               <span>{e.city}</span>
@@ -140,7 +138,7 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
         })}
       </div>
       <div style={{ marginTop: 10, fontSize: 10, color: "#94A3B8", fontStyle: "italic" }}>
-        💡 Tip: Termini se otvaraju ponedjeljkom ujutro (CET). Provjeri svaki dan u 7:00–8:00h.
+        {t("visaTermin.tip")}
       </div>
     </div>
   );

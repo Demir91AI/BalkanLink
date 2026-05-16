@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import MusterDisclaimer from "./MusterDisclaimer";
 import PrivacyGuarantee from "./PrivacyGuarantee";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
@@ -80,10 +81,13 @@ export default function MusterIntroBlock({
   originalAutofill,
   bewerbungsMappe,
 }: Props) {
+  const { t } = useTranslation("forms");
   const { isPremium } = usePremiumAccess();
   const [busy, setBusy] = useState(false);
   const [autofillBusy, setAutofillBusy] = useState(false);
   const [mappeBusy, setMappeBusy] = useState(false);
+
+  const errMsg = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
   const handleMappe = async () => {
     if (!bewerbungsMappe || mappeBusy || !isPremium) return;
@@ -98,7 +102,7 @@ export default function MusterIntroBlock({
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (err) {
       console.error("Bewerbungs-Mappe error", err);
-      alert("Greška pri generisanju Bewerbungs-Mappe PDF-a. Pokušaj ponovo.");
+      alert(t("muster.errors.mappe", { error: errMsg(err) }));
     } finally {
       setMappeBusy(false);
     }
@@ -119,7 +123,7 @@ export default function MusterIntroBlock({
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (err) {
       console.error("Original auto-fill error", err);
-      alert("Greška pri popunjavanju originalnog PDF-a. Pokušaj ponovo.");
+      alert(t("muster.errors.autofill", { error: errMsg(err) }));
     } finally {
       setAutofillBusy(false);
     }
@@ -149,7 +153,7 @@ export default function MusterIntroBlock({
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (e) {
       console.error("Datenblatt PDF error", e);
-      alert("Greška pri generisanju Datenblatt PDF-a.");
+      alert(t("muster.errors.datenblatt", { error: errMsg(e) }));
     } finally {
       setBusy(false);
     }
@@ -179,13 +183,13 @@ export default function MusterIntroBlock({
               fontSize: 10, fontWeight: 800, letterSpacing: 0.5,
             }}
           >
-            ⭐ PREMIUM
+            ⭐ {t("muster.bewerbungsMappe.badge")}
           </div>
           <div style={{ fontWeight: 800, fontSize: 15, color: "#78350F", marginBottom: 6 }}>
-            {bewerbungsMappe.title ?? "📦 Kompletna Bewerbungs-Mappe za ambasadu (PDF)"}
+            {bewerbungsMappe.title ?? t("muster.bewerbungsMappe.title")}
           </div>
           <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55, marginBottom: 12 }}>
-            {bewerbungsMappe.body ?? "Profesionalan paket koji nosiš na termin: naslovnica + Anschreiben (pismo namjere) + kompletan Datenblatt + Checkliste dokumenata sa kvačicama. Ono što ti agenti naplaćuju 200–500 KM — generišeš za par sekundi iz svojih podataka."}
+            {bewerbungsMappe.body ?? t("muster.bewerbungsMappe.body")}
           </div>
           {isPremium ? (
             <button
@@ -200,7 +204,7 @@ export default function MusterIntroBlock({
                 boxShadow: "0 6px 16px rgba(180, 83, 9, 0.35)",
               }}
             >
-              {mappeBusy ? "Generišem Mappe…" : (bewerbungsMappe.buttonLabel ?? "📥 Preuzmi Bewerbungs-Mappe PDF")}
+              {mappeBusy ? t("muster.bewerbungsMappe.busy") : (bewerbungsMappe.buttonLabel ?? t("muster.bewerbungsMappe.button"))}
             </button>
           ) : (
             <Link
@@ -214,7 +218,7 @@ export default function MusterIntroBlock({
                 boxShadow: "0 6px 16px rgba(180, 83, 9, 0.35)",
               }}
             >
-              🔒 Otključaj Premium za Bewerbungs-Mappe
+              {t("muster.bewerbungsMappe.premiumCta")}
             </Link>
           )}
         </div>
