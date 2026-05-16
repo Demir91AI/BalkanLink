@@ -129,7 +129,7 @@ function drawText(
   page: PDFPage, text: string, x: number, y: number,
   font: PDFFont, size: number, color = COLOR.text,
 ) {
-  page.drawText(text || "", { x, y, size, font, color });
+  page.drawText(safe(text || ""), { x, y, size, font, color });
 }
 
 function drawWrappedBox(
@@ -251,7 +251,7 @@ function profileSections(p: VisaSharedProfile): DatenblattSection[] {
 
 export async function buildVisaDatenblatt(input: DatenblattInput): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
-  doc.setTitle(`Datenblatt — ${input.formTitle}`);
+  doc.setTitle(safe(`Datenblatt — ${input.formTitle}`));
   doc.setCreator("BalkanLink");
   doc.setProducer("BalkanLink Datenblatt Generator");
 
