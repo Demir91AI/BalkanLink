@@ -15,16 +15,13 @@ function seededRandom(salt: number): number {
 
 function DateSeededTicker() {
   const items = useMemo(() => {
-    const dayOfMonth = new Date().getDate();
-    const monthNames = ["januar","februar","mart","april","maj","juni","juli","august","septembar","oktobar","novembar","decembar"];
-    const monthName = monthNames[new Date().getMonth()];
+    const todayViews = Math.floor(180 + seededRandom(2) * 120);
     const todayVisits = Math.floor(seededRandom(1) * 28) + 14;
-    const monthViews = Math.floor(800 + dayOfMonth * 14 + seededRandom(2) * 120);
-    const monthRegs = Math.floor(seededRandom(3) * 7) + 2;
+    const todayRegs = Math.floor(seededRandom(3) * 6) + 2;
     return [
-      { Icon: Eye, color: "#60a5fa", main: `${monthViews.toLocaleString("de-DE")} pregleda u ${monthName}`, sub: "i broj raste svake sedmice" },
+      { Icon: Eye, color: "#60a5fa", main: `${todayViews.toLocaleString("de-DE")} pregleda danas`, sub: "i broj raste iz sata u sat" },
       { Icon: Users, color: "#4ade80", main: `${todayVisits} posjeta danas`, sub: "Balkanci u Njemačkoj pronašli su nas" },
-      { Icon: UserPlus, color: "#f97316", main: `Već ${monthRegs} novih registracija u ${monthName}`, sub: "pridruži im se — besplatno" },
+      { Icon: UserPlus, color: "#f97316", main: `${todayRegs} novih registracija danas`, sub: "pridruži im se — besplatno" },
     ];
   }, []);
   const [idx, setIdx] = useState(0);
