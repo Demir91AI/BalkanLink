@@ -354,5 +354,27 @@
       "anlagenTitle": "Prateći Anlage PDF-ovi (izvorni BA, Stand 04/2026)",
       "anlagenInfo": "Svaka Anlage je zaseban PDF koji se predaje uz HA. Klikni za preuzimanje s već ispunjenim Antragsteller zaglavljem (ime, prezime, datum rođenja). Detaljna polja ispuni ručno u Adobe Readeru."
     }
+  },
+  "muster": {
+    "errors": {
+      "mappe": "Greška pri generiranju Bewerbungs-Mappe PDF-a. Pokušaj ponovo. ({{error}})",
+      "autofill": "Greška pri popunjavanju originalnog PDF-a. Pokušaj ponovo. ({{error}})",
+      "datenblatt": "Greška pri generiranju Datenblatt PDF-a. ({{error}})"
+    },
+    "bewerbungsMappe": {
+      "title": "📦 Kompletna Bewerbungs-Mappe za ambasadu (PDF)",
+      "body": "Profesionalan paket koji nosiš na termin: naslovnica + Anschreiben (pismo namjere) + kompletan Datenblatt + Checkliste dokumenata s kvačicama. Ono što ti agenti naplaćuju 200–500 KM — generiraš za par sekundi iz svojih podataka.",
+      "button": "📥 Preuzmi Bewerbungs-Mappe PDF",
+      "busy": "Generiram Mappe…",
+      "premiumCta": "🔒 Otključaj Premium za Bewerbungs-Mappe",
+      "badge": "PREMIUM"
+    }
+  },
+  "visaTermin": {
+    "heading": "🗓️ Zakaži termin direktno u njemačkoj ambasadi",
+    "yours": "Tvoja: {{city}}",
+    "intro": "Termin je obavezan korak prije bilo kakvog podnošenja. Klik → službeni rktermin sustav Auswärtiges Amt-a. Čekanje 1–8 mjeseci — što ranije, to bolje.",
+    "tip": "💡 Savjet: Termini se otvaraju ponedjeljkom ujutro (CET). Provjeri svaki dan u 7:00–8:00h.",
+    "linkTitle": "Njemačko veleposlanstvo {{city}} ({{country}}) — rktermin"
   }
 }
