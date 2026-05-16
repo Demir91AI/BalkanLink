@@ -56,20 +56,20 @@ function RegulationBadge({ reg }: { reg: Regulation }) {
   const { t } = useTranslation("anerkennung");
   if (reg === "REG") {
     return (
-      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/25">
+      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-500/15 text-red-300 border border-red-500/40">
         <AlertTriangle className="h-3 w-3" /> {t("ui.regBadge")}
       </span>
     );
   }
   if (reg === "PARTIAL") {
     return (
-      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/25">
+      <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-200 border border-amber-500/40">
         <Info className="h-3 w-3" /> {t("ui.partialBadge")}
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
+    <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/40">
       <CheckCircle2 className="h-3 w-3" /> {t("ui.nregBadge")}
     </span>
   );
@@ -97,7 +97,7 @@ function SectionCard({
         <div className="h-9 w-9 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center text-[hsl(var(--gold))]">
           {icon}
         </div>
-        <h3 className="text-base sm:text-lg font-bold text-foreground">{title}</h3>
+        <h3 className="text-base sm:text-lg font-bold text-white">{title}</h3>
       </div>
       {children}
     </section>
@@ -124,16 +124,16 @@ function AnerkennungPaywall() {
         <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30">
           <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
         </div>
-        <h2 className="text-xl sm:text-2xl font-extrabold text-foreground">
+        <h2 className="text-xl sm:text-2xl font-extrabold text-white">
           {t("paywall.title")}
         </h2>
-        <p className="mt-2 text-sm text-muted-foreground">{t("paywall.subtitle")}</p>
+        <p className="mt-2 text-sm text-white/75">{t("paywall.subtitle")}</p>
 
         <div className="mt-6 grid gap-3 text-left">
           {features.map((b) => (
             <div key={b} className="flex items-start gap-2 text-sm">
               <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5 shrink-0" />
-              <span className="text-foreground/90">{b}</span>
+              <span className="text-white/95">{b}</span>
             </div>
           ))}
         </div>
@@ -150,7 +150,7 @@ function AnerkennungPaywall() {
           {t("paywall.cta")}
         </button>
 
-        <p className="mt-3 text-[11px] text-muted-foreground">{t("paywall.footnote")}</p>
+        <p className="mt-3 text-[11px] text-white/75">{t("paywall.footnote")}</p>
       </div>
     </div>
   );
@@ -269,19 +269,19 @@ export default function AnerkennungNavigator() {
           <div className="h-10 w-10 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center">
             <GraduationCap className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
-          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground">
+          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
             {t("ui.headerTitle")}
           </h1>
           <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-1 text-[10px] font-bold uppercase text-[hsl(var(--gold))]">
             <Crown className="h-3 w-3" /> {t("ui.premiumBadge")}
           </span>
         </div>
-        <p className="text-sm text-muted-foreground">{t("ui.headerSubtitle")}</p>
+        <p className="text-sm text-white/75">{t("ui.headerSubtitle")}</p>
         <div className="h-px mt-4 mb-6 bg-border/40" />
       </div>
 
       {/* Disclaimer — pravna zaštita */}
-      <div className="mb-4 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-xs sm:text-sm text-amber-700 dark:text-amber-300">
+      <div className="mb-4 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-xs sm:text-sm text-amber-200">
         <div className="flex items-start gap-2">
           <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
           <div>
@@ -301,10 +301,10 @@ export default function AnerkennungNavigator() {
             <BookOpen className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-bold text-sm text-foreground">
+            <div className="font-bold text-sm text-white">
               Imaš fakultetsku diplomu (Bachelor / Master / Magistar)?
             </div>
-            <p className="text-xs text-muted-foreground mt-0.5">
+            <p className="text-xs text-white/75 mt-0.5">
               Detaljan vodič za priznavanje akademskih diploma sa Balkana —
               ZAB Zeugnisbewertung, Anabin H+/H+/-/H- statusi, primjeri sa
               Sarajevskog, Zagrebačkog i Beogradskog univerziteta.
@@ -321,10 +321,10 @@ export default function AnerkennungNavigator() {
             <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-3">
               {t("ui.step1of3")}
             </p>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
               {t("ui.step1Title")}
             </h2>
-            <p className="text-sm text-muted-foreground">{t("ui.step1Sub")}</p>
+            <p className="text-sm text-white/75">{t("ui.step1Sub")}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -336,14 +336,14 @@ export default function AnerkennungNavigator() {
               >
                 <span className="text-3xl">{c.flag}</span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-foreground">
+                  <p className="font-bold text-white">
                     {countryT(c.code, "name", c.name)}
                   </p>
-                  <p className="text-[11px] text-muted-foreground">
+                  <p className="text-[11px] text-white/75">
                     {c.euMember ? t("ui.euMember") : t("ui.thirdCountry")}
                   </p>
                 </div>
-                <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-[hsl(var(--gold))]" />
+                <ChevronRight className="h-4 w-4 text-white/75 group-hover:text-[hsl(var(--gold))]" />
               </button>
             ))}
           </div>
@@ -354,20 +354,20 @@ export default function AnerkennungNavigator() {
       {showPaywall && (
         <section className="space-y-4">
           <div className="flex items-center justify-between gap-3 flex-wrap">
-            <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+            <p className="text-xs text-white/75 flex items-center gap-1.5">
               {country && <span className="text-lg">{country.flag}</span>}
               <span>
                 {t("ui.previewSelected", {
                   defaultValue: "Odabrano:",
                 })}{" "}
-                <strong className="text-foreground">
+                <strong className="text-white">
                   {country ? countryT(country.code, "name", country.name) : ""}
                 </strong>
               </span>
             </p>
             <button
               onClick={() => setSelectedCountry(null)}
-              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+              className="text-xs font-semibold text-white/75 hover:text-white flex items-center gap-1"
             >
               <ChevronLeft className="h-3 w-3" /> {t("ui.changeCountry")}
             </button>
@@ -384,22 +384,22 @@ export default function AnerkennungNavigator() {
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
                 {t("ui.step2of3")}
               </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1 flex items-center gap-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-1 flex items-center gap-2">
                 <span>{country.flag}</span> {t("ui.step2Title")}
               </h2>
-              <p className="text-sm text-muted-foreground">{t("ui.step2Sub")}</p>
+              <p className="text-sm text-white/75">{t("ui.step2Sub")}</p>
             </div>
             <button
               onClick={() => setSelectedCountry(null)}
-              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+              className="text-xs font-semibold text-white/75 hover:text-white flex items-center gap-1"
             >
               <ChevronLeft className="h-3 w-3" /> {t("ui.changeCountry")}
             </button>
           </div>
 
           {/* Country specific note */}
-          <div className="rounded-xl border border-border/40 bg-muted/30 p-4 text-xs text-muted-foreground">
-            <strong className="text-foreground">
+          <div className="rounded-xl border border-border/40 bg-muted/30 p-4 text-xs text-white/75">
+            <strong className="text-white">
               {countryT(country.code, "name", country.name)}:{" "}
             </strong>
             {countryT(country.code, "notes", country.notes)}
@@ -441,15 +441,15 @@ export default function AnerkennungNavigator() {
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
                 {t("ui.step3of4")}
               </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1 flex items-center gap-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-1 flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-[hsl(var(--gold))]" />
                 {t("ui.step3Title")}
               </h2>
-              <p className="text-sm text-muted-foreground">{t("ui.step3Sub")}</p>
+              <p className="text-sm text-white/75">{t("ui.step3Sub")}</p>
             </div>
             <button
               onClick={() => setSelectedProfession(null)}
-              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+              className="text-xs font-semibold text-white/75 hover:text-white flex items-center gap-1"
             >
               <ChevronLeft className="h-3 w-3" /> {t("ui.changeProfession")}
             </button>
@@ -462,8 +462,8 @@ export default function AnerkennungNavigator() {
                 onClick={() => setBundesland(b.code)}
                 className="group rounded-xl border border-border/40 bg-card p-3 text-left transition hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
               >
-                <p className="font-bold text-foreground text-sm">{b.name}</p>
-                <p className="text-[10px] text-muted-foreground mt-0.5">
+                <p className="font-bold text-white text-sm">{b.name}</p>
+                <p className="text-[10px] text-white/75 mt-0.5">
                   {b.capital}
                 </p>
               </button>
@@ -480,15 +480,15 @@ export default function AnerkennungNavigator() {
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">
                 {t("ui.step4of4")}
               </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 flex-wrap">
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2 flex-wrap">
                 <span>{country.flag}</span>
                 <span>{profT(profession.id, "name", profession.name)}</span>
               </h2>
-              <p className="text-sm text-muted-foreground italic">
+              <p className="text-sm text-white/75 italic">
                 {profession.nameDE}
               </p>
               {bundeslandObj && (
-                <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1.5">
+                <p className="mt-1 text-xs text-white/75 flex items-center gap-1.5">
                   <MapPin className="h-3 w-3" /> {bundeslandObj.name}
                   <button
                     onClick={() => setBundesland("")}
@@ -501,7 +501,7 @@ export default function AnerkennungNavigator() {
             </div>
             <button
               onClick={resetWizard}
-              className="text-xs font-semibold text-muted-foreground hover:text-foreground flex items-center gap-1"
+              className="text-xs font-semibold text-white/75 hover:text-white flex items-center gap-1"
             >
               <ChevronLeft className="h-3 w-3" /> {t("ui.newCheck")}
             </button>
@@ -516,26 +516,26 @@ export default function AnerkennungNavigator() {
               </p>
               <RegulationBadge reg={profession.regulation} />
               {country.euMember && (
-                <span className="rounded-full bg-blue-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-blue-600 dark:text-blue-400">
+                <span className="rounded-full bg-blue-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-blue-300">
                   {t("ui.euDiploma")}
                 </span>
               )}
             </div>
-            <p className="text-sm text-foreground/90 leading-relaxed">
+            <p className="text-sm text-white/95 leading-relaxed">
               {profT(profession.id, "description", profession.description)}
             </p>
             {profession.regulation === "REG" && (
-              <p className="mt-3 text-xs text-rose-700 dark:text-rose-300">
+              <p className="mt-3 text-xs text-rose-200">
                 <strong>{t("ui.regWarning")}</strong> {t("ui.regWarningBody")}
               </p>
             )}
             {profession.regulation === "NREG" && (
-              <p className="mt-3 text-xs text-emerald-700 dark:text-emerald-300">
+              <p className="mt-3 text-xs text-emerald-200">
                 <strong>{t("ui.nregInfo")}</strong> {t("ui.nregInfoBody")}
               </p>
             )}
             {profession.notes && (
-              <p className="mt-3 text-xs text-muted-foreground">
+              <p className="mt-3 text-xs text-white/75">
                 <Info className="inline h-3 w-3 mr-1" />
                 {profT(profession.id, "notes", profession.notes)}
               </p>
@@ -546,28 +546,28 @@ export default function AnerkennungNavigator() {
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border border-border/40 bg-card p-4">
               <Clock className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
-              <p className="text-[11px] text-muted-foreground uppercase font-semibold">
+              <p className="text-[11px] text-white/75 uppercase font-semibold">
                 {t("ui.statDuration")}
               </p>
-              <p className="text-sm font-bold text-foreground mt-1">
+              <p className="text-sm font-bold text-white mt-1">
                 {profT(profession.id, "durationRange", profession.durationRange)}
               </p>
             </div>
             <div className="rounded-xl border border-border/40 bg-card p-4">
               <Euro className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
-              <p className="text-[11px] text-muted-foreground uppercase font-semibold">
+              <p className="text-[11px] text-white/75 uppercase font-semibold">
                 {t("ui.statCost")}
               </p>
-              <p className="text-sm font-bold text-foreground mt-1">
+              <p className="text-sm font-bold text-white mt-1">
                 {profT(profession.id, "costRange", profession.costRange)}
               </p>
             </div>
             <div className="rounded-xl border border-border/40 bg-card p-4">
               <BookOpen className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
-              <p className="text-[11px] text-muted-foreground uppercase font-semibold">
+              <p className="text-[11px] text-white/75 uppercase font-semibold">
                 {t("ui.statLanguage")}
               </p>
-              <p className="text-sm font-bold text-foreground mt-1">
+              <p className="text-sm font-bold text-white mt-1">
                 {profession.requiresLanguageExam
                   ? t("ui.langRequired")
                   : t("ui.langNotRequired")}
@@ -586,7 +586,7 @@ export default function AnerkennungNavigator() {
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))]/10 text-[11px] font-bold text-[hsl(var(--gold))]">
                     {i + 1}
                   </span>
-                  <span className="text-sm text-foreground/90 pt-0.5">{step}</span>
+                  <span className="text-sm text-white/95 pt-0.5">{step}</span>
                 </li>
               ))}
             </ol>
@@ -601,11 +601,11 @@ export default function AnerkennungNavigator() {
               {profArr(profession.id, "documents", profession.documents).map((doc) => (
                 <li key={doc} className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-1" />
-                  <span className="text-foreground/90">{doc}</span>
+                  <span className="text-white/95">{doc}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-4 rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-700 dark:text-amber-300">
+            <div className="mt-4 rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-200">
               <strong>{t("ui.apostilleNote")}</strong> {t("ui.apostilleBody")}
               <br />
               <strong className="block mt-2">{t("ui.translationNote")}</strong>{" "}
@@ -619,11 +619,11 @@ export default function AnerkennungNavigator() {
             title={t("ui.anabinTitle")}
             tone="gold"
           >
-            <p className="text-sm text-foreground/90 mb-4">{t("ui.anabinIntro")}</p>
+            <p className="text-sm text-white/95 mb-4">{t("ui.anabinIntro")}</p>
 
             <div className="space-y-4">
               <div>
-                <p className="text-xs font-bold uppercase text-foreground mb-2">
+                <p className="text-xs font-bold uppercase text-white mb-2">
                   {t("ui.anabinInstitutions")}
                 </p>
                 <ul className="space-y-2">
@@ -642,7 +642,7 @@ export default function AnerkennungNavigator() {
                         <strong className="text-[hsl(var(--gold))]">
                           {t(`anabin.${key}.title`, s.title)}
                         </strong>
-                        <p className="text-muted-foreground mt-1">
+                        <p className="text-white/75 mt-1">
                           {t(`anabin.${key}.description`, s.description)}
                         </p>
                       </li>
@@ -652,7 +652,7 @@ export default function AnerkennungNavigator() {
               </div>
 
               <div>
-                <p className="text-xs font-bold uppercase text-foreground mb-2">
+                <p className="text-xs font-bold uppercase text-white mb-2">
                   {t("ui.anabinDiplomas")}
                 </p>
                 <ul className="space-y-2">
@@ -671,7 +671,7 @@ export default function AnerkennungNavigator() {
                         <strong className="text-[hsl(var(--gold))]">
                           {t(`anabin.${key}.title`, s.title)}
                         </strong>
-                        <p className="text-muted-foreground mt-1">
+                        <p className="text-white/75 mt-1">
                           {t(`anabin.${key}.description`, s.description)}
                         </p>
                       </li>
@@ -697,20 +697,20 @@ export default function AnerkennungNavigator() {
             title={t("ui.zuschussTitle")}
             tone="gold"
           >
-            <p className="text-sm text-foreground/90 mb-4">
+            <p className="text-sm text-white/95 mb-4">
               {t("zuschuss.description", ANERKENNUNGSZUSCHUSS.description)}
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2 mb-4">
               <div>
-                <p className="text-xs font-bold uppercase text-foreground mb-2">
+                <p className="text-xs font-bold uppercase text-white mb-2">
                   {t("ui.zuschussEligibility")}
                 </p>
                 <ul className="space-y-1">
                   {((t("zuschuss.eligibility", { returnObjects: true }) as unknown as string[]) || ANERKENNUNGSZUSCHUSS.eligibility).map((e) => (
                     <li
                       key={e}
-                      className="text-xs text-foreground/80 flex items-start gap-2"
+                      className="text-xs text-white/85 flex items-start gap-2"
                     >
                       <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
                       {e}
@@ -719,14 +719,14 @@ export default function AnerkennungNavigator() {
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase text-foreground mb-2">
+                <p className="text-xs font-bold uppercase text-white mb-2">
                   {t("ui.zuschussCovers")}
                 </p>
                 <ul className="space-y-1">
                   {((t("zuschuss.covers", { returnObjects: true }) as unknown as string[]) || ANERKENNUNGSZUSCHUSS.whatItCovers).map((w) => (
                     <li
                       key={w}
-                      className="text-xs text-foreground/80 flex items-start gap-2"
+                      className="text-xs text-white/85 flex items-start gap-2"
                     >
                       <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
                       {w}
@@ -737,14 +737,14 @@ export default function AnerkennungNavigator() {
             </div>
 
             <div>
-              <p className="text-xs font-bold uppercase text-foreground mb-2">
+              <p className="text-xs font-bold uppercase text-white mb-2">
                 {t("ui.zuschussHowTo")}
               </p>
               <ol className="space-y-1 mb-4">
                 {((t("zuschuss.howToApply", { returnObjects: true }) as unknown as string[]) || ANERKENNUNGSZUSCHUSS.howToApply).map((step, i) => (
                   <li
                     key={step}
-                    className="text-xs text-foreground/80 flex items-start gap-2"
+                    className="text-xs text-white/85 flex items-start gap-2"
                   >
                     <span className="font-bold text-[hsl(var(--gold))]">{i + 1}.</span>
                     {step}
@@ -753,7 +753,7 @@ export default function AnerkennungNavigator() {
               </ol>
             </div>
 
-            <div className="rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-700 dark:text-amber-300 mb-4">
+            <div className="rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-200 mb-4">
               <AlertTriangle className="inline h-3 w-3 mr-1" />
               {t("zuschuss.important", ANERKENNUNGSZUSCHUSS.important)}
             </div>
@@ -765,7 +765,7 @@ export default function AnerkennungNavigator() {
                   href={l.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-3 py-1.5 text-[11px] font-semibold text-foreground hover:border-[hsl(var(--gold))]/40"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-3 py-1.5 text-[11px] font-semibold text-white hover:border-[hsl(var(--gold))]/40"
                 >
                   {l.label} <ExternalLink className="h-3 w-3" />
                 </a>
@@ -784,11 +784,11 @@ export default function AnerkennungNavigator() {
                 <p className="text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">
                   {authority.authorityType}
                 </p>
-                <p className="text-sm font-bold text-foreground mb-2">
+                <p className="text-sm font-bold text-white mb-2">
                   {authority.name}
                 </p>
                 {authority.notes && (
-                  <p className="text-xs text-muted-foreground mb-3">
+                  <p className="text-xs text-white/75 mb-3">
                     {authority.notes}
                   </p>
                 )}
@@ -801,7 +801,7 @@ export default function AnerkennungNavigator() {
                   {t("ui.authorityOpen")} <ExternalLink className="h-3 w-3" />
                 </a>
               </div>
-              <p className="mt-3 text-[11px] text-muted-foreground">
+              <p className="mt-3 text-[11px] text-white/75">
                 {t("ui.authorityHint")}{" "}
                 <a
                   href="https://berater.anerkennung-in-deutschland.de/"
@@ -822,7 +822,7 @@ export default function AnerkennungNavigator() {
             title={t("ui.emailTitle")}
             tone="gold"
           >
-            <p className="text-sm text-foreground/90 mb-4">
+            <p className="text-sm text-white/95 mb-4">
               {t("ui.emailIntro")} <strong>{t("ui.emailIntroBold")}</strong>.
             </p>
 
@@ -846,28 +846,28 @@ export default function AnerkennungNavigator() {
             {emailVisible && generatedEmail && (
               <div className="space-y-4">
                 <div className="rounded-xl border border-border/40 bg-muted/30 p-4">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-white/75 mb-1">
                     {t("ui.emailSubjectLabel")}
                   </p>
-                  <p className="text-sm font-semibold text-foreground">
+                  <p className="text-sm font-semibold text-white">
                     {generatedEmail.subject}
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-border/40 bg-card p-4">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-white/75 mb-2">
                     {t("ui.emailBodyLabel")}
                   </p>
-                  <pre className="whitespace-pre-wrap text-xs text-foreground/90 font-sans leading-relaxed">
+                  <pre className="whitespace-pre-wrap text-xs text-white/95 font-sans leading-relaxed">
                     {generatedEmail.body}
                   </pre>
                 </div>
 
                 <details className="rounded-xl border border-border/40 bg-muted/20 p-4">
-                  <summary className="cursor-pointer text-xs font-bold text-foreground">
+                  <summary className="cursor-pointer text-xs font-bold text-white">
                     {t("ui.emailTranslationToggle")}
                   </summary>
-                  <pre className="mt-3 whitespace-pre-wrap text-xs text-foreground/80 font-sans leading-relaxed">
+                  <pre className="mt-3 whitespace-pre-wrap text-xs text-white/85 font-sans leading-relaxed">
                     {generatedEmail.bsTranslation}
                   </pre>
                 </details>
@@ -875,19 +875,19 @@ export default function AnerkennungNavigator() {
                 <div className="flex flex-wrap gap-2">
                   <button
                     onClick={copyEmail}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-[hsl(var(--gold))]/40"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-white hover:border-[hsl(var(--gold))]/40"
                   >
                     <Copy className="h-3.5 w-3.5" /> {t("ui.emailCopy")}
                   </button>
                   <button
                     onClick={downloadEmail}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-foreground hover:border-[hsl(var(--gold))]/40"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-white hover:border-[hsl(var(--gold))]/40"
                   >
                     <Download className="h-3.5 w-3.5" /> {t("ui.emailDownload")}
                   </button>
                 </div>
 
-                <div className="rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-700 dark:text-amber-300">
+                <div className="rounded-lg bg-amber-500/5 border border-amber-500/20 p-3 text-xs text-amber-200">
                   <AlertTriangle className="inline h-3 w-3 mr-1" />
                   {t("ui.emailWarning")}
                 </div>
@@ -909,8 +909,8 @@ export default function AnerkennungNavigator() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-between gap-3 rounded-lg border border-border/40 bg-card p-3 text-sm hover:border-[hsl(var(--gold))]/40"
                 >
-                  <span className="text-foreground/90">{l.label}</span>
-                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
+                  <span className="text-white/95">{l.label}</span>
+                  <ExternalLink className="h-3.5 w-3.5 text-white/75 shrink-0" />
                 </a>
               ))}
             </div>
@@ -920,7 +920,7 @@ export default function AnerkennungNavigator() {
 
       {/* ────────── Always at bottom: official portals ────────── */}
       <div className="mt-10 pt-8 border-t border-border/40">
-        <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
+        <h3 className="text-sm font-bold uppercase tracking-wider text-white/75 mb-4">
           {t("ui.allPortalsTitle")}
         </h3>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -949,10 +949,10 @@ export default function AnerkennungNavigator() {
                 className="group rounded-xl border border-border/40 bg-card p-3 text-sm hover:border-[hsl(var(--gold))]/40"
               >
                 <div className="flex items-center justify-between gap-2 mb-1">
-                  <p className="font-bold text-foreground">{p.name}</p>
-                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-[hsl(var(--gold))] shrink-0" />
+                  <p className="font-bold text-white">{p.name}</p>
+                  <ExternalLink className="h-3.5 w-3.5 text-white/75 group-hover:text-[hsl(var(--gold))] shrink-0" />
                 </div>
-                <p className="text-[11px] text-muted-foreground">{desc}</p>
+                <p className="text-[11px] text-white/75">{desc}</p>
               </a>
             );
           })}
