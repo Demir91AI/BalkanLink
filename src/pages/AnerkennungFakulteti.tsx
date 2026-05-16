@@ -354,14 +354,14 @@ export default function AnerkennungFakulteti() {
           <div className="h-10 w-10 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center">
             <GraduationCap className="h-5 w-5 text-[hsl(var(--gold))]" />
           </div>
-          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground">
+          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
             Anerkennung fakulteta
           </h1>
           <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-1 text-[10px] font-bold uppercase text-[hsl(var(--gold))]">
             <Crown className="h-3 w-3" /> Premium
           </span>
         </div>
-        <p className="text-sm text-muted-foreground max-w-3xl">
+        <p className="text-sm text-white/70 max-w-3xl">
           Praktičan vodič za priznavanje akademskih diploma (Bachelor, Master,
           Magistar, Doktor) sa univerziteta u BiH, Hrvatskoj, Srbiji, Crnoj
           Gori, Sjevernoj Makedoniji i na Kosovu. Sa konkretnim primjerima i
@@ -371,32 +371,32 @@ export default function AnerkennungFakulteti() {
       </header>
 
       {/* UVOD: Šta je Anerkennung vs Zeugnisbewertung */}
-      <section className="mb-8 rounded-2xl border border-border/40 bg-card p-5 sm:p-6">
+      <section className="mb-8 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-5 sm:p-6">
         <div className="flex items-center gap-3 mb-3">
           <div className="h-9 w-9 rounded-xl bg-blue-500/10 ring-1 ring-blue-500/20 flex items-center justify-center">
             <Info className="h-4 w-4 text-blue-500" />
           </div>
-          <h2 className="text-lg font-bold text-foreground">
+          <h2 className="text-lg font-bold text-white">
             Prvo razumiješ razliku
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 text-sm">
-          <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
-            <div className="font-bold text-foreground mb-1">
+          <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4">
+            <div className="font-bold text-white mb-1">
               ✓ ZAB Zeugnisbewertung (208 €)
             </div>
-            <p className="text-muted-foreground">
+            <p className="text-white/70">
               Za <strong>nereglementovana</strong> zanimanja (ekonomista,
               programer, sociolog, inženjer u privatnoj firmi). Dobivaš
               dokument koji potvrđuje ekvivalent tvoje diplome u njemačkom
               sistemu (Bachelor/Master). Ide kroz <strong>ZAB Bonn</strong>.
             </p>
           </div>
-          <div className="rounded-xl border border-rose-500/20 bg-rose-500/5 p-4">
-            <div className="font-bold text-foreground mb-1">
+          <div className="rounded-xl border border-rose-500/20 bg-rose-500/10 p-4">
+            <div className="font-bold text-white mb-1">
               ⚠ Berufsanerkennung (200–1.000 €)
             </div>
-            <p className="text-muted-foreground">
+            <p className="text-white/70">
               Za <strong>reglementovana</strong> zanimanja (ljekar, sestra,
               učitelj, advokat, arhitekta, farmaceut). Punim postupkom
               uključujući stručni ispit. Ide kroz <strong>Bezirksregierung
@@ -405,7 +405,7 @@ export default function AnerkennungFakulteti() {
             </p>
           </div>
         </div>
-        <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-700 dark:text-amber-400 flex gap-2">
+        <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200 flex gap-2">
           <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
           <span>
             Većini ljudi sa Balkana koji rade u IT-u, ekonomiji, marketingu,
@@ -416,12 +416,12 @@ export default function AnerkennungFakulteti() {
       </section>
 
       {/* ANABIN STATUSI */}
-      <section className="mb-8 rounded-2xl border border-border/40 bg-card p-5 sm:p-6">
+      <section className="mb-8 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-5 sm:p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="h-9 w-9 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center">
             <Search className="h-4 w-4 text-[hsl(var(--gold))]" />
           </div>
-          <h2 className="text-lg font-bold text-foreground">
+          <h2 className="text-lg font-bold text-white">
             Anabin statusi — šta znače
           </h2>
         </div>
@@ -432,13 +432,13 @@ export default function AnerkennungFakulteti() {
               className={cn(
                 "rounded-xl border p-4 text-sm",
                 s.color === "emerald" &&
-                  "border-emerald-500/30 bg-emerald-500/5",
-                s.color === "amber" && "border-amber-500/30 bg-amber-500/5",
-                s.color === "rose" && "border-rose-500/30 bg-rose-500/5",
+                  "border-emerald-500/30 bg-emerald-500/10",
+                s.color === "amber" && "border-amber-500/30 bg-amber-500/10",
+                s.color === "rose" && "border-rose-500/30 bg-rose-500/10",
               )}
             >
-              <div className="font-bold text-foreground mb-1">{s.label}</div>
-              <p className="text-xs text-muted-foreground">{s.description}</p>
+              <div className="font-bold text-white mb-1">{s.label}</div>
+              <p className="text-xs text-white/70">{s.description}</p>
             </div>
           ))}
         </div>
@@ -458,34 +458,34 @@ export default function AnerkennungFakulteti() {
           <div className="h-9 w-9 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center">
             <ListOrdered className="h-4 w-4 text-[hsl(var(--gold))]" />
           </div>
-          <h2 className="text-lg font-bold text-foreground">
+          <h2 className="text-lg font-bold text-white">
             ZAB Zeugnisbewertung — postupak korak-po-korak
           </h2>
         </div>
 
         <div className="grid sm:grid-cols-3 gap-3 mb-5">
-          <div className="rounded-lg border border-border/40 bg-background p-3 flex items-center gap-2">
+          <div className="rounded-lg border border-white/10 bg-white/[0.04] backdrop-blur-xl p-3 flex items-center gap-2">
             <Euro className="h-4 w-4 text-[hsl(var(--gold))]" />
             <div>
-              <div className="text-[11px] text-muted-foreground uppercase">
+              <div className="text-[11px] text-white/70 uppercase">
                 Cijena
               </div>
               <div className="font-bold text-sm">208 € (jednokratno)</div>
             </div>
           </div>
-          <div className="rounded-lg border border-border/40 bg-background p-3 flex items-center gap-2">
+          <div className="rounded-lg border border-white/10 bg-white/[0.04] backdrop-blur-xl p-3 flex items-center gap-2">
             <Clock className="h-4 w-4 text-[hsl(var(--gold))]" />
             <div>
-              <div className="text-[11px] text-muted-foreground uppercase">
+              <div className="text-[11px] text-white/70 uppercase">
                 Trajanje
               </div>
               <div className="font-bold text-sm">3–5 mjeseci</div>
             </div>
           </div>
-          <div className="rounded-lg border border-border/40 bg-background p-3 flex items-center gap-2">
+          <div className="rounded-lg border border-white/10 bg-white/[0.04] backdrop-blur-xl p-3 flex items-center gap-2">
             <Building2 className="h-4 w-4 text-[hsl(var(--gold))]" />
             <div>
-              <div className="text-[11px] text-muted-foreground uppercase">
+              <div className="text-[11px] text-white/70 uppercase">
                 Nadležno
               </div>
               <div className="font-bold text-sm">ZAB Bonn (KMK)</div>
@@ -502,22 +502,22 @@ export default function AnerkennungFakulteti() {
                 className={cn(
                   "rounded-xl border p-4 transition-all",
                   locked
-                    ? "border-border/30 bg-muted/30 opacity-60"
-                    : "border-border/40 bg-background",
+                    ? "border-white/10 bg-white/[0.03] opacity-70"
+                    : "border-white/10 bg-white/[0.04] backdrop-blur-xl",
                 )}
               >
                 <div className="flex items-start gap-3">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-[11px] font-extrabold text-background">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-[11px] font-extrabold text-[hsl(var(--primary))]">
                     {step.n}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-bold text-sm text-foreground flex items-center gap-2">
+                    <div className="font-bold text-sm text-white flex items-center gap-2">
                       {step.title}
                       {locked && (
-                        <Lock className="h-3.5 w-3.5 text-muted-foreground" />
+                        <Lock className="h-3.5 w-3.5 text-white/70" />
                       )}
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                    <p className="text-xs text-white/70 mt-1 leading-relaxed">
                       {locked
                         ? "🔒 Detalji dostupni u Premium verziji."
                         : step.body}
@@ -541,12 +541,12 @@ export default function AnerkennungFakulteti() {
         </ol>
 
         {!isPremium && (
-          <div className="mt-5 rounded-xl border border-[hsl(var(--gold))]/30 bg-background p-4 text-center">
+          <div className="mt-5 rounded-xl border border-[hsl(var(--gold))]/30 bg-white/[0.04] backdrop-blur-xl p-4 text-center">
             <Lock className="h-6 w-6 mx-auto text-[hsl(var(--gold))] mb-2" />
             <div className="font-bold text-sm mb-1">
               Otključaj kompletan vodič
             </div>
-            <p className="text-xs text-muted-foreground mb-3">
+            <p className="text-xs text-white/70 mb-3">
               Detalje koraka 3–6, sve primjere fakulteta, dokumente i email
               šablone.
             </p>
@@ -566,7 +566,7 @@ export default function AnerkennungFakulteti() {
           <div className="h-9 w-9 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center">
             <BookOpen className="h-4 w-4 text-[hsl(var(--gold))]" />
           </div>
-          <h2 className="text-lg font-bold text-foreground">
+          <h2 className="text-lg font-bold text-white">
             Primjeri po fakultetima sa Balkana
           </h2>
         </div>
@@ -582,7 +582,7 @@ export default function AnerkennungFakulteti() {
                   "rounded-2xl border overflow-hidden",
                   locked
                     ? "border-border/30 bg-muted/30"
-                    : "border-border/40 bg-card",
+                    : "border-white/10 bg-white/[0.04] backdrop-blur-xl",
                 )}
               >
                 <button
@@ -590,72 +590,72 @@ export default function AnerkennungFakulteti() {
                   disabled={locked}
                   className={cn(
                     "w-full flex items-center justify-between gap-3 p-4 text-left",
-                    !locked && "hover:bg-muted/30",
+                    !locked && "hover:bg-white/[0.06]",
                   )}
                 >
                   <div className="flex-1 min-w-0">
-                    <div className="font-bold text-sm text-foreground flex items-center gap-2 flex-wrap">
+                    <div className="font-bold text-sm text-white flex items-center gap-2 flex-wrap">
                       {c.faculty}
                       {c.reglementiert ? (
                         <Badge
                           variant="outline"
-                          className="bg-rose-500/10 text-rose-600 border-rose-500/30 text-[10px]"
+                          className="bg-rose-500/10 text-rose-200 border-rose-500/30 text-[10px]"
                         >
                           Reglementovano
                         </Badge>
                       ) : (
                         <Badge
                           variant="outline"
-                          className="bg-emerald-500/10 text-emerald-600 border-emerald-500/30 text-[10px]"
+                          className="bg-emerald-500/10 text-emerald-200 border-emerald-500/30 text-[10px]"
                         >
                           Slobodno
                         </Badge>
                       )}
                       {locked && (
-                        <Lock className="h-3.5 w-3.5 text-muted-foreground" />
+                        <Lock className="h-3.5 w-3.5 text-white/70" />
                       )}
                     </div>
-                    <div className="text-xs text-muted-foreground mt-0.5">
+                    <div className="text-xs text-white/70 mt-0.5">
                       DE: {c.germanField}
                     </div>
                   </div>
                   {!locked &&
                     (open ? (
-                      <ChevronUp className="h-4 w-4 text-muted-foreground shrink-0" />
+                      <ChevronUp className="h-4 w-4 text-white/70 shrink-0" />
                     ) : (
-                      <ChevronDown className="h-4 w-4 text-muted-foreground shrink-0" />
+                      <ChevronDown className="h-4 w-4 text-white/70 shrink-0" />
                     ))}
                 </button>
 
                 {open && !locked && (
                   <div className="px-4 pb-4 border-t border-border/40 pt-4 space-y-4">
-                    <div className="rounded-lg bg-muted/40 p-3 text-xs text-foreground/90 leading-relaxed">
-                      <strong className="text-foreground">Šta da radiš:</strong>{" "}
+                    <div className="rounded-lg bg-white/[0.05] border border-white/10 p-3 text-xs text-white/90 leading-relaxed">
+                      <strong className="text-white">Šta da radiš:</strong>{" "}
                       {c.whatToDo}
                     </div>
 
                     <div className="space-y-2">
-                      <div className="text-[11px] font-bold uppercase text-muted-foreground">
+                      <div className="text-[11px] font-bold uppercase text-white/70">
                         Konkretni primjeri:
                       </div>
                       {c.examples.map((ex) => (
                         <div
                           key={ex.uni}
-                          className="rounded-xl border border-border/40 bg-background p-3"
+                          className="rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-3"
                         >
                           <div className="flex items-start justify-between gap-2 mb-2">
-                            <div className="font-semibold text-sm text-foreground">
+                            <div className="font-semibold text-sm text-white">
                               {ex.country} {ex.uni}
                             </div>
                             <span
                               className={cn(
                                 "rounded-full px-2 py-0.5 text-[10px] font-bold",
                                 ex.status === "H+" &&
-                                  "bg-emerald-500/15 text-emerald-600",
+                                  "bg-emerald-500/15 text-emerald-200",
                                 ex.status === "H+/-" &&
-                                  "bg-amber-500/15 text-amber-600",
+                                  "bg-amber-500/15 text-amber-200",
                                 ex.status === "H-" &&
-                                  "bg-rose-500/15 text-rose-600",
+                                  "bg-rose-500/15 text-rose-200",
                               )}
                             >
                               Anabin: {ex.status}
@@ -663,23 +663,23 @@ export default function AnerkennungFakulteti() {
                           </div>
                           <div className="grid sm:grid-cols-2 gap-2 text-xs">
                             <div>
-                              <div className="text-muted-foreground text-[10px] uppercase">
+                              <div className="text-white/70 text-[10px] uppercase">
                                 Tvoja diploma
                               </div>
-                              <div className="text-foreground font-medium">
+                              <div className="text-white font-medium">
                                 {ex.diplomaExample}
                               </div>
                             </div>
                             <div>
-                              <div className="text-muted-foreground text-[10px] uppercase">
+                              <div className="text-white/70 text-[10px] uppercase">
                                 Njemački ekvivalent
                               </div>
-                              <div className="text-foreground font-medium">
+                              <div className="text-white font-medium">
                                 {ex.germanEquivalent}
                               </div>
                             </div>
                           </div>
-                          <p className="mt-2 text-[11px] text-muted-foreground italic">
+                          <p className="mt-2 text-[11px] text-white/70 italic">
                             {ex.notes}
                           </p>
                         </div>
@@ -687,7 +687,7 @@ export default function AnerkennungFakulteti() {
                     </div>
 
                     {c.tip && (
-                      <div className="rounded-lg bg-[hsl(var(--gold))]/10 border border-[hsl(var(--gold))]/30 p-3 text-xs text-foreground flex gap-2">
+                      <div className="rounded-lg bg-[hsl(var(--gold))]/10 border border-[hsl(var(--gold))]/30 p-3 text-xs text-white flex gap-2">
                         <Sparkles className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
                         <span>
                           <strong>Pro tip:</strong> {c.tip}
@@ -698,7 +698,7 @@ export default function AnerkennungFakulteti() {
                 )}
 
                 {locked && (
-                  <div className="px-4 pb-4 text-xs text-muted-foreground border-t border-border/40 pt-3">
+                  <div className="px-4 pb-4 text-xs text-white/70 border-t border-border/40 pt-3">
                     🔒 Otključaj sve primjere fakulteta i univerziteta —{" "}
                     <button
                       onClick={() => navigate("/paketi")}
@@ -715,12 +715,12 @@ export default function AnerkennungFakulteti() {
       </section>
 
       {/* TIPIČNI DOKUMENTI */}
-      <section className="mb-8 rounded-2xl border border-border/40 bg-card p-5 sm:p-6">
+      <section className="mb-8 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-5 sm:p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="h-9 w-9 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center">
             <FileText className="h-4 w-4 text-[hsl(var(--gold))]" />
           </div>
-          <h2 className="text-lg font-bold text-foreground">
+          <h2 className="text-lg font-bold text-white">
             Tipičan paket dokumenata za ZAB
           </h2>
         </div>
@@ -737,11 +737,11 @@ export default function AnerkennungFakulteti() {
           ].map((d) => (
             <li key={d} className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-              <span className="text-foreground/90">{d}</span>
+              <span className="text-white/90">{d}</span>
             </li>
           ))}
         </ul>
-        <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-700 dark:text-amber-400 flex gap-2">
+        <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200 flex gap-2">
           <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
           <span>
             <strong>Napomena 2026:</strong> Cijeli postupak je sada digitalan
@@ -753,7 +753,7 @@ export default function AnerkennungFakulteti() {
       </section>
 
       {/* DISCLAIMER */}
-      <p className="text-[11px] text-muted-foreground text-center pb-4">
+      <p className="text-[11px] text-white/70 text-center pb-4">
         Stand: 2026. Informacije zasnovane na javnim izvorima (zab.kmk.org,
         anabin.kmk.org, anerkennung-in-deutschland.de). Konačnu odluku o
         priznavanju donosi nadležna ustanova. Ovaj vodič nije zamjena za
