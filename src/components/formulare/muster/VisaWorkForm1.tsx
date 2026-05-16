@@ -5,6 +5,7 @@ import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
+import { fillEzbPdf } from "@/lib/pdf-fill-ezb";
 
 const LS_KEY = "visa-work-form1-extras";
 const PDF_URL = "https://service.berlin.de/dienstleistung/305249/";
@@ -39,6 +40,12 @@ export default function VisaWorkForm1() {
       <MusterIntroBlock
         formKey="visawork1"
         paperId="visa-work-1-root-paper"
+        originalAutofill={{
+          fileName: "EzB-popunjen-Fachkraft-BalkanLink.pdf",
+          title: "✅ 1:1 popunjen EzB obrazac za poslodavca (Fachkraft §18a/§18b/§19c/Westbalkan)",
+          body: "Sve radne vize (Fachkraft, IT-Spezialist, Westbalkan-Regelung) zahtijevaju da poslodavac priloži EzB (Erklärung zum Beschäftigungsverhältnis) Bundesagentur für Arbeit. Popunjavamo ga tvojim podacima — odnesi mu na potpis.",
+          build: () => fillEzbPdf(f as unknown as Record<string, string>, "work"),
+        }}
         datenblatt={{
           fileName: VISA_DATENBLATT_META.visaWork1.fileName,
           reasonNote: VISA_DATENBLATT_META.visaWork1.reasonNote,
