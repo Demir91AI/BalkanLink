@@ -497,15 +497,15 @@ export default function AnerkennungFakulteti() {
           {ZAB_STEPS.map((step, idx) => {
             const locked = !isPremium && idx >= 2;
             return (
-              <li
-                key={step.n}
-                className={cn(
-                  "rounded-xl border p-4 transition-all",
-                  locked
-                    ? "border-white/10 bg-white/[0.03] opacity-70"
-                    : "border-white/10 bg-white/[0.04] backdrop-blur-xl",
-                )}
-              >
+                <li
+                  key={step.n}
+                  className={cn(
+                    "rounded-xl border p-4 transition-all",
+                    locked
+                      ? "border-white/15 bg-white/[0.055]"
+                      : "border-white/10 bg-white/[0.04] backdrop-blur-xl",
+                  )}
+                >
                 <div className="flex items-start gap-3">
                   <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))] text-[11px] font-extrabold text-[hsl(var(--primary))]">
                     {step.n}
@@ -514,10 +514,10 @@ export default function AnerkennungFakulteti() {
                     <div className="font-bold text-sm text-white flex items-center gap-2">
                       {step.title}
                       {locked && (
-                        <Lock className="h-3.5 w-3.5 text-white/70" />
+                        <Lock className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
                       )}
                     </div>
-                    <p className="text-xs text-white/70 mt-1 leading-relaxed">
+                    <p className="text-xs text-white/82 mt-1 leading-relaxed">
                       {locked
                         ? "🔒 Detalji dostupni u Premium verziji."
                         : step.body}
@@ -578,12 +578,12 @@ export default function AnerkennungFakulteti() {
             return (
               <div
                 key={c.id}
-                className={cn(
-                  "rounded-2xl border overflow-hidden",
-                  locked
-                    ? "border-white/10 bg-white/[0.03] opacity-70"
-                    : "border-white/10 bg-white/[0.04] backdrop-blur-xl",
-                )}
+                  className={cn(
+                    "rounded-2xl border overflow-hidden",
+                    locked
+                      ? "border-white/15 bg-white/[0.055]"
+                      : "border-white/10 bg-white/[0.04] backdrop-blur-xl",
+                  )}
               >
                 <button
                   onClick={() => !locked && setOpenCase(open ? null : c.id)}
@@ -612,10 +612,10 @@ export default function AnerkennungFakulteti() {
                         </Badge>
                       )}
                       {locked && (
-                        <Lock className="h-3.5 w-3.5 text-white/70" />
+                        <Lock className="h-3.5 w-3.5 text-[hsl(var(--gold))]" />
                       )}
                     </div>
-                    <div className="text-xs text-white/70 mt-0.5">
+                    <div className="text-xs text-white/82 mt-0.5">
                       DE: {c.germanField}
                     </div>
                   </div>
@@ -698,7 +698,7 @@ export default function AnerkennungFakulteti() {
                 )}
 
                 {locked && (
-                  <div className="px-4 pb-4 text-xs text-white/70 border-t border-border/40 pt-3">
+                  <div className="px-4 pb-4 text-xs text-white/82 border-t border-white/10 pt-3">
                     🔒 Otključaj sve primjere fakulteta i univerziteta —{" "}
                     <button
                       onClick={() => navigate("/paketi")}
