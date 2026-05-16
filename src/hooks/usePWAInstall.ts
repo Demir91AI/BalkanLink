@@ -40,6 +40,10 @@ export function isIOS() {
   return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
 }
 
+export function isSamsungBrowser() {
+  return /SamsungBrowser/i.test(navigator.userAgent);
+}
+
 function isCoolingDown(): boolean {
   const dismissedAt = tsFromLS(LS_DISMISS_KEY);
   if (!dismissedAt) return false;
