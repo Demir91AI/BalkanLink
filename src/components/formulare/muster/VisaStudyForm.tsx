@@ -1,6 +1,5 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
-import { buildAufenthaltstitelPdf } from "@/lib/pdf-recon/forms/aufenthaltstitel";
 import { buildVisaDatenblatt } from "@/lib/visa-datenblatt-pdf";
 import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
@@ -58,20 +57,6 @@ export default function VisaStudyForm() {
               sections: meta.mapExtras(f as unknown as Record<string, string>),
             });
           },
-        }}
-        originalRecon={{
-          fileName: "BalkanLink-Studium-1zu1.pdf",
-          build: async () => buildAufenthaltstitelPdf({
-            profile: loadVisaProfile(),
-            zweck: "Studium (§ 16b AufenthG)",
-            hochschule: f.hochschule,
-            krankenversicherung: f.krankenversicherung,
-            bemerkungen: [
-              f.studiengang,
-              f.sperrkontoBetrag ? `Sperrkonto: ${f.sperrkontoBetrag} €` : "",
-              f.bemerkungen,
-            ].filter(Boolean).join(" · "),
-          }),
         }}
       />
       <VisaSharedSections f={f} set={set as never} />

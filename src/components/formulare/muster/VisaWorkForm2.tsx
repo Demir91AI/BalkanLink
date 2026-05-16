@@ -1,6 +1,5 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
-import { buildEzbPdf } from "@/lib/pdf-recon/forms/ezb";
 import { buildVisaDatenblatt } from "@/lib/visa-datenblatt-pdf";
 import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
@@ -57,24 +56,6 @@ export default function VisaWorkForm2() {
               sections: meta.mapExtras(f as unknown as Record<string, string>),
             });
           },
-        }}
-        originalRecon={{
-          fileName: "BalkanLink-EzB-BA146206-1zu1.pdf",
-          title: "📄 Preuzmi popunjenu EzB (1:1 BA 146206)",
-          note: "BalkanLink vizuelna rekonstrukcija službene BA-EzB sa svim podacima već unesenim. Poslodavac samo potpiše i pečatira.",
-          build: async () => buildEzbPdf({
-            profile: loadVisaProfile(),
-            agName: f.agName, agAdresse: f.agAdresse,
-            agAnsprechpartner: f.agAnsprechpartner, agTelefon: f.agTelefon, agEmail: f.agEmail,
-            branche: f.branche, betriebsgroesse: f.betriebsgroesse,
-            taetigkeit: f.taetigkeit, arbeitsort: f.arbeitsort,
-            vertragsbeginn: f.vertragsbeginn, vertragsende: f.vertragsende,
-            befristet: f.befristet, wochenstunden: f.wochenstunden,
-            schichtarbeit: f.schichtarbeit,
-            bruttoMonat: f.bruttoMonat, bruttoStunde: f.bruttoStunde,
-            urlaubstage: f.urlaubstage, tarifvertrag: f.tarifvertrag,
-            ortDatum: f.ortDatum,
-          }),
         }}
       />
       <VisaSharedSections f={f} set={set as never} />

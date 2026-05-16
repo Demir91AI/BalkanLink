@@ -1,6 +1,5 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
-import { buildAufenthaltstitelPdf } from "@/lib/pdf-recon/forms/aufenthaltstitel";
 import { buildVisaDatenblatt } from "@/lib/visa-datenblatt-pdf";
 import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
@@ -58,21 +57,6 @@ export default function VisaPermanentForm1() {
               sections: meta.mapExtras(f as unknown as Record<string, string>),
             });
           },
-        }}
-        originalRecon={{
-          fileName: "BalkanLink-Niederlassungserlaubnis-1zu1.pdf",
-          build: async () => buildAufenthaltstitelPdf({
-            profile: loadVisaProfile(),
-            zweck: "Niederlassungserlaubnis (§ 9 AufenthG)",
-            arbeitgeber: f.arbeitgeber,
-            einreiseDatum: f.einreiseDatum,
-            bemerkungen: [
-              f.aktBoravisnaDozvola ? `Akt. Titel: ${f.aktBoravisnaDozvola}` : "",
-              f.sprachnivo ? `Sprache: ${f.sprachnivo}` : "",
-              f.rentenversicherungMonate ? `Renten-Mt.: ${f.rentenversicherungMonate}` : "",
-              f.bemerkungen,
-            ].filter(Boolean).join(" · "),
-          }),
         }}
       />
       <VisaSharedSections f={f} set={set as never} />
