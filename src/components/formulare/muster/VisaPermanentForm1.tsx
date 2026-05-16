@@ -5,8 +5,6 @@ import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
-import VisaTerminBar from "@/components/visaNavigator/VisaTerminBar";
-import { makeMappeBuilder, getMappeFileName } from "@/lib/visa-mappe-builder";
 
 const LS_KEY = "visa-permanent-1-extras";
 const PDF_URL = "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwAndererStaaten/Aufenthaltstitel/aufenthaltstitel-node.html";
@@ -40,14 +38,9 @@ export default function VisaPermanentForm1() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
-      <VisaTerminBar />
       <MusterIntroBlock
         formKey="visapermanent1"
         paperId="visa-perm-1-root-paper"
-        bewerbungsMappe={{
-          build: makeMappeBuilder("visaPermanent1", f as unknown as Record<string, string>),
-          fileName: getMappeFileName("visaPermanent1"),
-        }}
         datenblatt={{
           fileName: VISA_DATENBLATT_META.visaPermanent1.fileName,
           reasonNote: VISA_DATENBLATT_META.visaPermanent1.reasonNote,
