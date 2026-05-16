@@ -14,6 +14,19 @@ export interface DatenblattConfig {
   buttonLabel?: string;
 }
 
+/** 1:1 auto-fill konfiguracija za SAVEZNE AcroForm PDF-ove (npr. EzB). */
+export interface OriginalAutofillConfig {
+  /** Async builder returning Blob popunjenog originalnog PDF-a */
+  build: () => Promise<Blob>;
+  fileName: string;
+  /** Naslov plave kutije */
+  title?: string;
+  /** Tijelo objašnjenja */
+  body?: string;
+  /** Label dugmeta */
+  buttonLabel?: string;
+}
+
 interface Props {
   formKey: string;
   paperId?: string;
@@ -24,6 +37,8 @@ interface Props {
   originalPdfLabel?: string;
   /** When provided, renders extra purple "Preuzmi Datenblatt PDF" CTA + amber explainer note. */
   datenblatt?: DatenblattConfig;
+  /** When provided, renders blue "1:1 auto-fill" CTA above Datenblatt. */
+  originalAutofill?: OriginalAutofillConfig;
 }
 
 /**
@@ -45,8 +60,31 @@ export default function MusterIntroBlock({
   originalPdfUrl,
   originalPdfLabel = "Original (službeni PDF) →",
   datenblatt,
+  originalAutofill,
 }: Props) {
   const [busy, setBusy] = useState(false);
+  const [autofillBusy, setAutofillBusy] = useState(false);
+
+  const handleAutofill = async () => {
+    if (!originalAutofill || autofillBusy) return;
+    setAutofillBusy(true);
+    try {
+      const blob = await originalAutofill.build();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = originalAutofill.fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (err) {
+      console.error("Original auto-fill error", err);
+      alert("Greška pri popunjavanju originalnog PDF-a. Pokušaj ponovo.");
+    } finally {
+      setAutofillBusy(false);
+    }
+  };
 
   const handlePrint = () => {
     if (paperId) {
