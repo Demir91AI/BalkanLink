@@ -581,7 +581,7 @@ export default function AnerkennungFakulteti() {
                 className={cn(
                   "rounded-2xl border overflow-hidden",
                   locked
-                    ? "border-border/30 bg-muted/30"
+                    ? "border-white/10 bg-white/[0.03] opacity-70"
                     : "border-white/10 bg-white/[0.04] backdrop-blur-xl",
                 )}
               >
