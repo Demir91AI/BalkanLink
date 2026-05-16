@@ -40,6 +40,10 @@ export function isIOS() {
   return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
 }
 
+export function isSamsungBrowser() {
+  return /SamsungBrowser/i.test(navigator.userAgent);
+}
+
 function isCoolingDown(): boolean {
   const dismissedAt = tsFromLS(LS_DISMISS_KEY);
   if (!dismissedAt) return false;
@@ -65,6 +69,7 @@ export function usePWAInstall() {
   const [showBanner, setShowBanner] = useState(false);
   const [showIOSGuide, setShowIOSGuide] = useState(false);
   const [showManualGuide, setShowManualGuide] = useState(false);
+  const [showSamsungGuide, setShowSamsungGuide] = useState(false);
   const [triggerReady, setTriggerReady] = useState(false);
   const visitedRoutes = useRef(new Set<string>());
   const mountTime = useRef(Date.now());
@@ -129,7 +134,10 @@ export function usePWAInstall() {
       } catch { /* noop */ }
     };
 
-    if (deferredPrompt) {
+    if (isSamsungBrowser()) {
+      setShowSamsungGuide(true);
+      markShown();
+    } else if (deferredPrompt) {
       setShowBanner(true);
       markShown();
     } else if (isIOS()) {
@@ -160,6 +168,7 @@ export function usePWAInstall() {
     localStorage.setItem(LS_LAST_SEEN, new Date().toISOString());
     setShowBanner(false);
     setShowIOSGuide(false);
+    setShowSamsungGuide(false);
   }, []);
 
   const closeIOSGuide = useCallback(() => {
@@ -173,6 +182,10 @@ export function usePWAInstall() {
   // Manual trigger from menu — always shows actionable guidance
   const triggerManual = useCallback(() => {
     if (isStandalone()) return;
+    if (isSamsungBrowser()) {
+      setShowSamsungGuide(true);
+      return;
+    }
     // If browser supports the native prompt, use it
     if (deferredPrompt) {
       setShowBanner(true);
@@ -186,14 +199,20 @@ export function usePWAInstall() {
   // Always allow opening the install guide unless the app is already running standalone
   const canShowMenuEntry = !isStandalone();
 
+  const closeSamsungGuide = useCallback(() => {
+    setShowSamsungGuide(false);
+  }, []);
+
   return {
     showBanner,
     showIOSGuide,
     showManualGuide,
+    showSamsungGuide,
     installAndroid,
     dismiss,
     closeIOSGuide,
     closeManualGuide,
+    closeSamsungGuide,
     triggerManual,
     canShowMenuEntry,
   };

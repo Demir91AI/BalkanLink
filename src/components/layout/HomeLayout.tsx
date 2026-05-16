@@ -16,6 +16,7 @@ const CookiePreferencesModal = lazy(() => import("@/components/CookiePreferences
 const PWAInstallBanner = lazy(() => import("@/components/PWAInstallBanner"));
 const PWAiOSGuide = lazy(() => import("@/components/PWAiOSGuide"));
 const PWAManualGuide = lazy(() => import("@/components/PWAManualGuide"));
+const PWASamsungGuide = lazy(() => import("@/components/PWASamsungGuide"));
 
 export default function HomeLayout() {
   const cookie = useCookieConsent();
@@ -50,6 +51,7 @@ export default function HomeLayout() {
           saveCustom={cookie.saveCustom}
         />
         <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
+        <PWASamsungGuide show={pwa.showSamsungGuide} onDismiss={pwa.closeSamsungGuide} />
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
         <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
       </Suspense>

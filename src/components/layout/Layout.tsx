@@ -17,6 +17,7 @@ import PWAInstallBanner from "@/components/PWAInstallBanner";
 import AppUpdatePrompt from "@/components/AppUpdatePrompt";
 import PWAiOSGuide from "@/components/PWAiOSGuide";
 import PWAManualGuide from "@/components/PWAManualGuide";
+import PWASamsungGuide from "@/components/PWASamsungGuide";
 import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
 // TranslationPendingBanner removed (apr 2026): all UI strings ship fully
 // translated; the platform must never advertise "translation pending".
@@ -93,6 +94,7 @@ export default function Layout() {
           saveCustom={cookie.saveCustom}
         />
         <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
+        <PWASamsungGuide show={pwa.showSamsungGuide} onDismiss={pwa.closeSamsungGuide} />
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
         <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
         <TrialPromoCTA />
