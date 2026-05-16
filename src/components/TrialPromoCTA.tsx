@@ -9,9 +9,9 @@ import { useAuth } from "@/contexts/AuthContext";
  * Premium should only surface contextually (after a user hits a limit
  * or visits a premium-gated page) — never as a homepage push.
  */
-// NOTE: Home (/) is intentionally allowed during the Launch Trial window
-// (until 31.05.2026) — the 7-day free trial is a launch hook, not a generic
-// premium upsell. Only legal/auth pages stay forbidden.
+// NOTE: Home (/) is intentionally allowed during the Launch Trial window —
+// the 7-day free trial is a launch hook, not a generic premium upsell.
+// Only legal/auth pages stay forbidden.
 const NO_PREMIUM_PUSH_ROUTES = [
   "/login", "/register", "/forgot-password", "/reset-password",
   "/cookies", "/cookie-richtlinie",
@@ -25,14 +25,13 @@ function isHomeOrLegal(pathname: string): boolean {
   return NO_PREMIUM_PUSH_ROUTES.includes(stripped);
 }
 
-const PROMO_END = new Date("2026-05-31T23:59:59Z");
 const DISMISS_KEY = "bl_trial_promo_dismissed_v1";
 const DISMISS_DAYS = 3;
 
 /**
- * Sticky bottom CTA — visible only to NON-premium visitors during the
- * Launch Promo window (until 31.05.2026). Promotes the auto-7-day Premium
- * trial that every new registration receives via handle_new_user().
+ * Sticky bottom CTA — visible only to NON-premium visitors. Promotes the
+ * auto-7-day Premium trial that every new registration receives via
+ * handle_new_user(). No hardcoded month-based deadline — always "today".
  *
  * Hidden for: premium users, admins (preview mode), or after dismiss.
  */
@@ -45,7 +44,6 @@ export default function TrialPromoCTA() {
   useEffect(() => {
     if (loading || profileLoading) return;
     if (isPremium) { setVisible(false); return; }
-    if (new Date() > PROMO_END) { setVisible(false); return; }
     // ⛔ Never push Premium on home or legal pages — only contextually deeper in app
     if (isHomeOrLegal(location.pathname)) { setVisible(false); return; }
 
