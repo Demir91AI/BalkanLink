@@ -124,7 +124,7 @@ export default function Paketi() {
             <p className="text-3xl font-black">9,99€<span className="text-base font-normal text-muted-foreground">/mj.</span></p>
             <p className="text-xs text-muted-foreground mt-1">ili 99,90€/god. (= 8,33€/mj.)</p>
             <span className="mt-3 inline-flex items-center gap-1 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
-              🎁 7 dana besplatno — samo danas
+              🎁 7 dana besplatno · do 31.05.2026
             </span>
 
             <div className="mt-6 space-y-4 flex-1">

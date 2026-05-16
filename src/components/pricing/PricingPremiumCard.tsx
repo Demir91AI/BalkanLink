@@ -30,7 +30,7 @@ export default function PricingPremiumCard({ yearly, isPremium, onCheckout }: Pr
         {yearly ? "8,33€/mj. — uštedi 20€" : "Otkaži u bilo kojem trenutku"}
       </p>
       <p className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 mb-6">
-        Probaj 7 dana besplatno — samo danas
+        Probaj 7 dana besplatno · do 31.05.2026
       </p>
 
       <div className="flex-1 space-y-4 text-sm">
