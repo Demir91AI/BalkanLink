@@ -78,9 +78,31 @@ export default function MusterIntroBlock({
   originalPdfLabel = "Original (službeni PDF) →",
   datenblatt,
   originalAutofill,
+  bewerbungsMappe,
 }: Props) {
+  const { isPremium } = usePremiumAccess();
   const [busy, setBusy] = useState(false);
   const [autofillBusy, setAutofillBusy] = useState(false);
+  const [mappeBusy, setMappeBusy] = useState(false);
+
+  const handleMappe = async () => {
+    if (!bewerbungsMappe || mappeBusy || !isPremium) return;
+    setMappeBusy(true);
+    try {
+      const bytes = await bewerbungsMappe.build();
+      const blob = new Blob([bytes as BlobPart], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url; a.download = bewerbungsMappe.fileName;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (err) {
+      console.error("Bewerbungs-Mappe error", err);
+      alert("Greška pri generisanju Bewerbungs-Mappe PDF-a. Pokušaj ponovo.");
+    } finally {
+      setMappeBusy(false);
+    }
+  };
 
   const handleAutofill = async () => {
     if (!originalAutofill || autofillBusy) return;
