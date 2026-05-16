@@ -104,6 +104,36 @@ function SectionCard({
   );
 }
 
+const FLAG_CDN_CODES: Record<Country, string> = {
+  BA: "ba",
+  HR: "hr",
+  RS: "rs",
+  ME: "me",
+  MK: "mk",
+  XK: "xk",
+};
+
+function CountryFlag({ code, label, compact = false }: { code: Country; label: string; compact?: boolean }) {
+  return (
+    <span
+      className={cn(
+        "relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md border border-white/20 bg-white/[0.08] text-[10px] font-black text-[hsl(var(--gold))] shadow-[0_8px_24px_rgba(0,0,0,0.28)]",
+        compact ? "h-5 w-7" : "h-9 w-12",
+      )}
+      aria-hidden="true"
+    >
+      {code}
+      <img
+        src={`https://flagcdn.com/w80/${FLAG_CDN_CODES[code]}.png`}
+        alt={label}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    </span>
+  );
+}
+
 /* ──────────── Premium Paywall ──────────── */
 
 function AnerkennungPaywall() {
@@ -332,18 +362,18 @@ export default function AnerkennungNavigator() {
               <button
                 key={c.code}
                 onClick={() => setSelectedCountry(c.code)}
-                className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-left transition hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08] hover:shadow-lg"
+                className="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.075] p-4 text-left shadow-[0_12px_34px_rgba(0,0,0,0.22)] transition hover:border-[hsl(var(--gold))]/45 hover:bg-white/[0.11] hover:shadow-lg"
               >
-                <span className="text-3xl">{c.flag}</span>
+                <CountryFlag code={c.code} label={countryT(c.code, "name", c.name)} />
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-white">
+                  <p className="font-bold text-white leading-snug">
                     {countryT(c.code, "name", c.name)}
                   </p>
-                  <p className="text-[11px] text-white/75">
+                  <p className="text-[11px] font-semibold text-white/80">
                     {c.euMember ? t("ui.euMember") : t("ui.thirdCountry")}
                   </p>
                 </div>
-                <ChevronRight className="h-4 w-4 text-white/75 group-hover:text-[hsl(var(--gold))]" />
+                <ChevronRight className="h-4 w-4 text-white/70 group-hover:text-[hsl(var(--gold))]" />
               </button>
             ))}
           </div>
@@ -355,7 +385,7 @@ export default function AnerkennungNavigator() {
         <section className="space-y-4">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <p className="text-xs text-white/75 flex items-center gap-1.5">
-              {country && <span className="text-lg">{country.flag}</span>}
+              {country && <CountryFlag code={country.code} label={countryT(country.code, "name", country.name)} compact />}
               <span>
                 {t("ui.previewSelected", {
                   defaultValue: "Odabrano:",
@@ -385,7 +415,7 @@ export default function AnerkennungNavigator() {
                 {t("ui.step2of3")}
               </p>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-1 flex items-center gap-2">
-                <span>{country.flag}</span> {t("ui.step2Title")}
+                <CountryFlag code={country.code} label={countryT(country.code, "name", country.name)} compact /> {t("ui.step2Title")}
               </h2>
               <p className="text-sm text-white/75">{t("ui.step2Sub")}</p>
             </div>
@@ -416,17 +446,17 @@ export default function AnerkennungNavigator() {
                   <p className="font-semibold text-white text-[15px] leading-snug truncate">
                     {profT(p.id, "name", p.name)}
                   </p>
-                  <p className="text-xs text-white/55 mt-0.5 leading-relaxed truncate">
+                  <p className="text-xs text-white/75 mt-0.5 leading-relaxed truncate">
                     {p.nameDE}
                   </p>
                   <div className="flex items-center gap-2 flex-wrap mt-2">
                     <RegulationBadge reg={p.regulation} />
-                    <span className="text-[11px] text-white/45 ml-2">
+                    <span className="text-[11px] font-semibold text-white/70 ml-2">
                       {p.category}
                     </span>
                   </div>
                 </div>
-                <ChevronRight className="h-4 w-4 shrink-0 transition-colors group-hover:text-[hsl(var(--gold))]" style={{ color: "rgba(255,255,255,0.35)" }} />
+                <ChevronRight className="h-4 w-4 shrink-0 text-white/65 transition-colors group-hover:text-[hsl(var(--gold))]" />
               </button>
             ))}
           </div>
@@ -481,7 +511,7 @@ export default function AnerkennungNavigator() {
                 {t("ui.step4of4")}
               </p>
               <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2 flex-wrap">
-                <span>{country.flag}</span>
+                <CountryFlag code={country.code} label={countryT(country.code, "name", country.name)} compact />
                 <span>{profT(profession.id, "name", profession.name)}</span>
               </h2>
               <p className="text-sm text-white/75 italic">
