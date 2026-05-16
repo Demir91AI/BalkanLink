@@ -14,6 +14,19 @@ export interface DatenblattConfig {
   buttonLabel?: string;
 }
 
+/** 1:1 auto-fill konfiguracija za SAVEZNE AcroForm PDF-ove (npr. EzB). */
+export interface OriginalAutofillConfig {
+  /** Async builder returning Blob popunjenog originalnog PDF-a */
+  build: () => Promise<Blob>;
+  fileName: string;
+  /** Naslov plave kutije */
+  title?: string;
+  /** Tijelo objašnjenja */
+  body?: string;
+  /** Label dugmeta */
+  buttonLabel?: string;
+}
+
 interface Props {
   formKey: string;
   paperId?: string;
@@ -24,6 +37,8 @@ interface Props {
   originalPdfLabel?: string;
   /** When provided, renders extra purple "Preuzmi Datenblatt PDF" CTA + amber explainer note. */
   datenblatt?: DatenblattConfig;
+  /** When provided, renders blue "1:1 auto-fill" CTA above Datenblatt. */
+  originalAutofill?: OriginalAutofillConfig;
 }
 
 /**
@@ -45,8 +60,31 @@ export default function MusterIntroBlock({
   originalPdfUrl,
   originalPdfLabel = "Original (službeni PDF) →",
   datenblatt,
+  originalAutofill,
 }: Props) {
   const [busy, setBusy] = useState(false);
+  const [autofillBusy, setAutofillBusy] = useState(false);
+
+  const handleAutofill = async () => {
+    if (!originalAutofill || autofillBusy) return;
+    setAutofillBusy(true);
+    try {
+      const blob = await originalAutofill.build();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = originalAutofill.fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (err) {
+      console.error("Original auto-fill error", err);
+      alert("Greška pri popunjavanju originalnog PDF-a. Pokušaj ponovo.");
+    } finally {
+      setAutofillBusy(false);
+    }
+  };
 
   const handlePrint = () => {
     if (paperId) {
@@ -82,6 +120,35 @@ export default function MusterIntroBlock({
     <>
       <MusterDisclaimer formKey={formKey}><></></MusterDisclaimer>
       <PrivacyGuarantee />
+
+      {originalAutofill && (
+        <div
+          className="no-print"
+          style={{
+            marginBottom: 14, padding: 16,
+            background: "#EFF6FF", border: "2px solid #2563EB", borderRadius: 10,
+          }}
+        >
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#1E3A8A", marginBottom: 6 }}>
+            {originalAutofill.title ?? "✅ 1:1 popunjen ORIGINALNI službeni PDF"}
+          </div>
+          <div style={{ fontSize: 12, color: "#1E3A8A", lineHeight: 1.55, marginBottom: 12 }}>
+            {originalAutofill.body ?? "Popunjavamo zvanični obrazac Bundesagentur für Arbeit (EzB) tvojim podacima iz wizarda. Isti onaj koji prima ambasada / Ausländerbehörde / poslodavac u Njemačkoj. Polja ostaju editabilna — poslodavac dodaje ono što samo on zna (Betriebsnummer, Tarifvertrag, potpis)."}
+          </div>
+          <button
+            onClick={handleAutofill}
+            disabled={autofillBusy}
+            style={{
+              background: autofillBusy ? "#60A5FA" : "#2563EB",
+              color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8,
+              fontWeight: 700, fontSize: 14, cursor: autofillBusy ? "default" : "pointer",
+              boxShadow: "0 4px 12px rgba(37,99,235,0.3)",
+            }}
+          >
+            {autofillBusy ? "Popunjavam PDF…" : (originalAutofill.buttonLabel ?? "📥 Preuzmi popunjen originalni PDF")}
+          </button>
+        </div>
+      )}
 
       {datenblatt && (
         <>
