@@ -16,6 +16,7 @@ const CookiePreferencesModal = lazy(() => import("@/components/CookiePreferences
 const PWAInstallBanner = lazy(() => import("@/components/PWAInstallBanner"));
 const PWAiOSGuide = lazy(() => import("@/components/PWAiOSGuide"));
 const PWAManualGuide = lazy(() => import("@/components/PWAManualGuide"));
+const PWASamsungGuide = lazy(() => import("@/components/PWASamsungGuide"));
 
 export default function HomeLayout() {
   const cookie = useCookieConsent();
