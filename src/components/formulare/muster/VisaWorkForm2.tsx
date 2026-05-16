@@ -5,9 +5,10 @@ import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
+import { fillEzbPdf } from "@/lib/pdf-fill-ezb";
 
 const LS_KEY = "visa-work-form2-extras";
-const PDF_URL = "https://www.arbeitsagentur.de/datei/erklaerung-zum-beschaeftigungsverhaeltnis_ba017345.pdf";
+const PDF_URL = "/muster/ezb-ba047549.pdf";
 
 const DEFAULTS = {
   agName: "", agAdresse: "", agAnsprechpartner: "", agTelefon: "", agEmail: "",
@@ -40,9 +41,15 @@ export default function VisaWorkForm2() {
       <MusterIntroBlock
         formKey="visawork2"
         paperId="visa-work-2-root-paper"
+        originalAutofill={{
+          fileName: "EzB-popunjen-BalkanLink.pdf",
+          build: () => fillEzbPdf(f as unknown as Record<string, string>, "work"),
+        }}
         datenblatt={{
           fileName: VISA_DATENBLATT_META.visaWork2.fileName,
           reasonNote: VISA_DATENBLATT_META.visaWork2.reasonNote,
+          title: "📋 Ili preuzmi Datenblatt (sažetak)",
+          buttonLabel: "📥 Preuzmi Datenblatt PDF",
           build: async () => {
             const meta = VISA_DATENBLATT_META.visaWork2;
             return buildVisaDatenblatt({

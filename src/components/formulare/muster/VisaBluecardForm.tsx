@@ -5,6 +5,7 @@ import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
+import { fillEzbPdf } from "@/lib/pdf-fill-ezb";
 
 const LS_KEY = "visa-bluecard-extras";
 const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/AufenthaltAsyl/Aufenthaltstitel/antrag-blaue-karte-eu.pdf";
@@ -40,9 +41,17 @@ export default function VisaBluecardForm() {
       <MusterIntroBlock
         formKey="visabluecard"
         paperId="visa-bluecard-root-paper"
+        originalAutofill={{
+          fileName: "EzB-popunjen-BlueCard-BalkanLink.pdf",
+          title: "✅ 1:1 popunjen EzB obrazac za poslodavca (Blue Card)",
+          body: "Blue Card EU zahtijeva da poslodavac priloži EzB (Erklärung zum Beschäftigungsverhältnis) Bundesagentur für Arbeit. Popunjavamo ga tvojim podacima — odnesi mu na potpis.",
+          build: () => fillEzbPdf(f as unknown as Record<string, string>, "bluecard"),
+        }}
         datenblatt={{
           fileName: VISA_DATENBLATT_META.visaBluecard.fileName,
           reasonNote: VISA_DATENBLATT_META.visaBluecard.reasonNote,
+          title: "📋 Ili preuzmi Datenblatt (sažetak)",
+          buttonLabel: "📥 Preuzmi Datenblatt PDF",
           build: async () => {
             const meta = VISA_DATENBLATT_META.visaBluecard;
             return buildVisaDatenblatt({
