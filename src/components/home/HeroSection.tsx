@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles, Eye, UserPlus, MessageCircle, FileText, FileCheck2, HelpCircle } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight, Sparkles, Eye, UserPlus, MessageCircle, FileText, FileCheck2, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { BLIcon } from "@/components/BrandLogo";
