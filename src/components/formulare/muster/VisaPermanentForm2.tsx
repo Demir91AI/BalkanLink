@@ -5,6 +5,8 @@ import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
+import VisaTerminBar from "@/components/visaNavigator/VisaTerminBar";
+import { makeMappeBuilder, getMappeFileName } from "@/lib/visa-mappe-builder";
 
 const LS_KEY = "visa-permanent-2-extras";
 const PDF_URL = "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html";
