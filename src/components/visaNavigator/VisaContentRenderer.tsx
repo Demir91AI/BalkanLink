@@ -6,6 +6,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import VisaGateCard from './VisaGateCard';
 import { getLocalizedCountryContent } from '@/data/viza-i18n';
 import { DEV_MODE } from '@/lib/dev-mode';
+import { WestbalkanPanel } from './WestbalkanPanel';
 
 const loadForm = (formKey: string) => {
   const formMap: Record<string, () => Promise<{ default: React.FC }>> = {
@@ -289,22 +290,14 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
       <p style={{ fontSize: 13, fontFamily: 'monospace', color: 'rgba(255,255,255,0.55)', marginBottom: 8 }}>{route.legalBasis}</p>
       <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.78)', lineHeight: 1.7, marginBottom: 24 }}>{route.subtitle}</p>
 
-      {/* FREE: Westbalkan note */}
+      {/* FREE: Westbalkan panel */}
       {route.westbalkanNote && (
-        <div style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.30)', borderRadius: 12, padding: '16px 20px', marginBottom: 16 }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-            <Zap size={18} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
-            <div>
-              <p style={{ fontSize: 13, fontWeight: 700, color: 'rgba(252,211,77,0.95)', margin: '0 0 6px' }}>{t('visa.renderer.westbalkanActive')}</p>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.78)', margin: 0, lineHeight: 1.6 }}>{route.westbalkanNote}</p>
-              <a href="https://www.make-it-in-germany.com/de/visum-aufenthalt"
-                target="_blank" rel="noopener noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: GOLD, fontSize: 12, marginTop: 8, textDecoration: 'none' }}>
-                {t('visa.renderer.learnMore')} <ExternalLink size={12} />
-              </a>
-            </div>
-          </div>
-        </div>
+        <WestbalkanPanel
+          countryCode={country.code}
+          embassyName={country.embassyName}
+          embassyUrl={country.embassyUrl}
+          embassyNote={country.embassyNote}
+        />
       )}
 
       {/* FREE: Kosovo note */}
