@@ -87,12 +87,12 @@ function SectionCard({
   tone?: "default" | "gold" | "warning";
 }) {
   const toneClasses = {
-    default: "border-border/40 bg-card",
-    gold: "border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5",
-    warning: "border-amber-500/30 bg-amber-500/5",
+    default: "border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_18px_55px_rgba(0,0,0,0.18)]",
+    gold: "border-[hsl(var(--gold))]/25 bg-[hsl(var(--gold))]/[0.07] backdrop-blur-xl shadow-[0_18px_55px_rgba(0,0,0,0.18)]",
+    warning: "border-amber-500/35 bg-amber-500/10 backdrop-blur-xl",
   };
   return (
-    <section className={cn("rounded-2xl border p-5 sm:p-6", toneClasses[tone])}>
+    <section className={cn("rounded-2xl border p-5 sm:p-6 text-white", toneClasses[tone])}>
       <div className="flex items-center gap-3 mb-4">
         <div className="h-9 w-9 rounded-xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/20 flex items-center justify-center text-[hsl(var(--gold))]">
           {icon}
@@ -120,7 +120,7 @@ function AnerkennungPaywall() {
   ];
   return (
     <div className="mx-auto max-w-2xl py-10">
-      <div className="rounded-3xl border border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-background p-8 text-center">
+      <div className="rounded-3xl border border-[hsl(var(--gold))]/30 bg-gradient-to-br from-[hsl(var(--gold))]/10 to-white/[0.03] p-8 text-center backdrop-blur-xl">
         <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/10 ring-1 ring-[hsl(var(--gold))]/30">
           <Lock className="h-8 w-8 text-[hsl(var(--gold))]" />
         </div>
@@ -332,7 +332,7 @@ export default function AnerkennungNavigator() {
               <button
                 key={c.code}
                 onClick={() => setSelectedCountry(c.code)}
-                className="group flex items-center gap-4 rounded-2xl border border-border/40 bg-card p-4 text-left transition hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+                className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-left transition hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08] hover:shadow-lg"
               >
                 <span className="text-3xl">{c.flag}</span>
                 <div className="flex-1 min-w-0">
@@ -398,7 +398,7 @@ export default function AnerkennungNavigator() {
           </div>
 
           {/* Country specific note */}
-          <div className="rounded-xl border border-border/40 bg-muted/30 p-4 text-xs text-white/75">
+          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 text-xs text-white/85 backdrop-blur-xl">
             <strong className="text-white">
               {countryT(country.code, "name", country.name)}:{" "}
             </strong>
@@ -460,7 +460,7 @@ export default function AnerkennungNavigator() {
               <button
                 key={b.code}
                 onClick={() => setBundesland(b.code)}
-                className="group rounded-xl border border-border/40 bg-card p-3 text-left transition hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+                className="group rounded-xl border border-white/10 bg-white/[0.04] p-3 text-left transition hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08] hover:shadow-lg"
               >
                 <p className="font-bold text-white text-sm">{b.name}</p>
                 <p className="text-[10px] text-white/75 mt-0.5">
@@ -544,7 +544,7 @@ export default function AnerkennungNavigator() {
 
           {/* Quick stats */}
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-border/40 bg-card p-4">
+            <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
               <Clock className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
               <p className="text-[11px] text-white/75 uppercase font-semibold">
                 {t("ui.statDuration")}
@@ -553,7 +553,7 @@ export default function AnerkennungNavigator() {
                 {profT(profession.id, "durationRange", profession.durationRange)}
               </p>
             </div>
-            <div className="rounded-xl border border-border/40 bg-card p-4">
+            <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
               <Euro className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
               <p className="text-[11px] text-white/75 uppercase font-semibold">
                 {t("ui.statCost")}
@@ -562,7 +562,7 @@ export default function AnerkennungNavigator() {
                 {profT(profession.id, "costRange", profession.costRange)}
               </p>
             </div>
-            <div className="rounded-xl border border-border/40 bg-card p-4">
+            <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
               <BookOpen className="h-4 w-4 text-[hsl(var(--gold))] mb-2" />
               <p className="text-[11px] text-white/75 uppercase font-semibold">
                 {t("ui.statLanguage")}
@@ -637,7 +637,7 @@ export default function AnerkennungNavigator() {
                     return (
                       <li
                         key={s.code}
-                        className="rounded-lg border border-border/40 bg-card p-3 text-xs"
+                        className="rounded-lg border border-white/10 bg-white/[0.04] p-3 text-xs"
                       >
                         <strong className="text-[hsl(var(--gold))]">
                           {t(`anabin.${key}.title`, s.title)}
@@ -666,7 +666,7 @@ export default function AnerkennungNavigator() {
                     return (
                       <li
                         key={s.code}
-                        className="rounded-lg border border-border/40 bg-card p-3 text-xs"
+                        className="rounded-lg border border-white/10 bg-white/[0.04] p-3 text-xs"
                       >
                         <strong className="text-[hsl(var(--gold))]">
                           {t(`anabin.${key}.title`, s.title)}
@@ -765,7 +765,7 @@ export default function AnerkennungNavigator() {
                   href={l.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-3 py-1.5 text-[11px] font-semibold text-white hover:border-[hsl(var(--gold))]/40"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-semibold text-white hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08]"
                 >
                   {l.label} <ExternalLink className="h-3 w-3" />
                 </a>
@@ -780,7 +780,7 @@ export default function AnerkennungNavigator() {
               title={t("ui.authorityTitle", { bundesland: bundeslandObj.name })}
               tone="gold"
             >
-              <div className="rounded-xl border border-border/40 bg-card p-4">
+              <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
                 <p className="text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">
                   {authority.authorityType}
                 </p>
@@ -832,7 +832,7 @@ export default function AnerkennungNavigator() {
                 value={emailFullName}
                 onChange={(e) => setEmailFullName(e.target.value)}
                 placeholder={t("ui.emailNamePlaceholder")}
-                className="rounded-lg border border-border/40 bg-card px-4 py-2.5 text-sm focus:border-[hsl(var(--gold))]/60 focus:outline-none"
+                className="rounded-lg border border-white/10 bg-white/[0.06] px-4 py-2.5 text-sm text-white placeholder:text-white/45 focus:border-[hsl(var(--gold))]/60 focus:outline-none focus:bg-white/[0.08]"
               />
               <button
                 onClick={() => setEmailVisible(true)}
@@ -845,7 +845,7 @@ export default function AnerkennungNavigator() {
 
             {emailVisible && generatedEmail && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-border/40 bg-muted/30 p-4">
+                <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-white/75 mb-1">
                     {t("ui.emailSubjectLabel")}
                   </p>
@@ -854,7 +854,7 @@ export default function AnerkennungNavigator() {
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-border/40 bg-card p-4">
+                <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-white/75 mb-2">
                     {t("ui.emailBodyLabel")}
                   </p>
@@ -863,7 +863,7 @@ export default function AnerkennungNavigator() {
                   </pre>
                 </div>
 
-                <details className="rounded-xl border border-border/40 bg-muted/20 p-4">
+                <details className="rounded-xl border border-white/10 bg-white/[0.035] p-4 backdrop-blur-xl">
                   <summary className="cursor-pointer text-xs font-bold text-white">
                     {t("ui.emailTranslationToggle")}
                   </summary>
@@ -875,13 +875,13 @@ export default function AnerkennungNavigator() {
                 <div className="flex flex-wrap gap-2">
                   <button
                     onClick={copyEmail}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-white hover:border-[hsl(var(--gold))]/40"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold text-white hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08]"
                   >
                     <Copy className="h-3.5 w-3.5" /> {t("ui.emailCopy")}
                   </button>
                   <button
                     onClick={downloadEmail}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-card px-4 py-2 text-xs font-semibold text-white hover:border-[hsl(var(--gold))]/40"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold text-white hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08]"
                   >
                     <Download className="h-3.5 w-3.5" /> {t("ui.emailDownload")}
                   </button>
@@ -907,7 +907,7 @@ export default function AnerkennungNavigator() {
                   href={l.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-3 rounded-lg border border-border/40 bg-card p-3 text-sm hover:border-[hsl(var(--gold))]/40"
+                  className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-3 text-sm hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08]"
                 >
                   <span className="text-white/95">{l.label}</span>
                   <ExternalLink className="h-3.5 w-3.5 text-white/75 shrink-0" />
@@ -946,7 +946,7 @@ export default function AnerkennungNavigator() {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-xl border border-border/40 bg-card p-3 text-sm hover:border-[hsl(var(--gold))]/40"
+                className="group rounded-xl border border-white/10 bg-white/[0.04] p-3 text-sm hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08]"
               >
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <p className="font-bold text-white">{p.name}</p>
