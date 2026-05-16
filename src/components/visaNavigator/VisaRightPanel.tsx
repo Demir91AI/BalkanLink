@@ -1,6 +1,4 @@
-import { Globe, ExternalLink, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useLocalizedHref } from "@/hooks/useLocalizedHref";
+import { Globe, ExternalLink } from "lucide-react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { getLocalizedCountryContent } from "@/data/viza-i18n";
@@ -13,7 +11,6 @@ interface Props {
 
 const VisaRightPanel = ({ selectedCountry, selectedRoute, onSelectRoute }: Props) => {
   const { t, i18n } = useTranslation("pages");
-  const localizeHref = useLocalizedHref();
   const COUNTRY_CONTENT = useMemo(() => getLocalizedCountryContent(i18n.language), [i18n.language]);
   const country = COUNTRY_CONTENT.find(c => c.code === selectedCountry);
   const route = selectedRoute && country ? country.routes.find(r => r.id === selectedRoute) : null;
