@@ -168,6 +168,7 @@ export function usePWAInstall() {
     localStorage.setItem(LS_LAST_SEEN, new Date().toISOString());
     setShowBanner(false);
     setShowIOSGuide(false);
+    setShowSamsungGuide(false);
   }, []);
 
   const closeIOSGuide = useCallback(() => {
@@ -181,6 +182,10 @@ export function usePWAInstall() {
   // Manual trigger from menu — always shows actionable guidance
   const triggerManual = useCallback(() => {
     if (isStandalone()) return;
+    if (isSamsungBrowser()) {
+      setShowSamsungGuide(true);
+      return;
+    }
     // If browser supports the native prompt, use it
     if (deferredPrompt) {
       setShowBanner(true);
@@ -194,14 +199,20 @@ export function usePWAInstall() {
   // Always allow opening the install guide unless the app is already running standalone
   const canShowMenuEntry = !isStandalone();
 
+  const closeSamsungGuide = useCallback(() => {
+    setShowSamsungGuide(false);
+  }, []);
+
   return {
     showBanner,
     showIOSGuide,
     showManualGuide,
+    showSamsungGuide,
     installAndroid,
     dismiss,
     closeIOSGuide,
     closeManualGuide,
+    closeSamsungGuide,
     triggerManual,
     canShowMenuEntry,
   };
