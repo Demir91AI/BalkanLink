@@ -134,7 +134,10 @@ export function usePWAInstall() {
       } catch { /* noop */ }
     };
 
-    if (deferredPrompt) {
+    if (isSamsungBrowser()) {
+      setShowSamsungGuide(true);
+      markShown();
+    } else if (deferredPrompt) {
       setShowBanner(true);
       markShown();
     } else if (isIOS()) {
