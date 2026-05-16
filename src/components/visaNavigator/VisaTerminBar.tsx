@@ -43,6 +43,7 @@ interface Props {
 }
 
 export default function VisaTerminBar({ highlightCountry }: Props) {
+  const { t } = useTranslation("forms");
   const active = (highlightCountry || detectCountryFromProfile() || "").toLowerCase();
   const sorted = active
     ? [...EMBASSIES].sort((a, b) => (a.code === active ? -1 : b.code === active ? 1 : 0))
