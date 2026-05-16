@@ -69,6 +69,7 @@ export function usePWAInstall() {
   const [showBanner, setShowBanner] = useState(false);
   const [showIOSGuide, setShowIOSGuide] = useState(false);
   const [showManualGuide, setShowManualGuide] = useState(false);
+  const [showSamsungGuide, setShowSamsungGuide] = useState(false);
   const [triggerReady, setTriggerReady] = useState(false);
   const visitedRoutes = useRef(new Set<string>());
   const mountTime = useRef(Date.now());
