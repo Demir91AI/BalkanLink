@@ -10,6 +10,7 @@
  * dostupne kao fallback. Country se može auto-detektovati iz
  * `loadVisaProfile().staatsangehoerigkeit` ako prop nije zadan.
  */
+import { useTranslation } from "react-i18next";
 import { loadVisaProfile } from "@/lib/visa-shared-profile";
 
 const EMBASSIES = [
