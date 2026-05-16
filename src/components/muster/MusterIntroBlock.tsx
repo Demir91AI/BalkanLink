@@ -183,13 +183,13 @@ export default function MusterIntroBlock({
               fontSize: 10, fontWeight: 800, letterSpacing: 0.5,
             }}
           >
-            ⭐ PREMIUM
+            ⭐ {t("muster.bewerbungsMappe.badge")}
           </div>
           <div style={{ fontWeight: 800, fontSize: 15, color: "#78350F", marginBottom: 6 }}>
-            {bewerbungsMappe.title ?? "📦 Kompletna Bewerbungs-Mappe za ambasadu (PDF)"}
+            {bewerbungsMappe.title ?? t("muster.bewerbungsMappe.title")}
           </div>
           <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55, marginBottom: 12 }}>
-            {bewerbungsMappe.body ?? "Profesionalan paket koji nosiš na termin: naslovnica + Anschreiben (pismo namjere) + kompletan Datenblatt + Checkliste dokumenata sa kvačicama. Ono što ti agenti naplaćuju 200–500 KM — generišeš za par sekundi iz svojih podataka."}
+            {bewerbungsMappe.body ?? t("muster.bewerbungsMappe.body")}
           </div>
           {isPremium ? (
             <button
@@ -204,7 +204,7 @@ export default function MusterIntroBlock({
                 boxShadow: "0 6px 16px rgba(180, 83, 9, 0.35)",
               }}
             >
-              {mappeBusy ? "Generišem Mappe…" : (bewerbungsMappe.buttonLabel ?? "📥 Preuzmi Bewerbungs-Mappe PDF")}
+              {mappeBusy ? t("muster.bewerbungsMappe.busy") : (bewerbungsMappe.buttonLabel ?? t("muster.bewerbungsMappe.button"))}
             </button>
           ) : (
             <Link
@@ -218,7 +218,7 @@ export default function MusterIntroBlock({
                 boxShadow: "0 6px 16px rgba(180, 83, 9, 0.35)",
               }}
             >
-              🔒 Otključaj Premium za Bewerbungs-Mappe
+              {t("muster.bewerbungsMappe.premiumCta")}
             </Link>
           )}
         </div>
