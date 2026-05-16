@@ -121,6 +121,35 @@ export default function MusterIntroBlock({
       <MusterDisclaimer formKey={formKey}><></></MusterDisclaimer>
       <PrivacyGuarantee />
 
+      {originalAutofill && (
+        <div
+          className="no-print"
+          style={{
+            marginBottom: 14, padding: 16,
+            background: "#EFF6FF", border: "2px solid #2563EB", borderRadius: 10,
+          }}
+        >
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#1E3A8A", marginBottom: 6 }}>
+            {originalAutofill.title ?? "✅ 1:1 popunjen ORIGINALNI službeni PDF"}
+          </div>
+          <div style={{ fontSize: 12, color: "#1E3A8A", lineHeight: 1.55, marginBottom: 12 }}>
+            {originalAutofill.body ?? "Popunjavamo zvanični obrazac Bundesagentur für Arbeit (EzB) tvojim podacima iz wizarda. Isti onaj koji prima ambasada / Ausländerbehörde / poslodavac u Njemačkoj. Polja ostaju editabilna — poslodavac dodaje ono što samo on zna (Betriebsnummer, Tarifvertrag, potpis)."}
+          </div>
+          <button
+            onClick={handleAutofill}
+            disabled={autofillBusy}
+            style={{
+              background: autofillBusy ? "#60A5FA" : "#2563EB",
+              color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8,
+              fontWeight: 700, fontSize: 14, cursor: autofillBusy ? "default" : "pointer",
+              boxShadow: "0 4px 12px rgba(37,99,235,0.3)",
+            }}
+          >
+            {autofillBusy ? "Popunjavam PDF…" : (originalAutofill.buttonLabel ?? "📥 Preuzmi popunjen originalni PDF")}
+          </button>
+        </div>
+      )}
+
       {datenblatt && (
         <>
           <div
