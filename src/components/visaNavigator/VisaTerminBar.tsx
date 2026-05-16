@@ -128,7 +128,7 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
                 ev.currentTarget.style.background = isActive ? "rgba(252, 211, 77, 0.28)" : "rgba(252, 211, 77, 0.12)";
                 ev.currentTarget.style.transform = "translateY(0)";
               }}
-              title={`Njemačka ambasada ${e.city} (${e.country}) — rktermin`}
+              title={t("visaTermin.linkTitle", { city: e.city, country: e.country })}
             >
               <span style={{ fontSize: 14 }}>{e.flag}</span>
               <span>{e.city}</span>
@@ -138,7 +138,7 @@ export default function VisaTerminBar({ highlightCountry }: Props) {
         })}
       </div>
       <div style={{ marginTop: 10, fontSize: 10, color: "#94A3B8", fontStyle: "italic" }}>
-        💡 Tip: Termini se otvaraju ponedjeljkom ujutro (CET). Provjeri svaki dan u 7:00–8:00h.
+        {t("visaTermin.tip")}
       </div>
     </div>
   );
