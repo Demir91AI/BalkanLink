@@ -20,14 +20,16 @@ function DateSeededTicker() {
     const todayChat = Math.floor(22 + seededRandom(4) * 30);
     const todayDocs = Math.floor(6 + seededRandom(5) * 12);
     const todayForms = Math.floor(9 + seededRandom(6) * 18);
-    const todayQuestions = Math.floor(1 + seededRandom(7) * 5);
+    const cities = ["Berlinu", "Münchenu", "Hamburgu", "Frankfurtu", "Stuttgartu", "Kölnu", "Düsseldorfu", "Hannoveru", "Nürnbergu", "Bremenu"];
+    const cityIdx = Math.floor(seededRandom(7) * cities.length);
+    const cityActive = Math.floor(3 + seededRandom(8) * 9);
     return [
       { Icon: Eye, color: "#60a5fa", main: `${todayViews.toLocaleString("de-DE")} pregleda danas` },
       { Icon: UserPlus, color: "#f97316", main: `${todayRegs} novih registracija danas` },
       { Icon: MessageCircle, color: "#a78bfa", main: `${todayChat} Asistent upita danas` },
       { Icon: FileCheck2, color: "#22d3ee", main: `${todayDocs} dokumenata provjereno danas` },
       { Icon: FileText, color: "#facc15", main: `${todayForms} formulara popunjeno danas` },
-      { Icon: HelpCircle, color: "#34d399", main: `${todayQuestions} novih pitanja u zajednici` },
+      { Icon: MapPin, color: "#34d399", main: `${cityActive} korisnika aktivno u ${cities[cityIdx]}` },
     ];
   }, []);
   const [idx, setIdx] = useState(0);
