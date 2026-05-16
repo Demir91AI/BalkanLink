@@ -94,6 +94,7 @@ export default function Layout() {
           saveCustom={cookie.saveCustom}
         />
         <PWAInstallBanner show={pwa.showBanner} onInstall={pwa.installAndroid} onDismiss={pwa.dismiss} />
+        <PWASamsungGuide show={pwa.showSamsungGuide} onDismiss={pwa.closeSamsungGuide} />
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
         <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
         <TrialPromoCTA />
