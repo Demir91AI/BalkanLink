@@ -5,6 +5,7 @@ import { VISA_DATENBLATT_META } from "@/lib/visa-datenblatt-config";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 import VisaSharedSections from "./VisaSharedSections";
 import { loadFormState, saveFormState, resetVisaProfile, loadVisaProfile } from "@/lib/visa-shared-profile";
+import { fillEzbPdf } from "@/lib/pdf-fill-ezb";
 
 const LS_KEY = "visa-work-form1-extras";
 const PDF_URL = "https://service.berlin.de/dienstleistung/305249/";
