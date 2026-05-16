@@ -410,25 +410,23 @@ export default function AnerkennungNavigator() {
               <button
                 key={p.id}
                 onClick={() => setSelectedProfession(p.id)}
-                className="group rounded-2xl border border-border/40 bg-card p-4 text-left transition hover:border-[hsl(var(--gold))]/40 hover:shadow-md"
+                className="group relative flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 cursor-pointer transition-all duration-200 hover:border-[hsl(var(--gold))]/40 hover:bg-white/[0.08] hover:shadow-lg text-left"
               >
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <div className="min-w-0 flex-1">
-                    <p className="font-bold text-foreground truncate">
-                      {profT(p.id, "name", p.name)}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground italic truncate">
-                      {p.nameDE}
-                    </p>
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-white text-[15px] leading-snug truncate">
+                    {profT(p.id, "name", p.name)}
+                  </p>
+                  <p className="text-xs text-white/55 mt-0.5 leading-relaxed truncate">
+                    {p.nameDE}
+                  </p>
+                  <div className="flex items-center gap-2 flex-wrap mt-2">
+                    <RegulationBadge reg={p.regulation} />
+                    <span className="text-[11px] text-white/45 ml-2">
+                      {p.category}
+                    </span>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-[hsl(var(--gold))] shrink-0 mt-1" />
                 </div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <RegulationBadge reg={p.regulation} />
-                  <span className="text-[10px] text-muted-foreground">
-                    {p.category}
-                  </span>
-                </div>
+                <ChevronRight className="h-4 w-4 shrink-0 transition-colors group-hover:text-[hsl(var(--gold))]" style={{ color: "rgba(255,255,255,0.35)" }} />
               </button>
             ))}
           </div>
