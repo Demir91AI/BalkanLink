@@ -92,9 +92,18 @@ const DIACRITIC_MAP: Record<string, string> = {
   "—": "-", "–": "-", "„": '"', "“": '"', "”": '"', "‚": "'", "‘": "'", "’": "'",
   "•": "*", "✓": "v", "✕": "x", "⚠": "!", "ℹ": "i", "→": "->",
 };
+// WinAnsi (Helvetica) ne podržava ove byte-ove — pdf-lib baca grešku ako prođu.
+const WIN_ANSI_UNMAPPED = new Set([0x81, 0x8D, 0x8F, 0x90, 0x9D]);
 function safe(s: string): string {
   if (!s) return "";
-  return s.split("").map((c) => DIACRITIC_MAP[c] ?? (c.charCodeAt(0) < 256 ? c : "?")).join("");
+  return s.split("").map((c) => {
+    if (DIACRITIC_MAP[c]) return DIACRITIC_MAP[c];
+    const code = c.charCodeAt(0);
+    if (code < 32 && code !== 10) return " ";
+    if (code >= 256) return "?";
+    if (WIN_ANSI_UNMAPPED.has(code)) return "?";
+    return c;
+  }).join("");
 }
 
 function wrap(text: string, font: PDFFont, size: number, maxW: number): string[] {
