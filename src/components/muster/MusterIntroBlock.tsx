@@ -81,10 +81,13 @@ export default function MusterIntroBlock({
   originalAutofill,
   bewerbungsMappe,
 }: Props) {
+  const { t } = useTranslation("forms");
   const { isPremium } = usePremiumAccess();
   const [busy, setBusy] = useState(false);
   const [autofillBusy, setAutofillBusy] = useState(false);
   const [mappeBusy, setMappeBusy] = useState(false);
+
+  const errMsg = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
   const handleMappe = async () => {
     if (!bewerbungsMappe || mappeBusy || !isPremium) return;
@@ -99,7 +102,7 @@ export default function MusterIntroBlock({
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (err) {
       console.error("Bewerbungs-Mappe error", err);
-      alert("Greška pri generisanju Bewerbungs-Mappe PDF-a. Pokušaj ponovo.");
+      alert(t("muster.errors.mappe", { error: errMsg(err) }));
     } finally {
       setMappeBusy(false);
     }
@@ -120,7 +123,7 @@ export default function MusterIntroBlock({
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (err) {
       console.error("Original auto-fill error", err);
-      alert("Greška pri popunjavanju originalnog PDF-a. Pokušaj ponovo.");
+      alert(t("muster.errors.autofill", { error: errMsg(err) }));
     } finally {
       setAutofillBusy(false);
     }
@@ -150,7 +153,7 @@ export default function MusterIntroBlock({
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (e) {
       console.error("Datenblatt PDF error", e);
-      alert("Greška pri generisanju Datenblatt PDF-a.");
+      alert(t("muster.errors.datenblatt", { error: errMsg(e) }));
     } finally {
       setBusy(false);
     }
