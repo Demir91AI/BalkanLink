@@ -44,6 +44,27 @@ export function isSamsungBrowser() {
   return /SamsungBrowser/i.test(navigator.userAgent);
 }
 
+export function isFirefoxAndroid() {
+  return /Android/i.test(navigator.userAgent) && /Firefox/i.test(navigator.userAgent);
+}
+
+export function isWebView() {
+  const ua = navigator.userAgent;
+  return /FBAN|FBAV|FB_IAB|Instagram|TikTok|MicroMessenger|Snapchat|Twitter|Line/i.test(ua) ||
+    (/Android/i.test(ua) && /; wv\)/i.test(ua));
+}
+
+export function isIOSNonSafari() {
+  const ua = navigator.userAgent;
+  const isIOSDevice = /iPad|iPhone|iPod/.test(ua) && !(window as any).MSStream;
+  const isSafari = /Safari/.test(ua) && !/CriOS|FxiOS|OPiOS|EdgiOS/.test(ua);
+  return isIOSDevice && !isSafari;
+}
+
+export function needsAndroidRedirect() {
+  return isSamsungBrowser() || isFirefoxAndroid() || isWebView();
+}
+
 function isCoolingDown(): boolean {
   const dismissedAt = tsFromLS(LS_DISMISS_KEY);
   if (!dismissedAt) return false;
@@ -68,14 +89,13 @@ export function usePWAInstall() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showBanner, setShowBanner] = useState(false);
   const [showIOSGuide, setShowIOSGuide] = useState(false);
+  const [showIOSOtherGuide, setShowIOSOtherGuide] = useState(false);
   const [showManualGuide, setShowManualGuide] = useState(false);
   const [showSamsungGuide, setShowSamsungGuide] = useState(false);
   const [triggerReady, setTriggerReady] = useState(false);
   const visitedRoutes = useRef(new Set<string>());
-  const mountTime = useRef(Date.now());
   const location = useLocation();
 
-  // Track routes
   useEffect(() => {
     visitedRoutes.current.add(location.pathname);
     const clickedTrigger = TRIGGER_PATHS.some((p) => location.pathname.startsWith(p));
@@ -83,13 +103,11 @@ export function usePWAInstall() {
     if (visitedRoutes.current.size >= ROUTE_THRESHOLD) setTriggerReady(true);
   }, [location.pathname]);
 
-  // Time-based trigger
   useEffect(() => {
     const timer = window.setTimeout(() => setTriggerReady(true), TIME_THRESHOLD_MS);
     return () => clearTimeout(timer);
   }, []);
 
-  // Listen for beforeinstallprompt
   useEffect(() => {
     const handler = (e: Event) => {
       e.preventDefault();
@@ -108,14 +126,11 @@ export function usePWAInstall() {
     };
   }, []);
 
-  // Show banner when conditions met
   useEffect(() => {
     if (isStandalone() || isAccepted() || isCoolingDown()) return;
     if (!triggerReady) return;
     if (!cookieConsentGiven()) return;
 
-    // Per-session guard: if banner was already shown this session, skip.
-    // Prevents re-appearance on every page refresh.
     try {
       if (sessionStorage.getItem("pwaInstallShownThisSession") === "1") return;
     } catch { /* noop */ }
@@ -126,23 +141,24 @@ export function usePWAInstall() {
     const markShown = () => {
       try {
         sessionStorage.setItem("pwaInstallShownThisSession", "1");
-        // Also start a soft cooldown so it won't appear on the very next visit
-        // even if the user never explicitly dismisses it.
         if (!localStorage.getItem(LS_DISMISS_KEY)) {
           localStorage.setItem(LS_DISMISS_KEY, new Date().toISOString());
         }
       } catch { /* noop */ }
     };
 
-    if (isSamsungBrowser()) {
+    if (needsAndroidRedirect()) {
       setShowSamsungGuide(true);
       markShown();
     } else if (deferredPrompt) {
       setShowBanner(true);
       markShown();
-    } else if (isIOS()) {
-      const isSafari = /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|OPiOS/.test(navigator.userAgent);
-      if (isSafari) { setShowIOSGuide(true); markShown(); }
+    } else if (isIOS() && !isIOSNonSafari()) {
+      setShowIOSGuide(true);
+      markShown();
+    } else if (isIOSNonSafari()) {
+      setShowIOSOtherGuide(true);
+      markShown();
     }
   }, [triggerReady, deferredPrompt]);
 
@@ -168,49 +184,35 @@ export function usePWAInstall() {
     localStorage.setItem(LS_LAST_SEEN, new Date().toISOString());
     setShowBanner(false);
     setShowIOSGuide(false);
+    setShowIOSOtherGuide(false);
     setShowSamsungGuide(false);
   }, []);
 
-  const closeIOSGuide = useCallback(() => {
-    setShowIOSGuide(false);
-  }, []);
+  const closeIOSGuide = useCallback(() => setShowIOSGuide(false), []);
+  const closeIOSOtherGuide = useCallback(() => setShowIOSOtherGuide(false), []);
+  const closeManualGuide = useCallback(() => setShowManualGuide(false), []);
+  const closeSamsungGuide = useCallback(() => setShowSamsungGuide(false), []);
 
-  const closeManualGuide = useCallback(() => {
-    setShowManualGuide(false);
-  }, []);
-
-  // Manual trigger from menu — always shows actionable guidance
   const triggerManual = useCallback(() => {
     if (isStandalone()) return;
-    if (isSamsungBrowser()) {
-      setShowSamsungGuide(true);
-      return;
-    }
-    // If browser supports the native prompt, use it
-    if (deferredPrompt) {
-      setShowBanner(true);
-      return;
-    }
-    // Otherwise show the per-browser manual guide (handles iOS Safari, iOS Chrome,
-    // Android Chrome, Samsung Internet, Firefox, in-app webviews, desktop)
+    if (needsAndroidRedirect()) { setShowSamsungGuide(true); return; }
+    if (isIOSNonSafari()) { setShowIOSOtherGuide(true); return; }
+    if (deferredPrompt) { setShowBanner(true); return; }
     setShowManualGuide(true);
   }, [deferredPrompt]);
 
-  // Always allow opening the install guide unless the app is already running standalone
   const canShowMenuEntry = !isStandalone();
-
-  const closeSamsungGuide = useCallback(() => {
-    setShowSamsungGuide(false);
-  }, []);
 
   return {
     showBanner,
     showIOSGuide,
+    showIOSOtherGuide,
     showManualGuide,
     showSamsungGuide,
     installAndroid,
     dismiss,
     closeIOSGuide,
+    closeIOSOtherGuide,
     closeManualGuide,
     closeSamsungGuide,
     triggerManual,
