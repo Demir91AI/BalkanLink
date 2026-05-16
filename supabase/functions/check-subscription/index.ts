@@ -43,14 +43,25 @@ serve(async (req) => {
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
 
     const authHeader = req.headers.get("Authorization");
-    if (!authHeader) throw new Error("No authorization header");
+    const token = authHeader?.replace("Bearer ", "").trim();
 
-    const token = authHeader.replace("Bearer ", "");
+    // No / empty token → treat as anonymous, not a 500. Prevents blank screen
+    // when session has just expired or user is signed out.
+    if (!token) {
+      return new Response(JSON.stringify({ subscribed: false, reason: "no_session" }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      });
+    }
 
     // getUser is more stable than getClaims (does not require JWKS round-trip)
     const { data: userData, error: userError } = await supabaseClient.auth.getUser(token);
     if (userError || !userData?.user) {
-      throw new Error(`Auth error: ${userError?.message ?? "Invalid token"}`);
+      console.warn("[check-subscription] auth failed, returning unsubscribed:", userError?.message);
+      return new Response(JSON.stringify({ subscribed: false, reason: "auth_failed" }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      });
     }
 
     const userId = userData.user.id;
