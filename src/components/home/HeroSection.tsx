@@ -15,13 +15,19 @@ function seededRandom(salt: number): number {
 
 function DateSeededTicker() {
   const items = useMemo(() => {
-    const todayViews = Math.floor(180 + seededRandom(2) * 120);
-    const todayVisits = Math.floor(seededRandom(1) * 28) + 14;
-    const todayRegs = Math.floor(seededRandom(3) * 6) + 2;
+    const todayViews = Math.floor(180 + seededRandom(2) * 140);
+    const todayRegs = Math.floor(2 + seededRandom(3) * 6);
+    const todayChat = Math.floor(22 + seededRandom(4) * 30);
+    const todayDocs = Math.floor(6 + seededRandom(5) * 12);
+    const todayForms = Math.floor(9 + seededRandom(6) * 18);
+    const todayQuestions = Math.floor(1 + seededRandom(7) * 5);
     return [
-      { Icon: Eye, color: "#60a5fa", main: `${todayViews.toLocaleString("de-DE")} pregleda danas`, sub: "i broj raste iz sata u sat" },
-      { Icon: Users, color: "#4ade80", main: `${todayVisits} posjeta danas`, sub: "Balkanci u Njemačkoj pronašli su nas" },
-      { Icon: UserPlus, color: "#f97316", main: `${todayRegs} novih registracija danas`, sub: "pridruži im se — besplatno" },
+      { Icon: Eye, color: "#60a5fa", main: `${todayViews.toLocaleString("de-DE")} pregleda danas` },
+      { Icon: UserPlus, color: "#f97316", main: `${todayRegs} novih registracija danas` },
+      { Icon: MessageCircle, color: "#a78bfa", main: `${todayChat} Asistent upita danas` },
+      { Icon: FileCheck2, color: "#22d3ee", main: `${todayDocs} dokumenata provjereno danas` },
+      { Icon: FileText, color: "#facc15", main: `${todayForms} formulara popunjeno danas` },
+      { Icon: HelpCircle, color: "#34d399", main: `${todayQuestions} novih pitanja u zajednici` },
     ];
   }, []);
   const [idx, setIdx] = useState(0);
