@@ -40,9 +40,14 @@ export default function VisaStudyForm() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
+      <VisaTerminBar />
       <MusterIntroBlock
         formKey="visastudy"
         paperId="visa-study-root-paper"
+        bewerbungsMappe={{
+          build: makeMappeBuilder("visaStudy", f as unknown as Record<string, string>),
+          fileName: getMappeFileName("visaStudy"),
+        }}
         datenblatt={{
           fileName: VISA_DATENBLATT_META.visaStudy.fileName,
           reasonNote: VISA_DATENBLATT_META.visaStudy.reasonNote,

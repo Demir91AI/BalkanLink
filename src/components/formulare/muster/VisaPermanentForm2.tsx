@@ -39,9 +39,14 @@ export default function VisaPermanentForm2() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
+      <VisaTerminBar />
       <MusterIntroBlock
         formKey="visapermanent2"
         paperId="visa-perm-2-root-paper"
+        bewerbungsMappe={{
+          build: makeMappeBuilder("visaPermanent2", f as unknown as Record<string, string>),
+          fileName: getMappeFileName("visaPermanent2"),
+        }}
         datenblatt={{
           fileName: VISA_DATENBLATT_META.visaPermanent2.fileName,
           reasonNote: VISA_DATENBLATT_META.visaPermanent2.reasonNote,

@@ -40,9 +40,14 @@ export default function VisaBluecardForm() {
       onSave={() => saveFormState(LS_KEY, f)}
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
+      <VisaTerminBar />
       <MusterIntroBlock
         formKey="visabluecard"
         paperId="visa-bluecard-root-paper"
+        bewerbungsMappe={{
+          build: makeMappeBuilder("visaBluecard", f as unknown as Record<string, string>),
+          fileName: getMappeFileName("visaBluecard"),
+        }}
         originalAutofill={{
           fileName: "EzB-popunjen-BlueCard-BalkanLink.pdf",
           title: "✅ 1:1 popunjen EzB obrazac za poslodavca (Blue Card)",

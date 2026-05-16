@@ -40,6 +40,7 @@ export default function VisaWorkForm1() {
       onReset={() => { localStorage.removeItem(LS_KEY); resetVisaProfile(); setF(loadFormState(LS_KEY, DEFAULTS)); }}
     >
       <VisaTerminBar />
+      <VisaTerminBar />
       <MusterIntroBlock
         formKey="visawork1"
         paperId="visa-work-1-root-paper"
