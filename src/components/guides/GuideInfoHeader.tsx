@@ -9,11 +9,12 @@ interface Props {
   processingTime: string;
   requirements?: string[];
   commonMistakes?: string[];
+  infoNote?: React.ReactNode;
 }
 
 const GOLD = '#C9A84C';
 
-export default function GuideInfoHeader({ title, source, formName, whoCanApply, processingTime, requirements, commonMistakes }: Props) {
+export default function GuideInfoHeader({ title, source, formName, whoCanApply, processingTime, requirements, commonMistakes, infoNote }: Props) {
   const { t } = useTranslation("forms");
   return (
     <div className="space-y-4">
@@ -36,6 +37,8 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
           <span className="text-[#6B6B6B]">{processingTime}</span>
         </p>
       </div>
+
+      {infoNote}
 
       {/* Requirements */}
       {requirements && requirements.length > 0 && (
