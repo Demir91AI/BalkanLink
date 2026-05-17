@@ -129,7 +129,6 @@ export default function HeroSection() {
   const navigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
   const { t: tc } = useTranslation("common");
-  const trialActive = new Date() < new Date("2026-05-31T23:59:59Z");
   const [askValue, setAskValue] = useState("");
   const [typed, setTyped] = useState("");
   const [phraseKey, setPhraseKey] = useState(0);
