@@ -118,6 +118,7 @@ export default function Index() {
 
   return (
     <div className="relative" style={{ background: "hsl(215 55% 4%)" }}>
+      <PromoPopupBanner />
       <SEO path="/" />
 
       {/* ─── HERO ─── */}
