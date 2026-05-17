@@ -101,6 +101,17 @@ export default function KindergeldGuideContent() {
           "Boravišna dozvola (za ne-EU državljane)",
           "Za djecu 18+: potvrda o školovanju (Schulbescheinigung)",
         ]}
+        infoNote={
+          <div className="bg-blue-950/40 border border-blue-500/30 rounded-lg p-4 text-sm text-blue-100 mt-4 mb-2 space-y-2">
+            <p>
+              📬 <strong>Kako podnijeti zahtjev u 2026.</strong><br />
+              Nakon rođenja djeteta, Familienkasse automatski šalje pismo s QR kodom. Skeniranjem QR koda otvara se obrazac koji je djelimično već ispunjen tvojim podacima — samo dopuni što nedostaje i pošalji.
+            </p>
+            <p>
+              ⚠️ <strong>Od marta 2027. dolazi novi zakon:</strong> Za roditelje koji već imaju starije dijete, Kindergeld će se pokrenuti automatski — bez zahtjeva — čim se IBAN nalazi u evidenciji države. Za prvo dijete automatska isplata dolazi u kasnijoj fazi 2027.
+            </p>
+          </div>
+        }
         commonMistakes={[
           "Nepotpuna dokumentacija — rodni list djeteta zaboravljen",
           "Pogrešan IBAN ili ime vlasnika računa ne odgovara podnosiocu",
