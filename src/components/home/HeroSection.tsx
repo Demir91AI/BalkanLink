@@ -129,7 +129,6 @@ export default function HeroSection() {
   const navigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
   const { t: tc } = useTranslation("common");
-  const trialActive = new Date() < new Date("2026-05-31T23:59:59Z");
   const [askValue, setAskValue] = useState("");
   const [typed, setTyped] = useState("");
   const [phraseKey, setPhraseKey] = useState(0);
@@ -412,58 +411,6 @@ export default function HeroSection() {
             <DateSeededTicker />
           </motion.div>
 
-          {/* Launch Trial banner — gold WOW (shine + pulse + float), bez 🎉 konfeta */}
-          {trialActive && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 14 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.95, ease }}
-              className="mt-12 w-full flex flex-col items-center px-2"
-            >
-              {/* Diskretan Promo chip — iznad banera, "etiketa" */}
-              <span className="relative z-20 -mb-2 inline-flex items-center justify-center whitespace-nowrap rounded-full border border-[hsl(var(--gold))]/40 bg-slate-950/80 px-3 py-1 text-[8.5px] font-semibold uppercase tracking-[0.08em] text-[hsl(var(--gold))] shadow-sm backdrop-blur-sm sm:px-4 sm:text-[10px] sm:tracking-[0.12em]">
-                {tc("trialCta.promoLabel")}
-              </span>
-              <button
-                type="button"
-                onClick={() => navigate("/register")}
-                aria-label={tc("trialCta.heroBanner")}
-                className="bl-trial-banner group relative w-full max-w-xl overflow-hidden rounded-2xl border-2 border-amber-200/70 px-5 py-4 text-slate-900 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99] sm:px-7 sm:py-5"
-              >
-                <span className="relative z-10 grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-5">
-                  {/* Left: paketić */}
-                  <span
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-900/15 text-[18px] sm:h-11 sm:w-11 sm:text-[20px]"
-                    aria-hidden
-                  >
-                    🎁
-                  </span>
-
-                  {/* Center: text */}
-                  <span className="flex min-w-0 flex-col items-center text-center leading-tight">
-                    <span className="text-[14px] font-black tracking-tight sm:text-[16px]">
-                      {tc("trialCta.heroBanner")}
-                    </span>
-                    <span className="mt-1 text-[11px] font-semibold text-slate-900/75 sm:text-[12.5px]">
-                      {tc("trialCta.heroSubtext")}
-                    </span>
-                    <span className="text-[11px] font-semibold text-slate-900/75 sm:text-[12.5px]">
-                      {tc("trialCta.heroSubtextLine2")}
-                    </span>
-                  </span>
-
-                  {/* Right: arrow */}
-                  <span
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-slate-900 text-amber-100 transition-transform duration-200 group-hover:translate-x-0.5 sm:h-11 sm:w-11"
-                    aria-hidden
-                  >
-                    <ArrowRight className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={2.8} />
-                  </span>
-                </span>
-              </button>
-
-            </motion.div>
-          )}
 
           {/* ─── Asistent — interactive ask bar ─── */}
           <motion.div
