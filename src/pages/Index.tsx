@@ -25,6 +25,7 @@ import PitchSection from "@/components/home/PitchSection";
 import CollapsibleSection from "@/components/home/CollapsibleSection";
 import CommunityHighlights from "@/components/home/CommunityHighlights";
 import ShareButton from "@/components/share/ShareButton";
+import PromoPopupBanner from "@/components/home/PromoPopupBanner";
 
 function CarouselArrows({ onLeft, onRight }: { onLeft: () => void; onRight: () => void }) {
   return (
