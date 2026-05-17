@@ -2,25 +2,28 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const PROMO_END = new Date("2026-06-01T00:00:00Z");
-const STORAGE_KEY = "bl_promo_popup_seen";
 
 export default function PromoPopupBanner() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { user, loading } = useAuth();
 
   useEffect(() => {
+    if (loading) return;
+    if (!user) return;
     if (new Date() >= PROMO_END) return;
     try {
-      if (localStorage.getItem(STORAGE_KEY)) return;
+      if (localStorage.getItem(`bl_promo_popup_seen_${user.id}`)) return;
     } catch { /* noop */ }
     const t = setTimeout(() => setOpen(true), 1200);
     return () => clearTimeout(t);
-  }, []);
+  }, [loading, user]);
 
   const close = () => {
-    try { localStorage.setItem(STORAGE_KEY, "1"); } catch { /* noop */ }
+    try { localStorage.setItem(`bl_promo_popup_seen_${user!.id}`, "1"); } catch { /* noop */ }
     setOpen(false);
   };
 
