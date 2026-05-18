@@ -28,7 +28,15 @@ export default function ArbeitslosengeldMuster() {
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="alg-root" title="Antrag auf Arbeitslosengeld (ALG I)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der Agentur für Arbeit einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="alg-root" title="Antrag auf Arbeitslosengeld (ALG I)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der Agentur für Arbeit einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="arbeitslosengeld" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="arbeitslosengeld"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#EFF6FF", border: "2px solid #3B82F6", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#1E40AF", marginBottom: 6 }}>🌐 ALG I se prijavljuje ONLINE ili lično u Agentur für Arbeit</div>
+        <div style={{ fontSize: 12, color: "#1E3A8A", lineHeight: 1.55, marginBottom: 12 }}>Zahtjev za Arbeitslosengeld I nema standardni offline PDF za preuzimanje — Bundesagentur für Arbeit zahtijeva prijavu putem svog eService portala ili lično pri Persönliche Arbeitsmeldung. Ovaj vodič priprema sva polja unaprijed.</div>
+        <a href="https://web.arbeitsagentur.de/portal/metasuche/suche/dienstleistungen?words=arbeitslosengeld" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#1D4ED8", color: "#fff", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>🔗 Idi na BA eService portal →</a>
+      </div>
 
       <div style={S.sec}>
         <SecHeader num={1} title="Persönliche Daten" />
