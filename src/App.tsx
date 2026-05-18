@@ -30,8 +30,6 @@ const DSA = lazy(() => import("./pages/DSA"));
 const CookieRichtlinie = lazy(() => import("./pages/CookieRichtlinie"));
 const QA = lazy(() => import("./pages/QA"));
 const QADetail = lazy(() => import("./pages/QADetail"));
-const Directory = lazy(() => import("./pages/Directory"));
-const DirectorySubmit = lazy(() => import("./pages/DirectorySubmit"));
 const Missions = lazy(() => import("./pages/Missions"));
 const PocniOvdje = lazy(() => import("./pages/PocniOvdje"));
 const PrijavaPrebijalista = lazy(() => import("./pages/dolazak/PrijavaPrebijalista"));
@@ -326,8 +324,6 @@ function LocalizedRoutes() {
         </Route>
         <Route path="qa" element={<QA />} />
         <Route path="qa/:id" element={<QADetail />} />
-        <Route path="directory" element={<Directory />} />
-        <Route path="directory/submit" element={<DirectorySubmit />} />
         <Route path="ambasade-konzulati" element={<Missions />} />
         
         <Route path="login" element={<Login />} />

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Star, MessageSquare, Building2, Megaphone, UserPlus, CreditCard, RefreshCw } from "lucide-react";
+import { Loader2, Star, MessageSquare, Megaphone, UserPlus, RefreshCw } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 type ActivityItem = {
   id: string;
-  kind: "review" | "question" | "directory" | "ad" | "user" | "payment";
+  kind: "review" | "question" | "ad" | "user";
   title: string;
   meta?: string;
   body?: string;
@@ -28,28 +28,22 @@ const fmtDT = (iso: string) => {
 const ICONS: Record<ActivityItem["kind"], any> = {
   review: Star,
   question: MessageSquare,
-  directory: Building2,
   ad: Megaphone,
   user: UserPlus,
-  payment: CreditCard,
 };
 
 const KIND_LABEL: Record<ActivityItem["kind"], string> = {
   review: "Recenzija",
   question: "Pitanje",
-  directory: "Imenik",
   ad: "Oglas",
   user: "Registracija",
-  payment: "Uplata",
 };
 
 const KIND_COLOR: Record<ActivityItem["kind"], string> = {
   review: "bg-amber-500/15 text-amber-300 border-amber-500/30",
   question: "bg-violet-500/15 text-violet-300 border-violet-500/30",
-  directory: "bg-sky-500/15 text-sky-300 border-sky-500/30",
   ad: "bg-rose-500/15 text-rose-300 border-rose-500/30",
   user: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
-  payment: "bg-[hsl(var(--gold))]/15 text-[hsl(var(--gold))] border-[hsl(var(--gold))]/30",
 };
 
 export default function ActivityFeed() {
@@ -61,13 +55,11 @@ export default function ActivityFeed() {
     const sinceISO = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString();
     const all: ActivityItem[] = [];
 
-    const [reviews, questions, dir, ads, users, payments] = await Promise.all([
+    const [reviews, questions, ads, users] = await Promise.all([
       supabase.from("reviews").select("id, username, rating, comment, created_at").gte("created_at", sinceISO).order("created_at", { ascending: false }).limit(20),
       supabase.from("community_questions").select("id, title, body, status, author_name, lang, created_at").gte("created_at", sinceISO).order("created_at", { ascending: false }).limit(20),
-      supabase.from("directory_listings").select("id, name, category, city, verified, created_at").gte("created_at", sinceISO).order("created_at", { ascending: false }).limit(20),
       supabase.from("ads").select("id, title, category, city, status, created_at").gte("created_at", sinceISO).order("created_at", { ascending: false }).limit(20),
       supabase.from("profiles").select("id, email, first_name, subscription_tier, created_at").gte("created_at", sinceISO).order("created_at", { ascending: false }).limit(20),
-      supabase.from("payments").select("id, amount, currency, status, paid_at, created_at, user_id").gte("created_at", sinceISO).in("status", ["paid", "succeeded"]).order("created_at", { ascending: false }).limit(20),
     ]);
 
     (reviews.data || []).forEach((r: any) => all.push({
