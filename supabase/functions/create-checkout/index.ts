@@ -39,7 +39,9 @@ serve(async (req) => {
     }
 
     const checkoutMode = mode === "subscription" ? "subscription" : "payment";
-    const origin = req.headers.get("origin") || "https://balkanlink.de";
+    const ALLOWED_ORIGINS = ["https://balkanlink.de", "https://www.balkanlink.de", "https://staro.lovable.app", "https://id-preview--42558ae9-0b5a-4abf-bab6-f6cb6cf85927.lovable.app"];
+    const rawOrigin = req.headers.get("origin") || "";
+    const origin = ALLOWED_ORIGINS.includes(rawOrigin) ? rawOrigin : "https://balkanlink.de";
     const safeReturnTo = typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//")
       ? returnTo
       : "/";
