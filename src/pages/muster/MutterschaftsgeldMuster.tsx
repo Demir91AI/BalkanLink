@@ -21,7 +21,27 @@ const initial = () => ({
 
 export default function MutterschaftsgeldMuster() {
   const [f, setF] = useState(() => { try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {} return initial(); });
+  const [generating, setGenerating] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
+
+  const handleAutoFill = async () => {
+    setPdfError(null); setGenerating(true);
+    try {
+      const data: MutterschaftsgeldFormData = {
+        vorname: f.vorname, nachname: f.nachname, geburtsdatum: f.geburtsdatum,
+        versichertenNr: f.versichertenNr, strasse: f.strasse, plz: f.plz, ort: f.ort,
+        krankenkasse: f.krankenkasse, entbindungstermin: f.entbindungstermin,
+        tatsaechlicheGeburt: f.tatsaechlicheGeburt, beschaeftigtBei: f.beschaeftigtBei,
+        beschaeftigtSeit: f.beschaeftigtSeit, schutzfristVon: f.schutzfristVon,
+        schutzfristBis: f.schutzfristBis, iban: f.iban, bic: f.bic, kontoinhaber: f.kontoinhaber,
+      };
+      const blob = await fillMutterschaftsgeldPdf(data);
+      downloadBlob(blob, `Mutterschaftsgeld-BAS-${f.nachname || "antrag"}.pdf`.replace(/\s+/g, "_"));
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setGenerating(false); }
+  };
 
   return (
     <>
@@ -31,8 +51,12 @@ export default function MutterschaftsgeldMuster() {
       <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
         <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi zvanični BAS Antrag PDF</div>
         <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Za privatno osigurane i samozaposlene bez GKV Krankentagegeld-a — Bundesamt für soziale Sicherung (BAS) ima standardni PDF. Za GKV-osigurane: kontaktirajte svoju Krankenkasse direktno za njihov formular. Ovaj vodič pokriva oba slučaja.</div>
-        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni BAS Antrag (uskoro dostupno)</button>
+        <button onClick={handleAutoFill} disabled={generating} style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}>
+          {generating ? "Generiram PDF…" : "📄 Preuzmi popunjeni BAS Antrag"}
+        </button>
+        {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
       </div>
+
       <div style={S.sec}>
         <SecHeader num={1} title="A. Persönliche Daten" />
         <div style={S.row}><Field label="Vorname" value={f.vorname} onChange={v => set("vorname", v)} /><Field label="Nachname" value={f.nachname} onChange={v => set("nachname", v)} /></div>
