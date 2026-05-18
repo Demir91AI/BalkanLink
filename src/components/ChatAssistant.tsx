@@ -755,11 +755,6 @@ export default function ChatAssistant() {
       setLoading(true);
 
       try {
-        if (!canChat) {
-          setMessages(prev => [...prev, { role: "assistant", content: buildRateLimitMessage() }]);
-          setLoading(false);
-          return;
-        }
         await recordQuery();
 
         const { data: sessionData } = await supabase.auth.getSession();
