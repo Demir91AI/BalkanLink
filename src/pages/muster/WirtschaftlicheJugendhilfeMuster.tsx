@@ -139,7 +139,7 @@ export default function WirtschaftlicheJugendhilfeMuster() {
       pdfLabel="Pravni osnov: SGB VIII (gesetze-im-internet.de) →"
       footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim zuständigen Jugendamt einreichen • BalkanLink ist keine staatliche Stelle • Stand 2026"
       lsKey={LS_KEY}
-      formularId="wijuhi-muster"
+      formularId="wirtschaftliche-jugendhilfe"
       data={f}
       onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))}
       onReset={() => {
