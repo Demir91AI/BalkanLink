@@ -893,24 +893,13 @@ export default function ChatAssistant() {
   const sendMessageWithText = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
 
-    if (!canChat) {
-      setMessages(prev => [...prev,
-        { role: "user", content: text.trim() },
-        { role: "assistant", content: buildRateLimitMessage() },
-      ]);
-      setInput("");
-      return;
-    }
-
-    // Lokalni odgovor na pitanja o broju preostalih pitanja — bez trošenja kvote i bez poziva AI-a
+    // Lokalni odgovor na pitanja o broju preostalih pitanja — bez poziva AI-a
     if (isQuotaQuestion(text)) {
       setMessages(prev => [...prev,
         { role: "user", content: text.trim() },
         {
           role: "assistant",
-          content: buildQuotaAnswer(remaining, isPremium),
-          redirectUrl: isPremium ? undefined : "/paketi",
-          redirectLabel: isPremium ? undefined : "Paketi i cijene",
+          content: buildQuotaAnswer(),
         },
       ]);
       setInput("");
