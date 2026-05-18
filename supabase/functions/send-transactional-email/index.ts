@@ -41,8 +41,9 @@ function parseJwtClaims(token: string): Record<string, unknown> | null {
 
 // Auth model:
 //   - service_role JWT → unrestricted (used by other edge functions / cron)
-//   - authenticated user JWT → ONLY allowed for admin notifications fixed to ADMIN_NOTIFY_EMAIL,
-//     so client-side calls cannot be abused to spam arbitrary recipients.
+//   - authenticated user JWT → ONLY allowed for admin notifications fixed to ADMIN_NOTIFY_EMAIL
+//   - no JWT → ONLY allowed for the new-user admin notification fixed to ADMIN_NOTIFY_EMAIL,
+//     because email-confirmation signups do not have a client session yet.
 const ADMIN_NOTIFY_EMAIL = 'kontakt@balkanlink.de'
 const CLIENT_ALLOWED_TEMPLATES = new Set([
   'admin-new-user',
@@ -63,12 +64,7 @@ Deno.serve(async (req) => {
   const claims = token ? parseJwtClaims(token) : null
   const isService = claims?.role === 'service_role'
   const isAuthedUser = !!claims && typeof claims.sub === 'string' && claims.role !== 'anon'
-  if (!isService && !isAuthedUser) {
-    return new Response(
-      JSON.stringify({ error: 'Forbidden' }),
-      { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    )
-  }
+  const isAnonymousRequest = !isService && !isAuthedUser
 
   const supabaseUrl = Deno.env.get('SUPABASE_URL')
   const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
