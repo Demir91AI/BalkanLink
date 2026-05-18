@@ -1,5 +1,8 @@
 import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
+import KinderzuschlagGuideContent from "@/components/guides/KinderzuschlagGuideContent";
 
 const LS_KEY = "kinderzuschlag-muster-data";
 const PDF_URL = "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag";
