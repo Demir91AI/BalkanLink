@@ -208,28 +208,53 @@ export function useTTS() {
       }
     };
 
-    try {
-      audio.src = directUrl;
-      audio.load();
-      const playPromise = audio.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch((err) => {
-          if (!isCurrent()) return;
-          console.error("[TTS] play() rejected:", err);
-          // Fall back to browser TTS instead of just toasting
+    directUrlPromise
+      .then((directUrl) => {
+        if (!isCurrent()) return;
+        if (!directUrl) {
           const ok = playViaBrowserFallback(requestId, id, text);
           if (!ok && isCurrent()) {
             setActiveId(null);
             setPlayState("idle");
             toast.error("Audio konnte nicht abgespielt werden.");
           }
-        });
-      }
-      return true;
-    } catch (err) {
-      console.error("[TTS] Direct audio setup error:", err);
-      return false;
-    }
+          return;
+        }
+        try {
+          audio.src = directUrl;
+          audio.load();
+          const playPromise = audio.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch((err) => {
+              if (!isCurrent()) return;
+              console.error("[TTS] play() rejected:", err);
+              const ok = playViaBrowserFallback(requestId, id, text);
+              if (!ok && isCurrent()) {
+                setActiveId(null);
+                setPlayState("idle");
+                toast.error("Audio konnte nicht abgespielt werden.");
+              }
+            });
+          }
+        } catch (err) {
+          console.error("[TTS] Direct audio setup error:", err);
+          const ok = playViaBrowserFallback(requestId, id, text);
+          if (!ok && isCurrent()) {
+            setActiveId(null);
+            setPlayState("idle");
+          }
+        }
+      })
+      .catch((err) => {
+        if (!isCurrent()) return;
+        console.error("[TTS] directUrl resolution failed:", err);
+        const ok = playViaBrowserFallback(requestId, id, text);
+        if (!ok && isCurrent()) {
+          setActiveId(null);
+          setPlayState("idle");
+        }
+      });
+    return true;
   }, [rate, playViaBrowserFallback]);
 
   /* ── Play: ElevenLabs first, browser fallback ── */
