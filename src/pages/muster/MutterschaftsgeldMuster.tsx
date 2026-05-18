@@ -3,6 +3,7 @@ import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/mus
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MutterschaftsgeldGuideContent from "@/components/guides/MutterschaftsgeldGuideContent";
+import { fillMutterschaftsgeldPdf, downloadBlob, type MutterschaftsgeldFormData } from "@/lib/pdf-fill-mutterschaftsgeld";
 
 const LS_KEY = "mutterschaftsgeld-muster-data";
 const PDF_URL = "https://www.mutterschaftsgeld.de/";
