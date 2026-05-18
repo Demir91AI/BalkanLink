@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 
 const LS_KEY = "integrationskurs-muster-data";
 const PDF_URL = "https://www.bamf.de/SharedDocs/Anlagen/DE/Integration/Integrationskurse/Kurstraeger/Teilnehmer/antrag-zulass-integrationskurs.pdf";
