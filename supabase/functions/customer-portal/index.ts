@@ -36,7 +36,9 @@ serve(async (req) => {
     const customers = await stripe.customers.list({ email: user.email, limit: 1 });
     if (customers.data.length === 0) throw new Error("No Stripe customer found");
 
-    const origin = req.headers.get("origin") || "https://balkanlink.de";
+    const ALLOWED_ORIGINS = ["https://balkanlink.de", "https://www.balkanlink.de", "https://staro.lovable.app", "https://id-preview--42558ae9-0b5a-4abf-bab6-f6cb6cf85927.lovable.app"];
+    const rawOrigin = req.headers.get("origin") || "";
+    const origin = ALLOWED_ORIGINS.includes(rawOrigin) ? rawOrigin : "https://balkanlink.de";
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: customers.data[0].id,
       return_url: `${origin}/paketi`,
