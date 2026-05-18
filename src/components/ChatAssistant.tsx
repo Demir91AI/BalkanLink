@@ -986,7 +986,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [loading, messages, isPremium, chatLang, location.pathname, canChat, recordQuery, remaining]);
+  }, [loading, messages, isPremium, chatLang, location.pathname, recordQuery]);
 
   // Keep ref in sync so the open-assistant listener can invoke the latest version
   useEffect(() => { sendMessageRef.current = sendMessageWithText; }, [sendMessageWithText]);
