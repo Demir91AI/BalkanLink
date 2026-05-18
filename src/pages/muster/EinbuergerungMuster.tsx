@@ -124,6 +124,7 @@ export default function EinbuergerungMuster() {
   );
 
   return (
+    <>
     <MusterFormBase
       rootId="einb-root"
       title="Antrag auf Einbürgerung in den deutschen Staatsverband"
