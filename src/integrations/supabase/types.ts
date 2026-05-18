@@ -1271,6 +1271,54 @@ export type Database = {
         }
         Relationships: []
       }
+      directory_listings: {
+        Row: {
+          created_at: string | null
+          id: string | null
+          verified: boolean | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string | null
+          verified?: boolean | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string | null
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          amount: number | null
+          created_at: string | null
+          currency: string | null
+          id: string | null
+          paid_at: string | null
+          status: string | null
+          user_id: string | null
+        }
+        Insert: {
+          amount?: never
+          created_at?: string | null
+          currency?: string | null
+          id?: string | null
+          paid_at?: string | null
+          status?: never
+          user_id?: string | null
+        }
+        Update: {
+          amount?: never
+          created_at?: string | null
+          currency?: string | null
+          id?: string | null
+          paid_at?: string | null
+          status?: never
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       pro_services_public: {
         Row: {
           bundesland: string | null
