@@ -41,7 +41,15 @@ export default function SteuerklasseMuster() {
   );
 
   return (
-    <MusterFormBase rootId="sk-root" title="Antrag auf Steuerklassenwechsel bei Ehegatten / Lebenspartnern" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl="https://www.formulare-bfinv.de" pdfLabel="Formulare der Finanzverwaltung →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim zuständigen Finanzamt einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="sk-root" title="Antrag auf Steuerklassenwechsel bei Ehegatten / Lebenspartnern" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl="https://www.formulare-bfinv.de" pdfLabel="Formulare der Finanzverwaltung →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim zuständigen Finanzamt einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="steuerklassenwechsel" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="steuerklassenwechsel"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#EFF6FF", border: "2px solid #3B82F6", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#1E40AF", marginBottom: 6 }}>🌐 Steuerklassenwechsel se podnosi ONLINE putem ELSTER-a ili poštom Finanzamt-u</div>
+        <div style={{ fontSize: 12, color: "#1E3A8A", lineHeight: 1.55, marginBottom: 12 }}>Promjena porezne klase nema standardni offline PDF — zahtjev se podnosi putem ELSTER portala (Antrag auf Lohnsteuer-Ermäßigung + Anlage Steuerklassenwechsel) ili printanjem ELSTER obrasca i slanjem poštom vašem Finanzamt-u. Ovaj vodič objašnjava sva polja i priprema te za popunjavanje.</div>
+        <a href="https://www.elster.de/eportal/formulare-leistungen/alleformulare/elevermaessigungelstam" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#1D4ED8", color: "#fff", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>🔗 Idi na ELSTER →</a>
+      </div>
 
       <PartnerSection num={1} prefix="p1" label="Ehegatte / Lebenspartner 1" />
       <PartnerSection num={2} prefix="p2" label="Ehegatte / Lebenspartner 2" />
