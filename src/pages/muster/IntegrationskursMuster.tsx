@@ -20,7 +20,25 @@ const initial = () => ({
 
 export default function IntegrationskursMuster() {
   const [f, setF] = useState(() => { try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {} return initial(); });
+  const [generating, setGenerating] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
+
+  const handleAutoFill = async () => {
+    setPdfError(null); setGenerating(true);
+    try {
+      const data: IntegrationskursFormData = {
+        familienname: f.familienname, vorname: f.vorname, geburtsdatum: f.geburtsdatum,
+        geburtsort: f.geburtsort, geschlecht: "", staatsangehoerigkeit: f.staatsangehoerigkeit,
+        strasse: f.strasse, plz: f.plz, ort: f.ort, email: f.email,
+        sigOrt: f.sigOrt, sigDatum: f.sigDatum,
+      };
+      const blob = await fillIntegrationskursPdf(data);
+      downloadBlob(blob, `Integrationskurs-BAMF-630007-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_"));
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setGenerating(false); }
+  };
 
   return (
     <MusterFormBase rootId="ik-root" title="Antrag auf Zulassung zum Integrationskurs" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim BAMF einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="integrationskurs" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
@@ -30,11 +48,15 @@ export default function IntegrationskursMuster() {
       <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
         <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi zvanični BAMF Antrag 630.007 PDF</div>
         <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični BAMF obrazac za prijavu na Integrationskurs lokalno u tvom browseru — ništa ne ide na server. Ispunjeni obrazac šalješ poštom nadležnoj BAMF Regionalstelle.</div>
-        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni BAMF 630.007 Antrag (uskoro dostupno)</button>
+        <button onClick={handleAutoFill} disabled={generating} style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}>
+          {generating ? "Generiram PDF…" : "📄 Preuzmi popunjeni BAMF 630.007 Antrag"}
+        </button>
+        {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
         <div style={{ marginTop: 8, padding: "8px 12px", background: "#FEF2F2", border: "1px solid #FCA5A5", borderRadius: 6, fontSize: 11, color: "#991B1B" }}>
           ⚠️ Napomena 2026: BAMF privremeno ne odobrava nove zahtjeve po § 44 Abs. 4 AufenthG zbog budžetskih ograničenja. Provjeri aktuelni status na <a href="https://www.bamf.de" target="_blank" rel="noopener noreferrer" style={{ color: "#991B1B" }}>bamf.de</a>.
         </div>
       </div>
+
 
       <div style={S.sec}>
         <SecHeader num={1} title="Persönliche Daten" />
