@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "verpflichtungserklaerung-muster-data";
