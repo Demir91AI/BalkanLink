@@ -39,8 +39,18 @@ function parseJwtClaims(token: string): Record<string, unknown> | null {
   } catch { return null }
 }
 
-// Auth: verify_jwt = true gates at the gateway, but we also require service_role
-// so only server-side callers (other edge functions / cron) can send emails.
+// Auth model:
+//   - service_role JWT → unrestricted (used by other edge functions / cron)
+//   - authenticated user JWT → ONLY allowed for admin notifications fixed to ADMIN_NOTIFY_EMAIL,
+//     so client-side calls cannot be abused to spam arbitrary recipients.
+const ADMIN_NOTIFY_EMAIL = 'kontakt@balkanlink.de'
+const CLIENT_ALLOWED_TEMPLATES = new Set([
+  'admin-new-user',
+  'admin-new-payment',
+  'admin-new-review',
+  'admin-new-question',
+  'admin-new-business',
+])
 
 Deno.serve(async (req) => {
   // Handle CORS preflight
@@ -50,7 +60,10 @@ Deno.serve(async (req) => {
 
   const authHeader = req.headers.get('Authorization') || ''
   const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : ''
-  if (!token || parseJwtClaims(token)?.role !== 'service_role') {
+  const claims = token ? parseJwtClaims(token) : null
+  const isService = claims?.role === 'service_role'
+  const isAuthedUser = !!claims && typeof claims.sub === 'string' && claims.role !== 'anon'
+  if (!isService && !isAuthedUser) {
     return new Response(
       JSON.stringify({ error: 'Forbidden' }),
       { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
