@@ -285,7 +285,7 @@ export default function HistorijaPlacanja() {
 
     setLoading(true);
     setError(null);
-    const { data, error: dbError } = await supabase
+    const { data, error: dbError } = await (supabase as any)
       .from("payments")
       .select("id, provider, status, amount, currency, transaction_id, paid_at, created_at, user_id")
       .eq("user_id", liveUserId)
