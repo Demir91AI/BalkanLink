@@ -951,15 +951,21 @@ export default function ChatAssistant() {
     setLoading(true);
 
     try {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const accessToken = sessionData.session?.access_token;
+      if (!accessToken) {
+        setMessages(prev => [...prev, { role: "assistant", content: "Molimo prijavite se da biste koristili asistenta." }]);
+        setLoading(false);
+        return;
+      }
       const resp = await fetch(CHAT_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
           messages: newMessages,
-          isPremium,
           language: chatLang,
           currentPage: location.pathname,
         }),
