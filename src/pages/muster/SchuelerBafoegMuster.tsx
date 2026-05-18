@@ -41,7 +41,15 @@ export default function SchuelerBafoegMuster() {
   const setGeschw = (i: number, k: string, v: string) => setF(p => { const g = [...p.geschwister]; g[i] = { ...g[i], [k]: v }; return { ...p, geschwister: g }; });
 
   return (
-    <MusterFormBase rootId="sbaf-root" title="Antrag auf Ausbildungsförderung — Schüler-BAföG" subtitle="Amt für Ausbildungsförderung (Schülerbereich) — Musterformular — BalkanLink" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni BAföG formular (PDF) →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Amt für Ausbildungsförderung einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="sbaf-root" title="Antrag auf Ausbildungsförderung — Schüler-BAföG" subtitle="Amt für Ausbildungsförderung (Schülerbereich) — Musterformular — BalkanLink" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni BAföG formular (PDF) →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Amt für Ausbildungsförderung einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="schueler-bafoeg" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="schueler-bafoeg"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi zvanični BAföG Formblatt 01 PDF za učenike (BMBF, Stand 2025)</div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični BAföG Formblatt 01 PDF za učenike lokalno u tvom browseru — ništa ne ide na server. Formblatt se predaje nadležnom Amt für Ausbildungsförderung ili školi.</div>
+        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni Schüler-BAföG Formblatt (uskoro dostupno)</button>
+      </div>
 
       <Info>📋 Šta je Schüler-BAföG? Državna pomoć za učenike koji pohađaju određene škole — npr. Fachoberschule, Berufsfachschule, Gymnasium (ako ne žive kod roditelja). Razlikuje se od Studenten-BAföG po tome što se NE vraća kao kredit — isplaćuje se kao poklon.</Info>
 
