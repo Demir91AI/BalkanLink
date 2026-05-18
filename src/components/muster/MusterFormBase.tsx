@@ -73,16 +73,33 @@ export const Field = ({ label, flex, width, type, value, onChange, disabled, exa
 
 export const IdBoxes = ({ count, value, onChange }: { count: number; value: string; onChange: (v: string) => void }) => {
   const refs = useRef<(HTMLInputElement | null)[]>([]);
+
+  if (count >= 20) {
+    const formatted = (value || "").toUpperCase().replace(/\s+/g, "").replace(/(.{4})/g, "$1 ").trim();
+    return (
+      <input
+        style={{ ...S.inp, width: "100%", letterSpacing: 1, fontFamily: "monospace" }}
+        type="text"
+        inputMode="text"
+        autoCapitalize="characters"
+        maxLength={27}
+        placeholder="z.B. DE89 3704 0044 0532 0130 00"
+        value={formatted}
+        onChange={(e) => onChange(e.target.value.toUpperCase().replace(/\s+/g, "").slice(0, count))}
+      />
+    );
+  }
+
   const chars = value.padEnd(count, "").split("").slice(0, count);
-  const handleKey = useCallback((i: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKey = (i: number, e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace" && !chars[i] && i > 0) refs.current[i - 1]?.focus();
-  }, [chars]);
-  const handleChange = useCallback((i: number, v: string) => {
+  };
+  const handleChange = (i: number, v: string) => {
     const c = v.slice(-1).toUpperCase();
     const arr = [...chars]; arr[i] = c;
     onChange(arr.join("").trimEnd());
     if (c && i < count - 1) refs.current[i + 1]?.focus();
-  }, [chars, count, onChange]);
+  };
   return (
     <div style={{ display: "grid", gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))`, gap: 2, width: "100%" }}>
       {Array.from({ length: count }).map((_, i) => (
