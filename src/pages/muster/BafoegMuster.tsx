@@ -2,6 +2,7 @@ import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
+import { fillBafoegPdf, downloadBlob, type BafoegFormData } from "@/lib/pdf-fill-bafoeg";
 
 const LS_KEY = "bafoeg-muster-data";
 const PDF_URL = "https://www.xn--bafg-7qa.de/bafoeg/de/antrag-stellen/alle-antragsformulare/alle-antragsformulare_node.html";
@@ -23,10 +24,39 @@ const initial = () => ({
   amt: "", sigOrt: "", sigDatum: "",
 });
 
+function toBafoegPdfData(f: ReturnType<typeof initial>): BafoegFormData {
+  return {
+    familienname: f.familienname, vorname: f.vorname, geburtsdatum: f.geburtsdatum,
+    geburtsort: f.geburtsort, staatsangehoerigkeit: f.staatsangehoerigkeit,
+    strasse: f.strasse, plz: f.plz, ort: f.ort, telefon: f.telefon, email: f.email,
+    iban: f.iban,
+    schuleName: f.schuleName, studiengang: f.studiengang,
+    ausbildungsortPlz: f.ausbildungsortPlz, ausbildungsort: f.ausbildungsort,
+    bafoegAmt: f.bafoegAmt,
+    eltern: (f.eltern || []).map(e => ({
+      name: e.name, vorname: e.vorname, geburtsdatum: e.geburtsdatum,
+      strasse: e.strasse, plz: e.plz, ort: e.ort,
+    })),
+    sigOrt: f.sigOrt, sigDatum: f.sigDatum,
+  };
+}
+
 export default function BafoegMuster() {
   const [f, setF] = useState(() => { try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {} return initial(); });
+  const [generating, setGenerating] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
   const setEltern = (i: number, k: string, v: string) => setF(p => { const e = [...p.eltern]; e[i] = { ...e[i], [k]: v }; return { ...p, eltern: e }; });
+
+  const handleAutoFill = async () => {
+    setPdfError(null); setGenerating(true);
+    try {
+      const blob = await fillBafoegPdf(toBafoegPdfData(f));
+      downloadBlob(blob, `Bafoeg-Formblatt01-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_"));
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setGenerating(false); }
+  };
 
   return (
     <MusterFormBase rootId="baf-root" title="Antrag auf Ausbildungsförderung (BAföG)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Amt für Ausbildungsförderung einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="bafoeg" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
@@ -36,8 +66,12 @@ export default function BafoegMuster() {
       <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
         <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi zvanični BAföG Formblatt 01 PDF (BMBF, Stand 2025)</div>
         <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični BAföG Formblatt 01 PDF lokalno u tvom browseru — ništa ne ide na server. Formblatt je standardni federalni obrazac koji se predaje nadležnom Amt für Ausbildungsförderung.</div>
-        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni BAföG Formblatt 01 (uskoro dostupno)</button>
+        <button onClick={handleAutoFill} disabled={generating} style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}>
+          {generating ? "Generiram PDF…" : "📄 Preuzmi popunjeni BAföG Formblatt 01"}
+        </button>
+        {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
       </div>
+
 
       <div style={S.sec}>
         <SecHeader num={1} title="Angaben zur Person" />
