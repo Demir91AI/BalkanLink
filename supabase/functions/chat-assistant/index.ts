@@ -557,7 +557,7 @@ Besplatno (0€):
 - Oglasnik Nudim/Tražim
 - DeutschTrainer: 3 lekcije po nivou, 50/500 zadataka po stageu, 3/500 rečenica Sprachassistenta
 - Šabloni: 2 gratis (Kündigung + Mietkündigung)
-- Asistent: 5 pitanja/dan
+- Asistent: neograničeno
 - Dokumenten-Check: 2,99€/kom (resetuje se nakon svake upotrebe)
 - Pro oglas: 1,99€/7 dana ili 4,99€/30 dana
 
