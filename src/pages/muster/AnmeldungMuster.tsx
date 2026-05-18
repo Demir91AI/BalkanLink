@@ -1,4 +1,7 @@
 import { useState } from "react";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
+import AnmeldungGuideContent from "@/components/AnmeldungGuideContent";
 import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "anmeldung-muster-v2-data";
