@@ -155,30 +155,6 @@ export type Database = {
         }
         Relationships: []
       }
-      classifieds_notification_preferences: {
-        Row: {
-          category: string
-          created_at: string
-          enabled: boolean
-          id: string
-          user_id: string
-        }
-        Insert: {
-          category: string
-          created_at?: string
-          enabled?: boolean
-          id?: string
-          user_id: string
-        }
-        Update: {
-          category?: string
-          created_at?: string
-          enabled?: boolean
-          id?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
       community_answers: {
         Row: {
           author_name: string | null
@@ -385,51 +361,6 @@ export type Database = {
           updated_at?: string
           user_id?: string | null
           view_count?: number
-        }
-        Relationships: []
-      }
-      directory_listings: {
-        Row: {
-          address: string | null
-          category: string
-          city: string
-          created_at: string
-          description: string | null
-          id: string
-          name: string
-          origin_country: string
-          phone: string | null
-          user_id: string | null
-          verified: boolean
-          website: string | null
-        }
-        Insert: {
-          address?: string | null
-          category: string
-          city: string
-          created_at?: string
-          description?: string | null
-          id?: string
-          name: string
-          origin_country: string
-          phone?: string | null
-          user_id?: string | null
-          verified?: boolean
-          website?: string | null
-        }
-        Update: {
-          address?: string | null
-          category?: string
-          city?: string
-          created_at?: string
-          description?: string | null
-          id?: string
-          name?: string
-          origin_country?: string
-          phone?: string | null
-          user_id?: string | null
-          verified?: boolean
-          website?: string | null
         }
         Relationships: []
       }
@@ -911,42 +842,6 @@ export type Database = {
           referrer?: string | null
           user_agent?: string | null
           user_id?: string | null
-        }
-        Relationships: []
-      }
-      payments: {
-        Row: {
-          amount: number
-          created_at: string
-          currency: string
-          id: string
-          paid_at: string | null
-          provider: string
-          status: string
-          transaction_id: string | null
-          user_id: string
-        }
-        Insert: {
-          amount: number
-          created_at?: string
-          currency?: string
-          id?: string
-          paid_at?: string | null
-          provider?: string
-          status?: string
-          transaction_id?: string | null
-          user_id: string
-        }
-        Update: {
-          amount?: number
-          created_at?: string
-          currency?: string
-          id?: string
-          paid_at?: string | null
-          provider?: string
-          status?: string
-          transaction_id?: string | null
-          user_id?: string
         }
         Relationships: []
       }
