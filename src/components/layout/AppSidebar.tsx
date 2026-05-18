@@ -341,13 +341,6 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                     <span className="text-[13px] font-medium">{t("sidebar.openProfile", "Otvori profil")}</span>
                   </button>
 
-                  <button
-                    onClick={() => { setAccountOpen(false); handleNav("/profil/placanja"); }}
-                    className="flex items-center gap-3 w-full px-3 py-2 text-left text-[#2D2D2D] hover:bg-[#F5F0E8] transition-colors"
-                  >
-                    <Receipt className="h-[16px] w-[16px] shrink-0 text-[#6B6B6B]" />
-                    <span className="text-[13px] font-medium">{t("sidebar.paymentHistory")}</span>
-                  </button>
 
                   {!isPremium && (
                     <button

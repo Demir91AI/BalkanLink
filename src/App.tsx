@@ -122,7 +122,7 @@ const BiznisGuide = lazy(() => import("./pages/BiznisGuide"));
 const Premium = lazy(() => import("./pages/Premium"));
 const Paketi = lazy(() => import("./pages/Pricing"));
 const Profil = lazy(() => import("./pages/Profil"));
-const HistorijaPlacanja = lazy(() => import("./pages/HistorijaPlacanja"));
+
 const MojiPodaci = lazy(() => import("./pages/MojiPodaci"));
 const Mietrecht = lazy(() => import("./pages/Mietrecht"));
 const SchufaSimulator = lazy(() => import("./pages/SchufaSimulator"));
@@ -248,8 +248,6 @@ function LocalizedRoutes() {
         <Route path="stellenangebote" element={<Stellenangebote />} />
         <Route path="premium" element={<Premium />} />
         <Route path="profil" element={<Profil />} />
-        <Route path="profil/placanja" element={<HistorijaPlacanja />} />
-        <Route path="historija-placanja" element={<Navigate to="../profil/placanja" replace />} />
         <Route path="moji-podaci" element={<MojiPodaci />} />
         <Route path="guide/:slug" element={<LegacyGuideRedirect />} />
         <Route path="smart-guide/:slug" element={<LegacyGuideRedirect />} />
