@@ -131,6 +131,7 @@ export default function WirtschaftlicheJugendhilfeMuster() {
   );
 
   return (
+    <>
     <MusterFormBase
       rootId="wijuhi-root"
       title="Antrag auf Hilfe zur Erziehung"
