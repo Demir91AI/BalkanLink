@@ -21,7 +21,15 @@ export default function FuehrungszeugnisMuster() {
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="fz-root" title="Antrag auf Erteilung eines Führungszeugnisses" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Mehr Infos beim Bundesjustizamt →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der zuständigen Meldebehörde einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="fz-root" title="Antrag auf Erteilung eines Führungszeugnisses" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Mehr Infos beim Bundesjustizamt →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der zuständigen Meldebehörde einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="fuehrungszeugnis" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="fuehrungszeugnis"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#EFF6FF", border: "2px solid #3B82F6", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#1E40AF", marginBottom: 6 }}>🌐 Führungszeugnis se naručuje ISKLJUČIVO ONLINE ili u Bürgeramt-u</div>
+        <div style={{ fontSize: 12, color: "#1E3A8A", lineHeight: 1.55, marginBottom: 12 }}>Potvrda o nekažnjavanju (Führungszeugnis) naručuje se isključivo online na portalu Bundesjustizamta ili lično u Bürgeramt-u uz ličnu kartu/pasoš. Nema PDF formulara koji se preuzima — prijava je digitalna ili šalterska. Ovaj vodič objašnjava koje vrste Führungszeugnis postoje i šta pripremiti.</div>
+        <a href="https://www.bundesjustizamt.de/DE/Themen/Strafrecht/Fuehrungszeugnis/Fuehrungszeugnis_node.html" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#1D4ED8", color: "#fff", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>🔗 Naruči Führungszeugnis online →</a>
+      </div>
 
       <div style={S.sec}>
         <SecHeader num={1} title="Persönliche Daten" />
