@@ -23,7 +23,13 @@ export default function AufenthaltstitelMuster() {
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="at-root" title="Antrag auf Erteilung eines Aufenthaltstitels" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original (Ausländerbehörde) →" footerNote="Musterformular zur Orientierung • Originalantrag se predaje na Ausländerbehörde • BalkanLink nije državna institucija" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="at-root" title="Antrag auf Erteilung eines Aufenthaltstitels" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original (Ausländerbehörde) →" footerNote="Musterformular zur Orientierung • Originalantrag se predaje na Ausländerbehörde • BalkanLink nije državna institucija" lsKey={LS_KEY} formularId="aufenthaltstitel" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="aufenthaltstitel"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Aufenthaltstitel se podnosi u Ausländerbehörde tvog grada</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Zahtjev za boravišnu dozvolu podnosi se u nadležnoj Ausländerbehörde — svaki grad ima vlastiti formular i proceduru. Mnogi gradovi nude online termin rezervaciju (Terminvergabe). Ovaj vodič objašnjava standardna polja i potrebnu dokumentaciju za sve vrste boravišnih dozvola.</div>
+      </div>
       <MusterIntroBlock formKey="aufenthaltstitel" paperId="at-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Persönliche Daten" />
