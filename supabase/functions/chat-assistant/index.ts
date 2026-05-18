@@ -1507,13 +1507,86 @@ ${src.sources.map(s => `   • ${s}`).join("\n")}
 // MAIN HANDLER
 // ══════════════════════════════════════════════════
 
+const FREE_DAILY_LIMIT = 5;
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { messages, isPremium, language, currentPage } = await req.json();
+    // ── AUTH: require a valid user JWT ──
+    const authHeader = req.headers.get("Authorization") || "";
+    const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+    if (!token) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized" }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
+    const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY")!;
+
+    const userClient = createClient(SUPABASE_URL, ANON_KEY, {
+      global: { headers: { Authorization: `Bearer ${token}` } },
+    });
+    const { data: claimsData, error: claimsErr } = await userClient.auth.getClaims(token);
+    if (claimsErr || !claimsData?.claims?.sub) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized" }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const userId = claimsData.claims.sub as string;
+
+    const admin = createClient(SUPABASE_URL, SERVICE_ROLE);
+
+    // ── Server-side premium derivation (NEVER trust client) ──
+    let isPremium = false;
+    {
+      const { data: profile } = await admin
+        .from("profiles")
+        .select("is_premium, subscription_tier, subscription_expires_at")
+        .eq("id", userId)
+        .maybeSingle();
+      if (profile) {
+        const tier = (profile as any).subscription_tier ?? "free";
+        const expiresAt = (profile as any).subscription_expires_at as string | null;
+        const expired = expiresAt ? new Date(expiresAt) < new Date() : false;
+        const tierPremium = !expired && tier && tier !== "free";
+        isPremium = !!((profile as any).is_premium || tierPremium);
+      }
+      // Admins are treated as premium
+      if (!isPremium) {
+        const { data: roleRow } = await admin
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", userId)
+          .eq("role", "admin")
+          .maybeSingle();
+        if (roleRow) isPremium = true;
+      }
+    }
+
+    // ── Server-side daily rate limit for non-premium users ──
+    if (!isPremium) {
+      const today = new Date().toISOString().slice(0, 10);
+      const { count } = await admin
+        .from("chat_usage")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId)
+        .eq("query_date", today);
+      if ((count ?? 0) >= FREE_DAILY_LIMIT) {
+        return new Response(
+          JSON.stringify({ error: "Daily free quota exceeded", rate_limited: true }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
+
+    const { messages, language, currentPage } = await req.json();
     const pageContext = buildEnrichedPageContext(currentPage || "");
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");

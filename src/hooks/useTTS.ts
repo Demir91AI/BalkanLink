@@ -180,8 +180,9 @@ export function useTTS() {
   const playViaProvider = useCallback((requestId: number, id: string, text: string): boolean => {
     const sentence: TTSSentence = { id, text: preprocessGerman(text) };
     const cachedUrl = getCachedAudioUrl(sentence);
-    const directUrl = cachedUrl ?? getDirectAudioUrl(sentence);
-    if (!directUrl) return false;
+    const directUrlPromise: Promise<string | null> = cachedUrl
+      ? Promise.resolve(cachedUrl)
+      : getDirectAudioUrl(sentence);
 
     const audio = new Audio();
     audio.preload = "auto";

@@ -36,6 +36,34 @@ serve(async (req) => {
   }
 
   try {
+    // ── AUTH: require a valid user JWT (Authorization header or access_token query param) ──
+    const reqUrl = new URL(req.url);
+    const authHeader = req.headers.get("Authorization") || "";
+    let token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+    if (!token) {
+      token = reqUrl.searchParams.get("access_token") || "";
+    }
+    if (!token) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized" }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    {
+      const supabaseUrlEnv = Deno.env.get("SUPABASE_URL")!;
+      const anonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+      const authClient = createClient(supabaseUrlEnv, anonKey, {
+        global: { headers: { Authorization: `Bearer ${token}` } },
+      });
+      const { data: claimsData, error: claimsErr } = await authClient.auth.getClaims(token);
+      if (claimsErr || !claimsData?.claims?.sub) {
+        return new Response(
+          JSON.stringify({ error: "Unauthorized" }),
+          { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
+
     const { text, voiceId, stability, similarityBoost, format } = await requestToPayload(req);
 
     // Validate input

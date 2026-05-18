@@ -5,6 +5,7 @@
  */
 
 import { TTS_CONFIG } from "@/config/ttsConfig";
+import { supabase } from "@/integrations/supabase/client";
 
 export interface TTSSentence {
   id: string;
@@ -15,6 +16,15 @@ export interface TTSSentence {
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+
+async function getAccessToken(): Promise<string | null> {
+  try {
+    const { data } = await supabase.auth.getSession();
+    return data.session?.access_token ?? null;
+  } catch {
+    return null;
+  }
+}
 
 /** In-memory session cache: sentence identity → audioUrl */
 const sessionCache = new Map<string, string>();
@@ -77,9 +87,12 @@ export async function getAudio(sentence: TTSSentence): Promise<string | null> {
  * The URL is assigned to <audio>.src inside the tap handler, so mobile WebViews
  * keep the user gesture while the backend generates/streams the MP3.
  */
-export function getDirectAudioUrl(sentence: TTSSentence): string | null {
+export async function getDirectAudioUrl(sentence: TTSSentence): Promise<string | null> {
   const text = sentence.text.trim().slice(0, TTS_CONFIG.maxTextLength);
   if (!text || !SUPABASE_URL) return null;
+
+  const accessToken = await getAccessToken();
+  if (!accessToken) return null;
 
   const params = new URLSearchParams({
     text,
@@ -87,9 +100,8 @@ export function getDirectAudioUrl(sentence: TTSSentence): string | null {
     stability: String(TTS_CONFIG.stability),
     similarityBoost: String(TTS_CONFIG.similarityBoost),
     format: "audio",
-    // apikey in query — <audio>.src cannot send headers, but Supabase
-    // edge functions require either the JWT header or this query param.
     apikey: SUPABASE_KEY,
+    access_token: accessToken,
   });
 
   return `${SUPABASE_URL}/functions/v1/${TTS_CONFIG.edgeFunctionName}?${params.toString()}`;
@@ -99,6 +111,12 @@ async function fetchFromEdge(sentence: TTSSentence): Promise<string | null> {
   try {
     const text = sentence.text.trim().slice(0, TTS_CONFIG.maxTextLength);
     if (!text) return null;
+
+    const accessToken = await getAccessToken();
+    if (!accessToken) {
+      console.warn("[TTS] No user session; skipping edge call");
+      return null;
+    }
 
     console.log(`[TTS] Requesting from edge function: ${sentence.id}`);
     const startTime = Date.now();
@@ -110,7 +128,7 @@ async function fetchFromEdge(sentence: TTSSentence): Promise<string | null> {
         headers: {
           "Content-Type": "application/json",
           apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
           text,
