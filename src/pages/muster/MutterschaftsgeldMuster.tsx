@@ -1,6 +1,8 @@
 import { useState } from "react";
-import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
+import MutterschaftsgeldGuideContent from "@/components/guides/MutterschaftsgeldGuideContent";
 
 const LS_KEY = "mutterschaftsgeld-muster-data";
 const PDF_URL = "https://www.mutterschaftsgeld.de/";
