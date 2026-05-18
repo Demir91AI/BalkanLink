@@ -271,7 +271,7 @@ function storeAssistantPanelState(state: AssistantPanelState) {
 // ── Main Component ──
 export default function ChatAssistant() {
   const { isPremium } = useAuth();
-  const { canChat, remaining, recordQuery } = useChatLimit();
+  const { recordQuery } = useChatLimit();
   const location = useLocation();
 
   const [panelState, setPanelState] = useState<AssistantPanelState>(() => {
