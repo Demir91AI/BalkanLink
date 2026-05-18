@@ -1,4 +1,7 @@
 import { useState, useCallback } from "react";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
+import EinbuergerungGuideContent from "@/components/guides/EinbuergerungGuideContent";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "einbuergerung-muster-data";
@@ -121,6 +124,7 @@ export default function EinbuergerungMuster() {
   );
 
   return (
+    <>
     <MusterFormBase
       rootId="einb-root"
       title="Antrag auf Einbürgerung in den deutschen Staatsverband"
@@ -137,6 +141,12 @@ export default function EinbuergerungMuster() {
         setF(initial());
       }}
     >
+      <MusterDisclaimer formKey="einbuergerung"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Einbürgerung se podnosi LIČNO u Einbürgerungsbehörde</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Zahtjev za naturalizaciju podnosi se lično u nadležnom Einbürgerungsbehörde tvog grada (obično Ordnungsamt ili Ausländerbehörde) uz kompletnu dokumentaciju. Svaka pokrajina ima vlastite formulare. Ovaj vodič objašnjava sva standardna polja i uvjete (StARModG od 27.06.2024).</div>
+      </div>
       {/* Info banner */}
       <div
         style={{
@@ -512,5 +522,9 @@ export default function EinbuergerungMuster() {
         </div>
       </div>
     </MusterFormBase>
+    <div style={{ maxWidth: 800, margin: "0 auto 60px", padding: "0 16px" }}>
+      <EinbuergerungGuideContent />
+    </div>
+    </>
   );
 }
