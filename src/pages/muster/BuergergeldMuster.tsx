@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import { fillBuergergeldPdf, downloadBlob, type BuergergeldFormData } from "@/lib/pdf-fill-buergergeld";
 import { fillBuergergeldAnlagePdf, ANLAGEN_META, type AnlageBaseData, type AnlageCode } from "@/lib/pdf-fill-buergergeld-anlagen";
 
