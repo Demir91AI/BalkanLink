@@ -5,6 +5,7 @@
  */
 
 import { TTS_CONFIG } from "@/config/ttsConfig";
+import { supabase } from "@/integrations/supabase/client";
 
 export interface TTSSentence {
   id: string;
@@ -15,6 +16,15 @@ export interface TTSSentence {
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+
+async function getAccessToken(): Promise<string | null> {
+  try {
+    const { data } = await supabase.auth.getSession();
+    return data.session?.access_token ?? null;
+  } catch {
+    return null;
+  }
+}
 
 /** In-memory session cache: sentence identity → audioUrl */
 const sessionCache = new Map<string, string>();
