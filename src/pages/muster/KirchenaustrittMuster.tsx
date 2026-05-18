@@ -18,7 +18,14 @@ export default function KirchenaustrittMuster() {
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="ka-root" title="Erklärung zum Kirchenaustritt" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl="https://www.kirchenaustritt.de" pdfLabel="Mehr Infos zu Kirchenaustritt →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim zuständigen Standesamt / Amtsgericht einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="ka-root" title="Erklärung zum Kirchenaustritt" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl="https://www.kirchenaustritt.de" pdfLabel="Mehr Infos zu Kirchenaustritt →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim zuständigen Standesamt / Amtsgericht einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="kirchenaustritt" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="kirchenaustritt"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Kirchenaustritt se prijavljuje LIČNO u Standesamt ili Amtsgericht</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Istupanje iz crkve zahtijeva lični dolazak u nadležni Standesamt ili Amtsgericht uz ličnu kartu ili pasoš i plaćanje administrativne takse (5–30 €). U nekim pokrajinama dostupan je i online servis. Ovaj vodič te priprema za proceduru i objašnjava šta tačno treba reći referentu.</div>
+      </div>
 
       <div style={S.sec}>
         <SecHeader num={1} title="Persönliche Daten" />
