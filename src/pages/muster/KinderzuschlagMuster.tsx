@@ -22,10 +22,39 @@ const initial = () => ({
   familienkasse: "", sigOrt: "", sigDatum: "",
 });
 
+function toPdfData(f: ReturnType<typeof initial>): KinderzuschlagFormData {
+  const anschrift = [f.strasse, [f.plz, f.ort].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+  return {
+    familienname: f.familienname, vorname: f.vorname, titel: "", geburtsname: "",
+    geburtsdatum: f.geburtsdatum, geschlecht: "", staatsangehoerigkeit: f.staatsangehoerigkeit,
+    anschrift, telefon: f.telefon, familienstand: "", familienstandSeit: "",
+    pName: [f.e2Vorname, f.e2Familienname].filter(Boolean).join(" ").trim(),
+    pStaatsangehoerigkeit: "", pGeburtsdatum: f.e2Geburtsdatum,
+    iban: f.iban, bic: f.bic, kontoinhaber: f.kontoinhaber,
+    kinder: f.kinder.filter(k => k.vorname || k.nachname || k.geburtsdatum).map(k => ({
+      vorname: k.vorname, nachname: k.nachname, geburtsdatum: k.geburtsdatum,
+    })),
+    ort: f.sigOrt, datum: f.sigDatum,
+  };
+}
+
 export default function KinderzuschlagMuster() {
   const [f, setF] = useState(() => { try { const s = localStorage.getItem(LS_KEY); if (s) return { ...initial(), ...JSON.parse(s) }; } catch {} return initial(); });
+  const [generating, setGenerating] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
   const setKind = (i: number, k: string, v: string) => setF(p => { const kinder = [...p.kinder]; kinder[i] = { ...kinder[i], [k]: v }; return { ...p, kinder }; });
+
+  const handleAutoFill = async () => {
+    setPdfError(null); setGenerating(true);
+    try {
+      const blob = await fillKinderzuschlagPdf(toPdfData(f));
+      const fname = `Kinderzuschlag-KiZ1-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_");
+      downloadBlob(blob, fname);
+    } catch (e) {
+      setPdfError(e instanceof Error ? e.message : String(e));
+    } finally { setGenerating(false); }
+  };
 
   return (
     <>
@@ -36,8 +65,12 @@ export default function KinderzuschlagMuster() {
       <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
         <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi 1:1 originalni Familienkasse KiZ1 PDF</div>
         <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični Kinderzuschlag (KiZ 1) PDF lokalno u tvom browseru — ništa ne ide na server. Preuzmi, potpiši i pošalji nadležnoj Familienkasse.</div>
-        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni KiZ1 PDF (uskoro dostupno)</button>
+        <button onClick={handleAutoFill} disabled={generating} style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}>
+          {generating ? "Generiram PDF…" : "📄 Preuzmi popunjeni KiZ1 PDF"}
+        </button>
+        {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
       </div>
+
 
       <div style={S.sec}>
         <SecHeader num={1} title="Antragstellende Person" />
