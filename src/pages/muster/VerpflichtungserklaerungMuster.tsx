@@ -22,7 +22,13 @@ export default function VerpflichtungserklaerungMuster() {
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="ve-root" title="Verpflichtungserklärung — § 68 AufenthG" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original (BAMF) →" footerNote="Originalformular se popunjava i potpisuje pred službenikom Ausländerbehörde-a • BalkanLink nije državna institucija" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="ve-root" title="Verpflichtungserklärung — § 68 AufenthG" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original (BAMF) →" footerNote="Originalformular se popunjava i potpisuje pred službenikom Ausländerbehörde-a • BalkanLink nije državna institucija" lsKey={LS_KEY} formularId="verpflichtungserklaerung" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="verpflichtungserklaerung"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Verpflichtungserklärung se podnosi LIČNO u Ausländerbehörde</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Garantno pismo (Verpflichtungserklärung po § 68 AufenthG) podnosi se lično u nadležnoj Ausländerbehörde uz vlastitu ličnu kartu/pasoš, dokaz o prihodu i Meldebescheinigung. Svaki grad ima vlastiti formular — preuzmi ga sa sajta tvoje Ausländerbehörde. Ovaj vodič objašnjava sva polja i financijsku odgovornost.</div>
+      </div>
       <MusterIntroBlock formKey="verpflichtungserklaerung" paperId="ve-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Verpflichtungsgeber (osoba koja garantuje)" />
