@@ -84,7 +84,7 @@ export default function Paketi() {
                 <Ft yes>Osnovna info o vizama</Ft>
               </Cat>
               <Cat title="🤖 ASISTENT">
-                <Ft yes>5 pitanja dnevno</Ft>
+                <Ft yes>Neograničeno</Ft>
               </Cat>
               <div className="border-t border-border/60 pt-3">
                 <p className="font-bold text-[11px] text-muted-foreground mb-1.5">NIJE UKLJUČENO</p>
