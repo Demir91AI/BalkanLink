@@ -27,7 +27,16 @@ export default function KinderzuschlagMuster() {
   const setKind = (i: number, k: string, v: string) => setF(p => { const kinder = [...p.kinder]; kinder[i] = { ...kinder[i], [k]: v }; return { ...p, kinder }; });
 
   return (
-    <MusterFormBase rootId="kiz-root" title="Antrag auf Kinderzuschlag (KiZ)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Mehr Infos bei der Familienkasse →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der Familienkasse einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <>
+    <MusterFormBase rootId="kiz-root" title="Antrag auf Kinderzuschlag (KiZ)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Mehr Infos bei der Familienkasse →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der Familienkasse einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="kinderzuschlag" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="kinderzuschlag"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi 1:1 originalni Familienkasse KiZ1 PDF</div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični Kinderzuschlag (KiZ 1) PDF lokalno u tvom browseru — ništa ne ide na server. Preuzmi, potpiši i pošalji nadležnoj Familienkasse.</div>
+        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni KiZ1 PDF (uskoro dostupno)</button>
+      </div>
 
       <div style={S.sec}>
         <SecHeader num={1} title="Antragstellende Person" />
