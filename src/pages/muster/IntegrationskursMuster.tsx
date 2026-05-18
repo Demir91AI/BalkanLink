@@ -22,7 +22,18 @@ export default function IntegrationskursMuster() {
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="ik-root" title="Antrag auf Zulassung zum Integrationskurs" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim BAMF einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="ik-root" title="Antrag auf Zulassung zum Integrationskurs" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim BAMF einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="integrationskurs" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="integrationskurs"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi zvanični BAMF Antrag 630.007 PDF</div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični BAMF obrazac za prijavu na Integrationskurs lokalno u tvom browseru — ništa ne ide na server. Ispunjeni obrazac šalješ poštom nadležnoj BAMF Regionalstelle.</div>
+        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni BAMF 630.007 Antrag (uskoro dostupno)</button>
+        <div style={{ marginTop: 8, padding: "8px 12px", background: "#FEF2F2", border: "1px solid #FCA5A5", borderRadius: 6, fontSize: 11, color: "#991B1B" }}>
+          ⚠️ Napomena 2026: BAMF privremeno ne odobrava nove zahtjeve po § 44 Abs. 4 AufenthG zbog budžetskih ograničenja. Provjeri aktuelni status na <a href="https://www.bamf.de" target="_blank" rel="noopener noreferrer" style={{ color: "#991B1B" }}>bamf.de</a>.
+        </div>
+      </div>
 
       <div style={S.sec}>
         <SecHeader num={1} title="Persönliche Daten" />
