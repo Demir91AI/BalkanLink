@@ -77,13 +77,6 @@ export default function ActivityFeed() {
       createdAt: q.created_at,
       href: "/admin/pitanja",
     }));
-    (dir.data || []).forEach((d: any) => all.push({
-      id: `d-${d.id}`, kind: "directory",
-      title: d.name,
-      meta: `${d.category || "—"} • ${d.city || "—"}`,
-      status: d.verified ? "verified" : "pending",
-      createdAt: d.created_at,
-    }));
     (ads.data || []).forEach((a: any) => all.push({
       id: `a-${a.id}`, kind: "ad",
       title: a.title,
@@ -97,12 +90,6 @@ export default function ActivityFeed() {
       meta: u.email,
       status: u.subscription_tier,
       createdAt: u.created_at,
-    }));
-    (payments.data || []).forEach((p: any) => all.push({
-      id: `p-${p.id}`, kind: "payment",
-      title: `${(p.amount / 100).toFixed(2)} ${p.currency || "EUR"}`,
-      meta: p.status,
-      createdAt: p.paid_at || p.created_at,
     }));
 
     all.sort((a, b) => +new Date(b.createdAt) - +new Date(a.createdAt));
