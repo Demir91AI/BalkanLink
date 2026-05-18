@@ -99,41 +99,20 @@ const STARTER_QUESTIONS = [
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
 const ACTIVE_CHAT_STORAGE_KEY = "bl-chat-current";
 
-// ── Rate-limit message with reset countdown (resets at midnight local) ──
-function buildRateLimitMessage(): string {
-  const now = new Date();
-  const tomorrow = new Date(now);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  tomorrow.setHours(0, 0, 0, 0);
-  const diffMs = tomorrow.getTime() - now.getTime();
-  const hours = Math.floor(diffMs / 3_600_000);
-  const minutes = Math.floor((diffMs % 3_600_000) / 60_000);
-  const resetIn = hours > 0 ? `${hours}h ${minutes}min` : `${minutes}min`;
-  return `⚡ **Dostigao/la si dnevni limit od 5 pitanja.**\n\nNovi besplatni upiti se otključavaju za **${resetIn}** (ponoć).\n\nSa **BalkanLink Premium** (9,99 €/mj) dobijaš neograničena pitanja, prioritetne odgovore i sve premium vodiče.\n\n[👉 Aktiviraj Premium](/premium)`;
-}
-
 // ── Detekcija pitanja o broju preostalih dnevnih pitanja (lokalno, bez AI) ──
 const QUOTA_QUERY_RE = /\b(kol[iı]ko|kolko|koliko\s+jo[sš]?|jo[sš]?\s+kol[iı]ko|preostal|ostal[oa]?|ostalo)\b.*\b(pitanj|upit|kvot|limit)\b|\b(pitanj|upit|kvot|limit)\b.*\b(kol[iı]ko|kolko|preostal|ostal[oa]?)\b/i;
 
 function isQuotaQuestion(text: string): boolean {
   const t = (text || "").trim().toLowerCase();
   if (!t) return false;
-  // brzi pogodci
   if (/(kol[iı]ko|kolko)\s+(jo[sš]\s+)?(imam\s+)?(pitanja|upita)/i.test(t)) return true;
   if (/(jo[sš]\s+)?kol[iı]ko\s+pitanja/i.test(t)) return true;
   if (/(preostal|ostalo)\s+pitanja/i.test(t)) return true;
   return QUOTA_QUERY_RE.test(t);
 }
 
-function buildQuotaAnswer(remaining: number, isPremium: boolean): string {
-  if (isPremium) {
-    return `Imaš **neograničen broj pitanja** kao Premium korisnik. 🎉\n\nPostavi mi šta god ti treba — formulari, vize, porez, stanovanje, posao u Njemačkoj.`;
-  }
-  if (remaining <= 0) {
-    return `Iskoristio/la si svih **5 besplatnih pitanja** za danas. Brojač se resetuje u ponoć.\n\nSa **Premium pretplatom (9,99 €/mj)** dobijaš:\n- ✅ Neograničena pitanja\n- ✅ Prioritetne odgovore\n- ✅ Sve premium vodiče i alate\n\n[👉 Aktiviraj Premium](/premium)`;
-  }
-  const word = remaining === 1 ? "pitanje" : (remaining < 5 ? "pitanja" : "pitanja");
-  return `Imaš još **${remaining} ${word}** za danas na besplatnom paketu (od ukupno 5 dnevno). Brojač se resetuje u ponoć.\n\nAko želiš neograničen pristup i sve premium funkcije, pogledaj [Paketi i cijene](/paketi).`;
+function buildQuotaAnswer(): string {
+  return `Imaš **neograničen broj pitanja**. 🎉\n\nPostavi mi šta god ti treba — formulari, vize, porez, stanovanje, posao u Njemačkoj.`;
 }
 
 // ── Auto-link keywords ──
@@ -292,7 +271,7 @@ function storeAssistantPanelState(state: AssistantPanelState) {
 // ── Main Component ──
 export default function ChatAssistant() {
   const { isPremium } = useAuth();
-  const { canChat, remaining, recordQuery } = useChatLimit();
+  const { recordQuery } = useChatLimit();
   const location = useLocation();
 
   const [panelState, setPanelState] = useState<AssistantPanelState>(() => {
@@ -776,11 +755,6 @@ export default function ChatAssistant() {
       setLoading(true);
 
       try {
-        if (!canChat) {
-          setMessages(prev => [...prev, { role: "assistant", content: buildRateLimitMessage() }]);
-          setLoading(false);
-          return;
-        }
         await recordQuery();
 
         const { data: sessionData } = await supabase.auth.getSession();
@@ -919,24 +893,13 @@ export default function ChatAssistant() {
   const sendMessageWithText = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
 
-    if (!canChat) {
-      setMessages(prev => [...prev,
-        { role: "user", content: text.trim() },
-        { role: "assistant", content: buildRateLimitMessage() },
-      ]);
-      setInput("");
-      return;
-    }
-
-    // Lokalni odgovor na pitanja o broju preostalih pitanja — bez trošenja kvote i bez poziva AI-a
+    // Lokalni odgovor na pitanja o broju preostalih pitanja — bez poziva AI-a
     if (isQuotaQuestion(text)) {
       setMessages(prev => [...prev,
         { role: "user", content: text.trim() },
         {
           role: "assistant",
-          content: buildQuotaAnswer(remaining, isPremium),
-          redirectUrl: isPremium ? undefined : "/paketi",
-          redirectLabel: isPremium ? undefined : "Paketi i cijene",
+          content: buildQuotaAnswer(),
         },
       ]);
       setInput("");
@@ -1023,7 +986,7 @@ export default function ChatAssistant() {
     } finally {
       setLoading(false);
     }
-  }, [loading, messages, isPremium, chatLang, location.pathname, canChat, recordQuery, remaining]);
+  }, [loading, messages, isPremium, chatLang, location.pathname, recordQuery]);
 
   // Keep ref in sync so the open-assistant listener can invoke the latest version
   useEffect(() => { sendMessageRef.current = sendMessageWithText; }, [sendMessageWithText]);
@@ -1366,16 +1329,9 @@ export default function ChatAssistant() {
 
                   {/* Disclaimer */}
                   <div className="px-4 py-1 border-t border-white/5 shrink-0">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1">
-                        <ShieldCheck className="h-2.5 w-2.5 text-emerald-500/60 shrink-0" />
-                        <p className="text-[10px] text-white/60">BalkanLink Asistent daje orijentacione informacije, ne pravni savjet.</p>
-                      </div>
-                      {!isPremium && (
-                        <p className="text-[10px] text-white/40 font-medium shrink-0 ml-2">
-                          {remaining > 0 ? `${remaining}/5 pitanja` : "Limit dostignut"}
-                        </p>
-                      )}
+                    <div className="flex items-center gap-1">
+                      <ShieldCheck className="h-2.5 w-2.5 text-emerald-500/60 shrink-0" />
+                      <p className="text-[10px] text-white/60">BalkanLink Asistent daje orijentacione informacije, ne pravni savjet.</p>
                     </div>
                   </div>
 
