@@ -107,8 +107,8 @@ export function buildBafoegFieldFills(d: BafoegFormData): FieldFill[] {
     if (e.name) fills.push(txt(`Name ${k.suffix}`, e.name));
     if (e.vorname) fills.push(txt(`Vorname Name ${k.suffix}`, e.vorname));
     if (e.geburtsdatum) fills.push(txt(`Geburtsdatum ${k.suffix}`, formatDate(e.geburtsdatum)));
-    if (esh.strasse) fills.push(txt(`Straße${k.strSpace} ${k.suffix.replace(/^\s+/, "")}`.replace("Straße", "Straße"), esh.strasse));
-    // Korigovani exact field names po listingu:
+    // Korigovani exact field names po listingu (1. Elternteil = jedan space, 2. Elternteil = dupli space):
+
     if (i === 0) {
       if (esh.strasse) fills.push(txt("Straße 1. Elternteil", esh.strasse));
       if (esh.hausnr) fills.push(txt("Hausnummer 1. Elternteil", esh.hausnr));
