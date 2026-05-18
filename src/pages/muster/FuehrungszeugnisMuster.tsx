@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 
 const LS_KEY = "fuehrungszeugnis-muster-data";
 const PDF_URL = "https://www.bundesjustizamt.de/DE/Themen/Buergerdienste/Fuehrungszeugnis";
