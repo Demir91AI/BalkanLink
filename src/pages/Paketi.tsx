@@ -234,7 +234,7 @@ const comparisonRows = [
   { label: "Viza Navigator", free: "Osnovno", premium: "✅ Kompletno" },
   { label: "Dokumenten-Check", free: "2,99€/kom", premium: "✅ 5×/dan gratis" },
   { label: "Šabloni", free: "✅ 2 gratis", premium: "✅ Svi + PDF" },
-  { label: "Asistent", free: "⚠️ 5/dan", premium: "✅ Neograničeno" },
+  { label: "Asistent", free: "✅ Neograničeno", premium: "✅ Neograničeno" },
   { label: "DeutschTrainer", free: "3 lekcije/nivo", premium: "✅ A1–C2 sve" },
   { label: "Wertgutschein", free: "❌", premium: "✅ Amazon 30€" },
   { label: "Pro oglasi", free: "1,99€/7 dana ili 4,99€/30 dana", premium: "✅ Gratis (max 10 dana)" },
