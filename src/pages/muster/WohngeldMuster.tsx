@@ -1,5 +1,8 @@
 import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
+import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
 
 const LS_KEY = "wohngeld-muster-data";
 const PDF_URL = "https://www.stmb.bayern.de/assets/stmi/wohnen/wohngeld/35_mz_antrag.pdf";
