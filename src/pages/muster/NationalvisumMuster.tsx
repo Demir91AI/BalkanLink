@@ -24,7 +24,14 @@ export default function NationalvisumMuster() {
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="nv-root" title="Antrag auf Erteilung eines nationalen Visums (D-Visum)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original online: VIDEX (Auswärtiges Amt) →" footerNote="Originalantrag se popunjava online preko VIDEX portala (videx-national.diplo.de) i predaje na njemačkoj ambasadi • BalkanLink nije državna institucija" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="nv-root" title="Antrag auf Erteilung eines nationalen Visums (D-Visum)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original online: VIDEX (Auswärtiges Amt) →" footerNote="Originalantrag se popunjava online preko VIDEX portala (videx-national.diplo.de) i predaje na njemačkoj ambasadi • BalkanLink nije državna institucija" lsKey={LS_KEY} formularId="nationalvisum" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="nationalvisum"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#EFF6FF", border: "2px solid #3B82F6", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#1E40AF", marginBottom: 6 }}>🌐 Nacionalna viza se prijavljuje putem VIDEX sistema ili direktno u ambasadi</div>
+        <div style={{ fontSize: 12, color: "#1E3A8A", lineHeight: 1.55, marginBottom: 12 }}>Zahtjev za nacionalnu vizu (D-Visum) podnosi se isključivo u nadležnoj njemačkoj ambasadi ili konzulatu u tvojoj zemlji. Popunjavanje formulara vrši se putem VIDEX online portala. Ovaj vodič objašnjava sva VIDEX polja i potrebnu dokumentaciju.</div>
+        <a href="https://videx-national.diplo.de" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "#1D4ED8", color: "#fff", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>🔗 Otvori VIDEX portal →</a>
+      </div>
       <MusterIntroBlock formKey="nationalvisum" paperId="nv-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Persönliche Daten" />
