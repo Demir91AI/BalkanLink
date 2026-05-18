@@ -1,4 +1,7 @@
 import { useState, useCallback } from "react";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
+import WirtschaftlicheJugendhilfeGuideContent from "@/components/guides/WirtschaftlicheJugendhilfeGuideContent";
 import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "wijuhi-muster-data";
@@ -128,6 +131,7 @@ export default function WirtschaftlicheJugendhilfeMuster() {
   );
 
   return (
+    <>
     <MusterFormBase
       rootId="wijuhi-root"
       title="Antrag auf Hilfe zur Erziehung"
@@ -136,7 +140,7 @@ export default function WirtschaftlicheJugendhilfeMuster() {
       pdfLabel="Pravni osnov: SGB VIII (gesetze-im-internet.de) →"
       footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim zuständigen Jugendamt einreichen • BalkanLink ist keine staatliche Stelle • Stand 2026"
       lsKey={LS_KEY}
-      formularId="wijuhi-muster"
+      formularId="wirtschaftliche-jugendhilfe"
       data={f}
       onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))}
       onReset={() => {
@@ -144,6 +148,12 @@ export default function WirtschaftlicheJugendhilfeMuster() {
         setF(initial());
       }}
     >
+      <MusterDisclaimer formKey="wirtschaftliche-jugendhilfe"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Wirtschaftliche Jugendhilfe se inicira RAZGOVOROM u Jugendamt-u</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Finansijska pomoć za odgoj djeteta (SGB VIII, §§ 27 ff.) ne podnosi se putem standardnog PDF formulara — inicijalni korak je razgovor s referentom u Jugendamt-u koji procjenjuje situaciju i otvara postupak. Ovaj vodič objašnjava koja prava postoje i šta referent traži.</div>
+      </div>
       {/* Adresa Jugendamt-a */}
       <div style={S.sec}>
         <SecHeader num={0} title="An das zuständige Jugendamt" />
@@ -365,5 +375,9 @@ export default function WirtschaftlicheJugendhilfeMuster() {
         </div>
       </div>
     </MusterFormBase>
+    <div style={{ maxWidth: 800, margin: "0 auto 60px", padding: "0 16px" }}>
+      <WirtschaftlicheJugendhilfeGuideContent />
+    </div>
+    </>
   );
 }

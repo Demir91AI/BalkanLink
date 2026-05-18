@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "krippengeld-bayern-muster-data";
@@ -22,7 +24,13 @@ export default function KrippengeldBayernMuster() {
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="krg-root" title="Antrag auf Krippengeld (Bayern)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original beim ZBFS Bayern herunterladen →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="krg-root" title="Antrag auf Krippengeld (Bayern)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original beim ZBFS Bayern herunterladen →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="krippengeld-bayern" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="krippengeld-bayern"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Krippengeld (Bayern) se podnosi u nadležnom Jugendamt-u ili online</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Subvencija za troškove vrtića u Bavarskoj (KiBiG-Subvention) podnosi se u nadležnom Jugendamt-u prema adresi stanovanja ili online putem KiBiG.web sistema. Neke općine prihvataju i prijave poštom. Ovaj vodič objašnjava uvjete i šta pripremiti za razgovor s referentom.</div>
+      </div>
       <MusterIntroBlock formKey="krippengeldbayern" paperId="krg-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Antragstellende Person" />

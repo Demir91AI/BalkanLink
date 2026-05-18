@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "niederlassungserlaubnis-muster-data";
@@ -21,7 +23,13 @@ export default function NiederlassungserlaubnisMuster() {
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="nl-root" title="Antrag auf Niederlassungserlaubnis (§ 9 AufenthG)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Originalantrag (Ausländerbehörde) →" footerNote="Originalformular ovisi o Bundeslandu i predaje se na Ausländerbehörde • BalkanLink nije državna institucija" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="nl-root" title="Antrag auf Niederlassungserlaubnis (§ 9 AufenthG)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Originalantrag (Ausländerbehörde) →" footerNote="Originalformular ovisi o Bundeslandu i predaje se na Ausländerbehörde • BalkanLink nije državna institucija" lsKey={LS_KEY} formularId="niederlassungserlaubnis" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="niederlassungserlaubnis"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Niederlassungserlaubnis se podnosi u Ausländerbehörde tvog grada</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Zahtjev za stalnu boravišnu dozvolu (§ 9 AufenthG, nakon 5 godina) podnosi se lično u Ausländerbehörde uz kompletnu dokumentaciju. Procesi i formulari se razlikuju po gradu. Ovaj vodič objašnjava uvjete (jezični nivo B1, osigurane penzije, itd.) i šta tačno pripremiti.</div>
+      </div>
       <MusterIntroBlock formKey="niederlassungserlaubnis" paperId="nl-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Persönliche Daten" />
