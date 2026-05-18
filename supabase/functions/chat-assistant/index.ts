@@ -1570,21 +1570,7 @@ serve(async (req) => {
       }
     }
 
-    // ── Server-side daily rate limit for non-premium users ──
-    if (!isPremium) {
-      const today = new Date().toISOString().slice(0, 10);
-      const { count } = await admin
-        .from("chat_usage")
-        .select("id", { count: "exact", head: true })
-        .eq("user_id", userId)
-        .eq("query_date", today);
-      if ((count ?? 0) >= FREE_DAILY_LIMIT) {
-        return new Response(
-          JSON.stringify({ error: "Daily free quota exceeded", rate_limited: true }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-    }
+    // Daily quota removed — assistant is unlimited for all users.
 
     const { messages, language, currentPage } = await req.json();
     const pageContext = buildEnrichedPageContext(currentPage || "");
