@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 
 const LS_KEY = "grundsicherung-muster-data";
 const PDF_URL = "https://www.deutscher-verein.de/de/uploads/hauptnavigation/downloads/sososo/vordruck-antrag-grundsicherung-im-alter-und-bei-erwerbsminderung-sgbxii.pdf";
@@ -46,7 +48,14 @@ export default function GrundsicherungMuster() {
   const setKind = (i: number, k: string, v: string) => setF(p => { const ks = [...p.kinder]; ks[i] = { ...ks[i], [k]: v }; return { ...p, kinder: ks }; });
 
   return (
-    <MusterFormBase rootId="gs-root" title="Antrag auf Grundsicherung im Alter und bei Erwerbsminderung (SGB XII)" subtitle="Sozialamt — Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Sozialamt einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="gs-root" title="Antrag auf Grundsicherung im Alter und bei Erwerbsminderung (SGB XII)" subtitle="Sozialamt — Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Sozialamt einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="grundsicherung" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="grundsicherung"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Grundsicherung im Alter se podnosi lično ili poštom u Sozialamt</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Ne postoji jedinstveni federalni PDF za Grundsicherung — formular zavisi od vašeg grada/Landkreisa i dobija se direktno u Sozialamt-u ili preuzima sa web stranice vašeg Sozialamta. Ovaj vodič te priprema za razgovor s referentom i objašnjava sva standardna polja.</div>
+      </div>
 
       <Info>📋 Šta je Grundsicherung? Socijalna pomoć za osobe koje imaju 67+ godina ili su trajno nesposobne za rad, a nemaju dovoljno prihoda. Razlikuje se od Bürgergelda — ovdje nema obaveze traženja posla.</Info>
 

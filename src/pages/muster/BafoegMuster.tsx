@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 
 const LS_KEY = "bafoeg-muster-data";
 const PDF_URL = "https://www.xn--bafg-7qa.de/bafoeg/de/antrag-stellen/alle-antragsformulare/alle-antragsformulare_node.html";
@@ -27,7 +29,15 @@ export default function BafoegMuster() {
   const setEltern = (i: number, k: string, v: string) => setF(p => { const e = [...p.eltern]; e[i] = { ...e[i], [k]: v }; return { ...p, eltern: e }; });
 
   return (
-    <MusterFormBase rootId="baf-root" title="Antrag auf Ausbildungsförderung (BAföG)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Amt für Ausbildungsförderung einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="baf-root" title="Antrag auf Ausbildungsförderung (BAföG)" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Amt für Ausbildungsförderung einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="bafoeg" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="bafoeg"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi zvanični BAföG Formblatt 01 PDF (BMBF, Stand 2025)</div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični BAföG Formblatt 01 PDF lokalno u tvom browseru — ništa ne ide na server. Formblatt je standardni federalni obrazac koji se predaje nadležnom Amt für Ausbildungsförderung.</div>
+        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni BAföG Formblatt 01 (uskoro dostupno)</button>
+      </div>
 
       <div style={S.sec}>
         <SecHeader num={1} title="Angaben zur Person" />
