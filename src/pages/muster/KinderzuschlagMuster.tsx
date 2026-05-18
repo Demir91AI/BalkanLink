@@ -3,6 +3,7 @@ import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import KinderzuschlagGuideContent from "@/components/guides/KinderzuschlagGuideContent";
+import { fillKinderzuschlagPdf, downloadBlob, type KinderzuschlagFormData } from "@/lib/pdf-fill-kinderzuschlag";
 
 const LS_KEY = "kinderzuschlag-muster-data";
 const PDF_URL = "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag";
