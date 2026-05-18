@@ -1329,16 +1329,9 @@ export default function ChatAssistant() {
 
                   {/* Disclaimer */}
                   <div className="px-4 py-1 border-t border-white/5 shrink-0">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1">
-                        <ShieldCheck className="h-2.5 w-2.5 text-emerald-500/60 shrink-0" />
-                        <p className="text-[10px] text-white/60">BalkanLink Asistent daje orijentacione informacije, ne pravni savjet.</p>
-                      </div>
-                      {!isPremium && (
-                        <p className="text-[10px] text-white/40 font-medium shrink-0 ml-2">
-                          {remaining > 0 ? `${remaining}/5 pitanja` : "Limit dostignut"}
-                        </p>
-                      )}
+                    <div className="flex items-center gap-1">
+                      <ShieldCheck className="h-2.5 w-2.5 text-emerald-500/60 shrink-0" />
+                      <p className="text-[10px] text-white/60">BalkanLink Asistent daje orijentacione informacije, ne pravni savjet.</p>
                     </div>
                   </div>
 
