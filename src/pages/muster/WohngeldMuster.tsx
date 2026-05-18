@@ -26,7 +26,16 @@ export default function WohngeldMuster() {
   const setE = (i: number, k: string, v: string) => setF(p => { const e = [...p.einnahmen]; e[i] = { ...e[i], [k]: v }; return { ...p, einnahmen: e }; });
 
   return (
-    <MusterFormBase rootId="wg-root" title="Antrag auf Wohngeld — Mietzuschuss" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der Wohngeldstelle einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <>
+    <MusterFormBase rootId="wg-root" title="Antrag auf Wohngeld — Mietzuschuss" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei der Wohngeldstelle einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="wohngeld" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="wohngeld"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi PDF za tvoj Bundesland</div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Wohngeld PDF varira po Bundesland. Pripremamo autofill za Bayern, Berlin, Brandenburg i druge savezne pokrajine — po uzoru na Elterngeld model. Ovaj vodič te priprema za sva polja.</div>
+        <button disabled style={{ background: "#9CA3AF", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "not-allowed" }}>📄 Preuzmi popunjeni Wohngeld PDF (uskoro dostupno)</button>
+      </div>
 
       <div style={S.sec}>
         <SecHeader num={1} title="Antragstellende Person" />
