@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import { fillBuergergeldPdf, downloadBlob, type BuergergeldFormData } from "@/lib/pdf-fill-buergergeld";
 import { fillBuergergeldAnlagePdf, ANLAGEN_META, type AnlageBaseData, type AnlageCode } from "@/lib/pdf-fill-buergergeld-anlagen";
 
@@ -124,6 +126,18 @@ export default function BuergergeldMuster() {
 
   return (
     <MusterFormBase rootId="bg-root" title="Antrag auf Bürgergeld" subtitle={t("musterFlow.buergergeld.subtitle", "Musterformular — BalkanLink — nur zur Orientierung")} pdfUrl={PDF_URL} pdfLabel={t("musterFlow.buergergeld.originalLink", "Preuzmi prazan originalni HA PDF →")} footerNote={t("musterFlow.buergergeld.footerNote", "Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Jobcenter einreichen • BalkanLink ist keine staatliche Stelle")} lsKey={LS_KEY} formularId="buergergeld" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+
+      <MusterDisclaimer formKey="buergergeld"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+
+      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Popuni online → preuzmi 1:1 originalni Jobcenter PDF</div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Tvoji podaci se popunjavaju u zvanični Bürgergeld Hauptantrag PDF lokalno u tvom browseru — ništa ne ide na server. Anlage EK / KDU / VM popunjavaš zasebno u tabovima.</div>
+        <button onClick={handleAutoFill} disabled={generating} style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}>
+          {generating ? "Generiram PDF…" : "📄 Preuzmi popunjeni HA PDF"}
+        </button>
+        {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
+      </div>
 
       <Info>
         📋 Bürgergeld se podnosi u 4 dijela. Svi dijelovi se predaju zajedno u Jobcenter. Ovaj Musterformular ti pomaže da se upoznaš sa svakim poljem.

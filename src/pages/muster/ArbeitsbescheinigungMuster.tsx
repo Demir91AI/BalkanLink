@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterFormBase, { S, Field, SecHeader, Signature, TOpt } from "@/components/muster/MusterFormBase";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 
 const LS_KEY = "arbeitsbescheinigung-muster-data";
 const PDF_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld";
@@ -23,7 +25,13 @@ export default function ArbeitsbescheinigungMuster() {
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="ab-root" title="Arbeitsbescheinigung § 57 SGB II" subtitle="Musterformular — BalkanLink — nur zur Orientierung • ⚠️ NUR VOM ARBEITGEBER AUSZUFÜLLEN" pdfUrl={PDF_URL} pdfLabel="Original bei Agentur für Arbeit →" footerNote="Musterformular zur Orientierung • NUR vom Arbeitgeber auszufüllen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="ab-root" title="Arbeitsbescheinigung § 57 SGB II" subtitle="Musterformular — BalkanLink — nur zur Orientierung • ⚠️ NUR VOM ARBEITGEBER AUSZUFÜLLEN" pdfUrl={PDF_URL} pdfLabel="Original bei Agentur für Arbeit →" footerNote="Musterformular zur Orientierung • NUR vom Arbeitgeber auszufüllen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="arbeitsbescheinigung" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="arbeitsbescheinigung"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFF7ED", border: "2px solid #EA580C", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#9A3412", marginBottom: 6 }}>⚠️ Arbeitsbescheinigung popunjava ISKLJUČIVO tvoj poslodavac</div>
+        <div style={{ fontSize: 12, color: "#7C2D12", lineHeight: 1.55 }}>Ovaj obrazac NE popunjava radnik — popunjava ga Arbeitgeber (poslodavac) na zahtjev Agencije za rad (Agentur für Arbeit). Radnik može koristiti ovaj vodič samo za provjeru šta je poslodavac unio. Ako poslodavac odbija ili kasni s popunjavanjem, možeš ga prijaviti Agentur für Arbeit.</div>
+      </div>
       <div style={{ background: "#fef2f2", border: "1px solid #fca5a5", borderRadius: 8, padding: 10, marginBottom: 12, fontSize: 10, color: "#991b1b" }}>⚠️ Dieses Formular wird ausschließlich vom Arbeitgeber ausgefüllt!</div>
       <div style={S.sec}>
         <SecHeader num={1} title="A. Angaben zum Arbeitgeber" />
