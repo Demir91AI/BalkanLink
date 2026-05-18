@@ -148,10 +148,15 @@ Deno.serve(async (req) => {
     )
   }
 
-  // Client-side (authenticated user) calls: only admin-notification templates
-  // targeted at the fixed admin address. Service-role bypasses this check.
+  // Client-side calls: only admin-notification templates targeted at the fixed
+  // admin address. Anonymous calls are limited further to registration notices,
+  // which must work before email verification creates a client session.
   if (!isService) {
-    if (!CLIENT_ALLOWED_TEMPLATES.has(templateName) || effectiveRecipient !== ADMIN_NOTIFY_EMAIL) {
+    const allowedClientTemplate = CLIENT_ALLOWED_TEMPLATES.has(templateName)
+    const allowedAnonymousTemplate = templateName === 'admin-new-user'
+    const allowedTemplate = isAnonymousRequest ? allowedAnonymousTemplate : allowedClientTemplate
+
+    if (!allowedTemplate || effectiveRecipient !== ADMIN_NOTIFY_EMAIL) {
       return new Response(
         JSON.stringify({ error: 'Forbidden' }),
         { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
