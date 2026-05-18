@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MusterIntroBlock from "@/components/muster/MusterIntroBlock";
+import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
+import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import MusterFormBase, { S, Field, SecHeader, Signature } from "@/components/muster/MusterFormBase";
 
 const LS_KEY = "anlage-uh3-muster-data";
@@ -20,7 +22,14 @@ export default function AnlageUH3Muster() {
   const set = (k: string, v: any) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="uh3-root" title="Anlage UH3 — Kindesunterhalt" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original bei Jobcenter herunterladen →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <MusterFormBase rootId="uh3-root" title="Anlage UH3 — Kindesunterhalt" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Original bei Jobcenter herunterladen →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="anlage-uh3" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="anlage-uh3"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>✅ Ova Anlage ima autofill u sklopu Bürgergeld Musterformulara</div>
+        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>Popunjeni PDF za Anlage UH3 možeš preuzeti direktno sa <strong>Bürgergeld Musterformular</strong> stranice — upiši svoje podatke tamo, pa klikni dugme za konkretnu Anlagu u donjem gridu. Ovdje možeš proučiti polja kao pripremu.</div>
+        <a href="/musterformular/buergergeld" style={{ display: "inline-block", background: "#15803d", color: "#fff", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>📋 Idi na Bürgergeld Musterformular →</a>
+      </div>
       <MusterIntroBlock formKey="anlageuh3" paperId="uh3-root-paper" />
       <div style={S.sec}>
         <SecHeader num={1} title="A. Antragstellende Person" />
