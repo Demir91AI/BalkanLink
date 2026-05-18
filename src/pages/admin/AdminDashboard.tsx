@@ -370,8 +370,24 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     loadAll();
-    const id = setInterval(() => loadAll(true), 30000);
-    return () => clearInterval(id);
+    const id = setInterval(() => {
+      if (document.visibilityState === "visible") loadAll(true);
+    }, 30000);
+    const onVisible = () => {
+      if (document.visibilityState === "visible") {
+        const stale = !lastRefresh || Date.now() - lastRefresh.getTime() > 15000;
+        if (stale) loadAll(true);
+      }
+    };
+    const onFocus = () => onVisible();
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("focus", onFocus);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("focus", onFocus);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /* ─── Izvedene metrike ─── */
