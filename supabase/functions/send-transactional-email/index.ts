@@ -152,6 +152,17 @@ Deno.serve(async (req) => {
     )
   }
 
+  // Client-side (authenticated user) calls: only admin-notification templates
+  // targeted at the fixed admin address. Service-role bypasses this check.
+  if (!isService) {
+    if (!CLIENT_ALLOWED_TEMPLATES.has(templateName) || effectiveRecipient !== ADMIN_NOTIFY_EMAIL) {
+      return new Response(
+        JSON.stringify({ error: 'Forbidden' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+  }
+
   // Create Supabase client with service role (bypasses RLS)
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
