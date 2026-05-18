@@ -26,7 +26,15 @@ export default function AnmeldungMusterV2() {
   const set = (k: string, v: string) => setF(p => ({ ...p, [k]: v }));
 
   return (
-    <MusterFormBase rootId="anm2-root" title="Anmeldung bei der Meldebehörde" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Einwohnermeldeamt / Bürgeramt einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+    <>
+    <MusterFormBase rootId="anm2-root" title="Anmeldung bei der Meldebehörde" subtitle="Musterformular — BalkanLink — nur zur Orientierung" pdfUrl={PDF_URL} pdfLabel="Preuzmi originalni PDF →" footerNote="Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original beim Einwohnermeldeamt / Bürgeramt einreichen • BalkanLink ist keine staatliche Stelle" lsKey={LS_KEY} formularId="anmeldung" data={f} onSave={() => localStorage.setItem(LS_KEY, JSON.stringify(f))} onReset={() => { localStorage.removeItem(LS_KEY); setF(initial()); }}>
+      <MusterDisclaimer formKey="anmeldung"><></></MusterDisclaimer>
+      <PrivacyGuarantee />
+      <div style={{ marginBottom: 18, padding: 14, background: "#FFFBEB", border: "2px solid #F59E0B", borderRadius: 10 }}>
+        <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 6 }}>🏛️ Anmeldung se vrši LIČNO u Bürgeramt-u</div>
+        <div style={{ fontSize: 12, color: "#78350F", lineHeight: 1.55 }}>Prijava adrese stanovanja (Anmeldung) obavlja se lično u Einwohnermeldeamt-u (Bürgeramt) tvog grada — donesi pasoš/ličnu kartu, potvrdu stanodavca (Wohnungsgeberbestätigung) i ovaj popunjeni vodič. Rok: 14 dana od useljenja. Ovaj vodič te priprema za šalter i objašnjava sva polja.</div>
+      </div>
+
 
       <div style={S.sec}>
         <SecHeader num={1} title="Angaben zur Wohnung" />
