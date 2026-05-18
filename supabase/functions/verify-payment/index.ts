@@ -158,8 +158,8 @@ serve(async (req) => {
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
     );
   } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error);
-    return new Response(JSON.stringify({ error: msg, status: "invalid" satisfies Status }), {
+    console.error("[verify-payment] Error:", error);
+    return new Response(JSON.stringify({ error: "Payment verification failed", status: "invalid" satisfies Status }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 500,
     });
