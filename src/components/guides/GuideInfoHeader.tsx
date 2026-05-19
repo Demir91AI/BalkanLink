@@ -1,5 +1,4 @@
-import { AlertTriangle, ClipboardList, PenLine, Clock, CheckCircle } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { AlertTriangle, ClipboardList, PenLine, Clock, CheckCircle, ExternalLink } from "lucide-react";
 
 interface Props {
   title: string;
@@ -12,62 +11,79 @@ interface Props {
   infoNote?: React.ReactNode;
 }
 
-const GOLD = '#C9A84C';
+const GOLD = "#D4AF37";
 
 export default function GuideInfoHeader({ title, source, formName, whoCanApply, processingTime, requirements, commonMistakes, infoNote }: Props) {
-  const { t } = useTranslation("forms");
   return (
-    <div className="space-y-4">
-      {/* Title block */}
-      <div>
-        <h1 className="text-xl font-extrabold text-[#2D2D2D] sm:text-2xl">{title}</h1>
-        <p className="mt-1 text-xs text-[#9CA3AF]">{t("guide.source")}: {source}</p>
-        <p className="mt-0.5 text-xs text-[#9CA3AF]">{t("guide.form")}: {formName}</p>
+    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+
+      {/* TITLE BLOCK */}
+      <div style={{ marginBottom: 4 }}>
+        <h1 style={{ fontSize: 22, fontWeight: 800, color: "hsl(var(--foreground))", lineHeight: 1.25, marginBottom: 10, letterSpacing: "-0.01em" }}>
+          {title}
+        </h1>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.35)", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 600, color: GOLD }}>
+            🏛 {source}
+          </span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "hsl(var(--muted))", border: "1px solid hsl(var(--border))", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 500, color: "hsl(var(--muted-foreground))" }}>
+            📄 {formName}
+          </span>
+        </div>
       </div>
 
-      {/* Who can apply + processing time */}
-      <div className="rounded-xl border border-[#E5DCC8] bg-white p-4">
-        <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-[#2D2D2D]">
-          <PenLine className="h-3.5 w-3.5" style={{ color: GOLD }} /> {t("guide.whoCanApply")}
-        </h3>
-        <p className="text-xs text-[#6B6B6B] leading-relaxed">{whoCanApply}</p>
-        <p className="mt-3 flex items-center gap-1 text-xs">
-          <Clock className="h-3 w-3" style={{ color: GOLD }} />
-          <span className="font-semibold text-[#2D2D2D]">{t("guide.processingTime")}:</span>
-          <span className="text-[#6B6B6B]">{processingTime}</span>
-        </p>
+      {/* WHO CAN APPLY */}
+      <div style={{ borderRadius: 12, border: "1.5px solid rgba(212,175,55,0.3)", borderLeft: "4px solid " + GOLD, background: "hsl(var(--card))", padding: "16px 18px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+          <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(212,175,55,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <PenLine size={14} color={GOLD} />
+          </div>
+          <span style={{ fontSize: 13, fontWeight: 700, color: GOLD }}>Ko može podnijeti zahtjev</span>
+        </div>
+        <p style={{ fontSize: 13, color: "hsl(var(--foreground))", lineHeight: 1.65, margin: 0 }}>{whoCanApply}</p>
+        <div style={{ marginTop: 12, paddingTop: 11, borderTop: "1px solid hsl(var(--border))", display: "flex", alignItems: "center", gap: 6 }}>
+          <Clock size={13} color={GOLD} />
+          <span style={{ fontSize: 12, color: GOLD, fontWeight: 600 }}>Vrijeme obrade:</span>
+          <span style={{ fontSize: 12, color: "hsl(var(--muted-foreground))" }}>{processingTime}</span>
+        </div>
       </div>
 
       {infoNote}
 
-      {/* Requirements */}
+      {/* REQUIREMENTS */}
       {requirements && requirements.length > 0 && (
-        <div className="rounded-xl border border-[#E5DCC8] bg-white p-4">
-          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-[#2D2D2D]">
-            <ClipboardList className="h-3.5 w-3.5" style={{ color: GOLD }} /> {t("guide.whatToPrepare")}
-          </h3>
-          <ul className="space-y-1.5">
+        <div style={{ borderRadius: 12, border: "1.5px solid hsl(var(--border))", borderLeft: "4px solid #6366F1", background: "hsl(var(--card))", padding: "16px 18px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+            <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(99,102,241,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <ClipboardList size={14} color="#818CF8" />
+            </div>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "hsl(var(--foreground))" }}>Šta treba pripremiti</span>
+          </div>
+          <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
             {requirements.map((r, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-[#6B6B6B]">
-                <CheckCircle className="h-3 w-3 mt-0.5 shrink-0" style={{ color: GOLD }} />
-                {r}
+              <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                <CheckCircle size={13} color="#6366F1" style={{ marginTop: 2, flexShrink: 0 }} />
+                <span style={{ fontSize: 13, color: "hsl(var(--muted-foreground))", lineHeight: 1.55 }}>{r}</span>
               </li>
             ))}
           </ul>
         </div>
       )}
 
-      {/* Common mistakes */}
+      {/* COMMON MISTAKES */}
       {commonMistakes && commonMistakes.length > 0 && (
-        <div className="rounded-xl border border-red-200 bg-red-50 p-4">
-          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-bold text-red-700">
-            <AlertTriangle className="h-3.5 w-3.5" /> {t("guide.commonMistakesTitle")}
-          </h3>
-          <ul className="space-y-1.5">
+        <div style={{ borderRadius: 12, border: "1.5px solid rgba(239,68,68,0.3)", borderLeft: "4px solid #EF4444", background: "hsl(var(--card))", padding: "16px 18px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+            <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(239,68,68,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <AlertTriangle size={14} color="#F87171" />
+            </div>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#F87171" }}>Najčešće greške</span>
+          </div>
+          <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
             {commonMistakes.map((m, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-red-600">
-                <span className="font-bold text-red-400 shrink-0">✕</span>
-                {m}
+              <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                <span style={{ color: "#EF4444", fontWeight: 700, fontSize: 13, flexShrink: 0, lineHeight: 1.55 }}>✕</span>
+                <span style={{ fontSize: 13, color: "hsl(var(--muted-foreground))", lineHeight: 1.55 }}>{m}</span>
               </li>
             ))}
           </ul>
