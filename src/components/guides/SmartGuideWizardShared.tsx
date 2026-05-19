@@ -129,72 +129,73 @@ export default function SmartGuideWizardShared({
 
   return (
     <AuthGate>
-    <div ref={topRef} className="space-y-4 scroll-mt-24">
-      <div className="text-center">
-        <h2 className="text-lg font-bold text-foreground">
+    <div ref={topRef} className="space-y-5 scroll-mt-24">
+
+      {/* Header */}
+      <div style={{ textAlign: "center", padding: "8px 0 4px" }}>
+        <h2 style={{ fontSize: 18, fontWeight: 800, color: "#FFFFFF", marginBottom: 6, letterSpacing: "-0.01em" }}>
           {t("guide.wizardTitle")}
         </h2>
-        <p className="text-sm text-muted-foreground mt-1">
+        <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.5 }}>
           {t("guide.wizardSubtitle")}
         </p>
       </div>
 
-      {/* Progress bar */}
-      <div className="flex items-center gap-3">
-        <Progress value={progress} className="h-2 flex-1" />
-        <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
+      {/* Progress */}
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ flex: 1, height: 6, background: "#1E293B", borderRadius: 99, overflow: "hidden" }}>
+          <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #B8952A, #D4AF37)", borderRadius: 99, transition: "width 0.3s ease" }} />
+        </div>
+        <span style={{ fontSize: 11, fontWeight: 600, color: "#94A3B8", whiteSpace: "nowrap" }}>
           {t("guide.step")} {step + 1} / {steps.length}
         </span>
       </div>
 
       {/* Step pills */}
-      <div className="flex items-center gap-1 overflow-x-auto pb-2">
-        {steps.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => handleStepClick(i)}
-            className={
-              "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition " +
-              (!free && !isPremium && i >= FREE_STEPS
-                ? "bg-muted text-muted-foreground/40 cursor-not-allowed"
-                : i === step
-                ? "bg-primary text-primary-foreground"
-                : i < step
-                ? "bg-primary/20 text-primary"
-                : "bg-muted text-muted-foreground hover:bg-muted/80")
-            }
-          >
-            {!free && !isPremium && i >= FREE_STEPS ? "🔒" : i + 1}
-          </button>
-        ))}
+      <div style={{ display: "flex", alignItems: "center", gap: 6, overflowX: "auto", paddingBottom: 4 }}>
+        {steps.map((_, i) => {
+          const isLocked = !free && !isPremium && i >= FREE_STEPS;
+          const isActive = i === step;
+          const isCompleted = i < step;
+          return (
+            <button
+              key={i}
+              onClick={() => handleStepClick(i)}
+              style={{
+                flexShrink: 0,
+                width: 32, height: 32,
+                borderRadius: "50%",
+                border: isActive ? "2px solid #D4AF37" : isCompleted ? "2px solid rgba(212,175,55,0.4)" : "2px solid #334155",
+                background: isActive ? "#D4AF37" : isCompleted ? "rgba(212,175,55,0.15)" : "#0F172A",
+                color: isActive ? "#000" : isCompleted ? "#D4AF37" : isLocked ? "#475569" : "#94A3B8",
+                fontSize: 12, fontWeight: 700,
+                cursor: isLocked ? "not-allowed" : "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                transition: "all 0.2s"
+              }}
+            >
+              {isLocked ? "🔒" : i + 1}
+            </button>
+          );
+        })}
       </div>
 
-      {/* Main content — NEVER lock steps 0 or 1 */}
+      {/* Main content */}
       {isStepLocked ? (
-        <div
-          className="rounded-2xl border-2 border-[hsl(var(--gold))]/30
-                      bg-gradient-to-b from-[hsl(var(--gold))]/5
-                      to-[hsl(var(--gold))]/10 p-10 text-center"
-        >
-          <Lock className="mx-auto mb-4 h-10 w-10 text-[hsl(var(--gold))]" />
-          <h3 className="text-base font-black text-foreground">
+        <div style={{ borderRadius: 16, border: "2px solid rgba(212,175,55,0.3)", background: "linear-gradient(135deg, rgba(212,175,55,0.05), rgba(212,175,55,0.1))", padding: "40px 24px", textAlign: "center" }}>
+          <Lock style={{ margin: "0 auto 16px", color: "#D4AF37", width: 40, height: 40 }} />
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#FFFFFF", marginBottom: 8 }}>
             {t("guide.premium.title")}
           </h3>
-          <p className="mt-2 text-sm text-muted-foreground max-w-xs mx-auto">
+          <p style={{ fontSize: 13, color: "#94A3B8", marginBottom: 4, maxWidth: 280, margin: "0 auto 4px" }}>
             {t("guide.premium.subtitle")}
           </p>
-          <p className="mt-1 text-xs text-muted-foreground">
+          <p style={{ fontSize: 11, color: "#64748B", marginBottom: 24 }}>
             {t("guide.premium.stepInfo", { free: FREE_STEPS, current: step + 1 })}
           </p>
           <button
             onClick={() => navigate("/paketi")}
-            className="mt-6 block w-full max-w-xs mx-auto rounded-full
-                       py-3.5 text-sm font-bold"
-            style={{
-              background:
-                "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
-              color: "hsl(var(--gold-foreground))",
-            }}
+            style={{ display: "block", width: "100%", maxWidth: 280, margin: "0 auto", borderRadius: 99, padding: "14px 24px", fontSize: 14, fontWeight: 800, border: "none", cursor: "pointer", background: "linear-gradient(135deg, #B8952A, #D4AF37)", color: "#000" }}
           >
             {t("guide.premium.cta")}
           </button>
@@ -202,85 +203,73 @@ export default function SmartGuideWizardShared({
       ) : (
         <>
           {/* Step field card */}
-          <div className="rounded-2xl border border-border/60 bg-card p-5">
-            <p className="text-[10px] font-medium text-muted-foreground mb-1">
+          <div style={{ borderRadius: 14, border: "1px solid #1E293B", borderLeft: "4px solid #D4AF37", background: "#0F172A", padding: "16px 18px" }}>
+            <p style={{ fontSize: 11, fontWeight: 600, color: "#D4AF37", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.08em" }}>
               {t("guide.step")} {step + 1}
             </p>
-            <h3 className="font-bold text-sm">{current.deField}</h3>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              {current.bhsField}
-            </p>
+            <h3 style={{ fontSize: 15, fontWeight: 800, color: "#FFFFFF", marginBottom: 4, lineHeight: 1.3 }}>{current.deField}</h3>
+            <p style={{ fontSize: 12, color: "#94A3B8", margin: 0 }}>{current.bhsField}</p>
           </div>
 
           {/* Detail cards */}
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div style={{ display: "grid", gap: 10, gridTemplateColumns: "1fr 1fr" }}>
             {cardConfig.map(({ key, label, icon, color }) => {
               const value = current[key as CardKey];
               if (!value) return null;
+              const borderColors: Record<string, string> = {
+                "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20": "#3B82F6",
+                "border-emerald-200 bg-emerald-50 dark:border-emerald-900/40 dark:bg-emerald-950/20": "#10B981",
+                "border-violet-200 bg-violet-50 dark:border-violet-900/40 dark:bg-violet-950/20": "#8B5CF6",
+                "border-red-200 bg-red-50 dark:border-red-900/40 dark:bg-red-950/20": "#EF4444",
+                "border-amber-200 bg-amber-50 dark:border-amber-900/40 dark:bg-amber-950/20": "#F59E0B",
+                "border-cyan-200 bg-cyan-50 dark:border-cyan-900/40 dark:bg-cyan-950/20": "#06B6D4",
+              };
+              const accent = borderColors[color] || "#D4AF37";
               return (
-                <div key={key} className={`rounded-xl border p-4 ${color}`}>
-                  <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
+                <div key={key} style={{ borderRadius: 12, border: "1px solid #1E293B", borderLeft: `3px solid ${accent}`, background: "#0F172A", padding: "12px 14px" }}>
+                  <h4 style={{ marginBottom: 6, display: "flex", alignItems: "center", gap: 6, fontSize: 11, fontWeight: 700, color: accent }}>
                     {icon} {label}
                   </h4>
-                  <p className="text-xs leading-relaxed text-foreground/80">
-                    {value}
-                  </p>
+                  <p style={{ fontSize: 12, lineHeight: 1.55, color: "#CBD5E1", margin: 0 }}>{value}</p>
                 </div>
               );
             })}
             {current.note && (
-              <div className="rounded-xl border p-4 border-gray-200 bg-gray-50
-                              dark:border-gray-800 dark:bg-gray-900/30 sm:col-span-2">
-                <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
-                  <Info className="h-3.5 w-3.5" /> {t("guide.card.note")}
+              <div style={{ borderRadius: 12, border: "1px solid #1E293B", borderLeft: "3px solid #64748B", background: "#0F172A", padding: "12px 14px", gridColumn: "1 / -1" }}>
+                <h4 style={{ marginBottom: 6, display: "flex", alignItems: "center", gap: 6, fontSize: 11, fontWeight: 700, color: "#94A3B8" }}>
+                  <Info size={13} /> {t("guide.card.note")}
                 </h4>
-                <p className="text-xs leading-relaxed text-foreground/80">
-                  {current.note}
-                </p>
+                <p style={{ fontSize: 12, lineHeight: 1.55, color: "#CBD5E1", margin: 0 }}>{current.note}</p>
               </div>
             )}
           </div>
         </>
       )}
 
-      {/* Navigation buttons */}
-      <div className="flex items-center justify-between">
-        <Button
-          variant="outline"
-          size="sm"
+      {/* Navigation */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 4 }}>
+        <button
           disabled={step === 0}
           onClick={handlePrev}
+          style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, border: "1px solid #1E293B", background: step === 0 ? "#0F172A" : "#1E293B", color: step === 0 ? "#334155" : "#CBD5E1", fontSize: 13, fontWeight: 600, cursor: step === 0 ? "not-allowed" : "pointer" }}
         >
-          <ChevronLeft className="mr-1 h-4 w-4" />
-          {t("guide.back")}
-        </Button>
-
+          <ChevronLeft size={16} /> {t("guide.back")}
+        </button>
         {!isStepLocked && (
           isLast ? (
-            <Button
-              size="sm"
-              className="font-bold"
-              style={{
-                backgroundColor: "hsl(var(--gold))",
-                color: "hsl(var(--gold-foreground))",
-              }}
+            <button
               onClick={onFinish}
+              style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 20px", borderRadius: 10, border: "none", background: "linear-gradient(135deg, #B8952A, #D4AF37)", color: "#000", fontSize: 13, fontWeight: 800, cursor: "pointer" }}
             >
               {finishLabel || t("guide.done")}
-            </Button>
+            </button>
           ) : (
-            <Button
-              size="sm"
-              className="font-bold"
-              style={{
-                backgroundColor: "hsl(var(--gold))",
-                color: "hsl(var(--gold-foreground))",
-              }}
+            <button
               onClick={handleNext}
+              style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 20px", borderRadius: 10, border: "none", background: "linear-gradient(135deg, #B8952A, #D4AF37)", color: "#000", fontSize: 13, fontWeight: 800, cursor: "pointer" }}
             >
-              {t("guide.next")}
-              <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
+              {t("guide.next")} <ChevronRight size={16} />
+            </button>
           )
         )}
       </div>
