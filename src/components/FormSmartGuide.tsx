@@ -96,82 +96,98 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
   };
 
   return (
-    <div ref={topRef} className="space-y-4 scroll-mt-24">
-      <div className="flex items-center gap-3">
-        <Progress value={progress} className="h-2 flex-1" />
-        <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
+    <div ref={topRef} className="space-y-5 scroll-mt-24">
+
+      {/* Progress */}
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ flex: 1, height: 6, background: "#1E293B", borderRadius: 99, overflow: "hidden" }}>
+          <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #B8952A, #D4AF37)", borderRadius: 99, transition: "width 0.3s ease" }} />
+        </div>
+        <span style={{ fontSize: 11, fontWeight: 600, color: "#94A3B8", whiteSpace: "nowrap" }}>
           Korak {step + 1} / {steps.length}
         </span>
       </div>
 
-      <div className="flex items-center gap-1 overflow-x-auto pb-2">
-        {steps.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => handleStepClick(i)}
-            className={cn(
-              "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition",
-              !isPremium && i >= FREE_STEPS
-                ? "bg-muted text-muted-foreground/40 cursor-not-allowed"
-                : i === step
-                ? "bg-primary text-primary-foreground"
-                : i < step
-                ? "bg-primary/20 text-primary"
-                : "bg-muted text-muted-foreground hover:bg-muted/80"
-            )}
-          >
-            {!isPremium && i >= FREE_STEPS ? "🔒" : i + 1}
-          </button>
-        ))}
+      {/* Step pills */}
+      <div style={{ display: "flex", alignItems: "center", gap: 6, overflowX: "auto", paddingBottom: 4 }}>
+        {steps.map((_, i) => {
+          const isLocked = !isPremium && i >= FREE_STEPS;
+          const isActive = i === step;
+          const isCompleted = i < step;
+          return (
+            <button
+              key={i}
+              onClick={() => handleStepClick(i)}
+              style={{
+                flexShrink: 0, width: 32, height: 32, borderRadius: "50%",
+                border: isActive ? "2px solid #D4AF37" : isCompleted ? "2px solid rgba(212,175,55,0.4)" : "2px solid #334155",
+                background: isActive ? "#D4AF37" : isCompleted ? "rgba(212,175,55,0.15)" : "#0F172A",
+                color: isActive ? "#000" : isCompleted ? "#D4AF37" : isLocked ? "#475569" : "#94A3B8",
+                fontSize: 12, fontWeight: 700,
+                cursor: isLocked ? "not-allowed" : "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                transition: "all 0.2s"
+              }}
+            >
+              {isLocked ? "🔒" : i + 1}
+            </button>
+          );
+        })}
       </div>
 
+      {/* Main content */}
       {isStepLocked ? (
-        <div className="flex flex-col items-center justify-center py-12 text-center">
-          <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
-          <h3 className="text-lg font-bold text-foreground">
+        <div style={{ borderRadius: 16, border: "2px solid rgba(212,175,55,0.3)", background: "linear-gradient(135deg, rgba(212,175,55,0.05), rgba(212,175,55,0.1))", padding: "40px 24px", textAlign: "center" }}>
+          <Lock className="mx-auto mb-4 h-10 w-10" style={{ color: "#D4AF37" }} />
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#FFFFFF", marginBottom: 8 }}>
             Smart Guide dostupan uz Premium
           </h3>
-          <p className="text-sm text-muted-foreground mt-2 max-w-sm">
+          <p style={{ fontSize: 13, color: "#94A3B8", maxWidth: 280, margin: "0 auto 4px" }}>
             Otključaj kompletni vodič za popunjavanje svih formulara.
           </p>
-          <p className="text-xs text-muted-foreground mt-1">
+          <p style={{ fontSize: 11, color: "#64748B", marginBottom: 24 }}>
             Koraci 1–2 su besplatni · Korak {step + 1} zahtijeva Premium
           </p>
-          <Button
+          <button
             onClick={() => navigate("/paketi")}
-            className="mt-6 w-full max-w-xs mx-auto block rounded-full py-3.5 text-sm font-bold"
-            style={{
-              background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
-              color: "hsl(var(--gold-foreground))",
-            }}
+            style={{ display: "block", width: "100%", maxWidth: 280, margin: "0 auto", borderRadius: 99, padding: "14px 24px", fontSize: 14, fontWeight: 800, border: "none", cursor: "pointer", background: "linear-gradient(135deg, #B8952A, #D4AF37)", color: "#000" }}
           >
             BalkanLink Premium — 9.99€/mj.
-          </Button>
+          </button>
         </div>
       ) : (
         <>
-          <div className="rounded-2xl border border-border/60 bg-card p-5">
-            <Badge variant="outline" className="text-[10px] mb-2">
-              <BookOpen className="mr-1 h-3 w-3" /> Korak {step + 1}
-            </Badge>
-            <h3 className="font-bold text-sm mt-1">{current.field}</h3>
-            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-              {current.instruction}
+          {/* Step field card */}
+          <div style={{ borderRadius: 14, border: "1px solid #1E293B", borderLeft: "4px solid #D4AF37", background: "#0F172A", padding: "16px 18px" }}>
+            <p style={{ fontSize: 11, fontWeight: 600, color: "#D4AF37", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Korak {step + 1}
             </p>
+            <h3 style={{ fontSize: 15, fontWeight: 800, color: "#FFFFFF", marginBottom: 4, lineHeight: 1.3 }}>{current.field}</h3>
+            <p style={{ fontSize: 12, color: "#94A3B8", margin: 0, lineHeight: 1.5 }}>{current.instruction}</p>
           </div>
 
+          {/* Detail cards */}
           {current.cards && current.cards.length > 0 && (
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div style={{ display: "grid", gap: 10, gridTemplateColumns: "1fr 1fr" }}>
               {current.cards.map((card, ci) =>
                 cardConfig.map(({ key, label, icon, color }) => {
                   const value = card[key];
                   if (!value) return null;
+                  const accentMap: Record<string, string> = {
+                    "border-blue-200 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-950/20": "#3B82F6",
+                    "border-emerald-200 bg-emerald-50 dark:border-emerald-900/40 dark:bg-emerald-950/20": "#10B981",
+                    "border-violet-200 bg-violet-50 dark:border-violet-900/40 dark:bg-violet-950/20": "#8B5CF6",
+                    "border-red-200 bg-red-50 dark:border-red-900/40 dark:bg-red-950/20": "#EF4444",
+                    "border-amber-200 bg-amber-50 dark:border-amber-900/40 dark:bg-amber-950/20": "#F59E0B",
+                    "border-cyan-200 bg-cyan-50 dark:border-cyan-900/40 dark:bg-cyan-950/20": "#06B6D4",
+                  };
+                  const accent = accentMap[color] || "#D4AF37";
                   return (
-                    <div key={`${ci}-${key}`} className={`rounded-xl border p-4 ${color}`}>
-                      <h4 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold">
+                    <div key={`${ci}-${key}`} style={{ borderRadius: 12, border: "1px solid #1E293B", borderLeft: `3px solid ${accent}`, background: "#0F172A", padding: "12px 14px" }}>
+                      <h4 style={{ marginBottom: 6, display: "flex", alignItems: "center", gap: 6, fontSize: 11, fontWeight: 700, color: accent }}>
                         {icon} {label}
                       </h4>
-                      <p className="text-xs leading-relaxed text-foreground/80">{value}</p>
+                      <p style={{ fontSize: 12, lineHeight: 1.55, color: "#CBD5E1", margin: 0 }}>{value}</p>
                     </div>
                   );
                 })
@@ -181,16 +197,26 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
         </>
       )}
 
-      <div className="flex items-center justify-between">
-        <Button variant="outline" size="sm" disabled={step === 0} onClick={goToPreviousStep}>
-          <ChevronLeft className="mr-1 h-4 w-4" /> Nazad
-        </Button>
+      {/* Navigation */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 4 }}>
+        <button
+          disabled={step === 0}
+          onClick={goToPreviousStep}
+          style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, border: "1px solid #1E293B", background: step === 0 ? "#0F172A" : "#1E293B", color: step === 0 ? "#334155" : "#CBD5E1", fontSize: 13, fontWeight: 600, cursor: step === 0 ? "not-allowed" : "pointer" }}
+        >
+          <ChevronLeft className="h-4 w-4" /> Nazad
+        </button>
         {!isStepLocked && (
-          <Button variant="outline" size="sm" disabled={step === steps.length - 1} onClick={handleNext}>
-            Dalje <ChevronRight className="ml-1 h-4 w-4" />
-          </Button>
+          <button
+            disabled={step === steps.length - 1}
+            onClick={handleNext}
+            style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 20px", borderRadius: 10, border: "none", background: step === steps.length - 1 ? "#1E293B" : "linear-gradient(135deg, #B8952A, #D4AF37)", color: step === steps.length - 1 ? "#475569" : "#000", fontSize: 13, fontWeight: 800, cursor: step === steps.length - 1 ? "not-allowed" : "pointer" }}
+          >
+            Dalje <ChevronRight className="h-4 w-4" />
+          </button>
         )}
       </div>
     </div>
   );
 }
+
