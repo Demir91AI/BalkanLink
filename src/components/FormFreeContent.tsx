@@ -35,11 +35,11 @@ export default function FormFreeContent({ guide, lang }: FormFreeContentProps) {
           </div>
           <span style={{ fontSize: 13, fontWeight: 700, color: GOLD }}>Ko može podnijeti zahtjev</span>
         </div>
-        <p style={{ fontSize: 13, color: "#FFFFFF", lineHeight: 1.65, margin: 0 }}>{guide.who[lang]}</p>
+        <p style={{ fontSize: 13, color: "#111827", lineHeight: 1.65, margin: 0 }}>{guide.who[lang]}</p>
         <div style={{ marginTop: 12, paddingTop: 11, borderTop: "1px solid hsl(var(--border))", display: "flex", alignItems: "center", gap: 6 }}>
           <Clock size={13} color={GOLD} />
           <span style={{ fontSize: 12, color: GOLD, fontWeight: 600 }}>Vrijeme obrade:</span>
-          <span style={{ fontSize: 12, color: "#CBD5E1" }}>{guide.processingTime[lang]}</span>
+          <span style={{ fontSize: 12, color: "#4B5563" }}>{guide.processingTime[lang]}</span>
         </div>
       </div>
 
@@ -49,13 +49,13 @@ export default function FormFreeContent({ guide, lang }: FormFreeContentProps) {
           <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(99,102,241,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
             <ClipboardList size={14} color="#818CF8" />
           </div>
-          <span style={{ fontSize: 13, fontWeight: 700, color: "#FFFFFF" }}>Šta treba pripremiti</span>
+          <span style={{ fontSize: 13, fontWeight: 700, color: "#1E1B4B" }}>Šta treba pripremiti</span>
         </div>
         <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
           {guide.documents[lang].map((d, i) => (
             <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
               <span style={{ marginTop: 5, flexShrink: 0, width: 6, height: 6, borderRadius: "50%", background: "#6366F1", display: "inline-block" }} />
-              <span style={{ fontSize: 13, color: "#E2E8F0", lineHeight: 1.55 }}>{d}</span>
+              <span style={{ fontSize: 13, color: "#374151", lineHeight: 1.55 }}>{d}</span>
             </li>
           ))}
         </ul>
@@ -74,7 +74,7 @@ export default function FormFreeContent({ guide, lang }: FormFreeContentProps) {
             {guide.commonMistakes[lang].map((m, i) => (
               <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <span style={{ color: "#EF4444", fontWeight: 700, fontSize: 13, flexShrink: 0, lineHeight: 1.55 }}>✕</span>
-                <span style={{ fontSize: 13, color: "#E2E8F0", lineHeight: 1.55 }}>{m}</span>
+                <span style={{ fontSize: 13, color: "#7F1D1D", lineHeight: 1.55 }}>{m}</span>
               </li>
             ))}
           </ul>
