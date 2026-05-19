@@ -26,7 +26,7 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
           <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.35)", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 600, color: GOLD }}>
             🏛 {source}
           </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "hsl(var(--muted))", border: "1px solid hsl(var(--border))", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 500, color: "#E2E8F0" }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "hsl(var(--muted))", border: "1px solid hsl(var(--border))", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 500, color: "hsl(var(--muted-foreground))" }}>
             📄 {formName}
           </span>
         </div>

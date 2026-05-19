@@ -20,7 +20,7 @@ export default function FormFreeContent({ guide, lang }: FormFreeContentProps) {
             🏛 {guide.authority[lang]}
           </span>
           {guide.formName && (
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "hsl(var(--muted))", border: "1px solid hsl(var(--border))", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 500, color: "#E2E8F0" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "hsl(var(--muted))", border: "1px solid hsl(var(--border))", borderRadius: 20, padding: "4px 12px", fontSize: 11, fontWeight: 500, color: "hsl(var(--muted-foreground))" }}>
               📄 {guide.formName[lang]}
             </span>
           )}
