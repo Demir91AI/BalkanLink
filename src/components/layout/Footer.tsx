@@ -283,8 +283,11 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
           </a>
         </AccordionSection>
         <AccordionSection id="payments" title={t("common:footer.paymentMethods")}>
-          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", letterSpacing: 0.3, marginBottom: 12 }}>
-            {t("common:footer.paymentList")}
+          <p style={{ fontSize: 14, color: "rgba(255,255,255,0.92)", fontWeight: 700, letterSpacing: 0.3, marginBottom: 4 }}>
+            Stripe
+          </p>
+          <p style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.3, marginBottom: 12 }}>
+            Karte (Visa · Mastercard · Amex) · Klarna · Google Pay · Apple Pay · Amazon Pay · Link
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
             {[
