@@ -287,7 +287,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
             Stripe
           </p>
           <p style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.3, marginBottom: 12 }}>
-            Karte (Visa · Mastercard · Amex) · Klarna · Google Pay · Apple Pay · Amazon Pay · Link
+            Karte (Visa · Mastercard · Amex) · Klarna · Google Pay · Apple Pay · Amazon Pay · PayPal · Link
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
             {[
@@ -330,7 +330,7 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
           Stripe
         </p>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.4, textAlign: "center", marginBottom: 4 }}>
-          Karte (Visa · Mastercard · Amex) · Klarna · Google Pay · Apple Pay · Amazon Pay · Link
+          Karte (Visa · Mastercard · Amex) · Klarna · Google Pay · Apple Pay · Amazon Pay · PayPal · Link
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
           {[
