@@ -326,8 +326,11 @@ export default function Footer({ onOpenCookieSettings }: { onOpenCookieSettings?
         <p style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8, textAlign: "center" }}>
           {t("common:footer.paymentMethods")}
         </p>
-        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.5, textAlign: "center", marginBottom: 4 }}>
-          {t("common:footer.paymentList")}
+        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.95)", fontWeight: 700, letterSpacing: 0.3, textAlign: "center", marginBottom: 4 }}>
+          Stripe
+        </p>
+        <p style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: 0.4, textAlign: "center", marginBottom: 4 }}>
+          Karte (Visa · Mastercard · Amex) · Klarna · Google Pay · Apple Pay · Amazon Pay · Link
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 14 }}>
           {[
