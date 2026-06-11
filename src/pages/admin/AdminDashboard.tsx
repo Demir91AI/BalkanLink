@@ -653,7 +653,7 @@ function TabPregled({
       </div>
 
       {/* Real-time online */}
-      <OnlineNow />
+      <OnlineNow onlineNow={stats.onlineNow ?? 0} sessions={stats.activeSessions ?? []} />
 
       {/* Red 2 — Funnel + Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
