@@ -831,8 +831,8 @@ function TabPrihodi({
           <SectionTitle>Pretplate breakdown</SectionTitle>
           <div className="space-y-2">
             {[
-              { label: "Premium Mjesečno", count: stats.activePremium, sub: `${eur(stats.estimatedMrr)} / mj`, color: C.amber },
-              { label: "Premium Godišnje", count: 0, sub: "—", color: C.violet },
+              { label: "Premium Mjesečno", count: stats.premiumMonthly ?? 0, sub: `${eur((stats.premiumMonthly ?? 0) * 999)} / mj`, color: C.amber },
+              { label: "Premium Godišnje", count: stats.premiumYearly ?? 0, sub: `${eur((stats.premiumYearly ?? 0) * 9990)} / god`, color: C.violet },
               { label: "Lifetime (interni)", count: stats.lifetimeUsers, sub: "0 €", color: C.slate },
               { label: "Trial aktivan", count: stats.trialUsers, sub: trialEnding ? `najbliži ističe: ${new Date(trialEnding.expires_at).toLocaleDateString("bs-BA")}` : "—", color: C.cyan },
             ].map((row) => (
