@@ -622,15 +622,13 @@ function TabPregled({
     "/foerderungen": "Förderungen",
   };
   const top = stats.topPages30d.slice(0, 8);
-  // sparkline mock from viewsByDay
-  const last7 = stats.viewsByDay.slice(-7).map((d) => d.views);
-
-  // chart data zadnjih 14 dana
+  // chart data zadnjih 14 dana — real views + real unique visitors
   const chartData = stats.viewsByDay.slice(-14).map((d) => ({
     day: d.day.slice(5),
     views: d.views,
-    unique: Math.max(1, Math.round(d.views * 0.6)),
+    unique: d.unique_visitors ?? 0,
   }));
+
 
   return (
     <div className="space-y-6">
