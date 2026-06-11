@@ -38,15 +38,22 @@ interface Stats {
   avgViewsPerDay30d: number;
   revenueToday: number; revenue7d: number; revenue30d: number; revenueAllTime: number;
   paidCount30d: number; estimatedMrr: number;
+  estimatedRevenueFromSubs: number;
+  paymentsTableEmpty: boolean;
+  totalAds: number; totalListings: number; totalAnswers: number;
+  totalReviews: number; publishedQuestions: number; pendingQuestions: number;
+  onlineNow: number;
+  activeSessions: Array<{ sid: string; last_path: string; country: string | null; is_authed: boolean; seconds_ago: number }>;
   funnel: { visitors: number; signups: number; trialActive: number; paid: number };
   trialEndingSoon: Array<{ id: string; email: string; first_name: string | null; subscription_tier: string; expires_at: string }>;
   payingUsers: PayingUser[];
   lifetimeUsersList: Array<{ id: string; email: string; first_name: string | null; created_at: string }>;
   topPages30d: Array<{ path: string; views: number; unique_visitors: number }>;
-  viewsByDay: Array<{ day: string; views: number }>;
+  viewsByDay: Array<{ day: string; views: number; unique_visitors: number }>;
   newUsersByDay: Array<{ day: string; signups: number }>;
   revenueByDay: Array<{ day: string; amount_cents: number; tx_count: number }>;
 }
+
 
 interface AdminPayment {
   id: string; user_id: string; email: string | null;
