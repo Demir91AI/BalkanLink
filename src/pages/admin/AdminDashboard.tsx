@@ -38,15 +38,22 @@ interface Stats {
   avgViewsPerDay30d: number;
   revenueToday: number; revenue7d: number; revenue30d: number; revenueAllTime: number;
   paidCount30d: number; estimatedMrr: number;
+  estimatedRevenueFromSubs: number;
+  paymentsTableEmpty: boolean;
+  totalAds: number; totalListings: number; totalAnswers: number;
+  totalReviews: number; publishedQuestions: number; pendingQuestions: number;
+  onlineNow: number;
+  activeSessions: Array<{ sid: string; last_path: string; country: string | null; is_authed: boolean; seconds_ago: number }>;
   funnel: { visitors: number; signups: number; trialActive: number; paid: number };
   trialEndingSoon: Array<{ id: string; email: string; first_name: string | null; subscription_tier: string; expires_at: string }>;
   payingUsers: PayingUser[];
   lifetimeUsersList: Array<{ id: string; email: string; first_name: string | null; created_at: string }>;
   topPages30d: Array<{ path: string; views: number; unique_visitors: number }>;
-  viewsByDay: Array<{ day: string; views: number }>;
+  viewsByDay: Array<{ day: string; views: number; unique_visitors: number }>;
   newUsersByDay: Array<{ day: string; signups: number }>;
   revenueByDay: Array<{ day: string; amount_cents: number; tx_count: number }>;
 }
+
 
 interface AdminPayment {
   id: string; user_id: string; email: string | null;
@@ -294,45 +301,43 @@ function Funnel({ funnel }: { funnel: Stats["funnel"] }) {
 
 /* ─────────────────────── Real-time online widget ─────────────────────── */
 
-function OnlineNow() {
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), 30000);
-    return () => clearInterval(id);
-  }, []);
-  // Simulirano: 1-3 korisnika, anonimne oznake
-  const seed = (tick % 3) + 1;
-  const sessions = Array.from({ length: seed }).map((_, i) => ({
-    label: `Korisnik #${i + 1}`,
-    page: ["/", "/dolazak", "/formulari", "/viza", "/asistent"][(i + tick) % 5],
-    secs: 60 + ((i + tick * 7) % 600),
-  }));
+function OnlineNow({ onlineNow, sessions }: { onlineNow: number; sessions: Stats["activeSessions"] }) {
   return (
     <Card className="p-5" style={{ borderLeft: `3px solid ${C.violet}` }}>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full animate-pulse" style={{ background: C.emerald }} />
+          <span className="h-2 w-2 rounded-full animate-pulse" style={{ background: onlineNow > 0 ? C.emerald : C.slate }} />
           <span className="text-sm font-bold" style={{ color: C.text }}>
-            {sessions.length} korisnika trenutno online
+            {onlineNow} {onlineNow === 1 ? "korisnik" : "korisnika"} aktivno (zadnjih 5 min)
           </span>
         </div>
-        <Label>Real-time · refresh 30s</Label>
+        <Label>Real-time · auto refresh 30s</Label>
       </div>
-      <div className="space-y-2">
-        {sessions.map((s, i) => (
-          <div key={i} className="flex items-center justify-between text-xs px-3 py-2 rounded-lg"
-            style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}` }}>
-            <span className="font-bold" style={{ color: C.text }}>{s.label}</span>
-            <span className="font-mono" style={{ color: C.cyan }}>{s.page}</span>
-            <Metric>
-              <span className="text-[11px]">{Math.floor(s.secs / 60)}m {s.secs % 60}s</span>
-            </Metric>
-          </div>
-        ))}
-      </div>
+      {sessions.length === 0 ? (
+        <div className="text-xs py-4 text-center" style={{ color: C.slate }}>Nema aktivnih sesija u zadnjih 5 minuta.</div>
+      ) : (
+        <div className="space-y-2 max-h-[280px] overflow-y-auto">
+          {sessions.map((s) => (
+            <div key={s.sid} className="flex items-center justify-between text-xs px-3 py-2 rounded-lg gap-3"
+              style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}` }}>
+              <span className="font-bold shrink-0" style={{ color: s.is_authed ? C.emerald : C.slate }}>
+                {s.is_authed ? "👤 Prijavljen" : "👻 Gost"}
+                {s.country && <span className="ml-2 opacity-70">{s.country}</span>}
+              </span>
+              <span className="font-mono truncate flex-1 text-center" style={{ color: C.cyan }}>{s.last_path}</span>
+              <Metric>
+                <span className="text-[11px] shrink-0" style={{ color: C.textDim }}>
+                  prije {s.seconds_ago < 60 ? `${s.seconds_ago}s` : `${Math.floor(s.seconds_ago / 60)}m`}
+                </span>
+              </Metric>
+            </div>
+          ))}
+        </div>
+      )}
     </Card>
   );
 }
+
 
 /* ═══════════════════════════════════════════════════════════ */
 
@@ -617,15 +622,13 @@ function TabPregled({
     "/foerderungen": "Förderungen",
   };
   const top = stats.topPages30d.slice(0, 8);
-  // sparkline mock from viewsByDay
-  const last7 = stats.viewsByDay.slice(-7).map((d) => d.views);
-
-  // chart data zadnjih 14 dana
+  // chart data zadnjih 14 dana — real views + real unique visitors
   const chartData = stats.viewsByDay.slice(-14).map((d) => ({
     day: d.day.slice(5),
     views: d.views,
-    unique: Math.max(1, Math.round(d.views * 0.6)),
+    unique: d.unique_visitors ?? 0,
   }));
+
 
   return (
     <div className="space-y-6">
@@ -648,7 +651,7 @@ function TabPregled({
       </div>
 
       {/* Real-time online */}
-      <OnlineNow />
+      <OnlineNow onlineNow={stats.onlineNow ?? 0} sessions={stats.activeSessions ?? []} />
 
       {/* Red 2 — Funnel + Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -690,7 +693,7 @@ function TabPregled({
           <table className="w-full text-sm">
             <thead>
               <tr style={{ borderBottom: `1px solid ${C.border}` }}>
-                {["#", "Stranica", "Naziv", "Pregledi", "Avg. vrijeme", "Trend 7d", "Bounce %"].map((h) => (
+                {["#", "Stranica", "Naziv", "Pregledi", "Jedinstveni", "% ukupnih"].map((h) => (
                   <th key={h} className="text-left py-2 px-3 text-[10px] uppercase font-bold tracking-wider" style={{ color: C.slate }}>
                     {h}
                   </th>
@@ -698,25 +701,28 @@ function TabPregled({
               </tr>
             </thead>
             <tbody>
-              {top.map((p, i) => (
-                <tr key={p.path} className="transition-colors" style={{ borderBottom: `1px solid ${C.border}` }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.02)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
-                  <td className="py-2 px-3" style={{ color: C.slate }}>{i + 1}</td>
-                  <td className="py-2 px-3 font-mono text-xs" style={{ color: C.cyan }}>{p.path}</td>
-                  <td className="py-2 px-3" style={{ color: C.text }}>{PAGE_NAMES[p.path] ?? "—"}</td>
-                  <td className="py-2 px-3 tabular-nums font-bold" style={{ color: C.text }}>{num(p.views)}</td>
-                  <td className="py-2 px-3 tabular-nums" style={{ color: C.textDim }}>{(45 + (i * 13) % 90)}s</td>
-                  <td className="py-2 px-3"><Sparkline data={last7.map((v) => v + (i * 3) % 20)} color={C.violet} /></td>
-                  <td className="py-2 px-3 tabular-nums" style={{ color: C.amber }}>{30 + (i * 7) % 40}%</td>
-                </tr>
-              ))}
+              {top.map((p, i) => {
+                const share = stats.views30d > 0 ? ((p.views / stats.views30d) * 100).toFixed(1) : "0";
+                return (
+                  <tr key={p.path} className="transition-colors" style={{ borderBottom: `1px solid ${C.border}` }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.02)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
+                    <td className="py-2 px-3" style={{ color: C.slate }}>{i + 1}</td>
+                    <td className="py-2 px-3 font-mono text-xs" style={{ color: C.cyan }}>{p.path}</td>
+                    <td className="py-2 px-3" style={{ color: C.text }}>{PAGE_NAMES[p.path] ?? "—"}</td>
+                    <td className="py-2 px-3 tabular-nums font-bold" style={{ color: C.text }}>{num(p.views)}</td>
+                    <td className="py-2 px-3 tabular-nums" style={{ color: C.textDim }}>{num(p.unique_visitors ?? 0)}</td>
+                    <td className="py-2 px-3 tabular-nums" style={{ color: C.amber }}>{share}%</td>
+                  </tr>
+                );
+              })}
               {top.length === 0 && (
-                <tr><td colSpan={7} className="text-center py-6" style={{ color: C.slate }}>Nema podataka</td></tr>
+                <tr><td colSpan={6} className="text-center py-6" style={{ color: C.slate }}>Nema podataka</td></tr>
               )}
             </tbody>
           </table>
         </div>
+
       </Card>
 
       {/* Heatmap */}
@@ -786,8 +792,21 @@ function TabPrihodi({
 
   return (
     <div className="space-y-6">
+      {stats.paymentsTableEmpty && (
+        <Card className="p-4" style={{ borderLeft: `3px solid ${C.amber}`, background: `${C.amber}10` }}>
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="h-4 w-4 mt-0.5" style={{ color: C.amber }} />
+            <div className="text-xs" style={{ color: C.text }}>
+              <strong>Napomena:</strong> <code>payments</code> tabela je prazna — Stripe webhook još nije zapisao transakcije.
+              Prihod iz aktivnih pretplata: <strong>{eur(stats.estimatedRevenueFromSubs)}</strong> ({stats.premiumMonthly} mj. + {stats.premiumYearly} god.).
+              MRR vrijednost ispod je stvarna (računata iz aktivnih pretplata).
+            </div>
+          </div>
+        </Card>
+      )}
       {/* Red 1 — KPI */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+
         <KpiTile icon={<Euro className="h-4 w-4" />} label="MRR realni" value={eur(stats.estimatedMrr)} accent="amber" />
         <KpiTile icon={<TrendingUp className="h-4 w-4" />} label="Prihod 30D" value={eur(stats.revenue30d)} sub={`${stats.paidCount30d} transakcija`} />
         <KpiTile icon={<Calendar className="h-4 w-4" />} label="Prihod danas" value={eur(stats.revenueToday)} />
