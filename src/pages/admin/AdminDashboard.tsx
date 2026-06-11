@@ -792,8 +792,21 @@ function TabPrihodi({
 
   return (
     <div className="space-y-6">
+      {stats.paymentsTableEmpty && (
+        <Card className="p-4" style={{ borderLeft: `3px solid ${C.amber}`, background: `${C.amber}10` }}>
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="h-4 w-4 mt-0.5" style={{ color: C.amber }} />
+            <div className="text-xs" style={{ color: C.text }}>
+              <strong>Napomena:</strong> <code>payments</code> tabela je prazna — Stripe webhook još nije zapisao transakcije.
+              Prihod iz aktivnih pretplata: <strong>{eur(stats.estimatedRevenueFromSubs)}</strong> ({stats.premiumMonthly} mj. + {stats.premiumYearly} god.).
+              MRR vrijednost ispod je stvarna (računata iz aktivnih pretplata).
+            </div>
+          </div>
+        </Card>
+      )}
       {/* Red 1 — KPI */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+
         <KpiTile icon={<Euro className="h-4 w-4" />} label="MRR realni" value={eur(stats.estimatedMrr)} accent="amber" />
         <KpiTile icon={<TrendingUp className="h-4 w-4" />} label="Prihod 30D" value={eur(stats.revenue30d)} sub={`${stats.paidCount30d} transakcija`} />
         <KpiTile icon={<Calendar className="h-4 w-4" />} label="Prihod danas" value={eur(stats.revenueToday)} />
