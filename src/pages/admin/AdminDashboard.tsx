@@ -301,45 +301,43 @@ function Funnel({ funnel }: { funnel: Stats["funnel"] }) {
 
 /* ─────────────────────── Real-time online widget ─────────────────────── */
 
-function OnlineNow() {
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), 30000);
-    return () => clearInterval(id);
-  }, []);
-  // Simulirano: 1-3 korisnika, anonimne oznake
-  const seed = (tick % 3) + 1;
-  const sessions = Array.from({ length: seed }).map((_, i) => ({
-    label: `Korisnik #${i + 1}`,
-    page: ["/", "/dolazak", "/formulari", "/viza", "/asistent"][(i + tick) % 5],
-    secs: 60 + ((i + tick * 7) % 600),
-  }));
+function OnlineNow({ onlineNow, sessions }: { onlineNow: number; sessions: Stats["activeSessions"] }) {
   return (
     <Card className="p-5" style={{ borderLeft: `3px solid ${C.violet}` }}>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full animate-pulse" style={{ background: C.emerald }} />
+          <span className="h-2 w-2 rounded-full animate-pulse" style={{ background: onlineNow > 0 ? C.emerald : C.slate }} />
           <span className="text-sm font-bold" style={{ color: C.text }}>
-            {sessions.length} korisnika trenutno online
+            {onlineNow} {onlineNow === 1 ? "korisnik" : "korisnika"} aktivno (zadnjih 5 min)
           </span>
         </div>
-        <Label>Real-time · refresh 30s</Label>
+        <Label>Real-time · auto refresh 30s</Label>
       </div>
-      <div className="space-y-2">
-        {sessions.map((s, i) => (
-          <div key={i} className="flex items-center justify-between text-xs px-3 py-2 rounded-lg"
-            style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}` }}>
-            <span className="font-bold" style={{ color: C.text }}>{s.label}</span>
-            <span className="font-mono" style={{ color: C.cyan }}>{s.page}</span>
-            <Metric>
-              <span className="text-[11px]">{Math.floor(s.secs / 60)}m {s.secs % 60}s</span>
-            </Metric>
-          </div>
-        ))}
-      </div>
+      {sessions.length === 0 ? (
+        <div className="text-xs py-4 text-center" style={{ color: C.slate }}>Nema aktivnih sesija u zadnjih 5 minuta.</div>
+      ) : (
+        <div className="space-y-2 max-h-[280px] overflow-y-auto">
+          {sessions.map((s) => (
+            <div key={s.sid} className="flex items-center justify-between text-xs px-3 py-2 rounded-lg gap-3"
+              style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}` }}>
+              <span className="font-bold shrink-0" style={{ color: s.is_authed ? C.emerald : C.slate }}>
+                {s.is_authed ? "👤 Prijavljen" : "👻 Gost"}
+                {s.country && <span className="ml-2 opacity-70">{s.country}</span>}
+              </span>
+              <span className="font-mono truncate flex-1 text-center" style={{ color: C.cyan }}>{s.last_path}</span>
+              <Metric>
+                <span className="text-[11px] shrink-0" style={{ color: C.textDim }}>
+                  prije {s.seconds_ago < 60 ? `${s.seconds_ago}s` : `${Math.floor(s.seconds_ago / 60)}m`}
+                </span>
+              </Metric>
+            </div>
+          ))}
+        </div>
+      )}
     </Card>
   );
 }
+
 
 /* ═══════════════════════════════════════════════════════════ */
 
