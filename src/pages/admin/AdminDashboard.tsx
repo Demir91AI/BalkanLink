@@ -19,10 +19,16 @@ import { Badge } from "@/components/ui/badge";
 
 /* ─────────────────────── Tipovi ─────────────────────── */
 
+interface PayingUser {
+  id: string; email: string; first_name: string | null;
+  subscription_tier: string; subscription_expires_at: string | null; created_at: string;
+}
+
 interface Stats {
   totalUsers: number;
   newToday: number; new7d: number; new30d: number;
   activePremium: number; trialUsers: number;
+  premiumMonthly: number; premiumYearly: number;
   launchTrialUsers: number; influencerTrialUsers: number; freeUsers: number;
   lifetimeUsers: number;
   chatToday: number; chat7d: number; chat30d: number;
@@ -34,6 +40,8 @@ interface Stats {
   paidCount30d: number; estimatedMrr: number;
   funnel: { visitors: number; signups: number; trialActive: number; paid: number };
   trialEndingSoon: Array<{ id: string; email: string; first_name: string | null; subscription_tier: string; expires_at: string }>;
+  payingUsers: PayingUser[];
+  lifetimeUsersList: Array<{ id: string; email: string; first_name: string | null; created_at: string }>;
   topPages30d: Array<{ path: string; views: number; unique_visitors: number }>;
   viewsByDay: Array<{ day: string; views: number }>;
   newUsersByDay: Array<{ day: string; signups: number }>;
