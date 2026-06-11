@@ -19,10 +19,16 @@ import { Badge } from "@/components/ui/badge";
 
 /* ─────────────────────── Tipovi ─────────────────────── */
 
+interface PayingUser {
+  id: string; email: string; first_name: string | null;
+  subscription_tier: string; subscription_expires_at: string | null; created_at: string;
+}
+
 interface Stats {
   totalUsers: number;
   newToday: number; new7d: number; new30d: number;
   activePremium: number; trialUsers: number;
+  premiumMonthly: number; premiumYearly: number;
   launchTrialUsers: number; influencerTrialUsers: number; freeUsers: number;
   lifetimeUsers: number;
   chatToday: number; chat7d: number; chat30d: number;
@@ -34,6 +40,8 @@ interface Stats {
   paidCount30d: number; estimatedMrr: number;
   funnel: { visitors: number; signups: number; trialActive: number; paid: number };
   trialEndingSoon: Array<{ id: string; email: string; first_name: string | null; subscription_tier: string; expires_at: string }>;
+  payingUsers: PayingUser[];
+  lifetimeUsersList: Array<{ id: string; email: string; first_name: string | null; created_at: string }>;
   topPages30d: Array<{ path: string; views: number; unique_visitors: number }>;
   viewsByDay: Array<{ day: string; views: number }>;
   newUsersByDay: Array<{ day: string; signups: number }>;
@@ -823,8 +831,8 @@ function TabPrihodi({
           <SectionTitle>Pretplate breakdown</SectionTitle>
           <div className="space-y-2">
             {[
-              { label: "Premium Mjesečno", count: stats.activePremium, sub: `${eur(stats.estimatedMrr)} / mj`, color: C.amber },
-              { label: "Premium Godišnje", count: 0, sub: "—", color: C.violet },
+              { label: "Premium Mjesečno", count: stats.premiumMonthly ?? 0, sub: `${eur((stats.premiumMonthly ?? 0) * 999)} / mj`, color: C.amber },
+              { label: "Premium Godišnje", count: stats.premiumYearly ?? 0, sub: `${eur((stats.premiumYearly ?? 0) * 9990)} / god`, color: C.violet },
               { label: "Lifetime (interni)", count: stats.lifetimeUsers, sub: "0 €", color: C.slate },
               { label: "Trial aktivan", count: stats.trialUsers, sub: trialEnding ? `najbliži ističe: ${new Date(trialEnding.expires_at).toLocaleDateString("bs-BA")}` : "—", color: C.cyan },
             ].map((row) => (
@@ -848,7 +856,88 @@ function TabPrihodi({
         </Card>
       </div>
 
-      {/* Red 3 — Upcoming renewals */}
+      {/* Premium plaćajući korisnici */}
+      <Card className="p-5">
+        <SectionTitle right={
+          <Badge variant="outline" style={{ borderColor: C.amber + "60", color: C.amber }}>
+            {(stats.payingUsers ?? []).length} aktivnih
+          </Badge>
+        }>Premium plaćajući korisnici</SectionTitle>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr style={{ borderBottom: `1px solid ${C.border}` }}>
+                {["Email", "Ime", "Plan", "Cijena", "Ističe", "Status"].map((h) => (
+                  <th key={h} className="text-left py-2 px-3 text-[10px] uppercase font-bold tracking-wider" style={{ color: C.slate }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {(stats.payingUsers ?? []).map((u) => {
+                const yearly = u.subscription_tier === "premium_yearly";
+                const expires = u.subscription_expires_at ? new Date(u.subscription_expires_at) : null;
+                const expiresSoon = expires && expires.getTime() - Date.now() < 7 * 24 * 3600 * 1000;
+                return (
+                  <tr key={u.id} style={{ borderBottom: `1px solid ${C.border}` }}>
+                    <td className="py-2 px-3" style={{ color: C.text }}>{u.email}</td>
+                    <td className="py-2 px-3" style={{ color: C.textDim }}>{u.first_name || "—"}</td>
+                    <td className="py-2 px-3">
+                      <Badge variant="outline" style={{ borderColor: (yearly ? C.violet : C.amber) + "60", color: yearly ? C.violet : C.amber }}>
+                        {yearly ? "Godišnje" : "Mjesečno"}
+                      </Badge>
+                    </td>
+                    <td className="py-2 px-3 tabular-nums" style={{ color: C.text }}>{yearly ? "99.90 €" : "9.99 €"}</td>
+                    <td className="py-2 px-3 tabular-nums" style={{ color: expiresSoon ? C.rose : C.textDim }}>
+                      {expires ? expires.toLocaleDateString("bs-BA") : "—"}
+                    </td>
+                    <td className="py-2 px-3">
+                      <span className="inline-flex items-center gap-1 text-xs" style={{ color: expiresSoon ? C.rose : C.emerald }}>
+                        {expiresSoon ? "⚠️ Uskoro ističe" : "🟢 Aktivan"}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
+              {(stats.payingUsers ?? []).length === 0 && (
+                <tr><td colSpan={6} className="text-center py-6" style={{ color: C.slate }}>Nema plaćajućih Premium korisnika</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </Card>
+
+      {/* Lifetime (interni) korisnici */}
+      <Card className="p-5">
+        <SectionTitle right={
+          <Badge variant="outline" style={{ borderColor: C.slate + "60", color: C.slate }}>
+            {(stats.lifetimeUsersList ?? []).length}
+          </Badge>
+        }>Lifetime korisnici (interni, ne plaćaju)</SectionTitle>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr style={{ borderBottom: `1px solid ${C.border}` }}>
+                {["Email", "Ime", "Registriran"].map((h) => (
+                  <th key={h} className="text-left py-2 px-3 text-[10px] uppercase font-bold tracking-wider" style={{ color: C.slate }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {(stats.lifetimeUsersList ?? []).map((u) => (
+                <tr key={u.id} style={{ borderBottom: `1px solid ${C.border}` }}>
+                  <td className="py-2 px-3" style={{ color: C.text }}>{u.email}</td>
+                  <td className="py-2 px-3" style={{ color: C.textDim }}>{u.first_name || "—"}</td>
+                  <td className="py-2 px-3" style={{ color: C.textDim }}>{new Date(u.created_at).toLocaleDateString("bs-BA")}</td>
+                </tr>
+              ))}
+              {(stats.lifetimeUsersList ?? []).length === 0 && (
+                <tr><td colSpan={3} className="text-center py-6" style={{ color: C.slate }}>Nema lifetime korisnika</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </Card>
+
       <Card className="p-5">
         <SectionTitle>Obnove u narednih 30 dana</SectionTitle>
         <div className="overflow-x-auto">
