@@ -693,7 +693,7 @@ function TabPregled({
           <table className="w-full text-sm">
             <thead>
               <tr style={{ borderBottom: `1px solid ${C.border}` }}>
-                {["#", "Stranica", "Naziv", "Pregledi", "Avg. vrijeme", "Trend 7d", "Bounce %"].map((h) => (
+                {["#", "Stranica", "Naziv", "Pregledi", "Jedinstveni", "% ukupnih"].map((h) => (
                   <th key={h} className="text-left py-2 px-3 text-[10px] uppercase font-bold tracking-wider" style={{ color: C.slate }}>
                     {h}
                   </th>
@@ -701,25 +701,28 @@ function TabPregled({
               </tr>
             </thead>
             <tbody>
-              {top.map((p, i) => (
-                <tr key={p.path} className="transition-colors" style={{ borderBottom: `1px solid ${C.border}` }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.02)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
-                  <td className="py-2 px-3" style={{ color: C.slate }}>{i + 1}</td>
-                  <td className="py-2 px-3 font-mono text-xs" style={{ color: C.cyan }}>{p.path}</td>
-                  <td className="py-2 px-3" style={{ color: C.text }}>{PAGE_NAMES[p.path] ?? "—"}</td>
-                  <td className="py-2 px-3 tabular-nums font-bold" style={{ color: C.text }}>{num(p.views)}</td>
-                  <td className="py-2 px-3 tabular-nums" style={{ color: C.textDim }}>{(45 + (i * 13) % 90)}s</td>
-                  <td className="py-2 px-3"><Sparkline data={last7.map((v) => v + (i * 3) % 20)} color={C.violet} /></td>
-                  <td className="py-2 px-3 tabular-nums" style={{ color: C.amber }}>{30 + (i * 7) % 40}%</td>
-                </tr>
-              ))}
+              {top.map((p, i) => {
+                const share = stats.views30d > 0 ? ((p.views / stats.views30d) * 100).toFixed(1) : "0";
+                return (
+                  <tr key={p.path} className="transition-colors" style={{ borderBottom: `1px solid ${C.border}` }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.02)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
+                    <td className="py-2 px-3" style={{ color: C.slate }}>{i + 1}</td>
+                    <td className="py-2 px-3 font-mono text-xs" style={{ color: C.cyan }}>{p.path}</td>
+                    <td className="py-2 px-3" style={{ color: C.text }}>{PAGE_NAMES[p.path] ?? "—"}</td>
+                    <td className="py-2 px-3 tabular-nums font-bold" style={{ color: C.text }}>{num(p.views)}</td>
+                    <td className="py-2 px-3 tabular-nums" style={{ color: C.textDim }}>{num(p.unique_visitors ?? 0)}</td>
+                    <td className="py-2 px-3 tabular-nums" style={{ color: C.amber }}>{share}%</td>
+                  </tr>
+                );
+              })}
               {top.length === 0 && (
-                <tr><td colSpan={7} className="text-center py-6" style={{ color: C.slate }}>Nema podataka</td></tr>
+                <tr><td colSpan={6} className="text-center py-6" style={{ color: C.slate }}>Nema podataka</td></tr>
               )}
             </tbody>
           </table>
         </div>
+
       </Card>
 
       {/* Heatmap */}
