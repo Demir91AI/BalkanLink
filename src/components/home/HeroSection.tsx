@@ -234,8 +234,8 @@ export default function HeroSection() {
       {(renderAllSlides ? slides : slides.slice(0, INITIAL_SLIDE_COUNT)).map((slide, idx) => (
         <div
           key={idx}
-          className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
-          style={{ opacity: idx === currentSlide ? 1 : 0, zIndex: idx === currentSlide ? 1 : 0 }}
+          className="absolute inset-0 transition-opacity ease-in-out"
+          style={{ opacity: idx === currentSlide ? 1 : 0, zIndex: idx === currentSlide ? 1 : 0, transitionDuration: "1500ms" }}
         >
           <img
             src={slide.image}
