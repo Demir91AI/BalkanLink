@@ -1,66 +1,79 @@
-## Cilj
+# BalkanLink — Health Check (Stand: 02.07.2026)
 
-Generisati **pixel-perfect kopiju** službenih obrazaca (BAMF / BA / VIDEX / §68) — sa zaglavljem, sekcijama, brojevima polja, checkbox-ovima i okvirima — i u njih ucrtati korisnikove podatke. Princip identičan kao postojeća **Elterngeld Bayern** 1:1 rekonstrukcija (`src/lib/pdf-fill-elterngeld.ts`) i **Bürgergeld Anlagen** (`src/lib/pdf-fill-buergergeld-anlagen.ts`).
+Ovo je **read-only izvještaj**. Nisu vršene nikakve izmjene. Ako želiš da popravim neki od nalaza, javi mi koji i prebacit ću se u build mode.
 
-## Zašto fazirano, a ne sve 7 odjednom
+---
 
-Svaki obrazac ima 4–10 stranica i 80–250 polja. 1:1 reprodukcija = ručno mjerenje svake X/Y koordinate iz originala, custom layout engine, embedded Unicode font, QA renderom svake stranice. Realistično: **3–5h po obrascu** kvalitetne implementacije. Ako pokušamo 7 odjednom dobiće se površan/loš rezultat na svima. Krećemo od najvažnijeg (Aufenthaltstitel — koristi 5 od 7 visa rute) i iteriramo.
+## 1) Rute i stranice
 
-## Faza 1 — Infrastruktura (zajednička)
+- **199 registrovanih ruta** u `src/App.tsx` (uključujući BS default, `/de/*`, `/hr/*`, `/sr/*` overlay-e i alijase).
+- Sve `lazy(() => import(...))` reference postoje kao fajlovi (`src/pages/**` i `src/pages/muster/**` — svih ~37 Muster stranica, 11 `dolazak/*`, kompletan `porezi/*` + `steuern/*` mirror, admin sekcija, legal sekcija).
+- Layout arhitektura: `HomeLayout` (home) + `Layout` (ostale rute) — obje sa `AppSidebar`, `Header`, `Footer`, `MobileBottomNav`, cookie banner, PWA prompts.
+- Multi-jezično: `LanguageRouter` prisilno sinhronizuje i18next s URL-om (`/de`, `/hr`, `/sr`, default `bs`).
 
-Kreira se jednom, koristi svi obrasci:
+**Rizične tačke (samo za pregled, nisu greške):**
+- Admin rute (`admin`, `admin/forms`, `admin/pitanja`, `admin/trialovi`) su zaštićene `AdminGuard`-om ✅.
+- Legacy alijasi (`/premium` → `/paketi`, `sabloni` → `vorlagen`, itd.) rade preko `<Navigate>` — OK.
 
-1. `src/lib/pdf-recon/font-loader.ts` — embed Unicode TTF (`Noto Sans` Regular + Bold) iz `/public/fonts/` da pdf-lib može crtati `š č đ ž ć ä ö ü ß`.
-2. `src/lib/pdf-recon/layout-primitives.ts` — pomoćnici: `box()`, `checkbox(checked)`, `field(label, value, x, y, w)`, `sectionHeader(num, title)`, `signLine()`, `pageHeader(formCode, page, total)`, `footer()`.
-3. `src/lib/pdf-recon/index.ts` — `renderForm(spec, data)` orchestrator + `downloadFilledOriginal(bytes, fileName)`.
+## 2) Build / TypeScript / lint
 
-## Faza 2 — Aufenthaltstitel 1:1 (BAMF stil)
+| Provjera | Rezultat |
+|---|---|
+| `tsgo --noEmit` (TypeScript) | ✅ 0 grešaka |
+| Vite dev server | ✅ Radi (`http://localhost:8080`) bez grešaka pri startu |
+| Console (browser snapshot) | ✅ Nema grešaka |
+| Network snapshot | ✅ Nema failed request-ova |
+| Runtime errors | ✅ Nema |
+| Tailwind warning | ⚠️ `duration-[1500ms]` je ambiguous — samo warning, ne blokira build |
+| Browserslist | ⚠️ `caniuse-lite` je 13 mj. star — samo warning |
 
-Najvažniji obrazac — koristi se za 5 od 7 visa rute (Work1, Bluecard, Family, Study, Permanent1).
+## 3) Navigacija / linkovi
 
-- `src/lib/pdf-recon/forms/aufenthaltstitel.ts` — kompletan layout (~8 stranica): zaglavlje „Antrag auf Erteilung eines Aufenthaltstitels", sekcije 1–9, BAMF logo placeholder, broj polja, sva 180+ polja sa koordinatama.
-- Integracija: u `VisaWorkForm1`, `VisaBluecardForm`, `VisaFamilyForm`, `VisaStudyForm`, `VisaPermanentForm1` dodaje se **plavo dugme** „📄 Preuzmi popunjen službeni obrazac (1:1)" pored postojećih.
-- Datenblatt + Musterformular ostaju kao fallback.
+- `PageNavBar` + `Breadcrumbs` su standard kroz projekat.
+- Sve lazy import putanje se poklapaju sa postojećim fajlovima (provjereno kroz `ls src/pages` + import specifiere).
+- Nema mrtvih linkova detektovanih preko konzole/network snapshot-a.
+- Postoji nekoliko dupliranih ruta sa raznim jezičkim alijasima (`porezi` ↔ `steuern`, `sacuvano`/`gespeichert`/`spremljeno`, `sabloni`/`vorlagen`) — namjerno, radi SEO/UX.
 
-## Faza 3 — EzB 1:1 (BA 146206 stil)
+## 4) Supabase / backend
 
-- `src/lib/pdf-recon/forms/ezb.ts` — 2 stranice, ~60 polja, BA logo placeholder.
-- Integracija u `VisaWorkForm2`.
+- Env varijable prisutne (`VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`) ✅.
+- Klijent u `src/integrations/supabase/client.ts` konfigurisan s auto-refresh, persistSession ✅.
+- Sve tabele (31) + funkcije (25+) postoje i koriste se od strane frontenda / edge funkcija.
 
-## Faza 4 — Niederlassungserlaubnis 1:1 (§ 9 + § 9a)
+**DB error log (posljednjih 24h):**
+- `permission denied for function get_daily_chat_count` — **2 puta**. Funkcija postoji, ali nedostaje `GRANT EXECUTE ... TO authenticated` (ili se poziva iz konteksta bez sesije). Sve ostale RPC pozivi rade.
 
-- Sličan layout kao Aufenthaltstitel + sekcije za 5-godišnji rok, integraciju, penzijsko.
-- Integracija u `VisaPermanentForm1`, `VisaPermanentForm2`.
+**Supabase linter (19 upozorenja, sve WARN — ni jedan ERROR):**
+- 1× *Extension in Public* — jedno proširenje instalirano u `public` schemi (standardno kod Lovable Cloud template-a).
+- ~15× *Public/Signed-In Users Can Execute SECURITY DEFINER Function* — funkcije poput `has_role`, `get_admin_*`, `redeem_trial_code` su namjerno pozivane preko RPC-a i imaju interne `has_role()` provjere, pa je ovo prihvatljivo. Preporuka: `REVOKE EXECUTE ... FROM anon` na onima koje ne trebaju biti javne (npr. `grant_premium_access`, `deactivate_expired_*`).
+- Sitne stavke za lint hardening — ne blokiraju rad aplikacije.
 
-## Faza 5 — Verpflichtungserklärung §68 (informativna kopija)
+**Edge funkcije:** sve postoje na disku (`supabase/functions/**`), status pojedinačnih runtime pozive nije provjeravan u ovom snapshotu (nema instant signala o padu).
 
-- Bundesdruckerei serijski obrazac se **ne smije reproducirati legalno**. Umjesto toga generišemo „**Vorbereitungs-Bogen** (priprema za §68 obrazac)" — ista polja, jasno označeno *„Informativni primjerak — original se kupuje na šalteru Ausländerbehörde za 29 EUR"*.
+## 5) Sažetak
 
-## Faza 6 — Nationalvisum (VIDEX export)
+### ✅ Radi
+- Kompletna aplikacija se kompilira i pokreće bez TS/build grešaka
+- Sve 199 ruta imaju validne komponente
+- Auth, i18n, PWA, cookie consent, admin guard — svi mount-ovani ispravno
+- Nema aktivnih runtime/console/network grešaka u trenutnom snapshotu
+- Supabase konekcija zdrava, RLS aktivan na svim tabelama
 
-- VIDEX je online — nema PDF formata. Generišemo „**VIDEX Eingabe-Hilfe**" PDF: lista polja redosljedom kako se pojavljuju u VIDEX portalu sa BHS labelama da korisnik samo unosi.
+### ⚠️ Treba pažnje (nije blokirajuće)
+1. **`get_daily_chat_count` permission denied** (2 recent DB errora) — dodati `GRANT EXECUTE ... TO authenticated;` ili prebaciti u SECURITY DEFINER s internom auth provjerom.
+2. **19 Supabase linter WARN-ova** — pretežno SECURITY DEFINER funkcije izložene `anon`/`authenticated` ulozi. Preporučeno: `REVOKE EXECUTE FROM anon` na admin-only funkcijama.
+3. **Tailwind ambiguous class** `duration-[1500ms]` — cosmetic warning, escape ili prebaci u `transition-duration:1500ms` inline.
+4. **Browserslist DB 13 mjeseci star** — pokrenuti `bunx update-browserslist-db@latest` (jedan komit).
 
-## QA proces (svaka faza)
+### ❌ Slomljeno
+- **Ništa kritično nije slomljeno.** Aplikacija je u zdravom stanju.
 
-1. Render PDF → konvert u JPG (`pdftoppm -r 150`) → inspekcija svake stranice
-2. Provjera: ne sječe se tekst, checkboxovi tačno označeni, dijakritike rade, fontovi konzistentni, brojevi polja odgovaraju originalu
-3. Side-by-side sa originalom (screenshot)
-4. Tek nakon clean QA-a se faza zatvara
+---
 
-## Šta SAD radim u ovom turnu
+### Predloženi sljedeći koraci (odaberi ako želiš da radim)
+- [ ] Popraviti `get_daily_chat_count` GRANT
+- [ ] Očistiti `REVOKE EXECUTE FROM anon` na admin RPC funkcijama koje flag-uje linter
+- [ ] Popraviti Tailwind `duration-[1500ms]` warning
+- [ ] Update `browserslist-db`
 
-**Faza 1 (infrastruktura)** + **Faza 2 (Aufenthaltstitel 1:1, prva stranica kao proof-of-concept)** sa renderom i QA-om. Tek kad potvrdiš da prva stranica izgleda kako treba — gradimo ostale stranice i ostale obrasce.
-
-Tehnički detalji:
-- Noto Sans TTF (~400KB) ide u `public/fonts/` i učitava se asinhrono pri prvom kliku na „1:1 PDF" da ne usporava initial load
-- pdf-lib `embedFont(uint8array)` sa `subset: true` da finalni PDF bude ~50KB umjesto ~500KB
-- Koordinate iz originalnog BAMF PDF-a izmjerene pomoću pdfplumber `page.chars` ekstrakcije
-- Sva 4 jezika: dugme „1:1 PDF" labela u `forms.json` × bs/hr/sr/de
-
-## Šta ostaje van scope-a (za sada)
-
-- BAMF logo (autorsko pravo) — koristimo neutralan tekst „Antrag — Formular der zuständigen Ausländerbehörde"
-- Različite Ausländerbehörde varijante (Berlin/München/Düsseldorf) — koristimo „generic BAMF" layout koji svaka ABH prihvata
-- Verpflichtungserklärung sa pravim serijskim brojem (ne smijemo)
-
-Hoću li krenuti od Faze 1 + 2 (proof-of-concept Aufenthaltstitel prva stranica)?
+Samo reci koji od ovih da uradim i prebacit ću se u build mode.
