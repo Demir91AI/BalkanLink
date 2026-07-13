@@ -1,0 +1,2 @@
+UPDATE public.profiles SET is_premium = true, subscription_tier = 'premium', subscription_expires_at = to_timestamp(1785185597) WHERE email = 'huber.tarik@gmail.com';
+UPDATE public.profiles SET is_premium = true, subscription_tier = 'premium', subscription_expires_at = to_timestamp(1785015280) WHERE email = 'demir.zijada@gmail.com';
