@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Switch } from "@/components/ui/switch";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { Download, RefreshCw, CheckCircle2, XCircle } from "lucide-react";
+import { Download, RefreshCw, CheckCircle2, XCircle, ShieldAlert, Trash2, Save } from "lucide-react";
 
 type SyncLogRow = {
   id: string;
@@ -19,6 +22,13 @@ type SyncLogRow = {
   created_at: string;
 };
 
+type RetentionSettings = {
+  retention_days: number;
+  auto_purge_enabled: boolean;
+  last_purged_at: string | null;
+  last_purged_count: number;
+};
+
 const ACTION_LABEL: Record<string, string> = {
   audit: "Provjera (audit)",
   sync_all: "Sync svih",
@@ -29,9 +39,15 @@ const fmt = (iso: string) =>
   new Date(iso).toLocaleString("de-DE", { dateStyle: "short", timeStyle: "medium" });
 
 export default function StripeSyncLogSection() {
+  const { isAdmin, profileLoading } = useAuth();
   const [rows, setRows] = useState<SyncLogRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [onlyFailed, setOnlyFailed] = useState(false);
+  const [settings, setSettings] = useState<RetentionSettings | null>(null);
+  const [retentionInput, setRetentionInput] = useState("90");
+  const [savingSettings, setSavingSettings] = useState(false);
+  const [purging, setPurging] = useState(false);
+
 
   const load = useCallback(async () => {
     setLoading(true);
