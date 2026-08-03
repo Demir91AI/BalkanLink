@@ -13,6 +13,37 @@ const log = (step: string, details?: unknown) => {
   console.log(`[stripe-sync-audit] ${step}${extra}`);
 };
 
+type NotifyArgs = {
+  admin: any;
+  type: string;
+  severity: "info" | "success" | "warning" | "error";
+  title: string;
+  body: string;
+  metadata?: Record<string, unknown>;
+  email?: Record<string, unknown> | null;
+};
+
+async function notifyAdmins({ admin, type, severity, title, body, metadata = {}, email = null }: NotifyArgs) {
+  try {
+    await admin.from("admin_notifications").insert({ type, severity, title, body, metadata });
+  } catch (e) {
+    log("notification insert failed", { message: String(e) });
+  }
+  if (!email) return;
+  try {
+    await admin.functions.invoke("send-transactional-email", {
+      body: {
+        templateName: "admin-stripe-sync",
+        recipientEmail: "kontakt@balkanlink.de",
+        idempotencyKey: `stripe-sync-${type}-${Date.now()}`,
+        templateData: email,
+      },
+    });
+  } catch (e) {
+    log("notification email failed", { message: String(e) });
+  }
+}
+
 const toIso = (value: unknown): string | null => {
   const seconds = typeof value === "number" ? value : Number(value);
   if (!Number.isFinite(seconds) || seconds <= 0) return null;
@@ -237,6 +268,66 @@ serve(async (req) => {
 
     rows.sort((a, b) => (a.status === "ok" ? 1 : 0) - (b.status === "ok" ? 1 : 0) || a.email.localeCompare(b.email));
 
+    // 6) Admin notifications (in-app + email)
+    const mismatchRows = rows.filter((r) => r.status !== "ok");
+    const emailRows = mismatchRows.slice(0, 15).map((r) => ({
+      email: r.email,
+      status: r.status,
+      issue: r.issue,
+      db_expires_at: r.db_expires_at,
+      stripe_period_end: r.stripe_period_end,
+      diff_days: r.diff_days,
+    }));
+
+    if (applyFix) {
+      const ok = fixed > 0;
+      const scope = targetEmail ? `korisnika ${targetEmail}` : "svih neslaganja";
+      await notifyAdmins({
+        admin,
+        type: "stripe_sync",
+        severity: ok ? "success" : "error",
+        title: ok ? `Stripe sync uspješan (${scope})` : `Stripe sync nije ništa promijenio (${scope})`,
+        body: ok
+          ? `Ažurirano profila: ${fixed}. Preostalih neslaganja: ${mismatchRows.length}.`
+          : `Sync je pokrenut za ${scope}, ali nijedan profil nije ažuriran. Preostalih neslaganja: ${mismatchRows.length}.`,
+        metadata: { fixed, target: targetEmail, mismatches: mismatchRows.length },
+        email: {
+          outcome: ok ? "success" : "failure",
+          headline: ok ? "Stripe sync uspješan" : "Stripe sync nije ništa promijenio",
+          message: ok
+            ? `Ažurirano profila: ${fixed} (${scope}).`
+            : `Sync pokrenut za ${scope}, ali nijedan profil nije ažuriran.`,
+          checkedAt: summary.checkedAt,
+          stripeActive: summary.stripeActive,
+          mismatches: mismatchRows.length,
+          fixed,
+          rows: emailRows,
+        },
+      });
+    } else if (mismatchRows.length > 0) {
+      await notifyAdmins({
+        admin,
+        type: "stripe_mismatch",
+        severity: "warning",
+        title: `Otkriveno ${mismatchRows.length} neslaganja Stripe ↔ baza`,
+        body: mismatchRows
+          .slice(0, 5)
+          .map((r) => `${r.email}: ${r.issue ?? r.status}`)
+          .join(" · "),
+        metadata: { mismatches: mismatchRows.length, rows: emailRows },
+        email: {
+          outcome: "mismatch",
+          headline: "Otkriveno neslaganje Stripe ↔ baza",
+          message: `Pronađeno je ${mismatchRows.length} neslaganja između Stripe pretplata i baze.`,
+          checkedAt: summary.checkedAt,
+          stripeActive: summary.stripeActive,
+          mismatches: mismatchRows.length,
+          fixed: 0,
+          rows: emailRows,
+        },
+      });
+    }
+
     return new Response(JSON.stringify({ summary, rows, payments }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
@@ -244,6 +335,23 @@ serve(async (req) => {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     log("ERROR", { message });
+    await notifyAdmins({
+      admin,
+      type: "stripe_sync",
+      severity: "error",
+      title: "Stripe sync neuspješan",
+      body: message,
+      metadata: { error: message },
+      email: {
+        outcome: "failure",
+        headline: "Stripe sync neuspješan",
+        message,
+        checkedAt: new Date().toISOString(),
+        mismatches: 0,
+        fixed: 0,
+        rows: [],
+      },
+    });
     return new Response(JSON.stringify({ error: message }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 500,
