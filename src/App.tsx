@@ -320,6 +320,7 @@ function LocalizedRoutes() {
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
           <Route path="admin/trialovi" element={<AdminTrialovi />} />
           <Route path="admin/pitanja" element={<AdminPitanja />} />
+          <Route path="admin/stripe-sync" element={<AdminStripeSync />} />
         </Route>
         <Route path="qa" element={<QA />} />
         <Route path="qa/:id" element={<QADetail />} />
