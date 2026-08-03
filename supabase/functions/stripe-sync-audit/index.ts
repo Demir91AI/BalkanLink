@@ -80,6 +80,25 @@ serve(async (req) => {
     { auth: { persistSession: false } },
   );
 
+  let actorId: string | null = null;
+  let actorEmail: string | null = null;
+  let actorAction = "audit";
+  let actorTargetEmail: string | null = null;
+
+  const writeSyncLog = async (entry: Record<string, unknown>) => {
+    try {
+      await admin.from("stripe_sync_log").insert({
+        action: actorAction,
+        admin_user_id: actorId,
+        admin_email: actorEmail,
+        target_email: actorTargetEmail,
+        ...entry,
+      });
+    } catch (e) {
+      log("sync log insert failed", { message: String(e) });
+    }
+  };
+
   try {
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
@@ -91,6 +110,9 @@ serve(async (req) => {
     if (userError || !userData?.user) {
       return new Response(JSON.stringify({ error: "unauthorized" }), { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
+    actorId = userData.user.id;
+    actorEmail = userData.user.email ?? null;
+
     const { data: isAdmin } = await admin.rpc("has_role", { _user_id: userData.user.id, _role: "admin" });
     if (!isAdmin) {
       return new Response(JSON.stringify({ error: "forbidden" }), { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } });
@@ -101,6 +123,9 @@ serve(async (req) => {
     const targetEmail: string | null = typeof body?.email === "string" && body.email.trim()
       ? body.email.trim().toLowerCase()
       : null;
+
+    actorAction = applyFix ? (targetEmail ? "sync_user" : "sync_all") : "audit";
+    actorTargetEmail = targetEmail;
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
@@ -328,6 +353,18 @@ serve(async (req) => {
       });
     }
 
+    await writeSyncLog({
+      success: applyFix ? fixed > 0 : true,
+      records_updated: fixed,
+      mismatches_found: mismatchRows.length,
+      details: {
+        stripeSubscriptions: summary.stripeSubscriptions,
+        stripeActive: summary.stripeActive,
+        profiles: summary.profiles,
+        payments: summary.payments,
+      },
+    });
+
     return new Response(JSON.stringify({ summary, rows, payments }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
@@ -335,6 +372,7 @@ serve(async (req) => {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     log("ERROR", { message });
+    await writeSyncLog({ success: false, error_message: message });
     await notifyAdmins({
       admin,
       type: "stripe_sync",
