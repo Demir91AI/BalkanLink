@@ -247,6 +247,49 @@ export default function StripeSyncLogSection() {
         ))}
       </div>
 
+      <Card className="p-4 space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">Politika zadržavanja logova</h3>
+            <p className="text-xs text-muted-foreground">
+              Zapisi stariji od zadanog broja dana brišu se automatski (dnevno u 03:20).
+              {settings?.last_purged_at
+                ? ` Zadnje čišćenje: ${fmt(settings.last_purged_at)} (${settings.last_purged_count} zapisa).`
+                : " Još nije bilo čišćenja."}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-muted-foreground">Auto-čišćenje</span>
+            <Switch
+              checked={!!settings?.auto_purge_enabled}
+              disabled={savingSettings || !settings}
+              onCheckedChange={(v) => saveSettings({ auto_purge_enabled: v })}
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <Input
+            type="number"
+            min={1}
+            max={3650}
+            value={retentionInput}
+            onChange={(e) => setRetentionInput(e.target.value)}
+            className="w-28"
+          />
+          <span className="text-sm text-muted-foreground">dana</span>
+          <Button size="sm" variant="outline" onClick={saveRetention} disabled={savingSettings}>
+            <Save className="h-4 w-4 mr-1.5" />
+            Sačuvaj
+          </Button>
+          <Button size="sm" variant="destructive" onClick={purgeNow} disabled={purging}>
+            <Trash2 className="h-4 w-4 mr-1.5" />
+            Očisti sada
+          </Button>
+        </div>
+      </Card>
+
+
+
       <Card className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-muted/50 text-muted-foreground">
