@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Switch } from "@/components/ui/switch";
+import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { Download, RefreshCw, CheckCircle2, XCircle } from "lucide-react";
+import { Download, RefreshCw, CheckCircle2, XCircle, ShieldAlert, Trash2, Save } from "lucide-react";
 
 type SyncLogRow = {
   id: string;
@@ -19,6 +22,13 @@ type SyncLogRow = {
   created_at: string;
 };
 
+type RetentionSettings = {
+  retention_days: number;
+  auto_purge_enabled: boolean;
+  last_purged_at: string | null;
+  last_purged_count: number;
+};
+
 const ACTION_LABEL: Record<string, string> = {
   audit: "Provjera (audit)",
   sync_all: "Sync svih",
@@ -29,9 +39,27 @@ const fmt = (iso: string) =>
   new Date(iso).toLocaleString("de-DE", { dateStyle: "short", timeStyle: "medium" });
 
 export default function StripeSyncLogSection() {
+  const { isAdmin, profileLoading } = useAuth();
   const [rows, setRows] = useState<SyncLogRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [onlyFailed, setOnlyFailed] = useState(false);
+  const [settings, setSettings] = useState<RetentionSettings | null>(null);
+  const [retentionInput, setRetentionInput] = useState("90");
+  const [savingSettings, setSavingSettings] = useState(false);
+  const [purging, setPurging] = useState(false);
+
+
+  const loadSettings = useCallback(async () => {
+    const { data } = await (supabase as any)
+      .from("stripe_sync_log_settings")
+      .select("retention_days, auto_purge_enabled, last_purged_at, last_purged_count")
+      .eq("id", 1)
+      .maybeSingle();
+    if (data) {
+      setSettings(data as RetentionSettings);
+      setRetentionInput(String((data as RetentionSettings).retention_days));
+    }
+  }, []);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -49,7 +77,9 @@ export default function StripeSyncLogSection() {
   }, []);
 
   useEffect(() => {
+    if (!isAdmin) return;
     load();
+    loadSettings();
     const channel = supabase
       .channel("stripe-sync-log")
       .on(
@@ -61,7 +91,45 @@ export default function StripeSyncLogSection() {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [load]);
+  }, [load, loadSettings, isAdmin]);
+
+  const saveSettings = async (patch: Partial<RetentionSettings>) => {
+    setSavingSettings(true);
+    const { error } = await (supabase as any)
+      .from("stripe_sync_log_settings")
+      .update({ ...patch, updated_at: new Date().toISOString() })
+      .eq("id", 1);
+    setSavingSettings(false);
+    if (error) {
+      toast.error("Nemate ovlaštenje ili je došlo do greške");
+      return;
+    }
+    toast.success("Politika zadržavanja sačuvana");
+    loadSettings();
+  };
+
+  const saveRetention = () => {
+    const days = Number(retentionInput);
+    if (!Number.isFinite(days) || days < 1 || days > 3650) {
+      toast.error("Unesite broj dana između 1 i 3650");
+      return;
+    }
+    saveSettings({ retention_days: Math.round(days) });
+  };
+
+  const purgeNow = async () => {
+    setPurging(true);
+    const { data, error } = await (supabase as any).rpc("purge_stripe_sync_log", { _force: true });
+    setPurging(false);
+    if (error) {
+      toast.error("Čišćenje nije uspjelo");
+      return;
+    }
+    toast.success(`Obrisano ${data ?? 0} starih zapisa`);
+    load();
+    loadSettings();
+  };
+
 
   const visible = useMemo(
     () => (onlyFailed ? rows.filter((r) => !r.success) : rows),
@@ -122,8 +190,27 @@ export default function StripeSyncLogSection() {
     toast.success(`Izvezeno ${visible.length} zapisa`);
   };
 
+  if (profileLoading) {
+    return <p className="text-sm text-muted-foreground">Provjera ovlaštenja…</p>;
+  }
+
+  if (!isAdmin) {
+    return (
+      <Card className="p-6 flex items-start gap-3">
+        <ShieldAlert className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
+        <div>
+          <h2 className="text-base font-semibold text-foreground">Pristup ograničen</h2>
+          <p className="text-sm text-muted-foreground">
+            Stripe podaci i audit log vidljivi su isključivo korisnicima s admin ulogom.
+          </p>
+        </div>
+      </Card>
+    );
+  }
+
   return (
     <div className="space-y-4">
+
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-foreground">Stripe ↔ baza audit log</h2>
@@ -159,6 +246,49 @@ export default function StripeSyncLogSection() {
           </Card>
         ))}
       </div>
+
+      <Card className="p-4 space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">Politika zadržavanja logova</h3>
+            <p className="text-xs text-muted-foreground">
+              Zapisi stariji od zadanog broja dana brišu se automatski (dnevno u 03:20).
+              {settings?.last_purged_at
+                ? ` Zadnje čišćenje: ${fmt(settings.last_purged_at)} (${settings.last_purged_count} zapisa).`
+                : " Još nije bilo čišćenja."}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-muted-foreground">Auto-čišćenje</span>
+            <Switch
+              checked={!!settings?.auto_purge_enabled}
+              disabled={savingSettings || !settings}
+              onCheckedChange={(v) => saveSettings({ auto_purge_enabled: v })}
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <Input
+            type="number"
+            min={1}
+            max={3650}
+            value={retentionInput}
+            onChange={(e) => setRetentionInput(e.target.value)}
+            className="w-28"
+          />
+          <span className="text-sm text-muted-foreground">dana</span>
+          <Button size="sm" variant="outline" onClick={saveRetention} disabled={savingSettings}>
+            <Save className="h-4 w-4 mr-1.5" />
+            Sačuvaj
+          </Button>
+          <Button size="sm" variant="destructive" onClick={purgeNow} disabled={purging}>
+            <Trash2 className="h-4 w-4 mr-1.5" />
+            Očisti sada
+          </Button>
+        </div>
+      </Card>
+
+
 
       <Card className="overflow-x-auto">
         <table className="w-full text-sm">

@@ -1106,6 +1106,36 @@ export type Database = {
         }
         Relationships: []
       }
+      stripe_sync_log_settings: {
+        Row: {
+          auto_purge_enabled: boolean
+          id: number
+          last_purged_at: string | null
+          last_purged_count: number
+          retention_days: number
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          auto_purge_enabled?: boolean
+          id?: number
+          last_purged_at?: string | null
+          last_purged_count?: number
+          retention_days?: number
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          auto_purge_enabled?: boolean
+          id?: number
+          last_purged_at?: string | null
+          last_purged_count?: number
+          retention_days?: number
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
@@ -1559,6 +1589,7 @@ export type Database = {
         }
         Returns: number
       }
+      purge_stripe_sync_log: { Args: { _force?: boolean }; Returns: number }
       read_email_batch: {
         Args: { batch_size: number; queue_name: string; vt: number }
         Returns: {
