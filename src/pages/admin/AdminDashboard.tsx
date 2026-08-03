@@ -527,6 +527,11 @@ export default function AdminDashboard() {
                   <span className="text-xs" style={{ color: C.amber }}>MRR {eur(stats.estimatedMrr)}</span>
                 </Metric>
               </div>
+              <Button size="sm" variant="outline" asChild
+                className="text-xs"
+                style={{ background: C.card, border: `1px solid ${C.border}`, color: C.text }}>
+                <a href="/admin/stripe-sync">Stripe ↔ Baza</a>
+              </Button>
               <Button size="sm" variant="outline" onClick={() => loadAll(true)} disabled={refreshing}
                 className="text-xs"
                 style={{ background: C.card, border: `1px solid ${C.border}`, color: C.text }}>
