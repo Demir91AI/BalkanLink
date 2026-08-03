@@ -147,6 +147,7 @@ const PitajDijasporu = lazy(() => import("./pages/PitajDijasporu"));
 const PitajDijasporuDetail = lazy(() => import("./pages/PitajDijasporuDetail"));
 const AdminPitanja = lazy(() => import("./pages/admin/AdminPitanja"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminStripeSync = lazy(() => import("./pages/admin/AdminStripeSync"));
 const ObnovaPasosPage = lazy(() => import("./pages/ObnovaPasosPage"));
 const Sacuvano = lazy(() => import("./pages/Sacuvano"));
 
