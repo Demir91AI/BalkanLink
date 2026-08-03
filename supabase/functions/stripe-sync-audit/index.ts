@@ -170,11 +170,14 @@ serve(async (req) => {
       });
     }
 
-    // 4) Optional: apply fixes (align DB with Stripe)
+    // 4) Optional: apply fixes (align DB with Stripe). When `email` is set, only that user.
     let fixed = 0;
     if (applyFix) {
       for (const row of rows) {
-        if (!row.user_id || row.status !== "date_mismatch") continue;
+        if (targetEmail && row.email.toLowerCase() !== targetEmail) continue;
+        if (!row.user_id) continue;
+        if (!targetEmail && row.status !== "date_mismatch") continue;
+        if (targetEmail && row.status === "ok" && !row.stripe_status) continue;
         const stripeActive = row.stripe_status === "active" || row.stripe_status === "trialing";
         if (stripeActive && row.stripe_period_end) {
           const tier = row.stripe_interval === "year" ? "premium_yearly" : "premium";
