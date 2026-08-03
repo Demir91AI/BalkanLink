@@ -67,6 +67,9 @@ serve(async (req) => {
 
     const body = req.method === "POST" ? await req.json().catch(() => ({})) : {};
     const applyFix: boolean = body?.apply === true;
+    const targetEmail: string | null = typeof body?.email === "string" && body.email.trim()
+      ? body.email.trim().toLowerCase()
+      : null;
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
