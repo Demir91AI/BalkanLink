@@ -1061,6 +1061,51 @@ export type Database = {
         }
         Relationships: []
       }
+      stripe_sync_log: {
+        Row: {
+          action: string
+          admin_email: string | null
+          admin_user_id: string | null
+          created_at: string
+          details: Json
+          error_message: string | null
+          id: string
+          mismatches_found: number
+          records_updated: number
+          success: boolean
+          target_email: string | null
+          target_user_id: string | null
+        }
+        Insert: {
+          action?: string
+          admin_email?: string | null
+          admin_user_id?: string | null
+          created_at?: string
+          details?: Json
+          error_message?: string | null
+          id?: string
+          mismatches_found?: number
+          records_updated?: number
+          success?: boolean
+          target_email?: string | null
+          target_user_id?: string | null
+        }
+        Update: {
+          action?: string
+          admin_email?: string | null
+          admin_user_id?: string | null
+          created_at?: string
+          details?: Json
+          error_message?: string | null
+          id?: string
+          mismatches_found?: number
+          records_updated?: number
+          success?: boolean
+          target_email?: string | null
+          target_user_id?: string | null
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
