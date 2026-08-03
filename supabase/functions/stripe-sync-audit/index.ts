@@ -197,6 +197,34 @@ serve(async (req) => {
       log("fixes applied", { fixed });
     }
 
+    // 5) Payment records from the database, grouped by status
+    const { data: paymentRows } = await admin
+      .from("payments")
+      .select("id, user_id, amount, currency, status, paid_at, created_at")
+      .order("created_at", { ascending: false })
+      .limit(200);
+
+    const profileById = new Map((profiles ?? []).map((p: any) => [p.id, p]));
+    const payments = (paymentRows ?? []).map((p: any) => ({
+      ...p,
+      email: profileById.get(p.user_id)?.email ?? null,
+    }));
+
+    const normalize = (s: string | null) => {
+      const v = (s ?? "").toLowerCase();
+      if (v === "paid" || v === "succeeded") return "paid";
+      if (v === "failed" || v === "canceled" || v === "cancelled") return "failed";
+      return "pending";
+    };
+    const paymentTotals = {
+      paid: payments.filter((p) => normalize(p.status) === "paid").length,
+      failed: payments.filter((p) => normalize(p.status) === "failed").length,
+      pending: payments.filter((p) => normalize(p.status) === "pending").length,
+      paidAmountCents: payments
+        .filter((p) => normalize(p.status) === "paid")
+        .reduce((sum, p) => sum + (Number(p.amount) || 0), 0),
+    };
+
     const summary = {
       stripeSubscriptions: subs.length,
       stripeActive: subs.filter((s) => s.status === "active" || s.status === "trialing").length,
@@ -204,11 +232,12 @@ serve(async (req) => {
       mismatches: rows.filter((r) => r.status !== "ok").length,
       fixed,
       checkedAt: new Date().toISOString(),
+      payments: paymentTotals,
     };
 
     rows.sort((a, b) => (a.status === "ok" ? 1 : 0) - (b.status === "ok" ? 1 : 0) || a.email.localeCompare(b.email));
 
-    return new Response(JSON.stringify({ summary, rows }), {
+    return new Response(JSON.stringify({ summary, rows, payments }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
