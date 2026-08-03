@@ -67,6 +67,9 @@ serve(async (req) => {
 
     const body = req.method === "POST" ? await req.json().catch(() => ({})) : {};
     const applyFix: boolean = body?.apply === true;
+    const targetEmail: string | null = typeof body?.email === "string" && body.email.trim()
+      ? body.email.trim().toLowerCase()
+      : null;
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
@@ -167,11 +170,14 @@ serve(async (req) => {
       });
     }
 
-    // 4) Optional: apply fixes (align DB with Stripe)
+    // 4) Optional: apply fixes (align DB with Stripe). When `email` is set, only that user.
     let fixed = 0;
     if (applyFix) {
       for (const row of rows) {
-        if (!row.user_id || row.status !== "date_mismatch") continue;
+        if (targetEmail && row.email.toLowerCase() !== targetEmail) continue;
+        if (!row.user_id) continue;
+        if (!targetEmail && row.status !== "date_mismatch") continue;
+        if (targetEmail && row.status === "ok" && !row.stripe_status) continue;
         const stripeActive = row.stripe_status === "active" || row.stripe_status === "trialing";
         if (stripeActive && row.stripe_period_end) {
           const tier = row.stripe_interval === "year" ? "premium_yearly" : "premium";
@@ -191,6 +197,34 @@ serve(async (req) => {
       log("fixes applied", { fixed });
     }
 
+    // 5) Payment records from the database, grouped by status
+    const { data: paymentRows } = await admin
+      .from("payments")
+      .select("id, user_id, amount, currency, status, paid_at, created_at")
+      .order("created_at", { ascending: false })
+      .limit(200);
+
+    const profileById = new Map((profiles ?? []).map((p: any) => [p.id, p]));
+    const payments = (paymentRows ?? []).map((p: any) => ({
+      ...p,
+      email: profileById.get(p.user_id)?.email ?? null,
+    }));
+
+    const normalize = (s: string | null) => {
+      const v = (s ?? "").toLowerCase();
+      if (v === "paid" || v === "succeeded") return "paid";
+      if (v === "failed" || v === "canceled" || v === "cancelled") return "failed";
+      return "pending";
+    };
+    const paymentTotals = {
+      paid: payments.filter((p) => normalize(p.status) === "paid").length,
+      failed: payments.filter((p) => normalize(p.status) === "failed").length,
+      pending: payments.filter((p) => normalize(p.status) === "pending").length,
+      paidAmountCents: payments
+        .filter((p) => normalize(p.status) === "paid")
+        .reduce((sum, p) => sum + (Number(p.amount) || 0), 0),
+    };
+
     const summary = {
       stripeSubscriptions: subs.length,
       stripeActive: subs.filter((s) => s.status === "active" || s.status === "trialing").length,
@@ -198,11 +232,12 @@ serve(async (req) => {
       mismatches: rows.filter((r) => r.status !== "ok").length,
       fixed,
       checkedAt: new Date().toISOString(),
+      payments: paymentTotals,
     };
 
     rows.sort((a, b) => (a.status === "ok" ? 1 : 0) - (b.status === "ok" ? 1 : 0) || a.email.localeCompare(b.email));
 
-    return new Response(JSON.stringify({ summary, rows }), {
+    return new Response(JSON.stringify({ summary, rows, payments }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });

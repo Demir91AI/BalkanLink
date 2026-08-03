@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import StripeSubscriptionsSection from "@/components/admin/StripeSubscriptionsSection";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
@@ -343,7 +344,7 @@ function OnlineNow({ onlineNow, sessions }: { onlineNow: number; sessions: Stats
 
 const TABS = [
   "Pregled", "Prihodi", "Korisnici", "Saobraćaj", "Funkcije",
-  "DeutschTrainer", "AI Asistent", "Geo", "Troškovi", "Ciljevi",
+  "Stripe", "DeutschTrainer", "AI Asistent", "Geo", "Troškovi", "Ciljevi",
 ] as const;
 type TabKey = typeof TABS[number];
 
@@ -591,6 +592,7 @@ export default function AdminDashboard() {
         <main className="max-w-[1400px] mx-auto px-6 py-6">
           {tab === "Pregled" && <TabPregled stats={stats} totalUsersAdj={totalUsersAdj} realPaying={realPaying} conversionPct={conversionPct} />}
           {tab === "Prihodi" && <TabPrihodi stats={stats} payments={payments} paymentFilter={paymentFilter} setPaymentFilter={setPaymentFilter} />}
+          {tab === "Stripe" && <StripeSubscriptionsSection />}
           {tab === "Korisnici" && <TabKorisnici extra={extra} stats={stats} usersList={usersList} />}
           {tab === "Saobraćaj" && <TabSaobracaj extra={extra} stats={stats} />}
           {tab === "Funkcije" && <TabFunkcije extra={extra} />}
