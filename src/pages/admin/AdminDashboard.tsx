@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import StripeSubscriptionsSection from "@/components/admin/StripeSubscriptionsSection";
 import AdminNotificationsSection from "@/components/admin/AdminNotificationsSection";
+import StripeSyncLogSection from "@/components/admin/StripeSyncLogSection";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
@@ -345,7 +346,7 @@ function OnlineNow({ onlineNow, sessions }: { onlineNow: number; sessions: Stats
 
 const TABS = [
   "Pregled", "Prihodi", "Korisnici", "Saobraćaj", "Funkcije",
-  "Stripe", "Notifikacije", "DeutschTrainer", "AI Asistent", "Geo", "Troškovi", "Ciljevi",
+  "Stripe", "Sync Log", "Notifikacije", "DeutschTrainer", "AI Asistent", "Geo", "Troškovi", "Ciljevi",
 ] as const;
 type TabKey = typeof TABS[number];
 
@@ -594,6 +595,7 @@ export default function AdminDashboard() {
           {tab === "Pregled" && <TabPregled stats={stats} totalUsersAdj={totalUsersAdj} realPaying={realPaying} conversionPct={conversionPct} />}
           {tab === "Prihodi" && <TabPrihodi stats={stats} payments={payments} paymentFilter={paymentFilter} setPaymentFilter={setPaymentFilter} />}
           {tab === "Stripe" && <StripeSubscriptionsSection />}
+          {tab === "Sync Log" && <StripeSyncLogSection />}
           {tab === "Notifikacije" && <AdminNotificationsSection />}
           {tab === "Korisnici" && <TabKorisnici extra={extra} stats={stats} usersList={usersList} />}
           {tab === "Saobraćaj" && <TabSaobracaj extra={extra} stats={stats} />}
