@@ -49,6 +49,18 @@ export default function StripeSyncLogSection() {
   const [purging, setPurging] = useState(false);
 
 
+  const loadSettings = useCallback(async () => {
+    const { data } = await (supabase as any)
+      .from("stripe_sync_log_settings")
+      .select("retention_days, auto_purge_enabled, last_purged_at, last_purged_count")
+      .eq("id", 1)
+      .maybeSingle();
+    if (data) {
+      setSettings(data as RetentionSettings);
+      setRetentionInput(String((data as RetentionSettings).retention_days));
+    }
+  }, []);
+
   const load = useCallback(async () => {
     setLoading(true);
     const { data, error } = await (supabase as any)
@@ -65,7 +77,9 @@ export default function StripeSyncLogSection() {
   }, []);
 
   useEffect(() => {
+    if (!isAdmin) return;
     load();
+    loadSettings();
     const channel = supabase
       .channel("stripe-sync-log")
       .on(
@@ -77,7 +91,45 @@ export default function StripeSyncLogSection() {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [load]);
+  }, [load, loadSettings, isAdmin]);
+
+  const saveSettings = async (patch: Partial<RetentionSettings>) => {
+    setSavingSettings(true);
+    const { error } = await (supabase as any)
+      .from("stripe_sync_log_settings")
+      .update({ ...patch, updated_at: new Date().toISOString() })
+      .eq("id", 1);
+    setSavingSettings(false);
+    if (error) {
+      toast.error("Nemate ovlaštenje ili je došlo do greške");
+      return;
+    }
+    toast.success("Politika zadržavanja sačuvana");
+    loadSettings();
+  };
+
+  const saveRetention = () => {
+    const days = Number(retentionInput);
+    if (!Number.isFinite(days) || days < 1 || days > 3650) {
+      toast.error("Unesite broj dana između 1 i 3650");
+      return;
+    }
+    saveSettings({ retention_days: Math.round(days) });
+  };
+
+  const purgeNow = async () => {
+    setPurging(true);
+    const { data, error } = await (supabase as any).rpc("purge_stripe_sync_log", { _force: true });
+    setPurging(false);
+    if (error) {
+      toast.error("Čišćenje nije uspjelo");
+      return;
+    }
+    toast.success(`Obrisano ${data ?? 0} starih zapisa`);
+    load();
+    loadSettings();
+  };
+
 
   const visible = useMemo(
     () => (onlyFailed ? rows.filter((r) => !r.success) : rows),
