@@ -147,6 +147,7 @@ const PitajDijasporu = lazy(() => import("./pages/PitajDijasporu"));
 const PitajDijasporuDetail = lazy(() => import("./pages/PitajDijasporuDetail"));
 const AdminPitanja = lazy(() => import("./pages/admin/AdminPitanja"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminStripeSync = lazy(() => import("./pages/admin/AdminStripeSync"));
 const ObnovaPasosPage = lazy(() => import("./pages/ObnovaPasosPage"));
 const Sacuvano = lazy(() => import("./pages/Sacuvano"));
 
@@ -319,6 +320,7 @@ function LocalizedRoutes() {
           <Route path="admin/forms/:slug/mapper" element={<AdminFormMapper />} />
           <Route path="admin/trialovi" element={<AdminTrialovi />} />
           <Route path="admin/pitanja" element={<AdminPitanja />} />
+          <Route path="admin/stripe-sync" element={<AdminStripeSync />} />
         </Route>
         <Route path="qa" element={<QA />} />
         <Route path="qa/:id" element={<QADetail />} />
