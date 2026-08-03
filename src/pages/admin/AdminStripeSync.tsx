@@ -79,7 +79,7 @@ export default function AdminStripeSync() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO title="Stripe sinhronizacija — Admin" description="Poređenje Stripe pretplata sa bazom" noindex />
+      <SEO title="Stripe sinhronizacija — Admin" description="Poređenje Stripe pretplata sa bazom" />
       <PageNav />
       <div className="container mx-auto max-w-6xl px-4 py-8 space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
