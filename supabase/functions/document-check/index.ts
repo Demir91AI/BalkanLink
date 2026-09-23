@@ -11,6 +11,7 @@ Deno.serve(async (req) => {
 
   // Credit reserved up-front (atomic) and released again if the check does not complete.
   let reservedCreditId: string | null = null;
+  let reservedLegacyId: string | null = null;
   let completed = false;
   // deno-lint-ignore no-explicit-any
   let adminRef: any = null;
@@ -80,9 +81,14 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Reserve exactly one paid credit atomically (prevents parallel double-use)
-    const { data: creditId, error: reserveErr } = await adminSupabase
-      .rpc("reserve_doc_check_credit", { uid: userId });
+    // Existing (grandfathered) monthly subscribers keep their 5 free checks/day.
+    const { data: legacyId } = await adminSupabase.rpc("reserve_legacy_doc_check", { uid: userId });
+    if (legacyId) reservedLegacyId = legacyId as string;
+
+    // Otherwise reserve exactly one paid credit atomically (prevents parallel double-use)
+    const { data: creditId, error: reserveErr } = reservedLegacyId
+      ? { data: "legacy", error: null }
+      : await adminSupabase.rpc("reserve_doc_check_credit", { uid: userId });
     if (reserveErr) {
       console.error("reserve_doc_check_credit error:", reserveErr.message);
       return new Response(
@@ -100,7 +106,7 @@ Deno.serve(async (req) => {
         { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
-    reservedCreditId = creditId as string;
+    if (!reservedLegacyId) reservedCreditId = creditId as string;
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
@@ -330,6 +336,7 @@ Ako NE → prosiri prije slanja.`;
         status: {
           isPremium: !!postStatus?.is_premium,
           paidCredits: Number(postStatus?.paid_credits ?? 0),
+          premiumRemainingToday: Number(postStatus?.premium_remaining_today ?? 0),
         },
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -341,6 +348,9 @@ Ako NE → prosiri prije slanja.`;
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } finally {
+    if (reservedLegacyId && !completed && adminRef) {
+      await adminRef.rpc("release_legacy_doc_check", { usage_id: reservedLegacyId });
+    }
     if (reservedCreditId && !completed && adminRef) {
       const { error } = await adminRef.rpc("release_doc_check_credit", { credit_id: reservedCreditId });
       if (error) console.error("release_doc_check_credit error:", error.message);

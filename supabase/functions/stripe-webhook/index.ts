@@ -139,7 +139,8 @@ serve(async (req) => {
       }
 
       // ── Legacy Premium subscription renewals (existing subscribers only) ──
-      case "invoice.payment_succeeded": {
+      case "invoice.payment_succeeded":
+      case "invoice.paid": {
         const invoice = event.data.object as Stripe.Invoice;
         const subId = (invoice as any).subscription ?? (invoice as any).parent?.subscription_details?.subscription;
         if (!subId) break;
