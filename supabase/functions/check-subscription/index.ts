@@ -113,7 +113,7 @@ serve(async (req) => {
     });
     // Only legacy consumer Premium subscriptions count (business subscriptions never grant consumer access)
     const subscriptions = {
-      data: allSubs.data.filter((s) => s.items.data.some((it) => LEGACY_PREMIUM_PRICE_IDS.includes(it.price.id))),
+      data: allSubs.data.filter((s: any) => s.items.data.some((it: any) => LEGACY_PREMIUM_PRICE_IDS.includes(it.price.id))),
     };
 
     const { data: currentProfile } = await supabaseClient

@@ -85,7 +85,7 @@ serve(async (req) => {
     // Only legacy consumer Premium subscriptions affect profile access.
     // Business subscriptions (e.g. Featured Firma) must NEVER grant consumer access.
     const isLegacyPremiumSub = (sub: Stripe.Subscription) =>
-      sub.items.data.some((it) =>
+      sub.items.data.some((it: any) =>
         LEGACY_PREMIUM_PRICE_IDS.includes(it.price.id) ||
         LEGACY_PREMIUM_PRODUCT_IDS.includes(typeof it.price.product === "string" ? it.price.product : it.price.product.id)
       );
