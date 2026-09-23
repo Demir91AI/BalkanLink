@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { fulfillCheckoutSession, LEGACY_PREMIUM_PRICE_IDS, LEGACY_PREMIUM_PRODUCT_IDS, PRODUCTS } from "../_shared/products.ts";
 
 const log = (step: string, details?: unknown) => {
   console.log(`[STRIPE-WEBHOOK] ${step}${details ? ` - ${JSON.stringify(details)}` : ""}`);
@@ -81,220 +82,102 @@ serve(async (req) => {
   };
 
   try {
+    // Only legacy consumer Premium subscriptions affect profile access.
+    // Business subscriptions (e.g. Featured Firma) must NEVER grant consumer access.
+    const isLegacyPremiumSub = (sub: Stripe.Subscription) =>
+      sub.items.data.some((it) =>
+        LEGACY_PREMIUM_PRICE_IDS.includes(it.price.id) ||
+        LEGACY_PREMIUM_PRODUCT_IDS.includes(typeof it.price.product === "string" ? it.price.product : it.price.product.id)
+      );
+    const periodEndIso = (sub: Stripe.Subscription) => {
+      const end = (sub as any).current_period_end ?? (sub.items.data[0] as any)?.current_period_end;
+      return typeof end === "number" ? new Date(end * 1000).toISOString() : null;
+    };
+    // Lifetime rows are additionally protected by a DB trigger; we also filter here.
+    const updateLegacyPremiumByEmail = async (email: string, patch: Record<string, unknown>) =>
+      supabase.from("profiles").update(patch).eq("email", email).neq("subscription_tier", "lifetime");
+
     switch (event.type) {
-      // ── Checkout completed ──────────────────────────────────
-      case "checkout.session.completed": {
+      // ── Checkout completed (one-time products: Plus / Dokumenten-Check) ──
+      case "checkout.session.completed":
+      case "checkout.session.async_payment_succeeded": {
         const session = event.data.object as Stripe.Checkout.Session;
-        const userId = session.metadata?.user_id;
         const customerEmail = session.customer_email ?? session.customer_details?.email;
+        log(event.type, { userId: session.metadata?.user_id, mode: session.mode, paid: session.payment_status });
 
-        log("checkout.session.completed", { userId, customerEmail, mode: session.mode });
-
-        if (session.mode === "subscription" && userId) {
-          // Fetch subscription details for expiration date
-          const subscriptionId = session.subscription as string;
-          if (subscriptionId) {
-            const sub = await stripe.subscriptions.retrieve(subscriptionId);
-            const expiresAt = new Date(sub.current_period_end * 1000).toISOString();
-
-            const { error } = await supabase.from("profiles").update({
-              is_premium: true,
-              subscription_tier: "premium",
-              subscription_expires_at: expiresAt,
-            }).eq("id", userId);
-
-            if (error) {
-              log("ERROR updating profile", { userId, error: error.message });
-            } else {
-              log("Profile activated", { userId, expiresAt });
-            }
-
-            // Record payment in payments table for Historija plaćanja
-            const amountTotal = session.amount_total ?? 0;
-            const currency = (session.currency ?? "eur").toUpperCase();
-            const txId = (session.payment_intent as string) ?? session.id;
-            const { error: payErr } = await supabase.from("payments").insert({
-              user_id: userId,
-              provider: "stripe",
-              status: "paid",
-              amount: amountTotal,
-              currency,
-              transaction_id: txId,
-              paid_at: new Date().toISOString(),
-            });
-            if (payErr) log("ERROR inserting payment", { userId, error: payErr.message });
-            else log("Payment recorded", { userId, txId, amountTotal });
-
-            await notifyAdminPayment({
-              email: customerEmail,
-              productLabel: "Premium pretplata",
-              amountCents: amountTotal,
-              currency,
-              mode: "subscription",
-              transactionId: txId,
-              paidAt: new Date().toISOString(),
-            });
-          }
+        if (session.mode !== "payment") {
+          log("Non-payment checkout ignored (no new subscriptions are sold)", { mode: session.mode });
+          break;
+        }
+        if (session.payment_status !== "paid") {
+          log("Session not paid yet — waiting for async_payment_succeeded");
+          break;
         }
 
-        // One-time payment — handle DeutschTrainer level purchases etc.
-        if (session.mode === "payment" && userId) {
-          const formSlug = session.metadata?.form_slug;
-          if (formSlug) {
-            const { error } = await supabase.from("user_form_access").insert({
-              user_id: userId,
-              form_slug: formSlug,
-              status: "active",
-            });
-            if (error) log("ERROR granting form access", { error: error.message });
-            else log("Form access granted", { userId, formSlug });
-          }
+        const { data: already } = await supabase
+          .from("mreza_payments").select("id").eq("provider_payment_id", session.id).maybeSingle();
 
-          const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 10 });
-          const isDocCheck = lineItems.data.some(
-            (li) => li.price?.id === "price_1TQDc3R9oGwbVekBYppvp6Y7"
-          );
-          if (isDocCheck) {
-            const { error: creditErr } = await supabase.rpc("grant_doc_check_credit", {
-              uid: userId,
-              session_id: session.id,
-              amt_cents: session.amount_total ?? 299,
-              curr: (session.currency ?? "eur").toUpperCase(),
-            });
-            if (creditErr) log("ERROR granting doc-check credit", { userId, error: creditErr.message });
-            else log("Doc-check credit granted", { userId, sessionId: session.id });
-          }
+        const key = await fulfillCheckoutSession(stripe, supabase, session);
+        if (!key) {
+          log("Session not eligible for fulfillment (not an allowlisted product/amount)", { sessionId: session.id });
+          break;
+        }
+        log("Fulfilled", { key, sessionId: session.id });
 
-          // Record one-time payment in payments table
-          const amountTotal = session.amount_total ?? 0;
-          const currency = (session.currency ?? "eur").toUpperCase();
-          const txId = (session.payment_intent as string) ?? session.id;
-          const { error: payErr } = await supabase.from("payments").insert({
-            user_id: userId,
-            provider: "stripe",
-            status: "paid",
-            amount: amountTotal,
-            currency,
-            transaction_id: txId,
-            paid_at: new Date().toISOString(),
-          });
-          if (payErr) log("ERROR inserting one-time payment", { userId, error: payErr.message });
-          else log("One-time payment recorded", { userId, txId, amountTotal });
-
+        if (!already) {
           await notifyAdminPayment({
             email: customerEmail,
-            productLabel: isDocCheck ? "Dokumenten-Check (2,99€)" : (formSlug ? `Forma: ${formSlug}` : "Jednokratna uplata"),
-            amountCents: amountTotal,
-            currency,
+            productLabel: PRODUCTS[key].label,
+            amountCents: session.amount_total ?? 0,
+            currency: (session.currency ?? "eur").toUpperCase(),
             mode: "payment",
-            transactionId: txId,
+            transactionId: (session.payment_intent as string) ?? session.id,
             paidAt: new Date().toISOString(),
           });
         }
         break;
       }
 
-      // ── Subscription renewal payment ─────────────────────────
+      // ── Legacy Premium subscription renewals (existing subscribers only) ──
       case "invoice.payment_succeeded": {
         const invoice = event.data.object as Stripe.Invoice;
-        // Skip the first invoice — it's already covered by checkout.session.completed
-        if (invoice.billing_reason === "subscription_create") {
-          log("Skipping initial invoice (handled by checkout.session.completed)");
-          break;
-        }
-        const customerId = invoice.customer as string;
-        const customer = await stripe.customers.retrieve(customerId);
-        if (customer.deleted) break;
-        const email = (customer as Stripe.Customer).email;
-        if (!email) break;
-
-        const { data: profile } = await supabase
-          .from("profiles")
-          .select("id")
-          .eq("email", email)
-          .maybeSingle();
-        if (!profile?.id) {
-          log("No profile found for renewal", { email });
-          break;
-        }
-
-        const txId = (invoice.payment_intent as string) ?? invoice.id;
-        const { error: payErr } = await supabase.from("payments").insert({
-          user_id: profile.id,
-          provider: "stripe",
-          status: "paid",
-          amount: invoice.amount_paid ?? 0,
-          currency: (invoice.currency ?? "eur").toUpperCase(),
-          transaction_id: txId,
-          paid_at: new Date().toISOString(),
+        const subId = (invoice as any).subscription ?? (invoice as any).parent?.subscription_details?.subscription;
+        if (!subId) break;
+        const sub = await stripe.subscriptions.retrieve(typeof subId === "string" ? subId : subId.id);
+        if (!isLegacyPremiumSub(sub)) break;
+        const customer = await stripe.customers.retrieve(sub.customer as string);
+        if (customer.deleted || !(customer as Stripe.Customer).email) break;
+        const email = (customer as Stripe.Customer).email!;
+        const expiresAt = periodEndIso(sub);
+        const { error } = await updateLegacyPremiumByEmail(email, {
+          is_premium: true, subscription_tier: "premium", subscription_expires_at: expiresAt,
         });
-        if (payErr) log("ERROR inserting renewal payment", { email, error: payErr.message });
-        else log("Renewal payment recorded", { email, txId });
-
-        await notifyAdminPayment({
-          email,
-          productLabel: "Premium obnova pretplate",
-          amountCents: invoice.amount_paid ?? 0,
-          currency: (invoice.currency ?? "eur").toUpperCase(),
-          mode: "subscription",
-          transactionId: txId,
-          paidAt: new Date().toISOString(),
-        });
+        if (error) log("ERROR renewing legacy premium", { email, error: error.message });
+        else log("Legacy premium renewed", { email, expiresAt });
         break;
       }
 
-      // ── Subscription updated (renewal, upgrade, downgrade) ──
-      case "customer.subscription.updated": {
-        const sub = event.data.object as Stripe.Subscription;
-        const customerId = sub.customer as string;
-        const customer = await stripe.customers.retrieve(customerId);
-        if (customer.deleted) break;
-
-        const email = (customer as Stripe.Customer).email;
-        if (!email) break;
-
-        const isActive = sub.status === "active" || sub.status === "trialing";
-        const expiresAt = new Date(sub.current_period_end * 1000).toISOString();
-
-        const { error } = await supabase.from("profiles").update({
-          is_premium: isActive,
-          subscription_tier: isActive ? "premium" : "free",
-          subscription_expires_at: isActive ? expiresAt : null,
-        }).eq("email", email);
-
-        if (error) log("ERROR updating subscription", { email, error: error.message });
-        else log("Subscription updated", { email, status: sub.status, isActive });
-        break;
-      }
-
-      // ── Subscription deleted / cancelled ────────────────────
+      case "customer.subscription.updated":
       case "customer.subscription.deleted": {
         const sub = event.data.object as Stripe.Subscription;
-        const customerId = sub.customer as string;
-        const customer = await stripe.customers.retrieve(customerId);
-        if (customer.deleted) break;
-
-        const email = (customer as Stripe.Customer).email;
-        if (!email) break;
-
-        const { error } = await supabase.from("profiles").update({
-          is_premium: false,
-          subscription_tier: "free",
-          subscription_expires_at: null,
-        }).eq("email", email);
-
-        if (error) log("ERROR deactivating subscription", { email, error: error.message });
-        else log("Subscription deactivated", { email });
+        if (!isLegacyPremiumSub(sub)) { log("Non-consumer subscription ignored", { id: sub.id }); break; }
+        const customer = await stripe.customers.retrieve(sub.customer as string);
+        if (customer.deleted || !(customer as Stripe.Customer).email) break;
+        const email = (customer as Stripe.Customer).email!;
+        const isActive = event.type === "customer.subscription.updated" && (sub.status === "active" || sub.status === "trialing");
+        const { error } = await updateLegacyPremiumByEmail(email, {
+          is_premium: isActive,
+          subscription_tier: isActive ? "premium" : "free",
+          subscription_expires_at: isActive ? periodEndIso(sub) : null,
+        });
+        if (error) log("ERROR updating legacy subscription", { email, error: error.message });
+        else log("Legacy subscription synced", { email, status: sub.status, isActive });
         break;
       }
 
-      // ── Invoice payment failed ──────────────────────────────
       case "invoice.payment_failed": {
         const invoice = event.data.object as Stripe.Invoice;
-        const customerEmail = invoice.customer_email;
-        log("Payment failed", { email: customerEmail, invoiceId: invoice.id });
-        // Don't deactivate immediately — Stripe retries. 
-        // Deactivation happens via customer.subscription.deleted after all retries fail.
+        log("Payment failed", { invoiceId: invoice.id });
         break;
       }
 
