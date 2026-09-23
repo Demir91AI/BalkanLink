@@ -267,7 +267,145 @@
       "questionOne": "Frage",
       "questionMany": "Fragen"
     },
-    "whatIsLink": "Was ist BalkanLink?"
+    "whatIsLink": "Was ist BalkanLink?",
+    "pricing": {
+      "heading": "Wählen Sie den passenden Plan",
+      "subline": "Kostenlos starten — upgraden, wenn Sie mehr brauchen. Ohne Vertrag, jederzeit kündbar.",
+      "free": {
+        "label": "Kostenlos",
+        "price": "0 €",
+        "subtitle": "Für immer kostenlos",
+        "title": "Kostenlos — 0 €",
+        "f1": "Grundlegender Leitfaden",
+        "f2": "Formularübersicht",
+        "f3": "Brutto-Netto-Rechner",
+        "f4": "Kleinanzeigen (kostenlos)",
+        "cta": "Kostenlos starten",
+        "tagline": "Ohne Anmeldung · für immer"
+      },
+      "premium": {
+        "label": "Premium",
+        "price": "9,99 €",
+        "perMonth": "/Monat",
+        "subtitle": "oder 99,90 €/Jahr (17 % sparen)",
+        "title": "Premium — 9,99 €/Monat",
+        "recommended": "Empfohlen",
+        "f1": "Alle Musterformulare",
+        "f2": "Smart Guides (alle Schritte)",
+        "f3": "Visa Navigator",
+        "f4": "5× Dokumentenprüfung/Tag",
+        "f5": "Vorlagen (PDF-Download)",
+        "f6": "BalkanLink Assistent unbegrenzt",
+        "f7": "2 Pro-Anzeigen/Monat",
+        "cta": "Premium werden",
+        "trialHint": "7 Tage kostenlos · jederzeit kündbar",
+        "trustline": "Sichere Zahlung · Stripe · §19 UStG"
+      },
+      "docCheck": {
+        "label": "Dokumentenprüfung",
+        "price": "2,99 €",
+        "subtitle": "Pro Dokument (ohne Abo)",
+        "title": "Dokumentenprüfung — 2,99 €",
+        "f1": "Detaillierte Dokumentenanalyse",
+        "f2": "11 Erklärungsabschnitte",
+        "f3": "Fristen und finanzielle Auswirkungen",
+        "f4": "PDF, JPG, PNG bis 10 MB",
+        "cta": "Dokument prüfen",
+        "tagline": "Brief in 30 Sekunden verstehen"
+      },
+      "compare": {
+        "title": "Kostenlos vs. Premium",
+        "tagline": "Alle Unterschiede ansehen",
+        "feature": "Funktion",
+        "free": "Kostenlos",
+        "premium": "Premium",
+        "rows": {
+          "muster": {
+            "feature": "Musterformulare",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Alle Formulare + Beispiele",
+            "freeShort": "❌",
+            "premiumShort": "✅ Alle Formulare"
+          },
+          "guides": {
+            "feature": "Smart Guides",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Schritt-für-Schritt-Leitfaden",
+            "freeShort": "❌",
+            "premiumShort": "✅ Schritt für Schritt"
+          },
+          "visa": {
+            "feature": "Visa Navigator",
+            "free": "Basisinformation",
+            "premium": "✅ Vollständiger Leitfaden + Unterlagen",
+            "freeShort": "Basisinfo",
+            "premiumShort": "✅ Vollständiger Leitfaden"
+          },
+          "doc": {
+            "feature": "Dokumentenprüfung",
+            "free": "2,99 € pro Prüfung",
+            "premium": "✅ 5× täglich gratis",
+            "freeShort": "2,99 €",
+            "premiumShort": "✅ 5×/Tag"
+          },
+          "templates": {
+            "feature": "Vorlagen",
+            "free": "✅ Kündigung gratis",
+            "premium": "✅ Alle Vorlagen + PDF-Download",
+            "freeShort": "✅ Kündigung",
+            "premiumShort": "✅ Alle + PDF"
+          },
+          "assistant": {
+            "feature": "BalkanLink Assistent",
+            "free": "⚠️ 5 Fragen/Tag",
+            "premium": "✅ Unbegrenzt",
+            "freeShort": "5/Tag",
+            "premiumShort": "✅ Unbegrenzt"
+          },
+          "trainer": {
+            "feature": "DeutschTrainer",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ A1–C2 vollständiger Kurs",
+            "freeShort": "❌",
+            "premiumShort": "✅ A1–C2"
+          },
+          "calc": {
+            "feature": "Brutto-Netto-Rechner",
+            "free": "✅ Verfügbar",
+            "premium": "✅ Verfügbar",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "proAds": {
+            "feature": "Pro-Anzeigen",
+            "free": "2,99 €/Anzeige",
+            "premium": "✅ 2 enthalten/Monat",
+            "freeShort": "2,99 €",
+            "premiumShort": "✅ 2/Monat"
+          },
+          "arrival": {
+            "feature": "Ankunft-in-Deutschland-Leitfäden",
+            "free": "✅ Voller Zugang",
+            "premium": "✅ Voller Zugang",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "voucher": {
+            "feature": "Wertgutschein-Programm",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Amazon-Gutschein bis 30 €",
+            "freeShort": "❌",
+            "premiumShort": "✅ bis 30 €"
+          }
+        }
+      },
+      "footer": "Gemäß § 19 UStG wird keine MwSt. ausgewiesen · Jederzeit kündbar · Ohne Vertrag",
+      "partnersLabel": "UNSERE PARTNER",
+      "partnersHeading": "Empfohlene Dienstleistungen",
+      "partnerView": "Ansehen",
+      "partnerContact": "Kontakt",
+      "partnerRecommended": "Empfohlen"
+    }
   },
   "dolazakStart": {
     "seoTitle": "Hier starten — erste Schritte in Deutschland",
