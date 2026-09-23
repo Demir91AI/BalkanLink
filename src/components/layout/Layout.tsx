@@ -8,7 +8,6 @@ import MobileBottomNav from "./MobileBottomNav";
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
-import TrialPromoCTA from "@/components/TrialPromoCTA";
 import CookiePreferencesModal from "@/components/CookiePreferencesModal";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import { usePageViewTracker } from "@/hooks/usePageViewTracker";
@@ -99,7 +98,6 @@ export default function Layout() {
         <PWAiOSOtherGuide show={pwa.showIOSOtherGuide} onDismiss={pwa.closeIOSOtherGuide} />
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
         <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
-        <TrialPromoCTA />
         <AppUpdatePrompt />
       </div>
     </div>
