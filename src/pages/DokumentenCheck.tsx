@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useAuth } from "@/contexts/AuthContext";
-import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
+import { initiateCheckout } from "@/lib/stripe";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
@@ -270,8 +270,8 @@ export default function DokumentenCheck() {
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
   const [creditCount, setCreditCount] = useState<number>(0);
-  const [premiumRemainingToday, setPremiumRemainingToday] = useState<number>(5);
-  const [premiumDailyLimit, setPremiumDailyLimit] = useState<number>(5);
+  const [premiumRemainingToday, setPremiumRemainingToday] = useState<number>(0);
+  const [premiumDailyLimit, setPremiumDailyLimit] = useState<number>(0);
   const [checkoutPending, setCheckoutPending] = useState(false);
   const submittingRef = useRef(false);
 
@@ -283,7 +283,7 @@ export default function DokumentenCheck() {
   const refreshCredits = useCallback(async () => {
     if (!user?.id) {
       setCreditCount(0);
-      setPremiumRemainingToday(5);
+      setPremiumRemainingToday(0);
       return;
     }
     const { data, error } = await supabase.rpc("get_doc_check_status", { uid: user.id });
@@ -362,20 +362,19 @@ export default function DokumentenCheck() {
     setAnalysis(null);
   }, [t]);
 
-  // Open Stripe checkout for the one-off 2.99€ purchase. Stripe opens in a new tab;
+  // Open Stripe checkout for the one-off 1.99€ purchase (every user, incl. Plus). Stripe opens in a new tab;
   // when the user returns, visibilitychange triggers refreshCredits().
   const startOneOffCheckout = useCallback(() => {
     if (!user) { localizedNavigate("/login"); return; }
     setCheckoutPending(true);
-    initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
+    initiateCheckout("doc_check");
   }, [user, localizedNavigate]);
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
-    // Pristup: Premium ima dnevnu kvotu (5/dan); ako je istrošena → mora imati plaćeni kredit.
-    // Non-premium: mora imati plaćeni kredit (2,99€).
+    // Svaki korisnik (i Plus) treba plaćeni kredit (1,99€ po provjeri). Server provjerava atomarno.
     const hasPremiumQuota = isPremium && premiumRemainingToday > 0;
     if (!hasPremiumQuota && creditCount < 1) { setShowPaywall(true); return; }
 
