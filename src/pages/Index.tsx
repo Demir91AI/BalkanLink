@@ -374,7 +374,7 @@ export default function Index() {
                       <span className="text-center text-[hsl(var(--gold))]">{t("home.pricing.compare.premium")}</span>
                     </div>
                     <div className="divide-y divide-white/5">
-                      {["muster","guides","visa","doc","templates","assistant","trainer","calc","proAds","arrival","voucher"].map((key) => (
+                      {["muster","guides","visa","templates","trainer","doc","calc","arrival"].map((key) => (
                         <div key={key} className="grid grid-cols-3 px-4 py-2.5 text-xs items-center">
                           <span className="font-medium text-white/75">{t(`home.pricing.compare.rows.${key}.feature`)}</span>
                           <span className="text-center text-white/40">{t(`home.pricing.compare.rows.${key}.freeShort`)}</span>
@@ -472,7 +472,7 @@ export default function Index() {
                 <span className="text-center text-[hsl(var(--gold))]">{t("home.pricing.compare.premium")} <span className="rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[10px]">{t("home.pricing.premium.price")}{t("home.pricing.premium.perMonth")}</span></span>
               </div>
               <div className="divide-y divide-white/5">
-                {["muster","guides","visa","doc","templates","assistant","trainer","calc","proAds","arrival","voucher"].map((key) => (
+                {["muster","guides","visa","templates","trainer","doc","calc","arrival"].map((key) => (
                   <div key={key} className="grid grid-cols-3 px-6 py-3 text-sm">
                     <span className="font-medium text-white/70">{t(`home.pricing.compare.rows.${key}.feature`)}</span>
                     <span className="text-center text-white/40">{t(`home.pricing.compare.rows.${key}.free`)}</span>

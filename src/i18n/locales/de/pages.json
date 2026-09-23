@@ -267,7 +267,131 @@
       "questionOne": "Frage",
       "questionMany": "Fragen"
     },
-    "whatIsLink": "Was ist BalkanLink?"
+    "whatIsLink": "Was ist BalkanLink?",
+    "pricing": {
+      "heading": "Einfache Preise",
+      "subline": "Kostenlos starten. Wenn du mehr brauchst, zahlst du BalkanLink Plus einmalig — kein Abo.",
+      "free": {
+        "label": "Kostenlos",
+        "price": "0 €",
+        "subtitle": "Für immer kostenlos",
+        "title": "Kostenlos — 0 €",
+        "f1": "Grundlegender Leitfaden",
+        "f2": "Formularübersicht",
+        "f3": "Brutto-Netto-Rechner",
+        "f4": "Kleinanzeigen (kostenlos)",
+        "cta": "Kostenlos starten",
+        "tagline": "Ohne Anmeldung · für immer"
+      },
+      "premium": {
+        "label": "BalkanLink Plus",
+        "price": "19,90 €",
+        "perMonth": " einmalig",
+        "subtitle": "Einmalzahlung · kein Abo · keine automatische Verlängerung",
+        "title": "BalkanLink Plus — 19,90 €",
+        "recommended": "Empfohlen",
+        "f1": "Alle Musterformulare",
+        "f2": "Smart Guides (alle Schritte)",
+        "f3": "Visa Navigator",
+        "f4": "BalkanLink Deutsch A1–C2 inklusive",
+        "f5": "Vorlagen (PDF-Download)",
+        "f6": "Premium-Checklisten",
+        "f7": "Dauerhafter Zugang zu Premium-Inhalten",
+        "cta": "BalkanLink Plus kaufen",
+        "trialHint": "Einmalig · dauerhafter Zugang",
+        "trustline": "Sichere Zahlung · Stripe · §19 UStG"
+      },
+      "docCheck": {
+        "label": "Dokumentenprüfung",
+        "price": "1,99 €",
+        "subtitle": "Pro abgeschlossener Prüfung — für alle, auch mit Plus",
+        "title": "Dokumentenprüfung — 1,99 €",
+        "f1": "Detaillierte Dokumentenanalyse",
+        "f2": "11 Erklärungsabschnitte",
+        "f3": "Fristen und finanzielle Auswirkungen",
+        "f4": "PDF, JPG, PNG bis 10 MB",
+        "cta": "Dokument prüfen",
+        "tagline": "Brief in 30 Sekunden verstehen"
+      },
+      "compare": {
+        "title": "Kostenlos vs. Plus",
+        "tagline": "Alle Unterschiede ansehen",
+        "feature": "Funktion",
+        "free": "Kostenlos",
+        "premium": "Plus",
+        "rows": {
+          "muster": {
+            "feature": "Musterformulare",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Alle Formulare + Beispiele",
+            "freeShort": "❌",
+            "premiumShort": "✅ Alle Formulare"
+          },
+          "guides": {
+            "feature": "Smart Guides",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ Schritt-für-Schritt-Leitfaden",
+            "freeShort": "❌",
+            "premiumShort": "✅ Schritt für Schritt"
+          },
+          "visa": {
+            "feature": "Visa Navigator",
+            "free": "Basisinformation",
+            "premium": "✅ Vollständiger Leitfaden + Unterlagen",
+            "freeShort": "Basisinfo",
+            "premiumShort": "✅ Vollständiger Leitfaden"
+          },
+          "doc": {
+            "feature": "Dokumentenprüfung",
+            "free": "1,99 € pro Prüfung",
+            "premium": "1,99 € pro Prüfung",
+            "freeShort": "1,99 €",
+            "premiumShort": "1,99 €"
+          },
+          "templates": {
+            "feature": "Vorlagen",
+            "free": "✅ Kündigung gratis",
+            "premium": "✅ Alle Vorlagen + PDF-Download",
+            "freeShort": "✅ Kündigung",
+            "premiumShort": "✅ Alle + PDF"
+          },
+          "assistant": {
+            "feature": "BalkanLink Assistent",
+            "free": "⚠️ 5 Fragen/Tag",
+            "premium": "✅ Unbegrenzt",
+            "freeShort": "5/Tag",
+            "premiumShort": "✅ Unbegrenzt"
+          },
+          "trainer": {
+            "feature": "DeutschTrainer",
+            "free": "❌ Nicht verfügbar",
+            "premium": "✅ A1–C2 vollständiger Kurs",
+            "freeShort": "❌",
+            "premiumShort": "✅ A1–C2"
+          },
+          "calc": {
+            "feature": "Brutto-Netto-Rechner",
+            "free": "✅ Verfügbar",
+            "premium": "✅ Verfügbar",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "arrival": {
+            "feature": "Ankunft-in-Deutschland-Leitfäden",
+            "free": "✅ Voller Zugang",
+            "premium": "✅ Voller Zugang",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          }
+        }
+      },
+      "footer": "Gemäß § 19 UStG wird keine MwSt. ausgewiesen · Plus ist eine Einmalzahlung, kein Abo",
+      "partnersLabel": "UNSERE PARTNER",
+      "partnersHeading": "Empfohlene Dienstleistungen",
+      "partnerView": "Ansehen",
+      "partnerContact": "Kontakt",
+      "partnerRecommended": "Empfohlen"
+    }
   },
   "dolazakStart": {
     "seoTitle": "Hier starten — erste Schritte in Deutschland",
@@ -617,18 +741,18 @@
     },
     "upgradeCta": {
       "title": "Weiter lernen",
-      "subtitle": "Schalten Sie alle Lektionen und den Sprachassistenten frei",
+      "subtitle": "Alle 6 Niveaus A1–C2 sind in BalkanLink Plus enthalten — 19,90 € einmalig.",
       "noSubscription": "Kein Abo",
       "payOnce": "Einmal zahlen",
-      "wertgutschein": "Wertgutschein für Premium",
-      "unlockAll": "Alle Lektionen freischalten"
+      "wertgutschein": "In BalkanLink Plus enthalten",
+      "unlockAll": "Mit Plus freischalten — 19,90 €"
     },
     "paywallModal": {
       "title": "Weitere Lektionen freischalten",
-      "body": "Schalten Sie alle Inhalte frei und üben Sie Deutsch für reale Situationen.",
+      "body": "Alle 6 Niveaus A1–C2 sind in BalkanLink Plus enthalten — 19,90 € einmalig.",
       "from": "ab",
       "perOneTime": "/ einmalig",
-      "unlockNow": "Jetzt freischalten",
+      "unlockNow": "Mit Plus freischalten — 19,90 €",
       "decideLater": "Später entscheiden"
     },
     "stages": {

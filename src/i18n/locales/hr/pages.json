@@ -267,7 +267,131 @@
       "questionOne": "pitanje",
       "questionMany": "pitanja"
     },
-    "whatIsLink": "Što je BalkanLink?"
+    "whatIsLink": "Što je BalkanLink?",
+    "pricing": {
+      "heading": "Jednostavne cijene",
+      "subline": "Počni besplatno. Kad trebaš više, BalkanLink Plus plaćaš jednom — bez pretplate.",
+      "free": {
+        "label": "Besplatno",
+        "price": "0€",
+        "subtitle": "Zauvijek besplatno",
+        "title": "Besplatno — 0€",
+        "f1": "Osnovni vodič",
+        "f2": "Pregled formulara",
+        "f3": "Brutto-Netto kalkulator",
+        "f4": "Oglasi (besplatno)",
+        "cta": "Počni besplatno",
+        "tagline": "Bez registracije · zauvijek"
+      },
+      "premium": {
+        "label": "BalkanLink Plus",
+        "price": "19,90€",
+        "perMonth": " jednokratno",
+        "subtitle": "Jedna uplata · bez pretplate · bez automatskog produženja",
+        "title": "BalkanLink Plus — 19,90€",
+        "recommended": "Preporučeno",
+        "f1": "Svi Musterformulari",
+        "f2": "Smart Guides (svi koraci)",
+        "f3": "Viza Navigator",
+        "f4": "BalkanLink Deutsch A1–C2 uključen",
+        "f5": "Šabloni (PDF download)",
+        "f6": "Premium check liste",
+        "f7": "Trajan pristup premium sadržaju",
+        "cta": "Kupi BalkanLink Plus",
+        "trialHint": "Jednokratno · trajan pristup",
+        "trustline": "Sigurno plaćanje · Stripe · §19 UStG"
+      },
+      "docCheck": {
+        "label": "Dokumenten-Check",
+        "price": "1,99€",
+        "subtitle": "Po završenoj provjeri — za sve korisnike, i uz Plus",
+        "title": "Dokumenten-Check — 1,99€",
+        "f1": "Detaljna analiza dokumenta",
+        "f2": "11 sekcija objašnjenja",
+        "f3": "Rokovi i financijski uticaj",
+        "f4": "PDF, JPG, PNG do 10 MB",
+        "cta": "Provjeri dokument",
+        "tagline": "Razumi pismo za 30 sekundi"
+      },
+      "compare": {
+        "title": "Besplatno vs. Plus",
+        "tagline": "Pogledaj sve razlike",
+        "feature": "Funkcija",
+        "free": "Besplatno",
+        "premium": "Plus",
+        "rows": {
+          "muster": {
+            "feature": "Musterformulari",
+            "free": "❌ Nije dostupno",
+            "premium": "✅ Svi formulari + primjeri",
+            "freeShort": "❌",
+            "premiumShort": "✅ Svi formulari"
+          },
+          "guides": {
+            "feature": "Smart Guides",
+            "free": "❌ Nije dostupno",
+            "premium": "✅ Korak-po-korak vodič",
+            "freeShort": "❌",
+            "premiumShort": "✅ Korak-po-korak"
+          },
+          "visa": {
+            "feature": "Viza Navigator",
+            "free": "Osnovna info",
+            "premium": "✅ Kompletni vodič + dokumenti",
+            "freeShort": "Osnovna info",
+            "premiumShort": "✅ Kompletni vodič"
+          },
+          "doc": {
+            "feature": "Dokumenten-Check",
+            "free": "1,99€ po provjeri",
+            "premium": "1,99€ po provjeri",
+            "freeShort": "1,99€",
+            "premiumShort": "1,99€"
+          },
+          "templates": {
+            "feature": "Šabloni / Vorlagen",
+            "free": "✅ Kündigung gratis",
+            "premium": "✅ Svi šabloni + PDF download",
+            "freeShort": "✅ Kündigung",
+            "premiumShort": "✅ Svi + PDF"
+          },
+          "assistant": {
+            "feature": "BalkanLink Asistent",
+            "free": "⚠️ 5 pitanja/dan",
+            "premium": "✅ Neograničeno",
+            "freeShort": "5/dan",
+            "premiumShort": "✅ Neograničeno"
+          },
+          "trainer": {
+            "feature": "DeutschTrainer",
+            "free": "❌ Nije dostupno",
+            "premium": "✅ A1–C2 kompletni kurs",
+            "freeShort": "❌",
+            "premiumShort": "✅ A1–C2"
+          },
+          "calc": {
+            "feature": "Brutto-Netto kalkulator",
+            "free": "✅ Dostupno",
+            "premium": "✅ Dostupno",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          },
+          "arrival": {
+            "feature": "Dolazak u Njemačku vodiči",
+            "free": "✅ Potpun pristup",
+            "premium": "✅ Potpun pristup",
+            "freeShort": "✅",
+            "premiumShort": "✅"
+          }
+        }
+      },
+      "footer": "Prema § 19 UStG ne obračunava se PDV · Plus je jednokratna uplata, bez pretplate",
+      "partnersLabel": "NAŠI PARTNERI",
+      "partnersHeading": "Preporučene usluge",
+      "partnerView": "Pogledaj",
+      "partnerContact": "Kontakt",
+      "partnerRecommended": "Preporučeno"
+    }
   },
   "dolazakStart": {
     "seoTitle": "Počni ovdje — prvi koraci u Njemačkoj",
@@ -617,18 +741,18 @@
     },
     "upgradeCta": {
       "title": "Nastavi učiti",
-      "subtitle": "Otključaj sve lekcije i Sprachassistenta",
+      "subtitle": "Svih 6 razina A1–C2 dolazi uz BalkanLink Plus — 19,90€ jednokratno.",
       "noSubscription": "Bez pretplate",
       "payOnce": "Jednom plati",
-      "wertgutschein": "Wertgutschein za Premium",
-      "unlockAll": "Otključaj sve lekcije"
+      "wertgutschein": "Uključeno u BalkanLink Plus",
+      "unlockAll": "Otključaj s Plus — 19,90€"
     },
     "paywallModal": {
       "title": "Otključaj dodatne lekcije",
-      "body": "Otključaj sve sadržaje i vježbaj njemački za stvarne situacije.",
+      "body": "Svih 6 razina A1–C2 dolazi uz BalkanLink Plus — 19,90€ jednokratno.",
       "from": "od",
       "perOneTime": "/ jednokratno",
-      "unlockNow": "Otključaj sada",
+      "unlockNow": "Otključaj s Plus — 19,90€",
       "decideLater": "Odluči kasnije"
     },
     "stages": {

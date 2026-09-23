@@ -301,8 +301,8 @@ export default function DokumentenCheck() {
     }
     const row = Array.isArray(data) ? data[0] : data;
     setCreditCount(Number(row?.paid_credits ?? 0));
-    setPremiumRemainingToday(Number(row?.premium_remaining_today ?? 5));
-    setPremiumDailyLimit(Number(row?.premium_daily_limit ?? 5));
+    setPremiumRemainingToday(Number(row?.premium_remaining_today ?? 0));
+    setPremiumDailyLimit(Number(row?.premium_daily_limit ?? 0));
   }, [user?.id]);
 
   // Initial + visibility-change refresh (so returning from Stripe tab updates credits).
@@ -376,7 +376,7 @@ export default function DokumentenCheck() {
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
     // Svaki korisnik (i Plus) treba plaćeni kredit (1,99€ po provjeri). Server provjerava atomarno.
-    const hasPremiumQuota = isPremium && premiumRemainingToday > 0;
+    const hasPremiumQuota = premiumDailyLimit > 0 && premiumRemainingToday > 0;
     if (!hasPremiumQuota && creditCount < 1) { setShowPaywall(true); return; }
 
     submittingRef.current = true;
@@ -490,6 +490,12 @@ export default function DokumentenCheck() {
         <AuthGate>
         <div className="container max-w-4xl px-4 space-y-8">
 
+          {premiumDailyLimit > 0 && (
+            <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-4 text-sm text-card-foreground">
+              <span className="font-bold">{premiumRemainingToday}/{premiumDailyLimit}</span>{" "}
+              {tPlus("legacyDocQuota")}
+            </div>
+          )}
           {/* ── Pricing: 1,99€ per completed check for everyone (incl. BalkanLink Plus) ── */}
           <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
