@@ -9,14 +9,12 @@ export const IS_ADMIN_PREVIEW = false;
  * Correct pricing constants for the entire platform.
  */
 export const PRICING = {
-  premiumMonthly: "9.99€/mj.",
-  premiumYearly: "99.90€/god.",
+  plusOneTime: "19,90€ jednokratno",
   singleForm: "3.99€",
   proAd7Days: "2.99€",
   proAd30Days: "9.99€",
   firmBasic: "9.99€/mj.",
   firmFeatured: "19.99€/mj.",
-  docCheck: "2.99€ / dokument",
-  docCheckPremium: "5× dnevno gratis uz Premium",
+  docCheck: "1,99€ / provjera",
   vatNote: "Sve cijene bez PDV-a. §19 UStG.",
 } as const;
