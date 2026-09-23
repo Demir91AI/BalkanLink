@@ -9,6 +9,12 @@ const corsHeaders = {
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
+  // Credit reserved up-front (atomic) and released again if the check does not complete.
+  let reservedCreditId: string | null = null;
+  let completed = false;
+  // deno-lint-ignore no-explicit-any
+  let adminRef: any = null;
+
   try {
     // ── Auth check (paid feature — must require login) ──
     const authHeader = req.headers.get("Authorization");
@@ -35,49 +41,14 @@ Deno.serve(async (req) => {
     }
     const userId = claimsData.claims.sub as string;
 
-    // ── Status check: Premium dobija 5/dan besplatno → poslije 2,99€/kom ──
+    // ── Pricing: 1,99€ per completed check for EVERY user (Plus/lifetime included, no free quota) ──
     const adminSupabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
       { auth: { persistSession: false } }
     );
-
-    const { data: statusRows, error: statusErr } = await adminSupabase
-      .rpc("get_doc_check_status", { uid: userId });
-
-    if (statusErr) {
-      console.error("get_doc_check_status error:", statusErr.message);
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera dostupnosti nije uspjela." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    const status = Array.isArray(statusRows) ? statusRows[0] : statusRows;
-    const isPremium: boolean = !!status?.is_premium;
-    const premiumRemaining: number = Number(status?.premium_remaining_today ?? 0);
-    const paidCredits: number = Number(status?.paid_credits ?? 0);
-
-    // Pristup: Premium ima dnevnu kvotu, inače mora imati plaćeni kredit (2,99€)
-    // - Premium s preostalim danom → koristi premium_usage
-    // - Premium s istrošenom kvotom + plaćeni kredit → koristi kredit
-    // - Inače → 402 Payment Required
-    const usePremiumFreeQuota = isPremium && premiumRemaining > 0;
-    const usePaidCredit = !usePremiumFreeQuota && paidCredits >= 1;
-
-    if (!usePremiumFreeQuota && !usePaidCredit) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          errorCode: "PAYMENT_REQUIRED",
-          message: isPremium
-            ? "Iskoristio si svojih 5 besplatnih provjera danas. Dodatne provjere su 2,99€/kom — ili pričekaj sutra."
-            : "Za provjeru dokumenta potrebno je jednokratno plaćanje 2,99€ ili Premium pretplata.",
-          premiumExhausted: isPremium,
-        }),
-        { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    adminRef = adminSupabase;
+    const isPremium = false; // kept for logging compatibility; no quota logic anymore
 
     const body = await req.json();
     const { text, imageBase64, mimeType } = body;
@@ -109,6 +80,28 @@ Deno.serve(async (req) => {
       );
     }
 
+    // Reserve exactly one paid credit atomically (prevents parallel double-use)
+    const { data: creditId, error: reserveErr } = await adminSupabase
+      .rpc("reserve_doc_check_credit", { uid: userId });
+    if (reserveErr) {
+      console.error("reserve_doc_check_credit error:", reserveErr.message);
+      return new Response(
+        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera dostupnosti nije uspjela." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    if (!creditId) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          errorCode: "PAYMENT_REQUIRED",
+          message: "Za provjeru dokumenta potreban je 1 kredit (1,99€ po provjeri).",
+        }),
+        { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    reservedCreditId = creditId as string;
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
       console.error("LOVABLE_API_KEY not configured");
@@ -123,7 +116,7 @@ Deno.serve(async (req) => {
 Deine Aufgabe: Dokumente und Briefe TIEFGREIFEND und STRUKTURIERT erklaeren, so dass ein Nutzer ohne Deutschkenntnisse oder Buerokratie-Erfahrung alles versteht.
 
 QUALITAETSSTANDARD:
-- Dies ist ein BEZAHLTES Feature (2.99€). Die Analyse muss diesen Preis rechtfertigen.
+- Dies ist ein BEZAHLTES Feature (1.99€ pro Pruefung). Die Analyse muss diesen Preis rechtfertigen.
 - NIEMALS oberflaechlich oder generisch antworten.
 - Jeder Abschnitt muss ECHTE, KONKRETE Erklaerungen enthalten.
 - Minimum 3-5 Saetze pro Abschnitt wo anwendbar.
@@ -322,20 +315,8 @@ Ako NE → prosiri prije slanja.`;
 
     console.log("Analysis completed successfully, length:", result.length);
 
-    // Trošenje SAMO nakon uspješne analize (ne troši ako AI padne):
-    // - Premium s preostalom dnevnom kvotom → consume_premium_doc_check
-    // - Inače → consume_doc_check_credit (plaćeni 2,99€ kredit)
-    if (usePremiumFreeQuota) {
-      const { data: consumed, error: consumeErr } = await adminSupabase
-        .rpc("consume_premium_doc_check", { uid: userId });
-      if (consumeErr) console.error("consume_premium_doc_check error:", consumeErr.message);
-      else if (!consumed) console.warn("Premium daily quota race for user", userId);
-    } else {
-      const { data: consumed, error: consumeErr } = await adminSupabase
-        .rpc("consume_doc_check_credit", { uid: userId });
-      if (consumeErr) console.error("consume_doc_check_credit error:", consumeErr.message);
-      else if (!consumed) console.warn("No paid credit was consumed for user", userId);
-    }
+    // Analysis completed → the reserved credit stays consumed.
+    completed = true;
 
     // Vrati ažurirani status nazad u UI radi brojača (one-shot, bez dodatnog poziva)
     const { data: postRows } = await adminSupabase
@@ -348,7 +329,6 @@ Ako NE → prosiri prije slanja.`;
         analysis: result,
         status: {
           isPremium: !!postStatus?.is_premium,
-          premiumRemainingToday: Number(postStatus?.premium_remaining_today ?? 0),
           paidCredits: Number(postStatus?.paid_credits ?? 0),
         },
       }),
@@ -360,5 +340,11 @@ Ako NE → prosiri prije slanja.`;
       JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analiza nije uspjela. Pokusajte ponovo." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
+  } finally {
+    if (reservedCreditId && !completed && adminRef) {
+      const { error } = await adminRef.rpc("release_doc_check_credit", { credit_id: reservedCreditId });
+      if (error) console.error("release_doc_check_credit error:", error.message);
+      else console.log("Credit released (check not completed)");
+    }
   }
 });
