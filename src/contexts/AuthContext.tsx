@@ -13,6 +13,8 @@ interface AuthContextType {
   profileLoading: boolean;
   isPremium: boolean;
   isAdmin: boolean;
+  /** Raw tier from profile: 'free' | 'premium' | 'lifetime' | ... */
+  subscriptionTier: string;
   subscriptionEnd: string | null;
   displayName: string;
   signOut: () => Promise<void>;
@@ -27,6 +29,7 @@ const AuthContext = createContext<AuthContextType>({
   profileLoading: true,
   isPremium: false,
   isAdmin: false,
+  subscriptionTier: "free",
   subscriptionEnd: null,
   displayName: "Korisniče",
   signOut: async () => {},
@@ -40,6 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [profileLoading, setProfileLoading] = useState(true);
   const [isPremium, setIsPremium] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [subscriptionTier, setSubscriptionTier] = useState<string>("free");
   const [subscriptionEnd, setSubscriptionEnd] = useState<string | null>(null);
   const [profileData, setProfileData] = useState<{ first_name?: string | null } | null>(null);
   const { toast } = useToast();
@@ -68,6 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const tierPremium = !expired && tier && tier !== "free";
         const premium = !!(profileRes.data.is_premium || tierPremium);
         setIsPremium(premium);
+        setSubscriptionTier(tier);
         setProfileData({ first_name: (profileRes.data as any)?.first_name ?? null });
       } else if (profileRes.error) {
         // Transient fetch error — DO NOT downgrade. Keep existing state.
@@ -239,6 +244,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       profileLoading,
       isPremium,
       isAdmin,
+      subscriptionTier,
       subscriptionEnd,
       displayName,
       signOut,
