@@ -178,6 +178,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           }
         } else {
           setIsPremium(false);
+          setSubscriptionTier("free");
           setIsAdmin(false);
           setSubscriptionEnd(null);
           setProfileData(null);
