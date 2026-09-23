@@ -1,4 +1,5 @@
 import { label } from "@/lib/de-labels";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -52,17 +53,13 @@ function VisaPaywall({ visaLabel }: { visaLabel: string }) {
       <p className="mb-5 max-w-md mx-auto text-xs text-muted-foreground">
         {"Antrag fehlerfrei ausfüllen mit geführter Anleitung und detaillierten Erklärungen."}
       </p>
-      <div className="grid w-full max-w-md mx-auto gap-3 sm:grid-cols-2">
-        <div className="rounded-xl border border-border/60 bg-card p-4 text-left">
-          <p className="text-lg font-extrabold text-foreground">3.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">{"Pristup samo ovoj vizi"}</p>
-        </div>
+      <div className="grid w-full max-w-sm mx-auto gap-3">
         <div className="rounded-xl border-2 border-gold/40 bg-gold/5 p-4 text-left relative">
           <span className="absolute -top-2.5 right-3 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold text-gold-foreground">
             {"POPULARNO"}
           </span>
-          <p className="text-lg font-extrabold text-foreground">9.99€</p>
-          <p className="mt-1 text-xs text-muted-foreground">{"Pristup svim formularima i vizama (30 dana)"}</p>
+          <p className="text-lg font-extrabold text-foreground">19,90€</p>
+          <p className="mt-1 text-xs text-muted-foreground"><PlusCtaLabel note /></p>
           <ul className="mt-3 space-y-1">
             {included.map((f) => (
               <li key={f} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
