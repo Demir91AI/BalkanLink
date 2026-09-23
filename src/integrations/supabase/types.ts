@@ -1590,6 +1590,7 @@ export type Database = {
         Args: { lat1: number; lat2: number; lng1: number; lng2: number }
         Returns: number
       }
+      is_legacy_doccheck_user: { Args: { uid: string }; Returns: boolean }
       move_to_dlq: {
         Args: {
           dlq_name: string
@@ -1616,7 +1617,9 @@ export type Database = {
         Args: { credit_id: string }
         Returns: boolean
       }
+      release_legacy_doc_check: { Args: { usage_id: string }; Returns: boolean }
       reserve_doc_check_credit: { Args: { uid: string }; Returns: string }
+      reserve_legacy_doc_check: { Args: { uid: string }; Returns: string }
       search_community_listings: {
         Args: { search_terms: string[] }
         Returns: {
