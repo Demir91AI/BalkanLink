@@ -58,5 +58,7 @@
   "checkoutError": "Nije moguće pokrenuti plaćanje. Pokušaj ponovo.",
   "errorTitle": "Greška",
   "successPlus": "BalkanLink Plus je aktiviran — trajni pristup je otključan.",
-  "successDoc": "1 kredit za Dokumenten-Check je dodat na tvoj nalog."
+  "successDoc": "1 kredit za Dokumenten-Check je dodat na tvoj nalog.",
+  "unlockCta": "Otključaj sa BalkanLink Plus — 19,90€ jednokratno",
+  "unlockNote": "Jednokratno · bez pretplate · trajan pristup premium sadržaju"
 }

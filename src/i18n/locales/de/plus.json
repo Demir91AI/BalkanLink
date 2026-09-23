@@ -58,5 +58,7 @@
   "checkoutError": "Zahlung konnte nicht gestartet werden. Bitte erneut versuchen.",
   "errorTitle": "Fehler",
   "successPlus": "BalkanLink Plus ist aktiviert — dauerhafter Zugang freigeschaltet.",
-  "successDoc": "1 Dokumenten-Check-Guthaben wurde deinem Konto gutgeschrieben."
+  "successDoc": "1 Dokumenten-Check-Guthaben wurde deinem Konto gutgeschrieben.",
+  "unlockCta": "Mit BalkanLink Plus freischalten — 19,90 € einmalig",
+  "unlockNote": "Einmalig · kein Abo · dauerhafter Zugang zu Premium-Inhalten"
 }

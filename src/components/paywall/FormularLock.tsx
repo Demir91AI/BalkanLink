@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Lock, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PremiumModal from "./PremiumModal";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 interface FormularLockProps {
   locked: boolean;
@@ -60,7 +61,7 @@ export default function FormularLock({ locked, formularId, children }: FormularL
                   className="h-10 w-full rounded-xl bg-[hsl(var(--gold))] text-xs font-bold text-white hover:bg-[hsl(var(--gold-light))]"
                 >
                   <Crown className="mr-1.5 h-3.5 w-3.5" />
-                  BalkanLink Premium — 9.99€/mjes.
+                  <PlusCtaLabel />
                 </Button>
                 <span className="absolute -top-2 right-2 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white">
                   POPULARNO
