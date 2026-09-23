@@ -111,12 +111,6 @@ export default function NtProModal({ open, onClose }: Props) {
           {selected === "free" ? t("classifieds.proModal.buttons.free") : tp("businessCta")}
         </Button>
 
-        {/* Info block */}
-        <div className="mt-4 rounded-xl bg-muted/50 border border-border/40 p-3">
-          <p className="text-xs text-muted-foreground">
-            {t("classifieds.proModal.info")}
-          </p>
-        </div>
       </div>
     </div>
   );
