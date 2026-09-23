@@ -260,6 +260,7 @@ export default function DokumentenCheck() {
   const navigate = useNavigate();
   const localizedNavigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
+  const { t: tPlus } = useTranslation("plus");
   const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const [analysis, setAnalysis] = useState<string | null>(null);
