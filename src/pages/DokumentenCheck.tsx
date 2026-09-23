@@ -406,7 +406,7 @@ export default function DokumentenCheck() {
         if (data.errorCode === "PAYMENT_REQUIRED") {
           await refreshCredits();
           setShowPaywall(true);
-          throw new Error(data.message || t("documentCheck.errors.paymentRequired", "Plaćanje 2,99€ je potrebno."));
+          throw new Error(data.message || t("documentCheck.errors.paymentRequired", "Potreban je 1 kredit (1,99€)."));
         }
         throw new Error(data.message || t("documentCheck.errors.processingFailed"));
       }

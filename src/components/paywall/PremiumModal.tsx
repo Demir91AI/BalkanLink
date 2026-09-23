@@ -1,29 +1,30 @@
 import { Lock, Crown, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
-import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
+import { initiateCheckout } from "@/lib/stripe";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 import { useNavigate } from "react-router-dom";
 type Trigger = "formular" | "guide" | "ai" | "kurs" | "viza";
 
 const TRIGGER_TEXT: Record<Trigger, { title: string; subtitle: string }> = {
   formular: {
-    title: "Otključaj sve formulare uz Premium",
+    title: "Otključaj sve formulare uz BalkanLink Plus",
     subtitle: "Pristup svim Musterformularima, korak-po-korak vodičima i BalkanLink asistentu.",
   },
   guide: {
-    title: "Nastavi korak po korak uz Premium",
+    title: "Nastavi korak po korak uz BalkanLink Plus",
     subtitle: "Kompletni vodiči sa detaljnim uputstvima za svaki korak.",
   },
   ai: {
-    title: "Neograničen pristup BalkanLink Asistentu",
-    subtitle: "Premium korisnici imaju neograničenu pomoć i Dokumenten-Check.",
+    title: "BalkanLink Plus — jednokratno",
+    subtitle: "Trajan pristup premium vodičima i formularima. Dokumenten-Check se plaća 1,99€ po provjeri.",
   },
   kurs: {
-    title: "Nastavi učiti uz Premium",
+    title: "Nastavi učiti uz BalkanLink Plus",
     subtitle: "Otključaj sve lekcije i modula Deutsch kursa.",
   },
   viza: {
-    title: "Detaljni Viza Navigator uz Premium",
+    title: "Detaljni Viza Navigator uz BalkanLink Plus",
     subtitle: "Kompletni vodič sa svim dokumentima, koracima i rokovima.",
   },
 };
@@ -49,7 +50,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
       navigate("/login");
       return;
     }
-    initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
+    initiateCheckout("plus");
   };
 
   const handlePricing = () => {
@@ -86,7 +87,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
               className="h-12 w-full rounded-xl bg-[hsl(var(--gold))] text-sm font-bold text-white shadow-lg hover:bg-[hsl(var(--gold-light))]"
             >
               <Crown className="mr-2 h-4 w-4" />
-              Premium otključaj — 9,99€/mj.
+              <PlusCtaLabel />
             </Button>
 
             {/* View pricing */}
@@ -103,7 +104,7 @@ export default function PremiumModal({ isOpen, onClose, trigger, formularId }: P
                 onClick={() => { onClose(); navigate("/login"); }}
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
-                Već imam Premium — Prijavi se
+                Već imam pristup — Prijavi se
               </button>
             )}
           </div>
