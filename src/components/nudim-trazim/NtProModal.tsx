@@ -1,11 +1,8 @@
-import { Star, Check, X, Crown, Flame } from "lucide-react";
+import { Star, Check, X, Flame } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useAuth } from "@/contexts/AuthContext";
-import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
 
 interface Props {
   open: boolean;
@@ -14,26 +11,14 @@ interface Props {
 
 export default function NtProModal({ open, onClose }: Props) {
   const { t } = useTranslation("pages");
-  const [selected, setSelected] = useState<"free" | "pro" | "premium">("pro");
-  const navigate = useNavigate();
-  const { user } = useAuth();
+  const { t: tp } = useTranslation("plus");
+  const [selected, setSelected] = useState<"free" | "pro">("pro");
 
   if (!open) return null;
 
+  // Ad highlighting is arranged individually (no self-serve checkout until automatic fulfillment exists).
   const handleActivate = () => {
-    if (selected === "free") {
-      onClose();
-      return;
-    }
-    if (!user) {
-      navigate("/login");
-      return;
-    }
-    if (selected === "pro") {
-      initiateCheckout(STRIPE_PRICE_IDS.PRO_AD_7DAY, user.id, "payment");
-    } else {
-      initiateCheckout(STRIPE_PRICE_IDS.PREMIUM_MONTHLY, user.id, "subscription");
-    }
+    if (selected === "pro") window.location.href = "mailto:kontakt@balkanlink.de";
     onClose();
   };
 
@@ -50,14 +35,6 @@ export default function NtProModal({ open, onClose }: Props) {
     t("classifieds.proModal.pro.f4"),
     t("classifieds.proModal.pro.f5"),
   ];
-  const premiumFeatures = [
-    t("classifieds.proModal.premium.f1"),
-    t("classifieds.proModal.premium.f2"),
-    t("classifieds.proModal.premium.f3"),
-    t("classifieds.proModal.premium.f4"),
-    t("classifieds.proModal.premium.f5"),
-  ];
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={onClose}>
       <div
@@ -112,10 +89,7 @@ export default function NtProModal({ open, onClose }: Props) {
                 <Flame className="h-4 w-4 text-orange-400" />
                 <p className="text-base font-bold">{t("classifieds.proModal.pro.label")}</p>
               </div>
-              <div className="text-right">
-                <p className="text-lg font-black">{t("classifieds.proModal.pro.price")}</p>
-                <p className="text-[10px] text-muted-foreground">{t("classifieds.proModal.pro.period")}</p>
-              </div>
+
             </div>
             <ul className="space-y-1">
               {proFeatures.map(t2 => (
@@ -124,41 +98,9 @@ export default function NtProModal({ open, onClose }: Props) {
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-[10px] text-muted-foreground">{t("classifieds.proModal.pro.afterExpire")}</p>
+            <p className="mt-2 text-[10px] text-muted-foreground">{tp("businessDesc")}</p>
           </button>
 
-          {/* PREMIUM */}
-          <button
-            onClick={() => setSelected("premium")}
-            className={cn(
-              "relative rounded-xl border-2 p-4 text-left transition-all",
-              selected === "premium"
-                ? "border-[hsl(var(--gold))]/60 bg-[hsl(var(--gold))]/5 shadow-[0_0_20px_rgba(234,179,8,0.15)]"
-                : "border-[hsl(var(--gold))]/20 bg-card hover:border-[hsl(var(--gold))]/40"
-            )}
-          >
-            <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--gold-foreground))]">
-              {t("classifieds.proModal.premium.bestValue")}
-            </span>
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-2">
-                <Crown className="h-4 w-4 text-[hsl(var(--gold))]" />
-                <p className="text-base font-bold">{t("classifieds.proModal.premium.label")}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-lg font-black">{t("classifieds.proModal.premium.price")}</p>
-                <p className="text-[10px] text-muted-foreground">{t("classifieds.proModal.premium.period")}</p>
-              </div>
-            </div>
-            <ul className="space-y-1">
-              {premiumFeatures.map(t2 => (
-                <li key={t2} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {t2}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-2 text-[10px] text-muted-foreground">{t("classifieds.proModal.premium.savings")}</p>
-          </button>
         </div>
 
         <Button
@@ -166,11 +108,7 @@ export default function NtProModal({ open, onClose }: Props) {
           onClick={handleActivate}
         >
           <Star className="h-4 w-4" />
-          {selected === "free"
-            ? t("classifieds.proModal.buttons.free")
-            : selected === "pro"
-              ? t("classifieds.proModal.buttons.pro")
-              : t("classifieds.proModal.buttons.premium")}
+          {selected === "free" ? t("classifieds.proModal.buttons.free") : tp("businessCta")}
         </Button>
 
         {/* Info block */}
