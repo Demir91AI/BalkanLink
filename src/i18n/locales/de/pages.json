@@ -269,8 +269,8 @@
     },
     "whatIsLink": "Was ist BalkanLink?",
     "pricing": {
-      "heading": "Wählen Sie den passenden Plan",
-      "subline": "Kostenlos starten — upgraden, wenn Sie mehr brauchen. Ohne Vertrag, jederzeit kündbar.",
+      "heading": "Einfache Preise",
+      "subline": "Kostenlos starten. Wenn du mehr brauchst, zahlst du BalkanLink Plus einmalig — kein Abo.",
       "free": {
         "label": "Kostenlos",
         "price": "0 €",
@@ -284,28 +284,28 @@
         "tagline": "Ohne Anmeldung · für immer"
       },
       "premium": {
-        "label": "Premium",
-        "price": "9,99 €",
-        "perMonth": "/Monat",
-        "subtitle": "oder 99,90 €/Jahr (17 % sparen)",
-        "title": "Premium — 9,99 €/Monat",
+        "label": "BalkanLink Plus",
+        "price": "19,90 €",
+        "perMonth": " einmalig",
+        "subtitle": "Einmalzahlung · kein Abo · keine automatische Verlängerung",
+        "title": "BalkanLink Plus — 19,90 €",
         "recommended": "Empfohlen",
         "f1": "Alle Musterformulare",
         "f2": "Smart Guides (alle Schritte)",
         "f3": "Visa Navigator",
-        "f4": "5× Dokumentenprüfung/Tag",
+        "f4": "BalkanLink Deutsch A1–C2 inklusive",
         "f5": "Vorlagen (PDF-Download)",
-        "f6": "BalkanLink Assistent unbegrenzt",
-        "f7": "2 Pro-Anzeigen/Monat",
-        "cta": "Premium werden",
-        "trialHint": "7 Tage kostenlos · jederzeit kündbar",
+        "f6": "Premium-Checklisten",
+        "f7": "Dauerhafter Zugang zu Premium-Inhalten",
+        "cta": "BalkanLink Plus kaufen",
+        "trialHint": "Einmalig · dauerhafter Zugang",
         "trustline": "Sichere Zahlung · Stripe · §19 UStG"
       },
       "docCheck": {
         "label": "Dokumentenprüfung",
-        "price": "2,99 €",
-        "subtitle": "Pro Dokument (ohne Abo)",
-        "title": "Dokumentenprüfung — 2,99 €",
+        "price": "1,99 €",
+        "subtitle": "Pro abgeschlossener Prüfung — für alle, auch mit Plus",
+        "title": "Dokumentenprüfung — 1,99 €",
         "f1": "Detaillierte Dokumentenanalyse",
         "f2": "11 Erklärungsabschnitte",
         "f3": "Fristen und finanzielle Auswirkungen",
@@ -314,11 +314,11 @@
         "tagline": "Brief in 30 Sekunden verstehen"
       },
       "compare": {
-        "title": "Kostenlos vs. Premium",
+        "title": "Kostenlos vs. Plus",
         "tagline": "Alle Unterschiede ansehen",
         "feature": "Funktion",
         "free": "Kostenlos",
-        "premium": "Premium",
+        "premium": "Plus",
         "rows": {
           "muster": {
             "feature": "Musterformulare",
@@ -343,10 +343,10 @@
           },
           "doc": {
             "feature": "Dokumentenprüfung",
-            "free": "2,99 € pro Prüfung",
-            "premium": "✅ 5× täglich gratis",
-            "freeShort": "2,99 €",
-            "premiumShort": "✅ 5×/Tag"
+            "free": "1,99 € pro Prüfung",
+            "premium": "1,99 € pro Prüfung",
+            "freeShort": "1,99 €",
+            "premiumShort": "1,99 €"
           },
           "templates": {
             "feature": "Vorlagen",
@@ -376,30 +376,16 @@
             "freeShort": "✅",
             "premiumShort": "✅"
           },
-          "proAds": {
-            "feature": "Pro-Anzeigen",
-            "free": "2,99 €/Anzeige",
-            "premium": "✅ 2 enthalten/Monat",
-            "freeShort": "2,99 €",
-            "premiumShort": "✅ 2/Monat"
-          },
           "arrival": {
             "feature": "Ankunft-in-Deutschland-Leitfäden",
             "free": "✅ Voller Zugang",
             "premium": "✅ Voller Zugang",
             "freeShort": "✅",
             "premiumShort": "✅"
-          },
-          "voucher": {
-            "feature": "Wertgutschein-Programm",
-            "free": "❌ Nicht verfügbar",
-            "premium": "✅ Amazon-Gutschein bis 30 €",
-            "freeShort": "❌",
-            "premiumShort": "✅ bis 30 €"
           }
         }
       },
-      "footer": "Gemäß § 19 UStG wird keine MwSt. ausgewiesen · Jederzeit kündbar · Ohne Vertrag",
+      "footer": "Gemäß § 19 UStG wird keine MwSt. ausgewiesen · Plus ist eine Einmalzahlung, kein Abo",
       "partnersLabel": "UNSERE PARTNER",
       "partnersHeading": "Empfohlene Dienstleistungen",
       "partnerView": "Ansehen",
