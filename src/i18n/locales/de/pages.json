@@ -741,18 +741,18 @@
     },
     "upgradeCta": {
       "title": "Weiter lernen",
-      "subtitle": "Schalten Sie alle Lektionen und den Sprachassistenten frei",
+      "subtitle": "Alle 6 Niveaus A1–C2 sind in BalkanLink Plus enthalten — 19,90 € einmalig.",
       "noSubscription": "Kein Abo",
       "payOnce": "Einmal zahlen",
-      "wertgutschein": "Wertgutschein für Premium",
-      "unlockAll": "Alle Lektionen freischalten"
+      "wertgutschein": "In BalkanLink Plus enthalten",
+      "unlockAll": "Mit Plus freischalten — 19,90 €"
     },
     "paywallModal": {
       "title": "Weitere Lektionen freischalten",
-      "body": "Schalten Sie alle Inhalte frei und üben Sie Deutsch für reale Situationen.",
+      "body": "Alle 6 Niveaus A1–C2 sind in BalkanLink Plus enthalten — 19,90 € einmalig.",
       "from": "ab",
       "perOneTime": "/ einmalig",
-      "unlockNow": "Jetzt freischalten",
+      "unlockNow": "Mit Plus freischalten — 19,90 €",
       "decideLater": "Später entscheiden"
     },
     "stages": {

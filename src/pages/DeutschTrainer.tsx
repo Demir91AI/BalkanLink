@@ -18,11 +18,6 @@ import TrainerLesson from "@/components/trainer/TrainerLesson";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 const LESSONS_PER_PAGE = 9;
 
-const INDIVIDUAL_PRICES: Record<string, string> = {
-  "A1": "9,99 €", "A2": "14,99 €",
-  "B1": "14,99 €", "B2": "19,99 €",
-  "C1": "19,99 €", "C2": "24,99 €",
-};
 
 export default function DeutschTrainer() {
   const { t } = useTranslation("pages");
@@ -433,7 +428,7 @@ export default function DeutschTrainer() {
                 <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/70">✓ {t("deutschTrainer.upgradeCta.wertgutschein")}</span>
               </div>
               <Button
-                onClick={() => navigate("/deutsch-trainer/preise")}
+                onClick={() => navigate("/paketi")}
                 className="mt-5 h-12 w-full max-w-xs rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
               >
                 {t("deutschTrainer.upgradeCta.unlockAll")}
@@ -472,12 +467,8 @@ export default function DeutschTrainer() {
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
                   {t("deutschTrainer.paywallModal.body")}
                 </p>
-                <p className="mt-3 text-2xl font-black text-gold-dark">
-                  {t("deutschTrainer.paywallModal.from")} {INDIVIDUAL_PRICES[selectedLevel]}
-                  <span className="ml-1 text-xs font-normal text-muted-foreground">{t("deutschTrainer.paywallModal.perOneTime")}</span>
-                </p>
                 <Button
-                  onClick={() => { setShowPaywall(false); navigate("/deutsch-trainer/preise"); }}
+                  onClick={() => { setShowPaywall(false); navigate("/paketi"); }}
                   className="mt-4 h-11 w-full rounded-xl bg-gold text-sm font-bold text-gold-foreground shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:bg-gold-light"
                 >
                   {t("deutschTrainer.paywallModal.unlockNow")}

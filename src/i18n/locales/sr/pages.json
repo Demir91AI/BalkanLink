@@ -741,18 +741,18 @@
     },
     "upgradeCta": {
       "title": "Nastavi učiti",
-      "subtitle": "Otključaj sve lekcije i Sprachassistenta",
+      "subtitle": "Svih 6 nivoa A1–C2 dolazi uz BalkanLink Plus — 19,90€ jednokratno.",
       "noSubscription": "Bez pretplate",
       "payOnce": "Jednom plati",
-      "wertgutschein": "Wertgutschein za Premium",
-      "unlockAll": "Otključaj sve lekcije"
+      "wertgutschein": "Uključeno u BalkanLink Plus",
+      "unlockAll": "Otključaj sa Plus — 19,90€"
     },
     "paywallModal": {
       "title": "Otključaj dodatne lekcije",
-      "body": "Otključaj sve sadržaje i Vežbaj nemački za stvarne situacije.",
+      "body": "Svih 6 nivoa A1–C2 dolazi uz BalkanLink Plus — 19,90€ jednokratno.",
       "from": "od",
       "perOneTime": "/ jednokratno",
-      "unlockNow": "Otključaj sada",
+      "unlockNow": "Otključaj sa Plus — 19,90€",
       "decideLater": "Odluči kasnije"
     },
     "stages": {
