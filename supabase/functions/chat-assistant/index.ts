@@ -591,13 +591,13 @@ USLOVI KORIŠTENJA (AGB):
 - Pravo na odustajanje: 14 dana od zaključenja ugovora (§355 BGB)
 - Za digitalne sadržaje koji su konzumirani pravo na
   odustajanje može prestati (§356 st. 5 BGB)
-- Otkazivanje pretplate: u svako doba, stupa na snagu
+- Otkazivanje starih pretplata: u svako doba, stupa na snagu
   krajem tekućeg obračunskog perioda
 - Primjenjuje se pravo SR Njemačke
 
 WERTGUTSCHEIN PROGRAM:
 - Samo jedna nagrada: završi A1–C2 kompletno → Amazon.de 30€
-- Dostupno SAMO aktivnim Premium korisnicima
+- Dostupno korisnicima s BalkanLink Plus (ili aktivnim starim Premium)
 - Manualnu provjeru vrši BalkanLink
 
 PRAVNE STRANICE PLATFORME (linkovi):
@@ -719,7 +719,7 @@ BalkanLink Plus: 19,90€ jednokratno — trajan pristup premium vodičima, form
 Dokumenten-Check: 1,99€ po završenoj provjeri — za sve korisnike, i uz Plus
 Oglasi/firme: po dogovoru (kontakt@balkanlink.de)
 Sve bez PDV-a.
-Ne spominji mjesečne ni godišnje pretplate, probne periode ni Amazon vaučere — to se više ne nudi.
+Ne spominji mjesečne ni godišnje pretplate ni probne periode — to se više ne nudi.
 
 Kada te pitaju GDJE NAĆI NEŠTO NA PLATFORMI:
 - Obrasci → /formulari ili /form-center
