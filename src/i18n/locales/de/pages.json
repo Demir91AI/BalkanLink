@@ -105,7 +105,7 @@
         "tagline": "Dokument hochladen — verstehen, was darin steht",
         "explanation": "Sie haben ein Schreiben vom Finanzamt erhalten und verstehen kein Wort? Fotografieren Sie es oder laden Sie das PDF hoch — Sie erhalten eine Erklärung in Ihrer Sprache: Was wird verlangt, bis wann, was passiert, wenn Sie nicht reagieren.",
         "example": "Z. B.: Sie haben eine Mahnung erhalten — die Dokumentenprüfung sagt Ihnen, dass Sie 15 Tage Zeit zum Bezahlen haben und was passiert, wenn Sie sie ignorieren.",
-        "badge": "2,99 € pro Prüfung oder mit Premium"
+        "badge": "1,99 € pro Prüfung"
       },
       "vorlagen": {
         "name": "Vorlagen",
@@ -476,7 +476,7 @@
       "oneTimeLabel": "Einmalig",
       "oneTimePerCheck": "pro Prüfung",
       "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
-      "buyOneTime": "Für 2,99 € kaufen →",
+      "buyOneTime": "Für 1,99 € kaufen →",
       "creditAvailable_one": "Verfügbar: {{count}} Prüfung",
       "creditAvailable_other": "Verfügbar: {{count}} Prüfungen",
       "premiumLabel": "Premium",
@@ -489,10 +489,10 @@
     },
     "quota": {
       "remaining": "Du hast heute noch {{count}} kostenlose Prüfungen",
-      "exhausted": "Tägliches Premium-Limit erreicht (5/Tag)",
+      "exhausted": "Keine Prüfungen verfügbar",
       "resetHint": "Der Zähler wird morgen um 00:00 (Berlin) zurückgesetzt",
       "usingPaid": "Du hast {{count}} zusätzliche bezahlte Prüfungen",
-      "buyExtra": "Weitere Prüfungen heute: 2,99 €/Stück oder bis morgen warten",
+      "buyExtra": "Weitere Prüfungen: 1,99 € pro Prüfung",
       "paidAvailable": "Du hast {{count}} bezahlte Prüfungen bereit",
       "paidHint": "Ohne Ablauf — nutze sie jederzeit"
     },
@@ -536,15 +536,15 @@
       "fallback": "Serverfehler bei der Dokumentenanalyse.",
       "tooManyFiles": "Maximal {{max}} Dateien.",
       "totalTooLarge": "Gesamtgröße überschreitet 25 MB.",
-      "paymentRequired": "Zahlung von 2,99 € ist für die Analyse erforderlich."
+      "paymentRequired": "Für die Analyse ist 1 Guthaben erforderlich (1,99 € pro Prüfung)."
     },
     "paywall": {
       "title": "Dokumenten-Check",
-      "subtitle": "Dokument hochladen — Sie erhalten eine Erklärung in Ihrer Sprache",
-      "premiumCta": "BalkanLink Premium — 9,99 €/Monat",
-      "premiumPerk": "Unbegrenzte Dokumentenprüfungen + alle Premium-Funktionen",
+      "subtitle": "Dokument hochladen — Erklärung in deiner Sprache. 1,99 € pro abgeschlossener Prüfung.",
+      "premiumCta": "Prüfung kaufen — 1,99 €",
+      "premiumPerk": "Bezahlt wird pro abgeschlossener Prüfung — auch für Plus-Nutzer",
       "or": "oder",
-      "oneTimeCta": "2,99 € für eine Analyse zahlen →",
+      "oneTimeCta": "1,99 € für eine Analyse zahlen →",
       "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
       "paymentReadyToast": "Zahlung erhalten. Klicken Sie auf Dokument prüfen, um die Analyse zu starten."
     },
@@ -574,7 +574,7 @@
       "financial": "Finanzielle Auswirkung",
       "deadline": "Frist",
       "lockedTitle": "🔒 Detaillierte Analyse mit Premium verfügbar",
-      "lockedCta": "BalkanLink Premium — 9,99 €/Monat",
+      "lockedCta": "Prüfung kaufen — 1,99 €",
       "viewAnalysis": "Analyse ansehen",
       "urgent": "Dringende Maßnahme erforderlich",
       "recommended": "Empfohlene Maßnahme",
@@ -720,7 +720,7 @@
       },
       "premiumTitle": "Vollständigen Leitfaden freischalten",
       "anonTitle": "Vollständigen Leitfaden ansehen",
-      "premiumCta": "Premium freischalten — 9,99 €/Monat",
+      "premiumCta": "Mit Plus freischalten — 19,90 € einmalig",
       "registerCta": "Kostenlos registrieren →",
       "haveAccount": "Bereits ein Konto?",
       "signIn": "Anmelden"
@@ -820,8 +820,8 @@
     "lockedOverlay": {
       "lockedItems": "🔒 +{{count}} {{label}} gesperrt",
       "lockedDefaultLabel": "Inhalte",
-      "lockedSubtitle": "Verfügbar mit Premium-Abo",
-      "unlockCta": "Premium freischalten"
+      "lockedSubtitle": "Verfügbar mit BalkanLink Plus (einmalig)",
+      "unlockCta": "Mit Plus freischalten"
     },
     "resetDialog": {
       "title": "Gesamten Fortschritt zurücksetzen?",
@@ -1028,7 +1028,7 @@
       "benefit4": "Download als PDF, versandbereit",
       "benefit5": "Tipps, welche Anlagen beizufügen sind",
       "benefit6": "Beispiel eines korrekt ausgefüllten Dokuments",
-      "ctaUnlock": "Premium freischalten — 9,99€/Monat",
+      "ctaUnlock": "Mit Plus freischalten — 19,90 € einmalig",
       "sectionWork": "Arbeitsrecht & Karriere",
       "sectionWorkLocal": "Arbeitsrecht & Karriere",
       "sectionService": "Kundenservice / Verträge",
@@ -1601,9 +1601,9 @@
       "title": "Deine Analyse",
       "newScan": "Neue Prüfung",
       "newScanCta": "Neue Abrechnung hochladen",
-      "premiumLockTitle": "Detaillierter Bericht — Premium",
-      "premiumLockSub": "In Premium siehst du alle strittigen Positionen mit Rechtsgrundlage, geschätzten strittigen Betrag und fertigen Text für die Anfrage an den Vermieter.",
-      "premiumCta": "Für 9,99 €/Mon. freischalten",
+      "premiumLockTitle": "Detaillierter Bericht — BalkanLink Plus",
+      "premiumLockSub": "Mit BalkanLink Plus siehst du alle verdächtigen Posten mit Rechtsgrundlage, eine Schätzung des strittigen Betrags und einen fertigen Text an den Vermieter.",
+      "premiumCta": "Mit Plus freischalten — 19,90 € einmalig",
       "disclaimer": "Diese Analyse ist eine informative Hilfe, keine Rechtsberatung. Für eine verbindliche Prüfung wende dich an den Mieterbund (60–90 €/Jahr) oder einen Anwalt für Mietrecht."
     },
     "how": {
@@ -1641,7 +1641,7 @@
       "q3": "Was, wenn ihr keinen Fehler findet?",
       "a3": "Das schreiben wir ehrlich. Es bedeutet nicht, dass die Abrechnung zu 100 % korrekt ist — nur, dass wir keine offensichtlichen Probleme gesehen haben.",
       "q4": "Was kostet es?",
-      "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. Premium (9,99 €/Mon.): unbegrenzt + Detailbericht + Text für den Vermieter."
+      "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. BalkanLink Plus (19,90 € einmalig): detaillierter Bericht + Text an den Vermieter."
     }
   },
   "whatIs": {
@@ -1690,14 +1690,14 @@
       }
     },
     "premium": {
-      "kicker": "✨ Premium",
+      "kicker": "✨ BalkanLink Plus",
       "badge": "Beliebteste Wahl",
       "title": "Alles freigeschaltet — wenn es tiefer wird",
-      "price": "9,99 €",
-      "priceUnit": "/Monat",
-      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Dokumenten-Check ist 5× täglich für Premium frei (oder 2,99 € pro Prüfung), der Anmeldung-Simulator ist offen, die ersten Schritte ins System kosten dich nichts. Premium schaltest du dann frei, wenn das Leben komplizierter wird — wenn du die Steuererklärung machst, einen Bürgergeld-Antrag brauchst, dein Diplom anerkennen lässt, ein Kind hast und Elterngeld- und Kindergeld-Guide brauchst, oder wenn du einfach keine Asistent-Anfragen mehr zählen willst.",
-      "summary": "Weniger als ein Kaffee pro Woche. Jederzeit mit einem Klick kündbar, ohne Erklärung.",
-      "cta": "Premium werden",
+      "price": "19,90 €",
+      "priceUnit": " einmalig",
+      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Anmeldung-Simulator ist offen, die ersten Schritte kosten dich nichts. BalkanLink Plus schaltest du einmalig frei, wenn das Leben komplizierter wird — dauerhafter Zugang zu Premium-Guides, Formularen, Vorlagen, Viza Navigator und DeutschTrainer. Der Dokumenten-Check ist nicht enthalten und kostet 1,99 € pro abgeschlossener Prüfung.",
+      "summary": "Einmal zahlen — kein Abo, keine automatische Verlängerung.",
+      "cta": "BalkanLink Plus holen",
       "ctaFree": "Erst kostenlos testen"
     },
     "footer": "Von der Diaspora, für die Diaspora. 🇧🇦 🇭🇷 🇷🇸 → 🇩🇪"

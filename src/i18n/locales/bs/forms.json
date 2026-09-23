@@ -52,10 +52,10 @@
       "note": "Napomena"
     },
     "premium": {
-      "title": "Smart Guide samo uz Premium",
+      "title": "Smart Guide uz BalkanLink Plus",
       "subtitle": "Otključaj kompletni vodič za sve formulare.",
-      "stepInfo": "Korak 1–{{free}} besplatno · Korak {{current}} zahtijeva Premium",
-      "cta": "BalkanLink Premium — 9,99€/mj."
+      "stepInfo": "Korak 1–{{free}} besplatno · Korak {{current}} zahtijeva BalkanLink Plus",
+      "cta": "BalkanLink Plus — 19,90€ jednokratno"
     }
   },
   "kg1Fields": {
