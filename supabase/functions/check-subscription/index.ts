@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { LEGACY_PREMIUM_PRICE_IDS } from "../_shared/products.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -105,11 +106,15 @@ serve(async (req) => {
     const customerId = customers.data[0].id;
     log("found stripe customer", { customerId });
 
-    const subscriptions = await stripe.subscriptions.list({
+    const allSubs = await stripe.subscriptions.list({
       customer: customerId,
       status: "active",
-      limit: 1,
+      limit: 20,
     });
+    // Only legacy consumer Premium subscriptions count (business subscriptions never grant consumer access)
+    const subscriptions = {
+      data: allSubs.data.filter((s) => s.items.data.some((it) => LEGACY_PREMIUM_PRICE_IDS.includes(it.price.id))),
+    };
 
     const { data: currentProfile } = await supabaseClient
       .from("profiles")

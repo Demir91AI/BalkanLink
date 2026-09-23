@@ -3,6 +3,7 @@ import { Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import PremiumModal from "./PremiumModal";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 interface SmartGuideLockProps {
   locked: boolean;
@@ -38,7 +39,7 @@ export default function SmartGuideLock({ locked, children }: SmartGuideLockProps
                 onClick={() => setModalOpen(true)}
                 className="h-9 rounded-xl bg-[hsl(var(--gold))] text-xs font-bold text-white hover:bg-[hsl(var(--gold-light))]"
               >
-                Otključaj Premium — 9.99€/mjes.
+                <PlusCtaLabel />
               </Button>
               <Tooltip>
                 <TooltipTrigger asChild>

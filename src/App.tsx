@@ -61,7 +61,6 @@ const NudimTrazim = lazy(() => import("./pages/NudimTrazim"));
 const NachDeutschland = lazy(() => import("./pages/NachDeutschland"));
 const Vorlagen = lazy(() => import("./pages/Vorlagen"));
 const DeutschTrainer = lazy(() => import("./pages/DeutschTrainer"));
-const TrainerPreise = lazy(() => import("./pages/TrainerPreise"));
 const TrainerFaq = lazy(() => import("./pages/TrainerFaq"));
 const TrainerBonusbedingungen = lazy(() => import("./pages/TrainerBonusbedingungen"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -350,7 +349,7 @@ function LocalizedRoutes() {
         <Route path="vorlagen" element={<Vorlagen />} />
         <Route path="vorlagen/:slug" element={<Vorlagen />} />
         <Route path="deutsch-trainer" element={<DeutschTrainer />} />
-        <Route path="deutsch-trainer/preise" element={<TrainerPreise />} />
+        <Route path="deutsch-trainer/preise" element={<Navigate to="/paketi" replace />} />
         <Route path="deutsch-trainer/faq" element={<TrainerFaq />} />
         <Route path="deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
         <Route path="firma/:slug" element={<FirmDetail />} />

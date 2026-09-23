@@ -1495,6 +1495,16 @@ export type Database = {
         Args: { payload: Json; queue_name: string }
         Returns: number
       }
+      fulfill_stripe_checkout: {
+        Args: {
+          amt_cents: number
+          curr: string
+          product_key: string
+          session_id: string
+          uid: string
+        }
+        Returns: Json
+      }
       get_admin_dashboard_extra: { Args: never; Returns: Json }
       get_admin_payments: {
         Args: { _limit?: number }
@@ -1602,6 +1612,11 @@ export type Database = {
         Args: { _code: string; _user_id: string }
         Returns: Json
       }
+      release_doc_check_credit: {
+        Args: { credit_id: string }
+        Returns: boolean
+      }
+      reserve_doc_check_credit: { Args: { uid: string }; Returns: string }
       search_community_listings: {
         Args: { search_terms: string[] }
         Returns: {
@@ -1662,7 +1677,11 @@ export type Database = {
         | "PRO_EXPIRE_30"
         | "PRO_EXPIRE_7"
         | "PRO_EXPIRED"
-      payment_product_type: "PRO_SERVICE" | "PREMIUM_FORMULARE"
+      payment_product_type:
+        | "PRO_SERVICE"
+        | "PREMIUM_FORMULARE"
+        | "PLUS_LIFETIME"
+        | "DOC_CHECK"
       payment_provider: "STUB" | "STRIPE"
       payment_status: "PENDING" | "PAID" | "FAILED" | "CANCELED"
       pro_status: "PENDING_PAYMENT" | "ACTIVE" | "EXPIRED" | "REMOVED"
@@ -1681,12 +1700,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1710,11 +1729,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1735,11 +1754,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1760,11 +1779,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1777,11 +1796,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1806,7 +1825,12 @@ export const Constants = {
         "PRO_EXPIRE_7",
         "PRO_EXPIRED",
       ],
-      payment_product_type: ["PRO_SERVICE", "PREMIUM_FORMULARE"],
+      payment_product_type: [
+        "PRO_SERVICE",
+        "PREMIUM_FORMULARE",
+        "PLUS_LIFETIME",
+        "DOC_CHECK",
+      ],
       payment_provider: ["STUB", "STRIPE"],
       payment_status: ["PENDING", "PAID", "FAILED", "CANCELED"],
       pro_status: ["PENDING_PAYMENT", "ACTIVE", "EXPIRED", "REMOVED"],

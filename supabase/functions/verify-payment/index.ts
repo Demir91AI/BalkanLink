@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { fulfillCheckoutSession } from "../_shared/products.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -52,7 +53,13 @@ serve(async (req) => {
     });
 
     // Ensure session belongs to the requesting user
-    if (session.customer_email && session.customer_email !== userData.user.email) {
+    if (session.metadata?.user_id && session.metadata.user_id !== userData.user.id) {
+      return new Response(JSON.stringify({ status: "invalid" satisfies Status }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      });
+    }
+    if (!session.metadata?.user_id && session.customer_email && session.customer_email !== userData.user.email) {
       const detailsEmail = session.customer_details?.email;
       if (!detailsEmail || detailsEmail !== userData.user.email) {
         return new Response(JSON.stringify({ status: "invalid" satisfies Status }), {
@@ -78,6 +85,7 @@ serve(async (req) => {
     let currency: string | null = null;
     let transactionId: string | null = null;
     let paidAt: string | null = null;
+    let productKey: string | null = null;
     let mode: "payment" | "subscription" | "setup" | null = session.mode ?? null;
 
     if (session.mode === "subscription") {
@@ -116,31 +124,17 @@ serve(async (req) => {
       transactionId = piObj?.id ?? session.id;
       paidAt = safeIso(piObj?.created) ?? safeIso(session.created);
 
-      // ── Grant a Document-Check credit if this one-off purchase was the DOC_CHECK SKU ──
-      // Idempotent: grant_doc_check_credit() is a no-op if the same session was already credited.
+      // ── Server-side fulfillment (idempotent, allowlisted products only) ──
       if (status === "succeeded") {
         try {
-          const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5 });
-          const isDocCheck = lineItems.data.some(
-            (li) => li.price?.id === "price_1TQDc3R9oGwbVekBYppvp6Y7"
+          const adminClient = createClient(
+            Deno.env.get("SUPABASE_URL") ?? "",
+            Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+            { auth: { persistSession: false } }
           );
-          if (isDocCheck) {
-            const adminClient = createClient(
-              Deno.env.get("SUPABASE_URL") ?? "",
-              Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
-              { auth: { persistSession: false } }
-            );
-            const { error: grantErr } = await adminClient.rpc("grant_doc_check_credit", {
-              uid: userData.user.id,
-              session_id: session.id,
-              amt_cents: amount ?? 299,
-              curr: currency ?? "EUR",
-            });
-            if (grantErr) console.error("grant_doc_check_credit error:", grantErr.message);
-            else console.log("Doc-check credit granted for session", session.id);
-          }
+          productKey = await fulfillCheckoutSession(stripe, adminClient, session, userData.user.id);
         } catch (e) {
-          console.error("Doc-check credit grant failed:", e instanceof Error ? e.message : String(e));
+          console.error("fulfillment failed:", e instanceof Error ? e.message : String(e));
         }
       }
     }
@@ -154,6 +148,7 @@ serve(async (req) => {
         transaction_id: transactionId,
         paid_at: paidAt,
         session_id: session.id,
+        product: productKey,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
     );

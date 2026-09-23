@@ -55,6 +55,7 @@ import FormRightPanel from "@/components/formCenter/FormRightPanel";
 import PremiumBenefitsSection from "@/components/formCenter/PremiumBenefitsSection";
 import FormCatalogVault from "@/components/formCenter/FormCatalogVault";
 import { label } from "@/lib/de-labels";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 type LangKey = "de" | "bs" | "hr" | "sr";
 
@@ -139,7 +140,7 @@ function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | 
           style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
         >
           <Crown className="inline-block mr-1.5 h-4 w-4" />
-          Otključaj Premium — 9.99€/mj.
+          <PlusCtaLabel />
         </button>
 
 

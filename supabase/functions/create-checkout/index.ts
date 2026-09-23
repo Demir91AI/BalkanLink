@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { PRODUCTS, isProductKey } from "../_shared/products.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -8,69 +9,61 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+const json = (body: unknown, status = 200) =>
+  new Response(JSON.stringify(body), { headers: { ...corsHeaders, "Content-Type": "application/json" }, status });
 
-  const supabaseClient = createClient(
-    Deno.env.get("SUPABASE_URL") ?? "",
-    Deno.env.get("SUPABASE_ANON_KEY") ?? ""
-  );
+serve(async (req) => {
+  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    const authHeader = req.headers.get("Authorization")!;
-    const token = authHeader.replace("Bearer ", "");
-    const { data } = await supabaseClient.auth.getUser(token);
+    const authHeader = req.headers.get("Authorization");
+    if (!authHeader) return json({ error: "Not authenticated" }, 401);
+    const supabaseClient = createClient(Deno.env.get("SUPABASE_URL") ?? "", Deno.env.get("SUPABASE_ANON_KEY") ?? "");
+    const { data } = await supabaseClient.auth.getUser(authHeader.replace("Bearer ", ""));
     const user = data.user;
-    if (!user?.email) throw new Error("User not authenticated");
+    if (!user?.email) return json({ error: "Not authenticated" }, 401);
 
-    const { priceId, mode, formSlug, returnTo } = await req.json();
-    if (!priceId) throw new Error("Missing priceId");
+    let body: { product?: unknown; returnTo?: unknown } = {};
+    try { body = await req.json(); } catch { /* empty */ }
+    if (!isProductKey(body.product)) return json({ error: "Unknown product" }, 400);
+    const product = PRODUCTS[body.product];
 
-    const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
-      apiVersion: "2025-08-27.basil",
+    const admin = createClient(Deno.env.get("SUPABASE_URL") ?? "", Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "", {
+      auth: { persistSession: false },
     });
 
-    const customers = await stripe.customers.list({ email: user.email, limit: 1 });
-    let customerId: string | undefined;
-    if (customers.data.length > 0) {
-      customerId = customers.data[0].id;
+    // Plus is a one-time lifetime purchase — don't sell it twice.
+    if (body.product === "plus") {
+      const { data: prof } = await admin.from("profiles").select("subscription_tier").eq("id", user.id).maybeSingle();
+      if (prof?.subscription_tier === "lifetime") return json({ error: "already_owned" }, 409);
     }
 
-    const checkoutMode = mode === "subscription" ? "subscription" : "payment";
+    const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", { apiVersion: "2025-08-27.basil" });
+    const customers = await stripe.customers.list({ email: user.email, limit: 1 });
+    const customerId = customers.data[0]?.id;
+
     const ALLOWED_ORIGINS = ["https://balkanlink.de", "https://www.balkanlink.de", "https://staro.lovable.app", "https://id-preview--42558ae9-0b5a-4abf-bab6-f6cb6cf85927.lovable.app"];
     const rawOrigin = req.headers.get("origin") || "";
     const origin = ALLOWED_ORIGINS.includes(rawOrigin) ? rawOrigin : "https://balkanlink.de";
-    const safeReturnTo = typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//")
-      ? returnTo
-      : "/";
+    const returnTo = body.returnTo;
+    const safeReturnTo = typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//") ? returnTo : "/";
 
-    const sessionParams: Stripe.Checkout.SessionCreateParams = {
+    const session = await stripe.checkout.sessions.create({
       customer: customerId,
       customer_email: customerId ? undefined : user.email,
-      line_items: [{ price: priceId, quantity: 1 }],
-      mode: checkoutMode,
+      customer_creation: customerId ? undefined : "always",
+      line_items: [{ price: product.priceId, quantity: 1 }],
+      mode: product.mode,
+      invoice_creation: { enabled: true },
+      payment_intent_data: { receipt_email: user.email, description: product.label },
       success_url: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}&return_to=${encodeURIComponent(safeReturnTo)}`,
       cancel_url: `${origin}/placanje-otkazano`,
-      metadata: {
-        user_id: user.id,
-        return_to: safeReturnTo,
-        ...(formSlug ? { form_slug: formSlug } : {}),
-      },
-    };
-
-    const session = await stripe.checkout.sessions.create(sessionParams);
-
-    return new Response(JSON.stringify({ url: session.url }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 200,
+      metadata: { user_id: user.id, product_key: body.product, return_to: safeReturnTo },
     });
+
+    return json({ url: session.url });
   } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error);
-    return new Response(JSON.stringify({ error: msg }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 500,
-    });
+    console.error("[create-checkout]", error instanceof Error ? error.message : String(error));
+    return json({ error: "Checkout failed" }, 500);
   }
 });

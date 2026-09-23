@@ -1,5 +1,6 @@
 import { Crown, FileText, Map, Bot, FileSearch, GraduationCap, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 export default function PremiumBenefitsSection() {
   const navigate = useNavigate();
@@ -130,11 +131,8 @@ export default function PremiumBenefitsSection() {
         {/* Pricing */}
         <div className="border-t border-border/60 pt-5 text-center space-y-3">
           <p className="text-sm font-bold text-foreground">
-            9.99€/mj. ili 99.90€/godišnje <span className="text-emerald-600 text-xs font-semibold">(2 mj. gratis)</span>
+            <PlusCtaLabel note />
           </p>
-          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
-            🎁 7 dana besplatno · do 31.05.2026
-          </span>
           <p className="text-[10px] text-muted-foreground">
             Svi iznosi bez PDV-a (§19 UStG)
           </p>
@@ -145,7 +143,7 @@ export default function PremiumBenefitsSection() {
               background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
             }}
           >
-            Počni s Premium — 9.99€/mj.
+            <PlusCtaLabel />
           </button>
           <button
             onClick={() => navigate("/paketi")}

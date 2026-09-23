@@ -105,7 +105,7 @@
         "tagline": "Učitaj pismo — razumij šta piše",
         "explanation": "Stiglo ti pismo od Finanzamta i ne razumiješ ni riječ? Fotografiraj ga ili učitaj PDF — dobiješ objašnjenje na svom jeziku: šta traže, do kada, šta se dešava ako ne reaguješ.",
         "example": "Npr: Stigla ti Mahnung (opomena) — Provjera dokumenata ti kaže da imaš 15 dana da platiš i šta se dešava ako ignorišeš.",
-        "badge": "2.99€ po provjeri ili uz Premium"
+        "badge": "1,99€ po provjeri"
       },
       "vorlagen": {
         "name": "Šabloni (Vorlagen)",
@@ -236,144 +236,6 @@
       "heading": "Pomozi prijateljima — podijeli BalkanLink",
       "subline": "Jedan klik, netko drugi dobije pomoć."
     },
-    "pricing": {
-      "heading": "Odaberi plan koji ti odgovara",
-      "subline": "Počni besplatno — nadogradi kad trebaš više. Bez ugovora, otkaži kad hoćeš.",
-      "free": {
-        "label": "Besplatno",
-        "price": "0€",
-        "subtitle": "Zauvijek besplatno",
-        "title": "Besplatno — 0€",
-        "f1": "Osnovni vodič",
-        "f2": "Pregled formulara",
-        "f3": "Brutto-Netto kalkulator",
-        "f4": "Oglasi (besplatno)",
-        "cta": "Počni besplatno",
-        "tagline": "Bez registracije · zauvijek"
-      },
-      "premium": {
-        "label": "Premium",
-        "price": "9,99€",
-        "perMonth": "/mj.",
-        "subtitle": "ili 99,90€/godišnje (uštedi 17%)",
-        "title": "Premium — 9,99€/mj.",
-        "recommended": "Preporučeno",
-        "f1": "Svi Musterformulari",
-        "f2": "Smart Guides (svi koraci)",
-        "f3": "Viza Navigator",
-        "f4": "5× Dokumenten-Check/dan",
-        "f5": "Šabloni (PDF download)",
-        "f6": "BalkanLink Asistent neograničeno",
-        "f7": "2 Pro oglasa/mjesečno",
-        "cta": "Postani Premium",
-        "trialHint": "7 dana besplatno · otkaži bilo kada",
-        "trustline": "Sigurno plaćanje · Stripe · §19 UStG"
-      },
-      "docCheck": {
-        "label": "Dokumenten-Check",
-        "price": "2,99€",
-        "subtitle": "Po dokumentu (bez pretplate)",
-        "title": "Dokumenten-Check — 2,99€",
-        "f1": "Detaljna analiza dokumenta",
-        "f2": "11 sekcija objašnjenja",
-        "f3": "Rokovi i financijski uticaj",
-        "f4": "PDF, JPG, PNG do 10 MB",
-        "cta": "Provjeri dokument",
-        "tagline": "Razumi pismo za 30 sekundi"
-      },
-      "compare": {
-        "title": "Besplatno vs. Premium",
-        "tagline": "Pogledaj sve razlike",
-        "feature": "Funkcija",
-        "free": "Besplatno",
-        "premium": "Premium",
-        "rows": {
-          "muster": {
-            "feature": "Musterformulari",
-            "free": "❌ Nije dostupno",
-            "premium": "✅ Svi formulari + primjeri",
-            "freeShort": "❌",
-            "premiumShort": "✅ Svi formulari"
-          },
-          "guides": {
-            "feature": "Smart Guides",
-            "free": "❌ Nije dostupno",
-            "premium": "✅ Korak-po-korak vodič",
-            "freeShort": "❌",
-            "premiumShort": "✅ Korak-po-korak"
-          },
-          "visa": {
-            "feature": "Viza Navigator",
-            "free": "Osnovna info",
-            "premium": "✅ Kompletni vodič + dokumenti",
-            "freeShort": "Osnovna info",
-            "premiumShort": "✅ Kompletni vodič"
-          },
-          "doc": {
-            "feature": "Dokumenten-Check",
-            "free": "2,99€ po provjeri",
-            "premium": "✅ 5× dnevno gratis",
-            "freeShort": "2,99€",
-            "premiumShort": "✅ 5× dnevno"
-          },
-          "templates": {
-            "feature": "Šabloni / Vorlagen",
-            "free": "✅ Kündigung gratis",
-            "premium": "✅ Svi šabloni + PDF download",
-            "freeShort": "✅ Kündigung",
-            "premiumShort": "✅ Svi + PDF"
-          },
-          "assistant": {
-            "feature": "BalkanLink Asistent",
-            "free": "⚠️ 5 pitanja/dan",
-            "premium": "✅ Neograničeno",
-            "freeShort": "5/dan",
-            "premiumShort": "✅ Neograničeno"
-          },
-          "trainer": {
-            "feature": "DeutschTrainer",
-            "free": "❌ Nije dostupno",
-            "premium": "✅ A1–C2 kompletni kurs",
-            "freeShort": "❌",
-            "premiumShort": "✅ A1–C2"
-          },
-          "calc": {
-            "feature": "Brutto-Netto kalkulator",
-            "free": "✅ Dostupno",
-            "premium": "✅ Dostupno",
-            "freeShort": "✅",
-            "premiumShort": "✅"
-          },
-          "proAds": {
-            "feature": "Pro oglasi",
-            "free": "2,99€/oglas",
-            "premium": "✅ 2 uključena/mj.",
-            "freeShort": "2,99€",
-            "premiumShort": "✅ 2/mj."
-          },
-          "arrival": {
-            "feature": "Dolazak u Njemačku vodiči",
-            "free": "✅ Potpun pristup",
-            "premium": "✅ Potpun pristup",
-            "freeShort": "✅",
-            "premiumShort": "✅"
-          },
-          "voucher": {
-            "feature": "Wertgutschein program",
-            "free": "❌ Nije dostupno",
-            "premium": "✅ Amazon vaučer do 30€",
-            "freeShort": "❌",
-            "premiumShort": "✅ do 30€"
-          }
-        }
-      },
-      "footer": "Prema § 19 UStG ne obračunava se PDV · Otkaži kad hoćeš · Bez ugovora",
-      "partnersLabel": "NAŠI PARTNERI",
-      "partnersHeading": "Preporučene usluge",
-      "partnerView": "Pogledaj",
-      "partnerContact": "Kontakt",
-      "partnerRecommended": "Preporučeno"
-    },
     "pitch": {
       "eyebrow": "Što je BalkanLink?",
       "headline": "Tvoj prevoditelj za njemačku birokraciju.",
@@ -476,7 +338,7 @@
       "oneTimeLabel": "Jednokratno",
       "oneTimePerCheck": "po provjeri",
       "oneTimeReset": "Plaća se za svaku analizu pojedinačno",
-      "buyOneTime": "Kupi za 2,99€ →",
+      "buyOneTime": "Kupi za 1,99€ →",
       "creditAvailable_one": "Dostupno: {{count}} provjera",
       "creditAvailable_other": "Dostupno: {{count}} provjera",
       "premiumLabel": "Premium",
@@ -489,10 +351,10 @@
     },
     "quota": {
       "remaining": "Ostalo ti je {{count}} besplatnih provjera danas",
-      "exhausted": "Iskoristio si dnevni Premium limit (5/dan)",
+      "exhausted": "Nemaš dostupnih provjera",
       "resetHint": "Brojač se resetira sutra u 00:00 (Berlin)",
       "usingPaid": "Imaš {{count}} dodatnih plaćenih provjera",
-      "buyExtra": "Dodatne provjere danas: 2,99€/kom ili pričekaj sutra",
+      "buyExtra": "Dodatne provjere: 1,99€ po provjeri",
       "paidAvailable": "Imaš {{count}} plaćenih provjera spremnih",
       "paidHint": "Bez isteka — koristi kad god trebaš"
     },
@@ -536,15 +398,15 @@
       "fallback": "Pogreška servera pri analizi dokumenta.",
       "tooManyFiles": "Maksimalno {{max}} datoteka.",
       "totalTooLarge": "Ukupna veličina prelazi 25 MB.",
-      "paymentRequired": "Plaćanje 2,99€ je potrebno za analizu."
+      "paymentRequired": "Za analizu je potreban 1 kredit (1,99€ po provjeri)."
     },
     "paywall": {
       "title": "Dokumenten-Check",
-      "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku",
-      "premiumCta": "BalkanLink Premium — 9,99€/mj.",
-      "premiumPerk": "Neograničene provjere dokumenata + sve Premium funkcije",
+      "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku. 1,99€ po završenoj provjeri.",
+      "premiumCta": "Kupi provjeru — 1,99€",
+      "premiumPerk": "Plaća se po završenoj provjeri — važi i za Plus korisnike",
       "or": "ili",
-      "oneTimeCta": "Plati 2,99€ za jednu analizu →",
+      "oneTimeCta": "Plati 1,99€ za jednu analizu →",
       "oneTimeReset": "Plaćaš za svaku analizu pojedinačno",
       "paymentReadyToast": "Plaćanje je primljeno. Kliknite Provjeri dokument za pokretanje analize."
     },
@@ -574,7 +436,7 @@
       "financial": "Finanzielle Auswirkung",
       "deadline": "Frist",
       "lockedTitle": "🔒 Detaljna analiza dostupna uz Premium",
-      "lockedCta": "BalkanLink Premium — 9.99€/mj.",
+      "lockedCta": "Kupi provjeru — 1,99€",
       "viewAnalysis": "Pogledaj analizu",
       "urgent": "Hitna radnja potrebna",
       "recommended": "Preporučena radnja",
@@ -720,7 +582,7 @@
       },
       "premiumTitle": "Otključaj kompletan vodič",
       "anonTitle": "Vidi kompletan vodič",
-      "premiumCta": "Otključaj Premium — 9.99€/mjes.",
+      "premiumCta": "Otključaj s Plus — 19,90€ jednokratno",
       "registerCta": "Registruj se besplatno →",
       "haveAccount": "Već imaš nalog?",
       "signIn": "Prijavi se"
@@ -820,8 +682,8 @@
     "lockedOverlay": {
       "lockedItems": "🔒 +{{count}} {{label}} zaključano",
       "lockedDefaultLabel": "sadržaja",
-      "lockedSubtitle": "Dostupno sa Premium pretplatom",
-      "unlockCta": "Otključaj Premium"
+      "lockedSubtitle": "Dostupno uz BalkanLink Plus (jednokratno)",
+      "unlockCta": "Otključaj s Plus"
     },
     "resetDialog": {
       "title": "Resetirati sav napredak?",
@@ -1028,7 +890,7 @@
       "benefit4": "Preuzimanje kao PDF spreman za slanje",
       "benefit5": "Savjeti što treba priložiti uz dokument",
       "benefit6": "Primjer pravilno ispunjenog dokumenta",
-      "ctaUnlock": "Otključaj Premium — 9,99€/mj.",
+      "ctaUnlock": "Otključaj s Plus — 19,90€ jednokratno",
       "sectionWork": "Arbeitsrecht & Karriere",
       "sectionWorkLocal": "Radno pravo i karijera",
       "sectionService": "Kundenservice / Verträge",
@@ -1601,9 +1463,9 @@
       "title": "Tvoja analiza",
       "newScan": "Nova provjera",
       "newScanCta": "Učitaj novi obračun",
-      "premiumLockTitle": "Detaljan izvještaj — Premium",
-      "premiumLockSub": "U Premium verziji vidiš sve sumnjive stavke s pravnom osnovom, procjenu spornog iznosa i gotov tekst za upit najmodavcu.",
-      "premiumCta": "Otključaj za 9,99 €/mj",
+      "premiumLockTitle": "Detaljan izvještaj — BalkanLink Plus",
+      "premiumLockSub": "Uz BalkanLink Plus vidiš sve sumnjive stavke s pravnom osnovom, procjenu spornog iznosa i gotov tekst za upit stanodavcu.",
+      "premiumCta": "Otključaj s Plus — 19,90€ jednokratno",
       "disclaimer": "Ova analiza je informativna pomoć, ne pravni savjet. Za obvezujuću provjeru kontaktirajte Mieterbund (60–90 €/god) ili odvjetnika za Mietrecht."
     },
     "how": {
@@ -1641,7 +1503,7 @@
       "q3": "Što ako ne pronađete grešku?",
       "a3": "Iskreno ćemo to napisati. To ne znači da je obračun 100 % ispravan — samo da nismo vidjeli očite probleme.",
       "q4": "Koliko košta?",
-      "a4": "Besplatno: 1 provjera dnevno, osnovni rezultat. Premium (9,99 €/mj): neograničeno + detaljan izvještaj + tekst za najmodavca."
+      "a4": "Besplatno: 1 provjera dnevno, osnovni rezultat. BalkanLink Plus (19,90€ jednokratno): detaljan izvještaj + tekst za stanodavca."
     }
   },
   "whatIs": {
@@ -1690,14 +1552,14 @@
       }
     },
     "premium": {
-      "kicker": "✨ Premium",
+      "kicker": "✨ BalkanLink Plus",
       "badge": "Najpopularnije",
       "title": "Sve otključano — kad ti zatreba dublje",
-      "price": "9,99 €",
-      "priceUnit": "/mjesec",
-      "narrative": "Besplatna verzija je stvarno besplatna — Asistent radi, vodiči su otvoreni, Dokumenten-Check imaš 5× dnevno za Premium (ili 2,99€ pojedinačno), Anmeldung simulator je otvoren, prve korake kroz sustav nitko ti ne naplaćuje. Premium otključavaš onda kad ti život postane kompliciraniji — kad pišeš Steuererklärung, kad ti treba Bürgergeld obrazac, kad priznaješ diplomu, kad imaš dijete pa ti treba Elterngeld i Kindergeld vodič, ili kad jednostavno ne želiš brojati upite Asistentu.",
-      "summary": "Manje od jedne kave tjedno. Otkažeš kad želiš, jednim klikom, bez objašnjavanja.",
-      "cta": "Postani Premium",
+      "price": "19,90 €",
+      "priceUnit": " jednokratno",
+      "narrative": "Besplatna verzija je stvarno besplatna — Asistent radi, vodiči su otvoreni, Anmeldung simulator je otvoren, prve korake kroz sustav ti nitko ne naplaćuje. BalkanLink Plus otključavaš jednom, kad ti život postane kompliciraniji — trajan pristup premium vodičima, obrascima, predlošcima, Viza Navigatoru i DeutschTraineru. Dokumenten-Check nije uključen i plaća se 1,99€ po završenoj provjeri.",
+      "summary": "Platiš jednom, bez pretplate i bez automatskog produljenja.",
+      "cta": "Uzmi BalkanLink Plus",
       "ctaFree": "Probaj besplatno prvo"
     },
     "footer": "Napravljeno od dijaspore, za dijasporu. 🇭🇷 🇧🇦 🇷🇸 → 🇩🇪"

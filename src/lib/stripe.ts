@@ -1,42 +1,40 @@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import i18n from "@/i18n";
 
-/** Real Stripe LIVE price IDs (Stand 2026) */
-export const STRIPE_PRICE_IDS = {
-  PREMIUM_MONTHLY: "price_1TQDVTR9oGwbVekBC4NGd2XI", // 9.99€/mj
-  PREMIUM_YEARLY: "price_1TQDVsR9oGwbVekBWswag3oI", // 99.90€/god
-  PRO_AD_7DAY: "price_1TQDWjR9oGwbVekBDdS6ogxW", // 1.99€
-  PRO_AD_30DAY: "price_1TQDX1R9oGwbVekB7h7UFuIU", // 4.99€
-  DEUTSCH_A1: "price_1TQDZBR9oGwbVekBAIVw8KAz", // 9.99€
-  DEUTSCH_A2: "price_1TQDZTR9oGwbVekBzZ0mzjKv", // 14.99€
-  DEUTSCH_B1: "price_1TQDZjR9oGwbVekBQT6y65hp", // 19.99€
-  DEUTSCH_B2: "price_1TQDbAR9oGwbVekB4hNkb0so", // 24.99€
-  DEUTSCH_C1: "price_1TQDbRR9oGwbVekB5MxVzBks", // 29.99€
-  DEUTSCH_C2: "price_1TQDbkR9oGwbVekBbuLxMbrA", // 34.99€
-  FEATURED_FIRMA: "price_1TQDWCR9oGwbVekBLfyqBXYy", // 14.99€/mj
-  DOC_CHECK: "price_1TQDc3R9oGwbVekBYppvp6Y7", // 2.99€ jednokratno
-} as const;
+/**
+ * Purchasable consumer products. The client only sends a product KEY — the server
+ * (create-checkout) maps it to an allowlisted LIVE Stripe price and mode.
+ *  - plus:      BalkanLink Plus, 19,90€ one-time (price_1UIwaPR9oGwbVekB3tcoSeHB)
+ *  - doc_check: Dokumenten-Check, 1,99€ per check (price_1UIwaQR9oGwbVekBMgsX3h7d)
+ */
+export type ProductKey = "plus" | "doc_check";
 
-/** Stripe LIVE product IDs for subscription tier mapping */
+/** Legacy Premium subscription products — existing subscribers only, no new sales. */
 export const STRIPE_PRODUCT_IDS = {
   PREMIUM_MONTHLY: "prod_UP1YRWIs7iC35l",
   PREMIUM_YEARLY: "prod_UP1ZSixHnuI7Tz",
 } as const;
 
 /**
- * Initiate Stripe checkout via edge function.
+ * Start a Stripe Checkout for an allowlisted product.
  */
-export async function initiateCheckout(priceId: string, _userId: string, mode: "subscription" | "payment" = "payment", _formSlug?: string) {
+export async function initiateCheckout(product: ProductKey) {
   try {
     const returnTo = `${window.location.pathname}${window.location.search}`;
     const { data, error } = await supabase.functions.invoke("create-checkout", {
-      body: { priceId, mode, formSlug: _formSlug, returnTo },
+      body: { product, returnTo },
     });
-    if (error) throw error;
+    if (error) {
+      // 409 = already owns Plus
+      const ctx = (error as { context?: Response }).context;
+      if (ctx && ctx.status === 409) {
+        toast({ title: i18n.t("plus:errorTitle"), description: i18n.t("plus:alreadyOwned") });
+        return;
+      }
+      throw error;
+    }
     if (data?.url) {
-      // Same-tab redirect ensures Stripe's success_url returns the user back to BalkanLink
-      // in the same window. Opening in _blank caused users to lose context (the original tab
-      // stayed on the app while the new tab redirected — they had to manually switch back).
       window.location.href = data.url;
     } else {
       throw new Error("No checkout URL returned");
@@ -44,8 +42,8 @@ export async function initiateCheckout(priceId: string, _userId: string, mode: "
   } catch (err) {
     console.error("Checkout error:", err);
     toast({
-      title: "Greška",
-      description: "Nije moguće pokrenuti plaćanje. Pokušajte ponovo.",
+      title: i18n.t("plus:errorTitle"),
+      description: i18n.t("plus:checkoutError"),
       variant: "destructive",
     });
   }
@@ -76,6 +74,7 @@ export type PaymentVerification = {
   transaction_id?: string | null;
   paid_at?: string | null;
   session_id?: string | null;
+  product?: ProductKey | null;
 };
 
 /**

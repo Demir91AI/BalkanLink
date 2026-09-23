@@ -6,7 +6,6 @@ import { AppSidebar } from "./AppSidebar";
 import MobileBottomNav from "./MobileBottomNav";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
-import TrialPromoCTA from "@/components/TrialPromoCTA";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
 
@@ -57,7 +56,6 @@ export default function HomeLayout() {
         <PWAiOSGuide open={pwa.showIOSGuide} onClose={pwa.closeIOSGuide} onDismiss={pwa.dismiss} />
         <PWAManualGuide open={pwa.showManualGuide} onClose={pwa.closeManualGuide} />
       </Suspense>
-      <TrialPromoCTA />
     </div>
   );
 }

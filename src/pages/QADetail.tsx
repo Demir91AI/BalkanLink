@@ -9,6 +9,7 @@ import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 
 import { getCategoryBySlug } from "@/lib/categories";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 function FormattedContent({ text }: { text: string }) {
   const lines = text.split(/\\n|\n/).filter((l) => l.trim() !== "");
@@ -132,7 +133,7 @@ export default function QADetail() {
             className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:opacity-90 font-bold"
           >
             <Crown className="mr-2 h-4 w-4" />
-            Otključaj Premium — od 9,99€/mj
+            <PlusCtaLabel />
           </Button>
         </div>
       ) : (

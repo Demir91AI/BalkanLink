@@ -11,6 +11,7 @@ import { hasManagedBackHistory, useHistorySearchState } from "@/hooks/useHistory
 import { useSubscription } from "@/hooks/useSubscription";
 import { cn } from "@/lib/utils";
 import type { Guide, GuideStepCard } from "@/lib/guide-data";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 type LangKey = "de" | "bs" | "en";
 
@@ -152,7 +153,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
             onClick={() => navigate("/paketi")}
             style={{ display: "block", width: "100%", maxWidth: 280, margin: "0 auto", borderRadius: 99, padding: "14px 24px", fontSize: 14, fontWeight: 800, border: "none", cursor: "pointer", background: "linear-gradient(135deg, #B8952A, #D4AF37)", color: "#000" }}
           >
-            BalkanLink Premium — 9.99€/mj.
+            <PlusCtaLabel />
           </button>
         </div>
       ) : (

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 const BENEFITS = [
   "Kompletan vodič — svaki korak detaljno objašnjen",
@@ -77,7 +78,7 @@ export default function VisaGateCard({ routeTitle }: Props) {
               style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
             >
               <Crown className="h-4 w-4" />
-              Otključaj Premium — 9.99€/mj.
+              <PlusCtaLabel />
             </button>
           )}
         </div>

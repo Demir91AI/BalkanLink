@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useAuth } from "@/contexts/AuthContext";
-import { initiateCheckout, STRIPE_PRICE_IDS } from "@/lib/stripe";
+import { initiateCheckout } from "@/lib/stripe";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
@@ -260,6 +260,7 @@ export default function DokumentenCheck() {
   const navigate = useNavigate();
   const localizedNavigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
+  const { t: tPlus } = useTranslation("plus");
   const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const [analysis, setAnalysis] = useState<string | null>(null);
@@ -270,8 +271,8 @@ export default function DokumentenCheck() {
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
   const [creditCount, setCreditCount] = useState<number>(0);
-  const [premiumRemainingToday, setPremiumRemainingToday] = useState<number>(5);
-  const [premiumDailyLimit, setPremiumDailyLimit] = useState<number>(5);
+  const [premiumRemainingToday, setPremiumRemainingToday] = useState<number>(0);
+  const [premiumDailyLimit, setPremiumDailyLimit] = useState<number>(0);
   const [checkoutPending, setCheckoutPending] = useState(false);
   const submittingRef = useRef(false);
 
@@ -283,7 +284,7 @@ export default function DokumentenCheck() {
   const refreshCredits = useCallback(async () => {
     if (!user?.id) {
       setCreditCount(0);
-      setPremiumRemainingToday(5);
+      setPremiumRemainingToday(0);
       return;
     }
     const { data, error } = await supabase.rpc("get_doc_check_status", { uid: user.id });
@@ -362,20 +363,19 @@ export default function DokumentenCheck() {
     setAnalysis(null);
   }, [t]);
 
-  // Open Stripe checkout for the one-off 2.99€ purchase. Stripe opens in a new tab;
+  // Open Stripe checkout for the one-off 1.99€ purchase (every user, incl. Plus). Stripe opens in a new tab;
   // when the user returns, visibilitychange triggers refreshCredits().
   const startOneOffCheckout = useCallback(() => {
     if (!user) { localizedNavigate("/login"); return; }
     setCheckoutPending(true);
-    initiateCheckout(STRIPE_PRICE_IDS.DOC_CHECK, user.id, "payment");
+    initiateCheckout("doc_check");
   }, [user, localizedNavigate]);
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
-    // Pristup: Premium ima dnevnu kvotu (5/dan); ako je istrošena → mora imati plaćeni kredit.
-    // Non-premium: mora imati plaćeni kredit (2,99€).
+    // Svaki korisnik (i Plus) treba plaćeni kredit (1,99€ po provjeri). Server provjerava atomarno.
     const hasPremiumQuota = isPremium && premiumRemainingToday > 0;
     if (!hasPremiumQuota && creditCount < 1) { setShowPaywall(true); return; }
 
@@ -406,7 +406,7 @@ export default function DokumentenCheck() {
         if (data.errorCode === "PAYMENT_REQUIRED") {
           await refreshCredits();
           setShowPaywall(true);
-          throw new Error(data.message || t("documentCheck.errors.paymentRequired", "Plaćanje 2,99€ je potrebno."));
+          throw new Error(data.message || t("documentCheck.errors.paymentRequired", "Potreban je 1 kredit (1,99€)."));
         }
         throw new Error(data.message || t("documentCheck.errors.processingFailed"));
       }
@@ -490,118 +490,31 @@ export default function DokumentenCheck() {
         <AuthGate>
         <div className="container max-w-4xl px-4 space-y-8">
 
-          {/* ── Pricing cards ── */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-2xl border border-border bg-card p-5 text-center flex flex-col">
-              <p className="text-xs font-bold uppercase tracking-wider text-card-foreground/70 mb-2">{t("documentCheck.pricing.oneTimeLabel")}</p>
-              <p className="text-2xl font-black text-card-foreground">2,99€</p>
-              <p className="text-xs text-card-foreground/75 mt-1">{t("documentCheck.pricing.oneTimePerCheck")}</p>
-              <p className="text-[11px] text-card-foreground/70 mt-2 flex-1">
-                {t("documentCheck.pricing.oneTimeReset")}
+          {/* ── Pricing: 1,99€ per completed check for everyone (incl. BalkanLink Plus) ── */}
+          <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex-1">
+              <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">{tPlus("docTitle")}</p>
+              <p className="text-2xl font-black text-card-foreground">
+                {tPlus("docPrice")} <span className="text-sm font-medium text-card-foreground/70">{tPlus("docPer")}</span>
               </p>
-              <button
-                onClick={startOneOffCheckout}
-                className="mt-3 block w-full rounded-xl border border-border px-3 py-2 text-xs font-semibold hover:bg-accent transition-colors"
-              >
-                {t("documentCheck.pricing.buyOneTime")}
-              </button>
-              {creditCount > 0 && !isPremium && (
-                <p className="mt-2 text-[11px] font-semibold text-emerald-600">
-                  {t("documentCheck.pricing.creditAvailable", { count: creditCount, defaultValue: "Dostupno: {{count}} provjera" })}
+              <p className="text-xs text-card-foreground/75 mt-1">{tPlus("docDesc")}</p>
+            </div>
+            <div className="flex flex-col items-stretch sm:items-end gap-2 shrink-0">
+              {creditCount > 0 && (
+                <p className="text-xs font-semibold text-emerald-500">
+                  {t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}
                 </p>
               )}
-            </div>
-            <div className="rounded-2xl border-2 border-[hsl(var(--gold))]/40 bg-card p-5 text-center relative flex flex-col shadow-sm">
-              <span className="absolute -top-2.5 right-3 rounded-full bg-[hsl(var(--gold))] px-2 py-0.5 text-[8px] font-bold text-white uppercase">{t("documentCheck.pricing.premiumBadge")}</span>
-              <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-2">{t("documentCheck.pricing.premiumLabel")}</p>
-              <p className="text-2xl font-black text-card-foreground">
-                9,99€
-                <span className="text-sm font-medium text-card-foreground/70">{t("documentCheck.pricing.premiumPerMonth")}</span>
-              </p>
-              <ul className="mt-3 text-[11px] text-card-foreground/75 text-left space-y-1 flex-1">
-                <li className="flex items-start gap-1">
-                  <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
-                  {t("documentCheck.pricing.premiumFeature1")}
-                </li>
-                <li className="flex items-start gap-1">
-                  <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
-                  {t("documentCheck.pricing.premiumFeature2")}
-                </li>
-                <li className="flex items-start gap-1">
-                  <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0 mt-0.5" />
-                  {t("documentCheck.pricing.premiumFeature3")}
-                </li>
-              </ul>
               <button
-                onClick={() => localizedNavigate("/paketi")}
-                className="mt-3 rounded-xl px-3 py-2 text-xs font-bold text-white transition-all hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
+                onClick={startOneOffCheckout}
+                disabled={checkoutPending}
+                className="rounded-xl px-4 py-2.5 text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60"
+                style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}
               >
-                {t("documentCheck.pricing.buyPremium")}
+                {tPlus("docCta")}
               </button>
             </div>
           </div>
-
-          {/* ── Live brojač: koliko je provjera ostalo (Premium dnevna kvota ili plaćeni krediti) ── */}
-          {isPremium && (
-            <motion.div
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-                className={`flex items-center justify-between gap-3 rounded-2xl border bg-card p-4 sm:p-5 shadow-sm ${
-                premiumRemainingToday > 0
-                  ? "border-[hsl(var(--gold))]/30"
-                  : "border-amber-500/30"
-              }`}
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <div
-                  aria-hidden
-                  className="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-base font-black"
-                  style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "#000" }}
-                >
-                  {premiumRemainingToday}/{premiumDailyLimit}
-                </div>
-                <div className="min-w-0">
-                  <p className="font-bold text-sm text-card-foreground">
-                    {premiumRemainingToday > 0
-                      ? t("documentCheck.quota.remaining", { count: premiumRemainingToday, defaultValue: "Ostalo ti je {{count}} besplatnih provjera danas" })
-                      : t("documentCheck.quota.exhausted", "Iskoristio si dnevni Premium limit")}
-                  </p>
-                  <p className="text-xs text-card-foreground/75 mt-0.5">
-                    {premiumRemainingToday > 0
-                      ? t("documentCheck.quota.resetHint", "Brojač se resetuje sutra u 00:00 (Berlin)")
-                      : creditCount > 0
-                        ? t("documentCheck.quota.usingPaid", { count: creditCount, defaultValue: "Imaš {{count}} dodatnih plaćenih provjera" })
-                        : t("documentCheck.quota.buyExtra", "Dodatne provjere danas: 2,99€/kom ili sačekaj sutra")}
-                  </p>
-                </div>
-              </div>
-              {premiumRemainingToday === 0 && creditCount === 0 && (
-                <button
-                  onClick={startOneOffCheckout}
-                  className="shrink-0 rounded-xl bg-[hsl(var(--gold))] px-4 py-2 text-xs font-bold text-black hover:opacity-90"
-                >
-                  + 2,99€
-                </button>
-              )}
-            </motion.div>
-          )}
-          {!isPremium && creditCount > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-card p-4 shadow-sm"
-            >
-              <div
-                aria-hidden
-                className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-500/20 text-emerald-300 text-lg font-black"
-              >
-                {creditCount}
-              </div>
-              <div>
-                <p className="font-bold text-sm text-card-foreground">{t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}</p>
-                <p className="text-xs text-card-foreground/75 mt-0.5">{t("documentCheck.quota.paidHint", "Bez isteka — koristi kad god trebaš")}</p>
-              </div>
-            </motion.div>
-          )}
 
           {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
@@ -766,33 +679,13 @@ export default function DokumentenCheck() {
               </p>
               <div className="flex flex-col gap-3 w-full max-w-xs">
                 <button
-                  onClick={() => localizedNavigate("/paketi")}
-                  className="rounded-full px-6 py-3.5 font-bold transition-all hover:opacity-90"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))",
-                    color: "hsl(var(--gold-foreground))"
-                  }}
-                >
-                  <Crown className="inline-block mr-1.5 h-4 w-4" />
-                  {t("documentCheck.paywall.premiumCta")}
-                </button>
-                <p className="text-[11px] text-primary-foreground/75">
-                  {t("documentCheck.paywall.premiumPerk")}
-                </p>
-                <div className="flex items-center gap-2 my-1">
-                  <div className="flex-1 h-px bg-primary-foreground/10" />
-                  <span className="text-[11px] text-primary-foreground/70">{t("documentCheck.paywall.or")}</span>
-                  <div className="flex-1 h-px bg-primary-foreground/10" />
-                </div>
-                <button
                   onClick={startOneOffCheckout}
-                  className="rounded-full px-6 py-3 text-sm font-semibold border border-primary-foreground/35 text-primary-foreground/90 hover:text-primary-foreground hover:border-primary-foreground/55 transition-all text-center"
+                  className="rounded-full px-6 py-3.5 font-bold transition-all hover:opacity-90"
+                  style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}
                 >
-                  {t("documentCheck.paywall.oneTimeCta")}
+                  {tPlus("docCta")}
                 </button>
-                <p className="text-[11px] text-primary-foreground/70">
-                  {t("documentCheck.paywall.oneTimeReset")}
-                </p>
+                <p className="text-[11px] text-primary-foreground/75">{tPlus("docDesc")}</p>
               </div>
             </motion.div>
           )}
@@ -886,7 +779,7 @@ export default function DokumentenCheck() {
               )}
 
               {sections.map((section, idx) => {
-                const locked = section.isPremium && !isPremium;
+                const locked = false; // every completed check is paid (1,99€) → full analysis for everyone
                 return (
                   <motion.div
                     key={section.id}

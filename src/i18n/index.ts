@@ -26,6 +26,7 @@ import bsChecklists from "./locales/bs/checklists.json";
 import bsSimulator from "./locales/bs/simulator.json";
 import bsDvojnoDrzavljanstvo from "./locales/bs/dvojnoDrzavljanstvo.json";
 import bsSaved from "./locales/bs/saved.json";
+import bsPlus from "./locales/bs/plus.json";
 
 import deCommon from "./locales/de/common.json";
 import deForms from "./locales/de/forms.json";
@@ -39,6 +40,7 @@ import deChecklists from "./locales/de/checklists.json";
 import deSimulator from "./locales/de/simulator.json";
 import deDvojnoDrzavljanstvo from "./locales/de/dvojnoDrzavljanstvo.json";
 import deSaved from "./locales/de/saved.json";
+import dePlus from "./locales/de/plus.json";
 
 import hrCommon from "./locales/hr/common.json";
 import hrForms from "./locales/hr/forms.json";
@@ -52,6 +54,7 @@ import hrChecklists from "./locales/hr/checklists.json";
 import hrSimulator from "./locales/hr/simulator.json";
 import hrDvojnoDrzavljanstvo from "./locales/hr/dvojnoDrzavljanstvo.json";
 import hrSaved from "./locales/hr/saved.json";
+import hrPlus from "./locales/hr/plus.json";
 
 import srCommon from "./locales/sr/common.json";
 import srForms from "./locales/sr/forms.json";
@@ -65,6 +68,7 @@ import srChecklists from "./locales/sr/checklists.json";
 import srSimulator from "./locales/sr/simulator.json";
 import srDvojnoDrzavljanstvo from "./locales/sr/dvojnoDrzavljanstvo.json";
 import srSaved from "./locales/sr/saved.json";
+import srPlus from "./locales/sr/plus.json";
 
 export const SUPPORTED_LANGUAGES = ["bs", "de", "hr", "sr"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
@@ -72,10 +76,10 @@ export const DEFAULT_LANGUAGE: SupportedLanguage = "bs";
 export const LANG_STORAGE_KEY = "balkanlink-lang";
 
 const resources = {
-  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi, legal: bsLegal, checklists: bsChecklists, simulator: bsSimulator, dvojnoDrzavljanstvo: bsDvojnoDrzavljanstvo, saved: bsSaved },
-  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi, legal: deLegal, checklists: deChecklists, simulator: deSimulator, dvojnoDrzavljanstvo: deDvojnoDrzavljanstvo, saved: deSaved },
-  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi, legal: hrLegal, checklists: hrChecklists, simulator: hrSimulator, dvojnoDrzavljanstvo: hrDvojnoDrzavljanstvo, saved: hrSaved },
-  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi, legal: srLegal, checklists: srChecklists, simulator: srSimulator, dvojnoDrzavljanstvo: srDvojnoDrzavljanstvo, saved: srSaved },
+  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi, legal: bsLegal, checklists: bsChecklists, simulator: bsSimulator, dvojnoDrzavljanstvo: bsDvojnoDrzavljanstvo, saved: bsSaved, plus: bsPlus },
+  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi, legal: deLegal, checklists: deChecklists, simulator: deSimulator, dvojnoDrzavljanstvo: deDvojnoDrzavljanstvo, saved: deSaved, plus: dePlus },
+  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi, legal: hrLegal, checklists: hrChecklists, simulator: hrSimulator, dvojnoDrzavljanstvo: hrDvojnoDrzavljanstvo, saved: hrSaved, plus: hrPlus },
+  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi, legal: srLegal, checklists: srChecklists, simulator: srSimulator, dvojnoDrzavljanstvo: srDvojnoDrzavljanstvo, saved: srSaved, plus: srPlus },
 };
 
 i18n
@@ -92,7 +96,7 @@ i18n
     nonExplicitSupportedLngs: false, // 'sr-Latn' / 'hr-HR' won't auto-resolve
     load: "languageOnly", // 'de-AT' → 'de'
     defaultNS: "common",
-    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung", "porezi", "legal", "checklists", "simulator", "dvojnoDrzavljanstvo", "saved"],
+    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung", "porezi", "legal", "checklists", "simulator", "dvojnoDrzavljanstvo", "saved", "plus"],
     interpolation: { escapeValue: false },
     detection: {
       // URL path takes precedence (so /de, /hr, /sr always force the language
