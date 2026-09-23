@@ -96,7 +96,7 @@ i18n
     nonExplicitSupportedLngs: false, // 'sr-Latn' / 'hr-HR' won't auto-resolve
     load: "languageOnly", // 'de-AT' → 'de'
     defaultNS: "common",
-    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung", "porezi", "legal", "checklists", "simulator", "dvojnoDrzavljanstvo", "saved"],
+    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung", "porezi", "legal", "checklists", "simulator", "dvojnoDrzavljanstvo", "saved", "plus"],
     interpolation: { escapeValue: false },
     detection: {
       // URL path takes precedence (so /de, /hr, /sr always force the language
