@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { LEGACY_PREMIUM_PRICE_IDS } from "../_shared/products.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -159,6 +160,9 @@ serve(async (req) => {
 
       const periodEnd = periodEndOf(sub);
       const price = sub.items?.data?.[0]?.price;
+      // Only consumer Premium subscriptions are relevant for profile access
+      if (!sub.items?.data?.some((it: any) => LEGACY_PREMIUM_PRICE_IDS.includes(it.price?.id))) continue;
+      if (profile?.subscription_tier === "lifetime") continue;
       const dbExp = profile?.subscription_expires_at ?? null;
 
       let diffDays: number | null = null;
