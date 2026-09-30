@@ -81,32 +81,21 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Existing (grandfathered) monthly subscribers keep their 5 free checks/day.
-    const { data: legacyId } = await adminSupabase.rpc("reserve_legacy_doc_check", { uid: userId });
-    if (legacyId) reservedLegacyId = legacyId as string;
-
-    // Otherwise reserve exactly one paid credit atomically (prevents parallel double-use)
-    const { data: creditId, error: reserveErr } = reservedLegacyId
-      ? { data: "legacy", error: null }
-      : await adminSupabase.rpc("reserve_doc_check_credit", { uid: userId });
-    if (reserveErr) {
-      console.error("reserve_doc_check_credit error:", reserveErr.message);
+    // Included in the one-time BalkanLink access (19,90€). No per-check charges.
+    const { data: hasAccess, error: accessErr } = await adminSupabase.rpc("has_full_access", { uid: userId });
+    if (accessErr) {
+      console.error("has_full_access error:", accessErr.message);
       return new Response(
-        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera dostupnosti nije uspjela." }),
+        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera pristupa nije uspjela." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
-    if (!creditId) {
+    if (!hasAccess) {
       return new Response(
-        JSON.stringify({
-          success: false,
-          errorCode: "PAYMENT_REQUIRED",
-          message: "Za provjeru dokumenta potreban je 1 kredit (1,99€ po provjeri).",
-        }),
-        { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({ success: false, errorCode: "ACCESS_REQUIRED", message: "Dokumenten-Check je uključen u BalkanLink pristup (19,90€ jednokratno)." }),
+        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
-    if (!reservedLegacyId) reservedCreditId = creditId as string;
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
@@ -321,24 +310,10 @@ Ako NE → prosiri prije slanja.`;
 
     console.log("Analysis completed successfully, length:", result.length);
 
-    // Analysis completed → the reserved credit stays consumed.
     completed = true;
 
-    // Vrati ažurirani status nazad u UI radi brojača (one-shot, bez dodatnog poziva)
-    const { data: postRows } = await adminSupabase
-      .rpc("get_doc_check_status", { uid: userId });
-    const postStatus = Array.isArray(postRows) ? postRows[0] : postRows;
-
     return new Response(
-      JSON.stringify({
-        success: true,
-        analysis: result,
-        status: {
-          isPremium: !!postStatus?.is_premium,
-          paidCredits: Number(postStatus?.paid_credits ?? 0),
-          premiumRemainingToday: Number(postStatus?.premium_remaining_today ?? 0),
-        },
-      }),
+      JSON.stringify({ success: true, analysis: result, status: { fullAccess: true } }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
@@ -348,13 +323,6 @@ Ako NE → prosiri prije slanja.`;
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } finally {
-    if (reservedLegacyId && !completed && adminRef) {
-      await adminRef.rpc("release_legacy_doc_check", { usage_id: reservedLegacyId });
-    }
-    if (reservedCreditId && !completed && adminRef) {
-      const { error } = await adminRef.rpc("release_doc_check_credit", { credit_id: reservedCreditId });
-      if (error) console.error("release_doc_check_credit error:", error.message);
-      else console.log("Credit released (check not completed)");
-    }
+    void completed; void adminRef; void reservedCreditId; void reservedLegacyId;
   }
 });

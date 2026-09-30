@@ -1,22 +1,16 @@
 // Server-side allowlist of purchasable consumer products (Stripe LIVE).
 // The client may only send a product KEY; price, amount and mode are decided here.
 
-export type ProductKey = "plus" | "doc_check";
+// BalkanLink has exactly ONE paid product: 19,90€ one-time, lifetime full access.
+export type ProductKey = "plus";
 
 export const PRODUCTS: Record<ProductKey, { priceId: string; amountCents: number; currency: "eur"; mode: "payment"; label: string }> = {
   plus: {
-    priceId: "price_1UIwaPR9oGwbVekB3tcoSeHB", // BalkanLink Plus — 19.90 EUR one-time (prod_VJZjPMIXbjieme)
+    priceId: "price_1UIwaPR9oGwbVekB3tcoSeHB", // BalkanLink pristup — 19.90 EUR one-time (prod_VJZjPMIXbjieme)
     amountCents: 1990,
     currency: "eur",
     mode: "payment",
-    label: "BalkanLink Plus (19,90€ jednokratno)",
-  },
-  doc_check: {
-    priceId: "price_1UIwaQR9oGwbVekBMgsX3h7d", // Dokumenten-Check — 1.99 EUR one-time (prod_VJZjkJkrpIdAcp)
-    amountCents: 199,
-    currency: "eur",
-    mode: "payment",
-    label: "Dokumenten-Check (1,99€)",
+    label: "BalkanLink pristup (19,90€ jednokratno)",
   },
 };
 
