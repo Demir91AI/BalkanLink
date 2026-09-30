@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
-import { useSubscription } from "@/hooks/useSubscription";
+import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import { useAuth } from "@/contexts/AuthContext";
 import { initiateCheckout } from "@/lib/stripe";
 import { toast } from "sonner";
