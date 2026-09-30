@@ -35,7 +35,8 @@ serve(async (req) => {
     // Plus is a one-time lifetime purchase — don't sell it twice.
     if (body.product === "plus") {
       const { data: prof } = await admin.from("profiles").select("subscription_tier").eq("id", user.id).maybeSingle();
-      if (prof?.subscription_tier === "lifetime") return json({ error: "already_owned" }, 409);
+      const { data: has } = await admin.rpc("has_full_access", { uid: user.id });
+      if (has || prof?.subscription_tier === "lifetime") return json({ error: "already_owned" }, 409);
     }
 
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", { apiVersion: "2025-08-27.basil" });
