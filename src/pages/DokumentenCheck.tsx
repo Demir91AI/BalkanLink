@@ -270,61 +270,8 @@ export default function DokumentenCheck() {
   const cameraInputRef = useRef<HTMLInputElement>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
-  const [creditCount, setCreditCount] = useState<number>(0);
-  const [premiumRemainingToday, setPremiumRemainingToday] = useState<number>(0);
-  const [premiumDailyLimit, setPremiumDailyLimit] = useState<number>(0);
-  const [checkoutPending, setCheckoutPending] = useState(false);
-  const submittingRef = useRef(false);
-
-  const { isPremium } = useSubscription();
+  const { isPremium: hasAccess } = usePremiumAccess();
   const { user } = useAuth();
-
-  // Single source of truth: get_doc_check_status RPC vraća sve odjednom
-  // (premium + dnevna kvota + plaćeni krediti). Edge funkcija koristi isti RPC.
-  const refreshCredits = useCallback(async () => {
-    if (!user?.id) {
-      setCreditCount(0);
-      setPremiumRemainingToday(0);
-      return;
-    }
-    const { data, error } = await supabase.rpc("get_doc_check_status", { uid: user.id });
-    if (error) {
-      console.error("[DokumentenCheck] get_doc_check_status error:", error.message);
-      // Fallback: stari način brojanja kredita
-      const { count } = await supabase
-        .from("doc_check_credits")
-        .select("id", { count: "exact", head: true })
-        .eq("user_id", user.id)
-        .is("consumed_at", null);
-      setCreditCount(count ?? 0);
-      return;
-    }
-    const row = Array.isArray(data) ? data[0] : data;
-    setCreditCount(Number(row?.paid_credits ?? 0));
-    setPremiumRemainingToday(Number(row?.premium_remaining_today ?? 0));
-    setPremiumDailyLimit(Number(row?.premium_daily_limit ?? 0));
-  }, [user?.id]);
-
-  // Initial + visibility-change refresh (so returning from Stripe tab updates credits).
-  useEffect(() => {
-    refreshCredits();
-    const onVis = () => { if (document.visibilityState === "visible") refreshCredits(); };
-    document.addEventListener("visibilitychange", onVis);
-    window.addEventListener("focus", refreshCredits);
-    return () => {
-      document.removeEventListener("visibilitychange", onVis);
-      window.removeEventListener("focus", refreshCredits);
-    };
-  }, [refreshCredits]);
-
-  // When a credit becomes available after returning from Stripe, surface a success toast once.
-  useEffect(() => {
-    if (checkoutPending && creditCount > 0) {
-      setCheckoutPending(false);
-      setShowPaywall(false);
-      toast.success(t("documentCheck.paywall.paymentReadyToast", "Plaćanje je primljeno. Kliknite Provjeri dokument za pokretanje analize."));
-    }
-  }, [checkoutPending, creditCount, t]);
 
   const totalSize = useMemo(() => files.reduce((s, f) => s + f.size, 0), [files]);
 
@@ -363,21 +310,17 @@ export default function DokumentenCheck() {
     setAnalysis(null);
   }, [t]);
 
-  // Open Stripe checkout for the one-off 1.99€ purchase (every user, incl. Plus). Stripe opens in a new tab;
-  // when the user returns, visibilitychange triggers refreshCredits().
+  // One product only: BalkanLink pristup, 19,90€ one-time.
   const startOneOffCheckout = useCallback(() => {
     if (!user) { localizedNavigate("/login"); return; }
-    setCheckoutPending(true);
-    initiateCheckout("doc_check");
+    initiateCheckout("plus");
   }, [user, localizedNavigate]);
 
   const handleAnalyze = useCallback(async () => {
     if (submittingRef.current || loading) return;
     if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
     if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
-    // Svaki korisnik (i Plus) treba plaćeni kredit (1,99€ po provjeri). Server provjerava atomarno.
-    const hasPremiumQuota = premiumDailyLimit > 0 && premiumRemainingToday > 0;
-    if (!hasPremiumQuota && creditCount < 1) { setShowPaywall(true); return; }
+    if (!hasAccess) { setShowPaywall(true); return; }
 
     submittingRef.current = true;
     setLoading(true);
@@ -402,25 +345,15 @@ export default function DokumentenCheck() {
 
       if (fnError) throw new Error(t("documentCheck.errors.serverError"));
       if (data?.success === false) {
-        // Backend says payment is required — open paywall and refresh credits.
-        if (data.errorCode === "PAYMENT_REQUIRED") {
-          await refreshCredits();
+        if (data.errorCode === "ACCESS_REQUIRED") {
           setShowPaywall(true);
-          throw new Error(data.message || t("documentCheck.errors.paymentRequired", "Potreban je 1 kredit (1,99€)."));
+          throw new Error(tPlus("docDesc"));
         }
         throw new Error(data.message || t("documentCheck.errors.processingFailed"));
       }
       if (!data?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
 
       setAnalysis(data.analysis);
-      // Ako edge funkcija vrati ažurirani status, primijeni odmah (sinhrono);
-      // u protivnom uradi RPC refresh kao fallback.
-      if (data?.status) {
-        setPremiumRemainingToday(Number(data.status.premiumRemainingToday ?? premiumRemainingToday));
-        setCreditCount(Number(data.status.paidCredits ?? creditCount));
-      } else {
-        await refreshCredits();
-      }
     } catch (err: any) {
       const message = err.message || t("documentCheck.errors.fallback");
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
@@ -432,7 +365,7 @@ export default function DokumentenCheck() {
       setLoading(false);
       submittingRef.current = false;
     }
-  }, [confirmed, files, isPremium, creditCount, premiumRemainingToday, loading, refreshCredits, t]);
+  }, [confirmed, files, hasAccess, loading, t]);
 
   const handleClear = useCallback(() => {
     clearFiles();
@@ -490,36 +423,21 @@ export default function DokumentenCheck() {
         <AuthGate>
         <div className="container max-w-4xl px-4 space-y-8">
 
-          {premiumDailyLimit > 0 && (
-            <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-4 text-sm text-card-foreground">
-              <span className="font-bold">{premiumRemainingToday}/{premiumDailyLimit}</span>{" "}
-              {tPlus("legacyDocQuota")}
-            </div>
-          )}
-          {/* ── Pricing: 1,99€ per completed check for everyone (incl. BalkanLink Plus) ── */}
+          {/* ── Included in the one-time BalkanLink access (19,90€) ── */}
           <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">{tPlus("docTitle")}</p>
-              <p className="text-2xl font-black text-card-foreground">
-                {tPlus("docPrice")} <span className="text-sm font-medium text-card-foreground/70">{tPlus("docPer")}</span>
-              </p>
-              <p className="text-xs text-card-foreground/75 mt-1">{tPlus("docDesc")}</p>
+              <p className="text-sm text-card-foreground/80">{hasAccess ? tPlus("docIncludedOwned") : tPlus("docDesc")}</p>
             </div>
-            <div className="flex flex-col items-stretch sm:items-end gap-2 shrink-0">
-              {creditCount > 0 && (
-                <p className="text-xs font-semibold text-emerald-500">
-                  {t("documentCheck.quota.paidAvailable", { count: creditCount, defaultValue: "Imaš {{count}} plaćenih provjera spremnih" })}
-                </p>
-              )}
+            {!hasAccess && (
               <button
                 onClick={startOneOffCheckout}
-                disabled={checkoutPending}
-                className="rounded-xl px-4 py-2.5 text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60"
+                className="shrink-0 rounded-xl px-4 py-2.5 text-sm font-bold transition-all hover:opacity-90"
                 style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}
               >
-                {tPlus("docCta")}
+                {tPlus("unlockCta")}
               </button>
-            </div>
+            )}
           </div>
 
           {/* ── Privacy notice ── */}
@@ -689,9 +607,9 @@ export default function DokumentenCheck() {
                   className="rounded-full px-6 py-3.5 font-bold transition-all hover:opacity-90"
                   style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}
                 >
-                  {tPlus("docCta")}
+                  {tPlus("unlockCta")}
                 </button>
-                <p className="text-[11px] text-primary-foreground/75">{tPlus("docDesc")}</p>
+                <p className="text-[11px] text-primary-foreground/75">{tPlus("unlockNote")}</p>
               </div>
             </motion.div>
           )}
