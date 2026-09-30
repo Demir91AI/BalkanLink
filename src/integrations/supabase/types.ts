@@ -1579,6 +1579,7 @@ export type Database = {
         }
         Returns: undefined
       }
+      has_full_access: { Args: { uid: string }; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

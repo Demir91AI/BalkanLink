@@ -6,9 +6,8 @@ import i18n from "@/i18n";
  * Purchasable consumer products. The client only sends a product KEY — the server
  * (create-checkout) maps it to an allowlisted LIVE Stripe price and mode.
  *  - plus:      BalkanLink Plus, 19,90€ one-time (price_1UIwaPR9oGwbVekB3tcoSeHB)
- *  - doc_check: Dokumenten-Check, 1,99€ per check (price_1UIwaQR9oGwbVekBMgsX3h7d)
  */
-export type ProductKey = "plus" | "doc_check";
+export type ProductKey = "plus";
 
 /** Legacy Premium subscription products — existing subscribers only, no new sales. */
 export const STRIPE_PRODUCT_IDS = {
