@@ -469,6 +469,128 @@ export type Database = {
         }
         Relationships: []
       }
+      editorial_article_revisions: {
+        Row: {
+          article_id: string
+          changed_by: string | null
+          created_at: string
+          id: string
+          snapshot: Json
+          workflow_status: string
+        }
+        Insert: {
+          article_id: string
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          snapshot: Json
+          workflow_status: string
+        }
+        Update: {
+          article_id?: string
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          snapshot?: Json
+          workflow_status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "editorial_article_revisions_article_id_fkey"
+            columns: ["article_id"]
+            isOneToOne: false
+            referencedRelation: "editorial_articles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      editorial_articles: {
+        Row: {
+          author_name: string
+          body: string
+          category: string
+          correction_note: string | null
+          created_at: string
+          created_by: string | null
+          effective_date: string | null
+          excerpt: string
+          id: string
+          is_demo: boolean
+          is_law_change: boolean
+          kind: string
+          lang: string
+          legal_status: string | null
+          original_published_at: string | null
+          primary_sources: Json
+          published_at: string | null
+          related_links: Json
+          slug: string
+          source_name: string | null
+          source_url: string | null
+          title: string
+          updated_at: string
+          verified_at: string | null
+          what_it_means: string | null
+          workflow_status: string
+        }
+        Insert: {
+          author_name?: string
+          body?: string
+          category: string
+          correction_note?: string | null
+          created_at?: string
+          created_by?: string | null
+          effective_date?: string | null
+          excerpt?: string
+          id?: string
+          is_demo?: boolean
+          is_law_change?: boolean
+          kind: string
+          lang?: string
+          legal_status?: string | null
+          original_published_at?: string | null
+          primary_sources?: Json
+          published_at?: string | null
+          related_links?: Json
+          slug: string
+          source_name?: string | null
+          source_url?: string | null
+          title: string
+          updated_at?: string
+          verified_at?: string | null
+          what_it_means?: string | null
+          workflow_status?: string
+        }
+        Update: {
+          author_name?: string
+          body?: string
+          category?: string
+          correction_note?: string | null
+          created_at?: string
+          created_by?: string | null
+          effective_date?: string | null
+          excerpt?: string
+          id?: string
+          is_demo?: boolean
+          is_law_change?: boolean
+          kind?: string
+          lang?: string
+          legal_status?: string | null
+          original_published_at?: string | null
+          primary_sources?: Json
+          published_at?: string | null
+          related_links?: Json
+          slug?: string
+          source_name?: string | null
+          source_url?: string | null
+          title?: string
+          updated_at?: string
+          verified_at?: string | null
+          what_it_means?: string | null
+          workflow_status?: string
+        }
+        Relationships: []
+      }
       email_jobs: {
         Row: {
           id: string
