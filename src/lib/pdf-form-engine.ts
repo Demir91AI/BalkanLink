@@ -90,6 +90,7 @@ export async function fillPdfForm<TData>(
     }
   }
 
+  lastFillReport = { label: cfg.label ?? cfg.url, missingFields: [...missing], checkedAt: new Date().toISOString() };
   if (missing.length && typeof console !== "undefined") {
     console.warn(`[${logTag}] Polja nisu nađena:`, missing);
   }
@@ -98,6 +99,13 @@ export async function fillPdfForm<TData>(
     updateFieldAppearances: cfg.updateFieldAppearances ?? true,
   });
   return new Blob([out as unknown as ArrayBuffer], { type: "application/pdf" });
+}
+
+/** Read-only report of the most recent fill (not enforced yet — FormularPilot P1 will fail closed on it). */
+export interface PdfFillReport { label: string; missingFields: string[]; checkedAt: string }
+let lastFillReport: PdfFillReport | null = null;
+export function getLastFillReport(): PdfFillReport | null {
+  return lastFillReport;
 }
 
 export function downloadBlob(blob: Blob, filename: string) {
