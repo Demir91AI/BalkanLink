@@ -8,7 +8,8 @@ import {
 
 const TEMPLATE = new Uint8Array(readFileSync(join(process.cwd(), "public/muster/integrationskurs-bamf-630007.pdf")));
 const today = "2026-10-26";
-const TEST = { today, allowNonCurrentEditionForTesting: true };
+const FONT = new Uint8Array(readFileSync(join(process.cwd(), "src/assets/fonts/liberation-sans/LiberationSans-Regular.ttf")));
+const TEST = { today, allowNonCurrentEditionForTesting: true, fontBytes: FONT };
 
 // Synthetic people only.
 const maja: IkAnswers = {
@@ -104,9 +105,29 @@ describe("BAMF 630.007 — golden fill (bundled 01/2026, test-only edition overr
   });
 });
 
+describe("BAMF 630.007 — BHS letters, umlauts, caps, long addresses", () => {
+  const cases: Partial<IkAnswers>[] = [
+    { familienname: "Čičak", vorname: "Ćamila", geburtsname: "Đurić" },
+    { familienname: "Ćosić", vorname: "Šejla", geburtsname: "Žunić" },
+    { familienname: "Šabić", vorname: "Đorđe", geburtsname: "Čolić" },
+    { familienname: "ŽUNIĆ", vorname: "ĐURĐA", geburtsname: "ČIČAK-ĆOSIĆ" },
+    { familienname: "Müller-Lüdenscheidt", vorname: "Jürgen", geburtsname: "Größmann" },
+    { strasse: "Hauptstraße 117a, Hinterhaus 3. OG", co: "c/o Familie Šabić", ort: "Frankfurt am Main" },
+  ];
+  for (const c of cases) {
+    it(`reads back exactly: ${Object.values(c).join(" / ")}`, async () => {
+      const a = { ...maja, ...c };
+      const r = await prepareIk630007(TEMPLATE, a, TEST);
+      if (r.ok === false) throw new Error(r.code + " " + (r.fields ?? []).join(","));
+      const v = await readBack(r.bytes);
+      for (const f of buildIkFills(a)) if (f.type === "text") expect(v[f.name], f.name).toBe(f.value);
+    });
+  }
+});
+
 describe("BAMF 630.007 — fail-closed gates", () => {
   it("production gate refuses the bundled edition (superseded by 07/2026)", async () => {
-    const r = await prepareIk630007(TEMPLATE, maja, { today });
+    const r = await prepareIk630007(TEMPLATE, maja, { today, fontBytes: FONT });
     expect(r).toEqual({ ok: false, code: "EDITION_NOT_CURRENT" });
     expect(IK_EDITIONS.some((e) => e.status === "current_verified")).toBe(false);
   });
@@ -136,9 +157,15 @@ describe("BAMF 630.007 — fail-closed gates", () => {
     if (r.ok === false) expect(r.preflight).toContainEqual(expect.objectContaining({ code: "MISSING_FIELD", field: IK_F.name }));
   });
 
-  it("č/ć/đ cannot be drawn by the form font → UNSUPPORTED_GLYPHS (never invisible/garbled print)", async () => {
-    const r = await prepareIk630007(TEMPLATE, { ...maja, familienname: "Kovač", geburtsname: "Đurić" }, TEST);
-    expect(r).toEqual({ ok: false, code: "UNSUPPORTED_GLYPHS", fields: [IK_F.geburtsname, IK_F.name].sort() });
+  it("characters the font lacks → UNSUPPORTED_GLYPHS (never invisible/garbled print)", async () => {
+    const r = await prepareIk630007(TEMPLATE, { ...maja, familienname: "王" }, TEST);
+    expect(r).toEqual({ ok: false, code: "UNSUPPORTED_GLYPHS", fields: [IK_F.name] });
+  });
+
+  it("altered or missing font → FONT_UNAVAILABLE", async () => {
+    const bad = FONT.slice(); bad[100] ^= 0xff;
+    expect(await prepareIk630007(TEMPLATE, maja, { ...TEST, fontBytes: bad })).toEqual({ ok: false, code: "FONT_UNAVAILABLE" });
+    expect(await prepareIk630007(TEMPLATE, maja, { ...TEST, fontBytes: new Uint8Array() })).toEqual({ ok: false, code: "FONT_UNAVAILABLE" });
   });
 
   it("long text that would be cut off → TEXT_OVERFLOW", async () => {
