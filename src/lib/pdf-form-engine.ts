@@ -46,14 +46,49 @@ export interface PdfFormConfig<TData> {
   customDraw?: (ctx: CustomDrawContext) => void | Promise<void>;
 }
 
+/** Per-invocation fill report. Never shared between calls. */
+export interface PdfFillReport {
+  label: string;
+  requestedFields: number;
+  filledFields: number;
+  /** "type:name" entries that could not be filled, in builder order. */
+  missingFields: string[];
+}
+
+export interface PdfFillResult {
+  blob: Blob;
+  bytes: Uint8Array;
+  report: PdfFillReport;
+}
+
+/** Backwards-compatible: returns only the Blob (all existing callers). */
 export async function fillPdfForm<TData>(
   cfg: PdfFormConfig<TData>,
   data: TData,
   logTag = "PDF",
 ): Promise<Blob> {
+  return (await fillPdfFormWithReport(cfg, data, logTag)).blob;
+}
+
+/** Fetches the template, then fills it. */
+export async function fillPdfFormWithReport<TData>(
+  cfg: PdfFormConfig<TData>,
+  data: TData,
+  logTag = "PDF",
+): Promise<PdfFillResult> {
   const res = await fetch(cfg.url);
   if (!res.ok) throw new Error(`PDF fetch failed: ${res.status}`);
-  const bytes = await res.arrayBuffer();
+  return fillPdfBytes(cfg, data, await res.arrayBuffer(), logTag);
+}
+
+/** Pure fill on given template bytes — all state is local to this call. */
+export async function fillPdfBytes<TData>(
+  cfg: PdfFormConfig<TData>,
+  data: TData,
+  bytes: ArrayBuffer | Uint8Array,
+  logTag = "PDF",
+): Promise<PdfFillResult> {
+
 
   const pdfDoc = await PDFDocument.load(bytes, { ignoreEncryption: true });
   const form = pdfDoc.getForm();
@@ -90,7 +125,6 @@ export async function fillPdfForm<TData>(
     }
   }
 
-  lastFillReport = { label: cfg.label ?? cfg.url, missingFields: [...missing], checkedAt: new Date().toISOString() };
   if (missing.length && typeof console !== "undefined") {
     console.warn(`[${logTag}] Polja nisu nađena:`, missing);
   }
@@ -98,14 +132,13 @@ export async function fillPdfForm<TData>(
   const out = await pdfDoc.save({
     updateFieldAppearances: cfg.updateFieldAppearances ?? true,
   });
-  return new Blob([out as unknown as ArrayBuffer], { type: "application/pdf" });
-}
-
-/** Read-only report of the most recent fill (not enforced yet — FormularPilot P1 will fail closed on it). */
-export interface PdfFillReport { label: string; missingFields: string[]; checkedAt: string }
-let lastFillReport: PdfFillReport | null = null;
-export function getLastFillReport(): PdfFillReport | null {
-  return lastFillReport;
+  const report: PdfFillReport = {
+    label: cfg.label ?? cfg.url,
+    requestedFields: fills.length,
+    filledFields: fills.length - missing.length,
+    missingFields: missing,
+  };
+  return { blob: new Blob([out as unknown as ArrayBuffer], { type: "application/pdf" }), bytes: out, report };
 }
 
 export function downloadBlob(blob: Blob, filename: string) {
