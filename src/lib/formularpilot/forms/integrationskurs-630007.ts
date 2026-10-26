@@ -8,7 +8,8 @@
  * The signature is never filled. The user reviews, prints, signs and sends it.
  * Output messages are codes (i18n keys later), never user data in reports.
  */
-import { PDFDocument, PDFTextField, PDFCheckBox, StandardFonts } from "pdf-lib";
+import { PDFDocument, PDFTextField, PDFCheckBox } from "pdf-lib";
+import { embedUnicodeFont } from "../unicode-font";
 import { preflightPdfTemplate, type PdfTemplateManifest, type PreflightIssue } from "@/lib/pdf-preflight";
 import type { FieldFill } from "@/lib/pdf-form-engine";
 
@@ -26,6 +27,12 @@ export interface IkEdition {
   checkedAt: string;
 }
 
+/** Official BAMF office finder (BAMF-NAvI → Behörden); competence follows place of residence. */
+export const BAMF_NAVI_BEHOERDEN_URL = "https://bamf-navi.bamf.de/de/Themen/Behoerden/";
+/** Official online application (Bundesportal) linked from the BAMF form page. */
+export const IK_BUNDESPORTAL_URL =
+  "https://verwaltung.bund.de/leistungsbeantragung/de/leistung/99011002007000/herausgeber/LeiKa-574959/region/000000000000";
+
 export const IK_EDITIONS: IkEdition[] = [
   {
     version: "KNr. 630.007w BAMF 01/2026",
@@ -37,7 +44,7 @@ export const IK_EDITIONS: IkEdition[] = [
   {
     version: "KNr. 630.007x BAMF 07/2026",
     status: "not_obtained",
-    evidence: "BAMF form page shows Datum 22.07.2026; PDF download returned 404/timeout on 2026-10-26; hash and fields unknown",
+    evidence: "BAMF form page (IK_OFFICIAL_PAGE_URL) dated 22.07.2026 offers NO PDF download, only the Bundesportal online application; former PDF URLs (?__blob=publicationFile, v=28/29/30, no v) return 404 or time out; checked 2026-10-26; hash and fields unknown",
     checkedAt: "2026-10-26",
   },
 ];
@@ -227,7 +234,7 @@ export function buildIkFills(a: IkAnswers): FieldFill[] {
 /* ---------------- prepare (fail-closed) ---------------- */
 
 export type IkBlockCode =
-  | "VALIDATION_FAILED" | "PREFLIGHT_FAILED" | "EDITION_NOT_CURRENT" | "UNSUPPORTED_GLYPHS"
+  | "VALIDATION_FAILED" | "PREFLIGHT_FAILED" | "EDITION_NOT_CURRENT" | "FONT_UNAVAILABLE" | "UNSUPPORTED_GLYPHS"
   | "TEXT_OVERFLOW" | "READBACK_MISMATCH";
 
 export interface IkInstructions {
@@ -237,6 +244,9 @@ export interface IkInstructions {
     status: "requires_official_lookup";
     reason: "bamf_regional_office_or_course_provider_not_verified";
     sourceUrl: string;
+    /** Official BAMF office finder; the user selects their own office. No address is output. */
+    locatorUrl: string;
+    onlineApplicationUrl: string;
   };
   userMustReview: true;
 }
@@ -255,6 +265,8 @@ export interface IkPrepareOptions {
    * bundled 01/2026). Production must never set this.
    */
   allowNonCurrentEditionForTesting?: boolean;
+  /** Bytes of the bundled, hash-pinned Unicode font (see unicode-font.ts). Required. */
+  fontBytes: Uint8Array;
 }
 
 export function ikInstructions(a: IkAnswers): IkInstructions {
@@ -270,7 +282,7 @@ export function ikInstructions(a: IkAnswers): IkInstructions {
   }
   return {
     attachments, signatures, userMustReview: true,
-    delivery: { status: "requires_official_lookup", reason: "bamf_regional_office_or_course_provider_not_verified", sourceUrl: IK_OFFICIAL_PAGE_URL },
+    delivery: { status: "requires_official_lookup", reason: "bamf_regional_office_or_course_provider_not_verified", sourceUrl: IK_OFFICIAL_PAGE_URL, locatorUrl: BAMF_NAVI_BEHOERDEN_URL, onlineApplicationUrl: IK_BUNDESPORTAL_URL },
   };
 }
 
@@ -292,29 +304,32 @@ export async function prepareIk630007(
 
   const doc = await PDFDocument.load(templateBytes.slice(), { updateMetadata: false });
   const form = doc.getForm();
-  const helv = await doc.embedFont(StandardFonts.Helvetica);
+  let uf;
+  try { uf = await embedUnicodeFont(doc, opts.fontBytes); } catch { return { ok: false, code: "FONT_UNAVAILABLE" }; }
   const fills = buildIkFills(answers);
 
-  // Visible print output requires generated appearances. The form's font (Helvetica,
-  // WinAnsi) cannot draw č/ć/đ; no Unicode font engine is installed. Fail closed rather
-  // than print a form whose values are invisible or garbled.
+  // Appearances are generated with the embedded Unicode font so č/ć/đ/š/ž print.
+  // Characters the font cannot draw, or text wider than the field, fail closed.
   const unsupported: string[] = [];
   const overflow: string[] = [];
   for (const fill of fills) {
     if (fill.type !== "text") continue;
     const value = fill.value ?? "";
-    try { helv.encodeText(value); } catch { unsupported.push(fill.name); continue; }
+    if (uf.missingGlyphs(value).length) { unsupported.push(fill.name); continue; }
     const w = form.getTextField(fill.name).acroField.getWidgets()[0].getRectangle().width - PADDING;
-    if (helv.widthOfTextAtSize(value, FONT_SIZE) > w) overflow.push(fill.name);
+    if (uf.font.widthOfTextAtSize(value, FONT_SIZE) > w) overflow.push(fill.name);
   }
   if (unsupported.length) return { ok: false, code: "UNSUPPORTED_GLYPHS", fields: unsupported.sort() };
   if (overflow.length) return { ok: false, code: "TEXT_OVERFLOW", fields: overflow };
 
   for (const fill of fills) {
-    if (fill.type === "text") form.getTextField(fill.name).setText(fill.value ?? "");
-    else form.getCheckBox(fill.name).check();
+    if (fill.type === "text") {
+      const tf = form.getTextField(fill.name);
+      tf.setText(fill.value ?? "");
+      tf.setFontSize(FONT_SIZE);
+    } else form.getCheckBox(fill.name).check();
   }
-  form.updateFieldAppearances(helv);
+  form.updateFieldAppearances(uf.font);
   const bytes = await doc.save({ updateFieldAppearances: false });
 
   // Read-back: every mapped field must equal the intended value; every other field must be empty.
