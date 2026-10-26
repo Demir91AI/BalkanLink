@@ -17,6 +17,7 @@ type D = { name: string; ort?: string; extra?: boolean };
 const cfg: PdfFormConfig<D> = {
   url: "/synthetic.pdf",
   label: "Synthetic",
+  updateFieldAppearances: false, // same as real BHS-text configs
   builder: (d) => [
     { name: "Name", type: "text", value: d.name },
     ...(d.ort ? [{ name: "Ort", type: "text" as const, value: d.ort }] : []),
