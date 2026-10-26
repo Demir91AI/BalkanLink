@@ -58,7 +58,7 @@ export const ELTERNGELD_VARIANTS: InventoryVariant[] = [
   eg("mv", "elterngeld-mecklenburg-vorpommern-2025.pdf", "https://www.lagus.mv-regierung.de/serviceassistent/download?id=1682724", 200, undefined,
     { pdfTech: "encrypted", readiness: "blocked", blockers: ["bundled file is encrypted; pdf-lib cannot load it — live fill likely fails", "do not decrypt"] }),
   eg("ni", "elterngeld-niedersachsen-2025.pdf", "https://www.ms.niedersachsen.de/download/205792/Antrag_auf_Elterngeld_gueltig_fuer_Geburten_ab_dem_01.04.2025.pdf", 200, 531),
-  eg("nw", undefined, undefined, undefined, undefined, { pdfTech: "online_only" as never, blockers: ["ELFE online procedure; guide + link only"] }),
+  eg("nw", undefined, undefined, undefined, undefined, { blockers: ["ELFE online procedure; guide + link only"] }),
   eg("rp", "elterngeld-rheinland-pfalz-2025.pdf", "https://mffki.rlp.de/fileadmin/07/Dokumente/Themen/Familie/Gute_Zukunft_fuer_alle_Kinder_und_Eltern/Elterngeld/2025_08_1_Einheitlicher_Elterngeldantrag.pdf", 200, 531,
     { blockers: [SHARED_531, "rights unknown"] }),
   eg("sl", undefined, undefined, undefined, undefined),
@@ -68,8 +68,6 @@ export const ELTERNGELD_VARIANTS: InventoryVariant[] = [
     { blockers: [SHARED_531, "rights unknown"] }),
   eg("th", "elterngeld-thueringen-2025.pdf", "https://thformular.thueringen.de/thueform/cfs/eject/gen?MANDANTID=18&FORMUID=BEEG-071-DE-FL", 200, 657),
 ];
-// nw has no pdf; keep tech honest
-ELTERNGELD_VARIANTS.find((v) => v.appliesTo === "nw")!.pdfTech = "unknown";
 
 const BG_ANLAGEN: [string, number][] = [
   ["ek", 68], ["eks", 358], ["hg", 22], ["kdu", 77], ["ki", 63], ["meb", 38],
