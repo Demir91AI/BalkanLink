@@ -11,6 +11,7 @@
 import {
   PDFDocument,
   PDFName,
+  PDFDict,
   PDFTextField,
   PDFCheckBox,
   PDFRadioGroup,
@@ -102,8 +103,9 @@ export async function preflightPdfTemplate(
     issues.push({ code: "NO_ACROFORM" });
     return done();
   }
+  // Check before getForm(): pdf-lib's getForm() silently strips XFA data.
+  if (acro instanceof PDFDict && acro.has(PDFName.of("XFA"))) issues.push({ code: "XFA_FORM" });
   const form = doc.getForm();
-  if (form.acroForm.dict.has(PDFName.of("XFA"))) issues.push({ code: "XFA_FORM" });
 
   const actual = new Map<string, PdfFieldType>();
   for (const f of form.getFields()) actual.set(f.getName(), fieldTypeOf(f));
