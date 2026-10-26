@@ -1,79 +1,82 @@
-# BalkanLink — Health Check (Stand: 02.07.2026)
+# BalkanLink 2.0 — Phase 0 Audit and Phased Plan
 
-Ovo je **read-only izvještaj**. Nisu vršene nikakve izmjene. Ako želiš da popravim neki od nalaza, javi mi koji i prebacit ću se u build mode.
+Read-only audit. Nothing is edited, migrated, deployed or priced in this step.
 
----
+## A) Baseline (what exists today)
 
-## 1) Rute i stranice
+| Area | Status | Evidence |
+|---|---|---|
+| Pages / routing (4 languages, ~200 routes) | Implemented | `src/App.tsx`, `LanguageRouter` |
+| SmartGuide V1/V2 + ~30 guide contents | Implemented, keep as is | `src/components/guides/*` |
+| Original-PDF filling (Kindergeld, Bürgergeld + 11 Anlagen, Elterngeld per Land, BAföG, KiZ, IK, EZB, Mutterschaftsgeld) | Implemented, partially safe | `src/lib/pdf-form-engine.ts`, `pdf-fill-*.ts` |
+| PDF version monitor | Partial (detects changes, does not block filling) | `check-pdf-versions`, `external_pdf_versions` |
+| Asistent (chat) | Implemented, separate from doc check/forms | `chat-assistant`, `src/components/chat/*` |
+| Document check | Implemented, separate flow | `document-check`, `DokumentenCheck.tsx` |
+| Stripe: one product only (Plus 19,90€ one-time); 1,99€ check removed in code | Implemented in repo; live status of last half-finished change unverified | `_shared/products.ts` |
+| Legacy monthly subscribers (2) | Preserved | `is_legacy_doccheck_user`, webhook |
+| News/blog storage (articles, revisions, approval rules, source rules) | Database only | `editorial_articles`, `editorial_validate()` |
+| News/blog pages, admin editor, sitemap/SEO | Missing | no pages in `src/pages` |
+| Usage limits for assistant / doc check | Partial (chat daily count only) | `chat_usage`, `get_daily_chat_count` |
+| Automated legal-change monitoring with human approval | Missing (only PDF headers checked) | — |
+| Visual regression tests | Minimal (one flag test) | `tests/visual/` |
 
-- **199 registrovanih ruta** u `src/App.tsx` (uključujući BS default, `/de/*`, `/hr/*`, `/sr/*` overlay-e i alijase).
-- Sve `lazy(() => import(...))` reference postoje kao fajlovi (`src/pages/**` i `src/pages/muster/**` — svih ~37 Muster stranica, 11 `dolazak/*`, kompletan `porezi/*` + `steuern/*` mirror, admin sekcija, legal sekcija).
-- Layout arhitektura: `HomeLayout` (home) + `Layout` (ostale rute) — obje sa `AppSidebar`, `Header`, `Footer`, `MobileBottomNav`, cookie banner, PWA prompts.
-- Multi-jezično: `LanguageRouter` prisilno sinhronizuje i18next s URL-om (`/de`, `/hr`, `/sr`, default `bs`).
+## B) P0 safety issues (fix first)
 
-**Rizične tačke (samo za pregled, nisu greške):**
-- Admin rute (`admin`, `admin/forms`, `admin/pitanja`, `admin/trialovi`) su zaštićene `AdminGuard`-om ✅.
-- Legacy alijasi (`/premium` → `/paketi`, `sabloni` → `vorlagen`, itd.) rade preko `<Navigate>` — OK.
+1. **Build state of last two unfinished turns** — previous reports said `DokumentenCheck.tsx` fails to build; verify, then fix. Also confirm the published site still matches what Stripe charges (1,99€ check was removed from code but may still be live).
+2. **Public endpoints without login check** (`verify_jwt=false`): `chat-assistant`, `document-check`, `generate-tts`, `import-places`, `preview-transactional-email`. Each must verify the user in code, or be admin/cron-only. `import-places` and `preview-transactional-email` most risky (cost / data exposure).
+3. **2 critical security scan findings** still open — read results and fix.
+4. **~18 SECURITY DEFINER functions callable by signed-in users** — revoke where not needed (e.g. `grant_doc_check_credit`, `consume_doc_check`, `deactivate_*`, `purge_*`).
+5. **Uploaded documents** — confirm document check images are not stored; if stored, add owner-only storage rules and automatic deletion.
+6. **PDF filling does not fail closed** — missing fields only produce a console warning; a changed official PDF still gets filled.
+7. **Asistent/doc check provider transparency** — keep it in Datenschutz (legal page, untouched without go-ahead).
 
-## 2) Build / TypeScript / lint
+## C) Roadmap
 
-| Provjera | Rezultat |
-|---|---|
-| `tsgo --noEmit` (TypeScript) | ✅ 0 grešaka |
-| Vite dev server | ✅ Radi (`http://localhost:8080`) bez grešaka pri startu |
-| Console (browser snapshot) | ✅ Nema grešaka |
-| Network snapshot | ✅ Nema failed request-ova |
-| Runtime errors | ✅ Nema |
-| Tailwind warning | ⚠️ `duration-[1500ms]` je ambiguous — samo warning, ne blokira build |
-| Browserslist | ⚠️ `caniuse-lite` je 13 mj. star — samo warning |
+**P0 — Safety and baseline (1–2 sessions, no cost)**
+- Files: `DokumentenCheck.tsx`, the 5 functions above, one migration with REVOKEs, `pdf-form-engine.ts`.
+- Baseline: create a Lovable draft for all 2.0 work; record screenshots of top 20 pages as reference.
+- Accept: build clean, security scan without critical issues, all endpoints reject anonymous calls where intended.
+- Risk: tightening checks can break the assistant for signed-out visitors — test both states.
 
-## 3) Navigacija / linkovi
+**P1 — FormularPilot foundation (2–3 sessions)**
+- New `src/lib/formularpilot/` registry: per form source URL, approved hash, version date, field list with types/required flags.
+- Engine refuses to fill when hash differs or a required field is missing; shows "unknown" fields explicitly.
+- Tests: fill each PDF, read values back, compare; screenshot compare first page.
+- Accept: every existing form passes read-back test; changed PDF is blocked with a clear message.
 
-- `PageNavBar` + `Breadcrumbs` su standard kroz projekat.
-- Sve lazy import putanje se poklapaju sa postojećim fajlovima (provjereno kroz `ls src/pages` + import specifiere).
-- Nema mrtvih linkova detektovanih preko konzole/network snapshot-a.
-- Postoji nekoliko dupliranih ruta sa raznim jezičkim alijasima (`porezi` ↔ `steuern`, `sacuvano`/`gespeichert`/`spremljeno`, `sabloni`/`vorlagen`) — namjerno, radi SEO/UX.
+**P2 — News and blog (2 sessions)**
+- Pages: news index, blog index, category pages (Arbeit, Aufenthalt, Familie, Steuern, Sozialleistungen, Alltag), article page; admin editor with draft → review → approved → published.
+- Sitemap and search titles; all text in 4 languages.
+- Accept: only approved articles visible; law-change article needs official source.
 
-## 4) Supabase / backend
+**P3 — One unified Asistent (3 sessions)**
+- One entry with 3 tasks: explain a letter, draft a reply, fill a form (FormularPilot); document check as a task inside it; "Napredna pomoć" as richer option.
+- Replace public "AI/KI" wording (5 hits in BS files, check all locales).
+- Accept: no public "AI/KI/Hermes" text outside Datenschutz.
 
-- Env varijable prisutne (`VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`) ✅.
-- Klijent u `src/integrations/supabase/client.ts` konfigurisan s auto-refresh, persistSession ✅.
-- Sve tabele (31) + funkcije (25+) postoje i koriste se od strane frontenda / edge funkcija.
+**P4 — Usage limits and costs (1–2 sessions)**
+- Server-side per-user daily limits, file size/type limits, request rate limits, cache, cheaper model for simple tasks; user sees "X of Y left today".
+- Pay-per-task stays out until the owner decides.
 
-**DB error log (posljednjih 24h):**
-- `permission denied for function get_daily_chat_count` — **2 puta**. Funkcija postoji, ali nedostaje `GRANT EXECUTE ... TO authenticated` (ili se poziva iz konteksta bez sesije). Sve ostale RPC pozivi rade.
+**P5 — Look and feel + automation (ongoing)**
+- Polished cards, 3 clear entry tasks on home, gentle CSS animations respecting reduced motion; no fake counts.
+- Legal-change monitoring (n8n/LangGraph evaluated only, not connected) feeding the editorial queue with mandatory approval.
+- Price change to 9,99€ one-time only after a separate approved plan (new Stripe price, existing buyers keep access).
 
-**Supabase linter (19 upozorenja, sve WARN — ni jedan ERROR):**
-- 1× *Extension in Public* — jedno proširenje instalirano u `public` schemi (standardno kod Lovable Cloud template-a).
-- ~15× *Public/Signed-In Users Can Execute SECURITY DEFINER Function* — funkcije poput `has_role`, `get_admin_*`, `redeem_trial_code` su namjerno pozivane preko RPC-a i imaju interne `has_role()` provjere, pa je ovo prihvatljivo. Preporuka: `REVOKE EXECUTE ... FROM anon` na onima koje ne trebaju biti javne (npr. `grant_premium_access`, `deactivate_expired_*`).
-- Sitne stavke za lint hardening — ne blokiraju rad aplikacije.
+## D) First small reversible change
 
-**Edge funkcije:** sve postoje na disku (`supabase/functions/**`), status pojedinačnih runtime pozive nije provjeravan u ovom snapshotu (nema instant signala o padu).
+Fix the build on the Document Check page and add a read-only "missing required fields" result to `pdf-form-engine.ts` (returned, not yet enforced). No payments, data or published site affected.
 
-## 5) Sažetak
+## E) Contradictions to fix in documentation later
 
-### ✅ Radi
-- Kompletna aplikacija se kompilira i pokreće bez TS/build grešaka
-- Sve 199 ruta imaju validne komponente
-- Auth, i18n, PWA, cookie consent, admin guard — svi mount-ovani ispravno
-- Nema aktivnih runtime/console/network grešaka u trenutnom snapshotu
-- Supabase konekcija zdrava, RLS aktivan na svim tabelama
+- Project knowledge: "Premium 9.99€/month or 99.90€/year" and "DeutschTrainer per-level 5€" — outdated; code sells 19,90€ one-time; owner direction now 9,99€ one-time.
+- Knowledge "Premium gating temporarily disabled / DEV_MODE": `IS_ADMIN_PREVIEW = false`, so gating is active.
+- Memory "Dokumenten-Check 2.99€ or 1/day free Premium" and "1,99€ per check" — both outdated vs latest code.
+- Memory "Launch Trial until 31.05.2026" and "Featured package 14.99€" vs code 19.99€ — outdated.
+- Knowledge "no localStorage" vs memory "Save for Later uses localStorage" and cookie consent.
+- Memory "Spam protection: Turnstile" vs "No Turnstile" rule.
+- Recommendation: after P0, rewrite the pricing/access memories and project knowledge in one pass.
 
-### ⚠️ Treba pažnje (nije blokirajuće)
-1. **`get_daily_chat_count` permission denied** (2 recent DB errora) — dodati `GRANT EXECUTE ... TO authenticated;` ili prebaciti u SECURITY DEFINER s internom auth provjerom.
-2. **19 Supabase linter WARN-ova** — pretežno SECURITY DEFINER funkcije izložene `anon`/`authenticated` ulozi. Preporučeno: `REVOKE EXECUTE FROM anon` na admin-only funkcijama.
-3. **Tailwind ambiguous class** `duration-[1500ms]` — cosmetic warning, escape ili prebaci u `transition-duration:1500ms` inline.
-4. **Browserslist DB 13 mjeseci star** — pokrenuti `bunx update-browserslist-db@latest` (jedan komit).
-
-### ❌ Slomljeno
-- **Ništa kritično nije slomljeno.** Aplikacija je u zdravom stanju.
-
----
-
-### Predloženi sljedeći koraci (odaberi ako želiš da radim)
-- [ ] Popraviti `get_daily_chat_count` GRANT
-- [ ] Očistiti `REVOKE EXECUTE FROM anon` na admin RPC funkcijama koje flag-uje linter
-- [ ] Popraviti Tailwind `duration-[1500ms]` warning
-- [ ] Update `browserslist-db`
-
-Samo reci koji od ovih da uradim i prebacit ću se u build mode.
+## Technical notes
+- All work in a draft first; published site unchanged until approval.
+- Never touch the two legacy subscriptions, `tts-audio`, or legal pages without go-ahead.
