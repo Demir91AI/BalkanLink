@@ -80,7 +80,7 @@ describe("BAMF 630.007 — golden fill (bundled 01/2026, test-only edition overr
 
   it("printable: every filled text field has an appearance stream; ticked boxes show /On", async () => {
     const r = await prepareIk630007(TEMPLATE, damir, TEST);
-    if (!r.ok) throw new Error(r.code);
+    if (r.ok === false) throw new Error(r.code);
     const form = (await PDFDocument.load(r.bytes)).getForm();
     for (const f of buildIkFills(damir)) {
       const w = form.getField(f.name).acroField.getWidgets()[0];
@@ -116,7 +116,7 @@ describe("BAMF 630.007 — fail-closed gates", () => {
     doc.setTitle("tampered");
     const r = await prepareIk630007(await doc.save(), maja, TEST);
     expect(r.ok).toBe(false);
-    if (!r.ok) {
+    if (r.ok === false) {
       expect(r.code).toBe("PREFLIGHT_FAILED");
       expect(r.preflight?.some((i) => i.code === "HASH_MISMATCH")).toBe(true);
     }
@@ -133,7 +133,7 @@ describe("BAMF 630.007 — fail-closed gates", () => {
     }
     const r = await prepareIk630007(await doc.save(), maja, { ...TEST });
     expect(r.ok).toBe(false);
-    if (!r.ok) expect(r.preflight).toContainEqual(expect.objectContaining({ code: "MISSING_FIELD", field: IK_F.name }));
+    if (r.ok === false) expect(r.preflight).toContainEqual(expect.objectContaining({ code: "MISSING_FIELD", field: IK_F.name }));
   });
 
   it("č/ć/đ cannot be drawn by the form font → UNSUPPORTED_GLYPHS (never invisible/garbled print)", async () => {
