@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
+import { bearerToken, isServiceRoleToken } from "../_shared/service-role-guard.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
