@@ -74,7 +74,7 @@ const BG_ANLAGEN: [string, number][] = [
   ["sv", 14], ["uh1", 41], ["ve", 15], ["vm", 196], ["wep", 104],
 ];
 
-export const PDF_FILL_FORMS: InventoryEntry[] = [
+export const PDF_FILL_FORMS: InventoryEntry[] = ([
   {
     id: "kindergeld-kg1", name: "Kindergeld KG1 + Anlage Kind", category: "Porodica", kind: "pdf_fill",
     routes: ["/musterformular/kindergeld", "/formulari/kindergeld/muster", "/muster/kindergeld/preview"],
@@ -143,7 +143,7 @@ export const PDF_FILL_FORMS: InventoryEntry[] = [
     outputMethod: "filled_pdf_download", authorityRouting: "not_modelled", annexes: [],
     signaturesRequired: "yes", rights: "unknown", tests: [], acceptance: STD_ACCEPT,
   })),
-].map((e): InventoryEntry => {
+] satisfies InventoryEntry[] as InventoryEntry[]).map((e): InventoryEntry => {
   if (e.id === "integrationskurs") return {
     ...e,
     callers: [...e.callers, "src/lib/formularpilot/forms/integrationskurs-630007.ts (dev pipeline, not wired)"],
