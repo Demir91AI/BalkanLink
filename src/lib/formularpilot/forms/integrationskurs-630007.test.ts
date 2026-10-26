@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { PDFDocument, PDFTextField, PDFCheckBox } from "pdf-lib";
+import { PDFDocument, PDFTextField, PDFCheckBox, PDFName, PDFDict } from "pdf-lib";
 import {
   prepareIk630007, validateIkAnswers, buildIkFills, IK_F, IK_MANIFEST, IK_EDITIONS, type IkAnswers,
 } from "./integrationskurs-630007";
@@ -76,6 +76,18 @@ describe("BAMF 630.007 — golden fill (bundled 01/2026, test-only edition overr
     expect(validateIkAnswers({ ...maja, status: "ae_24", kostenbefreiung: { grund: "sgb2_3", declAngabenRichtig: true } }, today)).toEqual([]);
     expect(validateIkAnswers({ ...maja, status: "ae_25_5", kostenbefreiung: { grund: "sgb2_3", declAngabenRichtig: true } }, today))
       .toContainEqual({ field: "kostenbefreiung", code: "COST_EXEMPTION_NOT_NEEDED" });
+  });
+
+  it("printable: every filled text field has an appearance stream; ticked boxes show /On", async () => {
+    const r = await prepareIk630007(TEMPLATE, damir, TEST);
+    if (!r.ok) throw new Error(r.code);
+    const form = (await PDFDocument.load(r.bytes)).getForm();
+    for (const f of buildIkFills(damir)) {
+      const w = form.getField(f.name).acroField.getWidgets()[0];
+      const ap = w.dict.lookup(PDFName.of("AP"));
+      expect(ap instanceof PDFDict && ap.has(PDFName.of("N")), f.name).toBe(true);
+      if (f.type === "check") expect(String(w.dict.get(PDFName.of("AS"))), f.name).toBe("/On");
+    }
   });
 
   it("concurrent prepares never mix data", async () => {
