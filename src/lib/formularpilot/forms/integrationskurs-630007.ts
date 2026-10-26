@@ -227,7 +227,8 @@ export function buildIkFills(a: IkAnswers): FieldFill[] {
 /* ---------------- prepare (fail-closed) ---------------- */
 
 export type IkBlockCode =
-  | "VALIDATION_FAILED" | "PREFLIGHT_FAILED" | "EDITION_NOT_CURRENT" | "TEXT_OVERFLOW" | "READBACK_MISMATCH";
+  | "VALIDATION_FAILED" | "PREFLIGHT_FAILED" | "EDITION_NOT_CURRENT" | "UNSUPPORTED_GLYPHS"
+  | "TEXT_OVERFLOW" | "READBACK_MISMATCH";
 
 export interface IkInstructions {
   attachments: string[];
@@ -294,20 +295,26 @@ export async function prepareIk630007(
   const helv = await doc.embedFont(StandardFonts.Helvetica);
   const fills = buildIkFills(answers);
 
-  // Text-fit check against the real widget width (no silent truncation).
+  // Visible print output requires generated appearances. The form's font (Helvetica,
+  // WinAnsi) cannot draw č/ć/đ; no Unicode font engine is installed. Fail closed rather
+  // than print a form whose values are invisible or garbled.
+  const unsupported: string[] = [];
   const overflow: string[] = [];
   for (const fill of fills) {
     if (fill.type !== "text") continue;
+    const value = fill.value ?? "";
+    try { helv.encodeText(value); } catch { unsupported.push(fill.name); continue; }
     const w = form.getTextField(fill.name).acroField.getWidgets()[0].getRectangle().width - PADDING;
-    const measurable = (fill.value ?? "").replace(/[^\x20-\x7E\u00A0-\u00FF]/g, "W");
-    if (helv.widthOfTextAtSize(measurable, FONT_SIZE) > w) overflow.push(fill.name);
+    if (helv.widthOfTextAtSize(value, FONT_SIZE) > w) overflow.push(fill.name);
   }
+  if (unsupported.length) return { ok: false, code: "UNSUPPORTED_GLYPHS", fields: unsupported.sort() };
   if (overflow.length) return { ok: false, code: "TEXT_OVERFLOW", fields: overflow };
 
   for (const fill of fills) {
     if (fill.type === "text") form.getTextField(fill.name).setText(fill.value ?? "");
     else form.getCheckBox(fill.name).check();
   }
+  form.updateFieldAppearances(helv);
   const bytes = await doc.save({ updateFieldAppearances: false });
 
   // Read-back: every mapped field must equal the intended value; every other field must be empty.
