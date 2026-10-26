@@ -156,10 +156,20 @@ export const PDF_FILL_FORMS: InventoryEntry[] = ([
       blockers: [
         "bundled edition 630.007w 01/2026 superseded by 630.007x 07/2026 (BAMF page dated 22.07.2026)",
         "07/2026 PDF not retrievable on 2026-10-26 (404/timeout) — hash/fields unknown",
-        "č/ć/đ cannot be printed with the form font; pipeline refuses (UNSUPPORTED_GLYPHS)",
-        "BAMF Regionalstelle / Kursträger destination not verified",
+        "official BAMF page now offers only the Bundesportal online application (no PDF link)",
+        "BAMF office: user must use official BAMF-NAvI Behörden finder; no address verified",
         "rights unknown",
       ],
+    })),
+  };
+  if (e.id === "mutterschaftsgeld") return {
+    ...e,
+    callers: [...e.callers, "src/lib/formularpilot/manifests/mutterschaftsgeld-bas.ts"],
+    variants: e.variants.map((v) => ({
+      ...v, provenance: "differs_from_official" as const,
+      officialUrl: "https://www.bundesamtsozialesicherung.de/fileadmin/redaktion/Mutterschaftsgeld/2026_Antragsformular.pdf",
+      officialUrlCheck: { status: 200, checkedAt: CHECKED },
+      blockers: ["same fields/text as official but bytes differ (re-saved)", "rights unknown", "no golden test yet"],
     })),
   };
   if (e.id === "kinderzuschlag") return {
@@ -169,7 +179,8 @@ export const PDF_FILL_FORMS: InventoryEntry[] = ([
       ...v, pdfTech: "acroform_with_xfa" as const, provenance: "differs_from_official" as const, readiness: "blocked" as const,
       officialUrl: "https://www.arbeitsagentur.de/datei/kiz1-antrag_ba036540.pdf",
       officialUrlCheck: { status: 200, checkedAt: CHECKED },
-      blockers: ["official is XFA + encrypted, change not permitted", "bundled is a modified derivative (hash differs)", "see manifests/kinderzuschlag-kiz1.ts"],
+      blockers: ["official is XFA + encrypted, change not permitted", "bundled is a modified derivative (hash differs)", "see manifests/kinderzuschlag-kiz1.ts",
+        "lawful fallback built: non-official answer sheet (forms/kinderzuschlag-answer-sheet.ts), not wired"],
     })),
   };
   return e;
@@ -193,7 +204,7 @@ export const PLANNED_OR_LINK_ONLY_SLUGS = [
 
 /** Prioritised next batch for golden tests (federal, AcroForm, single edition, no state split). */
 export const NEXT_GOLDEN_BATCH = [
-  { id: "integrationskurs", why: "dev pipeline done; needs official 07/2026 file + Unicode font decision" },
+  { id: "integrationskurs", why: "dev pipeline + Unicode font done; blocked until BAMF publishes 07/2026 PDF" },
   { id: "mutterschaftsgeld", why: "federal BAS, AcroForm 129 fields; authenticity not yet checked" },
   { id: "elterngeld-by-05-2025", why: "authentic official 05/2025 already hash-pinned in elterngeld-pilot.ts; 32 mapped names exist" },
 ] as const;
