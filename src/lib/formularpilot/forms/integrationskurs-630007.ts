@@ -326,6 +326,9 @@ export async function prepareIk630007(
     if (fill.type === "text") {
       const tf = form.getTextField(fill.name);
       tf.setText(fill.value ?? "");
+      // The official "EMail optional" field has no /DA; give it the same appearance
+      // string as every sibling field so it renders at 10 pt instead of auto-size.
+      if (!tf.acroField.getDefaultAppearance()) tf.acroField.setDefaultAppearance(`/Helv ${FONT_SIZE} Tf 0 g`);
       tf.setFontSize(FONT_SIZE);
     } else form.getCheckBox(fill.name).check();
   }
