@@ -6,6 +6,9 @@
  */
 import { BUNDESLAND_CODES, BUNDESLAND_NAMES, type BundeslandCode } from "./jurisdiction";
 import { ELTERNGELD_BUNDESLAENDER } from "@/lib/elterngeld-bundeslaender";
+import {
+  BAYERN_EDITIONS, BW_EDITIONS, BW_ONLINE_URL, BW_ROUTING_URL, ZBFS_ROUTING_URL,
+} from "./manifests/elterngeld-pilot";
 
 export type CoverageScope = "federal" | "state" | "district_or_municipal" | "agency";
 export type VerificationStatus = "tested" | "blocked" | "needs_review";
@@ -20,6 +23,10 @@ export interface FormEdition {
   sourceUrl: string;
   status: VerificationStatus;
   sha256?: string;
+  /** Form technology of the official file as downloaded. */
+  technology?: "acroform" | "xfa" | "flat" | "online_only";
+  fieldCount?: number;
+  verifiedAt?: string;
   note?: string;
 }
 
@@ -30,6 +37,7 @@ export interface JurisdictionCoverage {
   routingStatus: VerificationStatus;
   editions: FormEdition[];
   deliveryModes: DeliveryMode[];
+  onlinePortalUrl?: string;
 }
 
 export interface ServiceDefinition {
@@ -43,23 +51,32 @@ export interface ServiceDefinition {
 const FAMILIENPORTAL_FORMS = "https://familienportal.de/familienportal/rechner-antraege/antragsformulare";
 
 function elterngeldState(code: BundeslandCode): JurisdictionCoverage {
-  const legacy = ELTERNGELD_BUNDESLAENDER.find((b) => b.id === code);
-  const editions: FormEdition[] = [];
-  if (code === "by" && legacy?.pdfUrl) {
-    // ZBFS publishes birth-date dependent forms; only the 2025 edition is known here.
-    editions.push({
-      validFrom: "2025-04-01",
-      versionLabel: "ZBFS 05/2025",
-      sourceUrl: legacy.pdfUrl,
-      status: "needs_review",
-      note: "Not hash-pinned; older births need the older ZBFS edition (not registered).",
-    });
+  if (code === "by") {
+    return {
+      authority: "ZBFS — Zentrum Bayern Familie und Soziales",
+      routingSourceUrl: ZBFS_ROUTING_URL,
+      routingStatus: "needs_review",
+      editions: BAYERN_EDITIONS,
+      deliveryModes: ["official_link_only", "official_online_portal"],
+      onlinePortalUrl: "https://www.elterngeld.bayern.de/onlineantrag/",
+    };
   }
+  if (code === "bw") {
+    return {
+      authority: "L-Bank — Landeskreditbank Baden-Württemberg",
+      routingSourceUrl: BW_ROUTING_URL,
+      routingStatus: "needs_review",
+      editions: BW_EDITIONS,
+      deliveryModes: ["official_online_portal", "official_link_only"],
+      onlinePortalUrl: BW_ONLINE_URL,
+    };
+  }
+  const legacy = ELTERNGELD_BUNDESLAENDER.find((b) => b.id === code);
   return {
     authority: legacy?.authority ?? BUNDESLAND_NAMES[code],
     routingSourceUrl: FAMILIENPORTAL_FORMS,
     routingStatus: "needs_review",
-    editions,
+    editions: [],
     deliveryModes: ["official_link_only"],
   };
 }
