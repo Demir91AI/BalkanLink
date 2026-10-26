@@ -263,6 +263,7 @@ export default function DokumentenCheck() {
   const { t: tPlus } = useTranslation("plus");
   const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
+  const submittingRef = useRef(false);
   const [analysis, setAnalysis] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
