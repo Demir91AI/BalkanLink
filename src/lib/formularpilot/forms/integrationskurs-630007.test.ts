@@ -12,7 +12,7 @@ const TEST = { today, allowNonCurrentEditionForTesting: true };
 
 // Synthetic people only.
 const maja: IkAnswers = {
-  familienname: "Kovač", vorname: "Maja", geburtsname: "Đurić", geburtsdatum: "1990-03-15", geschlecht: "w",
+  familienname: "Šuster", vorname: "Lea", geburtsname: "Žagar", geburtsdatum: "1990-03-15", geschlecht: "w",
   strasse: "Müllerstraße 12a", plz: "80331", ort: "München", staatsangehoerigkeit: "bosnisch-herzegowinisch",
   einreiseJahr: "2023", email: "maja.test@example.org", status: "sonstig",
   declKeineSchulischeAusbildung: true, declAngabenRichtig: true, declEinwilligung: true,
@@ -36,13 +36,13 @@ async function readBack(bytes: Uint8Array) {
 }
 
 describe("BAMF 630.007 — golden fill (bundled 01/2026, test-only edition override)", () => {
-  it("Maja: all mapped fields read back exactly, incl. č/đ/ü/ß; page 2 untouched", async () => {
+  it("Lea: all mapped fields read back exactly, incl. Š/ž/ü/ß; page 2 untouched", async () => {
     const r = await prepareIk630007(TEMPLATE, maja, TEST);
     expect(r.ok).toBe(true);
     if (!r.ok) return;
     const v = await readBack(r.bytes);
-    expect(v[IK_F.name]).toBe("Kovač");
-    expect(v[IK_F.geburtsname]).toBe("Đurić");
+    expect(v[IK_F.name]).toBe("Šuster");
+    expect(v[IK_F.geburtsname]).toBe("Žagar");
     expect(v[IK_F.geburtsdatum]).toBe("15.03.1990");
     expect(v[IK_F.strasse]).toBe("Müllerstraße 12a");
     expect(v[IK_F.ort]).toBe("München");
@@ -81,7 +81,7 @@ describe("BAMF 630.007 — golden fill (bundled 01/2026, test-only edition overr
   it("concurrent prepares never mix data", async () => {
     const [a, b] = await Promise.all([prepareIk630007(TEMPLATE, maja, TEST), prepareIk630007(TEMPLATE, damir, TEST)]);
     if (!a.ok || !b.ok) throw new Error("expected ok");
-    expect((await readBack(a.bytes))[IK_F.name]).toBe("Kovač");
+    expect((await readBack(a.bytes))[IK_F.name]).toBe("Šuster");
     expect((await readBack(b.bytes))[IK_F.name]).toBe("Novak");
   });
 
@@ -122,6 +122,11 @@ describe("BAMF 630.007 — fail-closed gates", () => {
     const r = await prepareIk630007(await doc.save(), maja, { ...TEST });
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.preflight).toContainEqual(expect.objectContaining({ code: "MISSING_FIELD", field: IK_F.name }));
+  });
+
+  it("č/ć/đ cannot be drawn by the form font → UNSUPPORTED_GLYPHS (never invisible/garbled print)", async () => {
+    const r = await prepareIk630007(TEMPLATE, { ...maja, familienname: "Kovač", geburtsname: "Đurić" }, TEST);
+    expect(r).toEqual({ ok: false, code: "UNSUPPORTED_GLYPHS", fields: [IK_F.geburtsname, IK_F.name].sort() });
   });
 
   it("long text that would be cut off → TEXT_OVERFLOW", async () => {
