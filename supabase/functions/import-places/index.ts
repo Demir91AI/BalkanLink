@@ -471,10 +471,8 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    // Require service-role JWT — this endpoint is admin/cron-only and can destroy data.
-    const authHeader = req.headers.get("Authorization") || "";
-    const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7).trim() : "";
-    if (!token || parseJwtClaims(token)?.role !== "service_role") {
+    // Require a signature-verified service-role key — admin/cron-only, can destroy data.
+    if (!(await isServiceRoleToken(bearerToken(req)))) {
       return new Response(JSON.stringify({ error: "Forbidden" }), {
         status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
