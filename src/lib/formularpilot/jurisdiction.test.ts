@@ -63,12 +63,12 @@ describe("resolveServiceCoverage", () => {
   it("Bayern is birth-date dependent", () => {
     expect(resolveServiceCoverage("elterngeld", { state: "by", referenceDate: "2025-06-01" }))
       .toMatchObject({ ok: false, reason: "EDITION_NOT_TESTED" });
-    expect(resolveServiceCoverage("elterngeld", { state: "by", referenceDate: "2024-12-01" }))
+    expect(resolveServiceCoverage("elterngeld", { state: "by", referenceDate: "2021-08-31" }))
       .toMatchObject({ ok: false, reason: "NO_EDITION_FOR_DATE" });
   });
 
   it("BW (L-Bank) has no verified edition and refuses safely", () => {
-    const r = resolveServiceCoverage("elterngeld", { state: "bw", referenceDate: "2026-01-10" });
+    const r = resolveServiceCoverage("elterngeld", { state: "bw", referenceDate: "2025-04-30" });
     expect(r).toMatchObject({ ok: false, reason: "NO_EDITION_FOR_DATE" });
     expect(r.coverage?.authority).toContain("L-Bank");
   });
