@@ -47,18 +47,15 @@ describe("forms inventory integrity", () => {
     expect(new Set(dupes).size).toBe(1);
   });
 
-  it("every print-simulation slug has a page file", () => {
-    const pages = readdirSync(join(process.cwd(), "src/pages/muster")).join(" ").toLowerCase();
-    for (const s of PRINT_SIMULATION_SLUGS) {
-      const key = s.replace(/-/g, "").replace("ae", "a").replace("ue", "u");
-      expect(pages.replace(/ä|ü/g, (c) => (c === "ä" ? "a" : "u")).includes(key.slice(0, 8)), s).toBe(true);
-    }
+  it("every print-simulation slug has a route in App.tsx", () => {
+    const app = readFileSync(join(process.cwd(), "src/App.tsx"), "utf8");
+    for (const s of PRINT_SIMULATION_SLUGS) expect(app.includes(`musterformular/${s}"`), s).toBe(true);
   });
 
   it("catalog slugs are all classified", () => {
     const all = formCatalog.flatMap((g) => [...g.items, ...(g.subGroups ?? []).flatMap((s) => s.items)]).map((i) => i.slug);
     const known = new Set<string>([
-      ...PDF_FILL_FORMS.map((f) => f.id), "hauptantrag", "kinderzuschlag", "bafoeg", "integrationskurs",
+      ...PDF_FILL_FORMS.map((f) => f.id), "hauptantrag", "kindergeld", "kinderzuschlag", "bafoeg", "integrationskurs",
       ...PRINT_SIMULATION_SLUGS, ...PLANNED_OR_LINK_ONLY_SLUGS,
     ]);
     const unclassified = all.filter((s) => !known.has(s));
