@@ -74,7 +74,7 @@ const BG_ANLAGEN: [string, number][] = [
   ["sv", 14], ["uh1", 41], ["ve", 15], ["vm", 196], ["wep", 104],
 ];
 
-export const PDF_FILL_FORMS: InventoryEntry[] = [
+export const PDF_FILL_FORMS: InventoryEntry[] = ([
   {
     id: "kindergeld-kg1", name: "Kindergeld KG1 + Anlage Kind", category: "Porodica", kind: "pdf_fill",
     routes: ["/musterformular/kindergeld", "/formulari/kindergeld/muster", "/muster/kindergeld/preview"],
@@ -143,7 +143,37 @@ export const PDF_FILL_FORMS: InventoryEntry[] = [
     outputMethod: "filled_pdf_download", authorityRouting: "not_modelled", annexes: [],
     signaturesRequired: "yes", rights: "unknown", tests: [], acceptance: STD_ACCEPT,
   })),
-];
+] satisfies InventoryEntry[] as InventoryEntry[]).map((e): InventoryEntry => {
+  if (e.id === "integrationskurs") return {
+    ...e,
+    callers: [...e.callers, "src/lib/formularpilot/forms/integrationskurs-630007.ts (dev pipeline, not wired)"],
+    mappingCoverage: "28/28 native fields mapped in dev pipeline; legacy live mapping 12 fields, no status box, writes page-2 date without exemption",
+    annexes: ["copy of ID/residence document", "page 2 proofs only when cost exemption requested"],
+    tests: ["src/lib/formularpilot/forms/integrationskurs-630007.test.ts"],
+    variants: e.variants.map((v) => ({
+      ...v, officialUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/Integration/Integrationskurse/Kursteilnehmer/AntraegeAlle/630-007_antrag-zulassung-integrationskurs-ausl_pdf.html?nn=453250",
+      readiness: "blocked" as const,
+      blockers: [
+        "bundled edition 630.007w 01/2026 superseded by 630.007x 07/2026 (BAMF page dated 22.07.2026)",
+        "07/2026 PDF not retrievable on 2026-10-26 (404/timeout) — hash/fields unknown",
+        "č/ć/đ cannot be printed with the form font; pipeline refuses (UNSUPPORTED_GLYPHS)",
+        "BAMF Regionalstelle / Kursträger destination not verified",
+        "rights unknown",
+      ],
+    })),
+  };
+  if (e.id === "kinderzuschlag") return {
+    ...e,
+    callers: [...e.callers, "src/lib/formularpilot/manifests/kinderzuschlag-kiz1.ts"],
+    variants: e.variants.map((v) => ({
+      ...v, pdfTech: "acroform_with_xfa" as const, provenance: "differs_from_official" as const, readiness: "blocked" as const,
+      officialUrl: "https://www.arbeitsagentur.de/datei/kiz1-antrag_ba036540.pdf",
+      officialUrlCheck: { status: 200, checkedAt: CHECKED },
+      blockers: ["official is XFA + encrypted, change not permitted", "bundled is a modified derivative (hash differs)", "see manifests/kinderzuschlag-kiz1.ts"],
+    })),
+  };
+  return e;
+});
 
 /** Interactive Musterformular pages that print a simulation (no official PDF). */
 export const PRINT_SIMULATION_SLUGS = [
@@ -163,7 +193,7 @@ export const PLANNED_OR_LINK_ONLY_SLUGS = [
 
 /** Prioritised next batch for golden tests (federal, AcroForm, single edition, no state split). */
 export const NEXT_GOLDEN_BATCH = [
-  { id: "kinderzuschlag", why: "federal, one office type, 74 AcroForm fields, no XFA flag in bundle" },
-  { id: "integrationskurs", why: "federal BAMF, small (28 fields), clear single edition" },
+  { id: "integrationskurs", why: "dev pipeline done; needs official 07/2026 file + Unicode font decision" },
+  { id: "mutterschaftsgeld", why: "federal BAS, AcroForm 129 fields; authenticity not yet checked" },
   { id: "elterngeld-by-05-2025", why: "authentic official 05/2025 already hash-pinned in elterngeld-pilot.ts; 32 mapped names exist" },
 ] as const;
