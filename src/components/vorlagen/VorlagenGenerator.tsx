@@ -100,7 +100,7 @@ export default function VorlagenGenerator({ template }: Props) {
     if (!w) return;
     w.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${template.titleDe}</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+${LOCAL_INTER_FONT_FACES}
 @page{size:A4;margin:0}
 *{margin:0;padding:0;box-sizing:border-box}
 body{
