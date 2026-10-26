@@ -13,6 +13,25 @@ import {
   todayFormatted,
 } from "@/lib/vorlagen-templates";
 import LetterPreview from "./LetterPreview";
+// Self-hosted Inter (OFL-1.1, @fontsource/inter) — no requests to Google Fonts.
+import inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+import inter500 from "@fontsource/inter/files/inter-latin-500-normal.woff2?url";
+import inter600 from "@fontsource/inter/files/inter-latin-600-normal.woff2?url";
+import inter400x from "@fontsource/inter/files/inter-latin-ext-400-normal.woff2?url";
+import inter500x from "@fontsource/inter/files/inter-latin-ext-500-normal.woff2?url";
+import inter600x from "@fontsource/inter/files/inter-latin-ext-600-normal.woff2?url";
+
+// The print window is about:blank, so font URLs must be absolute (same origin).
+// Source Serif 4 is not bundled; the body falls back to Georgia/Times (local).
+const abs = (u: string) => new URL(u, window.location.origin).href;
+const face = (w: number, u: string, range: string) =>
+  `@font-face{font-family:'Inter';font-style:normal;font-weight:${w};font-display:swap;src:url('${abs(u)}') format('woff2');unicode-range:${range};}`;
+const LATIN = "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD";
+const LATIN_EXT = "U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF";
+const LOCAL_INTER_FONT_FACES = [
+  face(400, inter400, LATIN), face(500, inter500, LATIN), face(600, inter600, LATIN),
+  face(400, inter400x, LATIN_EXT), face(500, inter500x, LATIN_EXT), face(600, inter600x, LATIN_EXT),
+].join("\n");
 
 interface Props {
   template: VorlagenTemplate;
@@ -100,7 +119,7 @@ export default function VorlagenGenerator({ template }: Props) {
     if (!w) return;
     w.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${template.titleDe}</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+${LOCAL_INTER_FONT_FACES}
 @page{size:A4;margin:0}
 *{margin:0;padding:0;box-sizing:border-box}
 body{
