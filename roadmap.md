@@ -1,4 +1,8 @@
 
+## Kindergeld UX simplification (Preview only)
+- [ ] Simplify online/paper presentation; retain all 20 accurate explanations and four languages.
+- [ ] Run focused/full tests and mobile visual QA; report saved SHA and limitations. No publish/deploy.
+
 ## Monetization relaunch
 - [x] Preserve 2 monthly subscribers (kontakt@balkanlink.de, huber.tarik@gmail.com): verify in Stripe (read-only), no account edits
 - [x] Legacy monthly subscribers keep their Document Check daily free quota (server-side)
