@@ -42,7 +42,7 @@ Deno.serve(async (req) => {
     }
     const userId = claimsData.claims.sub as string;
 
-    // ── Pricing: 1,99€ per completed check for EVERY user (Plus/lifetime included, no free quota) ──
+    // ── Access & quota are decided server-side by reserve_usage (see _shared/usage.ts) ──
     const adminSupabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
