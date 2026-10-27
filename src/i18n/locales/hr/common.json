@@ -25,6 +25,7 @@
     "back": "Natrag"
   },
   "sidebar": {
+    "newBadge": "NOVO",
     "menu": "Meni",
     "navAriaLabel": "Navigacioni meni",
     "greeting": "Dobro došao/la, {{name}}!",
@@ -47,6 +48,7 @@
       "viza": "Viza Navigator",
       "deutschTrainer": "Kurs njemačkog",
       "dokumentenCheck": "Provjera dokumenata",
+      "letterReply": "Odgovor na dopis",
       "zivot": "Život i dolazak",
       "radnoPravo": "Radno pravo",
       "mietrecht": "Mietrecht",
