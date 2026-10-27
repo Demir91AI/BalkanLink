@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { trialDaysLeft } from "@/hooks/useFeatureAccess";
-// @ts-expect-error Deno-style .ts import of a plain module works under Vitest
 import { meterStream } from "../../supabase/functions/_shared/usage.ts";
 
 const read = (p: string) => readFileSync(p, "utf8");
