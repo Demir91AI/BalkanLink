@@ -166,7 +166,7 @@ export default function Header() {
             <button
               onClick={() => navigate("/premium")}
               aria-label={tPlus("unlockCta")}
-              className="group relative hidden sm:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
+              className="group relative hidden lg:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
               style={{
                 background:
                   "linear-gradient(135deg, #D4AF37 0%, #F4D77A 50%, #B8941F 100%)",
