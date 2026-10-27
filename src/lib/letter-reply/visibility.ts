@@ -1,4 +1,4 @@
-/** Visibility only; callers retain their existing authorization checks. */
-export function isLetterReplyVisible(isDev: boolean, hostname: string): boolean {
-  return isDev || hostname === 'id-preview--42558ae9-0b5a-4abf-bab6-f6cb6cf85927.lovable.app';
+/** Release-ready visibility only; never grants access. Keep caller arguments compatible. */
+export function isLetterReplyVisible(_isDev: boolean, _hostname: string): boolean {
+  return true;
 }

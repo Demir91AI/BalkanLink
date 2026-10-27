@@ -64,7 +64,7 @@ describe('agency reply safety rules', () => {
     for (const locale of [hr,sr,de]) expect(keys(locale)).toEqual(keys(bs));
     for (const locale of [bs,hr,sr]) expect(locale.document).toEqual(de.document);
   });
-  it('keeps entries visibility-gated, preserves host access and has no new routes or persistence', () => {
+  it('uses the shared visibility policy, preserves host access and has no new routes or persistence', () => {
     const source = readFileSync('src/components/letter-reply/LetterReplyTask.tsx','utf8');
     expect(source).toContain('const visible = isLetterReplyVisible(import.meta.env.DEV, window.location.hostname)');
     expect(source).toContain('if (!visible) return null');
