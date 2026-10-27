@@ -963,9 +963,9 @@
       "buttons": {
         "free": "Kostenlos veröffentlichen →",
         "pro": "Pro kaufen — 1,99 € →",
-        "premium": "Mitgliedschaft ansehen →"
+        "premium": "Mitgliedschaft ansehen — 9,99 €/Monat →"
       },
-      "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Die Mitgliedschaft enthält 2 solche Hervorhebungen pro Monat."
+      "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Premium enthält 2 solche Hervorhebungen pro Monat."
     }
   },
   "navigation": {
