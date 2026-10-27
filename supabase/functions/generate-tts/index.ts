@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { reserveUsage, commitUsage, releaseUsage, type Reservation } from "../_shared/usage.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
@@ -49,6 +50,7 @@ serve(async (req) => {
         { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+    let ttsUserId = "";
     {
       const supabaseUrlEnv = Deno.env.get("SUPABASE_URL")!;
       const anonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
@@ -62,6 +64,7 @@ serve(async (req) => {
           { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
+      ttsUserId = claimsData.claims.sub as string;
     }
 
     const { text, voiceId, stability, similarityBoost, format } = await requestToPayload(req);
@@ -138,6 +141,20 @@ serve(async (req) => {
       );
     }
 
+    // Protective cap applies only to NEW generations; cached audio is always served.
+    let ttsReservation: Reservation | null = null;
+    try {
+      ttsReservation = await reserveUsage(supabase, ttsUserId, "tts_generation");
+    } catch (e) {
+      console.error("[TTS] usage reserve error", e instanceof Error ? e.message : "unknown");
+    }
+    if (ttsReservation && !ttsReservation.ok) {
+      return new Response(
+        JSON.stringify({ error: "Daily audio limit reached", errorCode: "DAILY_CAP" }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     console.log(`[TTS] Generating via ElevenLabs: ${cacheKey}`);
     const startTime = Date.now();
 
@@ -163,6 +180,7 @@ serve(async (req) => {
     );
 
     if (!ttsResponse.ok) {
+      await releaseUsage(supabase, ttsReservation);
       const errText = await ttsResponse.text();
       console.error(`[TTS] ElevenLabs error: ${ttsResponse.status} ${errText}`);
       return new Response(
@@ -172,6 +190,7 @@ serve(async (req) => {
     }
 
     const audioBuffer = await ttsResponse.arrayBuffer();
+    await commitUsage(supabase, ttsReservation);
     const elapsed = Date.now() - startTime;
     console.log(`[TTS] Generated in ${elapsed}ms: ${cacheKey}`);
 
