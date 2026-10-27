@@ -2131,6 +2131,324 @@
           "Der Antrag wird ausschließlich bei der Familienkasse eingereicht; Online-Bestätigung oder Papierunterschriften prüfen.",
           "Bestätigung aufbewahren, Nachrichten verfolgen und angeforderte Nachweise oder Änderungen amtlich übermitteln."
         ]
+      },
+      "pilot": {
+        "advance": "Als gelesen markieren und weiter",
+        "finish": "Leitfaden abschließen",
+        "reviewed": "Gelesen",
+        "unmark": "Lesemarkierung entfernen",
+        "count": "{{count}} von {{total}} Schritten gelesen",
+        "announcement": "Schritt markiert. Weiter mit: {{title}}",
+        "completionTitle": "Durchsicht des Leitfadens beendet",
+        "completionBody": "Dies bestätigt weder ein ausgefülltes oder eingereichtes Formular noch einen Anspruch. Du hast die Hinweise durchgesehen; prüfe offene Schritte und deinen Originalantrag. Nur du entscheidest, wann du ihn bei der Familienkasse einreichst.",
+        "reopen": "Leitfaden erneut durchsehen",
+        "fieldIndex": "Feldübersicht ({{total}} Gruppen)",
+        "fieldPosition": "Gruppe {{current}}/{{total}} · {{reviewed}} gelesen",
+        "fieldProgress": "Durchsicht der Felder",
+        "meaning": "Was der Begriff bedeutet",
+        "help": "Unklar / diese Angabe fehlt mir",
+        "originalPdf": "Original-PDF {{form}} öffnen — BA",
+        "officialOnline": "Offizielles Onlineverfahren öffnen",
+        "fieldNext": "Gelesen — nächste Gruppe",
+        "fieldFinish": "Felddurchsicht abschließen",
+        "fieldsDone": "Alle Gruppen sind durchgesehen, nicht unbedingt richtig ausgefüllt. Prüfe deinen Originalantrag und gehe anschließend zu Prüfung und Einreichung.",
+        "existingCase": "Ich bekomme bereits Kindergeld für ein anderes Kind",
+        "existingBody": "Für das neue Kind ist trotzdem ein Antrag nötig. Übernimm die bestehende Kindergeld-Nr. aus dem Bescheid. In KG1 Punkt 5 stehen Kinder, für die DU schon Kindergeld bekommst; das neue Kind erhält eine eigene Anlage Kind. Hat der andere Elternteil bereits für dasselbe neue Kind einen Antrag gestellt, gehört dies in Anlage Kind Punkt 4 und begründet keine zweite unabhängige Auszahlung.",
+        "glossaryTitle": "Behördenbegriffe — einfach erklärt",
+        "stepHelpTitle": "Fragen zu diesem Schritt",
+        "nextActions": "Nächste Schritte nach dieser Durchsicht",
+        "formsLink": "Offizielle Formulare und Hinweise — BA",
+        "idLink": "Steuer-ID: offizielle Hilfe des BZSt",
+        "pageConvention": "Gedruckte Seiten: KG1 Seite 1 = PDF-Seite 2, KG1 Seite 2 = PDF-Seite 3 (Deckblatt davor). Anlage Kind Seiten 1–4 = PDF-Seiten 1–4. Ausgabe: Stand September 2025; bei der BA geprüft am 27.10.2026.",
+        "onlineUnverified": "Diese Onlinethemen sind keine bestätigten Bildschirmnamen oder Reihenfolge nach der Anmeldung. Folge den tatsächlichen Kategorien im BA-Antrag; die vier Gruppen sind Eingabehilfen, keine Nachbildung des Portals.",
+        "imaginary": "Alle Beispiele sind erfunden; Zahlen sind Demonstrationswerte und keine gültigen Angaben zum Einreichen.",
+        "details": {
+          "kg1-0": {
+            "title": "Antragsnummer und Anlagen",
+            "meaning": "Die Aktennummer ordnet neue Schreiben deinem bestehenden Familienkasse-Vorgang zu; sie ist keine Steuer-ID.",
+            "help": "Beim ersten Antrag ohne zugeteilte Nummer nichts erfinden. Bei bestehendem Bezug oben im letzten Bescheid nachsehen; nicht die Kontonummer verwenden.",
+            "de": "Kindergeld-Nr.",
+            "what": "Bestehende Kindergeld-Nr. nur soweit zugeteilt eintragen; beim ersten Antrag ohne Nummer leer lassen. Telefon und Anlagenzahl folgen getrennt."
+          },
+          "kg1-1": {
+            "title": "Deine Steuer-ID",
+            "meaning": "Die Steuer-ID identifiziert die antragstellende Person auch nach Namens- oder Adressänderungen.",
+            "help": "Fehlt der Brief, suche Identifikationsnummer auf der elektronischen Lohnsteuerbescheinigung. Bei verlorener eigener ID folge den BZSt-Hinweisen; keine Mitteilung per Telefon oder E-Mail. Ist keine vergeben, frage die Familienkasse zum Vorgehen — keine Nullen eintragen."
+          },
+          "kg1-2": {
+            "title": "Name des Elternteils",
+            "meaning": "Antragstellende Person ist die Person, die Kindergeld beantragt. Geburtsname ist der Name bei Geburt; Staatsangehörigkeit ist nicht der Geburtsort.",
+            "help": "Übernimm alle Namen aus dem gültigen Dokument, auch č/ć. Titel ist keine Berufsbezeichnung. Ohne akademischen Titel oder früheren Namen nichts erfinden. Bei mehreren Staatsangehörigkeiten oder Aufenthaltsfragen kläre erforderliche Anlagen mit der Familienkasse.",
+            "de": "Familienname · Titel · Vorname · ggf. Geburtsname und Familienname aus früherer Ehe · Geburtsdatum · Geburtsort · Geschlecht · Staatsangehörigkeit"
+          },
+          "kg1-3": {
+            "title": "Deine Anschrift",
+            "meaning": "Anschrift ist die Adresse deiner gegenwärtigen Situation, nicht die des Arbeitgebers oder der Geburtsklinik.",
+            "help": "PLZ bedeutet Postleitzahl. Weichen Meldebescheinigung und tatsächliches Wohnen ab oder bist du gerade umgezogen, kläre die richtige Anschrift mit der Familienkasse; nicht einfach die alte aus einem Schreiben übernehmen.",
+            "de": "Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)",
+            "what": "Straße, Hausnummer, Postleitzahl, Wohnort und Staat angeben. Familienstand folgt gesondert."
+          },
+          "kg1-4": {
+            "title": "Partner oder anderer Elternteil — Punkt 2",
+            "meaning": "Punkt 2 unterscheidet Ehe-/eingetragene Lebenspartner und den anderen leiblichen oder Stiefelternteil im gemeinsamen Haushalt. Nicht alles bedeutet nur „anderer Elternteil“.",
+            "help": "Ehe-/eingetragene Lebenspartner werden gesondert genannt; nicht den ganzen Punkt wegen verschiedener Anschriften überspringen. Bei getrenntem/unklarem Haushalt Hinweise der Familienkasse prüfen. Deren Steuer-ID soweit vergeben eintragen, nicht erfinden.",
+            "de": "Angaben zum/zur Ehepartner(in) bzw. eingetragenen Lebenspartner(in) oder zum anderen leiblichen Elternteil bzw. Stiefelternteil im gemeinsamen Haushalt",
+            "what": "Gefragte Angaben der Person aus Punkt 2: Steuer-ID soweit vergeben, alle Namen, gegebenenfalls Titel/frühere Namen, Geburt, Staatsangehörigkeit und Geschlecht. Abweichende Anschrift folgt getrennt.",
+            "where": "Ehe-/eingetragene Lebenspartner werden gesondert genannt; nicht den ganzen Punkt wegen verschiedener Anschriften überspringen. Bei getrenntem/unklarem Haushalt Hinweise der Familienkasse prüfen. Deren Steuer-ID soweit vergeben eintragen, nicht erfinden."
+          },
+          "kg1-5": {
+            "title": "IBAN und Kontoinhaber",
+            "meaning": "IBAN kennzeichnet das Konto, BIC die Bank. Bank, Finanzinstitut ist der Bankname, nicht der Kontoinhaber.",
+            "help": "Öffne Kontodetails im Banking, nicht die Kartennummer. Übernimm IBAN, BIC und Bankname wie im Papier verlangt. Bei ausländischem/gemeinsamem Konto Daten mit der Bank prüfen; Kontoinhaber folgt in der nächsten Gruppe. Kein zwingender DE-Präfix.",
+            "de": "IBAN · BIC · Bank, Finanzinstitut (ggf. auch Zweigstelle)",
+            "what": "IBAN, BIC und Bankname (gegebenenfalls Zweigstelle) aus Kontodetails übernehmen. Kontoinhaber in der nächsten Gruppe markieren."
+          },
+          "kg1-6": {
+            "title": "Wer den Bescheid erhält",
+            "meaning": "Hier änderst du den Empfänger des Bescheids, nicht automatisch das Auszahlungskonto.",
+            "help": "Willst du den Bescheid selbst, lasse diese besondere Rubrik leer. Für Vertretung stimme Daten und Vollmacht mit der Person/Familienkasse ab; keinen nicht beauftragten Anwalt eintragen.",
+            "de": "Der Bescheid soll nicht mir, sondern folgender Person (z. B. Steuerberater, Rechtsanwalt, etc.) zugesandt werden:"
+          },
+          "kg1-7": {
+            "title": "Weitere Kinder mit Kindergeld",
+            "meaning": "Punkt 5 listet andere Kinder mit deinem bestehenden Kindergeldbezug, nicht den neuen Antrag fürs Baby.",
+            "help": "Nutze den Bescheid jedes bereits berücksichtigten Kindes. Bei abweichendem Familiennamen auch diesen nennen. Ohne bestehenden Bezug das Neugeborene nicht in diese Tabelle übertragen.",
+            "de": "Für folgende Kinder beziehe ich bereits Kindergeld"
+          },
+          "kg1-8": {
+            "title": "Kindergeld bei einer anderen Person",
+            "meaning": "Punkt 6 fragt nach weiteren eigenen Kindern, für die jemand anderes Kindergeld bezieht. Er ersetzt keine Anlage Kind für das neue Kind.",
+            "help": "Kläre Empfängername und Familienkasse/Kindergeld-Nr. mit dieser Person. Fehlen Daten, nicht raten; frage die Familienkasse, wie du bekannte Angaben mitteilst."
+          },
+          "kg1-9": {
+            "title": "Datum und Unterschrift auf KG1",
+            "meaning": "Die Unterschrift bestätigt die Erklärung zu den Antragsangaben, nicht bloß das Lesen dieses Leitfadens.",
+            "help": "Lies die Erklärung über der Unterschrift, datiere und unterschreibe auf Papier. Bei minderjährigen Antragstellenden beachte gesetzliche Vertretung. Die zweite Einverständniserklärung folgt getrennt nach dieser Gruppe.",
+            "de": "Datum · Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+            "what": "Antragstellererklärung lesen, Datum nennen und KG1 auf Papier unterschreiben. Gesetzliche Vertretung und Einverständnis der Person aus Punkt 2 ersetzen nicht deinen Unterschriftsbereich."
+          },
+          "ank-0": {
+            "title": "Zuordnung der Anlage Kind",
+            "meaning": "Lfd. Nr. ist die laufende Nummer der Kinderanlage, nicht die Steuer-ID.",
+            "help": "Für zwei Kinder zwei Anlagen mit Nummern 1 und 2. Antragsdatum mit KG1 abstimmen. Ohne zugeteilte Kindergeld-Nr. keine neue Nummer für die Anlage erfinden.",
+            "de": "Familienname und Vorname der antragstellenden Person · Kindergeld-Nr. · zum Antrag auf Kindergeld vom · Lfd. Nr."
+          },
+          "ank-1": {
+            "title": "Steuer-ID des Kindes",
+            "meaning": "Das Kind hat eine eigene Steuer-ID, nicht die des Elternteils oder die Nummer der Geburtsurkunde.",
+            "help": "Das BZSt versendet sie nach Datenübermittlung durch die Meldebehörde. Fehlt der Brief, frage die Meldebehörde; fehlt die Geburtsurkunde, das Standesamt. Vorgehen ohne verfügbare ID mit Familienkasse klären. Das BZSt-Formular zur erneuten Mitteilung der eigenen ID ist kein universeller Kinder-ID-Antrag.",
+            "where": "Das BZSt versendet sie nach Datenübermittlung durch die Meldebehörde. Fehlt der Brief, frage die Meldebehörde; fehlt die Geburtsurkunde, das Standesamt. Vorgehen ohne verfügbare ID mit Familienkasse klären. Das BZSt-Formular zur erneuten Mitteilung der eigenen ID ist kein universeller Kinder-ID-Antrag."
+          },
+          "ank-2": {
+            "title": "Name und Geburt des Kindes",
+            "meaning": "Die Angaben betreffen das Kind dieser Anlage. Geburtsort ist nicht automatisch der heutige Wohnort.",
+            "help": "Nutze das Geburtsdokument für die Schreibweise; daraus folgt keine pauschale Beifügepflicht bei in Deutschland geborenen Kindern unter 18. Bei unklarer Staatsangehörigkeit/Namensführung Dokumente mit dem Standesamt klären; nicht raten.",
+            "de": "Familienname · Titel · Vorname · Geburtsname · Geburtsdatum · Geburtsort · Geschlecht · Staatsangehörigkeit",
+            "what": "Alle Kindernamen, gegebenenfalls Geburtsname, Geburtsdatum/-ort, Geschlecht und Staatsangehörigkeit aus tatsächlichen Dokumenten übernehmen. Abweichende Adresse folgt gesondert."
+          },
+          "ank-3": {
+            "title": "Dein Verhältnis zum Kind",
+            "meaning": "Kindschaftsverhältnis bezeichnet die rechtliche/familiäre Beziehung des Kindes zu jeder Person, nicht den Familienstand der Eltern.",
+            "help": "Leibliches Kind, Adoptivkind, Pflegekind, Stiefkind und Enkelkind sind unterschiedliche Beziehungen. Markiere die passende in jeder relevanten Zeile. Bei ungeklärter Sorge oder Adoption frage die Familienkasse.",
+            "de": "Kindschaftsverhältnis",
+            "what": "Beziehung zum Antragsteller, Partner und zur anderen Person markieren: leibliches Kind, Adoptivkind, Pflegekind, Stiefkind oder Enkelkind. Bei Adoption Hinweis zum Annahmebeschluss beachten."
+          },
+          "ank-4": {
+            "title": "Kind ab 18 — bei Babys überspringen",
+            "meaning": "Punkt 3 beginnt auf Seite 2; 3.3 zur Behinderung steht auf Seite 3. Keine Fragen für ein Neugeborenes.",
+            "help": "Beim Baby den gesamten Punkt 3 überspringen und mit 4 auf Seite 3 fortfahren. Für Kinder ab/bald 18 BA „Kindergeld ab 18“ und Nachweise zu 3.1–3.3 nutzen; dieser Pilot beurteilt weder Erwachsenenanspruch noch Behinderung.",
+            "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4"
+          },
+          "ank-5": {
+            "title": "Früherer Antrag für dieses Kind",
+            "meaning": "Es geht um dasselbe Kind dieser Anlage, auch einen noch offenen Antrag des anderen Elternteils.",
+            "help": "Vor „nein“ mit dem anderen Elternteil klären, ob schon beantragt wurde. Bei „ja“ Person, Zeitraum und Familienkasse/Kindergeld-Nr. aus Unterlagen nennen. Bezug für ein älteres Kind gehört nicht hierher."
+          },
+          "ank-6": {
+            "title": "Arbeit im öffentlichen Dienst",
+            "meaning": "Öffentlicher Dienst bedeutet öffentliche Beschäftigung; Unterfragen betreffen eine Bundeseinrichtung und BA/Jobcenter.",
+            "help": "Bei unbekanntem Status des öffentlichen Arbeitgebers Vertrag oder Personalstelle prüfen. Nicht jedes Unternehmen mit Staatsaufträgen ist öffentlicher Dienst. Bei „ja“ auch a/b gemäß Formular beantworten."
+          },
+          "ank-7": {
+            "title": "Leistung aus einem anderen Staat",
+            "meaning": "Gefragt ist auch ein ANSPRUCH auf ausländische/internationale Kinderleistung in fünf Jahren vor Antragstellung, nicht bloß ein Geldeingang.",
+            "help": "Prüfe ausländischen Bescheid: Person, Leistung, monatlicher Betrag, Zeitraum, Stelle und Aktenzeichen. Bei laufendem Antrag/unklarem Anspruch Familienkasse fragen; nicht wegen fehlender Auszahlung automatisch „nein“ wählen."
+          },
+          "ank-8": {
+            "title": "7(a): Arbeit außerhalb Deutschlands",
+            "meaning": "Punkt 7(a) betrifft Arbeit außerhalb Deutschlands in fünf Jahren vor Antragstellung; 7(b) und 7(c) folgen als eigene Fragen.",
+            "help": "Prüfe frühere Verträge, nicht nur den jetzigen Job. Bei „ja“ Person, Zeitraum, Arbeitgeber und Ort/Staat gemäß Formular nennen. Bei unklarer grenzüberschreitender Arbeit BA-Auslandsquelle vor der Antwort nutzen.",
+            "de": "in den letzten 5 Jahren vor der Antragstellung außerhalb Deutschlands als Arbeitnehmer(in), Selbständige(r) oder Entwicklungshelfer(in) tätig?",
+            "what": "Bei 7(a) ja/nein zur Arbeit außerhalb Deutschlands in fünf Jahren vor Antragstellung. Bei ja Person, Zeitraum, Arbeitgeber und Ort/Staat nennen; 7(b)/7(c) folgen getrennt."
+          },
+          "ank-9": {
+            "title": "Unterschrift auf der Anlage Kind",
+            "meaning": "Jede Anlage Kind hat ihre eigene Erklärung/Unterschrift auf Seite 4; KG1 unterschreibt diese Anlage nicht mit.",
+            "help": "Bei zwei Anlagen Datum und Unterschrift auf beiden prüfen. Online der Identifizierung und abschließenden Übermittlung des Portals folgen — keine Unterschrift bei BalkanLink hinzufügen."
+          }
+        },
+        "extras": [
+          {
+            "id": "phone",
+            "after": "kg1-0",
+            "form": "KG1",
+            "page": 1,
+            "sec": "header",
+            "de": "Telefonische Rückfrage tagsüber unter Nr.:",
+            "only": false,
+            "title": "Telefon für Rückfragen",
+            "meaning": "Kontakt für Antragsklärung, keine Antragstellung per Telefon.",
+            "what": "Gib eine tagsüber erreichbare Telefonnummer an.",
+            "where": "Dein Telefon; bei Auslandsnummer Vorwahl prüfen.",
+            "example": "Maja nennt ihre erreichbare Nummer, nicht die des Arbeitgebers.",
+            "mistake": "Eine fremde unerreichbare Nummer nennen.",
+            "help": "Ohne gewünschten/möglichen Telefonkontakt Formularhinweis/Familienkasse prüfen; keine Nummer erfinden. Offizielle Post beachten."
+          },
+          {
+            "id": "count",
+            "after": "kg1-0",
+            "form": "KG1",
+            "page": 1,
+            "sec": "header",
+            "de": "Anzahl der beigefügten \"Anlage Kind\":",
+            "only": false,
+            "title": "Wie viele Kinderanlagen?",
+            "meaning": "Gezählt werden beigefügte Anlagen Kind, nicht sämtliche eigenen Kinder.",
+            "what": "Trage die tatsächliche Zahl beigefügter Anlagen ein; eine je Kind dieses Antrags.",
+            "where": "Vor Versand vorbereitete Anlagen zählen.",
+            "example": "Neues Kind Lea: 1 Anlage. Zwei Kinder in demselben Antrag: 2 Anlagen.",
+            "mistake": "Älteres Kind aus KG1 Punkt 5 mitzählen, obwohl keine neue Anlage für es beigefügt ist.",
+            "help": "Fehlt die Anlage fürs jetzt beantragte Kind, Original bei BA öffnen; KG1 ersetzt sie nicht."
+          },
+          {
+            "id": "status",
+            "after": "kg1-3",
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Familienstand · seit:",
+            "only": false,
+            "title": "Familienstand und seit wann",
+            "meaning": "Familienstand ist der tatsächliche Ehe-/Partnerschaftsstatus; dauerhaft getrennt ist nicht geschieden.",
+            "what": "Passende Option markieren und das verlangte „seit“-Datum nennen.",
+            "where": "Heiratsurkunde, Scheidungsbeschluss oder tatsächlicher Beginn dauernder Trennung.",
+            "example": "Maja ist verheiratet: verheiratet und Datum aus ihrer Heiratsurkunde.",
+            "mistake": "Ledig wählen, nur weil der Partner derzeit anderswo wohnt.",
+            "help": "Getrennt, aber nicht geschieden? Passende Option/Datum mit Familienkasse klären; nicht raten."
+          },
+          {
+            "id": "partnerAddress",
+            "after": "kg1-4",
+            "form": "KG1",
+            "page": 1,
+            "sec": "2",
+            "de": "Anschrift, wenn abweichend von der antragstellenden Person",
+            "only": true,
+            "title": "Abweichende Partneranschrift",
+            "meaning": "Nur eine vom Antragsteller abweichende Anschrift, einschließlich weiterer Wohnsitze im In-/Ausland.",
+            "what": "Die vollständige abweichende Anschrift der Person aus Punkt 2 angeben, soweit zutreffend.",
+            "where": "Angaben dieser Person und Meldedokument.",
+            "example": "Maja und Damir wohnen gleich: Adresse nicht als abweichend wiederholen.",
+            "mistake": "Partnerangaben wegen anderer Meldung vollständig überspringen.",
+            "help": "Bei mehreren Wohnsitzen/getrenntem Haushalt Darstellung mit Familienkasse klären; Adresse nicht für ein gewünschtes Ergebnis auswählen."
+          },
+          {
+            "id": "owner",
+            "after": "kg1-5",
+            "form": "KG1",
+            "page": 1,
+            "sec": "3",
+            "de": "Kontoinhaber(in) ist",
+            "only": false,
+            "title": "Wem gehört das Konto?",
+            "meaning": "Kontoinhaber muss nicht die antragstellende Person sein.",
+            "what": "Antragstellende Person oder nicht antragstellende Person, sondern markieren; im zweiten Fall vollen Namen nennen.",
+            "where": "Kontoinhaber im Kontoauszug oder in Kontodetails.",
+            "example": "Maja nutzt Damirs Konto: anderen Inhaber markieren und Damirs echten Namen nennen.",
+            "mistake": "Eigenes Konto markieren, obwohl es jemand anderem gehört.",
+            "help": "Bei Gemeinschaftskonto Inhaberangaben mit Bank prüfen. Ohne Konto/Daten Auszahlung mit Familienkasse klären; keine fremde IBAN ohne Absprache nehmen."
+          },
+          {
+            "id": "consent",
+            "after": "kg1-9",
+            "form": "KG1",
+            "page": 2,
+            "sec": "sign",
+            "de": "Unterschrift der unter Punkt 2 genannten Person bzw. deren gesetzliche Vertretung",
+            "only": true,
+            "title": "Einverständnis der anderen Person",
+            "meaning": "Gesonderte Erklärung der Person aus Punkt 2 dazu, dass der Antragsteller Kindergeld erhält.",
+            "what": "Auf Papier liest diese Person oder ihre gesetzliche Vertretung die Erklärung, datiert und unterschreibt, soweit zutreffend.",
+            "where": "Erklärung unten auf KG1 Seite 2; Gespräch mit der genannten Person.",
+            "example": "Maja unterschreibt ihre Erklärung; Damir sein gesondertes Einverständnis, wenn es ihn betrifft.",
+            "mistake": "Im Namen des Partners unterschreiben oder Unterschriften als Bewilligung ansehen.",
+            "help": "Bei fehlendem Einverständnis/Unterschriftsmöglichkeit Familienkasse informieren und Hinweise beachten; keine Unterschrift fälschen."
+          },
+          {
+            "id": "childAddress",
+            "after": "ank-2",
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "1",
+            "de": "Anschrift, wenn abweichend · Grund der abweichenden Anschrift",
+            "only": true,
+            "title": "Abweichende Kinderanschrift",
+            "meaning": "Abweichend heißt anders als beim Antragsteller; auch der Grund wird verlangt.",
+            "what": "Nur bei abweichender Kinderadresse vollständige Anschrift und tatsächlichen Grund nennen.",
+            "where": "Wohnsituation des Kindes; bei Ausland zusätzlich BA-Hinweise.",
+            "example": "Lea wohnt bei Maja: Rubrik abweichende Anschrift bleibt leer.",
+            "mistake": "Geburtsklinik als dauerhafte Kinderanschrift nennen.",
+            "help": "Bei Ausland/getrenntem Haushalt besondere BA-Quelle nutzen; Pilot bestimmt weder Anspruch noch Zusatzanlagen."
+          },
+          {
+            "id": "otherParent",
+            "after": "ank-3",
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "2",
+            "de": "Angaben zur anderen Person (bitte hier eintragen)",
+            "only": true,
+            "title": "Anderer Elternteil / andere Person",
+            "meaning": "Ergänzt die andere Person aus der Beziehungsmatrix, besonders wenn sie nicht Partner im KG1 ist.",
+            "what": "Verlangten Namen, Geburt, Staatsangehörigkeit, letzte bekannte Anschrift nennen; Zusatzangaben nur tatsächlich zutreffend.",
+            "where": "Unterlagen dieser Person oder wirklich bekannte letzte Adresse.",
+            "example": "Damir ist nicht Partner im KG1: als Leas leiblicher Elternteil stehen seine Angaben in dieser Rubrik.",
+            "mistake": "Adresse eines abwesenden Elternteils erfinden oder wegen anderem Haushalt überspringen.",
+            "help": "Formular nennt z. B. verstorben, Vaterschaft nicht festgestellt, unbekannt. Nur richtigen Sachverhalt nennen; Unklarheiten mit Familienkasse klären."
+          },
+          {
+            "id": "stateWork",
+            "after": "ank-8",
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "7b",
+            "de": "in Deutschland bei einer Dienststelle oder Einrichtung eines anderen Staates oder als Angehöriger der NATO tätig?",
+            "only": false,
+            "title": "Arbeit für anderen Staat oder NATO in Deutschland",
+            "meaning": "7(b) ist eine eigene Frage; Arbeit in Deutschland bedeutet nicht automatisch nein.",
+            "what": "Ja/nein zu solcher Arbeit in fünf Jahren vor Antragstellung; bei ja gefragte Personen-/Beschäftigungsdaten nennen.",
+            "where": "Vertrag/Arbeitgeber; gegebenenfalls Personalstelle.",
+            "example": "Erfunden: Tätigkeit für eine Einrichtung eines anderen Staates in Deutschland erfordert Prüfung von 7(b), nicht nur 7(a).",
+            "mistake": "Überspringen, weil der Arbeitsort nicht im Ausland ist.",
+            "help": "Unklaren Arbeitgeberstatus mit Arbeitgeber/Familienkasse klären; keinen Anspruch aus dem Firmennamen ableiten."
+          },
+          {
+            "id": "posting",
+            "after": "ank-8",
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "7c",
+            "de": "in Deutschland auf Veranlassung eines Arbeitgebers mit Sitz außerhalb Deutschlands beschäftigt (z. B. entsandte Person)?",
+            "only": false,
+            "title": "Entsendung durch ausländischen Arbeitgeber",
+            "meaning": "7(c) fragt nach Arbeit in Deutschland auf Veranlassung eines Arbeitgebers mit Sitz außerhalb Deutschlands.",
+            "what": "Ja/nein für fünf Jahre vor Antragstellung; bei ja Person, Zeitraum und Arbeitgeber nennen.",
+            "where": "Entsendungsvertrag und Arbeitgeber-Sitz.",
+            "example": "Erfunden: Damir wird von einer Firma mit Sitz im Ausland nach Deutschland entsandt — er prüft 7(c).",
+            "mistake": "Ausländische Staatsangehörigkeit mit Entsendestatus verwechseln.",
+            "help": "Bei unklarem Status Unterlagen mit Arbeitgeber/Familienkasse klären; BA-Hinweise für grenzüberschreitende Fälle nutzen."
+          }
+        ]
       }
     },
     "panelEmpty": "Wähle links eine Leistung für Leitfaden und offizielle Quellen.",
