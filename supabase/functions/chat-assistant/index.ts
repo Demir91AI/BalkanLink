@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { reserveUsage, commitUsage, releaseUsage, meterStream, type Reservation } from "../_shared/usage.ts";
+import { reserveUsage, commitUsage, releaseUsage, meterStream, assistantGate, type Reservation } from "../_shared/usage.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
@@ -1632,9 +1632,11 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: "Greška. Pokušaj ponovo." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
-    if (!reservation.ok) {
-      return new Response(JSON.stringify({ error: "Dnevni limit Asistenta je dostignut. Pokušaj sutra.", errorCode: "DAILY_CAP" }),
-        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    const gate = assistantGate(reservation, lang);
+    if (!gate.callAI) {
+      // Over quota / no membership: answer without any model call.
+      return new Response(JSON.stringify(gate.body),
+        { status: gate.status, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
     if (reservation.mode === "basic") isPremium = false;
     const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext);
