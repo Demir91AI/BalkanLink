@@ -5,3 +5,4 @@
 - PDF field appearances use the locally bundled, hash-pinned Unicode font in `src/assets/fonts/` via `@pdf-lib/fontkit`; never load fonts remotely — BHS letters must print and no third-party font requests.
 - Encrypted/XFA official forms are never decrypted or re-mapped; offer a clearly non-official answer sheet plus official links instead — respects publisher restrictions.
 - `src/test/phase1/` pins routes, redirects, storage keys, hub imports, payment contract and family PDF mappings; update `baseline.json`/snapshots only with owner approval — prevents silent downgrades of legacy behaviour.
+- Agency reply drafting is isolated in `src/lib/letter-reply/` and `src/components/letter-reply/`, with development-only entries inheriting their host access checks; drafts exist only in mounted component state — keeps live routes and entitlements unchanged and avoids sensitive draft retention.
