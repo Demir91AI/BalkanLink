@@ -164,7 +164,7 @@ export default function Header() {
               Once subscription is active, the badge disappears entirely. */}
           {!isPremium && (
             <button
-              onClick={() => navigate("/premium")}
+              onClick={() => navigate("/paketi")}
               aria-label={tPlus("unlockCta")}
               className="group relative hidden lg:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
               style={{
