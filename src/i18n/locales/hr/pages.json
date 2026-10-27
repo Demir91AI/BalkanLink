@@ -2168,7 +2168,9 @@
             "meaning": "Broj predmeta povezuje nova pisma s tvojom postojećom evidencijom Familienkasse; nije Steuer-ID.",
             "help": "Prvi zahtjev bez dodijeljenog broja: ne izmišljaj ga. Ako već primaš Kindergeld, pogledaj vrh posljednjeg Bescheida; ne zamjenjuj ga brojem računa.",
             "de": "Kindergeld-Nr.",
-            "what": "Navedi postojeći Kindergeld-Nr. samo ako je dodijeljen; prvi zahtjev bez broja ostavlja rubriku praznu. Telefon i broj priloga slijede zasebno."
+            "what": "Navedi postojeći Kindergeld-Nr. samo ako je dodijeljen; prvi zahtjev bez broja ostavlja rubriku praznu. Telefon i broj priloga slijede zasebno.",
+            "example": "Prva Majina prijava: Kindergeld-Nr. ostaje prazno; telefon i broj priloga slijede zasebno.",
+            "mistake": "Zamijeniti Kindergeld-Nr. sa Steuer-ID ili izmisliti broj prve prijave."
           },
           "kg1-1": {
             "title": "Tvoj porezni broj",
@@ -2186,7 +2188,9 @@
             "meaning": "Anschrift je adresa za tvoju sadašnju situaciju, ne adresa poslodavca ili rodilišta.",
             "help": "PLZ je poštanski broj mjesta stanovanja. Ako se Meldebescheinigung i stvarno stanovanje razlikuju ili si se upravo preselio/la, razjasni točnu adresu s Familienkasse; ne preuzimaj staru adresu iz ranijeg pisma.",
             "de": "Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)",
-            "what": "Navedi ulicu, kućni broj, poštanski broj (PLZ), mjesto stanovanja i državu. Bračni status slijedi zasebno."
+            "what": "Navedi ulicu, kućni broj, poštanski broj (PLZ), mjesto stanovanja i državu. Bračni status slijedi zasebno.",
+            "example": "Maja prepisuje trenutačnu adresu: ulica, kućni broj, PLZ, mjesto i država; status slijedi zasebno.",
+            "mistake": "Navesti staru adresu s Bescheida umjesto provjerene trenutačne."
           },
           "kg1-4": {
             "title": "Partner ili drugi roditelj — točka 2",
@@ -2230,7 +2234,8 @@
             "de": "Datum · Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
             "what": "Pročitaj izjavu podnositelja, navedi datum i potpiši KG1 na papiru. Zakonsko zastupanje i suglasnost osobe iz točke 2 ne zamjenjuju tvoj potpis.",
             "where": "Izjava i datum/potpis na KG1 str. 2; nije podatak iz drugog dokumenta.",
-            "example": "Izmišljeno: Maja nakon provjere datira KG1 i vlastoručno potpisuje kao podnositeljica."
+            "example": "Izmišljeno: Maja nakon provjere datira KG1 i vlastoručno potpisuje kao podnositeljica.",
+            "mistake": "Potpisati samo Anlage Kind i zaboraviti izjavu/potpis KG1."
           },
           "ank-0": {
             "title": "Oznake priloga za dijete",
@@ -2249,14 +2254,18 @@
             "meaning": "Podaci se odnose na dijete iz ovog priloga. Geburtsort nije automatski mjesto sadašnjeg stanovanja.",
             "help": "Provjeri dokument o rođenju zbog točnog pisanja, ali ne znači da ga moraš priložiti za svako dijete rođeno u Njemačkoj mlađe od 18. Ako državljanstvo ili prezime nisu jasni, razjasni dokument sa Standesamtom; ne nagađaj.",
             "de": "Familienname · Titel · Vorname · Geburtsname · Geburtsdatum · Geburtsort · Geschlecht · Staatsangehörigkeit",
-            "what": "Prepiši sva imena djeteta, eventualni Geburtsname, datum/mjesto rođenja, spol i državljanstvo iz dokumenata. Različita adresa slijedi zasebno."
+            "what": "Prepiši sva imena djeteta, eventualni Geburtsname, datum/mjesto rođenja, spol i državljanstvo iz dokumenata. Različita adresa slijedi zasebno.",
+            "example": "Lea Kovač · 02.09.2026 · mjesto rođenja iz dokumenta; različita adresa provjerava se zasebno.",
+            "mistake": "Navesti Majine podatke ili drukčije pisati ime djeteta nego u dokumentu o rođenju."
           },
           "ank-3": {
             "title": "Tvoj odnos prema djetetu",
             "meaning": "Kindschaftsverhältnis je pravni/obiteljski odnos djeteta prema svakoj osobi, ne bračni status roditelja.",
             "help": "Leibliches Kind = biološko, Adoptivkind = posvojeno, Pflegekind = udomljeno, Stiefkind = pastorak/pastorka, Enkelkind = unuk/unuka. Označi odnos u svakom relevantnom retku; za nejasno skrbništvo ili posvojenje pitaj Familienkasse.",
             "de": "Kindschaftsverhältnis",
-            "what": "Označi odnos prema podnositelju, partneru i drugoj osobi: leibliches Kind, Adoptivkind, Pflegekind, Stiefkind ili Enkelkind. Za posvojenje prati uputu o Annahmebeschluss."
+            "what": "Označi odnos prema podnositelju, partneru i drugoj osobi: leibliches Kind, Adoptivkind, Pflegekind, Stiefkind ili Enkelkind. Za posvojenje prati uputu o Annahmebeschluss.",
+            "example": "Lea je Majino biološko dijete: u retku prema podnositeljici označi leibliches Kind.",
+            "mistake": "Zamijeniti bračni status roditelja s odnosom djeteta prema svakoj osobi."
           },
           "ank-4": {
             "title": "Dijete od 18 godina — za bebu preskoči",
@@ -2289,7 +2298,9 @@
             "meaning": "Točka 7(a) je rad izvan Njemačke u pet godina prije zahtjeva; 7(b) i 7(c) slijede kao odvojena pitanja.",
             "help": "Pregledaj ranije ugovore, ne samo sadašnji posao. Za „ja“ navedi osobu, razdoblje, poslodavca i mjesto/državu prema obrascu. Ako prekogranični rad nije jasan, koristi BA izvor za inozemstvo prije odgovora.",
             "de": "in den letzten 5 Jahren vor der Antragstellung außerhalb Deutschlands als Arbeitnehmer(in), Selbständige(r) oder Entwicklungshelfer(in) tätig?",
-            "what": "Za 7(a) odgovori ja/nein o radu izvan Njemačke u pet godina prije zahtjeva. Za ja navedi osobu, razdoblje, poslodavca i mjesto/državu; 7(b)/7(c) slijede zasebno."
+            "what": "Za 7(a) odgovori ja/nein o radu izvan Njemačke u pet godina prije zahtjeva. Za ja navedi osobu, razdoblje, poslodavca i mjesto/državu; 7(b)/7(c) slijede zasebno.",
+            "example": "Maja i relevantna osoba nisu radile izvan Njemačke u pet godina prije zahtjeva: 7(a) nein; 7(b)/7(c) zasebno.",
+            "mistake": "Odgovoriti samo prema sadašnjem poslu i zaboraviti raniji rad u relevantnom razdoblju."
           },
           "ank-9": {
             "title": "Potpis na prilogu za dijete",

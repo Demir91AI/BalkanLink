@@ -2168,7 +2168,9 @@
             "meaning": "Die Aktennummer ordnet neue Schreiben deinem bestehenden Familienkasse-Vorgang zu; sie ist keine Steuer-ID.",
             "help": "Beim ersten Antrag ohne zugeteilte Nummer nichts erfinden. Bei bestehendem Bezug oben im letzten Bescheid nachsehen; nicht die Kontonummer verwenden.",
             "de": "Kindergeld-Nr.",
-            "what": "Bestehende Kindergeld-Nr. nur soweit zugeteilt eintragen; beim ersten Antrag ohne Nummer leer lassen. Telefon und Anlagenzahl folgen getrennt."
+            "what": "Bestehende Kindergeld-Nr. nur soweit zugeteilt eintragen; beim ersten Antrag ohne Nummer leer lassen. Telefon und Anlagenzahl folgen getrennt.",
+            "example": "Majas erster Antrag: Kindergeld-Nr. bleibt leer; Telefon und Anlagenzahl folgen getrennt.",
+            "mistake": "Kindergeld-Nr. mit Steuer-ID verwechseln oder Nummer beim ersten Antrag erfinden."
           },
           "kg1-1": {
             "title": "Deine Steuer-ID",
@@ -2186,7 +2188,9 @@
             "meaning": "Anschrift ist die Adresse deiner gegenwärtigen Situation, nicht die des Arbeitgebers oder der Geburtsklinik.",
             "help": "PLZ bedeutet Postleitzahl. Weichen Meldebescheinigung und tatsächliches Wohnen ab oder bist du gerade umgezogen, kläre die richtige Anschrift mit der Familienkasse; nicht einfach die alte aus einem Schreiben übernehmen.",
             "de": "Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)",
-            "what": "Straße, Hausnummer, Postleitzahl, Wohnort und Staat angeben. Familienstand folgt gesondert."
+            "what": "Straße, Hausnummer, Postleitzahl, Wohnort und Staat angeben. Familienstand folgt gesondert.",
+            "example": "Maja übernimmt aktuelle Straße, Hausnummer, PLZ, Wohnort und Staat; Familienstand folgt getrennt.",
+            "mistake": "Alte Bescheidadresse statt geprüfter aktueller Anschrift nennen."
           },
           "kg1-4": {
             "title": "Partner oder anderer Elternteil — Punkt 2",
@@ -2230,7 +2234,8 @@
             "de": "Datum · Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
             "what": "Antragstellererklärung lesen, Datum nennen und KG1 auf Papier unterschreiben. Gesetzliche Vertretung und Einverständnis der Person aus Punkt 2 ersetzen nicht deinen Unterschriftsbereich.",
             "where": "Erklärung und Datums-/Unterschriftsfeld auf KG1 Seite 2, keine Angabe aus einem anderen Dokument.",
-            "example": "Erfunden: Maja prüft KG1, datiert und unterschreibt eigenhändig als Antragstellerin."
+            "example": "Erfunden: Maja prüft KG1, datiert und unterschreibt eigenhändig als Antragstellerin.",
+            "mistake": "Nur Anlage Kind unterschreiben und Erklärung/Unterschrift auf KG1 vergessen."
           },
           "ank-0": {
             "title": "Zuordnung der Anlage Kind",
@@ -2249,14 +2254,18 @@
             "meaning": "Die Angaben betreffen das Kind dieser Anlage. Geburtsort ist nicht automatisch der heutige Wohnort.",
             "help": "Nutze das Geburtsdokument für die Schreibweise; daraus folgt keine pauschale Beifügepflicht bei in Deutschland geborenen Kindern unter 18. Bei unklarer Staatsangehörigkeit/Namensführung Dokumente mit dem Standesamt klären; nicht raten.",
             "de": "Familienname · Titel · Vorname · Geburtsname · Geburtsdatum · Geburtsort · Geschlecht · Staatsangehörigkeit",
-            "what": "Alle Kindernamen, gegebenenfalls Geburtsname, Geburtsdatum/-ort, Geschlecht und Staatsangehörigkeit aus tatsächlichen Dokumenten übernehmen. Abweichende Adresse folgt gesondert."
+            "what": "Alle Kindernamen, gegebenenfalls Geburtsname, Geburtsdatum/-ort, Geschlecht und Staatsangehörigkeit aus tatsächlichen Dokumenten übernehmen. Abweichende Adresse folgt gesondert.",
+            "example": "Lea Kovač · 02.09.2026 · Geburtsort laut Dokument; abweichende Adresse folgt getrennt.",
+            "mistake": "Majas Daten übernehmen oder Kindername anders als im Geburtsdokument schreiben."
           },
           "ank-3": {
             "title": "Dein Verhältnis zum Kind",
             "meaning": "Kindschaftsverhältnis bezeichnet die rechtliche/familiäre Beziehung des Kindes zu jeder Person, nicht den Familienstand der Eltern.",
             "help": "Leibliches Kind, Adoptivkind, Pflegekind, Stiefkind und Enkelkind sind unterschiedliche Beziehungen. Markiere die passende in jeder relevanten Zeile. Bei ungeklärter Sorge oder Adoption frage die Familienkasse.",
             "de": "Kindschaftsverhältnis",
-            "what": "Beziehung zum Antragsteller, Partner und zur anderen Person markieren: leibliches Kind, Adoptivkind, Pflegekind, Stiefkind oder Enkelkind. Bei Adoption Hinweis zum Annahmebeschluss beachten."
+            "what": "Beziehung zum Antragsteller, Partner und zur anderen Person markieren: leibliches Kind, Adoptivkind, Pflegekind, Stiefkind oder Enkelkind. Bei Adoption Hinweis zum Annahmebeschluss beachten.",
+            "example": "Lea ist Majas leibliches Kind: in der Antragstellerzeile leibliches Kind markieren.",
+            "mistake": "Familienstand der Eltern mit Beziehung des Kindes zur jeweiligen Person verwechseln."
           },
           "ank-4": {
             "title": "Kind ab 18 — bei Babys überspringen",
@@ -2289,7 +2298,9 @@
             "meaning": "Punkt 7(a) betrifft Arbeit außerhalb Deutschlands in fünf Jahren vor Antragstellung; 7(b) und 7(c) folgen als eigene Fragen.",
             "help": "Prüfe frühere Verträge, nicht nur den jetzigen Job. Bei „ja“ Person, Zeitraum, Arbeitgeber und Ort/Staat gemäß Formular nennen. Bei unklarer grenzüberschreitender Arbeit BA-Auslandsquelle vor der Antwort nutzen.",
             "de": "in den letzten 5 Jahren vor der Antragstellung außerhalb Deutschlands als Arbeitnehmer(in), Selbständige(r) oder Entwicklungshelfer(in) tätig?",
-            "what": "Bei 7(a) ja/nein zur Arbeit außerhalb Deutschlands in fünf Jahren vor Antragstellung. Bei ja Person, Zeitraum, Arbeitgeber und Ort/Staat nennen; 7(b)/7(c) folgen getrennt."
+            "what": "Bei 7(a) ja/nein zur Arbeit außerhalb Deutschlands in fünf Jahren vor Antragstellung. Bei ja Person, Zeitraum, Arbeitgeber und Ort/Staat nennen; 7(b)/7(c) folgen getrennt.",
+            "example": "Maja und relevante Person arbeiteten in fünf Jahren vor Antragstellung nicht außerhalb Deutschlands: 7(a) nein; 7(b)/7(c) getrennt beantworten.",
+            "mistake": "Nur jetzigen Job berücksichtigen und frühere Arbeit im relevanten Zeitraum vergessen."
           },
           "ank-9": {
             "title": "Unterschrift auf der Anlage Kind",
