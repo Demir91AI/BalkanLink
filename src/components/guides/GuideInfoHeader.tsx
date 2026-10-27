@@ -40,11 +40,11 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
           </div>
           <span style={{ fontSize: 13, fontWeight: 700, color: GOLD }}>Ko može podnijeti zahtjev</span>
         </div>
-        <p style={{ fontSize: 13, color: "#111827", lineHeight: 1.65, margin: 0 }}>{whoCanApply}</p>
+        <p style={{ fontSize: 13, color: "hsl(var(--foreground))", lineHeight: 1.65, margin: 0 }}>{whoCanApply}</p>
         <div style={{ marginTop: 12, paddingTop: 11, borderTop: "1px solid hsl(var(--border))", display: "flex", alignItems: "center", gap: 6 }}>
           <Clock size={13} color={GOLD} />
           <span style={{ fontSize: 12, color: GOLD, fontWeight: 600 }}>Vrijeme obrade:</span>
-          <span style={{ fontSize: 12, color: "#4B5563" }}>{processingTime}</span>
+          <span style={{ fontSize: 12, color: "hsl(var(--muted-foreground))" }}>{processingTime}</span>
         </div>
       </div>
 
@@ -57,13 +57,13 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
             <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(99,102,241,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
               <ClipboardList size={14} color="#818CF8" />
             </div>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#1E1B4B" }}>Šta treba pripremiti</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "hsl(var(--foreground))" }}>Šta treba pripremiti</span>
           </div>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
             {requirements.map((r, i) => (
               <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <CheckCircle size={13} color="#6366F1" style={{ marginTop: 2, flexShrink: 0 }} />
-                <span style={{ fontSize: 13, color: "#374151", lineHeight: 1.55 }}>{r}</span>
+                <span style={{ fontSize: 13, color: "hsl(var(--muted-foreground))", lineHeight: 1.55 }}>{r}</span>
               </li>
             ))}
           </ul>
@@ -83,7 +83,7 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
             {commonMistakes.map((m, i) => (
               <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <span style={{ color: "#EF4444", fontWeight: 700, fontSize: 13, flexShrink: 0, lineHeight: 1.55 }}>✕</span>
-                <span style={{ fontSize: 13, color: "#7F1D1D", lineHeight: 1.55 }}>{m}</span>
+                <span style={{ fontSize: 13, color: "hsl(var(--muted-foreground))", lineHeight: 1.55 }}>{m}</span>
               </li>
             ))}
           </ul>

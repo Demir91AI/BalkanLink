@@ -10,7 +10,7 @@ export default function OfficialNextStep({ slug }: { slug: string }) {
   return (
     <section
       data-testid="official-next-step"
-      className="mt-8 rounded-2xl border border-[hsl(var(--gold))]/25 bg-card/60 p-5"
+      className="mt-8 rounded-2xl border border-[hsl(var(--gold))]/25 bg-card p-5"
     >
       <div className="flex items-center gap-2 text-[hsl(var(--gold))]">
         <ShieldCheck className="h-4 w-4" />
@@ -28,7 +28,7 @@ export default function OfficialNextStep({ slug }: { slug: string }) {
         </a>
       ) : null}
       {hasLink && <p className="mt-2 text-center text-xs text-muted-foreground">{src.label}</p>}
-      {!hasLink && <p className="mt-3 text-sm text-foreground/85">{t("guideFirst.nextStep.local")}</p>}
+      {!hasLink && <p className="mt-3 text-sm text-muted-foreground">{t("guideFirst.nextStep.local")}</p>}
       <p className="mt-4 flex gap-2 text-xs text-muted-foreground">
         <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
         <span>

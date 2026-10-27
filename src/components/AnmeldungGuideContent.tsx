@@ -213,7 +213,7 @@ export default function AnmeldungGuideContent() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mt-2 text-sm font-medium"
-          style={{ color: "#3B82F6" }}
+          style={{ color: "#60A5FA" }}
         >
           🔗 Službena stranica BMI
         </a>

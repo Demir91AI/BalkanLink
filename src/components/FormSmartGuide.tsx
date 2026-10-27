@@ -123,7 +123,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
                 flexShrink: 0, width: 32, height: 32, borderRadius: "50%",
                 border: isActive ? "2px solid #D4AF37" : isCompleted ? "2px solid rgba(212,175,55,0.4)" : "2px solid #334155",
                 background: isActive ? "#D4AF37" : isCompleted ? "rgba(212,175,55,0.15)" : "#0F172A",
-                color: isActive ? "#000" : isCompleted ? "#D4AF37" : isLocked ? "#475569" : "#94A3B8",
+                color: isActive ? "#000" : isCompleted ? "#D4AF37" : isLocked ? "#94A3B8" : "#CBD5E1",
                 fontSize: 12, fontWeight: 700,
                 cursor: isLocked ? "not-allowed" : "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center",
@@ -203,7 +203,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
         <button
           disabled={step === 0}
           onClick={goToPreviousStep}
-          style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, border: "1px solid #1E293B", background: step === 0 ? "#0F172A" : "#1E293B", color: step === 0 ? "#334155" : "#CBD5E1", fontSize: 13, fontWeight: 600, cursor: step === 0 ? "not-allowed" : "pointer" }}
+          style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, border: "1px solid #1E293B", background: step === 0 ? "#0F172A" : "#1E293B", color: step === 0 ? "#94A3B8" : "#CBD5E1", fontSize: 13, fontWeight: 600, cursor: step === 0 ? "not-allowed" : "pointer" }}
         >
           <ChevronLeft className="h-4 w-4" /> Nazad
         </button>
@@ -211,7 +211,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
           <button
             disabled={step === steps.length - 1}
             onClick={handleNext}
-            style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 20px", borderRadius: 10, border: "none", background: step === steps.length - 1 ? "#1E293B" : "linear-gradient(135deg, #B8952A, #D4AF37)", color: step === steps.length - 1 ? "#475569" : "#000", fontSize: 13, fontWeight: 800, cursor: step === steps.length - 1 ? "not-allowed" : "pointer" }}
+            style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 20px", borderRadius: 10, border: "none", background: step === steps.length - 1 ? "#1E293B" : "linear-gradient(135deg, #B8952A, #D4AF37)", color: step === steps.length - 1 ? "#94A3B8" : "#000", fontSize: 13, fontWeight: 800, cursor: step === steps.length - 1 ? "not-allowed" : "pointer" }}
           >
             Dalje <ChevronRight className="h-4 w-4" />
           </button>
