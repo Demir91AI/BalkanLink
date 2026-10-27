@@ -22,7 +22,8 @@ it('production wizard requires both reviews and discards the draft on close', as
   expect(screen.getByRole('button', { name: de.generate })).toBeDisabled();
   fireEvent.click(screen.getByRole('checkbox', { name: de.reviewConfirm }));
   fireEvent.click(screen.getByRole('button', { name: de.generate }));
-  expect(screen.getByLabelText(de.documentTitle)).toHaveValue(expect.stringContaining('Maja Čičak'));
+  const document = screen.getByRole<HTMLTextAreaElement>('textbox', { name: de.documentTitle });
+  expect(document.value).toContain('Maja Čičak');
   expect(screen.getByRole('button', { name: de.pdf })).toBeDisabled();
   expect(screen.getByRole('button', { name: de.copy })).toBeDisabled();
   fireEvent.click(screen.getByRole('checkbox', { name: de.editConfirm }));
