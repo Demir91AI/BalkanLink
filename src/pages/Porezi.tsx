@@ -13,7 +13,6 @@
  */
 import { useTranslation } from "react-i18next";
 import {
-  Crown,
   Lock,
   ArrowRight,
   Calculator,
@@ -118,17 +117,9 @@ export default function Porezi() {
                 <h3 className="text-sm font-semibold leading-tight">
                   {title}
                 </h3>
-                {!isAvailable ? (
+                {!isAvailable && (
                   <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
                     {t("comingSoonBadge")}
-                  </Badge>
-                ) : (
-                  <Badge
-                    variant="outline"
-                    className="text-[10px] px-1.5 py-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))]"
-                  >
-                    {!isPremium && <Lock className="mr-0.5 h-2.5 w-2.5" />}
-                    {t("premiumBadge")}
                   </Badge>
                 )}
               </div>
@@ -167,10 +158,6 @@ export default function Porezi() {
             <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[hsl(var(--gold))]/15 mb-4">
               <Calculator className="h-7 w-7 text-[hsl(var(--gold))]" />
             </div>
-            <Badge variant="outline" className="mb-3 border-[hsl(var(--gold))]/40 text-xs bg-white/60">
-              <Crown className="mr-1 h-3 w-3 text-[hsl(var(--gold))]" />
-              {t("hero.badge")}
-            </Badge>
             <h1 className="text-2xl sm:text-4xl font-bold mb-3 tracking-tight">
               {t("hero.title")}
             </h1>

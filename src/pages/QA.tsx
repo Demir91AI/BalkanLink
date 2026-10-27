@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { Link, useSearchParams } from "react-router-dom";
-import { Search, Lock, Crown, ChevronRight } from "lucide-react";
+import { Search, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -130,7 +130,6 @@ export default function QA() {
 }
 
 function QaCard({ item }: { item: ReturnType<typeof useQaItems>["data"] extends (infer T)[] | undefined ? T : never }) {
-  const { isPremium: userIsPremium } = useAuth();
   const cat = getCategoryBySlug(item.category);
 
   return (
@@ -147,12 +146,6 @@ function QaCard({ item }: { item: ReturnType<typeof useQaItems>["data"] extends 
                 {cat.label}
               </Badge>
             )}
-            {item.is_premium && (
-              <Badge className="gap-1 bg-balkan-gold text-balkan-gold-foreground text-xs">
-                <Crown className="h-3 w-3" />
-                Premium
-              </Badge>
-            )}
           </div>
           <h3 className="font-semibold leading-snug group-hover:text-primary transition-colors">
             {item.question}
@@ -167,7 +160,6 @@ function QaCard({ item }: { item: ReturnType<typeof useQaItems>["data"] extends 
           )}
         </div>
         <div className="flex shrink-0 items-center gap-2">
-          {item.is_premium && !userIsPremium && <Lock className="h-4 w-4 text-muted-foreground" />}
           <ChevronRight className="h-4 w-4 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5" />
         </div>
       </Link>
