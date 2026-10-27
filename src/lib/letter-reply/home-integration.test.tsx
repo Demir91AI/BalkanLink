@@ -10,6 +10,7 @@ vi.mock('@/hooks/useSubscription', () => ({ useSubscription: mocks.subscription 
 vi.mock('@/components/letter-reply/LetterReplyTask', () => ({ default: mocks.entry }));
 vi.mock('react-i18next', () => ({ useTranslation: () => ({ t: (key: string) => key }) }));
 vi.mock('@/components/SEO', () => ({ SEO: () => null }));
+vi.mock('@/components/membership/MembershipOffer', () => ({ default: () => null }));
 vi.mock('@/components/home/HeroSection', () => ({ default: () => null }));
 vi.mock('@/components/home/FeatureCards', () => ({ default: () => null }));
 vi.mock('@/components/home/BeforeAfterSection', () => ({ default: () => null }));
