@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
@@ -48,6 +49,7 @@ const daysUntil = (iso?: string | null) => {
 };
 
 export default function Profil() {
+  const { t: tPlus } = useTranslation("plus");
   const { user, isPremium, subscriptionEnd, signOut, profileLoading, displayName } = useAuth();
   const { subscriptionTier } = useSubscription();
   const navigate = useNavigate();
@@ -191,7 +193,7 @@ export default function Profil() {
                   <div className="rounded-md border border-amber-500/20 bg-amber-500/5 p-3 text-xs text-foreground/80 flex items-start gap-2">
                     <AlertTriangle className="h-3.5 w-3.5 mt-0.5 shrink-0 text-amber-500/80" />
                     <p>
-                      Premium sadržaj (formulari, Smart Guide, vize, asistent bez limita) trenutno nije aktivan.
+                      {tPlus("unlockNote")}
                     </p>
                   </div>
                 </>
@@ -216,7 +218,7 @@ export default function Profil() {
                   className="w-full bg-gold text-gold-foreground hover:opacity-90 font-bold"
                 >
                   <Crown className="h-4 w-4 mr-2" />
-                  Nadogradi na Premium
+                  {tPlus("unlockCta")}
                 </Button>
               )}
               <Button

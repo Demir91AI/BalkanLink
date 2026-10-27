@@ -44,7 +44,7 @@ export default function Login() {
 
   return (
     <>
-    <SEO title="Prijava na BalkanLink" description="Prijavi se na svoj BalkanLink nalog i nastavi sa formularima, Asistentom i Premium alatima." path="/login" />
+    <SEO title="Prijava na BalkanLink" description="Prijavi se na svoj BalkanLink nalog i nastavi s vodičima, Asistentom i svim alatima." path="/login" />
     <PageNav />
     <div className="relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden bg-[#020617]">
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,50%,8%)] via-[#020617] to-[hsl(225,45%,6%)]" />

@@ -4,7 +4,7 @@
     "description": "Edukativer Bonitäts-Simulator für Menschen vom Balkan in Deutschland. Verstehe Schufa-Faktoren, bevor die Bank „Nein“ sagt. Kein offizieller Schufa-Score."
   },
   "hero": {
-    "badge": "Premium · Bonitäts-Simulator",
+    "badge": "Bonitäts-Simulator",
     "headline1": "Verstehe deine Kreditwürdigkeit",
     "headline2": "bevor die Bank „Nein“ sagt",
     "subline": "Edukative Einschätzung basierend auf öffentlichen Schufa-Faktoren. 100 % anonym — alles wird in deinem Browser berechnet."
@@ -16,14 +16,14 @@
     "legalAfter": ". Banken, Vermieter und Arbeitgeber nutzen ausschließlich den offiziellen Schufa-Score. BalkanLink übernimmt keine Haftung für Entscheidungen, die auf dieser Einschätzung basieren. Dies ist keine Rechts- oder Finanzberatung."
   },
   "gate": {
-    "title": "Bonitäts-Simulator ist Premium",
-    "subline": "Edukative Einschätzung deiner Kreditwürdigkeit, personalisierter 6-Monats-Verbesserungsplan und kompletter Leitfaden zur offiziellen Schufa-Datenkopie — nur für Premium-Nutzer.",
+    "title": "Bonitäts-Simulator ist Teil der Mitgliedschaft",
+    "subline": "Edukative Einschätzung deiner Kreditwürdigkeit, personalisierter 6-Monats-Verbesserungsplan und kompletter Leitfaden zur offiziellen Schufa-Datenkopie — mit der BalkanLink Mitgliedschaft.",
     "feature1": "✓ Indikative Einschätzung in 5 Minuten",
     "feature2": "✓ Top 6 Faktoren, die dein Profil beeinflussen",
     "feature3": "✓ Personalisierter Verbesserungsplan für 6 Monate",
     "feature4": "✓ Anleitung für die KOSTENLOSE offizielle Schufa-Auskunft",
     "feature5": "✓ 100 % anonym — nichts wird gespeichert",
-    "cta": "Mit Plus freischalten — 19,90 € einmalig",
+    "cta": "BalkanLink Mitgliedschaft ansehen",
     "footnote": "Kein offizieller Schufa-Score · Edukativer Simulator"
   },
   "disclaimer": {

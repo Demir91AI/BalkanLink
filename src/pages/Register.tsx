@@ -163,7 +163,7 @@ export default function Register() {
 
   return (
     <>
-    <SEO title="Registracija — Besplatno" description="Otvori besplatan BalkanLink nalog i dobij 7 dana Premium pristupa svim formularima, viza navigatoru i Asistentu." path="/register" />
+    <SEO title="Registracija — Besplatno" description="Otvori besplatan BalkanLink nalog i isprobaj vodiče, Viza Navigator i Asistenta." path="/register" />
     <PageNav />
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">

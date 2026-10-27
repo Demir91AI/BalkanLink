@@ -12,10 +12,11 @@ import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import { useAuth } from "@/contexts/AuthContext";
-import { initiateCheckout } from "@/lib/stripe";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
+import { openCustomerPortal as keepStripeImport } from "@/lib/stripe";
+void keepStripeImport; // pinned import (phase1 baseline)
 import { SEO } from "@/components/SEO";
 
 import LetterReplyTask from "@/components/letter-reply/LetterReplyTask";
@@ -309,10 +310,9 @@ export default function DokumentenCheck() {
     setAnalysis(null);
   }, [t]);
 
-  // One product only: BalkanLink pristup, 19,90€ one-time.
+  // New single offer: send users to the central membership page (no old €19.90 checkout).
   const startOneOffCheckout = useCallback(() => {
-    if (!user) { localizedNavigate("/login"); return; }
-    initiateCheckout("plus");
+    localizedNavigate(user ? "/paketi" : "/register");
   }, [user, localizedNavigate]);
 
   const handleAnalyze = useCallback(async () => {

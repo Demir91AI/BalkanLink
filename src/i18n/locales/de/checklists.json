@@ -1,14 +1,14 @@
 {
   "hub": {
     "seo": {
-      "title": "Premium Checklisten — alle deutschen Behördengänge | BalkanLink",
+      "title": "Checklisten — alle deutschen Behördengänge | BalkanLink",
       "description": "Detaillierte PDF-Checklisten für Kindergeld, Bürgergeld, Wohngeld, Elterngeld, Anerkennung, Einbürgerung, Steuererklärung und Anmeldung."
     },
-    "title": "Premium Checklisten",
+    "title": "Checklisten",
     "subtitle": "Alles was du für einen deutschen Behördengang brauchst — Dokumente, Schritte, Fristen, Fehler und Tipps. Druckbar als PDF.",
     "badge": "Stand 2026",
     "freeBadge": "Kostenlos",
-    "premiumBadge": "Premium",
+    "premiumBadge": "Mitgliedschaft",
     "ctaOpen": "Checkliste öffnen",
     "stats": {
       "documents": "{{count}} Dokumente",
@@ -31,9 +31,9 @@
     "checklistSaved": "Dein Fortschritt wird automatisch in diesem Browser gespeichert.",
     "backToHub": "Alle Checklisten",
     "premiumGate": {
-      "title": "Premium-Checkliste",
-      "body": "Schalte alle Checklisten mit BalkanLink Plus (19,90 € einmalig) frei — komplette Dokumente, Schritte, Fristen und Tipps.",
-      "cta": "Mit Plus freischalten",
+      "title": "Checklisten",
+      "body": "Schalte alle Checklisten mit BalkanLink Mitgliedschaft frei — komplette Dokumente, Schritte, Fristen und Tipps.",
+      "cta": "BalkanLink Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "preview": "Vorschau"
     },

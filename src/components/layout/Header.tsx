@@ -162,9 +162,9 @@ export default function Header() {
         <div className="flex items-center gap-2 ml-auto">
           {/* Premium CTA — shown ONLY to non-premium users.
               Once subscription is active, the badge disappears entirely. */}
-          {!isPremium && (
+          {!loading && !isPremium && (
             <button
-              onClick={() => navigate("/premium")}
+              onClick={() => navigate("/paketi")}
               aria-label={tPlus("unlockCta")}
               className="group relative hidden lg:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
               style={{

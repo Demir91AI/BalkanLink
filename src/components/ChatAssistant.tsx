@@ -93,7 +93,7 @@ const STARTER_QUESTIONS = [
   { emoji: "📋", label: "Trebam Kindergeld", message: "Trebam Kindergeld" },
   { emoji: "✈️", label: "Viza za Bosnu", message: "Trebam vizu za Njemačku, državljanin sam Bosne i Hercegovine" },
   { emoji: "📄", label: "Šta je Anmeldung?", message: "Šta je Anmeldung i kako se prijaviti?" },
-  { emoji: "💰", label: "Koliko košta Premium?", message: "Koliko košta Premium i šta dobijem?" },
+  { emoji: "💰", label: "Šta uključuje članstvo?", message: "Šta uključuje BalkanLink članstvo i koliko košta?" },
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
@@ -961,8 +961,8 @@ export default function ChatAssistant() {
             content: data.content,
             formSlugs: data.detectedForm ? [data.detectedForm.slug] : [],
             guideSlug: data.guideSlug,
-            redirectUrl: data.redirect_url || "/premium",
-            redirectLabel: data.redirect_label || "Premium pogledaj",
+            redirectUrl: data.redirect_url || "/paketi",
+            redirectLabel: data.redirect_label || "Pogledaj članstvo",
           }]);
           setLoading(false);
           return;

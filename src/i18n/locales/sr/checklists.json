@@ -1,14 +1,14 @@
 {
   "hub": {
     "seo": {
-      "title": "Premium Check liste — sve njemačke procedure | BalkanLink",
+      "title": "Check liste — sve njemačke procedure | BalkanLink",
       "description": "Detaljne PDF check liste za Kindergeld, Bürgergeld, Wohngeld, Elterngeld, priznavanje diplome, državljanstvo, poreznu prijavu i Anmeldung."
     },
-    "title": "Premium Check liste",
+    "title": "Check liste",
     "subtitle": "Sve što ti treba za jednu nemačku proceduru — dokumenti, koraci, rokovi, greške i saveti. Spremno za ispis ili PDF.",
     "badge": "Stand 2026",
     "freeBadge": "Besplatno",
-    "premiumBadge": "Premium",
+    "premiumBadge": "Članstvo",
     "ctaOpen": "Otvori check listu",
     "stats": {
       "documents": "{{count}} dokumenata",
@@ -31,9 +31,9 @@
     "checklistSaved": "Tvoj napredak se automatski sprema u ovom pregledniku.",
     "backToHub": "Sve check liste",
     "premiumGate": {
-      "title": "Premium Check lista",
-      "body": "Otključaj sve check liste sa BalkanLink Plus (19,90€ jednokratno) — kompletna dokumenta, koraci, rokovi i saveti.",
-      "cta": "Otključaj sa Plus",
+      "title": "Check lista",
+      "body": "Otključaj sve check liste uz BalkanLink članstvo — kompletna dokumenta, koraci, rokovi i saveti.",
+      "cta": "Pogledaj BalkanLink članstvo",
       "ctaLogin": "Prijavi se",
       "preview": "Pregled"
     },

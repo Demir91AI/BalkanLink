@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { ExternalLink, FileText, Info, Lock } from "lucide-react";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
@@ -26,6 +27,7 @@ interface DolazakPageProps {
 const fade = (i: number) => ({ initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { delay: i * 0.06 } });
 
 export default function DolazakPageTemplate({ title, subtitle, sections, links }: DolazakPageProps) {
+  const { t: tPlus } = useTranslation("plus");
   const { isPremium } = useSubscription();
   const [showPremiumModal, setShowPremiumModal] = useState(false);
 
@@ -57,21 +59,14 @@ export default function DolazakPageTemplate({ title, subtitle, sections, links }
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/80 backdrop-blur-sm z-10">
                     <Lock className="h-6 w-6 text-primary" />
                     <p className="text-sm font-semibold text-foreground text-center px-4">
-                      Ovaj korak je zaključan
+                      {tPlus("lockedTitle")}
                     </p>
                     <div className="flex flex-col items-center gap-2">
                       <button
                         onClick={() => setShowPremiumModal(true)}
                         className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
                       >
-                        Otključaj sa Premium
-                      </button>
-                      <button
-                        onClick={() => {}}
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                        title="Besplatni korisnici imaju pristup samo prvom koraku svakog vodiča"
-                      >
-                        Nastavi bez Premium →
+                        {tPlus("unlockCta")}
                       </button>
                     </div>
                   </div>

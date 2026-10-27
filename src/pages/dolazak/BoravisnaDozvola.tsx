@@ -1,3 +1,4 @@
+import MembershipOffer from "@/components/membership/MembershipOffer";
 import { label } from "@/lib/de-labels";
 import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 import { useState } from "react";
@@ -40,46 +41,10 @@ const ROUTE_ITEMS = [
 ];
 
 /* ─── Visual Paywall (non-blocking) ─── */
-function VisaPaywall({ visaLabel }: { visaLabel: string }) {
-  const { user } = useAuth();
-  const included = ["Radna viza", "Spajanje porodice", "Produženje boravka", "EU Blue Card"];
-
-  return (
-    <div className="mt-6 rounded-2xl border border-gold/20 bg-gradient-to-b from-muted/70 to-muted/30 px-6 py-8 text-center">
-      <div className="mb-4 mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 ring-1 ring-gold/20">
-        <Lock className="h-5 w-5 text-gold" />
-      </div>
-      <h3 className="mb-1 text-sm font-bold">Smart Guide – korak po korak</h3>
-      <p className="mb-5 max-w-md mx-auto text-xs text-muted-foreground">
-        {"Antrag fehlerfrei ausfüllen mit geführter Anleitung und detaillierten Erklärungen."}
-      </p>
-      <div className="grid w-full max-w-sm mx-auto gap-3">
-        <div className="rounded-xl border-2 border-gold/40 bg-gold/5 p-4 text-left relative">
-          <span className="absolute -top-2.5 right-3 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold text-gold-foreground">
-            {"POPULARNO"}
-          </span>
-          <p className="text-lg font-extrabold text-foreground">19,90€</p>
-          <p className="mt-1 text-xs text-muted-foreground"><PlusCtaLabel note /></p>
-          <ul className="mt-3 space-y-1">
-            {included.map((f) => (
-              <li key={f} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-                <Check className="h-3 w-3 text-gold shrink-0" /> {f}
-              </li>
-            ))}
-            <li className="text-[11px] text-muted-foreground pl-[18px]">{"und 30+ weitere Anleitungen"}</li>
-          </ul>
-        </div>
-      </div>
-      <Button className="btn-gold-gradient mt-5 rounded-xl px-8" asChild>
-        <Link to={user ? "/premium" : "/login"}>
-          <Crown className="mr-2 h-4 w-4" /> {"Otključaj sada"}
-        </Link>
-      </Button>
-    </div>
-  );
+function VisaPaywall(_props: { visaLabel: string }) {
+  return <div className="dark mt-6"><MembershipOffer variant="compact" /></div>;
 }
 
-/* ─── Visa Detail (right side) ─── */
 function VisaDetail({ visa }: { visa: VisaType }) {
   const { isPremium } = useAuth();
   const guide = visa.guideSlug ? getGuideBySlug(visa.guideSlug) : null;

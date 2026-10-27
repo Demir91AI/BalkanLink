@@ -52,10 +52,10 @@
       "note": "Napomena"
     },
     "premium": {
-      "title": "Smart Guide uz BalkanLink Plus",
+      "title": "Smart Guide uz BalkanLink članstvo",
       "subtitle": "Otključaj kompletan vodič za sve obrasce.",
-      "stepInfo": "Korak 1–{{free}} besplatno · Korak {{current}} zahteva BalkanLink Plus",
-      "cta": "BalkanLink Plus — 19,90€ jednokratno"
+      "stepInfo": "Korak 1–{{free}} besplatno · Korak {{current}} zahteva BalkanLink članstvo",
+      "cta": "BalkanLink članstvo — 7 dana besplatno, zatim 19,99 € godišnje"
     }
   },
   "kg1Fields": {
@@ -425,7 +425,7 @@
       "body": "Profesionalan paket koji nosiš na termin: naslovna + Anschreiben (pismo namere) + kompletan Datenblatt + Checkliste dokumenata sa kvačicama. Ono što ti agenti naplaćuju 200–500 KM — generišeš za par sekundi iz svojih podataka.",
       "button": "📥 Preuzmi Bewerbungs-Mappe PDF",
       "busy": "Generišem Mappe…",
-      "premiumCta": "🔒 Otključaj Premium za Bewerbungs-Mappe",
+      "premiumCta": "🔒 Pogledaj članstvo za Bewerbungs-Mappe",
       "badge": "PREMIUM"
     }
   },

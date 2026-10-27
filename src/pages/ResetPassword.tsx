@@ -73,7 +73,7 @@ export default function ResetPassword() {
 
   return (
     <>
-    <SEO title="Postavi Novu Lozinku" description="Postavi novu lozinku za svoj BalkanLink nalog i nastavi sa korištenjem Premium alata." path="/reset-password" />
+    <SEO title="Postavi Novu Lozinku" description="Postavi novu lozinku za svoj BalkanLink nalog i nastavi s korištenjem svih alata." path="/reset-password" />
     <PageNav />
     <div className="container flex min-h-[70vh] items-center justify-center py-12">
       <Card className="w-full max-w-md">

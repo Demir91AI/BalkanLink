@@ -1,3 +1,4 @@
+import MembershipOffer from "@/components/membership/MembershipOffer";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -138,24 +139,7 @@ export default function FormSmartGuide({ guide, lang }: FormSmartGuideProps) {
 
       {/* Main content */}
       {isStepLocked ? (
-        <div style={{ borderRadius: 16, border: "2px solid rgba(212,175,55,0.3)", background: "linear-gradient(135deg, rgba(212,175,55,0.05), rgba(212,175,55,0.1))", padding: "40px 24px", textAlign: "center" }}>
-          <Lock className="mx-auto mb-4 h-10 w-10" style={{ color: "#D4AF37" }} />
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#FFFFFF", marginBottom: 8 }}>
-            Smart Guide dostupan uz Premium
-          </h3>
-          <p style={{ fontSize: 13, color: "#94A3B8", maxWidth: 280, margin: "0 auto 4px" }}>
-            Otključaj kompletni vodič za popunjavanje svih formulara.
-          </p>
-          <p style={{ fontSize: 11, color: "#64748B", marginBottom: 24 }}>
-            Koraci 1–2 su besplatni · Korak {step + 1} zahtijeva Premium
-          </p>
-          <button
-            onClick={() => navigate("/paketi")}
-            style={{ display: "block", width: "100%", maxWidth: 280, margin: "0 auto", borderRadius: 99, padding: "14px 24px", fontSize: 14, fontWeight: 800, border: "none", cursor: "pointer", background: "linear-gradient(135deg, #B8952A, #D4AF37)", color: "#000" }}
-          >
-            <PlusCtaLabel />
-          </button>
-        </div>
+        <MembershipOffer variant="compact" />
       ) : (
         <>
           {/* Step field card */}

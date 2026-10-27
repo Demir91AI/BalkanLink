@@ -58,7 +58,7 @@ export default function Porezi() {
     if (!path) return;
 
     if (!isPremium) {
-      navigate(isLoggedIn ? "/premium" : "/login");
+      navigate(isLoggedIn ? "/paketi" : "/register");
       return;
     }
     navigate(path);
@@ -66,7 +66,7 @@ export default function Porezi() {
 
   const handleHeroCTA = () => {
     if (!isPremium) {
-      navigate(isLoggedIn ? "/premium" : "/login");
+      navigate(isLoggedIn ? "/paketi" : "/register");
       return;
     }
     navigate(wizardPath);

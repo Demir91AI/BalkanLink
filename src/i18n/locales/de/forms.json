@@ -52,10 +52,10 @@
       "note": "Hinweis"
     },
     "premium": {
-      "title": "Smart Guide mit BalkanLink Plus",
+      "title": "Smart Guide mit BalkanLink Mitgliedschaft",
       "subtitle": "Schalte den kompletten Leitfaden für alle Formulare frei.",
-      "stepInfo": "Schritt 1–{{free}} kostenlos · Schritt {{current}} erfordert BalkanLink Plus",
-      "cta": "BalkanLink Plus — 19,90 € einmalig"
+      "stepInfo": "Schritt 1–{{free}} kostenlos · Schritt {{current}} erfordert BalkanLink Mitgliedschaft",
+      "cta": "BalkanLink Mitgliedschaft — 7 Tage kostenlos, danach 19,99 € pro Jahr"
     }
   },
   "kg1Fields": {
@@ -425,7 +425,7 @@
       "body": "Professionelles Paket für den Termin: Deckblatt + Anschreiben + komplettes Datenblatt + Checkliste der Unterlagen mit Häkchen. Wofür Agenturen 100–250 € verlangen — du erstellst es in Sekunden aus deinen Daten.",
       "button": "📥 Bewerbungs-Mappe PDF herunterladen",
       "busy": "Erstelle Mappe…",
-      "premiumCta": "🔒 Premium freischalten für Bewerbungs-Mappe",
+      "premiumCta": "🔒 Mitgliedschaft ansehen für Bewerbungs-Mappe",
       "badge": "PREMIUM"
     }
   },

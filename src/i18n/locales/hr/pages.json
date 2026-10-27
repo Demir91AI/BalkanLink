@@ -84,42 +84,42 @@
         "tagline": "Tvoj lični vodič kroz svaki formular",
         "explanation": "Zamisli da imaš prijatelja koji je već prošao kroz cijeli proces i tačno zna šta se radi. Smart Guide te vodi korak po korak — šta popuniti, šta priložiti, na šta paziti.",
         "example": "Npr: Apliciraš za Kindergeld — Smart Guide ti kaže tačno koje polje kako ispuniti, koje dokumente priložiti i najčešće pogreške koje ljudi prave.",
-        "badge": "Dostupno uz Premium 🔒"
+        "badge": "Uključeno u članstvo 🔒"
       },
       "muster": {
         "name": "Musterformular",
         "tagline": "Primjer pravilno popunjenog formulara",
         "explanation": "Muster na njemačkom znači 'primjer'. Musterformular je formular koji je već pravilno popunjen — ti ga koristiš kao šablon. Vidiš tačno kako treba izgledati svako polje.",
         "example": "Npr: Imaš pred sobom KG1 formular za Kindergeld i ne znaš šta upisati u polje 'Bankverbindung'. Musterformular ti pokazuje popunjen primjer.",
-        "badge": "Dostupno uz Premium 🔒"
+        "badge": "Uključeno u članstvo 🔒"
       },
       "visaNav": {
         "name": "Viza Navigator",
         "tagline": "Pronađi pravi put do radne dozvole",
         "explanation": "Svako ima drugačiju situaciju — drugi putovnica, drugi zanimanje, drugi grad. Viza Navigator analizira tvoju situaciju i pokazuje tačno koji tip dozvole trebaš i gdje ih predati.",
         "example": "Npr: Državljanin si BiH, imaš ponudu za posao u Münchenu — Navigator ti kaže da ti treba §18 AufenthG + Westbalkan Regelung.",
-        "badge": "Dostupno uz Premium 🔒"
+        "badge": "Uključeno u članstvo 🔒"
       },
       "docCheck": {
         "name": "Provjera dokumenata",
         "tagline": "Učitaj pismo — razumij šta piše",
         "explanation": "Stiglo ti pismo od Finanzamta i ne razumiješ ni riječ? Fotografiraj ga ili učitaj PDF — dobiješ objašnjenje na svom jeziku: šta traže, do kada, šta se dešava ako ne reaguješ.",
         "example": "Npr: Stigla ti Mahnung (opomena) — Provjera dokumenata ti kaže da imaš 15 dana da platiš i šta se dešava ako ignorišeš.",
-        "badge": "1,99€ po provjeri"
+        "badge": "uključeno u članstvo (Fair Use)"
       },
       "vorlagen": {
         "name": "Šabloni (Vorlagen)",
         "tagline": "Profesionalna pisma na njemačkom — bez muke",
         "explanation": "Trebaš napisati otkaz ili otkazati ugovor? Šabloni su gotovi tekstovi na pravnom njemačkom — samo uneseš svoje podatke i preuzimaš kao PDF spreman za slanje.",
         "example": "Npr: Hoćeš otkazati Telekom ugovor — šablon 'Vertragskündigung' generira ti profesionalno pismo u 2 minute.",
-        "badge": "Kündigung besplatno, ostalo uz Premium 🔒"
+        "badge": "Kündigung besplatno, ostalo uz članstvo 🔒"
       },
       "trainer": {
         "name": "DeutschTrainer",
         "tagline": "Nauči njemački koji ti stvarno treba",
         "explanation": "DeutschTrainer te uči jezik koji koristiš svaki dan — na poslu, u Jobcenteru, kod doktora, u banci. A1 do C2, sa vježbama, izgovorom i testovima.",
         "example": "Npr: Lekcija 'Kod doktora' — naučiš kako opisati simptome, razumjeti recept i razgovarati sa osiguranjem.",
-        "badge": "Dostupno uz Premium 🔒"
+        "badge": "Uključeno u članstvo 🔒"
       }
     },
     "process": {
@@ -270,7 +270,7 @@
     "whatIsLink": "Što je BalkanLink?",
     "pricing": {
       "heading": "Jednostavne cijene",
-      "subline": "Počni besplatno. Kad trebaš više, BalkanLink Plus plaćaš jednom — bez pretplate.",
+      "subline": "Počni besplatno. Kad trebaš više, izaberi BalkanLink članstvo — 19,99 € godišnje, otkazivo.",
       "free": {
         "label": "Besplatno",
         "price": "0€",
@@ -284,28 +284,28 @@
         "tagline": "Bez registracije · zauvijek"
       },
       "premium": {
-        "label": "BalkanLink Plus",
-        "price": "19,90€",
-        "perMonth": " jednokratno",
-        "subtitle": "Jedna uplata · bez pretplate · bez automatskog produženja",
-        "title": "BalkanLink Plus — 19,90€",
+        "label": "BalkanLink članstvo",
+        "price": "19,99 €",
+        "perMonth": " / godišnje",
+        "subtitle": "Najprije 7 dana besplatno bez kartice · zatim godišnja pretplata, otkaziva u svakom trenutku",
+        "title": "BalkanLink članstvo — 7 dana besplatno, zatim 19,99 € godišnje",
         "recommended": "Preporučeno",
         "f1": "Svi Musterformulari",
         "f2": "Smart Guides (svi koraci)",
         "f3": "Viza Navigator",
         "f4": "BalkanLink Deutsch A1–C2 uključen",
         "f5": "Šabloni (PDF download)",
-        "f6": "Premium check liste",
-        "f7": "Trajan pristup premium sadržaju",
-        "cta": "Kupi BalkanLink Plus",
-        "trialHint": "Jednokratno · trajan pristup",
+        "f6": "check liste",
+        "f7": "Fair Use: 5 analiza i 40 odgovora Asistenta mjesečno",
+        "cta": "Pogledaj BalkanLink članstvo",
+        "trialHint": "7 dana besplatno · zatim 19,99 € godišnje",
         "trustline": "Sigurno plaćanje · Stripe · §19 UStG"
       },
       "docCheck": {
         "label": "Dokumenten-Check",
-        "price": "1,99€",
-        "subtitle": "Po završenoj provjeri — za sve korisnike, i uz Plus",
-        "title": "Dokumenten-Check — 1,99€",
+        "price": "Uključeno",
+        "subtitle": "U okviru članstva: 5 analiza mjesečno (2 u probnom razdoblju)",
+        "title": "Dokumenten-Check — uključen u članstvo",
         "f1": "Detaljna analiza dokumenta",
         "f2": "11 sekcija objašnjenja",
         "f3": "Rokovi i financijski uticaj",
@@ -314,11 +314,11 @@
         "tagline": "Razumi pismo za 30 sekundi"
       },
       "compare": {
-        "title": "Besplatno vs. Plus",
+        "title": "Besplatno vs. članstvo",
         "tagline": "Pogledaj sve razlike",
         "feature": "Funkcija",
         "free": "Besplatno",
-        "premium": "Plus",
+        "premium": "Članstvo",
         "rows": {
           "muster": {
             "feature": "Musterformulari",
@@ -343,10 +343,10 @@
           },
           "doc": {
             "feature": "Dokumenten-Check",
-            "free": "1,99€ po provjeri",
-            "premium": "1,99€ po provjeri",
-            "freeShort": "1,99€",
-            "premiumShort": "1,99€"
+            "free": "—",
+            "premium": "uključeno u članstvo (Fair Use)",
+            "freeShort": "—",
+            "premiumShort": "5 / mj."
           },
           "templates": {
             "feature": "Šabloni / Vorlagen",
@@ -358,9 +358,9 @@
           "assistant": {
             "feature": "BalkanLink Asistent",
             "free": "⚠️ 5 pitanja/dan",
-            "premium": "✅ Neograničeno",
+            "premium": "✅ 40 odgovora mjesečno",
             "freeShort": "5/dan",
-            "premiumShort": "✅ Neograničeno"
+            "premiumShort": "40 / mj."
           },
           "trainer": {
             "feature": "DeutschTrainer",
@@ -385,7 +385,7 @@
           }
         }
       },
-      "footer": "Prema § 19 UStG ne obračunava se PDV · Plus je jednokratna uplata, bez pretplate",
+      "footer": "Prema § 19 UStG ne obračunava se PDV · članstvo 19,99 € godišnje, otkazivo u svakom trenutku",
       "partnersLabel": "NAŠI PARTNERI",
       "partnersHeading": "Preporučene usluge",
       "partnerView": "Pogledaj",
@@ -462,23 +462,23 @@
       "oneTimeLabel": "Jednokratno",
       "oneTimePerCheck": "po provjeri",
       "oneTimeReset": "Plaća se za svaku analizu pojedinačno",
-      "buyOneTime": "Kupi za 1,99€ →",
+      "buyOneTime": "Pogledaj članstvo →",
       "creditAvailable_one": "Dostupno: {{count}} provjera",
       "creditAvailable_other": "Dostupno: {{count}} provjera",
-      "premiumLabel": "Premium",
-      "premiumBadge": "⭐ Premium",
+      "premiumLabel": "Članstvo",
+      "premiumBadge": "⭐ Članstvo",
       "premiumPerMonth": "/mj.",
       "premiumFeature1": "Neograničene provjere — uvijek besplatno",
       "premiumFeature2": "Brza i prioritetna analiza",
-      "premiumFeature3": "+ sve Premium funkcije platforme",
-      "buyPremium": "Kupi Premium →"
+      "premiumFeature3": "+ sve funkcije članstva platforme",
+      "buyPremium": "Pogledaj članstvo →"
     },
     "quota": {
       "remaining": "Ostalo ti je {{count}} besplatnih provjera danas",
       "exhausted": "Nemaš dostupnih provjera",
       "resetHint": "Brojač se resetira sutra u 00:00 (Berlin)",
       "usingPaid": "Imaš {{count}} dodatnih plaćenih provjera",
-      "buyExtra": "Dodatne provjere: 1,99€ po provjeri",
+      "buyExtra": "Dodatne provjere: uključeno u članstvo (Fair Use)",
       "paidAvailable": "Imaš {{count}} plaćenih provjera spremnih",
       "paidHint": "Bez isteka — koristi kad god trebaš"
     },
@@ -522,15 +522,15 @@
       "fallback": "Pogreška servera pri analizi dokumenta.",
       "tooManyFiles": "Maksimalno {{max}} datoteka.",
       "totalTooLarge": "Ukupna veličina prelazi 25 MB.",
-      "paymentRequired": "Za analizu je potreban 1 kredit (1,99€ po provjeri)."
+      "paymentRequired": "Za analizu je potreban 1 kredit (uključeno u članstvo (Fair Use))."
     },
     "paywall": {
       "title": "Dokumenten-Check",
-      "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku. 1,99€ po završenoj provjeri.",
-      "premiumCta": "Kupi provjeru — 1,99€",
-      "premiumPerk": "Plaća se po završenoj provjeri — važi i za Plus korisnike",
+      "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku. uključeno u članstvo (Fair Use).",
+      "premiumCta": "Pogledaj članstvo →",
+      "premiumPerk": "Uključeno u članstvo (Fair Use)",
       "or": "ili",
-      "oneTimeCta": "Plati 1,99€ za jednu analizu →",
+      "oneTimeCta": "Pogledaj članstvo →",
       "oneTimeReset": "Plaćaš za svaku analizu pojedinačno",
       "paymentReadyToast": "Plaćanje je primljeno. Kliknite Provjeri dokument za pokretanje analize."
     },
@@ -559,8 +559,8 @@
       "actionNeeded": "Potrebna radnja",
       "financial": "Finanzielle Auswirkung",
       "deadline": "Frist",
-      "lockedTitle": "🔒 Detaljna analiza dostupna uz Premium",
-      "lockedCta": "Kupi provjeru — 1,99€",
+      "lockedTitle": "🔒 Detaljna analiza uključena u članstvo",
+      "lockedCta": "Pogledaj članstvo →",
       "viewAnalysis": "Pogledaj analizu",
       "urgent": "Hitna radnja potrebna",
       "recommended": "Preporučena radnja",
@@ -711,7 +711,7 @@
       },
       "premiumTitle": "Otključaj kompletan vodič",
       "anonTitle": "Vidi kompletan vodič",
-      "premiumCta": "Otključaj s Plus — 19,90€ jednokratno",
+      "premiumCta": "Pogledaj BalkanLink članstvo",
       "registerCta": "Registruj se besplatno →",
       "haveAccount": "Već imaš nalog?",
       "signIn": "Prijavi se"
@@ -746,18 +746,18 @@
     },
     "upgradeCta": {
       "title": "Nastavi učiti",
-      "subtitle": "Svih 6 razina A1–C2 dolazi uz BalkanLink Plus — 19,90€ jednokratno.",
+      "subtitle": "Svih 6 razina A1–C2 dolazi uz BalkanLink članstvo.",
       "noSubscription": "Bez pretplate",
       "payOnce": "Jednom plati",
-      "wertgutschein": "Uključeno u BalkanLink Plus",
-      "unlockAll": "Otključaj s Plus — 19,90€"
+      "wertgutschein": "Uključeno u BalkanLink članstvo",
+      "unlockAll": "Pogledaj BalkanLink članstvo"
     },
     "paywallModal": {
       "title": "Otključaj dodatne lekcije",
-      "body": "Svih 6 razina A1–C2 dolazi uz BalkanLink Plus — 19,90€ jednokratno.",
+      "body": "Svih 6 razina A1–C2 dolazi uz BalkanLink članstvo.",
       "from": "od",
-      "perOneTime": "/ jednokratno",
-      "unlockNow": "Otključaj s Plus — 19,90€",
+      "perOneTime": "/ godišnje",
+      "unlockNow": "Pogledaj BalkanLink članstvo",
       "decideLater": "Odluči kasnije"
     },
     "stages": {
@@ -767,7 +767,7 @@
       "tasks": "zadataka",
       "freeTasks": "besplatno",
       "moreTasks": "još zadataka",
-      "unlockWithPremium": "Otključaj s Premium"
+      "unlockWithPremium": "Pogledaj članstvo"
     },
     "lessonView": {
       "preparingExercises": "Pripremamo pitanja...",
@@ -811,8 +811,8 @@
     "lockedOverlay": {
       "lockedItems": "🔒 +{{count}} {{label}} zaključano",
       "lockedDefaultLabel": "sadržaja",
-      "lockedSubtitle": "Dostupno uz BalkanLink Plus (jednokratno)",
-      "unlockCta": "Otključaj s Plus"
+      "lockedSubtitle": "Dostupno uz BalkanLink članstvo",
+      "unlockCta": "Pogledaj BalkanLink članstvo"
     },
     "resetDialog": {
       "title": "Resetirati sav napredak?",
@@ -1010,7 +1010,7 @@
       "seoDescription": "Gotovi predlošci za njemačka pisma — otkaz ugovora, zahtjevi, molbe. Na hrvatskom i njemačkom.",
       "notFound": "Predložak nije pronađen.",
       "freeBadge": "Besplatno",
-      "premiumBadge": "Premium",
+      "premiumBadge": "Članstvo",
       "unlock": "Otključaj {{name}}",
       "whatYouGet": "Što dobivaš:",
       "benefit1": "Profesionalni njemački tekst (pravno ispravan)",
@@ -1019,7 +1019,7 @@
       "benefit4": "Preuzimanje kao PDF spreman za slanje",
       "benefit5": "Savjeti što treba priložiti uz dokument",
       "benefit6": "Primjer pravilno ispunjenog dokumenta",
-      "ctaUnlock": "Otključaj s Plus — 19,90€ jednokratno",
+      "ctaUnlock": "Pogledaj BalkanLink članstvo",
       "sectionWork": "Arbeitsrecht & Karriere",
       "sectionWorkLocal": "Radno pravo i karijera",
       "sectionService": "Kundenservice / Verträge",
@@ -1592,9 +1592,9 @@
       "title": "Tvoja analiza",
       "newScan": "Nova provjera",
       "newScanCta": "Učitaj novi obračun",
-      "premiumLockTitle": "Detaljan izvještaj — BalkanLink Plus",
-      "premiumLockSub": "Uz BalkanLink Plus vidiš sve sumnjive stavke s pravnom osnovom, procjenu spornog iznosa i gotov tekst za upit stanodavcu.",
-      "premiumCta": "Otključaj s Plus — 19,90€ jednokratno",
+      "premiumLockTitle": "Detaljan izvještaj — BalkanLink članstvo",
+      "premiumLockSub": "Uz BalkanLink članstvo vidiš sve sumnjive stavke s pravnom osnovom, procjenu spornog iznosa i gotov tekst za upit stanodavcu.",
+      "premiumCta": "Pogledaj BalkanLink članstvo",
       "disclaimer": "Ova analiza je informativna pomoć, ne pravni savjet. Za obvezujuću provjeru kontaktirajte Mieterbund (60–90 €/god) ili odvjetnika za Mietrecht."
     },
     "how": {
@@ -1632,7 +1632,7 @@
       "q3": "Što ako ne pronađete grešku?",
       "a3": "Iskreno ćemo to napisati. To ne znači da je obračun 100 % ispravan — samo da nismo vidjeli očite probleme.",
       "q4": "Koliko košta?",
-      "a4": "Besplatno: 1 provjera dnevno, osnovni rezultat. BalkanLink Plus (19,90€ jednokratno): detaljan izvještaj + tekst za stanodavca."
+      "a4": "Besplatno: 1 provjera dnevno, osnovni rezultat. Uz BalkanLink članstvo: detaljan izvještaj + tekst za stanodavca."
     }
   },
   "whatIs": {
@@ -1681,14 +1681,14 @@
       }
     },
     "premium": {
-      "kicker": "✨ BalkanLink Plus",
-      "badge": "Najpopularnije",
+      "kicker": "✨ BalkanLink članstvo",
+      "badge": "7 dana besplatno",
       "title": "Sve otključano — kad ti zatreba dublje",
-      "price": "19,90 €",
-      "priceUnit": " jednokratno",
-      "narrative": "Besplatna verzija je stvarno besplatna — Asistent radi, vodiči su otvoreni, Anmeldung simulator je otvoren, prve korake kroz sustav ti nitko ne naplaćuje. BalkanLink Plus otključavaš jednom, kad ti život postane kompliciraniji — trajan pristup premium vodičima, obrascima, predlošcima, Viza Navigatoru i DeutschTraineru. Dokumenten-Check nije uključen i plaća se 1,99€ po završenoj provjeri.",
-      "summary": "Platiš jednom, bez pretplate i bez automatskog produljenja.",
-      "cta": "Uzmi BalkanLink Plus",
+      "price": "19,99 €",
+      "priceUnit": " / godišnje",
+      "narrative": "Besplatna verzija je stvarno besplatna — informativni vodiči, vijesti i Anmeldung simulator su otvoreni. Kad ti zatreba više, isprobaj sve alate 7 dana besplatno bez kartice. Nakon toga možeš, ako želiš, odabrati članstvo za 19,99 € godišnje: svi vodiči, predlošci, Viza Navigator, DeutschTrainer, Dokumenten-Check i BalkanLink Asistent uz Fair Use.",
+      "summary": "Godišnja pretplata, otkaziva u svakom trenutku do kraja plaćene godine.",
+      "cta": "Pogledaj BalkanLink članstvo",
       "ctaFree": "Probaj besplatno prvo"
     },
     "footer": "Napravljeno od dijaspore, za dijasporu. 🇭🇷 🇧🇦 🇷🇸 → 🇩🇪"

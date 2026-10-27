@@ -129,7 +129,7 @@ export function UserMenu() {
             </DropdownMenuItem>
             {!isPremium && (
               <DropdownMenuItem
-                onClick={() => navigate("/premium")}
+                onClick={() => navigate("/paketi")}
                 className="text-white/85 focus:text-white focus:bg-white/5 cursor-pointer"
               >
                 <ArrowRight className="h-4 w-4 mr-2 text-[hsl(var(--gold))]" />

@@ -39,8 +39,8 @@
   },
   "sidebarLabel": "Sačuvano",
   "premiumGate": {
-    "title": "Samo za Premium",
-    "body": "Sačuvaj za kasnije je Premium funkcija. Otključaj Premium da sačuvaš ovu stranicu.",
-    "cta": "Aktiviraj Premium"
+    "title": "Uključeno u članstvo",
+    "body": "Sačuvaj za kasnije je funkcija članstva. Pogledaj članstvo da sačuvaš ovu stranicu.",
+    "cta": "Pogledaj članstvo"
   }
 }
