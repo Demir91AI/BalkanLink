@@ -949,7 +949,7 @@
         "afterExpire": "Nach Ablauf zurück in die normale Liste"
       },
       "premium": {
-        "label": "⭐ Mitgliedschaft",
+        "label": "⭐ Premium",
         "price": "9,99 €",
         "period": "/ Monat",
         "bestValue": "Bestes Angebot",
@@ -963,7 +963,7 @@
       "buttons": {
         "free": "Kostenlos veröffentlichen →",
         "pro": "Pro kaufen — 1,99 € →",
-        "premium": "Mitgliedschaft ansehen — 9,99 €/Monat →"
+        "premium": "Premium kaufen — 9,99 €/Monat →"
       },
       "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Premium enthält 2 solche Hervorhebungen pro Monat."
     }

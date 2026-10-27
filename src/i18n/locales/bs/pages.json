@@ -949,7 +949,7 @@
         "afterExpire": "Po isteku vraća se u normalnu listu"
       },
       "premium": {
-        "label": "⭐ Članstvo",
+        "label": "⭐ Premium",
         "price": "9,99€",
         "period": "/ mjesec",
         "bestValue": "Najbolja vrijednost",
@@ -962,8 +962,8 @@
       },
       "buttons": {
         "free": "Objavi besplatno →",
-        "pro": "Pogledaj članstvo →",
-        "premium": "Pogledaj članstvo →"
+        "pro": "Kupi Pro — 1,99€ →",
+        "premium": "Kupi Premium — 9,99€/mj →"
       },
       "info": "💡 **Kako funkcioniše?** Pro oglasi su istaknuti iznad ostalih i donose više pregleda. Premium uključuje 2 takva isticanja mjesečno."
     }
