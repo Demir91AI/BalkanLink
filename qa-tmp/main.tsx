@@ -20,4 +20,4 @@ const g = getGuideBySlug(slug);
 const extra: Record<string, JSX.Element> = { anmeldung: <AnmeldungGuideContent />, elterngeld: <ElterngeldGuideContent />, hauptantrag: <HauptantragGuideContent /> };
 const body = extra[slug] ? <>{extra[slug]}<OfficialNextStep slug={slug} /></> : slug === "kindergeld" ? <KindergeldGuideContent /> : slug === "wohngeld" ? <><WohngeldGuideContent /><OfficialNextStep slug={slug} /></> : slug === "burgergeld" ? <><BurgergeldGuideContent /><OfficialNextStep slug={slug} /></> : g ? <><FormFreeContent guide={g} lang="bs" /><FormSmartGuide guide={g} lang="bs" /><OfficialNextStep slug={slug} /></> : <p>no guide</p>;
 createRoot(document.getElementById("root")!).render(
-  <MemoryRouter><div style={{ background: "#020617" }}><div className="guide-dark-surface min-h-screen bg-background px-4 pt-6 pb-28" data-testid="guide-dark-surface">{body}</div></div></MemoryRouter>);
+  <MemoryRouter><div style={{ background: "#020617" }}><div className="dark guide-dark-surface min-h-screen bg-background px-4 pt-6 pb-28" data-testid="guide-dark-surface">{body}</div></div></MemoryRouter>);
