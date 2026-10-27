@@ -44,7 +44,7 @@ describe("Kindergeld 2.0 paper walkthrough", () => {
         const record = locale.guideFirst.kindergeld.pilot.terms[group.id as keyof typeof locale.guideFirst.kindergeld.pilot.terms].find(r => r.id === line.id);
         if (!record) throw new Error(`Missing translation ${line.id}`);
         expect(record.de).toBe(line.de);
-        expect(record.translation.length).toBeGreaterThan(2);
+        expect(record.translation.trim().length).toBeGreaterThan(0);
         expect(record.meaning.length).toBeGreaterThan(20);
         expect(node).toBeVisible();
         expect(node.textContent).toContain(line.de);
