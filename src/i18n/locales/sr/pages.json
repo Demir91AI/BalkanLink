@@ -689,10 +689,10 @@
         "embassyLinkLabel": "termini i informacije"
       },
       "officialNextTitle": "Službena prijava / šta dalje",
-      "officialNextBody": "Zahtjev za nacionalnu vizu podnosi se preko službenog Auslandsportala Ministarstva spoljnih poslova ili kod nadležne njemačke ambasade/konzulata. Za mnoge radne, studijske i porodične vize moguća je online prijava, ali ne za svaku vrstu vize u svakoj ambasadi.",
-      "officialNextNote": "Biometrija, provera originalnih dokumenata i takse često zahtevaju lični dolazak. BalkanLink ne zakazuje termine i ne šalje zahtjeve umjesto tebe.",
+      "officialNextBody": "Zahtev za nacionalnu vizu podnosi se preko službenog Auslandsportala Ministarstva spoljnih poslova ili kod nadležne njemačke ambasade/konzulata. Za mnoge radne, studijske i porodične vize moguća je online prijava, ali ne za svaku vrstu vize u svakoj ambasadi.",
+      "officialNextNote": "Biometrija, provera originalnih dokumenata i takse često zahtevaju lični dolazak. BalkanLink ne zakazuje termine i ne šalje zahteve umjesto tebe.",
       "auslandsportalBtn": "Auslandsportal (Auswärtiges Amt)",
-      "digitalBtn": "Online zahtjev za vizu (digital.diplo.de)"
+      "digitalBtn": "Online zahtev za vizu (digital.diplo.de)"
     },
     "rightPanel": {
       "introBody": "Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.",
@@ -1701,21 +1701,21 @@
       "local": "Službeni izvor / lokalna nadležna institucija — proveri pre prijave. Nadležnost i obrasci zavise od tvog grada ili pokrajine.",
       "verified": "Provereno prema službenom izvoru: {{date}}.",
       "notReverified": "Sadržaj ovog vodiča još ne ponovo proveren prema službenom izvoru — proveri pre prijave.",
-      "noSubmit": "BalkanLink ne šalje zahtjeve umjesto tebe; prijavu predaješ sam/a nadležnoj instituciji."
+      "noSubmit": "BalkanLink ne šalje zahteve umjesto tebe; prijavu predaješ sam/a nadležnoj instituciji."
     },
     "legacy": {
       "buergergeldTitle": "Stara veza na Bürgergeld formular",
       "buergergeldBody": "Ta stranica više ne postoji kao formular za popunjavanje. Izaberi vodič koji ti treba:",
-      "hauptantrag": "Prvi zahtjev (Hauptantrag)",
+      "hauptantrag": "Prvi zahtev (Hauptantrag)",
       "weiterbewilligung": "Produženje (Weiterbewilligung)"
     },
     "includes": "Uključeno:",
     "paywallItem": "Korak-po-korak vodič i direktni linkovi na službene postupke",
-    "seoTitle": "SmartGuide vodiči za njemačke zahtjeve",
+    "seoTitle": "SmartGuide vodiči za njemačke zahteve",
     "seoDesc": "Korak-po-korak vodiči i službeni postupci za Kindergeld, Bürgergeld, Wohngeld, BAföG, vize i još 40+ usluga — na tvom jeziku.",
     "kindergeld": {
       "title": "Kindergeld za novorođenče — korak po korak",
-      "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovdje ne unosiš nikakve lične podatke — vodič ti samo pokazuje redosled.",
+      "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovde ne unosiš nikakve lične podatke — vodič ti samo pokazuje redosled.",
       "caseQ": "Koja situacija ti najviše odgovara? (neobavezno, samo za orentaciju)",
       "case": {
         "newborn": "Novorođenče ili dete do 18 godina, živimo u Njemačkoj",
@@ -1740,18 +1740,18 @@
         },
         "access": {
           "title": "Pripremi pristup portalu",
-          "body": "Za online zahtjev trebaš Konto (nalog) na portalu Bundesagentur für Arbeit. S BundID-om zahtjev šalješ direktno online, bez ispisa i potpisa."
+          "body": "Za online zahtev trebaš Konto (nalog) na portalu Bundesagentur für Arbeit. S BundID-om zahtev šalješ direktno online, bez ispisa i potpisa."
         },
         "apply": {
           "title": "Popuni službeni online Antrag",
-          "body": "Otvori službeni online zahtjev Familienkasse i popuni ga tamo. Bez BundID-a online zahtjev popuniš, ispišeš, potpišeš i pošalješ poštom Familienkasse."
+          "body": "Otvori službeni online zahtev Familienkasse i popuni ga tamo. Bez BundID-a online zahtev popuniš, ispišeš, potpišeš i pošalješ poštom Familienkasse."
         },
         "after": {
           "title": "Nakon slanja",
-          "body": "Sačuvaj potvrdu o slanju i sačekaj odluku (Bescheid) od Familienkasse. Kindergeld se retroaktivno isplaćuje najviše za 6 meseci — zato predaj zahtjev na vreme. Promjene (npr. adresa, IBAN) javi Familienkasse. Iznose i rokove obrade ne garantujemo."
+          "body": "Sačuvaj potvrdu o slanju i sačekaj odluku (Bescheid) od Familienkasse. Kindergeld se retroaktivno isplaćuje najviše za 6 meseci — zato predaj zahtev na vreme. Promene (npr. adresa, IBAN) javi Familienkasse. Iznose i rokove obrade ne garantujemo."
         }
       },
-      "ctaOnline": "Otvori službeni online zahtjev (Familienkasse)",
+      "ctaOnline": "Otvori službeni online zahtev (Familienkasse)",
       "paper": "Ne želiš online? Službeni papirni obrasci su na stranici BA „Formulare Kindergeld“ (vidi izvore).",
       "sourcesTitle": "Službeni izvori",
       "src": {
@@ -1761,7 +1761,7 @@
         "formulare": "BA — Formulare Kindergeld"
       },
       "verified": "Sadržaj proveren prema navedenim stranicama Bundesagentur für Arbeit: 27.10.2026.",
-      "disclaimer": "Informativno, ne pravni savjet. BalkanLink ne državna institucija i ne šalje zahtjeve."
+      "disclaimer": "Informativno, ne pravni savjet. BalkanLink ne državna institucija i ne šalje zahteve."
     }
   }
 }

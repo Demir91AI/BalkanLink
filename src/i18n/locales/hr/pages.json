@@ -1704,7 +1704,7 @@
       "noSubmit": "BalkanLink ne šalje zahtjeve umjesto tebe; prijavu predaješ sam/a nadležnoj instituciji."
     },
     "legacy": {
-      "buergergeldTitle": "Stara veza na Bürgergeld formular",
+      "buergergeldTitle": "Stara poveznica na Bürgergeld formular",
       "buergergeldBody": "Ta stranica više ne postoji kao formular za popunjavanje. Odaberi vodič koji ti treba:",
       "hauptantrag": "Prvi zahtjev (Hauptantrag)",
       "weiterbewilligung": "Produženje (Weiterbewilligung)"
@@ -1715,7 +1715,7 @@
     "seoDesc": "Korak po korak vodiči i službeni postupci za Kindergeld, Bürgergeld, Wohngeld, BAföG, vize i još 40+ usluga — na tvom jeziku.",
     "kindergeld": {
       "title": "Kindergeld za novorođenče — korak po korak",
-      "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovdje ne unosiš nikakve lične podatke — vodič ti samo pokazuje redoslijed.",
+      "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovdje ne unosiš nikakve osobne podatke — vodič ti samo pokazuje redoslijed.",
       "caseQ": "Koja situacija ti najviše odgovara? (neobavezno, samo za orijentaciju)",
       "case": {
         "newborn": "Novorođenče ili dijete do 18 godina, živimo u Njemačkoj",
