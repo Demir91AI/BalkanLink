@@ -1783,7 +1783,7 @@
             "sec": "2",
             "de": "Ehepartner(in) / Lebenspartner(in) / anderer Elternteil im gemeinsamen Haushalt",
             "only": true,
-            "what": "Samo ako s tobom u istom domaćinstvu živi bračni/životni partner ili drugi roditelj ili očuh/maćeha djeteta: Steuer-ID (ako je dodijeljen), ime, datum rođenja, državljanstvo; adresa samo ako je drugačija.",
+            "what": "Samo ako tačka 2 odgovara tvojoj situaciji: navedi bračnog/registrovanog partnera ili drugog biološkog roditelja/očuha/maćehu u zajedničkom domaćinstvu. Različita adresa nije sama po sebi razlog da preskočiš partnera; pogledaj sve pojedinačne podatke i službene upute.",
             "where": "Dokumenti te osobe, njeno pismo BZSt.",
             "example": "Novak, Damir · 03.09.1989 · bosnisch-herzegowinisch",
             "mistake": "Popunjavati za osobu koja ne živi s tobom ili ostaviti prazno iako živi."
@@ -2579,7 +2579,1114 @@
             "example": "Izmišljeno: starije dijete već prima davanje, ali za Leu još nema zahtjeva; to su dvije različite informacije.",
             "mistake": "Odabrati Nein jer uplata iz inostranstva još nije stigla, iako postoji pravo ili otvoren zahtjev."
           }
-        ]
+        ],
+        "termsTitle": "Pojmovi i ponuđeni odgovori",
+        "terms": {
+          "kg1-0": [
+            {
+              "id": "line-001",
+              "de": "Kindergeld-Nr.",
+              "translation": "Broj Kindergeld predmeta",
+              "meaning": "Prepiši s postojećeg Bescheida. Za prvi zahtjev bez dodijeljenog broja ostavi prazno; nije Steuer-ID."
+            }
+          ],
+          "phone": [
+            {
+              "id": "line-002",
+              "de": "Telefonische Rückfrage tagsüber unter Nr.:",
+              "translation": "Telefon za pitanja tokom dana",
+              "meaning": "Navedi dostupni kontakt s pozivnim brojem; ovo nije podnošenje zahtjeva telefonom."
+            }
+          ],
+          "count": [
+            {
+              "id": "line-003",
+              "de": "Anzahl der beigefügten \"Anlage Kind\":",
+              "translation": "Broj priloženih priloga za djecu",
+              "meaning": "Prebroji Anlage Kind u ovom zahtjevu: za jednu bebu jedan prilog, ne sva djeca iz ranijih zahtjeva."
+            }
+          ],
+          "kg1-1": [
+            {
+              "id": "line-004",
+              "de": "Steuerliche Identifikationsnummer der antragstellenden Person (soweit vergeben, zwingend auszufüllen)",
+              "translation": "Steuer-ID ove osobe",
+              "meaning": "Lični identifikacijski broj od 11 cifara iz BZSt pisma ili elektronske Lohnsteuerbescheinigung. Steuernummer je drugi broj porezne uprave, ne prepisuj ga ovdje. Ako je ID dodijeljena, obrazac traži da je navedeš; ako nedostaje, pitaj Familienkasse, ne izmišljaj broj."
+            }
+          ],
+          "kg1-2": [
+            {
+              "id": "line-005",
+              "de": "Familienname",
+              "translation": "Prezime",
+              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promijenilo."
+            },
+            {
+              "id": "line-006",
+              "de": "Titel",
+              "translation": "Titula",
+              "meaning": "Akademska titula iz dokumenta, npr. Dr.; bez titule ostavi prazno. Nije zanimanje niti Herr/Frau."
+            },
+            {
+              "id": "line-007",
+              "de": "Vorname",
+              "translation": "Ime",
+              "meaning": "Sva službena imena, npr. Maja; ne nadimak."
+            },
+            {
+              "id": "line-008",
+              "de": "ggf. Geburtsname und Familienname aus früherer Ehe",
+              "translation": "Prezime pri rođenju i prezime iz ranijeg braka",
+              "meaning": "Navedi stvarno ranije prezime kada se razlikuje; ne izmišljaj prezime. Npr. sada Kovač, pri rođenju Novak."
+            },
+            {
+              "id": "line-009",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja",
+              "meaning": "Prepiši datum rođenja, npr. 15.03.1990 za izmišljenu odraslu osobu; nije datum podnošenja."
+            },
+            {
+              "id": "line-010",
+              "de": "Geburtsort",
+              "translation": "Mjesto rođenja",
+              "meaning": "Mjesto navedeno u dokumentu, npr. Tuzla; nije sadašnje mjesto stanovanja."
+            },
+            {
+              "id": "line-011",
+              "de": "Geschlecht",
+              "translation": "Spol",
+              "meaning": "Prepiši podatak iz službenog dokumenta; ako se dokumenti razlikuju, razjasni s Familienkasse, ne nagađaj."
+            },
+            {
+              "id": "line-012",
+              "de": "Staatsangehörigkeit",
+              "translation": "Državljanstvo",
+              "meaning": "Državljanstvo iz dokumenta, npr. bosanskohercegovačko; nije jezik, etnička pripadnost ni država stanovanja. Za više državljanstava navedi stvarno stanje i provjeri priloge."
+            }
+          ],
+          "kg1-3": [
+            {
+              "id": "line-013",
+              "de": "Straße/Platz",
+              "translation": "Ulica/trg",
+              "meaning": "Ime ulice, npr. Musterstraße; bez kućnog broja u ovoj stavci."
+            },
+            {
+              "id": "line-014",
+              "de": "Hausnummer",
+              "translation": "Kućni broj",
+              "meaning": "Broj i dodatak, npr. 12a; nije broj stana osim ako se posebno traži."
+            },
+            {
+              "id": "line-015",
+              "de": "Postleitzahl",
+              "translation": "Poštanski broj (PLZ)",
+              "meaning": "Poštanski broj adrese, npr. 10115; nije telefonski pozivni broj."
+            },
+            {
+              "id": "line-016",
+              "de": "Wohnort",
+              "translation": "Mjesto stanovanja",
+              "meaning": "Grad/općina ove adrese, npr. Berlin; nije mjesto rođenja."
+            },
+            {
+              "id": "line-017",
+              "de": "Staat",
+              "translation": "Država",
+              "meaning": "Država ove adrese, npr. Deutschland ili Bosnien und Herzegowina; nije državljanstvo."
+            }
+          ],
+          "status": [
+            {
+              "id": "line-018",
+              "de": "ledig",
+              "translation": "Neoženjen/neudata",
+              "meaning": "Nisi u braku niti u registrovanom partnerstvu; nije isto što i živjeti sam/a."
+            },
+            {
+              "id": "line-019",
+              "de": "verheiratet",
+              "translation": "Oženjen/udata",
+              "meaning": "Brak i dalje postoji. Partner privremeno radi u Austriji ne znači sam po sebi trajnu razdvojenost."
+            },
+            {
+              "id": "line-020",
+              "de": "geschieden",
+              "translation": "Razveden/a",
+              "meaning": "Brak je pravno razveden; samo podnesen zahtjev za razvod nije završen razvod."
+            },
+            {
+              "id": "line-021",
+              "de": "verwitwet",
+              "translation": "Udovac/udovica",
+              "meaning": "Bračni partner je preminuo; navedi stvarno stanje i relevantni datum."
+            },
+            {
+              "id": "line-022",
+              "de": "in eingetragener Lebenspartnerschaft lebend",
+              "translation": "U registrovanom partnerstvu",
+              "meaning": "Pravno registrovano životno partnerstvo; nije samo zajedničko stanovanje nevjenčanog para."
+            },
+            {
+              "id": "line-023",
+              "de": "aufgehobene Lebenspartnerschaft",
+              "translation": "Pravno raskinuto registrovano partnerstvo",
+              "meaning": "Partnerstvo je službeno pravno okončano; nije samo prekid veze ili odvojena adresa."
+            },
+            {
+              "id": "line-024",
+              "de": "dauernd getrennt lebend",
+              "translation": "Trajno odvojeno od supružnika",
+              "meaning": "Službene upute traže da barem jedan supružnik namjerava trajno održavati razdvojenost. Privremeni rad ili dvije adrese nisu sami po sebi dovoljan opis; nije isto što i razvod."
+            },
+            {
+              "id": "line-025",
+              "de": "seit:",
+              "translation": "Od kada",
+              "meaning": "Za označeni promijenjeni status navedi relevantni datum iz isprave ili stvarni početak trajne razdvojenosti. Izmišljeno: verheiratet, seit 20.06.2020; ne današnji datum prijave. Za ledig ne izmišljaj datum promjene."
+            }
+          ],
+          "kg1-4": [
+            {
+              "id": "line-026",
+              "de": "Steuerliche Identifikationsnummer (soweit vergeben, bitte ausfüllen)",
+              "translation": "Steuer-ID ove osobe",
+              "meaning": "Lični identifikacijski broj od 11 cifara iz BZSt pisma ili elektronske Lohnsteuerbescheinigung. Steuernummer je drugi broj porezne uprave, ne prepisuj ga ovdje. Ako je ID dodijeljena, obrazac traži da je navedeš; ako nedostaje, pitaj Familienkasse, ne izmišljaj broj."
+            },
+            {
+              "id": "line-027",
+              "de": "Familienname",
+              "translation": "Prezime",
+              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promijenilo."
+            },
+            {
+              "id": "line-028",
+              "de": "Vorname",
+              "translation": "Ime",
+              "meaning": "Sva službena imena, npr. Maja; ne nadimak."
+            },
+            {
+              "id": "line-029",
+              "de": "Titel",
+              "translation": "Titula",
+              "meaning": "Akademska titula iz dokumenta, npr. Dr.; bez titule ostavi prazno. Nije zanimanje niti Herr/Frau."
+            },
+            {
+              "id": "line-030",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja",
+              "meaning": "Prepiši datum rođenja, npr. 15.03.1990 za izmišljenu odraslu osobu; nije datum podnošenja."
+            },
+            {
+              "id": "line-031",
+              "de": "Staatsangehörigkeit",
+              "translation": "Državljanstvo",
+              "meaning": "Državljanstvo iz dokumenta, npr. bosanskohercegovačko; nije jezik, etnička pripadnost ni država stanovanja. Za više državljanstava navedi stvarno stanje i provjeri priloge."
+            },
+            {
+              "id": "line-032",
+              "de": "Geschlecht",
+              "translation": "Spol",
+              "meaning": "Prepiši podatak iz službenog dokumenta; ako se dokumenti razlikuju, razjasni s Familienkasse, ne nagađaj."
+            },
+            {
+              "id": "line-033",
+              "de": "ggf. Geburtsname und Familienname aus früherer Ehe",
+              "translation": "Prezime pri rođenju i prezime iz ranijeg braka",
+              "meaning": "Navedi stvarno ranije prezime kada se razlikuje; ne izmišljaj prezime. Npr. sada Kovač, pri rođenju Novak."
+            }
+          ],
+          "partnerAddress": [
+            {
+              "id": "line-034",
+              "de": "Straße/Platz",
+              "translation": "Ulica/trg",
+              "meaning": "Samo ako je adresa osobe iz tačke 2 drugačija: Ime ulice, npr. Musterstraße; bez kućnog broja u ovoj stavci."
+            },
+            {
+              "id": "line-035",
+              "de": "Hausnummer",
+              "translation": "Kućni broj",
+              "meaning": "Samo ako je adresa osobe iz tačke 2 drugačija: Broj i dodatak, npr. 12a; nije broj stana osim ako se posebno traži."
+            },
+            {
+              "id": "line-036",
+              "de": "Postleitzahl",
+              "translation": "Poštanski broj (PLZ)",
+              "meaning": "Samo ako je adresa osobe iz tačke 2 drugačija: Poštanski broj adrese, npr. 10115; nije telefonski pozivni broj."
+            },
+            {
+              "id": "line-037",
+              "de": "Wohnort",
+              "translation": "Mjesto stanovanja",
+              "meaning": "Samo ako je adresa osobe iz tačke 2 drugačija: Grad/općina ove adrese, npr. Berlin; nije mjesto rođenja."
+            },
+            {
+              "id": "line-038",
+              "de": "Staat",
+              "translation": "Država",
+              "meaning": "Samo ako je adresa osobe iz tačke 2 drugačija: Država ove adrese, npr. Deutschland ili Bosnien und Herzegowina; nije državljanstvo."
+            }
+          ],
+          "kg1-5": [
+            {
+              "id": "line-039",
+              "de": "IBAN",
+              "translation": "IBAN računa",
+              "meaning": "Međunarodna oznaka računa iz bankovne aplikacije/izvoda; nije broj kartice. Prepiši cijeli IBAN, ne ograničavaj ga na DE."
+            },
+            {
+              "id": "line-040",
+              "de": "BIC",
+              "translation": "BIC banke",
+              "meaning": "Identifikacijska oznaka banke iz podataka računa; nije IBAN niti naziv vlasnika. Provjeri s bankom ako je nemaš."
+            },
+            {
+              "id": "line-041",
+              "de": "Bank, Finanzinstitut (ggf. auch Zweigstelle)",
+              "translation": "Banka/finansijska ustanova, po potrebi poslovnica",
+              "meaning": "Naziv banke s izvoda, ne ime osobe kojoj pripada račun."
+            }
+          ],
+          "owner": [
+            {
+              "id": "line-042",
+              "de": "antragstellende Person wie unter Nr. 1",
+              "translation": "Podnosilac kao u tački 1",
+              "meaning": "Označi kada račun pripada osobi koja podnosi zahtjev; provjeri vlasnika u banci, ne zaključuj iz toga ko koristi karticu."
+            },
+            {
+              "id": "line-043",
+              "de": "nicht antragstellende Person, sondern:",
+              "translation": "Ne podnosilac, nego druga osoba",
+              "meaning": "Ako račun pripada drugoj osobi, označi ovu opciju i u susjedno polje navedi njeno prezime i ime."
+            },
+            {
+              "id": "line-044",
+              "de": "Familienname, Vorname",
+              "translation": "Prezime i ime drugog vlasnika",
+              "meaning": "Potrebno uz drugu opciju; izmišljeno: račun pripada Damiru Novaku, a zahtjev podnosi Maja Kovač."
+            }
+          ],
+          "kg1-6": [
+            {
+              "id": "line-045",
+              "de": "Familienname",
+              "translation": "Prezime ovlaštenog primaoca",
+              "meaning": "Samo ako želiš da Bescheid dobije druga dogovorena ovlaštena osoba; nije primalac novca."
+            },
+            {
+              "id": "line-046",
+              "de": "Vorname",
+              "translation": "Ime ovlaštenog primaoca",
+              "meaning": "Samo ako želiš da Bescheid dobije druga dogovorena ovlaštena osoba; nije primalac novca."
+            },
+            {
+              "id": "line-047",
+              "de": "Straße/Platz",
+              "translation": "Ulica/trg",
+              "meaning": "Samo za različitu adresu dogovorenog primaoca Bescheida: Ime ulice, npr. Musterstraße; bez kućnog broja u ovoj stavci."
+            },
+            {
+              "id": "line-048",
+              "de": "Hausnummer",
+              "translation": "Kućni broj",
+              "meaning": "Samo za različitu adresu dogovorenog primaoca Bescheida: Broj i dodatak, npr. 12a; nije broj stana osim ako se posebno traži."
+            },
+            {
+              "id": "line-049",
+              "de": "Postleitzahl",
+              "translation": "Poštanski broj (PLZ)",
+              "meaning": "Samo za različitu adresu dogovorenog primaoca Bescheida: Poštanski broj adrese, npr. 10115; nije telefonski pozivni broj."
+            },
+            {
+              "id": "line-050",
+              "de": "Wohnort",
+              "translation": "Mjesto stanovanja",
+              "meaning": "Samo za različitu adresu dogovorenog primaoca Bescheida: Grad/općina ove adrese, npr. Berlin; nije mjesto rođenja."
+            },
+            {
+              "id": "line-051",
+              "de": "Staat",
+              "translation": "Država",
+              "meaning": "Samo za različitu adresu dogovorenog primaoca Bescheida: Država ove adrese, npr. Deutschland ili Bosnien und Herzegowina; nije državljanstvo."
+            }
+          ],
+          "kg1-7": [
+            {
+              "id": "line-052",
+              "de": "Vorname des Kindes",
+              "translation": "Ime tog drugog djeteta",
+              "meaning": "Iz postojećeg Bescheida; beba za koju sada prvi put tražiš Kindergeld ne ide u ovaj red."
+            },
+            {
+              "id": "line-053",
+              "de": "ggf. abweichender Familienname",
+              "translation": "Različito prezime djeteta",
+              "meaning": "Dodaj ako nije isto kao podnosiočevo; ne samo ime primaoca."
+            },
+            {
+              "id": "line-054",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja drugog djeteta",
+              "meaning": "Iz dokumenta ili Bescheida, ne datum novog zahtjeva."
+            },
+            {
+              "id": "line-055",
+              "de": "Geschlecht",
+              "translation": "Spol tog djeteta",
+              "meaning": "Prepiši njegov službeni podatak, ne podatak podnosioca."
+            },
+            {
+              "id": "line-056",
+              "de": "Bei welcher Familienkasse (Kindergeldnummer)?",
+              "translation": "Koja Familienkasse i koji broj predmeta",
+              "meaning": "Prepiši ured i Kindergeldnummer sa rješenja za to dijete; nije Steuer-ID. Kod nepoznatih podataka pitaj Familienkasse."
+            }
+          ],
+          "kg1-8": [
+            {
+              "id": "line-057",
+              "de": "Vorname des Kindes",
+              "translation": "Ime tog drugog djeteta",
+              "meaning": "Iz postojećeg Bescheida; beba za koju sada prvi put tražiš Kindergeld ne ide u ovaj red."
+            },
+            {
+              "id": "line-058",
+              "de": "ggf. abweichender Familienname",
+              "translation": "Različito prezime djeteta",
+              "meaning": "Dodaj ako nije isto kao podnosiočevo; ne samo ime primaoca."
+            },
+            {
+              "id": "line-059",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja drugog djeteta",
+              "meaning": "Iz dokumenta ili Bescheida, ne datum novog zahtjeva."
+            },
+            {
+              "id": "line-060",
+              "de": "Geschlecht",
+              "translation": "Spol tog djeteta",
+              "meaning": "Prepiši njegov službeni podatak, ne podatak podnosioca."
+            },
+            {
+              "id": "line-061",
+              "de": "Wer bezieht das Kindergeld (Familienname, Vorname)?",
+              "translation": "Ko prima Kindergeld: prezime, ime",
+              "meaning": "Stvarni primalac za to drugo tvoje dijete, npr. drugi roditelj; nije novi podnosilac za bebu."
+            },
+            {
+              "id": "line-062",
+              "de": "Bei welcher Familienkasse (Kindergeldnummer)?",
+              "translation": "Koja Familienkasse i koji broj predmeta",
+              "meaning": "Prepiši ured i Kindergeldnummer sa rješenja za to dijete; nije Steuer-ID. Kod nepoznatih podataka pitaj Familienkasse."
+            }
+          ],
+          "kg1-9": [
+            {
+              "id": "line-063",
+              "de": "Datum",
+              "translation": "Datum potpisa",
+              "meaning": "Datum kada na originalu potpisuješ ovu izjavu; ne datum rođenja."
+            },
+            {
+              "id": "line-064",
+              "de": "Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+              "translation": "Potpis podnosioca ili zakonskog zastupnika",
+              "meaning": "Pročitaj izjavu o istinitosti, potpunosti i prijavi relevantnih promjena. Za maloljetnog podnosioca potpisuje zakonski zastupnik. Pregled vodiča nije taj potpis."
+            }
+          ],
+          "consent": [
+            {
+              "id": "line-065",
+              "de": "Datum",
+              "translation": "Datum potpisa",
+              "meaning": "Datum kada na originalu potpisuješ ovu izjavu; ne datum rođenja."
+            },
+            {
+              "id": "line-066",
+              "de": "Unterschrift der unter Punkt 2 genannten Person bzw. deren gesetzlichen Vertretung",
+              "translation": "Potpis osobe iz tačke 2 ili njenog zakonskog zastupnika",
+              "meaning": "Odvojena saglasnost da podnosilac prima Kindergeld. Upute navode zajedničko domaćinstvo i saglasnost; ako saglasnosti nema, obavijesti Familienkasse. Ne potpisuj umjesto druge osobe."
+            }
+          ],
+          "ank-0": [
+            {
+              "id": "line-067",
+              "de": "Familienname und Vorname der antragstellenden Person",
+              "translation": "Prezime i ime podnosioca",
+              "meaning": "Ista osoba kao KG1 tačka 1; ovdje ne upisuj bebino ime."
+            },
+            {
+              "id": "line-068",
+              "de": "Kindergeld-Nr.",
+              "translation": "Broj predmeta",
+              "meaning": "Isti postojeći Kindergeld broj kao KG1; bez dodijeljenog broja ne izmišljaj novi."
+            },
+            {
+              "id": "line-069",
+              "de": "zum Antrag auf Kindergeld vom",
+              "translation": "Uz zahtjev za Kindergeld od",
+              "meaning": "Datum glavnog KG1 zahtjeva, ne datum rođenja djeteta."
+            },
+            {
+              "id": "line-070",
+              "de": "Lfd. Nr.",
+              "translation": "Redni broj priloga",
+              "meaning": "Numeriši Anlage Kind u ovom zahtjevu: prvo dijete 1, drugo 2. Nije Steuer-ID."
+            }
+          ],
+          "ank-1": [
+            {
+              "id": "line-071",
+              "de": "Steuerliche Identifikationsnummer des Kindes (soweit vergeben, zwingend auszufüllen)",
+              "translation": "Steuer-ID djeteta",
+              "meaning": "Lični identifikacijski broj od 11 cifara iz BZSt pisma ili elektronske Lohnsteuerbescheinigung. Steuernummer je drugi broj porezne uprave, ne prepisuj ga ovdje. Ako je ID dodijeljena, obrazac traži da je navedeš; ako nedostaje, pitaj Familienkasse, ne izmišljaj broj."
+            }
+          ],
+          "ank-2": [
+            {
+              "id": "line-072",
+              "de": "Familienname",
+              "translation": "Prezime",
+              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promijenilo."
+            },
+            {
+              "id": "line-073",
+              "de": "Titel",
+              "translation": "Titula",
+              "meaning": "Akademska titula iz dokumenta, npr. Dr.; bez titule ostavi prazno. Nije zanimanje niti Herr/Frau."
+            },
+            {
+              "id": "line-074",
+              "de": "Vorname",
+              "translation": "Ime",
+              "meaning": "Sva službena imena, npr. Maja; ne nadimak."
+            },
+            {
+              "id": "line-075",
+              "de": "Geburtsname",
+              "translation": "Prezime pri rođenju",
+              "meaning": "Navedi stvarno ranije prezime kada se razlikuje; ne izmišljaj prezime. Npr. sada Kovač, pri rođenju Novak."
+            },
+            {
+              "id": "line-076",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja",
+              "meaning": "Prepiši datum rođenja, npr. 15.03.1990 za izmišljenu odraslu osobu; nije datum podnošenja."
+            },
+            {
+              "id": "line-077",
+              "de": "Geburtsort",
+              "translation": "Mjesto rođenja",
+              "meaning": "Mjesto navedeno u dokumentu, npr. Tuzla; nije sadašnje mjesto stanovanja."
+            },
+            {
+              "id": "line-078",
+              "de": "Geschlecht",
+              "translation": "Spol",
+              "meaning": "Prepiši podatak iz službenog dokumenta; ako se dokumenti razlikuju, razjasni s Familienkasse, ne nagađaj."
+            },
+            {
+              "id": "line-079",
+              "de": "Staatsangehörigkeit",
+              "translation": "Državljanstvo",
+              "meaning": "Državljanstvo iz dokumenta, npr. bosanskohercegovačko; nije jezik, etnička pripadnost ni država stanovanja. Za više državljanstava navedi stvarno stanje i provjeri priloge."
+            }
+          ],
+          "childAddress": [
+            {
+              "id": "line-080",
+              "de": "Straße/Platz",
+              "translation": "Ulica/trg",
+              "meaning": "Samo za adresu djeteta koja se razlikuje od tvoje: Ime ulice, npr. Musterstraße; bez kućnog broja u ovoj stavci."
+            },
+            {
+              "id": "line-081",
+              "de": "Hausnummer",
+              "translation": "Kućni broj",
+              "meaning": "Samo za adresu djeteta koja se razlikuje od tvoje: Broj i dodatak, npr. 12a; nije broj stana osim ako se posebno traži."
+            },
+            {
+              "id": "line-082",
+              "de": "Postleitzahl",
+              "translation": "Poštanski broj (PLZ)",
+              "meaning": "Samo za adresu djeteta koja se razlikuje od tvoje: Poštanski broj adrese, npr. 10115; nije telefonski pozivni broj."
+            },
+            {
+              "id": "line-083",
+              "de": "Wohnort",
+              "translation": "Mjesto stanovanja",
+              "meaning": "Samo za adresu djeteta koja se razlikuje od tvoje: Grad/općina ove adrese, npr. Berlin; nije mjesto rođenja."
+            },
+            {
+              "id": "line-084",
+              "de": "Staat",
+              "translation": "Država",
+              "meaning": "Samo za adresu djeteta koja se razlikuje od tvoje: Država ove adrese, npr. Deutschland ili Bosnien und Herzegowina; nije državljanstvo."
+            },
+            {
+              "id": "line-085",
+              "de": "Grund der abweichenden Anschrift",
+              "translation": "Razlog različite adrese",
+              "meaning": "Objasni stvarno stanovanje, npr. dijete živi kod bake u BiH. Porodilište nije samo po sebi druga stalna adresa. Ne zaključuj pravo iz primjera."
+            }
+          ],
+          "ank-3": [
+            {
+              "id": "line-086",
+              "de": "zur antragstellenden Person",
+              "translation": "Prema podnosiocu",
+              "meaning": "U ovom redu opisuješ odnos djeteta prema ovoj osobi; svaki red razmotri zasebno, nezavisno od braka/zajedničke adrese."
+            },
+            {
+              "id": "line-087",
+              "de": "leibliches Kind",
+              "translation": "Biološko dijete",
+              "meaning": "Osoba je biološki roditelj; Maja je Leina biološka majka."
+            },
+            {
+              "id": "line-088",
+              "de": "Adoptivkind",
+              "translation": "Usvojeno dijete",
+              "meaning": "Pravno usvojeno dijete te osobe, ne samo partnerovo dijete. Upute traže porodični naziv usvojenog djeteta; po potrebi priloži odluku o usvojenju."
+            },
+            {
+              "id": "line-089",
+              "de": "Pflegekind",
+              "translation": "Dijete u hraniteljskoj porodici",
+              "meaning": "Osoba je hranitelj, ne samo povremena dadilja. Status i potrebne dokaze razjasni s Familienkasse."
+            },
+            {
+              "id": "line-090",
+              "de": "Stiefkind",
+              "translation": "Pastorak/pastorka",
+              "meaning": "Dijete bračnog/registrovanog partnera; primjer: Lea je Majino biološko dijete, a Damiru može biti pastorka, ne biološko dijete. Ne izjednačavaj svaku vezu s ovim statusom."
+            },
+            {
+              "id": "line-091",
+              "de": "Enkelkind",
+              "translation": "Unuk/unuka",
+              "meaning": "Osoba je djed/baka djeteta, ne roditelj; npr. Leina baka označava odnos prema sebi. To samo po sebi ne potvrđuje pravo."
+            },
+            {
+              "id": "line-092",
+              "de": "zum/zur Ehepartner(in) bzw. eingetragenen Lebenspartner(in)",
+              "translation": "Prema bračnom/registrovanom partneru",
+              "meaning": "U ovom redu opisuješ odnos djeteta prema ovoj osobi; svaki red razmotri zasebno, nezavisno od braka/zajedničke adrese."
+            },
+            {
+              "id": "line-093",
+              "de": "leibliches Kind",
+              "translation": "Biološko dijete",
+              "meaning": "Osoba je biološki roditelj; Maja je Leina biološka majka."
+            },
+            {
+              "id": "line-094",
+              "de": "Adoptivkind",
+              "translation": "Usvojeno dijete",
+              "meaning": "Pravno usvojeno dijete te osobe, ne samo partnerovo dijete. Upute traže porodični naziv usvojenog djeteta; po potrebi priloži odluku o usvojenju."
+            },
+            {
+              "id": "line-095",
+              "de": "Pflegekind",
+              "translation": "Dijete u hraniteljskoj porodici",
+              "meaning": "Osoba je hranitelj, ne samo povremena dadilja. Status i potrebne dokaze razjasni s Familienkasse."
+            },
+            {
+              "id": "line-096",
+              "de": "Stiefkind",
+              "translation": "Pastorak/pastorka",
+              "meaning": "Dijete bračnog/registrovanog partnera; primjer: Lea je Majino biološko dijete, a Damiru može biti pastorka, ne biološko dijete. Ne izjednačavaj svaku vezu s ovim statusom."
+            },
+            {
+              "id": "line-097",
+              "de": "Enkelkind",
+              "translation": "Unuk/unuka",
+              "meaning": "Osoba je djed/baka djeteta, ne roditelj; npr. Leina baka označava odnos prema sebi. To samo po sebi ne potvrđuje pravo."
+            },
+            {
+              "id": "line-098",
+              "de": "zu einer anderen Person (z. B. anderer (Pflege-)Elternteil; bitte unten Angaben machen)",
+              "translation": "Prema drugoj osobi (npr. drugom roditelju/hranitelju)",
+              "meaning": "U ovom redu opisuješ odnos djeteta prema ovoj osobi; svaki red razmotri zasebno, nezavisno od braka/zajedničke adrese."
+            },
+            {
+              "id": "line-099",
+              "de": "leibliches Kind",
+              "translation": "Biološko dijete",
+              "meaning": "Osoba je biološki roditelj; Maja je Leina biološka majka."
+            },
+            {
+              "id": "line-100",
+              "de": "Adoptivkind",
+              "translation": "Usvojeno dijete",
+              "meaning": "Pravno usvojeno dijete te osobe, ne samo partnerovo dijete. Upute traže porodični naziv usvojenog djeteta; po potrebi priloži odluku o usvojenju."
+            },
+            {
+              "id": "line-101",
+              "de": "Pflegekind",
+              "translation": "Dijete u hraniteljskoj porodici",
+              "meaning": "Osoba je hranitelj, ne samo povremena dadilja. Status i potrebne dokaze razjasni s Familienkasse."
+            },
+            {
+              "id": "line-102",
+              "de": "Stiefkind",
+              "translation": "Pastorak/pastorka",
+              "meaning": "Dijete bračnog/registrovanog partnera; primjer: Lea je Majino biološko dijete, a Damiru može biti pastorka, ne biološko dijete. Ne izjednačavaj svaku vezu s ovim statusom."
+            },
+            {
+              "id": "line-103",
+              "de": "Enkelkind",
+              "translation": "Unuk/unuka",
+              "meaning": "Osoba je djed/baka djeteta, ne roditelj; npr. Leina baka označava odnos prema sebi. To samo po sebi ne potvrđuje pravo."
+            }
+          ],
+          "otherParent": [
+            {
+              "id": "line-104",
+              "de": "Familienname",
+              "translation": "Prezime druge osobe",
+              "meaning": "Npr. drugog biološkog roditelja koji nije u zajedničkom domaćinstvu; ne izmišljaj podatak."
+            },
+            {
+              "id": "line-105",
+              "de": "Vorname",
+              "translation": "Ime druge osobe",
+              "meaning": "Službeno ime, ne samo „otac“ ili „majka“."
+            },
+            {
+              "id": "line-106",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja druge osobe",
+              "meaning": "Ne datum rođenja bebe."
+            },
+            {
+              "id": "line-107",
+              "de": "letzte bekannte Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)",
+              "translation": "Posljednja poznata adresa",
+              "meaning": "Ulica/trg, kućni broj, PLZ, mjesto, država; napiši samo poznato stanje, ne izmišljenu trenutnu adresu."
+            },
+            {
+              "id": "line-108",
+              "de": "Staatsangehörigkeit",
+              "translation": "Državljanstvo druge osobe",
+              "meaning": "Iz dokumenta/pouzdanih podataka, ne zaključeno iz jezika ili adrese."
+            },
+            {
+              "id": "line-109",
+              "de": "verstorben",
+              "translation": "Preminuo/la",
+              "meaning": "Dodatna napomena samo ako je ta osoba preminula; ne znači nepoznata adresa."
+            },
+            {
+              "id": "line-110",
+              "de": "Vaterschaft nicht festgestellt",
+              "translation": "Očinstvo nije utvrđeno",
+              "meaning": "Očinstvo nije pravno utvrđeno; nije isto što i otac ne živi s djetetom."
+            },
+            {
+              "id": "line-111",
+              "de": "unbekannt",
+              "translation": "Nepoznato",
+              "meaning": "Navedi stvarno nepoznato stanje, ne nagađaj identitet. Upute traže ove podatke i kad druga osoba nije partner u domaćinstvu; nejasnoće objasni Familienkasse."
+            }
+          ],
+          "ank-4": [
+            {
+              "id": "line-112",
+              "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4",
+              "translation": "Podaci za punoljetno dijete ili dijete koje uskoro puni 18",
+              "meaning": "Za NOVOROĐENČE preskoči cijelu tačku 3 (3.1–3.3) i idi na tačku 4 na str. 3. Ne prilaži školske dokaze za bebu."
+            },
+            {
+              "id": "line-113",
+              "de": "Nachweise zu den Angaben (Punkt 3.1 - 3.3)",
+              "translation": "Dokazi za 3.1–3.3",
+              "meaning": "Opcije sind beigefügt = priloženi, liegen bereits vor = već su dostavljeni, werden nachgereicht = dostavit će se naknadno. Ovo pripada dijelu za odrasle, ne označavaj za bebu."
+            },
+            {
+              "id": "line-114",
+              "de": "3.1 Das Kind",
+              "translation": "Školovanje i druge okolnosti odraslog djeteta",
+              "meaning": "Obuhvata školu/studij/obuku, druge mjere, nedostatak mjesta, dobrovoljnu službu, prelazni period i prijavu traženja posla. Za bebu preskoči; ovaj pilot ne utvrđuje prava odraslih."
+            },
+            {
+              "id": "line-115",
+              "de": "3.2 Angaben zur Erwerbstätigkeit",
+              "translation": "Rad odraslog djeteta",
+              "meaning": "Završena obuka/studij, zaposlenje, Minijob/drugi rad, poslodavac, periodi i sedmični sati. Za novorođenče nije primjenjivo."
+            },
+            {
+              "id": "line-116",
+              "de": "3.3 Angaben zum Vorliegen einer Behinderung",
+              "translation": "Podaci o invaliditetu u dijelu za odrasle",
+              "meaning": "Obrazac izričito ograničava ovu rubriku na punoljetno/uskoro 18-godišnje dijete. Za novorođenče preskoči i nastavi na 4; ne zaključuj posebna prava iz ove upute."
+            }
+          ],
+          "ank-5": [
+            {
+              "id": "line-117",
+              "de": "Haben Sie oder eine unter Punkt 2 genannte Person für dieses Kind bereits Kindergeld beantragt oder erhalten?",
+              "translation": "Za isto dijete već tražen ili primljen Kindergeld?",
+              "meaning": "Pita za tebe ili osobu iz Anlage Kind tačke 2 i baš ovu bebu; nije pitanje o drugoj starijoj djeci."
+            },
+            {
+              "id": "line-118",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Ako je za ovu bebu već podnesen zahtjev ili primano davanje, navedi osobu, rođenje, period, ured/adresu i broj ispod."
+            },
+            {
+              "id": "line-119",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Nijedna navedena osoba nije ranije tražila niti primala za ovo dijete; dodatna polja tačke 4 ne popunjavaš."
+            },
+            {
+              "id": "line-120",
+              "de": "Familienname, Vorname der beziehenden Person",
+              "translation": "Prezime i ime odgovarajuće osobe",
+              "meaning": "Osoba na koju se odgovor „ja“ odnosi; nije automatski dijete ili podnosilac."
+            },
+            {
+              "id": "line-121",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja te osobe",
+              "meaning": "Prepiši iz njenog dokumenta, ne bebino rođenje."
+            },
+            {
+              "id": "line-122",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Period (od – do)",
+              "meaning": "Stvarni početak i kraj traženja/primanja/rada iz dokumenata; ako još traje, navedi stvarno stanje i razjasni format, ne izmišljaj završetak."
+            },
+            {
+              "id": "line-123",
+              "de": "Familienkasse, Anschrift",
+              "translation": "Familienkasse i adresa",
+              "meaning": "Ured koji je obradio prethodni zahtjev za istu bebu, iz pisma/Bescheida."
+            },
+            {
+              "id": "line-124",
+              "de": "Kindergeldnummer",
+              "translation": "Broj ranijeg predmeta",
+              "meaning": "Broj iz prethodnog zahtjeva/Bescheida za isto dijete; nije Steuer-ID."
+            }
+          ],
+          "ank-6": [
+            {
+              "id": "line-125",
+              "de": "Sind Sie oder eine unter Punkt 2 genannte Person, zu der das Kind in einem Kindschaftsverhältnis steht, im öffentlichen Dienst tätig?",
+              "translation": "Radiš li ti ili osoba iz tačke 2 u odnosu s djetetom u javnoj službi?",
+              "meaning": "Upute uključuju službenike, korisnike službeničke penzije, zaposlene saveznih/pokrajinskih/općinskih i drugih javnopravnih tijela, sudije i profesionalne/ugovorne vojnike; i privatni rad uz odsustvo iz javne službe. Crkvene ustanove i pridružene ustanove slobodne socijalne zaštite nisu automatski javna služba."
+            },
+            {
+              "id": "line-126",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Odgovara se zasebno na a) i b); navedi prezime, ime i datum rođenja te osobe. Ako radiš u bolnici, provjeri pravnog poslodavca, ne samo javno finansiranje."
+            },
+            {
+              "id": "line-127",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Ako nijedna obuhvaćena osoba nema opisani status; ne označavaj samo zato što ne radiš u kancelariji."
+            },
+            {
+              "id": "line-128",
+              "de": "a) Wird die Beschäftigung in einer Einrichtung des Bundes ausgeübt?",
+              "translation": "a) Rad u saveznoj ustanovi?",
+              "meaning": "Bund = savezna država, nije automatski općina ili pokrajina."
+            },
+            {
+              "id": "line-129",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Poslodavac/ustanova je na saveznoj razini; potvrdi u kadrovskoj službi."
+            },
+            {
+              "id": "line-130",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Ne radiš u saveznoj ustanovi; javna služba pokrajine može značiti „ja“ na glavnom pitanju, ali „nein“ ovdje."
+            },
+            {
+              "id": "line-131",
+              "de": "b) Wird die Beschäftigung bei der Bundesagentur für Arbeit oder einem Jobcenter (gemeinsamen Einrichtung nach §44b SGB II) ausgeübt?",
+              "translation": "b) Rad za BA ili zajednički Jobcenter?",
+              "meaning": "Pita za zaposlenje, ne da li primaš Bürgergeld ili ideš na termin. Posebno navodi zajedničku ustanovu prema §44b SGB II."
+            },
+            {
+              "id": "line-132",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Zaposlenje je kod BA ili navedenog zajedničkog Jobcentera; provjeri vrstu ustanove."
+            },
+            {
+              "id": "line-133",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Nema takvog zaposlenja; sama registracija kao korisnik BA/Jobcentera nije „ja“."
+            },
+            {
+              "id": "line-134",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Prezime i ime odgovarajuće osobe",
+              "meaning": "Osoba na koju se odgovor „ja“ odnosi; nije automatski dijete ili podnosilac."
+            },
+            {
+              "id": "line-135",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja te osobe",
+              "meaning": "Prepiši iz njenog dokumenta, ne bebino rođenje."
+            }
+          ],
+          "ank-7": [
+            {
+              "id": "line-136",
+              "de": "Besteht oder bestand für Sie oder eine unter Punkt 2 genannte Person für das Kind in den letzten 5 Jahren vor der Antragstellung ein Anspruch auf eine kindbezogene Geldleistung von einer Stelle außerhalb Deutschlands oder von einer zwischen- oder überstaatlichen Einrichtung?",
+              "translation": "Pravo na novčanu naknadu za ovo dijete iz inostranstva/međunarodne ustanove u pet godina prije zahtjeva?",
+              "meaning": "Pita za pravo koje postoji ili je postojalo za tebe/osobu iz tačke 2, ne samo stvarno uplaćen novac. Obuhvata strane porodične naknade i npr. naknadu od institucije EU."
+            },
+            {
+              "id": "line-137",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Takvo pravo postoji/postojalo je: navedi osobu, rođenje, naziv naknade, mjesečni euro-iznos, period, ustanovu/adresu i Aktenzeichen. Strani iznos/konverziju razjasni, ne izmišljaj."
+            },
+            {
+              "id": "line-138",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Nema takvog prava u navedenom opsegu; odsustvo uplate samo po sebi nije dovoljan razlog za „nein“."
+            },
+            {
+              "id": "line-139",
+              "de": "Familienname, Vorname der beziehenden Person",
+              "translation": "Prezime i ime odgovarajuće osobe",
+              "meaning": "Osoba na koju se odgovor „ja“ odnosi; nije automatski dijete ili podnosilac."
+            },
+            {
+              "id": "line-140",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja te osobe",
+              "meaning": "Prepiši iz njenog dokumenta, ne bebino rođenje."
+            },
+            {
+              "id": "line-141",
+              "de": "Leistung",
+              "translation": "Naziv naknade",
+              "meaning": "Službeni naziv s odluke, ne samo „novac iz BiH“."
+            },
+            {
+              "id": "line-142",
+              "de": "monatlicher Betrag (Euro)",
+              "translation": "Mjesečni iznos u eurima",
+              "meaning": "Iznos iz dokumenta, ne godišnji zbir; za drugu valutu pitaj kako prikazati konverziju."
+            },
+            {
+              "id": "line-143",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Period (od – do)",
+              "meaning": "Stvarni početak i kraj traženja/primanja/rada iz dokumenata; ako još traje, navedi stvarno stanje i razjasni format, ne izmišljaj završetak."
+            },
+            {
+              "id": "line-144",
+              "de": "leistende Stelle, Anschrift",
+              "translation": "Ustanova koja daje naknadu i adresa",
+              "meaning": "Službeno ime i puna adresa iz odluke, ne samo banka koja prenosi novac."
+            },
+            {
+              "id": "line-145",
+              "de": "Aktenzeichen",
+              "translation": "Oznaka stranog predmeta",
+              "meaning": "Broj/oznaka na odluci te ustanove; nije njemačka Steuer-ID niti IBAN."
+            }
+          ],
+          "ank-8": [
+            {
+              "id": "line-146",
+              "de": "außerhalb Deutschlands als Arbeitnehmer(in), Selbständige(r), Entwicklungshelfer(in) tätig?",
+              "translation": "7a) Rad izvan Njemačke",
+              "meaning": "Za tebe ili osobu iz tačke 2 u odnosu s djetetom, u pet godina prije zahtjeva: zaposlenje, samostalni rad ili razvojna pomoć. Upute uključuju i diplomatsku/konzularnu službu."
+            },
+            {
+              "id": "line-147",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Izmišljeno: Damir je radio u Austriji ili BiH u ovom periodu. Navedi stvarne podatke rada; primjer ne odlučuje prekogranično pravo. Popuni zajednička dodatna polja tačke 7."
+            },
+            {
+              "id": "line-148",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Opisani rad nije postojao u navedenom periodu kod obuhvaćenih osoba; zasebno odgovori i na ostala dva pitanja."
+            },
+            {
+              "id": "line-149",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Prezime i ime odgovarajuće osobe",
+              "meaning": "Osoba na koju se odgovor „ja“ odnosi; nije automatski dijete ili podnosilac."
+            },
+            {
+              "id": "line-150",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja te osobe",
+              "meaning": "Prepiši iz njenog dokumenta, ne bebino rođenje."
+            },
+            {
+              "id": "line-151",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Period (od – do)",
+              "meaning": "Stvarni početak i kraj traženja/primanja/rada iz dokumenata; ako još traje, navedi stvarno stanje i razjasni format, ne izmišljaj završetak."
+            },
+            {
+              "id": "line-152",
+              "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Poslodavac/ustanova/firma, po potrebi kadrovski broj",
+              "meaning": "Pravni naziv iz ugovora; nije samo naziv gradilišta ili klijenta."
+            },
+            {
+              "id": "line-153",
+              "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Adresa poslodavca/ustanove",
+              "meaning": "Puna adresa iz ugovora; nije automatski tvoja kućna adresa."
+            },
+            {
+              "id": "line-154",
+              "de": "Ort/Land der Erwerbstätigkeit",
+              "translation": "Mjesto i država rada",
+              "meaning": "Gdje je rad obavljan, npr. Graz, Österreich; nije nužno država sjedišta poslodavca."
+            }
+          ],
+          "stateWork": [
+            {
+              "id": "line-155",
+              "de": "in Deutschland bei einer Dienststelle oder Einrichtung eines anderen Staates oder als Angehörige(r) der NATO-Streitkräfte tätig?",
+              "translation": "7b) Rad u Njemačkoj za drugu državu ili kao pripadnik NATO snaga",
+              "meaning": "Za iste osobe/pet godina; nije običan rad za firmu sa stranim imenom. Upute uključuju diplomatsku/konzularnu službu."
+            },
+            {
+              "id": "line-156",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Npr. rad u predstavništvu druge države u Njemačkoj: provjeri status i navedi podatke zaposlenja. Popuni zajednička dodatna polja tačke 7."
+            },
+            {
+              "id": "line-157",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Opisani rad nije postojao u navedenom periodu kod obuhvaćenih osoba; zasebno odgovori i na ostala dva pitanja."
+            },
+            {
+              "id": "line-158",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Prezime i ime odgovarajuće osobe",
+              "meaning": "Osoba na koju se odgovor „ja“ odnosi; nije automatski dijete ili podnosilac."
+            },
+            {
+              "id": "line-159",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja te osobe",
+              "meaning": "Prepiši iz njenog dokumenta, ne bebino rođenje."
+            },
+            {
+              "id": "line-160",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Period (od – do)",
+              "meaning": "Stvarni početak i kraj traženja/primanja/rada iz dokumenata; ako još traje, navedi stvarno stanje i razjasni format, ne izmišljaj završetak."
+            },
+            {
+              "id": "line-161",
+              "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Poslodavac/ustanova/firma, po potrebi kadrovski broj",
+              "meaning": "Pravni naziv iz ugovora; nije samo naziv gradilišta ili klijenta."
+            },
+            {
+              "id": "line-162",
+              "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Adresa poslodavca/ustanove",
+              "meaning": "Puna adresa iz ugovora; nije automatski tvoja kućna adresa."
+            },
+            {
+              "id": "line-163",
+              "de": "Ort/Land der Erwerbstätigkeit",
+              "translation": "Mjesto i država rada",
+              "meaning": "Gdje je rad obavljan, npr. Graz, Österreich; nije nužno država sjedišta poslodavca."
+            }
+          ],
+          "posting": [
+            {
+              "id": "line-164",
+              "de": "in Deutschland auf Veranlassung eines Arbeitgebers mit Sitz außerhalb Deutschlands beschäftigt (z. B. entsandte Person)?",
+              "translation": "7c) Rad u Njemačkoj po nalogu poslodavca sa sjedištem izvan Njemačke",
+              "meaning": "Za iste osobe/pet godina; Entsendung znači upućivanje, ne strano državljanstvo."
+            },
+            {
+              "id": "line-165",
+              "de": "ja",
+              "translation": "Da",
+              "meaning": "Izmišljeno: firma sa sjedištem u BiH šalje Damira na posao u Njemačku; provjeri ugovor o upućivanju i podatke ispod. Popuni zajednička dodatna polja tačke 7."
+            },
+            {
+              "id": "line-166",
+              "de": "nein",
+              "translation": "Ne",
+              "meaning": "Opisani rad nije postojao u navedenom periodu kod obuhvaćenih osoba; zasebno odgovori i na ostala dva pitanja."
+            },
+            {
+              "id": "line-167",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Prezime i ime odgovarajuće osobe",
+              "meaning": "Osoba na koju se odgovor „ja“ odnosi; nije automatski dijete ili podnosilac."
+            },
+            {
+              "id": "line-168",
+              "de": "Geburtsdatum",
+              "translation": "Datum rođenja te osobe",
+              "meaning": "Prepiši iz njenog dokumenta, ne bebino rođenje."
+            },
+            {
+              "id": "line-169",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Period (od – do)",
+              "meaning": "Stvarni početak i kraj traženja/primanja/rada iz dokumenata; ako još traje, navedi stvarno stanje i razjasni format, ne izmišljaj završetak."
+            },
+            {
+              "id": "line-170",
+              "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Poslodavac/ustanova/firma, po potrebi kadrovski broj",
+              "meaning": "Pravni naziv iz ugovora; nije samo naziv gradilišta ili klijenta."
+            },
+            {
+              "id": "line-171",
+              "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Adresa poslodavca/ustanove",
+              "meaning": "Puna adresa iz ugovora; nije automatski tvoja kućna adresa."
+            },
+            {
+              "id": "line-172",
+              "de": "Ort/Land der Erwerbstätigkeit",
+              "translation": "Mjesto i država rada",
+              "meaning": "Gdje je rad obavljan, npr. Graz, Österreich; nije nužno država sjedišta poslodavca."
+            }
+          ],
+          "ank-9": [
+            {
+              "id": "line-173",
+              "de": "Datum",
+              "translation": "Datum potpisa",
+              "meaning": "Datum kada na originalu potpisuješ ovu izjavu; ne datum rođenja."
+            },
+            {
+              "id": "line-174",
+              "de": "Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+              "translation": "Potpis podnosioca ili zakonskog zastupnika",
+              "meaning": "Pročitaj izjavu o istinitosti, potpunosti i prijavi relevantnih promjena. Za maloljetnog podnosioca potpisuje zakonski zastupnik. Pregled vodiča nije taj potpis."
+            }
+          ]
+        }
       }
     },
     "panelEmpty": "Izaberi uslugu iz lijevog menija za vodič i službene izvore.",

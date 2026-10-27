@@ -1783,7 +1783,7 @@
             "sec": "2",
             "de": "Ehepartner(in) / Lebenspartner(in) / anderer Elternteil im gemeinsamen Haushalt",
             "only": true,
-            "what": "Nur wenn Ehe-/Lebenspartner(in), anderer leiblicher Elternteil oder Stiefelternteil mit Ihnen im Haushalt lebt: Steuer-ID (soweit vergeben), Name, Geburtsdatum, Staatsangehörigkeit; Anschrift nur, wenn abweichend.",
+            "what": "Nur soweit Punkt 2 auf deine Situation zutrifft: Ehe-/eingetragenen Lebenspartner oder anderen leiblichen Eltern-/Stiefelternteil im gemeinsamen Haushalt angeben. Eine abweichende Adresse allein ist kein Grund, den Partner auszulassen; Einzelangaben und amtliche Hinweise prüfen.",
             "where": "Unterlagen dieser Person, ihr BZSt-Schreiben.",
             "example": "Novak, Damir · 03.09.1989 · bosnisch-herzegowinisch",
             "mistake": "Für eine Person ausfüllen, die nicht im Haushalt lebt – oder leer lassen, obwohl sie dort lebt."
@@ -2579,7 +2579,1114 @@
             "example": "Erfunden: Ein älteres Kind bekommt bereits Kindergeld, für Lea wurde noch nicht beantragt; das sind verschiedene Angaben.",
             "mistake": "Nein wählen, weil ausländische Zahlung noch fehlt, obwohl Anspruch oder laufender Antrag besteht."
           }
-        ]
+        ],
+        "termsTitle": "Begriffe und Antwortmöglichkeiten",
+        "terms": {
+          "kg1-0": [
+            {
+              "id": "line-001",
+              "de": "Kindergeld-Nr.",
+              "translation": "Kindergeldnummer",
+              "meaning": "Aus dem bisherigen Bescheid übernehmen; ohne zugeteilte Nummer beim ersten Antrag leer lassen. Keine Steuer-ID."
+            }
+          ],
+          "phone": [
+            {
+              "id": "line-002",
+              "de": "Telefonische Rückfrage tagsüber unter Nr.:",
+              "translation": "Telefon tagsüber",
+              "meaning": "Erreichbare Nummer mit Vorwahl für Rückfragen; kein Antrag per Telefon."
+            }
+          ],
+          "count": [
+            {
+              "id": "line-003",
+              "de": "Anzahl der beigefügten \"Anlage Kind\":",
+              "translation": "Zahl der Anlagen",
+              "meaning": "Nur tatsächlich beigefügte Anlage Kind zählen: ein Baby, eine Anlage; nicht alle früher berücksichtigten Kinder."
+            }
+          ],
+          "kg1-1": [
+            {
+              "id": "line-004",
+              "de": "Steuerliche Identifikationsnummer der antragstellenden Person (soweit vergeben, zwingend auszufüllen)",
+              "translation": "Steuer-ID dieser Person",
+              "meaning": "Elfstellige persönliche Identifikationsnummer aus dem BZSt-Schreiben oder der elektronischen Lohnsteuerbescheinigung. Nicht die Steuernummer des Finanzamts. Zugewiesene ID angeben; bei fehlender ID Familienkasse nach dem Vorgehen fragen, keine Ersatznummer erfinden."
+            }
+          ],
+          "kg1-2": [
+            {
+              "id": "line-005",
+              "de": "Familienname",
+              "translation": "Nachname",
+              "meaning": "Aktuellen Nachnamen aus dem amtlichen Dokument übernehmen; nicht einen inzwischen geänderten Geburtsnamen."
+            },
+            {
+              "id": "line-006",
+              "de": "Titel",
+              "translation": "Titel",
+              "meaning": "Akademischer Titel, z. B. Dr.; ohne Titel leer lassen. Kein Beruf und keine Anrede Herr/Frau."
+            },
+            {
+              "id": "line-007",
+              "de": "Vorname",
+              "translation": "Vorname",
+              "meaning": "Alle amtlichen Vornamen, z. B. Maja; keinen Spitznamen eintragen."
+            },
+            {
+              "id": "line-008",
+              "de": "ggf. Geburtsname und Familienname aus früherer Ehe",
+              "translation": "Geburtsname und früherer Ehename",
+              "meaning": "Tatsächlichen abweichenden Geburtsnamen bzw. früheren Ehenamen angeben, z. B. jetzt Kovač, bei Geburt Novak; nichts erfinden."
+            },
+            {
+              "id": "line-009",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum",
+              "meaning": "Geburtsdatum aus dem Dokument, z. B. 15.03.1990 für eine erfundene erwachsene Person; nicht das Antragsdatum."
+            },
+            {
+              "id": "line-010",
+              "de": "Geburtsort",
+              "translation": "Geburtsort",
+              "meaning": "Ort laut Geburtsdokument, z. B. Tuzla; nicht der aktuelle Wohnort."
+            },
+            {
+              "id": "line-011",
+              "de": "Geschlecht",
+              "translation": "Geschlecht",
+              "meaning": "Angabe aus dem amtlichen Dokument übernehmen; bei abweichenden Dokumenten Familienkasse fragen, nicht raten."
+            },
+            {
+              "id": "line-012",
+              "de": "Staatsangehörigkeit",
+              "translation": "Staatsangehörigkeit",
+              "meaning": "Staatsangehörigkeit aus dem Dokument, z. B. bosnisch-herzegowinisch; nicht Sprache, Herkunftsgruppe oder Wohnstaat. Bei mehreren Staatsangehörigkeiten tatsächliche Angaben und nötige Anlagen klären."
+            }
+          ],
+          "kg1-3": [
+            {
+              "id": "line-013",
+              "de": "Straße/Platz",
+              "translation": "Straße/Platz",
+              "meaning": "Straßenname, z. B. Musterstraße; Hausnummer gesondert."
+            },
+            {
+              "id": "line-014",
+              "de": "Hausnummer",
+              "translation": "Hausnummer",
+              "meaning": "Nummer mit Zusatz, z. B. 12a; nicht ohne Weiteres die Wohnungsnummer."
+            },
+            {
+              "id": "line-015",
+              "de": "Postleitzahl",
+              "translation": "Postleitzahl",
+              "meaning": "Postleitzahl zur Adresse, z. B. 10115; keine Telefonvorwahl."
+            },
+            {
+              "id": "line-016",
+              "de": "Wohnort",
+              "translation": "Wohnort",
+              "meaning": "Stadt/Gemeinde dieser Adresse, z. B. Berlin; nicht der Geburtsort."
+            },
+            {
+              "id": "line-017",
+              "de": "Staat",
+              "translation": "Staat",
+              "meaning": "Land dieser Adresse, z. B. Deutschland oder Bosnien und Herzegowina; nicht die Staatsangehörigkeit."
+            }
+          ],
+          "status": [
+            {
+              "id": "line-018",
+              "de": "ledig",
+              "translation": "Unverheiratet",
+              "meaning": "Nicht verheiratet oder verpartnert; bedeutet nicht einfach allein wohnend."
+            },
+            {
+              "id": "line-019",
+              "de": "verheiratet",
+              "translation": "Verheiratet",
+              "meaning": "Die Ehe besteht. Eine vorübergehende Arbeitswohnung in Österreich allein bedeutet keine dauernde Trennung."
+            },
+            {
+              "id": "line-020",
+              "de": "geschieden",
+              "translation": "Geschieden",
+              "meaning": "Die Ehe ist rechtswirksam geschieden; ein bloßer Scheidungsantrag ist noch keine Scheidung."
+            },
+            {
+              "id": "line-021",
+              "de": "verwitwet",
+              "translation": "Verwitwet",
+              "meaning": "Der Ehepartner ist verstorben; tatsächlichen Status und maßgebliches Datum angeben."
+            },
+            {
+              "id": "line-022",
+              "de": "in eingetragener Lebenspartnerschaft lebend",
+              "translation": "In eingetragener Lebenspartnerschaft",
+              "meaning": "Rechtlich eingetragene Partnerschaft; nicht bloß unverheiratetes Zusammenleben."
+            },
+            {
+              "id": "line-023",
+              "de": "aufgehobene Lebenspartnerschaft",
+              "translation": "Aufgehobene Lebenspartnerschaft",
+              "meaning": "Die eingetragene Partnerschaft wurde rechtlich beendet; nicht nur eine Beziehung beendet oder eine andere Adresse bezogen."
+            },
+            {
+              "id": "line-024",
+              "de": "dauernd getrennt lebend",
+              "translation": "Dauernd getrennt",
+              "meaning": "Laut Hinweisen muss mindestens ein Ehepartner die Trennung dauerhaft aufrechterhalten wollen. Vorübergehende Arbeit oder zwei Adressen allein reichen als Beschreibung nicht; keine Scheidung."
+            },
+            {
+              "id": "line-025",
+              "de": "seit:",
+              "translation": "Seit wann",
+              "meaning": "Maßgebliches Datum des geänderten Status aus der Urkunde bzw. tatsächlicher Beginn der dauernden Trennung. Erfunden: verheiratet, seit 20.06.2020; nicht das heutige Antragsdatum. Für ledig kein Änderungsdatum erfinden."
+            }
+          ],
+          "kg1-4": [
+            {
+              "id": "line-026",
+              "de": "Steuerliche Identifikationsnummer (soweit vergeben, bitte ausfüllen)",
+              "translation": "Steuer-ID dieser Person",
+              "meaning": "Elfstellige persönliche Identifikationsnummer aus dem BZSt-Schreiben oder der elektronischen Lohnsteuerbescheinigung. Nicht die Steuernummer des Finanzamts. Zugewiesene ID angeben; bei fehlender ID Familienkasse nach dem Vorgehen fragen, keine Ersatznummer erfinden."
+            },
+            {
+              "id": "line-027",
+              "de": "Familienname",
+              "translation": "Nachname",
+              "meaning": "Aktuellen Nachnamen aus dem amtlichen Dokument übernehmen; nicht einen inzwischen geänderten Geburtsnamen."
+            },
+            {
+              "id": "line-028",
+              "de": "Vorname",
+              "translation": "Vorname",
+              "meaning": "Alle amtlichen Vornamen, z. B. Maja; keinen Spitznamen eintragen."
+            },
+            {
+              "id": "line-029",
+              "de": "Titel",
+              "translation": "Titel",
+              "meaning": "Akademischer Titel, z. B. Dr.; ohne Titel leer lassen. Kein Beruf und keine Anrede Herr/Frau."
+            },
+            {
+              "id": "line-030",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum",
+              "meaning": "Geburtsdatum aus dem Dokument, z. B. 15.03.1990 für eine erfundene erwachsene Person; nicht das Antragsdatum."
+            },
+            {
+              "id": "line-031",
+              "de": "Staatsangehörigkeit",
+              "translation": "Staatsangehörigkeit",
+              "meaning": "Staatsangehörigkeit aus dem Dokument, z. B. bosnisch-herzegowinisch; nicht Sprache, Herkunftsgruppe oder Wohnstaat. Bei mehreren Staatsangehörigkeiten tatsächliche Angaben und nötige Anlagen klären."
+            },
+            {
+              "id": "line-032",
+              "de": "Geschlecht",
+              "translation": "Geschlecht",
+              "meaning": "Angabe aus dem amtlichen Dokument übernehmen; bei abweichenden Dokumenten Familienkasse fragen, nicht raten."
+            },
+            {
+              "id": "line-033",
+              "de": "ggf. Geburtsname und Familienname aus früherer Ehe",
+              "translation": "Geburtsname und früherer Ehename",
+              "meaning": "Tatsächlichen abweichenden Geburtsnamen bzw. früheren Ehenamen angeben, z. B. jetzt Kovač, bei Geburt Novak; nichts erfinden."
+            }
+          ],
+          "partnerAddress": [
+            {
+              "id": "line-034",
+              "de": "Straße/Platz",
+              "translation": "Straße/Platz",
+              "meaning": "Straßenname, z. B. Musterstraße; Hausnummer gesondert."
+            },
+            {
+              "id": "line-035",
+              "de": "Hausnummer",
+              "translation": "Hausnummer",
+              "meaning": "Nummer mit Zusatz, z. B. 12a; nicht ohne Weiteres die Wohnungsnummer."
+            },
+            {
+              "id": "line-036",
+              "de": "Postleitzahl",
+              "translation": "Postleitzahl",
+              "meaning": "Postleitzahl zur Adresse, z. B. 10115; keine Telefonvorwahl."
+            },
+            {
+              "id": "line-037",
+              "de": "Wohnort",
+              "translation": "Wohnort",
+              "meaning": "Stadt/Gemeinde dieser Adresse, z. B. Berlin; nicht der Geburtsort."
+            },
+            {
+              "id": "line-038",
+              "de": "Staat",
+              "translation": "Staat",
+              "meaning": "Land dieser Adresse, z. B. Deutschland oder Bosnien und Herzegowina; nicht die Staatsangehörigkeit."
+            }
+          ],
+          "kg1-5": [
+            {
+              "id": "line-039",
+              "de": "IBAN",
+              "translation": "IBAN",
+              "meaning": "Internationale Kontonummer aus Kontodetails/Kontoauszug; keine Kartennummer. Vollständig übernehmen, nicht auf DE beschränken."
+            },
+            {
+              "id": "line-040",
+              "de": "BIC",
+              "translation": "BIC",
+              "meaning": "Bankkennung aus den Kontodaten; weder IBAN noch Kontoinhaber. Bei fehlender Angabe die Bank fragen."
+            },
+            {
+              "id": "line-041",
+              "de": "Bank, Finanzinstitut (ggf. auch Zweigstelle)",
+              "translation": "Bank/Finanzinstitut, gegebenenfalls Zweigstelle",
+              "meaning": "Bankname laut Kontodaten; nicht der Name des Kontoinhabers."
+            }
+          ],
+          "owner": [
+            {
+              "id": "line-042",
+              "de": "antragstellende Person wie unter Nr. 1",
+              "translation": "Antragstellende Person aus Nr. 1",
+              "meaning": "Ankreuzen, wenn das Konto dieser Person gehört. Kontoinhaberschaft prüfen, nicht aus der Kartennutzung schließen."
+            },
+            {
+              "id": "line-043",
+              "de": "nicht antragstellende Person, sondern:",
+              "translation": "Andere Person",
+              "meaning": "Gehört das Konto nicht der antragstellenden Person, diese Option wählen und nebenan deren Familiennamen und Vornamen eintragen."
+            },
+            {
+              "id": "line-044",
+              "de": "Familienname, Vorname",
+              "translation": "Name des anderen Kontoinhabers",
+              "meaning": "Zur zweiten Option; erfunden: Konto von Damir Novak, Antrag von Maja Kovač."
+            }
+          ],
+          "kg1-6": [
+            {
+              "id": "line-045",
+              "de": "Familienname",
+              "translation": "Familienname der empfangsbevollmächtigten Person",
+              "meaning": "Nur bei gewünschtem anderen Bescheidempfänger; nicht automatisch Zahlungsempfänger."
+            },
+            {
+              "id": "line-046",
+              "de": "Vorname",
+              "translation": "Vorname der empfangsbevollmächtigten Person",
+              "meaning": "Nur bei gewünschtem anderen Bescheidempfänger; nicht automatisch Zahlungsempfänger."
+            },
+            {
+              "id": "line-047",
+              "de": "Straße/Platz",
+              "translation": "Straße/Platz",
+              "meaning": "Straßenname, z. B. Musterstraße; Hausnummer gesondert."
+            },
+            {
+              "id": "line-048",
+              "de": "Hausnummer",
+              "translation": "Hausnummer",
+              "meaning": "Nummer mit Zusatz, z. B. 12a; nicht ohne Weiteres die Wohnungsnummer."
+            },
+            {
+              "id": "line-049",
+              "de": "Postleitzahl",
+              "translation": "Postleitzahl",
+              "meaning": "Postleitzahl zur Adresse, z. B. 10115; keine Telefonvorwahl."
+            },
+            {
+              "id": "line-050",
+              "de": "Wohnort",
+              "translation": "Wohnort",
+              "meaning": "Stadt/Gemeinde dieser Adresse, z. B. Berlin; nicht der Geburtsort."
+            },
+            {
+              "id": "line-051",
+              "de": "Staat",
+              "translation": "Staat",
+              "meaning": "Land dieser Adresse, z. B. Deutschland oder Bosnien und Herzegowina; nicht die Staatsangehörigkeit."
+            }
+          ],
+          "kg1-7": [
+            {
+              "id": "line-052",
+              "de": "Vorname des Kindes",
+              "translation": "Vorname dieses anderen Kindes",
+              "meaning": "Aus dem bisherigen Bescheid; das erstmals beantragte Baby gehört nicht in diese Zeile."
+            },
+            {
+              "id": "line-053",
+              "de": "ggf. abweichender Familienname",
+              "translation": "Abweichender Nachname des Kindes",
+              "meaning": "Wenn er vom Nachnamen der antragstellenden Person abweicht; nicht den Namen des Empfängers einsetzen."
+            },
+            {
+              "id": "line-054",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum des anderen Kindes",
+              "meaning": "Aus Dokument/Bescheid, nicht das neue Antragsdatum."
+            },
+            {
+              "id": "line-055",
+              "de": "Geschlecht",
+              "translation": "Geschlecht dieses Kindes",
+              "meaning": "Amtliche Angabe des Kindes, nicht der antragstellenden Person."
+            },
+            {
+              "id": "line-056",
+              "de": "Bei welcher Familienkasse (Kindergeldnummer)?",
+              "translation": "Familienkasse und Kindergeldnummer",
+              "meaning": "Zuständige Kasse und Nummer aus dem Bescheid für dieses Kind; keine Steuer-ID. Unbekannte Angaben mit der Familienkasse klären."
+            }
+          ],
+          "kg1-8": [
+            {
+              "id": "line-057",
+              "de": "Vorname des Kindes",
+              "translation": "Vorname dieses anderen Kindes",
+              "meaning": "Aus dem bisherigen Bescheid; das erstmals beantragte Baby gehört nicht in diese Zeile."
+            },
+            {
+              "id": "line-058",
+              "de": "ggf. abweichender Familienname",
+              "translation": "Abweichender Nachname des Kindes",
+              "meaning": "Wenn er vom Nachnamen der antragstellenden Person abweicht; nicht den Namen des Empfängers einsetzen."
+            },
+            {
+              "id": "line-059",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum des anderen Kindes",
+              "meaning": "Aus Dokument/Bescheid, nicht das neue Antragsdatum."
+            },
+            {
+              "id": "line-060",
+              "de": "Geschlecht",
+              "translation": "Geschlecht dieses Kindes",
+              "meaning": "Amtliche Angabe des Kindes, nicht der antragstellenden Person."
+            },
+            {
+              "id": "line-061",
+              "de": "Wer bezieht das Kindergeld (Familienname, Vorname)?",
+              "translation": "Wer erhält das Kindergeld: Familienname, Vorname",
+              "meaning": "Tatsächlicher Empfänger für dieses weitere eigene Kind, z. B. anderer Elternteil; nicht der neue Antragsteller für das Baby."
+            },
+            {
+              "id": "line-062",
+              "de": "Bei welcher Familienkasse (Kindergeldnummer)?",
+              "translation": "Familienkasse und Kindergeldnummer",
+              "meaning": "Zuständige Kasse und Nummer aus dem Bescheid für dieses Kind; keine Steuer-ID. Unbekannte Angaben mit der Familienkasse klären."
+            }
+          ],
+          "kg1-9": [
+            {
+              "id": "line-063",
+              "de": "Datum",
+              "translation": "Datum der Unterschrift",
+              "meaning": "Tag der Unterschrift unter dieser Erklärung, nicht das Geburtsdatum."
+            },
+            {
+              "id": "line-064",
+              "de": "Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+              "translation": "Unterschrift des Antragstellers bzw. der gesetzlichen Vertretung",
+              "meaning": "Erklärung zu vollständigen, wahren Angaben und Mitteilung relevanter Änderungen lesen. Bei minderjährigem Antragsteller unterschreibt die gesetzliche Vertretung. Eine Guide-Markierung ist keine Unterschrift."
+            }
+          ],
+          "consent": [
+            {
+              "id": "line-065",
+              "de": "Datum",
+              "translation": "Datum der Unterschrift",
+              "meaning": "Tag der Unterschrift unter dieser Erklärung, nicht das Geburtsdatum."
+            },
+            {
+              "id": "line-066",
+              "de": "Unterschrift der unter Punkt 2 genannten Person bzw. deren gesetzlichen Vertretung",
+              "translation": "Unterschrift der Person aus Punkt 2 bzw. ihrer gesetzlichen Vertretung",
+              "meaning": "Separate Zustimmung zum Kindergeldbezug durch den Antragsteller. Hinweise nennen gemeinsamen Haushalt und Einverständnis; bei fehlendem Einverständnis Familienkasse informieren. Nicht für eine andere Person unterschreiben."
+            }
+          ],
+          "ank-0": [
+            {
+              "id": "line-067",
+              "de": "Familienname und Vorname der antragstellenden Person",
+              "translation": "Name der antragstellenden Person",
+              "meaning": "Dieselbe Person wie KG1 Nr. 1; hier nicht den Namen des Babys eintragen."
+            },
+            {
+              "id": "line-068",
+              "de": "Kindergeld-Nr.",
+              "translation": "Kindergeldnummer",
+              "meaning": "Dieselbe vorhandene Nummer wie auf KG1; ohne Zuteilung keine neue Nummer erfinden."
+            },
+            {
+              "id": "line-069",
+              "de": "zum Antrag auf Kindergeld vom",
+              "translation": "Zum Antrag vom",
+              "meaning": "Datum des zugehörigen KG1-Antrags, nicht das Geburtsdatum des Kindes."
+            },
+            {
+              "id": "line-070",
+              "de": "Lfd. Nr.",
+              "translation": "Laufende Nummer",
+              "meaning": "Anlagen dieses Antrags nummerieren: erstes Kind 1, zweites 2. Keine Steuer-ID."
+            }
+          ],
+          "ank-1": [
+            {
+              "id": "line-071",
+              "de": "Steuerliche Identifikationsnummer des Kindes (soweit vergeben, zwingend auszufüllen)",
+              "translation": "Steuer-ID des Kindes",
+              "meaning": "Elfstellige persönliche Identifikationsnummer aus dem BZSt-Schreiben oder der elektronischen Lohnsteuerbescheinigung. Nicht die Steuernummer des Finanzamts. Zugewiesene ID angeben; bei fehlender ID Familienkasse nach dem Vorgehen fragen, keine Ersatznummer erfinden."
+            }
+          ],
+          "ank-2": [
+            {
+              "id": "line-072",
+              "de": "Familienname",
+              "translation": "Nachname",
+              "meaning": "Aktuellen Nachnamen aus dem amtlichen Dokument übernehmen; nicht einen inzwischen geänderten Geburtsnamen."
+            },
+            {
+              "id": "line-073",
+              "de": "Titel",
+              "translation": "Titel",
+              "meaning": "Akademischer Titel, z. B. Dr.; ohne Titel leer lassen. Kein Beruf und keine Anrede Herr/Frau."
+            },
+            {
+              "id": "line-074",
+              "de": "Vorname",
+              "translation": "Vorname",
+              "meaning": "Alle amtlichen Vornamen, z. B. Maja; keinen Spitznamen eintragen."
+            },
+            {
+              "id": "line-075",
+              "de": "Geburtsname",
+              "translation": "Geburtsname",
+              "meaning": "Tatsächlichen abweichenden Geburtsnamen bzw. früheren Ehenamen angeben, z. B. jetzt Kovač, bei Geburt Novak; nichts erfinden."
+            },
+            {
+              "id": "line-076",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum",
+              "meaning": "Geburtsdatum aus dem Dokument, z. B. 15.03.1990 für eine erfundene erwachsene Person; nicht das Antragsdatum."
+            },
+            {
+              "id": "line-077",
+              "de": "Geburtsort",
+              "translation": "Geburtsort",
+              "meaning": "Ort laut Geburtsdokument, z. B. Tuzla; nicht der aktuelle Wohnort."
+            },
+            {
+              "id": "line-078",
+              "de": "Geschlecht",
+              "translation": "Geschlecht",
+              "meaning": "Angabe aus dem amtlichen Dokument übernehmen; bei abweichenden Dokumenten Familienkasse fragen, nicht raten."
+            },
+            {
+              "id": "line-079",
+              "de": "Staatsangehörigkeit",
+              "translation": "Staatsangehörigkeit",
+              "meaning": "Staatsangehörigkeit aus dem Dokument, z. B. bosnisch-herzegowinisch; nicht Sprache, Herkunftsgruppe oder Wohnstaat. Bei mehreren Staatsangehörigkeiten tatsächliche Angaben und nötige Anlagen klären."
+            }
+          ],
+          "childAddress": [
+            {
+              "id": "line-080",
+              "de": "Straße/Platz",
+              "translation": "Straße/Platz",
+              "meaning": "Straßenname, z. B. Musterstraße; Hausnummer gesondert."
+            },
+            {
+              "id": "line-081",
+              "de": "Hausnummer",
+              "translation": "Hausnummer",
+              "meaning": "Nummer mit Zusatz, z. B. 12a; nicht ohne Weiteres die Wohnungsnummer."
+            },
+            {
+              "id": "line-082",
+              "de": "Postleitzahl",
+              "translation": "Postleitzahl",
+              "meaning": "Postleitzahl zur Adresse, z. B. 10115; keine Telefonvorwahl."
+            },
+            {
+              "id": "line-083",
+              "de": "Wohnort",
+              "translation": "Wohnort",
+              "meaning": "Stadt/Gemeinde dieser Adresse, z. B. Berlin; nicht der Geburtsort."
+            },
+            {
+              "id": "line-084",
+              "de": "Staat",
+              "translation": "Staat",
+              "meaning": "Land dieser Adresse, z. B. Deutschland oder Bosnien und Herzegowina; nicht die Staatsangehörigkeit."
+            },
+            {
+              "id": "line-085",
+              "de": "Grund der abweichenden Anschrift",
+              "translation": "Grund der anderen Adresse",
+              "meaning": "Tatsächliche Wohnsituation, z. B. Kind lebt bei der Großmutter in Bosnien und Herzegowina. Die Geburtsklinik ist nicht automatisch ein anderer Dauerwohnsitz. Beispiel entscheidet keinen Anspruch."
+            }
+          ],
+          "ank-3": [
+            {
+              "id": "line-086",
+              "de": "zur antragstellenden Person",
+              "translation": "Zur antragstellenden Person",
+              "meaning": "In dieser Zeile Beziehung des Kindes zu dieser Person angeben; jede Zeile gesondert prüfen, unabhängig von Ehe/gemeinsamer Adresse."
+            },
+            {
+              "id": "line-087",
+              "de": "leibliches Kind",
+              "translation": "Leibliches Kind",
+              "meaning": "Die Person ist biologischer Elternteil; Maja ist Leas leibliche Mutter."
+            },
+            {
+              "id": "line-088",
+              "de": "Adoptivkind",
+              "translation": "Adoptivkind",
+              "meaning": "Rechtlich adoptiertes Kind dieser Person, nicht bloß das Kind des Partners. Laut Hinweisen Familiennamen nach Annahme verwenden; gegebenenfalls Annahmebeschluss beifügen."
+            },
+            {
+              "id": "line-089",
+              "de": "Pflegekind",
+              "translation": "Pflegekind",
+              "meaning": "Die Person ist Pflegeelternteil, nicht nur gelegentliche Betreuungsperson. Status und Nachweise mit der Familienkasse klären."
+            },
+            {
+              "id": "line-090",
+              "de": "Stiefkind",
+              "translation": "Stiefkind",
+              "meaning": "Kind des Ehepartners bzw. eingetragenen Lebenspartners; Lea kann Majas leibliches Kind und Damirs Stiefkind sein. Nicht jede Beziehung automatisch gleichsetzen."
+            },
+            {
+              "id": "line-091",
+              "de": "Enkelkind",
+              "translation": "Enkelkind",
+              "meaning": "Die Person ist Großelternteil, nicht Elternteil; Leas Großmutter beschreibt den Bezug zu sich. Das allein bestätigt keinen Anspruch."
+            },
+            {
+              "id": "line-092",
+              "de": "zum/zur Ehepartner(in) bzw. eingetragenen Lebenspartner(in)",
+              "translation": "Zum Ehepartner bzw. eingetragenen Lebenspartner",
+              "meaning": "In dieser Zeile Beziehung des Kindes zu dieser Person angeben; jede Zeile gesondert prüfen, unabhängig von Ehe/gemeinsamer Adresse."
+            },
+            {
+              "id": "line-093",
+              "de": "leibliches Kind",
+              "translation": "Leibliches Kind",
+              "meaning": "Die Person ist biologischer Elternteil; Maja ist Leas leibliche Mutter."
+            },
+            {
+              "id": "line-094",
+              "de": "Adoptivkind",
+              "translation": "Adoptivkind",
+              "meaning": "Rechtlich adoptiertes Kind dieser Person, nicht bloß das Kind des Partners. Laut Hinweisen Familiennamen nach Annahme verwenden; gegebenenfalls Annahmebeschluss beifügen."
+            },
+            {
+              "id": "line-095",
+              "de": "Pflegekind",
+              "translation": "Pflegekind",
+              "meaning": "Die Person ist Pflegeelternteil, nicht nur gelegentliche Betreuungsperson. Status und Nachweise mit der Familienkasse klären."
+            },
+            {
+              "id": "line-096",
+              "de": "Stiefkind",
+              "translation": "Stiefkind",
+              "meaning": "Kind des Ehepartners bzw. eingetragenen Lebenspartners; Lea kann Majas leibliches Kind und Damirs Stiefkind sein. Nicht jede Beziehung automatisch gleichsetzen."
+            },
+            {
+              "id": "line-097",
+              "de": "Enkelkind",
+              "translation": "Enkelkind",
+              "meaning": "Die Person ist Großelternteil, nicht Elternteil; Leas Großmutter beschreibt den Bezug zu sich. Das allein bestätigt keinen Anspruch."
+            },
+            {
+              "id": "line-098",
+              "de": "zu einer anderen Person (z. B. anderer (Pflege-)Elternteil; bitte unten Angaben machen)",
+              "translation": "Zu einer anderen Person, z. B. anderem Eltern-/Pflegeelternteil",
+              "meaning": "In dieser Zeile Beziehung des Kindes zu dieser Person angeben; jede Zeile gesondert prüfen, unabhängig von Ehe/gemeinsamer Adresse."
+            },
+            {
+              "id": "line-099",
+              "de": "leibliches Kind",
+              "translation": "Leibliches Kind",
+              "meaning": "Die Person ist biologischer Elternteil; Maja ist Leas leibliche Mutter."
+            },
+            {
+              "id": "line-100",
+              "de": "Adoptivkind",
+              "translation": "Adoptivkind",
+              "meaning": "Rechtlich adoptiertes Kind dieser Person, nicht bloß das Kind des Partners. Laut Hinweisen Familiennamen nach Annahme verwenden; gegebenenfalls Annahmebeschluss beifügen."
+            },
+            {
+              "id": "line-101",
+              "de": "Pflegekind",
+              "translation": "Pflegekind",
+              "meaning": "Die Person ist Pflegeelternteil, nicht nur gelegentliche Betreuungsperson. Status und Nachweise mit der Familienkasse klären."
+            },
+            {
+              "id": "line-102",
+              "de": "Stiefkind",
+              "translation": "Stiefkind",
+              "meaning": "Kind des Ehepartners bzw. eingetragenen Lebenspartners; Lea kann Majas leibliches Kind und Damirs Stiefkind sein. Nicht jede Beziehung automatisch gleichsetzen."
+            },
+            {
+              "id": "line-103",
+              "de": "Enkelkind",
+              "translation": "Enkelkind",
+              "meaning": "Die Person ist Großelternteil, nicht Elternteil; Leas Großmutter beschreibt den Bezug zu sich. Das allein bestätigt keinen Anspruch."
+            }
+          ],
+          "otherParent": [
+            {
+              "id": "line-104",
+              "de": "Familienname",
+              "translation": "Nachname der anderen Person",
+              "meaning": "Z. B. anderer leiblicher Elternteil außerhalb des Haushalts; nichts erfinden."
+            },
+            {
+              "id": "line-105",
+              "de": "Vorname",
+              "translation": "Vorname der anderen Person",
+              "meaning": "Amtlicher Name, nicht nur „Vater“ oder „Mutter“."
+            },
+            {
+              "id": "line-106",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum der anderen Person",
+              "meaning": "Nicht das Geburtsdatum des Babys."
+            },
+            {
+              "id": "line-107",
+              "de": "letzte bekannte Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)",
+              "translation": "Letzte bekannte Adresse",
+              "meaning": "Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat; nur tatsächlich bekannte Angaben, keine erfundene aktuelle Adresse."
+            },
+            {
+              "id": "line-108",
+              "de": "Staatsangehörigkeit",
+              "translation": "Staatsangehörigkeit der anderen Person",
+              "meaning": "Aus Dokument/verfügbaren verlässlichen Angaben, nicht aus Sprache oder Adresse ableiten."
+            },
+            {
+              "id": "line-109",
+              "de": "verstorben",
+              "translation": "Verstorben",
+              "meaning": "Zusatz nur bei tatsächlichem Tod dieser Person; nicht bei bloß unbekannter Adresse."
+            },
+            {
+              "id": "line-110",
+              "de": "Vaterschaft nicht festgestellt",
+              "translation": "Vaterschaft nicht festgestellt",
+              "meaning": "Vaterschaft ist nicht rechtswirksam festgestellt; nicht gleichbedeutend mit getrennt wohnendem Vater."
+            },
+            {
+              "id": "line-111",
+              "de": "unbekannt",
+              "translation": "Unbekannt",
+              "meaning": "Tatsächlich unbekannten Sachverhalt angeben, keinen Namen raten. Hinweise verlangen Angaben auch außerhalb der Partnerschaft/des Haushalts; offene Punkte der Familienkasse erklären."
+            }
+          ],
+          "ank-4": [
+            {
+              "id": "line-112",
+              "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4",
+              "translation": "Volljähriges oder bald 18-jähriges Kind",
+              "meaning": "Beim NEUGEBORENEN gesamten Punkt 3 (3.1–3.3) überspringen und mit Punkt 4 auf Seite 3 fortfahren. Keine Schulnachweise für das Baby."
+            },
+            {
+              "id": "line-113",
+              "de": "Nachweise zu den Angaben (Punkt 3.1 - 3.3)",
+              "translation": "Nachweise für 3.1–3.3",
+              "meaning": "Beigefügt, bereits vorhanden oder werden nachgereicht. Gehört zum Erwachsenenabschnitt; beim Baby nicht ankreuzen."
+            },
+            {
+              "id": "line-114",
+              "de": "3.1 Das Kind",
+              "translation": "Ausbildung und weitere Situationen des erwachsenen Kindes",
+              "meaning": "Schule/Studium/Ausbildung, andere Maßnahmen, fehlender Ausbildungsplatz, Freiwilligendienst, Übergang und Arbeitsuchendmeldung. Beim Baby überspringen; kein Erwachsenen-Anspruchscheck."
+            },
+            {
+              "id": "line-115",
+              "de": "3.2 Angaben zur Erwerbstätigkeit",
+              "translation": "Erwerbstätigkeit des erwachsenen Kindes",
+              "meaning": "Abschluss, Beschäftigung, Minijob/andere Arbeit, Arbeitgeber, Zeiträume und Wochenstunden. Für Neugeborene nicht ausfüllen."
+            },
+            {
+              "id": "line-116",
+              "de": "3.3 Angaben zum Vorliegen einer Behinderung",
+              "translation": "Behinderung im Erwachsenenabschnitt",
+              "meaning": "Formular beschränkt diese Frage ausdrücklich auf volljährige/bald 18-jährige Kinder. Beim Neugeborenen überspringen, weiter zu 4; daraus keinen besonderen Anspruch ableiten."
+            }
+          ],
+          "ank-5": [
+            {
+              "id": "line-117",
+              "de": "Haben Sie oder eine unter Punkt 2 genannte Person für dieses Kind bereits Kindergeld beantragt oder erhalten?",
+              "translation": "Schon Antrag/Bezug für dieses Kind?",
+              "meaning": "Betrifft dich oder eine Person aus Anlage Kind Punkt 2 und genau dieses Baby, nicht andere ältere Kinder."
+            },
+            {
+              "id": "line-118",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "Bei früherem Antrag oder Bezug für dieses Baby Person, Geburtsdatum, Zeitraum, Kasse/Adresse und Nummer unten angeben."
+            },
+            {
+              "id": "line-119",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Keine genannte Person hat zuvor für dieses Kind beantragt oder bezogen; Zusatzfelder in Punkt 4 nicht ausfüllen."
+            },
+            {
+              "id": "line-120",
+              "de": "Familienname, Vorname der beziehenden Person",
+              "translation": "Name der betroffenen leistungsbeziehenden Person",
+              "meaning": "Die Person, auf die sich „ja“ bezieht; nicht automatisch Kind oder Antragsteller."
+            },
+            {
+              "id": "line-121",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum dieser Person",
+              "meaning": "Aus deren Dokument, nicht das Geburtsdatum des Babys."
+            },
+            {
+              "id": "line-122",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Zeitraum (ab/von – bis)",
+              "meaning": "Tatsächlichen Beginn und Ende aus den Unterlagen; bei laufendem Sachverhalt tatsächlichen Stand angeben und Format klären, kein Enddatum erfinden."
+            },
+            {
+              "id": "line-123",
+              "de": "Familienkasse, Anschrift",
+              "translation": "Familienkasse und Adresse",
+              "meaning": "Kasse des vorherigen Antrags für dasselbe Baby, aus Schreiben/Bescheid."
+            },
+            {
+              "id": "line-124",
+              "de": "Kindergeldnummer",
+              "translation": "Bisherige Kindergeldnummer",
+              "meaning": "Nummer aus vorherigem Antrag/Bescheid für dieses Kind; keine Steuer-ID."
+            }
+          ],
+          "ank-6": [
+            {
+              "id": "line-125",
+              "de": "Sind Sie oder eine unter Punkt 2 genannte Person, zu der das Kind in einem Kindschaftsverhältnis steht, im öffentlichen Dienst tätig?",
+              "translation": "Öffentlicher Dienst bei dir oder einer Person aus Punkt 2 mit Kindschaftsverhältnis?",
+              "meaning": "Hinweise umfassen Beamte, Versorgungsempfänger, Beschäftigte von Bund/Land/Gemeinden/anderen öffentlich-rechtlichen Körperschaften, Richter, Berufs-/Zeitsoldaten; auch private Arbeit während Beurlaubung aus dem öffentlichen Dienst. Kirchliche Einrichtungen und angeschlossene freie Wohlfahrtspflege sind laut Hinweisen nicht allein deshalb öffentlicher Dienst."
+            },
+            {
+              "id": "line-126",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "a) und b) getrennt beantworten; Namen und Geburtsdatum angeben. Bei Krankenhausarbeit rechtlichen Arbeitgeber prüfen, nicht bloß öffentliche Finanzierung."
+            },
+            {
+              "id": "line-127",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Wenn keine erfasste Person den beschriebenen Status hat; nicht allein wegen Arbeit außerhalb eines Büros wählen."
+            },
+            {
+              "id": "line-128",
+              "de": "a) Wird die Beschäftigung in einer Einrichtung des Bundes ausgeübt?",
+              "translation": "a) Beschäftigung bei einer Bundeseinrichtung?",
+              "meaning": "Bund ist die Bundesebene, nicht automatisch Gemeinde oder Land."
+            },
+            {
+              "id": "line-129",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "Einrichtung gehört zur Bundesebene; beim Personalbereich bestätigen lassen."
+            },
+            {
+              "id": "line-130",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Keine Bundeseinrichtung; Landesdienst kann beim Hauptpunkt „ja“, hier „nein“ bedeuten."
+            },
+            {
+              "id": "line-131",
+              "de": "b) Wird die Beschäftigung bei der Bundesagentur für Arbeit oder einem Jobcenter (gemeinsamen Einrichtung nach §44b SGB II) ausgeübt?",
+              "translation": "b) Beschäftigung bei BA oder gemeinsamem Jobcenter?",
+              "meaning": "Fragt nach Arbeit dort, nicht Bürgergeldbezug oder einem Termin. Gemeinsame Einrichtung nach §44b SGB II ist ausdrücklich genannt."
+            },
+            {
+              "id": "line-132",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "Beschäftigung bei BA oder der genannten gemeinsamen Einrichtung; Trägerform prüfen."
+            },
+            {
+              "id": "line-133",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Keine solche Beschäftigung; bloße Kundschaft bei BA/Jobcenter ist kein „ja“."
+            },
+            {
+              "id": "line-134",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Name der betroffenen Person",
+              "meaning": "Die Person, auf die sich „ja“ bezieht; nicht automatisch Kind oder Antragsteller."
+            },
+            {
+              "id": "line-135",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum dieser Person",
+              "meaning": "Aus deren Dokument, nicht das Geburtsdatum des Babys."
+            }
+          ],
+          "ank-7": [
+            {
+              "id": "line-136",
+              "de": "Besteht oder bestand für Sie oder eine unter Punkt 2 genannte Person für das Kind in den letzten 5 Jahren vor der Antragstellung ein Anspruch auf eine kindbezogene Geldleistung von einer Stelle außerhalb Deutschlands oder von einer zwischen- oder überstaatlichen Einrichtung?",
+              "translation": "Anspruch auf ausländische/internationale kindbezogene Geldleistung in den fünf Jahren vor Antrag?",
+              "meaning": "Fragt nach bestehendem oder früherem Anspruch von dir/einer Person aus Punkt 2, nicht nur tatsächlich ausgezahltem Geld. Ausländische Familienleistungen und z. B. EU-Beschäftigungsleistungen sind erfasst."
+            },
+            {
+              "id": "line-137",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "Ein solcher Anspruch besteht/bestand: Person, Geburtsdatum, Leistung, Monatsbetrag in Euro, Zeitraum, Stelle/Adresse und Aktenzeichen angeben. Fremdwährungsumrechnung klären, nichts erfinden."
+            },
+            {
+              "id": "line-138",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Kein solcher Anspruch im genannten Umfang; fehlende Zahlung allein begründet noch kein „nein“."
+            },
+            {
+              "id": "line-139",
+              "de": "Familienname, Vorname der beziehenden Person",
+              "translation": "Name der betroffenen leistungsbeziehenden Person",
+              "meaning": "Die Person, auf die sich „ja“ bezieht; nicht automatisch Kind oder Antragsteller."
+            },
+            {
+              "id": "line-140",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum dieser Person",
+              "meaning": "Aus deren Dokument, nicht das Geburtsdatum des Babys."
+            },
+            {
+              "id": "line-141",
+              "de": "Leistung",
+              "translation": "Bezeichnung der Leistung",
+              "meaning": "Amtlicher Name aus der Entscheidung, nicht nur „Geld aus Bosnien“."
+            },
+            {
+              "id": "line-142",
+              "de": "monatlicher Betrag (Euro)",
+              "translation": "Monatlicher Eurobetrag",
+              "meaning": "Betrag aus Unterlagen, keine Jahressumme; Umrechnung anderer Währung klären."
+            },
+            {
+              "id": "line-143",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Zeitraum (ab/von – bis)",
+              "meaning": "Tatsächlichen Beginn und Ende aus den Unterlagen; bei laufendem Sachverhalt tatsächlichen Stand angeben und Format klären, kein Enddatum erfinden."
+            },
+            {
+              "id": "line-144",
+              "de": "leistende Stelle, Anschrift",
+              "translation": "Leistende Stelle und Adresse",
+              "meaning": "Amtlicher Name und vollständige Adresse aus Entscheidung, nicht bloß überweisende Bank."
+            },
+            {
+              "id": "line-145",
+              "de": "Aktenzeichen",
+              "translation": "Aktenzeichen",
+              "meaning": "Vorgangszeichen der leistenden Stelle; keine deutsche Steuer-ID oder IBAN."
+            }
+          ],
+          "ank-8": [
+            {
+              "id": "line-146",
+              "de": "außerhalb Deutschlands als Arbeitnehmer(in), Selbständige(r), Entwicklungshelfer(in) tätig?",
+              "translation": "7a) Arbeit außerhalb Deutschlands",
+              "meaning": "Für dich/eine Person aus Punkt 2 mit Kindschaftsverhältnis in den fünf Jahren vor Antrag: Arbeitnehmer, Selbständige oder Entwicklungshelfer. Hinweise nennen auch diplomatischen/konsularischen Dienst."
+            },
+            {
+              "id": "line-147",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "Erfunden: Damir arbeitete in Österreich oder Bosnien und Herzegowina im Zeitraum. Tatsächliche Arbeitsdaten angeben; Beispiel entscheidet keinen grenzüberschreitenden Anspruch. Gemeinsame Zusatzfelder in Punkt 7 ausfüllen."
+            },
+            {
+              "id": "line-148",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Keine beschriebene Tätigkeit im Zeitraum bei erfassten Personen; die anderen beiden Fragen trotzdem getrennt beantworten."
+            },
+            {
+              "id": "line-149",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Name der betroffenen Person",
+              "meaning": "Die Person, auf die sich „ja“ bezieht; nicht automatisch Kind oder Antragsteller."
+            },
+            {
+              "id": "line-150",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum dieser Person",
+              "meaning": "Aus deren Dokument, nicht das Geburtsdatum des Babys."
+            },
+            {
+              "id": "line-151",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Zeitraum (ab/von – bis)",
+              "meaning": "Tatsächlichen Beginn und Ende aus den Unterlagen; bei laufendem Sachverhalt tatsächlichen Stand angeben und Format klären, kein Enddatum erfinden."
+            },
+            {
+              "id": "line-152",
+              "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Dienstherr/Arbeitgeber/Unternehmen/Einrichtung, ggf. Personalnummer",
+              "meaning": "Rechtlicher Name aus dem Vertrag, nicht nur Baustelle oder Kunde."
+            },
+            {
+              "id": "line-153",
+              "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Adresse des Arbeitgebers/der Einrichtung",
+              "meaning": "Vollständige Vertragsadresse, nicht automatisch deine Wohnadresse."
+            },
+            {
+              "id": "line-154",
+              "de": "Ort/Land der Erwerbstätigkeit",
+              "translation": "Ort/Land der Erwerbstätigkeit",
+              "meaning": "Tatsächlicher Arbeitsort, z. B. Graz, Österreich; nicht zwingend der Sitzstaat des Arbeitgebers."
+            }
+          ],
+          "stateWork": [
+            {
+              "id": "line-155",
+              "de": "in Deutschland bei einer Dienststelle oder Einrichtung eines anderen Staates oder als Angehörige(r) der NATO-Streitkräfte tätig?",
+              "translation": "7b) In Deutschland für eine Einrichtung eines anderen Staates oder als Angehöriger der NATO-Streitkräfte tätig",
+              "meaning": "Gleiche Personen/fünf Jahre; nicht bloß Firma mit fremdsprachigem Namen. Hinweise nennen diplomatischen/konsularischen Dienst."
+            },
+            {
+              "id": "line-156",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "Z. B. Arbeit bei der Vertretung eines anderen Staates in Deutschland: Status prüfen und Beschäftigungsdaten angeben. Gemeinsame Zusatzfelder in Punkt 7 ausfüllen."
+            },
+            {
+              "id": "line-157",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Keine beschriebene Tätigkeit im Zeitraum bei erfassten Personen; die anderen beiden Fragen trotzdem getrennt beantworten."
+            },
+            {
+              "id": "line-158",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Name der betroffenen Person",
+              "meaning": "Die Person, auf die sich „ja“ bezieht; nicht automatisch Kind oder Antragsteller."
+            },
+            {
+              "id": "line-159",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum dieser Person",
+              "meaning": "Aus deren Dokument, nicht das Geburtsdatum des Babys."
+            },
+            {
+              "id": "line-160",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Zeitraum (ab/von – bis)",
+              "meaning": "Tatsächlichen Beginn und Ende aus den Unterlagen; bei laufendem Sachverhalt tatsächlichen Stand angeben und Format klären, kein Enddatum erfinden."
+            },
+            {
+              "id": "line-161",
+              "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Dienstherr/Arbeitgeber/Unternehmen/Einrichtung, ggf. Personalnummer",
+              "meaning": "Rechtlicher Name aus dem Vertrag, nicht nur Baustelle oder Kunde."
+            },
+            {
+              "id": "line-162",
+              "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Adresse des Arbeitgebers/der Einrichtung",
+              "meaning": "Vollständige Vertragsadresse, nicht automatisch deine Wohnadresse."
+            },
+            {
+              "id": "line-163",
+              "de": "Ort/Land der Erwerbstätigkeit",
+              "translation": "Ort/Land der Erwerbstätigkeit",
+              "meaning": "Tatsächlicher Arbeitsort, z. B. Graz, Österreich; nicht zwingend der Sitzstaat des Arbeitgebers."
+            }
+          ],
+          "posting": [
+            {
+              "id": "line-164",
+              "de": "in Deutschland auf Veranlassung eines Arbeitgebers mit Sitz außerhalb Deutschlands beschäftigt (z. B. entsandte Person)?",
+              "translation": "7c) Beschäftigung in Deutschland auf Veranlassung eines Arbeitgebers mit Auslandssitz",
+              "meaning": "Gleiche Personen/fünf Jahre; Entsendung bedeutet Arbeitgeberentsendung, nicht ausländische Staatsangehörigkeit."
+            },
+            {
+              "id": "line-165",
+              "de": "ja",
+              "translation": "Ja",
+              "meaning": "Erfunden: Firma mit Sitz in Bosnien und Herzegowina entsendet Damir nach Deutschland; Entsendevertrag und Angaben unten prüfen. Gemeinsame Zusatzfelder in Punkt 7 ausfüllen."
+            },
+            {
+              "id": "line-166",
+              "de": "nein",
+              "translation": "Nein",
+              "meaning": "Keine beschriebene Tätigkeit im Zeitraum bei erfassten Personen; die anderen beiden Fragen trotzdem getrennt beantworten."
+            },
+            {
+              "id": "line-167",
+              "de": "Familienname, Vorname der betreffenden Person",
+              "translation": "Name der betroffenen Person",
+              "meaning": "Die Person, auf die sich „ja“ bezieht; nicht automatisch Kind oder Antragsteller."
+            },
+            {
+              "id": "line-168",
+              "de": "Geburtsdatum",
+              "translation": "Geburtsdatum dieser Person",
+              "meaning": "Aus deren Dokument, nicht das Geburtsdatum des Babys."
+            },
+            {
+              "id": "line-169",
+              "de": "Zeitraum (ab/von - bis)",
+              "translation": "Zeitraum (ab/von – bis)",
+              "meaning": "Tatsächlichen Beginn und Ende aus den Unterlagen; bei laufendem Sachverhalt tatsächlichen Stand angeben und Format klären, kein Enddatum erfinden."
+            },
+            {
+              "id": "line-170",
+              "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Dienstherr/Arbeitgeber/Unternehmen/Einrichtung, ggf. Personalnummer",
+              "meaning": "Rechtlicher Name aus dem Vertrag, nicht nur Baustelle oder Kunde."
+            },
+            {
+              "id": "line-171",
+              "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+              "translation": "Adresse des Arbeitgebers/der Einrichtung",
+              "meaning": "Vollständige Vertragsadresse, nicht automatisch deine Wohnadresse."
+            },
+            {
+              "id": "line-172",
+              "de": "Ort/Land der Erwerbstätigkeit",
+              "translation": "Ort/Land der Erwerbstätigkeit",
+              "meaning": "Tatsächlicher Arbeitsort, z. B. Graz, Österreich; nicht zwingend der Sitzstaat des Arbeitgebers."
+            }
+          ],
+          "ank-9": [
+            {
+              "id": "line-173",
+              "de": "Datum",
+              "translation": "Datum der Unterschrift",
+              "meaning": "Tag der Unterschrift unter dieser Erklärung, nicht das Geburtsdatum."
+            },
+            {
+              "id": "line-174",
+              "de": "Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+              "translation": "Unterschrift des Antragstellers bzw. der gesetzlichen Vertretung",
+              "meaning": "Erklärung zu vollständigen, wahren Angaben und Mitteilung relevanter Änderungen lesen. Bei minderjährigem Antragsteller unterschreibt die gesetzliche Vertretung. Eine Guide-Markierung ist keine Unterschrift."
+            }
+          ]
+        }
       }
     },
     "panelEmpty": "Wähle links eine Leistung für Leitfaden und offizielle Quellen.",
