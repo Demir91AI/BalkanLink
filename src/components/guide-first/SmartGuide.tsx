@@ -147,6 +147,7 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
       {source && <aside className="border-t border-border pt-4 text-sm text-muted-foreground">
         <p>{source.verifiedOn ? t("smartGuideStandard.verified", { date: source.verifiedOn }) : t("smartGuideStandard.verify")}</p>
         {source.url && <Button asChild variant="outline" className="mt-3 h-auto min-h-11 w-full whitespace-normal py-3"><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label ?? t("smartGuideStandard.source")}<ExternalLink aria-hidden="true" className="h-4 w-4" /><span className="sr-only">{t("smartGuideStandard.newTab")}</span></a></Button>}
+        {source.extraLinks && <ul className="mt-3 space-y-2">{source.extraLinks.map((link) => <li key={link.url}><a className="inline-flex min-h-11 items-center gap-2 text-foreground underline underline-offset-4" href={link.url} target="_blank" rel="noopener noreferrer">{link.label}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /><span className="sr-only">{t("smartGuideStandard.newTab")}</span></a></li>)}</ul>}
       </aside>}
       {key && <details className="border-t border-border pt-3 text-sm text-muted-foreground">
         <summary className="min-h-11 cursor-pointer py-2 font-semibold text-foreground">{t("smartGuideStandard.progress")}</summary>
