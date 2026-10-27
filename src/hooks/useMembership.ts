@@ -36,7 +36,7 @@ export async function startAnnualCheckout() {
 }
 
 export function useMembership() {
-  const { user, isPremium, isAdmin, loading: authLoading } = useAuth() as ReturnType<typeof useAuth> & { loading?: boolean };
+  const { user, isPremium, isAdmin, loading: authLoading } = useAuth();
   const { entitlement, loading: entLoading } = useEntitlement();
   const sw = useMembershipSwitches();
   const fullAccess = !!isAdmin || !!isPremium || entitlement.full_access;
