@@ -31,7 +31,7 @@ export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string 
       <TabsContent value="online" className="mt-4 space-y-4">
         <p className="guide-block-neutral rounded-md border border-border p-4 text-sm leading-6 text-muted-foreground">{t(p("onlineUnverified"))}</p>
         <FieldWalkthrough key="online" mode="online" groups={onlineFields} sourceUrl={() => onlineUrl} />
-        <details className="text-sm text-muted-foreground"><summary className="min-h-11 cursor-pointer py-3 font-semibold text-primary">{t(k("findData"))}</summary><ul className="space-y-3">{online.map((g) => <li key={g.title} data-testid="kg-online-helper"><h4 className="font-semibold text-foreground">{g.title}</h4><p className="leading-6">{g.tip}</p></li>)}</ul></details>
+        <div className="space-y-2">{online.map((g) => <details key={g.title} data-testid="kg-online-helper" className="text-sm text-muted-foreground"><summary className="min-h-11 cursor-pointer py-3 font-semibold text-primary">{g.title} — {t(k("findData"))}</summary><p className="leading-6">{g.tip}</p></details>)}</div>
         <p className="text-sm leading-6 text-muted-foreground">{t(k("onlineRoute"))}</p>
       </TabsContent>
       <TabsContent value="paper" className="mt-4 space-y-4">
