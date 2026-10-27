@@ -4526,7 +4526,7 @@
             "title": "Behörde oder i-Kfz — Voraussetzungen vorher prüfen",
             "sections": {
               "meaning": "i-Kfz ist nicht jedes Formular als Onlineantrag; es hängt von Fall, Identifikation und Dokumenten ab.",
-              "action": "Buche für die Behörde die richtige Leistung und bereite Originale/Vollmacht vor. Prüfe für i-Kfz zuerst Fallunterstützung, akzeptierte elektronische Identifikation/Konten, erforderliche Sicherheitscodes auf Dokumenten und Zahlungsart. HU, eVB und Steuer-Mandat müssen weiterhin zum Fall passen. Lege Codes nicht probeweise frei.",
+              "action": "Buche für die Behörde die richtige Leistung und bereite Originale/Vollmacht vor. Prüfe für i-Kfz zuerst Fallunterstützung, akzeptierte elektronische Identifikation/Konten, erforderliche Sicherheitscodes auf Dokumenten und Zahlungsart. HU, eVB und Steuer-Mandat müssen weiterhin zum Fall passen. Lege Codes nicht probeweise frei. Das BMV nennt Personalausweis mit eID/eID-Karte/eAT mit aktivierter eID, PIN und AusweisApp/Kartenleser; alternativ eine unterstützte BundID-Identifikation einschließlich ELSTER-Zertifikat. Für erforderliche Codes nennt das BMV Teil I nach dem 01.01.2015 für Abmeldung/Umschreibung ohne Halterwechsel sowie passenden Teil II nach dem 01.01.2018 für Erst-/Wiederzulassung oder Halterwechsel. Prüfe die aktuelle örtliche Unterstützung.",
               "where": "Amtliches örtliches i-Kfz-Portal und dessen aktuelle Hinweise.",
               "example": "Damir hat ältere Dokumente ohne erforderliche Codes und prüft den Behördengang.",
               "mistake": "Online-Termin ist keine abgeschlossene Zulassung; garantiere keine i-Kfz-Fähigkeit jedes Imports.",

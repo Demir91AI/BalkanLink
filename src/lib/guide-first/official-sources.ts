@@ -26,7 +26,7 @@ export const GUIDE_SOURCES: Record<string, GuideSource> = {
   ] },
   "steuer-id": { kind: "official", url: "https://online.portal.bzst.de/SharedDocs/Leistungsbeschreibung/DE/erneute_mitteilung_der_ID-Nr.html", label: "BZSt — IdNr", verifiedOn: "27.10.2026", extraLinks: [
     { url: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/FAQ/faq_node.html", label: "BZSt — IdNr FAQ" },
-    { url: "https://karriere.bzst.de/SiteGlobals/Kontaktformulare/DE/IdNr/Mitteilung_IdNr/mitteilung_IdNr_node.html", label: "BZSt — Mitteilung IdNr" },
+    { url: "https://www.elster.de/bportal/formulare-leistungen/alleformulare/idnr", label: "BOP / ELSTER — IdNr" },
   ] },
   fuehrerschein: { kind: "local", url: "https://verwaltung.bund.de/leistungsverzeichnis/de/leistung/99108047050002/herausgeber/HB-S1000030000009309/region/040000000000", label: "Bundesportal — Bremen · Führerschein", verifiedOn: "27.10.2026", extraLinks: [
     { url: "https://www.gesetze-im-internet.de/fev_2010/__28.html", label: "FeV §28 — EU / EWR" },

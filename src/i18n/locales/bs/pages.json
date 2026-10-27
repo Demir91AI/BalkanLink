@@ -4526,7 +4526,7 @@
             "title": "Ured ili i-Kfz — provjeri uslove prije početka",
             "sections": {
               "meaning": "i-Kfz nije svaki obrazac pretvoren u online prijavu; zavisi od slučaja, identifikacije i dokumenata.",
-              "action": "Za ured rezerviši tačnu uslugu i pripremi originale/punomoć. Za i-Kfz prvo provjeri da lokalni portal podržava tvoju registraciju, koji elektronski identitet/račun prihvata, jesu li dokumenti s potrebnim sigurnosnim kodovima i kako se plaća. HU, eVB i porezni mandat i dalje moraju odgovarati slučaju. Ne otkrivaj kodove radi probe.",
+              "action": "Za ured rezerviši tačnu uslugu i pripremi originale/punomoć. Za i-Kfz prvo provjeri da lokalni portal podržava tvoju registraciju, koji elektronski identitet/račun prihvata, jesu li dokumenti s potrebnim sigurnosnim kodovima i kako se plaća. HU, eVB i porezni mandat i dalje moraju odgovarati slučaju. Ne otkrivaj kodove radi probe. BMV navodi eID-ličnu kartu/eID-karticu/eAT s aktivnom eID funkcijom, PIN-om i AusweisApp/čitačem; alternativa je podržana BundID identifikacija, uključujući ELSTER certifikat. Za potrebne kodove BMV navodi Teil I izdat nakon 01.01.2015 za odjavu/promjenu bez Halterwechsel, te odgovarajući Teil II nakon 01.01.2018 za prvu/ponovnu registraciju ili promjenu Haltera. Provjeri aktuelnu lokalnu podršku.",
               "where": "Službeni lokalni i-Kfz portal i njegove aktuelne upute.",
               "example": "Damir ima starije dokumente bez potrebnih kodova i provjerava uredsku alternativu.",
               "mistake": "Online termin nije završena registracija; nemoj jamčiti da svaki uvoz podržava i-Kfz.",

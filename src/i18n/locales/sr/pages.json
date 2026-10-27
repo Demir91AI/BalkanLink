@@ -3948,12 +3948,12 @@
       "paper": "Ured / papir",
       "online": "Online postupak",
       "vocabulary": "Nemačke reči i izbori — objašnjeni",
-      "vocabularyNote": "Ovo je rječnik postupka, ne kopija službenog obrasca. Nazivi, redoslijed i dodatna pitanja zavise od nadležnog ureda. Primjeri su izmišljeni; ništa ne upisuješ ovdje.",
+      "vocabularyNote": "Ovo je rečnik postupka, ne kopija službenog obrasca. Nazivi, redosled i dodatna pitanja zavise od nadležnog ureda. Primeri su izmišljeni; ništa ne upisuješ ovde.",
       "jumpTerm": "Idi na pojam ili izbor",
       "instruction": "Šta učiniti / kako koristiti podatak",
-      "where": "Gdje pronaći podatak ili dokaz",
-      "example": "Izmišljeni primjer",
-      "mistake": "Greška koju treba izbjeći",
+      "where": "Gde pronaći podatak ili dokaz",
+      "example": "Izmišljeni primer",
+      "mistake": "Greška koju treba izbeći",
       "previousTerm": "Prethodni pojam",
       "nextTerm": "Sledeći pojam",
       "procedure": "Postupak — od pripreme do sledećeg koraka",
@@ -3971,11 +3971,11 @@
     "guides": {
       "anmeldung": {
         "title": "Anmeldung / Ummeldung — prijava nove adrese",
-        "introduction": "Anmeldung prijavljuje gdje zaista stanuješ; Ummeldung je prijava nakon promene adrese. To nije dozvola boravka. Kod uobičajenog useljenja prijava je u roku od dve nedelje od useljenja.",
-        "variation": "Pravila prijave su savezna, ali obrazac, termini, porodični slučajevi i online dostupnost su lokalni. Bundesportal primjer: Brandenburg, objava 08.04.2020; izvor proveren 27.10.2026. Nije proveren jedinstveni PDF ni brojevi polja.",
+        "introduction": "Anmeldung prijavljuje gde zaista stanuješ; Ummeldung je prijava nakon promene adrese. To nije dozvola boravka. Kod uobičajenog useljenja prijava je u roku od dve nedelje od useljenja.",
+        "variation": "Pravila prijave su savezna, ali obrazac, termini, porodični slučajevi i online dostupnost su lokalni. Bundesportal primer: Brandenburg, objava 08.04.2020; izvor proveren 27.10.2026. Nije proveren jedinstveni PDF ni brojevi polja.",
         "modes": {
-          "paper": "Na službenoj stranici svog grada pronađi Meldebehörde i njihov aktuelni obrazac ako se traži. Wohnungsgeberbestätigung je obavezna; ugovor o najmu sam nije zamjena.",
-          "online": "Proveri nudi li tvoj grad elektronsku prijavu i prihvata li tvoju identifikaciju i slučaj. Ako ne ispunjavaš uslove, koristi ured. Ovdje ne prikazujemo proveren redoslijed online polja."
+          "paper": "Na službenoj stranici svog grada pronađi Meldebehörde i njihov aktuelni obrazac ako se traži. Wohnungsgeberbestätigung je obavezna; ugovor o najmu sam nije zamena.",
+          "online": "Proveri nudi li tvoj grad elektronsku prijavu i prihvata li tvoju identifikaciju i slučaj. Ako ne ispunjavaš uslove, koristi ured. Ovde ne prikazujemo proveren redosled online polja."
         },
         "steps": [
           {
@@ -3995,10 +3995,10 @@
             "title": "Pribavi potvrdu osobe koja daje stan",
             "sections": {
               "meaning": "Wohnungsgeber može biti vlasnik ili osoba koja ti stvarno daje stan, npr. glavni najmoprimac kod podnajma.",
-              "action": "Zatraži potvrdu useljenja: ime i adresa Wohnungsgebera, ime vlasnika ako je druga osoba, datum useljenja, adresa stana i imena useljenih osoba. Potvrdu izdaje Wohnungsgeber ili ovlašćena osoba, ne ti umesto njih. Ugovor o najmu nije zamjena.",
+              "action": "Zatraži potvrdu useljenja: ime i adresa Wohnungsgebera, ime vlasnika ako je druga osoba, datum useljenja, adresa stana i imena useljenih osoba. Potvrdu izdaje Wohnungsgeber ili ovlašćena osoba, ne ti umesto njih. Ugovor o najmu nije zamena.",
               "where": "Wohnungsgeber i lokalni predložak potvrde; BMG §19 navodi potrebne podatke.",
               "example": "Maja dobija sobu od glavne najmoprimke: ona je Wohnungsgeber; vlasnik se navodi odvojeno ako nije ista osoba.",
-              "mistake": "Ako potvrda nije izdata na vrijeme ili je odbijena, odmah obaveštenjei Meldebehörde; ne izmišljaj potpis ili adresu.",
+              "mistake": "Ako potvrda nije izdata na vrijeme ili je odbijena, odmah obaveštenja Meldebehörde; ne izmišljaj potpis ili adresu.",
               "next": "Proveri dokumente svih osoba koje se prijavljuju."
             }
           },
@@ -4056,7 +4056,7 @@
             "id": "identity",
             "german": "Familienname / Vorname / Geburtsdatum",
             "meaning": "Prezime, ime i datum rođenja",
-            "instruction": "Ako lokalni obrazac traži ove podatke, prepiši ih iz identifikacijskog dokumenta; ranije prezime navedi samo gdje se posebno traži. Datum unesi u formatu lokalnog obrasca.",
+            "instruction": "Ako lokalni obrazac traži ove podatke, prepiši ih iz identifikacijskog dokumenta; ranije prezime navedi samo gde se posebno traži. Datum unesi u formatu lokalnog obrasca.",
             "where": "Pasoš ili lična karta.",
             "example": "Izmišljeno: Familienname Kovač; Vorname Maja.",
             "mistake": "Ne zamijeni prezime i ime niti nadimak koristi umesto službenog imena."
@@ -4092,9 +4092,9 @@
             "id": "persons",
             "german": "Namen der einziehenden Personen",
             "meaning": "Imena osoba koje se useljavaju",
-            "instruction": "Na potvrdi moraju biti imena prijavljivanih osoba koje se stvarno useljavaju; uključi djecu ako se useljavaju.",
+            "instruction": "Na potvrdi moraju biti imena prijavljivanih osoba koje se stvarno useljavaju; uključi decu ako se useljavaju.",
             "where": "Identifikacijski dokumenti članova i Wohnungsgeberbestätigung.",
-            "example": "Izmišljeno: Maja i njeno dete se useljavaju; partner koji ostaje drugdje nije izmišljeni stanar.",
+            "example": "Izmišljeno: Maja i njeno dete se useljavaju; partner koji ostaje drugde nije izmišljeni stanar.",
             "mistake": "Jedna potvrda bez imena ostalih članova ne dokazuje automatski njihovo useljenje."
           },
           {
@@ -4162,7 +4162,7 @@
             "id": "find",
             "title": "Prvo razlikuj brojeve i pretraži dokumente",
             "sections": {
-              "meaning": "Steuer-ID je 11-cifreni lični broj; Steuernummer pripada poreskom predmetu Finanzamta i nije zamjena.",
+              "meaning": "Steuer-ID je 11-cifreni lični broj; Steuernummer pripada poreskom predmetu Finanzamta i nije zamena.",
               "action": "Na vlastitom BZSt pismu, Einkommensteuerbescheidu ili elektronskoj Lohnsteuerbescheinigung potraži Identifikationsnummer/IdNr. Uporedi ime osobe. Ako si broj već dobio/la, preseljenje ili promena prezimena ne traži novi broj.",
               "where": "Tvoji poreski dokumenti ili potvrda poslodavca.",
               "example": "Maja nalazi „IdNr“ na vlastitoj potvrdi plate i ne koristi partnerovu Steuernummer.",
@@ -4199,9 +4199,9 @@
             "title": "Pošalji službeni zahtev za ponovnu obaveštenje",
             "sections": {
               "meaning": "Ponovna obaveštenje dostavlja postojeći broj; ne stvara novu poreznu identifikaciju.",
-              "action": "Podatke unosi samo na službenoj BZSt/BOP stranici, prema tamošnjim pitanjima i formatima. Proveri ime, datum rođenja i adresu prema svojim dokumentima gdje se traže; ako prijavljena adresa nije tačna, razjasni ispravku s Meldebehörde/BZSt. Pregledaj zahtev i sam/a odluči o slanju.",
+              "action": "Podatke unosi samo na službenoj BZSt/BOP stranici, prema tamošnjim pitanjima i formatima. Proveri ime, datum rođenja i adresu prema svojim dokumentima gde se traže; ako prijavljena adresa nije tačna, razjasni ispravku s Meldebehörde/BZSt. Pregledaj zahtev i sam/a odluči o slanju.",
               "where": "Pasoš, prijavljena adresa i aktuelni službeni zahtev.",
-              "example": "Damir primijeti staru adresu pre slanja i prvo razjasni gdje će pismo biti dostavljeno.",
+              "example": "Damir primijeti staru adresu pre slanja i prvo razjasni gde će pismo biti dostavljeno.",
               "mistake": "Ne unosi podatke u BalkanLink; ne šalji kopije identifikacije privatnom posredniku.",
               "next": "Prati dostavu i čuvaj broj samo kod sebe."
             }
@@ -4233,7 +4233,7 @@
             "id": "tax",
             "german": "Steuernummer / USt-IdNr",
             "meaning": "Drugi poreski brojevi",
-            "instruction": "Steuernummer je broj poreskog predmeta Finanzamta; USt-IdNr služi za PDV u poslovanju. Nijedan nije zamjena za ličnu IdNr.",
+            "instruction": "Steuernummer je broj poreskog predmeta Finanzamta; USt-IdNr služi za PDV u poslovanju. Nijedan nije zamena za ličnu IdNr.",
             "where": "Naslov/oznaka na poreskom ili poslovnom dokumentu.",
             "example": "Izmišljeno: Damir na rješenju vidi Steuernummer i IdNr; za Steuer-ID bira IdNr.",
             "mistake": "Slična dužina ili reč „Steuer“ ne znači da su brojevi isti."
@@ -4270,7 +4270,7 @@
             "german": "Steuerpflichtige Person / berechtigter Dritter",
             "meaning": "Osoba kojoj broj pripada / ovlašćena treća osoba",
             "instruction": "Ulaz BOP/ELSTER razlikuje ove postupke. Za sebe koristi vlastiti slučaj; kod zastupanja prvo proveri i dokaži ovlast prema zahtevu.",
-            "where": "Službeni uvod zahteva i dokaz zastupanja gdje se traži.",
+            "where": "Službeni uvod zahteva i dokaz zastupanja gde se traži.",
             "example": "Izmišljeno: Maja traži za sebe; staratelj proverava postupak za zastupanu osobu.",
             "mistake": "Ne označavaj ovlast samo zato što poznaješ osobu.",
             "options": [
@@ -4287,12 +4287,12 @@
         ]
       },
       "fuehrerschein": {
-        "title": "Führerschein — proveri važenje i zamjenu strane dozvole",
-        "introduction": "Priznavanje prava vožnje i zamjena dokumenta nisu ista radnja. Prvo utvrdi državu izdavanja, kategoriju, važenje i početak uobičajenog boravišta. Ne pretpostavljaj da svi balkanski dokumenti imaju ista pravila.",
-        "variation": "Savezna pravila FeV, lokalni zahtev Fahrerlaubnisbehörde. Bundesportal primjer: Bremen, ažuriran 21.09.2026; proveren 27.10.2026. Nema jedinstvenog proverenog PDF-a; Annex 11 i izuzeci zahtevaju proveru tačne države/kategorije i uslova.",
+        "title": "Führerschein — proveri važenje i zamenu strane dozvole",
+        "introduction": "Priznavanje prava vožnje i zamena dokumenta nisu ista radnja. Prvo utvrdi državu izdavanja, kategoriju, važenje i početak uobičajenog boravišta. Ne pretpostavljaj da svi balkanski dokumenti imaju ista pravila.",
+        "variation": "Savezna pravila FeV, lokalni zahtev Fahrerlaubnisbehörde. Bundesportal primer: Bremen, ažuriran 21.09.2026; proveren 27.10.2026. Nema jedinstvenog proverenog PDF-a; Annex 11 i izuzeci zahtevaju proveru tačne države/kategorije i uslova.",
         "modes": {
           "paper": "Traži lokalnu uslugu Umschreibung einer ausländischen Fahrerlaubnis. Bremen zahteva lično podnošenje; za svoj grad proveri termin, dokumente i važeći obrazac.",
-          "online": "Online rezervacija termina nije zamjena dozvole. Digitalni zahtev koristi samo ako ga tvoja služba nudi; identifikacija, original dozvole ili lični dolazak mogu ostati potrebni."
+          "online": "Online rezervacija termina nije zamena dozvole. Digitalni zahtev koristi samo ako ga tvoja služba nudi; identifikacija, original dozvole ili lični dolazak mogu ostati potrebni."
         },
         "steps": [
           {
@@ -4300,7 +4300,7 @@
             "title": "Razlikuj EU/EWR i ostale dozvole",
             "sections": {
               "meaning": "EU i EWR nisu isto što i Evropa. EWR uključuje Island, Lihtenštajn i Norvešku; BiH nije članica EU/EWR.",
-              "action": "Proveri državu koja je izdala dozvolu, datum važenja i kategorije. Važeće EU/EWR dozvole se u pravilu priznaju uz zakonske uslove/izuzetke. Za ne-EU/EWR proveri šestomesečno pravilo i uslove zamjene. Posebne privremene dozvole, zabrane i dozvole prethodno zamijenjene iz treće države razjasni s uredom.",
+              "action": "Proveri državu koja je izdala dozvolu, datum važenja i kategorije. Važeće EU/EWR dozvole se u pravilu priznaju uz zakonske uslove/izuzetke. Za ne-EU/EWR proveri šestomesečno pravilo i uslove zamene. Posebne privremene dozvole, zabrane i dozvole prethodno zamijenjene iz treće države razjasni s uredom.",
               "where": "Original dozvole i Fahrerlaubnisbehörde; FeV §§28–29.",
               "example": "Maja ima dozvolu BiH klase B: ne bira EU/EWR samo jer je BiH u Evropi.",
               "mistake": "Ne tvrdi da EU dozvola važi neograničeno bez izuzetaka ili da svi dokumenti jedne regije imaju isti ispitni režim.",
@@ -4327,7 +4327,7 @@
               "action": "Pošalji upit nadležnoj službi o svojoj državi, kategoriji, datumu i načinu izdavanja. Proveri teorijski i praktični ispit odvojeno prema aktuelnoj Anlage 11 i njenim napomenama. Ako se ispiti traže, pitaj kako uključiti Fahrschule i koje dodatne dokaze trebaš. Ne zaključuj oslobađanje samo iz naziva države.",
               "where": "Original dozvole, aktuelna Anlage 11 i službena lista za tvoj slučaj.",
               "example": "Maja proverava baš klasu B i pripadajuće napomene; ne prenosi rezultat na klasu C.",
-              "mistake": "Nemoj obećati zamjenu bez ispita, prevoda, vida ili prve pomoći pre provere.",
+              "mistake": "Nemoj obećati zamenu bez ispita, prevoda, vida ili prve pomoći pre provere.",
               "next": "Pripremi tačno dokumente koje tvoja služba traži."
             }
           },
@@ -4337,9 +4337,9 @@
             "sections": {
               "meaning": "Dokumenti se razlikuju prema državi, kategoriji i slučaju; ova lista je za proveru, ne univerzalna potvrda potpunosti.",
               "action": "Kod službe proveri identifikaciju, dokaz boravišta, original važeće strane dozvole, fotografiju u prihvaćenom formatu i eventualni prevod. Pitaj jesu li potrebni dokaz prve pomoći, test vida ili ljekarski dokazi za tvoju kategoriju, te dodatna potvrda prava vožnje. Izgubljena/istekla dozvola ili različito prezime zahteva posebno razjašnjenje.",
-              "where": "Službena lokalna lista dokumenata i služba države izdavanja gdje se traži potvrda.",
+              "where": "Službena lokalna lista dokumenata i služba države izdavanja gde se traži potvrda.",
               "example": "Damir traži potvrdu treba li prevod pre nego plati privatnu uslugu.",
-              "mistake": "Međunarodna dozvola nije samostalna zamjena originala; ne proglašavaj uslovne dokaze obaveznim svima.",
+              "mistake": "Međunarodna dozvola nije samostalna zamena originala; ne proglašavaj uslovne dokaze obaveznim svima.",
               "next": "Proveri reči na svom lokalnom zahtevu i lično podnošenje."
             }
           },
@@ -4347,10 +4347,10 @@
             "id": "submit",
             "title": "Predaj nadležnoj službi i razjasni original",
             "sections": {
-              "meaning": "Fahrerlaubnisbehörde odlučuje o zamjeni; škola vožnje ne izdaje nemačku dozvolu.",
+              "meaning": "Fahrerlaubnisbehörde odlučuje o zameni; škola vožnje ne izdaje nemačku dozvolu.",
               "action": "Rezerviši odgovarajuću uslugu prema mjestu boravišta. Popuni lokalni zahtev istinitim podacima iz originala i ponesi tražene dokaze. Pitaj kada se strana dozvola predaje/zadržava i šta smeš voziti dok se obrađuje. Naknade i čekanje proveri lokalno, bez obećanog iznosa ili roka.",
               "where": "Potvrda termina, službeni zahtev i pisana uputa službe.",
-              "example": "Maja navodi sve kategorije za koje stvarno traži zamjenu, ne izmišljene dodatne kategorije.",
+              "example": "Maja navodi sve kategorije za koje stvarno traži zamenu, ne izmišljene dodatne kategorije.",
               "mistake": "Potvrda prema zahteva sama ne dokazuje pravo vožnje nakon isteka.",
               "next": "Prati službenu odluku, ispite i izdavanje dokumenta."
             }
@@ -4375,7 +4375,7 @@
             "meaning": "Država / služba izdavanja",
             "instruction": "Prepiši državu i službu iz dozvole ako lokalni zahtev pita; državljanstvo i država izdavanja mogu biti različiti.",
             "where": "Original strane dozvole.",
-            "example": "Izmišljeno: Maja je državljanka BiH s dozvolom iz Hrvatske: proverava stvarnog izdavaoca i prethodnu zamjenu.",
+            "example": "Izmišljeno: Maja je državljanka BiH s dozvolom iz Hrvatske: proverava stvarnog izdavaoca i prethodnu zamenu.",
             "mistake": "Ne klasificiraj dozvolu samo prema pasošu vlasnika."
           },
           {
@@ -4393,7 +4393,7 @@
               },
               {
                 "german": "Drittstaat",
-                "meaning": "Ne-EU/EWR: šestomesečno opće pravilo i zasebna provera zamjene/Annex 11."
+                "meaning": "Ne-EU/EWR: šestomesečno opće pravilo i zasebna provera zamene/Annex 11."
               }
             ]
           },
@@ -4403,7 +4403,7 @@
             "meaning": "Kategorija prava vožnje",
             "instruction": "Prepiši kategorije sa svoje dozvole; pravo zavisi od klase, datuma i ograničenja. B nije automatski C ili D.",
             "where": "Tabela kategorija na originalu, često na poleđini.",
-            "example": "Izmišljeno: Maja traži zamjenu svoje B, ne klase za autobus.",
+            "example": "Izmišljeno: Maja traži zamenu svoje B, ne klase za autobus.",
             "mistake": "Ne kopiraj datume ili kategorije tuđeg dokumenta; ne obećavaj isti postupak za sve klase.",
             "options": [
               {
@@ -4460,10 +4460,10 @@
             "id": "proofs",
             "german": "Sehtest / Erste Hilfe / ärztlicher Nachweis",
             "meaning": "Vid / prva pomoć / ljekarski dokaz",
-            "instruction": "Pre nabavke proveri koji dokazi važe za tvoju kategoriju i režim zamjene; oslobađanja nisu univerzalna.",
+            "instruction": "Pre nabavke proveri koji dokazi važe za tvoju kategoriju i režim zamene; oslobađanja nisu univerzalna.",
             "where": "Fahrerlaubnisbehörde i ovlašćeni pružalac dokaza prema lokalnoj uputi.",
             "example": "Izmišljeno: kandidat klase C pita za ljekarske zahteve, ne preuzima listu za B.",
-            "mistake": "Ne tvrdi da test vida ili prva pomoć nikad nisu potrebni pri zamjeni."
+            "mistake": "Ne tvrdi da test vida ili prva pomoć nikad nisu potrebni pri zameni."
           },
           {
             "id": "codes",
@@ -4479,7 +4479,7 @@
       "fahrzeugzulassung": {
         "title": "Fahrzeugzulassung — registracija prema stvarnom slučaju",
         "introduction": "Registracija vozila izdaje tablice i registracijske dokumente; nije isto što i kupovina, osiguranje ili tehnički pregled. Razlikuj novo vozilo, polovno nemačko vozilo, ponovno registrovanje, preseljenje i uvoz.",
-        "variation": "Propisi su savezni, obrasci i nadležnost lokalni. Bundesportal primjer prve registracije: Bremen, ažuriran 16.09.2026; proveren 27.10.2026. Nije univerzalni uvozni obrazac ni proverena numeracija polja.",
+        "variation": "Propisi su savezni, obrasci i nadležnost lokalni. Bundesportal primer prve registracije: Bremen, ažuriran 16.09.2026; proveren 27.10.2026. Nije univerzalni uvozni obrazac ni proverena numeracija polja.",
         "modes": {
           "paper": "U Zulassungsstelle glavnog prebivališta Haltera proveri tačnu uslugu i listu dokumenata. Za zastupnika proveri Vollmacht i dokaze. Pravna lica i posebni slučajevi imaju dodatne lokalne zahteve.",
           "online": "i-Kfz je moguć samo za podržani slučaj i odgovarajuće dokumente/identifikaciju. Proveri lokalni portal, sigurnosne kodove, eVB, SEPA i način platanja. Kod uvoza ili nepodržanih dokumenata može biti potreban ured; ne uklanjaj sigurnosne pokrove unapred."
@@ -4505,7 +4505,7 @@
               "action": "Proveri identifikaciju Haltera, eVB i SEPA te dokumente vozila. Za polovno domaće vozilo proveri postojeće Teil I/II i važeći HU dokaz kada je pregled dospio. Bremen za prvu registraciju s EG tipnim odobrenjem navodi Teil II i COC; kod nacionalnog odobrenja drugačiji dokaz. Za uvoz razjasni strane originale, dokaz kupovine, odobrenje/tehničke dokaze i eventualni carinski dokaz kod ne-EU uvoza. Ako Teil II nikad nije izdat, mogu trebati dodatni dokaz i identifikacija vozila.",
               "where": "Prodavac, postojeći registracijski dokumenti, izvještaj HU, proizvođač/COC i nadležna služba.",
               "example": "Damir kod novog vozila traži COC od prodavca; kod uvoznog prvo proverava koje strane isprave ured prihvata.",
-              "mistake": "Ne zahtevaj HU svakog novog vozila kao da je već dospio; kupoprodajni ugovor nije zamjena za sve registracijske dokumente.",
+              "mistake": "Ne zahtevaj HU svakog novog vozila kao da je već dospio; kupoprodajni ugovor nije zamena za sve registracijske dokumente.",
               "next": "Proveri osiguranje i poresko zaduženje."
             }
           },
@@ -4526,7 +4526,7 @@
             "title": "Ured ili i-Kfz — proveri uslove pre početka",
             "sections": {
               "meaning": "i-Kfz nije svaki obrazac pretvoren u online prijavu; zavisi od slučaja, identifikacije i dokumenata.",
-              "action": "Za ured rezerviši tačnu uslugu i pripremi originale/punomoć. Za i-Kfz prvo proveri da lokalni portal podržava tvoju registraciju, koji elektronski identitet/račun prihvata, jesu li dokumenti s potrebnim sigurnosnim kodovima i kako se plata. HU, eVB i poreski mandat i dalje moraju odgovarati slučaju. Ne otkrivaj kodove radi probe.",
+              "action": "Za ured rezerviši tačnu uslugu i pripremi originale/punomoć. Za i-Kfz prvo proveri da lokalni portal podržava tvoju registraciju, koji elektronski identitet/račun prihvata, jesu li dokumenti s potrebnim sigurnosnim kodovima i kako se plata. HU, eVB i poreski mandat i dalje moraju odgovarati slučaju. Ne otkrivaj kodove radi probe. BMV navodi eID-ličnu kartu/eID-karticu/eAT s aktivnom eID funkcijom, PIN-om i AusweisApp/čitačem; alternativa je podržana BundID identifikacija, uključujući ELSTER sertifikat. Za potrebne kodove BMV navodi Teil I izdat nakon 01.01.2015 za odjavu/promenu bez Halterwechsel, te odgovarajući Teil II nakon 01.01.2018 za prvu/ponovnu registraciju ili promenu Haltera. Proveri aktuelnu lokalnu podršku.",
               "where": "Službeni lokalni i-Kfz portal i njegove aktuelne upute.",
               "example": "Damir ima starije dokumente bez potrebnih kodova i proverava uredsku alternativu.",
               "mistake": "Online termin nije završena registracija; nemoj jamčiti da svaki uvoz podržava i-Kfz.",
@@ -4601,7 +4601,7 @@
             "meaning": "Elektronska potvrda osiguranja",
             "instruction": "Traži od osiguravača eVB za pravi slučaj i Haltera, pa tačno prepiši sedmoznakovni alfanumerički kod ako se traži.",
             "where": "Osiguravač; ne broj police niti bankovna kartica.",
-            "example": "Izmišljeno: Maja dobija kod i proverava slova/cifre, bez izmišljenog stvarnog koda ovdje.",
+            "example": "Izmišljeno: Maja dobija kod i proverava slova/cifre, bez izmišljenog stvarnog koda ovde.",
             "mistake": "Ne zamijeni 0 i O niti koristi eVB za drugi registracijski slučaj bez provere."
           },
           {
@@ -4611,13 +4611,13 @@
             "instruction": "Teil I je raniji Fahrzeugschein; Teil II raniji Fahrzeugbrief. Proveri originale prema slučaju. Novi automobil još ne mora imati Teil I. Teil II sam nije konačan dokaz građanskog vlasništva.",
             "where": "Prodavac ili postojeća dokumentacija vozila.",
             "example": "Izmišljeno: Damir kod polovnog auta proverava oba postojeća dijela, ne samo kopiju jednog.",
-            "mistake": "Kupoprodajni ugovor nije zamjena za oba dijela; nedostajuće dokumente razjasni pre termina."
+            "mistake": "Kupoprodajni ugovor nije zamena za oba dijela; nedostajuće dokumente razjasni pre termina."
           },
           {
             "id": "vin",
             "german": "Fahrzeug-Identifizierungsnummer (FIN / VIN)",
             "meaning": "Identifikacijski broj vozila",
-            "instruction": "Tačno prepiši FIN iz vozilskih dokumenata gdje se traži i uporedi s vozilom; to nije broj tablica.",
+            "instruction": "Tačno prepiši FIN iz vozilskih dokumenata gde se traži i uporedi s vozilom; to nije broj tablica.",
             "where": "Zulassungsbescheinigung, COC i oznaka na vozilu.",
             "example": "Izmišljeno: Maja uoči različito slovo u FIN i razjašnjava neslaganje.",
             "mistake": "Ne izmišljaj FIN niti prepiši identifikacioni broj drugog vozila."
@@ -4664,7 +4664,7 @@
             "german": "Vollmacht / Kennzeichenart",
             "meaning": "Punomoć / vrsta tablica",
             "instruction": "Za zastupnika koristi lokalnu punomoć i dokaze. Wunsch-, Saison-, H- ili Ausfuhrkennzeichen biraj samo za odgovarajući slučaj i dokumente.",
-            "where": "Lokalna lista i obrazac punomoći; postojeći dokumenti i posebni dokazi gdje se traže.",
+            "where": "Lokalna lista i obrazac punomoći; postojeći dokumenti i posebni dokazi gde se traže.",
             "example": "Izmišljeno: Damir želi sezonske tablice i prvo proverava period i osiguranje s uredom/osiguravačem.",
             "mistake": "Punomoć nije potpisivanje tuđim imenom; rezervacija željenih tablica nije odobrena registracija."
           },

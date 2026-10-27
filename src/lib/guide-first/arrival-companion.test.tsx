@@ -72,7 +72,7 @@ describe("Arrival Phase 1 procedure companions", () => {
       fireEvent.click(workflow.getByRole("button", { name: ui.unmark }));
       expect(screen.getByTestId("guide-reviewed-count").textContent).toContain(String(data.steps.length - 1));
       expect(container.querySelectorAll("input, textarea, select:not([data-nav])")).toHaveLength(0);
-      expect(container.querySelector("[data-workflow]")?.getAttribute("data-workflow")).toBeNull();
+      expect(container.querySelector("[data-workflow]")).toBeNull();
       for (const link of companion.querySelectorAll('a[href^="http"]')) {
         expect(link.getAttribute("href")).toMatch(/^https:\/\/(verwaltung\.bund\.de|www\.gesetze-im-internet\.de|online\.portal\.bzst\.de|www\.bzst\.de|karriere\.bzst\.de|www\.service\.bremen\.de|www\.bmv\.de|www\.elster\.de)\//);
         expect(link.getAttribute("target")).toBe("_blank");
