@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import Index from '@/pages/Index';
 
 const mocks = vi.hoisted(() => ({
-  visible: vi.fn(), subscription: vi.fn(), entry: vi.fn(() => null),
+  visible: vi.fn(), subscription: vi.fn(), entry: vi.fn((_props: { canAccess: boolean }) => null),
 }));
 vi.mock('./visibility', () => ({ isLetterReplyVisible: mocks.visible }));
 vi.mock('@/hooks/useSubscription', () => ({ useSubscription: mocks.subscription }));
