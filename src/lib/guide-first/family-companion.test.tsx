@@ -69,7 +69,7 @@ describe("Family Phase 2 companions", () => {
       expect(select.options.length).toBe(data.terms.length);
       data.terms.forEach((term, i) => {
         fireEvent.change(select, { target: { value: String(i) } });
-        expect(within(c).getByRole("heading", { level: 4 }).textContent).toContain(term.german);
+        expect(within(c).getAllByRole("heading", { level: 4 })[0].textContent).toContain(term.german);
         for (const o of "options" in term ? term.options : []) expect(within(c).getAllByText(o.german).length).toBeGreaterThan(0);
         expect(!!within(c).queryByTestId("term-reference")).toBe("reference" in term);
       });
