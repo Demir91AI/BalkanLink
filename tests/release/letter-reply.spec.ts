@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
-import bs from '../../src/i18n/locales/bs/common.json';
-import hr from '../../src/i18n/locales/hr/common.json';
-import sr from '../../src/i18n/locales/sr/common.json';
-import de from '../../src/i18n/locales/de/common.json';
+import { readFileSync } from 'node:fs';
+const locales = Object.fromEntries(['bs', 'hr', 'sr', 'de'].map(lang => [lang,
+  JSON.parse(readFileSync(`src/i18n/locales/${lang}/common.json`, 'utf8')),
+])) as Record<string, { sidebar: { items: { dokumentenCheck: string; letterReply: string }; newBadge: string } }>;
 
 // Against the existing dev server; no build, deployment, storage writes or login mutation.
-for (const [lang, locale] of Object.entries({ bs, hr, sr, de })) {
+for (const [lang, locale] of Object.entries(locales)) {
   for (const viewport of [{ width: 1280, height: 1800 }, { width: 340, height: 900 }]) {
     test(`${lang} ${viewport.width}: sidebar fits and denied deep link preserves language`, async ({ page }) => {
       await page.setViewportSize(viewport);
