@@ -1,4 +1,9 @@
 
+## Confirmed Stripe catalog synchronization (2026-10-27, code only)
+- [ ] Audit and remove obsolete new-customer offers; preserve legacy subscriptions and webhook handling.
+- [ ] Keep annual checkout unavailable and one-time plus retired; add regressions and run tests.
+- [ ] Record exact revision, edits and blockers; no Stripe mutations, deployment or publication.
+
 ## Kindergeld UX simplification (Preview only)
 - [x] Simplify online/paper presentation; retain all 20 accurate explanations and four languages.
 - [x] Run focused/full tests and mobile visual QA; authenticated host QA remains unavailable (no matching owner account). No publish/deploy.
