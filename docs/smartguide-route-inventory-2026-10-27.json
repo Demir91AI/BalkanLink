@@ -374,5 +374,62 @@
     "fuehrerschein": "FuehrerscheinGuideContent",
     "wirtschaftliche-jugendhilfe": "WirtschaftlicheJugendhilfeGuideContent",
     "fahrzeugzulassung": "FahrzeugzulassungGuide"
+  },
+  "presentationMigration": {
+    "dedicatedShared": [
+      "steuer-id",
+      "kindergeld",
+      "elterngeld",
+      "mutterschaftsgeld",
+      "kinderzuschlag",
+      "krippengeld-bayern",
+      "wirtschaftliche-jugendhilfe",
+      "hauptantrag",
+      "weiterbewilligung",
+      "anlage-kdu",
+      "anlage-ek",
+      "anlage-eks",
+      "anlage-vm",
+      "anlage-wep",
+      "anlage-ki",
+      "anlage-sv",
+      "anlage-bb",
+      "anlage-ve",
+      "anlage-hg",
+      "anlage-meb",
+      "anlage-uf",
+      "anlage-se",
+      "anlage-uh1",
+      "anlage-uh2",
+      "anlage-uh3",
+      "nichterreichbarkeit",
+      "arbeitsbescheinigung",
+      "antragsruecknahme",
+      "wohngeld",
+      "krankenkasse"
+    ],
+    "fallbackAdapterCandidates": [
+      "fuehrerschein",
+      "arbeitslosengeld",
+      "steuerklassenwechsel",
+      "bafoeg",
+      "schueler-bafoeg",
+      "integrationskurs",
+      "grundsicherung",
+      "fuehrungszeugnis",
+      "kirchenaustritt",
+      "nationalvisum",
+      "niederlassungserlaubnis",
+      "verpflichtungserklaerung"
+    ],
+    "remainingBespokeOrSpecialRoutes": [
+      "anmeldung",
+      "fahrzeugzulassung",
+      "anerkennung-navigator",
+      "aufenthaltstitel"
+    ],
+    "contentFullyReverified": [
+      "kindergeld existing records preserved; newly checked eServices/nachweise sections only"
+    ]
   }
 }
