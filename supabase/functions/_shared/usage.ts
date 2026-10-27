@@ -99,7 +99,7 @@ export function assistantGate(r: Reservation, lang: string):
   }
   if (r.reason === "subscribe_required") {
     return { callAI: false, status: 200, body: { premium_required: true, errorCode: "SUBSCRIBE_REQUIRED",
-      content: SUBSCRIBE_MSG[l], redirect_url: "/cijene" } };
+      content: SUBSCRIBE_MSG[l], redirect_url: "/paketi" } };
   }
   return { callAI: false, status: 429, body: { error: "Dnevni limit Asistenta je dostignut. Pokušaj sutra.", errorCode: "DAILY_CAP" } };
 }
