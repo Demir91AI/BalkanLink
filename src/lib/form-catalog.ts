@@ -60,7 +60,7 @@ export const formCatalog: FormGroup[] = [
       { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta.", includes: "SmartGuide + službeni izvori" },
       { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada tokom zaštitnog perioda prije i poslije poroda.", includes: "SmartGuide + službeni izvori" },
       { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna podrška za porodice s niskim primanjima.", includes: "SmartGuide + službeni izvori" },
-      { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Subvencija za troškove vrtića u Bavarskoj za djecu do 3 godine.", includes: "SmartGuide + službeni izvori" },
+      { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Bavarska pomoć za vrtić — samo za djecu rođenu do 31.12.2024; provjeri ZBFS.", includes: "SmartGuide + službeni izvori" },
       { slug: "wirtschaftliche-jugendhilfe", label: "Wirtschaftliche Jugendhilfe", desc: "Finansijska pomoć Jugendamt-a za odgoj djeteta (SGB VIII).", includes: "SmartGuide + službeni izvori" },
     ],
   },
