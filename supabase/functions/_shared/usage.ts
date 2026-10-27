@@ -13,7 +13,8 @@ export interface Reservation {
   reservation_id?: string;
   source?: string;
   mode?: "full" | "basic" | "legacy_credit";
-  reason?: "quota_exhausted" | "access_required" | "daily_cap";
+  reason?: "quota_exhausted" | "access_required" | "daily_cap" | "subscribe_required";
+  resets_at?: string | null;
   used?: number;
   limit?: number | null;
 }
@@ -71,4 +72,34 @@ export function meterStream(body: ReadableStream<Uint8Array>, onCommit: () => Pr
       await reader.cancel(reason);
     },
   });
+}
+
+const QUOTA_MSG: Record<string, string> = {
+  bs: "Iskoristio/la si sve odgovore Asistenta za ovaj period.",
+  de: "Du hast alle Asistent-Antworten für diesen Zeitraum genutzt.",
+  en: "You have used all Asistent replies for this period.",
+};
+const SUBSCRIBE_MSG: Record<string, string> = {
+  bs: "Asistent je dio BalkanLink članstva. Aktiviraj članstvo da nastaviš.",
+  de: "Der Asistent ist Teil der BalkanLink-Mitgliedschaft. Aktiviere sie, um fortzufahren.",
+  en: "The Asistent is part of the BalkanLink membership. Activate it to continue.",
+};
+
+/**
+ * Decide whether the assistant may call the model. Returns a ready JSON body when it must NOT
+ * (no AI call happens in that case). Pure — unit-tested.
+ */
+export function assistantGate(r: Reservation, lang: string):
+  { callAI: true } | { callAI: false; status: number; body: Record<string, unknown> } {
+  if (r.ok) return { callAI: true };
+  const l = lang === "de" ? "de" : lang === "en" ? "en" : "bs";
+  if (r.reason === "quota_exhausted") {
+    return { callAI: false, status: 200, body: { quota_exhausted: true, errorCode: "QUOTA_EXHAUSTED",
+      content: QUOTA_MSG[l], used: r.used ?? null, limit: r.limit ?? null, resets_at: r.resets_at ?? null } };
+  }
+  if (r.reason === "subscribe_required") {
+    return { callAI: false, status: 200, body: { premium_required: true, errorCode: "SUBSCRIBE_REQUIRED",
+      content: SUBSCRIBE_MSG[l], redirect_url: "/paketi" } };
+  }
+  return { callAI: false, status: 429, body: { error: "Dnevni limit Asistenta je dostignut. Pokušaj sutra.", errorCode: "DAILY_CAP" } };
 }

@@ -711,6 +711,7 @@ export type Database = {
       entitlement_settings: {
         Row: {
           id: number
+          monetization_v2_enabled: boolean
           protective_caps_enforced: boolean
           trial_rollout_at: string | null
           trial_signup_enabled: boolean
@@ -718,6 +719,7 @@ export type Database = {
         }
         Insert: {
           id?: number
+          monetization_v2_enabled?: boolean
           protective_caps_enforced?: boolean
           trial_rollout_at?: string | null
           trial_signup_enabled?: boolean
@@ -725,6 +727,7 @@ export type Database = {
         }
         Update: {
           id?: number
+          monetization_v2_enabled?: boolean
           protective_caps_enforced?: boolean
           trial_rollout_at?: string | null
           trial_signup_enabled?: boolean

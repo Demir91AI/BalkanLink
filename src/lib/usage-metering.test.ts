@@ -96,3 +96,34 @@ describe("endpoints use server metering", () => {
     expect(tts.indexOf("Storage cache hit")).toBeLessThan(tts.indexOf('"tts_generation"'));
   });
 });
+
+// @ts-ignore Deno-style import
+import { assistantGate } from "../../supabase/functions/_shared/usage.ts";
+
+describe("assistant hard stop (monetization v2)", () => {
+  const sql = read("drizzle/migrations/0003_phase2_v2_quota_hard_stop.sql");
+  it("over-quota trial/yearly users get QUOTA_EXHAUSTED and no model call", () => {
+    const g = assistantGate({ ok: false, reason: "quota_exhausted", used: 40, limit: 40, resets_at: "2026-12-01T00:00:00Z" }, "bs");
+    expect(g.callAI).toBe(false);
+    if (!g.callAI) { const b = (g as { body: Record<string, unknown> }).body; expect(b.errorCode).toBe("QUOTA_EXHAUSTED"); expect(b.resets_at).toBe("2026-12-01T00:00:00Z"); }
+  });
+  it("free users after rollout get a membership CTA and no model call", () => {
+    const g = assistantGate({ ok: false, reason: "subscribe_required" }, "de");
+    expect(g.callAI).toBe(false);
+    if (!g.callAI) { const b = (g as { body: Record<string, unknown> }).body; expect(b.errorCode).toBe("SUBSCRIBE_REQUIRED"); expect(b.redirect_url).toBe("/paketi"); }
+  });
+  it("a granted reservation calls the model", () => {
+    expect(assistantGate({ ok: true, reservation_id: "x", mode: "full" }, "bs").callAI).toBe(true);
+  });
+  it("server: v2 stops fallback, pre-v2 keeps the basic free assistant, switch defaults off", () => {
+    expect(sql).toContain("monetization_v2_enabled boolean NOT NULL DEFAULT false");
+    expect(sql).toMatch(/IF v_v2 THEN\s+-- hard stop[^\n]*\n\s+RETURN jsonb_build_object\('ok', false, 'reason', 'quota_exhausted'/);
+    expect(sql).toMatch(/IF v_v2 AND p_feature = 'assistant_reply' AND v_source = 'free' THEN\s+RETURN jsonb_build_object\('ok', false, 'reason', 'subscribe_required'/);
+    expect(sql).toContain("pre-v2 compatibility: behave like today's free assistant");
+  });
+  it("chat returns the gate response before calling the AI gateway", () => {
+    const chat = read("supabase/functions/chat-assistant/index.ts");
+    expect(chat.indexOf("assistantGate(reservation, lang)")).toBeLessThan(chat.indexOf("ai.gateway.lovable.dev/v1/chat/completions\",\n      {"));
+    expect(chat.indexOf("assistantGate(reservation, lang)")).toBeGreaterThan(0);
+  });
+});
