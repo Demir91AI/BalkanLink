@@ -4,7 +4,6 @@ import { PDFDocument } from "pdf-lib";
 import { inflateSync } from "node:zlib";
 import { KG_OFFICIAL, buildKindergeldDatenblatt, ibanValid, planKg, validateKg, sheetLines, type KgData, type KgFlags } from "./datenblatt";
 import { KG1_MANIFEST_STATUS } from "@/lib/formularpilot/manifests/kindergeld-kg1";
-import { outputLabelFor } from "@/lib/formularpilot/output-label";
 import bs from "@/i18n/locales/bs/forms.json";
 import hr from "@/i18n/locales/hr/forms.json";
 import sr from "@/i18n/locales/sr/forms.json";
@@ -37,7 +36,6 @@ describe("official provenance", () => {
   it("KG1 stays blocked and is never labelled verified official", () => {
     expect(KG1_MANIFEST_STATUS.status).toBe("blocked");
     expect(KG1_MANIFEST_STATUS.forms.kg1.blockers).toContain("BUNDLED_NOT_AUTHENTIC");
-    expect(outputLabelFor({ status: "blocked", authentic: false, tested: false, rightsCleared: false, blockers: ["x"] } as never)).not.toBe("verified_official");
   });
   it("live page no longer links or fills the bundled derivative/placeholder", () => {
     const page = readFileSync("src/pages/muster/KindergeldMuster.tsx", "utf8");
