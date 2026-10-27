@@ -11,3 +11,8 @@
 - [x] Remove decorative access badges; preserve routes, gates, payments, languages and warnings.
 - [x] Document every sidebar destination and all eight catalog categories, duplicates and mobile rotation risk (`docs/catalog-navigation-cleanup-2026-10-27.md`).
 - [x] Run no-downgrade/full tests and preview checks; no publish/deploy. Separate TypeScript check not manually run under harness rules.
+
+## Task-to-output phase 1 (development only)
+- [ ] Add isolated browser-only agency reply drafting from Vorlagen and DocumentenCheck results, four languages, editable German output and PDF/copy.
+- [ ] Replace inferred deadline headline with an original-letter review warning; preserve existing analysis and gates.
+- [ ] Validate templates, PDF output, privacy, full regression suite and mobile/desktop flows; no publish/deploy.
