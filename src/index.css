@@ -165,6 +165,22 @@
   .guide-dark-surface :where(h1, h2, h3, h4, h5, h6) {
     color: hsl(var(--foreground));
   }
+  .smartguide-standard {
+    --guide-action: 211 80% 35%;
+    --guide-where: 155 70% 28%;
+    --guide-mistake: 5 70% 38%;
+  }
+  :is(.dark, .guide-dark-surface) .smartguide-standard {
+    --guide-action: 211 85% 72%;
+    --guide-where: 155 60% 65%;
+    --guide-mistake: 5 85% 76%;
+    --muted-foreground: 213 27% 84%;
+  }
+  .smartguide-standard :where(h3, h4) { color: hsl(var(--foreground)); }
+  .guide-block-action { border-left-color: hsl(var(--guide-action)); }
+  .guide-block-where { border-left-color: hsl(var(--guide-where)); }
+  .guide-block-mistake { border-left-color: hsl(var(--guide-mistake)); }
+  .guide-block-neutral { border-left-color: hsl(var(--border)); }
 }
 
 @layer utilities {

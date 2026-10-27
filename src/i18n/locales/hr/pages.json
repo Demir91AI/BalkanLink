@@ -1662,7 +1662,7 @@
         },
         "prepare": {
           "title": "Pripremi podatke",
-          "body": "Dokumenti i bankovni podaci neka ti budu pri ruci. Objašnjenja su u vodiču iznad.",
+          "body": "Pripremi Steuer-ID roditelja, ime i datum rođenja djeteta, njegovu Steuer-ID ako je već dodijeljena te IBAN i ime vlasnika računa. Za dodatne dokaze slijedi pitanja portala i zahtjev Familienkasse; ne pretpostavljaj da svako novorođenče treba istu dokumentaciju.",
           "items": [
             "Tvoj Steuer-ID (steuerliche Identifikationsnummer)",
             "Steuer-ID djeteta — za novorođenče stiže poštom od Bundeszentralamt für Steuern nakon prijave rođenja",
@@ -1671,7 +1671,7 @@
         },
         "access": {
           "title": "Pripremi pristup portalu",
-          "body": "Za online zahtjev pripremi korisnički račun na portalu Bundesagentur für Arbeit."
+          "body": "Na Familienkasse eServices provjeri prijavu, Familienkassen-Profil i identifikaciju preko BundID. Ako ne možeš završiti elektroničku identifikaciju, provjeri papirnu mogućnost na službenoj stranici."
         },
         "apply": {
           "title": "Popuni službeni online Antrag",
@@ -1679,7 +1679,7 @@
         },
         "after": {
           "title": "Nakon slanja",
-          "body": "Spremi potvrdu o slanju i pričekaj odluku (Bescheid) od Familienkasse. Kindergeld se retroaktivno isplaćuje najviše za 6 mjeseci — zato predaj zahtjev na vrijeme. Promjene (npr. adresa, IBAN) javi Familienkasse. Iznose i rokove obrade ne jamčimo."
+          "body": "Spremi potvrdu predaje. Prati poštu ili Familienkassen-Profil za Bescheid i eventualni zahtjev za dokazima; rok pročitaj u stvarnom dopisu. Promjene prijavi službenim putem. Vrijeme obrade i ishod nisu zajamčeni."
         }
       },
       "ctaOnline": "Otvori službeni online zahtjev (Familienkasse)",
@@ -2070,6 +2070,61 @@
       "ctaRegister": "Registriraj se besplatno",
       "ctaSubscribe": "Pogledaj članstvo",
       "registerNote": "Za pristup je potreban račun s potvrđenom e-mail adresom."
+    }
+  },
+  "smartGuideStandard": {
+    "steps": "Koraci vodiča",
+    "jump": "Korak {{number}}: {{title}}",
+    "position": "Korak {{current}} od {{total}}",
+    "checklist": "Pripremi za ovaj korak",
+    "reviewed": "Pregledao/la sam ovaj korak",
+    "previous": "Natrag",
+    "next": "Dalje",
+    "finish": "Gotovo",
+    "verified": "Sadržaj provjeren prema izvoru: {{date}}",
+    "verify": "Provjeri službeni izvor — sadržaj ovog postupka još nije u cijelosti provjeren.",
+    "source": "Službeni izvor",
+    "newTab": "Otvara se u novoj kartici",
+    "progress": "Spremi napredak na ovom uređaju",
+    "privacy": "Samo ako odabereš Spremi: pamti se broj koraka i oznake pregledanih koraka. Ne čuvamo odgovore, dokumente, osobne podatke ni odabir posebnog slučaja. Možeš nastaviti ili obrisati napredak.",
+    "save": "Spremi",
+    "restore": "Nastavi spremljeno",
+    "forget": "Obriši napredak",
+    "saved": "Napredak je spremljen na ovom uređaju.",
+    "restored": "Spremljeni napredak je otvoren.",
+    "forgotten": "Spremljeni napredak je obrisan.",
+    "noSaved": "Nema valjanog spremljenog napretka.",
+    "storageError": "Ovaj uređaj ne dopušta spremanje napretka.",
+    "block": {
+      "action": "Što ovo znači / što učiniti",
+      "field": "Što točno upisati",
+      "where": "Gdje pronaći podatke",
+      "format": "Format",
+      "mistake": "Česte pogreške",
+      "empty": "Kada ostaviti prazno",
+      "example": "Izmišljeni primjer",
+      "note": "Važna napomena"
+    },
+    "kindergeldChecks": {
+      "orient": [
+        "Pročitaj razliku između prijave za novorođenče i posebnih slučajeva."
+      ],
+      "prepare": [
+        "Pronađi vlastitu Steuer-ID u pismu BZSt ili elektroničkoj Lohnsteuerbescheinigung.",
+        "Pripremi ime, datum rođenja i Steuer-ID djeteta ako je već dodijeljena.",
+        "Pripremi IBAN i ime vlasnika računa; slijedi zahtjeve portala za dodatne dokaze."
+      ],
+      "access": [
+        "Provjeri način prijave i identifikacije na Familienkasse eServices, uključujući BundID."
+      ],
+      "apply": [
+        "Pregledaj podatke prije slanja na službenom portalu.",
+        "Ako šalješ poštom, slijedi KG1 i Anlage Kind upute i potpise na službenom primjerku."
+      ],
+      "after": [
+        "Spremi potvrdu slanja i prati poštu ili službeni korisnički pretinac.",
+        "Ako Familienkasse traži dokaz, pročitaj njihov točan zahtjev i rok."
+      ]
     }
   }
 }

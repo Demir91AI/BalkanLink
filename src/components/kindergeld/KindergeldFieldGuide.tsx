@@ -38,6 +38,7 @@ export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string 
           </span>
         </AccordionTrigger>
         <AccordionContent>
+          <h4 className="mb-2 text-sm font-bold text-foreground">{t("smartGuideStandard.block.field")}</h4>
           <p className="text-sm leading-relaxed text-muted-foreground">{r.what}</p>
           <dl className="mt-3 space-y-2 text-xs leading-relaxed">
             {(["where", "example", "mistake"] as const).map((f) => (

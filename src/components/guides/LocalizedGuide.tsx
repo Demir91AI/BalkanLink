@@ -34,7 +34,8 @@ export default function LocalizedGuide({ guideKey, base, children, footer, free 
         commonMistakes={header.commonMistakes}
       />
       {children}
-      <SmartGuideWizardShared steps={steps} free={free} />
+      <SmartGuideWizardShared steps={steps} free={free} guideId={guideKey} />
+      {footer}
     </div>
   );
 }

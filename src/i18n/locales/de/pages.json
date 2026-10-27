@@ -1662,7 +1662,7 @@
         },
         "prepare": {
           "title": "Angaben bereitlegen",
-          "body": "Halte Unterlagen und Bankverbindung bereit. Die Erklärungen stehen im Leitfaden oben.",
+          "body": "Lege die Steuer-ID des Elternteils, Name und Geburtsdatum des Kindes, dessen Steuer-ID soweit bereits vergeben sowie IBAN und Kontoinhaber bereit. Weitere Nachweise richten sich nach den Portalfragen und der Anforderung der Familienkasse; nicht jedes Neugeborene benötigt dieselben Unterlagen.",
           "items": [
             "Deine Steuer-ID (steuerliche Identifikationsnummer)",
             "Steuer-ID des Kindes — bei Neugeborenen kommt sie nach der Geburtsanmeldung per Post vom Bundeszentralamt für Steuern",
@@ -1671,7 +1671,7 @@
         },
         "access": {
           "title": "Zugang zum Portal vorbereiten",
-          "body": "Bereite für den Online-Antrag ein Konto im Portal der Bundesagentur für Arbeit vor."
+          "body": "Prüfe in den Familienkasse-eServices Anmeldung, Familienkassen-Profil und Identifizierung über BundID. Kannst du die elektronische Identifizierung nicht abschließen, prüfe auf der offiziellen Seite die Papieralternative."
         },
         "apply": {
           "title": "Offiziellen Online-Antrag ausfüllen",
@@ -1679,7 +1679,7 @@
         },
         "after": {
           "title": "Nach dem Absenden",
-          "body": "Bewahre die Sendebestätigung auf und warte auf den Bescheid der Familienkasse. Kindergeld wird rückwirkend höchstens für 6 Monate gezahlt — stelle den Antrag daher rechtzeitig. Änderungen (z. B. Adresse, IBAN) der Familienkasse melden. Beträge und Bearbeitungszeiten können wir nicht garantieren."
+          "body": "Bewahre die Eingangsbestätigung auf. Prüfe Post oder Familienkassen-Profil auf Bescheid und Nachweisanforderungen; lies die Frist im tatsächlichen Schreiben. Melde Änderungen über die offiziellen Wege. Bearbeitungszeit und Ergebnis sind nicht garantiert."
         }
       },
       "ctaOnline": "Offiziellen Online-Antrag öffnen (Familienkasse)",
@@ -2070,6 +2070,61 @@
       "ctaRegister": "Kostenlos registrieren",
       "ctaSubscribe": "Mitgliedschaft ansehen",
       "registerNote": "Für den Zugang ist ein Konto mit bestätigter E-Mail-Adresse nötig."
+    }
+  },
+  "smartGuideStandard": {
+    "steps": "Schritte des Leitfadens",
+    "jump": "Schritt {{number}}: {{title}}",
+    "position": "Schritt {{current}} von {{total}}",
+    "checklist": "Für diesen Schritt vorbereiten",
+    "reviewed": "Diesen Schritt habe ich geprüft",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "finish": "Fertig",
+    "verified": "Inhalt anhand der Quelle geprüft: {{date}}",
+    "verify": "Offizielle Quelle prüfen — der Inhalt dieses Verfahrens ist noch nicht vollständig geprüft.",
+    "source": "Offizielle Quelle",
+    "newTab": "Öffnet in einem neuen Tab",
+    "progress": "Fortschritt auf diesem Gerät speichern",
+    "privacy": "Nur mit Speichern werden die Schrittnummer und Markierungen geprüfter Schritte gespeichert. Keine Antworten, Dokumente, persönlichen Angaben oder Sonderfall-Auswahl. Du kannst den Fortschritt fortsetzen oder löschen.",
+    "save": "Speichern",
+    "restore": "Gespeicherten Stand öffnen",
+    "forget": "Fortschritt löschen",
+    "saved": "Fortschritt auf diesem Gerät gespeichert.",
+    "restored": "Gespeicherter Fortschritt geöffnet.",
+    "forgotten": "Gespeicherter Fortschritt gelöscht.",
+    "noSaved": "Kein gültiger gespeicherter Fortschritt vorhanden.",
+    "storageError": "Dieses Gerät erlaubt das Speichern des Fortschritts nicht.",
+    "block": {
+      "action": "Was bedeutet das / was ist zu tun",
+      "field": "Was genau eintragen",
+      "where": "Wo finde ich die Angaben",
+      "format": "Format",
+      "mistake": "Häufige Fehler",
+      "empty": "Wann leer lassen",
+      "example": "Fiktives Beispiel",
+      "note": "Wichtiger Hinweis"
+    },
+    "kindergeldChecks": {
+      "orient": [
+        "Unterscheide den Antrag für ein Neugeborenes von Sonderfällen."
+      ],
+      "prepare": [
+        "Finde deine Steuer-ID im BZSt-Schreiben oder in der elektronischen Lohnsteuerbescheinigung.",
+        "Lege Name, Geburtsdatum und die Steuer-ID des Kindes bereit, soweit bereits vergeben.",
+        "Lege IBAN und Kontoinhaber bereit; beachte die Nachweisanforderungen des Portals."
+      ],
+      "access": [
+        "Prüfe Anmeldung und Identifizierung in den Familienkasse-eServices, einschließlich BundID."
+      ],
+      "apply": [
+        "Prüfe die Angaben vor dem Absenden im offiziellen Portal.",
+        "Bei Postversand beachte die Hinweise und Unterschriften auf dem offiziellen KG1 und der Anlage Kind."
+      ],
+      "after": [
+        "Bewahre die Eingangsbestätigung auf und prüfe Post oder offizielles Postfach.",
+        "Fordert die Familienkasse Nachweise an, lies die konkrete Anforderung und Frist."
+      ]
     }
   }
 }
