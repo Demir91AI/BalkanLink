@@ -8,5 +8,5 @@
 
 ## Development-only catalog/navigation cleanup (2026-10-27)
 - [x] Remove decorative access badges; preserve routes, gates, payments, languages and warnings.
-- [ ] Document every sidebar destination and all eight catalog categories, duplicates and mobile rotation risk.
-- [ ] Run no-downgrade/full tests and preview checks; do not publish or deploy.
+- [x] Document every sidebar destination and all eight catalog categories, duplicates and mobile rotation risk (`docs/catalog-navigation-cleanup-2026-10-27.md`).
+- [x] Run no-downgrade/full tests and preview checks; no publish/deploy. Separate TypeScript check not manually run under harness rules.
