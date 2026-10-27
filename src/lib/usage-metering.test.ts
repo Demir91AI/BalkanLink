@@ -105,12 +105,12 @@ describe("assistant hard stop (monetization v2)", () => {
   it("over-quota trial/yearly users get QUOTA_EXHAUSTED and no model call", () => {
     const g = assistantGate({ ok: false, reason: "quota_exhausted", used: 40, limit: 40, resets_at: "2026-12-01T00:00:00Z" }, "bs");
     expect(g.callAI).toBe(false);
-    if (!g.callAI) { expect(g.body.errorCode).toBe("QUOTA_EXHAUSTED"); expect(g.body.resets_at).toBe("2026-12-01T00:00:00Z"); }
+    if (!g.callAI) { const b = (g as { body: Record<string, unknown> }).body; expect(b.errorCode).toBe("QUOTA_EXHAUSTED"); expect(b.resets_at).toBe("2026-12-01T00:00:00Z"); }
   });
   it("free users after rollout get a membership CTA and no model call", () => {
     const g = assistantGate({ ok: false, reason: "subscribe_required" }, "de");
     expect(g.callAI).toBe(false);
-    if (!g.callAI) { expect(g.body.errorCode).toBe("SUBSCRIBE_REQUIRED"); expect(g.body.redirect_url).toBe("/paketi"); }
+    if (!g.callAI) { const b = (g as { body: Record<string, unknown> }).body; expect(b.errorCode).toBe("SUBSCRIBE_REQUIRED"); expect(b.redirect_url).toBe("/paketi"); }
   });
   it("a granted reservation calls the model", () => {
     expect(assistantGate({ ok: true, reservation_id: "x", mode: "full" }, "bs").callAI).toBe(true);
