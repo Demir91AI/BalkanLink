@@ -58,8 +58,13 @@ export default function KindergeldAssistent({ f, set, setKind }: Props) {
     try {
       const fontBytes = new Uint8Array(await (await fetch(fontUrl)).arrayBuffer());
       const r = await buildKindergeldDatenblatt(f, flags, { today: today(), fontBytes });
-      if (!r.ok) { setMsg(k(r.code === "VALIDATION_FAILED" ? "errors.fix" : "errors.pdf")); if (r.code === "VALIDATION_FAILED") setErrors(r.errors); return; }
-      downloadBlob(new Blob([r.bytes], { type: "application/pdf" }), "Kindergeld-Ausfuellhilfe-nicht-amtlich.pdf");
+      if (!("bytes" in r)) {
+        const fail = r as { code: string; errors?: KgError[] };
+        setMsg(k(fail.code === "VALIDATION_FAILED" ? "errors.fix" : "errors.pdf"));
+        if (fail.errors) setErrors(fail.errors);
+        return;
+      }
+      downloadBlob(new Blob([r.bytes as BlobPart], { type: "application/pdf" }), "Kindergeld-Ausfuellhilfe-nicht-amtlich.pdf");
     } catch { setMsg(k("errors.pdf")); } finally { setBusy(false); }
   };
 

@@ -138,7 +138,7 @@ export type KgSheetResult =
   | { ok: false; code: "FONT_UNAVAILABLE" | "UNSUPPORTED_GLYPHS" };
 
 async function sha256(bytes: Uint8Array) {
-  const h = await crypto.subtle.digest("SHA-256", bytes);
+  const h = await crypto.subtle.digest("SHA-256", bytes as BufferSource);
   return [...new Uint8Array(h)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
