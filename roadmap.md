@@ -1,8 +1,8 @@
 
 ## Owner SmartGuide correction (2026-10-27, Preview/code only)
-- [ ] Make newborn Kindergeld primary and always visible; preserve online/paper details, 20 records and special cases.
-- [ ] Improve semantic shared panels and a bounded set of other real guide workflows, with exact coverage/gaps.
-- [ ] Verify actual Kindergeld/Kinderzuschlag desktop/mobile routes and navigation; run regressions and record revision. No publication/deployment.
+- [x] Make newborn Kindergeld primary and always visible; preserve online/paper details, 20 records and special cases.
+- [x] Improve semantic shared panels and Kindergeld/Kinderzuschlag/Steuer-ID content (3/46 FormCenter services; 43 full content reviews pending).
+- [x] Verify 24 actual-route visual fixtures (4 locales × 2 widths × 3 routes), 1018 tests and automatic build; document authenticated and JS-browser runner limitations. No publication/deployment.
 
 ## Reusable SmartGuide standard (2026-10-27, Preview/code only)
 - [x] Record full route/category inventory and content parity gaps before guide changes (200 paths, 46 services).
