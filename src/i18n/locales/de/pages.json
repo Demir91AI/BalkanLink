@@ -1731,7 +1731,7 @@
         },
         "prepare": {
           "title": "Angaben bereitlegen",
-          "body": "Für ein Kind unter 18 in Deutschland genügen im Regelfall:",
+          "body": "Halte Unterlagen und Bankverbindung bereit. Die Erklärungen stehen im Leitfaden oben.",
           "items": [
             "Deine Steuer-ID (steuerliche Identifikationsnummer)",
             "Steuer-ID des Kindes — bei Neugeborenen kommt sie nach der Geburtsanmeldung per Post vom Bundeszentralamt für Steuern",
@@ -1740,11 +1740,11 @@
         },
         "access": {
           "title": "Zugang zum Portal vorbereiten",
-          "body": "Für den Online-Antrag brauchst du ein Konto im Portal der Bundesagentur für Arbeit. Mit BundID sendest du den Antrag direkt online, ohne Ausdruck und Unterschrift."
+          "body": "Bereite für den Online-Antrag ein Konto im Portal der Bundesagentur für Arbeit vor."
         },
         "apply": {
           "title": "Offiziellen Online-Antrag ausfüllen",
-          "body": "Öffne den offiziellen Online-Antrag der Familienkasse und fülle ihn dort aus. Ohne BundID füllst du ihn online aus, druckst ihn, unterschreibst und schickst ihn per Post an die Familienkasse."
+          "body": "Reiche den Antrag im offiziellen Portal ein oder sende die unterschriebenen Papierformulare an die Familienkasse."
         },
         "after": {
           "title": "Nach dem Absenden",
@@ -1777,8 +1777,8 @@
         }
       },
       "fields": {
-        "title": "So füllen Sie den offiziellen Antrag aus – Feld für Feld",
-        "intro": "Dies ist nur eine Lesehilfe: Hier geben Sie nichts ein und nichts wird gesendet. Die Angaben folgen den Papierformularen KG1 und Anlage Kind (Stand 09/2025) – Seite und Abschnitt. Der Online-Antrag stellt dieselben Fragen, Reihenfolge und Bezeichnungen können aber abweichen.",
+        "title": "Kindergeld: Was trage ich wo ein?",
+        "intro": "Lege deine Angaben bereit — wir erklären dir, was die Familienkasse wissen möchte.",
         "dummy": "Alle Beispiele sind erfunden (Maja Kovač, Damir Novak) – übernehmen Sie nie ein Beispiel, sondern Ihre echten Daten.",
         "lbl": {
           "what": "Was eintragen",
@@ -1789,7 +1789,7 @@
           "sec": "Abschnitt",
           "header": "Kopf",
           "sign": "Ende",
-          "only": "Nur wenn es Sie betrifft"
+          "only": "Nur wenn es dich betrifft"
         },
         "kg1Title": "KG1 – Antrag auf Kindergeld (Hauptantrag, 2 Seiten)",
         "ankTitle": "Anlage Kind (4 Seiten)",
@@ -2024,8 +2024,67 @@
             "example": "27.10.2026 · Unterschrift",
             "mistake": "KG1 unterschreiben, Anlage Kind nicht."
           }
-        ]
-      }
+        ],
+        "notice": "Dies ist nur eine Lesehilfe: Hier geben Sie nichts ein und nichts wird gesendet. Die Angaben folgen den Papierformularen KG1 und Anlage Kind (Stand 09/2025) – Seite und Abschnitt. Der Online-Antrag stellt dieselben Fragen, Reihenfolge und Bezeichnungen können aber abweichen.",
+        "important": "Wichtig",
+        "mode": {
+          "online": "Ich fülle online aus (empfohlen)",
+          "paper": "Ich fülle den KG1 auf Papier aus"
+        },
+        "paperGroups": [
+          "Du und der andere Elternteil",
+          "Dein Kind",
+          "Auszahlung und Unterschriften",
+          "Weitere Fragen und Papierdetails"
+        ],
+        "onlineGroups": [
+          {
+            "title": "Angaben zu den Eltern",
+            "body": "Deine Steuer-ID, dein Name und deine aktuelle Adresse — wie in deinen Unterlagen."
+          },
+          {
+            "title": "Angaben zum Kind",
+            "body": "Name und Geburtsdatum des Kindes, seine Steuer-ID und dein Verhältnis zum Kind."
+          },
+          {
+            "title": "Konto für die Auszahlung",
+            "body": "IBAN des Auszahlungskontos und Name der Person, der das Konto gehört."
+          },
+          {
+            "title": "Weitere Kinder und besondere Situationen",
+            "body": "Gib früheres Kindergeld und Verbindungen ins Ausland an, falls vorhanden. Weitere Angaben hängen von der Situation ab."
+          }
+        ],
+        "onlineOrder": "Dies sind Themen im Antrag, nicht die genaue Reihenfolge der Online-Felder.",
+        "onlineRoute": "Mit BundID sendest du den Antrag bei Geburt elektronisch, ohne Ausdruck. Ohne BundID: online ausfüllen, ausdrucken, unterschreiben und per Post an die Familienkasse senden.",
+        "short": {
+          "kg1": [
+            "Antragsnummer und Anlagen",
+            "Deine Steuer-ID",
+            "Name des Elternteils",
+            "Adresse und Familienstand",
+            "Anderer Elternteil im Haushalt",
+            "IBAN und Kontoinhaber",
+            "Wer den Bescheid erhält",
+            "Weitere Kinder mit Kindergeld",
+            "Kindergeld bei einer anderen Person",
+            "Datum und Unterschrift auf KG1"
+          ],
+          "ank": [
+            "Zuordnung der Anlage Kind",
+            "Steuer-ID des Kindes",
+            "Name und Geburt des Kindes",
+            "Dein Verhältnis zum Kind",
+            "Kind ab 18 — bei Babys überspringen",
+            "Früherer Antrag für dieses Kind",
+            "Arbeit im öffentlichen Dienst",
+            "Leistung aus einem anderen Staat",
+            "Arbeit mit Auslandsbezug",
+            "Unterschrift auf der Anlage Kind"
+          ]
+        }
+      },
+      "processTitle": "So reichst du den Antrag ein"
     },
     "panelEmpty": "Wähle links eine Leistung für Leitfaden und offizielle Quellen.",
     "benefitsGuides": "40+ SmartGuide-Leitfäden — Schritt für Schritt zum offiziellen Antrag für Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG und mehr",

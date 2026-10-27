@@ -64,7 +64,7 @@ export default function KindergeldGuideContent() {
         </div>
       </section>
 
-      {c === "newborn" && <KindergeldFieldGuide />}
+      {c === "newborn" && <KindergeldFieldGuide onlineUrl={ONLINE_URL} />}
 
       {c !== "newborn" && (
         <section data-testid={`kg-special-${c}`} className="rounded-2xl border border-amber-500/30 bg-amber-950 p-5 text-sm text-foreground">
@@ -87,7 +87,9 @@ export default function KindergeldGuideContent() {
       )}
 
       {c === "newborn" && (
-      <ol className="space-y-3">
+      <details className="border-b border-border pb-4">
+      <summary className="cursor-pointer py-2 text-sm font-semibold text-foreground">{t(k("processTitle"))}</summary>
+      <ol className="mt-3 space-y-3">
         {STAGES.map((s, i) => (
           <li key={s} className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-start gap-3">
@@ -97,31 +99,12 @@ export default function KindergeldGuideContent() {
               <div className="min-w-0 flex-1">
                 <h3 className="font-semibold text-foreground">{t(k(`stage.${s}.title`))}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(k(`stage.${s}.body`))}</p>
-                {s === "prepare" && (
-                  <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                    {(t(k("stage.prepare.items"), { returnObjects: true }) as string[]).map((it) => (
-                      <li key={it} className="flex gap-2"><span className="text-[hsl(var(--gold))]">•</span>{it}</li>
-                    ))}
-                  </ul>
-                )}
-                {s === "apply" && (
-                  <>
-                    <a
-                      href={ONLINE_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(var(--gold))] px-4 py-3 text-sm font-bold text-[hsl(var(--background))]"
-                    >
-                      {t(k("ctaOnline"))} <ExternalLink className="h-4 w-4" />
-                    </a>
-                    <p className="mt-2 text-xs text-muted-foreground">{t(k("paper"))}</p>
-                  </>
-                )}
               </div>
             </div>
           </li>
         ))}
       </ol>
+      </details>
       )}
 
 

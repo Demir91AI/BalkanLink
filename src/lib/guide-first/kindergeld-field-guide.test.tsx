@@ -14,17 +14,71 @@ const setup = async () => {
   return render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
 };
 const F = bs.guideFirst.kindergeld.fields;
-const trig = (de: string) => screen.getAllByText((_, el) => el?.tagName === "SPAN" && !!el.textContent?.endsWith(de) && el.textContent.includes(":"))[0];
+const paper = () => fireEvent.mouseDown(screen.getByRole("tab", { name: F.mode.paper }), { button: 0, ctrlKey: false });
+const trig = (de: string) => screen.getByText((_, el) => el?.tagName === "SPAN" && !!el.textContent?.startsWith(`${de} · `)).closest("button");
+const clickRow = (de: string) => { const button = trig(de); if (!button) throw new Error("Missing field trigger"); fireEvent.click(button); };
 
 describe("Kindergeld field-by-field guide", () => {
+  it.each([["bs", bs], ["hr", hr], ["sr", sr], ["de", de]] as const)("%s exposes all 20 paper records through localized mode controls", async (lang, locale) => {
+    const instance = i18n.createInstance();
+    await instance.init({ lng: lang, resources: { [lang]: { pages: locale } }, interpolation: { escapeValue: false } });
+    render(<I18nextProvider i18n={instance}><KindergeldGuideContent /></I18nextProvider>);
+    const fields = locale.guideFirst.kindergeld.fields;
+    expect(fields.short.kg1).toHaveLength(10);
+    expect(fields.short.ank).toHaveLength(10);
+    expect(fields.onlineGroups).toHaveLength(4);
+    expect(fields.paperGroups).toHaveLength(4);
+    fireEvent.mouseDown(screen.getByRole("tab", { name: fields.mode.paper }), { button: 0, ctrlKey: false });
+    expect(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]")).toHaveLength(20);
+  });
+  it("defaults to online and switches both ways without adding a second application CTA", async () => {
+    await setup();
+    expect(screen.getByRole("tab", { name: F.mode.online }).getAttribute("aria-selected")).toBe("true");
+    expect(screen.queryByTestId("kg-paper-details")).toBeNull();
+    expect(screen.getAllByText(bs.guideFirst.kindergeld.ctaOnline)).toHaveLength(1);
+    paper();
+    expect(screen.getByTestId("kg-paper-details")).toBeTruthy();
+    fireEvent.mouseDown(screen.getByRole("tab", { name: F.mode.online }), { button: 0, ctrlKey: false });
+    expect(screen.queryByTestId("kg-paper-details")).toBeNull();
+  });
+
+  it("keeps every one of the 10 KG1 and 10 Anlage Kind explanations retrievable", async () => {
+    await setup(); paper();
+    const rows = [...F.kg1, ...F.ank];
+    expect(F.kg1).toHaveLength(10); expect(F.ank).toHaveLength(10);
+    expect(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]")).toHaveLength(20);
+    for (const r of rows) {
+      clickRow(r.de);
+      for (const value of [r.what, r.where, r.example, r.mistake]) expect(screen.getAllByText(value).length).toBeGreaterThan(0);
+    }
+  });
+
+  it("opens only one field across thematic groups and permits closing it", async () => {
+    await setup(); paper(); clickRow(F.kg1[1].de); clickRow(F.ank[1].de);
+    expect(trig(F.kg1[1].de)?.getAttribute("aria-expanded")).toBe("false");
+    expect(trig(F.ank[1].de)?.getAttribute("aria-expanded")).toBe("true");
+    expect(screen.getByTestId("kg-paper-details").querySelectorAll('button[aria-expanded="true"]')).toHaveLength(1);
+    clickRow(F.ank[1].de);
+    expect(screen.getByTestId("kg-paper-details").querySelectorAll('button[aria-expanded="true"]')).toHaveLength(0);
+  });
+
+  it("places administrative headers near the end and adult-only details last", async () => {
+    await setup(); paper();
+    const buttons = Array.from(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]"));
+    expect(buttons[0]).toBe(trig(F.kg1[1].de));
+    expect(buttons[17]).toBe(trig(F.kg1[0].de));
+    expect(buttons[18]).toBe(trig(F.ank[0].de));
+    expect(buttons[19]).toBe(trig(F.ank[4].de));
+    clickRow(F.ank[4].de); expect(screen.getByText(F.ank[4].what)).toBeTruthy();
+  });
+
   it("newborn branch shows KG1 and Anlage Kind sections with readable field content", async () => {
     await setup();
     expect(screen.getByTestId("kg-field-guide")).toBeTruthy();
-    expect(screen.getByText(F.kg1Title)).toBeTruthy();
-    expect(screen.getByText(F.ankTitle)).toBeTruthy();
-    fireEvent.click(trig(F.kg1[1].de));
+    paper();
+    clickRow(F.kg1[1].de);
     expect(screen.getByText(F.kg1[1].what)).toBeTruthy();
-    fireEvent.click(trig(F.ank[1].de));
+    clickRow(F.ank[1].de);
     expect(screen.getByText(F.ank[1].where)).toBeTruthy();
   });
 
@@ -40,28 +94,29 @@ describe("Kindergeld field-by-field guide", () => {
   });
 
   it("maps Anlage Kind sections 4-7 to pages 3-4 and skips section 3 for newborns", () => {
-    const sec = (n: string) => F.ank.find((r) => r.sec === n)!;
+    const sec = (n: string) => F.ank.find((r) => r.sec === n);
     expect(sec("3")).toMatchObject({ page: 2, only: true });
-    expect(sec("3").what).toMatch(/preskoči/);
+    expect(sec("3")?.what).toMatch(/preskoči/);
     expect(sec("4")).toMatchObject({ page: 3 });
-    expect(sec("5").de).toMatch(/öffentlichen Dienst/);
+    expect(sec("5")?.de).toMatch(/öffentlichen Dienst/);
     expect(sec("6")).toMatchObject({ page: 3 });
-    expect(sec("6").de).toMatch(/Geldleistungen aus dem Ausland/);
+    expect(sec("6")?.de).toMatch(/Geldleistungen aus dem Ausland/);
     expect(sec("7")).toMatchObject({ page: 4 });
-    expect(sec("7").what).toMatch(/NATO/);
+    expect(sec("7")?.what).toMatch(/NATO/);
   });
 
   it("does not demand a DE IBAN, blanket partner tax ID or school proof for babies", () => {
     const all = JSON.stringify(F);
     expect(all).not.toMatch(/isključivo na njemački/);
     expect(all).not.toMatch(/sličnu davanje/);
-    expect(F.kg1.find((r) => r.sec === "2")!.what).toMatch(/^Samo ako/);
+    expect(F.kg1.find((r) => r.sec === "2")?.what).toMatch(/^Samo ako/);
   });
 
   it("renders the official location label in the accordion", async () => {
     await setup();
-    expect(trig(F.kg1.find((r) => r.sec === "3")!.de).textContent).toMatch(/^KG1 · str\. 1 · tačka 3:/);
-    expect(trig(F.ank.find((r) => r.sec === "6")!.de).textContent).toMatch(/^Anlage Kind · str\. 3 · tačka 6:/);
+    paper();
+    expect(trig(F.kg1[5].de)?.textContent).toContain("KG1 · str. 1 · tačka 3");
+    expect(trig(F.ank[7].de)?.textContent).toContain("Anlage Kind · str. 3 · tačka 6");
   });
 
   it.each(["adult", "cross"] as const)("%s branch hides the newborn field guide", async (c) => {
@@ -72,7 +127,8 @@ describe("Kindergeld field-by-field guide", () => {
 
   it("contains no data-entry fields", async () => {
     const { container } = await setup();
-    fireEvent.click(trig(F.kg1[1].de));
+    paper();
+    clickRow(F.kg1[1].de);
     expect(container.querySelectorAll("input, textarea, select").length).toBe(0);
   });
 
