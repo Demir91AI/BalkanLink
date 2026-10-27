@@ -28,6 +28,10 @@ describe("Kindergeld field-by-field guide", () => {
     expect(fields.short.ank).toHaveLength(10);
     expect(fields.onlineGroups).toHaveLength(4);
     expect(fields.paperGroups).toHaveLength(4);
+    const helpers = screen.getAllByTestId("kg-online-helper");
+    expect(helpers).toHaveLength(4);
+    expect(helpers.every((helper) => !helper.hasAttribute("open"))).toBe(true);
+    expect(helpers.every((helper) => Boolean(helper.querySelector("p")?.textContent?.trim()))).toBe(true);
     fireEvent.mouseDown(screen.getByRole("tab", { name: fields.mode.paper }), { button: 0, ctrlKey: false });
     expect(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]")).toHaveLength(20);
   });
@@ -40,6 +44,17 @@ describe("Kindergeld field-by-field guide", () => {
     expect(screen.getByTestId("kg-paper-details")).toBeTruthy();
     fireEvent.mouseDown(screen.getByRole("tab", { name: F.mode.online }), { button: 0, ctrlKey: false });
     expect(screen.queryByTestId("kg-paper-details")).toBeNull();
+  });
+
+  it("online helpers are independent native disclosures, without user data entry", async () => {
+    const { container } = await setup();
+    const helpers = screen.getAllByTestId("kg-online-helper");
+    helpers[0].setAttribute("open", "");
+    expect(helpers[0].hasAttribute("open")).toBe(true);
+    expect(helpers.slice(1).every((helper) => !helper.hasAttribute("open"))).toBe(true);
+    helpers[0].removeAttribute("open");
+    expect(helpers.every((helper) => !helper.hasAttribute("open"))).toBe(true);
+    expect(container.querySelectorAll("input, textarea, select")).toHaveLength(0);
   });
 
   it("keeps every one of the 10 KG1 and 10 Anlage Kind explanations retrievable", async () => {

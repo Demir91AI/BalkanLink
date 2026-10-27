@@ -17,7 +17,7 @@ export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string 
   const k = (s: string) => `guideFirst.kindergeld.fields.${s}`;
   const kg1 = t(k("kg1"), { returnObjects: true }) as Row[];
   const ank = t(k("ank"), { returnObjects: true }) as Row[];
-  const online = t(k("onlineGroups"), { returnObjects: true }) as { title: string; body: string }[];
+  const online = t(k("onlineGroups"), { returnObjects: true }) as { title: string; body: string; tip: string }[];
   const lbl = (s: string) => t(k(`lbl.${s}`));
   /** e.g. "KG1 · str. 1 · tačka 3: Zahlungsweg – IBAN …" */
   const location = (r: Row) =>
@@ -79,6 +79,10 @@ export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string 
                   <h3 className="text-sm font-semibold text-foreground">{group.title}</h3>
                   {i === 3 && <p className="mt-1 text-xs text-primary">{lbl("only")}</p>}
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{group.body}</p>
+                  <details className="mt-2 text-xs leading-relaxed text-muted-foreground" data-testid="kg-online-helper">
+                    <summary className="cursor-pointer py-1 font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">{t(k("findData"))}</summary>
+                    <p className="mt-1">{group.tip}</p>
+                  </details>
                 </div>
               </li>
             ))}
