@@ -56,12 +56,12 @@ export const formCatalog: FormGroup[] = [
     icon: "👨‍👩‍👧",
     title: "Porodica i djeca",
     items: [
-      { slug: "kindergeld", label: "Kindergeld", desc: "Mjesečna državna naknada za djecu.", includes: "Smart Guide + KG1 + Anlage Kind" },
-      { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta.", includes: "Smart Guide + Antrag + Anlage EG+" },
-      { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada tokom zaštitnog perioda prije i poslije poroda.", includes: "Smart Guide + Antrag Mutterschaftsgeld" },
-      { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna podrška za porodice s niskim primanjima.", includes: "Smart Guide + Antrag Kinderzuschlag" },
-      { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Subvencija za troškove vrtića u Bavarskoj za djecu do 3 godine.", includes: "Vodič + Antrag Krippengeld" },
-      { slug: "wirtschaftliche-jugendhilfe", label: "Wirtschaftliche Jugendhilfe", desc: "Finansijska pomoć Jugendamt-a za odgoj djeteta (SGB VIII).", includes: "Smart Guide + Antrag auf Hilfe zur Erziehung" },
+      { slug: "kindergeld", label: "Kindergeld", desc: "Mjesečna državna naknada za djecu.", includes: "SmartGuide + službeni izvori" },
+      { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje nakon rođenja djeteta.", includes: "SmartGuide + službeni izvori" },
+      { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada tokom zaštitnog perioda prije i poslije poroda.", includes: "SmartGuide + službeni izvori" },
+      { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatna podrška za porodice s niskim primanjima.", includes: "SmartGuide + službeni izvori" },
+      { slug: "krippengeld-bayern", label: "Krippengeld (Bayern)", desc: "Subvencija za troškove vrtića u Bavarskoj za djecu do 3 godine.", includes: "SmartGuide + službeni izvori" },
+      { slug: "wirtschaftliche-jugendhilfe", label: "Wirtschaftliche Jugendhilfe", desc: "Finansijska pomoć Jugendamt-a za odgoj djeteta (SGB VIII).", includes: "SmartGuide + službeni izvori" },
     ],
   },
   {
@@ -69,8 +69,8 @@ export const formCatalog: FormGroup[] = [
     icon: "💰",
     title: "Bürgergeld",
     items: [
-      { slug: "hauptantrag", label: "Bürgergeld Hauptantrag", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld.", includes: "Smart Guide + HA + EK + KDU + VM" },
-      { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag", desc: "Produženje Bürgergeld-a nakon isteka perioda odobravanja.", includes: "Smart Guide + WBA formular" },
+      { slug: "hauptantrag", label: "Bürgergeld Hauptantrag", desc: "Centralni formular za podnošenje zahtjeva za Bürgergeld.", includes: "SmartGuide + službeni izvori" },
+      { slug: "weiterbewilligung", label: "Weiterbewilligungsantrag", desc: "Produženje Bürgergeld-a nakon isteka perioda odobravanja.", includes: "SmartGuide + službeni izvori" },
     ],
     subGroups: [
       {
@@ -105,7 +105,7 @@ export const formCatalog: FormGroup[] = [
     icon: "🏡",
     title: "Wohngeld",
     items: [
-      { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska podrška za troškove stanovanja.", includes: "Vodič + Antrag Wohngeld + izračun" },
+      { slug: "wohngeld", label: "Wohngeld", desc: "Finansijska podrška za troškove stanovanja.", includes: "SmartGuide + službeni izvori" },
     ],
   },
   {
@@ -113,9 +113,9 @@ export const formCatalog: FormGroup[] = [
     icon: "💼",
     title: "Rad i karijera",
     items: [
-      { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada za nezaposlenost uz ispunjene uslove.", includes: "Smart Guide + ALG1 Antrag" },
-      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj.", includes: "Smart Guide + Anmeldeformular" },
-      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja.", includes: "Smart Guide + Antrag" },
+      { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada za nezaposlenost uz ispunjene uslove.", includes: "SmartGuide + službeni izvori" },
+      { slug: "krankenkasse", label: "Krankenkasse", desc: "Prijava na zdravstveno osiguranje u Njemačkoj.", includes: "SmartGuide + službeni izvori" },
+      { slug: "steuerklassenwechsel", label: "Steuerklassenwechsel", desc: "Promjena porezne klase, npr. nakon vjenčanja.", includes: "SmartGuide + službeni izvori" },
     ],
   },
   {
@@ -124,9 +124,9 @@ export const formCatalog: FormGroup[] = [
     title: "Obrazovanje",
     items: [
       { slug: "anerkennung-navigator", label: "Anerkennung Navigator", desc: "Priznavanje diplome iz BiH/HR/SR/CG/MK/XK — interaktivni asistent po profesiji i Bundeslandu.", includes: "Anabin vodič + 14 profesija + Anerkennungszuschuss" },
-      { slug: "bafoeg", label: "BAföG", desc: "Finansijska podrška za studij ili školu.", includes: "Smart Guide + Antrag BAföG + Schüler-BAföG" },
-      { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Finansijska podrška za učenike koji žive odvojeno od roditelja.", includes: "Smart Guide + Antrag Schüler-BAföG" },
-      { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs jezika i orijentacije.", includes: "Smart Guide + Antrag Integrationskurs" },
+      { slug: "bafoeg", label: "BAföG", desc: "Finansijska podrška za studij ili školu.", includes: "SmartGuide + službeni izvori" },
+      { slug: "schueler-bafoeg", label: "Schüler-BAföG", desc: "Finansijska podrška za učenike koji žive odvojeno od roditelja.", includes: "SmartGuide + službeni izvori" },
+      { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs jezika i orijentacije.", includes: "SmartGuide + službeni izvori" },
     ],
   },
   {
@@ -134,9 +134,9 @@ export const formCatalog: FormGroup[] = [
     icon: "📋",
     title: "Dokumenti i potvrde",
     items: [
-      { slug: "grundsicherung", label: "Grundsicherung im Alter", desc: "Osnovna pomoć za starije osobe i osobe s invaliditetom.", includes: "Smart Guide + Antrag Grundsicherung" },
-      { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju.", includes: "Smart Guide + Online Antrag vodič" },
-      { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Istupanje iz crkve radi ukidanja crkvenog poreza.", includes: "Vodič + Antrag Kirchenaustritt" },
+      { slug: "grundsicherung", label: "Grundsicherung im Alter", desc: "Osnovna pomoć za starije osobe i osobe s invaliditetom.", includes: "SmartGuide + službeni izvori" },
+      { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Potvrda o nekažnjavanju.", includes: "SmartGuide + službeni izvori" },
+      { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Istupanje iz crkve radi ukidanja crkvenog poreza.", includes: "SmartGuide + službeni izvori" },
     ],
   },
   {
@@ -144,10 +144,10 @@ export const formCatalog: FormGroup[] = [
     icon: "🛂",
     title: "Vize i boravak",
     items: [
-      { slug: "nationalvisum", label: "Nationales Visum (D-Visum)", desc: "Nacionalna viza za dugoročni boravak (rad, studij, spajanje porodice).", includes: "VIDEX vodič + Musterformular" },
-      { slug: "aufenthaltstitel", label: "Aufenthaltstitel — Antrag", desc: "Zahtjev za izdavanje boravišne dozvole na Ausländerbehörde.", includes: "Smart Guide + Musterformular" },
-      { slug: "niederlassungserlaubnis", label: "Niederlassungserlaubnis", desc: "Stalna boravišna dozvola (§ 9 AufenthG, nakon 5 god.).", includes: "Smart Guide + Musterformular" },
-      { slug: "verpflichtungserklaerung", label: "Verpflichtungserklärung", desc: "Garantno pismo (§ 68 AufenthG) za pozivanje rodbine/posjetilaca.", includes: "Vodič + Musterformular" },
+      { slug: "nationalvisum", label: "Nationales Visum (D-Visum)", desc: "Nacionalna viza za dugoročni boravak (rad, studij, spajanje porodice).", includes: "SmartGuide + službeni izvori" },
+      { slug: "aufenthaltstitel", label: "Aufenthaltstitel — Antrag", desc: "Zahtjev za izdavanje boravišne dozvole na Ausländerbehörde.", includes: "SmartGuide + službeni izvori" },
+      { slug: "niederlassungserlaubnis", label: "Niederlassungserlaubnis", desc: "Stalna boravišna dozvola (§ 9 AufenthG, nakon 5 god.).", includes: "SmartGuide + službeni izvori" },
+      { slug: "verpflichtungserklaerung", label: "Verpflichtungserklärung", desc: "Garantno pismo (§ 68 AufenthG) za pozivanje rodbine/posjetilaca.", includes: "SmartGuide + službeni izvori" },
     ],
   },
 ];

@@ -34,7 +34,7 @@ export default function PremiumBenefitsSection() {
             <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground">
               <li className="flex items-start gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                <span>25+ Musterformulara — primjeri pravilno popunjenih obrazaca za Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG i još 20+ formulara</span>
+                <span>{tGf("guideFirst.benefitsGuides")}</span>
               </li>
               <li className="flex items-start gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
