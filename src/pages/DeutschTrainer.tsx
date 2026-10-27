@@ -343,13 +343,6 @@ export default function DeutschTrainer() {
                           : "border-white/[0.06] bg-white/[0.03] hover:shadow-[0_8px_30px_rgba(59,130,246,0.1)] hover:border-white/[0.12]"
                     }`}
                   >
-                    {/* Free badge — hidden for premium users */}
-                    {isFree && !completed && !isPremium && (
-                      <span className="absolute right-4 top-4 rounded-full bg-[hsl(var(--success)/0.12)] px-2.5 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
-                        {t("deutschTrainer.lesson.free")}
-                      </span>
-                    )}
-
                     {/* Icon */}
                     <span className={`text-3xl leading-none ${isLocked ? "grayscale" : ""}`}>
                       {lesson.icon}

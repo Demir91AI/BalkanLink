@@ -302,9 +302,6 @@ export default function AnerkennungNavigator() {
           <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
             {t("ui.headerTitle")}
           </h1>
-          <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-1 text-[10px] font-bold uppercase text-[hsl(var(--gold))]">
-            <Crown className="h-3 w-3" /> {t("ui.premiumBadge")}
-          </span>
         </div>
         <p className="text-sm text-white/75">{t("ui.headerSubtitle")}</p>
         <div className="h-px mt-4 mb-6 bg-border/40" />

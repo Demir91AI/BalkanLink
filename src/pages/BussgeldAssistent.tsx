@@ -64,9 +64,6 @@ export default function BussgeldAssistent() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/40 py-10 px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-4">
-            <Car className="h-3.5 w-3.5" /> FREE TOOL
-          </span>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground leading-tight">
             Provjeri kaznu u Njemačkoj{" "}
             <span className="text-primary">u 5 sekundi</span>

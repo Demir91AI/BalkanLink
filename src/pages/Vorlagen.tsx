@@ -25,22 +25,6 @@ const ICON_MAP: Record<string, LucideIcon> = {
 const FREE_TEMPLATE_SLUGS = new Set(["kuendigung", "mietkuendigung"]);
 
 
-function FreeBadge({ label }: { label: string }) {
-  return (
-    <span className="shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-2 py-0.5 text-[9px] font-bold uppercase text-emerald-700 dark:text-emerald-400">
-      {label}
-    </span>
-  );
-}
-
-function PremiumBadge({ label }: { label: string }) {
-  return (
-    <span className="shrink-0 flex items-center gap-0.5 rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold uppercase text-[hsl(var(--gold))]">
-      <Lock className="h-2.5 w-2.5" /> {label}
-    </span>
-  );
-}
-
 function TemplatePremiumPaywall({ templateName }: { templateName: string }) {
   const navigate = useNavigate();
   const { t } = useTranslation("pages");
@@ -130,7 +114,6 @@ export default function Vorlagen() {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
               <h1 className="text-xl font-bold sm:text-2xl">{tpl.titleDe}</h1>
-              {isPremium ? null : (isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />)}
             </div>
             <p className="text-sm text-muted-foreground">{localTitle}</p>
           </div>

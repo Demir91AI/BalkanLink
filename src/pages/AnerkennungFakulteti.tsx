@@ -357,9 +357,6 @@ export default function AnerkennungFakulteti() {
           <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
             Anerkennung fakulteta
           </h1>
-          <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-1 text-[10px] font-bold uppercase text-[hsl(var(--gold))]">
-            <Crown className="h-3 w-3" /> Premium
-          </span>
         </div>
         <p className="text-sm text-white/70 max-w-3xl">
           Praktičan vodič za priznavanje akademskih diploma (Bachelor, Master,
