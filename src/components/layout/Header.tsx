@@ -11,6 +11,7 @@ import { useLocalizedHref, useLocalizedNavigate } from "@/hooks/useLocalizedHref
 export default function Header() {
   const { loading, isAdmin, isPremium } = useAuth();
   const { t } = useTranslation();
+  const { t: tPlus } = useTranslation("plus");
   const navigate = useLocalizedNavigate();
   const localize = useLocalizedHref();
   const [scrolled, setScrolled] = useState(false);
@@ -164,8 +165,8 @@ export default function Header() {
           {!isPremium && (
             <button
               onClick={() => navigate("/premium")}
-              aria-label={t("common:nav.becomePremium")}
-              className="group relative hidden sm:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
+              aria-label={tPlus("unlockCta")}
+              className="group relative hidden lg:inline-flex items-center gap-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
               style={{
                 background:
                   "linear-gradient(135deg, #D4AF37 0%, #F4D77A 50%, #B8941F 100%)",
@@ -195,7 +196,7 @@ export default function Header() {
                 className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
               />
               <ArrowRight className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
-              <span className="relative z-10">{t("common:nav.becomePremium")}</span>
+              <span className="relative z-10">{tPlus("unlockCta")}</span>
             </button>
           )}
 

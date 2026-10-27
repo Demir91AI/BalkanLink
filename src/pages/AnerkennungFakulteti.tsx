@@ -45,6 +45,7 @@ import { Badge } from "@/components/ui/badge";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 /* ──────────── Tipovi ──────────── */
 
@@ -357,9 +358,6 @@ export default function AnerkennungFakulteti() {
           <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
             Anerkennung fakulteta
           </h1>
-          <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-1 text-[10px] font-bold uppercase text-[hsl(var(--gold))]">
-            <Crown className="h-3 w-3" /> Premium
-          </span>
         </div>
         <p className="text-sm text-white/70 max-w-3xl">
           Praktičan vodič za priznavanje akademskih diploma (Bachelor, Master,
@@ -554,7 +552,7 @@ export default function AnerkennungFakulteti() {
               onClick={() => navigate("/paketi")}
               className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-dark))] text-white"
             >
-              <Crown className="mr-1.5 h-4 w-4" /> Postani Premium
+              <Crown className="mr-1.5 h-4 w-4" /> <PlusCtaLabel />
             </Button>
           </div>
         )}
@@ -704,7 +702,7 @@ export default function AnerkennungFakulteti() {
                       onClick={() => navigate("/paketi")}
                       className="font-bold text-[hsl(var(--gold))] hover:underline"
                     >
-                      Postani Premium
+                      <PlusCtaLabel />
                     </button>
                   </div>
                 )}

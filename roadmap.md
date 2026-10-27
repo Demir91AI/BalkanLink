@@ -7,6 +7,7 @@
 - [x] Webhook (user must confirm event enabled in Stripe): handle invoice.payment_succeeded for legacy renewals (user must also enable the event in Stripe)
 
 ## Development-only catalog/navigation cleanup (2026-10-27)
+- [x] Follow-up: removed decorative detail/overview badges; reused existing four-language one-time CTA; 729 tests passed, build OK, browser checked. Report: `docs/tier-badge-followup-2026-10-27.md`. No publish/deploy; separate TypeScript check not manually run under harness rules.
 - [x] Remove decorative access badges; preserve routes, gates, payments, languages and warnings.
 - [x] Document every sidebar destination and all eight catalog categories, duplicates and mobile rotation risk (`docs/catalog-navigation-cleanup-2026-10-27.md`).
 - [x] Run no-downgrade/full tests and preview checks; no publish/deploy. Separate TypeScript check not manually run under harness rules.

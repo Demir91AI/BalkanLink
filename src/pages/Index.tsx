@@ -209,13 +209,6 @@ export default function Index() {
                 >
                   <AccordionTrigger className="px-4 py-4 hover:no-underline [&>svg]:text-white/40">
                     <span className="flex items-center gap-3 text-left w-full">
-                      <span
-                        aria-hidden
-                        className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-base font-black"
-                        style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.7)" }}
-                      >
-                        FREE
-                      </span>
                       <span className="flex flex-col min-w-0">
                         <span className="font-black text-white text-base leading-tight">{t("home.pricing.free.title")}</span>
                         <span className="text-[11px] font-medium text-white/50 mt-0.5">{t("home.pricing.free.tagline")}</span>
