@@ -2207,7 +2207,9 @@
             "title": "Wer den Bescheid erhält",
             "meaning": "Hier änderst du den Empfänger des Bescheids, nicht automatisch das Auszahlungskonto.",
             "help": "Willst du den Bescheid selbst, lasse diese besondere Rubrik leer. Für Vertretung stimme Daten und Vollmacht mit der Person/Familienkasse ab; keinen nicht beauftragten Anwalt eintragen.",
-            "de": "Der Bescheid soll nicht mir, sondern folgender Person (z. B. Steuerberater, Rechtsanwalt, etc.) zugesandt werden:"
+            "de": "Der Bescheid soll nicht mir, sondern folgender Person (z. B. Steuerberater, Rechtsanwalt, etc.) zugesandt werden:",
+            "where": "Mit dem bevollmächtigten Bescheidempfänger abgestimmte Kontaktdaten; bei Eigenempfang nichts übertragen.",
+            "example": "Maja will ihren eigenen Bescheid: Rubrik anderer Empfänger bleibt leer."
           },
           "kg1-7": {
             "title": "Weitere Kinder mit Kindergeld",
@@ -2218,14 +2220,17 @@
           "kg1-8": {
             "title": "Kindergeld bei einer anderen Person",
             "meaning": "Punkt 6 fragt nach weiteren eigenen Kindern, für die jemand anderes Kindergeld bezieht. Er ersetzt keine Anlage Kind für das neue Kind.",
-            "help": "Kläre Empfängername und Familienkasse/Kindergeld-Nr. mit dieser Person. Fehlen Daten, nicht raten; frage die Familienkasse, wie du bekannte Angaben mitteilst."
+            "help": "Kläre Empfängername und Familienkasse/Kindergeld-Nr. mit dieser Person. Fehlen Daten, nicht raten; frage die Familienkasse, wie du bekannte Angaben mitteilst.",
+            "example": "Maja hat keine weiteren Kinder mit Kindergeldbezug durch eine andere Person: Punkt 6 bleibt leer."
           },
           "kg1-9": {
             "title": "Datum und Unterschrift auf KG1",
             "meaning": "Die Unterschrift bestätigt die Erklärung zu den Antragsangaben, nicht bloß das Lesen dieses Leitfadens.",
             "help": "Lies die Erklärung über der Unterschrift, datiere und unterschreibe auf Papier. Bei minderjährigen Antragstellenden beachte gesetzliche Vertretung. Die zweite Einverständniserklärung folgt getrennt nach dieser Gruppe.",
             "de": "Datum · Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
-            "what": "Antragstellererklärung lesen, Datum nennen und KG1 auf Papier unterschreiben. Gesetzliche Vertretung und Einverständnis der Person aus Punkt 2 ersetzen nicht deinen Unterschriftsbereich."
+            "what": "Antragstellererklärung lesen, Datum nennen und KG1 auf Papier unterschreiben. Gesetzliche Vertretung und Einverständnis der Person aus Punkt 2 ersetzen nicht deinen Unterschriftsbereich.",
+            "where": "Erklärung und Datums-/Unterschriftsfeld auf KG1 Seite 2, keine Angabe aus einem anderen Dokument.",
+            "example": "Erfunden: Maja prüft KG1, datiert und unterschreibt eigenhändig als Antragstellerin."
           },
           "ank-0": {
             "title": "Zuordnung der Anlage Kind",
@@ -2257,22 +2262,27 @@
             "title": "Kind ab 18 — bei Babys überspringen",
             "meaning": "Punkt 3 beginnt auf Seite 2; 3.3 zur Behinderung steht auf Seite 3. Keine Fragen für ein Neugeborenes.",
             "help": "Beim Baby den gesamten Punkt 3 überspringen und mit 4 auf Seite 3 fortfahren. Für Kinder ab/bald 18 BA „Kindergeld ab 18“ und Nachweise zu 3.1–3.3 nutzen; dieser Pilot beurteilt weder Erwachsenenanspruch noch Behinderung.",
-            "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4"
+            "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4",
+            "where": "Hinweise auf Anlage Kind Seiten 2–3 und BA Kindergeld ab 18; beim Baby kein Schulnachweis.",
+            "example": "Lea ist ein Neugeborenes: gesamter Punkt 3 bleibt leer, weiter zu Punkt 4."
           },
           "ank-5": {
             "title": "Früherer Antrag für dieses Kind",
             "meaning": "Es geht um dasselbe Kind dieser Anlage, auch einen noch offenen Antrag des anderen Elternteils.",
-            "help": "Vor „nein“ mit dem anderen Elternteil klären, ob schon beantragt wurde. Bei „ja“ Person, Zeitraum und Familienkasse/Kindergeld-Nr. aus Unterlagen nennen. Bezug für ein älteres Kind gehört nicht hierher."
+            "help": "Vor „nein“ mit dem anderen Elternteil klären, ob schon beantragt wurde. Bei „ja“ Person, Zeitraum und Familienkasse/Kindergeld-Nr. aus Unterlagen nennen. Bezug für ein älteres Kind gehört nicht hierher.",
+            "example": "Für Lea hat niemand beantragt → nein. Bereits gestellter Antrag des anderen Elternteils → ja und Einzelheiten."
           },
           "ank-6": {
             "title": "Arbeit im öffentlichen Dienst",
             "meaning": "Öffentlicher Dienst bedeutet öffentliche Beschäftigung; Unterfragen betreffen eine Bundeseinrichtung und BA/Jobcenter.",
-            "help": "Bei unbekanntem Status des öffentlichen Arbeitgebers Vertrag oder Personalstelle prüfen. Nicht jedes Unternehmen mit Staatsaufträgen ist öffentlicher Dienst. Bei „ja“ auch a/b gemäß Formular beantworten."
+            "help": "Bei unbekanntem Status des öffentlichen Arbeitgebers Vertrag oder Personalstelle prüfen. Nicht jedes Unternehmen mit Staatsaufträgen ist öffentlicher Dienst. Bei „ja“ auch a/b gemäß Formular beantworten.",
+            "example": "Maja und die relevante Person aus Punkt 2 haben keine genannte öffentliche Beschäftigung → nein."
           },
           "ank-7": {
             "title": "Leistung aus einem anderen Staat",
             "meaning": "Gefragt ist auch ein ANSPRUCH auf ausländische/internationale Kinderleistung in fünf Jahren vor Antragstellung, nicht bloß ein Geldeingang.",
-            "help": "Prüfe ausländischen Bescheid: Person, Leistung, monatlicher Betrag, Zeitraum, Stelle und Aktenzeichen. Bei laufendem Antrag/unklarem Anspruch Familienkasse fragen; nicht wegen fehlender Auszahlung automatisch „nein“ wählen."
+            "help": "Prüfe ausländischen Bescheid: Person, Leistung, monatlicher Betrag, Zeitraum, Stelle und Aktenzeichen. Bei laufendem Antrag/unklarem Anspruch Familienkasse fragen; nicht wegen fehlender Auszahlung automatisch „nein“ wählen.",
+            "example": "Für Lea besteht im relevanten Zeitraum kein Anspruch auf ausländische Kinderleistung → nein; nicht ungeprüft übernehmen."
           },
           "ank-8": {
             "title": "7(a): Arbeit außerhalb Deutschlands",
@@ -2284,7 +2294,9 @@
           "ank-9": {
             "title": "Unterschrift auf der Anlage Kind",
             "meaning": "Jede Anlage Kind hat ihre eigene Erklärung/Unterschrift auf Seite 4; KG1 unterschreibt diese Anlage nicht mit.",
-            "help": "Bei zwei Anlagen Datum und Unterschrift auf beiden prüfen. Online der Identifizierung und abschließenden Übermittlung des Portals folgen — keine Unterschrift bei BalkanLink hinzufügen."
+            "help": "Bei zwei Anlagen Datum und Unterschrift auf beiden prüfen. Online der Identifizierung und abschließenden Übermittlung des Portals folgen — keine Unterschrift bei BalkanLink hinzufügen.",
+            "where": "Erklärung und Datums-/Unterschriftsfeld auf der letzten Seite jeder Anlage Kind.",
+            "example": "Maja prüft Leas Anlage Kind, datiert und unterschreibt gesondert von KG1."
           }
         },
         "extras": [

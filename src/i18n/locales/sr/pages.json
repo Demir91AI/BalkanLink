@@ -2207,7 +2207,9 @@
             "title": "Kome stiže rešenje",
             "meaning": "Ovo menja primaoca Bescheida, a ne automatski vlasnika računa za isplatu.",
             "help": "Ako rešenje želiš primiti sam/a, ovu posebnu rubriku ostavi praznu. Za zastupnika dogovori tačne podatke i ovlašćenje s tom osobom/Familienkasse; ne navodi advokata kojeg nisi angažovao/la.",
-            "de": "Der Bescheid soll nicht mir, sondern folgender Person (z. B. Steuerberater, Rechtsanwalt, etc.) zugesandt werden:"
+            "de": "Der Bescheid soll nicht mir, sondern folgender Person (z. B. Steuerberater, Rechtsanwalt, etc.) zugesandt werden:",
+            "where": "Kontakt dogovoren s ovlašćenim primaocem Bescheida; ako primaš ti, ništa ne prepisuješ.",
+            "example": "Maja želi sopstveni Bescheid: rubrika drugog primaoca ostaje prazna."
           },
           "kg1-7": {
             "title": "Druga deca za koju primaš Kindergeld",
@@ -2218,14 +2220,17 @@
           "kg1-8": {
             "title": "Kad drugi roditelj prima Kindergeld",
             "meaning": "Tačka 6 pita o drugoj tvojoj deci za koju Kindergeld prima druga osoba. Ne zamenjuje Anlage Kind za novo dete.",
-            "help": "Pronađi ime primaoca i Familienkasse/Kindergeld-Nr. uz njegovu pomoć. Ako ne možeš dobiti podatke, ne nagađaj; pitaj Familienkasse kako navesti ono što znaš."
+            "help": "Pronađi ime primaoca i Familienkasse/Kindergeld-Nr. uz njegovu pomoć. Ako ne možeš dobiti podatke, ne nagađaj; pitaj Familienkasse kako navesti ono što znaš.",
+            "example": "Maja nema drugu decu za koju druga osoba prima Kindergeld: tačka 6 ostaje prazna."
           },
           "kg1-9": {
             "title": "Datum i potpis na KG1",
             "meaning": "Potpis potvrđuje izjavu podnosioca o podacima u zahtevu. Nije samo potvrda čitanja vodiča.",
             "help": "Pregledaj izjavu iznad potpisa pa datiraj i potpiši papir. Za maloletnog podnosioca prati deo za zakonskog zastupnika. Druga saglasnost objašnjena je zasebno nakon ove grupe.",
             "de": "Datum · Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
-            "what": "Pročitaj izjavu podnosioca, navedi datum i potpiši KG1 na papiru. Zakonsko zastupanje i saglasnost osobe iz tačke 2 ne zamenjuju tvoj potpis."
+            "what": "Pročitaj izjavu podnosioca, navedi datum i potpiši KG1 na papiru. Zakonsko zastupanje i saglasnost osobe iz tačke 2 ne zamenjuju tvoj potpis.",
+            "where": "Izjava i datum/potpis na KG1 str. 2; nije podatak iz drugog dokumenta.",
+            "example": "Izmišljeno: Maja nakon provere datira KG1 i svojeručno potpisuje kao podnosilac."
           },
           "ank-0": {
             "title": "Oznake priloga za dete",
@@ -2257,22 +2262,27 @@
             "title": "Dete od 18 godina — za bebu preskoči",
             "meaning": "Tačka 3 počinje na str. 2, a 3.3 o invaliditetu je na str. 3. To nisu pitanja za novorođenče.",
             "help": "Za bebu preskoči celu tačku 3 i pređi na 4 na str. 3. Za dete od/uskoro 18 godina koristi BA „Kindergeld ab 18“ i dokaze za 3.1–3.3; ovaj pilot ne utvrđuje punoletno pravo ili invaliditet.",
-            "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4"
+            "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4",
+            "where": "Uputstva Anlage Kind str. 2–3 i BA Kindergeld ab 18; za bebu nema školskog dokaza.",
+            "example": "Lea je novorođenče: cela tačka 3 ostaje prazna, sledi tačka 4."
           },
           "ank-5": {
             "title": "Raniji zahtev za ovo dete",
             "meaning": "Pitanje je o istom detetu iz ovog priloga, uključujući nerešeni zahtev drugog roditelja.",
-            "help": "Pre „nein“ proveri s drugim roditeljem da li je već podneo zahtev. Za „ja“ navedi osobu, period i Familienkasse/Kindergeld-Nr. iz dokumentacije; postojeći Kindergeld za starije dete nije ovde."
+            "help": "Pre „nein“ proveri s drugim roditeljem da li je već podneo zahtev. Za „ja“ navedi osobu, period i Familienkasse/Kindergeld-Nr. iz dokumentacije; postojeći Kindergeld za starije dete nije ovde.",
+            "example": "Lea: niko nije tražio Kindergeld za nju → nein. Raniji zahtev drugog roditelja → ja i detalji."
           },
           "ank-6": {
             "title": "Rad u javnoj službi",
             "meaning": "Öffentlicher Dienst je javna služba; traže se i pododgovori za saveznu ustanovu te BA/Jobcenter.",
-            "help": "Ako radiš u javnoj ustanovi i ne znaš njen status, proveri ugovor ili pitaj kadrovsku službu. Nije svaka firma koja radi za državu javna služba; kod „ja“ odgovori i a/b prema obrascu."
+            "help": "Ako radiš u javnoj ustanovi i ne znaš njen status, proveri ugovor ili pitaj kadrovsku službu. Nije svaka firma koja radi za državu javna služba; kod „ja“ odgovori i a/b prema obrascu.",
+            "example": "Maja i relevantna osoba iz tačke 2 nemaju navedeni rad u javnoj službi → nein."
           },
           "ank-7": {
             "title": "Dodatak iz druge države",
             "meaning": "Pita se i o PRAVU na dečje davanje iz druge države/međunarodne ustanove u pet godina pre zahteva, ne samo o isplati.",
-            "help": "Proveri strano rešenje: korisnik, vrsta davanja, mesečni iznos, period, ustanova i broj predmeta. Ako je zahtev u toku ili ne znaš postoji li pravo, pitaj Familienkasse; ne označavaj „nein“ samo zato što nema isplate."
+            "help": "Proveri strano rešenje: korisnik, vrsta davanja, mesečni iznos, period, ustanova i broj predmeta. Ako je zahtev u toku ili ne znaš postoji li pravo, pitaj Familienkasse; ne označavaj „nein“ samo zato što nema isplate.",
+            "example": "Za Leu u relevantnom periodu nema prava na strano dečje davanje → nein; ne prepisuj bez provere."
           },
           "ank-8": {
             "title": "7(a): rad izvan Nemačke",
@@ -2284,7 +2294,9 @@
           "ank-9": {
             "title": "Potpis na prilogu za dete",
             "meaning": "Svaka Anlage Kind ima svoju izjavu i potpis na str. 4; potpis KG1 ne potpisuje taj prilog.",
-            "help": "Za dva priloga proveri datum i potpis na oba. Online prati identifikaciju i završnu predaju portala — ne dodaj potpis u BalkanLink."
+            "help": "Za dva priloga proveri datum i potpis na oba. Online prati identifikaciju i završnu predaju portala — ne dodaj potpis u BalkanLink.",
+            "where": "Izjava i datum/potpis na poslednjoj stranici svake Anlage Kind.",
+            "example": "Maja proverava Leinu Anlage Kind, datira i potpisuje zasebno od KG1."
           }
         },
         "extras": [
