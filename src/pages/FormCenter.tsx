@@ -1,3 +1,4 @@
+import MembershipOffer from "@/components/membership/MembershipOffer";
 import { useTranslation } from "react-i18next";
 import { useEffect, useMemo, useState } from "react";
 import { useSubscription } from "@/hooks/useSubscription";
@@ -108,49 +109,10 @@ function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; on
 }
 
 /* ─── Guide access prompt (i18n, rollout-flag aware) ─── */
-function FormPremiumPaywall({ entry, mode = "subscribe" }: { slug: string; entry: FormEntry | null; mode?: "subscribe" | "register" }) {
-  const navigate = useNavigate();
-  const { t: tp } = useTranslation("pages");
-  const items = tp("guideFirst.paywall.items", { returnObjects: true }) as string[];
+function FormPremiumPaywall({ entry }: { slug: string; entry: FormEntry | null; mode?: "subscribe" | "register" }) {
   return (
-    <div data-testid="guide-access-prompt" data-mode={mode} className="flex flex-col items-center justify-center py-12 text-center gap-5 max-w-md mx-auto">
-      <div className="h-14 w-14 rounded-2xl bg-[hsl(var(--gold))]/10 flex items-center justify-center ring-1 ring-[hsl(var(--gold))]/20">
-        <Lock className="h-7 w-7 text-[hsl(var(--gold))]" />
-      </div>
-      <div>
-        <h2 className="text-lg font-bold">{tp("guideFirst.paywall.title", { name: entry?.label || tp("guideFirst.paywall.fallbackName") })}</h2>
-        <p className="mt-3 text-sm text-muted-foreground font-semibold">{tp("guideFirst.paywall.subtitle")}</p>
-      </div>
-      <ul className="text-left text-xs text-muted-foreground space-y-2 w-full">
-        {items.map((x) => (
-          <li key={x} className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--gold))] shrink-0 mt-0.5" /> {x}</li>
-        ))}
-      </ul>
-      {entry?.includes && (
-        <div className="w-full text-left">
-          <p className="text-[11px] font-semibold text-muted-foreground mb-1.5">{tp("guideFirst.includes")}</p>
-          <div className="flex flex-wrap gap-1.5">
-            {entry.includes.split(" + ").map((tag) => (
-              <span key={tag} className="rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[hsl(var(--gold))]">{tag}</span>
-            ))}
-          </div>
-        </div>
-      )}
-      <div className="w-full space-y-2 mt-2">
-        {mode === "register" ? (
-          <>
-            <button onClick={() => navigate("/register")} className="w-full rounded-full py-3 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
-              {tp("guideFirst.paywall.ctaRegister")}
-            </button>
-            <p className="text-xs text-muted-foreground">{tp("guideFirst.paywall.registerNote")}</p>
-          </>
-        ) : (
-          <button onClick={() => navigate("/paketi")} className="w-full rounded-full py-3 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
-            <Crown className="inline-block mr-1.5 h-4 w-4" />
-            {tp("guideFirst.paywall.ctaSubscribe")}
-          </button>
-        )}
-      </div>
+    <div data-testid="guide-access-prompt" className="py-8">
+      <MembershipOffer variant="compact" title={entry?.label} />
     </div>
   );
 }
