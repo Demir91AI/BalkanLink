@@ -60,7 +60,7 @@ describe("Phase 5: every catalog guide uses the shared guide-first frame", () =>
 
 describe("Phase 5: all legacy /musterformular routes resolve to guides", () => {
   const app = readFileSync("src/App.tsx", "utf8");
-  const paths = [...new Set([...app.matchAll(/path="(\/musterformular[^"]*)"/g)].map((m) => m[1]))]
+  const paths = [...new Set([...app.matchAll(/path="(musterformular[^"]*)"/g)].map((m) => "/" + m[1]))]
     .filter((p) => !p.includes(":"));
   it("finds 35+ legacy routes", () => expect(paths.length).toBeGreaterThanOrEqual(35));
   it.each(paths)("%s → guide", (p) => {
