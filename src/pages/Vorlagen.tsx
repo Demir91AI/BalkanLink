@@ -8,6 +8,8 @@ import VorlagenGenerator from "@/components/vorlagen/VorlagenGenerator";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useTranslation } from "react-i18next";
 
+import LetterReplyTask from "@/components/letter-reply/LetterReplyTask";
+
 import type { LucideIcon } from "lucide-react";
 
 const ICON_MAP: Record<string, LucideIcon> = {
@@ -137,6 +139,7 @@ export default function Vorlagen() {
         {t("vorlagen.ui.pageSubtitle")}
       </p>
 
+      <div className="mb-6"><LetterReplyTask canAccess={isPremium} /></div>
       <div className="space-y-8">
         {SECTIONS.map((section) => {
           const items = VORLAGEN_TEMPLATES.filter((i) => i.section === section.id);

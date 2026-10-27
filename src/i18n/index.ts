@@ -27,6 +27,10 @@ import bsSimulator from "./locales/bs/simulator.json";
 import bsDvojnoDrzavljanstvo from "./locales/bs/dvojnoDrzavljanstvo.json";
 import bsSaved from "./locales/bs/saved.json";
 import bsPlus from "./locales/bs/plus.json";
+import bsReply from "./locales/bs/reply.json";
+import hrReply from "./locales/hr/reply.json";
+import srReply from "./locales/sr/reply.json";
+import deReply from "./locales/de/reply.json";
 
 import deCommon from "./locales/de/common.json";
 import deForms from "./locales/de/forms.json";
@@ -76,10 +80,10 @@ export const DEFAULT_LANGUAGE: SupportedLanguage = "bs";
 export const LANG_STORAGE_KEY = "balkanlink-lang";
 
 const resources = {
-  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi, legal: bsLegal, checklists: bsChecklists, simulator: bsSimulator, dvojnoDrzavljanstvo: bsDvojnoDrzavljanstvo, saved: bsSaved, plus: bsPlus },
-  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi, legal: deLegal, checklists: deChecklists, simulator: deSimulator, dvojnoDrzavljanstvo: deDvojnoDrzavljanstvo, saved: deSaved, plus: dePlus },
-  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi, legal: hrLegal, checklists: hrChecklists, simulator: hrSimulator, dvojnoDrzavljanstvo: hrDvojnoDrzavljanstvo, saved: hrSaved, plus: hrPlus },
-  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi, legal: srLegal, checklists: srChecklists, simulator: srSimulator, dvojnoDrzavljanstvo: srDvojnoDrzavljanstvo, saved: srSaved, plus: srPlus },
+  bs: { common: bsCommon, forms: bsForms, pages: bsPages, errors: bsErrors, schufa: bsSchufa, anerkennung: bsAnerkennung, porezi: bsPorezi, legal: bsLegal, checklists: bsChecklists, simulator: bsSimulator, dvojnoDrzavljanstvo: bsDvojnoDrzavljanstvo, saved: bsSaved, plus: bsPlus, reply: bsReply },
+  de: { common: deCommon, forms: deForms, pages: dePages, errors: deErrors, schufa: deSchufa, anerkennung: deAnerkennung, porezi: dePorezi, legal: deLegal, checklists: deChecklists, simulator: deSimulator, dvojnoDrzavljanstvo: deDvojnoDrzavljanstvo, saved: deSaved, plus: dePlus, reply: deReply },
+  hr: { common: hrCommon, forms: hrForms, pages: hrPages, errors: hrErrors, schufa: hrSchufa, anerkennung: hrAnerkennung, porezi: hrPorezi, legal: hrLegal, checklists: hrChecklists, simulator: hrSimulator, dvojnoDrzavljanstvo: hrDvojnoDrzavljanstvo, saved: hrSaved, plus: hrPlus, reply: hrReply },
+  sr: { common: srCommon, forms: srForms, pages: srPages, errors: srErrors, schufa: srSchufa, anerkennung: srAnerkennung, porezi: srPorezi, legal: srLegal, checklists: srChecklists, simulator: srSimulator, dvojnoDrzavljanstvo: srDvojnoDrzavljanstvo, saved: srSaved, plus: srPlus, reply: srReply },
 };
 
 i18n
@@ -96,7 +100,7 @@ i18n
     nonExplicitSupportedLngs: false, // 'sr-Latn' / 'hr-HR' won't auto-resolve
     load: "languageOnly", // 'de-AT' → 'de'
     defaultNS: "common",
-    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung", "porezi", "legal", "checklists", "simulator", "dvojnoDrzavljanstvo", "saved", "plus"],
+    ns: ["common", "forms", "pages", "errors", "schufa", "anerkennung", "porezi", "legal", "checklists", "simulator", "dvojnoDrzavljanstvo", "saved", "plus", "reply"],
     interpolation: { escapeValue: false },
     detection: {
       // URL path takes precedence (so /de, /hr, /sr always force the language
