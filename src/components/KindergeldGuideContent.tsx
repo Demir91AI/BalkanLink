@@ -52,6 +52,7 @@ export default function KindergeldGuideContent() {
             <TabsTrigger
               key={id}
               value={id}
+              onClick={() => setC(id)}
               className="min-h-11 whitespace-normal rounded-md px-3 py-3 text-sm text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
               {t(k(`case.${id}`))}
