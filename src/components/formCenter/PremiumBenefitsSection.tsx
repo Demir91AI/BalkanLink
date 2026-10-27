@@ -1,9 +1,11 @@
 import { Crown, FileText, Map, Bot, FileSearch, GraduationCap, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 export default function PremiumBenefitsSection() {
   const navigate = useNavigate();
+  const { t: tGf } = useTranslation("pages");
 
   return (
     <section className="mt-10 rounded-2xl border-2 border-[hsl(var(--gold))]/30 overflow-hidden">
