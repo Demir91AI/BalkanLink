@@ -517,7 +517,7 @@ export default function AnerkennungFakulteti() {
                     </div>
                     <p className="text-xs text-white/82 mt-1 leading-relaxed">
                       {locked
-                        ? "🔒 Detalji dostupni u Premium verziji."
+                        ? `🔒 ${t("plus:lockedTitle")}`
                         : step.body}
                     </p>
                     {!locked && step.link && (

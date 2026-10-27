@@ -1,3 +1,4 @@
+import MembershipOffer from "@/components/membership/MembershipOffer";
 import { useParams, useNavigate } from "react-router-dom";
 import { ExternalLink, Calendar, Crown, Lock } from "lucide-react";
 import LegalDisclaimer from "@/components/LegalDisclaimer";
@@ -118,24 +119,7 @@ export default function QADetail() {
 
       {/* Premium gating: free users see only short answer for premium items */}
       {item.is_premium && !isPremium ? (
-        <div className="mb-8 rounded-xl border-2 border-[hsl(var(--gold))]/40 bg-gradient-to-br from-[hsl(var(--gold))]/5 to-transparent p-6 text-center">
-          <div className="mb-3 flex justify-center">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(var(--gold))]/15">
-              <Lock className="h-5 w-5 text-[hsl(var(--gold))]" />
-            </span>
-          </div>
-          <h2 className="mb-2 text-lg font-bold">Detaljni odgovor je Premium sadržaj</h2>
-          <p className="mb-5 text-sm text-muted-foreground max-w-md mx-auto">
-            Otključaj korak-po-korak vodič, zvanične izvore i sve Q&A teme uz BalkanLink Premium.
-          </p>
-          <Button
-            onClick={() => navigate("/paketi")}
-            className="bg-[hsl(var(--gold))] text-[#0f1f3d] hover:opacity-90 font-bold"
-          >
-            <Crown className="mr-2 h-4 w-4" />
-            <PlusCtaLabel />
-          </Button>
-        </div>
+        <div className="dark mb-8"><MembershipOffer variant="compact" /></div>
       ) : (
         <>
           {/* Step by step — fully visible */}
