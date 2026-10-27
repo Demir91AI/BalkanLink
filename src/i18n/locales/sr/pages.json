@@ -1761,9 +1761,38 @@
         "formulare": "BA — Formulare Kindergeld"
       },
       "verified": "Sadržaj proveren prema navedenim stranicama Bundesagentur für Arbeit: 27.10.2026.",
-      "disclaimer": "Informativno, ne pravni savjet. BalkanLink ne državna institucija i ne šalje zahteve."
+      "disclaimer": "Informativno, ne pravni savjet. BalkanLink ne državna institucija i ne šalje zahteve.",
+      "special": {
+        "depends": "Posebni uslovi i potrebni dokumenti zavise od tvoje situacije. BalkanLink ne procenjuje da li imaš pravo — odlučuje Familienkasse.",
+        "back": "← Nazad na vodič za novorođenče",
+        "adult": {
+          "title": "Kindergeld za dete starije od 18 godina",
+          "body": "Za punoletno dete Kindergeld je moguć samo pod posebnim uslovima (npr. školovanje ili obuka). Zvanične informacije i potrebne dokaze pogledaj na stranici Familienkasse.",
+          "cta": "BA — Kindergeld ab 18 Jahren"
+        },
+        "cross": {
+          "title": "Dete u inostranstvu ili rad u drugoj državi",
+          "body": "Za prekogranične slučajeve važe posebna pravila. Pre prijave pročitaj zvanične informacije Familienkasse za Kindergeld i inostranstvo.",
+          "cta": "BA — Kindergeld und Ausland"
+        }
+      }
     },
     "panelEmpty": "Izaberi uslugu iz levog menija za vodič i službene izvore.",
-    "benefitsGuides": "40+ SmartGuide vodiča — korak po korak do službene prijave za Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG i druge usluge"
+    "benefitsGuides": "40+ SmartGuide vodiča — korak po korak do službene prijave za Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG i druge usluge",
+    "bgModal": {
+      "title": "Šta je Bürgergeld / Grundsicherungsgeld?",
+      "p1": "Osnovna socijalna pomoć prema SGB II za osobe sposobne za rad bez dovoljno prihoda. Prema Bundesagentur für Arbeit, Grundsicherungsgeld je 01.07.2026. zamenio Bürgergeld.",
+      "p2": "Zahtev se podnosi Jobcentru. Koji su prilozi i dokazi potrebni zavisi od tvoje situacije.",
+      "tipsTitle": "Dobro je znati:",
+      "tips": [
+        "Uz postojeće pravo novac se po pravilu isplaćuje od prvog dana meseca u kojem je podnet zahtev — ne za ranije mesece. Zato zahtev ne odlaži.",
+        "Koje Anlagen i dokaze trebaš, zavisi od tvoje situacije — Jobcenter ti to javlja.",
+        "Pripremi aktuelne izvode iz banke (Kontoauszüge) i proveri IBAN."
+      ],
+      "source": "Izvor: BA — Antrag und Bescheid",
+      "open": "Otvori SmartGuide",
+      "close": "Zatvori"
+    },
+    "paywallFields": "Jasno objašnjenje šta pripremiti i kako ići korak po korak kroz zvanični postupak"
   }
 }

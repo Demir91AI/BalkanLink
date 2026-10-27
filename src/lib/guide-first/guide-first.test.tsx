@@ -80,3 +80,20 @@ describe("Kindergeld SmartGuide", () => {
     expect(container.textContent).not.toMatch(/2027/);
   });
 });
+
+describe("Kindergeld special cases", () => {
+  it.each([
+    ["adult", "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ab-18-jahren"],
+    ["cross", "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ausland"],
+  ] as const)("%s shows only its official panel, not the newborn steps", async (c, url) => {
+    await i18n.init({ lng: "bs", resources: { bs: { pages: bs } }, interpolation: { escapeValue: false } });
+    const { fireEvent } = await import("@testing-library/react");
+    render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
+    fireEvent.click(screen.getByText(bs.guideFirst.kindergeld.case[c]));
+    expect(screen.queryByText(bs.guideFirst.kindergeld.ctaOnline)).toBeNull();
+    const cta = screen.getByText(bs.guideFirst.kindergeld.special[c].cta).closest("a")!;
+    expect(cta.getAttribute("href")).toBe(url);
+    fireEvent.click(screen.getByText(bs.guideFirst.kindergeld.special.back));
+    expect(screen.getByText(bs.guideFirst.kindergeld.ctaOnline)).toBeTruthy();
+  });
+});
