@@ -2037,22 +2037,27 @@
           "Auszahlung und Unterschriften",
           "Weitere Fragen und Papierdetails"
         ],
+        "findData": "Wo finde ich die Angaben?",
         "onlineGroups": [
           {
             "title": "Angaben zu den Eltern",
-            "body": "Deine Steuer-ID, dein Name und deine aktuelle Adresse — wie in deinen Unterlagen."
+            "body": "Trage den vollständigen Namen, die aktuelle Adresse und die eigene 11-stellige Steuer-ID der Person ein, die den Antrag stellt und Kindergeld erhalten soll.",
+            "tip": "Die Steuer-ID steht im BZSt-Schreiben oder auf dem Dokument elektronische Lohnsteuerbescheinigung, nicht bei der Steuernummer. Übernimm Name und Adresse aus deinen Unterlagen; Angaben zum anderen Elternteil machst du nur, wenn danach gefragt wird."
           },
           {
             "title": "Angaben zum Kind",
-            "body": "Name und Geburtsdatum des Kindes, seine Steuer-ID und dein Verhältnis zum Kind."
+            "body": "Trage den genauen Namen, das Geburtsdatum und die eigene Steuer-ID des Kindes sowie dein Verhältnis zum Kind ein.",
+            "tip": "Prüfe Name und Geburtsdatum im Geburtsdokument; die Steuer-ID des Kindes steht im BZSt-Schreiben nach der Geburt, nicht in deinem Steuerdokument. Bei einem in Deutschland geborenen Kind unter 18 ist die Geburtsurkunde in der Regel kein erforderlicher Anhang; bei einer Geburt im Ausland können zusätzliche Nachweise nötig sein."
           },
           {
             "title": "Konto für die Auszahlung",
-            "body": "IBAN des Auszahlungskontos und Name der Person, der das Konto gehört."
+            "body": "Übernimm die vollständige IBAN des Auszahlungskontos und den richtigen Namen des Kontoinhabers; das muss nicht die antragstellende Person sein.",
+            "tip": "IBAN und Kontoinhaber findest du in der Banking-App oder auf dem Kontoauszug. Die IBAN muss nicht mit DE beginnen; gib den BIC nur an, wenn danach gefragt wird."
           },
           {
             "title": "Weitere Kinder und besondere Situationen",
-            "body": "Gib früheres Kindergeld und Verbindungen ins Ausland an, falls vorhanden. Weitere Angaben hängen von der Situation ab."
+            "body": "Beantworte Fragen zu früherem Kindergeld, dem anderen Elternteil, Arbeit oder Familienleistungen im Ausland entsprechend deiner Situation. Trifft etwas nicht zu und gibt es eine Ja/Nein-Auswahl, wähle „Nein“ — lass Pflichtfragen nicht unbeantwortet.",
+            "tip": "Prüfe frühere Bescheide sowie Unterlagen zu Beschäftigung oder ausländischen Familienleistungen. Nutze bei grenzüberschreitenden oder anderen besonderen Situationen die passenden offiziellen BA-Informationen in diesem Ratgeber."
           }
         ],
         "onlineOrder": "Dies sind Themen im Antrag, nicht die genaue Reihenfolge der Online-Felder.",

@@ -2037,22 +2037,27 @@
           "Isplata i potpisi",
           "Dodatna pitanja i detalji na papiru"
         ],
+        "findData": "Gdje pronaći podatke?",
         "onlineGroups": [
           {
             "title": "Podaci roditelja",
-            "body": "Tvoj porezni broj (Steuer-ID), ime i trenutačna adresa — prema tvojim dokumentima."
+            "body": "Upiši puno ime i trenutačnu adresu osobe koja podnosi zahtjev i treba primati Kindergeld te njezin vlastiti 11-znamenkasti Steuer-ID.",
+            "tip": "Steuer-ID pronađi u pismu BZSt-a ili na dokumentu elektronische Lohnsteuerbescheinigung; to nije Steuernummer. Ime i adresu prepiši iz svojih dokumenata, a podatke drugog roditelja navedi samo kada se traže."
           },
           {
             "title": "Podaci djeteta",
-            "body": "Ime i datum rođenja djeteta, njegov Steuer-ID i tvoj odnos prema djetetu."
+            "body": "Upiši točno ime i datum rođenja djeteta, djetetov vlastiti Steuer-ID i svoj odnos prema djetetu.",
+            "tip": "Ime i datum rođenja provjeri u dokumentu o rođenju; djetetov Steuer-ID je u pismu BZSt-a nakon rođenja, ne u tvojem poreznom dokumentu. Za dijete rođeno u Njemačkoj mlađe od 18 godina rodni list u pravilu nije obvezan prilog; za rođenje u inozemstvu mogu se tražiti dodatni dokazi."
           },
           {
             "title": "Račun za isplatu",
-            "body": "IBAN računa na koji želiš isplatu i ime vlasnika računa."
+            "body": "Prepiši cijeli IBAN računa za isplatu i točno ime vlasnika računa (Kontoinhaber), koji ne mora biti podnositelj zahtjeva.",
+            "tip": "IBAN i vlasnika provjeri u bankovnoj aplikaciji ili na izvodu računa. IBAN ne mora počinjati s DE; BIC upiši samo ako se traži."
           },
           {
             "title": "Druga djeca i posebne situacije",
-            "body": "Navedi raniji Kindergeld i veze s drugom državom ako ih imaš. Dodatni podaci ovise o situaciji."
+            "body": "Na pitanja o ranijem Kindergeldu, drugom roditelju, radu ili dječjim davanjima u inozemstvu odgovori prema svojoj situaciji. Ako se nešto ne odnosi na tebe i ponuđen je izbor da/ne, odaberi „Nein“ — ne ostavljaj obvezno pitanje bez odgovora.",
+            "tip": "Provjeri raniji Bescheid te dokumente o zaposlenju ili stranim dječjim davanjima. Ako imaš prekograničnu ili drugu posebnu situaciju, koristi odgovarajuće službene informacije BA u ovom vodiču."
           }
         ],
         "onlineOrder": "Ovo su teme koje ćeš susresti, ne točan redoslijed online polja.",
