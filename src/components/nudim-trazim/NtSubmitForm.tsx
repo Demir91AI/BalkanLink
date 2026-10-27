@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Send, Star } from "lucide-react";
+import { Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,10 +14,9 @@ import { toast } from "sonner";
 
 interface Props {
   onClose: () => void;
-  onProClick?: () => void;
 }
 
-export default function NtSubmitForm({ onClose, onProClick }: Props) {
+export default function NtSubmitForm({ onClose }: Props) {
   const { t } = useTranslation("pages");
   const [form, setForm] = useState({
     type: "",
@@ -168,16 +167,6 @@ export default function NtSubmitForm({ onClose, onProClick }: Props) {
             <Button type="submit" className="gap-2">
               <Send className="h-4 w-4" /> {t("classifieds.form.submit")}
             </Button>
-            {onProClick && (
-              <Button
-                type="button"
-                variant="outline"
-                className="gap-2 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10"
-                onClick={onProClick}
-              >
-                <Star className="h-4 w-4" /> {t("classifieds.form.highlightPro")}
-              </Button>
-            )}
             <Button type="button" variant="ghost" onClick={onClose}>
               {t("classifieds.form.cancel")}
             </Button>

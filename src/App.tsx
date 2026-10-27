@@ -64,7 +64,6 @@ const DeutschTrainer = lazy(() => import("./pages/DeutschTrainer"));
 const TrainerFaq = lazy(() => import("./pages/TrainerFaq"));
 const TrainerBonusbedingungen = lazy(() => import("./pages/TrainerBonusbedingungen"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const FirmDetail = lazy(() => import("./pages/FirmDetail"));
 const BussgeldAssistent = lazy(() => import("./pages/BussgeldAssistent"));
 const ChatAssistant = lazy(() => import("./components/ChatAssistant"));
 const AntragGenericMuster = lazy(() => import("./pages/muster/AntragGenericMuster"));
@@ -352,7 +351,7 @@ function LocalizedRoutes() {
         <Route path="deutsch-trainer/preise" element={<Navigate to="/paketi" replace />} />
         <Route path="deutsch-trainer/faq" element={<TrainerFaq />} />
         <Route path="deutsch-trainer/bonusbedingungen" element={<TrainerBonusbedingungen />} />
-        <Route path="firma/:slug" element={<FirmDetail />} />
+        <Route path="firma/:slug" element={<Navigate to="/" replace />} />
         <Route path="bussgeld" element={<BussgeldAssistent />} />
         <Route path="ai-asistent" element={<ChatAssistant />} />
         <Route path="asistent" element={<Navigate to="../ai-asistent" replace />} />

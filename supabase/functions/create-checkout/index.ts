@@ -27,6 +27,9 @@ serve(async (req) => {
     let body: { product?: unknown; returnTo?: unknown } = {};
     try { body = await req.json(); } catch { /* empty */ }
     if (body.product === "annual") return await annualCheckout(req, user, body.returnTo);
+    // Retired consumer offers must never generate new Stripe sessions. Existing
+    // historical payments remain verifiable via the webhook/verify-payment paths.
+    if (body.product === "plus") return json({ error: "product_retired" }, 410);
     if (!isProductKey(body.product)) return json({ error: "Unknown product" }, 400);
     const product = PRODUCTS[body.product];
 

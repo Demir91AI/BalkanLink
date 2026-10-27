@@ -846,15 +846,6 @@
       "newest": "Najnovije",
       "relevant": "Najrelevantnije"
     },
-    "pro": {
-      "title": "PRO oglasi",
-      "subtitle": "Istakni svoj oglas i dosegni više ljudi.",
-      "benefit1": "Tvoj oglas stoji na vrhu",
-      "benefit2": "Dobija PRO oznaku",
-      "benefit3": "Više pregleda i upita",
-      "freeNote": "Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost.",
-      "learnMore": "Saznaj više"
-    },
     "ad": {
       "labelOffering": "NUDIM",
       "labelSeeking": "TRAŽIM",
@@ -871,8 +862,7 @@
       "title": "Želiš objaviti oglas?",
       "body": "Brzo i jednostavno objavi šta nudiš ili tražiš.",
       "post": "Objavi besplatno oglas",
-      "highlightPro": "Istakni kao PRO",
-      "freeNote": "Objavljivanje oglasa je besplatno. PRO je opcija za veću vidljivost."
+      "freeNote": "Objavljivanje oglasa je besplatno."
     },
     "footerNote": "BalkanLink u ovom delu služi isključivo kao posrednička i oglasna platforma. Za sadržaj, dogovore ili usluge korisnika se ne preuzima odgovornost.",
     "detail": {
@@ -883,7 +873,7 @@
     },
     "form": {
       "title": "Objavi oglas besplatno",
-      "subtitle": "Objavljivanje je besplatno. Nakon toga možeš istaknuti oglas kao PRO.",
+      "subtitle": "Objavljivanje oglasa je besplatno.",
       "typeLabel": "Tip oglasa",
       "categoryLabel": "Kategorija",
       "selectPlaceholder": "Odaberi...",
@@ -903,52 +893,10 @@
       "contactValuePlaceholder": "Telefon, e-mail...",
       "agree": "Prihvatam uslove korišćenja i potvrđujem tačnost podataka. Oglas je aktivan 30 dana.",
       "submit": "Objavi oglas besplatno",
-      "highlightPro": "Istakni kao PRO",
       "cancel": "Otkaži",
       "errorRequired": "Molimo popunite sva polja.",
       "errorAgree": "Morate prihvatiti uslove korišćenja.",
       "success": "Oglas uspješno poslan! Biće vidljiv nakon provere."
-    },
-    "proModal": {
-      "title": "Objavi ili istakni oglas",
-      "subtitle": "Besplatno objavi ili povećaj vidljivost uz Pro oglase",
-      "free": {
-        "label": "Besplatan oglas",
-        "price": "0€",
-        "f1": "Objavi besplatno",
-        "f2": "Standardna lista",
-        "f3": "Sortiranje po datumu",
-        "f4": "Dostupan svima"
-      },
-      "pro": {
-        "label": "🔥 Pro oglas",
-        "price": "1,99€",
-        "period": "/ 7 dana",
-        "f1": "Vrh liste",
-        "f2": "Iznad free oglasa",
-        "f3": "Badge + glow",
-        "f4": "Više pregleda",
-        "f5": "Istaknuta pozicija 7 dana",
-        "afterExpire": "Po isteku vraća se u normalnu listu"
-      },
-      "premium": {
-        "label": "⭐ Premium",
-        "price": "9,99€",
-        "period": "/ mesec",
-        "bestValue": "Najbolja vrednost",
-        "f1": "2 Pro oglasa/mj",
-        "f2": "Svaki 7 dana",
-        "f3": "Na različitim oglasima",
-        "f4": "Max 2 aktivna",
-        "f5": "Dodatni 1,99€ nakon toga",
-        "savings": "Uštedi i istakni oglase bez dodatnog plaćanja"
-      },
-      "buttons": {
-        "free": "Objavi besplatno →",
-        "pro": "Kupi Pro — 1,99€ →",
-        "premium": "Kupi Premium — 9,99€/mj →"
-      },
-      "info": "💡 **Kako funkcioniše?** Pro oglasi su istaknuti iznad ostalih i donose više pregleda. Premium uključuje 2 takva isticanja mesečno."
     }
   },
   "navigation": {

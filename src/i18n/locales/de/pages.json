@@ -846,15 +846,6 @@
       "newest": "Neueste",
       "relevant": "Relevanteste"
     },
-    "pro": {
-      "title": "PRO-Anzeigen",
-      "subtitle": "Heben Sie Ihre Anzeige hervor und erreichen Sie mehr Menschen.",
-      "benefit1": "Ihre Anzeige steht ganz oben",
-      "benefit2": "Erhält das PRO-Abzeichen",
-      "benefit3": "Mehr Aufrufe und Anfragen",
-      "freeNote": "Anzeigen aufgeben ist kostenlos. PRO ist optional für mehr Sichtbarkeit.",
-      "learnMore": "Mehr erfahren"
-    },
     "ad": {
       "labelOffering": "BIETE",
       "labelSeeking": "SUCHE",
@@ -871,8 +862,7 @@
       "title": "Möchten Sie eine Anzeige aufgeben?",
       "body": "Schnell und einfach veröffentlichen, was Sie anbieten oder suchen.",
       "post": "Kostenlos Anzeige aufgeben",
-      "highlightPro": "Als PRO hervorheben",
-      "freeNote": "Anzeigen aufgeben ist kostenlos. PRO ist optional für mehr Sichtbarkeit."
+      "freeNote": "Alle Anzeigen sind kostenlos."
     },
     "footerNote": "BalkanLink dient in diesem Bereich ausschließlich als Vermittlungs- und Anzeigenplattform. Für Inhalte, Vereinbarungen oder Dienstleistungen der Nutzer wird keine Verantwortung übernommen.",
     "detail": {
@@ -883,7 +873,7 @@
     },
     "form": {
       "title": "Kostenlos Anzeige aufgeben",
-      "subtitle": "Das Aufgeben ist kostenlos. Anschließend können Sie die Anzeige als PRO hervorheben.",
+      "subtitle": "Veröffentliche deine Anzeige kostenlos.",
       "typeLabel": "Anzeigenart",
       "categoryLabel": "Kategorie",
       "selectPlaceholder": "Bitte wählen …",
@@ -903,52 +893,10 @@
       "contactValuePlaceholder": "Telefon, E-Mail …",
       "agree": "Ich akzeptiere die Nutzungsbedingungen und bestätige die Richtigkeit der Angaben. Die Anzeige ist 30 Tage aktiv.",
       "submit": "Kostenlos Anzeige aufgeben",
-      "highlightPro": "Als PRO hervorheben",
       "cancel": "Abbrechen",
       "errorRequired": "Bitte füllen Sie alle Felder aus.",
       "errorAgree": "Sie müssen die Nutzungsbedingungen akzeptieren.",
       "success": "Anzeige erfolgreich gesendet! Sie wird nach der Prüfung sichtbar."
-    },
-    "proModal": {
-      "title": "Anzeige aufgeben oder hervorheben",
-      "subtitle": "Kostenlos veröffentlichen oder mit Pro-Anzeigen die Sichtbarkeit erhöhen",
-      "free": {
-        "label": "Kostenlose Anzeige",
-        "price": "0 €",
-        "f1": "Kostenlos veröffentlichen",
-        "f2": "Standardliste",
-        "f3": "Sortierung nach Datum",
-        "f4": "Für alle verfügbar"
-      },
-      "pro": {
-        "label": "🔥 Pro-Anzeige",
-        "price": "1,99 €",
-        "period": "/ 7 Tage",
-        "f1": "Oben in der Liste",
-        "f2": "Über kostenlosen Anzeigen",
-        "f3": "Badge + Glow",
-        "f4": "Mehr Aufrufe",
-        "f5": "Hervorgehobene Position 7 Tage",
-        "afterExpire": "Nach Ablauf zurück in die normale Liste"
-      },
-      "premium": {
-        "label": "⭐ Premium",
-        "price": "9,99 €",
-        "period": "/ Monat",
-        "bestValue": "Bestes Angebot",
-        "f1": "2 Pro-Anzeigen/Monat",
-        "f2": "Jeweils 7 Tage",
-        "f3": "Auf verschiedenen Anzeigen",
-        "f4": "Max. 2 aktiv",
-        "f5": "Weitere 1,99 € danach",
-        "savings": "Sparen Sie und heben Sie Anzeigen ohne Aufpreis hervor"
-      },
-      "buttons": {
-        "free": "Kostenlos veröffentlichen →",
-        "pro": "Pro kaufen — 1,99 € →",
-        "premium": "Premium kaufen — 9,99 €/Monat →"
-      },
-      "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Premium enthält 2 solche Hervorhebungen pro Monat."
     }
   },
   "navigation": {

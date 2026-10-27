@@ -21,8 +21,6 @@ vi.mock('@/components/home/FlowBanner', () => ({ default: () => null }));
 vi.mock('@/components/home/CollapsibleSection', () => ({ default: () => null }));
 vi.mock('@/components/home/CommunityHighlights', () => ({ default: () => null }));
 vi.mock('@/components/share/ShareButton', () => ({ default: () => null }));
-vi.mock('@/components/home/premium-showcase-data', () => ({ premiumShowcaseFirms: [] }));
-vi.mock('@/hooks/useInfiniteScroll', () => ({ useInfiniteScroll: () => ({}) }));
 
 beforeEach(() => {
   vi.stubEnv('DEV', false);

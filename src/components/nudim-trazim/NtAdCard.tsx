@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { MapPin, Calendar, Eye, Star } from "lucide-react";
+import { MapPin, Calendar, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,13 +27,6 @@ export default function NtAdCard({ ad, onOpen }: Props) {
       className="group relative overflow-hidden border-border/60 bg-card hover:shadow-md transition-shadow cursor-pointer"
       onClick={() => onOpen(ad)}
     >
-      {ad.is_pro && (
-        <div className="absolute top-3 right-3 z-10">
-          <Badge className="bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] gap-1 text-[11px] font-semibold">
-            <Star className="h-3 w-3" /> PRO
-          </Badge>
-        </div>
-      )}
       <CardContent className="p-5">
         <div className="flex items-start gap-3 mb-3">
           <Badge

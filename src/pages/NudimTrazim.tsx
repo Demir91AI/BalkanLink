@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
-import { PlusCircle, Megaphone, Search as SearchIcon, Star, Check, ClipboardList } from "lucide-react";
+import { PlusCircle, Megaphone, Search as SearchIcon, ClipboardList } from "lucide-react";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import NtFilters from "@/components/nudim-trazim/NtFilters";
@@ -9,7 +9,6 @@ import NtCategoryChips from "@/components/nudim-trazim/NtCategoryChips";
 import NtAdCard from "@/components/nudim-trazim/NtAdCard";
 import NtAdDetail from "@/components/nudim-trazim/NtAdDetail";
 import NtSubmitForm from "@/components/nudim-trazim/NtSubmitForm";
-import NtProModal from "@/components/nudim-trazim/NtProModal";
 import type { NtAd } from "@/lib/nudim-trazim-constants";
 import { useHistorySearchState } from "@/hooks/useHistorySearchState";
 import { useNavigate } from "react-router-dom";
@@ -63,7 +62,6 @@ export default function NudimTrazim() {
     [selectedAdId, dbAds]
   );
   const showForm = view === "form";
-  const showProModal = searchParams.get("modal") === "pro";
 
   const openAd = (ad: NtAd) => {
     setSearchState(
@@ -80,12 +78,6 @@ export default function NudimTrazim() {
     );
   };
 
-  const openProModal = () => {
-    setSearchState(
-      { modal: "pro" },
-      { state: { blInternalBack: true } }
-    );
-  };
 
   const closeCurrentView = () => navigateBackOrHome(navigate);
 
@@ -137,8 +129,7 @@ export default function NudimTrazim() {
     return (
       <div className="min-h-screen bg-background">
         <div className="mx-auto max-w-7xl px-4 py-10">
-          <NtSubmitForm onClose={closeCurrentView} onProClick={openProModal} />
-          <NtProModal open={showProModal} onClose={closeCurrentView} />
+          <NtSubmitForm onClose={closeCurrentView} />
         </div>
       </div>
     );
@@ -150,11 +141,6 @@ export default function NudimTrazim() {
     { value: "🇩🇪", label: t("classifieds.hero.statGermany") },
   ];
 
-  const proBenefits = [
-    t("classifieds.pro.benefit1"),
-    t("classifieds.pro.benefit2"),
-    t("classifieds.pro.benefit3"),
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -216,34 +202,6 @@ export default function NudimTrazim() {
         </div>
 
         <div className="space-y-8 pb-10">
-          {/* Pro info box */}
-          <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-[hsl(var(--gold))]/5 p-5">
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[hsl(var(--gold))]/10">
-                <Star className="h-5 w-5 text-[hsl(var(--gold))]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-sm">{t("classifieds.pro.title")}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{t("classifieds.pro.subtitle")}</p>
-                <ul className="mt-2 space-y-1">
-                  {proBenefits.map((txt) => (
-                    <li key={txt} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Check className="h-3 w-3 text-[hsl(var(--gold))] shrink-0" /> {txt}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-2 text-[11px] text-muted-foreground">{t("classifieds.pro.freeNote")}</p>
-              </div>
-              <Button
-                size="sm"
-                variant="outline"
-                className="shrink-0 border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))] hover:bg-[hsl(var(--gold))]/10 text-xs"
-                onClick={openProModal}
-              >
-                <Star className="mr-1 h-3 w-3" /> {t("classifieds.pro.learnMore")}
-              </Button>
-            </div>
-          </div>
 
           {/* Ad cards */}
           {filtered.length > 0 ? (
@@ -286,14 +244,6 @@ export default function NudimTrazim() {
               <Button size="lg" onClick={openForm} className="gap-2">
                 <PlusCircle className="h-4 w-4" /> {t("classifieds.ctaSection.post")}
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="gap-2 border-[hsl(var(--gold))] text-[hsl(var(--gold))] font-semibold hover:bg-[hsl(var(--gold))]/15 hover:border-[hsl(var(--gold))]"
-                onClick={openProModal}
-              >
-                <Star className="h-4 w-4" /> {t("classifieds.ctaSection.highlightPro")}
-              </Button>
             </div>
             <p className="text-xs text-muted-foreground">{t("classifieds.ctaSection.freeNote")}</p>
           </section>
@@ -304,7 +254,6 @@ export default function NudimTrazim() {
         </div>
       </div>
 
-      <NtProModal open={showProModal} onClose={closeCurrentView} />
     </div>
   );
 }

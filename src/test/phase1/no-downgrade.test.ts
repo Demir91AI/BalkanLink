@@ -63,10 +63,11 @@ describe("hub imports", () => {
 describe("payments & entitlement contract (code level)", () => {
   const products = fileText("supabase/functions/_shared/products.ts");
   const webhook = fileText("supabase/functions/stripe-webhook/index.ts");
-  it("sells exactly one one-time product", () => {
+  it("retains historic one-time product metadata for reconciliation, but forbids new sales", () => {
     expect(products).toMatch(/export type ProductKey = "plus";/);
     expect(products).toMatch(/amountCents: 1990/);
     expect(products).toMatch(/mode: "payment"/);
+    expect(fileText("supabase/functions/create-checkout/index.ts")).toMatch(/body\.product === "plus"\) return json\(\{ error: "product_retired" \}, 410\)/);
   });
   it("keeps the two legacy monthly subscription prices recognised", () => {
     expect(products).toContain("price_1TQDVTR9oGwbVekBC4NGd2XI");
