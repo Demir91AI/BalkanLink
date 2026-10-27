@@ -2104,6 +2104,27 @@
       "empty": "Kada ostaviti prazno",
       "example": "Izmišljeni primjer",
       "note": "Važna napomena"
+    },
+    "kindergeldChecks": {
+      "orient": [
+        "Pročitaj razliku između prijave za novorođenče i posebnih slučajeva."
+      ],
+      "prepare": [
+        "Pronađi vlastitu Steuer-ID u pismu BZSt ili elektronskoj Lohnsteuerbescheinigung.",
+        "Pripremi ime, datum rođenja i Steuer-ID djeteta ako je već dodijeljena.",
+        "Pripremi IBAN i ime vlasnika računa; prati zahtjeve portala za dodatne dokaze."
+      ],
+      "access": [
+        "Provjeri način prijave i identifikacije na Familienkasse eServices, uključujući BundID."
+      ],
+      "apply": [
+        "Pregledaj podatke prije slanja na službenom portalu.",
+        "Ako ideš poštom, prati KG1 i Anlage Kind uputstva i potpise na službenom primjerku."
+      ],
+      "after": [
+        "Sačuvaj potvrdu slanja i prati poštu ili službeno korisničko sanduče.",
+        "Ako Familienkasse traži dokaz, pročitaj njihov tačan zahtjev i rok."
+      ]
     }
   }
 }

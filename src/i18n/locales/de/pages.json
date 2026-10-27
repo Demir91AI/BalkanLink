@@ -2104,6 +2104,27 @@
       "empty": "Wann leer lassen",
       "example": "Fiktives Beispiel",
       "note": "Wichtiger Hinweis"
+    },
+    "kindergeldChecks": {
+      "orient": [
+        "Unterscheide den Antrag für ein Neugeborenes von Sonderfällen."
+      ],
+      "prepare": [
+        "Finde deine Steuer-ID im BZSt-Schreiben oder in der elektronischen Lohnsteuerbescheinigung.",
+        "Lege Name, Geburtsdatum und die Steuer-ID des Kindes bereit, soweit bereits vergeben.",
+        "Lege IBAN und Kontoinhaber bereit; beachte die Nachweisanforderungen des Portals."
+      ],
+      "access": [
+        "Prüfe Anmeldung und Identifizierung in den Familienkasse-eServices, einschließlich BundID."
+      ],
+      "apply": [
+        "Prüfe die Angaben vor dem Absenden im offiziellen Portal.",
+        "Bei Postversand beachte die Hinweise und Unterschriften auf dem offiziellen KG1 und der Anlage Kind."
+      ],
+      "after": [
+        "Bewahre die Eingangsbestätigung auf und prüfe Post oder offizielles Postfach.",
+        "Fordert die Familienkasse Nachweise an, lies die konkrete Anforderung und Frist."
+      ]
     }
   }
 }

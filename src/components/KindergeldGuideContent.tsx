@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ExternalLink, Info, ShieldCheck } from "lucide-react";
-import { cn } from "@/lib/utils";
 import KindergeldFieldGuide from "@/components/kindergeld/KindergeldFieldGuide";
+import SmartGuide from "@/components/guide-first/SmartGuide";
+import { getGuideSource } from "@/lib/guide-first/official-sources";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 
 /**
  * Kindergeld newborn SmartGuide (guide-first cutover, 2026-10-27).
@@ -43,25 +46,19 @@ export default function KindergeldGuideContent() {
 
       <section aria-labelledby="kg-case">
         <p id="kg-case" className="mb-2 text-sm font-semibold text-foreground">{t(k("caseQ"))}</p>
-        <div role="radiogroup" className="grid gap-2 sm:grid-cols-3">
+        <Tabs value={c} onValueChange={(v) => { if (v === "newborn" || v === "adult" || v === "cross") setC(v); }}>
+        <TabsList aria-labelledby="kg-case" className="grid h-auto w-full grid-cols-1 gap-2 bg-popover sm:grid-cols-3">
           {CASES.map((id) => (
-            <button
+            <TabsTrigger
               key={id}
-              type="button"
-              role="radio"
-              aria-checked={c === id}
-              onClick={() => setC(id)}
-              className={cn(
-                "rounded-xl border px-3 py-3 text-left text-sm transition-colors",
-                c === id
-                  ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))] font-semibold text-[hsl(var(--background))]"
-                  : "border-border bg-popover text-foreground hover:border-[hsl(var(--gold))]",
-              )}
+              value={id}
+              className="min-h-11 whitespace-normal rounded-md px-3 py-3 text-sm text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
               {t(k(`case.${id}`))}
-            </button>
+            </TabsTrigger>
           ))}
-        </div>
+        </TabsList>
+        </Tabs>
       </section>
 
       {c === "newborn" && <KindergeldFieldGuide onlineUrl={ONLINE_URL} />}
@@ -79,9 +76,9 @@ export default function KindergeldGuideContent() {
             <a href={SOURCES[3].url} target="_blank" rel="noopener noreferrer" className={linkCls}>
               {t(k("src.formulare"))} <ExternalLink className="h-3.5 w-3.5" />
             </a>
-            <button type="button" onClick={() => setC("newborn")} className="mt-1 self-start text-sm font-semibold text-[hsl(var(--gold))] underline-offset-2 hover:underline">
+            <Button variant="link" onClick={() => setC("newborn")} className="mt-1 min-h-11 self-start text-sm font-semibold text-primary">
               {t(k("special.back"))}
-            </button>
+            </Button>
           </div>
         </section>
       )}
@@ -89,21 +86,13 @@ export default function KindergeldGuideContent() {
       {c === "newborn" && (
       <details className="border-b border-border pb-4">
       <summary className="cursor-pointer py-2 text-sm font-semibold text-foreground">{t(k("processTitle"))}</summary>
-      <ol className="mt-3 space-y-3">
-        {STAGES.map((s, i) => (
-          <li key={s} className="rounded-2xl border border-border bg-card p-4">
-            <div className="flex items-start gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))]/15 text-sm font-bold text-[hsl(var(--gold))]">
-                {i + 1}
-              </span>
-              <div className="min-w-0 flex-1">
-                <h3 className="font-semibold text-foreground">{t(k(`stage.${s}.title`))}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(k(`stage.${s}.body`))}</p>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <div className="mt-3">
+        <SmartGuide id="kindergeld-newborn" source={getGuideSource("kindergeld")}
+          steps={STAGES.map((s) => ({ id: s, title: t(k(`stage.${s}.title`)),
+            blocks: [{ kind: "action" as const, text: t(k(`stage.${s}.body`)) }],
+            checklist: t(`smartGuideStandard.kindergeldChecks.${s}`, { returnObjects: true }) as string[],
+          }))} />
+      </div>
       </details>
       )}
 
