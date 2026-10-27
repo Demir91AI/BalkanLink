@@ -17,7 +17,7 @@ function renderVault() {
   return render(<FormCatalogVault onSelect={() => {}} />);
 }
 
-describe("Formolari catalog: duplicate visa category removed", () => {
+describe("Formulari catalog: duplicate visa category removed", () => {
   afterEach(cleanup);
 
   it("does not list the 'Vize i boravak' category", () => {
