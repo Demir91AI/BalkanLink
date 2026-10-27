@@ -2020,7 +2020,118 @@
           ]
         }
       },
-      "processTitle": "So reichst du den Antrag ein"
+      "processTitle": "So reichst du den Antrag ein",
+      "workflow": {
+        "steps": [
+          {
+            "id": "situation",
+            "title": "Passt dieser Ablauf zu deiner Situation?",
+            "subtitle": "Für ein Neugeborenes in Deutschland; Sonderfälle haben eigene Hinweise.",
+            "sections": {
+              "meaning": "Der Kindergeldantrag ist nicht die Geburtsanmeldung. Die Familienkasse prüft den Anspruch gesondert und entscheidet über den Antrag.",
+              "action": "Lebt das Kind im Ausland, besteht eine Beschäftigung in einem anderen Staat oder ist das Kind mindestens 18 Jahre alt, wähle den passenden Sonderfall oberhalb des Leitfadens.",
+              "where": "Wohnort und Staatsangehörigkeit prüfst du anhand gültiger Ausweisdokumente und der Anmeldung.",
+              "mistake": "Annehmen, dass Geburt oder Anmeldung automatisch bewilligtes Kindergeld bedeutet.",
+              "next": "Für den üblichen Antrag nach der Geburt geht es weiter zu den Unterlagen."
+            },
+            "checklist": [
+              "Ich habe geprüft, ob ein Auslands- oder Volljährigenfall vorliegt."
+            ]
+          },
+          {
+            "id": "documents",
+            "title": "Was du brauchst — und was nicht pauschal nötig ist",
+            "subtitle": "Daten vorbereiten; Nachweise nach den tatsächlichen Fragen einreichen.",
+            "sections": {
+              "meaning": "Für ein Kind unter 18 reichen normalerweise die Steuer-ID des Elternteils und des Kindes. Bei einem in Deutschland geborenen Neugeborenen ist die Geburtsurkunde nicht pauschal eine Pflichtanlage.",
+              "action": "Bereite deine Identitätsdaten, die Daten des Kindes und die Zahlungsdaten vor. Für Aufenthaltsstatus oder Sonderfälle beachte die Hinweise des amtlichen Antrags.",
+              "where": "Steuer-ID: BZSt-Schreiben oder elektronische Lohnsteuerbescheinigung des Elternteils; Ausweisdokumente; Bank-App oder Kontoauszug.",
+              "mistake": "Unnötig sämtliche privaten Unterlagen senden oder einen tatsächlich verlangten Nachweis weglassen.",
+              "next": "Finde die genauen Daten vor dem Start des Antrags."
+            },
+            "checklist": [
+              "Steuer-ID des Elternteils und des Kindes, sofern bereits vergeben, liegen bereit.",
+              "Die in meinem konkreten Antrag verlangten Unterlagen liegen bereit."
+            ]
+          },
+          {
+            "id": "prepare",
+            "title": "Daten vor dem Start finden",
+            "subtitle": "Erfundene Beispiele nicht übernehmen; eigene Dokumente verwenden.",
+            "sections": {
+              "action": "Vergleiche die Namen mit den Dokumenten. Finde IBAN und Kontoinhaber. Eine vorhandene Kindergeld-Nr. steht auf einem früheren Bescheid; beim ersten Antrag keine erfinden.",
+              "where": "Die Steuer-ID hat 11 Ziffern und ist nicht die Steuernummer. Suche die Steuer-ID des Kindes im BZSt-Schreiben; fehlt sie noch, beachte die Hinweise der Familienkasse. Übernimm die IBAN aus den Kontodetails deiner Bank.",
+              "example": "Erfunden: Maja Kovač beantragt Kindergeld für ihr Kind; im Abschnitt zum Kind verwendet sie dessen Steuer-ID, nicht ihre eigene.",
+              "mistake": "Steuer-IDs vertauschen oder die IBAN falsch abschreiben. Die IBAN muss nicht pauschal mit DE beginnen.",
+              "next": "Wähle den Online-Weg oder die amtlichen Papierformulare."
+            },
+            "checklist": [
+              "Ich habe geprüft, wem jede Steuer-ID gehört.",
+              "IBAN und Kontoinhaber sind geprüft."
+            ]
+          },
+          {
+            "id": "portal",
+            "title": "Den amtlichen Antrag öffnen",
+            "subtitle": "Online bei der Familienkasse; Papier bleibt eine Alternative.",
+            "sections": {
+              "action": "Wähle in den eServices den Kindergeldantrag bei Geburt. Prüfe die Anforderungen an BA-Konto, Familienkassen-Profil und BundID. Mit BundID kannst du online ohne Ausdruck und handschriftliche Unterschrift einreichen.",
+              "where": "Die Schaltfläche führt zu den BA-eServices. Für Papier nutze nur KG1 und Anlage Kind von der BA-Formularseite in den Quellen.",
+              "mistake": "Online-Ausfüllen mit Einreichen verwechseln. Ohne elektronische Einreichung beachte die angezeigten Hinweise zum Drucken, Unterschreiben und Versenden.",
+              "next": "Im nächsten Schritt findest du die Datenerklärungen; Online-Fragen können anders angeordnet sein als auf Papier."
+            },
+            "checklist": [
+              "Ich habe geprüft, wie ich den Antrag tatsächlich einreiche."
+            ]
+          },
+          {
+            "id": "fields",
+            "title": "Elternteil, Kind, Konto und besondere Umstände",
+            "subtitle": "Online-Gruppen oder alle 20 Erklärungen zu KG1 und Anlage Kind.",
+            "sections": {
+              "meaning": "Online-Fragen hängen von deinen Antworten ab und folgen nicht zwingend den Nummern des Papierformulars. Papierverweise gelten nur für die bezeichneten KG1- und Anlage-Kind-Abschnitte.",
+              "action": "Wähle unten Online-Erklärungen oder Papierabschnitte. Auf Papier brauchst du eine Anlage Kind je Kind; den Abschnitt für Kinder ab 18 überspringst du bei Neugeborenen.",
+              "next": "Prüfe nach dem Ausfüllen im amtlichen Antrag die vollständige Übersicht und den Versandweg."
+            },
+            "checklist": []
+          },
+          {
+            "id": "submit",
+            "title": "Prüfen und einreichen",
+            "subtitle": "Einreichen erfolgt im amtlichen Portal oder mit unterschriebenen Papierformularen.",
+            "sections": {
+              "action": "Prüfe Eltern- und Kinderdaten, Steuer-IDs, Konto und Antworten zu anderen Staaten oder früheren Leistungen. Schließe online die amtliche Übermittlung ab und sichere die Bestätigung.",
+              "where": "Auf Papier prüfst du die Unterschriften in KG1 und Anlage Kind sowie die zuständige Familienkasse anhand der amtlichen Hinweise. Sende keine Originale, sofern diese nicht ausdrücklich verlangt werden.",
+              "mistake": "Einen Entwurf für einen eingereichten Antrag halten; Papier ohne Unterschrift oder nur KG1 ohne erforderliche Anlage Kind versenden.",
+              "next": "Verfolge Bestätigung, Nachrichten und Bescheid; BalkanLink versendet nichts für dich."
+            },
+            "checklist": [
+              "Die abschließende Datenübersicht ist geprüft.",
+              "Ich weiß, wo ich die Eingangsbestätigung erhalte."
+            ]
+          },
+          {
+            "id": "after",
+            "title": "Danach: Bestätigung, Antwort und Änderungen",
+            "subtitle": "Keine zugesicherte Bearbeitungszeit und keine Bewilligungsgarantie.",
+            "sections": {
+              "meaning": "Die Familienkasse prüft Vollständigkeit und Anspruch, kann Unterlagen nachfordern und sendet einen Bescheid.",
+              "action": "Bewahre Bestätigung und Antragskopie bei dir auf. Prüfe Post oder Familienkassen-Profil. Antworte auf Nachforderungen innerhalb der tatsächlich genannten Frist; melde Änderungen über den amtlichen Weg.",
+              "where": "Nachrichten, Bescheide und eingereichte Anträge findest du im amtlichen Profil, wenn du den Dienst nutzt; andernfalls prüfe deine Post.",
+              "mistake": "Eine Nachforderung ignorieren oder die Eingangsbestätigung als Bewilligung verstehen.",
+              "next": "Für Nachweise, Änderungen oder Kontakt öffne die Familienkasse-eServices. Fragen zur Entscheidung richtest du an die zuständige Familienkasse."
+            },
+            "checklist": [
+              "Ich weiß, wo ich die Antwort der Familienkasse prüfe."
+            ]
+          }
+        ],
+        "summary": [
+          "Ein passender Ablauf wurde gewählt und die verlangten Daten wurden vorbereitet.",
+          "Der Antrag wird ausschließlich bei der Familienkasse eingereicht; Online-Bestätigung oder Papierunterschriften prüfen.",
+          "Bestätigung aufbewahren, Nachrichten verfolgen und angeforderte Nachweise oder Änderungen amtlich übermitteln."
+        ]
+      }
     },
     "panelEmpty": "Wähle links eine Leistung für Leitfaden und offizielle Quellen.",
     "benefitsGuides": "40+ SmartGuide-Leitfäden — Schritt für Schritt zum offiziellen Antrag für Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG und mehr",
@@ -2096,14 +2207,16 @@
     "noSaved": "Kein gültiger gespeicherter Fortschritt vorhanden.",
     "storageError": "Dieses Gerät erlaubt das Speichern des Fortschritts nicht.",
     "block": {
-      "action": "Was bedeutet das / was ist zu tun",
+      "action": "Was du tun solltest",
       "field": "Was genau eintragen",
       "where": "Wo finde ich die Angaben",
       "format": "Format",
       "mistake": "Häufige Fehler",
       "empty": "Wann leer lassen",
       "example": "Fiktives Beispiel",
-      "note": "Wichtiger Hinweis"
+      "note": "Wichtiger Hinweis",
+      "meaning": "Was dieser Schritt bedeutet",
+      "next": "Wie es weitergeht"
     },
     "kindergeldChecks": {
       "orient": [
@@ -2125,6 +2238,7 @@
         "Bewahre die Eingangsbestätigung auf und prüfe Post oder offizielles Postfach.",
         "Fordert die Familienkasse Nachweise an, lies die konkrete Anforderung und Frist."
       ]
-    }
+    },
+    "summary": "Zusammenfassung des Ablaufs"
   }
 }
