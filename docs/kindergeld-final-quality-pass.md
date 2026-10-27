@@ -52,4 +52,25 @@ Adult §3: newborn skip from §3 to §4 is visible; headings and evidence-status
 The machine-readable JSON lists every German source phrase, stable line ID and per-line DOM acceptance condition. Runtime input widgets are prohibited; these are explanatory text only.
 
 ## QA results
-Pending implementation and one consolidated test run.
+- Implemented 174 visible inline definitions/options per locale across the unchanged 30 numbered groups. These are explanatory rows (including repeated relationship options and shared follow-up fields), **not 174 distinct official input fields**.
+- DOM tests visit every correct numbered group in BS/HR/SR/DE and check the inventory's exact German phrase, localized meaning and condition in visible non-disclosure content. All seven family-status choices and all three relationship rows × five options are pinned separately; conditional yes/no for §4, §5 main/a/b, §6, §7a/b/c are pinned.
+- Full suite: **1025 tests passed, 33 files**, 27.10.2026 21:23 UTC. After final newborn-date/nationality explanation polish: **32 focused tests passed, 2 files**, 21:24 UTC. Latest observed automatic build: **build OK, 21:24:31 UTC**. No manual build/typecheck was run (automatic harness owns those).
+- Browser: **8 route content fixtures passed**, four locales × 1280×1800 / 390×844. Existing-child/adult/cross branches, no data-entry fields, 30 groups, seven-step advancement/completion/reopening, visible statuses and 18 relationship rows/options, no horizontal overflow; no runtime errors. Existing card text contrast minimum 9.5:1. Actual public route preserves the existing access prompt. Fixture testing bypasses that prompt only by intercepting a browser response; no app gate/config/account is changed.
+- Screenshots visually inspected: `/tmp/browser/kg-final/bs-390-statuses.png`, `/tmp/browser/kg-final/de-1280-statuses.png`. The existing fixed mobile navigation/cookie bar can cover content at a given scroll position; every status remains scroll-reachable. No global layout changes were made.
+- **Uncovered:** adult §3 full individual employment/education/benefit subquestions are intentionally out of this newborn pilot; headings, evidence statuses and explicit newborn skip are covered. Authenticated BA online screens/order remain unverified. Authorized entitled-account end-to-end QA remains unavailable; content fixtures are not an authenticated-account claim. No uncovered item in the owner's newborn field/choice acceptance matrix.
+
+## Exact changed project files
+- `src/components/kindergeld/pilot-model.ts`
+- `src/components/kindergeld/FieldWalkthrough.tsx`
+- `src/components/kindergeld/KindergeldFieldGuide.tsx`
+- `src/i18n/locales/bs/pages.json`
+- `src/i18n/locales/hr/pages.json`
+- `src/i18n/locales/sr/pages.json`
+- `src/i18n/locales/de/pages.json`
+- `src/lib/guide-first/kindergeld-field-guide.test.tsx`
+- `docs/kindergeld-final-field-inventory.json`
+- `docs/kindergeld-final-quality-pass.md`
+- `AGENTS.md`
+- `roadmap.md`
+
+Shared SmartGuide and other guide content were not edited. No Stripe, pricing, auth, paywall, subscriptions, account data, PDF handling, deployment or publication changes. Original forms stay outbound links. Baseline is recorded above; report the latest automatically managed commit SHA in the closing reply (the report itself necessarily creates a later revision).
