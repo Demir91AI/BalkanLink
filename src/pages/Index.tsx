@@ -131,7 +131,7 @@ export default function Index() {
       <HeroSection />
 
       {isLetterReplyVisible(import.meta.env.DEV, window.location.hostname) && (
-        <section className="px-4 py-4 sm:py-6">
+        <section className="dark px-4 py-4 sm:py-6">
           <div className="container mx-auto max-w-[1100px]">
             <HomeLetterReplyEntry />
           </div>
