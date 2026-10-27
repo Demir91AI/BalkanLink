@@ -167,7 +167,7 @@ export default function SmartGuideWizardShared({
                 borderRadius: "50%",
                 border: isActive ? "2px solid #D4AF37" : isCompleted ? "2px solid rgba(212,175,55,0.4)" : "2px solid #334155",
                 background: isActive ? "#D4AF37" : isCompleted ? "rgba(212,175,55,0.15)" : "#0F172A",
-                color: isActive ? "#000" : isCompleted ? "#D4AF37" : isLocked ? "#475569" : "#94A3B8",
+                color: isActive ? "#000" : isCompleted ? "#D4AF37" : isLocked ? "#94A3B8" : "#CBD5E1",
                 fontSize: 12, fontWeight: 700,
                 cursor: isLocked ? "not-allowed" : "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center",
@@ -251,7 +251,7 @@ export default function SmartGuideWizardShared({
         <button
           disabled={step === 0}
           onClick={handlePrev}
-          style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, border: "1px solid #1E293B", background: step === 0 ? "#0F172A" : "#1E293B", color: step === 0 ? "#334155" : "#CBD5E1", fontSize: 13, fontWeight: 600, cursor: step === 0 ? "not-allowed" : "pointer" }}
+          style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, border: "1px solid #1E293B", background: step === 0 ? "#0F172A" : "#1E293B", color: step === 0 ? "#94A3B8" : "#CBD5E1", fontSize: 13, fontWeight: 600, cursor: step === 0 ? "not-allowed" : "pointer" }}
         >
           <ChevronLeft size={16} /> {t("guide.back")}
         </button>
