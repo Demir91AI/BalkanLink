@@ -1,4 +1,9 @@
 
+## Arrival companion Phase 1 of 7 (2026-10-27; no release)
+- [x] Inventory existing four routes/content before implementation; verify four requested primary sources and supplementary BMG/FeV/Bremen/BMV/BOP sources.
+- [x] Add portable read-only companion for anmeldung, steuer-id, fuehrerschein, fahrzeugzulassung in BS/HR/SR/DE: 23 steps, 34 vocabulary groups; retain free access and Kindergeld behavior.
+- [x] 1061 tests (35 files), automatic build OK, 32 actual public desktop/mobile route fixtures, focus/review/completion and 9.5:1 minimum body contrast. Exact scope/source gaps in `docs/arrival-phase1-results.md`. No publication.
+
 ## Kindergeld consolidated final quality pass (2026-10-27; no release)
 - [x] Map original newborn-relevant KG1/Anlage Kind lines and choices to unchanged 30 groups; pre-implementation inventory contains 174 inline definitions/choices.
 - [x] Add inline localized subfields/options and contextual uncertainty help; preserve seven steps, navigation and access.

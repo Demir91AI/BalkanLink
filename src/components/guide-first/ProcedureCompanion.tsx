@@ -1,0 +1,59 @@
+import { useId, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import SmartGuide from "./SmartGuide";
+import { getGuideSource } from "@/lib/guide-first/official-sources";
+import type { ArrivalProcedure, ArrivalSlug } from "@/lib/guide-first/arrival-model";
+
+/** Portable procedure + vocabulary companion. No answers, field mapping or storage. */
+export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug }) {
+  const { t } = useTranslation("pages");
+  const data = t(`arrivalCompanions.guides.${slug}`, { returnObjects: true }) as ArrivalProcedure;
+  const ui = (key: string, values?: Record<string, string | number>) => t(`arrivalCompanions.ui.${key}`, values);
+  const [termIndex, setTermIndex] = useState(0);
+  const [mode, setMode] = useState<"paper" | "online">("paper");
+  const termHeading = useRef<HTMLHeadingElement>(null);
+  const navId = useId();
+  const source = getGuideSource(slug);
+  const term = data.terms[termIndex];
+  const jumpTerm = (index: number) => {
+    setTermIndex(index);
+    requestAnimationFrame(() => termHeading.current?.focus({ preventScroll: true }));
+  };
+  if (!term) return null;
+  const sourceLinks = [source.url ? { url: source.url, label: source.label ?? ui("official") } : null, ...(source.extraLinks ?? [])].filter((link) => link !== null);
+  return <section data-testid="arrival-companion" data-slug={slug} className="smartguide-standard min-w-0 space-y-6 text-foreground">
+    <header className="space-y-3">
+      <h2 className="break-words text-xl font-bold">{data.title}</h2>
+      <p className="text-sm leading-6">{data.introduction}</p>
+      <p className="guide-block-neutral border-l-4 p-4 text-sm leading-6">{data.variation}</p>
+      <p className="text-sm">{source.verifiedOn ? t("smartGuideStandard.verified", { date: source.verifiedOn }) : t("smartGuideStandard.verify")}</p>
+      <div className="flex flex-wrap gap-2">{sourceLinks.map((link) => <Button key={link.url} asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-left"><a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /><span className="sr-only">{t("smartGuideStandard.newTab")}</span></a></Button>)}</div>
+    </header>
+    <div className="space-y-3 border-y border-border py-4">
+      <div role="group" aria-label={ui("mode")} className="flex flex-wrap gap-2">{(["paper", "online"] as const).map((value) => <Button key={value} variant={mode === value ? "default" : "outline"} className="h-auto min-h-11 whitespace-normal" aria-pressed={mode === value} onClick={() => setMode(value)}>{ui(value)}</Button>)}</div>
+      <p className="text-sm leading-6" data-testid="arrival-mode-note">{data.modes[mode]}</p>
+    </div>
+    <section className="space-y-4" aria-label={ui("vocabulary")}>
+      <h3 className="text-lg font-bold">{ui("vocabulary")}</h3>
+      <p className="text-sm leading-6">{ui("vocabularyNote")}</p>
+      <label htmlFor={navId} className="block text-sm font-semibold">{ui("jumpTerm")}</label>
+      <select id={navId} data-nav="arrival-terms" className="min-h-11 w-full min-w-0 max-w-full rounded-md border border-border bg-background p-2 text-sm text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring" value={termIndex} onChange={(event) => jumpTerm(Number(event.target.value))}>
+        {data.terms.map((item, index) => <option key={item.id} value={index}>{item.german} — {item.meaning}</option>)}
+      </select>
+      <h4 ref={termHeading} tabIndex={-1} className="break-words text-lg font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">{term.german} — {term.meaning}</h4>
+      {term.options && <ul className="space-y-3 border-l-4 border-primary pl-4">{term.options.map((option) => <li key={option.german} className="text-sm leading-6"><strong>{option.german}</strong><p>{option.meaning}</p></li>)}</ul>}
+      <div className="grid min-w-0 gap-3 sm:grid-cols-2">{([
+        ["instruction", term.instruction, "guide-block-action"], ["where", term.where, "guide-block-where"], ["example", term.example, "guide-block-neutral"], ["mistake", term.mistake, "guide-block-mistake"],
+      ] as const).map(([key, text, tone]) => <section key={key} className={`${tone} min-w-0 rounded-md border border-border border-l-4 p-4`}><h5 className="mb-2 text-sm font-bold">{ui(key)}</h5><p className="whitespace-pre-line break-words text-sm leading-6">{text}</p></section>)}</div>
+      <div className="flex flex-wrap justify-between gap-3"><Button variant="outline" disabled={termIndex === 0} onClick={() => jumpTerm(termIndex - 1)}><ArrowLeft aria-hidden="true" className="h-4 w-4" />{ui("previousTerm")}</Button><Button variant="outline" disabled={termIndex === data.terms.length - 1} onClick={() => jumpTerm(termIndex + 1)}>{ui("nextTerm")}<ArrowRight aria-hidden="true" className="h-4 w-4" /></Button></div>
+    </section>
+    <SmartGuide key={slug} title={ui("procedure")} subtitle={ui("privacy")} steps={data.steps} reviewFlow={{
+      advance: ui("advance"), finish: ui("finish"), reviewed: ui("reviewed"), unmark: ui("unmark"),
+      count: (count, total) => ui("count", { count, total }), announcement: (title) => ui("announcement", { title }),
+      completionTitle: ui("completionTitle"), completionBody: ui("completionBody"), reopen: ui("reopen"),
+      actions: <p className="text-sm leading-6">{ui("privacy")}</p>,
+    }} />
+  </section>;
+}

@@ -3940,5 +3940,745 @@
         }
       ]
     }
+  },
+  "arrivalCompanions": {
+    "ui": {
+      "official": "Amtliche Quelle",
+      "mode": "Verfahrensweg",
+      "paper": "Behörde / Papier",
+      "online": "Onlineverfahren",
+      "vocabulary": "Deutsche Begriffe und Auswahlmöglichkeiten erklärt",
+      "vocabularyNote": "Dies ist ein Verfahrenswörterbuch, keine Kopie eines amtlichen Formulars. Bezeichnungen, Reihenfolge und Zusatzfragen hängen von der zuständigen Behörde ab. Beispiele sind erfunden; hier gibst du nichts ein.",
+      "jumpTerm": "Begriff oder Auswahl aufrufen",
+      "instruction": "Was tun / wie die Angabe verwenden",
+      "where": "Wo Angabe oder Nachweis zu finden sind",
+      "example": "Erfundenes Beispiel",
+      "mistake": "Diesen Fehler vermeiden",
+      "previousTerm": "Voriger Begriff",
+      "nextTerm": "Nächster Begriff",
+      "procedure": "Verfahren — von der Vorbereitung zum nächsten Schritt",
+      "privacy": "Ohne persönliche Angaben: Lesemarkierungen bleiben nur während dieser Leitfaden geöffnet ist. Nichts wird an die Behörde gesendet.",
+      "advance": "Gelesen — weiter",
+      "finish": "Durchsicht abschließen",
+      "reviewed": "Gelesen",
+      "unmark": "Lesemarkierung entfernen",
+      "count": "{{count}} von {{total}} Schritten gelesen",
+      "announcement": "Nächster Schritt: {{title}}",
+      "completionTitle": "Leitfaden gelesen — kein Antrag eingereicht",
+      "completionBody": "Du hast gelesene Schritte markiert, keine erledigten Amtshandlungen. Du kannst sie erneut ansehen oder Markierungen entfernen. Einreichung und Prüfung deiner Unterlagen bleiben deine Aufgabe bei der zuständigen Behörde.",
+      "reopen": "Von Anfang an erneut ansehen"
+    },
+    "guides": {
+      "anmeldung": {
+        "title": "Anmeldung / Ummeldung — die neue Adresse anmelden",
+        "introduction": "Die Anmeldung erfasst, wo du tatsächlich wohnst; Ummeldung bezeichnet die Anmeldung nach einem Umzug. Sie ist kein Aufenthaltstitel. Beim üblichen Einzug gilt die Anmeldung innerhalb von zwei Wochen nach dem Einzug.",
+        "variation": "Die Meldepflicht ist bundesrechtlich, Formular, Termine, Familienfälle und Onlineangebot sind örtlich. Bundesportal-Beispiel: Brandenburg, veröffentlicht 08.04.2020; Quelle geprüft 27.10.2026. Kein einheitliches PDF oder nummeriertes Feldschema ist verifiziert.",
+        "modes": {
+          "paper": "Suche auf der amtlichen Stadtseite die Meldebehörde und gegebenenfalls deren aktuelles Formular. Die Wohnungsgeberbestätigung ist erforderlich; der Mietvertrag allein ersetzt sie nicht.",
+          "online": "Prüfe, ob deine Stadt die elektronische Anmeldung anbietet und deine Identifikation und Fallkonstellation zulässt. Andernfalls nutze die Behörde. Hier wird keine verifizierte Online-Feldreihenfolge dargestellt."
+        },
+        "steps": [
+          {
+            "id": "move",
+            "title": "Einzug und zuständige Behörde klären",
+            "sections": {
+              "meaning": "Die Anmeldung bezieht sich auf die tatsächlich bezogene Wohnung. Die Frist beginnt nicht mit der Vertragsunterschrift.",
+              "action": "Suche auf der amtlichen Seite des neuen Wohnorts Anmeldung/Ummeldung, Meldebehörde und Verfahrensweg. Melde den üblichen Einzug innerhalb von zwei Wochen. Ist kein Termin verfügbar, frage die Behörde sofort nach dem Vorgehen; nimm keine automatische Fristverlängerung an.",
+              "where": "Tatsächlicher Einzugstag und amtliche Stadtseite.",
+              "example": "Maja Kovač unterschreibt früher, zieht aber am 12.10.2026 ein: Einzugsdatum ist 12.10.2026.",
+              "mistake": "Anmeldung ist kein Visum; Besuchsaufenthalte oder atypisches Wohnen erfordern gesonderte Prüfung.",
+              "next": "Beschaffe die Wohnungsgeberbestätigung vor dem Termin."
+            }
+          },
+          {
+            "id": "housing",
+            "title": "Bestätigung des Wohnungsgebers beschaffen",
+            "sections": {
+              "meaning": "Wohnungsgeber kann der Eigentümer oder die Person sein, die dir tatsächlich die Wohnung überlässt, etwa der Hauptmieter bei Untervermietung.",
+              "action": "Bitte um die Einzugsbestätigung: Name und Anschrift des Wohnungsgebers, bei abweichendem Eigentümer dessen Name, Einzugstag, Wohnungsanschrift und Namen der eingezogenen Personen. Ausstellen darf sie der Wohnungsgeber oder eine beauftragte Person, nicht du an deren Stelle. Ein Mietvertrag ist kein Ersatz.",
+              "where": "Wohnungsgeber und örtliche Bestätigungsvorlage; BMG §19 nennt die notwendigen Angaben.",
+              "example": "Maja erhält ein Zimmer von der Hauptmieterin: Diese ist Wohnungsgeber; ein anderer Eigentümer wird zusätzlich genannt.",
+              "mistake": "Wird die Bestätigung verweigert oder nicht rechtzeitig ausgestellt, informiere unverzüglich die Meldebehörde; erfinde weder Unterschrift noch Anschrift.",
+              "next": "Prüfe die Ausweise aller anzumeldenden Personen."
+            }
+          },
+          {
+            "id": "prepare",
+            "title": "Ausweise und Familienfall vorbereiten",
+            "sections": {
+              "meaning": "Die Behörde muss Identität und anzumeldende Personen feststellen. Familienanmeldung ist nicht gleichbedeutend mit einer allgemeinen Vollmacht.",
+              "action": "Bereite gültigen Pass oder Personalausweis und Wohnungsgeberbestätigung vor. Prüfe für die Familienanmeldung örtliche Regeln, Ausweise aller Personen und gegebenenfalls Vollmachten. Das Brandenburg-Beispiel verlangt Vollmachten bei Mitanmeldung unverheirateter Partner oder volljähriger Kinder. Zusätzliche Personenstandsurkunden bringst du mit, wenn sie für deinen Fall verlangt werden.",
+              "where": "Amtliche Unterlagenliste der örtlichen Meldebehörde, Ausweise und vorhandene Personenstandsurkunden.",
+              "example": "Damir Novak nimmt nicht an, eine erwachsene Partnerin allein mit ihrem Namen anmelden zu können; er prüft die Vollmacht.",
+              "mistake": "Stelle Geburts- oder Heiratsurkunden nicht als Pflicht bei jeder Einzelanmeldung dar.",
+              "next": "Vergleiche örtliche Adressfragen mit dem Wörterbuch oben."
+            }
+          },
+          {
+            "id": "addresses",
+            "title": "Alte, neue und Hauptwohnung verstehen",
+            "sections": {
+              "meaning": "Bei mehreren Wohnungen in Deutschland musst du weitere Wohnungen und die Hauptwohnung angeben. Beim üblichen Inlandsumzug ist keine gesonderte Abmeldung bei der bisherigen Meldebehörde erforderlich.",
+              "action": "Übernimm auf dem örtlichen Formular Name und Geburtsdatum aus deinem Ausweis sowie neue vollständige Anschrift und tatsächlichen Einzugstag aus der Bestätigung. Nenne als bisherige Wohnung die tatsächlich vorherige Anschrift, einschließlich Ausland bei Zuzug. Prüfe bei mehreren Wohnungen Hauptwohnung/Nebenwohnung; frage bei Familien- oder Zweifelsfällen die Behörde.",
+              "where": "Ausweis, Einzugsbestätigung und tatsächliche vorherige Anschrift.",
+              "example": "Maja zieht aus Sarajevo zu und hatte keine frühere deutsche Anschrift: Sie erfindet keine für die Rubrik.",
+              "mistake": "Termintag ist nicht Einzugstag; wähle Nebenwohnung nicht allein deshalb, weil du Mieter bist.",
+              "next": "Reiche die Unterlagen auf dem örtlich zugelassenen Weg ein."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Bei der Behörde oder im zugelassenen Onlineverfahren anmelden",
+            "sections": {
+              "meaning": "Die örtliche Meldebehörde bearbeitet die Anmeldung; eine private Website ist nicht die zuständige Stelle.",
+              "action": "Bringe zum Termin verlangte Originale und gegebenenfalls Formular mit; unterschreibe nur zutreffende Angaben. Prüfe online zunächst Verfügbarkeit, zugelassene elektronische Identifikation und besondere Bedingungen. Erkläre fehlende Bestätigungen oder Widersprüche der Behörde, statt zu raten.",
+              "where": "Terminbestätigung und Hinweise des amtlichen örtlichen Portals.",
+              "example": "Damir wählt einen Termin, weil das städtische Onlineverfahren seinen Identitätsnachweis nicht unterstützt.",
+              "mistake": "Bezahle keinen Vermittler im Glauben an eine zwingende Amtsgebühr; sende Dokumente nicht an unbekannte Empfänger.",
+              "next": "Prüfe Angaben auf der Meldebestätigung und die folgende Post."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Bestätigung aufbewahren und Folgeschritte prüfen",
+            "sections": {
+              "meaning": "Die Meldebescheinigung bestätigt die Anmeldung; sie garantiert keine anderen Rechte oder Verfahren.",
+              "action": "Prüfe Name, Anschrift und Datum und melde Fehler der Behörde. Bewahre die Bestätigung auf. Bei erster Anmeldung folgt die BZSt-Mitteilung zur Steuer-ID; eine vorhandene Nummer bleibt gleich. Prüfe getrennt Adressänderungen in weiteren Dokumenten. Rechne nicht mit einem garantierten Bearbeitungs- oder Posttermin.",
+              "where": "Meldebescheinigung, Post an der gemeldeten Adresse und amtliche Steuer-ID-Quelle.",
+              "example": "Maja entdeckt eine falsche Hausnummer auf der Bestätigung und bittet vor weiterer Verwendung um Korrektur.",
+              "mistake": "Wohnsitzanmeldung ist weder Anmeldung bei allen anderen Stellen noch Aufenthaltserlaubnis.",
+              "next": "Die Durchsicht endet hier; die amtliche Anmeldung ist eine getrennte Handlung."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "identity",
+            "german": "Familienname / Vorname / Geburtsdatum",
+            "meaning": "Nachname, Vorname und Geburtstag",
+            "instruction": "Wenn örtlich verlangt, übernimm diese Angaben aus dem Ausweis; frühere Namen nur in einer gesonderten Frage. Nutze das dort verlangte Datumsformat.",
+            "where": "Reisepass oder Personalausweis.",
+            "example": "Erfunden: Familienname Kovač; Vorname Maja.",
+            "mistake": "Vertausche Vor- und Nachnamen nicht und verwende keinen Spitznamen statt des amtlichen Namens."
+          },
+          {
+            "id": "arrival",
+            "german": "Einzugsdatum",
+            "meaning": "Tag des tatsächlichen Einzugs",
+            "instruction": "Nenne den tatsächlichen Einzugstag und gleiche ihn mit der Wohnungsgeberbestätigung ab.",
+            "where": "Bestätigung des Wohnungsgebers; Einzug, nicht Vertragsunterschrift.",
+            "example": "Erfunden: Einzug 12.10.2026, Termin später; das Einzugsdatum bleibt 12.10.2026.",
+            "mistake": "Trage nicht den Termin oder Mietbeginn ein, wenn du dann noch nicht eingezogen bist."
+          },
+          {
+            "id": "address",
+            "german": "Anschrift der Wohnung",
+            "meaning": "Vollständige Wohnungsanschrift",
+            "instruction": "Wenn verlangt: Straße, Hausnummer einschließlich Zusatz, Postleitzahl und Ort; Wohnungszusatz nach örtlicher Frage.",
+            "where": "Wohnungsgeberbestätigung und tatsächliche Anschrift.",
+            "example": "Erfunden: Lindenweg 8a; der Hausnummernzusatz darf beim Übertragen nicht fehlen.",
+            "mistake": "Eigentümeranschrift kann von der Wohnungsanschrift abweichen."
+          },
+          {
+            "id": "provider",
+            "german": "Wohnungsgeber / Eigentümer",
+            "meaning": "Wohnungsgeber und Eigentümer unterscheiden",
+            "instruction": "Der Wohnungsgeber bestätigt den Einzug mit Name/Anschrift und bei abweichendem Eigentümer dessen Namen. Kläre bei Untervermietung, wer die Wohnung überlässt; unterschreibe nicht anstelle dieser Person.",
+            "where": "Person, die dir die Wohnung überlässt; BMG §19.",
+            "example": "Erfunden: Die Hauptmieterin überlässt Maja ein Zimmer; Eigentümer ist ein Unternehmen.",
+            "mistake": "Nenne dich nicht automatisch als Wohnungsgeber, nur weil du Miete zahlst."
+          },
+          {
+            "id": "persons",
+            "german": "Namen der einziehenden Personen",
+            "meaning": "Namen der tatsächlich einziehenden Personen",
+            "instruction": "Die Bestätigung muss die Namen der tatsächlich einziehenden, anzumeldenden Personen enthalten; auch einziehende Kinder.",
+            "where": "Ausweise der Personen und Wohnungsgeberbestätigung.",
+            "example": "Erfunden: Maja und ihr Kind ziehen ein; ein anderswo wohnender Partner wird nicht als Bewohner erfunden.",
+            "mistake": "Eine Bestätigung ohne weitere Namen bestätigt deren Einzug nicht automatisch."
+          },
+          {
+            "id": "previous",
+            "german": "Bisherige Wohnung / Zuzug aus dem Ausland",
+            "meaning": "Bisherige Wohnung / Zuzug aus dem Ausland",
+            "instruction": "Antworte nach der tatsächlichen vorherigen Wohnsituation. Bei Erstzuzug nenne Auslandsanschrift/-staat, soweit gefragt. Weiter genutzte deutsche Wohnungen gibst du als solche an, nicht als automatisch abgemeldet.",
+            "where": "Bisherige Meldebestätigung oder tatsächliche frühere Anschrift.",
+            "example": "Erfunden: Bisherige Anschrift in Sarajevo beim ersten Zuzug nach Deutschland.",
+            "mistake": "Erfinde keine frühere deutsche Anschrift und unterstelle keine Abmeldung bei jedem Inlandsumzug."
+          },
+          {
+            "id": "residence",
+            "german": "Alleinige Wohnung / Hauptwohnung / Nebenwohnung",
+            "meaning": "Einzige, Haupt- oder weitere Wohnung",
+            "instruction": "Die Auswahl beschreibt Wohnverhältnisse, nicht Eigentum. Bei mehreren deutschen Wohnungen nenne alle und die Hauptwohnung; frage bei familiären Besonderheiten die Behörde.",
+            "where": "Tatsächliche Wohnungsnutzung; BMG §§21–22 und örtliche Behörde.",
+            "example": "Erfunden: Damir hat nur eine Wohnung in Deutschland: alleinige Wohnung, auch als Mieter.",
+            "mistake": "Nebenwohnung bedeutet nicht Mietwohnung; Hauptwohnung muss nicht Eigentum sein.",
+            "options": [
+              {
+                "german": "Alleinige Wohnung",
+                "meaning": "Einzige Wohnung in Deutschland."
+              },
+              {
+                "german": "Hauptwohnung",
+                "meaning": "Bei mehreren Wohnungen grundsätzlich die vorwiegend benutzte; besondere Familienregeln bei der Behörde prüfen."
+              },
+              {
+                "german": "Nebenwohnung",
+                "meaning": "Jede weitere Wohnung in Deutschland neben der Hauptwohnung; kein Staatsangehörigkeitskriterium."
+              }
+            ]
+          },
+          {
+            "id": "authority",
+            "german": "Vollmacht / Unterschrift",
+            "meaning": "Bevollmächtigung / Unterschrift",
+            "instruction": "Eine Vollmacht ermöglicht Vertretung im zugelassenen Umfang. Beachte örtliche Regeln; Unterschrift zur Anmeldung und Wohnungsgeberbestätigung sind nicht dieselbe Unterschrift.",
+            "where": "Örtliche Vollmachtsvorlage und vertretene Person.",
+            "example": "Erfunden: Eine erwachsene Partnerin erteilt Damir eine zulässige Vollmacht zur Mitanmeldung.",
+            "mistake": "Unterschreibe nicht mit fremdem Namen und behandle Verwandtschaft nicht als allgemeine Vollmacht."
+          },
+          {
+            "id": "certificate",
+            "german": "Meldebescheinigung",
+            "meaning": "Bescheinigung der Anmeldung",
+            "instruction": "Prüfe nach der Anmeldung die Angaben und bewahre den Nachweis auf; melde Fehler der Meldebehörde.",
+            "where": "Meldebehörde nach dem Verfahren entsprechend der örtlichen Ausstellung.",
+            "example": "Erfunden: Maja prüft, ob die Bestätigung 8a statt 8 nennt.",
+            "mistake": "Die Bescheinigung ist kein Aufenthaltstitel und garantiert keine anderen Dokumente."
+          }
+        ]
+      },
+      "steuer-id": {
+        "title": "Steuer-ID — finden oder erneut mitteilen lassen",
+        "introduction": "Steuer-ID/IdNr ist die persönliche elfstellige Nummer für steuerliche Zwecke. Das BZSt vergibt sie automatisch bei erster Anmeldung in Deutschland und bei Neugeborenen. Sie bleibt lebenslang gleich, auch bei Umzug oder Heirat.",
+        "variation": "Bundesweites BZSt-Verfahren; kein Antrag auf eine neue Nummer. Geprüft 27.10.2026. Amtliche Information und BOP/ELSTER-Einstieg sind geprüft, nicht sämtliche inneren Felder/Versionen: keine erfundene Nummerierung oder Formularkopie.",
+        "modes": {
+          "paper": "Suche zuerst BZSt-Schreiben, Einkommensteuerbescheid oder elektronische Lohnsteuerbescheinigung. Für schriftliche Mitteilung/Vertretung beachte BZSt-Hinweise; das örtliche Finanzamt vergibt keine neue IdNr.",
+          "online": "Das amtliche BZSt-Portal führt zur BOP/ELSTER-Anfrage zur erneuten Mitteilung. Nutze den Weg für dich oder eine berechtigte dritte Person entsprechend dem Fall. Die Nummer wird nicht telefonisch oder per E-Mail mitgeteilt."
+        },
+        "steps": [
+          {
+            "id": "find",
+            "title": "Nummern unterscheiden und Unterlagen durchsuchen",
+            "sections": {
+              "meaning": "Die Steuer-ID ist eine persönliche elfstellige Nummer; die Steuernummer gehört zum Steuerfall beim Finanzamt und ist kein Ersatz.",
+              "action": "Suche auf deinem BZSt-Schreiben, Einkommensteuerbescheid oder der elektronischen Lohnsteuerbescheinigung nach Identifikationsnummer/IdNr. Prüfe die Person. Umzug oder Namensänderung erfordern keine neue Nummer, wenn du bereits eine hast.",
+              "where": "Deine Steuerunterlagen oder Arbeitgeberbescheinigung.",
+              "example": "Maja findet „IdNr“ auf ihrer eigenen Lohnsteuerbescheinigung und nutzt nicht die Steuernummer des Partners.",
+              "mistake": "USt-IdNr, Steuernummer und Sozialversicherungsnummer sind keine Steuer-ID.",
+              "next": "Ist die Nummer gefunden, bewahre sie auf; bei Erstzuzug oder fehlendem Brief lies den nächsten Schritt."
+            }
+          },
+          {
+            "id": "automatic",
+            "title": "Erste Anmeldung oder Geburt: automatische Vergabe",
+            "sections": {
+              "meaning": "Die Erstvergabe erfolgt automatisch anhand der Meldedaten, nicht durch Kauf einer Dienstleistung.",
+              "action": "Prüfe gemeldete Anschrift und Nachnamen am Briefkasten. Das BZSt nennt eine erneute Anfrage bei ausbleibender Mitteilung auch drei Monate nach Erstanmeldung oder Geburt. Das verspricht keinen genauen Zustellungstag.",
+              "where": "Meldebescheinigung, eigene Post und amtliche BZSt-Hinweise.",
+              "example": "Damir ist erstmals angemeldet und prüft die Post; nach dem nächsten Umzug beantragt er keine zweite Nummer.",
+              "mistake": "Versprich keine Zustellung in einer oder zwei Wochen.",
+              "next": "Fehlt die Nummer, nutze die amtliche Anfrage zur erneuten Mitteilung."
+            }
+          },
+          {
+            "id": "scope",
+            "title": "Eigene Anfrage oder berechtigte Vertretung wählen",
+            "sections": {
+              "meaning": "BOP/ELSTER unterscheidet Mitteilung an die Person und an einen berechtigten Dritten. Verwandtschaft allein belegt nicht jede Befugnis.",
+              "action": "Öffne den amtlichen Link und lies die aktuelle Version. Nutze für dich eigene Identität und gemeldete Anschrift. Bei Kind, betreuter oder vertretener Person folge dem passenden Weg und belege die Berechtigung, soweit verlangt. Fordere fremde Nummern nicht ohne Grundlage an.",
+              "where": "BOP/ELSTER-Einstieg und Berechtigungsnachweis nach amtlicher Vorgabe.",
+              "example": "Maja fragt für sich an; für ihr Kind prüft sie getrennt die Hinweise für berechtigte Vertreter.",
+              "mistake": "Erfinde keine Felder, Sorgerechtsnachweise oder Berechtigungsangaben.",
+              "next": "Prüfe die Angaben in der amtlichen Anfrage vor dem Absenden."
+            }
+          },
+          {
+            "id": "request",
+            "title": "Amtliche Anfrage zur erneuten Mitteilung absenden",
+            "sections": {
+              "meaning": "Die erneute Mitteilung liefert die bestehende Nummer; sie erzeugt keine neue Steueridentität.",
+              "action": "Gib Angaben nur auf der amtlichen BZSt/BOP-Seite nach deren Fragen und Formaten ein. Prüfe Name, Geburtsdatum und Anschrift anhand deiner Unterlagen, soweit verlangt; bei falscher Meldeadresse kläre die Berichtigung mit Meldebehörde/BZSt. Prüfe die Anfrage und entscheide selbst über das Absenden.",
+              "where": "Ausweis, gemeldete Anschrift und aktuelle amtliche Anfrage.",
+              "example": "Damir bemerkt vor dem Absenden eine alte Anschrift und klärt zuerst die Briefzustellung.",
+              "mistake": "Gib keine Daten in BalkanLink ein; sende keine Ausweiskopien an private Vermittler.",
+              "next": "Beachte die Zustellung und bewahre die Nummer bei dir auf."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Zustellung, fehlender Brief und sichere Verwendung",
+            "sections": {
+              "meaning": "Aus Datenschutzgründen ist die Nummer nicht telefonisch oder per E-Mail erhältlich.",
+              "action": "Prüfe Briefkasten und gemeldete Anschrift. Bleibt die Mitteilung aus, nutze aktuelle BZSt-Kontakt-/Verfahrenshinweise ohne erfundene Bearbeitungsgarantie. Teile die erhaltene Nummer nur Arbeitgebern oder Stellen mit berechtigtem Bedarf mit; veröffentliche sie nicht.",
+              "where": "BZSt-Post und amtliche Kontakthinweise.",
+              "example": "Maja legt den Brief in ihren Unterlagen ab und teilt kein Foto in einer öffentlichen Gruppe.",
+              "mistake": "Wiederholte Anfragen beschleunigen die Zustellung nicht automatisch und ändern die Nummer nicht.",
+              "next": "Der Leitfaden ist gelesen; Anfrageversand und Bearbeitung sind getrennt."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "id",
+            "german": "Steuer-ID / Identifikationsnummer (IdNr)",
+            "meaning": "Persönliche steuerliche Identifikationsnummer",
+            "instruction": "Verwende bei einer amtlichen Frage nach Steuer-ID deine bestehende elfstellige Nummer; erfinde keine und beantrage nach Umzug keine neue.",
+            "where": "BZSt-Schreiben, Einkommensteuerbescheid oder elektronische Lohnsteuerbescheinigung.",
+            "example": "Erfunden: Maja sucht „Identifikationsnummer“, ohne eine echte Nummer anzuzeigen.",
+            "mistake": "Verwende für dich nicht die Nummer deines Kindes oder Partners."
+          },
+          {
+            "id": "tax",
+            "german": "Steuernummer / USt-IdNr",
+            "meaning": "Andere steuerliche Nummern",
+            "instruction": "Steuernummer bezeichnet den Steuerfall beim Finanzamt; USt-IdNr dient der Umsatzsteuer im Geschäftsverkehr. Keine ersetzt die persönliche IdNr.",
+            "where": "Bezeichnung auf Steuer- oder Geschäftsunterlagen.",
+            "example": "Erfunden: Damir sieht Steuernummer und IdNr auf dem Bescheid; für Steuer-ID nutzt er IdNr.",
+            "mistake": "Ähnliche Länge oder das Wort „Steuer“ machen die Nummern nicht gleich."
+          },
+          {
+            "id": "papers",
+            "german": "Einkommensteuerbescheid / elektronische Lohnsteuerbescheinigung",
+            "meaning": "Steuerbescheid / elektronische Arbeitgeberbescheinigung",
+            "instruction": "Suche auf deinem Dokument nach IdNr; die Lohnsteuerbescheinigung ist nicht jede monatliche Gehaltsabrechnung.",
+            "where": "Einkommensteuerbescheid des Finanzamts oder jährliche Arbeitgeberbescheinigung.",
+            "example": "Erfunden: Maja sucht die jährliche elektronische Lohnsteuerbescheinigung ihres Arbeitgebers.",
+            "mistake": "Nimm nicht an, dass jedes Dokument zum Gehalt auch die IdNr enthält."
+          },
+          {
+            "id": "renew",
+            "german": "Erneute Mitteilung der IdNr",
+            "meaning": "Erneute Bekanntgabe der vorhandenen Nummer",
+            "instruction": "Nutze diesen Weg, wenn du die bestehende Nummer nicht findest oder die Mitteilung nach BZSt-Hinweis fehlt. Beantrage keine Änderung der Nummer.",
+            "where": "Amtliches BZSt-Portal mit Verweis auf BOP/ELSTER.",
+            "example": "Erfunden: Damir hat den Brief verloren und bittet um erneute Mitteilung, nicht um eine zweite IdNr.",
+            "mistake": "Bezahle keinen nichtamtlichen Dienst für eine „neue Steuer-ID“."
+          },
+          {
+            "id": "address",
+            "german": "Aktuelle Meldeanschrift",
+            "meaning": "Aktuelle melderechtliche Anschrift",
+            "instruction": "Prüfe Meldeadresse und Nachnamen am Briefkasten. Eine alte oder beliebige Wunschadresse ist nicht automatisch zulässig.",
+            "where": "Meldebescheinigung und eigener Briefkasten.",
+            "example": "Erfunden: Maja prüft nach dem Umzug zuerst die neue Meldeadresse.",
+            "mistake": "Versprich keine telefonische oder E-Mail-Mitteilung statt des amtlichen Wegs."
+          },
+          {
+            "id": "recipient",
+            "german": "Steuerpflichtige Person / berechtigter Dritter",
+            "meaning": "Betroffene Person / berechtigter Dritter",
+            "instruction": "Der BOP/ELSTER-Einstieg unterscheidet diese Wege. Nutze für dich den eigenen Fall; prüfe und belege bei Vertretung zuerst die verlangte Berechtigung.",
+            "where": "Amtlicher Anfrageeinstieg und gegebenenfalls Vertretungsnachweis.",
+            "example": "Erfunden: Maja fragt für sich; ein Betreuer prüft den Weg für die vertretene Person.",
+            "mistake": "Behaupte keine Berechtigung allein deshalb, weil du die Person kennst.",
+            "options": [
+              {
+                "german": "Mitteilung an die steuerpflichtige Person",
+                "meaning": "Mitteilung an die betroffene Person nach amtlichen Voraussetzungen."
+              },
+              {
+                "german": "Mitteilung an einen berechtigten Dritten",
+                "meaning": "Vertretung: Das amtliche Verfahren verlangt einen Berechtigungsnachweis; keine beliebige Anfrage nach fremden Nummern."
+              }
+            ]
+          }
+        ]
+      },
+      "fuehrerschein": {
+        "title": "Führerschein — Gültigkeit und Umschreibung prüfen",
+        "introduction": "Anerkennung der Fahrberechtigung und Umschreibung des Dokuments sind verschiedene Schritte. Kläre Ausstellungsstaat, Klasse, Gültigkeit und Beginn des ordentlichen Wohnsitzes. Für verschiedene Balkanstaaten gelten nicht automatisch dieselben Regeln.",
+        "variation": "Bundesrechtliche FeV-Regeln, örtlicher Antrag der Fahrerlaubnisbehörde. Bundesportal-Beispiel: Bremen, aktualisiert 21.09.2026; geprüft 27.10.2026. Kein einheitliches PDF verifiziert; Anlage 11 und Ausnahmen erfordern Prüfung von Staat, Klasse und Bedingungen.",
+        "modes": {
+          "paper": "Suche örtlich Umschreibung einer ausländischen Fahrerlaubnis. Bremen verlangt persönliche Antragstellung; prüfe für deinen Ort Termin, Unterlagen und aktuelles Formular.",
+          "online": "Online-Terminbuchung ist keine Umschreibung. Nutze einen digitalen Antrag nur, wenn deine Behörde ihn anbietet; Identifikation, Originalführerschein oder persönliches Erscheinen können erforderlich bleiben."
+        },
+        "steps": [
+          {
+            "id": "classify",
+            "title": "EU/EWR und andere Fahrerlaubnisse unterscheiden",
+            "sections": {
+              "meaning": "EU/EWR ist nicht gleich Europa. Zum EWR gehören auch Island, Liechtenstein und Norwegen; Bosnien und Herzegowina gehört nicht zur EU/EWR.",
+              "action": "Prüfe Ausstellungsstaat, Gültigkeit und Klassen. Gültige EU/EWR-Fahrerlaubnisse werden grundsätzlich unter gesetzlichen Bedingungen/Ausnahmen anerkannt. Prüfe bei Nicht-EU/EWR die Sechsmonatsregel und Umschreibung. Vorläufige Dokumente, Fahrverbote und zuvor aus Drittstaaten umgetauschte EU-Dokumente klärst du mit der Behörde.",
+              "where": "Originalführerschein und Fahrerlaubnisbehörde; FeV §§28–29.",
+              "example": "Maja hat einen bosnischen Führerschein der Klasse B: Sie wählt nicht EU/EWR allein wegen der geografischen Lage.",
+              "mistake": "Behaupte weder unbegrenzte EU-Gültigkeit ohne Ausnahmen noch gleiche Prüfungsregeln für alle Staaten einer Region.",
+              "next": "Prüfe den Beginn und das Ende der anerkannten Fahrberechtigung."
+            }
+          },
+          {
+            "id": "sixmonths",
+            "title": "Nicht-EU/EWR: zeitliche Grenze prüfen",
+            "sections": {
+              "meaning": "Grundsätzlich gelten sechs Monate ab Begründung des ordentlichen Wohnsitzes, vorbehaltlich früheren Ablaufs und weiterer Bedingungen. Termin oder Antrag verlängern die Fahrberechtigung nicht automatisch.",
+              "action": "Kontaktiere die Behörde frühzeitig. Bei einem Aufenthalt von höchstens zwölf Monaten nennt die Quelle eine beantragbare Verlängerung um bis zu sechs Monate; sie ist nicht automatisch bewilligt. Sonderregeln, etwa bei ukrainischem Schutzstatus, prüfst du individuell. Fahre nach Ablauf nicht allein aufgrund eines gestellten Antrags.",
+              "where": "Tatsächliche Wohnsitzverhältnisse, Führerscheingültigkeit und behördliche Prüfung.",
+              "example": "Damir plant einen dauerhaften Aufenthalt und klärt den Fall rechtzeitig, statt eine Terminbuchung als Fristverlängerung anzusehen.",
+              "mistake": "Das Anmeldedatum ist nicht in jedem Fall der vollständige rechtliche Nachweis des ordentlichen Wohnsitzbeginns.",
+              "next": "Lass Prüfungen und Unterlagen für deine Klasse konkret prüfen."
+            }
+          },
+          {
+            "id": "exams",
+            "title": "Anlage 11 und Prüfungen ohne Zusagen prüfen",
+            "sections": {
+              "meaning": "Anlage 11 FeV unterscheidet Staaten, Klassen und Zusatzbedingungen; Prüfungsbefreiung ist keine allgemeine Balkanregel.",
+              "action": "Frage die zuständige Behörde zu Staat, Klasse, Datum und Erwerbsweise deiner Fahrerlaubnis. Prüfe Theorie- und Praxisprüfung getrennt anhand der aktuellen Anlage 11 und ihrer Hinweise. Sind Prüfungen nötig, kläre die Einbindung einer Fahrschule und zusätzliche Nachweise. Leite Befreiungen nicht allein aus dem Staatsnamen ab.",
+              "where": "Originalführerschein, aktuelle Anlage 11 und amtliche Fallliste.",
+              "example": "Maja prüft Klasse B und ihre Hinweise und überträgt das Ergebnis nicht auf Klasse C.",
+              "mistake": "Versprich keinen Umtausch ohne Prüfungen, Übersetzung, Sehtest oder Erste Hilfe vor der Prüfung.",
+              "next": "Bereite genau die von deiner Behörde verlangten Nachweise vor."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Original und bedingte Nachweise vorbereiten",
+            "sections": {
+              "meaning": "Unterlagen unterscheiden sich nach Staat, Klasse und Fall; diese Liste dient der Prüfung, nicht als universelle Vollständigkeitszusage.",
+              "action": "Prüfe bei der Behörde Identitätsnachweis, Wohnsitznachweis, Original des gültigen ausländischen Führerscheins, Foto im zugelassenen Format und gegebenenfalls Übersetzung. Frage nach Erster Hilfe, Sehtest oder ärztlichen Nachweisen für deine Klasse sowie zusätzlichem Berechtigungsnachweis. Verlust, Ablauf oder abweichender Name erfordern gesonderte Klärung.",
+              "where": "Amtliche örtliche Unterlagenliste und gegebenenfalls Ausstellungsbehörde.",
+              "example": "Damir klärt die Übersetzungsanforderung, bevor er eine private Leistung bezahlt.",
+              "mistake": "Ein internationaler Führerschein ersetzt das Original nicht eigenständig; erkläre bedingte Nachweise nicht für alle verpflichtend.",
+              "next": "Prüfe die Begriffe deines örtlichen Antrags und die persönliche Antragstellung."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Bei der zuständigen Behörde beantragen und Original klären",
+            "sections": {
+              "meaning": "Die Fahrerlaubnisbehörde entscheidet über die Umschreibung; eine Fahrschule stellt keinen deutschen Führerschein aus.",
+              "action": "Buche die passende Leistung am Wohnort. Beantworte den örtlichen Antrag wahrheitsgemäß anhand des Originals und bringe verlangte Nachweise mit. Frage nach Abgabe/Einbehaltung des ausländischen Dokuments und der Fahrberechtigung während der Bearbeitung. Prüfe Gebühren und Wartezeiten örtlich ohne zugesagten Betrag oder Termin.",
+              "where": "Terminbestätigung, amtlicher Antrag und behördliche Hinweise.",
+              "example": "Maja nennt nur die Klassen, deren Umschreibung sie tatsächlich beantragt, keine erfundenen zusätzlichen Klassen.",
+              "mistake": "Eine Eingangsbestätigung allein beweist keine Fahrberechtigung nach Ablauf.",
+              "next": "Beachte behördliche Entscheidung, Prüfungen und Dokumentausgabe."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Entscheidung, Prüfungen und Abholung",
+            "sections": {
+              "meaning": "Leitfadenabschluss ist keine Anerkennung; Klassen und Beschränkungen bestimmt die Behörde.",
+              "action": "Erfülle verlangte Ergänzungen oder Prüfungen nach amtlicher Anleitung. Prüfe bei Ausgabe Name, Klassen, Gültigkeit und Schlüsselzahlen. Bitte bei Unklarheit oder Ablehnung die zuständige Behörde um Erklärung; fahre nicht ohne anerkannte gültige Berechtigung weiter.",
+              "where": "Behördliche Entscheidung und neuer Führerschein.",
+              "example": "Damir bemerkt eine Beschränkung auf dem Dokument und fragt vor der Fahrt nach ihrer Bedeutung.",
+              "mistake": "Setze den Abholtag nicht mit der garantierten Erfüllung aller Zusatzbedingungen gleich.",
+              "next": "Durchsicht abgeschlossen; amtliches Ergebnis und Fahrberechtigung getrennt prüfen."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "state",
+            "german": "Ausstellungsstaat / Ausstellende Behörde",
+            "meaning": "Ausstellungsstaat / ausstellende Stelle",
+            "instruction": "Übernimm Staat und Behörde aus dem Führerschein, soweit örtlich gefragt; Staatsangehörigkeit und Ausstellungsstaat können abweichen.",
+            "where": "Original des ausländischen Führerscheins.",
+            "example": "Erfunden: Maja ist bosnische Staatsangehörige mit kroatischem Dokument: Sie prüft tatsächlichen Aussteller und vorherigen Umtausch.",
+            "mistake": "Ordne den Führerschein nicht allein nach dem Pass der Person ein."
+          },
+          {
+            "id": "region",
+            "german": "EU / EWR / Drittstaat",
+            "meaning": "EU, Europäischer Wirtschaftsraum oder Drittstaat",
+            "instruction": "Ordne den Ausstellungsstaat ein und prüfe gesetzliche Ausnahmen; die Gruppe garantiert keine endgültige Gültigkeit.",
+            "where": "Staat auf dem Führerschein und FeV §§28–29.",
+            "example": "Erfunden: Bosnien und Herzegowina ist Drittstaat; Norwegen gehört zum EWR.",
+            "mistake": "Europa ist nicht gleich EU/EWR.",
+            "options": [
+              {
+                "german": "EU / EWR",
+                "meaning": "Grundsätzlich Anerkennung gültiger Fahrerlaubnisse unter FeV-Bedingungen; Ablauf, Klassen und Ausnahmen prüfen."
+              },
+              {
+                "german": "Drittstaat",
+                "meaning": "Nicht-EU/EWR: allgemeine Sechsmonatsregel und getrennte Umschreibungs-/Anlage-11-Prüfung."
+              }
+            ]
+          },
+          {
+            "id": "class",
+            "german": "Fahrerlaubnisklasse",
+            "meaning": "Klasse der Fahrberechtigung",
+            "instruction": "Übernimm die Klassen deines Führerscheins; Berechtigung hängt von Klasse, Datum und Beschränkungen ab. B umfasst nicht automatisch C oder D.",
+            "where": "Klassentabelle auf dem Original, häufig auf der Rückseite.",
+            "example": "Erfunden: Maja beantragt ihre Klasse B, keine Busklasse.",
+            "mistake": "Kopiere keine fremden Daten/Klassen und versprich keinen identischen Ablauf für alle Klassen.",
+            "options": [
+              {
+                "german": "B",
+                "meaning": "Übliche Pkw-Klasse innerhalb gesetzlicher Grenzen und Beschränkungen."
+              },
+              {
+                "german": "A / AM",
+                "meaning": "Motorrad-/Mopedklassen; genaue Unterklasse übernehmen und getrennt prüfen."
+              },
+              {
+                "german": "C / D",
+                "meaning": "Lkw-/Busklassen: zusätzliche Anforderungen und Gültigkeitsregeln können gelten; Behörde fragen."
+              }
+            ]
+          },
+          {
+            "id": "dates",
+            "german": "Erteilungsdatum / Gültig bis",
+            "meaning": "Erteilungsdatum / Gültigkeitsende",
+            "instruction": "Unterscheide Kartenausstellung, Erteilung der Klasse und Ablauf. Übernimm genau die örtlich verlangte Angabe.",
+            "where": "Originaldokument und klassenspezifische Datumsangaben.",
+            "example": "Erfunden: Die Karte ist neuer als die Erteilung der Klasse B; Maja vertauscht die Daten nicht.",
+            "mistake": "Die sechsmonatige Anerkennung verlängert keinen früher ablaufenden Führerschein."
+          },
+          {
+            "id": "residence",
+            "german": "Ordentlicher Wohnsitz",
+            "meaning": "Ordentlicher Wohnsitz als rechtlicher Begriff",
+            "instruction": "Kläre tatsächliche Lebensverhältnisse und Wohnsitzbeginn mit der Behörde; gemeint ist nicht der Terminbuchungstag.",
+            "where": "Tatsächliche Lebensverhältnisse und verlangte Nachweise.",
+            "example": "Erfunden: Damir verlegt seinen Lebensmittelpunkt nach Deutschland und klärt den Anerkennungsbeginn.",
+            "mistake": "Rechne nicht mit automatischer Verlängerung während der Bearbeitung."
+          },
+          {
+            "id": "exams",
+            "german": "Anlage 11 / theoretische und praktische Prüfung",
+            "meaning": "Anlage 11 / Theorie- und Praxisprüfung",
+            "instruction": "Prüfe aktuelle Zeile für Staat, Klasse und Fußnoten. Ja/Nein in der Tabelle bezieht sich auf die jeweilige Prüfung laut Überschrift, nicht auf eine eigene Anerkennungsentscheidung.",
+            "where": "Aktuelle Anlage 11 FeV und zuständige Fahrerlaubnisbehörde.",
+            "example": "Erfunden: Maja prüft Theorie und Praxis getrennt für ihre Klasse.",
+            "mistake": "Versprich keine Befreiung von beiden Prüfungen für einen ganzen Staat ohne Klasse und Hinweise."
+          },
+          {
+            "id": "translation",
+            "german": "Übersetzung / Originalführerschein",
+            "meaning": "Übersetzung / Originaldokument",
+            "instruction": "Frage nach Übersetzungspflicht und zugelassenen Übersetzern. Original und Übersetzung erfüllen unterschiedliche Zwecke; eine Kopie ersetzt nicht automatisch das Original.",
+            "where": "Originalführerschein und örtliche Anforderungsliste.",
+            "example": "Erfunden: Damir klärt zuerst die zugelassene Übersetzung und bestellt sie danach.",
+            "mistake": "Ein internationaler Führerschein ist keine eigenständige Fahrberechtigung ohne entsprechendes Original."
+          },
+          {
+            "id": "proofs",
+            "german": "Sehtest / Erste Hilfe / ärztlicher Nachweis",
+            "meaning": "Sehtest / Erste Hilfe / ärztlicher Nachweis",
+            "instruction": "Kläre vor Beschaffung, welche Nachweise für Klasse und Umschreibungsfall gelten; Befreiungen sind nicht universell.",
+            "where": "Fahrerlaubnisbehörde und zugelassene Nachweisstelle nach örtlicher Vorgabe.",
+            "example": "Erfunden: Ein Antragsteller für C fragt nach ärztlichen Anforderungen und übernimmt nicht die B-Liste.",
+            "mistake": "Behaupte nicht, Sehtest oder Erste Hilfe seien bei Umschreibung niemals erforderlich."
+          },
+          {
+            "id": "codes",
+            "german": "Schlüsselzahlen / Beschränkungen",
+            "meaning": "Schlüsselzahlen und Beschränkungen",
+            "instruction": "Prüfe eingetragene Codes und deren behördliche Bedeutung vor dem Fahren; verschweige keine Beschränkung im Antrag.",
+            "where": "Original und neuer Führerschein bei den Klassen; zuständige Behörde.",
+            "example": "Erfunden: Damir fragt nach einem eingetragenen Code, statt ihn zu ignorieren.",
+            "mistake": "Behandle Codes nicht als bedeutungslose Zahlen ohne Bezug zur Fahrberechtigung."
+          }
+        ]
+      },
+      "fahrzeugzulassung": {
+        "title": "Fahrzeugzulassung — passend zum tatsächlichen Fall",
+        "introduction": "Die Zulassung führt zu Kennzeichen und Zulassungsdokumenten; sie ist nicht Kauf, Versicherung oder Hauptuntersuchung. Unterscheide Neufahrzeug, deutschen Gebrauchtwagen, Wiederzulassung, Umzug und Import.",
+        "variation": "Regeln sind bundesrechtlich, Formulare und Zuständigkeit örtlich. Bundesportal-Beispiel zur Erstzulassung: Bremen, aktualisiert 16.09.2026; geprüft 27.10.2026. Kein universelles Importformular oder verifiziertes nummeriertes Feldschema.",
+        "modes": {
+          "paper": "Prüfe bei der Zulassungsstelle am Hauptwohnsitz des Halters die genaue Leistung und Unterlagen. Bei Vertretung kläre Vollmacht und Nachweise. Juristische Personen und Sonderfälle haben zusätzliche örtliche Anforderungen.",
+          "online": "i-Kfz ist nur für unterstützte Fälle mit passenden Dokumenten/Identifikation möglich. Prüfe örtliches Portal, Sicherheitscodes, eVB, SEPA und Zahlungsweg. Bei Import oder ungeeigneten Dokumenten kann der Behördengang erforderlich sein; lege Sicherheitscodes nicht vorsorglich frei."
+        },
+        "steps": [
+          {
+            "id": "scenario",
+            "title": "Zulassungsfall und Zuständigkeit bestimmen",
+            "sections": {
+              "meaning": "Halter ist die Person, auf die das Fahrzeug zugelassen wird und die es auf eigene Rechnung nutzt; sie ist nicht automatisch Eigentümer oder Versicherungsnehmer.",
+              "action": "Wähle auf der amtlichen Seite der zuständigen Zulassungsstelle den tatsächlichen Fall: Erstzulassung, Halterwechsel beim Gebrauchtwagen, Wiederzulassung eines abgemeldeten Fahrzeugs, Adressänderung oder Import. Prüfe bei natürlichen Personen den Hauptwohnsitz; für Unternehmen oder Sonderfälle nutze deren Liste.",
+              "where": "Status vorhandener Dokumente, Kauf/Import und Hauptanschrift des Halters.",
+              "example": "Maja kauft einen deutschen Gebrauchtwagen und nutzt nicht die Liste für ein noch nie dokumentiertes Neufahrzeug.",
+              "mistake": "Verwechsle Import nicht mit einfachem Halterwechsel und versprich keine Zulassung in jeder Stadt.",
+              "next": "Bereite die Unterlagen für genau diesen Fall vor."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Neu, gebraucht oder importiert: passende Nachweise ordnen",
+            "sections": {
+              "meaning": "Zulassungsbescheinigung Teil I/II und COC erfüllen verschiedene Zwecke. Ein Neufahrzeug kann noch keinen Teil I haben.",
+              "action": "Prüfe Halteridentifikation, eVB, SEPA und Fahrzeugunterlagen. Beim deutschen Gebrauchtwagen prüfe vorhandene Teile I/II und gültigen HU-Nachweis, soweit fällig. Bremen nennt bei EG-Erstzulassung Teil II und COC, bei nationaler Genehmigung andere Nachweise. Kläre beim Import ausländische Originale, Kaufnachweis, Genehmigung/technische Nachweise und gegebenenfalls Zollnachweis bei Nicht-EU-Einfuhr. Fehlt ein jemals ausgestellter Teil II, können zusätzliche Nachweise und Fahrzeugidentifizierung nötig sein.",
+              "where": "Verkäufer, vorhandene Zulassungsdokumente, HU-Bericht, Hersteller/COC und zuständige Behörde.",
+              "example": "Damir fragt beim Neufahrzeug nach COC; beim Import klärt er zuerst die anerkannten ausländischen Unterlagen.",
+              "mistake": "Verlange nicht bei jedem Neufahrzeug eine bereits fällige HU; der Kaufvertrag ersetzt nicht sämtliche Zulassungsdokumente.",
+              "next": "Prüfe Versicherung und steuerliche Abbuchung."
+            }
+          },
+          {
+            "id": "insurance",
+            "title": "eVB beschaffen und SEPA vorbereiten",
+            "sections": {
+              "meaning": "eVB belegt Versicherung für die Zulassung; SEPA erlaubt den Einzug der Kfz-Steuer, nicht der Versicherungsprämie.",
+              "action": "Fordere beim Versicherer die eVB für den passenden Zulassungsfall und Halter an. Prüfe den siebenstelligen Code. Bereite für die Kfz-Steuer das amtliche SEPA-Mandat mit richtigem Kontoinhaber/IBAN und erforderlichen Unterschriften vor. Kläre abweichenden Kontoinhaber oder Steuerbefreiung, statt generell auf den Mandatsverzicht zu schließen.",
+              "where": "Versicherer, Bankunterlage des Kontoinhabers und örtliches/Zoll-SEPA-Formular.",
+              "example": "Maja hat eine eVB vom Versicherer und findet die Steuer-IBAN in ihren Bankunterlagen.",
+              "mistake": "Policennummer ist nicht automatisch eVB; das SEPA-Mandat allein lässt das Fahrzeug nicht zu.",
+              "next": "Wähle Behördengang oder geprüften i-Kfz-Fall."
+            }
+          },
+          {
+            "id": "channel",
+            "title": "Behörde oder i-Kfz — Voraussetzungen vorher prüfen",
+            "sections": {
+              "meaning": "i-Kfz ist nicht jedes Formular als Onlineantrag; es hängt von Fall, Identifikation und Dokumenten ab.",
+              "action": "Buche für die Behörde die richtige Leistung und bereite Originale/Vollmacht vor. Prüfe für i-Kfz zuerst Fallunterstützung, akzeptierte elektronische Identifikation/Konten, erforderliche Sicherheitscodes auf Dokumenten und Zahlungsart. HU, eVB und Steuer-Mandat müssen weiterhin zum Fall passen. Lege Codes nicht probeweise frei. Das BMV nennt Personalausweis mit eID/eID-Karte/eAT mit aktivierter eID, PIN und AusweisApp/Kartenleser; alternativ eine unterstützte BundID-Identifikation einschließlich ELSTER-Zertifikat. Für erforderliche Codes nennt das BMV Teil I nach dem 01.01.2015 für Abmeldung/Umschreibung ohne Halterwechsel sowie passenden Teil II nach dem 01.01.2018 für Erst-/Wiederzulassung oder Halterwechsel. Prüfe die aktuelle örtliche Unterstützung.",
+              "where": "Amtliches örtliches i-Kfz-Portal und dessen aktuelle Hinweise.",
+              "example": "Damir hat ältere Dokumente ohne erforderliche Codes und prüft den Behördengang.",
+              "mistake": "Online-Termin ist keine abgeschlossene Zulassung; garantiere keine i-Kfz-Fähigkeit jedes Imports.",
+              "next": "Prüfe Fahrzeug-/Halterdaten und verbleibende Besonderheiten."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Richtige Angaben, Sonderkennzeichen und Vertretung einreichen",
+            "sections": {
+              "meaning": "Wunsch-, Saison-, historische oder Ausfuhrkennzeichen haben unterschiedliche Bedingungen; Reservierung ist keine Zulassung.",
+              "action": "Verwende im amtlichen Antrag Halteridentität und FIN/VIN aus den Unterlagen. Nutze für Sonderkennzeichen die örtliche Liste und verlangte Nachweise. Vertreter bringen zulässige Vollmacht und Identitätsnachweise mit. Prüfe örtliche Gebühren und Hindernisse durch Gebühren- oder Kfz-Steuerrückstände. Kläre Import oder unklare Technikunterlagen vor der Kennzeichenfertigung.",
+              "where": "Zulassungsstelle, Fahrzeugunterlagen, Vollmacht und gegebenenfalls Sondernachweise.",
+              "example": "Maja möchte ein Wunschkennzeichen, wartet aber auf den Verfahrensnachweis, bevor sie Fahrberechtigung annimmt.",
+              "mistake": "Zulassung ist nicht generell abgeschlossen, sobald Gebühren gezahlt oder Kennzeichen reserviert sind.",
+              "next": "Prüfe amtliches Ergebnis, Dokumente und zulässigen Fahrtbeginn."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Ausgabe und Voraussetzungen der ersten Fahrt prüfen",
+            "sections": {
+              "meaning": "Kennzeichen, Zulassung, Versicherung und HU sind verbunden, aber getrennte Nachweise.",
+              "action": "Prüfe Haltername, Anschrift, FIN und Kennzeichen in den ausgestellten Unterlagen. Beachte beim Behördengang Fertigung/Abstempelung. Folge bei i-Kfz den genauen Regeln für vorläufigen Nachweis und Nutzung; eine E-Mail ist keine universelle Fahrerlaubnis. Melde Fehler, bewahre Dokumente auf und beachte HU-/Versicherungsfristen getrennt.",
+              "where": "Amtliche Entscheidung/Zulassungsunterlagen und örtliche Portalhinweise.",
+              "example": "Damir gleicht die FIN in den Unterlagen vor der ersten Fahrt mit dem Fahrzeug ab.",
+              "mistake": "Fahre nicht allein aufgrund eines gelesenen Leitfadens oder einer vorhandenen eVB.",
+              "next": "Durchsicht abgeschlossen: Zulassung und Nutzungsvoraussetzungen ergeben sich aus dem amtlichen Verfahren."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "holder",
+            "german": "Halter / Eigentümer / Versicherungsnehmer",
+            "meaning": "Halter, Eigentümer und Versicherungsnehmer",
+            "instruction": "Nenne den tatsächlichen Halter nach amtlicher Frage. Eigentümer hat das Eigentum, Versicherungsnehmer schließt die Versicherung; Personen können abweichen und der Versicherer muss den Fall kennen.",
+            "where": "Zulassungs-, Kauf- und Versicherungsunterlagen sowie tatsächliche Verhältnisse.",
+            "example": "Erfunden: Ein Unternehmen besitzt das Leasingfahrzeug; ein anderer vereinbarter Halter lässt es zu.",
+            "mistake": "Übernimm den Verkäufer nicht automatisch als neuen Halter."
+          },
+          {
+            "id": "scenario",
+            "german": "Neuzulassung / Umschreibung / Wiederzulassung / Import",
+            "meaning": "Erstzulassung, Umschreibung, Wiederzulassung oder Import",
+            "instruction": "Wähle nach Fahrzeughistorie, nicht nur danach, dass es für dich neu ist. Import erfordert gesonderte Länder-/Dokumentenprüfung.",
+            "where": "Vorherige Zulassungsunterlagen und Abmelde-/Kaufstatus.",
+            "example": "Erfunden: Ein erstmals von Maja gekaufter Gebrauchtwagen ist nicht automatisch ein Neuzulassungsfall.",
+            "mistake": "Import und Adressänderung haben nicht dieselbe Fallliste.",
+            "options": [
+              {
+                "german": "Neuzulassung",
+                "meaning": "Erstmals zugelassenes Fahrzeug; Typgenehmigung und COC/passenden Nachweis prüfen."
+              },
+              {
+                "german": "Umschreibung / Halterwechsel",
+                "meaning": "Bereits zugelassenes Fahrzeug mit Halter-/Datenänderung; vorhandene Unterlagen prüfen."
+              },
+              {
+                "german": "Wiederzulassung",
+                "meaning": "Erneute Zulassung eines abgemeldeten Fahrzeugs; Status und Nachweise prüfen."
+              },
+              {
+                "german": "Import",
+                "meaning": "Fahrzeug aus anderem Staat; technische/Zollnachweise für EU und Nicht-EU unterscheiden sich."
+              }
+            ]
+          },
+          {
+            "id": "evb",
+            "german": "Elektronische Versicherungsbestätigung (eVB)",
+            "meaning": "Elektronischer Versicherungsnachweis",
+            "instruction": "Fordere beim Versicherer die eVB für Fall und Halter an und übernimm den siebenstelligen alphanumerischen Code genau, soweit gefragt.",
+            "where": "Versicherer; nicht Policennummer oder Bankkarte.",
+            "example": "Erfunden: Maja erhält den Code und prüft Buchstaben/Ziffern, ohne hier einen echten Code anzugeben.",
+            "mistake": "Verwechsle 0 und O nicht und nutze keine eVB für einen anderen Fall ohne Prüfung."
+          },
+          {
+            "id": "papers",
+            "german": "Zulassungsbescheinigung Teil I / Teil II",
+            "meaning": "Zulassungsdokument Teil I / Teil II",
+            "instruction": "Teil I entspricht dem früheren Fahrzeugschein, Teil II dem Fahrzeugbrief. Prüfe Originale passend zum Fall. Ein Neuwagen muss noch keinen Teil I haben. Teil II allein ist kein abschließender zivilrechtlicher Eigentumsnachweis.",
+            "where": "Verkäufer oder vorhandene Fahrzeugunterlagen.",
+            "example": "Erfunden: Damir prüft beim Gebrauchtwagen beide vorhandenen Teile, nicht nur eine Kopie.",
+            "mistake": "Kaufvertrag ersetzt nicht beide Teile; kläre fehlende Dokumente vor dem Termin."
+          },
+          {
+            "id": "vin",
+            "german": "Fahrzeug-Identifizierungsnummer (FIN / VIN)",
+            "meaning": "Fahrzeug-Identifizierungsnummer",
+            "instruction": "Übernimm die FIN genau aus den Fahrzeugunterlagen, soweit verlangt, und gleiche sie mit dem Fahrzeug ab; sie ist nicht das Kennzeichen.",
+            "where": "Zulassungsbescheinigung, COC und Fahrzeugkennzeichnung.",
+            "example": "Erfunden: Maja erkennt einen abweichenden Buchstaben der FIN und klärt den Widerspruch.",
+            "mistake": "Erfinde keine FIN und übernimm keine Nummer eines anderen Fahrzeugs."
+          },
+          {
+            "id": "hu",
+            "german": "Hauptuntersuchung (HU)",
+            "meaning": "Regelmäßige Hauptuntersuchung",
+            "instruction": "Prüfe den gültigen HU-Nachweis, soweit die Untersuchung für Fahrzeug/Fall fällig ist. Kläre Technikvorgaben beim Neufahrzeug oder Import getrennt.",
+            "where": "HU-Bericht und vorhandene Zulassungsunterlagen, zuständige Behörde.",
+            "example": "Erfunden: Damir prüft beim Gebrauchtwagen den Bericht und verlässt sich nicht allein auf eine Plakette.",
+            "mistake": "HU ist weder eVB noch Zulassung; verlange nicht bei jedem Neufahrzeug denselben Nachweis wie beim Gebrauchtwagen."
+          },
+          {
+            "id": "approval",
+            "german": "COC / Typgenehmigung / Einzelgenehmigung",
+            "meaning": "Übereinstimmung / Typ- oder Einzelgenehmigung",
+            "instruction": "COC belegt Übereinstimmung mit der EG-Typgenehmigung. Bei anderer Genehmigung oder Import bestimmt die Behörde den zugelassenen Nachweis/das Gutachten; beauftrage keine Untersuchung aufgrund einer Vermutung.",
+            "where": "Hersteller/Verkäufer, technische Originalunterlagen und Zulassungsstelle.",
+            "example": "Erfunden: Maja fragt beim neuen Erstzulassungsfahrzeug nach COC und bei anderer Genehmigung nach dem passenden Nachweis.",
+            "mistake": "Behaupte nicht, COC allein garantiere jede Importzulassung."
+          },
+          {
+            "id": "sepa",
+            "german": "SEPA-Lastschriftmandat / IBAN / Kontoinhaber",
+            "meaning": "Steuerabbuchung / IBAN / Kontoinhaber",
+            "instruction": "Nutze das amtliche Kfz-Steuer-Mandat. Übernimm IBAN und Kontoinhaber aus Bankunterlagen; Halter und Kontoinhaber können mit erforderlicher Zustimmung/Unterschriften abweichen. Gib BIC nur nach Vorgabe des konkreten Mandats an.",
+            "where": "Kontoauszug/Bankanwendung des Kontoinhabers und amtliches SEPA-Mandat.",
+            "example": "Erfunden: Ein abweichender Kontoinhaber unterschreibt gemäß Mandat; Maja unterschreibt nicht dessen Namen.",
+            "mistake": "Kartennummer ist keine IBAN. Verlange nicht automatisch DE-IBAN oder BIC in jedem Fall.",
+            "options": [
+              {
+                "german": "Halter ist Kontoinhaber",
+                "meaning": "Dieselbe Person: Angaben und verlangte Unterschrift prüfen."
+              },
+              {
+                "german": "Abweichender Kontoinhaber",
+                "meaning": "Andere Person: Zustimmung und Unterschriften auf dem amtlichen Mandat prüfen."
+              }
+            ]
+          },
+          {
+            "id": "proxy",
+            "german": "Vollmacht / Kennzeichenart",
+            "meaning": "Vertretung / Kennzeichenart",
+            "instruction": "Nutze bei Vertretung örtliche Vollmacht und Nachweise. Wähle Wunsch-, Saison-, H- oder Ausfuhrkennzeichen nur bei passendem Fall und Nachweisen.",
+            "where": "Örtliche Liste/Vollmachtsvorlage; vorhandene Unterlagen und gegebenenfalls Sondernachweise.",
+            "example": "Erfunden: Damir möchte Saisonkennzeichen und klärt zuerst Zeitraum und Versicherung mit Behörde/Versicherer.",
+            "mistake": "Vollmacht bedeutet nicht fremde Namensunterschrift; Wunschkennzeichenreservierung ist keine genehmigte Zulassung."
+          },
+          {
+            "id": "digital",
+            "german": "i-Kfz / Sicherheitscode",
+            "meaning": "Internetbasierte Zulassung / Sicherheitscode",
+            "instruction": "Prüfe Fallunterstützung, Dokumente und Identifikation im amtlichen örtlichen Portal vor Freilegung der Codes. Beachte dessen Vorgaben zu Bescheid und zulässiger Fahrt.",
+            "where": "Amtliches i-Kfz-Portal und passende Zulassungsdokumente/Kennzeichen.",
+            "example": "Erfunden: Maja entfernt keine Codeabdeckung nur zum Testen der Verfahrenseignung.",
+            "mistake": "Der Code ist keine eVB; Freilegung ist kein harmloser Test und eine E-Mail nicht immer ein Fahrtfreigabenachweis."
+          }
+        ]
+      }
+    }
   }
 }

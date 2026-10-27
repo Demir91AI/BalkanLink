@@ -20,13 +20,23 @@ export interface GuideSource {
 const JC: GuideSource = { kind: "official", url: "https://jobcenter.digital", label: "jobcenter.digital (BA / Jobcenter)" };
 
 export const GUIDE_SOURCES: Record<string, GuideSource> = {
-  anmeldung: { kind: "local" },
-  "steuer-id": { kind: "official", url: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer", label: "Bundeszentralamt für Steuern — IdNr", verifiedOn: "27.10.2026", extraLinks: [
-    { url: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/FAQ/faq_node.html", label: "BZSt — IdNr FAQ" },
-    { url: "https://karriere.bzst.de/SiteGlobals/Kontaktformulare/DE/IdNr/Mitteilung_IdNr/mitteilung_IdNr_node.html", label: "BZSt — Mitteilung IdNr" },
+  anmeldung: { kind: "local", url: "https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99115005104000/herausgeber/BB-108321434/region/120000000000", label: "Bundesportal — Brandenburg · Anmeldung", verifiedOn: "27.10.2026", extraLinks: [
+    { url: "https://www.gesetze-im-internet.de/bmg/__19.html", label: "BMG §19 — Wohnungsgeberbestätigung" },
+    { url: "https://www.gesetze-im-internet.de/bmg/__21.html", label: "BMG §21 — Hauptwohnung / Nebenwohnung" },
   ] },
-  fuehrerschein: { kind: "local" },
-  fahrzeugzulassung: { kind: "local" },
+  "steuer-id": { kind: "official", url: "https://online.portal.bzst.de/SharedDocs/Leistungsbeschreibung/DE/erneute_mitteilung_der_ID-Nr.html", label: "BZSt — IdNr", verifiedOn: "27.10.2026", extraLinks: [
+    { url: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/FAQ/faq_node.html", label: "BZSt — IdNr FAQ" },
+    { url: "https://www.elster.de/bportal/formulare-leistungen/alleformulare/idnr", label: "BOP / ELSTER — IdNr" },
+  ] },
+  fuehrerschein: { kind: "local", url: "https://verwaltung.bund.de/leistungsverzeichnis/de/leistung/99108047050002/herausgeber/HB-S1000030000009309/region/040000000000", label: "Bundesportal — Bremen · Führerschein", verifiedOn: "27.10.2026", extraLinks: [
+    { url: "https://www.gesetze-im-internet.de/fev_2010/__28.html", label: "FeV §28 — EU / EWR" },
+    { url: "https://www.gesetze-im-internet.de/fev_2010/__29.html", label: "FeV §29 — Drittstaat" },
+    { url: "https://www.gesetze-im-internet.de/fev_2010/anlage_11.html", label: "FeV — Anlage 11" },
+  ] },
+  fahrzeugzulassung: { kind: "local", url: "https://verwaltung.bund.de/leistungsverzeichnis/de/leistung/99036020001000/herausgeber/HB-S1000030000018506/region/040000000000", label: "Bundesportal — Bremen · Fahrzeugzulassung", verifiedOn: "27.10.2026", extraLinks: [
+    { url: "https://www.service.bremen.de/dienstleistungen/kraftfahrzeug-umschreiben-mit-halterwechsel-und-ohne-kennzeichenmitnahme-126635", label: "Bremen — Halterwechsel" },
+    { url: "https://www.bmv.de/SharedDocs/DE/Artikel/StV/Strassenverkehr/internetbasierte-fahrzeugzulassung.html", label: "BMV — i-Kfz" },
+  ] },
   kindergeld: {
     kind: "official",
     url: "https://www.arbeitsagentur.de/familie-und-kinder/eservices-fuer-familien",
