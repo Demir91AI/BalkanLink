@@ -1731,7 +1731,7 @@
         },
         "prepare": {
           "title": "Pripremi podatke",
-          "body": "Za dijete mlađe od 18 godina u Njemačkoj u pravilu su dovoljni ovi podaci:",
+          "body": "Dokumenti i bankovni podaci neka ti budu pri ruci. Objašnjenja su u vodiču iznad.",
           "items": [
             "Tvoj Steuer-ID (steuerliche Identifikationsnummer)",
             "Steuer-ID djeteta — za novorođenče stiže poštom od Bundeszentralamt für Steuern nakon prijave rođenja",
@@ -1740,11 +1740,11 @@
         },
         "access": {
           "title": "Pripremi pristup portalu",
-          "body": "Za online zahtjev trebaš Konto (nalog) na portalu Bundesagentur für Arbeit. S BundID-om zahtjev šalješ direktno online, bez ispisa i potpisa."
+          "body": "Za online zahtjev pripremi nalog na portalu Bundesagentur für Arbeit."
         },
         "apply": {
           "title": "Popuni službeni online Antrag",
-          "body": "Otvori službeni online zahtjev Familienkasse i popuni ga tamo. Bez BundID-a online zahtjev popuniš, ispišeš, potpišeš i pošalješ poštom Familienkasse."
+          "body": "Predaj zahtjev na službenom portalu ili pošalji potpisane papirne obrasce Familienkasse."
         },
         "after": {
           "title": "Nakon slanja",
@@ -1777,8 +1777,8 @@
         }
       },
       "fields": {
-        "title": "Kako tačno popuniti službeni zahtjev – polje po polje",
-        "intro": "Ovo je samo vodič za čitanje: ovdje ništa ne upisuješ i ništa se ne šalje. Oznake prate papirne obrasce KG1 i Anlage Kind (stanje 09/2025) – stranicu i tačku. Online zahtjev postavlja ista pitanja, ali raspored i nazivi mogu biti drugačiji.",
+        "title": "Kindergeld: šta i gdje upisati?",
+        "intro": "Pripremi svoje podatke, a mi ti objašnjavamo šta traži Familienkasse.",
         "dummy": "Svi primjeri su izmišljeni (Maja Kovač, Damir Novak) – nikad ne prepisuj primjer, upiši svoje stvarne podatke.",
         "lbl": {
           "what": "Šta upisati",
@@ -2024,8 +2024,67 @@
             "example": "27.10.2026 · potpis",
             "mistake": "Potpisati KG1, a Anlage Kind ne."
           }
-        ]
-      }
+        ],
+        "notice": "Ovo je samo vodič za čitanje: ovdje ništa ne upisuješ i ništa se ne šalje. Oznake prate papirne obrasce KG1 i Anlage Kind (stanje 09/2025) – stranicu i tačku. Online zahtjev postavlja ista pitanja, ali raspored i nazivi mogu biti drugačiji.",
+        "important": "Važno",
+        "mode": {
+          "online": "Popunjavam online (preporučeno)",
+          "paper": "Popunjavam papirni KG1"
+        },
+        "paperGroups": [
+          "Ti i drugi roditelj",
+          "Tvoje dijete",
+          "Isplata i potpisi",
+          "Dodatna pitanja i detalji na papiru"
+        ],
+        "onlineGroups": [
+          {
+            "title": "Podaci roditelja",
+            "body": "Tvoj porezni broj (Steuer-ID), ime i trenutna adresa — prema tvojim dokumentima."
+          },
+          {
+            "title": "Podaci djeteta",
+            "body": "Ime i datum rođenja djeteta, njegov Steuer-ID i tvoj odnos prema djetetu."
+          },
+          {
+            "title": "Račun za isplatu",
+            "body": "IBAN računa na koji želiš isplatu i ime vlasnika računa."
+          },
+          {
+            "title": "Druga djeca i posebne situacije",
+            "body": "Navedi raniji Kindergeld i veze s drugom državom ako ih imaš. Dodatni podaci zavise od situacije."
+          }
+        ],
+        "onlineOrder": "Ovo su teme koje ćeš susresti, ne tačan redoslijed online polja.",
+        "onlineRoute": "S BundID-om zahtjev pri rođenju šalješ elektronski, bez štampanja. Bez BundID-a: popuni online, odštampaj, potpiši i pošalji poštom Familienkasse.",
+        "short": {
+          "kg1": [
+            "Broj zahtjeva i prilozi",
+            "Tvoj porezni broj",
+            "Ime roditelja",
+            "Adresa i bračni status",
+            "Drugi roditelj u domaćinstvu",
+            "IBAN i vlasnik računa",
+            "Kome stiže rješenje",
+            "Druga djeca za koju primaš Kindergeld",
+            "Kad drugi roditelj prima Kindergeld",
+            "Datum i potpis na KG1"
+          ],
+          "ank": [
+            "Oznake priloga za dijete",
+            "Porezni broj djeteta",
+            "Ime i rođenje djeteta",
+            "Tvoj odnos prema djetetu",
+            "Dijete od 18 godina — za bebu preskoči",
+            "Raniji zahtjev za ovo dijete",
+            "Rad u javnoj službi",
+            "Dodatak iz druge države",
+            "Rad povezan s drugom državom",
+            "Potpis na prilogu za dijete"
+          ]
+        }
+      },
+      "processTitle": "Kako predati zahtjev"
     },
     "panelEmpty": "Izaberi uslugu iz lijevog menija za vodič i službene izvore.",
     "benefitsGuides": "40+ SmartGuide vodiča — korak po korak do službene prijave za Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG i druge usluge",
