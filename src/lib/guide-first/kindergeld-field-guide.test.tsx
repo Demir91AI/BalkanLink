@@ -108,6 +108,7 @@ describe("Kindergeld 2.0 paper walkthrough", () => {
   });
   it("switches online/paper with distinct four-topic navigation and explicit portal-order uncertainty", async () => {
     await setup(); openFields();
+    fireEvent.mouseDown(screen.getByRole("tab", {name:F.mode.online}), {button:0,ctrlKey:false});
     expect(screen.getByRole("tab", {name:F.mode.online}).getAttribute("aria-selected")).toBe("true");
     expect(screen.getByTestId("kg-online-details").querySelectorAll("button[data-field-id]")).toHaveLength(4);
     expect(screen.getByText(P.onlineUnverified)).toBeTruthy();
@@ -188,5 +189,26 @@ describe("Kindergeld 2.0 paper walkthrough", () => {
     }
     expect((readFileSync("src/pages/FormCenter.tsx", "utf8").match(/data-testid="guide-dark-surface"/g) || []).length).toBeGreaterThanOrEqual(2);
     expect(readFileSync("src/index.css", "utf8")).toMatch(/\.guide-dark-surface :where\(h1/);
+  });
+  it.each([["bs", bs], ["hr", hr], ["sr", sr], ["de", de]] as const)("%s shows the paper companion first, before the wizard, with original links and a 30-field jump list", async (lang, locale) => {
+    await setup(lang, locale);
+    const L = locale.guideFirst.kindergeld;
+    const guide = screen.getByTestId("kg-field-guide");
+    expect(guide.compareDocumentPosition(screen.getByTestId("kg-step-pointer").closest("[data-testid=kindergeld-smartguide]")!)).toBeTruthy();
+    expect(screen.getByRole("tab", { name: L.fields.mode.paper }).getAttribute("aria-selected")).toBe("true");
+    expect(screen.getAllByTestId("kg-field-guide")).toHaveLength(1);
+    expect(screen.getByTestId("kg-original-kg1").getAttribute("href")).toBe(KINDERGELD_PDFS.KG1);
+    expect(screen.getByTestId("kg-original-ank").getAttribute("href")).toBe(KINDERGELD_PDFS["Anlage Kind"]);
+    const jump = screen.getByTestId("kg-paper-jump") as HTMLSelectElement;
+    expect(jump.querySelectorAll("option")).toHaveLength(30);
+    expect(jump.querySelectorAll("optgroup")).toHaveLength(2);
+    const i = groups.findIndex((g) => g.id === "status");
+    fireEvent.change(jump, { target: { value: String(i) } });
+    expect(screen.getByTestId("kg-field-card").getAttribute("data-field-id")).toBe("status");
+    const terms = within(screen.getByTestId("kg-field-terms"));
+    for (const term of L.pilot.terms.status) expect(terms.getByText(term.translation)).toBeTruthy();
+    expect(L.pilot.terms.status.length).toBeGreaterThanOrEqual(7);
+    fireEvent.click(screen.getByText(L.pilot.fieldNext));
+    expect(screen.getByTestId("kg-field-card").getAttribute("data-field-id")).toBe(groups[i + 1].id);
   });
 });
