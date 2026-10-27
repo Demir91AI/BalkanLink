@@ -30,7 +30,7 @@ export const GUIDE_SOURCES: Record<string, GuideSource> = {
   },
   elterngeld: { kind: "info", url: "https://familienportal.de", label: "Familienportal (BMFSFJ)" },
   mutterschaftsgeld: { kind: "official", url: "https://www.mutterschaftsgeld.de", label: "Mutterschaftsgeldstelle (Bundesamt für Soziale Sicherung)" },
-  kinderzuschlag: { kind: "official", url: "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag", label: "Familienkasse — Kinderzuschlag (BA)" },
+  kinderzuschlag: { kind: "official", url: "https://www.arbeitsagentur.de/kinderzuschlag", label: "Familienkasse — Kinderzuschlag (BA)" },
   "krippengeld-bayern": { kind: "official", url: "https://www.zbfs.bayern.de/familie/krippengeld/", label: "ZBFS Bayern — Krippengeld" },
   "wirtschaftliche-jugendhilfe": { kind: "local" },
   hauptantrag: JC,
