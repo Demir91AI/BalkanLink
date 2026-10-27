@@ -2107,6 +2107,38 @@
       "open": "Otvori SmartGuide",
       "close": "Zatvori"
     },
-    "paywallFields": "Jasno objašnjenje šta pripremiti i kako ići korak po korak kroz službeni postupak"
+    "paywallFields": "Jasno objašnjenje šta pripremiti i kako ići korak po korak kroz službeni postupak",
+    "frame": {
+      "badge": "Vodič korak po korak",
+      "authority": "Nadležno",
+      "localAuthority": "Lokalna nadležna institucija (grad, općina ili pokrajina)",
+      "verified": "Izvor provjeren: {{date}}",
+      "unverified": "Zahtijeva aktuelnu provjeru kod službenog izvora",
+      "readOnly": "Ovo je vodič za čitanje, ne službeni zahtjev. Ne upisuješ lične podatke i ne praviš PDF ovdje.",
+      "progressTitle": "Tvoj napredak",
+      "progressNote": "Napredak se ne sprema — vrijedi samo dok je stranica otvorena.",
+      "steps": [
+        "Pročitao/la sam vodič",
+        "Pripremio/la sam dokumente",
+        "Predao/la sam zahtjev nadležnoj instituciji"
+      ],
+      "moreSources": "Dodatni službeni izvori"
+    },
+    "paywall": {
+      "title": "Otključaj kompletan vodič: {{name}}",
+      "fallbackName": "ovaj vodič",
+      "subtitle": "Šta dobijaš:",
+      "items": [
+        "Kompletan vodič — svaki korak jasno objašnjen",
+        "Šta znače njemački pojmovi i gdje pronaći podatke",
+        "Spisak dokumenata (šta tačno i gdje nabaviti)",
+        "Najčešće greške i kako ih izbjeći",
+        "Šta raditi ako zahtjev bude odbijen",
+        "Direktni linkovi na službene institucije"
+      ],
+      "ctaRegister": "Registruj se besplatno",
+      "ctaSubscribe": "Pogledaj članstvo",
+      "registerNote": "Za pristup je potreban račun s potvrđenom e-mail adresom."
+    }
   }
 }

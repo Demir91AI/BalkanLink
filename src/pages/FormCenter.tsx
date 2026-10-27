@@ -59,6 +59,12 @@ import PremiumBenefitsSection from "@/components/formCenter/PremiumBenefitsSecti
 import FormCatalogVault from "@/components/formCenter/FormCatalogVault";
 import { label } from "@/lib/de-labels";
 import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
+void PlusCtaLabel; // pinned legacy import (phase1 baseline)
+import GuideFrame from "@/components/guide-first/GuideFrame";
+import { useEntitlement } from "@/hooks/useEntitlement";
+import { useMonetizationV2 } from "@/hooks/useMonetizationV2";
+import { useAuth } from "@/contexts/AuthContext";
+import { decideGuideAccess } from "@/lib/guide-first/guide-access";
 
 type LangKey = "de" | "bs" | "hr" | "sr";
 
@@ -101,58 +107,60 @@ function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; on
   );
 }
 
-/* ─── Premium paywall for a specific form ─── */
-function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | null }) {
+/* ─── Guide access prompt (i18n, rollout-flag aware) ─── */
+function FormPremiumPaywall({ entry, mode = "subscribe" }: { slug: string; entry: FormEntry | null; mode?: "subscribe" | "register" }) {
   const navigate = useNavigate();
   const { t: tp } = useTranslation("pages");
+  const items = tp("guideFirst.paywall.items", { returnObjects: true }) as string[];
   return (
-    <div className="flex flex-col items-center justify-center py-12 text-center gap-5 max-w-md mx-auto">
+    <div data-testid="guide-access-prompt" data-mode={mode} className="flex flex-col items-center justify-center py-12 text-center gap-5 max-w-md mx-auto">
       <div className="h-14 w-14 rounded-2xl bg-[hsl(var(--gold))]/10 flex items-center justify-center ring-1 ring-[hsl(var(--gold))]/20">
         <Lock className="h-7 w-7 text-[hsl(var(--gold))]" />
       </div>
       <div>
-        <h2 className="text-lg font-bold">Otključaj {entry?.label || "ovaj formular"}</h2>
-        <p className="mt-3 text-sm text-muted-foreground font-semibold">Šta dobijaš uz Premium:</p>
+        <h2 className="text-lg font-bold">{tp("guideFirst.paywall.title", { name: entry?.label || tp("guideFirst.paywall.fallbackName") })}</h2>
+        <p className="mt-3 text-sm text-muted-foreground font-semibold">{tp("guideFirst.paywall.subtitle")}</p>
       </div>
       <ul className="text-left text-xs text-muted-foreground space-y-2 w-full">
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Kompletan Smart Guide — svaki korak detaljno objašnjen</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> {tp("guideFirst.paywallFields")}</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Detaljan spisak dokumenata (šta tačno, gdje nabaviti)</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> {tp("guideFirst.paywallItem")}</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Najčešće greške i kako ih izbjeći</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Šta raditi ako zahtjev bude odbijen</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Direktni linkovi na nadležne institucije</li>
+        {items.map((x) => (
+          <li key={x} className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-[hsl(var(--gold))] shrink-0 mt-0.5" /> {x}</li>
+        ))}
       </ul>
       {entry?.includes && (
         <div className="w-full text-left">
           <p className="text-[11px] font-semibold text-muted-foreground mb-1.5">{tp("guideFirst.includes")}</p>
           <div className="flex flex-wrap gap-1.5">
             {entry.includes.split(" + ").map((tag) => (
-              <span key={tag} className="rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[hsl(var(--gold))]">
-                {tag}
-              </span>
+              <span key={tag} className="rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[hsl(var(--gold))]">{tag}</span>
             ))}
           </div>
         </div>
       )}
       <div className="w-full space-y-2 mt-2">
-        <button
-          onClick={() => navigate("/paketi")}
-          className="w-full rounded-full py-3 text-sm font-bold text-white"
-          style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}
-        >
-          <Crown className="inline-block mr-1.5 h-4 w-4" />
-          <PlusCtaLabel />
-        </button>
-
-
+        {mode === "register" ? (
+          <>
+            <button onClick={() => navigate("/register")} className="w-full rounded-full py-3 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
+              {tp("guideFirst.paywall.ctaRegister")}
+            </button>
+            <p className="text-xs text-muted-foreground">{tp("guideFirst.paywall.registerNote")}</p>
+          </>
+        ) : (
+          <button onClick={() => navigate("/paketi")} className="w-full rounded-full py-3 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
+            <Crown className="inline-block mr-1.5 h-4 w-4" />
+            {tp("guideFirst.paywall.ctaSubscribe")}
+          </button>
+        )}
       </div>
     </div>
   );
 }
 
 /* ─── Guide Content (right side) ─── */
-function GuideContent({ slug }: { slug: string }) {
+export function GuideContent({ slug, title }: { slug: string; title?: string }) {
+  return <GuideFrame slug={slug} title={title}><GuideBody slug={slug} /></GuideFrame>;
+}
+
+function GuideBody({ slug }: { slug: string }) {
   const guide = getGuideBySlug(slug);
   const lang = getLangKey("bs");
   const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";
@@ -233,7 +241,12 @@ export default function FormCenter() {
   const isRemovedFormSlug = activeSlug === "aufenthaltstitel";
   const handleBack = () => navigateBackOrHome(navigate);
   const isFreeSlug = isFormFree(activeSlug);
-  const canAccess = isPremium || isFreeSlug;
+  const monetizationV2 = useMonetizationV2();
+  const { user } = useAuth();
+  const { entitlement } = useEntitlement();
+  const access = decideGuideAccess({ monetizationV2, isFreeSlug, legacyPremium: isPremium, signedIn: !!user, entitlement });
+  const canAccess = access === "full";
+  const promptMode = access === "register" ? "register" : "subscribe";
 
   useEffect(() => {
     if (isRemovedFormSlug) {
@@ -328,10 +341,10 @@ export default function FormCenter() {
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
           <>
-            <GuideContent key={activeSlug} slug={activeSlug} />
+            <GuideContent key={activeSlug} slug={activeSlug} title={activeEntry?.label} />
           </>
         ) : (
-          <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
+          <FormPremiumPaywall slug={activeSlug} entry={activeEntry} mode={promptMode} />
         )}
       </div>
     );
@@ -374,10 +387,10 @@ export default function FormCenter() {
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
           <>
-            <GuideContent key={activeSlug} slug={activeSlug} />
+            <GuideContent key={activeSlug} slug={activeSlug} title={activeEntry?.label} />
           </>
         ) : (
-          <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
+          <FormPremiumPaywall slug={activeSlug} entry={activeEntry} mode={promptMode} />
         )}
       </div>
     );
@@ -484,9 +497,9 @@ export default function FormCenter() {
             </h1>
           </div>
           {canAccess ? (
-            <div className="dark guide-dark-surface rounded-2xl bg-background p-4 sm:p-6" data-testid="guide-dark-surface"><GuideContent key={activeSlug} slug={activeSlug} /></div>
+            <div className="dark guide-dark-surface rounded-2xl bg-background p-4 sm:p-6" data-testid="guide-dark-surface"><GuideContent key={activeSlug} slug={activeSlug} title={activeEntry?.label} /></div>
           ) : (
-            <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
+            <FormPremiumPaywall slug={activeSlug} entry={activeEntry} mode={promptMode} />
           )}
 
           {/* ── More features hint ── */}
