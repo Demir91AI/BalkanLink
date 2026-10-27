@@ -39,7 +39,7 @@ export default function FieldWalkthrough({ groups, mode, sourceUrl }: { groups: 
     </header>
     <div data-testid="kg-field-card" data-field-id={group.id} className="grid min-w-0 gap-3 sm:grid-cols-2">
       {(["meaning", "what", "where", "example", "mistake"] as const).map((key) => <section key={key} className={cn("min-w-0 rounded-md border border-border border-l-4 p-4", key === "mistake" ? "guide-block-mistake" : key === "where" || key === "example" ? "guide-block-where" : key === "what" ? "guide-block-action" : "guide-block-neutral")}>
-        <h4 className="mb-2 text-sm font-bold text-foreground">{key === "meaning" ? t(k("meaning")) : key === "what" ? t("smartGuideStandard.block.field") : t(`guideFirst.kindergeld.fields.lbl.${key}`)}</h4>
+        <h4 className="mb-2 text-sm font-bold text-foreground">{key === "meaning" ? t(k("meaning")) : key === "what" ? t(`smartGuideStandard.block.${mode === "paper" ? "field" : "action"}`) : t(`guideFirst.kindergeld.fields.lbl.${key}`)}</h4>
         <p className="whitespace-pre-line break-words text-sm leading-6 text-muted-foreground">{group[key]}</p>
       </section>)}
       <section className="guide-block-neutral min-w-0 rounded-md border border-border p-4">
