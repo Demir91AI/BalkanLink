@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useEntitlement } from "@/hooks/useEntitlement";
 import { membershipCta } from "@/lib/membership";
 import { toast } from "@/hooks/use-toast";
-import i18n from "@/i18n";
+import i18n from "i18next";
 
 /** Server switches; any error = OFF. */
 export function useMembershipSwitches() {

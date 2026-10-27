@@ -6,6 +6,8 @@ import { useAuth } from "@/contexts/AuthContext";
 import { openCustomerPortal } from "@/lib/stripe";
 import PageNav from "@/components/navigation/PageNav";
 import { SEO } from "@/components/SEO";
+import { useNavigate } from "react-router-dom";
+void useNavigate; // pinned import (phase1 baseline)
 import MembershipOffer from "@/components/membership/MembershipOffer";
 
 const FAQ = [1, 2, 3, 4] as const;

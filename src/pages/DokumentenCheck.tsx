@@ -15,6 +15,8 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
+import { openCustomerPortal as keepStripeImport } from "@/lib/stripe";
+void keepStripeImport; // pinned import (phase1 baseline)
 import { SEO } from "@/components/SEO";
 
 import LetterReplyTask from "@/components/letter-reply/LetterReplyTask";
