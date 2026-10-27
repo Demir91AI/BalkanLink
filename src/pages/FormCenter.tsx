@@ -370,7 +370,7 @@ export default function FormCenter() {
   // Mobile: full-screen guide
   if (isMobile && activeSlug && !isRemovedFormSlug) {
     return (
-      <div className="px-4 py-6">
+      <div className="guide-dark-surface min-h-screen bg-background px-4 pt-6 pb-28" data-testid="guide-dark-surface">
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
           <>
