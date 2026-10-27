@@ -55,7 +55,7 @@ describe("guide-first sources", () => {
   it("every catalog service has a source entry; only primary-source-reviewed workflows are marked verified", () => {
     for (const e of getAllFormEntries()) expect(GUIDE_SOURCES[e.slug], e.slug).toBeDefined();
     const verified = Object.entries(GUIDE_SOURCES).filter(([, s]) => s.verifiedOn).map(([k]) => k);
-    expect(verified).toEqual(["anmeldung", "steuer-id", "fuehrerschein", "fahrzeugzulassung", "kindergeld", "kinderzuschlag"]);
+    expect(verified).toEqual(["anmeldung", "steuer-id", "fuehrerschein", "fahrzeugzulassung", "kindergeld", "elterngeld", "mutterschaftsgeld", "kinderzuschlag", "krippengeld-bayern"]);
   });
   it("never labels known third-party sites as official", () => {
     const urls = Object.values(GUIDE_SOURCES).map((s) => s.url ?? "");

@@ -48,10 +48,10 @@ export const GUIDE_SOURCES: Record<string, GuideSource> = {
   },
   elterngeld: {
     kind: "info",
-    url: "https://familienportal.de/familienportal/familienleistungen/elterngeld/faq/wie-kann-ich-elterngeld-beantragen--124762",
-    label: "Familienportal (BMFSFJ) — Elterngeld beantragen",
+    url: "https://familienportal.de/familienportal/rechner-antraege/elterngeld-digital",
+    label: "ElterngeldDigital — Familienportal (BMFSFJ)",
     verifiedOn: "27.10.2026",
-    extraLinks: [{ url: "https://familienportal.de/familienportal/rechner-antraege/elterngeld-digital", label: "ElterngeldDigital — Familienportal (BMFSFJ)" }],
+    extraLinks: [{ url: "https://familienportal.de/familienportal/familienleistungen/elterngeld/faq/wie-kann-ich-elterngeld-beantragen--124762", label: "Familienportal (BMFSFJ) — Elterngeld beantragen" }],
   },
   mutterschaftsgeld: { kind: "official", url: "https://familienportal.de/familienportal/familienleistungen/mutterschaftsleistungen/wie-kann-ich-mutterschaftsgeld-der-gesetzlichen-krankenkasse-berechnen-und-beantragen--125038", label: "Familienportal — Mutterschaftsgeld der gesetzlichen Krankenkasse", verifiedOn: "27.10.2026", extraLinks: [
     { url: "https://familienportal.de/familienportal/familienleistungen/mutterschaftsleistungen/kann-ich-mutterschaftsgeld-des-bundesamtes-fuer-soziale-sicherung-bekommen--125020", label: "Familienportal — Mutterschaftsgeld des Bundesamtes für Soziale Sicherung" },
