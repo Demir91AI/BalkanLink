@@ -4,6 +4,7 @@ export interface PaperField {
 }
 export interface PilotDetail {
   title: string; meaning: string; help: string;
+  de?: string;
   what?: string; where?: string; example?: string; mistake?: string;
 }
 export interface FieldGroup extends PaperField {
@@ -21,8 +22,8 @@ export function paperGroups(kg1: PaperField[], ank: PaperField[], details: Recor
 }
 
 export const KINDERGELD_PDFS = {
-  KG1: "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba017202.pdf",
-  "Anlage Kind": "https://www.arbeitsagentur.de/datei/kg1-anlagekind_ba017207.pdf",
+  KG1: "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf",
+  "Anlage Kind": "https://www.arbeitsagentur.de/datei/kg1-anlagekind_ba033765.pdf",
 } as const;
 export const FORMS_URL = "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder/formulare-kindergeld";
 export const BZST_ID_URL = "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/FAQ/faq_node.html";
