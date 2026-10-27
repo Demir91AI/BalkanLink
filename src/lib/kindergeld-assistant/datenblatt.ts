@@ -15,8 +15,9 @@ export const KG_OFFICIAL = {
   formsPage: "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder/formulare-kindergeld",
   kg1: "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf",
   ank: "https://www.arbeitsagentur.de/datei/kg1-anlagekind_ba033765.pdf",
-  online: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld-beantragen",
-  familienkasseFinden: "https://www.arbeitsagentur.de/familienkasse-finden",
+  formsPageAdult: "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder/formulare-kindergeld-ab-18",
+  /** Official start page for the online application (BundID) and submission info. */
+  online: "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-anspruch-hoehe-dauer/kindergeld-antrag-starten",
   checkedAt: "2026-10-26",
 } as const;
 
@@ -173,10 +174,10 @@ export function sheetLines(d: KgData, flags: KgFlags, plan: KgPlan): { text: str
   for (const doc of plan.documents) if (doc.count) p(`${doc.count} × ${doc.key === "KG1" ? "Antrag auf Kindergeld (KG1)" : "Anlage Kind (KG1-AnK)"}: ${doc.url}`);
   p(`Online-Antrag: ${KG_OFFICIAL.online}`);
   if (plan.notes.includes("cross_border_official_check")) p(`Auslandsbezug angegeben: Ob weitere Anlagen nötig sind (z. B. Anlage Ausland), prüft die Familienkasse – siehe ${KG_OFFICIAL.formsPage}. Diese Ausfüllhilfe deckt diesen Fall NICHT vollständig ab.`);
-  if (plan.notes.includes("adult_child_official_check")) p("Kind ab 18 Jahren: In der Anlage Kind sind zusätzliche Angaben und Nachweise nötig (Ausbildung, Studium usw.). Diese Ausfüllhilfe deckt diesen Fall NICHT vollständig ab.");
+  if (plan.notes.includes("adult_child_official_check")) p(`Kind ab 18 Jahren: In der Anlage Kind sind zusätzliche Angaben und Nachweise nötig (Ausbildung, Studium usw.) – siehe ${KG_OFFICIAL.formsPageAdult}. Diese Ausfüllhilfe deckt diesen Fall NICHT vollständig ab.`);
   h("Unterschrift und Abgabe");
   p("Amtlichen Antrag selbst prüfen, unterschreiben und selbst einreichen. BalkanLink sendet nichts.");
-  p(`Zuständige Familienkasse selbst ermitteln: ${KG_OFFICIAL.familienkasseFinden}`);
+  p(`Zuständige Familienkasse und Abgabeweg selbst prüfen: ${KG_OFFICIAL.online}`);
   L.push({ text: `Quellen geprüft am ${toDe(KG_OFFICIAL.checkedAt)}. Keine Gewähr für Vollständigkeit oder Anspruch.`, size: 8, gap: 10 });
   return L;
 }
