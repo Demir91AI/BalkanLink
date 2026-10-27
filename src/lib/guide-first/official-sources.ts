@@ -13,6 +13,8 @@ export interface GuideSource {
   url?: string;
   label?: string;
   verifiedOn?: string;
+  /** Additional official outbound links (never generated/filled PDFs). */
+  extraLinks?: { url: string; label: string }[];
 }
 
 const JC: GuideSource = { kind: "official", url: "https://jobcenter.digital", label: "jobcenter.digital (BA / Jobcenter)" };
@@ -27,8 +29,16 @@ export const GUIDE_SOURCES: Record<string, GuideSource> = {
     url: "https://www.arbeitsagentur.de/familie-und-kinder/eservices-fuer-familien",
     label: "Familienkasse — eServices (BA)",
     verifiedOn: "27.10.2026",
+    extraLinks: [
+      { url: "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder/formulare-kindergeld", label: "Familienkasse — Formulare Kindergeld (BA)" },
+    ],
   },
-  elterngeld: { kind: "info", url: "https://familienportal.de", label: "Familienportal (BMFSFJ)" },
+  elterngeld: {
+    kind: "info",
+    url: "https://familienportal.de/familienportal/rechner-antraege/elterngeld-digital",
+    label: "ElterngeldDigital — Familienportal (BMFSFJ)",
+    extraLinks: [{ url: "https://familienportal.de", label: "Familienportal (BMFSFJ) — Elterngeldstellen je Bundesland" }],
+  },
   mutterschaftsgeld: { kind: "official", url: "https://www.mutterschaftsgeld.de", label: "Mutterschaftsgeldstelle (Bundesamt für Soziale Sicherung)" },
   kinderzuschlag: { kind: "official", url: "https://www.arbeitsagentur.de/kinderzuschlag", label: "Familienkasse — Kinderzuschlag (BA)" },
   "krippengeld-bayern": { kind: "official", url: "https://www.zbfs.bayern.de/familie/krippengeld/", label: "ZBFS Bayern — Krippengeld" },
