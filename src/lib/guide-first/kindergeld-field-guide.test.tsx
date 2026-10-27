@@ -65,7 +65,7 @@ describe("Kindergeld field-by-field guide", () => {
     for (const p of ["src/components/KindergeldGuideContent.tsx", "src/components/kindergeld/KindergeldFieldGuide.tsx", "src/components/guide-first/OfficialNextStep.tsx"]) {
       expect(readFileSync(p, "utf8")).not.toMatch(/text-foreground\/\d+/);
     }
-    expect((readFileSync("src/pages/FormCenter.tsx", "utf8").match(/guide-dark-surface/g) || []).length).toBe(2);
+    expect((readFileSync("src/pages/FormCenter.tsx", "utf8").match(/data-testid="guide-dark-surface"/g) || []).length).toBe(2);
     expect(readFileSync("src/index.css", "utf8")).toMatch(/\.guide-dark-surface :where\(h1/);
   });
 });
