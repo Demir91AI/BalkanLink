@@ -29,6 +29,13 @@
       "when": 1793125192247,
       "tag": "0003_phase2_v2_quota_hard_stop",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793125868505,
+      "tag": "0004_annual_subscription_staging",
+      "breakpoints": true
     }
   ]
 }
