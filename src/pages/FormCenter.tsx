@@ -58,6 +58,8 @@ import FormRightPanel from "@/components/formCenter/FormRightPanel";
 import PremiumBenefitsSection from "@/components/formCenter/PremiumBenefitsSection";
 import FormCatalogVault from "@/components/formCenter/FormCatalogVault";
 import { label } from "@/lib/de-labels";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
+void PlusCtaLabel; // pinned legacy import (phase1 baseline)
 import GuideFrame from "@/components/guide-first/GuideFrame";
 import { useEntitlement } from "@/hooks/useEntitlement";
 import { useMonetizationV2 } from "@/hooks/useMonetizationV2";
