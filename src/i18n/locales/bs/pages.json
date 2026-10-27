@@ -1662,7 +1662,7 @@
         },
         "prepare": {
           "title": "Pripremi podatke",
-          "body": "Dokumenti i bankovni podaci neka ti budu pri ruci. Objašnjenja su u vodiču iznad.",
+          "body": "Pripremi Steuer-ID roditelja, ime i datum rođenja djeteta, njegovu Steuer-ID ako je već dodijeljena te IBAN i ime vlasnika računa. Za dodatne dokaze prati pitanja portala i zahtjev Familienkasse; ne pretpostavljaj da svaki novorođenac treba istu dokumentaciju.",
           "items": [
             "Tvoj Steuer-ID (steuerliche Identifikationsnummer)",
             "Steuer-ID djeteta — za novorođenče stiže poštom od Bundeszentralamt für Steuern nakon prijave rođenja",
@@ -1671,7 +1671,7 @@
         },
         "access": {
           "title": "Pripremi pristup portalu",
-          "body": "Za online zahtjev pripremi nalog na portalu Bundesagentur für Arbeit."
+          "body": "Na Familienkasse eServices provjeri prijavu, Familienkassen-Profil i identifikaciju preko BundID. Ako ne možeš završiti elektronsku identifikaciju, provjeri papirnu mogućnost na službenoj stranici."
         },
         "apply": {
           "title": "Popuni službeni online Antrag",
@@ -1679,7 +1679,7 @@
         },
         "after": {
           "title": "Nakon slanja",
-          "body": "Sačuvaj potvrdu o slanju i sačekaj odluku (Bescheid) od Familienkasse. Kindergeld se retroaktivno isplaćuje najviše za 6 mjeseci — zato predaj zahtjev na vrijeme. Promjene (npr. adresa, IBAN) javi Familienkasse. Iznose i rokove obrade ne garantujemo."
+          "body": "Sačuvaj potvrdu predaje. Prati poštu ili Familienkassen-Profil za Bescheid i eventualni zahtjev za dokazima; rok pročitaj u stvarnom dopisu. Promjene prijavi službenim putem. Vrijeme obrade i ishod nisu garantovani."
         }
       },
       "ctaOnline": "Otvori službeni online zahtjev (Familienkasse)",
