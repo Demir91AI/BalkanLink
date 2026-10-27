@@ -66,7 +66,8 @@ describe('agency reply safety rules', () => {
   });
   it('keeps entries visibility-gated, preserves host access and has no new routes or persistence', () => {
     const source = readFileSync('src/components/letter-reply/LetterReplyTask.tsx','utf8');
-    expect(source).toContain('if (!isLetterReplyVisible(import.meta.env.DEV, window.location.hostname)) return null');
+    expect(source).toContain('const visible = isLetterReplyVisible(import.meta.env.DEV, window.location.hostname)');
+    expect(source).toContain('if (!visible) return null');
     expect(source).toContain("canAccess ? setOpen(true) : navigate('/paketi')");
     expect(source).not.toMatch(/localStorage|sessionStorage|supabase|console\./);
     expect(readFileSync('src/pages/Vorlagen.tsx','utf8')).toContain('canAccess={isPremium}');

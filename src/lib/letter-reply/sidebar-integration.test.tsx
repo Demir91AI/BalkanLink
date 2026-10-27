@@ -68,8 +68,8 @@ describe('preview sidebar → existing letter reply wizard', () => {
     await mount();
     fireEvent.click(screen.getByRole('button', { name: 'Odgovor na pismo NOVO' }));
     expect(await screen.findByRole('dialog', { name: bsReply.title })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'history-back' }));
-    expect(screen.queryByRole('dialog', { name: bsReply.title })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'history-back', hidden: true }));
+    await waitFor(() => expect(screen.queryByRole('dialog', { name: bsReply.title })).not.toBeInTheDocument());
     fireEvent.click(screen.getByRole('button', { name: 'history-forward' }));
     expect(await screen.findByRole('dialog', { name: bsReply.title })).toBeInTheDocument();
   });
