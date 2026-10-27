@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, ArrowLeft, FilePenLine, Copy, Download, ShieldCheck, AlertTriangle, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,20 +14,37 @@ import { createReplyPdf } from '@/lib/letter-reply/pdf';
 import { isLetterReplyVisible } from '@/lib/letter-reply/visibility';
 
 /** Development/project-preview entry. Existing host access contract is supplied, never changed here. */
-export default function LetterReplyTask({ canAccess }: { canAccess: boolean }) {
+export default function LetterReplyTask({ canAccess, accessLoading = false, handleDeepLink = false }: { canAccess: boolean; accessLoading?: boolean; handleDeepLink?: boolean }) {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation('reply');
   const navigate = useLocalizedNavigate();
-  if (!isLetterReplyVisible(import.meta.env.DEV, window.location.hostname)) return null;
+  const location = useLocation();
+  const visible = isLetterReplyVisible(import.meta.env.DEV, window.location.hostname);
+  const replyRequested = handleDeepLink && new URLSearchParams(location.search).get('task') === 'reply';
+  // URL-driven opening preserves Back/Forward; consume only this query on close.
+  const dialogOpen = open || (replyRequested && canAccess && !accessLoading);
+  const changeOpen = (next: boolean) => {
+    setOpen(next);
+    if (!next && replyRequested) {
+      const search = new URLSearchParams(location.search);
+      search.delete('task');
+      const query = search.toString();
+      navigate(`${location.pathname}${query ? `?${query}` : ''}${location.hash}`, { replace: true });
+    }
+  };
+  useEffect(() => {
+    if (visible && replyRequested && !accessLoading && !canAccess) navigate('/paketi', { replace: true });
+  }, [visible, replyRequested, accessLoading, canAccess, navigate]);
+  if (!visible) return null;
   return <>
     <Button variant="outline" className="w-full h-auto justify-start whitespace-normal rounded-lg border-gold/40 bg-card py-4 text-card-foreground" onClick={() => canAccess ? setOpen(true) : navigate('/paketi')}>
       <FilePenLine className="text-gold" /><span className="flex-1 text-left"><span className="block font-semibold">{t('title')}</span><span className="block text-xs text-muted-foreground mt-1">{t('entryHint')}</span></span><ArrowRight />
     </Button>
-    <Dialog open={open} onOpenChange={setOpen}>
-      {open && <DialogContent className="dark w-[calc(100%-1rem)] max-w-3xl max-h-[94dvh] overflow-y-auto rounded-lg bg-background text-foreground p-4 sm:p-6 [&>button]:hidden">
+    <Dialog open={dialogOpen} onOpenChange={changeOpen}>
+      {dialogOpen && <DialogContent className="dark w-[calc(100%-1rem)] max-w-3xl max-h-[94dvh] overflow-y-auto rounded-lg bg-background text-foreground p-4 sm:p-6 [&>button]:hidden">
         <DialogTitle className="text-foreground pr-4">{t('title')}</DialogTitle>
         <DialogDescription className="text-foreground/80">{t('tagline')}</DialogDescription>
-        <ReplyWizard close={() => setOpen(false)} />
+        <ReplyWizard close={() => changeOpen(false)} />
       </DialogContent>}
     </Dialog>
   </>;

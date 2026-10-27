@@ -13,6 +13,7 @@
 - [x] Run no-downgrade/full tests and preview checks; no publish/deploy. Separate TypeScript check not manually run under harness rules.
 
 ## Task-to-output phase 1 (development only)
+- [ ] Add preview-only translated sidebar reply entry and direct localized wizard opening; test access, close and history without publishing.
 - [x] Add isolated browser-only agency reply drafting from Vorlagen and DocumentenCheck results, four languages, editable German output and PDF/copy.
 - [x] Replace inferred deadline headline with an original-letter review warning; preserve existing analysis and gates.
 - [x] Validate templates, PDF output, privacy, full regression suite (749 passed), isolated mobile/desktop flow; harness build OK; no publish/deploy.

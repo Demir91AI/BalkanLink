@@ -71,7 +71,7 @@ function TemplatePremiumPaywall({ templateName }: { templateName: string }) {
 export default function Vorlagen() {
   const navigate = useNavigate();
   const { slug } = useParams();
-  const { isPremium } = useSubscription();
+  const { isPremium, loading } = useSubscription();
   const { t } = useTranslation("pages");
 
   const SECTIONS = [
@@ -139,7 +139,7 @@ export default function Vorlagen() {
         {t("vorlagen.ui.pageSubtitle")}
       </p>
 
-      <div className="mb-6"><LetterReplyTask canAccess={isPremium} /></div>
+      <div className="mb-6"><LetterReplyTask canAccess={isPremium} accessLoading={loading} handleDeepLink /></div>
       <div className="space-y-8">
         {SECTIONS.map((section) => {
           const items = VORLAGEN_TEMPLATES.filter((i) => i.section === section.id);
