@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
@@ -73,10 +73,11 @@ describe("Kindergeld SmartGuide", () => {
     const { container } = render(
       <I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>,
     );
-    expect(container.querySelectorAll("input, textarea, select").length).toBe(0);
-    const cta = screen.getByText(bs.guideFirst.kindergeld.ctaOnline).closest("a")!;
-    expect(cta.getAttribute("href")).toBe("https://www.arbeitsagentur.de/familie-und-kinder/eservices-fuer-familien");
-    expect(cta.getAttribute("rel")).toBe("noopener noreferrer");
+    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select").length).toBe(0);
+    fireEvent.click(screen.getByRole("button", { name: /Korak 4:/ }));
+    const cta = screen.getByText(bs.guideFirst.kindergeld.ctaOnline).closest("a");
+    expect(cta?.getAttribute("href")).toBe("https://www.arbeitsagentur.de/familie-und-kinder/eservices-fuer-familien");
+    expect(cta?.getAttribute("rel")).toBe("noopener noreferrer");
     expect(container.textContent).not.toMatch(/2027/);
   });
 });
@@ -91,9 +92,9 @@ describe("Kindergeld special cases", () => {
     render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
     fireEvent.click(screen.getByText(bs.guideFirst.kindergeld.case[c]));
     expect(screen.queryByText(bs.guideFirst.kindergeld.ctaOnline)).toBeNull();
-    const cta = screen.getByText(bs.guideFirst.kindergeld.special[c].cta).closest("a")!;
-    expect(cta.getAttribute("href")).toBe(url);
+    const cta = screen.getByText(bs.guideFirst.kindergeld.special[c].cta).closest("a");
+    expect(cta?.getAttribute("href")).toBe(url);
     fireEvent.click(screen.getByText(bs.guideFirst.kindergeld.special.back));
-    expect(screen.getByText(bs.guideFirst.kindergeld.ctaOnline)).toBeTruthy();
+    expect(screen.getByTestId("smartguide-template")).toBeTruthy();
   });
 });

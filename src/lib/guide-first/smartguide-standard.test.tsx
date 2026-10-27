@@ -3,7 +3,8 @@ import { fireEvent, render, screen, cleanup } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
 import { readFileSync } from "node:fs";
-import SmartGuide from "@/components/guide-first/SmartGuide";
+import SmartGuide, { sectionBlocks } from "@/components/guide-first/SmartGuide";
+import KindergeldGuideContent from "@/components/KindergeldGuideContent";
 import { normalizeProgress, progressKey } from "./progress";
 import bs from "@/i18n/locales/bs/pages.json";
 import hr from "@/i18n/locales/hr/pages.json";
@@ -44,6 +45,22 @@ describe("minimal opt-in navigation persistence", () => {
 });
 
 describe("guide navigation and four-language standard", () => {
+  it("newborn wizard is primary without a disclosure and navigates seven actual submission steps", () => {
+    render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
+    const wizard = screen.getByTestId("smartguide-template");
+    expect(wizard.closest("details")).toBeNull();
+    expect(screen.getByRole("progressbar").getAttribute("aria-valuemax")).toBe("7");
+    expect(screen.queryByTestId("kg-field-guide")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: /Korak 5:/ }));
+    expect(screen.getByTestId("kg-field-guide")).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: /Korak 7:/ }));
+    expect(screen.getByText(bs.smartGuideStandard.summary)).toBeTruthy();
+  });
+  it("semantic content labels only field instructions with an explicit verified reference", () => {
+    expect(sectionBlocks({ meaning: "Meaning", action: "Act", next: "Next" }).map((b) => b.kind)).toEqual(["meaning", "action", "next"]);
+    expect(sectionBlocks({ verifiedField: { instruction: "Enter ID", reference: "" } })).toEqual([]);
+    expect(sectionBlocks({ verifiedField: { instruction: "Enter ID", reference: "KG1 · 1", format: "11" } }).map((b) => b.kind)).toEqual(["field", "format"]);
+  });
   it("previous/next/jump change the actual step and respect boundaries", () => {
     show();
     expect((screen.getByText(bs.smartGuideStandard.previous).closest("button") as HTMLButtonElement).disabled).toBe(true);
