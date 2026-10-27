@@ -1,6 +1,6 @@
 import { useId, useRef, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ArrowRight, Bookmark, Check, ExternalLink, RotateCcw, Save, Trash2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ExternalLink, RotateCcw, Save, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
@@ -78,7 +78,7 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
     <section data-testid="smartguide-template" data-workflow={id} className="smartguide-standard min-w-0 space-y-5 text-foreground">
       <nav aria-label={t("smartGuideStandard.steps")} className="flex gap-2 overflow-x-auto pb-2">
         {steps.map((s, i) => (
-          <Button key={s.id} variant={i === index ? "default" : "outline"} size="icon" className="h-11 w-11 shrink-0 rounded-md" aria-current={i === index ? "step" : undefined} aria-label={t("smartGuideStandard.jump", { number: i + 1, title: s.title })} onClick={() => go(i)}>
+          <Button key={s.id} variant="outline" size="icon" className={cn("h-11 w-11 shrink-0 rounded-md", i === index && "border-primary bg-primary text-primary-foreground")} aria-current={i === index ? "step" : undefined} aria-label={t("smartGuideStandard.jump", { number: i + 1, title: s.title })} onClick={() => go(i)}>
             {completed.includes(i) && i !== index ? <Check aria-hidden="true" className="h-4 w-4" /> : i + 1}
           </Button>
         ))}
