@@ -11,3 +11,9 @@
 - [x] Remove decorative access badges; preserve routes, gates, payments, languages and warnings.
 - [x] Document every sidebar destination and all eight catalog categories, duplicates and mobile rotation risk (`docs/catalog-navigation-cleanup-2026-10-27.md`).
 - [x] Run no-downgrade/full tests and preview checks; no publish/deploy. Separate TypeScript check not manually run under harness rules.
+
+## Task-to-output phase 1 (development only)
+- [x] Add isolated browser-only agency reply drafting from Vorlagen and DocumentenCheck results, four languages, editable German output and PDF/copy.
+- [x] Replace inferred deadline headline with an original-letter review warning; preserve existing analysis and gates.
+- [x] Validate templates, PDF output, privacy, full regression suite (749 passed), isolated mobile/desktop flow; harness build OK; no publish/deploy.
+- [ ] Authenticated host end-to-end + completed DocumentenCheck CTA: blocked on owner app session; managed login has no matching owner account. See `docs/task-to-output-phase1-2026-10-27.md`.

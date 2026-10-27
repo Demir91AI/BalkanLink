@@ -18,6 +18,9 @@ import { useTranslation } from "react-i18next";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { SEO } from "@/components/SEO";
 
+import LetterReplyTask from "@/components/letter-reply/LetterReplyTask";
+import { deadlineReviewKey } from "@/lib/letter-reply/model";
+
 type InputMode = "upload";
 
 const MAX_FILE_SIZE = 25 * 1024 * 1024;
@@ -166,13 +169,7 @@ function extractSummaryFromSections(sections: AnalysisSection[], t: (k: string, 
     else financial = extractFirstLine(financeSection.content);
   }
 
-  let deadline = t("documentCheck.results.noVisibleDeadline");
-  if (urgencySection) {
-    const dateMatch = urgencySection.content.match(/\d{1,2}\.\d{1,2}\.\d{2,4}/);
-    if (dateMatch) deadline = `${t("documentCheck.results.deadlinePrefix")} ${dateMatch[0]}`;
-    else if (urgencySection.content.toLowerCase().includes("kein")) deadline = t("documentCheck.results.noVisibleDeadline");
-    else deadline = extractFirstLine(urgencySection.content);
-  }
+  const deadline = t(deadlineReviewKey());
 
   return { docType, action, financial, deadline };
 }
@@ -261,6 +258,7 @@ export default function DokumentenCheck() {
   const localizedNavigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
   const { t: tPlus } = useTranslation("plus");
+  const { t: tReply } = useTranslation("reply");
   const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const submittingRef = useRef(false);
@@ -381,7 +379,7 @@ export default function DokumentenCheck() {
   const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
   const sections = useMemo(() => analysis ? parseAnalysisSections(analysis, t("documentCheck.results.fallbackTitle")) : [], [analysis, t]);
-  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, t) : null, [sections, t]);
+  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => String(key === "deadlineWarning" ? tReply(key) : t(key, opts))) : null, [sections, t, tReply]);
 
   return (
     <>
@@ -702,6 +700,8 @@ export default function DokumentenCheck() {
                   </div>
                 </motion.div>
               )}
+
+              <LetterReplyTask canAccess={hasAccess} />
 
               {sections.map((section, idx) => {
                 const locked = false; // every completed check is paid (1,99€) → full analysis for everyone
