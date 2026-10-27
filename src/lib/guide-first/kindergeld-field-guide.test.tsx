@@ -9,6 +9,7 @@ import bs from "@/i18n/locales/bs/pages.json";
 import hr from "@/i18n/locales/hr/pages.json";
 import sr from "@/i18n/locales/sr/pages.json";
 import de from "@/i18n/locales/de/pages.json";
+import inventory from "../../../docs/kindergeld-final-field-inventory.json";
 const setup = async (lang = "bs", locale = bs) => {
   const instance = i18n.createInstance();
   await instance.init({ lng: lang, resources: { [lang]: { pages: locale } }, interpolation: { escapeValue: false } });
@@ -21,6 +22,57 @@ const paper = () => fireEvent.mouseDown(screen.getByRole("tab", { name: F.mode.p
 const groups = paperGroups(F.kg1, F.ank, P.details, P.extras);
 
 describe("Kindergeld 2.0 paper walkthrough", () => {
+  it.each([["bs", bs], ["hr", hr], ["sr", sr], ["de", de]] as const)("%s exposes every audited subfield and choice in its correct numbered group", async (lang, locale) => {
+    await setup(lang, locale);
+    fireEvent.click(screen.getByRole("button", { name: new RegExp(locale.guideFirst.kindergeld.workflow.steps[4].title) }));
+    fireEvent.mouseDown(screen.getByRole("tab", { name: locale.guideFirst.kindergeld.fields.mode.paper }), { button: 0, ctrlKey: false });
+    const panel = screen.getByTestId("kg-paper-details");
+    expect(inventory.expectedGroups).toBe(30);
+    expect(inventory.expectedLines).toBe(174);
+    let count = 0;
+    for (const group of inventory.groups) {
+      const button = panel.querySelector(`button[data-field-id="${group.id}"]`);
+      if (!button) throw new Error(`Missing group ${group.id}`);
+      fireEvent.click(button);
+      expect(within(panel).getByRole("heading", { level: 3 }).textContent).toMatch(new RegExp(`^${group.position}\\.`));
+      const terms = screen.getByTestId("kg-field-terms");
+      expect(terms.closest("details")).toBeNull();
+      expect(terms.querySelectorAll("li")).toHaveLength(group.expectedLines);
+      for (const line of group.lines) {
+        const node = terms.querySelector(`[data-term-id="${line.id}"]`);
+        if (!node) throw new Error(`Missing ${group.id}/${line.id}`);
+        const record = locale.guideFirst.kindergeld.pilot.terms[group.id as keyof typeof locale.guideFirst.kindergeld.pilot.terms].find(r => r.id === line.id);
+        if (!record) throw new Error(`Missing translation ${line.id}`);
+        expect(record.de).toBe(line.de);
+        expect(record.translation.length).toBeGreaterThan(2);
+        expect(record.meaning.length).toBeGreaterThan(20);
+        expect(node).toBeVisible();
+        expect(node.textContent).toContain(line.de);
+        expect(node.textContent).toContain(record.translation);
+        expect(node.textContent).toContain(record.meaning);
+        count++;
+      }
+    }
+    expect(count).toBe(174);
+    expect(panel.querySelectorAll("input,textarea,select")).toHaveLength(0);
+  });
+  it("pins seven statuses, three relationship rows with five choices, and separate conditional questions", () => {
+    const terms = P.terms;
+    expect(terms.status.slice(0, 7).map(r => r.de)).toEqual(["ledig", "verheiratet", "geschieden", "verwitwet", "in eingetragener Lebenspartnerschaft lebend", "aufgehobene Lebenspartnerschaft", "dauernd getrennt lebend"]);
+    expect(terms.status[0].translation).toBe("Neoženjen/neudata");
+    expect(terms.status[6].meaning).toContain("namjerava trajno održavati razdvojenost");
+    const choices = ["leibliches Kind", "Adoptivkind", "Pflegekind", "Stiefkind", "Enkelkind"];
+    expect(terms["ank-3"]).toHaveLength(18);
+    for (let row = 0; row < 3; row++) expect(terms["ank-3"].slice(row * 6 + 1, row * 6 + 6).map(r => r.de)).toEqual(choices);
+    for (const id of ["ank-5", "ank-6", "ank-7", "ank-8", "stateWork", "posting"] as const) {
+      expect(terms[id].filter(r => r.de === "ja").length).toBe(id === "ank-6" ? 3 : 1);
+      expect(terms[id].filter(r => r.de === "nein").length).toBe(id === "ank-6" ? 3 : 1);
+    }
+    expect(terms["ank-6"].some(r => r.de.startsWith("a)"))).toBe(true);
+    expect(terms["ank-6"].some(r => r.de.startsWith("b)"))).toBe(true);
+    expect(terms["ank-7"][0].meaning).toContain("ne samo stvarno uplaćen novac");
+    expect(terms["ank-4"][0].meaning).toContain("preskoči cijelu tačku 3 (3.1–3.3)");
+  });
   it.each([["bs", bs], ["hr", hr], ["sr", sr], ["de", de]] as const)("%s has 30 concrete field groups while retaining all original 20 records", async (lang, locale) => {
     await setup(lang, locale);
     fireEvent.click(screen.getByRole("button", { name: new RegExp(locale.guideFirst.kindergeld.workflow.steps[4].title) }));
