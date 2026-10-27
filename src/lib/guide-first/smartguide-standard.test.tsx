@@ -45,6 +45,40 @@ describe("minimal opt-in navigation persistence", () => {
 });
 
 describe("guide navigation and four-language standard", () => {
+  it("Kindergeld review marks and automatically advances, final completion is not submission and can reopen/unmark", () => {
+    render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
+    const p = bs.guideFirst.kindergeld.pilot;
+    fireEvent.click(screen.getByText(p.advance));
+    expect(screen.getByRole("progressbar").getAttribute("aria-valuenow")).toBe("2");
+    expect(screen.getByTestId("guide-reviewed-count").textContent).toBe("Pregledano 1 od 7 koraka");
+    expect(screen.getByRole("button", {name:/Korak 1:.*Pregledano/}).getAttribute("data-reviewed")).toBe("true");
+    for (let i=1; i<6; i++) fireEvent.click(screen.getByText(p.advance));
+    fireEvent.click(screen.getByText(p.finish));
+    expect(screen.getByTestId("guide-completion").textContent).toContain(p.completionBody);
+    expect(screen.getByTestId("guide-reviewed-count").textContent).toBe("Pregledano 7 od 7 koraka");
+    fireEvent.click(screen.getByText(p.reopen));
+    expect(screen.queryByTestId("guide-completion")).toBeNull();
+    fireEvent.click(screen.getByText(p.unmark));
+    expect(screen.getByTestId("guide-reviewed-count").textContent).toBe("Pregledano 6 od 7 koraka");
+  });
+  it("non-pilot guides keep review toggling without advancing and locked steps cannot review", () => {
+    show();
+    fireEvent.click(screen.getByText(bs.smartGuideStandard.reviewed));
+    expect(screen.getByRole("progressbar").getAttribute("aria-valuenow")).toBe("1");
+    expect(screen.getByText(bs.smartGuideStandard.reviewed).closest("button")?.getAttribute("aria-pressed")).toBe("true");
+    cleanup();
+    render(<I18nextProvider i18n={i18n}><SmartGuide steps={steps} isLocked={() => true} lockedContent={<p>locked fixture</p>} /></I18nextProvider>);
+    expect(screen.queryByText(bs.smartGuideStandard.reviewed)).toBeNull();
+    expect(screen.queryByText(bs.smartGuideStandard.next)).toBeNull();
+  });
+  it("existing-child choice provides exact section distinctions without taking personal answers", () => {
+    const {container} = render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
+    fireEvent.click(screen.getByText(bs.guideFirst.kindergeld.pilot.existingCase));
+    expect(screen.getByTestId("kg-existing").textContent).toContain("KG1 tački 5");
+    expect(screen.getByTestId("kg-existing").textContent).toContain("Anlage Kind tačka 4");
+    expect(screen.getByTestId("smartguide-template")).toBeTruthy();
+    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select")).toHaveLength(0);
+  });
   it("newborn wizard is primary without a disclosure and navigates seven actual submission steps", () => {
     render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
     const wizard = screen.getByTestId("smartguide-template");
@@ -73,6 +107,7 @@ describe("guide navigation and four-language standard", () => {
   it("new standard has identical key shapes and concrete newborn checklists in all locales", () => {
     const shape = (v: unknown): unknown => v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, shape(x)])) : typeof v;
     for (const locale of [hr, sr, de]) expect(shape(locale.smartGuideStandard)).toEqual(shape(bs.smartGuideStandard));
+    for (const locale of [hr, sr, de]) expect(shape(locale.guideFirst.kindergeld.pilot)).toEqual(shape(bs.guideFirst.kindergeld.pilot));
     for (const locale of [bs, hr, sr, de]) {
       expect(locale.smartGuideStandard.kindergeldChecks.prepare).toHaveLength(3);
       expect(locale.smartGuideStandard.kindergeldChecks.prepare.join(" ")).toContain("Steuer-ID");

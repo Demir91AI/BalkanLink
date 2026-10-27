@@ -6,6 +6,7 @@ import SmartGuide, { type SmartGuideStep } from "@/components/guide-first/SmartG
 import { getGuideSource } from "@/lib/guide-first/official-sources";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import { KINDERGELD_PDFS, FORMS_URL, BZST_ID_URL } from "@/components/kindergeld/pilot-model";
 
 /**
  * Kindergeld newborn SmartGuide (guide-first cutover, 2026-10-27).
@@ -21,12 +22,12 @@ const SOURCES = [
   { key: "formulare", url: "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder/formulare-kindergeld" },
 ] as const;
 
-type Case = "newborn" | "adult" | "cross";
-const SPECIAL_URL: Record<Exclude<Case, "newborn">, string> = {
+type Case = "newborn" | "existing" | "adult" | "cross";
+const SPECIAL_URL: Record<"adult" | "cross", string> = {
   adult: "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ab-18-jahren",
   cross: "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ausland",
 };
-const CASES: Case[] = ["newborn", "adult", "cross"];
+const CASES: Case[] = ["newborn", "existing", "adult", "cross"];
 
 const linkCls = "inline-flex items-center gap-1.5 text-[hsl(var(--gold))] underline-offset-2 hover:underline";
 
@@ -34,19 +35,30 @@ export default function KindergeldGuideContent() {
   const { t } = useTranslation("pages");
   const [c, setC] = useState<Case>("newborn");
   const k = (s: string) => `guideFirst.kindergeld.${s}`;
+  const p = (s: string) => k(`pilot.${s}`);
   const steps = t(k("workflow.steps"), { returnObjects: true }) as SmartGuideStep[];
   const summary = t(k("workflow.summary"), { returnObjects: true }) as string[];
+  const help = t(p("stepHelp"), { returnObjects: true }) as [string, string][];
+  const glossary = t(p("glossary"), { returnObjects: true }) as [string, string][];
+  const actions = <div className="space-y-2"><h4 className="font-semibold text-foreground">{t(p("nextActions"))}</h4>
+    <Button asChild className="h-auto min-h-11 w-full whitespace-normal py-3"><a href={ONLINE_URL} target="_blank" rel="noopener noreferrer">{t(k("ctaOnline"))}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /></a></Button>
+    <Button asChild variant="outline" className="h-auto min-h-11 w-full whitespace-normal py-3"><a href={FORMS_URL} target="_blank" rel="noopener noreferrer">{t(p("formsLink"))}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /></a></Button>
+  </div>;
   const newbornSteps = steps.map((step) => ({ ...step,
-    content: step.id === "fields" ? <KindergeldFieldGuide onlineUrl={ONLINE_URL} /> :
-      step.id === "portal" || step.id === "submit" ? <Button asChild className="h-auto min-h-11 w-full whitespace-normal py-3"><a href={ONLINE_URL} target="_blank" rel="noopener noreferrer">{t(k("ctaOnline"))}<ExternalLink aria-hidden="true" className="h-4 w-4" /></a></Button> : undefined,
+    content: <div className="space-y-4">
+      {step.id === "fields" && <KindergeldFieldGuide onlineUrl={ONLINE_URL} />}
+      <section className="guide-block-where rounded-md border border-border p-4"><h4 className="mb-2 text-sm font-bold text-foreground">{help[steps.indexOf(step)]?.[0]}</h4><p className="text-sm leading-6 text-muted-foreground">{help[steps.indexOf(step)]?.[1]}</p></section>
+      {(step.id === "portal" || step.id === "submit" || step.id === "after") && actions}
+      {(step.id === "documents" || step.id === "prepare") && <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal"><a href={BZST_ID_URL} target="_blank" rel="noopener noreferrer">{t(p("idLink"))}<ExternalLink aria-hidden="true" className="h-4 w-4" /></a></Button>}
+    </div>,
   }));
 
   return (
     <div className="space-y-6" data-testid="kindergeld-smartguide">
       <section aria-labelledby="kg-case">
         <p id="kg-case" className="mb-2 text-sm font-semibold text-foreground">{t(k("caseQ"))}</p>
-        <Tabs value={c} onValueChange={(v) => { if (v === "newborn" || v === "adult" || v === "cross") setC(v); }}>
-        <TabsList aria-labelledby="kg-case" className="grid h-auto w-full grid-cols-1 gap-2 bg-popover sm:grid-cols-3">
+        <Tabs value={c} onValueChange={(v) => { if (v === "newborn" || v === "existing" || v === "adult" || v === "cross") setC(v); }}>
+        <TabsList aria-labelledby="kg-case" className="grid h-auto w-full grid-cols-1 gap-2 bg-popover sm:grid-cols-2">
           {CASES.map((id) => (
             <TabsTrigger
               key={id}
@@ -54,17 +66,19 @@ export default function KindergeldGuideContent() {
               onClick={() => setC(id)}
               className="min-h-11 whitespace-normal rounded-md px-3 py-3 text-sm text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
-              {t(k(`case.${id}`))}
+              {id === "existing" ? t(p("existingCase")) : t(k(`case.${id}`))}
             </TabsTrigger>
           ))}
         </TabsList>
         </Tabs>
       </section>
 
-      {c === "newborn" && <SmartGuide id="kindergeld-newborn" title={t(k("title"))} subtitle={t(k("lead"))}
-        source={getGuideSource("kindergeld")} steps={newbornSteps} summary={summary} />}
+      {c === "existing" && <aside data-testid="kg-existing" className="guide-block-where rounded-md border border-border p-4 text-sm leading-6 text-foreground">{t(p("existingBody"))}</aside>}
+      {(c === "newborn" || c === "existing") && <SmartGuide id="kindergeld-newborn" title={t(k("title"))} subtitle={t(k("lead"))}
+        source={getGuideSource("kindergeld")} steps={newbornSteps} summary={summary}
+        reviewFlow={{ advance: t(p("advance")), finish: t(p("finish")), reviewed: t(p("reviewed")), unmark: t(p("unmark")), count: (count, total) => t(p("count"), { count, total }), announcement: (title) => t(p("announcement"), { title }), completionTitle: t(p("completionTitle")), completionBody: t(p("completionBody")), reopen: t(p("reopen")), actions }} />}
 
-      {c !== "newborn" && (
+      {(c === "adult" || c === "cross") && (
         <section data-testid={`kg-special-${c}`} className="rounded-lg border border-border bg-card p-5 text-sm text-foreground">
           <h3 className="font-semibold text-foreground">{t(k(`special.${c}.title`))}</h3>
           <p className="mt-2 leading-relaxed">{t(k(`special.${c}.body`))}</p>
@@ -84,6 +98,9 @@ export default function KindergeldGuideContent() {
         </section>
       )}
 
+      <details className="border-y border-border py-2 text-sm text-muted-foreground"><summary className="min-h-11 cursor-pointer py-3 font-semibold text-primary">{t(p("glossaryTitle"))}</summary>
+        <dl className="space-y-4 py-3">{glossary.map(([term, meaning]) => <div key={term}><dt className="font-bold text-foreground">{term}</dt><dd className="mt-1 leading-6">{meaning}</dd></div>)}</dl>
+      </details>
 
       <section className="rounded-lg border border-border bg-card p-4">
         <div className="flex items-center gap-2 text-[hsl(var(--gold))]">
@@ -99,6 +116,7 @@ export default function KindergeldGuideContent() {
             </li>
           ))}
         </ul>
+        <div className="mt-3 flex flex-col gap-2">{Object.entries(KINDERGELD_PDFS).map(([form, url]) => <Button key={form} asChild variant="outline" className="h-auto min-h-11 whitespace-normal py-3"><a href={url} target="_blank" rel="noopener noreferrer">{t(p("originalPdf"), { form })}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /></a></Button>)}</div>
         <p className="mt-3 text-xs text-muted-foreground">{t(k("verified"))}</p>
         <p className="mt-2 flex gap-2 text-xs text-muted-foreground">
           <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />

@@ -1646,7 +1646,7 @@
     "seoDesc": "Korak-po-korak vodiči i službeni postupci za Kindergeld, Bürgergeld, Wohngeld, BAföG, vize i još 40+ usluga — na tvom jeziku.",
     "kindergeld": {
       "title": "Kindergeld za novorođenče — korak po korak",
-      "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovde ne unosiš nikakve lične podatke — vodič ti samo pokazuje redosled.",
+      "lead": "Drži službeni BA zahtev otvoren u drugoj kartici. Ovde pratiš objašnjenja, a podatke unosiš samo kod Familienkasse. Kindergeld nije Kinderzuschlag; pravo i ishod proverava Familienkasse.",
       "caseQ": "Koja situacija ti najviše odgovara? (neobavezno, samo za orijentaciju)",
       "case": {
         "newborn": "Novorođenče ili dete do 18 godina, živimo u Nemačkoj",
@@ -2087,7 +2087,7 @@
           {
             "id": "fields",
             "title": "Roditelj, dijete, račun i posebne okolnosti",
-            "subtitle": "Online grupe ili svih 20 objašnjenja za KG1 i Anlage Kind.",
+            "subtitle": "Online teme ili 30 grupa u originalnom papirnom redosledu — bez unosa podataka ovde.",
             "sections": {
               "meaning": "Online pitanja zavise od tvojih odgovora i ne prate nužno brojeve papirnog obrasca. Papirne reference vrijede samo za navedeni KG1 i Anlage Kind.",
               "action": "Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče.",
@@ -2127,9 +2127,458 @@
           }
         ],
         "summary": [
-          "Odabran je odgovarajući postupak i pripremljeni su traženi podaci.",
-          "Zahtev se predaje isključivo Familienkasse; proveri online potvrdu ili papirne potpise.",
-          "Sačuvaj potvrdu, prati poruke i službenim putem dostavi tražene dokaze ili promjene."
+          "Ovo nije potvrda da je zahtev popunjen, predat ili odobren. Pregledao/la si uputstva; proveri nedovršene korake i svoj originalni zahtev. Samo ti odlučuješ kada ćeš ga predati Familienkasse.",
+          "Na BA proveri nadležnu Familienkasse, ne koristi izmišljenu adresu. Online dovrši predaju i preuzmi potvrdu za sebe. Za papir prebroj priloge, potpise i adresu primaoca; šalji prema službenim uputstvima. Dokumente dostavi samo kako se traže; originale samo na izričit zahtev.",
+          "Eingangsbestätigung je potvrda prijema, ne odobrenje. Nachforderung traži dopunu; pročitaj šta nedostaje i stvarni rok. Bescheid je odluka: proveri dete, period, obrazloženje i pravni lek. Ne računamo žalbene rokove. Promene adrese, računa ili okolnosti prijavi Familienkasse; čuvaj dokumente kod sebe."
+        ]
+      },
+      "pilot": {
+        "advance": "Označi kao pregledano i nastavi",
+        "finish": "Završi vodič",
+        "reviewed": "Pregledano",
+        "unmark": "Ukloni oznaku pregledano",
+        "count": "Pregledano {{count}} od {{total}} koraka",
+        "announcement": "Korak je označen. Sledeće: {{title}}",
+        "completionTitle": "Pregled vodiča završen",
+        "completionBody": "Ovo nije potvrda da je zahtev popunjen, predat ili odobren. Pregledao/la si uputstva; proveri nedovršene korake i svoj originalni zahtev. Samo ti odlučuješ kada ćeš ga predati Familienkasse.",
+        "reopen": "Ponovo pregledaj vodič",
+        "fieldIndex": "Indeks polja ({{total}} grupa)",
+        "fieldPosition": "Grupa {{current}}/{{total}} · pregledano {{reviewed}}",
+        "fieldProgress": "Pregled polja",
+        "meaning": "Šta ovaj izraz znači",
+        "help": "Ne razumem / nemam ovaj podatak",
+        "originalPdf": "Otvori originalni {{form}} PDF — BA",
+        "officialOnline": "Otvori službeni online postupak",
+        "fieldNext": "Pregledano — sledeća grupa",
+        "fieldFinish": "Završi pregled polja",
+        "fieldsDone": "Sve grupe su pregledane, ne nužno ispravno popunjene. Proveri originalni zahtev pa nastavi na proveru i predaju.",
+        "existingCase": "Već primam Kindergeld za drugo dete",
+        "existingBody": "Za novo dete i dalje je potreban zahtev. Uzmi postojeći Kindergeld-Nr. sa Bescheida. U KG1 tački 5 navedi decu za koju već TI primaš Kindergeld; novo dete ide u svoju Anlage Kind. Ako za isto novo dete drugi roditelj već podnosi zahtev, to je pitanje Anlage Kind tačka 4, a ne nova nezavisna isplata.",
+        "glossaryTitle": "Nemački izrazi — jednostavno",
+        "stepHelpTitle": "Pitanja u ovom koraku",
+        "nextActions": "Šta uraditi nakon ovog pregleda",
+        "formsLink": "Službeni obrasci i uputstva — BA",
+        "idLink": "Steuer-ID: službena pomoć BZSt",
+        "pageConvention": "Papirne stranice: KG1 str. 1 = PDF str. 2, KG1 str. 2 = PDF str. 3 (naslovnica ispred). Anlage Kind str. 1–4 = PDF str. 1–4. Izdanje: Stand September 2025; provereno na BA 27.10.2026.",
+        "onlineUnverified": "Online teme nisu potvrđeni nazivi ni redosled ekrana iza prijave. Prati stvarne kategorije u BA zahtevu; ove četiri grupe služe kao pomoć pri unosu, ne kao kopija portala.",
+        "imaginary": "Svi primeri su izmišljeni; brojevi su demonstracijski, nisu važeći podaci za predaju.",
+        "details": {
+          "kg1-0": {
+            "title": "Broj zahteva i prilozi",
+            "meaning": "Broj predmeta spaja nova pisma s tvojom postojećom evidencijom Familienkasse; nije Steuer-ID.",
+            "help": "Prvi zahtev bez dodeljenog broja: ne izmišljaj ga. Ako već primaš Kindergeld, pogledaj vrh poslednjeg Bescheida; ne zamenjuj ga brojem računa.",
+            "de": "Kindergeld-Nr.",
+            "what": "Navedi postojeći Kindergeld-Nr. samo ako je dodeljen; prvi zahtev bez broja ostavlja rubriku praznu. Telefon i broj priloga slede zasebno.",
+            "example": "Prva Majina prijava: Kindergeld-Nr. ostaje prazno; telefon i broj priloga slede zasebno.",
+            "mistake": "Zameniti Kindergeld-Nr. sa Steuer-ID ili izmisliti broj prve prijave."
+          },
+          "kg1-1": {
+            "title": "Tvoj poreski broj",
+            "meaning": "Steuer-ID identifikuje roditelja koji podnosi zahtev, čak i nakon promene prezimena ili adrese.",
+            "help": "Ako nemaš pismo, pogledaj Identifikationsnummer na elektronische Lohnsteuerbescheinigung. Za izgubljeni sopstveni broj prati BZSt uputstva; ne daje se telefonom ili e-poštom. Ako nije dodeljen, pitaj Familienkasse kako postupiti — ne upisuj nule."
+          },
+          "kg1-2": {
+            "title": "Ime roditelja",
+            "meaning": "Antragstellende Person je podnosilac zahteva. Geburtsname je prezime pri rođenju; Staatsangehörigkeit je državljanstvo, ne mesto rođenja.",
+            "help": "Prepiši sva imena iz važećeg dokumenta, uključujući č/ć. Titel nije naziv radnog mesta. Ako nemaš akademsku titulu ili ranije prezime, ne izmišljaj ga. Za više državljanstava ili boravišni status pitaj Familienkasse koji prilog treba.",
+            "de": "Familienname · Titel · Vorname · ggf. Geburtsname und Familienname aus früherer Ehe · Geburtsdatum · Geburtsort · Geschlecht · Staatsangehörigkeit"
+          },
+          "kg1-3": {
+            "title": "Tvoja adresa",
+            "meaning": "Anschrift je adresa za tvoju sadašnju situaciju, ne adresa poslodavca ili porodilišta.",
+            "help": "PLZ je poštanski broj mesta stanovanja. Ako se Meldebescheinigung i stvarno stanovanje razlikuju ili si se upravo preselio/la, razjasni tačnu adresu s Familienkasse; ne preuzimaj staru adresu iz ranijeg pisma.",
+            "de": "Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)",
+            "what": "Navedi ulicu, kućni broj, poštanski broj (PLZ), mesto stanovanja i državu. Bračni status sledi zasebno.",
+            "example": "Maja prepisuje trenutnu adresu: ulica, kućni broj, PLZ, mesto i država; status sledi zasebno.",
+            "mistake": "Navesti staru adresu s Bescheida umesto proverene trenutne."
+          },
+          "kg1-4": {
+            "title": "Partner ili drugi roditelj — tačka 2",
+            "meaning": "Tačka 2 razlikuje bračnog/registrovanog partnera i drugog biološkog roditelja/očuha ili maćehu u zajedničkom domaćinstvu. Nije dovoljno sve zvati „drugi roditelj“.",
+            "help": "Bračni ili registrovani partner naveden je zasebno; ne preskači celu tačku samo zato što imate različite adrese. U odvojenom/nejasnom domaćinstvu proveri uputstva Familienkasse. Steuer-ID te osobe navodi se ako je dodeljen, ne izmišljaj ga.",
+            "de": "Angaben zum/zur Ehepartner(in) bzw. eingetragenen Lebenspartner(in) oder zum anderen leiblichen Elternteil bzw. Stiefelternteil im gemeinsamen Haushalt",
+            "what": "Navedi tražene podatke osobe iz tačke 2: Steuer-ID ako je dodeljen, sva imena, eventualnu titulu/ranije prezime, rođenje, državljanstvo i pol. Različita adresa sledi zasebno.",
+            "where": "Bračni ili registrovani partner naveden je zasebno; ne preskači celu tačku samo zato što imate različite adrese. U odvojenom/nejasnom domaćinstvu proveri uputstva Familienkasse. Steuer-ID te osobe navodi se ako je dodeljen, ne izmišljaj ga."
+          },
+          "kg1-5": {
+            "title": "IBAN i vlasnik računa",
+            "meaning": "IBAN identifikuje račun; BIC banku. Bank, Finanzinstitut je naziv banke, ne vlasnika računa.",
+            "help": "U bankovnoj aplikaciji otvori detalje računa, ne broj kartice. Prepiši IBAN, BIC i naziv banke kako traži papir. Za strani ili zajednički račun proveri podatke s bankom i vlasnika u sledećoj grupi; nije nužno DE račun.",
+            "de": "IBAN · BIC · Bank, Finanzinstitut (ggf. auch Zweigstelle)",
+            "what": "Prepiši IBAN, BIC i naziv banke (po potrebi poslovnice) iz detalja računa. Vlasnika označavaš u sledećoj grupi."
+          },
+          "kg1-6": {
+            "title": "Kome stiže rešenje",
+            "meaning": "Ovo menja primaoca Bescheida, a ne automatski vlasnika računa za isplatu.",
+            "help": "Ako rešenje želiš primiti sam/a, ovu posebnu rubriku ostavi praznu. Za zastupnika dogovori tačne podatke i ovlašćenje s tom osobom/Familienkasse; ne navodi advokata kojeg nisi angažovao/la.",
+            "de": "Der Bescheid soll nicht mir, sondern folgender Person (z. B. Steuerberater, Rechtsanwalt, etc.) zugesandt werden:",
+            "where": "Kontakt dogovoren s ovlašćenim primaocem Bescheida; ako primaš ti, ništa ne prepisuješ.",
+            "example": "Maja želi sopstveni Bescheid: rubrika drugog primaoca ostaje prazna."
+          },
+          "kg1-7": {
+            "title": "Druga deca za koju primaš Kindergeld",
+            "meaning": "Tačka 5 popisuje drugu decu za koju već primaš Kindergeld; nije nova prijava za bebu.",
+            "help": "Uzmi Bescheid za svako obuhvaćeno dete. Ako se prezime razlikuje od tvog, navedi i njega. Ako još nemaš nijedno odobreno davanje, ne prepisuj novorođenče u ovu tabelu.",
+            "de": "Für folgende Kinder beziehe ich bereits Kindergeld"
+          },
+          "kg1-8": {
+            "title": "Kad drugi roditelj prima Kindergeld",
+            "meaning": "Tačka 6 pita o drugoj tvojoj deci za koju Kindergeld prima druga osoba. Ne zamenjuje Anlage Kind za novo dete.",
+            "help": "Pronađi ime primaoca i Familienkasse/Kindergeld-Nr. uz njegovu pomoć. Ako ne možeš dobiti podatke, ne nagađaj; pitaj Familienkasse kako navesti ono što znaš.",
+            "example": "Maja nema drugu decu za koju druga osoba prima Kindergeld: tačka 6 ostaje prazna."
+          },
+          "kg1-9": {
+            "title": "Datum i potpis na KG1",
+            "meaning": "Potpis potvrđuje izjavu podnosioca o podacima u zahtevu. Nije samo potvrda čitanja vodiča.",
+            "help": "Pregledaj izjavu iznad potpisa pa datiraj i potpiši papir. Za maloletnog podnosioca prati deo za zakonskog zastupnika. Druga saglasnost objašnjena je zasebno nakon ove grupe.",
+            "de": "Datum · Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+            "what": "Pročitaj izjavu podnosioca, navedi datum i potpiši KG1 na papiru. Zakonsko zastupanje i saglasnost osobe iz tačke 2 ne zamenjuju tvoj potpis.",
+            "where": "Izjava i datum/potpis na KG1 str. 2; nije podatak iz drugog dokumenta.",
+            "example": "Izmišljeno: Maja nakon provere datira KG1 i svojeručno potpisuje kao podnosilac.",
+            "mistake": "Potpisati samo Anlage Kind i zaboraviti izjavu/potpis KG1."
+          },
+          "ank-0": {
+            "title": "Oznake priloga za dete",
+            "meaning": "Lfd. Nr. je redni broj priloga za dete, a ne broj Steuer-ID.",
+            "help": "Za dvoje dece priloži dve Anlage Kind s brojevima 1 i 2. Datum poveži s KG1. Ako Kindergeld-Nr. nije dodeljen, ne pravi novi broj za prilog.",
+            "de": "Familienname und Vorname der antragstellenden Person · Kindergeld-Nr. · zum Antrag auf Kindergeld vom · Lfd. Nr."
+          },
+          "ank-1": {
+            "title": "Poreski broj deteta",
+            "meaning": "Dete ima sopstveni Steuer-ID — ne roditeljski ni broj izvoda rođenih.",
+            "help": "BZSt šalje broj poštom nakon što Meldebehörde prenese podatke. Ako pismo nije stiglo, pitaj Meldebehörde; za nedostajući izvod rođenih Standesamt. Za postupak bez dostupnog ID pitaj Familienkasse. Obrazac BZSt za ponovnu dostavu sopstvenog ID nije univerzalni zahtev za detetov ID.",
+            "where": "BZSt šalje broj poštom nakon što Meldebehörde prenese podatke. Ako pismo nije stiglo, pitaj Meldebehörde; za nedostajući izvod rođenih Standesamt. Za postupak bez dostupnog ID pitaj Familienkasse. Obrazac BZSt za ponovnu dostavu sopstvenog ID nije univerzalni zahtev za detetov ID."
+          },
+          "ank-2": {
+            "title": "Ime i rođenje deteta",
+            "meaning": "Podaci se odnose na dete iz ovog priloga. Geburtsort nije automatski mesto sadašnjeg stanovanja.",
+            "help": "Proveri dokument o rođenju zbog tačnog pisanja, ali ne znači da ga moraš priložiti za svako dete rođeno u Nemačkoj mlađe od 18. Ako državljanstvo ili prezime nisu jasni, razjasni dokument sa Standesamtom; ne nagađaj.",
+            "de": "Familienname · Titel · Vorname · Geburtsname · Geburtsdatum · Geburtsort · Geschlecht · Staatsangehörigkeit",
+            "what": "Prepiši sva imena deteta, eventualni Geburtsname, datum/mesto rođenja, pol i državljanstvo iz dokumenata. Različita adresa sledi zasebno.",
+            "example": "Lea Kovač · 02.09.2026 · mesto rođenja iz dokumenta; različita adresa proverava se zasebno.",
+            "mistake": "Navesti Majine podatke ili drugačije pisati ime deteta nego u dokumentu o rođenju."
+          },
+          "ank-3": {
+            "title": "Tvoj odnos prema detetu",
+            "meaning": "Kindschaftsverhältnis je pravni/porodični odnos deteta prema svakoj osobi, ne bračni status roditelja.",
+            "help": "Leibliches Kind = biološko, Adoptivkind = usvojeno, Pflegekind = hraniteljsko, Stiefkind = pastorak/pastorka, Enkelkind = unuk/unuka. Označi odnos u svakom relevantnom redu; za nejasno starateljstvo ili usvojenje pitaj Familienkasse.",
+            "de": "Kindschaftsverhältnis",
+            "what": "Označi odnos prema podnosiocu, partneru i drugoj osobi: leibliches Kind, Adoptivkind, Pflegekind, Stiefkind ili Enkelkind. Za usvojenje prati uputstvo o Annahmebeschluss.",
+            "example": "Lea je Majino biološko dete: u redu prema podnosiocu označi leibliches Kind.",
+            "mistake": "Zameniti bračni status roditelja s odnosom deteta prema svakoj osobi."
+          },
+          "ank-4": {
+            "title": "Dete od 18 godina — za bebu preskoči",
+            "meaning": "Tačka 3 počinje na str. 2, a 3.3 o invaliditetu je na str. 3. To nisu pitanja za novorođenče.",
+            "help": "Za bebu preskoči celu tačku 3 i pređi na 4 na str. 3. Za dete od/uskoro 18 godina koristi BA „Kindergeld ab 18“ i dokaze za 3.1–3.3; ovaj pilot ne utvrđuje punoletno pravo ili invaliditet.",
+            "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4",
+            "where": "Uputstva Anlage Kind str. 2–3 i BA Kindergeld ab 18; za bebu nema školskog dokaza.",
+            "example": "Lea je novorođenče: cela tačka 3 ostaje prazna, sledi tačka 4."
+          },
+          "ank-5": {
+            "title": "Raniji zahtev za ovo dete",
+            "meaning": "Pitanje je o istom detetu iz ovog priloga, uključujući nerešeni zahtev drugog roditelja.",
+            "help": "Pre „nein“ proveri s drugim roditeljem da li je već podneo zahtev. Za „ja“ navedi osobu, period i Familienkasse/Kindergeld-Nr. iz dokumentacije; postojeći Kindergeld za starije dete nije ovde.",
+            "example": "Lea: niko nije tražio Kindergeld za nju → nein. Raniji zahtev drugog roditelja → ja i detalji."
+          },
+          "ank-6": {
+            "title": "Rad u javnoj službi",
+            "meaning": "Öffentlicher Dienst je javna služba; traže se i pododgovori za saveznu ustanovu te BA/Jobcenter.",
+            "help": "Ako radiš u javnoj ustanovi i ne znaš njen status, proveri ugovor ili pitaj kadrovsku službu. Nije svaka firma koja radi za državu javna služba; kod „ja“ odgovori i a/b prema obrascu.",
+            "example": "Maja i relevantna osoba iz tačke 2 nemaju navedeni rad u javnoj službi → nein."
+          },
+          "ank-7": {
+            "title": "Dodatak iz druge države",
+            "meaning": "Pita se i o PRAVU na dečje davanje iz druge države/međunarodne ustanove u pet godina pre zahteva, ne samo o isplati.",
+            "help": "Proveri strano rešenje: korisnik, vrsta davanja, mesečni iznos, period, ustanova i broj predmeta. Ako je zahtev u toku ili ne znaš postoji li pravo, pitaj Familienkasse; ne označavaj „nein“ samo zato što nema isplate.",
+            "example": "Za Leu u relevantnom periodu nema prava na strano dečje davanje → nein; ne prepisuj bez provere."
+          },
+          "ank-8": {
+            "title": "7(a): rad izvan Nemačke",
+            "meaning": "Tačka 7(a) je rad izvan Nemačke u pet godina pre zahteva; 7(b) i 7(c) slede kao odvojena pitanja.",
+            "help": "Pregledaj ranije ugovore, ne samo sadašnji posao. Za „ja“ navedi osobu, period, poslodavca i mesto/državu prema obrascu. Ako prekogranični rad nije jasan, koristi BA izvor za inostranstvo pre odgovora.",
+            "de": "in den letzten 5 Jahren vor der Antragstellung außerhalb Deutschlands als Arbeitnehmer(in), Selbständige(r) oder Entwicklungshelfer(in) tätig?",
+            "what": "Za 7(a) odgovori ja/nein o radu izvan Nemačke u pet godina pre zahteva. Za ja navedi osobu, period, poslodavca i mesto/državu; 7(b)/7(c) slede zasebno.",
+            "example": "Maja i relevantna osoba nisu radile izvan Nemačke u pet godina pre zahteva: 7(a) nein; 7(b)/7(c) zasebno.",
+            "mistake": "Odgovoriti samo prema sadašnjem poslu i zaboraviti raniji rad u relevantnom periodu."
+          },
+          "ank-9": {
+            "title": "Potpis na prilogu za dete",
+            "meaning": "Svaka Anlage Kind ima svoju izjavu i potpis na str. 4; potpis KG1 ne potpisuje taj prilog.",
+            "help": "Za dva priloga proveri datum i potpis na oba. Online prati identifikaciju i završnu predaju portala — ne dodaj potpis u BalkanLink.",
+            "where": "Izjava i datum/potpis na poslednjoj stranici svake Anlage Kind.",
+            "example": "Maja proverava Leinu Anlage Kind, datira i potpisuje zasebno od KG1."
+          }
+        },
+        "extras": [
+          {
+            "id": "phone",
+            "after": "kg1-0",
+            "form": "KG1",
+            "page": 1,
+            "sec": "header",
+            "de": "Telefonische Rückfrage tagsüber unter Nr.:",
+            "only": false,
+            "title": "Telefon za povratno pitanje",
+            "meaning": "Kontakt za pojašnjenje zahteva, ne telefonska predaja.",
+            "what": "Navedi broj na kojem si dostupan/na tokom dana.",
+            "where": "Tvoj telefon; za međunarodni broj proveri pozivni broj.",
+            "example": "Maja navodi sopstveni dostupan broj, ne broj poslodavca.",
+            "mistake": "Navesti nedostupan tuđi broj.",
+            "help": "Ako ne želiš/ne možeš telefonski kontakt, proveri uputstvo obrasca/Familienkasse; ne izmišljaj broj. Prati službenu poštu."
+          },
+          {
+            "id": "count",
+            "after": "kg1-0",
+            "form": "KG1",
+            "page": 1,
+            "sec": "header",
+            "de": "Anzahl der beigefügten \"Anlage Kind\":",
+            "only": false,
+            "title": "Koliko priloga za decu?",
+            "meaning": "Brojiš priložene Anlage Kind, ne svu svoju decu.",
+            "what": "Upiši stvaran broj priloženih Anlage Kind; jedna za svako dete u ovom zahtevu.",
+            "where": "Prebroj pripremljene priloge pre slanja.",
+            "example": "Novo dete Lea: 1 prilog. Dvoje dece u istom zahtevu: 2 priloga.",
+            "mistake": "Brojati starije dete iz KG1 tačke 5 bez novog priloga za njega.",
+            "help": "Ako nedostaje Anlage Kind za dete za koje sada tražiš davanje, preuzmi original na BA; KG1 ga ne zamenjuje."
+          },
+          {
+            "id": "status",
+            "after": "kg1-3",
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Familienstand · seit:",
+            "only": false,
+            "title": "Bračni status i od kada",
+            "meaning": "Familienstand je službeni bračni/partnerski status; „dauernd getrennt“ nije razveden/a.",
+            "what": "Označi stvarni status i datum „seit“ kada se traži.",
+            "where": "Izvod venčanih, odluka o razvodu ili stvarni datum trajnog razdvajanja.",
+            "example": "Maja je u braku: verheiratet; datum prema izvodu venčanih.",
+            "mistake": "Označiti ledig samo zato što partner trenutno ima drugu adresu.",
+            "help": "Ako ste razdvojeni, ali ne razvedeni, proveri tačnu opciju i datum s Familienkasse; ne nagađaj status."
+          },
+          {
+            "id": "partnerAddress",
+            "after": "kg1-4",
+            "form": "KG1",
+            "page": 1,
+            "sec": "2",
+            "de": "Anschrift, wenn abweichend von der antragstellenden Person",
+            "only": true,
+            "title": "Druga adresa partnera",
+            "meaning": "Samo adresa različita od podnosiočeve, uključujući drugo boravište u Nemačkoj ili inostranstvu.",
+            "what": "Navedi potpunu različitu adresu osobe iz tačke 2 kad je primenljivo.",
+            "where": "Podaci osobe i prijava boravišta.",
+            "example": "Maja i Damir na istoj adresi: ne ponavljaju je u rubrici za različitu adresu.",
+            "mistake": "Preskočiti podatke partnera zato što je prijavljen drugde.",
+            "help": "Za više boravišta ili odvojeno domaćinstvo pitaj Familienkasse kako prikazati stanje; ne biraj adresu radi željenog ishoda."
+          },
+          {
+            "id": "owner",
+            "after": "kg1-5",
+            "form": "KG1",
+            "page": 1,
+            "sec": "3",
+            "de": "Kontoinhaber(in) ist",
+            "only": false,
+            "title": "Čiji je račun?",
+            "meaning": "Vlasnik računa ne mora biti podnosilac zahteva.",
+            "what": "Označi antragstellende Person ili nicht antragstellende Person, sondern; za drugo navedi puno ime vlasnika.",
+            "where": "Vlasnik u bankovnom izvodu ili detaljima računa.",
+            "example": "Maja koristi Damirov račun: označi drugog vlasnika i navede Damirovo stvarno ime.",
+            "mistake": "Označiti sopstveni račun iako pripada drugoj osobi.",
+            "help": "Za zajednički račun proveri vlasnike s bankom. Ako nedostaju podaci/račun, pitaj Familienkasse o isplati; ne uzimaj tuđi IBAN bez dogovora."
+          },
+          {
+            "id": "consent",
+            "after": "kg1-9",
+            "form": "KG1",
+            "page": 2,
+            "sec": "sign",
+            "de": "Unterschrift der unter Punkt 2 genannten Person bzw. deren gesetzliche Vertretung",
+            "only": true,
+            "title": "Saglasnost druge osobe",
+            "meaning": "Zasebna izjava osobe iz tačke 2 o tome da podnosilac prima Kindergeld.",
+            "what": "Na papiru osoba iz tačke 2 ili zakonski zastupnik čita izjavu, datira i potpisuje kad je primenljivo.",
+            "where": "Izjava pri dnu KG1 str. 2; razgovor s tom osobom.",
+            "example": "Maja potpisuje svoju izjavu; Damir zasebno saglasnost kada se odnosi na njega.",
+            "mistake": "Potpisivati u ime partnera ili smatrati da potpisi garantuju odobrenje.",
+            "help": "Bez saglasnosti ili mogućnosti potpisa obavesti Familienkasse i prati uputstva; ne falsifikuj potpis."
+          },
+          {
+            "id": "childAddress",
+            "after": "ank-2",
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "1",
+            "de": "Anschrift, wenn abweichend · Grund der abweichenden Anschrift",
+            "only": true,
+            "title": "Dete živi na drugoj adresi",
+            "meaning": "„Abweichend“ je različito od adrese podnosioca; traži se i razlog.",
+            "what": "Za različitu adresu deteta navedi celu adresu i stvarni razlog.",
+            "where": "Podaci o stanovanju; za inostranstvo i službena uputstva BA.",
+            "example": "Lea živi s Majom: rubrika različite adrese ostaje prazna.",
+            "mistake": "Navesti porodilište kao stalnu adresu deteta.",
+            "help": "Dete u inostranstvu ili odvojeno domaćinstvo: koristi posebni izvor BA; pilot ne određuje pravo ni dodatne priloge."
+          },
+          {
+            "id": "otherParent",
+            "after": "ank-3",
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "2",
+            "de": "Angaben zur anderen Person (bitte hier eintragen)",
+            "only": true,
+            "title": "Drugi roditelj / druga osoba",
+            "meaning": "Pojašnjava drugu osobu iz matrice odnosa, naročito kad nije partner iz KG1.",
+            "what": "Navedi traženo ime, rođenje, državljanstvo i poslednju poznatu adresu; Zusatzangaben samo za stvarne okolnosti.",
+            "where": "Dokumenti osobe ili ono što stvarno znaš o poslednjoj adresi.",
+            "example": "Damir nije partner u KG1: Lea ga ima kao biološkog roditelja; podaci idu u ovu rubriku.",
+            "mistake": "Izmisliti adresu odsutnog roditelja ili preskočiti rubriku zbog odvojenog domaćinstva.",
+            "help": "Obrazac nudi npr. verstorben, Vaterschaft nicht festgestellt, unbekannt. Navedi samo tačno stanje; za nepoznato očinstvo/nejasne podatke pitaj Familienkasse."
+          },
+          {
+            "id": "stateWork",
+            "after": "ank-8",
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "7b",
+            "de": "in Deutschland bei einer Dienststelle oder Einrichtung eines anderen Staates oder als Angehöriger der NATO tätig?",
+            "only": false,
+            "title": "Rad za drugu državu ili NATO u Nemačkoj",
+            "meaning": "7(b) je zasebno pitanje; rad u Nemačkoj nije automatski nein.",
+            "what": "Odgovori ja/nein za ovu vrstu rada u pet godina pre zahteva; za ja navedi tražene podatke o osobi i poslu.",
+            "where": "Ugovor i poslodavac; po potrebi kadrovska služba.",
+            "example": "Izmišljeno: rad za ustanovu druge države u Nemačkoj traži proveru 7(b), ne samo 7(a).",
+            "mistake": "Preskočiti jer posao fizički nije u inostranstvu.",
+            "help": "Za nejasan status poslodavca pitaj njega i Familienkasse; ne zaključuj pravo iz naziva firme."
+          },
+          {
+            "id": "posting",
+            "after": "ank-8",
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "7c",
+            "de": "in Deutschland auf Veranlassung eines Arbeitgebers mit Sitz außerhalb Deutschlands beschäftigt (z. B. entsandte Person)?",
+            "only": false,
+            "title": "Upućeni radnik stranog poslodavca",
+            "meaning": "7(c) pita o radu u Nemačkoj po nalogu poslodavca sa sedištem izvan Nemačke.",
+            "what": "Odgovori ja/nein za pet godina pre zahteva; za ja navedi osobu, period i poslodavca.",
+            "where": "Ugovor o upućivanju/Entsendung i sedište poslodavca.",
+            "example": "Izmišljeno: Damir je upućen u Nemačku iz firme sa sedištem u drugoj državi — proverava 7(c).",
+            "mistake": "Zameniti strano državljanstvo sa statusom upućenog radnika.",
+            "help": "Za nejasan status proveri dokumente s poslodavcem i Familienkasse; koristi prekogranična uputstva BA."
+          }
+        ],
+        "stepHelp": [
+          [
+            "Ko treba biti podnosilac?",
+            "Dogovorite ko podnosi zahtev i prima davanje; ne šaljite dve nezavisne prijave za isto dete bez razjašnjenja. Za spor roditelja ili nejasno boravište obratite se Familienkasse. Državljanstvo samo nije potvrda prava."
+          ],
+          [
+            "Šta pripremiti, a šta poslati?",
+            "Pripremi poreske brojeve, lične podatke, podatke deteta i računa za prepisivanje. Ne znači slati sve dokumente. Za uobičajeno dete rođeno u Nemačkoj mlađe od 18 BA u pravilu traži poreske brojeve; za strano rođenje/status ili druga pitanja prati konkretan zahtev. Papirni KG1 navodi Anlage EU ili Aufenthaltstitel prema državljanstvu."
+          ],
+          [
+            "Detetov Steuer-ID nije stigao?",
+            "Ne zameni ga svojim. BZSt šalje pismo nakon prenosa podataka Meldebehörde, bez obećanog roka ovde. Pitaj Meldebehörde za podatke, Standesamt za nedostajući dokument o rođenju, a Familienkasse za postupak bez ID. Ne izmišljaj brojeve."
+          ],
+          [
+            "Nemam BundID — da li je online unos dovoljan?",
+            "Ne. Naslovnica KG1 razlikuje elektronsku predaju s BundID od unosa bez elektronske identifikacije, koji zahteva štampanje, potpis i poštu. BA eServices → Familien mit Neugeborenen → Kindergeld beantragen. Prati stvarna uputstva prijave/završetka; sačuvani nacrt nije predaja."
+          ],
+          [
+            "Kako pratiti polja?",
+            "Papier prikazuje KG1 pa Anlage Kind u štampanom redosledu, uključujući uslovne delove. Otvori original uz grupu. Za bebu preskoči tačku 3 Anlage Kind; ostaje vidljiva za orijentaciju. Online ima odvojene tematske grupe; redosled ekrana iza BA prijave nije potvrđen, zato ne tvrdimo da je kopija."
+          ],
+          [
+            "Gde šaljem i šta proveriti?",
+            "Na BA proveri nadležnu Familienkasse, ne koristi izmišljenu adresu. Online dovrši predaju i preuzmi potvrdu za sebe. Za papir prebroj priloge, potpise i adresu primaoca; šalji prema službenim uputstvima. Dokumente dostavi samo kako se traže; originale samo na izričit zahtev."
+          ],
+          [
+            "Da li je dopis odobrenje?",
+            "Eingangsbestätigung je potvrda prijema, ne odobrenje. Nachforderung traži dopunu; pročitaj šta nedostaje i stvarni rok. Bescheid je odluka: proveri dete, period, obrazloženje i pravni lek. Ne računamo žalbene rokove. Promene adrese, računa ili okolnosti prijavi Familienkasse; čuvaj dokumente kod sebe."
+          ]
+        ],
+        "glossary": [
+          [
+            "Antrag",
+            "Zahtev. Popunjen ili sačuvan zahtev još nije nužno predat."
+          ],
+          [
+            "Anlage Kind",
+            "Poseban prilog za jedno dete, povezan s KG1."
+          ],
+          [
+            "Kindergeld-Nr.",
+            "Broj predmeta Familienkasse iz ranijeg Bescheida, nije Steuer-ID."
+          ],
+          [
+            "Steuer-ID / Steuernummer",
+            "Steuer-ID je lični broj od 11 cifara; Steuernummer je drugi poreski broj."
+          ],
+          [
+            "BundID",
+            "Elektronska identifikacija za službene usluge; prati BA uputstva za potpunu online predaju."
+          ],
+          [
+            "Bescheid / Nachforderung",
+            "Bescheid je odluka; Nachforderung traži dodatne podatke/dokaze, ne znači odobrenje."
+          ],
+          [
+            "Aufenthaltstitel",
+            "Dokument o boravišnom statusu; ne garantuje pravo na Kindergeld."
+          ],
+          [
+            "Kindschaftsverhältnis",
+            "Odnos deteta prema osobi: biološko, usvojeno, hraniteljsko, pastorak/pastorka ili unuk/unuka."
+          ]
+        ],
+        "onlineExamples": [
+          "Izmišljeno: Maja je podnosilac; u delu roditelja koristi svoj ID, ne Lein.",
+          "Izmišljeno: Lea je dete; rođenje 02.09.2026. Njen ID je različit od Majinog.",
+          "Izmišljeno: Maja želi isplatu na Damirov račun; vlasnik nije automatski Maja.",
+          "Izmišljeno: starije dete već prima davanje, ali za Leu nema zahteva; to su različite informacije."
+        ],
+        "onlineMistakes": [
+          "Zameniti Steuernummer sa Steuer-ID ili izostaviti drugo ime.",
+          "Navesti roditeljski ID ili mesto stanovanja umesto rođenja.",
+          "Navesti broj kartice umesto IBAN-a ili pogrešnog vlasnika.",
+          "Odabrati Nein jer strana uplata nije stigla, iako postoji pravo ili otvoren zahtev."
+        ],
+        "onlineHelp": [
+          "Za nedostajući sopstveni ID prati BZSt uputstva. Ne izmišljaj partnerov broj; prati pitanje portala i pomoć Familienkasse.",
+          "Za nedostajući detetov ID pitaj Meldebehörde/BZSt prema uputstvima i Familienkasse za prijavu; ne nagađaj rođenje/državljanstvo.",
+          "Za BIC ili vlasnike zajedničkog računa proveri banku. BIC se unosi kad ga portal traži; račun ne mora biti DE.",
+          "Za dete u inostranstvu, punoletnost, usvojenje ili nejasan status koristi odgovarajući službeni izvor; izbor ne procenjuje pravo."
+        ],
+        "onlineDetails": [
+          {
+            "meaning": "Upiši puno ime i trenutnu adresu osobe koja podnosi zahtev i treba da prima Kindergeld, kao i njen sopstveni 11-cifreni Steuer-ID.",
+            "help": "Za nedostajući sopstveni ID prati BZSt uputstva. Ne izmišljaj partnerov broj; prati pitanje portala i pomoć Familienkasse.",
+            "example": "Izmišljeno: Maja je podnosilac; u delu roditelja koristi svoj ID, ne Lein.",
+            "mistake": "Zameniti Steuernummer sa Steuer-ID ili izostaviti drugo ime."
+          },
+          {
+            "meaning": "Upiši tačno ime i datum rođenja deteta, detetov sopstveni Steuer-ID i svoj odnos prema detetu.",
+            "help": "Za nedostajući detetov ID pitaj Meldebehörde/BZSt prema uputstvima i Familienkasse za prijavu; ne nagađaj rođenje/državljanstvo.",
+            "example": "Izmišljeno: Lea je dete; rođenje 02.09.2026. Njen ID je različit od Majinog.",
+            "mistake": "Navesti roditeljski ID ili mesto stanovanja umesto rođenja."
+          },
+          {
+            "meaning": "Prepiši ceo IBAN računa za isplatu i tačno ime vlasnika računa (Kontoinhaber), koji ne mora biti podnosilac zahteva.",
+            "help": "Za BIC ili vlasnike zajedničkog računa proveri banku. BIC se unosi kad ga portal traži; račun ne mora biti DE.",
+            "example": "Izmišljeno: Maja želi isplatu na Damirov račun; vlasnik nije automatski Maja.",
+            "mistake": "Navesti broj kartice umesto IBAN-a ili pogrešnog vlasnika."
+          },
+          {
+            "meaning": "Na pitanja o ranijem Kindergeldu, drugom roditelju, radu ili dečjim davanjima u inostranstvu odgovori prema svojoj situaciji. Ako se nešto ne odnosi na tebe i ponuđen je izbor da/ne, odaberi „Nein“ — ne ostavljaj obavezno pitanje bez odgovora.",
+            "help": "Za dete u inostranstvu, punoletnost, usvojenje ili nejasan status koristi odgovarajući službeni izvor; izbor ne procenjuje pravo.",
+            "example": "Izmišljeno: starije dete već prima davanje, ali za Leu nema zahteva; to su različite informacije.",
+            "mistake": "Odabrati Nein jer strana uplata nije stigla, iako postoji pravo ili otvoren zahtev."
+          }
         ]
       }
     },
