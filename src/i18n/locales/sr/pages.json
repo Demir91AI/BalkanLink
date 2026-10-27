@@ -1778,124 +1778,251 @@
       },
       "fields": {
         "title": "Kako tačno popuniti zvanični zahtev – polje po polje",
-        "intro": "Ovo je samo vodič za čitanje: ovde ništa ne upisuješ i ništa se ne šalje. Zahtev popunjavaš sam/a na zvaničnom portalu ili na papirnom obrascu. Nazivi i redosled polja mogu se razlikovati između onlajn zahteva i papirnog obrasca, a Familienkasse može tražiti dodatne podatke u zavisnosti od slučaja.",
+        "intro": "Ovo je samo vodič za čitanje: ovde ništa ne upisuješ i ništa se ne šalje. Oznake prate papirne obrasce KG1 i Anlage Kind (stanje 09/2025) – stranicu i tačku. Onlajn zahtev postavlja ista pitanja, ali raspored i nazivi mogu biti drugačiji.",
         "dummy": "Svi primeri su izmišljeni (Maja Kovač, Damir Novak) – nikad ne prepisuj primer, upiši svoje stvarne podatke.",
         "lbl": {
           "what": "Šta upisati",
           "where": "Gde to naći",
           "example": "Primer (izmišljen)",
-          "mistake": "Česta greška"
+          "mistake": "Česta greška",
+          "page": "str.",
+          "sec": "tačka",
+          "header": "zaglavlje",
+          "sign": "kraj",
+          "only": "Samo ako se odnosi na tebe"
         },
-        "kg1Title": "KG1 – Antrag auf Kindergeld (glavni zahtev)",
-        "ankTitle": "Anlage Kind (prilog za dete)",
-        "ankNote": "Na papiru: jedna Anlage Kind za svako dete za koje tražiš Kindergeld. Onlajn se podaci o detetu unose u odgovarajućem koraku zahteva.",
+        "kg1Title": "KG1 – Antrag auf Kindergeld (glavni zahtev, 2 stranice)",
+        "ankTitle": "Anlage Kind (prilog za dete, 4 stranice)",
+        "ankNote": "Na papiru: jedna Anlage Kind za svako dete. Za novorođenče preskoči tačku 3 (str. 2) – ona je samo za dete od 18 godina ili koje uskoro puni 18. Na tačkama 4–7 svako označava ja ili nein; detalje upisuješ samo kod ja.",
         "onlineTitle": "Saveti za onlajn zahtev",
         "online": [
-          "Sa proverenim BundID nalogom zahtev može ići potpuno digitalno – tada ne štampaš i ne potpisuješ papir.",
-          "Bez BundID-a prati uputstva koja zvanična stranica trenutno navodi na kraju onlajn zahteva (npr. da li treba štampati i potpisati).",
-          "Onlajn polja mogu se zvati malo drugačije i pojavljuju se samo kada su relevantna za tvoj odgovor.",
-          "Papirni KG1 + Anlage Kind je alternativa onlajn zahtevu; obrasce preuzmi samo sa zvanične stranice Familienkasse."
+          "Sa BundID-om zahtev pri rođenju možeš podneti potpuno elektronski – bez štampanja i svojeručnog potpisa.",
+          "Bez BundID-a možeš popuniti onlajn, ali zahtev zatim moraš odštampati, potpisati i poslati poštom Familienkasse.",
+          "Onlajn polja mogu se zvati malo drugačije i pojavljuju se samo kada su relevantna za tvoje odgovore.",
+          "Papirni KG1 + Anlage Kind je alternativa; obrasce preuzmi samo sa zvanične stranice Familienkasse."
         ],
         "kg1": [
           {
-            "de": "Steuerliche Identifikationsnummer (antragstellende Person)",
-            "what": "Tvoj lični porezni identifikacioni broj (Steuer-ID) – 11 cifara.",
-            "where": "Pismo Bundeszentralamt für Steuern (BZSt) nakon prve prijave boravka, platna lista (Lohnabrechnung) ili porezni rešenje. Ako ga nemaš, može se ponovo zatražiti preko BZSt.",
+            "form": "KG1",
+            "page": 1,
+            "sec": "header",
+            "de": "Kindergeld-Nr. · Telefonische Rückfrage · Anzahl der beigefügten „Anlage Kind“",
+            "only": false,
+            "what": "Kindergeld-Nr. samo ako ti je već dodeljen (za neko ranije dete). Broj telefona za povratna pitanja tokom dana. Broj priloženih „Anlage Kind“.",
+            "where": "Kindergeld-Nr. stoji na ranijem rešenju (Bescheid) Familienkasse.",
+            "example": "Kindergeld-Nr.: prazno · Anlage Kind: 1",
+            "mistake": "Izmisliti Kindergeld-Nr. ili zaboraviti da upišeš koliko je Anlage Kind priloženo."
+          },
+          {
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Steuerliche Identifikationsnummer der antragstellenden Person",
+            "only": false,
+            "what": "Tvoj lični poreski identifikacioni broj – 11 cifara. Obavezno ako ti je dodeljen.",
+            "where": "Pismo Bundeszentralamt für Steuern (BZSt) ili elektronische Lohnsteuerbescheinigung od poslodavca.",
             "example": "01 234 567 890",
-            "mistake": "Upisati Steuernummer (porezni broj firme/Finanzamt) umesto Steuer-ID – to su dva različita broja."
+            "mistake": "Upisati Steuernummer (broj kod Finanzamta) – to nije Steuer-ID."
           },
           {
-            "de": "Angaben zur antragstellenden Person – Name, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit",
-            "what": "Podaci roditelja koji podnosi zahtev (ne deteta). Ime tačno kao u ličnom dokumentu.",
-            "where": "Pasoš ili lična karta; Meldebescheinigung za adresu.",
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Familienname, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit",
+            "only": false,
+            "what": "Podaci roditelja koji podnosi zahtev, tačno kao u dokumentu; po potrebi i Geburtsname. Ako nisi nemački državljanin: za EU/EEP državljanstvo popuni „Anlage EU“, a za ostala (osim Švajcarske) priloži Aufenthaltstitel.",
+            "where": "Pasoš ili lična karta; Aufenthaltstitel.",
             "example": "Kovač, Maja · 14.02.1991 · Tuzla · weiblich · bosnisch-herzegowinisch",
-            "mistake": "Upisati ime deteta ovdje ili skratiti ime koje u dokumentu stoji u punom obliku."
+            "mistake": "Upisati podatke deteta ili zaboraviti da priložiš Aufenthaltstitel."
           },
           {
-            "de": "Anschrift (Straße, Hausnummer, PLZ, Wohnort)",
-            "what": "Trenutna prijavljena adresa u Njemačkoj.",
-            "where": "Meldebescheinigung (potvrda o prijavi boravka).",
-            "example": "Musterstraße 1, 12345 Musterstadt",
-            "mistake": "Upisati staru adresu ili adresu u domovini."
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Anschrift · Familienstand",
+            "only": false,
+            "what": "Trenutna adresa (ulica, broj, PLZ, mesto, država) i jedan Familienstand – kod promene i datum „seit“.",
+            "where": "Meldebescheinigung; venčani list ili presuda o razvodu.",
+            "example": "Musterstraße 1, 12345 Musterstadt, Deutschland · verheiratet",
+            "mistake": "Stara adresa ili nepromenjen status posle venčanja/razvoda."
           },
           {
-            "de": "Telefon / E-Mail (freiwillig)",
-            "what": "Kontakt za eventualna pitanja Familienkasse – obično dobrovoljno.",
-            "where": "Tvoj broj telefona / e-mail.",
-            "example": "+49 000 0000000 · maja@example.com",
-            "mistake": "Pogrešno ukucan e-mail – tada ne dobiješ upite."
+            "form": "KG1",
+            "page": 1,
+            "sec": "2",
+            "de": "Ehepartner(in) / Lebenspartner(in) / anderer Elternteil im gemeinsamen Haushalt",
+            "only": true,
+            "what": "Samo ako s tobom u istom domaćinstvu živi bračni/životni partner, drugi roditelj ili očuh/maćeha deteta: Steuer-ID (ako je dodeljen), ime, datum rođenja, državljanstvo; adresa samo ako je drugačija.",
+            "where": "Dokumenti te osobe, njeno pismo BZSt.",
+            "example": "Novak, Damir · 03.09.1989 · bosnisch-herzegowinisch",
+            "mistake": "Popunjavati za osobu koja ne živi s tobom ili ostaviti prazno iako živi."
           },
           {
-            "de": "Familienstand",
-            "what": "Tvoj trenutni bračni status (npr. ledig, verheiratet, geschieden, verwitwet, dauernd getrennt lebend) i od kada, ako se traži.",
-            "where": "Venčani list, presuda o razvodu ili tvoj lični status.",
-            "example": "verheiratet seit 10.06.2018",
-            "mistake": "Ostaviti stari status nakon venčanja ili razvoda."
+            "form": "KG1",
+            "page": 1,
+            "sec": "3",
+            "de": "Zahlungsweg – IBAN, BIC, Kontoinhaber(in)",
+            "only": false,
+            "what": "IBAN i BIC računa za isplatu. Kontoinhaber: označi da li je to podnosilac ili navedi drugu osobu kojoj račun pripada.",
+            "where": "Bankovna kartica ili onlajn bankarstvo.",
+            "example": "IBAN: DE00 0000 0000 0000 0000 00 (izmišljen) · Kontoinhaber: antragstellende Person",
+            "mistake": "Greška u cifri IBAN-a ili ne navesti drugog vlasnika računa."
           },
           {
-            "de": "Angaben zum Ehegatten / Lebenspartner / anderen Elternteil",
-            "what": "Samo kada obrazac/portal to traži: ime, datum rođenja i ostali traženi podaci druge osobe. Steuer-ID partnera upiši samo ako se izričito traži.",
-            "where": "Dokumenti partnera / drugog roditelja.",
-            "example": "Novak, Damir · 03.09.1989",
-            "mistake": "Misliti da je uvijek potreban Steuer-ID partnera – upiši samo ono što se konkretno pita."
+            "form": "KG1",
+            "page": 2,
+            "sec": "4",
+            "de": "Bescheid an eine andere Person",
+            "only": true,
+            "what": "Samo ako rešenje treba da stigne nekom drugom (npr. poreskom savetniku ili advokatu): ime i adresa te osobe.",
+            "where": "—",
+            "example": "prazno",
+            "mistake": "Upisati drugog roditelja ovde – ova tačka je samo za drugog primaoca pisma."
           },
           {
-            "de": "Zahlungsweg – IBAN, BIC, Kontoinhaber",
-            "what": "Račun na koji se isplaćuje Kindergeld i ime vlasnika računa. Ako račun nije na tvoje ime, obrazac to posebno pita.",
-            "where": "Bankovna kartica, online banking ili ugovor o računu.",
-            "example": "IBAN: DE00 0000 0000 0000 0000 00 (izmišljen) · Kontoinhaber: Maja Kovač",
-            "mistake": "Greška u jednoj cifri IBAN-a ili pogrešan vlasnik računa – proveri dvaput."
+            "form": "KG1",
+            "page": 2,
+            "sec": "5",
+            "de": "Angaben zu Kindern – für diese Kinder beziehe ich bereits Kindergeld",
+            "only": true,
+            "what": "Samo ako već primaš Kindergeld za drugu decu: ime, datum rođenja, pol deteta i kod koje Familienkasse (Kindergeld-Nr.). Novo dete ne upisuješ ovde – ono ide u Anlage Kind.",
+            "where": "Raniji Bescheid Familienkasse.",
+            "example": "Lea · 02.09.2023 · weiblich · Familienkasse Musterstadt",
+            "mistake": "Upisati dete za koje sada tražiš Kindergeld."
           },
           {
-            "de": "Angaben zu Kindergeld / Leistungen im Ausland / Beschäftigung",
-            "what": "Da li je ranije primljen Kindergeld za dete, da li ti ili druga osoba radite ili primate slične dodatke u drugoj državi. Odgovori iskreno – ako se nešto odnosi na inostranstvo, može se tražiti dodatni dokaz.",
-            "where": "Tvoji ugovori o radu, rešenja o ranijem dodatku za djecu (i iz inostranstva).",
-            "example": "Nein / Ja – Arbeit in Österreich seit 2025",
-            "mistake": "Prešutjeti rad ili dodatak u inostranstvu – kasnije može dovesti do povrata novca."
+            "form": "KG1",
+            "page": 2,
+            "sec": "6",
+            "de": "Weitere eigene Kinder, für die eine andere Person Kindergeld bezieht",
+            "only": true,
+            "what": "Samo ako za tvoje drugo dete Kindergeld prima neko drugi (npr. drugi roditelj): podaci deteta, ko prima i kod koje Familienkasse.",
+            "where": "Pitaj osobu koja prima Kindergeld.",
+            "example": "prazno",
+            "mistake": "Prećutati dete za koje prima drugi roditelj."
           },
           {
-            "de": "Unterschrift / Erklärung (nur Papierantrag)",
-            "what": "Na papirnom obrascu: datum i vlastoručni potpis. Potpisom potvrđuješ tačnost podataka i obavezu da prijaviš promjene.",
+            "form": "KG1",
+            "page": 2,
+            "sec": "sign",
+            "de": "Datum · Unterschrift(en)",
+            "only": false,
+            "what": "Samo papir: datum i tvoj potpis. Drugi potpis daje osoba iz tačke 2 ako se slaže da Kindergeld dobiješ ti. Uz onlajn zahtev sa BundID-om svojeručni potpis otpada.",
             "where": "—",
             "example": "27.10.2026 · potpis",
-            "mistake": "Zaboraviti potpis ili datum na papirnom obrascu."
+            "mistake": "Zaboraviti potpis ili poslati papir bez datuma."
           }
         ],
         "ank": [
           {
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "header",
+            "de": "Name der antragstellenden Person · Kindergeld-Nr. · Antrag vom · Lfd. Nr.",
+            "only": false,
+            "what": "Ime podnosioca, Kindergeld-Nr. (ako postoji), datum KG1 zahteva i redni broj (Lfd. Nr.) ove Anlage Kind.",
+            "where": "Tvoj KG1 zahtev.",
+            "example": "Kovač, Maja · Antrag vom 27.10.2026 · Lfd. Nr. 1",
+            "mistake": "Isti Lfd. Nr. za dvoje dece."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "1",
             "de": "Steuerliche Identifikationsnummer des Kindes",
-            "what": "Steuer-ID deteta – 11 cifara.",
-            "where": "Za dete rođeno u Njemačkoj BZSt šalje pismo sa Steuer-ID automatski nekoliko nedelja nakon prijave rođenja.",
+            "only": false,
+            "what": "Steuer-ID deteta – 11 cifara, obavezno ako je dodeljen.",
+            "where": "Za dete rođeno u Nemačkoj BZSt šalje pismo automatski nekoliko nedelja posle prijave rođenja.",
             "example": "09 876 543 210",
-            "mistake": "Upisati Steuer-ID roditelja umesto deteta ili čekati bez prijave – zahtev se može poslati i kad pismo stigne."
+            "mistake": "Upisati svoj Steuer-ID umesto detetovog."
           },
           {
-            "de": "Angaben zum Kind – Name, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit",
-            "what": "Podaci deteta tačno kao u izvodu iz matične knjige rođenih / dokumentu.",
-            "where": "Izvod iz matične knjige rođenih (Geburtsurkunde) ili pasoš deteta.",
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "1",
+            "de": "Familienname, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit, abweichende Anschrift",
+            "only": false,
+            "what": "Podaci deteta kao u izvodu iz matične knjige rođenih. Adresu i razlog upisuješ samo ako dete ne živi na tvojoj adresi.",
+            "where": "Izvod iz matične knjige rođenih (Geburtsurkunde) deteta.",
             "example": "Kovač, Lea · 02.09.2026 · Musterstadt · weiblich",
-            "mistake": "Drugačije pisanje imena nego u dokumentu."
+            "mistake": "Drugačije pisanje imena ili upisati istu adresu kao „abweichend“."
           },
           {
-            "de": "Kindschaftsverhältnis",
-            "what": "Kakav je odnos prema detetu (npr. leibliches Kind, Adoptivkind, Pflegekind, Stiefkind/Enkelkind u domaćinstvu).",
-            "where": "Tvoja porodična situacija; za usvojenje/hraniteljstvo odgovarajuća rešenja.",
-            "example": "leibliches Kind",
-            "mistake": "Označiti pogrešan odnos – kod posebnih odnosa mogu se tražiti dodatni dokazi."
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "2",
+            "de": "Kindschaftsverhältnis · Angaben zur anderen Person",
+            "only": false,
+            "what": "Odnos deteta prema tebi, partneru i eventualno drugoj osobi (leibliches Kind, Adoptivkind, Pflegekind, Stiefkind, Enkelkind). Ispod: podaci drugog roditelja ako on nije partner iz KG1.",
+            "where": "Tvoja porodična situacija; kod usvojenja Annahmebeschluss.",
+            "example": "zur antragstellenden Person: leibliches Kind",
+            "mistake": "Ne navesti drugog roditelja koji ne živi s tobom."
           },
           {
-            "de": "Wohnsitz / Haushalt des Kindes",
-            "what": "Da li dete živi u tvom domaćinstvu i na kojoj adresi.",
-            "where": "Meldebescheinigung deteta.",
-            "example": "im Haushalt der antragstellenden Person",
-            "mistake": "Ne navesti ako dete živi kod drugog roditelja ili u inostranstvu."
+            "form": "Anlage Kind",
+            "page": 2,
+            "sec": "3",
+            "de": "Angaben für ein volljähriges Kind",
+            "only": true,
+            "what": "Za novorođenče: preskoči. Samo za dete od 18 godina ili koje uskoro puni 18 (školovanje, Ausbildung, studije itd.).",
+            "where": "—",
+            "example": "prazno (novorođenče)",
+            "mistake": "Za bebu tražiti potvrdu o školovanju – nije potrebna."
           },
           {
-            "de": "Andere Berechtigte / Kindergeld durch andere Personen",
-            "what": "Da li druga osoba (npr. drugi roditelj) već prima ili traži Kindergeld za isto dete, ili prima sličnu davanje u inostranstvu.",
-            "where": "Informacije od drugog roditelja / ranija rešenja.",
-            "example": "Nein",
-            "mistake": "Dvostruki zahtev oba roditelja za isto dete."
+            "form": "Anlage Kind",
+            "page": 3,
+            "sec": "4",
+            "de": "Bereits Kindergeld für dieses Kind beantragt oder erhalten?",
+            "only": false,
+            "what": "Ja/nein: da li je za OVO dete već tražen ili primljen Kindergeld. Kod ja: ko, period, Familienkasse i Kindergeld-Nr.",
+            "where": "Raniji Bescheid.",
+            "example": "nein",
+            "mistake": "Odgovoriti nein iako je drugi roditelj već tražio Kindergeld."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 3,
+            "sec": "5",
+            "de": "Beschäftigung im öffentlichen Dienst",
+            "only": false,
+            "what": "Ja/nein: da li ti ili osoba iz tačke 2 radite u javnoj službi; kod ja odgovori na a) i b).",
+            "where": "Ugovor o radu.",
+            "example": "nein",
+            "mistake": "Preskočiti pitanje – i nein treba označiti."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 3,
+            "sec": "6",
+            "de": "Geldleistungen aus dem Ausland (letzte 5 Jahre)",
+            "only": false,
+            "what": "Ja/nein: da li je u poslednjih 5 godina postojalo pravo na dodatak za dete iz druge države ili od međunarodne ustanove. Kod ja: ko, koji dodatak, iznos, period, ustanova. Kod komplikacija pogledaj zvanične informacije o Kindergeldu i inostranstvu.",
+            "where": "Rešenja iz druge države.",
+            "example": "nein",
+            "mistake": "Prećutati dodatak iz inostranstva – kasnije se može tražiti povraćaj."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "7",
+            "de": "Tätigkeit außerhalb Deutschlands / für einen anderen Staat, NATO / Entsendung (letzte 5 Jahre)",
+            "only": false,
+            "what": "Ja/nein za a) rad van Nemačke, b) rad za drugu državu ili NATO u Nemačkoj, c) upućeni radnik stranog poslodavca – sve za poslednjih 5 godina. Kod ja: ko, period, poslodavac, mesto/država.",
+            "where": "Ugovori o radu.",
+            "example": "a) nein · b) nein · c) nein",
+            "mistake": "Zaboraviti rad u inostranstvu od pre nekoliko godina."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "sign",
+            "de": "Datum · Unterschrift",
+            "only": false,
+            "what": "Samo papir: datum i potpis podnosioca na svakoj Anlage Kind.",
+            "where": "—",
+            "example": "27.10.2026 · potpis",
+            "mistake": "Potpisati KG1, a Anlage Kind ne."
           }
         ]
       }

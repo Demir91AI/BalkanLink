@@ -1778,124 +1778,251 @@
       },
       "fields": {
         "title": "So füllen Sie den offiziellen Antrag aus – Feld für Feld",
-        "intro": "Dies ist nur eine Lesehilfe: Hier geben Sie nichts ein und nichts wird gesendet. Den Antrag füllen Sie selbst im offiziellen Portal oder auf dem Papierformular aus. Bezeichnungen und Reihenfolge der Felder können sich zwischen Online-Antrag und Papierformular unterscheiden; die Familienkasse kann je nach Fall weitere Angaben verlangen.",
+        "intro": "Dies ist nur eine Lesehilfe: Hier geben Sie nichts ein und nichts wird gesendet. Die Angaben folgen den Papierformularen KG1 und Anlage Kind (Stand 09/2025) – Seite und Abschnitt. Der Online-Antrag stellt dieselben Fragen, Reihenfolge und Bezeichnungen können aber abweichen.",
         "dummy": "Alle Beispiele sind erfunden (Maja Kovač, Damir Novak) – übernehmen Sie nie ein Beispiel, sondern Ihre echten Daten.",
         "lbl": {
           "what": "Was eintragen",
           "where": "Wo finden",
           "example": "Beispiel (erfunden)",
-          "mistake": "Häufiger Fehler"
+          "mistake": "Häufiger Fehler",
+          "page": "S.",
+          "sec": "Abschnitt",
+          "header": "Kopf",
+          "sign": "Ende",
+          "only": "Nur wenn es Sie betrifft"
         },
-        "kg1Title": "KG1 – Antrag auf Kindergeld (Hauptantrag)",
-        "ankTitle": "Anlage Kind",
-        "ankNote": "Auf Papier: eine Anlage Kind für jedes Kind, für das Sie Kindergeld beantragen. Online werden die Angaben zum Kind im passenden Schritt erfasst.",
+        "kg1Title": "KG1 – Antrag auf Kindergeld (Hauptantrag, 2 Seiten)",
+        "ankTitle": "Anlage Kind (4 Seiten)",
+        "ankNote": "Auf Papier: eine Anlage Kind pro Kind. Bei einem Neugeborenen Abschnitt 3 (S. 2) überspringen – er gilt nur für volljährige Kinder oder Kinder, die bald 18 werden. In Abschnitt 4–7 kreuzt jede Person ja oder nein an; Details nur bei ja.",
         "onlineTitle": "Hinweise zum Online-Antrag",
         "online": [
-          "Mit verifiziertem BundID-Konto kann der Antrag vollständig digital gestellt werden – Ausdrucken und Unterschreiben entfällt dann.",
-          "Ohne BundID folgen Sie den Hinweisen, die die offizielle Seite am Ende des Online-Antrags aktuell nennt (z. B. ob ausgedruckt und unterschrieben werden muss).",
+          "Mit BundID können Sie den Antrag bei Geburt vollständig elektronisch stellen – ohne Ausdruck und händische Unterschrift.",
+          "Ohne BundID können Sie online ausfüllen, müssen den Antrag dann aber ausdrucken, unterschreiben und per Post an die Familienkasse senden.",
           "Online-Felder können etwas anders heißen und erscheinen nur, wenn sie für Ihre Antworten relevant sind.",
           "Der Papierantrag KG1 + Anlage Kind ist eine Alternative; laden Sie Formulare nur von der offiziellen Seite der Familienkasse."
         ],
         "kg1": [
           {
-            "de": "Steuerliche Identifikationsnummer (antragstellende Person)",
-            "what": "Ihre persönliche Steuer-ID – 11 Ziffern.",
-            "where": "Schreiben des Bundeszentralamts für Steuern (BZSt) nach der ersten Anmeldung, Lohnabrechnung oder Steuerbescheid. Fehlt sie, kann sie beim BZSt erneut angefordert werden.",
+            "form": "KG1",
+            "page": 1,
+            "sec": "header",
+            "de": "Kindergeld-Nr. · Telefonische Rückfrage · Anzahl der beigefügten „Anlage Kind“",
+            "only": false,
+            "what": "Kindergeld-Nr. nur, wenn Ihnen schon eine zugeteilt wurde (z. B. für ein älteres Kind). Telefonnummer für Rückfragen tagsüber. Anzahl der beigefügten „Anlage Kind“.",
+            "where": "Die Kindergeld-Nr. steht auf einem früheren Bescheid der Familienkasse.",
+            "example": "Kindergeld-Nr.: leer · Anlage Kind: 1",
+            "mistake": "Kindergeld-Nr. erfinden oder Anzahl der Anlagen vergessen."
+          },
+          {
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Steuerliche Identifikationsnummer der antragstellenden Person",
+            "only": false,
+            "what": "Ihre persönliche Steuer-ID – 11 Ziffern. Pflicht, soweit vergeben.",
+            "where": "Schreiben des Bundeszentralamts für Steuern (BZSt) oder elektronische Lohnsteuerbescheinigung Ihres Arbeitgebers.",
             "example": "01 234 567 890",
-            "mistake": "Steuernummer statt Steuer-ID eintragen – das sind zwei verschiedene Nummern."
+            "mistake": "Steuernummer des Finanzamts statt Steuer-ID eintragen."
           },
           {
-            "de": "Angaben zur antragstellenden Person – Name, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit",
-            "what": "Daten des antragstellenden Elternteils (nicht des Kindes), Name wie im Ausweis.",
-            "where": "Reisepass oder Personalausweis; Meldebescheinigung für die Adresse.",
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Familienname, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit",
+            "only": false,
+            "what": "Daten des antragstellenden Elternteils wie im Ausweis, ggf. Geburtsname. Nicht deutsch: bei EU-/EWR-Staatsangehörigkeit „Anlage EU“ ausfüllen, sonst (außer Schweiz) Aufenthaltstitel beifügen.",
+            "where": "Reisepass oder Personalausweis; Aufenthaltstitel.",
             "example": "Kovač, Maja · 14.02.1991 · Tuzla · weiblich · bosnisch-herzegowinisch",
-            "mistake": "Daten des Kindes hier eintragen oder Namen abkürzen."
+            "mistake": "Daten des Kindes eintragen oder Aufenthaltstitel vergessen."
           },
           {
-            "de": "Anschrift (Straße, Hausnummer, PLZ, Wohnort)",
-            "what": "Aktuelle gemeldete Adresse in Deutschland.",
-            "where": "Meldebescheinigung.",
-            "example": "Musterstraße 1, 12345 Musterstadt",
-            "mistake": "Alte Adresse oder Adresse im Herkunftsland eintragen."
+            "form": "KG1",
+            "page": 1,
+            "sec": "1",
+            "de": "Anschrift · Familienstand",
+            "only": false,
+            "what": "Aktuelle Anschrift (Straße, Nr., PLZ, Ort, Staat) und ein Familienstand – bei Änderung mit Datum „seit“.",
+            "where": "Meldebescheinigung; Heiratsurkunde oder Scheidungsurteil.",
+            "example": "Musterstraße 1, 12345 Musterstadt, Deutschland · verheiratet",
+            "mistake": "Alte Anschrift oder veralteter Familienstand."
           },
           {
-            "de": "Telefon / E-Mail (freiwillig)",
-            "what": "Kontakt für Rückfragen der Familienkasse – in der Regel freiwillig.",
-            "where": "Ihre Telefonnummer / E-Mail.",
-            "example": "+49 000 0000000 · maja@example.com",
-            "mistake": "Tippfehler in der E-Mail-Adresse."
+            "form": "KG1",
+            "page": 1,
+            "sec": "2",
+            "de": "Ehepartner(in) / Lebenspartner(in) / anderer Elternteil im gemeinsamen Haushalt",
+            "only": true,
+            "what": "Nur wenn Ehe-/Lebenspartner(in), anderer leiblicher Elternteil oder Stiefelternteil mit Ihnen im Haushalt lebt: Steuer-ID (soweit vergeben), Name, Geburtsdatum, Staatsangehörigkeit; Anschrift nur, wenn abweichend.",
+            "where": "Unterlagen dieser Person, ihr BZSt-Schreiben.",
+            "example": "Novak, Damir · 03.09.1989 · bosnisch-herzegowinisch",
+            "mistake": "Für eine Person ausfüllen, die nicht im Haushalt lebt – oder leer lassen, obwohl sie dort lebt."
           },
           {
-            "de": "Familienstand",
-            "what": "Ihr aktueller Familienstand (z. B. ledig, verheiratet, geschieden, verwitwet, dauernd getrennt lebend) und ggf. seit wann.",
-            "where": "Heiratsurkunde, Scheidungsurteil oder Ihre persönliche Situation.",
-            "example": "verheiratet seit 10.06.2018",
-            "mistake": "Veralteten Familienstand angeben."
+            "form": "KG1",
+            "page": 1,
+            "sec": "3",
+            "de": "Zahlungsweg – IBAN, BIC, Kontoinhaber(in)",
+            "only": false,
+            "what": "IBAN und BIC für die Auszahlung. Kontoinhaber(in): antragstellende Person ankreuzen oder andere Person angeben.",
+            "where": "Bankkarte oder Online-Banking.",
+            "example": "IBAN: DE00 0000 0000 0000 0000 00 (erfunden) · Kontoinhaber: antragstellende Person",
+            "mistake": "Zahlendreher in der IBAN oder anderen Kontoinhaber nicht angeben."
           },
           {
-            "de": "Angaben zum Ehegatten / Lebenspartner / anderen Elternteil",
-            "what": "Nur wenn Formular/Portal danach fragt: Name, Geburtsdatum und weitere verlangte Angaben. Die Steuer-ID des Partners nur, wenn ausdrücklich gefragt.",
-            "where": "Unterlagen des Partners / anderen Elternteils.",
-            "example": "Novak, Damir · 03.09.1989",
-            "mistake": "Annehmen, die Steuer-ID des Partners sei immer nötig – nur Gefragtes angeben."
+            "form": "KG1",
+            "page": 2,
+            "sec": "4",
+            "de": "Bescheid an eine andere Person",
+            "only": true,
+            "what": "Nur wenn der Bescheid an jemand anderen gehen soll (z. B. Steuerberater, Rechtsanwalt): Name und Anschrift.",
+            "where": "—",
+            "example": "leer",
+            "mistake": "Den anderen Elternteil hier eintragen – der Abschnitt ist nur für einen anderen Bescheid-Empfänger."
           },
           {
-            "de": "Zahlungsweg – IBAN, BIC, Kontoinhaber",
-            "what": "Konto für die Auszahlung und Name der kontoinhabenden Person. Ist das Konto nicht auf Ihren Namen, fragt das Formular gesondert danach.",
-            "where": "Bankkarte, Online-Banking oder Kontovertrag.",
-            "example": "IBAN: DE00 0000 0000 0000 0000 00 (erfunden) · Kontoinhaber: Maja Kovač",
-            "mistake": "Zahlendreher in der IBAN oder falsche kontoinhabende Person."
+            "form": "KG1",
+            "page": 2,
+            "sec": "5",
+            "de": "Angaben zu Kindern – für diese Kinder beziehe ich bereits Kindergeld",
+            "only": true,
+            "what": "Nur wenn Sie bereits Kindergeld für andere Kinder beziehen: Vorname, Geburtsdatum, Geschlecht und Familienkasse (Kindergeld-Nr.). Das neue Kind gehört nicht hierher, sondern in die Anlage Kind.",
+            "where": "Früherer Bescheid der Familienkasse.",
+            "example": "Lea · 02.09.2023 · weiblich · Familienkasse Musterstadt",
+            "mistake": "Das Kind eintragen, für das Sie jetzt beantragen."
           },
           {
-            "de": "Angaben zu Kindergeld / Leistungen im Ausland / Beschäftigung",
-            "what": "Ob für das Kind bereits Kindergeld gezahlt wurde und ob Sie oder eine andere Person im Ausland arbeiten oder vergleichbare Leistungen erhalten. Bei Auslandsbezug können weitere Nachweise verlangt werden.",
-            "where": "Arbeitsverträge, frühere Bescheide über Kindergeld (auch aus dem Ausland).",
-            "example": "Nein / Ja – Beschäftigung in Österreich seit 2025",
-            "mistake": "Auslandsarbeit oder -leistungen verschweigen – kann zu Rückforderungen führen."
+            "form": "KG1",
+            "page": 2,
+            "sec": "6",
+            "de": "Weitere eigene Kinder, für die eine andere Person Kindergeld bezieht",
+            "only": true,
+            "what": "Nur wenn für ein weiteres eigenes Kind eine andere Person (z. B. der andere Elternteil) Kindergeld bezieht: Kind, beziehende Person, Familienkasse.",
+            "where": "Bei der beziehenden Person nachfragen.",
+            "example": "leer",
+            "mistake": "Kind weglassen, für das der andere Elternteil bezieht."
           },
           {
-            "de": "Unterschrift / Erklärung (nur Papierantrag)",
-            "what": "Auf dem Papierformular: Datum und eigenhändige Unterschrift. Damit bestätigen Sie die Richtigkeit und die Pflicht, Änderungen mitzuteilen.",
+            "form": "KG1",
+            "page": 2,
+            "sec": "sign",
+            "de": "Datum · Unterschrift(en)",
+            "only": false,
+            "what": "Nur Papier: Datum und Ihre Unterschrift. Die Person aus Abschnitt 2 unterschreibt zusätzlich, wenn sie einverstanden ist, dass Sie das Kindergeld erhalten. Beim Online-Antrag mit BundID entfällt die händische Unterschrift.",
             "where": "—",
             "example": "27.10.2026 · Unterschrift",
-            "mistake": "Unterschrift oder Datum auf dem Papierantrag vergessen."
+            "mistake": "Unterschrift oder Datum vergessen."
           }
         ],
         "ank": [
           {
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "header",
+            "de": "Name der antragstellenden Person · Kindergeld-Nr. · Antrag vom · Lfd. Nr.",
+            "only": false,
+            "what": "Name der antragstellenden Person, Kindergeld-Nr. (falls vorhanden), Datum des KG1-Antrags und laufende Nummer dieser Anlage Kind.",
+            "where": "Ihr KG1-Antrag.",
+            "example": "Kovač, Maja · Antrag vom 27.10.2026 · Lfd. Nr. 1",
+            "mistake": "Dieselbe Lfd. Nr. für zwei Kinder."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "1",
             "de": "Steuerliche Identifikationsnummer des Kindes",
-            "what": "Steuer-ID des Kindes – 11 Ziffern.",
-            "where": "Für in Deutschland geborene Kinder schickt das BZSt die Steuer-ID automatisch einige Wochen nach der Geburtsanmeldung.",
+            "only": false,
+            "what": "Steuer-ID des Kindes – 11 Ziffern, Pflicht, soweit vergeben.",
+            "where": "Für in Deutschland geborene Kinder schickt das BZSt das Schreiben automatisch einige Wochen nach der Geburtsanmeldung.",
             "example": "09 876 543 210",
-            "mistake": "Steuer-ID eines Elternteils statt des Kindes eintragen."
+            "mistake": "Eigene Steuer-ID statt der des Kindes eintragen."
           },
           {
-            "de": "Angaben zum Kind – Name, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit",
-            "what": "Daten des Kindes wie in Geburtsurkunde/Dokument.",
-            "where": "Geburtsurkunde oder Reisepass des Kindes.",
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "1",
+            "de": "Familienname, Vorname, Geburtsdatum, Geburtsort, Geschlecht, Staatsangehörigkeit, abweichende Anschrift",
+            "only": false,
+            "what": "Daten des Kindes wie in der Geburtsurkunde. Anschrift und Grund nur, wenn das Kind nicht bei Ihnen wohnt.",
+            "where": "Geburtsurkunde des Kindes.",
             "example": "Kovač, Lea · 02.09.2026 · Musterstadt · weiblich",
-            "mistake": "Abweichende Schreibweise des Namens."
+            "mistake": "Abweichende Schreibweise oder gleiche Adresse als „abweichend“ eintragen."
           },
           {
-            "de": "Kindschaftsverhältnis",
-            "what": "Ihr Verhältnis zum Kind (z. B. leibliches Kind, Adoptivkind, Pflegekind, Stief-/Enkelkind im Haushalt).",
-            "where": "Ihre Familiensituation; bei Adoption/Pflege entsprechende Bescheide.",
-            "example": "leibliches Kind",
-            "mistake": "Falsches Verhältnis ankreuzen – bei besonderen Verhältnissen können Nachweise verlangt werden."
+            "form": "Anlage Kind",
+            "page": 1,
+            "sec": "2",
+            "de": "Kindschaftsverhältnis · Angaben zur anderen Person",
+            "only": false,
+            "what": "Verhältnis des Kindes zu Ihnen, zum Partner und ggf. zu einer anderen Person (leibliches Kind, Adoptivkind, Pflegekind, Stiefkind, Enkelkind). Darunter: Angaben zum anderen Elternteil, wenn er nicht der Partner aus KG1 ist.",
+            "where": "Ihre Familiensituation; bei Adoption Annahmebeschluss.",
+            "example": "zur antragstellenden Person: leibliches Kind",
+            "mistake": "Anderen Elternteil weglassen, der nicht bei Ihnen lebt."
           },
           {
-            "de": "Wohnsitz / Haushalt des Kindes",
-            "what": "Ob das Kind in Ihrem Haushalt lebt und unter welcher Adresse.",
-            "where": "Meldebescheinigung des Kindes.",
-            "example": "im Haushalt der antragstellenden Person",
-            "mistake": "Nicht angeben, dass das Kind beim anderen Elternteil oder im Ausland lebt."
+            "form": "Anlage Kind",
+            "page": 2,
+            "sec": "3",
+            "de": "Angaben für ein volljähriges Kind",
+            "only": true,
+            "what": "Bei Neugeborenen: überspringen. Nur für Kinder ab 18 oder kurz davor (Schule, Ausbildung, Studium usw.).",
+            "where": "—",
+            "example": "leer (Neugeborenes)",
+            "mistake": "Für ein Baby eine Schulbescheinigung beschaffen – nicht nötig."
           },
           {
-            "de": "Andere Berechtigte / Kindergeld durch andere Personen",
-            "what": "Ob eine andere Person (z. B. der andere Elternteil) für dasselbe Kind Kindergeld bezieht/beantragt oder eine vergleichbare Leistung im Ausland erhält.",
-            "where": "Auskunft des anderen Elternteils / frühere Bescheide.",
-            "example": "Nein",
-            "mistake": "Doppelantrag beider Elternteile für dasselbe Kind."
+            "form": "Anlage Kind",
+            "page": 3,
+            "sec": "4",
+            "de": "Bereits Kindergeld für dieses Kind beantragt oder erhalten?",
+            "only": false,
+            "what": "Ja/nein: Wurde für DIESES Kind schon Kindergeld beantragt oder bezogen? Bei ja: wer, Zeitraum, Familienkasse, Kindergeld-Nr.",
+            "where": "Früherer Bescheid.",
+            "example": "nein",
+            "mistake": "Nein ankreuzen, obwohl der andere Elternteil schon beantragt hat."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 3,
+            "sec": "5",
+            "de": "Beschäftigung im öffentlichen Dienst",
+            "only": false,
+            "what": "Ja/nein: Sind Sie oder eine Person aus Abschnitt 2 im öffentlichen Dienst tätig? Bei ja a) und b) beantworten.",
+            "where": "Arbeitsvertrag.",
+            "example": "nein",
+            "mistake": "Frage auslassen – auch nein ankreuzen."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 3,
+            "sec": "6",
+            "de": "Geldleistungen aus dem Ausland (letzte 5 Jahre)",
+            "only": false,
+            "what": "Ja/nein: Bestand in den letzten 5 Jahren ein Anspruch auf eine kindbezogene Geldleistung aus dem Ausland oder von einer zwischen-/überstaatlichen Einrichtung? Bei ja: wer, Leistung, Betrag, Zeitraum, Stelle. Bei Auslandsbezug die offiziellen Informationen zu Kindergeld und Ausland lesen.",
+            "where": "Bescheide aus dem anderen Staat.",
+            "example": "nein",
+            "mistake": "Auslandsleistung verschweigen – kann zu Rückforderungen führen."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "7",
+            "de": "Tätigkeit außerhalb Deutschlands / für einen anderen Staat, NATO / Entsendung (letzte 5 Jahre)",
+            "only": false,
+            "what": "Ja/nein zu a) Tätigkeit außerhalb Deutschlands, b) Tätigkeit für einen anderen Staat oder die NATO in Deutschland, c) Entsendung durch einen ausländischen Arbeitgeber – jeweils letzte 5 Jahre. Bei ja: wer, Zeitraum, Arbeitgeber, Ort/Land.",
+            "where": "Arbeitsverträge.",
+            "example": "a) nein · b) nein · c) nein",
+            "mistake": "Auslandstätigkeit von vor einigen Jahren vergessen."
+          },
+          {
+            "form": "Anlage Kind",
+            "page": 4,
+            "sec": "sign",
+            "de": "Datum · Unterschrift",
+            "only": false,
+            "what": "Nur Papier: Datum und Unterschrift der antragstellenden Person auf jeder Anlage Kind.",
+            "where": "—",
+            "example": "27.10.2026 · Unterschrift",
+            "mistake": "KG1 unterschreiben, Anlage Kind nicht."
           }
         ]
       }
