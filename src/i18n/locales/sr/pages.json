@@ -2619,7 +2619,7 @@
               "id": "line-005",
               "de": "Familienname",
               "translation": "Prezime",
-              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promijenilo."
+              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promenilo."
             },
             {
               "id": "line-006",
@@ -2687,7 +2687,7 @@
               "id": "line-016",
               "de": "Wohnort",
               "translation": "Mjesto stanovanja",
-              "meaning": "Grad/općina ove adrese, npr. Berlin; nije mesto rođenja."
+              "meaning": "Grad/opština ove adrese, npr. Berlin; nije mesto rođenja."
             },
             {
               "id": "line-017",
@@ -2713,7 +2713,7 @@
               "id": "line-020",
               "de": "geschieden",
               "translation": "Razveden/a",
-              "meaning": "Brak je pravno razveden; samo podnesen zahtjev za razvod nije završen razvod."
+              "meaning": "Brak je pravno razveden; samo podnet zahtjev za razvod nije završen razvod."
             },
             {
               "id": "line-021",
@@ -2757,7 +2757,7 @@
               "id": "line-027",
               "de": "Familienname",
               "translation": "Prezime",
-              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promijenilo."
+              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promenilo."
             },
             {
               "id": "line-028",
@@ -2819,7 +2819,7 @@
               "id": "line-037",
               "de": "Wohnort",
               "translation": "Mjesto stanovanja",
-              "meaning": "Samo ako je adresa osobe iz tačke 2 drugačija: Grad/općina ove adrese, npr. Berlin; nije mesto rođenja."
+              "meaning": "Samo ako je adresa osobe iz tačke 2 drugačija: Grad/opština ove adrese, npr. Berlin; nije mesto rođenja."
             },
             {
               "id": "line-038",
@@ -2903,7 +2903,7 @@
               "id": "line-050",
               "de": "Wohnort",
               "translation": "Mjesto stanovanja",
-              "meaning": "Samo za različitu adresu dogovorenog primaoca Bescheida: Grad/općina ove adrese, npr. Berlin; nije mesto rođenja."
+              "meaning": "Samo za različitu adresu dogovorenog primaoca Bescheida: Grad/opština ove adrese, npr. Berlin; nije mesto rođenja."
             },
             {
               "id": "line-051",
@@ -3049,7 +3049,7 @@
               "id": "line-072",
               "de": "Familienname",
               "translation": "Prezime",
-              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promijenilo."
+              "meaning": "Sadašnje prezime kao u službenom dokumentu, ne djevojačko prezime ako se promenilo."
             },
             {
               "id": "line-073",
@@ -3117,7 +3117,7 @@
               "id": "line-083",
               "de": "Wohnort",
               "translation": "Mjesto stanovanja",
-              "meaning": "Samo za adresu deteta koja se razlikuje od tvoje: Grad/općina ove adrese, npr. Berlin; nije mesto rođenja."
+              "meaning": "Samo za adresu deteta koja se razlikuje od tvoje: Grad/opština ove adrese, npr. Berlin; nije mesto rođenja."
             },
             {
               "id": "line-084",
@@ -3315,7 +3315,7 @@
               "id": "line-115",
               "de": "3.2 Angaben zur Erwerbstätigkeit",
               "translation": "Rad odraslog deteta",
-              "meaning": "Završena obuka/studij, zaposlenje, Minijob/drugi rad, poslodavac, periodi i sedmični sati. Za novorođenče nije primjenjivo."
+              "meaning": "Završena obuka/studij, zaposlenje, Minijob/drugi rad, poslodavac, periodi i nedeljni sati. Za novorođenče nije primjenjivo."
             },
             {
               "id": "line-116",
@@ -3335,7 +3335,7 @@
               "id": "line-118",
               "de": "ja",
               "translation": "Da",
-              "meaning": "Ako je za ovu bebu već podnesen zahtjev ili primano davanje, navedi osobu, rođenje, period, ured/adresu i broj ispod."
+              "meaning": "Ako je za ovu bebu već podnet zahtjev ili primano davanje, navedi osobu, rođenje, period, ured/adresu i broj ispod."
             },
             {
               "id": "line-119",
@@ -3379,7 +3379,7 @@
               "id": "line-125",
               "de": "Sind Sie oder eine unter Punkt 2 genannte Person, zu der das Kind in einem Kindschaftsverhältnis steht, im öffentlichen Dienst tätig?",
               "translation": "Radiš li ti ili osoba iz tačke 2 u odnosu s djetetom u javnoj službi?",
-              "meaning": "Upute uključuju službenike, korisnike službeničke penzije, zaposlene saveznih/pokrajinskih/općinskih i drugih javnopravnih tijela, sudije i profesionalne/ugovorne vojnike; i privatni rad uz odsustvo iz javne službe. Crkvene ustanove i pridružene ustanove slobodne socijalne zaštite nisu automatski javna služba."
+              "meaning": "Upute uključuju službenike, korisnike službeničke penzije, zaposlene saveznih/pokrajinskih/opštinskih i drugih javnopravnih tijela, sudije i profesionalne/ugovorne vojnike; i privatni rad uz odsustvo iz javne službe. Crkvene ustanove i pridružene ustanove slobodne socijalne zaštite nisu automatski javna služba."
             },
             {
               "id": "line-126",
@@ -3397,13 +3397,13 @@
               "id": "line-128",
               "de": "a) Wird die Beschäftigung in einer Einrichtung des Bundes ausgeübt?",
               "translation": "a) Rad u saveznoj ustanovi?",
-              "meaning": "Bund = savezna država, nije automatski općina ili pokrajina."
+              "meaning": "Bund = savezna država, nije automatski opština ili pokrajina."
             },
             {
               "id": "line-129",
               "de": "ja",
               "translation": "Da",
-              "meaning": "Poslodavac/ustanova je na saveznoj razini; potvrdi u kadrovskoj službi."
+              "meaning": "Poslodavac/ustanova je na saveznoj nivou; potvrdi u kadrovskoj službi."
             },
             {
               "id": "line-130",
@@ -3453,7 +3453,7 @@
               "id": "line-137",
               "de": "ja",
               "translation": "Da",
-              "meaning": "Takvo pravo postoji/postojalo je: navedi osobu, rođenje, naziv naknade, mjesečni euro-iznos, period, ustanovu/adresu i Aktenzeichen. Strani iznos/konverziju razjasni, ne izmišljaj."
+              "meaning": "Takvo pravo postoji/postojalo je: navedi osobu, rođenje, naziv naknade, mesečni euro-iznos, period, ustanovu/adresu i Aktenzeichen. Strani iznos/konverziju razjasni, ne izmišljaj."
             },
             {
               "id": "line-138",
@@ -3482,7 +3482,7 @@
             {
               "id": "line-142",
               "de": "monatlicher Betrag (Euro)",
-              "translation": "Mjesečni iznos u eurima",
+              "translation": "Mesečni iznos u eurima",
               "meaning": "Iznos iz dokumenta, ne godišnji zbir; za drugu valutu pitaj kako prikazati konverziju."
             },
             {
