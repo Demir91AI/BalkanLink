@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ExternalLink, Info, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
+import KindergeldFieldGuide from "@/components/kindergeld/KindergeldFieldGuide";
 
 /**
  * Kindergeld newborn SmartGuide (guide-first cutover, 2026-10-27).
@@ -34,10 +35,10 @@ export default function KindergeldGuideContent() {
 
   return (
     <div className="space-y-6" data-testid="kindergeld-smartguide">
-      <header className="rounded-2xl border border-[hsl(var(--gold))]/25 bg-card/60 p-5">
+      <header className="rounded-2xl border border-[hsl(var(--gold))]/50 bg-card p-5">
         <p className="text-xs font-bold uppercase tracking-wide text-[hsl(var(--gold))]">SmartGuide · Kindergeld</p>
         <h2 className="mt-1 text-xl font-bold text-foreground">{t(k("title"))}</h2>
-        <p className="mt-2 text-sm leading-relaxed text-foreground/85">{t(k("lead"))}</p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(k("lead"))}</p>
       </header>
 
       <section aria-labelledby="kg-case">
@@ -53,8 +54,8 @@ export default function KindergeldGuideContent() {
               className={cn(
                 "rounded-xl border px-3 py-3 text-left text-sm transition-colors",
                 c === id
-                  ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))]/10 font-semibold text-foreground"
-                  : "border-border/60 text-foreground/80 hover:border-[hsl(var(--gold))]/50",
+                  ? "border-[hsl(var(--gold))] bg-[hsl(var(--gold))] font-semibold text-[hsl(var(--background))]"
+                  : "border-border bg-popover text-foreground hover:border-[hsl(var(--gold))]",
               )}
             >
               {t(k(`case.${id}`))}
@@ -64,7 +65,7 @@ export default function KindergeldGuideContent() {
       </section>
 
       {c !== "newborn" && (
-        <section data-testid={`kg-special-${c}`} className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-5 text-sm text-foreground/90">
+        <section data-testid={`kg-special-${c}`} className="rounded-2xl border border-amber-500/30 bg-amber-950 p-5 text-sm text-foreground">
           <h3 className="font-semibold text-foreground">{t(k(`special.${c}.title`))}</h3>
           <p className="mt-2 leading-relaxed">{t(k(`special.${c}.body`))}</p>
           <p className="mt-2 leading-relaxed">{t(k("special.depends"))}</p>
@@ -86,16 +87,16 @@ export default function KindergeldGuideContent() {
       {c === "newborn" && (
       <ol className="space-y-3">
         {STAGES.map((s, i) => (
-          <li key={s} className="rounded-2xl border border-border/60 bg-card/40 p-4">
+          <li key={s} className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-start gap-3">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--gold))]/15 text-sm font-bold text-[hsl(var(--gold))]">
                 {i + 1}
               </span>
               <div className="min-w-0 flex-1">
                 <h3 className="font-semibold text-foreground">{t(k(`stage.${s}.title`))}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-foreground/80">{t(k(`stage.${s}.body`))}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(k(`stage.${s}.body`))}</p>
                 {s === "prepare" && (
-                  <ul className="mt-2 space-y-1 text-sm text-foreground/85">
+                  <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                     {(t(k("stage.prepare.items"), { returnObjects: true }) as string[]).map((it) => (
                       <li key={it} className="flex gap-2"><span className="text-[hsl(var(--gold))]">•</span>{it}</li>
                     ))}
@@ -121,7 +122,9 @@ export default function KindergeldGuideContent() {
       </ol>
       )}
 
-      <section className="rounded-2xl border border-border/60 bg-card/40 p-4">
+      {c === "newborn" && <KindergeldFieldGuide />}
+
+      <section className="rounded-2xl border border-border bg-card p-4">
         <div className="flex items-center gap-2 text-[hsl(var(--gold))]">
           <ShieldCheck className="h-4 w-4" />
           <h3 className="text-sm font-bold uppercase tracking-wide">{t(k("sourcesTitle"))}</h3>
