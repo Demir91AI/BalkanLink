@@ -84,42 +84,42 @@
         "tagline": "Ihr persönlicher Leitfaden durch jedes Formular",
         "explanation": "Stellen Sie sich vor, Sie haben einen Freund, der den gesamten Prozess bereits durchlaufen hat und genau weiß, was zu tun ist. Der Smart Guide führt Sie Schritt für Schritt — was auszufüllen ist, was beizulegen ist und worauf zu achten ist.",
         "example": "Z. B.: Sie beantragen Kindergeld — der Smart Guide sagt Ihnen genau, welches Feld wie auszufüllen ist, welche Unterlagen beizulegen sind und welche häufigen Fehler die Leute machen.",
-        "badge": "Mit Premium verfügbar 🔒"
+        "badge": "In der Mitgliedschaft enthalten 🔒"
       },
       "muster": {
         "name": "Musterformular",
         "tagline": "Beispiel eines korrekt ausgefüllten Formulars",
         "explanation": "„Muster“ bedeutet auf Deutsch „Beispiel“. Ein Musterformular ist ein bereits korrekt ausgefülltes Formular — Sie verwenden es als Vorlage. Sie sehen genau, wie jedes Feld aussehen soll.",
         "example": "Z. B.: Sie haben das KG1-Formular für Kindergeld vor sich und wissen nicht, was Sie im Feld „Bankverbindung“ eintragen sollen. Das Musterformular zeigt Ihnen ein ausgefülltes Beispiel.",
-        "badge": "Mit Premium verfügbar 🔒"
+        "badge": "In der Mitgliedschaft enthalten 🔒"
       },
       "visaNav": {
         "name": "Visa Navigator",
         "tagline": "Finden Sie den richtigen Weg zur Arbeitserlaubnis",
         "explanation": "Jeder hat eine andere Situation — anderer Pass, anderer Beruf, andere Stadt. Der Visa Navigator analysiert Ihre Situation und zeigt genau, welchen Aufenthaltstitel Sie benötigen und wo Sie ihn beantragen.",
         "example": "Z. B.: Sie sind Staatsangehörige(r) von BiH und haben ein Jobangebot in München — der Navigator sagt Ihnen, dass Sie §18 AufenthG + Westbalkan-Regelung benötigen.",
-        "badge": "Mit Premium verfügbar 🔒"
+        "badge": "In der Mitgliedschaft enthalten 🔒"
       },
       "docCheck": {
         "name": "Dokumentenprüfung",
         "tagline": "Dokument hochladen — verstehen, was darin steht",
         "explanation": "Sie haben ein Schreiben vom Finanzamt erhalten und verstehen kein Wort? Fotografieren Sie es oder laden Sie das PDF hoch — Sie erhalten eine Erklärung in Ihrer Sprache: Was wird verlangt, bis wann, was passiert, wenn Sie nicht reagieren.",
         "example": "Z. B.: Sie haben eine Mahnung erhalten — die Dokumentenprüfung sagt Ihnen, dass Sie 15 Tage Zeit zum Bezahlen haben und was passiert, wenn Sie sie ignorieren.",
-        "badge": "1,99 € pro Prüfung"
+        "badge": "in der Mitgliedschaft enthalten (Fair Use)"
       },
       "vorlagen": {
         "name": "Vorlagen",
         "tagline": "Professionelle Briefe auf Deutsch — ohne Aufwand",
         "explanation": "Müssen Sie eine Kündigung oder Vertragsauflösung schreiben? Vorlagen sind fertige Texte in juristischem Deutsch — Sie geben nur Ihre Daten ein und laden das Ergebnis als versandfertiges PDF herunter.",
         "example": "Z. B.: Sie möchten Ihren Telekom-Vertrag kündigen — die Vorlage „Vertragskündigung“ erstellt Ihnen in 2 Minuten ein professionelles Schreiben.",
-        "badge": "Kündigung kostenlos, sonst mit Premium 🔒"
+        "badge": "Kündigung kostenlos, sonst mit der Mitgliedschaft 🔒"
       },
       "trainer": {
         "name": "DeutschTrainer",
         "tagline": "Lernen Sie das Deutsch, das Sie wirklich brauchen",
         "explanation": "Der DeutschTrainer vermittelt Ihnen die Sprache, die Sie täglich benötigen — bei der Arbeit, im Jobcenter, beim Arzt, in der Bank. A1 bis C2, mit Übungen, Aussprache und Tests.",
         "example": "Z. B.: Lektion „Beim Arzt“ — Sie lernen, Symptome zu beschreiben, Rezepte zu verstehen und mit der Versicherung zu sprechen.",
-        "badge": "Mit Premium verfügbar 🔒"
+        "badge": "In der Mitgliedschaft enthalten 🔒"
       }
     },
     "process": {
@@ -270,7 +270,7 @@
     "whatIsLink": "Was ist BalkanLink?",
     "pricing": {
       "heading": "Einfache Preise",
-      "subline": "Kostenlos starten. Wenn du mehr brauchst, zahlst du BalkanLink Plus einmalig — kein Abo.",
+      "subline": "Kostenlos starten. Wenn du mehr brauchst, zahlst du BalkanLink Mitgliedschaft einmalig — kein Abo.",
       "free": {
         "label": "Kostenlos",
         "price": "0 €",
@@ -284,11 +284,11 @@
         "tagline": "Ohne Anmeldung · für immer"
       },
       "premium": {
-        "label": "BalkanLink Plus",
+        "label": "BalkanLink Mitgliedschaft",
         "price": "19,90 €",
         "perMonth": " einmalig",
         "subtitle": "Einmalzahlung · kein Abo · keine automatische Verlängerung",
-        "title": "BalkanLink Plus — 19,90 €",
+        "title": "BalkanLink Mitgliedschaft — 7 Tage kostenlos, danach 19,99 € pro Jahr",
         "recommended": "Empfohlen",
         "f1": "Alle Musterformulare",
         "f2": "Smart Guides (alle Schritte)",
@@ -296,8 +296,8 @@
         "f4": "BalkanLink Deutsch A1–C2 inklusive",
         "f5": "Vorlagen (PDF-Download)",
         "f6": "Premium-Checklisten",
-        "f7": "Dauerhafter Zugang zu Premium-Inhalten",
-        "cta": "BalkanLink Plus kaufen",
+        "f7": "Dauerhafter Zugang zu Inhalt der Mitgliedschaften",
+        "cta": "BalkanLink Mitgliedschaft kaufen",
         "trialHint": "Einmalig · dauerhafter Zugang",
         "trustline": "Sichere Zahlung · Stripe · §19 UStG"
       },
@@ -343,8 +343,8 @@
           },
           "doc": {
             "feature": "Dokumentenprüfung",
-            "free": "1,99 € pro Prüfung",
-            "premium": "1,99 € pro Prüfung",
+            "free": "in der Mitgliedschaft enthalten (Fair Use)",
+            "premium": "in der Mitgliedschaft enthalten (Fair Use)",
             "freeShort": "1,99 €",
             "premiumShort": "1,99 €"
           },
@@ -465,20 +465,20 @@
       "buyOneTime": "Für 1,99 € kaufen →",
       "creditAvailable_one": "Verfügbar: {{count}} Prüfung",
       "creditAvailable_other": "Verfügbar: {{count}} Prüfungen",
-      "premiumLabel": "Premium",
-      "premiumBadge": "⭐ Premium",
+      "premiumLabel": "Mitgliedschaft",
+      "premiumBadge": "⭐ Mitgliedschaft",
       "premiumPerMonth": "/Monat",
       "premiumFeature1": "Unbegrenzte Prüfungen — immer kostenlos",
       "premiumFeature2": "Schnelle und priorisierte Analyse",
       "premiumFeature3": "+ alle Premium-Funktionen der Plattform",
-      "buyPremium": "Premium kaufen →"
+      "buyPremium": "Mitgliedschaft ansehen →"
     },
     "quota": {
       "remaining": "Du hast heute noch {{count}} kostenlose Prüfungen",
       "exhausted": "Keine Prüfungen verfügbar",
       "resetHint": "Der Zähler wird morgen um 00:00 (Berlin) zurückgesetzt",
       "usingPaid": "Du hast {{count}} zusätzliche bezahlte Prüfungen",
-      "buyExtra": "Weitere Prüfungen: 1,99 € pro Prüfung",
+      "buyExtra": "Weitere Prüfungen: in der Mitgliedschaft enthalten (Fair Use)",
       "paidAvailable": "Du hast {{count}} bezahlte Prüfungen bereit",
       "paidHint": "Ohne Ablauf — nutze sie jederzeit"
     },
@@ -522,12 +522,12 @@
       "fallback": "Serverfehler bei der Dokumentenanalyse.",
       "tooManyFiles": "Maximal {{max}} Dateien.",
       "totalTooLarge": "Gesamtgröße überschreitet 25 MB.",
-      "paymentRequired": "Für die Analyse ist 1 Guthaben erforderlich (1,99 € pro Prüfung)."
+      "paymentRequired": "Für die Analyse ist 1 Guthaben erforderlich (in der Mitgliedschaft enthalten (Fair Use))."
     },
     "paywall": {
       "title": "Dokumenten-Check",
-      "subtitle": "Dokument hochladen — Erklärung in deiner Sprache. 1,99 € pro abgeschlossener Prüfung.",
-      "premiumCta": "Prüfung kaufen — 1,99 €",
+      "subtitle": "Dokument hochladen — Erklärung in deiner Sprache. in der Mitgliedschaft enthalten (Fair Use).",
+      "premiumCta": "Mitgliedschaft ansehen",
       "premiumPerk": "Bezahlt wird pro abgeschlossener Prüfung — auch für Plus-Nutzer",
       "or": "oder",
       "oneTimeCta": "1,99 € für eine Analyse zahlen →",
@@ -559,8 +559,8 @@
       "actionNeeded": "Erforderliche Maßnahme",
       "financial": "Finanzielle Auswirkung",
       "deadline": "Frist",
-      "lockedTitle": "🔒 Detaillierte Analyse mit Premium verfügbar",
-      "lockedCta": "Prüfung kaufen — 1,99 €",
+      "lockedTitle": "🔒 Detaillierte Analyse mit der Mitgliedschaft verfügbar",
+      "lockedCta": "Mitgliedschaft ansehen",
       "viewAnalysis": "Analyse ansehen",
       "urgent": "Dringende Maßnahme erforderlich",
       "recommended": "Empfohlene Maßnahme",
@@ -711,7 +711,7 @@
       },
       "premiumTitle": "Vollständigen Leitfaden freischalten",
       "anonTitle": "Vollständigen Leitfaden ansehen",
-      "premiumCta": "Mit Plus freischalten — 19,90 € einmalig",
+      "premiumCta": "BalkanLink Mitgliedschaft ansehen",
       "registerCta": "Kostenlos registrieren →",
       "haveAccount": "Bereits ein Konto?",
       "signIn": "Anmelden"
@@ -746,18 +746,18 @@
     },
     "upgradeCta": {
       "title": "Weiter lernen",
-      "subtitle": "Alle 6 Niveaus A1–C2 sind in BalkanLink Plus enthalten — 19,90 € einmalig.",
+      "subtitle": "Alle 6 Niveaus A1–C2 sind in BalkanLink Mitgliedschaft enthalten — 19,90 € einmalig.",
       "noSubscription": "Kein Abo",
       "payOnce": "Einmal zahlen",
-      "wertgutschein": "In BalkanLink Plus enthalten",
-      "unlockAll": "Mit Plus freischalten — 19,90 €"
+      "wertgutschein": "In BalkanLink Mitgliedschaft enthalten",
+      "unlockAll": "BalkanLink Mitgliedschaft ansehen — 19,90 €"
     },
     "paywallModal": {
       "title": "Weitere Lektionen freischalten",
-      "body": "Alle 6 Niveaus A1–C2 sind in BalkanLink Plus enthalten — 19,90 € einmalig.",
+      "body": "Alle 6 Niveaus A1–C2 sind in BalkanLink Mitgliedschaft enthalten — 19,90 € einmalig.",
       "from": "ab",
       "perOneTime": "/ einmalig",
-      "unlockNow": "Mit Plus freischalten — 19,90 €",
+      "unlockNow": "BalkanLink Mitgliedschaft ansehen — 19,90 €",
       "decideLater": "Später entscheiden"
     },
     "stages": {
@@ -767,7 +767,7 @@
       "tasks": "Aufgaben",
       "freeTasks": "kostenlos",
       "moreTasks": "weitere Aufgaben",
-      "unlockWithPremium": "Mit Premium freischalten"
+      "unlockWithPremium": "Mit Mitgliedschaft ansehen"
     },
     "lessonView": {
       "preparingExercises": "Aufgaben werden vorbereitet …",
@@ -811,8 +811,8 @@
     "lockedOverlay": {
       "lockedItems": "🔒 +{{count}} {{label}} gesperrt",
       "lockedDefaultLabel": "Inhalte",
-      "lockedSubtitle": "Verfügbar mit BalkanLink Plus (einmalig)",
-      "unlockCta": "Mit Plus freischalten"
+      "lockedSubtitle": "Verfügbar mit BalkanLink Mitgliedschaft (einmalig)",
+      "unlockCta": "BalkanLink Mitgliedschaft ansehen"
     },
     "resetDialog": {
       "title": "Gesamten Fortschritt zurücksetzen?",
@@ -949,7 +949,7 @@
         "afterExpire": "Nach Ablauf zurück in die normale Liste"
       },
       "premium": {
-        "label": "⭐ Premium",
+        "label": "⭐ Mitgliedschaft",
         "price": "9,99 €",
         "period": "/ Monat",
         "bestValue": "Bestes Angebot",
@@ -963,7 +963,7 @@
       "buttons": {
         "free": "Kostenlos veröffentlichen →",
         "pro": "Pro kaufen — 1,99 € →",
-        "premium": "Premium kaufen — 9,99 €/Monat →"
+        "premium": "Mitgliedschaft ansehen — 9,99 €/Monat →"
       },
       "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Premium enthält 2 solche Hervorhebungen pro Monat."
     }
@@ -1010,7 +1010,7 @@
       "seoDescription": "Fertige Vorlagen für deutsche Briefe — Kündigung, Anträge, Widersprüche.",
       "notFound": "Vorlage nicht gefunden.",
       "freeBadge": "Kostenlos",
-      "premiumBadge": "Premium",
+      "premiumBadge": "Mitgliedschaft",
       "unlock": "{{name}} freischalten",
       "whatYouGet": "Was du bekommst:",
       "benefit1": "Professioneller deutscher Text (rechtlich korrekt)",
@@ -1019,7 +1019,7 @@
       "benefit4": "Download als PDF, versandbereit",
       "benefit5": "Tipps, welche Anlagen beizufügen sind",
       "benefit6": "Beispiel eines korrekt ausgefüllten Dokuments",
-      "ctaUnlock": "Mit Plus freischalten — 19,90 € einmalig",
+      "ctaUnlock": "BalkanLink Mitgliedschaft ansehen",
       "sectionWork": "Arbeitsrecht & Karriere",
       "sectionWorkLocal": "Arbeitsrecht & Karriere",
       "sectionService": "Kundenservice / Verträge",
@@ -1592,9 +1592,9 @@
       "title": "Deine Analyse",
       "newScan": "Neue Prüfung",
       "newScanCta": "Neue Abrechnung hochladen",
-      "premiumLockTitle": "Detaillierter Bericht — BalkanLink Plus",
-      "premiumLockSub": "Mit BalkanLink Plus siehst du alle verdächtigen Posten mit Rechtsgrundlage, eine Schätzung des strittigen Betrags und einen fertigen Text an den Vermieter.",
-      "premiumCta": "Mit Plus freischalten — 19,90 € einmalig",
+      "premiumLockTitle": "Detaillierter Bericht — BalkanLink Mitgliedschaft",
+      "premiumLockSub": "Mit BalkanLink Mitgliedschaft siehst du alle verdächtigen Posten mit Rechtsgrundlage, eine Schätzung des strittigen Betrags und einen fertigen Text an den Vermieter.",
+      "premiumCta": "BalkanLink Mitgliedschaft ansehen",
       "disclaimer": "Diese Analyse ist eine informative Hilfe, keine Rechtsberatung. Für eine verbindliche Prüfung wende dich an den Mieterbund (60–90 €/Jahr) oder einen Anwalt für Mietrecht."
     },
     "how": {
@@ -1632,7 +1632,7 @@
       "q3": "Was, wenn ihr keinen Fehler findet?",
       "a3": "Das schreiben wir ehrlich. Es bedeutet nicht, dass die Abrechnung zu 100 % korrekt ist — nur, dass wir keine offensichtlichen Probleme gesehen haben.",
       "q4": "Was kostet es?",
-      "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. BalkanLink Plus (19,90 € einmalig): detaillierter Bericht + Text an den Vermieter."
+      "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. BalkanLink Mitgliedschaft (19,90 € einmalig): detaillierter Bericht + Text an den Vermieter."
     }
   },
   "whatIs": {
@@ -1681,14 +1681,14 @@
       }
     },
     "premium": {
-      "kicker": "✨ BalkanLink Plus",
+      "kicker": "✨ BalkanLink Mitgliedschaft",
       "badge": "Beliebteste Wahl",
       "title": "Alles freigeschaltet — wenn es tiefer wird",
       "price": "19,90 €",
       "priceUnit": " einmalig",
-      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Anmeldung-Simulator ist offen, die ersten Schritte kosten dich nichts. BalkanLink Plus schaltest du einmalig frei, wenn das Leben komplizierter wird — dauerhafter Zugang zu Premium-Guides, Formularen, Vorlagen, Viza Navigator und DeutschTrainer. Der Dokumenten-Check ist nicht enthalten und kostet 1,99 € pro abgeschlossener Prüfung.",
+      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Anmeldung-Simulator ist offen, die ersten Schritte kosten dich nichts. BalkanLink Mitgliedschaft schaltest du einmalig frei, wenn das Leben komplizierter wird — dauerhafter Zugang zu Premium-Guides, Formularen, Vorlagen, Viza Navigator und DeutschTrainer. Der Dokumenten-Check ist nicht enthalten und kostet in der Mitgliedschaft enthalten (Fair Use).",
       "summary": "Einmal zahlen — kein Abo, keine automatische Verlängerung.",
-      "cta": "BalkanLink Plus holen",
+      "cta": "BalkanLink Mitgliedschaft holen",
       "ctaFree": "Erst kostenlos testen"
     },
     "footer": "Von der Diaspora, für die Diaspora. 🇧🇦 🇭🇷 🇷🇸 → 🇩🇪"

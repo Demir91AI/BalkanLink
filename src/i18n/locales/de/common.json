@@ -19,8 +19,8 @@
     "register": "Registrieren",
     "logout": "Abmelden",
     "profile": "Profil",
-    "premiumActive": "Premium aktiv",
-    "becomePremium": "Premium werden",
+    "premiumActive": "Voller Zugang aktiv",
+    "becomePremium": "Mitgliedschaft ansehen",
     "menu": "Menü",
     "back": "Zurück"
   },
@@ -72,7 +72,7 @@
     "searchResultsLabel": "Suchergebnisse",
     "noResults": "Keine Ergebnisse für",
     "recentSectionLabel": "Zuletzt verwendet",
-    "statusPremium": "Premium aktiv",
+    "statusPremium": "Voller Zugang aktiv",
     "statusFree": "Free Plan",
     "upgrade": "Upgrade",
     "openProfile": "Profil öffnen",
@@ -219,8 +219,8 @@
       "errorTitleShort": "Fehler bei der Registrierung.",
       "passwordTooShortShort": "Das Passwort ist zu kurz.",
       "trialBannerTitle": "🎁 30 Tage Premium gratis",
-      "trialBannerDesc": "Dein Code {{code}} wurde erkannt. Premium-Zugang wird direkt nach der Registrierung aktiviert.",
-      "trialActivatedTitle": "Premium aktiviert!",
+      "trialBannerDesc": "Dein Code {{code}} wurde erkannt. Mitgliedschaft wird direkt nach der Registrierung aktiviert.",
+      "trialActivatedTitle": "Zugang aktiviert!",
       "trialActivatedDesc": "Du hast {{days}} Tage vollen Zugriff. Viel Spaß!",
       "trialFailedTitle": "Trial-Link nicht aktiviert",
       "trialError": {
@@ -353,7 +353,7 @@
       "kalkulatori": "Rechner",
       "wohnungen": "Wohnungen",
       "stellenangebote": "Stellenangebote",
-      "premium": "Premium",
+      "premium": "Mitgliedschaft",
       "paketi": "Pakete",
       "dokumenten-check": "Dokumentenprüfung",
       "viza": "Visa-Navigator",
@@ -472,6 +472,6 @@
     "promoLabel": "• Promo • Zeitlich begrenzt • Bis 31.05.2026 •",
     "badge": "7 Tage gratis",
     "badgeShort": "7 Tage frei",
-    "ctaWithTrial": "Premium aktivieren — 7 Tage gratis"
+    "ctaWithTrial": "Mitgliedschaft ansehen — 7 Tage gratis"
   }
 }

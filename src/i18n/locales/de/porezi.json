@@ -4,7 +4,7 @@
     "description": "Smarter Wegweiser durch das deutsche Steuersystem: Steuererklärung Schritt für Schritt, abzugsfähige Posten, Fristen und häufige Fehler. Stand 2026."
   },
   "hero": {
-    "badge": "Premium · Stand 2026",
+    "badge": "Stand 2026",
     "title": "Steuern in Deutschland",
     "subtitle": "Smart Guide für die Einkommensteuererklärung — verständlich, Schritt für Schritt, in Ihrer Sprache.",
     "ctaPrimary": "Wizard starten",
@@ -22,7 +22,7 @@
   "comingSoonHeading": "In Kürze",
   "modulesHeading": "Alle Module",
   "comingSoonBadge": "Bald",
-  "premiumBadge": "Premium",
+  "premiumBadge": "Mitgliedschaft",
   "openModule": "Modul öffnen",
   "lockedHint": "Klick aktiviert Premium",
   "modules": {
@@ -80,7 +80,7 @@
     "gate": {
       "title": "Der Wizard ist Teil von Premium",
       "body": "Für den interaktiven Klassifikator und alle Module des Steuerbereichs benötigen Sie eine Premium-Mitgliedschaft. Die Landingpage /steuern bleibt frei zugänglich.",
-      "ctaPremium": "Premium aktivieren",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -396,13 +396,13 @@
     },
     "gate": {
       "title": "Das DHF-Modul ist Premium",
-      "body": "Der ausführliche Leitfaden zur doppelten Haushaltsführung steht Premium-Mitgliedern zur Verfügung.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden zur doppelten Haushaltsführung steht Mitgliedern zur Verfügung.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
     "hero": {
-      "badge": "Premium · Werbungskosten",
+      "badge": "Werbungskosten",
       "title": "Doppelte Haushaltsführung",
       "subtitle": "Wenn Sie an einem Ort arbeiten, Ihr Lebensmittelpunkt aber woanders liegt — kann das Finanzamt einen Teil der Kosten der Zweitwohnung anerkennen. Dieser Leitfaden zeigt Voraussetzungen, Nachweise und typische Fehler."
     },
@@ -608,7 +608,7 @@
       "description": "Bis wann Sie Ihre Steuererklärung abgeben müssen, was bei Verspätung passiert (Verspätungszuschlag, Zinsen) und welche Ausnahmen gelten. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Fristen und Strafen",
       "subtitle": "Bis wann Sie abgeben müssen, was bei Verspätung droht und wie Sie den Verspätungszuschlag vermeiden."
     },
@@ -672,8 +672,8 @@
     },
     "gate": {
       "title": "Fristen und Strafen — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -784,7 +784,7 @@
       "description": "Übersicht der typischen Posten, die Arbeitnehmer in Deutschland absetzen können: Werbungskosten, Sonderausgaben, außergewöhnliche Belastungen. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Was kann ich absetzen",
       "subtitle": "Drei große Abzugskategorien — was wo hingehört, welche Belege Sie aufbewahren und typische Fehler."
     },
@@ -868,8 +868,8 @@
     },
     "gate": {
       "title": "Was kann ich absetzen — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -1017,7 +1017,7 @@
       "description": "Schritt für Schritt, wie Sie ein ELSTER-Konto eröffnen und Ihre Steuererklärung elektronisch abgeben. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "ELSTER — so registrieren Sie sich",
       "subtitle": "Konto, Zertifikat, Aktivierung und die erste elektronische Abgabe — verständlich erklärt."
     },
@@ -1081,8 +1081,8 @@
     },
     "gate": {
       "title": "ELSTER-Anleitung — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -1208,7 +1208,7 @@
       "description": "Steuerklassen I–VI, Ehegattensplitting, Kinderfreibetrag vs. Kindergeld und Günstigerprüfung. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Familie und Steuerklassen",
       "subtitle": "Steuerklassen, Zusammenveranlagung, Kinderfreibetrag — wie sich das auf die Steuerlast auswirkt."
     },
@@ -1292,8 +1292,8 @@
     },
     "gate": {
       "title": "Familie & Steuerklassen — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -1418,7 +1418,7 @@
       "description": "Wann sich die Erklärung für Studenten und Azubis lohnt: Verlustvortrag, Werbungskosten, Sonderausgaben. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Studenten und Azubis",
       "subtitle": "Wann Studenten und Auszubildende über die Erklärung nachdenken sollten — und wie man mit Verlustvortrag zukünftigen Vorteil aufbaut."
     },
@@ -1502,8 +1502,8 @@
     },
     "gate": {
       "title": "Studenten & Azubis — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -1623,7 +1623,7 @@
       "description": "Gewerbe vs. Freiberuf, EÜR, Vorsteuer, Kleinunternehmerregelung und typische Fehler. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Selbständige und Freelancer",
       "subtitle": "Gewerbe vs. Freiberuf, EÜR, Umsatzsteuer und Kleinunternehmer — Überblick für alle, die für sich selbst arbeiten."
     },
@@ -1718,8 +1718,8 @@
     },
     "gate": {
       "title": "Selbständige — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -1861,7 +1861,7 @@
       "description": "Wie Mieteinkünfte versteuert werden: anerkannte Kosten, AfA, Erhaltungs- vs. Herstellungsaufwand. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Mieteinkünfte",
       "subtitle": "Anlage V — Vermietungseinkünfte erklären, anerkannte Werbungskosten und AfA verstehen."
     },
@@ -1956,8 +1956,8 @@
     },
     "gate": {
       "title": "Mieteinkünfte — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
@@ -2096,7 +2096,7 @@
       "description": "Die typischen Fehler, die zu abgelehnten Abzügen, Prüfungen oder Nachforderungen führen. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Häufigste Fehler",
       "subtitle": "Die Dinge, an denen Nutzer am häufigsten scheitern — von vergessenen Belegen bis zu falschen Kategorien."
     },
@@ -2152,8 +2152,8 @@
     },
     "gate": {
       "title": "Häufigste Fehler — Premium",
-      "body": "Der ausführliche Leitfaden steht Premium-Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
-      "ctaPremium": "Premium aktivieren",
+      "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
+      "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },

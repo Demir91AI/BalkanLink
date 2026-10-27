@@ -4,7 +4,7 @@
     "description": "Smart vodič kroz njemački porezni sistem: kako se radi Steuererklärung, šta možeš odbiti, rokovi i česte greške. Stand 2026."
   },
   "hero": {
-    "badge": "Premium · Stand 2026",
+    "badge": "Stand 2026",
     "title": "Porezi u Njemačkoj",
     "subtitle": "Smart Guide kroz Steuererklärung — jasno, korak po korak, na tvom jeziku.",
     "ctaPrimary": "Pokreni wizard",
@@ -22,7 +22,7 @@
   "comingSoonHeading": "Uskoro",
   "modulesHeading": "Svi moduli",
   "comingSoonBadge": "Uskoro",
-  "premiumBadge": "Premium",
+  "premiumBadge": "Članstvo",
   "openModule": "Otvori modul",
   "lockedHint": "Klikom aktiviraš Premium",
   "modules": {
@@ -78,9 +78,9 @@
       "description": "Interaktivni wizard od 8 pitanja koji ti pomaže da razumiješ da li je tvoja Steuererklärung obavezna, preporučena ili dobrovoljna."
     },
     "gate": {
-      "title": "Wizard je dio Premium pristupa",
-      "body": "Da bi koristio interaktivni klasifikator i sve module poreznog odjela, treba ti Premium članstvo. Landing stranica /porezi ostaje besplatna i informativna.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Wizard je dio pristup uz članstvoa",
+      "body": "Da bi koristio interaktivni klasifikator i sve module poreznog odjela, treba ti BalkanLink članstvo. Landing stranica /porezi ostaje besplatna i informativna.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -395,14 +395,14 @@
       "description": "Šta je Doppelte Haushaltsführung, ko ima pravo na poreznu olakšicu, koje troškove možeš prijaviti i koje dokaze trebaš čuvati."
     },
     "gate": {
-      "title": "DHF modul je dio Premiuma",
-      "body": "Detaljni edukativni vodič o Doppelte Haushaltsführung dostupan je Premium korisnicima.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "DHF modul je dio BalkanLink članstva",
+      "body": "Detaljni edukativni vodič o Doppelte Haushaltsführung dostupan je članovima BalkanLink-a.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
     "hero": {
-      "badge": "Premium · Werbungskosten",
+      "badge": "Werbungskosten",
       "title": "Doppelte Haushaltsführung — Dvostruko domaćinstvo",
       "subtitle": "Kada radiš u jednom mjestu, a tvoj životni centar ostaje u drugom — porez ti može priznati dio troškova drugog stana. Ovo je vodič kroz uslove, dokaze i tipične greške."
     },
@@ -608,7 +608,7 @@
       "description": "Do kada se predaje porezna prijava, šta se dešava ako kasniš, Verspätungszuschlag i izuzeci. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Rokovi i kazne",
       "subtitle": "Do kada se predaje prijava, šta se dešava ako kasniš i kako izbjeći Verspätungszuschlag."
     },
@@ -671,9 +671,9 @@
       }
     },
     "gate": {
-      "title": "Rokovi i kazne — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Rokovi i kazne — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -784,7 +784,7 @@
       "description": "Pregled tipičnih stavki koje zaposleni u Njemačkoj mogu odbiti: Werbungskosten, Sonderausgaben, außergewöhnliche Belastungen. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Šta sve mogu odbiti",
       "subtitle": "Tri velike kategorije odbitaka — što ulazi gdje, koje dokaze treba čuvati i česte greške."
     },
@@ -867,9 +867,9 @@
       }
     },
     "gate": {
-      "title": "Šta sve mogu odbiti — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Šta sve mogu odbiti — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -1017,7 +1017,7 @@
       "description": "Korak po korak kako otvoriti račun na ELSTER portalu i poslati prijavu elektronski. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "ELSTER — kako se registrovati",
       "subtitle": "Otvaranje računa, sertifikat, aktivacija i prva elektronska prijava — jezikom kojeg razumiješ."
     },
@@ -1080,9 +1080,9 @@
       }
     },
     "gate": {
-      "title": "ELSTER vodič — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "ELSTER vodič — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -1208,7 +1208,7 @@
       "description": "Steuerklassen I–VI, Ehegattensplitting, Kinderfreibetrag vs Kindergeld i Günstigerprüfung. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Porodica i porezne klase",
       "subtitle": "Steuerklassen, zajednička prijava bračnih partnera, Kinderfreibetrag — kako sve to utiče na poreznu obavezu."
     },
@@ -1291,9 +1291,9 @@
       }
     },
     "gate": {
-      "title": "Porodica i klase — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Porodica i klase — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -1418,7 +1418,7 @@
       "description": "Kada se isplati prijava za studente i pripravnike, Verlustvortrag, Werbungskosten i Sonderausgaben. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Studenti i pripravnici",
       "subtitle": "Kada studenti i Azubis trebaju razmišljati o poreznoj prijavi i kako stvoriti budući benefit kroz Verlustvortrag."
     },
@@ -1501,9 +1501,9 @@
       }
     },
     "gate": {
-      "title": "Studenti — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Studenti — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -1623,7 +1623,7 @@
       "description": "Razlika između Gewerbe i Freiberuf, EÜR, Vorsteuer, Kleinunternehmerregelung i tipične greške. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Samostalni i Freelancer",
       "subtitle": "Gewerbe vs Freiberuf, EÜR, PDV (Umsatzsteuer) i Kleinunternehmer — pregled za one koji rade za sebe."
     },
@@ -1717,9 +1717,9 @@
       }
     },
     "gate": {
-      "title": "Samostalni — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Samostalni — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -1861,7 +1861,7 @@
       "description": "Kako se oporezuju prihodi od stanova i kuća, koji troškovi su priznati, AfA i razlika repair vs improvement. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Prihodi od izdavanja",
       "subtitle": "Anlage V — kako prijaviti najam, koje troškove odbiti i šta je AfA."
     },
@@ -1955,9 +1955,9 @@
       }
     },
     "gate": {
-      "title": "Prihodi od izdavanja — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Prihodi od izdavanja — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },
@@ -2096,7 +2096,7 @@
       "description": "Top greške koje vode do odbijanja odbitaka, kontrole ili dodatnih obaveza. Bazirano na praksi BFH i preporukama Bundessteuerberaterkammer. Stand 2026."
     },
     "hero": {
-      "badge": "Premium · Stand 2026",
+      "badge": "Stand 2026",
       "title": "Najčešće greške",
       "subtitle": "Stvari na koje korisnici najviše padaju — od zaboravljenih dokaza do pogrešno upisanih kategorija."
     },
@@ -2151,9 +2151,9 @@
       }
     },
     "gate": {
-      "title": "Najčešće greške — Premium pristup",
-      "body": "Detaljan vodič dostupan je Premium članovima. Landing /porezi ostaje besplatan i informativan.",
-      "ctaPremium": "Aktiviraj Premium",
+      "title": "Najčešće greške — uz članstvo",
+      "body": "Detaljan vodič dostupan je članovima BalkanLink-a. Landing /porezi ostaje besplatan i informativan.",
+      "ctaPremium": "Pogledaj članstvo",
       "ctaLogin": "Prijavi se",
       "ctaBack": "Nazad na Porezi"
     },

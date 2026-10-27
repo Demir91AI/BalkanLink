@@ -4,7 +4,7 @@
     "description": "Edukativni simulator kreditne sposobnosti za naše ljude u Nemačkoj. Razumi Schufa faktore pre nego što ti banka kaže Nein. Nije zvanični Schufa Score."
   },
   "hero": {
-    "badge": "Premium · Bonitet Simulator",
+    "badge": "Bonitet Simulator",
     "headline1": "Razumi svoju kreditnu sposobnost",
     "headline2": "pre nego ti banka kaže \"Nein\"",
     "subline": "Edukativna procena bazirana na Schufa javnim faktorima. 100% anonimno — sve se računa u tvom pretraživaču."
@@ -16,14 +16,14 @@
     "legalAfter": ". Banke, stanodavci i poslodavci koriste isključivo zvanični Schufa Score. BalkanLink ne snosi odgovornost za odluke donesene na osnovu ove procene. Ovo nije pravni ni finansijski savet."
   },
   "gate": {
-    "title": "Bonitet Simulator je Premium",
+    "title": "Bonitet Simulator je dio članstva",
     "subline": "Edukativna procena tvoje kreditne sposobnosti, personalizovani 6-mesečni plan poboljšanja i kompletan vodič za zvanični Schufa Datenkopie — samo za Premium korisnike.",
     "feature1": "✓ Indikativna procena za 5 minuta",
     "feature2": "✓ Top 6 faktora koji utiču na tvoj profil",
     "feature3": "✓ Personalizovani plan poboljšanja za 6 meseci",
     "feature4": "✓ Vodič kako dobiti BESPLATAN zvanični Schufa Auskunft",
     "feature5": "✓ 100% anonimno — ništa se ne čuva",
-    "cta": "Otključaj s Plus — 19,90€ jednokratno",
+    "cta": "Pogledaj BalkanLink članstvo",
     "footnote": "Nije zvanični Schufa Score · Edukativni simulator"
   },
   "disclaimer": {

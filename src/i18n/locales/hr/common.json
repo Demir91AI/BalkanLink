@@ -19,8 +19,8 @@
     "register": "Registracija",
     "logout": "Odjava",
     "profile": "Profil",
-    "premiumActive": "Premium aktivan",
-    "becomePremium": "Postani Premium",
+    "premiumActive": "Puni pristup aktivan",
+    "becomePremium": "Pogledaj članstvo",
     "menu": "Meni",
     "back": "Natrag"
   },
@@ -72,7 +72,7 @@
     "searchResultsLabel": "Rezultati pretrage",
     "noResults": "Nema rezultata za",
     "recentSectionLabel": "Nedavno korišteno",
-    "statusPremium": "Premium aktivan",
+    "statusPremium": "Puni pristup aktivan",
     "statusFree": "Besplatni plan",
     "upgrade": "Nadogradi",
     "openProfile": "Otvori profil",
@@ -219,8 +219,8 @@
       "errorTitleShort": "Pogreška pri registraciji.",
       "passwordTooShortShort": "Lozinka je prekratka.",
       "trialBannerTitle": "🎁 30 dana Premium besplatno",
-      "trialBannerDesc": "Tvoj kod {{code}} je prepoznat. Premium pristup aktivira se odmah nakon registracije.",
-      "trialActivatedTitle": "Premium aktiviran!",
+      "trialBannerDesc": "Tvoj kod {{code}} je prepoznat. pristup uz članstvo aktivira se odmah nakon registracije.",
+      "trialActivatedTitle": "Pristup aktiviran!",
       "trialActivatedDesc": "Imaš {{days}} dana puni pristup. Uživaj!",
       "trialFailedTitle": "Trial link nije aktiviran",
       "trialError": {
@@ -353,7 +353,7 @@
       "kalkulatori": "Kalkulatori",
       "wohnungen": "Stanovi",
       "stellenangebote": "Poslovi",
-      "premium": "Premium",
+      "premium": "Članstvo",
       "paketi": "Paketi",
       "dokumenten-check": "Provjera dokumenata",
       "viza": "Viza navigator",
@@ -463,15 +463,15 @@
     }
   },
   "trialCta": {
-    "text": "7 dana Premium besplatno — isprobaj odmah",
+    "text": "7 dana besplatno — isprobaj odmah",
     "aria": "Premium probno razdoblje",
     "dismiss": "Zatvori",
-    "heroBanner": "7 dana Premium besplatno",
+    "heroBanner": "7 dana besplatno",
     "heroSubtext": "Za svakog novog korisnika!",
     "heroSubtextLine2": "Otkaži bilo kad!",
     "promoLabel": "• Promo • Vremenski ograničeno • Do 31.05.2026 •",
     "badge": "7 dana besplatno",
     "badgeShort": "7 dana free",
-    "ctaWithTrial": "Aktiviraj Premium — 7 dana besplatno"
+    "ctaWithTrial": "Počni 7 dana besplatno"
   }
 }
