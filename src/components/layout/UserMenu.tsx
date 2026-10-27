@@ -23,6 +23,7 @@ import {
 import { useAuth } from "@/contexts/AuthContext";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
 import { isStandalone } from "@/hooks/usePWAInstall";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 export function UserMenu() {
   const { t } = useTranslation("common");
@@ -132,7 +133,7 @@ export function UserMenu() {
                 className="text-white/85 focus:text-white focus:bg-white/5 cursor-pointer"
               >
                 <ArrowRight className="h-4 w-4 mr-2 text-[hsl(var(--gold))]" />
-                {t("nav.becomePremium")}
+                <PlusCtaLabel />
               </DropdownMenuItem>
             )}
             {!installed && (

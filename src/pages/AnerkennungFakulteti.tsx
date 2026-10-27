@@ -45,6 +45,7 @@ import { Badge } from "@/components/ui/badge";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 /* ──────────── Tipovi ──────────── */
 
@@ -551,7 +552,7 @@ export default function AnerkennungFakulteti() {
               onClick={() => navigate("/paketi")}
               className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--gold-dark))] text-white"
             >
-              <Crown className="mr-1.5 h-4 w-4" /> Postani Premium
+              <Crown className="mr-1.5 h-4 w-4" /> <PlusCtaLabel />
             </Button>
           </div>
         )}
@@ -701,7 +702,7 @@ export default function AnerkennungFakulteti() {
                       onClick={() => navigate("/paketi")}
                       className="font-bold text-[hsl(var(--gold))] hover:underline"
                     >
-                      Postani Premium
+                      <PlusCtaLabel />
                     </button>
                   </div>
                 )}
