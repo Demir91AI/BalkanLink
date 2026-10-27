@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ExternalLink } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 
 type Row = { form: string; page: number; sec: string; de: string; only?: boolean; what: string; where: string; example: string; mistake: string };
 
@@ -7,60 +11,101 @@ type Row = { form: string; page: number; sec: string; de: string; only?: boolean
  * Read-only, field-by-field explanation of KG1 + Anlage Kind.
  * No inputs, no storage, no PDF — the user fills the official form themselves.
  */
-export default function KindergeldFieldGuide() {
+export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string }) {
   const { t } = useTranslation("pages");
+  const [open, setOpen] = useState("");
   const k = (s: string) => `guideFirst.kindergeld.fields.${s}`;
   const kg1 = t(k("kg1"), { returnObjects: true }) as Row[];
   const ank = t(k("ank"), { returnObjects: true }) as Row[];
-  const online = t(k("online"), { returnObjects: true }) as string[];
+  const online = t(k("onlineGroups"), { returnObjects: true }) as { title: string; body: string }[];
   const lbl = (s: string) => t(k(`lbl.${s}`));
   /** e.g. "KG1 · str. 1 · tačka 3: Zahlungsweg – IBAN …" */
   const location = (r: Row) =>
     `${r.form} · ${lbl("page")} ${r.page} · ${/^\d+$/.test(r.sec) ? `${lbl("sec")} ${r.sec}` : lbl(r.sec)}`;
 
-  const renderRows = (rows: Row[], prefix: string) =>
-    (Array.isArray(rows) ? rows : []).map((r, i) => (
+  const renderRow = (prefix: "kg1" | "ank", i: number) => {
+    const r = (prefix === "kg1" ? kg1 : ank)[i];
+    if (!r) return null;
+    return (
       <AccordionItem key={`${prefix}-${i}`} value={`${prefix}-${i}`} className="border-border">
-        <AccordionTrigger className="py-3 text-left text-sm font-semibold text-foreground hover:no-underline">
-          <span className="flex flex-col gap-1">
-            <span><span className="text-[hsl(var(--gold))]">{location(r)}:</span> {r.de}</span>
+        <AccordionTrigger className="items-start py-3 text-left text-sm font-semibold text-foreground hover:no-underline">
+          <span className="flex min-w-0 flex-col gap-1.5 pr-2">
+            <span>{t(k(`short.${prefix}.${i}`))}</span>
+            <span className="break-words text-xs font-normal leading-relaxed text-primary">{r.de} · {location(r)}</span>
             {r.only && (
-              <span className="self-start rounded-full border border-border bg-popover px-2 py-0.5 text-xs font-medium text-muted-foreground">{lbl("only")}</span>
+              <span className="text-xs font-normal text-muted-foreground">{lbl("only")}</span>
             )}
           </span>
         </AccordionTrigger>
         <AccordionContent>
-          <dl className="space-y-2 text-sm leading-relaxed">
-            {(["what", "where", "example", "mistake"] as const).map((f) => (
-              <div key={f} className={f === "mistake" ? "rounded-lg border border-amber-400/40 bg-amber-950 p-2" : ""}>
-                <dt className={f === "mistake" ? "font-semibold text-amber-200" : "font-semibold text-[hsl(var(--gold))]"}>{lbl(f)}</dt>
-                <dd className={f === "example" ? "font-mono text-foreground" : "text-muted-foreground"}>{r[f]}</dd>
+          <p className="text-sm leading-relaxed text-muted-foreground">{r.what}</p>
+          <dl className="mt-3 space-y-2 text-xs leading-relaxed">
+            {(["where", "example", "mistake"] as const).map((f) => (
+              <div key={f}>
+                <dt className="inline font-semibold text-primary">{lbl(f)}: </dt>
+                <dd className="inline break-words text-muted-foreground">{r[f]}</dd>
               </div>
             ))}
           </dl>
         </AccordionContent>
       </AccordionItem>
-    ));
+    );
+  };
+  // Original record indices: all 10 + 10 remain available, headers near the end,
+  // adult-only information last. One Accordion root controls all four groups.
+  const groups: ["kg1" | "ank", number][][] = [
+    [["kg1", 1], ["kg1", 2], ["kg1", 3], ["kg1", 4]],
+    [["ank", 1], ["ank", 2], ["ank", 3]],
+    [["kg1", 5], ["kg1", 9], ["ank", 9]],
+    [["kg1", 7], ["kg1", 8], ["ank", 5], ["ank", 6], ["ank", 7], ["ank", 8], ["kg1", 6], ["kg1", 0], ["ank", 0], ["ank", 4]],
+  ];
 
   return (
-    <section data-testid="kg-field-guide" aria-labelledby="kg-field-guide-title" className="rounded-2xl border border-[hsl(var(--gold))] bg-card p-5">
+    <section data-testid="kg-field-guide" aria-labelledby="kg-field-guide-title" className="min-w-0 border-y border-border py-5">
       <h2 id="kg-field-guide-title" className="text-lg font-bold text-foreground">{t(k("title"))}</h2>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(k("intro"))}</p>
-      <p className="mt-2 text-xs text-muted-foreground">{t(k("dummy"))}</p>
-
-      <h3 className="mt-5 text-sm font-bold uppercase tracking-wide text-[hsl(var(--gold))]">{t(k("kg1Title"))}</h3>
-      <Accordion type="multiple" data-testid="kg-field-kg1">{renderRows(kg1, "kg1")}</Accordion>
-
-      <h3 className="mt-6 text-sm font-bold uppercase tracking-wide text-[hsl(var(--gold))]">{t(k("ankTitle"))}</h3>
-      <p className="mt-1 text-sm text-muted-foreground">{t(k("ankNote"))}</p>
-      <Accordion type="multiple" data-testid="kg-field-ank">{renderRows(ank, "ank")}</Accordion>
-
-      <h3 className="mt-6 text-sm font-bold uppercase tracking-wide text-[hsl(var(--gold))]">{t(k("onlineTitle"))}</h3>
-      <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-        {(Array.isArray(online) ? online : []).map((s) => (
-          <li key={s} className="flex gap-2"><span className="text-[hsl(var(--gold))]">•</span><span>{s}</span></li>
-        ))}
-      </ul>
+      <Tabs defaultValue="online" onValueChange={() => setOpen("")} className="mt-4">
+        <TabsList aria-label={t(k("title"))} className="grid h-auto w-full grid-cols-1 gap-1 bg-popover sm:grid-cols-2">
+          {(["online", "paper"] as const).map((mode) => (
+            <TabsTrigger key={mode} value={mode} className="min-h-11 whitespace-normal px-3 py-2 text-sm text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">{t(k(`mode.${mode}`))}</TabsTrigger>
+          ))}
+        </TabsList>
+        <TabsContent value="online" className="mt-4">
+          <ol className="divide-y divide-border">
+            {online.map((group, i) => (
+              <li key={group.title} className="flex gap-3 py-4">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-popover text-xs font-bold text-primary">{i + 1}</span>
+                <div className="min-w-0">
+                  <h3 className="text-sm font-semibold text-foreground">{group.title}</h3>
+                  {i === 3 && <p className="mt-1 text-xs text-primary">{lbl("only")}</p>}
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{group.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{t(k("onlineOrder"))}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t(k("onlineRoute"))}</p>
+          <Button asChild className="mt-4 h-auto min-h-11 w-full whitespace-normal py-3 text-center">
+            <a href={onlineUrl} target="_blank" rel="noopener noreferrer">{t("guideFirst.kindergeld.ctaOnline")}<ExternalLink aria-hidden="true" /></a>
+          </Button>
+        </TabsContent>
+        <TabsContent value="paper" className="mt-4">
+          <p className="text-xs leading-relaxed text-muted-foreground">{t(k("ankNote"))}</p>
+          <Accordion type="single" collapsible value={open} onValueChange={setOpen} data-testid="kg-paper-details">
+            {groups.map((rows, i) => (
+              <div key={i} className="mt-5">
+                <h3 className="mb-1 text-sm font-bold text-foreground">{t(k(`paperGroups.${i}`))}</h3>
+                {rows.map(([form, index]) => renderRow(form, index))}
+              </div>
+            ))}
+          </Accordion>
+        </TabsContent>
+      </Tabs>
+      <details className="mt-5 text-xs text-muted-foreground">
+        <summary className="cursor-pointer py-2 font-semibold text-primary">{t(k("important"))}</summary>
+        <p className="mt-2 leading-relaxed">{t(k("notice"))}</p>
+        <p className="mt-2 leading-relaxed">{t(k("dummy"))}</p>
+      </details>
     </section>
   );
 }
