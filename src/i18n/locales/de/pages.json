@@ -1646,7 +1646,7 @@
     "seoDesc": "Schritt-für-Schritt-Leitfäden und offizielle Verfahren für Kindergeld, Bürgergeld, Wohngeld, BAföG, Visa und über 40 weitere Leistungen.",
     "kindergeld": {
       "title": "Kindergeld für ein neugeborenes Kind — Schritt für Schritt",
-      "lead": "Den Kindergeld-Antrag stellst du selbst im offiziellen Online-Portal der Familienkasse (Bundesagentur für Arbeit). Hier gibst du keine persönlichen Daten ein — der Leitfaden zeigt nur die Reihenfolge.",
+      "lead": "Halte den offiziellen BA-Antrag in einem zweiten Tab offen. Hier liest du Erläuterungen; persönliche Angaben machst du nur bei der Familienkasse. Kindergeld ist nicht Kinderzuschlag; Anspruch und Ergebnis prüft die Familienkasse.",
       "caseQ": "Welche Situation passt am besten? (optional, nur zur Orientierung)",
       "case": {
         "newborn": "Neugeborenes oder Kind unter 18, wir leben in Deutschland",
@@ -2087,7 +2087,7 @@
           {
             "id": "fields",
             "title": "Elternteil, Kind, Konto und besondere Umstände",
-            "subtitle": "Online-Gruppen oder alle 20 Erklärungen zu KG1 und Anlage Kind.",
+            "subtitle": "Onlinethemen oder 30 Gruppen in Original-Papierreihenfolge — hier keine persönlichen Eingaben.",
             "sections": {
               "meaning": "Online-Fragen hängen von deinen Antworten ab und folgen nicht zwingend den Nummern des Papierformulars. Papierverweise gelten nur für die bezeichneten KG1- und Anlage-Kind-Abschnitte.",
               "action": "Wähle unten Online-Erklärungen oder Papierabschnitte. Auf Papier brauchst du eine Anlage Kind je Kind; den Abschnitt für Kinder ab 18 überspringst du bei Neugeborenen.",
@@ -2127,9 +2127,9 @@
           }
         ],
         "summary": [
-          "Ein passender Ablauf wurde gewählt und die verlangten Daten wurden vorbereitet.",
-          "Der Antrag wird ausschließlich bei der Familienkasse eingereicht; Online-Bestätigung oder Papierunterschriften prüfen.",
-          "Bestätigung aufbewahren, Nachrichten verfolgen und angeforderte Nachweise oder Änderungen amtlich übermitteln."
+          "Dies bestätigt weder ein ausgefülltes oder eingereichtes Formular noch einen Anspruch. Du hast die Hinweise durchgesehen; prüfe offene Schritte und deinen Originalantrag. Nur du entscheidest, wann du ihn bei der Familienkasse einreichst.",
+          "Zuständige Familienkasse auf BA-Seite prüfen, keine erfundene Adresse. Online abschließend übermitteln und Bestätigung selbst sichern. Papier: Anlagen, Unterschriften und Empfängeradresse prüfen; offiziellen Versandhinweisen folgen. Nur verlangte Unterlagen senden, Originale nur bei ausdrücklicher Anforderung.",
+          "Eingangsbestätigung ist Empfang, keine Bewilligung. Nachforderung verlangt Ergänzung: fehlende Angaben und Frist im echten Schreiben lesen. Bescheid ist die Entscheidung: Kind, Zeitraum, Begründung und Rechtsbehelfsbelehrung prüfen. Hier keine Fristberechnung. Adresse, Konto oder geänderte Umstände der Familienkasse mitteilen; Unterlagen selbst aufbewahren."
         ]
       },
       "pilot": {
@@ -2447,6 +2447,114 @@
             "example": "Erfunden: Damir wird von einer Firma mit Sitz im Ausland nach Deutschland entsandt — er prüft 7(c).",
             "mistake": "Ausländische Staatsangehörigkeit mit Entsendestatus verwechseln.",
             "help": "Bei unklarem Status Unterlagen mit Arbeitgeber/Familienkasse klären; BA-Hinweise für grenzüberschreitende Fälle nutzen."
+          }
+        ],
+        "stepHelp": [
+          [
+            "Wer soll den Antrag stellen?",
+            "Stimmt ab, wer beantragt und die Leistung erhält; keine zwei unabhängigen Anträge für dasselbe Kind ohne Klärung. Bei Elternstreit oder unklarem Wohnsitz Familienkasse kontaktieren. Staatsangehörigkeit allein bestätigt keinen Anspruch."
+          ],
+          [
+            "Was vorbereiten und was einreichen?",
+            "Halte Steuer-IDs, Personen-, Kinder- und Kontodaten zum Übertragen bereit. Nicht alle Unterlagen müssen eingereicht werden. Bei gewöhnlichen in Deutschland geborenen Kindern unter 18 nennt die BA in der Regel Steuer-IDs; für Auslandsgeburt/Status oder andere Fragen dem konkreten Antrag folgen. Papier-KG1 nennt Anlage EU oder Aufenthaltstitel je nach Staatsangehörigkeit."
+          ],
+          [
+            "Kinder-Steuer-ID noch nicht angekommen?",
+            "Nicht durch die eigene ersetzen. BZSt versendet nach Datenübermittlung der Meldebehörde; hier keine Zeitgarantie. Meldebehörde zu Daten, Standesamt zur fehlenden Geburtsurkunde und Familienkasse zum Vorgehen ohne ID fragen. Keine Zahlen erfinden."
+          ],
+          [
+            "Ohne BundID — reicht Online-Eingabe?",
+            "Nein. KG1-Deckblatt unterscheidet elektronische Einreichung mit BundID von Eingabe ohne elektronische Identifizierung: dann ausdrucken, unterschreiben und per Post senden. BA eServices → Familien mit Neugeborenen → Kindergeld beantragen. Tatsächlichen Anmelde-/Abschlusshinweisen folgen; gespeicherter Entwurf ist keine Einreichung."
+          ],
+          [
+            "Wie folge ich den Feldern?",
+            "Papier zeigt KG1 und Anlage Kind in gedruckter Reihenfolge mit bedingten Bereichen. Original neben jeder Gruppe öffnen. Beim Baby Punkt 3 Anlage Kind überspringen; sichtbar zur Orientierung. Online hat getrennte Themen; Bildschirmreihenfolge nach BA-Anmeldung ist nicht bestätigt, daher keine behauptete Kopie."
+          ],
+          [
+            "Wohin senden und was zuletzt prüfen?",
+            "Zuständige Familienkasse auf BA-Seite prüfen, keine erfundene Adresse. Online abschließend übermitteln und Bestätigung selbst sichern. Papier: Anlagen, Unterschriften und Empfängeradresse prüfen; offiziellen Versandhinweisen folgen. Nur verlangte Unterlagen senden, Originale nur bei ausdrücklicher Anforderung."
+          ],
+          [
+            "Ist ein Schreiben bereits Bewilligung?",
+            "Eingangsbestätigung ist Empfang, keine Bewilligung. Nachforderung verlangt Ergänzung: fehlende Angaben und Frist im echten Schreiben lesen. Bescheid ist die Entscheidung: Kind, Zeitraum, Begründung und Rechtsbehelfsbelehrung prüfen. Hier keine Fristberechnung. Adresse, Konto oder geänderte Umstände der Familienkasse mitteilen; Unterlagen selbst aufbewahren."
+          ]
+        ],
+        "glossary": [
+          [
+            "Antrag",
+            "Das Ersuchen um die Leistung. Ausgefüllt oder gespeichert ist nicht automatisch eingereicht."
+          ],
+          [
+            "Anlage Kind",
+            "Eigenes Zusatzformular je Kind, verbunden mit KG1."
+          ],
+          [
+            "Kindergeld-Nr.",
+            "Vorgangsnummer der Familienkasse aus einem bisherigen Bescheid, keine Steuer-ID."
+          ],
+          [
+            "Steuer-ID / Steuernummer",
+            "Steuer-ID ist die persönliche elfstellige Nummer; Steuernummer ist eine andere steuerliche Nummer."
+          ],
+          [
+            "BundID",
+            "Elektronische Identifizierung für Behördenleistungen; für vollständige Online-Einreichung BA-Hinweisen folgen."
+          ],
+          [
+            "Bescheid / Nachforderung",
+            "Bescheid ist eine Entscheidung; Nachforderung verlangt Angaben/Nachweise, keine Bewilligung."
+          ],
+          [
+            "Aufenthaltstitel",
+            "Dokument zum Aufenthaltsstatus; kein automatischer Kindergeldanspruch."
+          ],
+          [
+            "Kindschaftsverhältnis",
+            "Beziehung des Kindes zur Person: leiblich, adoptiert, Pflegekind, Stiefkind oder Enkelkind."
+          ]
+        ],
+        "onlineExamples": [
+          "Erfunden: Maja beantragt; im Elternbereich verwendet sie ihre eigene ID, nicht Leas.",
+          "Erfunden: Lea ist das Kind, geboren am 02.09.2026. Ihre ID ist nicht Majas.",
+          "Erfunden: Maja möchte Damirs Konto nutzen; Kontoinhaber ist nicht automatisch Maja.",
+          "Erfunden: Ein älteres Kind bekommt bereits Kindergeld, für Lea wurde noch nicht beantragt; das sind verschiedene Angaben."
+        ],
+        "onlineMistakes": [
+          "Steuernummer mit Steuer-ID verwechseln oder weiteren Vornamen auslassen.",
+          "Eltern-ID nutzen oder Wohnort als Geburtsort nennen.",
+          "Kartennummer statt IBAN oder falschen Inhaber nennen.",
+          "Nein wählen, weil ausländische Zahlung noch fehlt, obwohl Anspruch oder laufender Antrag besteht."
+        ],
+        "onlineHelp": [
+          "Bei fehlender eigener ID BZSt-Hinweise nutzen. Keine Partner-ID erfinden; tatsächlicher Portalfrage und Familienkasse-Hilfe folgen.",
+          "Bei fehlender Kinder-ID Meldebehörde/BZSt gemäß Hinweisen und Familienkasse zum Antrag fragen; Geburt/Staatsangehörigkeit nicht raten.",
+          "Fehlende BIC/Gemeinschaftskontoinhaber bei Bank prüfen. BIC soweit Portal verlangt; kein zwingendes DE-Konto.",
+          "Bei Ausland, Volljährigkeit, Adoption oder unklarem Status passende offizielle Quelle nutzen; Auswahl beurteilt keinen Anspruch."
+        ],
+        "onlineDetails": [
+          {
+            "meaning": "Trage den vollständigen Namen, die aktuelle Adresse und die eigene 11-stellige Steuer-ID der Person ein, die den Antrag stellt und Kindergeld erhalten soll.",
+            "help": "Bei fehlender eigener ID BZSt-Hinweise nutzen. Keine Partner-ID erfinden; tatsächlicher Portalfrage und Familienkasse-Hilfe folgen.",
+            "example": "Erfunden: Maja beantragt; im Elternbereich verwendet sie ihre eigene ID, nicht Leas.",
+            "mistake": "Steuernummer mit Steuer-ID verwechseln oder weiteren Vornamen auslassen."
+          },
+          {
+            "meaning": "Trage den genauen Namen, das Geburtsdatum und die eigene Steuer-ID des Kindes sowie dein Verhältnis zum Kind ein.",
+            "help": "Bei fehlender Kinder-ID Meldebehörde/BZSt gemäß Hinweisen und Familienkasse zum Antrag fragen; Geburt/Staatsangehörigkeit nicht raten.",
+            "example": "Erfunden: Lea ist das Kind, geboren am 02.09.2026. Ihre ID ist nicht Majas.",
+            "mistake": "Eltern-ID nutzen oder Wohnort als Geburtsort nennen."
+          },
+          {
+            "meaning": "Übernimm die vollständige IBAN des Auszahlungskontos und den richtigen Namen des Kontoinhabers; das muss nicht die antragstellende Person sein.",
+            "help": "Fehlende BIC/Gemeinschaftskontoinhaber bei Bank prüfen. BIC soweit Portal verlangt; kein zwingendes DE-Konto.",
+            "example": "Erfunden: Maja möchte Damirs Konto nutzen; Kontoinhaber ist nicht automatisch Maja.",
+            "mistake": "Kartennummer statt IBAN oder falschen Inhaber nennen."
+          },
+          {
+            "meaning": "Beantworte Fragen zu früherem Kindergeld, dem anderen Elternteil, Arbeit oder Familienleistungen im Ausland entsprechend deiner Situation. Trifft etwas nicht zu und gibt es eine Ja/Nein-Auswahl, wähle „Nein“ — lass Pflichtfragen nicht unbeantwortet.",
+            "help": "Bei Ausland, Volljährigkeit, Adoption oder unklarem Status passende offizielle Quelle nutzen; Auswahl beurteilt keinen Anspruch.",
+            "example": "Erfunden: Ein älteres Kind bekommt bereits Kindergeld, für Lea wurde noch nicht beantragt; das sind verschiedene Angaben.",
+            "mistake": "Nein wählen, weil ausländische Zahlung noch fehlt, obwohl Anspruch oder laufender Antrag besteht."
           }
         ]
       }

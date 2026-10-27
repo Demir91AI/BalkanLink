@@ -1646,7 +1646,7 @@
     "seoDesc": "Korak-po-korak vodiči i službeni postupci za Kindergeld, Bürgergeld, Wohngeld, BAföG, vize i još 40+ usluga — na tvom jeziku.",
     "kindergeld": {
       "title": "Kindergeld za novorođenče — korak po korak",
-      "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovde ne unosiš nikakve lične podatke — vodič ti samo pokazuje redosled.",
+      "lead": "Drži službeni BA zahtev otvoren u drugoj kartici. Ovde pratiš objašnjenja, a podatke unosiš samo kod Familienkasse. Kindergeld nije Kinderzuschlag; pravo i ishod proverava Familienkasse.",
       "caseQ": "Koja situacija ti najviše odgovara? (neobavezno, samo za orijentaciju)",
       "case": {
         "newborn": "Novorođenče ili dete do 18 godina, živimo u Nemačkoj",
@@ -2087,7 +2087,7 @@
           {
             "id": "fields",
             "title": "Roditelj, dijete, račun i posebne okolnosti",
-            "subtitle": "Online grupe ili svih 20 objašnjenja za KG1 i Anlage Kind.",
+            "subtitle": "Online teme ili 30 grupa u originalnom papirnom redosledu — bez unosa podataka ovde.",
             "sections": {
               "meaning": "Online pitanja zavise od tvojih odgovora i ne prate nužno brojeve papirnog obrasca. Papirne reference vrijede samo za navedeni KG1 i Anlage Kind.",
               "action": "Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče.",
@@ -2127,9 +2127,9 @@
           }
         ],
         "summary": [
-          "Odabran je odgovarajući postupak i pripremljeni su traženi podaci.",
-          "Zahtev se predaje isključivo Familienkasse; proveri online potvrdu ili papirne potpise.",
-          "Sačuvaj potvrdu, prati poruke i službenim putem dostavi tražene dokaze ili promjene."
+          "Ovo nije potvrda da je zahtev popunjen, predat ili odobren. Pregledao/la si uputstva; proveri nedovršene korake i svoj originalni zahtev. Samo ti odlučuješ kada ćeš ga predati Familienkasse.",
+          "Na BA proveri nadležnu Familienkasse, ne koristi izmišljenu adresu. Online dovrši predaju i preuzmi potvrdu za sebe. Za papir prebroj priloge, potpise i adresu primaoca; šalji prema službenim uputstvima. Dokumente dostavi samo kako se traže; originale samo na izričit zahtev.",
+          "Eingangsbestätigung je potvrda prijema, ne odobrenje. Nachforderung traži dopunu; pročitaj šta nedostaje i stvarni rok. Bescheid je odluka: proveri dete, period, obrazloženje i pravni lek. Ne računamo žalbene rokove. Promene adrese, računa ili okolnosti prijavi Familienkasse; čuvaj dokumente kod sebe."
         ]
       },
       "pilot": {
@@ -2447,6 +2447,114 @@
             "example": "Izmišljeno: Damir je upućen u Nemačku iz firme sa sedištem u drugoj državi — proverava 7(c).",
             "mistake": "Zameniti strano državljanstvo sa statusom upućenog radnika.",
             "help": "Za nejasan status proveri dokumente s poslodavcem i Familienkasse; koristi prekogranična uputstva BA."
+          }
+        ],
+        "stepHelp": [
+          [
+            "Ko treba biti podnosilac?",
+            "Dogovorite ko podnosi zahtev i prima davanje; ne šaljite dve nezavisne prijave za isto dete bez razjašnjenja. Za spor roditelja ili nejasno boravište obratite se Familienkasse. Državljanstvo samo nije potvrda prava."
+          ],
+          [
+            "Šta pripremiti, a šta poslati?",
+            "Pripremi poreske brojeve, lične podatke, podatke deteta i računa za prepisivanje. Ne znači slati sve dokumente. Za uobičajeno dete rođeno u Nemačkoj mlađe od 18 BA u pravilu traži poreske brojeve; za strano rođenje/status ili druga pitanja prati konkretan zahtev. Papirni KG1 navodi Anlage EU ili Aufenthaltstitel prema državljanstvu."
+          ],
+          [
+            "Detetov Steuer-ID nije stigao?",
+            "Ne zameni ga svojim. BZSt šalje pismo nakon prenosa podataka Meldebehörde, bez obećanog roka ovde. Pitaj Meldebehörde za podatke, Standesamt za nedostajući dokument o rođenju, a Familienkasse za postupak bez ID. Ne izmišljaj brojeve."
+          ],
+          [
+            "Nemam BundID — da li je online unos dovoljan?",
+            "Ne. Naslovnica KG1 razlikuje elektronsku predaju s BundID od unosa bez elektronske identifikacije, koji zahteva štampanje, potpis i poštu. BA eServices → Familien mit Neugeborenen → Kindergeld beantragen. Prati stvarna uputstva prijave/završetka; sačuvani nacrt nije predaja."
+          ],
+          [
+            "Kako pratiti polja?",
+            "Papier prikazuje KG1 pa Anlage Kind u štampanom redosledu, uključujući uslovne delove. Otvori original uz grupu. Za bebu preskoči tačku 3 Anlage Kind; ostaje vidljiva za orijentaciju. Online ima odvojene tematske grupe; redosled ekrana iza BA prijave nije potvrđen, zato ne tvrdimo da je kopija."
+          ],
+          [
+            "Gde šaljem i šta proveriti?",
+            "Na BA proveri nadležnu Familienkasse, ne koristi izmišljenu adresu. Online dovrši predaju i preuzmi potvrdu za sebe. Za papir prebroj priloge, potpise i adresu primaoca; šalji prema službenim uputstvima. Dokumente dostavi samo kako se traže; originale samo na izričit zahtev."
+          ],
+          [
+            "Da li je dopis odobrenje?",
+            "Eingangsbestätigung je potvrda prijema, ne odobrenje. Nachforderung traži dopunu; pročitaj šta nedostaje i stvarni rok. Bescheid je odluka: proveri dete, period, obrazloženje i pravni lek. Ne računamo žalbene rokove. Promene adrese, računa ili okolnosti prijavi Familienkasse; čuvaj dokumente kod sebe."
+          ]
+        ],
+        "glossary": [
+          [
+            "Antrag",
+            "Zahtev. Popunjen ili sačuvan zahtev još nije nužno predat."
+          ],
+          [
+            "Anlage Kind",
+            "Poseban prilog za jedno dete, povezan s KG1."
+          ],
+          [
+            "Kindergeld-Nr.",
+            "Broj predmeta Familienkasse iz ranijeg Bescheida, nije Steuer-ID."
+          ],
+          [
+            "Steuer-ID / Steuernummer",
+            "Steuer-ID je lični broj od 11 cifara; Steuernummer je drugi poreski broj."
+          ],
+          [
+            "BundID",
+            "Elektronska identifikacija za službene usluge; prati BA uputstva za potpunu online predaju."
+          ],
+          [
+            "Bescheid / Nachforderung",
+            "Bescheid je odluka; Nachforderung traži dodatne podatke/dokaze, ne znači odobrenje."
+          ],
+          [
+            "Aufenthaltstitel",
+            "Dokument o boravišnom statusu; ne garantuje pravo na Kindergeld."
+          ],
+          [
+            "Kindschaftsverhältnis",
+            "Odnos deteta prema osobi: biološko, usvojeno, hraniteljsko, pastorak/pastorka ili unuk/unuka."
+          ]
+        ],
+        "onlineExamples": [
+          "Izmišljeno: Maja je podnosilac; u delu roditelja koristi svoj ID, ne Lein.",
+          "Izmišljeno: Lea je dete; rođenje 02.09.2026. Njen ID je različit od Majinog.",
+          "Izmišljeno: Maja želi isplatu na Damirov račun; vlasnik nije automatski Maja.",
+          "Izmišljeno: starije dete već prima davanje, ali za Leu nema zahteva; to su različite informacije."
+        ],
+        "onlineMistakes": [
+          "Zameniti Steuernummer sa Steuer-ID ili izostaviti drugo ime.",
+          "Navesti roditeljski ID ili mesto stanovanja umesto rođenja.",
+          "Navesti broj kartice umesto IBAN-a ili pogrešnog vlasnika.",
+          "Odabrati Nein jer strana uplata nije stigla, iako postoji pravo ili otvoren zahtev."
+        ],
+        "onlineHelp": [
+          "Za nedostajući sopstveni ID prati BZSt uputstva. Ne izmišljaj partnerov broj; prati pitanje portala i pomoć Familienkasse.",
+          "Za nedostajući detetov ID pitaj Meldebehörde/BZSt prema uputstvima i Familienkasse za prijavu; ne nagađaj rođenje/državljanstvo.",
+          "Za BIC ili vlasnike zajedničkog računa proveri banku. BIC se unosi kad ga portal traži; račun ne mora biti DE.",
+          "Za dete u inostranstvu, punoletnost, usvojenje ili nejasan status koristi odgovarajući službeni izvor; izbor ne procenjuje pravo."
+        ],
+        "onlineDetails": [
+          {
+            "meaning": "Upiši puno ime i trenutnu adresu osobe koja podnosi zahtev i treba da prima Kindergeld, kao i njen sopstveni 11-cifreni Steuer-ID.",
+            "help": "Za nedostajući sopstveni ID prati BZSt uputstva. Ne izmišljaj partnerov broj; prati pitanje portala i pomoć Familienkasse.",
+            "example": "Izmišljeno: Maja je podnosilac; u delu roditelja koristi svoj ID, ne Lein.",
+            "mistake": "Zameniti Steuernummer sa Steuer-ID ili izostaviti drugo ime."
+          },
+          {
+            "meaning": "Upiši tačno ime i datum rođenja deteta, detetov sopstveni Steuer-ID i svoj odnos prema detetu.",
+            "help": "Za nedostajući detetov ID pitaj Meldebehörde/BZSt prema uputstvima i Familienkasse za prijavu; ne nagađaj rođenje/državljanstvo.",
+            "example": "Izmišljeno: Lea je dete; rođenje 02.09.2026. Njen ID je različit od Majinog.",
+            "mistake": "Navesti roditeljski ID ili mesto stanovanja umesto rođenja."
+          },
+          {
+            "meaning": "Prepiši ceo IBAN računa za isplatu i tačno ime vlasnika računa (Kontoinhaber), koji ne mora biti podnosilac zahteva.",
+            "help": "Za BIC ili vlasnike zajedničkog računa proveri banku. BIC se unosi kad ga portal traži; račun ne mora biti DE.",
+            "example": "Izmišljeno: Maja želi isplatu na Damirov račun; vlasnik nije automatski Maja.",
+            "mistake": "Navesti broj kartice umesto IBAN-a ili pogrešnog vlasnika."
+          },
+          {
+            "meaning": "Na pitanja o ranijem Kindergeldu, drugom roditelju, radu ili dečjim davanjima u inostranstvu odgovori prema svojoj situaciji. Ako se nešto ne odnosi na tebe i ponuđen je izbor da/ne, odaberi „Nein“ — ne ostavljaj obavezno pitanje bez odgovora.",
+            "help": "Za dete u inostranstvu, punoletnost, usvojenje ili nejasan status koristi odgovarajući službeni izvor; izbor ne procenjuje pravo.",
+            "example": "Izmišljeno: starije dete već prima davanje, ali za Leu nema zahteva; to su različite informacije.",
+            "mistake": "Odabrati Nein jer strana uplata nije stigla, iako postoji pravo ili otvoren zahtev."
           }
         ]
       }
