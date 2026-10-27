@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useSubscription } from "@/hooks/useSubscription";
 import AuthGate from "@/components/AuthGate";
 import MembershipOffer from "@/components/membership/MembershipOffer";
-import SmartGuide, { type GuideBlockKind } from "@/components/guide-first/SmartGuide";
+import SmartGuide, { type GuideBlockKind, type SmartGuideStep } from "@/components/guide-first/SmartGuide";
+import type { GuideSource } from "@/lib/guide-first/official-sources";
 import { useGuideContext } from "@/components/guide-first/GuideContext";
 
 export interface StepData {
@@ -24,19 +25,25 @@ interface Props {
   finishLabel?: string;
   onFinish?: () => void;
   guideId?: string;
+  structuredSteps?: SmartGuideStep[];
+  title?: string;
+  subtitle?: string;
+  summary?: string[];
+  source?: GuideSource;
 }
 const FREE_STEPS = 2;
 
 /** Legacy API/access preserved; visual navigation delegates to the one template. */
-export default function SmartGuideWizardShared({ steps, free = false, finishLabel, onFinish, guideId }: Props) {
+export default function SmartGuideWizardShared({ steps, free = false, finishLabel, onFinish, guideId, structuredSteps, title, subtitle, summary, source }: Props) {
   const [step, setStep] = useState(0);
   const { isPremium } = useSubscription();
   const context = useGuideContext();
   const go = (next: number) => setStep(!free && !isPremium && next >= FREE_STEPS ? FREE_STEPS : next);
   return <AuthGate><SmartGuide
     id={guideId ?? context?.slug}
-    source={context?.source}
-    steps={steps.map((s, i) => {
+    source={source ?? context?.source}
+    title={title} subtitle={subtitle} summary={summary}
+    steps={structuredSteps ?? steps.map((s, i) => {
       const values: [GuideBlockKind, string | undefined][] = [
         [s.fieldVerified ? "field" : "action", s.whatToWrite], ["where", s.whereToFind],
         ["format", s.format], ["mistake", s.commonMistake], ["empty", s.whenToLeaveEmpty],
