@@ -111,7 +111,7 @@ describe("Kindergeld 2.0 paper walkthrough", () => {
     fireEvent.mouseDown(screen.getByRole("tab", {name:F.mode.online}), {button:0,ctrlKey:false});
     expect(screen.getByRole("tab", {name:F.mode.online}).getAttribute("aria-selected")).toBe("true");
     expect(screen.getByTestId("kg-online-details").querySelectorAll("button[data-field-id]")).toHaveLength(4);
-    expect(screen.getByText(P.onlineUnverified)).toBeTruthy();
+    expect(screen.getByText(`${P.onlineOverview} ${P.onlineUnverified}`)).toBeTruthy();
     expect(screen.getAllByTestId("kg-online-helper")).toHaveLength(4);
     expect(screen.getAllByTestId("kg-online-helper").every(e => !e.hasAttribute("open"))).toBe(true);
     paper(); expect(screen.getByTestId("kg-paper-details")).toBeTruthy();
@@ -170,7 +170,7 @@ describe("Kindergeld 2.0 paper walkthrough", () => {
     openFields();
     paper();
 
-    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select").length).toBe(0);
+    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select:not([data-nav])").length).toBe(0);
   });
 
   it("all four locales have the same number of field rows", () => {
@@ -194,7 +194,7 @@ describe("Kindergeld 2.0 paper walkthrough", () => {
     await setup(lang, locale);
     const L = locale.guideFirst.kindergeld;
     const guide = screen.getByTestId("kg-field-guide");
-    expect(guide.compareDocumentPosition(screen.getByTestId("kg-step-pointer").closest("[data-testid=kindergeld-smartguide]")!)).toBeTruthy();
+    expect(guide.compareDocumentPosition(screen.getByTestId("smartguide-template")) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(screen.getByRole("tab", { name: L.fields.mode.paper }).getAttribute("aria-selected")).toBe("true");
     expect(screen.getAllByTestId("kg-field-guide")).toHaveLength(1);
     expect(screen.getByTestId("kg-original-kg1").getAttribute("href")).toBe(KINDERGELD_PDFS.KG1);

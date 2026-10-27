@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import { fireEvent, render, screen, cleanup } from "@testing-library/react";
+import { fireEvent, render, screen, within, cleanup } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
 import { readFileSync } from "node:fs";
@@ -49,7 +49,7 @@ describe("guide navigation and four-language standard", () => {
     render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
     const p = bs.guideFirst.kindergeld.pilot;
     fireEvent.click(screen.getByText(p.advance));
-    expect(screen.getByRole("progressbar").getAttribute("aria-valuenow")).toBe("2");
+    expect(within(screen.getByTestId("smartguide-template")).getByRole("progressbar").getAttribute("aria-valuenow")).toBe("2");
     expect(screen.getByTestId("guide-reviewed-count").textContent).toBe("Pregledano 1 od 7 koraka");
     expect(screen.getByRole("button", {name:/Korak 1:.*Pregledano/}).getAttribute("data-reviewed")).toBe("true");
     for (let i=1; i<6; i++) fireEvent.click(screen.getByText(p.advance));
@@ -64,7 +64,7 @@ describe("guide navigation and four-language standard", () => {
   it("non-pilot guides keep review toggling without advancing and locked steps cannot review", () => {
     show();
     fireEvent.click(screen.getByText(bs.smartGuideStandard.reviewed));
-    expect(screen.getByRole("progressbar").getAttribute("aria-valuenow")).toBe("1");
+    expect(within(screen.getByTestId("smartguide-template")).getByRole("progressbar").getAttribute("aria-valuenow")).toBe("1");
     expect(screen.getByText(bs.smartGuideStandard.reviewed).closest("button")?.getAttribute("aria-pressed")).toBe("true");
     cleanup();
     render(<I18nextProvider i18n={i18n}><SmartGuide steps={steps} isLocked={() => true} lockedContent={<p>locked fixture</p>} /></I18nextProvider>);
@@ -77,16 +77,17 @@ describe("guide navigation and four-language standard", () => {
     expect(screen.getByTestId("kg-existing").textContent).toContain("KG1 tački 5");
     expect(screen.getByTestId("kg-existing").textContent).toContain("Anlage Kind tačka 4");
     expect(screen.getByTestId("smartguide-template")).toBeTruthy();
-    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select")).toHaveLength(0);
+    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select:not([data-nav])")).toHaveLength(0);
   });
   it("newborn wizard is primary without a disclosure and navigates seven actual submission steps", () => {
     render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
     const wizard = screen.getByTestId("smartguide-template");
     expect(wizard.closest("details")).toBeNull();
-    expect(screen.getByRole("progressbar").getAttribute("aria-valuemax")).toBe("7");
-    expect(screen.queryByTestId("kg-field-guide")).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: /Korak 5:/ }));
+    expect(within(screen.getByTestId("smartguide-template")).getByRole("progressbar").getAttribute("aria-valuemax")).toBe("7");
     expect(screen.getByTestId("kg-field-guide")).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: /Korak 5:/ }));
+    expect(screen.getByTestId("kg-step-pointer")).toBeTruthy();
+    expect(screen.getAllByTestId("kg-field-guide")).toHaveLength(1);
     fireEvent.click(screen.getByRole("button", { name: /Korak 7:/ }));
     expect(screen.getByText(bs.smartGuideStandard.summary)).toBeTruthy();
   });

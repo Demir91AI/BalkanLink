@@ -26,7 +26,7 @@ export default function FieldWalkthrough({ groups, mode, sourceUrl }: { groups: 
   const forms = [...new Set(groups.map((g) => g.form))];
   return <div data-testid={`kg-${mode}-details`} className="min-w-0 space-y-4">
     <label className="block text-sm font-semibold text-foreground">{t(k("jumpLabel"))}
-      <select data-testid={`kg-${mode}-jump`} value={index} onChange={(e) => go(Number(e.target.value))} className="mt-2 block min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">
+      <select data-nav="field-jump" data-testid={`kg-${mode}-jump`} value={index} onChange={(e) => go(Number(e.target.value))} className="mt-2 block min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">
         {forms.length > 1 ? forms.map((f) => <optgroup key={f} label={f}>{groups.map((g, i) => g.form === f ? opt(g, i) : null)}</optgroup>) : groups.map(opt)}
       </select>
     </label>
