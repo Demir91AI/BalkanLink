@@ -4680,5 +4680,1025 @@
         ]
       }
     }
+  },
+  "familyCompanions": {
+    "ui": {
+      "reference": "Mjesto na službenom obrascu",
+      "gatePrompt": "Odaberi jednu opciju. Ovo je samo orijentacija, ne odluka o pravu; izbor se ne čuva."
+    },
+    "guides": {
+      "elterngeld": {
+        "title": "Elterngeld: vodič uz službeni zahtjev tvoje pokrajine",
+        "introduction": "Elterngeld se traži tek NAKON rođenja djeteta, kod Elterngeldstelle nadležne za mjesto stanovanja djeteta. Zahtjev podnesi što prije, najbolje u prva 3 mjeseca života djeteta, jer se Elterngeld isplaćuje najviše 3 mjeseca unazad.",
+        "variation": "Ne postoji jedan savezni papirni obrazac: svaka pokrajina (Bundesland) ima svoj službeni zahtjev, a mnoge pokrajine nude ElterngeldDigital. Zato ovdje NE navodimo brojeve stranica ili polja. Pojmovi ispod su provjerena njemačka terminologija koja se pojavljuje u zahtjevima; tačno mjesto polja pogledaj u obrascu svoje pokrajine.",
+        "vocabularyNote": "Rječnik pojmova iz zahtjeva za Elterngeld. Redoslijed i brojevi polja razlikuju se po pokrajini. Primjeri su izmišljeni; ovdje ništa ne upisuješ.",
+        "modes": {
+          "paper": "Papir: preuzmi zahtjev svoje pokrajine sa stranice nadležne Elterngeldstelle (link preko Familienportala), popuni, potpiši i pošalji sa kopijama dokaza. Original izvoda iz matične knjige rođenih za Elterngeld (Geburtsurkunde „für Elterngeld“) šalji samo ako ured to traži.",
+          "online": "Online: ElterngeldDigital (Familienportal) vodi kroz pitanja i u mnogim pokrajinama omogućava elektronsko slanje; u nekim slučajevima zahtjev ipak treba odštampati i potpisati. Nije svaka pokrajina priključena — provjeri na Familienportalu."
+        },
+        "steps": [
+          {
+            "id": "timing",
+            "title": "Rok i nadležni ured",
+            "sections": {
+              "meaning": "Zahtjev je moguć tek nakon rođenja. Elterngeld se plaća za mjesece života djeteta (Lebensmonate), ne za kalendarske mjesece.",
+              "action": "Odmah nakon rođenja pronađi Elterngeldstelle za mjesto stanovanja djeteta (pretraga po poštanskom broju na Familienportalu). Planiraj da zahtjev stigne u prva 3 mjeseca života djeteta.",
+              "where": "Familienportal → Elterngeld → Wie kann ich Elterngeld beantragen? i pretraga Elterngeldstelle.",
+              "example": "Dijete rođeno 05.11.2026: zahtjev poslan 20.12.2026 je unutar prva 3 mjeseca života.",
+              "mistake": "Čekati kraj Mutterschutza ili prvu platu nakon poroda: zakašnjeli mjeseci preko 3 mjeseca unazad se ne isplaćuju.",
+              "next": "Odluči ko i za koje mjesece života traži Elterngeld."
+            }
+          },
+          {
+            "id": "plan",
+            "title": "Planiraj mjesece: Basiselterngeld, ElterngeldPlus, Partnerschaftsbonus",
+            "sections": {
+              "meaning": "U zahtjevu se za svaki mjesec života označava vrsta Elterngelda. Mjeseci u kojima majka prima Mutterschaftsgeld po pravilu se računaju kao mjeseci Basiselterngelda majke.",
+              "action": "Napravi za sebe tabelu mjeseci života 1–14+ i za svakog roditelja upiši Basiselterngeld, ElterngeldPlus ili ništa. Ako oba roditelja istovremeno rade skraćeno, provjeri uvjete za Partnerschaftsbonus u službenim uputama pokrajine.",
+              "where": "Elterngeldrechner mit Planer na Familienportalu i upute uz obrazac pokrajine.",
+              "example": "Izmišljeno: Maja Kovač mjeseci 1–10 Basiselterngeld, Damir Novak mjeseci 11–12 Basiselterngeld.",
+              "mistake": "Pretpostaviti da se mjeseci mogu kasnije slobodno mijenjati; promjene su moguće samo pod uvjetima koje navodi Elterngeldstelle.",
+              "next": "Pripremi dokaze o prihodima prije rođenja."
+            }
+          },
+          {
+            "id": "income",
+            "title": "Prihodi prije rođenja (Bemessungszeitraum)",
+            "sections": {
+              "meaning": "Visina Elterngelda zavisi od prihoda u periodu prije rođenja koji ured gleda (Bemessungszeitraum). Kod zaposlenih to su po pravilu 12 kalendarskih mjeseci prije mjeseca rođenja; kod samostalnih po pravilu posljednja zaključena poreska godina.",
+              "action": "Skupi obračune plata (Lohn- und Gehaltsabrechnungen) za cijeli period, a kod samostalnog rada poreska rješenja ili dokaze o dobiti. Ne izračunavaj sam/a iznos u obrascu — upiši ono što obrazac traži i priloži dokaze.",
+              "where": "Obračuni plata od poslodavca, Einkommensteuerbescheid od Finanzamta, dokazi o Krankengeld/ALG ako su postojali.",
+              "example": "Dijete rođeno u novembru 2026: zaposlena Maja priprema obračune od novembra 2025 do oktobra 2026.",
+              "mistake": "Priložiti samo posljednju platu ili zaboraviti mjesece sa bolovanjem, Mutterschaftsgeld ili Elternzeit za starije dijete — takvi mjeseci mogu se tretirati posebno, pa ih navedi.",
+              "next": "Pribavi potvrde poslodavca i Krankenkasse."
+            }
+          },
+          {
+            "id": "evidence",
+            "title": "Dokazi: rođenje, poslodavac, Krankenkasse",
+            "sections": {
+              "meaning": "Uobičajeni dokazi su potvrda o rođenju za Elterngeld, dokazi o prihodu, potvrda Krankenkasse o Mutterschaftsgeldu i potvrda poslodavca o Arbeitgeberzuschuss i radnom vremenu tokom Elterngelda.",
+              "action": "Zatraži od Standesamta potvrdu rođenja „für Elterngeld“, od Krankenkasse potvrdu o Mutterschaftsgeldu, od poslodavca potvrdu o Zuschuss i (ako radiš tokom Elterngelda) o broju radnih sati.",
+              "where": "Standesamt (nakon prijave rođenja), Krankenkasse, odjel plata poslodavca.",
+              "example": "Majina Krankenkasse potvrđuje Mutterschaftsgeld do 31.12.2026; poslodavac potvrđuje Zuschuss za isti period.",
+              "mistake": "Slati originale koje ured nije tražio ili zaboraviti potvrdu Krankenkasse — bez nje obrada kasni.",
+              "next": "Popuni zahtjev ili ElterngeldDigital."
+            }
+          },
+          {
+            "id": "sign",
+            "title": "Popuni i potpiši",
+            "sections": {
+              "meaning": "Zahtjev mora biti potpisan. Prema Familienportalu, zahtjev po pravilu potpisuju oba roditelja kada oba imaju roditeljsko pravo, čak i ako Elterngeld traži samo jedan od njih.",
+              "action": "Provjeri poglavlje o drugom roditelju, bankovni račun (IBAN), Steuer-ID ako se traži i plan mjeseci. Neka potpišu sve osobe koje obrazac traži.",
+              "where": "Kraj obrasca pokrajine ili sažetak u ElterngeldDigital.",
+              "example": "Izmišljeno: Maja i Damir potpisuju 18.12.2026, iako Damir u prvom zahtjevu ne traži mjesece.",
+              "mistake": "Poslati zahtjev s potpisom samo jednog roditelja kada obrazac traži oba — ured vraća zahtjev.",
+              "next": "Pošalji i sačuvaj kopiju."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nakon slanja: Bescheid i promjene",
+            "sections": {
+              "meaning": "Elterngeldstelle šalje Bescheid. Ako su prihodi tokom Elterngelda bili samo procijenjeni, može kasnije tražiti stvarne dokaze i konačno obračunati.",
+              "action": "Provjeri u Bescheidu mjesece, vrstu Elterngelda i račun. Promjene (posao, sati, adresa) javi uredu. Ako se ne slažeš, rok i način za Widerspruch stoje u Rechtsbehelfsbelehrung.",
+              "where": "Bescheid Elterngeldstelle.",
+              "example": "Bescheid navodi Vorbehalt zbog dijela radnog vremena; nakon kraja perioda šalješ obračune plata.",
+              "mistake": "Ignorisati dopis o naknadnim dokazima — može dovesti do povrata novca.",
+              "next": "Čuvaj Bescheid i kopiju zahtjeva."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "antragsteller",
+            "german": "Antragstellende Person / andere(r) Elternteil",
+            "meaning": "Osoba koja traži Elterngeld i drugi roditelj",
+            "instruction": "Podaci o sebi idu u dio za podnosioca, podaci o drugom roditelju u njegov dio — i kada drugi roditelj ne traži Elterngeld.",
+            "where": "Lični dokument, Meldebescheinigung, Steuer-ID iz pisma BZSt ili obračuna plate.",
+            "example": "Izmišljeno: Maja Kovač podnosilac, Damir Novak drugi roditelj.",
+            "mistake": "Izostaviti drugog roditelja jer „ne traži ništa“."
+          },
+          {
+            "id": "kind",
+            "german": "Angaben zum Kind",
+            "meaning": "Podaci o djetetu",
+            "instruction": "Ime, datum rođenja, eventualno Mehrlingsgeburt (više djece) i Frühgeburt (prijevremeni porod) prema obrascu.",
+            "where": "Potvrda rođenja „für Elterngeld“ od Standesamta.",
+            "example": "Izmišljeno: Lea Kovač, rođena 05.11.2026, jedno dijete.",
+            "mistake": "Napisati očekivani umjesto stvarnog datuma rođenja."
+          },
+          {
+            "id": "art",
+            "german": "Basiselterngeld / ElterngeldPlus / Partnerschaftsbonus",
+            "meaning": "Vrste Elterngelda za pojedine mjesece života",
+            "instruction": "Za svaki mjesec života označi jednu vrstu po roditelju prema planu.",
+            "where": "Elterngeldrechner mit Planer, upute pokrajine.",
+            "example": "Izmišljeno: mjesec 1–10 Basiselterngeld (Maja).",
+            "mistake": "Brkati mjesece života s kalendarskim mjesecima.",
+            "options": [
+              {
+                "german": "Basiselterngeld",
+                "meaning": "Osnovni Elterngeld, za mjesece kada malo ili ne radiš."
+              },
+              {
+                "german": "ElterngeldPlus",
+                "meaning": "Duže, mjesečno niže plaćanje; posebno kada radiš skraćeno."
+              },
+              {
+                "german": "Partnerschaftsbonus",
+                "meaning": "Dodatni mjeseci ElterngeldPlus kada oba roditelja istovremeno rade u zakonom propisanom rasponu sati — provjeri aktuelne uvjete."
+              }
+            ]
+          },
+          {
+            "id": "lebensmonat",
+            "german": "Lebensmonat",
+            "meaning": "Mjesec života djeteta",
+            "instruction": "Računa se od datuma rođenja: ako je dijete rođeno 05.11., prvi mjesec života traje 05.11.–04.12.",
+            "where": "Datum rođenja na potvrdi.",
+            "example": "Izmišljeno: 3. mjesec života = 05.01.–04.02.2027.",
+            "mistake": "Označiti „januar“ umjesto broja mjeseca života."
+          },
+          {
+            "id": "einkommen",
+            "german": "Einkommen vor der Geburt",
+            "meaning": "Prihod prije rođenja",
+            "instruction": "Označi vrste prihoda (nesamostalni rad, samostalni rad, bez prihoda) i priloži dokaze za period koji ured traži.",
+            "where": "Lohnabrechnungen, Einkommensteuerbescheid.",
+            "example": "Izmišljeno: samo nesamostalni rad, 12 obračuna plate.",
+            "mistake": "Prešutjeti mini-job ili dodatnu djelatnost."
+          },
+          {
+            "id": "waehrend",
+            "german": "Einkommen / Arbeitszeit während des Elterngeldbezugs",
+            "meaning": "Prihod i radno vrijeme dok primaš Elterngeld",
+            "instruction": "Ako u tim mjesecima radiš, navedi planirane sedmične sate i očekivani prihod; poslodavac to često potvrđuje.",
+            "where": "Ugovor o skraćenom radu ili potvrda poslodavca.",
+            "example": "Izmišljeno: Damir u mjesecima 11–12 radi 25 sati sedmično.",
+            "mistake": "Prijaviti da ne radiš, a zatim početi raditi bez obavještavanja."
+          },
+          {
+            "id": "mutterschaft",
+            "german": "Mutterschaftsleistungen / Arbeitgeberzuschuss",
+            "meaning": "Mutterschaftsgeld i dodatak poslodavca",
+            "instruction": "Navedi period u kojem primaš Mutterschaftsgeld i Zuschuss; ti iznosi se uračunavaju u Elterngeld za iste mjesece.",
+            "where": "Potvrda Krankenkasse ili BAS, potvrda poslodavca.",
+            "example": "Izmišljeno: Mutterschaftsgeld do 31.12.2026.",
+            "mistake": "Planirati Elterngeld oca umjesto majke za mjesece Mutterschaftsgelda bez provjere posljedica."
+          },
+          {
+            "id": "bank",
+            "german": "Bankverbindung (IBAN, Kontoinhaber)",
+            "meaning": "Račun za isplatu",
+            "instruction": "Upiši IBAN i vlasnika računa kako je navedeno kod banke; račun u SEPA području je obično prihvaćen, ali poštuj uputu obrasca.",
+            "where": "Bankovna kartica ili izvod.",
+            "example": "Izmišljeno: DE00 0000 0000 0000 0000 00, vlasnik Maja Kovač.",
+            "mistake": "Pogrešna cifra u IBAN-u ili tuđi račun bez potrebne izjave."
+          },
+          {
+            "id": "unterschrift",
+            "german": "Unterschrift(en)",
+            "meaning": "Potpis(i)",
+            "instruction": "Potpiše podnosilac i, kada obrazac traži, drugi roditelj.",
+            "where": "Kraj obrasca ili isprintani sažetak ElterngeldDigital.",
+            "example": "Izmišljeno: dva potpisa, datum 18.12.2026.",
+            "mistake": "Zaboraviti potpis drugog roditelja."
+          }
+        ]
+      },
+      "mutterschaftsgeld": {
+        "title": "Mutterschaftsgeld: prvo odredi svoj put — Krankenkasse ili BAS",
+        "introduction": "Postoje dva odvojena postupka i ne miješaju se: (1) ako si sama članica zakonske Krankenkasse, Mutterschaftsgeld tražiš kod SVOJE Krankenkasse; (2) ako si zaposlena, ali nisi sama članica zakonske Krankenkasse (privatno osigurana ili porodično osigurana kod zakonske kase), pod određenim uvjetima tražiš Mutterschaftsgeld od Bundesamt für Soziale Sicherung (BAS).",
+        "variation": "Krankenkassen koriste vlastite obrasce i online portale, pa za put Krankenkasse ne navodimo polja ili stranice. BAS ima vlastiti zahtjev (online ili papir). Prema Familienportalu, Mutterschaftsgeld BAS iznosi ukupno najviše 210 eura; iznos kod Krankenkasse i dodatak poslodavca određuju kasa i poslodavac.",
+        "vocabularyNote": "Rječnik oba puta. Oznaka uz pojam kaže za koji put vrijedi. Primjeri su izmišljeni; ovdje ništa ne upisuješ.",
+        "gate": {
+          "title": "Kojim putem ideš?",
+          "question": "Kako si osigurana u vrijeme zaštitnog perioda (Mutterschutzfrist)?",
+          "options": [
+            {
+              "id": "gkv",
+              "label": "Sama sam članica zakonske Krankenkasse",
+              "result": "Put Krankenkasse: zahtjev predaješ svojoj Krankenkasse sa potvrdom o očekivanom terminu poroda; nakon poroda šalješ potvrdu rođenja. Ne podnosi zahtjev BAS-u."
+            },
+            {
+              "id": "bas",
+              "label": "Zaposlena sam, ali privatno ili porodično osigurana",
+              "result": "Put BAS: zahtjev ide Mutterschaftsgeldstelle BAS (mutterschaftsgeld.de), uz potvrdu poslodavca i potvrdu o terminu poroda. Provjeri uvjete na Familienportalu; ne šalji zahtjev Krankenkassi supruga/roditelja."
+            },
+            {
+              "id": "unsure",
+              "label": "Nisam sigurna / samostalna sam / ne radim",
+              "result": "Prvo pitaj svoju Krankenkasse ili privatnu osiguravajuću kuću kakav status imaš. Za samostalne i privatno osigurane važe posebna pravila (npr. Krankentagegeld); BalkanLink ne odlučuje o pravu."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papir: Krankenkasse — obrazac ili slobodan zahtjev prema uputi kase, uz originalnu potvrdu ljekara/babice o terminu. BAS — papirni zahtjev sa mutterschaftsgeld.de.",
+          "online": "Online: mnoge Krankenkassen primaju zahtjev i potvrde kroz app ili online poslovnicu; BAS nudi online zahtjev na mutterschaftsgeld.de. Provjeri da li se original potvrde mora poslati poštom."
+        },
+        "steps": [
+          {
+            "id": "route",
+            "title": "Odredi put: Krankenkasse ili BAS",
+            "sections": {
+              "meaning": "Odlučuje tvoje vlastito osiguranje, a ne osiguranje partnera.",
+              "action": "Pogledaj karticu osiguranja i ugovor: jesi li sama članica (Mitglied) zakonske kase, porodično osigurana (familienversichert) ili privatno osigurana?",
+              "where": "Kartica Krankenkasse, dopis kase, ugovor privatnog osiguranja.",
+              "example": "Izmišljeno: Maja radi i sama je članica AOK — put Krankenkasse.",
+              "mistake": "Porodično osigurana zaposlena osoba šalje zahtjev Krankenkassi — ta kasa ne plaća; nadležan je BAS."
+            }
+          },
+          {
+            "id": "certificate",
+            "title": "Potvrda o očekivanom terminu poroda",
+            "sections": {
+              "meaning": "Za oba puta treba ljekarska ili babičina potvrda o mutmaßlicher Entbindungstermin; kase je po pravilu izdaju najranije 7 sedmica prije termina.",
+              "action": "Zatraži je na pregledu kod ginekologa ili babice. Za Krankenkasse je to često poseban obrazac koji ljekar ispunjava.",
+              "where": "Ginekološka ordinacija ili babica.",
+              "example": "Izmišljeno: termin 10.01.2027, potvrda izdata 25.11.2026.",
+              "mistake": "Tražiti potvrdu prerano ili poslati kopiju kada kasa traži original."
+            }
+          },
+          {
+            "id": "employer",
+            "title": "Poslodavac i Arbeitgeberzuschuss",
+            "sections": {
+              "meaning": "Uz Mutterschaftsgeld zaposlene često dobijaju Arbeitgeberzuschuss do visine neto plate. Za BAS zahtjev treba i potvrda poslodavca.",
+              "action": "Obavijesti poslodavca o trudnoći i terminu. Pitaj odjel plata za Zuschuss i potvrdu koju traži BAS ili Krankenkasse.",
+              "where": "Odjel plata / HR.",
+              "example": "Izmišljeno: HR šalje kasi Entgeltbescheinigung elektronski.",
+              "mistake": "Pretpostaviti da poslodavac sam zna termin i šalje podatke."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Podnesi zahtjev na pravom mjestu",
+            "sections": {
+              "meaning": "Zaštitni period (Schutzfrist) po pravilu traje 6 sedmica prije i 8 sedmica poslije poroda; poslije poroda produžava se na 12 sedmica kod prijevremenog poroda, blizanaca ili utvrđenog invaliditeta djeteta (na zahtjev).",
+              "action": "Krankenkasse: pošalji zahtjev i potvrdu kroz kanal kase. BAS: popuni zahtjev na mutterschaftsgeld.de i priloži tražene potvrde.",
+              "where": "Online poslovnica kase ili mutterschaftsgeld.de.",
+              "example": "Izmišljeno: Maja šalje potvrdu kroz app svoje kase 26.11.2026.",
+              "mistake": "Podnijeti oba zahtjeva „za svaki slučaj“ — to usporava i miješa nadležnost."
+            }
+          },
+          {
+            "id": "birth",
+            "title": "Nakon poroda: potvrda rođenja",
+            "sections": {
+              "meaning": "Krankenkasse nakon poroda traži dokaz o rođenju da bi obračunala period poslije poroda.",
+              "action": "Pošalji potvrdu rođenja (Geburtsbescheinigung/Geburtsurkunde) kasi kada je dobiješ od Standesamta. Kod prijevremenog poroda priloži i ljekarsku potvrdu.",
+              "where": "Standesamt, bolnica.",
+              "example": "Izmišljeno: dijete rođeno 03.01.2027, potvrda poslana 15.01.2027.",
+              "mistake": "Zaboraviti poslati potvrdu — isplata za period poslije poroda kasni."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nakon odluke i veza s Elterngeldom",
+            "sections": {
+              "meaning": "Mutterschaftsgeld i Zuschuss se uračunavaju u Elterngeld za iste mjesece.",
+              "action": "Sačuvaj odluku/potvrdu o Mutterschaftsgeldu — Elterngeldstelle je traži. Ako se ne slažeš s odlukom, poštuj Rechtsbehelfsbelehrung.",
+              "where": "Dopis kase ili BAS.",
+              "example": "Izmišljeno: kasa potvrđuje Mutterschaftsgeld 29.11.2026–28.02.2027.",
+              "mistake": "Planirati Elterngeld za te mjesece kao da Mutterschaftsgeld ne postoji."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "mitglied",
+            "german": "Mitglied der gesetzlichen Krankenkasse",
+            "meaning": "Članica zakonske zdravstvene kase (put Krankenkasse)",
+            "instruction": "Ako si sama članica, nadležna je tvoja kasa.",
+            "where": "Kartica i dopisi kase.",
+            "example": "Izmišljeno: Maja je obavezno osigurana preko posla.",
+            "mistake": "Misliti da je porodično osiguranje isto što i članstvo."
+          },
+          {
+            "id": "familienversichert",
+            "german": "familienversichert / privat versichert",
+            "meaning": "Porodično ili privatno osigurana (moguć put BAS)",
+            "instruction": "Ako si zaposlena, a nisi sama članica, provjeri uvjete BAS-a.",
+            "where": "Dopis kase partnera/roditelja ili polisa privatnog osiguranja.",
+            "example": "Izmišljeno: mini-job, porodično osigurana preko supruga.",
+            "mistake": "Slati zahtjev kasi supruga."
+          },
+          {
+            "id": "termin",
+            "german": "Bescheinigung über den mutmaßlichen Tag der Entbindung",
+            "meaning": "Potvrda o očekivanom danu poroda (oba puta)",
+            "instruction": "Priloži original ili kanal koji traži kasa/BAS.",
+            "where": "Ginekolog ili babica.",
+            "example": "Izmišljeno: očekivani termin 10.01.2027.",
+            "mistake": "Prepisivati datum ručno u zahtjev bez potvrde."
+          },
+          {
+            "id": "schutzfrist",
+            "german": "Mutterschutzfrist / Schutzfrist",
+            "meaning": "Zaštitni period prije i poslije poroda",
+            "instruction": "Iz termina se računa početak; nakon poroda kasa računa kraj prema stvarnom datumu.",
+            "where": "Potvrda o terminu, potvrda rođenja.",
+            "example": "Izmišljeno: početak 6 sedmica prije 10.01.2027.",
+            "mistake": "Računati od dana prijave umjesto od termina."
+          },
+          {
+            "id": "zuschuss",
+            "german": "Zuschuss des Arbeitgebers zum Mutterschaftsgeld",
+            "meaning": "Dodatak poslodavca",
+            "instruction": "Poslodavac ga isplaćuje uz platni obračun; provjeri obračun.",
+            "where": "Obračun plate, HR.",
+            "example": "Izmišljeno: obračun za decembar navodi Zuschuss.",
+            "mistake": "Misliti da ga isplaćuje kasa."
+          },
+          {
+            "id": "geburt",
+            "german": "Geburtsbescheinigung / Geburtsurkunde",
+            "meaning": "Potvrda o rođenju (put Krankenkasse nakon poroda)",
+            "instruction": "Pošalji kasi nakon poroda prema njenoj uputi.",
+            "where": "Standesamt.",
+            "example": "Izmišljeno: Geburtsbescheinigung „für Mutterschaftsgeld“.",
+            "mistake": "Čekati izvod za drugu svrhu i zaboraviti potvrdu za kasu."
+          },
+          {
+            "id": "bas",
+            "german": "Mutterschaftsgeldstelle des Bundesamtes für Soziale Sicherung",
+            "meaning": "Savezni ured za put BAS",
+            "instruction": "Zahtjev i potvrde šalješ tamo, ne kasi.",
+            "where": "mutterschaftsgeld.de.",
+            "example": "Izmišljeno: online zahtjev BAS poslan 20.11.2026.",
+            "mistake": "Očekivati isti iznos kao kod zakonske kase — BAS plaća ukupno najviše 210 eura."
+          },
+          {
+            "id": "fruehgeburt",
+            "german": "Früh- / Mehrlingsgeburt / Behinderung des Kindes",
+            "meaning": "Prijevremeni porod, blizanci, invaliditet djeteta",
+            "instruction": "Može produžiti zaštitni period poslije poroda; priloži ljekarsku potvrdu, a za invaliditet je potreban zahtjev.",
+            "where": "Bolnica, ljekar.",
+            "example": "Izmišljeno: blizanci — 12 sedmica poslije poroda.",
+            "mistake": "Ne javiti kasi prijevremeni porod."
+          }
+        ]
+      },
+      "kinderzuschlag": {
+        "title": "Kinderzuschlag: vodič polje po polje uz KiZ 1, KiZ 1-AnK i KiZ 1-AnA",
+        "introduction": "Za papirni zahtjev Familienkasse traži uvijek tri dijela: KiZ 1 (Hauptantrag), KiZ 1-AnA (Anlage za podnosioca i partnera — u SVAKOM slučaju) i KiZ 1-AnK (jedna Anlage Kind za SVAKO dijete u domaćinstvu). Otvori originalne PDF-ove u novom tabu, a ovdje prati gdje se nalazi svaka sekcija i šta znači. BA uz to izdaje Ausfüllhinweise KiZ 1-H.",
+        "variation": "Mjesta polja provjerena su 27.10.2026 na službenim PDF-ovima: KiZ 1 (Stand September 2024), KiZ 1-AnK i KiZ 1-AnA (Stand Juli 2026). Ako preuzmeš noviju verziju, provjeri broj sekcije. Dodatne Anlagen (npr. KiZ 5c za Unterhalt, Vermögen, samostalni rad, KiZ 7) trebaju samo kada ih glavni obrazac uputi.",
+        "vocabularyNote": "Svaki pojam ispod odgovara sekciji originalnog obrasca; oznaka „Mjesto na službenom obrascu“ pokazuje list i tačku. Primjeri su izmišljeni; ovdje ništa ne upisuješ.",
+        "modes": {
+          "paper": "Papir: odštampaj KiZ 1 + KiZ 1-AnA + KiZ 1-AnK po djetetu, popuni štampanim slovima, potpiši i pošalji originale Familienkasse sa KOPIJAMA dokaza.",
+          "online": "Online: na familienkasse.de zahtjev se može podnijeti potpuno elektronski uz BundID. Bez BundID-a online unos je moguć, ali se zahtjev nakon unosa štampa, potpisuje i šalje poštom. Redoslijed online pitanja nije isti kao u PDF-u."
+        },
+        "steps": [
+          {
+            "id": "check",
+            "title": "Provjeri da li se zahtjev isplati (KiZ-Lotse)",
+            "sections": {
+              "meaning": "Kinderzuschlag je za roditelje koji primaju Kindergeld i imaju prihod, ali on ne pokriva potrebe cijele porodice. Odluku donosi Familienkasse.",
+              "action": "Pokreni KiZ-Lotse s okvirnim podacima; to nije zahtjev i ne zamjenjuje odluku.",
+              "where": "Familienkasse → KiZ-Lotse.",
+              "example": "Izmišljeno: Maja i Damir, dvoje djece, jedna plata i Wohngeld — Lotse pokazuje mogući pravo.",
+              "mistake": "Ne podnijeti zahtjev samo zato što Lotse nije siguran; od kada se Kinderzuschlag plaća provjeri u službenim uputama."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Pripremi dokaze za posljednjih šest mjeseci",
+            "sections": {
+              "meaning": "KiZ 1-AnA i AnK traže prihode i rashode iz posljednjih šest mjeseci prije zahtjeva te troškove stanovanja.",
+              "action": "Skupi obračune plata za 6 mjeseci, ugovor o najmu ili Mietbescheinigung, dokaze o grijanju i Nebenkosten, Wohngeld/Unterhalt odluke te dokaze o prihodima djece.",
+              "where": "Poslodavac, stanodavac, banka, Wohngeldstelle, Jugendamt.",
+              "example": "Izmišljeno: zahtjev u novembru 2026 → plate maj–oktobar 2026.",
+              "mistake": "Poslati originale umjesto kopija."
+            }
+          },
+          {
+            "id": "main",
+            "title": "Popuni KiZ 1 (Hauptantrag)",
+            "sections": {
+              "meaning": "KiZ 1 ima zaglavlje i tačke 1–7 te Erklärung s potpisima na strani 2.",
+              "action": "Idi pojam po pojam ispod: zaglavlje, tačke 1–7, zatim Erklärung.",
+              "where": "PDF KiZ 1, strane 1–2.",
+              "example": "Izmišljeno: Kindergeld-Nr. iz pisma Familienkasse.",
+              "mistake": "Ostaviti tačke 5–7 prazne kada se odnose na tebe."
+            }
+          },
+          {
+            "id": "annexes",
+            "title": "Popuni KiZ 1-AnA i po jednu KiZ 1-AnK za svako dijete",
+            "sections": {
+              "meaning": "AnA opisuje odrasle (obrazovanje, stanovanje, imovina, Mehrbedarf, prihodi); AnK opisuje svako dijete.",
+              "action": "Uz svaku AnK upiši isto ime i Kindergeld-Nr. podnosioca kao u KiZ 1 i datum zahtjeva.",
+              "where": "PDF KiZ 1-AnA (3 strane) i KiZ 1-AnK (2 strane).",
+              "example": "Izmišljeno: dvoje djece → dvije AnK.",
+              "mistake": "Popuniti jednu AnK za sve djecu."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Potpiši i pošalji",
+            "sections": {
+              "meaning": "Druga osoba potpisuje kao zweite antragstellende Person kada se Kindergeld za navedenu djecu plaća dijelom prvoj, a dijelom drugoj osobi.",
+              "action": "Potpiši Erklärung u KiZ 1 i Anlagen; pošalji originale Familienkasse ili koristi online kanal.",
+              "where": "KiZ 1 strana 2, kraj AnA i AnK.",
+              "example": "Izmišljeno: Kindergeld za Leu ide Maji, za Ivu Damiru → potpisuju oboje.",
+              "mistake": "Zaboraviti datum ili drugi potpis."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nakon slanja",
+            "sections": {
+              "meaning": "Familienkasse može tražiti dodatne dokaze. Bescheid navodi period i iznos; promjene se javljaju odmah.",
+              "action": "Odgovori na pisma u roku; promjene (prihod, adresa, račun) javi kroz Mitteilung na familienkasse.de. Prije isteka perioda, podnesi novi zahtjev.",
+              "where": "Pisma Familienkasse, Familienkassen-Profil.",
+              "example": "Izmišljeno: Familienkasse traži Mietbescheinigung — šalješ je online.",
+              "mistake": "Ne javiti povećanje plate."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "kiz1-header",
+            "german": "Familienname und Vorname der kindergeldbeziehenden Person · Kindergeld-Nr.",
+            "meaning": "Ime osobe koja prima Kindergeld i njen Kindergeld broj",
+            "reference": "KiZ 1, strana 1, zaglavlje (isto zaglavlje na KiZ 1-AnK i KiZ 1-AnA)",
+            "instruction": "Upiši osobu koja prima Kindergeld i broj iz pisma Familienkasse; broj počinje brojkama, zatim „FK“.",
+            "where": "Kindergeld-Bescheid ili pismo Familienkasse.",
+            "example": "Izmišljeno: Kovač, Maja · 000FK000000.",
+            "mistake": "Upisati Steuer-ID umjesto Kindergeld broja."
+          },
+          {
+            "id": "kiz1-person",
+            "german": "1. Angaben zu meiner Person",
+            "meaning": "Podaci o podnosiocu",
+            "reference": "KiZ 1, strana 1, tačka 1",
+            "instruction": "Ime, datum rođenja, eventualno drugo prezime, adresa, spol, državljanstvo, telefon i Familienstand. Kod „getrennt lebend“ upiši od kada.",
+            "where": "Lična karta/pasoš, Meldebescheinigung.",
+            "example": "Izmišljeno: Maja Kovač, verheiratet.",
+            "mistake": "Ne upisati datum uz „getrennt lebend seit“.",
+            "options": [
+              {
+                "german": "ledig",
+                "meaning": "Nikad u braku/registrovanom partnerstvu."
+              },
+              {
+                "german": "verheiratet/verpartnert",
+                "meaning": "U braku ili registrovanom partnerstvu."
+              },
+              {
+                "german": "getrennt lebend seit",
+                "meaning": "U braku, ali trajno odvojeno — upiši datum od kada."
+              },
+              {
+                "german": "geschieden/Partnerschaft aufgehoben",
+                "meaning": "Razveden/a ili partnerstvo poništeno."
+              },
+              {
+                "german": "verwitwet",
+                "meaning": "Udovica/udovac."
+              }
+            ]
+          },
+          {
+            "id": "kiz1-partner",
+            "german": "2. Angaben zu meinem/meiner im Haushalt lebenden Partner(in)",
+            "meaning": "Partner koji živi u domaćinstvu",
+            "reference": "KiZ 1, strana 1, tačka 2",
+            "instruction": "Ime, rođeno prezime, državljanstvo i datum rođenja partnera koji živi s tobom (brak ili vanbračna zajednica). Ako partner ne postoji, ostavi prazno.",
+            "where": "Dokument partnera.",
+            "example": "Izmišljeno: Novak, Damir.",
+            "mistake": "Izostaviti vanbračnog partnera koji živi u stanu."
+          },
+          {
+            "id": "kiz1-bank",
+            "german": "3. Angaben zu meiner Kontoverbindung (IBAN, BIC, Kontoinhaber(in))",
+            "meaning": "Račun za isplatu",
+            "reference": "KiZ 1, strana 1, tačka 3",
+            "instruction": "IBAN, BIC i vlasnik računa tačno kao kod banke.",
+            "where": "Bankovna kartica ili izvod.",
+            "example": "Izmišljeno: DE00 0000 0000 0000 0000 00 · Maja Kovač.",
+            "mistake": "Zamijeniti cifre ili izostaviti vlasnika."
+          },
+          {
+            "id": "kiz1-children",
+            "german": "4. Für folgende Kinder im Haushalt beantrage ich Kinderzuschlag",
+            "meaning": "Djeca za koju tražiš Kinderzuschlag",
+            "reference": "KiZ 1, strana 1, tačka 4",
+            "instruction": "Upiši djecu ispod 25 godina, neudata/neoženjena, za koju ti ili partner primate Kindergeld i koja su vaša biološka ili usvojena djeca. Za svako upisano dijete popuni AnK.",
+            "where": "Kindergeld-Bescheid, izvodi rođenja.",
+            "example": "Izmišljeno: Lea Kovač 05.11.2026; Iva Novak 12.03.2020.",
+            "mistake": "Upisati pastorka za kojeg ne primate Kindergeld — pastorci idu u tačku 7."
+          },
+          {
+            "id": "kiz1-absent",
+            "german": "5. Folgende unter Punkt 4 genannten Kinder halten sich nicht ständig in meinem Haushalt auf",
+            "meaning": "Djeca iz tačke 4 koja ne žive stalno kod tebe",
+            "reference": "KiZ 1, strana 2, tačka 5",
+            "instruction": "Upiši ime, razlog i trajanje odsustva. Kod boravka kod drugog roditelja dovoljno je okvirno: redovno 1–12 ili 13–17 dana.",
+            "where": "Dogovor o viđanju, internat.",
+            "example": "Izmišljeno: Iva — kod oca 13–17 dana mjesečno.",
+            "mistake": "Prešutjeti zajedničko starateljstvo s podijeljenim boravkom.",
+            "options": [
+              {
+                "german": "1-12 Tage beim anderen Elternteil",
+                "meaning": "Dijete je redovno 1–12 dana mjesečno kod drugog roditelja."
+              },
+              {
+                "german": "13-17 Tage beim anderen Elternteil",
+                "meaning": "Dijete je otprilike pola vremena kod drugog roditelja."
+              },
+              {
+                "german": "Internat/Wohnheim",
+                "meaning": "Dijete je u internatu ili domu — upiši trajanje."
+              }
+            ]
+          },
+          {
+            "id": "kiz1-otherchildren",
+            "german": "6. Weitere Kinder unter 25 ohne Kindergeld, die sich nicht ständig im Haushalt aufhalten",
+            "meaning": "Druga djeca ispod 25 bez Kindergelda koja povremeno borave kod tebe",
+            "reference": "KiZ 1, strana 2, tačka 6",
+            "instruction": "Za dijete koje je otprilike pola vremena kod tebe dovoljno je „13-17 Tage“; ako je kod tebe 1–12 dana, upiši tačan broj dana. Dan se računa roditelju kod kojeg dijete tog dana prvo boravi.",
+            "where": "Dogovor o viđanju.",
+            "example": "Izmišljeno: Damirov sin boravi kod vas 4 dana mjesečno.",
+            "mistake": "Napisati „1-12“ umjesto tačnog broja dana."
+          },
+          {
+            "id": "kiz1-household",
+            "german": "7. Weitere Personen, die ständig in meinem Haushalt wohnen",
+            "meaning": "Druge osobe koje stalno žive u domaćinstvu",
+            "reference": "KiZ 1, strana 2, tačka 7",
+            "instruction": "Upiši npr. vlastitu djecu bez Kindergelda, odraslu djecu, pastorke, hraniteljsku djecu, unuke, roditelje, braću/sestre, uz srodstvo s tobom i s partnerom.",
+            "where": "Meldebescheinigung domaćinstva.",
+            "example": "Izmišljeno: Ana Kovač, majka podnosioca.",
+            "mistake": "Izostaviti baku koja živi s vama."
+          },
+          {
+            "id": "kiz1-signature",
+            "german": "ERKLÄRUNG · Datum · Unterschrift",
+            "meaning": "Izjava, datum i potpis(i)",
+            "reference": "KiZ 1, strana 2, Erklärung",
+            "instruction": "Potpisuješ da su podaci tačni i da ćeš javljati promjene. Drugi potpis treba kada se Kindergeld za navedenu djecu plaća dijelom drugoj osobi; ona upisuje i svoj Kindergeld broj i saglasnost za korištenje podataka iz Kindergelda.",
+            "where": "Kraj KiZ 1.",
+            "example": "Izmišljeno: 20.11.2026, potpis Maja; drugi potpis Damir.",
+            "mistake": "Poslati nepotpisan zahtjev."
+          },
+          {
+            "id": "ank-child",
+            "german": "Anlage Kind · 1. Angaben zum Kind",
+            "meaning": "Podaci o djetetu i njegova situacija",
+            "reference": "KiZ 1-AnK, strana 1, tačka 1",
+            "instruction": "Ime, državljanstvo, datum rođenja, srodstvo prema tebi i partneru, zatim označi šta važi za dijete (ili „keine der Angaben trifft zu“). Za školu, studij, dom ili ustanovu priloži aktuelne dokaze.",
+            "where": "Izvod rođenja, potvrda škole.",
+            "example": "Izmišljeno: Lea — eigenes (leibliches) Kind oba roditelja; keine der Angaben trifft zu.",
+            "mistake": "Ne označiti ništa — za malu djecu obično važi „keine der Angaben trifft zu“.",
+            "options": [
+              {
+                "german": "eigenes (leibliches) Kind",
+                "meaning": "Biološko dijete."
+              },
+              {
+                "german": "Stiefkind",
+                "meaning": "Dijete partnera."
+              },
+              {
+                "german": "ist verheiratet",
+                "meaning": "Dijete je u braku."
+              },
+              {
+                "german": "lebt mit seiner Partnerin/seinem Partner zusammen",
+                "meaning": "Dijete živi s partnerom."
+              },
+              {
+                "german": "hat ein eigenes Kind",
+                "meaning": "Dijete ima svoje dijete."
+              },
+              {
+                "german": "besucht eine berufsbildende Schule oder studiert",
+                "meaning": "Strukovna škola ili studij — dokaz."
+              },
+              {
+                "german": "ist während der Ausbildung in einem Wohnheim/Internat ... untergebracht",
+                "meaning": "Smješteno u dom/internat ili kod poslodavca s punom ishranom — dokaz."
+              },
+              {
+                "german": "befindet sich in einer stationären Einrichtung",
+                "meaning": "U stacionarnoj ustanovi — dokaz."
+              },
+              {
+                "german": "keine der Angaben trifft zu",
+                "meaning": "Ništa od navedenog ne važi."
+              }
+            ]
+          },
+          {
+            "id": "ank-mehrbedarf",
+            "german": "Anlage Kind · 2. Mehrbedarf des Kindes",
+            "meaning": "Dodatne potrebe djeteta (dobrovoljno)",
+            "reference": "KiZ 1-AnK, strana 1, tačka 2",
+            "instruction": "Označi „Ja“ samo ako želiš da se uzme u obzir Mehrbedarf (npr. trudnoća djeteta, teški invaliditet, skupa ishrana) i priloži dokaze, npr. KiZ 7.",
+            "where": "Ljekar, Schwerbehindertenausweis, odluke.",
+            "example": "Izmišljeno: nema Mehrbedarfa — ostavlja se prazno.",
+            "mistake": "Označiti „Ja“ bez dokaza."
+          },
+          {
+            "id": "ank-income",
+            "german": "Anlage Kind · 3. Einnahmen des Kindes (letzte sechs Monate)",
+            "meaning": "Prihodi djeteta u posljednjih šest mjeseci",
+            "reference": "KiZ 1-AnK, strane 1–2, tačka 3",
+            "instruction": "Označi svaku vrstu prihoda djeteta i priloži navedeni dokaz. Kod Unterhalta pročitaj pragove na obrascu: KiZ 5c treba ako ne živiš s drugim roditeljem i uvjeti s obrasca važe; ako ne primaš ni Unterhalt ni Unterhaltsvorschuss, KiZ 5c treba uvijek.",
+            "where": "Izvodi banke, odluka Jugendamta o Unterhaltsvorschuss.",
+            "example": "Izmišljeno: Iva prima Unterhaltsvorschuss — prilaže se Bewilligungsbescheid.",
+            "mistake": "Zaboraviti Unterhalt koji drugi roditelj uplaćuje.",
+            "options": [
+              {
+                "german": "Ausbildungsvergütung / Arbeitslohn / Gehalt",
+                "meaning": "Plata ili naknada za obuku djeteta, i mini-job."
+              },
+              {
+                "german": "Einkommen aus selbständiger Tätigkeit",
+                "meaning": "Samostalni rad djeteta — posebna Anlage."
+              },
+              {
+                "german": "Jugend-/Bundesfreiwilligendienst, gemeinnützige/ehrenamtliche Tätigkeit",
+                "meaning": "Naknada iz volonterske službe."
+              },
+              {
+                "german": "Anderes Einkommen",
+                "meaning": "Npr. socijalna davanja, Krankengeld, renta/polusirotinjska renta, BAföG/stipendija."
+              },
+              {
+                "german": "Unterhalt / Unterhaltsvorschuss",
+                "meaning": "Alimentacija ili predujam alimentacije."
+              },
+              {
+                "german": "keinen Unterhalt und/oder Unterhaltsvorschuss",
+                "meaning": "Ne prima se ništa — uvijek KiZ 5c ako ne živiš s drugim roditeljem."
+              },
+              {
+                "german": "Sonstige Einnahmen",
+                "meaning": "Kamate, povrat poreza, otpremnina, napojnice."
+              }
+            ]
+          },
+          {
+            "id": "ank-expenses",
+            "german": "Anlage Kind · 4. Ausgaben des Kindes",
+            "meaning": "Rashodi djeteta vezani za njegov prihod",
+            "reference": "KiZ 1-AnK, strana 2, tačka 4",
+            "instruction": "Samo ako dijete ima prihod od rada: Werbungskosten kao karte za prevoz ili km i radni dani ako vozi auto.",
+            "where": "Karte, ugovor o obuci.",
+            "example": "Izmišljeno: šegrt, 12 km u jednom smjeru, 5 dana sedmično.",
+            "mistake": "Unositi troškove djeteta bez prihoda."
+          },
+          {
+            "id": "ana-further",
+            "german": "Anlage Antragsteller(in) und Partner(in) · 1. Weitere Angaben",
+            "meaning": "Dodatni podaci o tebi i partneru",
+            "reference": "KiZ 1-AnA, strana 1, tačka 1",
+            "instruction": "Označi posebno za sebe i za partnera ako važi; svaku oznaku dokaži.",
+            "where": "Potvrda škole/studija, ustanove, inostranog organa.",
+            "example": "Izmišljeno: ništa od navedenog ne važi.",
+            "mistake": "Prešutjeti dječiji doplatak iz BiH ili druge države.",
+            "options": [
+              {
+                "german": "in einer Schul- oder Berufsausbildung oder in einem Studium",
+                "meaning": "Školovanje, stručna obuka ili studij."
+              },
+              {
+                "german": "in einer stationären Einrichtung",
+                "meaning": "Boravak u stacionarnoj ustanovi."
+              },
+              {
+                "german": "Geldleistung von einer Stelle außerhalb von Deutschland anstatt Kindergeld",
+                "meaning": "Dječiji doplatak iz inostranstva umjesto Kindergelda, primljen ili traženi."
+              }
+            ]
+          },
+          {
+            "id": "ana-housing",
+            "german": "Anlage AnA · 2. Wir wohnen: zur Miete / in einem Eigenheim",
+            "meaning": "Stanovanje i troškovi",
+            "reference": "KiZ 1-AnA, strana 1, tačka 2",
+            "instruction": "Označi najam ili vlastitu kuću/stan i priloži dokaze iz odgovarajuće kolone; upiši Einzugsdatum ako si uselio/la ove ili prošle godine; označi kako se grije voda.",
+            "where": "Ugovor o najmu, Nebenkostenabrechnung, Wohngeldbescheid.",
+            "example": "Izmišljeno: zur Miete, Warmwasser zentral.",
+            "mistake": "Priložiti ugovor stariji od godine bez izvoda koji pokazuje aktuelnu kiriju.",
+            "options": [
+              {
+                "german": "zur Miete",
+                "meaning": "Najam — ugovor/Mietbescheinigung, grijanje, Nebenkosten za mjesec zahtjeva."
+              },
+              {
+                "german": "in einem Eigenheim",
+                "meaning": "Vlastita nekretnina — kamate, Grundsteuer, osiguranje za prošlu godinu."
+              },
+              {
+                "german": "Warmwasser zentral",
+                "meaning": "Topla voda preko centralnog grijanja."
+              },
+              {
+                "german": "Warmwasser dezentral",
+                "meaning": "Bojler ili protočni grijač."
+              }
+            ]
+          },
+          {
+            "id": "ana-vermoegen",
+            "german": "Anlage AnA · 3. Angaben zum Vermögen (Selbstauskunft) — Ja / Nein",
+            "meaning": "Da li porodica ima znatnu imovinu",
+            "reference": "KiZ 1-AnA, strana 2, tačka 3",
+            "instruction": "Uporedi zajedničku imovinu s tablicom pragova na obrascu (prema broju osoba) i označi Ja ili Nein; kod „Ja“ popuni Anlage zum erheblichen Vermögen.",
+            "where": "Izvodi računa, štednja, vrijednost auta iznad praga s obrasca.",
+            "example": "Izmišljeno: Nein.",
+            "mistake": "Zaboraviti kripto, PayPal ili štedni račun."
+          },
+          {
+            "id": "ana-mehrbedarf",
+            "german": "Anlage AnA · 4. Mehrbedarfe",
+            "meaning": "Dodatne potrebe odraslih (dobrovoljno)",
+            "reference": "KiZ 1-AnA, strana 2, tačka 4",
+            "instruction": "Označi „Ja“ ako želiš da se uzme u obzir npr. trudnoća (upiši termin), invaliditet, skupa ishrana ili samohrano roditeljstvo. Za Alleinerziehenden-Mehrbedarf dokaz nije potreban.",
+            "where": "Mutterpass, odluke, KiZ 7.",
+            "example": "Izmišljeno: Maja trudna, termin 10.01.2027.",
+            "mistake": "Ne označiti samohrano roditeljstvo."
+          },
+          {
+            "id": "ana-income",
+            "german": "Anlage AnA · 5. Einnahmen der letzten sechs Monate",
+            "meaning": "Prihodi tebe i partnera u posljednjih 6 mjeseci",
+            "reference": "KiZ 1-AnA, strane 2–3, tačka 5",
+            "instruction": "Za svaku vrstu prihoda označi kolonu „für mich“ ili „Partner(in)“ i priloži dokaz, npr. obračune plata ili Verdienstbescheinigung poslodavca.",
+            "where": "Poslodavac, odluke.",
+            "example": "Izmišljeno: Damir — Arbeitslohn, 6 obračuna.",
+            "mistake": "Izostaviti Zuschuss poslodavca uz Mutterschaftsgeld."
+          }
+        ]
+      },
+      "krippengeld-bayern": {
+        "title": "Krippengeld (Bayern): prvo provjeri datum rođenja djeteta",
+        "introduction": "Prema ZBFS Bayern (provjereno 27.10.2026), Bavarska Krippengeldom podržava roditelje djece rođene PRIJE 01.01.2025, od druge godine života, kod doprinosa za vrtić. Upute za zahtjev na ZBFS važe za djecu rođenu do 31.12.2024. Ovaj vodič ne obećava pravo; uvjete i iznose provjerava ZBFS.",
+        "variation": "Za djecu rođenu od 01.01.2025 ZBFS stranica o Krippengeldu ne daje uputu za zahtjev. Ne podnosi Krippengeld zahtjev na pretpostavku — provjeri aktuelne bavarske porodične naknade direktno na ZBFS. Starija opća verzija ovog vodiča (za „svu djecu do 3 godine“) više se ne prikazuje jer je bila zavaravajuća.",
+        "vocabularyNote": "Rječnik pojmova sa ZBFS stranica o Krippengeldu. Polja papirnog zahtjeva ne mapiramo; koristi upute na ZBFS stranici „Papierantrag“. Primjeri su izmišljeni.",
+        "gate": {
+          "title": "Datumska provjera (Stand 27.10.2026)",
+          "question": "Kada je dijete rođeno?",
+          "options": [
+            {
+              "id": "before2025",
+              "label": "Do 31.12.2024",
+              "result": "ZBFS upute za zahtjev odnose se na tvoje dijete. Nastavi s koracima ispod i provjeri uvjete (dob, boravak u Bavarskoj, doprinosi za vrtić, granica prihoda) direktno na ZBFS."
+            },
+            {
+              "id": "from2025",
+              "label": "01.01.2025 ili kasnije",
+              "result": "ZBFS opisuje Krippengeld samo za djecu rođenu prije 01.01.2025. Ne oslanjaj se na ovaj vodič za zahtjev; otvori ZBFS stranicu porodičnih naknada i provjeri šta trenutno važi."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papir: ZBFS stranica „Papierantrag“ objašnjava kako dobiti i poslati papirni zahtjev za djecu rođenu do 31.12.2024.",
+          "online": "Online: ZBFS stranica „Antrag stellen“ upućuje na online podnošenje za djecu rođenu do 31.12.2024; promjene (doprinosi, adresa) javljaju se preko „Änderungen mitteilen“."
+        },
+        "steps": [
+          {
+            "id": "gate",
+            "title": "Datum rođenja i Bavarska",
+            "sections": {
+              "meaning": "Krippengeld je bavarska naknada; ključna granica je rođenje prije 01.01.2025.",
+              "action": "Odaberi datum u provjeri gore. Za rođene 2025+ prekini ovdje i idi na ZBFS.",
+              "where": "Izvod rođenja; ZBFS stranica Krippengeld.",
+              "example": "Izmišljeno: Lea rođena 14.06.2024 — upute se odnose na nju.",
+              "mistake": "Podnijeti zahtjev za dijete rođeno 2025. na osnovu starih informacija."
+            }
+          },
+          {
+            "id": "conditions",
+            "title": "Uvjeti — samo prema ZBFS",
+            "sections": {
+              "meaning": "ZBFS navodi uvjete kao dob djeteta (od druge godine života), prebivalište u Bavarskoj, plaćene doprinose za vrtić/Tagespflege i granicu prihoda.",
+              "action": "Pročitaj „Häufige Fragen“ na ZBFS. ZBFS savjetuje samo o općim pravnim osnovama, ne o tvojim poreskim pitanjima.",
+              "where": "ZBFS → Krippengeld → Häufige Fragen.",
+              "example": "Izmišljeno: Lea ide u Kinderkrippe od septembra 2025.",
+              "mistake": "Računati granicu prihoda sam/a i odustati — provjeri pravila ZBFS."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Dokazi o doprinosima i prihodu",
+            "sections": {
+              "meaning": "Zahtjev se odnosi na stvarne Elternbeiträge za vrtić ili Tagespflege.",
+              "action": "Pripremi ugovor/potvrdu vrtića o mjesečnim doprinosima i dokaze o prihodu prema uputi ZBFS.",
+              "where": "Vrtić ili Tagespflegeperson; Finanzamt.",
+              "example": "Izmišljeno: vrtić potvrđuje doprinos od septembra 2025.",
+              "mistake": "Priložiti samo račun bez naznake perioda."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Podnesi online ili papirom",
+            "sections": {
+              "meaning": "ZBFS nudi online put i papirni zahtjev.",
+              "action": "Slijedi ZBFS uputu „Antrag stellen“ ili „Papierantrag“.",
+              "where": "ZBFS stranice (linkovi gore).",
+              "example": "Izmišljeno: zahtjev poslan online.",
+              "mistake": "Slati zahtjev općini umjesto ZBFS."
+            }
+          },
+          {
+            "id": "changes",
+            "title": "Nakon odluke: javi promjene",
+            "sections": {
+              "meaning": "Promjene doprinosa, adrese ili ličnih podataka javljaju se ZBFS.",
+              "action": "Koristi „Änderungsmitteilungen“ na ZBFS stranici.",
+              "where": "ZBFS → Änderungen mitteilen.",
+              "example": "Izmišljeno: vrtić povećava doprinos od januara.",
+              "mistake": "Ne javiti ispis iz vrtića."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "krippengeld",
+            "german": "Bayerisches Krippengeld",
+            "meaning": "Bavarska pomoć za doprinose vrtića",
+            "instruction": "Koristi naziv kada pretražuješ ZBFS; važi samo za djecu rođenu prije 01.01.2025.",
+            "where": "ZBFS stranica.",
+            "example": "Izmišljeno: Lea, rođena 2024.",
+            "mistake": "Misliti da postoji u drugim pokrajinama."
+          },
+          {
+            "id": "elternbeitrag",
+            "german": "Elternbeiträge",
+            "meaning": "Doprinosi koje roditelji plaćaju vrtiću/Tagespflege",
+            "instruction": "Dokaži stvarni mjesečni iznos.",
+            "where": "Ugovor vrtića, račun.",
+            "example": "Izmišljeno: mjesečni doprinos prema ugovoru.",
+            "mistake": "Uključiti troškove koje vrtić ne naplaćuje kao doprinos (npr. ručak) bez provjere."
+          },
+          {
+            "id": "einrichtung",
+            "german": "Kinderkrippe / Kindertagespflege",
+            "meaning": "Jaslice/vrtić ili dnevna njegovateljica",
+            "instruction": "Navedi vrstu brige kako stoji u ugovoru.",
+            "where": "Ugovor o brizi.",
+            "example": "Izmišljeno: Kindertagespflege kod Tagesmutter.",
+            "mistake": "Pomiješati sa Kindergarten iz kasnijih godina."
+          },
+          {
+            "id": "einkommen",
+            "german": "Einkommensgrenze",
+            "meaning": "Granica prihoda",
+            "instruction": "Provjeri na ZBFS koji prihod i koja godina se gledaju.",
+            "where": "ZBFS Häufige Fragen, Steuerbescheid.",
+            "example": "Izmišljeno: priprema se Steuerbescheid.",
+            "mistake": "Koristiti iznose iz starih tekstova."
+          },
+          {
+            "id": "aenderung",
+            "german": "Änderungsmitteilung",
+            "meaning": "Obavijest o promjeni",
+            "instruction": "Javi promjenu doprinosa, adrese ili računa.",
+            "where": "ZBFS → Änderungen mitteilen.",
+            "example": "Izmišljeno: preseljenje unutar Bavarske.",
+            "mistake": "Šutjeti o preseljenju van Bavarske."
+          },
+          {
+            "id": "zbfs",
+            "german": "Zentrum Bayern Familie und Soziales (ZBFS)",
+            "meaning": "Bavarski ured za porodicu",
+            "instruction": "Nadležan za Krippengeld.",
+            "where": "zbfs.bayern.de.",
+            "example": "Izmišljeno: dopis ZBFS sa brojem predmeta.",
+            "mistake": "Očekivati od ZBFS poreski savjet."
+          }
+        ]
+      },
+      "wirtschaftliche-jugendhilfe": {
+        "title": "Wirtschaftliche Jugendhilfe: pomoć za troškove vrtića kod lokalnog Jugendamta",
+        "introduction": "Doprinosi za vrtić ili Kindertagespflege mogu se u određenim slučajevima smanjiti, oprostiti ili preuzeti od strane Jugendamta (Erlass / Übernahme des Kostenbeitrags). Porodice koje primaju npr. Bürgergeld, Sozialhilfe, Kinderzuschlag ili Wohngeld po zakonu se po pravilu ne terete doprinosom — ali to se mora dokazati Jugendamtu.",
+        "variation": "Svaki grad ili okrug ima vlastiti postupak, obrazac i naziv (npr. Wirtschaftliche Jugendhilfe, Elternbeitragsstelle, Kita-Gebührenstelle). Ne postoji savezni obrazac, pa ne mapiramo polja. Pojmovi ispod su uobičajena terminologija; polja traži u obrascu svog Jugendamta.",
+        "vocabularyNote": "Rječnik lokalnih postupaka. Redoslijed i polja zavise od grada/okruga. Primjeri su izmišljeni; ovdje ništa ne upisuješ.",
+        "modes": {
+          "paper": "Papir: obrazac lokalnog Jugendamta ili Elternbeitragsstelle; pošalji ga s kopijama dokaza poštom ili lično.",
+          "online": "Online: neki gradovi nude online zahtjev ili upload dokaza; nađi uslugu na stranici grada ili u Verwaltungsportalu po poštanskom broju."
+        },
+        "steps": [
+          {
+            "id": "office",
+            "title": "Pronađi nadležni ured",
+            "sections": {
+              "meaning": "Nadležan je Jugendamt mjesta stanovanja djeteta, ponekad posebna Kita-Gebührenstelle.",
+              "action": "Na stranici grada traži „Kostenbeitrag Kita Erlass“, „Elternbeitrag Übernahme“ ili „Wirtschaftliche Jugendhilfe“; ili pitaj vrtić koji ured je nadležan.",
+              "where": "Stranica grada/okruga, Verwaltungsportal, vrtić.",
+              "example": "Izmišljeno: grad X — „Abteilung Elternbeiträge“.",
+              "mistake": "Zahtjev poslati vrtiću umjesto Jugendamtu."
+            }
+          },
+          {
+            "id": "case",
+            "title": "Prepoznaj svoj slučaj",
+            "sections": {
+              "meaning": "Dva česta slučaja: (a) primaš Bürgergeld, Sozialhilfe, AsylbLG, Kinderzuschlag ili Wohngeld — doprinos se po pravilu ne naplaćuje uz dokaz; (b) drugi niski prihodi — Jugendamt odlučuje je li opterećenje „nicht zumutbar“ i može preuzeti dio ili cijeli doprinos.",
+              "action": "Pripremi Bescheid naknade ili dokaze o prihodima i troškovima cijele porodice.",
+              "where": "Odluke Jobcentra, Familienkasse, Wohngeldstelle; obračuni plata.",
+              "example": "Izmišljeno: porodica prima Kinderzuschlag — prilaže Bescheid.",
+              "mistake": "Pretpostaviti da se oslobađanje primjenjuje automatski bez zahtjeva."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Dokazi",
+            "sections": {
+              "meaning": "Jugendamt treba znati ko živi u domaćinstvu, prihode i doprinos vrtića.",
+              "action": "Skupi ugovor s vrtićem/Tagespflege, potvrdu o doprinosu, odluke o naknadama, obračune plata, najam i Kindergeld-Bescheid prema listi ureda.",
+              "where": "Vrtić, poslodavac, uredi.",
+              "example": "Izmišljeno: ugovor vrtića od 01.09.2026 i Wohngeldbescheid.",
+              "mistake": "Priložiti istekli Bescheid."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Podnesi zahtjev na vrijeme",
+            "sections": {
+              "meaning": "Mnogi uredi preuzimaju troškove tek od mjeseca zahtjeva.",
+              "action": "Podnesi zahtjev čim znaš za vrtić ili dobiješ Bescheid naknade; pitaj od kada vrijedi.",
+              "where": "Obrazac Jugendamta.",
+              "example": "Izmišljeno: zahtjev u avgustu za vrtić od septembra.",
+              "mistake": "Čekati prvi račun vrtića."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Odluka i produženje",
+            "sections": {
+              "meaning": "Odluka je obično ograničena na period (npr. dok traje Bescheid naknade).",
+              "action": "Prije isteka pošalji novi Bescheid; promjene prihoda javi.",
+              "where": "Odluka Jugendamta.",
+              "example": "Izmišljeno: Wohngeld produžen — šalješ novi Bescheid.",
+              "mistake": "Ne poslati produženje i dobiti račun unazad."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "kostenbeitrag",
+            "german": "Kostenbeitrag / Elternbeitrag",
+            "meaning": "Doprinos roditelja za vrtić",
+            "instruction": "Iznos stoji u ugovoru ili odluci grada.",
+            "where": "Ugovor vrtića, odluka o doprinosu.",
+            "example": "Izmišljeno: mjesečni Elternbeitrag prema ugovoru.",
+            "mistake": "Pomiješati s Essensgeld (hrana), koji se često posebno tretira."
+          },
+          {
+            "id": "erlass",
+            "german": "Erlass / Übernahme des Kostenbeitrags",
+            "meaning": "Oslobađanje ili preuzimanje doprinosa",
+            "instruction": "Ovo je naziv zahtjeva koji tražiš.",
+            "where": "Stranica grada.",
+            "example": "Izmišljeno: „Antrag auf Übernahme des Elternbeitrags“.",
+            "mistake": "Tražiti „Kita-Gutschein“ — to je drugi postupak u nekim gradovima."
+          },
+          {
+            "id": "leistungsbezug",
+            "german": "Bezug von Bürgergeld / Sozialhilfe / Kinderzuschlag / Wohngeld",
+            "meaning": "Primanje naknada koje dovode do oslobađanja",
+            "instruction": "Priloži važeći Bescheid.",
+            "where": "Jobcenter, Sozialamt, Familienkasse, Wohngeldstelle.",
+            "example": "Izmišljeno: Kinderzuschlag-Bescheid za 6 mjeseci.",
+            "mistake": "Priložiti samo zahtjev, a ne odluku."
+          },
+          {
+            "id": "zumutbar",
+            "german": "zumutbare Belastung",
+            "meaning": "Opterećenje koje se može očekivati",
+            "instruction": "Kod niskih prihoda bez naknada Jugendamt procjenjuje da li možeš platiti; navedi prihode i troškove.",
+            "where": "Obračuni plata, najam.",
+            "example": "Izmišljeno: jedna plata, četveročlana porodica.",
+            "mistake": "Prešutjeti dio prihoda."
+          },
+          {
+            "id": "haushalt",
+            "german": "Haushaltsangehörige",
+            "meaning": "Članovi domaćinstva",
+            "instruction": "Navedi sve osobe kako obrazac traži.",
+            "where": "Meldebescheinigung.",
+            "example": "Izmišljeno: dva roditelja i dvoje djece.",
+            "mistake": "Izostaviti partnera."
+          },
+          {
+            "id": "tagespflege",
+            "german": "Kindertagespflege",
+            "meaning": "Dnevna njegovateljica (Tagesmutter/-vater)",
+            "instruction": "I za Tagespflege se doprinos može preuzeti; navedi njegovateljicu.",
+            "where": "Ugovor o Tagespflege.",
+            "example": "Izmišljeno: Tagesmutter u istom gradu.",
+            "mistake": "Misliti da pomoć važi samo za Kita."
+          }
+        ]
+      }
+    }
   }
 }

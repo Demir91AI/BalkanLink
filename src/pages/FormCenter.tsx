@@ -64,6 +64,7 @@ void PlusCtaLabel; // pinned legacy import (phase1 baseline)
 import GuideFrame from "@/components/guide-first/GuideFrame";
 import ProcedureCompanion from "@/components/guide-first/ProcedureCompanion";
 import { isArrivalSlug } from "@/lib/guide-first/arrival-model";
+import { isFamilySlug } from "@/lib/guide-first/family-model";
 import { useEntitlement } from "@/hooks/useEntitlement";
 import { useMonetizationV2 } from "@/hooks/useMonetizationV2";
 import { useAuth } from "@/contexts/AuthContext";
@@ -126,6 +127,7 @@ export function GuideContent({ slug, title }: { slug: string; title?: string }) 
 
 function GuideBody({ slug }: { slug: string }) {
   if (isArrivalSlug(slug)) return <><ProcedureCompanion key={slug} slug={slug} />{slug === "steuer-id" && <SteuerIdGuideContent />}<OfficialNextStep slug={slug} /></>;
+  if (isFamilySlug(slug)) return <><ProcedureCompanion key={slug} slug={slug} />{slug === "elterngeld" && <ElterngeldGuideContent />}{slug === "mutterschaftsgeld" && <MutterschaftsgeldGuideContent />}{slug === "kinderzuschlag" && <KinderzuschlagGuideContent />}{slug === "wirtschaftliche-jugendhilfe" && <WirtschaftlicheJugendhilfeGuideContent />}<OfficialNextStep slug={slug} /></>;
   const guide = getGuideBySlug(slug);
   const lang = getLangKey("bs");
   const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";

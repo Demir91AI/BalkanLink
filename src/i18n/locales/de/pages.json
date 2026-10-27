@@ -4680,5 +4680,1025 @@
         ]
       }
     }
+  },
+  "familyCompanions": {
+    "ui": {
+      "reference": "Stelle auf dem offiziellen Formular",
+      "gatePrompt": "Wählen Sie eine Option. Dies dient nur der Orientierung, keine Entscheidung über den Anspruch; die Auswahl wird nicht gespeichert."
+    },
+    "guides": {
+      "elterngeld": {
+        "title": "Elterngeld: Leitfaden zum offiziellen Antrag Ihres Bundeslandes",
+        "introduction": "Elterngeld wird erst NACH der Geburt des Kindes bei der für den Wohnort des Kindes zuständigen Elterngeldstelle beantragt. Reichen Sie den Antrag so schnell wie möglich ein, am besten in den ersten 3 Lebensmonaten des Kindes, da Elterngeld für maximal 3 Monate rückwirkend gezahlt wird.",
+        "variation": "Es gibt kein bundesweit einheitliches Papierformular: Jedes Bundesland hat seinen eigenen offiziellen Antrag, und viele Bundesländer bieten ElterngeldDigital an. Daher nennen wir hier KEINE Seitenzahlen oder Feldnummern. Die untenstehenden Begriffe sind geprüfte deutsche Fachbegriffe, die in den Anträgen vorkommen; die genaue Position der Felder entnehmen Sie dem Formular Ihres Bundeslandes.",
+        "vocabularyNote": "Glossar der Begriffe aus dem Elterngeldantrag. Reihenfolge und Feldnummern variieren je nach Bundesland. Die Beispiele sind fiktiv; hier tragen Sie nichts ein.",
+        "modes": {
+          "paper": "Papier: Laden Sie den Antrag Ihres Bundeslandes von der Website der zuständigen Elterngeldstelle herunter (Link über das Familienportal), füllen Sie ihn aus, unterschreiben Sie ihn und senden Sie ihn mit Kopien der Nachweise ab. Das Original der Geburtsurkunde für Elterngeld (Geburtsurkunde „für Elterngeld“) nur einreichen, wenn die Behörde dies verlangt.",
+          "online": "Online: ElterngeldDigital (Familienportal) führt durch die Fragen und ermöglicht in vielen Bundesländern die elektronische Übermittlung; in manchen Fällen muss der Antrag dennoch ausgedruckt und unterschrieben werden. Nicht jedes Bundesland ist angeschlossen – prüfen Sie dies auf dem Familienportal."
+        },
+        "steps": [
+          {
+            "id": "timing",
+            "title": "Frist und zuständige Stelle",
+            "sections": {
+              "meaning": "Der Antrag ist erst nach der Geburt möglich. Elterngeld wird für die Lebensmonate des Kindes gezahlt, nicht für Kalendermonate.",
+              "action": "Finden Sie direkt nach der Geburt die Elterngeldstelle für den Wohnort des Kindes (Postleitzahlensuche auf dem Familienportal). Planen Sie so, dass der Antrag in den ersten 3 Lebensmonaten des Kindes eingeht.",
+              "where": "Familienportal → Elterngeld → Wie kann ich Elterngeld beantragen? und Elterngeldstellensuche.",
+              "example": "Kind geboren am 05.11.2026: Ein am 20.12.2026 versendeter Antrag liegt innerhalb der ersten 3 Lebensmonate.",
+              "mistake": "Auf das Ende des Mutterschutzes oder das erste Gehalt nach der Geburt warten: Verspätete Monate über 3 Monate rückwirkend hinaus werden nicht ausgezahlt.",
+              "next": "Entscheiden Sie, wer und für welche Lebensmonate Elterngeld beantragt."
+            }
+          },
+          {
+            "id": "plan",
+            "title": "Monate planen: Basiselterngeld, ElterngeldPlus, Partnerschaftsbonus",
+            "sections": {
+              "meaning": "Im Antrag wird für jeden Lebensmonat die Art des Elterngeldes angegeben. Monate, in denen die Mutter Mutterschaftsgeld bezieht, gelten in der Regel als Basiselterngeldmonate der Mutter.",
+              "action": "Erstellen Sie für sich eine Tabelle der Lebensmonate 1–14+ und tragen Sie für jeden Elternteil Basiselterngeld, ElterngeldPlus oder nichts ein. Wenn beide Elternteile gleichzeitig in Teilzeit arbeiten, prüfen Sie die Voraussetzungen für den Partnerschaftsbonus in den offiziellen Hinweisen des Bundeslandes.",
+              "where": "Elterngeldrechner mit Planer auf dem Familienportal und Hinweise zum Formular des Bundeslandes.",
+              "example": "Fiktiv: Maja Kovač Monate 1–10 Basiselterngeld, Damir Novak Monate 11–12 Basiselterngeld.",
+              "mistake": "Annehmen, dass die Monate später frei geändert werden können; Änderungen sind nur unter den von der Elterngeldstelle genannten Bedingungen möglich.",
+              "next": "Bereiten Sie Einkommensnachweise vor der Geburt vor."
+            }
+          },
+          {
+            "id": "income",
+            "title": "Einkommen vor der Geburt (Bemessungszeitraum)",
+            "sections": {
+              "meaning": "Die Höhe des Elterngeldes hängt vom Einkommen im Bemessungszeitraum vor der Geburt ab. Bei Angestellten sind das in der Regel die 12 Kalendermonate vor dem Geburtsmonat; bei Selbstständigen in der Regel das letzte abgeschlossene Steuerjahr.",
+              "action": "Sammeln Sie Lohn- und Gehaltsabrechnungen für den gesamten Zeitraum, bei selbstständiger Tätigkeit Steuerbescheide oder Gewinnnachweise. Berechnen Sie den Betrag im Formular nicht selbst – tragen Sie ein, was das Formular verlangt, und fügen Sie Nachweise bei.",
+              "where": "Gehaltsabrechnungen vom Arbeitgeber, Einkommensteuerbescheid vom Finanzamt, Nachweise über Krankengeld/ALG, falls vorhanden.",
+              "example": "Kind geboren im November 2026: Die angestellte Maja bereitet Abrechnungen von November 2025 bis Oktober 2026 vor.",
+              "mistake": "Nur die letzte Gehaltsabrechnung beifügen oder Monate mit Krankengeld, Mutterschaftsgeld oder Elternzeit für ein älteres Kind vergessen – solche Monate können gesondert behandelt werden, geben Sie diese also an.",
+              "next": "Bescheinigungen vom Arbeitgeber und von der Krankenkasse einholen."
+            }
+          },
+          {
+            "id": "evidence",
+            "title": "Nachweise: Geburt, Arbeitgeber, Krankenkasse",
+            "sections": {
+              "meaning": "Übliche Nachweise sind die Geburtsbescheinigung für Elterngeld, Einkommensnachweise, die Bescheinigung der Krankenkasse über Mutterschaftsgeld und die Bescheinigung des Arbeitgebers über den Arbeitgeberzuschuss sowie die Arbeitszeit während des Elterngeldbezugs.",
+              "action": "Fordern Sie beim Standesamt die Geburtsbescheinigung „für Elterngeld“ an, bei der Krankenkasse die Bescheinigung über Mutterschaftsgeld, beim Arbeitgeber die Bescheinigung über den Zuschuss und (falls Sie während des Elterngeldes arbeiten) über die wöchentlichen Arbeitsstunden.",
+              "where": "Standesamt (nach Anzeige der Geburt), Krankenkasse, Lohnbuchhaltung des Arbeitgebers.",
+              "example": "Majas Krankenkasse bescheinigt Mutterschaftsgeld bis 31.12.2026; der Arbeitgeber bescheinigt den Zuschuss für denselben Zeitraum.",
+              "mistake": "Originale einreichen, die die Behörde nicht verlangt hat, oder die Bescheinigung der Krankenkasse vergessen – ohne sie verzögert sich die Bearbeitung.",
+              "next": "Füllen Sie den Antrag oder ElterngeldDigital aus."
+            }
+          },
+          {
+            "id": "sign",
+            "title": "Ausfüllen und unterschreiben",
+            "sections": {
+              "meaning": "Der Antrag muss unterschrieben sein. Laut Familienportal wird der Antrag in der Regel von beiden Elternteilen unterschrieben, wenn beide das Sorgerecht haben, selbst wenn nur ein Elternteil Elterngeld beantragt.",
+              "action": "Prüfen Sie den Abschnitt zum anderen Elternteil, das Bankkonto (IBAN), die Steuer-ID falls verlangt und den Monatsplan. Lassen Sie alle Personen unterschreiben, die das Formular vorsieht.",
+              "where": "Ende des Formulars des Bundeslandes oder Zusammenfassung in ElterngeldDigital.",
+              "example": "Fiktiv: Maja und Damir unterschreiben am 18.12.2026, obwohl Damir im ersten Antrag keine Monate beansprucht.",
+              "mistake": "Den Antrag nur mit der Unterschrift eines Elternteils absenden, wenn das Formular beide verlangt – die Behörde schickt den Antrag zurück.",
+              "next": "Absenden und Kopie aufbewahren."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nach dem Absenden: Bescheid und Änderungen",
+            "sections": {
+              "meaning": "Die Elterngeldstelle sendet einen Bescheid. Wenn das Einkommen während des Elterngeldbezugs nur geschätzt wurde, kann sie später tatsächliche Nachweise fordern und endgültig abrechnen.",
+              "action": "Überprüfen Sie im Bescheid Monate, Art des Elterngeldes und das Konto. Melden Sie Änderungen (Arbeit, Stunden, Adresse) der Behörde. Wenn Sie nicht einverstanden sind, stehen Frist und Form für den Widerspruch in der Rechtsbehelfsbelehrung.",
+              "where": "Bescheid der Elterngeldstelle.",
+              "example": "Der Bescheid enthält einen Vorbehalt wegen Teilzeitarbeit; nach Ende des Zeitraums reichen Sie die Gehaltsabrechnungen ein.",
+              "mistake": "Aufforderungen zu nachträglichen Nachweisen ignorieren – dies kann zu Rückforderungen führen.",
+              "next": "Bescheid und Kopie des Antrags aufbewahren."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "antragsteller",
+            "german": "Antragstellende Person / andere(r) Elternteil",
+            "meaning": "Person, die Elterngeld beantragt, und der andere Elternteil",
+            "instruction": "Angaben zu sich selbst gehören in den Teil für die antragstellende Person, Angaben zum anderen Elternteil in dessen Abschnitt – auch wenn der andere Elternteil kein Elterngeld beantragt.",
+            "where": "Ausweisdokument, Meldebescheinigung, Steuer-ID aus dem Schreiben des BZSt oder der Gehaltsabrechnung.",
+            "example": "Fiktiv: Maja Kovač antragstellende Person, Damir Novak anderer Elternteil.",
+            "mistake": "Den anderen Elternteil weglassen, weil er „nichts beantragt“."
+          },
+          {
+            "id": "kind",
+            "german": "Angaben zum Kind",
+            "meaning": "Angaben zum Kind",
+            "instruction": "Name, Geburtsdatum, eventuell Mehrlingsgeburt und Frühgeburt gemäß Formular.",
+            "where": "Geburtsbescheinigung „für Elterngeld“ vom Standesamt.",
+            "example": "Fiktiv: Lea Kovač, geboren am 05.11.2026, Einling.",
+            "mistake": "Den errechneten statt des tatsächlichen Geburtstermins eintragen."
+          },
+          {
+            "id": "art",
+            "german": "Basiselterngeld / ElterngeldPlus / Partnerschaftsbonus",
+            "meaning": "Arten des Elterngeldes für die einzelnen Lebensmonate",
+            "instruction": "Wählen Sie für jeden Lebensmonat eine Art pro Elternteil gemäß Plan aus.",
+            "where": "Elterngeldrechner mit Planer, Hinweise des Bundeslandes.",
+            "example": "Fiktiv: Monat 1–10 Basiselterngeld (Maja).",
+            "mistake": "Lebensmonate mit Kalendermonaten verwechseln.",
+            "options": [
+              {
+                "german": "Basiselterngeld",
+                "meaning": "Das grundlegende Elterngeld für Monate, in denen Sie nicht oder nur wenig arbeiten."
+              },
+              {
+                "german": "ElterngeldPlus",
+                "meaning": "Längere, monatlich geringere Zahlung; besonders geeignet bei Teilzeitarbeit."
+              },
+              {
+                "german": "Partnerschaftsbonus",
+                "meaning": "Zusätzliche Monate ElterngeldPlus, wenn beide Elternteile gleichzeitig im gesetzlich festgelegten Stundenumfang arbeiten – aktuelle Voraussetzungen prüfen."
+              }
+            ]
+          },
+          {
+            "id": "lebensmonat",
+            "german": "Lebensmonat",
+            "meaning": "Lebensmonat des Kindes",
+            "instruction": "Wird ab dem Geburtsdatum gerechnet: Wenn das Kind am 05.11. geboren wurde, läuft der 1. Lebensmonat vom 05.11. bis 04.12.",
+            "where": "Geburtsdatum auf der Urkunde.",
+            "example": "Fiktiv: 3. Lebensmonat = 05.01.–04.02.2027.",
+            "mistake": "„Januar“ anstelle der Nummer des Lebensmonats ankreuzen."
+          },
+          {
+            "id": "einkommen",
+            "german": "Einkommen vor der Geburt",
+            "meaning": "Einkommen vor der Geburt",
+            "instruction": "Einkunftsarten angeben (nichtselbstständige Arbeit, selbstständige Arbeit, kein Einkommen) und Nachweise für den von der Stelle geforderten Zeitraum beifügen.",
+            "where": "Lohnabrechnungen, Einkommensteuerbescheid.",
+            "example": "Fiktiv: nur nichtselbstständige Arbeit, 12 Gehaltsabrechnungen.",
+            "mistake": "Einen Minijob oder eine Nebentätigkeit verschweigen."
+          },
+          {
+            "id": "waehrend",
+            "german": "Einkommen / Arbeitszeit während des Elterngeldbezugs",
+            "meaning": "Einkommen und Arbeitszeit während des Elterngeldbezugs",
+            "instruction": "Wenn Sie in diesen Monaten arbeiten, geplante Wochenstunden und voraussichtliches Einkommen angeben; der Arbeitgeber bestätigt dies häufig.",
+            "where": "Teilzeitvertrag oder Arbeitgeberbescheinigung.",
+            "example": "Fiktiv: Damir arbeitet in den Monaten 11–12 mit 25 Wochenstunden.",
+            "mistake": "Angeben, nicht zu arbeiten, und dann ohne Mitteilung eine Tätigkeit aufnehmen."
+          },
+          {
+            "id": "mutterschaft",
+            "german": "Mutterschaftsleistungen / Arbeitgeberzuschuss",
+            "meaning": "Mutterschaftsgeld und Arbeitgeberzuschuss",
+            "instruction": "Zeitraum angeben, in dem Sie Mutterschaftsgeld und Zuschuss erhalten; diese Beträge werden auf das Elterngeld für dieselben Monate angerechnet.",
+            "where": "Bescheinigung der Krankenkasse oder des BAS, Arbeitgeberbescheinigung.",
+            "example": "Fiktiv: Mutterschaftsgeld bis 31.12.2026.",
+            "mistake": "Elterngeld des Vaters anstelle der Mutter für die Monate des Mutterschaftsgeldes planen, ohne die Folgen zu prüfen."
+          },
+          {
+            "id": "bank",
+            "german": "Bankverbindung (IBAN, Kontoinhaber)",
+            "meaning": "Auszahlungskonto",
+            "instruction": "IBAN und Kontoinhaber genau wie bei der Bank angegeben eintragen; ein Konto im SEPA-Raum wird in der Regel akzeptiert, aber Formularhinweise beachten.",
+            "where": "Bankkarte oder Kontoauszug.",
+            "example": "Fiktiv: DE00 0000 0000 0000 0000 00, Inhaberin Maja Kovač.",
+            "mistake": "Zahlendreher in der IBAN oder fremdes Konto ohne erforderliche Erklärung."
+          },
+          {
+            "id": "unterschrift",
+            "german": "Unterschrift(en)",
+            "meaning": "Unterschrift(en)",
+            "instruction": "Es unterschreibt die antragstellende Person und, sofern das Formular dies verlangt, der andere Elternteil.",
+            "where": "Ende des Formulars oder ausgedruckte Zusammenfassung von ElterngeldDigital.",
+            "example": "Fiktiv: zwei Unterschriften, Datum 18.12.2026.",
+            "mistake": "Die Unterschrift des anderen Elternteils vergessen."
+          }
+        ]
+      },
+      "mutterschaftsgeld": {
+        "title": "Mutterschaftsgeld: Zuerst den Weg bestimmen – Krankenkasse oder BAS",
+        "introduction": "Es gibt zwei getrennte Verfahren, die nicht vermischt werden dürfen: (1) Wenn Sie selbst Mitglied einer gesetzlichen Krankenkasse sind, beantragen Sie das Mutterschaftsgeld bei IHRER Krankenkasse; (2) wenn Sie angestellt sind, aber nicht selbst Mitglied einer gesetzlichen Krankenkasse sind (privat versichert oder familienversichert bei einer gesetzlichen Kasse), beantragen Sie Mutterschaftsgeld unter bestimmten Voraussetzungen beim Bundesamt für Soziale Sicherung (BAS).",
+        "variation": "Krankenkassen verwenden eigene Formulare und Online-Portale, weshalb wir für den Weg über die Krankenkasse keine Felder oder Seiten nennen. Das BAS hat einen eigenen Antrag (online oder Papier). Nach Angaben des Familienportals beträgt das Mutterschaftsgeld des BAS insgesamt maximal 210 Euro; den Betrag bei der Krankenkasse und den Arbeitgeberzuschuss legen Kasse und Arbeitgeber fest.",
+        "vocabularyNote": "Glossar für beide Wege. Der Hinweis beim Begriff zeigt, für welchen Weg er gilt. Die Beispiele sind fiktiv; hier tragen Sie nichts ein.",
+        "gate": {
+          "title": "Welchen Weg wählen Sie?",
+          "question": "Wie sind Sie während der Mutterschutzfrist versichert?",
+          "options": [
+            {
+              "id": "gkv",
+              "label": "Ich bin selbst Mitglied einer gesetzlichen Krankenkasse",
+              "result": "Weg Krankenkasse: Reichen Sie den Antrag bei Ihrer Krankenkasse mit der Bescheinigung über den voraussichtlichen Entbindungstermin ein; nach der Geburt senden Sie die Geburtsbescheinigung. Keinen Antrag beim BAS stellen."
+            },
+            {
+              "id": "bas",
+              "label": "Ich bin angestellt, aber privat oder familienversichert",
+              "result": "Weg BAS: Der Antrag geht an die Mutterschaftsgeldstelle des BAS (mutterschaftsgeld.de), zusammen mit der Arbeitgeberbescheinigung und der Bescheinigung über den Entbindungstermin. Prüfen Sie die Voraussetzungen auf dem Familienportal; senden Sie keinen Antrag an die Krankenkasse des Ehepartners/Elternteils."
+            },
+            {
+              "id": "unsure",
+              "label": "Ich bin unsicher / selbstständig / arbeite nicht",
+              "result": "Fragen Sie zuerst Ihre Krankenkasse oder private Krankenversicherung nach Ihrem genauen Status. Für Selbstständige und Privatversicherte gelten besondere Regeln (z. B. Krankentagegeld); BalkanLink entscheidet nicht über Leistungsansprüche."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papier: Krankenkasse – Formular oder formloser Antrag nach Vorgabe der Kasse, zusammen mit der Originalbescheinigung von Arzt/Hebamme über den Geburtstermin. BAS – Papierantrag von mutterschaftsgeld.de.",
+          "online": "Online: Viele Krankenkassen nehmen Antrag und Bescheinigungen über die App oder Online-Geschäftsstelle entgegen; das BAS bietet einen Online-Antrag auf mutterschaftsgeld.de an. Prüfen Sie, ob das Original der Bescheinigung per Post geschickt werden muss."
+        },
+        "steps": [
+          {
+            "id": "route",
+            "title": "Weg bestimmen: Krankenkasse oder BAS",
+            "sections": {
+              "meaning": "Ausschlaggebend ist Ihre eigene Versicherung, nicht die des Partners.",
+              "action": "Prüfen Sie Versichertenkarte und Vertrag: Sind Sie selbst Mitglied einer gesetzlichen Kasse, familienversichert oder privat versichert?",
+              "where": "Krankenkassenkarte, Schreiben der Kasse, Vertrag der privaten Krankenversicherung.",
+              "example": "Fiktiv: Maja arbeitet und ist selbst Mitglied der AOK – Weg Krankenkasse.",
+              "mistake": "Eine familienversicherte angestellte Person schickt den Antrag an die Krankenkasse – diese zahlt nicht; zuständig ist das BAS."
+            }
+          },
+          {
+            "id": "certificate",
+            "title": "Bescheinigung über den mutmaßlichen Entbindungstermin",
+            "sections": {
+              "meaning": "Für beide Wege ist eine ärztliche oder Hebammenbescheinigung über den mutmaßlichen Entbindungstermin erforderlich; Kassen stellen diese in der Regel frühestens 7 Wochen vor dem Termin aus.",
+              "action": "Bitten Sie bei der Vorsorgeuntersuchung in der gynäkologischen Praxis oder Hebamme darum. Für die Krankenkasse ist dies oft ein spezielles Formular, das die ärztliche Praxis ausfüllt.",
+              "where": "Gynäkologische Praxis oder Hebamme.",
+              "example": "Fiktiv: Entbindungstermin 10.01.2027, Bescheinigung ausgestellt am 25.11.2026.",
+              "mistake": "Die Bescheinigung zu früh anfordern oder eine Kopie senden, wenn die Kasse das Original verlangt."
+            }
+          },
+          {
+            "id": "employer",
+            "title": "Arbeitgeber und Arbeitgeberzuschuss",
+            "sections": {
+              "meaning": "Neben dem Mutterschaftsgeld erhalten Angestellte häufig einen Arbeitgeberzuschuss bis zur Höhe des Nettogehalts. Für den BAS-Antrag ist zudem eine Arbeitgeberbescheinigung erforderlich.",
+              "action": "Informieren Sie den Arbeitgeber über Schwangerschaft und Termin. Fragen Sie die Lohnbuchhaltung nach dem Zuschuss und der vom BAS oder der Krankenkasse verlangten Bescheinigung.",
+              "where": "Lohnbuchhaltung / HR.",
+              "example": "Fiktiv: HR übermittelt die Entgeltbescheinigung elektronisch an die Kasse.",
+              "mistake": "Annehmen, dass der Arbeitgeber den Termin von selbst kennt und Daten übermittelt."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Antrag an der richtigen Stelle einreichen",
+            "sections": {
+              "meaning": "Die Schutzfrist dauert in der Regel 6 Wochen vor und 8 Wochen nach der Geburt; nach der Entbindung verlängert sie sich auf 12 Wochen bei Frühgeburten, Mehrlingen oder einer festgestellten Behinderung des Kindes (auf Antrag).",
+              "action": "Krankenkasse: Senden Sie Antrag und Bescheinigung über den Kanal der Kasse. BAS: Füllen Sie den Antrag auf mutterschaftsgeld.de aus und fügen Sie die geforderten Bescheinigungen bei.",
+              "where": "Online-Geschäftsstelle der Kasse oder mutterschaftsgeld.de.",
+              "example": "Fiktiv: Maja reicht die Bescheinigung am 26.11.2026 über die App ihrer Kasse ein.",
+              "mistake": "Beide Anträge „vorsichtshalber“ einreichen – das verzögert den Ablauf und führt zu Zuständigkeitskonflikten."
+            }
+          },
+          {
+            "id": "birth",
+            "title": "Nach der Geburt: Geburtsbescheinigung",
+            "sections": {
+              "meaning": "Die Krankenkasse verlangt nach der Geburt einen Geburtsnachweis, um den Zeitraum nach der Entbindung abzurechnen.",
+              "action": "Senden Sie die Geburtsbescheinigung/Geburtsurkunde an die Kasse, sobald Sie diese vom Standesamt erhalten haben. Bei Frühgeburten fügen Sie auch die ärztliche Bescheinigung bei.",
+              "where": "Standesamt, Geburtsklinik.",
+              "example": "Fiktiv: Kind geboren am 03.01.2027, Bescheinigung gesendet am 15.01.2027.",
+              "mistake": "Vergessen, die Bescheinigung zu senden – die Auszahlung für die Zeit nach der Geburt verzögert sich."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nach dem Bescheid und Verknüpfung mit dem Elterngeld",
+            "sections": {
+              "meaning": "Mutterschaftsgeld und Zuschuss werden auf das Elterngeld für dieselben Monate angerechnet.",
+              "action": "Bewahren Sie den Bescheid bzw. die Bescheinigung über das Mutterschaftsgeld auf – die Elterngeldstelle verlangt diesen Nachweis. Wenn Sie mit der Entscheidung nicht einverstanden sind, beachten Sie die Rechtsbehelfsbelehrung.",
+              "where": "Schreiben der Kasse oder des BAS.",
+              "example": "Fiktiv: Die Kasse bestätigt Mutterschaftsgeld vom 29.11.2026 bis 28.02.2027.",
+              "mistake": "Elterngeld für diese Monate so planen, als gäbe es kein Mutterschaftsgeld."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "mitglied",
+            "german": "Mitglied der gesetzlichen Krankenkasse",
+            "meaning": "Mitglied einer gesetzlichen Krankenkasse (Weg Krankenkasse)",
+            "instruction": "Wenn Sie selbst Mitglied sind, ist Ihre eigene Kasse zuständig.",
+            "where": "Versichertenkarte und Schreiben der Kasse.",
+            "example": "Fiktiv: Maja ist über ihre Beschäftigung pflichtversichert.",
+            "mistake": "Glauben, dass Familienversicherung dasselbe wie eine eigene Mitgliedschaft ist."
+          },
+          {
+            "id": "familienversichert",
+            "german": "familienversichert / privat versichert",
+            "meaning": "Familienversichert oder privat versichert (möglicher Weg BAS)",
+            "instruction": "Wenn Sie angestellt sind, aber nicht selbst Mitglied, prüfen Sie die Voraussetzungen des BAS.",
+            "where": "Schreiben der Kasse des Partners/Elternteils oder private Versicherungspolice.",
+            "example": "Fiktiv: Minijob, über den Ehemann familienversichert.",
+            "mistake": "Den Antrag an die Kasse des Ehemanns senden."
+          },
+          {
+            "id": "termin",
+            "german": "Bescheinigung über den mutmaßlichen Tag der Entbindung",
+            "meaning": "Bescheinigung über den voraussichtlichen Entbindungstag (beide Wege)",
+            "instruction": "Original oder den von Kasse/BAS geforderten Übermittlungsweg nutzen.",
+            "where": "Gynäkologische Praxis oder Hebamme.",
+            "example": "Fiktiv: errechneter Termin 10.01.2027.",
+            "mistake": "Das Datum ohne offizielle Bescheinigung manuell in den Antrag eintragen."
+          },
+          {
+            "id": "schutzfrist",
+            "german": "Mutterschutzfrist / Schutzfrist",
+            "meaning": "Schutzfrist vor und nach der Geburt",
+            "instruction": "Aus dem Geburtstermin errechnet sich der Beginn; nach der Entbindung berechnet die Kasse das Ende nach dem tatsächlichen Datum.",
+            "where": "Terminbescheinigung, Geburtsurkunde.",
+            "example": "Fiktiv: Beginn 6 Wochen vor dem 10.01.2027.",
+            "mistake": "Ab dem Tag der Antragstellung statt ab dem Geburtstermin rechnen."
+          },
+          {
+            "id": "zuschuss",
+            "german": "Zuschuss des Arbeitgebers zum Mutterschaftsgeld",
+            "meaning": "Arbeitgeberzuschuss",
+            "instruction": "Der Arbeitgeber zahlt ihn mit der Gehaltsabrechnung aus; prüfen Sie die Abrechnung.",
+            "where": "Gehaltsabrechnung, HR.",
+            "example": "Fiktiv: Abrechnung für Dezember weist Zuschuss aus.",
+            "mistake": "Glauben, dass die Krankenkasse diesen Zuschuss auszahlt."
+          },
+          {
+            "id": "geburt",
+            "german": "Geburtsbescheinigung / Geburtsurkunde",
+            "meaning": "Geburtsnachweis (Weg Krankenkasse nach der Geburt)",
+            "instruction": "Nach der Geburt gemäß Anweisung an die Kasse senden.",
+            "where": "Standesamt.",
+            "example": "Fiktiv: Geburtsbescheinigung „für Mutterschaftsgeld“.",
+            "mistake": "Auf eine Urkunde für andere Zwecke warten und die Bescheinigung für die Kasse vergessen."
+          },
+          {
+            "id": "bas",
+            "german": "Mutterschaftsgeldstelle des Bundesamtes für Soziale Sicherung",
+            "meaning": "Bundesbehörde für den BAS-Weg",
+            "instruction": "Antrag und Bescheinigungen dorthin senden, nicht an die Krankenkasse.",
+            "where": "mutterschaftsgeld.de.",
+            "example": "Fiktiv: Online-Antrag beim BAS am 20.11.2026 eingereicht.",
+            "mistake": "Den gleichen Betrag wie bei der gesetzlichen Kasse erwarten – das BAS zahlt insgesamt maximal 210 Euro."
+          },
+          {
+            "id": "fruehgeburt",
+            "german": "Früh- / Mehrlingsgeburt / Behinderung des Kindes",
+            "meaning": "Frühgeburt, Mehrlinge, Behinderung des Kindes",
+            "instruction": "Kann die Schutzfrist nach der Entbindung verlängern; ärztliche Bescheinigung beifügen, bei Behinderung ist ein Antrag erforderlich.",
+            "where": "Klinik, ärztliche Praxis.",
+            "example": "Fiktiv: Zwillinge – 12 Wochen nach der Entbindung.",
+            "mistake": "Der Kasse eine Frühgeburt nicht mitteilen."
+          }
+        ]
+      },
+      "kinderzuschlag": {
+        "title": "Kinderzuschlag: Feld-für-Feld-Anleitung zu KiZ 1, KiZ 1-AnK und KiZ 1-AnA",
+        "introduction": "Für den Papierantrag verlangt die Familienkasse stets drei Teile: KiZ 1 (Hauptantrag), KiZ 1-AnA (Anlage für Antragsteller und Partner – in JEDEM Fall) und KiZ 1-AnK (eine Anlage Kind für JEDES Kind im Haushalt). Öffnen Sie die Original-PDFs in einem neuen Tab und verfolgen Sie hier, wo sich jeder Abschnitt befindet und was er bedeutet. Die BA gibt zusätzlich die Ausfüllhinweise KiZ 1-H heraus.",
+        "variation": "Die Positionen der Felder wurden am 27.10.2026 anhand der offiziellen PDFs überprüft: KiZ 1 (Stand September 2024), KiZ 1-AnK und KiZ 1-AnA (Stand Juli 2026). Wenn Sie eine neuere Version herunterladen, prüfen Sie die Abschnittsnummer. Zusätzliche Anlagen (z. B. KiZ 5c für Unterhalt, Vermögen, selbstständige Tätigkeit, KiZ 7) sind nur erforderlich, wenn das Hauptformular darauf verweist.",
+        "vocabularyNote": "Jeder unten stehende Begriff entspricht einem Abschnitt des Originalformulars; der Hinweis „Stelle auf dem offiziellen Formular“ zeigt Seite und Punkt. Die Beispiele sind fiktiv; hier tragen Sie nichts ein.",
+        "modes": {
+          "paper": "Papier: Drucken Sie KiZ 1 + KiZ 1-AnA + KiZ 1-AnK pro Kind aus, füllen Sie sie in Druckbuchstaben aus, unterschreiben Sie und senden Sie die Originale mit KOPIEN der Nachweise an die Familienkasse.",
+          "online": "Online: Auf familienkasse.de kann der Antrag mit der BundID vollständig elektronisch eingereicht werden. Ohne BundID ist die Online-Eingabe möglich, der Antrag wird danach jedoch ausgedruckt, unterschrieben und per Post versandt. Die Reihenfolge der Online-Fragen weicht vom PDF ab."
+        },
+        "steps": [
+          {
+            "id": "check",
+            "title": "Prüfen, ob sich der Antrag lohnt (KiZ-Lotse)",
+            "sections": {
+              "meaning": "Der Kinderzuschlag ist für Eltern gedacht, die Kindergeld erhalten und über Einkommen verfügen, das jedoch den Bedarf der gesamten Familie nicht deckt. Die Entscheidung trifft die Familienkasse.",
+              "action": "Starten Sie den KiZ-Lotsen mit ungefähren Angaben; dies ist kein Antrag und ersetzt keine Entscheidung.",
+              "where": "Familienkasse → KiZ-Lotse.",
+              "example": "Fiktiv: Maja und Damir, zwei Kinder, ein Gehalt und Wohngeld – der Lotse zeigt einen möglichen Anspruch.",
+              "mistake": "Den Antrag nicht stellen, nur weil der Lotse unsicher ist; ab wann der Kinderzuschlag gezahlt wird, entnehmen Sie den offiziellen Hinweisen."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Nachweise für die letzten sechs Monate vorbereiten",
+            "sections": {
+              "meaning": "KiZ 1-AnA und AnK fragen nach Einnahmen und Ausgaben der letzten sechs Monate vor der Antragstellung sowie nach den Wohnkosten.",
+              "action": "Sammeln Sie Gehaltsabrechnungen für 6 Monate, Mietvertrag oder Mietbescheinigung, Nachweise über Heiz- und Nebenkosten, Wohngeld-/Unterhaltsbescheide sowie Einkommensnachweise der Kinder.",
+              "where": "Arbeitgeber, Vermieter, Bank, Wohngeldstelle, Jugendamt.",
+              "example": "Fiktiv: Antrag im November 2026 → Gehälter Mai–Oktober 2026.",
+              "mistake": "Originale statt Kopien einreichen."
+            }
+          },
+          {
+            "id": "main",
+            "title": "KiZ 1 (Hauptantrag) ausfüllen",
+            "sections": {
+              "meaning": "KiZ 1 besteht aus dem Kopfbereich und den Punkten 1–7 sowie der Erklärung mit Unterschriften auf Seite 2.",
+              "action": "Gehen Sie Begriff für Begriff unten durch: Kopfbereich, Punkte 1–7, dann die Erklärung.",
+              "where": "PDF KiZ 1, Seiten 1–2.",
+              "example": "Fiktiv: Kindergeld-Nr. aus dem Schreiben der Familienkasse.",
+              "mistake": "Die Punkte 5–7 leer lassen, obwohl sie auf Sie zutreffen."
+            }
+          },
+          {
+            "id": "annexes",
+            "title": "KiZ 1-AnA und je eine KiZ 1-AnK für jedes Kind ausfüllen",
+            "sections": {
+              "meaning": "AnA erfasst die Erwachsenen (Ausbildung, Wohnen, Vermögen, Mehrbedarf, Einkommen); AnK erfasst jedes Kind.",
+              "action": "Tragen Sie auf jeder AnK denselben Namen und dieselbe Kindergeld-Nr. des Antragstellers wie in KiZ 1 sowie das Antragsdatum ein.",
+              "where": "PDF KiZ 1-AnA (3 Seiten) und KiZ 1-AnK (2 Seiten).",
+              "example": "Fiktiv: zwei Kinder → zwei AnK.",
+              "mistake": "Eine einzige AnK für alle Kinder zusammen ausfüllen."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Unterschreiben und absenden",
+            "sections": {
+              "meaning": "Die andere Person unterschreibt als zweite antragstellende Person, wenn das Kindergeld für die genannten Kinder teilweise an die erste und teilweise an die zweite Person gezahlt wird.",
+              "action": "Unterschreiben Sie die Erklärung in KiZ 1 und den Anlagen; senden Sie die Originale an die Familienkasse oder nutzen Sie den Online-Kanal.",
+              "where": "KiZ 1 Seite 2, Ende von AnA und AnK.",
+              "example": "Fiktiv: Kindergeld für Lea geht an Maja, für Iva an Damir → beide unterschreiben.",
+              "mistake": "Datum oder zweite Unterschrift vergessen."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nach dem Absenden",
+            "sections": {
+              "meaning": "Die Familienkasse kann weitere Nachweise anfordern. Der Bescheid nennt Zeitraum und Betrag; Änderungen müssen sofort gemeldet werden.",
+              "action": "Beantworten Sie Schreiben fristgerecht; melden Sie Änderungen (Einkommen, Adresse, Konto) über die Mitteilung auf familienkasse.de. Stellen Sie vor Ablauf des Zeitraums einen Weiterbewilligungsantrag.",
+              "where": "Schreiben der Familienkasse, Familienkassen-Profil.",
+              "example": "Fiktiv: Die Familienkasse fordert eine Mietbescheinigung an – Sie reichen diese online ein.",
+              "mistake": "Eine Gehaltserhöhung nicht mitteilen."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "kiz1-header",
+            "german": "Familienname und Vorname der kindergeldbeziehenden Person · Kindergeld-Nr.",
+            "meaning": "Name der kindergeldberechtigten Person und ihre Kindergeldnummer",
+            "reference": "KiZ 1, Seite 1, Kopfbereich (gleicher Kopfbereich auf KiZ 1-AnK und KiZ 1-AnA)",
+            "instruction": "Tragen Sie die Person ein, die das Kindergeld bezieht, und die Nummer aus dem Schreiben der Familienkasse; die Nummer beginnt mit Ziffern, gefolgt von „FK“.",
+            "where": "Kindergeld-Bescheid oder Schreiben der Familienkasse.",
+            "example": "Fiktiv: Kovač, Maja · 000FK000000.",
+            "mistake": "Die Steuer-ID anstelle der Kindergeldnummer eintragen."
+          },
+          {
+            "id": "kiz1-person",
+            "german": "1. Angaben zu meiner Person",
+            "meaning": "Angaben zur antragstellenden Person",
+            "reference": "KiZ 1, Seite 1, Punkt 1",
+            "instruction": "Name, Geburtsdatum, eventuell früherer Name, Adresse, Geschlecht, Staatsangehörigkeit, Telefon und Familienstand. Bei „getrennt lebend“ das Datum angeben, seit wann.",
+            "where": "Personalausweis/Reisepass, Meldebescheinigung.",
+            "example": "Fiktiv: Maja Kovač, verheiratet.",
+            "mistake": "Bei „getrennt lebend seit“ kein Datum eintragen.",
+            "options": [
+              {
+                "german": "ledig",
+                "meaning": "Nie verheiratet / keine eingetragene Lebenspartnerschaft."
+              },
+              {
+                "german": "verheiratet/verpartnert",
+                "meaning": "Verheiratet oder in eingetragener Lebenspartnerschaft."
+              },
+              {
+                "german": "getrennt lebend seit",
+                "meaning": "Verheiratet, aber dauernd getrennt lebend – Datum eintragen, seit wann."
+              },
+              {
+                "german": "geschieden/Partnerschaft aufgehoben",
+                "meaning": "Geschieden oder Lebenspartnerschaft aufgehoben."
+              },
+              {
+                "german": "verwitwet",
+                "meaning": "Verwitwet."
+              }
+            ]
+          },
+          {
+            "id": "kiz1-partner",
+            "german": "2. Angaben zu meinem/meiner im Haushalt lebenden Partner(in)",
+            "meaning": "Partner/in, der/die im Haushalt lebt",
+            "reference": "KiZ 1, Seite 1, Punkt 2",
+            "instruction": "Name, Geburtsname, Staatsangehörigkeit und Geburtsdatum des partnerschaftlichen Zusammenlebens im Haushalt (Ehe oder eheähnliche Gemeinschaft). Falls kein Partner vorhanden ist, leer lassen.",
+            "where": "Ausweisdokument des Partners.",
+            "example": "Fiktiv: Novak, Damir.",
+            "mistake": "Den im Haushalt lebenden Lebensgefährten weglassen."
+          },
+          {
+            "id": "kiz1-bank",
+            "german": "3. Angaben zu meiner Kontoverbindung (IBAN, BIC, Kontoinhaber(in))",
+            "meaning": "Auszahlungskonto",
+            "reference": "KiZ 1, Seite 1, Punkt 3",
+            "instruction": "IBAN, BIC und Kontoinhaber genau wie bei der Bank angegeben eintragen.",
+            "where": "Bankkarte oder Kontoauszug.",
+            "example": "Fiktiv: DE00 0000 0000 0000 0000 00 · Maja Kovač.",
+            "mistake": "Zahlen vertauschen oder den Kontoinhaber weglassen."
+          },
+          {
+            "id": "kiz1-children",
+            "german": "4. Für folgende Kinder im Haushalt beantrage ich Kinderzuschlag",
+            "meaning": "Kinder, für die Kinderzuschlag beantragt wird",
+            "reference": "KiZ 1, Seite 1, Punkt 4",
+            "instruction": "Tragen Sie unverheiratete Kinder unter 25 Jahren ein, für die Sie oder Ihr Partner Kindergeld beziehen und die Ihre leiblichen oder adoptierten Kinder sind. Für jedes eingetragene Kind eine AnK ausfüllen.",
+            "where": "Kindergeld-Bescheid, Geburtsurkunden.",
+            "example": "Fiktiv: Lea Kovač 05.11.2026; Iva Novak 12.03.2020.",
+            "mistake": "Ein Stiefkind eintragen, für das Sie kein Kindergeld beziehen – Stiefkinder gehören in Punkt 7."
+          },
+          {
+            "id": "kiz1-absent",
+            "german": "5. Folgende unter Punkt 4 genannten Kinder halten sich nicht ständig in meinem Haushalt auf",
+            "meaning": "In Punkt 4 genannte Kinder, die sich nicht ständig im Haushalt aufhalten",
+            "reference": "KiZ 1, Seite 2, Punkt 5",
+            "instruction": "Name, Grund und Dauer der Abwesenheit eintragen. Beim Aufenthalt beim anderen Elternteil genügt ein Richtwert: regelmäßig 1–12 oder 13–17 Tage.",
+            "where": "Umgangsvereinbarung, Internat.",
+            "example": "Fiktiv: Iva – beim Vater 13–17 Tage im Monat.",
+            "mistake": "Gemeinsames Sorgerecht mit geteiltem Aufenthalt verschweigen.",
+            "options": [
+              {
+                "german": "1-12 Tage beim anderen Elternteil",
+                "meaning": "Das Kind ist regelmäßig 1–12 Tage im Monat beim anderen Elternteil."
+              },
+              {
+                "german": "13-17 Tage beim anderen Elternteil",
+                "meaning": "Das Kind verbringt etwa die Hälfte der Zeit beim anderen Elternteil."
+              },
+              {
+                "german": "Internat/Wohnheim",
+                "meaning": "Das Kind wohnt im Internat oder Wohnheim – Dauer eintragen."
+              }
+            ]
+          },
+          {
+            "id": "kiz1-otherchildren",
+            "german": "6. Weitere Kinder unter 25 ohne Kindergeld, die sich nicht ständig im Haushalt aufhalten",
+            "meaning": "Weitere Kinder unter 25 ohne Kindergeld, die sich zeitweise bei Ihnen aufhalten",
+            "reference": "KiZ 1, Seite 2, Punkt 6",
+            "instruction": "Für ein Kind, das etwa die Hälfte der Zeit bei Ihnen ist, genügt „13-17 Tage“; wenn es 1–12 Tage bei Ihnen ist, die genaue Tagesanzahl eintragen. Der Tag wird dem Elternteil zugerechnet, bei dem sich das Kind an diesem Tag zuerst aufhält.",
+            "where": "Umgangsvereinbarung.",
+            "example": "Fiktiv: Damirs Sohn hält sich 4 Tage im Monat bei Ihnen auf.",
+            "mistake": "„1-12“ anstelle der genauen Tagesanzahl schreiben."
+          },
+          {
+            "id": "kiz1-household",
+            "german": "7. Weitere Personen, die ständig in meinem Haushalt wohnen",
+            "meaning": "Weitere Personen, die ständig im Haushalt wohnen",
+            "reference": "KiZ 1, Seite 2, Punkt 7",
+            "instruction": "Tragen Sie z. B. eigene Kinder ohne Kindergeld, erwachsene Kinder, Stiefkinder, Pflegekinder, Enkel, Eltern, Geschwister ein, jeweils mit Verwandtschaftsverhältnis zu Ihnen und zum Partner.",
+            "where": "Meldebescheinigung des Haushalts.",
+            "example": "Fiktiv: Ana Kovač, Mutter der antragstellenden Person.",
+            "mistake": "Die im Haushalt lebende Großmutter weglassen."
+          },
+          {
+            "id": "kiz1-signature",
+            "german": "ERKLÄRUNG · Datum · Unterschrift",
+            "meaning": "Erklärung, Datum und Unterschrift(en)",
+            "reference": "KiZ 1, Seite 2, Erklärung",
+            "instruction": "Sie bestätigen die Richtigkeit der Angaben und verpflichten sich, Änderungen mitzuteilen. Eine zweite Unterschrift ist erforderlich, wenn das Kindergeld für die genannten Kinder teilweise an eine andere Person gezahlt wird; diese trägt auch ihre Kindergeldnummer ein und willigt in den Datenabgleich ein.",
+            "where": "Ende von KiZ 1.",
+            "example": "Fiktiv: 20.11.2026, Unterschrift Maja; zweite Unterschrift Damir.",
+            "mistake": "Einen ununterschriebenen Antrag absenden."
+          },
+          {
+            "id": "ank-child",
+            "german": "Anlage Kind · 1. Angaben zum Kind",
+            "meaning": "Angaben zum Kind und dessen Lebenssituation",
+            "reference": "KiZ 1-AnK, Seite 1, Punkt 1",
+            "instruction": "Name, Staatsangehörigkeit, Geburtsdatum, Verwandtschaftsverhältnis zu Ihnen und zum Partner, danach ankreuzen, was auf das Kind zutrifft (oder „keine der Angaben trifft zu“). Für Schule, Studium, Wohnheim oder Einrichtung aktuelle Nachweise beifügen.",
+            "where": "Geburtsurkunde, Schulbescheinigung.",
+            "example": "Fiktiv: Lea – eigenes (leibliches) Kind beider Elternteile; keine der Angaben trifft zu.",
+            "mistake": "Nichts ankreuzen – für kleine Kinder trifft in der Regel „keine der Angaben trifft zu“ zu.",
+            "options": [
+              {
+                "german": "eigenes (leibliches) Kind",
+                "meaning": "Leibliches Kind."
+              },
+              {
+                "german": "Stiefkind",
+                "meaning": "Kind des Partners."
+              },
+              {
+                "german": "ist verheiratet",
+                "meaning": "Das Kind ist verheiratet."
+              },
+              {
+                "german": "lebt mit seiner Partnerin/seinem Partner zusammen",
+                "meaning": "Das Kind lebt mit Partner/in zusammen."
+              },
+              {
+                "german": "hat ein eigenes Kind",
+                "meaning": "Das Kind hat ein eigenes Kind."
+              },
+              {
+                "german": "besucht eine berufsbildende Schule oder studiert",
+                "meaning": "Berufsbildende Schule oder Studium – Nachweis."
+              },
+              {
+                "german": "ist während der Ausbildung in einem Wohnheim/Internat ... untergebracht",
+                "meaning": "Unterbringung in Wohnheim/Internat oder beim Arbeitgeber mit voller Verpflegung – Nachweis."
+              },
+              {
+                "german": "befindet sich in einer stationären Einrichtung",
+                "meaning": "In einer stationären Einrichtung – Nachweis."
+              },
+              {
+                "german": "keine der Angaben trifft zu",
+                "meaning": "Keine der Angaben trifft zu."
+              }
+            ]
+          },
+          {
+            "id": "ank-mehrbedarf",
+            "german": "Anlage Kind · 2. Mehrbedarf des Kindes",
+            "meaning": "Mehrbedarf des Kindes (freiwillig)",
+            "reference": "KiZ 1-AnK, Seite 1, Punkt 2",
+            "instruction": "Nur „Ja“ ankreuzen, wenn ein Mehrbedarf berücksichtigt werden soll (z. B. Schwangerschaft des Kindes, Schwerbehinderung, kostenaufwändige Ernährung) und Nachweise beifügen, z. B. KiZ 7.",
+            "where": "Ärztliche Bescheinigung, Schwerbehindertenausweis, Bescheide.",
+            "example": "Fiktiv: kein Mehrbedarf – bleibt leer.",
+            "mistake": "„Ja“ ankreuzen ohne Nachweise beizufügen."
+          },
+          {
+            "id": "ank-income",
+            "german": "Anlage Kind · 3. Einnahmen des Kindes (letzte sechs Monate)",
+            "meaning": "Einnahmen des Kindes in den letzten sechs Monaten",
+            "reference": "KiZ 1-AnK, Seiten 1–2, Punkt 3",
+            "instruction": "Jede Einkunftsart des Kindes ankreuzen und den geforderten Nachweis beifügen. Beim Unterhalt die Grenzwerte auf dem Formular beachten: KiZ 5c ist erforderlich, wenn Sie nicht mit dem anderen Elternteil zusammenleben und die Formularbedingungen zutreffen; wenn weder Unterhalt noch Unterhaltsvorschuss bezogen wird, ist KiZ 5c stets nötig.",
+            "where": "Kontoauszüge, Bescheid des Jugendamtes über Unterhaltsvorschuss.",
+            "example": "Fiktiv: Iva erhält Unterhaltsvorschuss – Bewilligungsbescheid wird beigefügt.",
+            "mistake": "Unterhaltszahlungen des anderen Elternteils vergessen.",
+            "options": [
+              {
+                "german": "Ausbildungsvergütung / Arbeitslohn / Gehalt",
+                "meaning": "Lohn oder Ausbildungsvergütung des Kindes, auch Minijob."
+              },
+              {
+                "german": "Einkommen aus selbständiger Tätigkeit",
+                "meaning": "Selbstständige Tätigkeit des Kindes – gesonderte Anlage."
+              },
+              {
+                "german": "Jugend-/Bundesfreiwilligendienst, gemeinnützige/ehrenamtliche Tätigkeit",
+                "meaning": "Aufwandsentschädigung aus Freiwilligendienst."
+              },
+              {
+                "german": "Anderes Einkommen",
+                "meaning": "Z. B. Sozialleistungen, Krankengeld, Waisenrente, BAföG/Stipendium."
+              },
+              {
+                "german": "Unterhalt / Unterhaltsvorschuss",
+                "meaning": "Unterhalt oder Unterhaltsvorschuss."
+              },
+              {
+                "german": "keinen Unterhalt und/oder Unterhaltsvorschuss",
+                "meaning": "Kein Bezug – immer KiZ 5c, wenn Sie nicht mit dem anderen Elternteil zusammenleben."
+              },
+              {
+                "german": "Sonstige Einnahmen",
+                "meaning": "Zinsen, Steuererstattung, Abfindung, Trinkgelder."
+              }
+            ]
+          },
+          {
+            "id": "ank-expenses",
+            "german": "Anlage Kind · 4. Ausgaben des Kindes",
+            "meaning": "Mit den Einnahmen verbundene Ausgaben des Kindes",
+            "reference": "KiZ 1-AnK, Seite 2, Punkt 4",
+            "instruction": "Nur wenn das Kind Erwerbseinkommen hat: Werbungskosten wie Fahrkarten oder Entfernungskilometer und Arbeitstage bei Pkw-Nutzung.",
+            "where": "Fahrkarten, Ausbildungsvertrag.",
+            "example": "Fiktiv: Auszubildende, 12 km einfache Strecke, 5 Tage pro Woche.",
+            "mistake": "Ausgaben für ein Kind ohne Einkommen eintragen."
+          },
+          {
+            "id": "ana-further",
+            "german": "Anlage Antragsteller(in) und Partner(in) · 1. Weitere Angaben",
+            "meaning": "Weitere Angaben zu Ihnen und dem/der Partner(in)",
+            "reference": "KiZ 1-AnA, Seite 1, Punkt 1",
+            "instruction": "Gesondert für sich und für die/den Partner(in) ankreuzen, falls zutreffend; jede Angabe belegen.",
+            "where": "Schul-/Studienbescheinigung, Einrichtungsnachweis, Nachweis der ausländischen Stelle.",
+            "example": "Fiktiv: Keine der Angaben trifft zu.",
+            "mistake": "Kindergeldleistungen aus Bosnien und Herzegowina oder einem anderen Land verschweigen.",
+            "options": [
+              {
+                "german": "in einer Schul- oder Berufsausbildung oder in einem Studium",
+                "meaning": "Schul-, Berufsausbildung oder Studium."
+              },
+              {
+                "german": "in einer stationären Einrichtung",
+                "meaning": "Unterbringung in einer stationären Einrichtung."
+              },
+              {
+                "german": "Geldleistung von einer Stelle außerhalb von Deutschland anstatt Kindergeld",
+                "meaning": "Ausländische Familienleistung anstelle von Kindergeld, bezogen oder beantragt."
+              }
+            ]
+          },
+          {
+            "id": "ana-housing",
+            "german": "Anlage AnA · 2. Wir wohnen: zur Miete / in einem Eigenheim",
+            "meaning": "Wohnverhältnisse und Kosten",
+            "reference": "KiZ 1-AnA, Seite 1, Punkt 2",
+            "instruction": "Miete oder Eigenheim ankreuzen und Nachweise aus der entsprechenden Spalte beifügen; Einzugsdatum eintragen, wenn der Einzug in diesem oder im vergangenen Jahr erfolgte; Art der Warmwasserbereitung ankreuzen.",
+            "where": "Mietvertrag, Nebenkostenabrechnung, Wohngeldbescheid.",
+            "example": "Fiktiv: zur Miete, Warmwasser zentral.",
+            "mistake": "Einen Mietvertrag einreichen, der älter als ein Jahr ist, ohne Kontoauszug zur aktuellen Miethöhe.",
+            "options": [
+              {
+                "german": "zur Miete",
+                "meaning": "Miete – Vertrag/Mietbescheinigung, Heizkosten, Nebenkosten für den Antragsmonat."
+              },
+              {
+                "german": "in einem Eigenheim",
+                "meaning": "Eigenheim – Schuldzinsen, Grundsteuer, Gebäudeversicherung für das Vorjahr."
+              },
+              {
+                "german": "Warmwasser zentral",
+                "meaning": "Warmwasserbereitung über die Zentralheizung."
+              },
+              {
+                "german": "Warmwasser dezentral",
+                "meaning": "Boiler oder Durchlauferhitzer."
+              }
+            ]
+          },
+          {
+            "id": "ana-vermoegen",
+            "german": "Anlage AnA · 3. Angaben zum Vermögen (Selbstauskunft) — Ja / Nein",
+            "meaning": "Angaben über erhebliches Vermögen der Familie",
+            "reference": "KiZ 1-AnA, Seite 2, Punkt 3",
+            "instruction": "Gesamtvermögen mit der Freibetragstabelle auf dem Formular vergleichen (nach Personenanzahl) und Ja oder Nein ankreuzen; bei „Ja“ die Anlage zum erheblichen Vermögen ausfüllen.",
+            "where": "Kontoauszüge, Ersparnisse, Pkw-Wert oberhalb des Formulargrenzwerts.",
+            "example": "Fiktiv: Nein.",
+            "mistake": "Krypto-Guthaben, PayPal-Guthaben oder Sparkonten vergessen."
+          },
+          {
+            "id": "ana-mehrbedarf",
+            "german": "Anlage AnA · 4. Mehrbedarfe",
+            "meaning": "Mehrbedarfe der Erwachsenen (freiwillig)",
+            "reference": "KiZ 1-AnA, Seite 2, Punkt 4",
+            "instruction": "„Ja“ ankreuzen, wenn z. B. Schwangerschaft (Entbindungstermin angeben), Behinderung, kostenaufwändige Ernährung oder Alleinerziehung berücksichtigt werden soll. Für den Mehrbedarf bei Alleinerziehung ist kein gesonderter Nachweis erforderlich.",
+            "where": "Mutterpass, Bescheide, KiZ 7.",
+            "example": "Fiktiv: Maja schwanger, Entbindungstermin 10.01.2027.",
+            "mistake": "Den Status der Alleinerziehung nicht ankreuzen."
+          },
+          {
+            "id": "ana-income",
+            "german": "Anlage AnA · 5. Einnahmen der letzten sechs Monate",
+            "meaning": "Einnahmen der letzten 6 Monate von Ihnen und Partner(in)",
+            "reference": "KiZ 1-AnA, Seiten 2–3, Punkt 5",
+            "instruction": "Für jede Einkunftsart die Spalte „für mich“ oder „Partner(in)“ ankreuzen und Nachweise beifügen, z. B. Gehaltsabrechnungen oder die Verdienstbescheinigung des Arbeitgebers.",
+            "where": "Arbeitgeber, Bewilligungsbescheide.",
+            "example": "Fiktiv: Damir – Arbeitslohn, 6 Abrechnungen.",
+            "mistake": "Den Arbeitgeberzuschuss zum Mutterschaftsgeld weglassen."
+          }
+        ]
+      },
+      "krippengeld-bayern": {
+        "title": "Krippengeld (Bayern): Zuerst das Geburtsdatum des Kindes prüfen",
+        "introduction": "Nach Angaben des ZBFS Bayern (geprüft am 27.10.2026) unterstützt Bayern mit dem Krippengeld Eltern von Kindern, die VOR dem 01.01.2025 geboren wurden, ab dem zweiten Lebensjahr bei den Kita-Beiträgen. Die Antragsanleitungen des ZBFS gelten für Kinder, die bis einschließlich 31.12.2024 geboren wurden. Dieser Leitfaden verspricht keinen Anspruch; Voraussetzungen und Beträge prüft das ZBFS.",
+        "variation": "Für Kinder, die ab dem 01.01.2025 geboren wurden, enthält die ZBFS-Seite zum Krippengeld keine Antragsanleitung. Stellen Sie keinen Krippengeld-Antrag auf bloßen Verdacht – prüfen Sie aktuelle bayerische Familienleistungen direkt beim ZBFS. Eine ältere allgemeine Version dieses Leitfadens (für „alle Kinder bis 3 Jahre“) wird nicht mehr angezeigt, da sie irreführend war.",
+        "vocabularyNote": "Glossar der Begriffe von den ZBFS-Seiten zum Krippengeld. Die Felder des Papierantrags werden hier nicht im Detail abgebildet; nutzen Sie die Hinweise auf der ZBFS-Seite „Papierantrag“. Die Beispiele sind fiktiv.",
+        "gate": {
+          "title": "Datumsprüfung (Stand 27.10.2026)",
+          "question": "Wann wurde das Kind geboren?",
+          "options": [
+            {
+              "id": "before2025",
+              "label": "Bis 31.12.2024",
+              "result": "Die ZBFS-Antragsanleitung bezieht sich auf Ihr Kind. Fahren Sie mit den Schritten unten fort und prüfen Sie die Voraussetzungen (Alter, Wohnsitz in Bayern, Kita-Beiträge, Einkommensgrenze) direkt beim ZBFS."
+            },
+            {
+              "id": "from2025",
+              "label": "01.01.2025 oder später",
+              "result": "Das ZBFS beschreibt das Krippengeld nur für Kinder, die vor dem 01.01.2025 geboren wurden. Verlassen Sie sich für die Antragstellung nicht auf diesen Leitfaden; rufen Sie die ZBFS-Seite für Familienleistungen auf und prüfen Sie die derzeit gültigen Regelungen."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papier: Die ZBFS-Seite „Papierantrag“ erklärt, wie Sie den Papierantrag für Kinder mit Geburt bis 31.12.2024 erhalten und einreichen.",
+          "online": "Online: Die ZBFS-Seite „Antrag stellen“ verweist auf die Online-Einreichung für Kinder mit Geburt bis 31.12.2024; Änderungen (Beiträge, Adresse) werden über „Änderungen mitteilen“ gemeldet."
+        },
+        "steps": [
+          {
+            "id": "gate",
+            "title": "Geburtsdatum und Bayern",
+            "sections": {
+              "meaning": "Das Krippengeld ist eine bayerische Leistung; die entscheidende Stichtagsgrenze ist die Geburt vor dem 01.01.2025.",
+              "action": "Wählen Sie das Datum in der obigen Prüfung aus. Für Geburten ab 2025 brechen Sie hier ab und gehen Sie direkt zum ZBFS.",
+              "where": "Geburtsurkunde; ZBFS-Webseite zum Krippengeld.",
+              "example": "Fiktiv: Lea geboren am 14.06.2024 – die Anleitung trifft auf sie zu.",
+              "mistake": "Einen Antrag für ein 2025 geborenes Kind auf Grundlage veralteter Informationen stellen."
+            }
+          },
+          {
+            "id": "conditions",
+            "title": "Voraussetzungen – ausschließlich nach Angaben des ZBFS",
+            "sections": {
+              "meaning": "Das ZBFS nennt als Voraussetzungen das Kindesalter (ab dem 2. Lebensjahr), den Wohnsitz in Bayern, tatsächlich gezahlte Elternbeiträge für Krippe/Kindertagespflege sowie eine Einkommensgrenze.",
+              "action": "Lesen Sie die „Häufigen Fragen“ beim ZBFS. Das ZBFS berät nur zu allgemeinen Rechtsgrundlagen, nicht zu individuellen Steuerfragen.",
+              "where": "ZBFS → Krippengeld → Häufige Fragen.",
+              "example": "Fiktiv: Lea besucht die Kinderkrippe ab September 2025.",
+              "mistake": "Die Einkommensgrenze eigenmächtig berechnen und vorzeitig aufgeben – prüfen Sie die ZBFS-Vorgaben."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Nachweise über Beiträge und Einkommen",
+            "sections": {
+              "meaning": "Der Antrag bezieht sich auf die tatsächlich anfallenden Elternbeiträge für Krippe oder Kindertagespflege.",
+              "action": "Bereiten Sie den Betreuungsvertrag bzw. die Bestätigung der Einrichtung über die monatlichen Beiträge sowie Einkommensnachweise nach Vorgabe des ZBFS vor.",
+              "where": "Kita oder Kindertagespflegeperson; Finanzamt.",
+              "example": "Fiktiv: Die Kita bestätigt den Beitrag ab September 2025.",
+              "mistake": "Nur eine Rechnung ohne Angabe des genauen Betreuungszeitraums einreichen."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Online oder auf Papier einreichen",
+            "sections": {
+              "meaning": "Das ZBFS bietet einen Online-Weg und einen Papierantrag an.",
+              "action": "Folgen Sie den ZBFS-Hinweisen unter „Antrag stellen“ oder „Papierantrag“.",
+              "where": "ZBFS-Webseiten (Links oben).",
+              "example": "Fiktiv: Der Antrag wurde online übermittelt.",
+              "mistake": "Den Antrag an die Gemeinde statt an das ZBFS senden."
+            }
+          },
+          {
+            "id": "changes",
+            "title": "Nach dem Bescheid: Änderungen mitteilen",
+            "sections": {
+              "meaning": "Änderungen bei Beiträgen, Adresse oder persönlichen Daten müssen dem ZBFS gemeldet werden.",
+              "action": "Nutzen Sie „Änderungsmitteilungen“ auf der ZBFS-Webseite.",
+              "where": "ZBFS → Änderungen mitteilen.",
+              "example": "Fiktiv: Die Kita erhöht den Beitrag ab Januar.",
+              "mistake": "Die Abmeldung aus der Kita nicht mitteilen."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "krippengeld",
+            "german": "Bayerisches Krippengeld",
+            "meaning": "Bayerische Leistung zur Entlastung bei Kita-Beiträgen",
+            "instruction": "Verwenden Sie diesen Begriff bei der Suche auf der ZBFS-Seite; gilt nur für Kinder, die vor dem 01.01.2025 geboren wurden.",
+            "where": "ZBFS-Webseite.",
+            "example": "Fiktiv: Lea, geboren 2024.",
+            "mistake": "Annehmen, dass es diese Leistung in anderen Bundesländern gibt."
+          },
+          {
+            "id": "elternbeitrag",
+            "german": "Elternbeiträge",
+            "meaning": "Beiträge, die Eltern für Krippe/Kindertagespflege zahlen",
+            "instruction": "Weisen Sie den tatsächlichen monatlichen Betrag nach.",
+            "where": "Betreuungsvertrag, Rechnung.",
+            "example": "Fiktiv: monatlicher Beitrag laut Vertrag.",
+            "mistake": "Kosten einbeziehen, die die Einrichtung nicht als Betreuungsbeitrag abrechnet (z. B. Essensgeld), ohne dies zu prüfen."
+          },
+          {
+            "id": "einrichtung",
+            "german": "Kinderkrippe / Kindertagespflege",
+            "meaning": "Krippe oder Kindertagespflege",
+            "instruction": "Geben Sie die Betreuungsform genau wie im Vertrag angegeben an.",
+            "where": "Betreuungsvertrag.",
+            "example": "Fiktiv: Kindertagespflege bei einer Tagesmutter.",
+            "mistake": "Mit dem Kindergarten für ältere Jahrgänge verwechseln."
+          },
+          {
+            "id": "einkommen",
+            "german": "Einkommensgrenze",
+            "meaning": "Einkommensgrenze",
+            "instruction": "Prüfen Sie beim ZBFS, welches Einkommen und welches Steuerjahr herangezogen werden.",
+            "where": "ZBFS Häufige Fragen, Steuerbescheid.",
+            "example": "Fiktiv: Steuerbescheid wird vorbereitet.",
+            "mistake": "Beträge aus alten Texten heranziehen."
+          },
+          {
+            "id": "aenderung",
+            "german": "Änderungsmitteilung",
+            "meaning": "Änderungsmitteilung",
+            "instruction": "Melden Sie Änderungen bei Beiträgen, Adresse oder Bankverbindung.",
+            "where": "ZBFS → Änderungen mitteilen.",
+            "example": "Fiktiv: Umzug innerhalb Bayerns.",
+            "mistake": "Einen Umzug außerhalb Bayerns verschweigen."
+          },
+          {
+            "id": "zbfs",
+            "german": "Zentrum Bayern Familie und Soziales (ZBFS)",
+            "meaning": "Bayerische Familienbehörde",
+            "instruction": "Zuständige Behörde für das Krippengeld.",
+            "where": "zbfs.bayern.de.",
+            "example": "Fiktiv: Schreiben des ZBFS mit Aktenzeichen.",
+            "mistake": "Vom ZBFS eine steuerliche Beratung erwarten."
+          }
+        ]
+      },
+      "wirtschaftliche-jugendhilfe": {
+        "title": "Wirtschaftliche Jugendhilfe: Kostenübernahme für die Kita beim örtlichen Jugendamt",
+        "introduction": "Beiträge für die Kita oder Kindertagespflege können in bestimmten Fällen vom Jugendamt ermäßigt, erlassen oder übernommen werden (Erlass / Übernahme des Kostenbeitrags). Familien, die z. B. Bürgergeld, Sozialhilfe, Kinderzuschlag oder Wohngeld beziehen, werden gesetzlich in der Regel von Beiträgen freigestellt – dies muss dem Jugendamt jedoch nachgewiesen werden.",
+        "variation": "Jede Stadt und jeder Landkreis hat eigene Verfahren, Formulare und Bezeichnungen (z. B. Wirtschaftliche Jugendhilfe, Elternbeitragsstelle, Kita-Gebührenstelle). Es gibt kein bundesweites Formular, weshalb wir keine Feldnummern nennen. Die unten aufgeführten Begriffe sind gängige Fachausdrücke; die Felder finden Sie im Formular Ihres Jugendamtes.",
+        "vocabularyNote": "Glossar der kommunalen Verfahren. Reihenfolge und Felder hängen von der Stadt/dem Landkreis ab. Die Beispiele sind fiktiv; hier tragen Sie nichts ein.",
+        "modes": {
+          "paper": "Papier: Formular des örtlichen Jugendamtes oder der Elternbeitragsstelle; mit Kopien der Nachweise per Post oder persönlich einreichen.",
+          "online": "Online: Einige Städte bieten einen Online-Antrag oder Upload von Nachweisen an; suchen Sie die Dienstleistung auf der Website der Stadt oder im Verwaltungsportal nach Postleitzahl."
+        },
+        "steps": [
+          {
+            "id": "office",
+            "title": "Zuständige Stelle finden",
+            "sections": {
+              "meaning": "Zuständig ist das Jugendamt am Wohnort des Kindes, mitunter eine gesonderte Kita-Gebührenstelle.",
+              "action": "Suchen Sie auf der Website der Stadt nach „Kostenbeitrag Kita Erlass“, „Elternbeitrag Übernahme“ oder „Wirtschaftliche Jugendhilfe“; oder fragen Sie in der Kita nach der zuständigen Stelle.",
+              "where": "Website der Stadt/des Landkreises, Verwaltungsportal, Kita.",
+              "example": "Fiktiv: Stadt X – „Abteilung Elternbeiträge“.",
+              "mistake": "Den Antrag an die Kita statt an das Jugendamt senden."
+            }
+          },
+          {
+            "id": "case",
+            "title": "Die eigene Situation einordnen",
+            "sections": {
+              "meaning": "Zwei häufige Fallkonstellationen: (a) Sie beziehen Bürgergeld, Sozialhilfe, AsylbLG, Kinderzuschlag oder Wohngeld – der Beitrag wird bei Vorlage des Nachweises in der Regel erlassen; (b) sonstiges geringes Einkommen – das Jugendamt prüft, ob die Belastung „nicht zumutbar“ ist, und kann den Beitrag ganz oder teilweise übernehmen.",
+              "action": "Bereiten Sie den Bewilligungsbescheid der Leistung oder Nachweise über Einnahmen und Ausgaben der gesamten Familie vor.",
+              "where": "Bescheide von Jobcenter, Familienkasse, Wohngeldstelle; Gehaltsabrechnungen.",
+              "example": "Fiktiv: Familie bezieht Kinderzuschlag – Bewilligungsbescheid wird beigefügt.",
+              "mistake": "Davon ausgehen, dass die Beitragsbefreiung automatisch ohne Antrag erfolgt."
+            }
+          },
+          {
+            "id": "documents",
+            "title": "Nachweise",
+            "sections": {
+              "meaning": "Das Jugendamt benötigt Angaben darüber, wer im Haushalt lebt, über das Einkommen und über die Höhe des Kita-Beitrags.",
+              "action": "Sammeln Sie den Betreuungsvertrag der Kita/Tagespflege, die Beitragsfestsetzung, Leistungsbescheide, Gehaltsabrechnungen, Mietkosten und den Kindergeldbescheid gemäß Vorgaben der Behörde.",
+              "where": "Kita, Arbeitgeber, Behörden.",
+              "example": "Fiktiv: Betreuungsvertrag ab 01.09.2026 und Wohngeldbescheid.",
+              "mistake": "Einen abgelaufenen Bescheid einreichen."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Antrag rechtzeitig stellen",
+            "sections": {
+              "meaning": "Viele Behörden übernehmen die Kosten erst ab dem Monat der Antragstellung.",
+              "action": "Stellen Sie den Antrag, sobald der Betreuungsplatz feststeht oder der Leistungsbescheid vorliegt; erkundigen Sie sich nach dem Beginn der Kostenübernahme.",
+              "where": "Formular des Jugendamtes.",
+              "example": "Fiktiv: Antragstellung im August für den Kita-Start ab September.",
+              "mistake": "Auf die erste Beitragsrechnung der Kita warten."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Bescheid und Verlängerung",
+            "sections": {
+              "meaning": "Der Bescheid ist meist befristet (z. B. für die Dauer des zugrunde liegenden Leistungsbescheids).",
+              "action": "Reichen Sie vor Ablauf den neuen Bewilligungsbescheid ein; melden Sie Einkommensänderungen unaufgefordert.",
+              "where": "Bescheid des Jugendamtes.",
+              "example": "Fiktiv: Wohngeld verlängert – neuer Bescheid wird nachgereicht.",
+              "mistake": "Den Folgeantrag versäumen und nachträglich Rechnungen erhalten."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "kostenbeitrag",
+            "german": "Kostenbeitrag / Elternbeitrag",
+            "meaning": "Kostenbeitrag der Eltern für die Kindertagesbetreuung",
+            "instruction": "Der Betrag ergibt sich aus dem Vertrag oder der Gebührensatzung der Kommune.",
+            "where": "Betreuungsvertrag der Kita, Beitragsbescheid.",
+            "example": "Fiktiv: monatlicher Elternbeitrag laut Vertrag.",
+            "mistake": "Mit dem Essensgeld verwechseln, das häufig gesondert behandelt wird."
+          },
+          {
+            "id": "erlass",
+            "german": "Erlass / Übernahme des Kostenbeitrags",
+            "meaning": "Erlass oder Übernahme des Teilnahmebeitrags",
+            "instruction": "Dies ist die Bezeichnung des Antrags, den Sie stellen.",
+            "where": "Website der Stadt.",
+            "example": "Fiktiv: „Antrag auf Übernahme des Elternbeitrags“.",
+            "mistake": "Nach „Kita-Gutschein“ suchen – in manchen Städten ist dies ein anderes Verfahren."
+          },
+          {
+            "id": "leistungsbezug",
+            "german": "Bezug von Bürgergeld / Sozialhilfe / Kinderzuschlag / Wohngeld",
+            "meaning": "Bezug von Sozialleistungen, die zur Beitragsbefreiung führen",
+            "instruction": "Fügen Sie den aktuellen Bewilligungsbescheid bei.",
+            "where": "Jobcenter, Sozialamt, Familienkasse, Wohngeldstelle.",
+            "example": "Fiktiv: Kinderzuschlag-Bescheid für 6 Monate.",
+            "mistake": "Nur den gestellten Antrag statt des Bewilligungsbescheids einreichen."
+          },
+          {
+            "id": "zumutbar",
+            "german": "zumutbare Belastung",
+            "meaning": "Zumutbare finanzielle Belastung",
+            "instruction": "Bei geringem Einkommen ohne Bezug von Transferleistungen prüft das Jugendamt die Zumutbarkeit; legen Sie Einnahmen und Ausgaben vollständig dar.",
+            "where": "Gehaltsabrechnungen, Mietkosten.",
+            "example": "Fiktiv: ein Einkommen, vierköpfige Familie.",
+            "mistake": "Einkünfte verschweigen."
+          },
+          {
+            "id": "haushalt",
+            "german": "Haushaltsangehörige",
+            "meaning": "Haushaltsangehörige Personen",
+            "instruction": "Geben Sie alle Personen vollständig an, wie im Formular verlangt.",
+            "where": "Meldebescheinigung.",
+            "example": "Fiktiv: zwei Elternteile und zwei Kinder.",
+            "mistake": "Den Partner weglassen."
+          },
+          {
+            "id": "tagespflege",
+            "german": "Kindertagespflege",
+            "meaning": "Kindertagespflege (Tagesmutter/-vater)",
+            "instruction": "Auch für Kindertagespflege kann der Kostenbeitrag übernommen werden; Betreuungsperson angeben.",
+            "where": "Betreuungsvertrag über Kindertagespflege.",
+            "example": "Fiktiv: Tagesmutter in derselben Stadt.",
+            "mistake": "Glauben, dass die finanzielle Förderung nur für Kitas gilt."
+          }
+        ]
+      }
+    }
   }
 }

@@ -5,11 +5,15 @@ import { Button } from "@/components/ui/button";
 import SmartGuide from "./SmartGuide";
 import { getGuideSource } from "@/lib/guide-first/official-sources";
 import type { ArrivalProcedure, ArrivalSlug } from "@/lib/guide-first/arrival-model";
+import { isFamilySlug, type FamilySlug } from "@/lib/guide-first/family-model";
 
 /** Portable procedure + vocabulary companion. No answers, field mapping or storage. */
-export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug }) {
+export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug | FamilySlug }) {
   const { t } = useTranslation("pages");
-  const data = t(`arrivalCompanions.guides.${slug}`, { returnObjects: true }) as ArrivalProcedure;
+  const family = isFamilySlug(slug);
+  const data = t(`${family ? "familyCompanions" : "arrivalCompanions"}.guides.${slug}`, { returnObjects: true }) as ArrivalProcedure;
+  const fui = (key: string) => t(`familyCompanions.ui.${key}`);
+  const [gateChoice, setGateChoice] = useState<string | null>(null);
   const ui = (key: string, values?: Record<string, string | number>) => t(`arrivalCompanions.ui.${key}`, values);
   const [termIndex, setTermIndex] = useState(0);
   const [mode, setMode] = useState<"paper" | "online">("paper");
@@ -23,7 +27,7 @@ export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug }) {
   };
   if (!term) return null;
   const sourceLinks = [source.url ? { url: source.url, label: source.label ?? ui("official") } : null, ...(source.extraLinks ?? [])].filter((link) => link !== null);
-  return <section data-testid="arrival-companion" data-slug={slug} className="smartguide-standard min-w-0 space-y-6 text-foreground">
+  return <section data-testid="arrival-companion" data-slug={slug} data-family={family || undefined} className="smartguide-standard min-w-0 space-y-6 text-foreground">
     <header className="space-y-3">
       <h2 className="break-words text-xl font-bold">{data.title}</h2>
       <p className="text-sm leading-6">{data.introduction}</p>
@@ -31,18 +35,25 @@ export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug }) {
       <p className="text-sm">{source.verifiedOn ? t("smartGuideStandard.verified", { date: source.verifiedOn }) : t("smartGuideStandard.verify")}</p>
       <div className="flex flex-wrap gap-2">{sourceLinks.map((link) => <Button key={link.url} asChild variant="outline" className="h-auto min-h-11 max-w-full whitespace-normal py-3 text-left"><a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /><span className="sr-only">{t("smartGuideStandard.newTab")}</span></a></Button>)}</div>
     </header>
+    {data.gate && <section data-testid="companion-gate" className="guide-block-mistake space-y-3 rounded-md border border-border border-l-4 p-4" aria-label={data.gate.title}>
+      <h3 className="text-lg font-bold">{data.gate.title}</h3>
+      <p className="text-sm leading-6">{data.gate.question}</p>
+      <div role="group" aria-label={data.gate.question} className="flex flex-wrap gap-2">{data.gate.options.map((option) => <Button key={option.id} variant={gateChoice === option.id ? "default" : "outline"} className="h-auto min-h-11 max-w-full whitespace-normal text-left" aria-pressed={gateChoice === option.id} onClick={() => setGateChoice(option.id)}>{option.label}</Button>)}</div>
+      <p className="whitespace-pre-line text-sm font-semibold leading-6" aria-live="polite" data-testid="companion-gate-result">{data.gate.options.find((option) => option.id === gateChoice)?.result ?? fui("gatePrompt")}</p>
+    </section>}
     <div className="space-y-3 border-y border-border py-4">
       <div role="group" aria-label={ui("mode")} className="flex flex-wrap gap-2">{(["paper", "online"] as const).map((value) => <Button key={value} variant={mode === value ? "default" : "outline"} className="h-auto min-h-11 whitespace-normal" aria-pressed={mode === value} onClick={() => setMode(value)}>{ui(value)}</Button>)}</div>
       <p className="text-sm leading-6" data-testid="arrival-mode-note">{data.modes[mode]}</p>
     </div>
     <section className="space-y-4" aria-label={ui("vocabulary")}>
       <h3 className="text-lg font-bold">{ui("vocabulary")}</h3>
-      <p className="text-sm leading-6">{ui("vocabularyNote")}</p>
+      <p className="text-sm leading-6">{data.vocabularyNote ?? ui("vocabularyNote")}</p>
       <label htmlFor={navId} className="block text-sm font-semibold">{ui("jumpTerm")}</label>
       <select id={navId} data-nav="arrival-terms" className="min-h-11 w-full min-w-0 max-w-full rounded-md border border-border bg-background p-2 text-sm text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring" value={termIndex} onChange={(event) => jumpTerm(Number(event.target.value))}>
         {data.terms.map((item, index) => <option key={item.id} value={index}>{item.german} — {item.meaning}</option>)}
       </select>
       <h4 ref={termHeading} tabIndex={-1} className="break-words text-lg font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">{term.german} — {term.meaning}</h4>
+      {term.reference && <p data-testid="term-reference" className="guide-block-where rounded-md border border-border border-l-4 p-3 text-sm font-semibold leading-6">{fui("reference")}: {term.reference}</p>}
       {term.options && <ul className="space-y-3 border-l-4 border-primary pl-4">{term.options.map((option) => <li key={option.german} className="text-sm leading-6"><strong>{option.german}</strong><p>{option.meaning}</p></li>)}</ul>}
       <div className="grid min-w-0 gap-3 sm:grid-cols-2">{([
         ["instruction", term.instruction, "guide-block-action"], ["where", term.where, "guide-block-where"], ["example", term.example, "guide-block-neutral"], ["mistake", term.mistake, "guide-block-mistake"],

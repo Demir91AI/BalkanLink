@@ -13,12 +13,22 @@ export interface ProcedureTerm {
   where: string;
   example: string;
   mistake: string;
+  /** Exact place on a source-verified uniform official PDF; omitted when forms vary. */
+  reference?: string;
   options?: { german: string; meaning: string }[];
+}
+/** Memory-only orientation choice (e.g. birth-date cut-off); never an eligibility decision. */
+export interface ProcedureGate {
+  title: string;
+  question: string;
+  options: { id: string; label: string; result: string }[];
 }
 export interface ArrivalProcedure {
   title: string;
   introduction: string;
   variation: string;
+  vocabularyNote?: string;
+  gate?: ProcedureGate;
   modes: { paper: string; online: string };
   steps: { id: string; title: string; sections: GuideStepSections }[];
   terms: ProcedureTerm[];
