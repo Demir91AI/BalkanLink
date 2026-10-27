@@ -1,7 +1,6 @@
-// Server-side allowlist of purchasable consumer products (Stripe LIVE).
-// The client may only send a product KEY; price, amount and mode are decided here.
-
-// BalkanLink has exactly ONE paid product: 19,90€ one-time, lifetime full access.
+// Historical fulfillment/reconciliation allowlist only, NOT a sales catalog.
+// Archived/inactive prices still identify past paid sessions and entitlements.
+// New checkout policy lives in checkout-policy.ts; never sell these records again.
 export type ProductKey = "plus";
 
 export const PRODUCTS: Record<ProductKey, { priceId: string; amountCents: number; currency: "eur"; mode: "payment"; label: string }> = {

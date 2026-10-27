@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEntitlement } from "@/hooks/useEntitlement";
-import { membershipCta } from "@/lib/membership";
+import { membershipCta, NEW_CUSTOMER_CHECKOUT_READY } from "@/lib/membership";
 import { toast } from "@/hooks/use-toast";
 import i18n from "i18next";
 
@@ -17,13 +17,17 @@ export function useMembershipSwitches() {
         .select("monetization_v2_enabled, annual_checkout_enabled, trial_signup_enabled")
         .maybeSingle();
       if (error || !data) return { monetizationV2: false, checkoutEnabled: false, trialEnabled: false };
-      return { monetizationV2: data.monetization_v2_enabled === true, checkoutEnabled: data.annual_checkout_enabled === true, trialEnabled: data.trial_signup_enabled === true };
+      return { monetizationV2: data.monetization_v2_enabled === true, checkoutEnabled: NEW_CUSTOMER_CHECKOUT_READY && data.annual_checkout_enabled === true, trialEnabled: data.trial_signup_enabled === true };
     },
   });
   return { ...(q.data ?? { monetizationV2: false, checkoutEnabled: false, trialEnabled: false }), loading: q.isLoading };
 }
 
 export async function startAnnualCheckout() {
+  if (!NEW_CUSTOMER_CHECKOUT_READY) {
+    toast({ title: i18n.t("plus:errorTitle"), description: i18n.t("plus:ctaDisabledNote") });
+    return;
+  }
   try {
     const returnTo = `${window.location.pathname}${window.location.search}`;
     const { data, error } = await supabase.functions.invoke("create-checkout", { body: { product: "annual", returnTo } });

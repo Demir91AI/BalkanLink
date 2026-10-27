@@ -15,7 +15,7 @@ interface Props {
 const AdminNewReviewEmail = ({ username, rating, comment, createdAt }: Props) => (
   <Html lang="bs" dir="ltr">
     <Head />
-    <Preview>Nova recenzija na BalkanLink ({rating ?? '?'}/5)</Preview>
+    <Preview>{`Nova recenzija na BalkanLink (${rating ?? '?'}/5)`}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>⭐ Nova recenzija</Heading>
