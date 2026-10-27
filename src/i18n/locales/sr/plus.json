@@ -1,9 +1,9 @@
 {
   "seoTitle": "BalkanLink članstvo — 7 dana besplatno, zatim 19,99 € godišnje",
   "seoDesc": "Isprobaj sve BalkanLink alate 7 dana bez kartice. Nakon toga, ako želiš, članstvo 19,99 € godišnje. Otkazivanje u svakom trenutku.",
-  "title": "BalkanLink članstvo",
+  "title": "BalkanLink Plus",
   "subtitle": "Svi alati na jednom mestu. Prvo 7 dana besplatno, bez kartice.",
-  "name": "BalkanLink članstvo",
+  "name": "BalkanLink Plus",
   "price": "19,99 € godišnje",
   "tagline": "7 dana besplatno, zatim 19,99 € godišnje — samo ako sam/a odabereš.",
   "priceNote": "Godišnja pretplata koja se automatski obnavlja. Možeš je otkazati bilo kada do kraja plaćene godine.",
@@ -27,7 +27,7 @@
   "cta": "Pokreni članstvo — 19,99 € godišnje",
   "ctaLogin": "Registruj se i počni 7 dana besplatno",
   "ctaDisabled": "Članstvo još nije aktivirano",
-  "ctaDisabledNote": "Plaćanje za novo članstvo uskoro će biti dostupno. Do tada ništa ne moraš da plaćaš.",
+  "ctaDisabledNote": "Novo plaćanje nije dostupno dok godišnja Stripe cena, naplata i provere ne budu spremni i odobreni. Probni period ne pokreće naplatu.",
   "owned": "Imaš puni BalkanLink pristup",
   "ownedLegacy": "Tvoj postojeći pristup ostaje u potpunosti važeći.",
   "secure": "Sigurno plaćanje preko Stripe-a · račun na e-mail · bez PDV-a (§19 UStG)",
@@ -54,5 +54,8 @@
   "lockedTitle": "Ovaj deo je uključen u BalkanLink članstvo",
   "login": "Već imaš nalog? Prijavi se",
   "close": "Zatvori",
-  "ctaRegisterPlain": "Registruj se besplatno"
+  "ctaRegisterPlain": "Registruj se besplatno",
+  "adminAnnualPlanning": "Plan: Plus / godina (naplata neaktivna)",
+  "adminMonthlyEquivalent": "Mesečni ekvivalent za planiranje: {{amount}} €",
+  "adminAnnualProjection": "Plan posle odobrenja naplate: još {{count}} godišnjih članstava"
 }
