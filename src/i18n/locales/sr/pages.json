@@ -2071,5 +2071,39 @@
       "ctaSubscribe": "Pogledaj članstvo",
       "registerNote": "Za pristup je potreban nalog sa potvrđenom e-mail adresom."
     }
+  },
+  "smartGuideStandard": {
+    "steps": "Koraci vodiča",
+    "jump": "Korak {{number}}: {{title}}",
+    "position": "Korak {{current}} od {{total}}",
+    "checklist": "Pripremi za ovaj korak",
+    "reviewed": "Pregledao/la sam ovaj korak",
+    "previous": "Nazad",
+    "next": "Dalje",
+    "finish": "Gotovo",
+    "verified": "Sadržaj proveren prema izvoru: {{date}}",
+    "verify": "Proveri službeni izvor — sadržaj ovog postupka još nije u celosti proveren.",
+    "source": "Službeni izvor",
+    "newTab": "Otvara se u novoj kartici",
+    "progress": "Sačuvaj napredak na ovom uređaju",
+    "privacy": "Samo ako odabereš Sačuvaj: pamti se broj koraka i oznake pregledanih koraka. Ne čuvamo odgovore, dokumente, lične podatke ni izbor posebnog slučaja. Možeš nastaviti ili obrisati napredak.",
+    "save": "Sačuvaj",
+    "restore": "Nastavi sačuvano",
+    "forget": "Obriši napredak",
+    "saved": "Napredak je sačuvan na ovom uređaju.",
+    "restored": "Sačuvani napredak je otvoren.",
+    "forgotten": "Sačuvani napredak je obrisan.",
+    "noSaved": "Nema važećeg sačuvanog napretka.",
+    "storageError": "Ovaj uređaj ne dozvoljava čuvanje napretka.",
+    "block": {
+      "action": "Šta ovo znači / šta učiniti",
+      "field": "Šta tačno upisati",
+      "where": "Gde pronaći podatke",
+      "format": "Format",
+      "mistake": "Česte greške",
+      "empty": "Kada ostaviti prazno",
+      "example": "Izmišljeni primer",
+      "note": "Važna napomena"
+    }
   }
 }

@@ -2071,5 +2071,39 @@
       "ctaSubscribe": "Mitgliedschaft ansehen",
       "registerNote": "Für den Zugang ist ein Konto mit bestätigter E-Mail-Adresse nötig."
     }
+  },
+  "smartGuideStandard": {
+    "steps": "Schritte des Leitfadens",
+    "jump": "Schritt {{number}}: {{title}}",
+    "position": "Schritt {{current}} von {{total}}",
+    "checklist": "Für diesen Schritt vorbereiten",
+    "reviewed": "Diesen Schritt habe ich geprüft",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "finish": "Fertig",
+    "verified": "Inhalt anhand der Quelle geprüft: {{date}}",
+    "verify": "Offizielle Quelle prüfen — der Inhalt dieses Verfahrens ist noch nicht vollständig geprüft.",
+    "source": "Offizielle Quelle",
+    "newTab": "Öffnet in einem neuen Tab",
+    "progress": "Fortschritt auf diesem Gerät speichern",
+    "privacy": "Nur mit Speichern werden die Schrittnummer und Markierungen geprüfter Schritte gespeichert. Keine Antworten, Dokumente, persönlichen Angaben oder Sonderfall-Auswahl. Du kannst den Fortschritt fortsetzen oder löschen.",
+    "save": "Speichern",
+    "restore": "Gespeicherten Stand öffnen",
+    "forget": "Fortschritt löschen",
+    "saved": "Fortschritt auf diesem Gerät gespeichert.",
+    "restored": "Gespeicherter Fortschritt geöffnet.",
+    "forgotten": "Gespeicherter Fortschritt gelöscht.",
+    "noSaved": "Kein gültiger gespeicherter Fortschritt vorhanden.",
+    "storageError": "Dieses Gerät erlaubt das Speichern des Fortschritts nicht.",
+    "block": {
+      "action": "Was bedeutet das / was ist zu tun",
+      "field": "Was genau eintragen",
+      "where": "Wo finde ich die Angaben",
+      "format": "Format",
+      "mistake": "Häufige Fehler",
+      "empty": "Wann leer lassen",
+      "example": "Fiktives Beispiel",
+      "note": "Wichtiger Hinweis"
+    }
   }
 }
