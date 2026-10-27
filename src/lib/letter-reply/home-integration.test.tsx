@@ -1,6 +1,6 @@
 import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import Index from '@/pages/Index';
 
 const mocks = vi.hoisted(() => ({
@@ -25,7 +25,12 @@ vi.mock('@/components/share/ShareButton', () => ({ default: () => null }));
 vi.mock('@/components/home/premium-showcase-data', () => ({ premiumShowcaseFirms: [] }));
 vi.mock('@/hooks/useInfiniteScroll', () => ({ useInfiniteScroll: () => ({}) }));
 
-afterEach(() => { cleanup(); vi.clearAllMocks(); });
+beforeEach(() => {
+  vi.stubGlobal('IntersectionObserver', class {
+    observe() {} unobserve() {} disconnect() {}
+  });
+});
+afterEach(() => { cleanup(); vi.clearAllMocks(); vi.unstubAllGlobals(); });
 describe('homepage LetterReplyTask access integration', () => {
   it('does not mount the task or read subscriptions when visibility is denied', () => {
     mocks.visible.mockReturnValue(false);
