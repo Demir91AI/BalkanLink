@@ -1,4 +1,9 @@
 
+## Kindergeld SmartGuide 2.0 pilot (2026-10-27, owner approved; no release)
+- [ ] Verify official form ordering and primary sources; preserve 20 original records and expand detailed ordered field navigation.
+- [ ] Implement integrated online/paper walkthrough, contextual no-data cases/help/glossary and Kindergeld-only reviewed-and-advance/completion behavior.
+- [ ] Run regression suite and real-route mobile/desktop QA; report verified scope, exact files and remaining blockers without publishing.
+
 ## Owner SmartGuide correction (2026-10-27, Preview/code only)
 - [x] Make newborn Kindergeld primary and always visible; preserve online/paper details, 20 records and special cases.
 - [x] Improve semantic shared panels and Kindergeld/Kinderzuschlag/Steuer-ID content (3/46 FormCenter services; 43 full content reviews pending).
