@@ -5,6 +5,7 @@ import fontUrl from '@/assets/fonts/liberation-sans/LiberationSans-Regular.ttf?u
 /** Uses existing pdf-lib/fontkit and the provenance-recorded local OFL font. No official PDFs. */
 export async function createReplyPdf(text: string, suppliedFont?: Uint8Array): Promise<Uint8Array> {
   if (!text.trim() || text.length > 20000) throw new Error('REPLY_TEXT_LIMIT');
+  if (/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/.test(text)) throw new Error('UNSUPPORTED_CONTROL');
   let bytes = suppliedFont;
   if (!bytes) {
     const response = await fetch(fontUrl);
@@ -30,8 +31,11 @@ export async function createReplyPdf(text: string, suppliedFont?: Uint8Array): P
     if (!paragraph.trim()) { draw(''); continue; }
     let line = '';
     for (const word of paragraph.split(/\s+/)) {
-      // Wrap long references/addresses character-by-character; never silently truncate.
-      for (const char of (line ? ' ' : '') + word) {
+      const candidate = line ? `${line} ${word}` : word;
+      if (font.widthOfTextAtSize(candidate, size) <= width) { line = candidate; continue; }
+      if (line) { draw(line); line = ''; }
+      // Only split an oversized single token; normal words wrap intact.
+      for (const char of word) {
         if (font.widthOfTextAtSize(line + char, size) > width) { draw(line); line = ''; }
         line += char;
       }
