@@ -2240,5 +2240,142 @@
       ]
     },
     "summary": "Zusammenfassung des Ablaufs"
+  },
+  "proceduralGuides": {
+    "kinderzuschlag": {
+      "title": "Kinderzuschlag — von der Prüfung bis zum Bescheid",
+      "subtitle": "Ein eigener Antrag bei der Familienkasse; der KiZ-Lotse liefert Orientierung, keine Entscheidung.",
+      "summary": [
+        "KiZ ist ein eigener Antrag und kein automatischer Teil des Kindergeldes.",
+        "Nachweise richten sich nach der Familiensituation und den amtlichen Fragen.",
+        "Bestätigung sichern, Bescheid verfolgen und verlangte Nachweise amtlich nachreichen."
+      ],
+      "steps": [
+        {
+          "id": "meaning",
+          "title": "Was ist Kinderzuschlag?",
+          "sections": {
+            "meaning": "Kinderzuschlag unterstützt Familien mit geringerem Einkommen, die Kindergeld erhalten. Anspruch und Höhe bestimmt die Familienkasse, nicht dieser Leitfaden.",
+            "action": "Prüfe die amtlichen Voraussetzungen zu Haushalt, Kind und Einkommen. Verlasse dich nicht auf veraltete Beträge oder automatisch angenommenen KiZ-Bezug.",
+            "mistake": "Annehmen, dass KiZ zusammen mit Kindergeld automatisch bewilligt wird.",
+            "next": "Prüfe die Orientierung durch den amtlichen KiZ-Lotsen."
+          }
+        },
+        {
+          "id": "household",
+          "title": "Haushalt und Grundvoraussetzungen prüfen",
+          "sections": {
+            "action": "Prüfe die Fragen zu Wohnort, Alter und Familienstand des Kindes, Kindergeld und Einkommen der Eltern. Ausnahmen und andere Leistungen klärst du anhand amtlicher Hinweise.",
+            "where": "Kindergeld-Bescheid sowie Haushalts- und Einkommensunterlagen.",
+            "mistake": "Aus einem einzigen Merkmal einen Anspruch ableiten oder Bürgergeld wegen dieses Leitfadens ändern.",
+            "next": "Lege die Eckdaten für den KiZ-Lotsen bereit."
+          }
+        },
+        {
+          "id": "lotse",
+          "title": "KiZ-Lotse vor dem Antrag",
+          "sections": {
+            "meaning": "Der KiZ-Lotse zeigt, ob ein Anspruch möglich sein könnte. Er berechnet keinen Betrag und stellt keinen Antrag.",
+            "action": "Öffne den KiZ-Lotsen über die amtliche BA-Seite in der Quelle und beantworte die Fragen zu deiner Situation.",
+            "where": "Daten zu Kindern, Einkommen und Wohnkosten aus deinen Unterlagen.",
+            "mistake": "Das Lotsen-Ergebnis als amtlichen Bescheid verstehen.",
+            "next": "Bereite Nachweise vor, wenn du einen Antrag stellen möchtest."
+          }
+        },
+        {
+          "id": "income",
+          "title": "Einkommen und besondere Umstände",
+          "sections": {
+            "action": "Gib verlangte Einkommen der Eltern und Kinder an, etwa Arbeitseinkommen, Unterhalt oder andere Leistungen. Für besondere Zugangsmöglichkeiten prüfe konkrete amtliche Bedingungen.",
+            "where": "Lohnabrechnungen, Bescheide und Unterhaltsnachweise für den im aktuellen Antrag verlangten Zeitraum.",
+            "example": "Erfunden: Damir Novak bereitet einen Lohnnachweis und den Unterhaltsnachweis für sein Kind vor; Beispielbeträge übernimmt er nicht.",
+            "mistake": "Kindeseinkommen weglassen oder wegen eines angeblich erweiterten Zugangs einen Anspruch versprechen.",
+            "next": "Stelle nur die verlangten Anlagen zusammen."
+          }
+        },
+        {
+          "id": "documents",
+          "title": "Unterlagen nach den tatsächlichen Fragen",
+          "sections": {
+            "action": "Prüfe den aktuellen KiZ-Antrag und Anlagen. Bereite Einkommens- und Wohnkostennachweise vor; Vermögen und weitere Leistungen belegst du, wenn verlangt.",
+            "where": "Arbeitgeber: Lohnunterlagen; Mietvertrag oder Vermieter: Wohnkosten; Familienkasse: früherer Bescheid.",
+            "mistake": "Für alle dieselbe Dokumentensammlung vorschreiben oder tatsächlich verlangte Nachweise weglassen.",
+            "next": "Reiche online oder mit unterschriebenen Papierformularen ein."
+          },
+          "checklist": [
+            "Nachweise für den im Antrag genannten Zeitraum liegen bereit.",
+            "Die erforderlichen Anlagen je Kind sind geprüft."
+          ]
+        },
+        {
+          "id": "submit",
+          "title": "Prüfen und Antrag einreichen",
+          "sections": {
+            "action": "Öffne auf der BA-Seite den Online-KiZ-Antrag oder amtliche Papierformulare. Prüfe Daten, Anlagen und Unterschrift beziehungsweise Versand.",
+            "where": "Zuständige Familienkasse; die amtliche BA-Quelle unter dem Leitfaden führt zu Antrag und Formularen.",
+            "mistake": "Einen Online-Entwurf oder KiZ-Lotsen für einen eingereichten Antrag halten.",
+            "next": "Bestätigung sichern und die Antwort der Familienkasse verfolgen."
+          }
+        },
+        {
+          "id": "after",
+          "title": "Bescheid und nächsten Antrag verfolgen",
+          "sections": {
+            "meaning": "Der Bescheid nennt Entscheidung, Betrag und Zeitraum. Der übliche KiZ-Bewilligungszeitraum von sechs Monaten ist keine zugesicherte Bearbeitungszeit.",
+            "action": "Prüfe Post oder Familienkassen-Profil. Reagiere auf konkrete Nachforderungen und prüfe, wann ein neuer Antrag nötig ist.",
+            "where": "Lies Daten und Hinweise in deinem Bescheid, nicht in einem erfundenen Beispiel.",
+            "mistake": "Auf automatische Verlängerung warten oder Nachforderungen ignorieren.",
+            "next": "Für Änderungen und Fortsetzung nutze amtliche Informationen der Familienkasse."
+          }
+        }
+      ]
+    },
+    "steuerId": {
+      "title": "Steuer-ID — finden oder erneut anfordern",
+      "subtitle": "Das BZSt vergibt die Steuer-ID; sie ist nicht die örtliche Steuernummer des Finanzamts.",
+      "summary": [
+        "Die Steuer-ID hat 11 Ziffern und bleibt bei Umzug oder Namensänderung gleich.",
+        "Prüfe zuerst BZSt-Schreiben, Einkommensteuerbescheid oder elektronische Lohnsteuerbescheinigung.",
+        "Fehlt sie, nutze die amtliche BZSt-Anfrage zur erneuten Mitteilung; die Nummer wird per Brief geschickt."
+      ],
+      "steps": [
+        {
+          "id": "find",
+          "title": "Zuerst vorhandene Unterlagen prüfen",
+          "sections": {
+            "meaning": "Die Steuer-ID ist eine persönliche Identifikationsnummer mit 11 Ziffern, die das BZSt vergibt. Die Steuernummer ist eine andere Nummer.",
+            "action": "Finde deine Nummer und prüfe die Bezeichnung; verwende nicht die Nummer deines Kindes oder Partners.",
+            "where": "BZSt-Schreiben, Einkommensteuerbescheid oder elektronische Lohnsteuerbescheinigung des Arbeitgebers.",
+            "example": "Erfunden: Maja Kovač sucht „Identifikationsnummer“ auf ihrer eigenen Lohnsteuerbescheinigung.",
+            "mistake": "Die Steuernummer oder die Nummer einer anderen Person übernehmen.",
+            "next": "Bei neuem Zuzug lies den Ablauf; bei Verlust gehe zur erneuten Mitteilung."
+          }
+        },
+        {
+          "id": "arrival",
+          "title": "Neu zugezogen: Anmeldung und Brief",
+          "sections": {
+            "action": "Melde deinen Wohnsitz bei der Meldebehörde an. Das BZSt vergibt die Steuer-ID nach Eingang der Meldedaten. Prüfe Adresse und Post.",
+            "where": "Meldebescheinigung und BZSt-Brief an die gemeldete Anschrift.",
+            "mistake": "Das Finanzamt als Aussteller nennen oder eine feste Zahl von Wochen garantieren.",
+            "next": "Findest du die Nummer nicht, beantrage beim BZSt die erneute Mitteilung."
+          },
+          "checklist": [
+            "Die gemeldete Anschrift ist geprüft.",
+            "Vor der erneuten Anfrage habe ich Steuerunterlagen durchsucht."
+          ]
+        },
+        {
+          "id": "request",
+          "title": "Erneute Mitteilung durch das BZSt",
+          "sections": {
+            "action": "Öffne auf der amtlichen BZSt-Seite die Anfrage zur erneuten IdNr-Mitteilung und beachte die verlangten Daten. Aus Datenschutzgründen erfolgt die Mitteilung per Brief, nicht garantiert sofort.",
+            "where": "Die amtliche BZSt-Quelle unten führt zu Erklärung und Formular für die erneute Mitteilung.",
+            "mistake": "Einen nichtamtlichen Vermittler bezahlen, Daten an unbekannte Seiten senden oder behaupten, ELSTER enthalte niemals die Steuer-ID.",
+            "next": "Bewahre den Brief bei dir auf und teile die Nummer nur einer Stelle oder einem Arbeitgeber mit, der sie tatsächlich benötigt."
+          }
+        }
+      ]
+    }
   }
 }

@@ -2240,5 +2240,142 @@
       ]
     },
     "summary": "Sažetak postupka"
+  },
+  "proceduralGuides": {
+    "kinderzuschlag": {
+      "title": "Kinderzuschlag — od provere do odgovora",
+      "subtitle": "Poseban zahtev Familienkasse; KiZ-Lotse daje samo orijentaciju, ne odluku.",
+      "summary": [
+        "KiZ je zaseban zahtev, nije automatski dio Kindergelda.",
+        "Dokazi zavise od porodične situacije i pitanja u službenom zahtevu.",
+        "Sačuvaj potvrdu, prati Bescheid i službeno tražene dopune."
+      ],
+      "steps": [
+        {
+          "id": "meaning",
+          "title": "Šta je Kinderzuschlag?",
+          "sections": {
+            "meaning": "Kinderzuschlag pomaže porodicama s manjim prihodima koje primaju Kindergeld. Pravo i iznos utvrđuje Familienkasse, ne ovaj vodič.",
+            "action": "Proveri službene uslove za domaćinstvo, dete i prihode. Ne oslanjaj se na zastarjele iznose ili na pretpostavku da Kindergeld uključuje KiZ.",
+            "mistake": "Smatrati da je dodatak automatski odobren uz Kindergeld.",
+            "next": "Proveri odgovara li tvojoj porodici službeni KiZ-Lotse."
+          }
+        },
+        {
+          "id": "household",
+          "title": "Proveri domaćinstvo i osnovne uslove",
+          "sections": {
+            "action": "Proveri pitanja o tome gde dete živi, dobi, bračnom statusu, Kindergeldu i prihodima roditelja. Iznimke i odnos prema drugim davanjima proveri u službenim uputama.",
+            "where": "Kindergeld-Bescheid, dokumenti o domaćinstvu i prihodima.",
+            "mistake": "Zaključiti pravo samo iz jednog uslova ili tražiti Bürgergeld promjenu na osnovu ovog vodiča.",
+            "next": "Pripremi okvirne podatke za KiZ-Lotse."
+          }
+        },
+        {
+          "id": "lotse",
+          "title": "KiZ-Lotse: provera prije zahteva",
+          "sections": {
+            "meaning": "KiZ-Lotse pokazuje da li bi pravo moglo postojati; ne računa iznos i ne podnosi zahtev.",
+            "action": "Otvori KiZ-Lotse preko službene BA stranice u izvoru i odgovori prema svojoj situaciji.",
+            "where": "Pripremi podatke o djeci, prihodima i troškovima stanovanja iz svojih dokumenata.",
+            "mistake": "Rezultat Lotse uzeti kao službeni Bescheid.",
+            "next": "Ako želiš podnijeti zahtev, pripremi dokaze."
+          }
+        },
+        {
+          "id": "income",
+          "title": "Prihodi i posebne okolnosti",
+          "sections": {
+            "action": "Navedi tražene prihode roditelja i djece, npr. zaposlenje, alimentaciju ili druga davanja. Za dodatne mogućnosti pristupa proveri konkretne službene uslove, ne pretpostavljaj pravo.",
+            "where": "Lohnabrechnungen, Bescheide i dokazi o alimentaciji za period koji traži trenutni obrazac.",
+            "example": "Izmišljeno: Damir Novak priprema dokaz o plati i dokument o alimentaciji za dete; ne prepisuje iznose iz primera.",
+            "mistake": "Izostaviti prihod deteta ili obećati pravo zbog navodnog proširenog pristupa.",
+            "next": "Sastavi samo tražene priloge."
+          }
+        },
+        {
+          "id": "documents",
+          "title": "Pripremi dokumente prema pitanjima",
+          "sections": {
+            "action": "Proveri aktuelni KiZ zahtev i priloge. Pripremi dokaze o prihodima i stanovanju; imovinu i dodatna davanja dokumentuj kada se traže.",
+            "where": "Poslodavac: potvrde o plati; stanodavac ili ugovor: troškovi stanovanja; Familienkasse: raniji Bescheid.",
+            "mistake": "Tvrditi da svako mora priložiti istu zbirku dokumenata ili izostaviti stvarno traženi dokaz.",
+            "next": "Predaj na službenom portalu ili potpisanim papirnim putem."
+          },
+          "checklist": [
+            "Pripremio/la sam dokaze za period naveden u zahtevu.",
+            "Proverio/la sam potrebne priloge za svako dete."
+          ]
+        },
+        {
+          "id": "submit",
+          "title": "Proveri i podnesi zahtev",
+          "sections": {
+            "action": "Na BA stranici otvori online zahtev za Kinderzuschlag ili službene papirne obrasce. Pregledaj podatke, priloge i način potpisa/slanja.",
+            "where": "Nadležna Familienkasse; službeni BA izvor ispod vodiča vodi do prijave i obrazaca.",
+            "mistake": "Misliti da online nacrt ili KiZ-Lotse znači da je zahtev predat.",
+            "next": "Sačuvaj potvrdu i prati odgovor Familienkasse."
+          }
+        },
+        {
+          "id": "after",
+          "title": "Prati Bescheid i sledeći zahtev",
+          "sections": {
+            "meaning": "Bescheid sadrži odluku, iznos i period. Uobičajeni period odobrenja KiZ je šest meseci; to nije obećano vreme obrade.",
+            "action": "Prati poštu ili Familienkassen-Profil. Odgovori na stvarne zahteve za dopunom i proveri kada treba novi zahtev.",
+            "where": "Datum i upute čitaj u svom Bescheidu, a ne u izmišljenom primeru.",
+            "mistake": "Čekati automatsko produženje ili ignorisati dopunu.",
+            "next": "Za promjene i nastavak koristi službene informacije Familienkasse."
+          }
+        }
+      ]
+    },
+    "steuerId": {
+      "title": "Steuer-ID — pronađi ili ponovo zatraži broj",
+      "subtitle": "BZSt izdaje Steuer-ID; to nije lokalna Steuernummer Finanzamta.",
+      "summary": [
+        "Steuer-ID ima 11 cifara i ostaje ista nakon preseljenja ili promjene imena.",
+        "Prvo proveri BZSt pismo, Einkommensteuerbescheid ili elektronsku Lohnsteuerbescheinigung.",
+        "Ako je nemaš, koristi službeni BZSt zahtev za ponovnu dostavu; broj se šalje pismom."
+      ],
+      "steps": [
+        {
+          "id": "find",
+          "title": "Prvo proveri postojeće dokumente",
+          "sections": {
+            "meaning": "Steuer-ID je lični identifikacijski broj od 11 cifara, koji izdaje BZSt. Steuernummer je drugi broj.",
+            "action": "Pronađi svoj broj i uporedi oznaku dokumenta; ne upisuj djetetov ili partnerov broj.",
+            "where": "Pismo BZSt, Einkommensteuerbescheid ili elektronische Lohnsteuerbescheinigung od poslodavca.",
+            "example": "Izmišljeno: Maja Kovač traži oznaku „Identifikationsnummer“ na vlastitoj Lohnsteuerbescheinigung.",
+            "mistake": "Prepisati Steuernummer ili broj tuđe osobe.",
+            "next": "Ako si nov/a u Njemačkoj, pročitaj kako dolazi broj; ako je izgubljen, idi na ponovnu dostavu."
+          }
+        },
+        {
+          "id": "arrival",
+          "title": "Novi dolazak: prijava i službeno pismo",
+          "sections": {
+            "action": "Prijavi boravište kod Meldebehörde. BZSt dodjeljuje Steuer-ID nakon prijema podataka prijave. Proveri adresu i poštu.",
+            "where": "Meldebescheinigung i pismo BZSt na prijavljenoj adresi.",
+            "mistake": "Tvrditi da broj izdaje Finanzamt ili da pismo sigurno stiže za određeni broj sedmica.",
+            "next": "Ako broj ne možeš pronaći, zatraži ponovnu dostavu od BZSt."
+          },
+          "checklist": [
+            "Proverio/la sam prijavljenu adresu.",
+            "Pregledao/la sam poreske dokumente prije novog zahteva."
+          ]
+        },
+        {
+          "id": "request",
+          "title": "Ponovna dostava od BZSt",
+          "sections": {
+            "action": "Na službenoj BZSt stranici otvori zahtev za ponovnu dostavu IdNr i prati tražene podatke. Dostava ide pismom radi zaštite podataka; nije garantovana odmah.",
+            "where": "Službeni BZSt izvor ispod vodi do objašnjenja i obrasca za ponovnu dostavu.",
+            "mistake": "Plaćati neslužbenom posredniku, slati podatke na nepoznatu stranicu ili tvrditi da ELSTER nikada ne sadrži Steuer-ID.",
+            "next": "Kada pismo stigne, sačuvaj ga kod sebe i dostavi broj samo ustanovi ili poslodavcu koji ga stvarno traži."
+          }
+        }
+      ]
+    }
   }
 }
