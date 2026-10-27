@@ -379,7 +379,7 @@ export default function DokumentenCheck() {
   const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
   const sections = useMemo(() => analysis ? parseAnalysisSections(analysis, t("documentCheck.results.fallbackTitle")) : [], [analysis, t]);
-  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => key === "deadlineWarning" ? tReply(key) : t(key, opts)) : null, [sections, t, tReply]);
+  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => String(key === "deadlineWarning" ? tReply(key) : t(key, opts))) : null, [sections, t, tReply]);
 
   return (
     <>
