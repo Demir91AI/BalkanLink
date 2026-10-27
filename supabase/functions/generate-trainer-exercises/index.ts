@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { reserveUsage, commitUsage, releaseUsage, type Reservation } from "../_shared/usage.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
@@ -266,6 +267,8 @@ serve(async (req) => {
     if (claimsErr || !claimsData?.claims?.sub) {
       return jsonResponse({ error: "Unauthorized" }, 401);
     }
+    const trainerUserId = claimsData.claims.sub as string;
+    const usageAdmin = createClient(supabaseUrl, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
 
     const { level, topic, stageType, count = 10 } = await req.json();
 
@@ -280,6 +283,17 @@ serve(async (req) => {
     if (!LOVABLE_API_KEY) {
       console.error("LOVABLE_API_KEY missing, returning fallback exercises");
       return jsonResponse({ exercises: fallbackExercises, fallback: true });
+    }
+
+    // Protective daily cap on NEW AI generation; when reached, built-in exercises are served instead.
+    let trainerReservation: Reservation | null = null;
+    try {
+      trainerReservation = await reserveUsage(usageAdmin, trainerUserId, "trainer_generation");
+    } catch (e) {
+      console.error("trainer usage reserve error", e instanceof Error ? e.message : "unknown");
+    }
+    if (trainerReservation && !trainerReservation.ok) {
+      return jsonResponse({ exercises: fallbackExercises, fallback: true, capped: true });
     }
 
     const subtopics: Record<string, string[]> = {
@@ -416,9 +430,11 @@ Odgovori SAMO JSON arrayom bez ikakvog teksta ili Markdowna.`;
 
     if (validated.length === 0) {
       console.error("AI returned no valid exercises. Returning fallback exercises.");
+      await releaseUsage(usageAdmin, trainerReservation);
       return jsonResponse({ exercises: fallbackExercises, fallback: true });
     }
 
+    await commitUsage(usageAdmin, trainerReservation);
     return jsonResponse({ exercises: validated });
   } catch (e) {
     console.error("generate-trainer-exercises error, returning fallback exercises:", e);

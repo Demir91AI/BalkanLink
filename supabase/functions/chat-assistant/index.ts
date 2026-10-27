@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { reserveUsage, commitUsage, releaseUsage, meterStream, type Reservation } from "../_shared/usage.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
@@ -1524,34 +1525,15 @@ serve(async (req) => {
 
     const admin = createClient(SUPABASE_URL, SERVICE_ROLE);
 
-    // ── Server-side premium derivation (NEVER trust client) ──
+    // ── Server-side entitlement (NEVER trust client) ──
     let isPremium = false;
     {
-      const { data: profile } = await admin
-        .from("profiles")
-        .select("is_premium, subscription_tier, subscription_expires_at")
-        .eq("id", userId)
-        .maybeSingle();
-      if (profile) {
-        const tier = (profile as any).subscription_tier ?? "free";
-        const expiresAt = (profile as any).subscription_expires_at as string | null;
-        const expired = expiresAt ? new Date(expiresAt) < new Date() : false;
-        const tierPremium = !expired && tier && tier !== "free";
-        isPremium = !!((profile as any).is_premium || tierPremium);
-      }
-      // Admins are treated as premium
-      if (!isPremium) {
-        const { data: roleRow } = await admin
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", userId)
-          .eq("role", "admin")
-          .maybeSingle();
-        if (roleRow) isPremium = true;
-      }
+      const { data: ent, error: entErr } = await admin.rpc("_entitlement_core", { uid: userId });
+      if (entErr) console.error("[entitlement] lookup failed", entErr.code);
+      isPremium = !!(ent as any)?.full_access;
     }
 
-    // Daily quota removed — assistant is unlimited for all users.
+    // Fair-use metering happens right before the AI call (only real AI replies are counted).
 
     const { messages, language, currentPage } = await req.json();
     const pageContext = buildEnrichedPageContext(currentPage || "");
@@ -1642,6 +1624,19 @@ serve(async (req) => {
     // ── DB search for local business queries ──
     const dbResults = await searchDatabase(userText);
     // Default language for system prompt = "bs" (system prompt itself forces BS replies anyway)
+    let reservation: Reservation;
+    try {
+      reservation = await reserveUsage(admin, userId, "assistant_reply");
+    } catch (e) {
+      console.error("[usage] reserve error", e instanceof Error ? e.message : "unknown");
+      return new Response(JSON.stringify({ error: "Greška. Pokušaj ponovo." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
+    if (!reservation.ok) {
+      return new Response(JSON.stringify({ error: "Dnevni limit Asistenta je dostignut. Pokušaj sutra.", errorCode: "DAILY_CAP" }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
+    if (reservation.mode === "basic") isPremium = false;
     const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext);
 
     const response = await fetch(
@@ -1661,7 +1656,8 @@ serve(async (req) => {
       }
     );
 
-    if (!response.ok) {
+    if (!response.ok || !response.body) {
+      await releaseUsage(admin, reservation);
       if (response.status === 429) {
         return new Response(JSON.stringify({ error: "Previše zahtjeva. Pokušaj ponovo." }),
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } });
@@ -1679,7 +1675,8 @@ serve(async (req) => {
     // HTTP headers must be ByteString (latin-1). Encode to safely transport UTF-8 (čšđž etc.)
     const safeHeader = (v: string) => encodeURIComponent(v);
     const extraHeaders: Record<string, string> = { ...corsHeaders, "Content-Type": "text/event-stream" };
-    extraHeaders["Access-Control-Expose-Headers"] = "X-Guide-Slug, X-Form-Slug, X-Site-Topics";
+    extraHeaders["Access-Control-Expose-Headers"] = "X-Guide-Slug, X-Form-Slug, X-Site-Topics, X-Usage-Mode";
+    extraHeaders["X-Usage-Mode"] = reservation.mode ?? "full";
     if (guideSlug) extraHeaders["X-Guide-Slug"] = safeHeader(guideSlug);
     if (detectedForm) extraHeaders["X-Form-Slug"] = safeHeader(detectedForm.slug);
     if (siteTopics.length > 0) {
@@ -1688,7 +1685,8 @@ serve(async (req) => {
       );
     }
 
-    return new Response(response.body, { headers: extraHeaders });
+    const metered = meterStream(response.body, () => commitUsage(admin, reservation), () => releaseUsage(admin, reservation));
+    return new Response(metered, { headers: extraHeaders });
   } catch (e) {
     console.error("chat error:", e);
     return new Response(

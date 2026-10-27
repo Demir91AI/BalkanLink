@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { reserveUsage, commitUsage, releaseUsage, type Reservation } from "../_shared/usage.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -235,6 +236,22 @@ Deno.serve(async (req) => {
       });
     }
 
+    // Protective daily cap for full-access users (free users keep the existing 1/day preview).
+    let nkReservation: Reservation | null = null;
+    if (isPremium) {
+      try {
+        nkReservation = await reserveUsage(adminSupabase, userId, "nebenkosten_scan");
+      } catch (e) {
+        console.error("nebenkosten usage reserve error", e instanceof Error ? e.message : "unknown");
+      }
+      if (nkReservation && !nkReservation.ok) {
+        return new Response(
+          JSON.stringify({ success: false, errorCode: "DAILY_CAP", message: "Dnevni limit analiza je dostignut. Pokušaj sutra." }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
+
     console.log("[nebenkosten-scan] Calling AI...", { userId, isPremium, fileCount: files.length });
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
@@ -252,6 +269,7 @@ Deno.serve(async (req) => {
     });
 
     if (!response.ok) {
+      await releaseUsage(adminSupabase, nkReservation);
       const errText = await response.text();
       console.error("AI API error:", response.status, errText);
 
@@ -278,12 +296,14 @@ Deno.serve(async (req) => {
     const result = data.choices?.[0]?.message?.content || "";
 
     if (!result) {
+      await releaseUsage(adminSupabase, nkReservation);
       return new Response(
         JSON.stringify({ success: false, errorCode: "PARSING_FAILED", message: "Analiza nije mogla biti provedena." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
+    await commitUsage(adminSupabase, nkReservation);
     return new Response(
       JSON.stringify({ success: true, analysis: result, isPremium }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }

@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { reserveUsage, commitUsage, releaseUsage, type Reservation } from "../_shared/usage.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -10,8 +11,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   // Credit reserved up-front (atomic) and released again if the check does not complete.
-  let reservedCreditId: string | null = null;
-  let reservedLegacyId: string | null = null;
+  let reservation: Reservation | null = null;
   let completed = false;
   // deno-lint-ignore no-explicit-any
   let adminRef: any = null;
@@ -42,7 +42,7 @@ Deno.serve(async (req) => {
     }
     const userId = claimsData.claims.sub as string;
 
-    // ── Pricing: 1,99€ per completed check for EVERY user (Plus/lifetime included, no free quota) ──
+    // ── Access & quota are decided server-side by reserve_usage (see _shared/usage.ts) ──
     const adminSupabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
@@ -81,19 +81,22 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Included in the one-time BalkanLink access (19,90€). No per-check charges.
-    const { data: hasAccess, error: accessErr } = await adminSupabase.rpc("has_full_access", { uid: userId });
-    if (accessErr) {
-      console.error("has_full_access error:", accessErr.message);
+    // Server-side entitlement + quota (trial 2 total, yearly 5/month, legacy unlimited, old credits honored).
+    try {
+      reservation = await reserveUsage(adminSupabase, userId, "document_analysis");
+    } catch (e) {
+      console.error("usage reservation error:", e instanceof Error ? e.message : "unknown");
       return new Response(
         JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera pristupa nije uspjela." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
-    if (!hasAccess) {
+    if (!reservation.ok) {
+      const code = reservation.reason === "quota_exhausted" ? "QUOTA_EXHAUSTED" : "ACCESS_REQUIRED";
       return new Response(
-        JSON.stringify({ success: false, errorCode: "ACCESS_REQUIRED", message: "Dokumenten-Check je uključen u BalkanLink pristup (19,90€ jednokratno)." }),
-        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({ success: false, errorCode: code, used: reservation.used ?? null, limit: reservation.limit ?? null,
+          message: code === "QUOTA_EXHAUSTED" ? "Iskorištene su sve analize dokumenata za ovaj period." : "Dokumenten-Check zahtijeva aktivan BalkanLink pristup." }),
+        { status: code === "QUOTA_EXHAUSTED" ? 429 : 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
@@ -111,7 +114,7 @@ Deno.serve(async (req) => {
 Deine Aufgabe: Dokumente und Briefe TIEFGREIFEND und STRUKTURIERT erklaeren, so dass ein Nutzer ohne Deutschkenntnisse oder Buerokratie-Erfahrung alles versteht.
 
 QUALITAETSSTANDARD:
-- Dies ist ein BEZAHLTES Feature (1.99€ pro Pruefung). Die Analyse muss diesen Preis rechtfertigen.
+- Dies ist ein Premium-Feature. Die Analyse muss hoechste Qualitaet haben.
 - NIEMALS oberflaechlich oder generisch antworten.
 - Jeder Abschnitt muss ECHTE, KONKRETE Erklaerungen enthalten.
 - Minimum 3-5 Saetze pro Abschnitt wo anwendbar.
@@ -311,9 +314,10 @@ Ako NE → prosiri prije slanja.`;
     console.log("Analysis completed successfully, length:", result.length);
 
     completed = true;
+    await commitUsage(adminRef, reservation);
 
     return new Response(
-      JSON.stringify({ success: true, analysis: result, status: { fullAccess: true } }),
+      JSON.stringify({ success: true, analysis: result, status: { fullAccess: true, used: reservation?.used ?? null, limit: reservation?.limit ?? null } }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
@@ -323,6 +327,6 @@ Ako NE → prosiri prije slanja.`;
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } finally {
-    void completed; void adminRef; void reservedCreditId; void reservedLegacyId;
+    if (!completed && adminRef && reservation?.ok) await releaseUsage(adminRef, reservation);
   }
 });
