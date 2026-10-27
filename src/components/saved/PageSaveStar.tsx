@@ -79,7 +79,7 @@ export function PageSaveStar({
         description: t("premiumGate.body"),
         action: {
           label: t("premiumGate.cta"),
-          onClick: () => navigate("/premium"),
+          onClick: () => navigate("/paketi"),
         },
       });
       return;

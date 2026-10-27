@@ -208,7 +208,7 @@ export default function MusterIntroBlock({
             </button>
           ) : (
             <Link
-              to="/premium"
+              to="/paketi"
               style={{
                 display: "inline-block",
                 background: "linear-gradient(135deg, #D97706 0%, #B45309 100%)",

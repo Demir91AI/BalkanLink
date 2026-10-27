@@ -107,7 +107,7 @@ export function PoreziModuleTemplate({ config }: { config: PoreziModuleConfig })
               </p>
               <div className="flex flex-col sm:flex-row gap-2 justify-center">
                 <Button
-                  onClick={() => navigate(isLoggedIn ? "/premium" : "/login")}
+                  onClick={() => navigate(isLoggedIn ? "/paketi" : "/register")}
                   className="btn-gold-gradient rounded-xl px-6"
                 >
                   <Lock className="mr-2 h-4 w-4" />
