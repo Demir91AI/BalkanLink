@@ -687,7 +687,12 @@
         "link3": "BAMF — Arbeit §18 AufenthG",
         "link4": "Gesetze im Internet — § 26 BeschV (Originalgesetz)",
         "embassyLinkLabel": "Termine und Informationen"
-      }
+      },
+      "officialNextTitle": "Offizieller Antrag / nächste Schritte",
+      "officialNextBody": "Nationale Visa beantragst du über das offizielle Auslandsportal des Auswärtigen Amts oder bei der zuständigen deutschen Auslandsvertretung. Viele Arbeits-, Studien- und Familienvisa können online beantragt werden, aber nicht jede Visumart bei jeder Vertretung.",
+      "officialNextNote": "Biometrie, Prüfung der Originaldokumente und Gebühren erfordern oft einen persönlichen Termin. BalkanLink vergibt keine Termine und stellt keine Anträge für dich.",
+      "auslandsportalBtn": "Auslandsportal (Auswärtiges Amt)",
+      "digitalBtn": "Online-Visumantrag (digital.diplo.de)"
     },
     "rightPanel": {
       "introBody": "Wählen Sie ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.",
@@ -1687,5 +1692,78 @@
       "ctaFree": "Erst kostenlos testen"
     },
     "footer": "Von der Diaspora, für die Diaspora. 🇧🇦 🇭🇷 🇷🇸 → 🇩🇪"
+  },
+  "guideFirst": {
+    "nextStep": {
+      "title": "Offizieller Antrag / nächste Schritte",
+      "officialBtn": "Offizielle Quelle öffnen",
+      "infoBtn": "Informationsquelle öffnen",
+      "local": "Offizielle Quelle / zuständige Behörde vor Ort — vor dem Antrag prüfen. Zuständigkeit und Formulare hängen von Stadt oder Bundesland ab.",
+      "verified": "Geprüft anhand der offiziellen Quelle: {{date}}.",
+      "notReverified": "Dieser Leitfaden wurde noch nicht erneut mit der offiziellen Quelle abgeglichen — bitte vor dem Antrag prüfen.",
+      "noSubmit": "BalkanLink stellt keine Anträge für dich; du reichst sie selbst bei der zuständigen Stelle ein."
+    },
+    "legacy": {
+      "buergergeldTitle": "Alter Link zum Bürgergeld-Formular",
+      "buergergeldBody": "Diese Seite gibt es nicht mehr als Ausfüllformular. Wähle den passenden Leitfaden:",
+      "hauptantrag": "Erstantrag (Hauptantrag)",
+      "weiterbewilligung": "Weiterbewilligung"
+    },
+    "includes": "Enthalten:",
+    "paywallItem": "Schritt-für-Schritt-Leitfaden und direkte Links zu offiziellen Verfahren",
+    "seoTitle": "SmartGuide-Leitfäden für deutsche Anträge",
+    "seoDesc": "Schritt-für-Schritt-Leitfäden und offizielle Verfahren für Kindergeld, Bürgergeld, Wohngeld, BAföG, Visa und über 40 weitere Leistungen.",
+    "kindergeld": {
+      "title": "Kindergeld für ein neugeborenes Kind — Schritt für Schritt",
+      "lead": "Den Kindergeld-Antrag stellst du selbst im offiziellen Online-Portal der Familienkasse (Bundesagentur für Arbeit). Hier gibst du keine persönlichen Daten ein — der Leitfaden zeigt nur die Reihenfolge.",
+      "caseQ": "Welche Situation passt am besten? (optional, nur zur Orientierung)",
+      "case": {
+        "newborn": "Neugeborenes oder Kind unter 18, wir leben in Deutschland",
+        "adult": "Kind über 18 Jahre",
+        "cross": "Kind im Ausland geboren oder lebt dort / Arbeit in einem anderen Staat"
+      },
+      "adultNote": "Für Kinder über 18 verlangt die Familienkasse zusätzliche Nachweise (z. B. Schulbescheinigung oder Praktikumsbestätigung). Welche genau, steht auf der offiziellen Seite. BalkanLink prüft keinen Anspruch.",
+      "crossNote": "Ist das Kind im Ausland geboren oder lebt es dort, wird eine Kopie der ausländischen Geburtsurkunde oder eines anderen amtlichen Geburtsnachweises verlangt. Für grenzüberschreitende Fälle gelten besondere Regeln — bitte offizielle Informationen prüfen. BalkanLink legt keine Anlagen fest.",
+      "stage": {
+        "orient": {
+          "title": "Orientierung: Kommt Kindergeld in Frage?",
+          "body": "Kindergeld gibt es in der Regel für Kinder bis 18 Jahre, unter bestimmten Voraussetzungen auch länger. Das ist nur eine Orientierung — über den Anspruch entscheidet allein die Familienkasse."
+        },
+        "prepare": {
+          "title": "Angaben bereitlegen",
+          "body": "Für ein Kind unter 18 in Deutschland genügen im Regelfall:",
+          "items": [
+            "Deine Steuer-ID (steuerliche Identifikationsnummer)",
+            "Steuer-ID des Kindes — bei Neugeborenen kommt sie nach der Geburtsanmeldung per Post vom Bundeszentralamt für Steuern",
+            "Bankverbindung (IBAN) für die Auszahlung"
+          ]
+        },
+        "access": {
+          "title": "Zugang zum Portal vorbereiten",
+          "body": "Für den Online-Antrag brauchst du ein Konto im Portal der Bundesagentur für Arbeit. Mit BundID sendest du den Antrag direkt online, ohne Ausdruck und Unterschrift."
+        },
+        "apply": {
+          "title": "Offiziellen Online-Antrag ausfüllen",
+          "body": "Öffne den offiziellen Online-Antrag der Familienkasse und fülle ihn dort aus. Ohne BundID füllst du ihn online aus, druckst ihn, unterschreibst und schickst ihn per Post an die Familienkasse."
+        },
+        "after": {
+          "title": "Nach dem Absenden",
+          "body": "Bewahre die Sendebestätigung auf und warte auf den Bescheid der Familienkasse. Kindergeld wird rückwirkend höchstens für 6 Monate gezahlt — stelle den Antrag daher rechtzeitig. Änderungen (z. B. Adresse, IBAN) der Familienkasse melden. Beträge und Bearbeitungszeiten können wir nicht garantieren."
+        }
+      },
+      "ctaOnline": "Offiziellen Online-Antrag öffnen (Familienkasse)",
+      "paper": "Lieber auf Papier? Die offiziellen Formulare stehen auf der BA-Seite „Formulare Kindergeld“ (siehe Quellen).",
+      "sourcesTitle": "Offizielle Quellen",
+      "src": {
+        "anspruch": "BA — Kindergeld: Anspruch, Höhe, Dauer",
+        "nachweise": "BA — Nachweise einreichen",
+        "eservices": "BA — eServices für Familien (Online-Antrag)",
+        "formulare": "BA — Formulare Kindergeld"
+      },
+      "verified": "Inhalt geprüft anhand der genannten Seiten der Bundesagentur für Arbeit: 27.10.2026.",
+      "disclaimer": "Nur zur Information, keine Rechtsberatung. BalkanLink ist keine Behörde und stellt keine Anträge."
+    },
+    "panelEmpty": "Wähle links eine Leistung für Leitfaden und offizielle Quellen.",
+    "benefitsGuides": "40+ SmartGuide-Leitfäden — Schritt für Schritt zum offiziellen Antrag für Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG und mehr"
   }
 }

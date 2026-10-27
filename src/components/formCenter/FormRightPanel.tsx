@@ -1,5 +1,5 @@
 import { ExternalLink, FileText, Globe } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const GOLD = '#C9A84C';
 
@@ -31,7 +31,7 @@ const DEFAULT_META: FormMeta = {
 
 const FORM_META: Record<string, FormMeta> = {
   "kindergeld":         { agency: "Familienkasse / BA",           musterSlug: "kindergeld",         sourceLabel: "Bundesagentur für Arbeit",     sourceUrl: "https://www.arbeitsagentur.de/familie-und-kinder/kindergeld" },
-  "elterngeld":         { agency: "Elterngeldstelle",             musterSlug: "elterngeld",         sourceLabel: "BMFSFJ — Elterngeld",          sourceUrl: "https://www.elterngeld.net" },
+  "elterngeld":         { agency: "Elterngeldstelle",             musterSlug: "elterngeld",         sourceLabel: "Familienportal (BMFSFJ)",      sourceUrl: "https://familienportal.de" },
   "anmeldung":          { agency: "Einwohnermeldeamt",            musterSlug: "anmeldung",          sourceLabel: "Einwohnermeldeamt (lokal)",    sourceUrl: "https://www.bmi.bund.de" },
   "steuer-id":          { agency: "Bundeszentralamt f. Steuern",                                    sourceLabel: "bzst.de — Steuer-ID",          sourceUrl: "https://www.bzst.de" },
   "krankenkasse":       { agency: "GKV",                                                            sourceLabel: "GKV-Spitzenverband",           sourceUrl: "https://www.gkv-spitzenverband.de" },
@@ -41,7 +41,7 @@ const FORM_META: Record<string, FormMeta> = {
   "bafoeg":             { agency: "Amt f. Ausbildungsförderung",  musterSlug: "bafoeg",             sourceLabel: "BAföG.de",                    sourceUrl: "https://www.bafoeg.de" },
   "schueler-bafoeg":    { agency: "Amt f. Ausbildungsförderung",  musterSlug: "schueler-bafoeg",    sourceLabel: "BAföG.de",                    sourceUrl: "https://www.bafoeg.de" },
   "fuehrungszeugnis":   { agency: "Bundesamt für Justiz",         musterSlug: "fuehrungszeugnis",   sourceLabel: "bundesjustizamt.de",           sourceUrl: "https://www.bundesjustizamt.de" },
-  "kirchenaustritt":    { agency: "Amtsgericht (lokal)",          musterSlug: "kirchenaustritt",    sourceLabel: "kirchenaustritt.de",           sourceUrl: "https://www.kirchenaustritt.de" },
+  "kirchenaustritt":    { agency: "Amtsgericht (lokal)",          musterSlug: "kirchenaustritt",    sourceLabel: "Bund.de — Verwaltungsportal", sourceUrl: "https://www.bund.de", sourceHint: "Istupanje se prijavljuje lokalno (Standesamt ili Amtsgericht, zavisno od pokrajine) — provjeri kod svog grada." },
   "integrationskurs":   { agency: "BAMF",                         musterSlug: "integrationskurs",   sourceLabel: "bamf.de — Integrationskurs",   sourceUrl: "https://www.bamf.de" },
   "kinderzuschlag":     { agency: "Familienkasse",                musterSlug: "kinderzuschlag",     sourceLabel: "BA — Kinderzuschlag",          sourceUrl: "https://www.arbeitsagentur.de/kinderzuschlag" },
   "steuerklassenwechsel":{ agency: "Finanzamt",                   musterSlug: "steuerklasse",       sourceLabel: "Elster.de",                   sourceUrl: "https://www.elster.de" },
@@ -91,7 +91,7 @@ interface Props {
 }
 
 export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Props) {
-  const navigate = useNavigate();
+  const { t } = useTranslation("pages");
   const meta = activeSlug ? FORM_META[activeSlug] ?? DEFAULT_META : null;
 
   const panelStyle: React.CSSProperties = {
@@ -115,7 +115,7 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <Globe size={40} color={GOLD} style={{ margin: '0 auto 12px', display: 'block' }} />
           <p style={{ fontSize: 13, color: '#6B6B6B', lineHeight: 1.6 }}>
-            Izaberi formular iz lijevog menija za detalje i musterformular.
+            {t("guideFirst.panelEmpty")}
           </p>
         </div>
         <div style={{ borderTop: '1px solid #F0EAD8', paddingTop: 16 }}>
@@ -159,21 +159,8 @@ export default function FormRightPanel({ activeSlug, formLabel, formDesc }: Prop
           <p style={{ fontSize: 13, color: '#1A1A2E', fontWeight: 600 }}>{meta.agency}</p>
         </div>
 
-        {meta.musterSlug && (
-          <button
-            onClick={() => navigate(`/musterformular/${meta.musterSlug}`)}
-            style={{
-              width: '100%', padding: '11px 14px', marginBottom: 12,
-              background: '#1E293B', color: 'white', border: 'none',
-              borderRadius: 9, fontSize: 13, fontWeight: 700, cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-            }}
-          >
-            📋 Otvori Musterformular
-          </button>
-        )}
 
-        {!meta.musterSlug && meta.onlineUrl && (
+        {meta.onlineUrl && (
           <a
             href={meta.onlineUrl}
             target="_blank"

@@ -687,7 +687,12 @@
         "link3": "BAMF — Arbeit §18 AufenthG",
         "link4": "Gesetze im Internet — § 26 BeschV (originalni zakon)",
         "embassyLinkLabel": "termini i informacije"
-      }
+      },
+      "officialNextTitle": "Službena prijava / šta dalje",
+      "officialNextBody": "Zahtjev za nacionalnu vizu podnosi se preko službenog Auslandsportala Ministarstva vanjskih poslova ili kod nadležne njemačke veleposlanstva/konzulata. Za mnoge radne, studijske i obiteljske vize moguća je online prijava, ali ne za svaku vrstu vize u svakoj veleposlanstvu.",
+      "officialNextNote": "Biometrija, provjera originalnih dokumenata i takse često zahtijevaju lični dolazak. BalkanLink ne dogovara termine i ne šalje zahtjeve umjesto tebe.",
+      "auslandsportalBtn": "Auslandsportal (Auswärtiges Amt)",
+      "digitalBtn": "Online zahtjev za vizu (digital.diplo.de)"
     },
     "rightPanel": {
       "introBody": "Wähle ein Land aus dem linken Menü, um Informationen zu Visa und Aufenthaltsgenehmigungen zu finden.",
@@ -1687,5 +1692,78 @@
       "ctaFree": "Probaj besplatno prvo"
     },
     "footer": "Napravljeno od dijaspore, za dijasporu. 🇭🇷 🇧🇦 🇷🇸 → 🇩🇪"
+  },
+  "guideFirst": {
+    "nextStep": {
+      "title": "Službena prijava / šta dalje",
+      "officialBtn": "Otvori službeni izvor",
+      "infoBtn": "Otvori izvor informacija",
+      "local": "Službeni izvor / lokalna nadležna institucija — provjeri prije prijave. Nadležnost i obrasci zavise od tvog grada ili savezne zemlje.",
+      "verified": "Provjereno prema službenom izvoru: {{date}}.",
+      "notReverified": "Sadržaj ovog vodiča još nije ponovo provjeren prema službenom izvoru — provjeri prije prijave.",
+      "noSubmit": "BalkanLink ne šalje zahtjeve umjesto tebe; prijavu predaješ sam/a nadležnoj instituciji."
+    },
+    "legacy": {
+      "buergergeldTitle": "Stara poveznica na Bürgergeld formular",
+      "buergergeldBody": "Ta stranica više ne postoji kao formular za popunjavanje. Odaberi vodič koji ti treba:",
+      "hauptantrag": "Prvi zahtjev (Hauptantrag)",
+      "weiterbewilligung": "Produženje (Weiterbewilligung)"
+    },
+    "includes": "Uključeno:",
+    "paywallItem": "Korak po korak vodič i direktni linkovi na službene postupke",
+    "seoTitle": "SmartGuide vodiči za njemačke zahtjeve",
+    "seoDesc": "Korak po korak vodiči i službeni postupci za Kindergeld, Bürgergeld, Wohngeld, BAföG, vize i još 40+ usluga — na tvom jeziku.",
+    "kindergeld": {
+      "title": "Kindergeld za novorođenče — korak po korak",
+      "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovdje ne unosiš nikakve osobne podatke — vodič ti samo pokazuje redoslijed.",
+      "caseQ": "Koja situacija ti najviše odgovara? (neobavezno, samo za orijentaciju)",
+      "case": {
+        "newborn": "Novorođenče ili dijete do 18 godina, živimo u Njemačkoj",
+        "adult": "Dijete starije od 18 godina",
+        "cross": "Dijete je rođeno ili živi u inostranstvu / rad u drugoj državi"
+      },
+      "adultNote": "Za dijete starije od 18 godina Familienkasse traži dodatne dokaze (npr. Schulbescheinigung ili potvrdu o praksi). Koji tačno — provjeri na službenoj stranici. BalkanLink ne procjenjuje tvoje pravo.",
+      "crossNote": "Ako je dijete rođeno ili živi u inostranstvu, traži se kopija strane Geburtsurkunde ili drugog službenog dokumenta o rođenju. Prekogranični slučajevi imaju posebna pravila — provjeri službene informacije prije prijave. BalkanLink ne određuje koji ti prilozi (Anlagen) trebaju.",
+      "stage": {
+        "orient": {
+          "title": "Orijentacija: da li dolazi u obzir?",
+          "body": "Kindergeld se u pravilu dobija za dijete do 18 godina, pod određenim uslovima i duže. Ovo je samo orijentacija — o pravu odlučuje isključivo Familienkasse."
+        },
+        "prepare": {
+          "title": "Pripremi podatke",
+          "body": "Za dijete mlađe od 18 godina u Njemačkoj u pravilu su dovoljni ovi podaci:",
+          "items": [
+            "Tvoj Steuer-ID (steuerliche Identifikationsnummer)",
+            "Steuer-ID djeteta — za novorođenče stiže poštom od Bundeszentralamt für Steuern nakon prijave rođenja",
+            "Bankovni račun (IBAN) za isplatu"
+          ]
+        },
+        "access": {
+          "title": "Pripremi pristup portalu",
+          "body": "Za online zahtjev trebaš Konto (korisnički račun) na portalu Bundesagentur für Arbeit. S BundID-om zahtjev šalješ direktno online, bez ispisa i potpisa."
+        },
+        "apply": {
+          "title": "Popuni službeni online Antrag",
+          "body": "Otvori službeni online zahtjev Familienkasse i popuni ga tamo. Bez BundID-a online zahtjev popuniš, ispišeš, potpišeš i pošalješ poštom Familienkasse."
+        },
+        "after": {
+          "title": "Nakon slanja",
+          "body": "Spremi potvrdu o slanju i pričekaj odluku (Bescheid) od Familienkasse. Kindergeld se retroaktivno isplaćuje najviše za 6 mjeseci — zato predaj zahtjev na vrijeme. Promjene (npr. adresa, IBAN) javi Familienkasse. Iznose i rokove obrade ne jamčimo."
+        }
+      },
+      "ctaOnline": "Otvori službeni online zahtjev (Familienkasse)",
+      "paper": "Ne želiš online? Službeni papirni obrasci su na stranici BA „Formulare Kindergeld“ (vidi izvore).",
+      "sourcesTitle": "Službeni izvori",
+      "src": {
+        "anspruch": "BA — Kindergeld: Anspruch, Höhe, Dauer",
+        "nachweise": "BA — Nachweise einreichen",
+        "eservices": "BA — eServices für Familien (online Antrag)",
+        "formulare": "BA — Formulare Kindergeld"
+      },
+      "verified": "Sadržaj provjeren prema navedenim stranicama Bundesagentur für Arbeit: 27.10.2026.",
+      "disclaimer": "Informativno, nije pravni savjet. BalkanLink nije državna institucija i ne šalje zahtjeve."
+    },
+    "panelEmpty": "Odaberi uslugu iz lijevog izbornika za vodič i službene izvore.",
+    "benefitsGuides": "40+ SmartGuide vodiča — korak po korak do službene prijave za Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG i druge usluge"
   }
 }

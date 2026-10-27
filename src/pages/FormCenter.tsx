@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useEffect, useMemo, useState } from "react";
 import { useSubscription } from "@/hooks/useSubscription";
 import { Lock, Crown, CheckCircle2 } from "lucide-react";
@@ -51,6 +52,8 @@ import FuehrerscheinGuideContent from "@/components/formulare/FuehrerscheinGuide
 import WirtschaftlicheJugendhilfeGuideContent from "@/components/guides/WirtschaftlicheJugendhilfeGuideContent";
 import FahrzeugzulassungGuide from "@/components/formulare/FahrzeugzulassungGuide";
 import { navigateBackOrHome } from "@/lib/navigation";
+import OfficialNextStep from "@/components/guide-first/OfficialNextStep";
+import LegacyBuergergeldNote from "@/components/guide-first/LegacyBuergergeldNote";
 import FormRightPanel from "@/components/formCenter/FormRightPanel";
 import PremiumBenefitsSection from "@/components/formCenter/PremiumBenefitsSection";
 import FormCatalogVault from "@/components/formCenter/FormCatalogVault";
@@ -103,6 +106,7 @@ function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; on
 /* ─── Premium paywall for a specific form ─── */
 function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | null }) {
   const navigate = useNavigate();
+  const { t: tp } = useTranslation("pages");
   return (
     <div className="flex flex-col items-center justify-center py-12 text-center gap-5 max-w-md mx-auto">
       <div className="h-14 w-14 rounded-2xl bg-[hsl(var(--gold))]/10 flex items-center justify-center ring-1 ring-[hsl(var(--gold))]/20">
@@ -116,14 +120,14 @@ function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | 
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Kompletan Smart Guide — svaki korak detaljno objašnjen</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Tačno šta upisati u svako polje formulara</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Detaljan spisak dokumenata (šta tačno, gdje nabaviti)</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Musterformular — primjer pravilno popunjenog formulara</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> {tp("guideFirst.paywallItem")}</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Najčešće greške i kako ih izbjeći</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Šta raditi ako zahtjev bude odbijen</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Direktni linkovi na nadležne institucije</li>
       </ul>
       {entry?.includes && (
         <div className="w-full text-left">
-          <p className="text-[11px] font-semibold text-muted-foreground mb-1.5">📄 Musterformulari uključeni:</p>
+          <p className="text-[11px] font-semibold text-muted-foreground mb-1.5">{tp("guideFirst.includes")}</p>
           <div className="flex flex-wrap gap-1.5">
             {entry.includes.split(" + ").map((tag) => (
               <span key={tag} className="rounded-full bg-[hsl(var(--gold))]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[hsl(var(--gold))]">
@@ -155,7 +159,8 @@ function GuideContent({ slug }: { slug: string }) {
   const lang = getLangKey("bs");
   const freeLang = (lang === "hr" || lang === "sr" ? "bs" : lang) as "de" | "bs" | "en";
 
-  const MusterButton = null;
+  const MusterButton = slug === "kindergeld" ? null : <OfficialNextStep slug={slug} />;
+  const legacyNote = slug === "hauptantrag" ? <LegacyBuergergeldNote /> : null;
 
   if (slug === "kindergeld") return <><KindergeldGuideContent />{MusterButton}</>;
   if (slug === "anmeldung") return <><AnmeldungGuideContent />{MusterButton}</>;
@@ -176,7 +181,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "anlage-se") return <><AnlageSEGuideContent />{MusterButton}</>;
   if (slug === "arbeitsbescheinigung") return <><ArbeitsbescheinigungGuideContent />{MusterButton}</>;
   if (slug === "antragsruecknahme") return <><AntragsruecknahmeGuideContent />{MusterButton}</>;
-  if (slug === "hauptantrag") return <><HauptantragGuideContent />{MusterButton}</>;
+  if (slug === "hauptantrag") return <>{legacyNote}<HauptantragGuideContent />{MusterButton}</>;
   if (slug === "weiterbewilligung") return <><WeiterbewilligungGuideContent />{MusterButton}</>;
   if (slug === "anlage-kdu") return <><AnlageKDUGuideContent />{MusterButton}</>;
   if (slug === "anlage-ek") return <><AnlageEKGuideContent />{MusterButton}</>;
@@ -192,7 +197,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "wirtschaftliche-jugendhilfe") return <><WirtschaftlicheJugendhilfeGuideContent />{MusterButton}</>;
   if (slug === "fahrzeugzulassung") return <><FahrzeugzulassungGuide />{MusterButton}</>;
 
-  if (!guide) return null;
+  if (!guide) return <>{MusterButton}</>;
 
   return (
     <div className="space-y-8">
@@ -215,6 +220,7 @@ function GuideContent({ slug }: { slug: string }) {
 
 /* ─── Main Page ─── */
 export default function FormCenter() {
+  const { t: tp } = useTranslation("pages");
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
@@ -319,22 +325,12 @@ export default function FormCenter() {
 
   // Mobile: if slug selected, show guide
   if (isMobile && activeSlug && !isRemovedFormSlug) {
-    const musterPath = getMusterPath(activeSlug);
     return (
       <div className="px-4 py-6">
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
           <>
             <GuideContent key={activeSlug} slug={activeSlug} />
-            {musterPath && (
-              <button
-                onClick={() => navigate(musterPath)}
-                className="w-full mt-6 mb-4 rounded-xl py-3 text-sm font-bold text-white flex items-center justify-center gap-2"
-                style={{ background: '#1E293B' }}
-              >
-                📋 Otvori Musterformular
-              </button>
-            )}
           </>
         ) : (
           <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
@@ -347,7 +343,7 @@ export default function FormCenter() {
   if (!activeSlug || isRemovedFormSlug) {
     return (
       <div className="min-h-screen" style={{ background: "#020617" }}>
-        <SEO title="Musterformulari — Njemački Obrasci" description="Popuni njemačke formulare na svom jeziku — Kindergeld, Bürgergeld, Wohngeld, BAföG i još 15+ obrazaca." path="/formulari" />
+        <SEO title={tp("guideFirst.seoTitle")} description={tp("guideFirst.seoDesc")} path="/formulari" />
         <BuergergeldInfoModal
           open={showBgInfo}
           onClose={() => setShowBgInfo(false)}
@@ -375,22 +371,12 @@ export default function FormCenter() {
   // ─── DETAIL VIEW: form selected ───
   // Mobile: full-screen guide
   if (isMobile && activeSlug && !isRemovedFormSlug) {
-    const musterPath = getMusterPath(activeSlug);
     return (
       <div className="px-4 py-6">
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
           <>
             <GuideContent key={activeSlug} slug={activeSlug} />
-            {musterPath && (
-              <button
-                onClick={() => navigate(musterPath)}
-                className="w-full mt-6 mb-4 rounded-xl py-3 text-sm font-bold text-white flex items-center justify-center gap-2"
-                style={{ background: '#1E293B' }}
-              >
-                📋 Otvori Musterformular
-              </button>
-            )}
           </>
         ) : (
           <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
@@ -402,7 +388,7 @@ export default function FormCenter() {
   // Desktop: sidebar + content + right panel
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 min-h-screen" style={{ background: "hsl(var(--background))" }}>
-      <SEO title="Musterformulari — Njemački Obrasci" description="Popuni njemačke formulare na svom jeziku — Kindergeld, Bürgergeld, Wohngeld, BAföG i još 15+ obrazaca." path="/formulari" />
+      <SEO title={tp("guideFirst.seoTitle")} description={tp("guideFirst.seoDesc")} path="/formulari" />
       <BuergergeldInfoModal
         open={showBgInfo}
         onClose={() => setShowBgInfo(false)}

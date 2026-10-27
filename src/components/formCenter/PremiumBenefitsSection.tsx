@@ -1,9 +1,11 @@
 import { Crown, FileText, Map, Bot, FileSearch, GraduationCap, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 
 export default function PremiumBenefitsSection() {
   const navigate = useNavigate();
+  const { t: tGf } = useTranslation("pages");
 
   return (
     <section className="mt-10 rounded-2xl border-2 border-[hsl(var(--gold))]/30 overflow-hidden">
@@ -34,7 +36,7 @@ export default function PremiumBenefitsSection() {
             <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground">
               <li className="flex items-start gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                <span>25+ Musterformulara — primjeri pravilno popunjenih obrazaca za Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG i još 20+ formulara</span>
+                <span>{tGf("guideFirst.benefitsGuides")}</span>
               </li>
               <li className="flex items-start gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />

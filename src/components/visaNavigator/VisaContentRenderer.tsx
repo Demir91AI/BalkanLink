@@ -409,51 +409,24 @@ export const VisaContentRenderer: React.FC<Props> = ({ selectedCountry, selected
             ))}
           </Card>
 
-          {/* Musterformulare */}
-          {route.musterformulare.length > 0 && (
-            <div style={{ marginBottom: 16 }}>
-              <div style={{ background: '#1E293B', borderRadius: 14, padding: 24 }}>
-                <div style={{ textAlign: 'center', marginBottom: 16 }}>
-                  <div style={{ fontSize: 28, marginBottom: 8 }}>📋</div>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: 'white', margin: '0 0 4px' }}>{t('visa.renderer.musterTitle')}</h3>
-                  <p style={{ fontSize: 13, color: GOLD, margin: '0 0 8px', fontWeight: 600 }}>{t('visa.renderer.musterSubtitle')}</p>
-                  <p style={{ fontSize: 13, color: '#94A3B8', margin: 0 }}>{t('visa.renderer.musterDescription')}</p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {route.musterformulare.map((form: any, i: number) => (
-                    <div key={i} style={{ background: '#0F172A', borderRadius: 10, padding: 16, border: openFormKey === form.formKey ? `1.5px solid ${GOLD}` : '1.5px solid #334155' }}>
-                      <p style={{ fontSize: 14, fontWeight: 600, color: 'white', margin: '0 0 4px' }}>{form.title}</p>
-                      <p style={{ fontSize: 12, color: '#94A3B8', margin: '0 0 12px' }}>{form.subtitle}</p>
-                      <button onClick={() => handleOpenForm(form.formKey)}
-                        style={{ width: '100%', padding: '10px', background: '#2563EB', color: 'white', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: 'pointer', marginBottom: 8 }}>
-                        📋 {openFormKey === form.formKey ? t('visa.renderer.closeForm') : t('visa.renderer.openForm')}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {openFormKey && (
-                <div ref={openFormRef} style={{ marginTop: 16, transition: 'border-color 0.3s ease', borderRadius: 14, border: `2px solid ${GOLD}`, padding: 2 }}>
-                  {LoadedForm
-                    ? <div style={{ position: 'relative' }}>
-                        <button onClick={() => handleOpenForm(openFormKey)}
-                          style={{ position: 'absolute', top: 12, right: 12, zIndex: 10, background: '#EF4444', color: 'white', border: 'none', borderRadius: 6, padding: '6px 14px', fontSize: 12, cursor: 'pointer', fontWeight: 600 }}>
-                          {t('visa.renderer.close')}
-                        </button>
-                        <LoadedForm />
-                      </div>
-                    : <InlineFormPlaceholder
-                        title={route.musterformulare.find((f: any) => f.formKey === openFormKey)?.title || openFormKey}
-                        onClose={() => handleOpenForm(openFormKey)}
-                        closeLabel={t('visa.renderer.formAvailable')}
-                      />
-                  }
-                </div>
-              )}
+          {/* Guide-first cutover 2026-10-27: Musterformulare gallery removed; official next step instead. */}
+          <Card>
+            <CardHeader icon={ExternalLink} title={t('visa.renderer.officialNextTitle')} />
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.88)', margin: '0 0 12px', lineHeight: 1.55 }}>{t('visa.renderer.officialNextBody')}</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 12 }}>
+              <a data-testid="visa-auslandsportal" href="https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt/auslandsportal" target="_blank" rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '11px 14px', borderRadius: 10, background: GOLD, color: '#020617', fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
+                {t('visa.renderer.auslandsportalBtn')} <ExternalLink size={14} />
+              </a>
+              <a href="https://digital.diplo.de/visa" target="_blank" rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '11px 14px', borderRadius: 10, border: `1px solid ${GOLD}`, color: GOLD, fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
+                {t('visa.renderer.digitalBtn')} <ExternalLink size={14} />
+              </a>
             </div>
-          )}
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', margin: 0, lineHeight: 1.5 }}>
+              <Info size={12} style={{ marginRight: 6, verticalAlign: 'middle' }} />{t('visa.renderer.officialNextNote')}
+            </p>
+          </Card>
         </>
       )}
 
