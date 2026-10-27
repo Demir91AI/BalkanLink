@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
+import { annualApplyArgs } from "../_shared/annual.ts";
 import { fulfillCheckoutSession, LEGACY_PREMIUM_PRICE_IDS, LEGACY_PREMIUM_PRODUCT_IDS, PRODUCTS } from "../_shared/products.ts";
 
 const log = (step: string, details?: unknown) => {
@@ -80,6 +81,45 @@ serve(async (req) => {
       log("admin email threw", { error: e instanceof Error ? e.message : String(e) });
     }
   };
+
+  // ── New €19.99/year membership: handled first, idempotent per event, always re-reads
+  // the subscription from Stripe so out-of-order events converge. Legacy flow untouched.
+  const annualPriceId = Deno.env.get("STRIPE_ANNUAL_PRICE_ID") || undefined;
+  const subIdFromEvent = (): string | null => {
+    // deno-lint-ignore no-explicit-any
+    const o = event.data.object as any;
+    if (event.type.startsWith("customer.subscription.")) return o.id;
+    if (event.type === "checkout.session.completed" && o.mode === "subscription" && o.metadata?.product_key === "annual") return typeof o.subscription === "string" ? o.subscription : o.subscription?.id ?? null;
+    if (event.type.startsWith("invoice.")) {
+      const s = o.subscription ?? o.parent?.subscription_details?.subscription;
+      return typeof s === "string" ? s : s?.id ?? null;
+    }
+    return null;
+  };
+  if (annualPriceId) {
+    const subId = subIdFromEvent();
+    if (subId) {
+      try {
+        const sub = await stripe.subscriptions.retrieve(subId);
+        const args = annualApplyArgs(sub, annualPriceId);
+        if (args) {
+          const { error: dupErr } = await supabase.from("stripe_webhook_events").insert({ event_id: event.id, event_type: event.type });
+          if (dupErr) { log("Duplicate annual event ignored", { id: event.id }); return new Response(JSON.stringify({ received: true, duplicate: true }), { status: 200, headers: { "Content-Type": "application/json" } }); }
+          const { data: res, error } = await supabase.rpc("apply_annual_subscription", args);
+          if (error) {
+            await supabase.from("stripe_webhook_events").delete().eq("event_id", event.id);
+            throw new Error(`apply_annual_subscription: ${error.message}`);
+          }
+          log("Annual subscription applied", { type: event.type, status: sub.status, res });
+          return new Response(JSON.stringify({ received: true }), { status: 200, headers: { "Content-Type": "application/json" } });
+        }
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        log("ERROR annual webhook", { error: msg });
+        return new Response(JSON.stringify({ error: "annual processing failed" }), { status: 500, headers: { "Content-Type": "application/json" } });
+      }
+    }
+  }
 
   try {
     // Only legacy consumer Premium subscriptions affect profile access.
