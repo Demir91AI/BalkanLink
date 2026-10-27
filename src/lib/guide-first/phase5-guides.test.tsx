@@ -39,7 +39,7 @@ describe("Phase 5: every catalog guide uses the shared guide-first frame", () =>
     expect(container.querySelector(`[data-testid="guide-frame"][data-slug="${slug}"]`)).toBeTruthy();
     expect(container.querySelector('[data-testid="guide-verify-status"]')).toBeTruthy();
     expect(container.querySelector('[data-testid="official-next-step"]') || slug === "kindergeld").toBeTruthy();
-    expect(container.querySelectorAll("input, textarea, select").length, slug).toBe(0);
+    expect(container.querySelectorAll("input, textarea, select:not([data-nav])").length, slug).toBe(0);
     const ctas = [...container.querySelectorAll("a, button")].map((n) => n.textContent ?? "");
     expect(ctas.filter((c) => PDF_FILL.test(c)), slug).toEqual([]);
     for (const a of container.querySelectorAll('a[href^="http"]')) {

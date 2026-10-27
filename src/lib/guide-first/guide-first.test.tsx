@@ -73,7 +73,7 @@ describe("Kindergeld SmartGuide", () => {
     const { container } = render(
       <I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>,
     );
-    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select").length).toBe(0);
+    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select:not([data-nav])").length).toBe(0);
     fireEvent.click(screen.getByRole("button", { name: /Korak 4:/ }));
     const cta = screen.getByText(bs.guideFirst.kindergeld.ctaOnline).closest("a");
     expect(cta?.getAttribute("href")).toBe("https://www.arbeitsagentur.de/familie-und-kinder/eservices-fuer-familien");

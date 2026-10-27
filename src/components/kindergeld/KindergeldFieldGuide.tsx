@@ -9,7 +9,7 @@ import { paperGroups, KINDERGELD_PDFS, FORMS_URL, BZST_ID_URL, type PaperField, 
 /** Read-only companion: originals stay at BA; no applicant answers or PDF processing. */
 export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string }) {
   const { t } = useTranslation("pages");
-  const [mode, setMode] = useState("online");
+  const [mode, setMode] = useState("paper");
   const k = (s: string) => `guideFirst.kindergeld.fields.${s}`;
   const p = (s: string) => `guideFirst.kindergeld.pilot.${s}`;
   const kg1 = t(k("kg1"), { returnObjects: true }) as PaperField[];
@@ -22,15 +22,19 @@ export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string 
   const paper = paperGroups(kg1, ank, details, extras, terms);
   const onlineFields: FieldGroup[] = online.map((g, i) => ({ id: `online-${i}`, title: g.title, form: "BA eServices", page: 0, sec: "", de: "", what: g.body, where: g.tip, ...onlineDetails[i] }));
   return <section data-testid="kg-field-guide" aria-labelledby="kg-field-guide-title" className="min-w-0 border-y border-border py-5">
-    <h2 id="kg-field-guide-title" className="text-lg font-bold text-foreground">{t(k("title"))}</h2>
-    <p className="mt-2 text-sm leading-6 text-muted-foreground">{t(k("intro"))}</p>
+    <h2 id="kg-field-guide-title" className="text-xl font-bold text-foreground">{t(p("companionTitle"))}</h2>
+    <p className="mt-2 text-sm leading-6 text-muted-foreground">{t(p("companionHowTo"))}</p>
+    <div className="mt-3 grid gap-2 sm:grid-cols-2">
+      <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a data-testid="kg-original-kg1" href={KINDERGELD_PDFS.KG1} target="_blank" rel="noopener noreferrer">{t(p("kg1Link"))}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /></a></Button>
+      <Button asChild className="h-auto min-h-11 whitespace-normal py-3"><a data-testid="kg-original-ank" href={KINDERGELD_PDFS["Anlage Kind"]} target="_blank" rel="noopener noreferrer">{t(p("ankLink"))}<ExternalLink aria-hidden="true" className="h-4 w-4 shrink-0" /></a></Button>
+    </div>
     <p className="mt-2 text-xs leading-6 text-muted-foreground">{t(p("imaginary"))}</p>
     <Tabs value={mode} onValueChange={setMode} className="mt-4">
       <TabsList aria-label={t(k("title"))} className="grid h-auto w-full grid-cols-2 gap-1 bg-popover">
-        {(["online", "paper"] as const).map((m) => <TabsTrigger key={m} value={m} className="min-h-11 whitespace-normal px-3 py-2 text-sm text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">{t(k(`mode.${m}`))}</TabsTrigger>)}
+        {(["paper", "online"] as const).map((m) => <TabsTrigger key={m} value={m} className="min-h-11 whitespace-normal px-3 py-2 text-sm text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">{t(k(`mode.${m}`))}</TabsTrigger>)}
       </TabsList>
       <TabsContent value="online" className="mt-4 space-y-4">
-        <p className="guide-block-neutral rounded-md border border-border p-4 text-sm leading-6 text-muted-foreground">{t(p("onlineUnverified"))}</p>
+        <p className="guide-block-neutral rounded-md border border-border p-4 text-sm leading-6 text-muted-foreground">{t(p("onlineOverview"))} {t(p("onlineUnverified"))}</p>
         <FieldWalkthrough key="online" mode="online" groups={onlineFields} sourceUrl={() => onlineUrl} />
         <div className="space-y-2">{online.map((g) => <details key={g.title} data-testid="kg-online-helper" className="text-sm text-muted-foreground"><summary className="min-h-11 cursor-pointer py-3 font-semibold text-primary">{g.title} — {t(k("findData"))}</summary><p className="leading-6">{g.tip}</p></details>)}</div>
         <p className="text-sm leading-6 text-muted-foreground">{t(k("onlineRoute"))}</p>

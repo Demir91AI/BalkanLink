@@ -1959,8 +1959,8 @@
         "notice": "Ovo je samo vodič za čitanje: ovdje ništa ne upisuješ i ništa se ne šalje. Oznake prate papirnate obrasce KG1 i Anlage Kind (stanje 09/2025) – stranicu i točku. Online zahtjev postavlja ista pitanja, ali raspored i nazivi mogu biti drukčiji.",
         "important": "Važno",
         "mode": {
-          "online": "Ispunjavam online (preporučeno)",
-          "paper": "Ispunjavam papirnati KG1"
+          "online": "Online zahtjev – samo pregled tema",
+          "paper": "Izvorni obrazac – polje po polje"
         },
         "paperGroups": [
           "Ti i drugi roditelj",
@@ -3686,7 +3686,14 @@
               "meaning": "Pročitaj izjavu o istinitosti, potpunosti i prijavi relevantnih promjena. Za maloljetnog podnositelja potpisuje zakonski zastupnik. Pregled vodiča nije taj potpis."
             }
           ]
-        }
+        },
+        "companionTitle": "Originalformular Feld für Feld – vodič kroz KG1 i Anlage Kind",
+        "companionHowTo": "Otvori izvorni obrazac u drugoj kartici, pa ovdje odaberi isto polje. Za svako polje vidiš točan njemački naziv, prijevod svih opcija, što upisati, gdje pronaći podatak, izmišljen primjer i čestu pogrešku. Ovdje ništa ne upisuješ.",
+        "kg1Link": "Otvori izvorni KG1 (BA, PDF)",
+        "ankLink": "Otvori izvornu Anlage Kind (BA, PDF)",
+        "onlineOverview": "Online zahtjev: ovo je samo pregled tema, ne mapiranje polja. Redoslijed zaslona na portalu može biti drukčiji.",
+        "jumpLabel": "Skoči na polje",
+        "stepPointer": "Detaljni vodič polje po polje nalazi se iznad ovog vodiča, u dijelu „Originalformular Feld für Feld“."
       }
     },
     "panelEmpty": "Odaberi uslugu iz lijevog izbornika za vodič i službene izvore.",
