@@ -1,0 +1,74 @@
+// Server-side usage metering (BalkanLink 2.0 Phase 2).
+// reserve → (AI call) → commit on success / release on failure. Never stores user content.
+// deno-lint-ignore-file no-explicit-any
+export type UsageFeature =
+  | "document_analysis"
+  | "assistant_reply"
+  | "tts_generation"
+  | "trainer_generation"
+  | "nebenkosten_scan";
+
+export interface Reservation {
+  ok: boolean;
+  reservation_id?: string;
+  source?: string;
+  mode?: "full" | "basic" | "legacy_credit";
+  reason?: "quota_exhausted" | "access_required" | "daily_cap";
+  used?: number;
+  limit?: number | null;
+}
+
+export async function reserveUsage(admin: any, userId: string, feature: UsageFeature): Promise<Reservation> {
+  const requestId = `${feature}:${crypto.randomUUID()}`;
+  const { data, error } = await admin.rpc("reserve_usage", { uid: userId, p_feature: feature, p_request_id: requestId });
+  if (error) throw new Error(`reserve_usage failed: ${error.code ?? "unknown"}`);
+  return data as Reservation;
+}
+
+export async function commitUsage(admin: any, r: Reservation | null) {
+  if (!r?.reservation_id) return;
+  const { error } = await admin.rpc("commit_usage", { reservation_id: r.reservation_id });
+  if (error) console.error("[usage] commit failed", error.code);
+}
+
+export async function releaseUsage(admin: any, r: Reservation | null) {
+  if (!r?.reservation_id) return;
+  const { error } = await admin.rpc("release_usage", { reservation_id: r.reservation_id });
+  if (error) console.error("[usage] release failed", error.code);
+}
+
+/**
+ * Wrap an upstream SSE body: commit once the stream finishes or once content was delivered
+ * before the client cancelled; release if the stream failed before any byte was delivered.
+ */
+export function meterStream(body: ReadableStream<Uint8Array>, onCommit: () => Promise<void>, onRelease: () => Promise<void>) {
+  const reader = body.getReader();
+  let delivered = 0;
+  let settled = false;
+  const settle = async (commit: boolean) => {
+    if (settled) return;
+    settled = true;
+    await (commit ? onCommit() : onRelease());
+  };
+  return new ReadableStream<Uint8Array>({
+    async pull(controller) {
+      try {
+        const { done, value } = await reader.read();
+        if (done) {
+          await settle(delivered > 0);
+          controller.close();
+          return;
+        }
+        delivered += value.byteLength;
+        controller.enqueue(value);
+      } catch (e) {
+        await settle(false);
+        controller.error(e);
+      }
+    },
+    async cancel(reason) {
+      await settle(delivered > 0);
+      await reader.cancel(reason);
+    },
+  });
+}
