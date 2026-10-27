@@ -50,6 +50,14 @@ interface Props {
   title?: string;
   subtitle?: string;
   summary?: string[];
+  /** Opt-in review flow; other hosts keep their existing toggle and access behavior. */
+  reviewFlow?: {
+    advance: string; finish: string; reviewed: string; unmark: string;
+    count: (count: number, total: number) => string;
+    announcement: (title: string) => string;
+    completionTitle: string; completionBody: string; reopen: string;
+    actions: ReactNode;
+  };
 }
 const tones: Record<GuideBlockKind, string> = {
   meaning: "guide-block-neutral", next: "guide-block-action",
@@ -59,7 +67,7 @@ const tones: Record<GuideBlockKind, string> = {
 };
 
 /** Presentation/navigation only. Hosts own branching, access and factual content. */
-export default function SmartGuide({ id, steps, source, currentStep, onStepChange, isLocked, lockedContent, onFinish, finishLabel, title, subtitle, summary }: Props) {
+export default function SmartGuide({ id, steps, source, currentStep, onStepChange, isLocked, lockedContent, onFinish, finishLabel, title, subtitle, summary, reviewFlow }: Props) {
   const { t } = useTranslation("pages");
   const uid = useId();
   const heading = useRef<HTMLHeadingElement>(null);
@@ -67,6 +75,8 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
   const [completed, setCompleted] = useState<number[]>([]);
   const [checks, setChecks] = useState<Record<string, boolean>>({});
   const [notice, setNotice] = useState("");
+  const [finished, setFinished] = useState(false);
+  const completionHeading = useRef<HTMLHeadingElement>(null);
   const index = Math.min(Math.max(currentStep ?? localStep, 0), Math.max(steps.length - 1, 0));
   const step = steps[index];
   if (!step) return null;
@@ -74,7 +84,26 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
   const go = (n: number) => {
     const next = Math.min(Math.max(n, 0), steps.length - 1);
     if (onStepChange) onStepChange(next); else setLocalStep(next);
-    requestAnimationFrame(() => heading.current?.focus({ preventScroll: true }));
+    setFinished(false);
+    requestAnimationFrame(() => {
+      heading.current?.focus({ preventScroll: true });
+      if (reviewFlow) heading.current?.scrollIntoView?.({ block: "start", behavior: "auto" });
+    });
+  };
+  const reviewAndContinue = () => {
+    if (isLocked?.(index)) return;
+    setCompleted((old) => old.includes(index) ? old : [...old, index]);
+    if (index < steps.length - 1) {
+      go(index + 1);
+      setNotice(reviewFlow?.announcement(steps[index + 1].title) ?? "");
+    } else {
+      setFinished(true);
+      setNotice(reviewFlow?.completionTitle ?? "");
+      requestAnimationFrame(() => {
+        completionHeading.current?.focus({ preventScroll: true });
+        completionHeading.current?.scrollIntoView?.({ block: "start", behavior: "auto" });
+      });
+    }
   };
   const save = () => {
     if (!key) return;
@@ -104,12 +133,13 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
       {title && <header className="space-y-2 border-b border-border pb-4"><h2 className="break-words text-xl font-bold text-foreground">{title}</h2>{subtitle && <p className="text-sm leading-6 text-muted-foreground">{subtitle}</p>}</header>}
       <nav aria-label={t("smartGuideStandard.steps")} className="flex gap-2 overflow-x-auto pb-2">
         {steps.map((s, i) => (
-          <Button key={s.id} variant="outline" size="icon" className={cn("h-11 w-11 shrink-0 rounded-full", i === index && "border-primary bg-primary text-primary-foreground")} aria-current={i === index ? "step" : undefined} aria-label={t("smartGuideStandard.jump", { number: i + 1, title: s.title })} onClick={() => go(i)}>
-            {completed.includes(i) && i !== index ? <Check aria-hidden="true" className="h-4 w-4" /> : i + 1}
+          <Button key={s.id} variant="outline" size="icon" data-reviewed={completed.includes(i)} className={cn("h-11 w-11 shrink-0 rounded-full", i === index && "border-primary bg-primary text-primary-foreground", reviewFlow && completed.includes(i) && i !== index && "border-primary text-primary")} aria-current={i === index ? "step" : undefined} aria-label={`${t("smartGuideStandard.jump", { number: i + 1, title: s.title })}${reviewFlow && completed.includes(i) ? ` — ${reviewFlow.reviewed}` : ""}`} onClick={() => go(i)}>
+            {completed.includes(i) && (reviewFlow || i !== index) ? <Check aria-hidden="true" className="h-4 w-4" /> : i + 1}
           </Button>
         ))}
       </nav>
       <p className="text-sm font-semibold text-muted-foreground" aria-live="polite">{t("smartGuideStandard.position", { current: index + 1, total: steps.length })}</p>
+      {reviewFlow && <p data-testid="guide-reviewed-count" className="flex items-center gap-2 text-sm font-semibold text-primary" aria-live="polite"><Check aria-hidden="true" className="h-4 w-4" />{reviewFlow.count(completed.length, steps.length)}</p>}
       <div role="progressbar" aria-label={t("smartGuideStandard.steps")} aria-valuemin={1} aria-valuemax={steps.length} aria-valuenow={index + 1} className="grid h-2 gap-1" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
         {steps.map((s, i) => <span key={s.id} className={cn("rounded-full", i <= index ? "bg-primary" : "bg-muted")} />)}
       </div>
@@ -136,9 +166,20 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
             </label>;
           })}
         </fieldset>}
-        <Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => setCompleted((old) => old.includes(index) ? old.filter((i) => i !== index) : [...old, index])} aria-pressed={completed.includes(index)}>
+        {reviewFlow ? <div className="flex flex-wrap items-center gap-3">
+          <Button className="h-auto min-h-11 w-full whitespace-normal py-3 sm:w-auto" onClick={reviewAndContinue}><Check aria-hidden="true" className="h-4 w-4" />{index === steps.length - 1 ? reviewFlow.finish : reviewFlow.advance}<ArrowRight aria-hidden="true" className="h-4 w-4" /></Button>
+          {completed.includes(index) && <Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => { setCompleted((old) => old.filter((i) => i !== index)); setFinished(false); setNotice(reviewFlow.unmark); }}><RotateCcw aria-hidden="true" className="h-4 w-4" />{reviewFlow.unmark}</Button>}
+        </div> : <Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => setCompleted((old) => old.includes(index) ? old.filter((i) => i !== index) : [...old, index])} aria-pressed={completed.includes(index)}>
           <Check aria-hidden="true" className="h-4 w-4" />{t("smartGuideStandard.reviewed")}
-        </Button>
+        </Button>}
+        {finished && reviewFlow && <section data-testid="guide-completion" className="guide-block-action space-y-4 rounded-md border border-primary p-4">
+          <h3 ref={completionHeading} tabIndex={-1} className="text-lg font-bold text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">{reviewFlow.completionTitle}</h3>
+          <p className="text-sm leading-6 text-muted-foreground">{reviewFlow.completionBody}</p>
+          <p className="font-semibold text-primary">{reviewFlow.count(completed.length, steps.length)}</p>
+          <ul className="space-y-2">{steps.map((s, i) => <li key={s.id}><Button variant="link" className="h-auto min-h-11 whitespace-normal text-left" onClick={() => go(i)}>{completed.includes(i) && <Check aria-hidden="true" className="h-4 w-4" />}{i + 1}. {s.title}</Button></li>)}</ul>
+          {reviewFlow.actions}
+          <Button variant="outline" className="h-auto min-h-11 whitespace-normal" onClick={() => go(0)}><RotateCcw aria-hidden="true" className="h-4 w-4" />{reviewFlow.reopen}</Button>
+        </section>}
       </>}
       <div className="flex flex-wrap justify-between gap-3 border-t border-border pt-4">
         <Button variant="outline" className="min-h-11" disabled={index === 0} onClick={() => go(index - 1)}><ArrowLeft aria-hidden="true" className="h-4 w-4" />{t("smartGuideStandard.previous")}</Button>
