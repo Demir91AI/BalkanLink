@@ -2107,6 +2107,38 @@
       "open": "SmartGuide öffnen",
       "close": "Schließen"
     },
-    "paywallFields": "Klar erklärt, was du vorbereitest und wie du Schritt für Schritt durch das offizielle Verfahren gehst"
+    "paywallFields": "Klar erklärt, was du vorbereitest und wie du Schritt für Schritt durch das offizielle Verfahren gehst",
+    "frame": {
+      "badge": "Schritt-für-Schritt-Leitfaden",
+      "authority": "Zuständig",
+      "localAuthority": "Örtlich zuständige Behörde (Stadt, Gemeinde oder Bundesland)",
+      "verified": "Quelle geprüft: {{date}}",
+      "unverified": "Erfordert aktuelle Prüfung bei der offiziellen Quelle",
+      "readOnly": "Dies ist ein Leitfaden zum Lesen, kein offizieller Antrag. Hier werden keine persönlichen Daten eingegeben und kein PDF erstellt.",
+      "progressTitle": "Dein Fortschritt",
+      "progressNote": "Der Fortschritt wird nicht gespeichert — er gilt nur, solange die Seite geöffnet ist.",
+      "steps": [
+        "Leitfaden gelesen",
+        "Unterlagen vorbereitet",
+        "Antrag bei der zuständigen Stelle eingereicht"
+      ],
+      "moreSources": "Weitere offizielle Quellen"
+    },
+    "paywall": {
+      "title": "Vollständigen Leitfaden freischalten: {{name}}",
+      "fallbackName": "diesen Leitfaden",
+      "subtitle": "Das bekommst du:",
+      "items": [
+        "Vollständiger Leitfaden — jeder Schritt verständlich erklärt",
+        "Was die deutschen Begriffe bedeuten und wo du die Angaben findest",
+        "Unterlagenliste (was genau und wo erhältlich)",
+        "Häufige Fehler und wie du sie vermeidest",
+        "Was tun, wenn der Antrag abgelehnt wird",
+        "Direkte Links zu offiziellen Stellen"
+      ],
+      "ctaRegister": "Kostenlos registrieren",
+      "ctaSubscribe": "Mitgliedschaft ansehen",
+      "registerNote": "Für den Zugang ist ein Konto mit bestätigter E-Mail-Adresse nötig."
+    }
   }
 }
