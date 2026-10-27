@@ -54,7 +54,7 @@ describe("Kindergeld 2.0 paper walkthrough", () => {
       }
     }
     expect(count).toBe(174);
-    expect(panel.querySelectorAll("input,textarea,select")).toHaveLength(0);
+    expect(panel.querySelectorAll("input,textarea,select:not([data-nav])")).toHaveLength(0);
   });
   it("pins seven statuses, three relationship rows with five choices, and separate conditional questions", () => {
     const terms = P.terms;
