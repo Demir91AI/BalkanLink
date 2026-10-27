@@ -1716,18 +1716,18 @@
     "kindergeld": {
       "title": "Kindergeld za novorođenče — korak po korak",
       "lead": "Kindergeld predaješ sam/a na službenom online portalu Familienkasse (Bundesagentur für Arbeit). Ovde ne unosiš nikakve lične podatke — vodič ti samo pokazuje redosled.",
-      "caseQ": "Koja situacija ti najviše odgovara? (neobavezno, samo za orentaciju)",
+      "caseQ": "Koja situacija ti najviše odgovara? (neobavezno, samo za orijentaciju)",
       "case": {
-        "newborn": "Novorođenče ili dete do 18 godina, živimo u Njemačkoj",
-        "adult": "Dete stare od 18 godina",
+        "newborn": "Novorođenče ili dete do 18 godina, živimo u Nemačkoj",
+        "adult": "Dete starije od 18 godina",
         "cross": "Dete je rođeno ili živi u inostranstvu / rad u drugoj državi"
       },
       "adultNote": "Za dete stare od 18 godina Familienkasse traži dodatne dokaze (npr. Schulbescheinigung ili potvrdu o praksi). Koji tačno — proveri na službenoj stranici. BalkanLink ne procjenjuje tvoje pravo.",
       "crossNote": "Ako je dete rođeno ili živi u inostranstvu, traži se kopija strane Geburtsurkunde ili drugog službenog dokumenta o rođenju. Prekogranični slučajevi imaju posebna pravila — proveri službene informace pre prijave. BalkanLink ne određuje koji ti prilozi (Anlagen) trebaju.",
       "stage": {
         "orient": {
-          "title": "Orentacija: da li dolazi u obzir?",
-          "body": "Kindergeld se u pravilu dobija za dete do 18 godina, pod određenim uslovima i duže. Ovo je samo orentacija — o pravu odlučuje isključivo Familienkasse."
+          "title": "Orijentacija: da li dolazi u obzir?",
+          "body": "Kindergeld se u pravilu dobija za dete do 18 godina, pod određenim uslovima i duže. Ovo je samo orijentacija — o pravu odlučuje isključivo Familienkasse."
         },
         "prepare": {
           "title": "Pripremi podatke",
@@ -1761,7 +1761,7 @@
         "formulare": "BA — Formulare Kindergeld"
       },
       "verified": "Sadržaj proveren prema navedenim stranicama Bundesagentur für Arbeit: 27.10.2026.",
-      "disclaimer": "Informativno, ne pravni savjet. BalkanLink ne državna institucija i ne šalje zahteve.",
+      "disclaimer": "Informativno, nije pravni savet. BalkanLink nije državna institucija i ne šalje zahteve.",
       "special": {
         "depends": "Posebni uslovi i potrebni dokumenti zavise od tvoje situacije. BalkanLink ne procenjuje da li imaš pravo — odlučuje Familienkasse.",
         "back": "← Nazad na vodič za novorođenče",

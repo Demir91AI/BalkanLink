@@ -19,6 +19,18 @@ const trig = (de: string) => screen.getByText((_, el) => el?.tagName === "SPAN" 
 const clickRow = (de: string) => { const button = trig(de); if (!button) throw new Error("Missing field trigger"); fireEvent.click(button); };
 
 describe("Kindergeld field-by-field guide", () => {
+  it.each([["bs", bs], ["hr", hr], ["sr", sr], ["de", de]] as const)("%s exposes all 20 paper records through localized mode controls", async (lang, locale) => {
+    const instance = i18n.createInstance();
+    await instance.init({ lng: lang, resources: { [lang]: { pages: locale } }, interpolation: { escapeValue: false } });
+    render(<I18nextProvider i18n={instance}><KindergeldGuideContent /></I18nextProvider>);
+    const fields = locale.guideFirst.kindergeld.fields;
+    expect(fields.short.kg1).toHaveLength(10);
+    expect(fields.short.ank).toHaveLength(10);
+    expect(fields.onlineGroups).toHaveLength(4);
+    expect(fields.paperGroups).toHaveLength(4);
+    fireEvent.mouseDown(screen.getByRole("tab", { name: fields.mode.paper }), { button: 0, ctrlKey: false });
+    expect(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]")).toHaveLength(20);
+  });
   it("defaults to online and switches both ways without adding a second application CTA", async () => {
     await setup();
     expect(screen.getByRole("tab", { name: F.mode.online }).getAttribute("aria-selected")).toBe("true");
