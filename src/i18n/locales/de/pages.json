@@ -2661,7 +2661,7 @@
               "id": "line-012",
               "de": "Staatsangehörigkeit",
               "translation": "Staatsangehörigkeit",
-              "meaning": "Staatsangehörigkeit aus dem Dokument, z. B. bosnisch-herzegowinisch; nicht Sprache, Herkunftsgruppe oder Wohnstaat. Bei mehreren Staatsangehörigkeiten tatsächliche Angaben und nötige Anlagen klären."
+              "meaning": "Staatsangehörigkeit aus dem Dokument, z. B. bosnisch-herzegowinisch; nicht Sprache, Herkunftsgruppe oder Wohnstaat. Bei mehreren Staatsangehörigkeiten tatsächliche Angaben und nötige Anlagen klären. KG1-Hinweise: Bei nichtdeutscher EU/EWR-Staatsangehörigkeit Anlage EU, außer Anlage Ausland ist nach den Hinweisen bereits nötig; bei anderer Staatsangehörigkeit außerhalb EU/EWR/Schweiz Aufenthaltstitel beifügen. Bei deutscher Staatsangehörigkeit und grenzüberschreitenden Umständen Hinweise zu Anlage Ausland prüfen. Anlage nicht allein nach Sprache oder Geburtsort bestimmen."
             }
           ],
           "kg1-3": [
@@ -3073,7 +3073,7 @@
               "id": "line-076",
               "de": "Geburtsdatum",
               "translation": "Geburtsdatum",
-              "meaning": "Geburtsdatum aus dem Dokument, z. B. 15.03.1990 für eine erfundene erwachsene Person; nicht das Antragsdatum."
+              "meaning": "Geburtsdatum des Babys aus dem Geburtsdokument, erfunden 04.10.2026; nicht das Antragsdatum."
             },
             {
               "id": "line-077",

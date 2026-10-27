@@ -2661,7 +2661,7 @@
               "id": "line-012",
               "de": "Staatsangehörigkeit",
               "translation": "Državljanstvo",
-              "meaning": "Državljanstvo iz dokumenta, npr. bosanskohercegovačko; nije jezik, etnička pripadnost ni država stanovanja. Za više državljanstava navedi stvarno stanje i provjeri priloge."
+              "meaning": "Državljanstvo iz dokumenta, npr. bosanskohercegovačko; nije jezik, etnička pripadnost ni država stanovanja. Za više državljanstava navedi stvarno stanje i provjeri priloge. Napomene KG1: za državljanstvo EU/EWR koje nije njemačko navodi se Anlage EU, osim kada je prema uputama već potrebna Anlage Ausland; za drugo državljanstvo izvan EU/EWR/Švicarske navodi se prilaganje Aufenthaltstitela. Kod njemačkog državljanstva i prekograničnih okolnosti pogledaj upute za Anlage Ausland. Ne određuj prilog samo po jeziku ili mjestu rođenja."
             }
           ],
           "kg1-3": [
@@ -3073,7 +3073,7 @@
               "id": "line-076",
               "de": "Geburtsdatum",
               "translation": "Datum rođenja",
-              "meaning": "Prepiši datum rođenja, npr. 15.03.1990 za izmišljenu odraslu osobu; nije datum podnošenja."
+              "meaning": "Datum rođenja bebe iz rodnog dokumenta, izmišljeno 04.10.2026; nije datum podnošenja zahtjeva."
             },
             {
               "id": "line-077",
