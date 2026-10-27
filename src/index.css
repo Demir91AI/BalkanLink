@@ -169,18 +169,26 @@
     --guide-action: 211 80% 35%;
     --guide-where: 155 70% 28%;
     --guide-mistake: 5 70% 38%;
+    --guide-action-bg: 211 75% 96%;
+    --guide-where-bg: 155 45% 95%;
+    --guide-mistake-bg: 5 65% 96%;
+    --guide-neutral-bg: 215 20% 96%;
   }
   :is(.dark, .guide-dark-surface) .smartguide-standard {
     --guide-action: 211 85% 72%;
     --guide-where: 155 60% 65%;
     --guide-mistake: 5 85% 76%;
     --muted-foreground: 213 27% 84%;
+    --guide-action-bg: 213 48% 17%;
+    --guide-where-bg: 158 35% 14%;
+    --guide-mistake-bg: 5 32% 17%;
+    --guide-neutral-bg: 217 30% 16%;
   }
-  .smartguide-standard :where(h3, h4) { color: hsl(var(--foreground)); }
-  .guide-block-action { border-left-color: hsl(var(--guide-action)); }
-  .guide-block-where { border-left-color: hsl(var(--guide-where)); }
-  .guide-block-mistake { border-left-color: hsl(var(--guide-mistake)); }
-  .guide-block-neutral { border-left-color: hsl(var(--border)); }
+  .smartguide-standard :where(h2, h3, h4) { color: hsl(var(--foreground)); }
+  .guide-block-action { border-left-color: hsl(var(--guide-action)); background: hsl(var(--guide-action-bg)); }
+  .guide-block-where { border-left-color: hsl(var(--guide-where)); background: hsl(var(--guide-where-bg)); }
+  .guide-block-mistake { border-left-color: hsl(var(--guide-mistake)); background: hsl(var(--guide-mistake-bg)); }
+  .guide-block-neutral { border-left-color: hsl(var(--border)); background: hsl(var(--guide-neutral-bg)); }
 }
 
 @layer utilities {

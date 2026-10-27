@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ExternalLink, Info, ShieldCheck } from "lucide-react";
 import KindergeldFieldGuide from "@/components/kindergeld/KindergeldFieldGuide";
-import SmartGuide from "@/components/guide-first/SmartGuide";
+import SmartGuide, { type SmartGuideStep } from "@/components/guide-first/SmartGuide";
 import { getGuideSource } from "@/lib/guide-first/official-sources";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,6 @@ const SPECIAL_URL: Record<Exclude<Case, "newborn">, string> = {
   cross: "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ausland",
 };
 const CASES: Case[] = ["newborn", "adult", "cross"];
-const STAGES = ["orient", "prepare", "access", "apply", "after"] as const;
 
 const linkCls = "inline-flex items-center gap-1.5 text-[hsl(var(--gold))] underline-offset-2 hover:underline";
 
@@ -35,15 +34,15 @@ export default function KindergeldGuideContent() {
   const { t } = useTranslation("pages");
   const [c, setC] = useState<Case>("newborn");
   const k = (s: string) => `guideFirst.kindergeld.${s}`;
+  const steps = t(k("workflow.steps"), { returnObjects: true }) as SmartGuideStep[];
+  const summary = t(k("workflow.summary"), { returnObjects: true }) as string[];
+  const newbornSteps = steps.map((step) => ({ ...step,
+    content: step.id === "fields" ? <KindergeldFieldGuide onlineUrl={ONLINE_URL} /> :
+      step.id === "portal" || step.id === "submit" ? <Button asChild className="h-auto min-h-11 w-full whitespace-normal py-3"><a href={ONLINE_URL} target="_blank" rel="noopener noreferrer">{t(k("ctaOnline"))}<ExternalLink aria-hidden="true" className="h-4 w-4" /></a></Button> : undefined,
+  }));
 
   return (
     <div className="space-y-6" data-testid="kindergeld-smartguide">
-      <header className="rounded-2xl border border-[hsl(var(--gold))]/50 bg-card p-5">
-        <p className="text-xs font-bold uppercase tracking-wide text-[hsl(var(--gold))]">SmartGuide · Kindergeld</p>
-        <h2 className="mt-1 text-xl font-bold text-foreground">{t(k("title"))}</h2>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(k("lead"))}</p>
-      </header>
-
       <section aria-labelledby="kg-case">
         <p id="kg-case" className="mb-2 text-sm font-semibold text-foreground">{t(k("caseQ"))}</p>
         <Tabs value={c} onValueChange={(v) => { if (v === "newborn" || v === "adult" || v === "cross") setC(v); }}>
@@ -62,10 +61,11 @@ export default function KindergeldGuideContent() {
         </Tabs>
       </section>
 
-      {c === "newborn" && <KindergeldFieldGuide onlineUrl={ONLINE_URL} />}
+      {c === "newborn" && <SmartGuide id="kindergeld-newborn" title={t(k("title"))} subtitle={t(k("lead"))}
+        source={getGuideSource("kindergeld")} steps={newbornSteps} summary={summary} />}
 
       {c !== "newborn" && (
-        <section data-testid={`kg-special-${c}`} className="rounded-2xl border border-amber-500/30 bg-amber-950 p-5 text-sm text-foreground">
+        <section data-testid={`kg-special-${c}`} className="rounded-lg border border-border bg-card p-5 text-sm text-foreground">
           <h3 className="font-semibold text-foreground">{t(k(`special.${c}.title`))}</h3>
           <p className="mt-2 leading-relaxed">{t(k(`special.${c}.body`))}</p>
           <p className="mt-2 leading-relaxed">{t(k("special.depends"))}</p>
@@ -84,21 +84,8 @@ export default function KindergeldGuideContent() {
         </section>
       )}
 
-      {c === "newborn" && (
-      <details className="border-b border-border pb-4">
-      <summary className="cursor-pointer py-2 text-sm font-semibold text-foreground">{t(k("processTitle"))}</summary>
-      <div className="mt-3">
-        <SmartGuide id="kindergeld-newborn" source={getGuideSource("kindergeld")}
-          steps={STAGES.map((s) => ({ id: s, title: t(k(`stage.${s}.title`)),
-            blocks: [{ kind: "action" as const, text: t(k(`stage.${s}.body`)) }],
-            checklist: t(`smartGuideStandard.kindergeldChecks.${s}`, { returnObjects: true }) as string[],
-          }))} />
-      </div>
-      </details>
-      )}
 
-
-      <section className="rounded-2xl border border-border bg-card p-4">
+      <section className="rounded-lg border border-border bg-card p-4">
         <div className="flex items-center gap-2 text-[hsl(var(--gold))]">
           <ShieldCheck className="h-4 w-4" />
           <h3 className="text-sm font-bold uppercase tracking-wide">{t(k("sourcesTitle"))}</h3>

@@ -7,11 +7,32 @@ import { cn } from "@/lib/utils";
 import { normalizeProgress, progressKey } from "@/lib/guide-first/progress";
 import type { GuideSource } from "@/lib/guide-first/official-sources";
 
-export type GuideBlockKind = "action" | "field" | "where" | "format" | "mistake" | "empty" | "example" | "note";
+export type GuideBlockKind = "meaning" | "action" | "field" | "where" | "format" | "mistake" | "empty" | "example" | "note" | "next";
+export interface GuideStepSections {
+  meaning?: string;
+  action?: string;
+  where?: string;
+  example?: string;
+  mistake?: string;
+  next?: string;
+  /** Only for a source-verified native form field, never an eligibility step. */
+  verifiedField?: { instruction: string; reference: string; format?: string };
+}
+export function sectionBlocks(sections: GuideStepSections): { kind: GuideBlockKind; text: string }[] {
+  const kinds = ["meaning", "action", "where", "example", "mistake", "next"] as const;
+  const blocks: { kind: GuideBlockKind; text: string }[] = kinds.flatMap((kind) => sections[kind]?.trim() ? [{ kind, text: sections[kind] ?? "" }] : []);
+  if (sections.verifiedField?.instruction.trim() && sections.verifiedField.reference.trim()) {
+    blocks.push({ kind: "field", text: `${sections.verifiedField.reference}\n${sections.verifiedField.instruction}` });
+    if (sections.verifiedField.format) blocks.push({ kind: "format", text: sections.verifiedField.format });
+  }
+  return blocks;
+}
 export interface SmartGuideStep {
   id: string;
   title: string;
   reference?: string;
+  subtitle?: string;
+  sections?: GuideStepSections;
   blocks?: { kind: GuideBlockKind; text: string }[];
   content?: ReactNode;
   checklist?: string[];
@@ -26,15 +47,19 @@ interface Props {
   lockedContent?: ReactNode;
   onFinish?: () => void;
   finishLabel?: string;
+  title?: string;
+  subtitle?: string;
+  summary?: string[];
 }
 const tones: Record<GuideBlockKind, string> = {
+  meaning: "guide-block-neutral", next: "guide-block-action",
   action: "guide-block-action", field: "guide-block-action", where: "guide-block-where",
   format: "guide-block-neutral", mistake: "guide-block-mistake", empty: "guide-block-neutral",
   example: "guide-block-where", note: "guide-block-neutral",
 };
 
 /** Presentation/navigation only. Hosts own branching, access and factual content. */
-export default function SmartGuide({ id, steps, source, currentStep, onStepChange, isLocked, lockedContent, onFinish, finishLabel }: Props) {
+export default function SmartGuide({ id, steps, source, currentStep, onStepChange, isLocked, lockedContent, onFinish, finishLabel, title, subtitle, summary }: Props) {
   const { t } = useTranslation("pages");
   const uid = useId();
   const heading = useRef<HTMLHeadingElement>(null);
@@ -75,27 +100,33 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
   };
   const locked = isLocked?.(index) === true;
   return (
-    <section data-testid="smartguide-template" data-workflow={id} className="smartguide-standard min-w-0 space-y-5 text-foreground">
+    <section data-testid="smartguide-template" data-workflow={id} aria-label={title} className="smartguide-standard min-w-0 space-y-5 rounded-lg border border-border bg-card p-4 text-foreground sm:p-6">
+      {title && <header className="space-y-2 border-b border-border pb-4"><h2 className="break-words text-xl font-bold text-foreground">{title}</h2>{subtitle && <p className="text-sm leading-6 text-muted-foreground">{subtitle}</p>}</header>}
       <nav aria-label={t("smartGuideStandard.steps")} className="flex gap-2 overflow-x-auto pb-2">
         {steps.map((s, i) => (
-          <Button key={s.id} variant="outline" size="icon" className={cn("h-11 w-11 shrink-0 rounded-md", i === index && "border-primary bg-primary text-primary-foreground")} aria-current={i === index ? "step" : undefined} aria-label={t("smartGuideStandard.jump", { number: i + 1, title: s.title })} onClick={() => go(i)}>
+          <Button key={s.id} variant="outline" size="icon" className={cn("h-11 w-11 shrink-0 rounded-full", i === index && "border-primary bg-primary text-primary-foreground")} aria-current={i === index ? "step" : undefined} aria-label={t("smartGuideStandard.jump", { number: i + 1, title: s.title })} onClick={() => go(i)}>
             {completed.includes(i) && i !== index ? <Check aria-hidden="true" className="h-4 w-4" /> : i + 1}
           </Button>
         ))}
       </nav>
       <p className="text-sm font-semibold text-muted-foreground" aria-live="polite">{t("smartGuideStandard.position", { current: index + 1, total: steps.length })}</p>
+      <div role="progressbar" aria-label={t("smartGuideStandard.steps")} aria-valuemin={1} aria-valuemax={steps.length} aria-valuenow={index + 1} className="grid h-2 gap-1" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
+        {steps.map((s, i) => <span key={s.id} className={cn("rounded-full", i <= index ? "bg-primary" : "bg-muted")} />)}
+      </div>
       <h3 id={uid} ref={heading} tabIndex={-1} className="break-words text-lg font-bold text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">{step.title}</h3>
+      {step.subtitle && <p className="text-sm leading-6 text-muted-foreground">{step.subtitle}</p>}
       {step.reference && <p className="text-sm text-muted-foreground">{step.reference}</p>}
       {locked ? lockedContent : <>
         <div className="grid min-w-0 gap-3 sm:grid-cols-2">
-          {step.blocks?.filter((b) => b.text.trim()).map((b, i) => (
-            <section key={i} className={cn("min-w-0 rounded-md border border-border border-l-4 bg-card p-4", tones[b.kind])}>
+          {[...(step.sections ? sectionBlocks(step.sections) : []), ...(step.blocks ?? [])].filter((b) => b.text.trim()).map((b, i) => (
+            <section key={i} className={cn("min-w-0 rounded-md border border-border border-l-4 p-4", tones[b.kind])}>
               <h4 className="mb-2 text-sm font-bold text-foreground">{t(`smartGuideStandard.block.${b.kind}`)}</h4>
               <p className="whitespace-pre-line break-words text-sm leading-6 text-muted-foreground">{b.text}</p>
             </section>
           ))}
         </div>
         {step.content}
+        {index === steps.length - 1 && summary && <section className="space-y-2 border-t border-border pt-4"><h4 className="font-bold text-foreground">{t("smartGuideStandard.summary")}</h4><ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-muted-foreground">{summary.map((item) => <li key={item}>{item}</li>)}</ul></section>}
         {step.checklist && step.checklist.length > 0 && <fieldset className="space-y-3 border-t border-border pt-4">
           <legend className="text-sm font-semibold text-foreground">{t("smartGuideStandard.checklist")}</legend>
           {step.checklist.map((label, i) => {
