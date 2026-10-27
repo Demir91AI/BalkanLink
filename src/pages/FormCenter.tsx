@@ -324,7 +324,7 @@ export default function FormCenter() {
   // Mobile: if slug selected, show guide
   if (isMobile && activeSlug && !isRemovedFormSlug) {
     return (
-      <div className="px-4 py-6">
+      <div className="guide-dark-surface min-h-screen bg-background px-4 pt-6 pb-28" data-testid="guide-dark-surface">
         <PageNavBar onBack={handleBack} />
         {canAccess ? (
           <>
@@ -484,7 +484,7 @@ export default function FormCenter() {
             </h1>
           </div>
           {canAccess ? (
-            <GuideContent key={activeSlug} slug={activeSlug} />
+            <div className="guide-dark-surface rounded-2xl bg-background p-4 sm:p-6" data-testid="guide-dark-surface"><GuideContent key={activeSlug} slug={activeSlug} /></div>
           ) : (
             <FormPremiumPaywall slug={activeSlug} entry={activeEntry} />
           )}
