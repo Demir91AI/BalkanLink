@@ -22,7 +22,14 @@ export default function FieldWalkthrough({ groups, mode, sourceUrl }: { groups: 
     setReviewed((old) => old.includes(group.id) ? old : [...old, group.id]);
     if (index < groups.length - 1) go(index + 1);
   };
+  const opt = (g: FieldGroup, i: number) => <option key={g.id} value={i}>{reviewed.includes(g.id) ? "✓ " : ""}{i + 1}. {g.title}{mode === "paper" ? ` — ${g.form} · ${t("guideFirst.kindergeld.fields.lbl.page")} ${g.page} · ${t("guideFirst.kindergeld.fields.lbl.sec")} ${g.sec}` : ""}</option>;
+  const forms = [...new Set(groups.map((g) => g.form))];
   return <div data-testid={`kg-${mode}-details`} className="min-w-0 space-y-4">
+    <label className="block text-sm font-semibold text-foreground">{t(k("jumpLabel"))}
+      <select data-testid={`kg-${mode}-jump`} value={index} onChange={(e) => go(Number(e.target.value))} className="mt-2 block min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">
+        {forms.length > 1 ? forms.map((f) => <optgroup key={f} label={f}>{groups.map((g, i) => g.form === f ? opt(g, i) : null)}</optgroup>) : groups.map(opt)}
+      </select>
+    </label>
     <details className="border-b border-border pb-2">
       <summary className="min-h-11 cursor-pointer py-3 font-semibold text-primary">{t(k("fieldIndex"), { total: groups.length })}</summary>
       <nav aria-label={t(k("fieldIndex"), { total: groups.length })} className="grid gap-2 py-3 sm:grid-cols-2">

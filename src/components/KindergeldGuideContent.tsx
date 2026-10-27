@@ -46,7 +46,7 @@ export default function KindergeldGuideContent() {
   </div>;
   const newbornSteps = steps.map((step) => ({ ...step,
     content: <div className="space-y-4">
-      {step.id === "fields" && <KindergeldFieldGuide onlineUrl={ONLINE_URL} />}
+      {step.id === "fields" && <p data-testid="kg-step-pointer" className="guide-block-action rounded-md border border-border p-4 text-sm font-semibold leading-6 text-foreground"><a href="#kg-field-guide-title" className="underline">{t(p("stepPointer"))}</a></p>}
       <section className="guide-block-where rounded-md border border-border p-4"><h4 className="mb-2 text-sm font-bold text-foreground">{help[steps.indexOf(step)]?.[0]}</h4><p className="text-sm leading-6 text-muted-foreground">{help[steps.indexOf(step)]?.[1]}</p></section>
       {(step.id === "portal" || step.id === "submit" || step.id === "after") && actions}
       {(step.id === "documents" || step.id === "prepare") && <Button asChild variant="outline" className="h-auto min-h-11 whitespace-normal"><a href={BZST_ID_URL} target="_blank" rel="noopener noreferrer">{t(p("idLink"))}<ExternalLink aria-hidden="true" className="h-4 w-4" /></a></Button>}
@@ -74,6 +74,7 @@ export default function KindergeldGuideContent() {
       </section>
 
       {c === "existing" && <aside data-testid="kg-existing" className="guide-block-where rounded-md border border-border p-4 text-sm leading-6 text-foreground">{t(p("existingBody"))}</aside>}
+      {(c === "newborn" || c === "existing") && <KindergeldFieldGuide onlineUrl={ONLINE_URL} />}
       {(c === "newborn" || c === "existing") && <SmartGuide id="kindergeld-newborn" title={t(k("title"))} subtitle={t(k("lead"))}
         source={getGuideSource("kindergeld")} steps={newbornSteps} summary={summary}
         reviewFlow={{ advance: t(p("advance")), finish: t(p("finish")), reviewed: t(p("reviewed")), unmark: t(p("unmark")), count: (count, total) => t(p("count"), { count, total }), announcement: (title) => t(p("announcement"), { title }), completionTitle: t(p("completionTitle")), completionBody: t(p("completionBody")), reopen: t(p("reopen")), actions }} />}
