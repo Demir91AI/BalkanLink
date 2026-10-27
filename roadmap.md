@@ -1,8 +1,10 @@
 
 ## Reusable SmartGuide standard (2026-10-27, Preview/code only)
-- [ ] Record full route/category inventory and content parity gaps before guide changes.
-- [ ] Build reusable accessible navigation/progress/source standard; migrate prioritized guides while preserving their content and branches.
-- [ ] Test navigation, privacy, locales and regressions; visually check real routes and report exact coverage/remaining migrations.
+- [x] Record full route/category inventory and content parity gaps before guide changes (200 paths, 46 services).
+- [x] Build reusable navigation/progress/source standard and prioritized presentation migration; retain branches/content/gates.
+- [x] Test navigation/privacy/locales/regressions: 1008 passed, automatic build OK; 16 isolated Kindergeld light/dark checks; real public routes preserve prompts. See coverage report.
+- [ ] Authenticated guide E2E: blocked by no matching owner app account; no account selected or auth changed.
+- [ ] Complete bespoke Visa/Anerkennung/citizenship and remaining procedure content standard: blocked on procedure-specific official source/edition verification and jurisdiction review; no generic content substituted.
 
 ## Confirmed Stripe catalog synchronization (2026-10-27, code only)
 - [x] Audit and remove obsolete new-customer offers; preserve legacy subscriptions and webhook handling.
