@@ -1,7 +1,7 @@
 import { useRef, useCallback, useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
-import { Menu, Crown } from "lucide-react";
+import { Menu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { HeaderInstallPopup } from "@/components/HeaderInstallPopup";
@@ -194,7 +194,7 @@ export default function Header() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
               />
-              <Crown className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
+              <ArrowRight className="h-3.5 w-3.5 relative z-10" strokeWidth={2.5} />
               <span className="relative z-10">{t("common:nav.becomePremium")}</span>
             </button>
           )}

@@ -3,11 +3,10 @@
  * Lists all checklists as cards, premium ones gated visually.
  */
 import { useTranslation } from "react-i18next";
-import { Crown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import PageNavBar from "@/components/navigation/PageNavBar";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { CHECKLISTS } from "@/lib/checklists-data";
 import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
@@ -28,7 +27,6 @@ const ACCENTS: Record<string, string> = {
 export default function CheckListe() {
   const { t } = useTranslation("checklists");
   const navigate = useLocalizedNavigate();
-  const { isPremium } = usePremiumAccess();
 
   return (
     <>
@@ -37,10 +35,6 @@ export default function CheckListe() {
         <PageNavBar showShare shareTitle={t("hub.title")} />
 
         <div className="mt-4 mb-6 text-center">
-          <Badge variant="outline" className="border-[hsl(var(--gold))]/40 mb-3">
-            <Crown className="mr-1 h-3 w-3 text-[hsl(var(--gold))]" />
-            {t("hub.badge")}
-          </Badge>
           <h1 className="text-3xl sm:text-4xl font-bold mb-2">{t("hub.title")}</h1>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t("hub.subtitle")}
@@ -50,7 +44,6 @@ export default function CheckListe() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {CHECKLISTS.map((cl) => {
             const Icon = cl.icon;
-            const locked = cl.premium && !isPremium;
             return (
               <Card
                 key={cl.id}
@@ -61,18 +54,6 @@ export default function CheckListe() {
                     <div className={cn("flex h-11 w-11 items-center justify-center rounded-xl shadow-sm", ACCENTS[cl.accent])}>
                       <Icon className="h-5 w-5 text-white" />
                     </div>
-                    {!isPremium && (
-                      <Badge
-                        variant="outline"
-                        className={cn(
-                          "text-[10px]",
-                          cl.premium ? "border-[hsl(var(--gold))]/40 text-[hsl(var(--gold))]" : "border-emerald-500/40 text-emerald-600"
-                        )}
-                      >
-                        {cl.premium && <Crown className="mr-1 h-2.5 w-2.5" />}
-                        {cl.premium ? t("hub.premiumBadge") : t("hub.freeBadge")}
-                      </Badge>
-                    )}
                   </div>
                   <h3 className="text-base font-bold mb-1 leading-snug">{t(`${cl.id}.title`)}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">

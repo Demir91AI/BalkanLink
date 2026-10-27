@@ -213,44 +213,6 @@ function GuideContent({ slug }: { slug: string }) {
   );
 }
 
-/* ─── Category badge helpers ─── */
-function FreeBadge({ hidden }: { hidden?: boolean }) {
-  if (hidden) return null;
-  return (
-    <span className="ml-auto shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-2 py-0.5 text-[9px] font-bold uppercase text-emerald-700 dark:text-emerald-400">
-      ✓ Besplatno
-    </span>
-  );
-}
-
-function PremiumBadge({ hidden }: { hidden?: boolean }) {
-  if (hidden) return null;
-  return (
-    <span className="ml-auto shrink-0 flex items-center gap-0.5 rounded-full bg-[hsl(var(--gold))]/10 px-2 py-0.5 text-[9px] font-bold uppercase text-[hsl(var(--gold))]">
-      <Lock className="h-2.5 w-2.5" /> Premium
-    </span>
-  );
-}
-
-function ItemBadge({ slug, hidden }: { slug: string; hidden?: boolean }) {
-  if (hidden) return null;
-  if (isFormFree(slug)) {
-    return <span className="shrink-0 rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-1.5 py-0.5 text-[8px] font-bold text-emerald-700 dark:text-emerald-400">BESPLATNO</span>;
-  }
-  return <span className="shrink-0 rounded-full bg-[hsl(var(--gold))]/10 px-1.5 py-0.5 text-[8px] font-bold text-[hsl(var(--gold))]">🔒 PREMIUM</span>;
-}
-
-function AvailabilityIndicator({ slug }: { slug: string }) {
-  const free = isFormFree(slug);
-  const muster = hasMuster(slug);
-  const icon = free ? "✓" : "🔒";
-  return (
-    <p className="text-[10px] text-muted-foreground/70 mt-0.5">
-      {icon} Smart Guide {muster ? `  ${icon} Musterformular` : ""}
-    </p>
-  );
-}
-
 /* ─── Main Page ─── */
 export default function FormCenter() {
   const { slug } = useParams<{ slug: string }>();
@@ -351,7 +313,6 @@ export default function FormCenter() {
             <span className="text-[10px] text-muted-foreground truncate block">{item.includes}</span>
           )}
         </div>
-        <ItemBadge slug={item.slug} hidden={isPremium} />
       </button>
     );
   };
@@ -372,9 +333,6 @@ export default function FormCenter() {
                 style={{ background: '#1E293B' }}
               >
                 📋 Otvori Musterformular
-                {!isFormFree(activeSlug) && (
-                  <span style={{ color: '#C9A84C', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', marginLeft: 4 }}>⭐ PREMIUM</span>
-                )}
               </button>
             )}
           </>
@@ -431,9 +389,6 @@ export default function FormCenter() {
                 style={{ background: '#1E293B' }}
               >
                 📋 Otvori Musterformular
-                {!isFormFree(activeSlug) && (
-                  <span style={{ color: '#C9A84C', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', marginLeft: 4 }}>⭐ PREMIUM</span>
-                )}
               </button>
             )}
           </>
@@ -492,7 +447,6 @@ export default function FormCenter() {
                     <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wide hover:text-foreground transition-colors text-[hsl(var(--gold))]">
                       <span>{group.icon}</span>
                       <span className="flex-1 text-left">{getGroupTitle(group)}</span>
-                      {group.isFree ? <FreeBadge hidden={isPremium} /> : <PremiumBadge hidden={isPremium} />}
                       <ChevronDown
                         className={cn(
                           "h-3.5 w-3.5 transition-transform shrink-0",
@@ -544,7 +498,6 @@ export default function FormCenter() {
             <h1 className="text-lg sm:text-xl font-semibold text-foreground truncate">
               {allEntries.find(e => e.slug === activeSlug)?.label || activeSlug}
             </h1>
-            <ItemBadge slug={activeSlug} hidden={isPremium} />
           </div>
           {canAccess ? (
             <GuideContent key={activeSlug} slug={activeSlug} />

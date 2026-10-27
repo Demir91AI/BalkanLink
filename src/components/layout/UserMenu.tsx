@@ -10,7 +10,7 @@
  */
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { UserCircle, LogIn, User as UserIcon, Smartphone, LogOut, Crown, Star } from "lucide-react";
+import { UserCircle, LogIn, User as UserIcon, Smartphone, LogOut, ArrowRight, Star } from "lucide-react";
 import { useSavedItems } from "@/hooks/useSavedItems";
 import {
   DropdownMenu,
@@ -131,7 +131,7 @@ export function UserMenu() {
                 onClick={() => navigate("/premium")}
                 className="text-white/85 focus:text-white focus:bg-white/5 cursor-pointer"
               >
-                <Crown className="h-4 w-4 mr-2 text-[hsl(var(--gold))]" />
+                <ArrowRight className="h-4 w-4 mr-2 text-[hsl(var(--gold))]" />
                 {t("nav.becomePremium")}
               </DropdownMenuItem>
             )}
