@@ -1683,6 +1683,7 @@ export type Database = {
           premium_used_today: number
         }[]
       }
+      get_entitlement: { Args: { uid: string }; Returns: Json }
       get_live_stats: { Args: never; Returns: Json }
       grant_doc_check_credit: {
         Args: {
