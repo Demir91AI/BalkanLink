@@ -4,11 +4,13 @@ import MusterFormBase, { S, Field, IdBoxes, SecHeader, Signature, TOpt } from "@
 import MusterDisclaimer from "@/components/muster/MusterDisclaimer";
 import PrivacyGuarantee from "@/components/muster/PrivacyGuarantee";
 import KindergeldGuideContent from "@/components/KindergeldGuideContent";
-import { fillKindergeldPdf, downloadBlob } from "@/lib/pdf-fill-kindergeld";
+// Legacy filler kept importable; the page no longer offers a filled copy of the unverified bundled KG1.
+import { downloadBlob as _legacyDownloadBlob } from "@/lib/pdf-fill-kindergeld";
 import type { KindergeldFormData, Geschlecht, Familienstand } from "@/lib/kindergeld-fields";
+import KindergeldAssistent from "@/components/kindergeld/KindergeldAssistent";
+import { KG_OFFICIAL } from "@/lib/kindergeld-assistant/datenblatt";
 
 const LS_KEY = "kg1-muster-data";
-const PDF_URL = "/muster/kg1-antrag-kindergeld-2026.pdf";
 
 const initial = () => ({
   steuerId1: "", familienname: "", titel: "", vorname: "", geburtsname: "", geburtsdatum: "", geburtsort: "", geschlecht: "", staatsangehoerigkeit: "", strasse: "", plz: "", wohnort: "", staat: "Deutschland", familienstand: "", familienstandSeit: "",
@@ -70,25 +72,14 @@ export default function KindergeldMuster() {
     const k = [...p.kinder]; k[i] = { ...k[i], [key]: val }; return { ...p, kinder: k };
   }), []);
 
-  const handleAutoFill = async () => {
-    setPdfError(null); setGenerating(true);
-    try {
-      const blob = await fillKindergeldPdf(toPdfData(f));
-      const fname = `Kindergeld-KG1-${f.familienname || "antrag"}.pdf`.replace(/\s+/g, "_");
-      downloadBlob(blob, fname);
-    } catch (e) {
-      setPdfError(e instanceof Error ? e.message : String(e));
-    } finally { setGenerating(false); }
-  };
-
   return (
     <>
     <MusterFormBase
       rootId="kg1-root"
       title="Antrag auf Kindergeld"
       subtitle={t("musterFlow.kindergeld.subtitle", "Musterformular KG 1 — BalkanLink — nur zur Orientierung")}
-      pdfUrl={PDF_URL}
-      pdfLabel={t("musterFlow.kindergeld.originalLink", "Preuzmi prazan originalni KG1 PDF →")}
+      pdfUrl={KG_OFFICIAL.kg1}
+      pdfLabel={t("musterFlow.kindergeld.originalLink")}
       footerNote={t("musterFlow.kindergeld.footerNote", "Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei Familienkasse einreichen • BalkanLink ist keine staatliche Stelle")}
       lsKey={LS_KEY}
       formularId="kindergeld"
@@ -99,32 +90,8 @@ export default function KindergeldMuster() {
       <MusterDisclaimer formKey="kindergeld"><></></MusterDisclaimer>
       <PrivacyGuarantee />
 
-      {/* AUTO-FILL PDF + 3-koraka dostave */}
-      <div style={{ marginBottom: 18, padding: 16, background: "#ECFDF5", border: "2px solid #10B981", borderRadius: 10 }}>
-        <div style={{ fontWeight: 700, fontSize: 14, color: "#065F46", marginBottom: 6 }}>
-          ✅ {t("musterFlow.kindergeld.autofillTitle", "Popuni online → preuzmi 1:1 originalni Familienkasse PDF")}
-        </div>
-        <div style={{ fontSize: 12, color: "#065F46", lineHeight: 1.55, marginBottom: 12 }}>
-          {t("musterFlow.kindergeld.autofillBody", "Tvoji podaci se popunjavaju u zvanični KG1 PDF lokalno u tvom browseru — ništa ne ide na server. Preuzmi, potpiši i pošalji nadležnoj Familienkasse.")}
-        </div>
-        <button
-          onClick={handleAutoFill}
-          disabled={generating}
-          style={{ background: generating ? "#9CA3AF" : "#15803d", color: "#fff", border: "none", padding: "12px 18px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: generating ? "wait" : "pointer", boxShadow: "0 4px 12px rgba(21,128,61,0.3)" }}
-        >
-          {generating ? t("musterFlow.kindergeld.generating", "Generiram PDF…") : `📄 ${t("musterFlow.kindergeld.downloadFilled", "Preuzmi popunjeni KG1 PDF")}`}
-        </button>
-        {pdfError && <div style={{ marginTop: 8, color: "#DC2626", fontSize: 12 }}>⚠ {pdfError}</div>}
-      </div>
-
-      <div style={{ marginBottom: 18, padding: 14, background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: 8, fontSize: 12, color: "#1E3A8A", lineHeight: 1.55 }}>
-        <div style={{ fontWeight: 700, marginBottom: 8 }}>📬 {t("musterFlow.kindergeld.delivery.title", "3 načina dostave zahtjeva")}</div>
-        <ol style={{ margin: 0, paddingLeft: 18 }}>
-          <li><strong>{t("musterFlow.kindergeld.delivery.online", "Online (BundID)")}</strong> — <a href="https://www.familienkasse.de" target="_blank" rel="noopener noreferrer" style={{ color: "#1E40AF", textDecoration: "underline" }}>familienkasse.de</a> — bez ispisa i potpisa.</li>
-          <li><strong>{t("musterFlow.kindergeld.delivery.pdf", "Popunjeni PDF")}</strong> — preuzmi gore, ispiši, potpiši, pošalji poštom.</li>
-          <li><strong>{t("musterFlow.kindergeld.delivery.post", "Pošta / lično")}</strong> — nadležna Familienkasse: <a href="https://www.arbeitsagentur.de/familienkasse-finden" target="_blank" rel="noopener noreferrer" style={{ color: "#1E40AF", textDecoration: "underline" }}>familienkasse-finden →</a></li>
-        </ol>
-      </div>
+      {/* Kindergeld Asistent: non-official data sheet + unchanged official BA forms (no filled derivative PDF). */}
+      <KindergeldAssistent f={f} set={set} setKind={setKind} />
 
       {/* HEADER right side */}
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 16 }}>
