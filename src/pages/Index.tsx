@@ -16,7 +16,6 @@ import { premiumShowcaseFirms } from "@/components/home/premium-showcase-data";
 
 import HeroSection from "@/components/home/HeroSection";
 import FeatureCards from "@/components/home/FeatureCards";
-import BeforeAfterSection from "@/components/home/BeforeAfterSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import TrustSection from "@/components/home/TrustSection";
 import PricingWarning from "@/components/home/PricingWarning";
@@ -167,9 +166,6 @@ export default function Index() {
       <CollapsibleSection title={t("home.featureCards.heading")} background="hsl(215 55% 4%)">
         <FeatureCards />
       </CollapsibleSection>
-
-      {/* ─── BEFORE / AFTER ─── */}
-      <BeforeAfterSection />
 
       {/* ─── FLOW BANNER CAROUSEL ─── */}
       <FlowBanner />

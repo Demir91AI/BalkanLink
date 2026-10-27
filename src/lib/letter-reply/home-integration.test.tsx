@@ -13,7 +13,6 @@ vi.mock('@/components/SEO', () => ({ SEO: () => null }));
 vi.mock('@/components/membership/MembershipOffer', () => ({ default: () => null }));
 vi.mock('@/components/home/HeroSection', () => ({ default: () => null }));
 vi.mock('@/components/home/FeatureCards', () => ({ default: () => null }));
-vi.mock('@/components/home/BeforeAfterSection', () => ({ default: () => null }));
 vi.mock('@/components/home/ProcessSection', () => ({ default: () => null }));
 vi.mock('@/components/home/TrustSection', () => ({ default: () => null }));
 vi.mock('@/components/home/PricingWarning', () => ({ default: () => null }));

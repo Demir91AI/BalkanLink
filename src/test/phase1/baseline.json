@@ -557,7 +557,6 @@
     ],
     "src/pages/Index.tsx": [
       "@/components/SEO",
-      "@/components/home/BeforeAfterSection",
       "@/components/home/CollapsibleSection",
       "@/components/home/CommunityHighlights",
       "@/components/home/FeatureCards",

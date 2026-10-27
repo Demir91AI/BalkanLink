@@ -13,7 +13,7 @@ export default function TrainerFaq() {
     { q: "Za koga je ovo pogodno?", a: "Za sve koji žele vježbati njemački u stvarnim svakodnevnim situacijama — od početnika (A1) do naprednih (C2)." },
     { q: "Kako funkcionira struktura cijena?", a: "Možeš kupiti pojedinačne nivoe ili pakete. Paketi su povoljniji i nude vrijednosni vaučer pri 100% završetku." },
     { q: "Šta je vrijednosni vaučer?", a: "Kao Premium korisnik dobijaš vrijednosni vaučer pri 100% završetku. Provjera se vrši ručno od strane BalkanLink-a. Detalji u bonus uslovima." },
-    { q: "Da li je Ultimate pretplata?", a: "Ne. Svi kupovine su jednokratne uplate. Platiš jednom i imaš trajni pristup." },
+    { q: "Kako se plaća kurs?", a: "Kurs je uključen u BalkanLink članstvo: 7 dana besplatno, zatim 19,99 € godišnje, otkazivo u svakom trenutku." },
     { q: "Kako funkcionira XP sistem?", a: "Svaki tačan odgovor donosi +1 XP. Tvoj napredak se čuva. Maksimalno dostižno: Level 15." },
     { q: "Moram li učiti gramatiku?", a: "Ne. BalkanLink Deutsch se fokusira na praktične situacije. Gramatiku učiš usput." },
   ];

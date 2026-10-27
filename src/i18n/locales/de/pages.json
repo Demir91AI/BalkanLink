@@ -164,23 +164,6 @@
         }
       }
     },
-    "beforeAfter": {
-      "heading": "Von komplizierten Formularen zu klaren Schritten.",
-      "subline": "BalkanLink macht aus deutscher Bürokratie einen einfachen Prozess.",
-      "before": "VORHER",
-      "after": "MIT BALKANLINK",
-      "afterCard": {
-        "title": "Kindergeld — Schritt 1 von 4",
-        "subtitle": "Persönliche Daten der antragstellenden Person",
-        "field1": "Nachname",
-        "hint1": "Ihr Nachname (wie im Pass)",
-        "field2": "Vorname",
-        "hint2": "Ihr Vorname",
-        "field3": "Geburtsdatum",
-        "hint3": "Format TT.MM.JJJJ",
-        "ok": "Alle Felder wurden korrekt ausgefüllt"
-      }
-    },
     "flowBanner": {
       "heading": "Alles, was du in Deutschland brauchst — an einem Ort",
       "subline": "Formulare, Visum, Deutsch, Dokumente und vieles mehr — in deiner Sprache",
