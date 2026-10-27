@@ -143,7 +143,7 @@ export default function SmartGuide({ id, steps, source, currentStep, onStepChang
       <div role="progressbar" aria-label={t("smartGuideStandard.steps")} aria-valuemin={1} aria-valuemax={steps.length} aria-valuenow={index + 1} className="grid h-2 gap-1" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
         {steps.map((s, i) => <span key={s.id} className={cn("rounded-full", i <= index ? "bg-primary" : "bg-muted")} />)}
       </div>
-      <h3 id={uid} ref={heading} tabIndex={-1} className="break-words text-lg font-bold text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">{step.title}</h3>
+      <h3 id={uid} ref={heading} tabIndex={-1} className={cn("break-words text-lg font-bold text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring", reviewFlow && "scroll-mt-28")}>{step.title}</h3>
       {step.subtitle && <p className="text-sm leading-6 text-muted-foreground">{step.subtitle}</p>}
       {step.reference && <p className="text-sm text-muted-foreground">{step.reference}</p>}
       {locked ? lockedContent : <>

@@ -20,12 +20,12 @@ for (const lang of ['bs', 'hr', 'sr', 'de']) {
         await expect(guide).toBeVisible();
         expect(await guide.evaluate(e => !!e.closest('details'))).toBe(false);
         await guide.getByRole('button', { name: locale.smartGuideStandard.next, exact: true }).click();
-        await expect(guide.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '2');
+        await expect(guide.locator(':scope > [role=progressbar]')).toHaveAttribute('aria-valuenow', '2');
         await guide.getByRole('button', { name: locale.smartGuideStandard.previous, exact: true }).click();
-        await expect(guide.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '1');
+        await expect(guide.locator(':scope > [role=progressbar]')).toHaveAttribute('aria-valuenow', '1');
         await guide.scrollIntoViewIfNeeded();
         await testInfo.attach('primary-wizard', { body: await guide.screenshot(), contentType: 'image/png' });
-        const jumps = guide.locator('nav button');
+        const jumps = guide.locator(':scope > nav button');
         if (slug === 'kindergeld') {
           await expect(jumps).toHaveCount(7);
           await jumps.nth(4).click();

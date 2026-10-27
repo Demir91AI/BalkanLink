@@ -107,6 +107,7 @@ describe("guide navigation and four-language standard", () => {
   it("new standard has identical key shapes and concrete newborn checklists in all locales", () => {
     const shape = (v: unknown): unknown => v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, shape(x)])) : typeof v;
     for (const locale of [hr, sr, de]) expect(shape(locale.smartGuideStandard)).toEqual(shape(bs.smartGuideStandard));
+    for (const locale of [hr, sr, de]) expect(shape(locale.guideFirst.kindergeld.pilot)).toEqual(shape(bs.guideFirst.kindergeld.pilot));
     for (const locale of [bs, hr, sr, de]) {
       expect(locale.smartGuideStandard.kindergeldChecks.prepare).toHaveLength(3);
       expect(locale.smartGuideStandard.kindergeldChecks.prepare.join(" ")).toContain("Steuer-ID");
