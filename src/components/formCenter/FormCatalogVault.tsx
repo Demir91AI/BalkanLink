@@ -260,7 +260,9 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
     });
   };
 
-  const expandAll = () => setOpenIds(new Set(formCatalog.map((g) => g.id)));
+  const visibleGroups = formCatalog.filter((g) => !HIDDEN_CATEGORY_IDS.has(g.id));
+
+  const expandAll = () => setOpenIds(new Set(visibleGroups.map((g) => g.id)));
   const collapseAll = () => setOpenIds(new Set());
 
   const totalForms = allEntries.length;
@@ -438,7 +440,7 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
             </div>
           ) : (
             <div className="space-y-3">
-              {formCatalog.map((group, idx) => (
+              {visibleGroups.map((group, idx) => (
                 <CategorySection
                   key={group.id}
                   group={group}
