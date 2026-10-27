@@ -218,7 +218,7 @@
       "successRegistered": "Uspješno registrirani!",
       "errorTitleShort": "Greška pri registraciji.",
       "passwordTooShortShort": "Lozinka je prekratka.",
-      "trialBannerTitle": "🎁 30 dana Premium besplatno",
+      "trialBannerTitle": "🎁 30 dana besplatnog pristupa",
       "trialBannerDesc": "Tvoj kod {{code}} je prepoznat. pristup uz članstvo se aktivira odmah nakon registracije.",
       "trialActivatedTitle": "Pristup aktiviran!",
       "trialActivatedDesc": "Imaš {{days}} dana pun pristup. Uživaj!",

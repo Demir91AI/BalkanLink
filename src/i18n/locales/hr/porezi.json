@@ -24,7 +24,7 @@
   "comingSoonBadge": "Uskoro",
   "premiumBadge": "Članstvo",
   "openModule": "Otvori modul",
-  "lockedHint": "Klikom aktivirate Premium",
+  "lockedHint": "Klikom otvaraš članstvo",
   "modules": {
     "wizard": {
       "title": "Moram li uopće podnositi prijavu?",
@@ -2146,7 +2146,7 @@
         },
         "q4": {
           "q": "Kako biti siguran?",
-          "a": "BalkanLink Premium + Steuerberater za složene slučajeve."
+          "a": "BalkanLink članstvo + Steuerberater za složene slučajeve."
         }
       }
     },

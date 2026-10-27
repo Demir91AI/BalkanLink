@@ -24,7 +24,7 @@
   "comingSoonBadge": "Uskoro",
   "premiumBadge": "Članstvo",
   "openModule": "Otvori modul",
-  "lockedHint": "Klikom aktiviraš Premium",
+  "lockedHint": "Klikom otvaraš članstvo",
   "modules": {
     "wizard": {
       "title": "Da li uopšte moram podnositi prijavu?",
@@ -85,7 +85,7 @@
       "ctaBack": "Nazad na Porezi"
     },
     "header": {
-      "badge": "Premium wizard",
+      "badge": "Wizard",
       "title": "Da li moram podnositi poreznu prijavu?",
       "subtitle": "Odgovori na 8 pitanja — pokazat ćemo ti u koju kategoriju spadaš i šta dalje. Ništa se ne snima."
     },
@@ -2146,7 +2146,7 @@
         },
         "q4": {
           "q": "Kako da budem siguran?",
-          "a": "Premium moduli BalkanLink-a daju ti sistem; za kompleksne situacije konsultuj Steuerberater-a ili Lohnsteuerhilfeverein."
+          "a": "Moduli BalkanLink članstva daju ti sistem; za kompleksne situacije konsultuj Steuerberater-a ili Lohnsteuerhilfeverein."
         }
       }
     },

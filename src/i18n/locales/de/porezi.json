@@ -24,7 +24,7 @@
   "comingSoonBadge": "Bald",
   "premiumBadge": "Mitgliedschaft",
   "openModule": "Modul öffnen",
-  "lockedHint": "Klick aktiviert Premium",
+  "lockedHint": "Klick öffnet die Mitgliedschaft",
   "modules": {
     "wizard": {
       "title": "Muss ich überhaupt eine Steuererklärung abgeben?",
@@ -78,14 +78,14 @@
       "description": "Interaktiver Wizard mit 8 Fragen, der Ihnen hilft zu verstehen, ob Ihre Steuererklärung Pflicht, empfohlen oder freiwillig ist."
     },
     "gate": {
-      "title": "Der Wizard ist Teil von Premium",
-      "body": "Für den interaktiven Klassifikator und alle Module des Steuerbereichs benötigen Sie eine Premium-Mitgliedschaft. Die Landingpage /steuern bleibt frei zugänglich.",
+      "title": "Der Wizard ist Teil der Mitgliedschaft",
+      "body": "Für den interaktiven Klassifikator und alle Module des Steuerbereichs benötigen Sie die BalkanLink Mitgliedschaft. Die Landingpage /steuern bleibt frei zugänglich.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
       "ctaBack": "Zurück zu Steuern"
     },
     "header": {
-      "badge": "Premium-Wizard",
+      "badge": "Wizard",
       "title": "Muss ich eine Steuererklärung abgeben?",
       "subtitle": "Beantworten Sie 8 Fragen — wir zeigen Ihnen Ihre Kategorie und die nächsten Schritte. Es wird nichts gespeichert."
     },
@@ -395,7 +395,7 @@
       "description": "Was ist die doppelte Haushaltsführung, wer kann sie geltend machen, welche Kosten zählen und welche Nachweise sind nötig — verständlich erklärt."
     },
     "gate": {
-      "title": "Das DHF-Modul ist Premium",
+      "title": "Das DHF-Modul ist Teil der Mitgliedschaft",
       "body": "Der ausführliche Leitfaden zur doppelten Haushaltsführung steht Mitgliedern zur Verfügung.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -671,7 +671,7 @@
       }
     },
     "gate": {
-      "title": "Fristen und Strafen — Premium",
+      "title": "Fristen und Strafen — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -867,7 +867,7 @@
       }
     },
     "gate": {
-      "title": "Was kann ich absetzen — Premium",
+      "title": "Was kann ich absetzen — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -1080,7 +1080,7 @@
       }
     },
     "gate": {
-      "title": "ELSTER-Anleitung — Premium",
+      "title": "ELSTER-Anleitung — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -1291,7 +1291,7 @@
       }
     },
     "gate": {
-      "title": "Familie & Steuerklassen — Premium",
+      "title": "Familie & Steuerklassen — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -1501,7 +1501,7 @@
       }
     },
     "gate": {
-      "title": "Studenten & Azubis — Premium",
+      "title": "Studenten & Azubis — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -1717,7 +1717,7 @@
       }
     },
     "gate": {
-      "title": "Selbständige — Premium",
+      "title": "Selbständige — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -1955,7 +1955,7 @@
       }
     },
     "gate": {
-      "title": "Mieteinkünfte — Premium",
+      "title": "Mieteinkünfte — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",
@@ -2146,12 +2146,12 @@
         },
         "q4": {
           "q": "Wie werde ich sicher?",
-          "a": "BalkanLink Premium gibt das System; bei komplexen Fällen Steuerberater oder Lohnsteuerhilfeverein konsultieren."
+          "a": "BalkanLink Mitgliedschaft gibt das System; bei komplexen Fällen Steuerberater oder Lohnsteuerhilfeverein konsultieren."
         }
       }
     },
     "gate": {
-      "title": "Häufigste Fehler — Premium",
+      "title": "Häufigste Fehler — mit Mitgliedschaft",
       "body": "Der ausführliche Leitfaden steht Mitgliedern zur Verfügung. Die Landingpage /steuern bleibt kostenlos und informativ.",
       "ctaPremium": "Mitgliedschaft ansehen",
       "ctaLogin": "Anmelden",

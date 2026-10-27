@@ -285,9 +285,9 @@
       },
       "premium": {
         "label": "BalkanLink članstvo",
-        "price": "19,90€",
-        "perMonth": " jednokratno",
-        "subtitle": "Jedna uplata · bez pretplate · bez automatskog produženja",
+        "price": "19,99 €",
+        "perMonth": " / godišnje",
+        "subtitle": "Prvo 7 dana besplatno bez kartice · zatim godišnja pretplata, otkaziva u svakom trenutku",
         "title": "BalkanLink članstvo — 7 dana besplatno, zatim 19,99 € godišnje",
         "recommended": "Preporučeno",
         "f1": "Svi Musterformulari",
@@ -296,15 +296,15 @@
         "f4": "BalkanLink Deutsch A1–C2 uključen",
         "f5": "Šabloni (PDF download)",
         "f6": "check liste",
-        "f7": "Trajan pristup premium sadržaju",
+        "f7": "Fair Use: 5 analiza i 40 odgovora Asistenta mjesečno",
         "cta": "Pogledaj BalkanLink članstvo",
-        "trialHint": "Jednokratno · trajan pristup",
+        "trialHint": "7 dana besplatno · zatim 19,99 € godišnje",
         "trustline": "Sigurno plaćanje · Stripe · §19 UStG"
       },
       "docCheck": {
         "label": "Dokumenten-Check",
-        "price": "1,99€",
-        "subtitle": "Po završenoj provjeri — za sve korisnike, i uz Plus",
+        "price": "Uključeno",
+        "subtitle": "U okviru članstva: 5 analiza mjesečno (2 u probnom periodu)",
         "title": "Dokumenten-Check — uključen u članstvo",
         "f1": "Detaljna analiza dokumenta",
         "f2": "11 sekcija objašnjenja",
@@ -314,11 +314,11 @@
         "tagline": "Razumi pismo za 30 sekundi"
       },
       "compare": {
-        "title": "Besplatno vs. Plus",
+        "title": "Besplatno vs. članstvo",
         "tagline": "Pogledaj sve razlike",
         "feature": "Funkcija",
         "free": "Besplatno",
-        "premium": "Plus",
+        "premium": "Članstvo",
         "rows": {
           "muster": {
             "feature": "Musterformulari",
@@ -343,10 +343,10 @@
           },
           "doc": {
             "feature": "Dokumenten-Check",
-            "free": "uključeno u članstvo (Fair Use)",
+            "free": "—",
             "premium": "uključeno u članstvo (Fair Use)",
-            "freeShort": "1,99€",
-            "premiumShort": "1,99€"
+            "freeShort": "—",
+            "premiumShort": "5 / mj."
           },
           "templates": {
             "feature": "Šabloni / Vorlagen",
@@ -358,9 +358,9 @@
           "assistant": {
             "feature": "BalkanLink Asistent",
             "free": "⚠️ 5 pitanja/dan",
-            "premium": "✅ Neograničeno",
+            "premium": "✅ 40 odgovora mjesečno",
             "freeShort": "5/dan",
-            "premiumShort": "✅ Neograničeno"
+            "premiumShort": "40 / mj."
           },
           "trainer": {
             "feature": "DeutschTrainer",
@@ -528,7 +528,7 @@
       "title": "Dokumenten-Check",
       "subtitle": "Učitaj dokument — dobiješ objašnjenje na svom jeziku. uključeno u članstvo (Fair Use).",
       "premiumCta": "Pogledaj članstvo →",
-      "premiumPerk": "Plaća se po završenoj provjeri — važi i za Plus korisnike",
+      "premiumPerk": "Uključeno u članstvo (Fair Use)",
       "or": "ili",
       "oneTimeCta": "Pogledaj članstvo →",
       "oneTimeReset": "Plaćaš za svaku analizu pojedinačno",
@@ -756,7 +756,7 @@
       "title": "Otključaj dodatne lekcije",
       "body": "Svih 6 nivoa A1–C2 dolazi uz BalkanLink članstvo.",
       "from": "od",
-      "perOneTime": "/ jednokratno",
+      "perOneTime": "/ godišnje",
       "unlockNow": "Pogledaj BalkanLink članstvo",
       "decideLater": "Odluči kasnije"
     },
@@ -965,7 +965,7 @@
         "pro": "Pogledaj članstvo →",
         "premium": "Pogledaj članstvo →"
       },
-      "info": "💡 **Kako funkcioniše?** Pro oglasi su istaknuti iznad ostalih i donose više pregleda. Premium uključuje 2 takva isticanja mjesečno."
+      "info": "💡 **Kako funkcioniše?** Pro oglasi su istaknuti iznad ostalih i donose više pregleda. Članstvo uključuje 2 takva isticanja mjesečno."
     }
   },
   "navigation": {
@@ -1632,7 +1632,7 @@
       "q3": "Šta ako ne pronađete grešku?",
       "a3": "Iskreno ćemo to napisati. To ne znači da je obračun 100 % ispravan — samo da nismo vidjeli očigledne probleme.",
       "q4": "Koliko košta?",
-      "a4": "Besplatno: 1 provjera dnevno, osnovni rezultat. BalkanLink članstvo (19,90€ jednokratno): detaljan izvještaj + tekst za gazdu."
+      "a4": "Besplatno: 1 provjera dnevno, osnovni rezultat. Uz BalkanLink članstvo: detaljan izvještaj + tekst za stanodavca."
     }
   },
   "whatIs": {
@@ -1682,12 +1682,12 @@
     },
     "premium": {
       "kicker": "✨ BalkanLink članstvo",
-      "badge": "Najpopularnije",
+      "badge": "7 dana besplatno",
       "title": "Sve otključano — kad ti zatreba dublje",
-      "price": "19,90 €",
-      "priceUnit": " jednokratno",
-      "narrative": "Besplatna verzija je stvarno besplatna — Asistent radi, vodiči su otvoreni, Anmeldung simulator je otvoren, prvi koraci kroz sistem ti niko ne naplaćuje. BalkanLink članstvo otključavaš jednom, kad ti život postane kompliciraniji — trajan pristup premium vodičima, formularima, šablonima, Viza Navigatoru i DeutschTraineru. Dokumenten-Check nije uključen i plaća se uključeno u članstvo (Fair Use).",
-      "summary": "Jednom platiš, bez pretplate i bez automatskog produženja.",
+      "price": "19,99 €",
+      "priceUnit": " / godišnje",
+      "narrative": "Besplatna verzija je stvarno besplatna — informativni vodiči, vijesti i Anmeldung simulator su otvoreni. Kad ti zatreba više, isprobaj sve alate 7 dana besplatno bez kartice. Nakon toga možeš, ako želiš, izabrati članstvo za 19,99 € godišnje: svi vodiči, šabloni, Viza Navigator, DeutschTrainer, Dokumenten-Check i BalkanLink Asistent uz Fair Use.",
+      "summary": "Godišnja pretplata, otkaziva u svakom trenutku do kraja plaćene godine.",
       "cta": "Pogledaj BalkanLink članstvo",
       "ctaFree": "Probaj besplatno prvo"
     },

@@ -218,7 +218,7 @@
       "successRegistered": "Erfolgreich registriert!",
       "errorTitleShort": "Fehler bei der Registrierung.",
       "passwordTooShortShort": "Das Passwort ist zu kurz.",
-      "trialBannerTitle": "🎁 30 Tage Premium gratis",
+      "trialBannerTitle": "🎁 30 Tage kostenloser Zugang",
       "trialBannerDesc": "Dein Code {{code}} wurde erkannt. Mitgliedschaft wird direkt nach der Registrierung aktiviert.",
       "trialActivatedTitle": "Zugang aktiviert!",
       "trialActivatedDesc": "Du hast {{days}} Tage vollen Zugriff. Viel Spaß!",
@@ -463,10 +463,10 @@
     }
   },
   "trialCta": {
-    "text": "7 Tage Premium gratis — jetzt testen",
-    "aria": "Premium-Probezeitraum",
+    "text": "7 Tage kostenlos — jetzt testen",
+    "aria": "Testzeitraum",
     "dismiss": "Schließen",
-    "heroBanner": "7 Tage Premium gratis",
+    "heroBanner": "7 Tage kostenlos",
     "heroSubtext": "Für jeden neuen Nutzer!",
     "heroSubtextLine2": "Jederzeit kündbar!",
     "promoLabel": "• Promo • Zeitlich begrenzt • Bis 31.05.2026 •",

@@ -270,7 +270,7 @@
     "whatIsLink": "Was ist BalkanLink?",
     "pricing": {
       "heading": "Einfache Preise",
-      "subline": "Kostenlos starten. Wenn du mehr brauchst, zahlst du BalkanLink Mitgliedschaft einmalig — kein Abo.",
+      "subline": "Kostenlos starten. Wenn du mehr brauchst, wählst du die BalkanLink Mitgliedschaft — 19,99 € pro Jahr, kündbar.",
       "free": {
         "label": "Kostenlos",
         "price": "0 €",
@@ -285,9 +285,9 @@
       },
       "premium": {
         "label": "BalkanLink Mitgliedschaft",
-        "price": "19,90 €",
-        "perMonth": " einmalig",
-        "subtitle": "Einmalzahlung · kein Abo · keine automatische Verlängerung",
+        "price": "19,99 €",
+        "perMonth": " / Jahr",
+        "subtitle": "Zuerst 7 Tage kostenlos ohne Karte · danach Jahresabo, jederzeit kündbar",
         "title": "BalkanLink Mitgliedschaft — 7 Tage kostenlos, danach 19,99 € pro Jahr",
         "recommended": "Empfohlen",
         "f1": "Alle Musterformulare",
@@ -295,17 +295,17 @@
         "f3": "Visa Navigator",
         "f4": "BalkanLink Deutsch A1–C2 inklusive",
         "f5": "Vorlagen (PDF-Download)",
-        "f6": "Premium-Checklisten",
-        "f7": "Dauerhafter Zugang zu Inhalt der Mitgliedschaften",
+        "f6": "Checklisten",
+        "f7": "Fair Use: 5 Analysen und 40 Asistent-Antworten pro Monat",
         "cta": "BalkanLink Mitgliedschaft kaufen",
-        "trialHint": "Einmalig · dauerhafter Zugang",
+        "trialHint": "7 Tage kostenlos · danach 19,99 € pro Jahr",
         "trustline": "Sichere Zahlung · Stripe · §19 UStG"
       },
       "docCheck": {
         "label": "Dokumentenprüfung",
-        "price": "1,99 €",
-        "subtitle": "Pro abgeschlossener Prüfung — für alle, auch mit Plus",
-        "title": "Dokumentenprüfung — 1,99 €",
+        "price": "Inklusive",
+        "subtitle": "In der Mitgliedschaft: 5 Analysen pro Monat (2 im Testzeitraum)",
+        "title": "Dokumentenprüfung — in der Mitgliedschaft enthalten",
         "f1": "Detaillierte Dokumentenanalyse",
         "f2": "11 Erklärungsabschnitte",
         "f3": "Fristen und finanzielle Auswirkungen",
@@ -314,11 +314,11 @@
         "tagline": "Brief in 30 Sekunden verstehen"
       },
       "compare": {
-        "title": "Kostenlos vs. Plus",
+        "title": "Kostenlos vs. Mitgliedschaft",
         "tagline": "Alle Unterschiede ansehen",
         "feature": "Funktion",
         "free": "Kostenlos",
-        "premium": "Plus",
+        "premium": "Mitgliedschaft",
         "rows": {
           "muster": {
             "feature": "Musterformulare",
@@ -343,10 +343,10 @@
           },
           "doc": {
             "feature": "Dokumentenprüfung",
-            "free": "in der Mitgliedschaft enthalten (Fair Use)",
+            "free": "—",
             "premium": "in der Mitgliedschaft enthalten (Fair Use)",
-            "freeShort": "1,99 €",
-            "premiumShort": "1,99 €"
+            "freeShort": "—",
+            "premiumShort": "5 / Monat"
           },
           "templates": {
             "feature": "Vorlagen",
@@ -358,9 +358,9 @@
           "assistant": {
             "feature": "BalkanLink Assistent",
             "free": "⚠️ 5 Fragen/Tag",
-            "premium": "✅ Unbegrenzt",
+            "premium": "✅ 40 Antworten pro Monat",
             "freeShort": "5/Tag",
-            "premiumShort": "✅ Unbegrenzt"
+            "premiumShort": "40 / Monat"
           },
           "trainer": {
             "feature": "DeutschTrainer",
@@ -462,7 +462,7 @@
       "oneTimeLabel": "Einmalig",
       "oneTimePerCheck": "pro Prüfung",
       "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
-      "buyOneTime": "Für 1,99 € kaufen →",
+      "buyOneTime": "Mitgliedschaft ansehen →",
       "creditAvailable_one": "Verfügbar: {{count}} Prüfung",
       "creditAvailable_other": "Verfügbar: {{count}} Prüfungen",
       "premiumLabel": "Mitgliedschaft",
@@ -470,7 +470,7 @@
       "premiumPerMonth": "/Monat",
       "premiumFeature1": "Unbegrenzte Prüfungen — immer kostenlos",
       "premiumFeature2": "Schnelle und priorisierte Analyse",
-      "premiumFeature3": "+ alle Premium-Funktionen der Plattform",
+      "premiumFeature3": "+ alle Funktionen der Mitgliedschaft der Plattform",
       "buyPremium": "Mitgliedschaft ansehen →"
     },
     "quota": {
@@ -530,7 +530,7 @@
       "premiumCta": "Mitgliedschaft ansehen",
       "premiumPerk": "Bezahlt wird pro abgeschlossener Prüfung — auch für Plus-Nutzer",
       "or": "oder",
-      "oneTimeCta": "1,99 € für eine Analyse zahlen →",
+      "oneTimeCta": "Mitgliedschaft ansehen →",
       "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
       "paymentReadyToast": "Zahlung erhalten. Klicken Sie auf Dokument prüfen, um die Analyse zu starten."
     },
@@ -746,18 +746,18 @@
     },
     "upgradeCta": {
       "title": "Weiter lernen",
-      "subtitle": "Alle 6 Niveaus A1–C2 sind in BalkanLink Mitgliedschaft enthalten — 19,90 € einmalig.",
+      "subtitle": "Alle 6 Niveaus A1–C2 sind in BalkanLink Mitgliedschaft enthalten.",
       "noSubscription": "Kein Abo",
       "payOnce": "Einmal zahlen",
       "wertgutschein": "In BalkanLink Mitgliedschaft enthalten",
-      "unlockAll": "BalkanLink Mitgliedschaft ansehen — 19,90 €"
+      "unlockAll": "BalkanLink Mitgliedschaft ansehen"
     },
     "paywallModal": {
       "title": "Weitere Lektionen freischalten",
-      "body": "Alle 6 Niveaus A1–C2 sind in BalkanLink Mitgliedschaft enthalten — 19,90 € einmalig.",
+      "body": "Alle 6 Niveaus A1–C2 sind in BalkanLink Mitgliedschaft enthalten.",
       "from": "ab",
-      "perOneTime": "/ einmalig",
-      "unlockNow": "BalkanLink Mitgliedschaft ansehen — 19,90 €",
+      "perOneTime": "/ Jahr",
+      "unlockNow": "BalkanLink Mitgliedschaft ansehen",
       "decideLater": "Später entscheiden"
     },
     "stages": {
@@ -811,7 +811,7 @@
     "lockedOverlay": {
       "lockedItems": "🔒 +{{count}} {{label}} gesperrt",
       "lockedDefaultLabel": "Inhalte",
-      "lockedSubtitle": "Verfügbar mit BalkanLink Mitgliedschaft (einmalig)",
+      "lockedSubtitle": "Verfügbar mit BalkanLink Mitgliedschaft ",
       "unlockCta": "BalkanLink Mitgliedschaft ansehen"
     },
     "resetDialog": {
@@ -963,9 +963,9 @@
       "buttons": {
         "free": "Kostenlos veröffentlichen →",
         "pro": "Pro kaufen — 1,99 € →",
-        "premium": "Mitgliedschaft ansehen — 9,99 €/Monat →"
+        "premium": "Mitgliedschaft ansehen →"
       },
-      "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Premium enthält 2 solche Hervorhebungen pro Monat."
+      "info": "💡 **Wie funktioniert das?** Pro-Anzeigen werden über den anderen hervorgehoben und erhalten mehr Aufrufe. Die Mitgliedschaft enthält 2 solche Hervorhebungen pro Monat."
     }
   },
   "navigation": {
@@ -1632,7 +1632,7 @@
       "q3": "Was, wenn ihr keinen Fehler findet?",
       "a3": "Das schreiben wir ehrlich. Es bedeutet nicht, dass die Abrechnung zu 100 % korrekt ist — nur, dass wir keine offensichtlichen Probleme gesehen haben.",
       "q4": "Was kostet es?",
-      "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. BalkanLink Mitgliedschaft (19,90 € einmalig): detaillierter Bericht + Text an den Vermieter."
+      "a4": "Kostenlos: 1 Prüfung pro Tag, Basisergebnis. Mit der BalkanLink Mitgliedschaft: detaillierter Bericht + Text an den Vermieter."
     }
   },
   "whatIs": {
@@ -1682,12 +1682,12 @@
     },
     "premium": {
       "kicker": "✨ BalkanLink Mitgliedschaft",
-      "badge": "Beliebteste Wahl",
+      "badge": "7 Tage kostenlos",
       "title": "Alles freigeschaltet — wenn es tiefer wird",
-      "price": "19,90 €",
-      "priceUnit": " einmalig",
-      "narrative": "Die kostenlose Version ist wirklich kostenlos — der Asistent funktioniert, die Guides sind offen, der Anmeldung-Simulator ist offen, die ersten Schritte kosten dich nichts. BalkanLink Mitgliedschaft schaltest du einmalig frei, wenn das Leben komplizierter wird — dauerhafter Zugang zu Premium-Guides, Formularen, Vorlagen, Viza Navigator und DeutschTrainer. Der Dokumenten-Check ist nicht enthalten und kostet in der Mitgliedschaft enthalten (Fair Use).",
-      "summary": "Einmal zahlen — kein Abo, keine automatische Verlängerung.",
+      "price": "19,99 €",
+      "priceUnit": " / Jahr",
+      "narrative": "Die kostenlose Version ist wirklich kostenlos — Informationsleitfäden, Nachrichten und der Anmeldung-Simulator sind offen. Wenn du mehr brauchst, teste alle Tools 7 Tage kostenlos ohne Karte. Danach kannst du, wenn du willst, die Mitgliedschaft für 19,99 € pro Jahr wählen: alle Leitfäden, Vorlagen, Visa Navigator, DeutschTrainer, Dokumenten-Check und BalkanLink Asistent im Rahmen des Fair Use.",
+      "summary": "Jahresabo, jederzeit zum Ende des bezahlten Jahres kündbar.",
       "cta": "BalkanLink Mitgliedschaft holen",
       "ctaFree": "Erst kostenlos testen"
     },

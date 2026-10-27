@@ -39,8 +39,8 @@
   },
   "sidebarLabel": "Gespeichert",
   "premiumGate": {
-    "title": "Nur für Premium",
-    "body": "Speichern für später ist Premium-Funktion. Schalte frei, um diese Seite zu speichern.",
+    "title": "In der Mitgliedschaft enthalten",
+    "body": "Speichern für später ist Teil der Mitgliedschaft-Funktion. Schalte frei, um diese Seite zu speichern.",
     "cta": "Mitgliedschaft ansehen"
   }
 }
