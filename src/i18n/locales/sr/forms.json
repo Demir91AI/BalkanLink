@@ -330,17 +330,76 @@
     },
     "kindergeld": {
       "subtitle": "Musterformular KG 1 — BalkanLink — samo za orijentaciju",
-      "originalLink": "Preuzmi prazan originalni KG1 PDF →",
+      "originalLink": "Zvanični prazni KG1 PDF (Familienkasse) →",
       "footerNote": "Musterformular za orijentaciju • Svi navodi bez garancije • Original predati Familienkasse-i • BalkanLink nije državna ustanova",
-      "autofillTitle": "Popuni online → preuzmi 1:1 originalni Familienkasse PDF",
-      "autofillBody": "Tvoji podaci se popunjavaju u zvanični KG1 PDF lokalno u tvom pretraživaču — ništa ne ide na server. Preuzmi, potpiši i pošalji nadležnoj Familienkasse.",
-      "generating": "Generišem PDF…",
-      "downloadFilled": "Preuzmi popunjeni KG1 PDF",
-      "delivery": {
-        "title": "3 načina dostave zahteva",
-        "online": "Online (BundID)",
-        "pdf": "Popunjeni PDF",
-        "post": "Pošta / lično"
+      "assistant": {
+        "title": "Kindergeld Asistent",
+        "intro": "Odgovori na nekoliko kratkih pitanja. Na kraju dobijaš BalkanLink Ausfüllhilfe — pregled tvojih podataka uz nemačke nazive polja, da ih lako preneseš u zvanični zahtev.",
+        "stepOf": "Korak {{n}} od {{total}}",
+        "yes": "Da",
+        "no": "Ne",
+        "official": {
+          "title": "Zvanični zahtev podnosiš ti — kod Familienkasse",
+          "body": "Zvanični KG1 i Anlage Kind su zaštićeni PDF obrasci koje BalkanLink ne sme da menja ni popunjava. Zato koristi zvanični onlajn zahtev (BundID) ili preuzmi nepromenjene zvanične obrasce. BalkanLink ništa ne šalje umesto tebe.",
+          "online": "Zvanični onlajn zahtev (Familienkasse)",
+          "kg1": "Zvanični KG1 – Antrag auf Kindergeld (PDF)",
+          "ank": "Zvanična Anlage Kind – jedna po detetu (PDF)",
+          "formsPage": "Svi zvanični Kindergeld obrasci, uklj. Anlage Ausland / Anlage EU"
+        },
+        "steps": {
+          "situation": "Situacija",
+          "applicant": "Podnosilac zahteva",
+          "partner": "Partner",
+          "children": "Deca",
+          "bank": "Račun",
+          "review": "Pregled"
+        },
+        "q": {
+          "hasPartner": "Da li s tobom živi bračni/vanbračni partner ili drugi roditelj deteta?",
+          "crossBorder": "Da li ti, partner ili dete živite ili radite van Nemačke, ili primate porodične naknade iz druge države?",
+          "crossBorderHint": "Npr. dete živi u Srbiji, partner radi u inostranstvu.",
+          "accountHolder": "Ko je vlasnik računa?",
+          "accountSelf": "Podnosilac zahteva",
+          "accountOther": "Drugo lice"
+        },
+        "children": {
+          "hint": "Unesi svako dete za koje tražiš Kindergeld. Za svako dete treba posebna Anlage Kind.",
+          "child": "Dete {{n}}",
+          "add": "+ Dodaj dete",
+          "remove": "Ukloni ovo dete",
+          "max": "Za više od 5 dece koristi direktno zvanični obrazac."
+        },
+        "nav": {
+          "back": "Nazad",
+          "next": "Dalje",
+          "download": "Preuzmi Ausfüllhilfe (PDF, nije zvanični obrazac)",
+          "generating": "Pravim PDF…"
+        },
+        "review": {
+          "covered": "Ausfüllhilfe pokriva tvoje unose. Pre podnošenja sve proveri u zvaničnom obrascu.",
+          "incomplete": "Tvoj slučaj ima posebnosti koje ova Ausfüllhilfe NE pokriva potpuno. Obavezno pročitaj zvanična uputstva Familienkasse.",
+          "docs": "Potrebno: 1× zvanični KG1 i {{n}}× zvanična Anlage Kind."
+        },
+        "notes": {
+          "cross_border_official_check": "Inostranstvo: možda su potrebni dodatni zvanični prilozi (npr. Anlage Ausland ili Anlage EU). O tome odlučuje Familienkasse — proveri zvaničnu stranicu obrazaca.",
+          "adult_child_official_check": "Dete od 18+ godina: u Anlage Kind su potrebni dodatni podaci i dokazi (školovanje, studije…). Pogledaj zvanična uputstva za decu od 18 godina.",
+          "ank_per_child": "Za svako dete popuni posebnu zvaničnu Anlage Kind.",
+          "sign_original": "Zvanični zahtev potpisuješ i podnosiš sam/a.",
+          "no_auto_submit": "BalkanLink ništa ne šalje automatski i ne garantuje pravo na Kindergeld."
+        },
+        "errors": {
+          "REQUIRED": "Obavezno polje.",
+          "INVALID_DATE": "Neispravan datum.",
+          "DATE_IN_FUTURE": "Datum ne može biti u budućnosti.",
+          "INVALID_STEUER_ID": "Steuer-ID ima tačno 11 cifara.",
+          "INVALID_PLZ": "PLZ u Nemačkoj ima 5 cifara.",
+          "INVALID_IBAN": "IBAN nije ispravan.",
+          "NO_CHILDREN": "Unesi bar jedno dete.",
+          "UNANSWERED": "Izaberi Da ili Ne.",
+          "fix": "Ispravi označena polja.",
+          "pdf": "PDF nije mogao da se napravi. Pokušaj ponovo."
+        },
+        "privacy": "PDF se pravi samo u tvom pregledaču. Podaci se ne šalju i ne čuvaju automatski."
       }
     },
     "buergergeld": {

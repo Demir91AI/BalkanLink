@@ -330,17 +330,76 @@
     },
     "kindergeld": {
       "subtitle": "Musterformular KG 1 — BalkanLink — nur zur Orientierung",
-      "originalLink": "Leeres Original-KG1-PDF herunterladen →",
+      "originalLink": "Amtliches leeres KG1-PDF (Familienkasse) →",
       "footerNote": "Musterformular zur Orientierung • Alle Angaben ohne Gewähr • Original bei Familienkasse einreichen • BalkanLink ist keine staatliche Stelle",
-      "autofillTitle": "Online ausfüllen → 1:1 Original-Familienkasse-PDF herunterladen",
-      "autofillBody": "Deine Daten werden lokal in deinem Browser in das offizielle KG1-PDF eingefügt — nichts wird an einen Server gesendet. Herunterladen, unterschreiben und an die zuständige Familienkasse senden.",
-      "generating": "PDF wird erstellt…",
-      "downloadFilled": "Ausgefülltes KG1-PDF herunterladen",
-      "delivery": {
-        "title": "3 Wege zur Antragstellung",
-        "online": "Online (BundID)",
-        "pdf": "Ausgefülltes PDF",
-        "post": "Post / persönlich"
+      "assistant": {
+        "title": "Kindergeld Asistent",
+        "intro": "Beantworte ein paar kurze Fragen. Am Ende erhältst du eine BalkanLink Ausfüllhilfe – deine Angaben neben den deutschen Feldnamen, damit du sie leicht in den amtlichen Antrag überträgst.",
+        "stepOf": "Schritt {{n}} von {{total}}",
+        "yes": "Ja",
+        "no": "Nein",
+        "official": {
+          "title": "Den amtlichen Antrag stellst du selbst – bei der Familienkasse",
+          "body": "Das amtliche KG1 und die Anlage Kind sind geschützte PDF-Formulare, die BalkanLink weder verändern noch ausfüllen darf. Nutze den amtlichen Online-Antrag (BundID) oder lade die unveränderten amtlichen Vordrucke. BalkanLink sendet nichts in deinem Namen.",
+          "online": "Amtlicher Online-Antrag (Familienkasse)",
+          "kg1": "Amtliches KG1 – Antrag auf Kindergeld (PDF)",
+          "ank": "Amtliche Anlage Kind – eine pro Kind (PDF)",
+          "formsPage": "Alle amtlichen Kindergeld-Vordrucke, inkl. Anlage Ausland / Anlage EU"
+        },
+        "steps": {
+          "situation": "Situation",
+          "applicant": "Antragsteller(in)",
+          "partner": "Partner(in)",
+          "children": "Kinder",
+          "bank": "Konto",
+          "review": "Überprüfung"
+        },
+        "q": {
+          "hasPartner": "Lebt ein(e) Ehe-/Lebenspartner(in) oder der andere Elternteil mit dir zusammen?",
+          "crossBorder": "Lebt oder arbeitet jemand von euch (du, Partner(in), Kind) außerhalb Deutschlands, oder gibt es Familienleistungen aus einem anderen Staat?",
+          "crossBorderHint": "Z. B. Kind lebt in Bosnien, Partner arbeitet im Ausland.",
+          "accountHolder": "Wer ist Kontoinhaber(in)?",
+          "accountSelf": "Antragsteller(in)",
+          "accountOther": "Andere Person"
+        },
+        "children": {
+          "hint": "Trage jedes Kind ein, für das du Kindergeld beantragst. Für jedes Kind ist eine eigene Anlage Kind nötig.",
+          "child": "Kind {{n}}",
+          "add": "+ Kind hinzufügen",
+          "remove": "Dieses Kind entfernen",
+          "max": "Bei mehr als 5 Kindern bitte direkt den amtlichen Vordruck nutzen."
+        },
+        "nav": {
+          "back": "Zurück",
+          "next": "Weiter",
+          "download": "Ausfüllhilfe herunterladen (PDF, kein amtlicher Vordruck)",
+          "generating": "PDF wird erstellt…"
+        },
+        "review": {
+          "covered": "Die Ausfüllhilfe deckt deine Angaben ab. Prüfe vor der Abgabe alles im amtlichen Formular.",
+          "incomplete": "Dein Fall hat Besonderheiten, die diese Ausfüllhilfe NICHT vollständig abdeckt. Lies unbedingt die amtlichen Hinweise der Familienkasse.",
+          "docs": "Benötigt: 1× amtliches KG1 und {{n}}× amtliche Anlage Kind."
+        },
+        "notes": {
+          "cross_border_official_check": "Auslandsbezug: Eventuell sind weitere amtliche Anlagen nötig (z. B. Anlage Ausland oder Anlage EU). Das entscheidet die Familienkasse – siehe amtliche Formularseite.",
+          "adult_child_official_check": "Kind ab 18 Jahren: In der Anlage Kind sind zusätzliche Angaben und Nachweise nötig (Ausbildung, Studium …). Siehe amtliche Hinweise für Kinder ab 18.",
+          "ank_per_child": "Für jedes Kind eine eigene amtliche Anlage Kind ausfüllen.",
+          "sign_original": "Den amtlichen Antrag unterschreibst und reichst du selbst ein.",
+          "no_auto_submit": "BalkanLink sendet nichts automatisch und garantiert keinen Anspruch auf Kindergeld."
+        },
+        "errors": {
+          "REQUIRED": "Pflichtfeld.",
+          "INVALID_DATE": "Ungültiges Datum.",
+          "DATE_IN_FUTURE": "Datum darf nicht in der Zukunft liegen.",
+          "INVALID_STEUER_ID": "Die Steuer-ID hat genau 11 Ziffern.",
+          "INVALID_PLZ": "Deutsche PLZ hat 5 Ziffern.",
+          "INVALID_IBAN": "IBAN ist ungültig.",
+          "NO_CHILDREN": "Bitte mindestens ein Kind eintragen.",
+          "UNANSWERED": "Bitte Ja oder Nein wählen.",
+          "fix": "Bitte markierte Felder korrigieren.",
+          "pdf": "PDF konnte nicht erstellt werden. Bitte erneut versuchen."
+        },
+        "privacy": "Das PDF wird nur in deinem Browser erstellt. Daten werden nicht gesendet und nicht automatisch gespeichert."
       }
     },
     "buergergeld": {
