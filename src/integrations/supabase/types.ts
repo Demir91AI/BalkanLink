@@ -116,6 +116,39 @@ export type Database = {
         }
         Relationships: []
       }
+      annual_subscriptions: {
+        Row: {
+          cancel_at_period_end: boolean
+          created_at: string
+          current_period_end: string | null
+          status: string
+          stripe_customer_id: string
+          stripe_subscription_id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          cancel_at_period_end?: boolean
+          created_at?: string
+          current_period_end?: string | null
+          status: string
+          stripe_customer_id: string
+          stripe_subscription_id: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          cancel_at_period_end?: boolean
+          created_at?: string
+          current_period_end?: string | null
+          status?: string
+          stripe_customer_id?: string
+          stripe_subscription_id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       chat_messages: {
         Row: {
           content: string
@@ -710,6 +743,8 @@ export type Database = {
       }
       entitlement_settings: {
         Row: {
+          annual_checkout_enabled: boolean
+          annual_live_mode_allowed: boolean
           id: number
           monetization_v2_enabled: boolean
           protective_caps_enforced: boolean
@@ -718,6 +753,8 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          annual_checkout_enabled?: boolean
+          annual_live_mode_allowed?: boolean
           id?: number
           monetization_v2_enabled?: boolean
           protective_caps_enforced?: boolean
@@ -726,6 +763,8 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          annual_checkout_enabled?: boolean
+          annual_live_mode_allowed?: boolean
           id?: number
           monetization_v2_enabled?: boolean
           protective_caps_enforced?: boolean
@@ -1285,6 +1324,24 @@ export type Database = {
         }
         Relationships: []
       }
+      stripe_webhook_events: {
+        Row: {
+          event_id: string
+          event_type: string
+          received_at: string
+        }
+        Insert: {
+          event_id: string
+          event_type: string
+          received_at?: string
+        }
+        Update: {
+          event_id?: string
+          event_type?: string
+          received_at?: string
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
@@ -1700,6 +1757,20 @@ export type Database = {
       _usage_rule: {
         Args: { p_feature: string; p_source: string; uid: string }
         Returns: Record<string, unknown>
+      }
+      apply_annual_subscription: {
+        Args: {
+          p_amount_cents: number
+          p_cancel_at_period_end: boolean
+          p_currency: string
+          p_customer_id: string
+          p_interval: string
+          p_period_end: string
+          p_status: string
+          p_sub_id: string
+          uid: string
+        }
+        Returns: Json
       }
       commit_usage: { Args: { reservation_id: string }; Returns: boolean }
       consume_doc_check: {
