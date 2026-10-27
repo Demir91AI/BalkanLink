@@ -4,9 +4,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import Index from '@/pages/Index';
 
 const mocks = vi.hoisted(() => ({
-  visible: vi.fn(), subscription: vi.fn(), entry: vi.fn((_props: { canAccess: boolean }) => null),
+  subscription: vi.fn(), entry: vi.fn((_props: { canAccess: boolean }) => null),
 }));
-vi.mock('./visibility', () => ({ isLetterReplyVisible: mocks.visible }));
 vi.mock('@/hooks/useSubscription', () => ({ useSubscription: mocks.subscription }));
 vi.mock('@/components/letter-reply/LetterReplyTask', () => ({ default: mocks.entry }));
 vi.mock('react-i18next', () => ({ useTranslation: () => ({ t: (key: string) => key }) }));
@@ -26,21 +25,14 @@ vi.mock('@/components/home/premium-showcase-data', () => ({ premiumShowcaseFirms
 vi.mock('@/hooks/useInfiniteScroll', () => ({ useInfiniteScroll: () => ({}) }));
 
 beforeEach(() => {
+  vi.stubEnv('DEV', false);
   vi.stubGlobal('IntersectionObserver', class {
     observe() {} unobserve() {} disconnect() {}
   });
 });
-afterEach(() => { cleanup(); vi.clearAllMocks(); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.clearAllMocks(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 describe('homepage LetterReplyTask access integration', () => {
-  it('does not mount the task or read subscriptions when visibility is denied', () => {
-    mocks.visible.mockReturnValue(false);
-    render(<MemoryRouter><Index /></MemoryRouter>);
-    expect(mocks.entry).not.toHaveBeenCalled();
-    expect(mocks.subscription).not.toHaveBeenCalled();
-    expect(mocks.visible).toHaveBeenCalledWith(import.meta.env.DEV, window.location.hostname);
-  });
-  it.each([true, false])('passes existing subscription access %s unchanged', isPremium => {
-    mocks.visible.mockReturnValue(true);
+  it.each([true, false])('shows the production entry and passes existing subscription access %s unchanged', isPremium => {
     mocks.subscription.mockReturnValue({ isPremium });
     render(<MemoryRouter><Index /></MemoryRouter>);
     expect(mocks.subscription).toHaveBeenCalled();
