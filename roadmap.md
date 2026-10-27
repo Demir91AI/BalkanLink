@@ -1,8 +1,10 @@
 
 ## Kindergeld SmartGuide 2.0 pilot (2026-10-27, owner approved; no release)
-- [ ] Verify official form ordering and primary sources; preserve 20 original records and expand detailed ordered field navigation.
-- [ ] Implement integrated online/paper walkthrough, contextual no-data cases/help/glossary and Kindergeld-only reviewed-and-advance/completion behavior.
-- [ ] Run regression suite and real-route mobile/desktop QA; report verified scope, exact files and remaining blockers without publishing.
+- [x] Verify BA/BZSt primary sources and original form ordering; preserve 20 records with 30 detailed ordered groups and original outbound PDF links.
+- [x] Implement integrated online/paper walkthrough, contextual no-data cases/help/glossary and Kindergeld-only reviewed-and-advance/completion behavior.
+- [x] 1020 tests, automatic build OK, 8 four-language desktop/mobile visual fixtures, keyboard checks and unchanged Kinderzuschlag behavior; report in `docs/kindergeld-smartguide-pilot-2026-10-27.md`. No publishing.
+- [ ] Actual entitled-account browser QA: blocked on authorized owner app session (no matching owner account); no account/gate changes.
+- [ ] Exact BA online field/category order: blocked on verified authenticated portal evidence; assistance topics explicitly marked not a portal copy.
 
 ## Owner SmartGuide correction (2026-10-27, Preview/code only)
 - [x] Make newborn Kindergeld primary and always visible; preserve online/paper details, 20 records and special cases.
