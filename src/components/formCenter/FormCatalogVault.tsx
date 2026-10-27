@@ -232,6 +232,16 @@ function CategorySection({
 
 /* ---------- Main ---------- */
 
+/**
+ * "Vize i boravak" duplicates the dedicated Viza Navigator (/viza) entry that already
+ * lives in the sidebar, so the category is no longer listed in the Formulari catalog.
+ * The category data itself stays in formCatalog — its guides, /formulari/<slug> routes,
+ * catalog search and legacy /musterformular/* mappings are untouched.
+ */
+const HIDDEN_CATEGORY_IDS = new Set(["vize"]);
+
+
+
 export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Props) {
   const [search, setSearch] = useState("");
   const [openIds, setOpenIds] = useState<Set<string>>(
