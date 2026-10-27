@@ -64,9 +64,9 @@ describe('agency reply safety rules', () => {
     for (const locale of [hr,sr,de]) expect(keys(locale)).toEqual(keys(bs));
     for (const locale of [bs,hr,sr]) expect(locale.document).toEqual(de.document);
   });
-  it('keeps entries development-only, preserves host access and has no new routes or persistence', () => {
+  it('keeps entries visibility-gated, preserves host access and has no new routes or persistence', () => {
     const source = readFileSync('src/components/letter-reply/LetterReplyTask.tsx','utf8');
-    expect(source).toContain('if (import.meta.env.PROD) return null');
+    expect(source).toContain('if (!isLetterReplyVisible(import.meta.env.DEV, window.location.hostname)) return null');
     expect(source).toContain("canAccess ? setOpen(true) : navigate('/paketi')");
     expect(source).not.toMatch(/localStorage|sessionStorage|supabase|console\./);
     expect(readFileSync('src/pages/Vorlagen.tsx','utf8')).toContain('canAccess={isPremium}');

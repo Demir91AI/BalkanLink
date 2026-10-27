@@ -10,13 +10,14 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { useLocalizedNavigate } from '@/hooks/useLocalizedHref';
 import { PURPOSES, emptyReply, validateReply, renderReply, attachmentLines, FAMILY_SERVICE, FAMILY_PORTAL, type ReplyData } from '@/lib/letter-reply/model';
 import { createReplyPdf } from '@/lib/letter-reply/pdf';
+import { isLetterReplyVisible } from '@/lib/letter-reply/visibility';
 
-/** Development-only entry. Existing host access contract is supplied, never changed here. */
+/** Development/project-preview entry. Existing host access contract is supplied, never changed here. */
 export default function LetterReplyTask({ canAccess }: { canAccess: boolean }) {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation('reply');
   const navigate = useLocalizedNavigate();
-  if (import.meta.env.PROD) return null;
+  if (!isLetterReplyVisible(import.meta.env.DEV, window.location.hostname)) return null;
   return <>
     <Button variant="outline" className="w-full h-auto justify-start whitespace-normal rounded-lg border-gold/40 bg-card py-4 text-card-foreground" onClick={() => canAccess ? setOpen(true) : navigate('/paketi')}>
       <FilePenLine className="text-gold" /><span className="flex-1 text-left"><span className="block font-semibold">{t('title')}</span><span className="block text-xs text-muted-foreground mt-1">{t('entryHint')}</span></span><ArrowRight />
