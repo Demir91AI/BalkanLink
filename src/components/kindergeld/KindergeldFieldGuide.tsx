@@ -4,7 +4,7 @@ import { ExternalLink } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import FieldWalkthrough from "./FieldWalkthrough";
-import { paperGroups, KINDERGELD_PDFS, FORMS_URL, BZST_ID_URL, type PaperField, type PilotDetail, type FieldExpansion, type FieldGroup } from "./pilot-model";
+import { paperGroups, KINDERGELD_PDFS, FORMS_URL, BZST_ID_URL, type PaperField, type PilotDetail, type FieldExpansion, type FieldGroup, type FieldTerm } from "./pilot-model";
 
 /** Read-only companion: originals stay at BA; no applicant answers or PDF processing. */
 export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string }) {
@@ -16,9 +16,10 @@ export default function KindergeldFieldGuide({ onlineUrl }: { onlineUrl: string 
   const ank = t(k("ank"), { returnObjects: true }) as PaperField[];
   const details = t(p("details"), { returnObjects: true }) as Record<string, PilotDetail>;
   const extras = t(p("extras"), { returnObjects: true }) as FieldExpansion[];
+  const terms = t(p("terms"), { returnObjects: true }) as Record<string, FieldTerm[]>;
   const online = t(k("onlineGroups"), { returnObjects: true }) as { title: string; body: string; tip: string }[];
   const onlineDetails = t(p("onlineDetails"), { returnObjects: true }) as { meaning: string; example: string; mistake: string; help: string }[];
-  const paper = paperGroups(kg1, ank, details, extras);
+  const paper = paperGroups(kg1, ank, details, extras, terms);
   const onlineFields: FieldGroup[] = online.map((g, i) => ({ id: `online-${i}`, title: g.title, form: "BA eServices", page: 0, sec: "", de: "", what: g.body, where: g.tip, ...onlineDetails[i] }));
   return <section data-testid="kg-field-guide" aria-labelledby="kg-field-guide-title" className="min-w-0 border-y border-border py-5">
     <h2 id="kg-field-guide-title" className="text-lg font-bold text-foreground">{t(k("title"))}</h2>
