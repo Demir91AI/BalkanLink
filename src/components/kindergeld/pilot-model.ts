@@ -7,17 +7,24 @@ export interface PilotDetail {
   de?: string;
   what?: string; where?: string; example?: string; mistake?: string;
 }
+export interface FieldTerm {
+  id: string;
+  de: string;
+  translation: string;
+  meaning: string;
+}
 export interface FieldGroup extends PaperField {
   id: string; title: string; meaning: string; help: string;
+  terms?: FieldTerm[];
 }
 export interface FieldExpansion extends FieldGroup { after: string }
 
 /** Original records are not copied/replaced. Expansions follow the native form order. */
-export function paperGroups(kg1: PaperField[], ank: PaperField[], details: Record<string, PilotDetail>, extras: FieldExpansion[]): FieldGroup[] {
+export function paperGroups(kg1: PaperField[], ank: PaperField[], details: Record<string, PilotDetail>, extras: FieldExpansion[], terms: Record<string, FieldTerm[]> = {}): FieldGroup[] {
   return ([...kg1.map((r, i) => ({ ...r, id: `kg1-${i}` })), ...ank.map((r, i) => ({ ...r, id: `ank-${i}` }))]).flatMap((r) => {
     const detail = details[r.id];
     if (!detail) return [];
-    return [{ ...r, ...detail }, ...extras.filter((e) => e.after === r.id)];
+    return [{ ...r, ...detail }, ...extras.filter((e) => e.after === r.id)].map((g) => ({ ...g, terms: terms[g.id] }));
   });
 }
 

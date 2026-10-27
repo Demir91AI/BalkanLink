@@ -1,0 +1,1155 @@
+{
+  "baseline": "2ba2f7b3cd63a44504c0a4bea66e780ddcf1348e",
+  "edition": "01.25 / Stand September 2025",
+  "checkedOn": "2026-10-27",
+  "method": "Visual inspection of original printed forms and both KG1 remarks pages; no decrypted/modified PDF",
+  "sources": {
+    "KG1": "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf",
+    "Anlage Kind": "https://www.arbeitsagentur.de/datei/kg1-anlagekind_ba033765.pdf"
+  },
+  "scope": "All newborn-relevant fields and choices; adult section headings/skip only; no adult entitlement assessment",
+  "expectedGroups": 30,
+  "expectedLines": 174,
+  "groups": [
+    {
+      "id": "kg1-0",
+      "position": 1,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 1,
+      "lines": [
+        {
+          "id": "line-001",
+          "de": "Kindergeld-Nr.",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "phone",
+      "position": 2,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 1,
+      "lines": [
+        {
+          "id": "line-002",
+          "de": "Telefonische Rückfrage tagsüber unter Nr.:",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "count",
+      "position": 3,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 1,
+      "lines": [
+        {
+          "id": "line-003",
+          "de": "Anzahl der beigefügten \"Anlage Kind\":",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-1",
+      "position": 4,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 1,
+      "lines": [
+        {
+          "id": "line-004",
+          "de": "Steuerliche Identifikationsnummer der antragstellenden Person (soweit vergeben, zwingend auszufüllen)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-2",
+      "position": 5,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 8,
+      "lines": [
+        {
+          "id": "line-005",
+          "de": "Familienname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-006",
+          "de": "Titel",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-007",
+          "de": "Vorname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-008",
+          "de": "ggf. Geburtsname und Familienname aus früherer Ehe",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-009",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-010",
+          "de": "Geburtsort",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-011",
+          "de": "Geschlecht",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-012",
+          "de": "Staatsangehörigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-3",
+      "position": 6,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 5,
+      "lines": [
+        {
+          "id": "line-013",
+          "de": "Straße/Platz",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-014",
+          "de": "Hausnummer",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-015",
+          "de": "Postleitzahl",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-016",
+          "de": "Wohnort",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-017",
+          "de": "Staat",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "status",
+      "position": 7,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 8,
+      "lines": [
+        {
+          "id": "line-018",
+          "de": "ledig",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-019",
+          "de": "verheiratet",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-020",
+          "de": "geschieden",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-021",
+          "de": "verwitwet",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-022",
+          "de": "in eingetragener Lebenspartnerschaft lebend",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-023",
+          "de": "aufgehobene Lebenspartnerschaft",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-024",
+          "de": "dauernd getrennt lebend",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-025",
+          "de": "seit:",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-4",
+      "position": 8,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 8,
+      "lines": [
+        {
+          "id": "line-026",
+          "de": "Steuerliche Identifikationsnummer (soweit vergeben, bitte ausfüllen)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-027",
+          "de": "Familienname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-028",
+          "de": "Vorname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-029",
+          "de": "Titel",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-030",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-031",
+          "de": "Staatsangehörigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-032",
+          "de": "Geschlecht",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-033",
+          "de": "ggf. Geburtsname und Familienname aus früherer Ehe",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "partnerAddress",
+      "position": 9,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 5,
+      "lines": [
+        {
+          "id": "line-034",
+          "de": "Straße/Platz",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-035",
+          "de": "Hausnummer",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-036",
+          "de": "Postleitzahl",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-037",
+          "de": "Wohnort",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-038",
+          "de": "Staat",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-5",
+      "position": 10,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 3,
+      "lines": [
+        {
+          "id": "line-039",
+          "de": "IBAN",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-040",
+          "de": "BIC",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-041",
+          "de": "Bank, Finanzinstitut (ggf. auch Zweigstelle)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "owner",
+      "position": 11,
+      "form": "KG1",
+      "printedPage": 1,
+      "expectedLines": 3,
+      "lines": [
+        {
+          "id": "line-042",
+          "de": "antragstellende Person wie unter Nr. 1",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-043",
+          "de": "nicht antragstellende Person, sondern:",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-044",
+          "de": "Familienname, Vorname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-6",
+      "position": 12,
+      "form": "KG1",
+      "printedPage": 2,
+      "expectedLines": 7,
+      "lines": [
+        {
+          "id": "line-045",
+          "de": "Familienname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-046",
+          "de": "Vorname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-047",
+          "de": "Straße/Platz",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-048",
+          "de": "Hausnummer",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-049",
+          "de": "Postleitzahl",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-050",
+          "de": "Wohnort",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-051",
+          "de": "Staat",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-7",
+      "position": 13,
+      "form": "KG1",
+      "printedPage": 2,
+      "expectedLines": 5,
+      "lines": [
+        {
+          "id": "line-052",
+          "de": "Vorname des Kindes",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-053",
+          "de": "ggf. abweichender Familienname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-054",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-055",
+          "de": "Geschlecht",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-056",
+          "de": "Bei welcher Familienkasse (Kindergeldnummer)?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-8",
+      "position": 14,
+      "form": "KG1",
+      "printedPage": 2,
+      "expectedLines": 6,
+      "lines": [
+        {
+          "id": "line-057",
+          "de": "Vorname des Kindes",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-058",
+          "de": "ggf. abweichender Familienname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-059",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-060",
+          "de": "Geschlecht",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-061",
+          "de": "Wer bezieht das Kindergeld (Familienname, Vorname)?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-062",
+          "de": "Bei welcher Familienkasse (Kindergeldnummer)?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "kg1-9",
+      "position": 15,
+      "form": "KG1",
+      "printedPage": 2,
+      "expectedLines": 2,
+      "lines": [
+        {
+          "id": "line-063",
+          "de": "Datum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-064",
+          "de": "Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "consent",
+      "position": 16,
+      "form": "KG1",
+      "printedPage": 2,
+      "expectedLines": 2,
+      "lines": [
+        {
+          "id": "line-065",
+          "de": "Datum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-066",
+          "de": "Unterschrift der unter Punkt 2 genannten Person bzw. deren gesetzlichen Vertretung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-0",
+      "position": 17,
+      "form": "Anlage Kind",
+      "printedPage": 1,
+      "expectedLines": 4,
+      "lines": [
+        {
+          "id": "line-067",
+          "de": "Familienname und Vorname der antragstellenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-068",
+          "de": "Kindergeld-Nr.",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-069",
+          "de": "zum Antrag auf Kindergeld vom",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-070",
+          "de": "Lfd. Nr.",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-1",
+      "position": 18,
+      "form": "Anlage Kind",
+      "printedPage": 1,
+      "expectedLines": 1,
+      "lines": [
+        {
+          "id": "line-071",
+          "de": "Steuerliche Identifikationsnummer des Kindes (soweit vergeben, zwingend auszufüllen)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-2",
+      "position": 19,
+      "form": "Anlage Kind",
+      "printedPage": 1,
+      "expectedLines": 8,
+      "lines": [
+        {
+          "id": "line-072",
+          "de": "Familienname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-073",
+          "de": "Titel",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-074",
+          "de": "Vorname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-075",
+          "de": "Geburtsname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-076",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-077",
+          "de": "Geburtsort",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-078",
+          "de": "Geschlecht",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-079",
+          "de": "Staatsangehörigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "childAddress",
+      "position": 20,
+      "form": "Anlage Kind",
+      "printedPage": 1,
+      "expectedLines": 6,
+      "lines": [
+        {
+          "id": "line-080",
+          "de": "Straße/Platz",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-081",
+          "de": "Hausnummer",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-082",
+          "de": "Postleitzahl",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-083",
+          "de": "Wohnort",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-084",
+          "de": "Staat",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-085",
+          "de": "Grund der abweichenden Anschrift",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-3",
+      "position": 21,
+      "form": "Anlage Kind",
+      "printedPage": 1,
+      "expectedLines": 18,
+      "lines": [
+        {
+          "id": "line-086",
+          "de": "zur antragstellenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-087",
+          "de": "leibliches Kind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-088",
+          "de": "Adoptivkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-089",
+          "de": "Pflegekind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-090",
+          "de": "Stiefkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-091",
+          "de": "Enkelkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-092",
+          "de": "zum/zur Ehepartner(in) bzw. eingetragenen Lebenspartner(in)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-093",
+          "de": "leibliches Kind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-094",
+          "de": "Adoptivkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-095",
+          "de": "Pflegekind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-096",
+          "de": "Stiefkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-097",
+          "de": "Enkelkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-098",
+          "de": "zu einer anderen Person (z. B. anderer (Pflege-)Elternteil; bitte unten Angaben machen)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-099",
+          "de": "leibliches Kind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-100",
+          "de": "Adoptivkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-101",
+          "de": "Pflegekind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-102",
+          "de": "Stiefkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-103",
+          "de": "Enkelkind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "otherParent",
+      "position": 22,
+      "form": "Anlage Kind",
+      "printedPage": 1,
+      "expectedLines": 8,
+      "lines": [
+        {
+          "id": "line-104",
+          "de": "Familienname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-105",
+          "de": "Vorname",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-106",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-107",
+          "de": "letzte bekannte Anschrift (Straße/Platz, Hausnummer, Postleitzahl, Wohnort, Staat)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-108",
+          "de": "Staatsangehörigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-109",
+          "de": "verstorben",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-110",
+          "de": "Vaterschaft nicht festgestellt",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-111",
+          "de": "unbekannt",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-4",
+      "position": 23,
+      "form": "Anlage Kind",
+      "printedPage": 2,
+      "expectedLines": 5,
+      "lines": [
+        {
+          "id": "line-112",
+          "de": "Angaben für ein volljähriges Kind bzw. für ein Kind, das in Kürze das 18. Lebensjahr vollenden wird, sonst weiter bei Punkt 4",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-113",
+          "de": "Nachweise zu den Angaben (Punkt 3.1 - 3.3)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-114",
+          "de": "3.1 Das Kind",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-115",
+          "de": "3.2 Angaben zur Erwerbstätigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-116",
+          "de": "3.3 Angaben zum Vorliegen einer Behinderung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-5",
+      "position": 24,
+      "form": "Anlage Kind",
+      "printedPage": 3,
+      "expectedLines": 8,
+      "lines": [
+        {
+          "id": "line-117",
+          "de": "Haben Sie oder eine unter Punkt 2 genannte Person für dieses Kind bereits Kindergeld beantragt oder erhalten?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-118",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-119",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-120",
+          "de": "Familienname, Vorname der beziehenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-121",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-122",
+          "de": "Zeitraum (ab/von - bis)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-123",
+          "de": "Familienkasse, Anschrift",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-124",
+          "de": "Kindergeldnummer",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-6",
+      "position": 25,
+      "form": "Anlage Kind",
+      "printedPage": 3,
+      "expectedLines": 11,
+      "lines": [
+        {
+          "id": "line-125",
+          "de": "Sind Sie oder eine unter Punkt 2 genannte Person, zu der das Kind in einem Kindschaftsverhältnis steht, im öffentlichen Dienst tätig?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-126",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-127",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-128",
+          "de": "a) Wird die Beschäftigung in einer Einrichtung des Bundes ausgeübt?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-129",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-130",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-131",
+          "de": "b) Wird die Beschäftigung bei der Bundesagentur für Arbeit oder einem Jobcenter (gemeinsamen Einrichtung nach §44b SGB II) ausgeübt?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-132",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-133",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-134",
+          "de": "Familienname, Vorname der betreffenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-135",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-7",
+      "position": 26,
+      "form": "Anlage Kind",
+      "printedPage": 3,
+      "expectedLines": 10,
+      "lines": [
+        {
+          "id": "line-136",
+          "de": "Besteht oder bestand für Sie oder eine unter Punkt 2 genannte Person für das Kind in den letzten 5 Jahren vor der Antragstellung ein Anspruch auf eine kindbezogene Geldleistung von einer Stelle außerhalb Deutschlands oder von einer zwischen- oder überstaatlichen Einrichtung?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-137",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-138",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-139",
+          "de": "Familienname, Vorname der beziehenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-140",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-141",
+          "de": "Leistung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-142",
+          "de": "monatlicher Betrag (Euro)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-143",
+          "de": "Zeitraum (ab/von - bis)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-144",
+          "de": "leistende Stelle, Anschrift",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-145",
+          "de": "Aktenzeichen",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-8",
+      "position": 27,
+      "form": "Anlage Kind",
+      "printedPage": 4,
+      "expectedLines": 9,
+      "lines": [
+        {
+          "id": "line-146",
+          "de": "außerhalb Deutschlands als Arbeitnehmer(in), Selbständige(r), Entwicklungshelfer(in) tätig?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-147",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-148",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-149",
+          "de": "Familienname, Vorname der betreffenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-150",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-151",
+          "de": "Zeitraum (ab/von - bis)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-152",
+          "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-153",
+          "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-154",
+          "de": "Ort/Land der Erwerbstätigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "stateWork",
+      "position": 28,
+      "form": "Anlage Kind",
+      "printedPage": 4,
+      "expectedLines": 9,
+      "lines": [
+        {
+          "id": "line-155",
+          "de": "in Deutschland bei einer Dienststelle oder Einrichtung eines anderen Staates oder als Angehörige(r) der NATO-Streitkräfte tätig?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-156",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-157",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-158",
+          "de": "Familienname, Vorname der betreffenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-159",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-160",
+          "de": "Zeitraum (ab/von - bis)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-161",
+          "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-162",
+          "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-163",
+          "de": "Ort/Land der Erwerbstätigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "posting",
+      "position": 29,
+      "form": "Anlage Kind",
+      "printedPage": 4,
+      "expectedLines": 9,
+      "lines": [
+        {
+          "id": "line-164",
+          "de": "in Deutschland auf Veranlassung eines Arbeitgebers mit Sitz außerhalb Deutschlands beschäftigt (z. B. entsandte Person)?",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-165",
+          "de": "ja",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-166",
+          "de": "nein",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-167",
+          "de": "Familienname, Vorname der betreffenden Person",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-168",
+          "de": "Geburtsdatum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-169",
+          "de": "Zeitraum (ab/von - bis)",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-170",
+          "de": "Name/Bezeichnung des Dienstherrn/Arbeitgebers (ggf. Personalnummer) bzw. des Unternehmens, der Dienststelle oder Einrichtung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-171",
+          "de": "Anschrift des Dienstherrn/Arbeitgebers, des Unternehmens, der Dienststelle oder Einrichtung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-172",
+          "de": "Ort/Land der Erwerbstätigkeit",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    },
+    {
+      "id": "ank-9",
+      "position": 30,
+      "form": "Anlage Kind",
+      "printedPage": 4,
+      "expectedLines": 2,
+      "lines": [
+        {
+          "id": "line-173",
+          "de": "Datum",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        },
+        {
+          "id": "line-174",
+          "de": "Unterschrift der antragstellenden Person bzw. der gesetzlichen Vertretung",
+          "acceptance": "Visible localized translation and condition in correct numbered group in bs/hr/sr/de"
+        }
+      ]
+    }
+  ]
+}

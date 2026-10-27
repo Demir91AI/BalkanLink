@@ -1,4 +1,9 @@
 
+## Kindergeld consolidated final quality pass (2026-10-27; no release)
+- [x] Map original newborn-relevant KG1/Anlage Kind lines and choices to unchanged 30 groups; pre-implementation inventory contains 174 inline definitions/choices.
+- [x] Add inline localized subfields/options and contextual uncertainty help; preserve seven steps, navigation and access.
+- [x] 1025 full tests passed, 32 final focused tests passed, automatic build OK and 8 desktop/mobile language fixtures passed; evidence/gaps in `docs/kindergeld-final-quality-pass.md`. No publication. Authorized-account and authenticated BA portal-order verification remain existing blockers below.
+
 ## Kindergeld SmartGuide 2.0 pilot (2026-10-27, owner approved; no release)
 - [x] Verify BA/BZSt primary sources and original form ordering; preserve 20 records with 30 detailed ordered groups and original outbound PDF links.
 - [x] Implement integrated online/paper walkthrough, contextual no-data cases/help/glossary and Kindergeld-only reviewed-and-advance/completion behavior.

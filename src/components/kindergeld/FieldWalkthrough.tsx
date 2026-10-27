@@ -37,6 +37,16 @@ export default function FieldWalkthrough({ groups, mode, sourceUrl }: { groups: 
       {mode === "paper" && <p className="text-xs text-muted-foreground">{group.form} · {t("guideFirst.kindergeld.fields.lbl.page")} {group.page} · {t("guideFirst.kindergeld.fields.lbl.sec")} {group.sec}</p>}
       {group.only && <p className="text-sm font-semibold text-primary">{t("guideFirst.kindergeld.fields.lbl.only")}</p>}
     </header>
+    {mode === "paper" && group.terms && <section aria-labelledby={`kg-terms-${group.id}`} className="guide-block-neutral min-w-0 rounded-md border border-border p-4">
+      <h4 id={`kg-terms-${group.id}`} className="mb-3 text-base font-bold text-foreground">{t(k("termsTitle"))}</h4>
+      <ol data-testid="kg-field-terms" className="space-y-4">
+        {group.terms.map((term, i) => <li key={term.id} data-term-id={term.id} className="min-w-0 border-b border-border pb-4 last:border-0 last:pb-0">
+          <p className="break-words text-sm font-semibold leading-6 text-primary"><span aria-hidden="true">{i + 1}. </span><span lang="de">{term.de}</span></p>
+          <p className="mt-1 break-words text-sm font-bold leading-6 text-foreground">{term.translation}</p>
+          <p className="mt-1 break-words text-sm leading-6 text-muted-foreground">{term.meaning}</p>
+        </li>)}
+      </ol>
+    </section>}
     <div data-testid="kg-field-card" data-field-id={group.id} className="grid min-w-0 gap-3 sm:grid-cols-2">
       {(["meaning", "what", "where", "example", "mistake"] as const).map((key) => <section key={key} className={cn("min-w-0 rounded-md border border-border border-l-4 p-4", key === "mistake" ? "guide-block-mistake" : key === "where" || key === "example" ? "guide-block-where" : key === "what" ? "guide-block-action" : "guide-block-neutral")}>
         <h4 className="mb-2 text-sm font-bold text-foreground">{key === "meaning" ? t(k("meaning")) : key === "what" ? t(`smartGuideStandard.block.${mode === "paper" ? "field" : "action"}`) : t(`guideFirst.kindergeld.fields.lbl.${key}`)}</h4>
