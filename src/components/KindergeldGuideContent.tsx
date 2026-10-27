@@ -64,6 +64,8 @@ export default function KindergeldGuideContent() {
         </div>
       </section>
 
+      {c === "newborn" && <KindergeldFieldGuide />}
+
       {c !== "newborn" && (
         <section data-testid={`kg-special-${c}`} className="rounded-2xl border border-amber-500/30 bg-amber-950 p-5 text-sm text-foreground">
           <h3 className="font-semibold text-foreground">{t(k(`special.${c}.title`))}</h3>
@@ -122,7 +124,6 @@ export default function KindergeldGuideContent() {
       </ol>
       )}
 
-      {c === "newborn" && <KindergeldFieldGuide />}
 
       <section className="rounded-2xl border border-border bg-card p-4">
         <div className="flex items-center gap-2 text-[hsl(var(--gold))]">
