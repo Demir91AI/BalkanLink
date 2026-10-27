@@ -14,6 +14,7 @@ const setup = async () => {
   return render(<I18nextProvider i18n={i18n}><KindergeldGuideContent /></I18nextProvider>);
 };
 const F = bs.guideFirst.kindergeld.fields;
+const openFields = () => fireEvent.click(screen.getByRole("button", { name: /Korak 5: Roditelj/ }));
 const paper = () => fireEvent.mouseDown(screen.getByRole("tab", { name: F.mode.paper }), { button: 0, ctrlKey: false });
 const trig = (de: string) => screen.getByText((_, el) => el?.tagName === "SPAN" && !!el.textContent?.startsWith(`${de} · `)).closest("button");
 const clickRow = (de: string) => { const button = trig(de); if (!button) throw new Error("Missing field trigger"); fireEvent.click(button); };
@@ -23,6 +24,7 @@ describe("Kindergeld field-by-field guide", () => {
     const instance = i18n.createInstance();
     await instance.init({ lng: lang, resources: { [lang]: { pages: locale } }, interpolation: { escapeValue: false } });
     render(<I18nextProvider i18n={instance}><KindergeldGuideContent /></I18nextProvider>);
+    fireEvent.click(screen.getByRole("button", { name: new RegExp(locale.guideFirst.kindergeld.workflow.steps[4].title) }));
     const fields = locale.guideFirst.kindergeld.fields;
     expect(fields.short.kg1).toHaveLength(10);
     expect(fields.short.ank).toHaveLength(10);
@@ -36,7 +38,7 @@ describe("Kindergeld field-by-field guide", () => {
     expect(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]")).toHaveLength(20);
   });
   it("defaults to online and switches both ways without adding a second application CTA", async () => {
-    await setup();
+    await setup(); openFields();
     expect(screen.getByRole("tab", { name: F.mode.online }).getAttribute("aria-selected")).toBe("true");
     expect(screen.queryByTestId("kg-paper-details")).toBeNull();
     expect(screen.getAllByText(bs.guideFirst.kindergeld.ctaOnline)).toHaveLength(1);
@@ -48,17 +50,18 @@ describe("Kindergeld field-by-field guide", () => {
 
   it("online helpers are independent native disclosures, without user data entry", async () => {
     const { container } = await setup();
+    openFields();
     const helpers = screen.getAllByTestId("kg-online-helper");
     helpers[0].setAttribute("open", "");
     expect(helpers[0].hasAttribute("open")).toBe(true);
     expect(helpers.slice(1).every((helper) => !helper.hasAttribute("open"))).toBe(true);
     helpers[0].removeAttribute("open");
     expect(helpers.every((helper) => !helper.hasAttribute("open"))).toBe(true);
-    expect(container.querySelectorAll("input, textarea, select")).toHaveLength(0);
+    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select")).toHaveLength(0);
   });
 
   it("keeps every one of the 10 KG1 and 10 Anlage Kind explanations retrievable", async () => {
-    await setup(); paper();
+    await setup(); openFields(); paper();
     const rows = [...F.kg1, ...F.ank];
     expect(F.kg1).toHaveLength(10); expect(F.ank).toHaveLength(10);
     expect(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]")).toHaveLength(20);
@@ -69,7 +72,7 @@ describe("Kindergeld field-by-field guide", () => {
   });
 
   it("opens only one field across thematic groups and permits closing it", async () => {
-    await setup(); paper(); clickRow(F.kg1[1].de); clickRow(F.ank[1].de);
+    await setup(); openFields(); paper(); clickRow(F.kg1[1].de); clickRow(F.ank[1].de);
     expect(trig(F.kg1[1].de)?.getAttribute("aria-expanded")).toBe("false");
     expect(trig(F.ank[1].de)?.getAttribute("aria-expanded")).toBe("true");
     expect(screen.getByTestId("kg-paper-details").querySelectorAll('button[aria-expanded="true"]')).toHaveLength(1);
@@ -78,7 +81,7 @@ describe("Kindergeld field-by-field guide", () => {
   });
 
   it("places administrative headers near the end and adult-only details last", async () => {
-    await setup(); paper();
+    await setup(); openFields(); paper();
     const buttons = Array.from(screen.getByTestId("kg-paper-details").querySelectorAll("button[aria-expanded]"));
     expect(buttons[0]).toBe(trig(F.kg1[1].de));
     expect(buttons[17]).toBe(trig(F.kg1[0].de));
@@ -88,7 +91,7 @@ describe("Kindergeld field-by-field guide", () => {
   });
 
   it("newborn branch shows KG1 and Anlage Kind sections with readable field content", async () => {
-    await setup();
+    await setup(); openFields();
     expect(screen.getByTestId("kg-field-guide")).toBeTruthy();
     paper();
     clickRow(F.kg1[1].de);
@@ -128,7 +131,7 @@ describe("Kindergeld field-by-field guide", () => {
   });
 
   it("renders the official location label in the accordion", async () => {
-    await setup();
+    await setup(); openFields();
     paper();
     expect(trig(F.kg1[5].de)?.textContent).toContain("KG1 · str. 1 · tačka 3");
     expect(trig(F.ank[7].de)?.textContent).toContain("Anlage Kind · str. 3 · tačka 6");
@@ -142,9 +145,10 @@ describe("Kindergeld field-by-field guide", () => {
 
   it("contains no data-entry fields", async () => {
     const { container } = await setup();
+    openFields();
     paper();
     clickRow(F.kg1[1].de);
-    expect(container.querySelectorAll("input, textarea, select").length).toBe(0);
+    expect(container.querySelectorAll("input:not([type=checkbox]), textarea, select").length).toBe(0);
   });
 
   it("all four locales have the same number of field rows", () => {

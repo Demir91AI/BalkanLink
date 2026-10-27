@@ -21,7 +21,10 @@ const JC: GuideSource = { kind: "official", url: "https://jobcenter.digital", la
 
 export const GUIDE_SOURCES: Record<string, GuideSource> = {
   anmeldung: { kind: "local" },
-  "steuer-id": { kind: "official", url: "https://www.bzst.de", label: "Bundeszentralamt für Steuern" },
+  "steuer-id": { kind: "official", url: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/steuerlicheidentifikationsnummer", label: "Bundeszentralamt für Steuern — IdNr", verifiedOn: "27.10.2026", extraLinks: [
+    { url: "https://www.bzst.de/DE/Privatpersonen/SteuerlicheIdentifikationsnummer/FAQ/faq_node.html", label: "BZSt — IdNr FAQ" },
+    { url: "https://karriere.bzst.de/SiteGlobals/Kontaktformulare/DE/IdNr/Mitteilung_IdNr/mitteilung_IdNr_node.html", label: "BZSt — Mitteilung IdNr" },
+  ] },
   fuehrerschein: { kind: "local" },
   fahrzeugzulassung: { kind: "local" },
   kindergeld: {
@@ -40,7 +43,11 @@ export const GUIDE_SOURCES: Record<string, GuideSource> = {
     extraLinks: [{ url: "https://familienportal.de", label: "Familienportal (BMFSFJ) — Elterngeldstellen je Bundesland" }],
   },
   mutterschaftsgeld: { kind: "official", url: "https://www.mutterschaftsgeld.de", label: "Mutterschaftsgeldstelle (Bundesamt für Soziale Sicherung)" },
-  kinderzuschlag: { kind: "official", url: "https://www.arbeitsagentur.de/kinderzuschlag", label: "Familienkasse — Kinderzuschlag (BA)" },
+  kinderzuschlag: { kind: "official", url: "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag-verstehen/kinderzuschlag-anspruch-hoehe-dauer", label: "Familienkasse — Kinderzuschlag (BA)", verifiedOn: "27.10.2026", extraLinks: [
+    { url: "https://www.arbeitsagentur.de/familie-und-kinder/kinderzuschlag-verstehen/kiz-lotse", label: "Familienkasse — KiZ-Lotse" },
+    { url: "https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder/formulare-kinderzuschlag", label: "Familienkasse — Formulare Kinderzuschlag" },
+    { url: "https://www.arbeitsagentur.de/familie-und-kinder/eservices-fuer-familien", label: "Familienkasse — eServices" },
+  ] },
   "krippengeld-bayern": { kind: "official", url: "https://www.zbfs.bayern.de/familie/krippengeld/", label: "ZBFS Bayern — Krippengeld" },
   "wirtschaftliche-jugendhilfe": { kind: "local" },
   hauptantrag: JC,
