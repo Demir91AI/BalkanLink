@@ -1,3 +1,4 @@
+import LegacyMusterGuard from "@/components/guide-first/LegacyMusterGuard";
 import { useState, useCallback, useEffect, type CSSProperties, type ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
@@ -97,7 +98,7 @@ const th: CSSProperties = { border: C.border, background: "#fff", padding: "5px 
 const td: CSSProperties = { border: C.border, padding: 0, height: 30, verticalAlign: "top" };
 const tdInp: CSSProperties = { ...inpBare, padding: "6px 7px", minHeight: 30, fontSize: 12 };
 
-export default function KindergeldPreviewWindow() {
+function LegacyKindergeldPreviewWindow() {
   const { t } = useTranslation("forms");
   const [zoom, setZoom] = useState(() => {
     if (typeof window === "undefined") return 1;
@@ -455,4 +456,9 @@ export default function KindergeldPreviewWindow() {
       </div>
     </>
   );
+}
+
+/** Guide-first cutover: the legacy preview is no longer shown; redirect to the SmartGuide. */
+export default function KindergeldPreviewWindow() {
+  return <LegacyMusterGuard><LegacyKindergeldPreviewWindow /></LegacyMusterGuard>;
 }

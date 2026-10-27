@@ -19,6 +19,7 @@ import PWAManualGuide from "@/components/PWAManualGuide";
 import PWASamsungGuide from "@/components/PWASamsungGuide";
 import PWAiOSOtherGuide from "@/components/PWAiOSOtherGuide";
 import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
+import LegacyMusterGuard from "@/components/guide-first/LegacyMusterGuard";
 // TranslationPendingBanner removed (apr 2026): all UI strings ship fully
 // translated; the platform must never advertise "translation pending".
 
@@ -74,7 +75,7 @@ export default function Layout() {
         <Header />
         <main className="flex-1 pb-16 md:pb-0" style={{ backgroundColor: "#020617" }}>
           <ErrorBoundary>
-            <Outlet />
+            <LegacyMusterGuard><Outlet /></LegacyMusterGuard>
           </ErrorBoundary>
         </main>
         <Footer onOpenCookieSettings={cookie.openPreferences} />
