@@ -25,7 +25,7 @@ https://www.arbeitsagentur.de/familie-und-kinder/downloads-familie-und-kinder/fo
 
 Currently linked German originals, printed **Stand September 2025 / 01.25**:
 - KG1: https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf
-  - SHA-256 `53651bbe336039b6ca3852f1fa7288b4841349afd1978a4b91469fea15eaec43`
+  - SHA-256 `53651bbe336039b6ca3852f1fa7288b4841349afd1978a4b91469fea15eaac43`
   - Five physical PDF pages: cover, two application pages, two instruction pages. Printed KG1 page 1 = PDF page 2; printed page 2 = PDF page 3.
 - Anlage Kind: https://www.arbeitsagentur.de/datei/kg1-anlagekind_ba033765.pdf
   - SHA-256 `baf78a8dbaa84490964772b5f37a6a9b2ff3e5c4683b9ef3d678b3d638926f6f`
