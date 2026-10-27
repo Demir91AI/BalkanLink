@@ -197,7 +197,7 @@ function GuideContent({ slug }: { slug: string }) {
   if (slug === "wirtschaftliche-jugendhilfe") return <><WirtschaftlicheJugendhilfeGuideContent />{MusterButton}</>;
   if (slug === "fahrzeugzulassung") return <><FahrzeugzulassungGuide />{MusterButton}</>;
 
-  if (!guide) return null;
+  if (!guide) return <>{MusterButton}</>;
 
   return (
     <div className="space-y-8">
