@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { MEMBERSHIP } from "@/lib/membership";
 import StripeSubscriptionsSection from "@/components/admin/StripeSubscriptionsSection";
 import AdminNotificationsSection from "@/components/admin/AdminNotificationsSection";
 import StripeSyncLogSection from "@/components/admin/StripeSyncLogSection";
@@ -1789,6 +1791,7 @@ function TabGeo({ extra }: { extra: any }) {
 /* ═══════════════════════ TAB 9: TROŠKOVI ═══════════════════════ */
 
 function TabTroskovi({ stats, extra }: { stats: Stats; extra: any }) {
+  const { t } = useTranslation("plus");
   const aiCost = extra?.asistentStats?.estCost30d ?? 0;
   const services = [
     { name: "Supabase Free", cost: 0, note: "Storage, DB, Auth" },
@@ -1803,7 +1806,7 @@ function TabTroskovi({ stats, extra }: { stats: Stats; extra: any }) {
   const revenue = (stats?.revenue30d ?? 0) / 100;
   const profit = revenue - opTotal;
   const margin = revenue > 0 ? Math.round((profit / revenue) * 100) : 0;
-  const breakeven = Math.max(1, Math.ceil(opTotal / 9.99));
+  const breakeven = Math.max(1, Math.ceil(opTotal / MEMBERSHIP.monthlyEquivalent));
   const paidNow = stats?.activePremium ?? 0;
 
   return (
@@ -1850,8 +1853,9 @@ function TabTroskovi({ stats, extra }: { stats: Stats; extra: any }) {
             <Metric><div className="text-xl mt-1">{opTotal.toFixed(2)} €</div></Metric>
           </div>
           <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${C.border}` }}>
-            <Label>Cijena pretplate</Label>
-            <Metric><div className="text-xl mt-1">9.99 €</div></Metric>
+            <Label>{t("adminAnnualPlanning")}</Label>
+            <Metric><div className="text-xl mt-1">{eur(MEMBERSHIP.yearlyPriceCents)}</div></Metric>
+            <div className="text-xs mt-1" style={{ color: C.textDim }}>{t("adminMonthlyEquivalent", { amount: MEMBERSHIP.monthlyEquivalent.toFixed(2) })}</div>
           </div>
           <div className="rounded-lg p-3" style={{ background: `${paidNow >= breakeven ? C.emerald : C.amber}15`, border: `1px solid ${paidNow >= breakeven ? C.emerald : C.amber}40` }}>
             <Label>Minimum za pokriće</Label>
@@ -1872,6 +1876,7 @@ function TabTroskovi({ stats, extra }: { stats: Stats; extra: any }) {
 /* ═══════════════════════ TAB 10: CILJEVI ═══════════════════════ */
 
 function TabCiljevi({ stats, extra }: { stats: Stats; extra: any }) {
+  const { t } = useTranslation("plus");
   const gc = extra?.goalsCurrent ?? { mrrCents: 0, realUsers: 0, avgVisitsPerDay: 0 };
   const mrrCurrent = (gc.mrrCents ?? 0) / 100;
   const usersCurrent = gc.realUsers ?? 0;
@@ -1882,7 +1887,7 @@ function TabCiljevi({ stats, extra }: { stats: Stats; extra: any }) {
   const [visitsTarget, setVisitsTarget] = useState(200);
 
   const goals = [
-    { icon: "🎯", label: "MRR cilj", current: mrrCurrent, target: mrrTarget, unit: "€", color: C.amber, hint: `Trebaš još ${Math.max(0, Math.ceil((mrrTarget - mrrCurrent) / 9.99))} novih pretplata`, set: setMrrTarget },
+    { icon: "🎯", label: "MRR cilj", current: mrrCurrent, target: mrrTarget, unit: "€", color: C.amber, hint: t("adminAnnualProjection", { count: Math.max(0, Math.ceil((mrrTarget - mrrCurrent) / MEMBERSHIP.monthlyEquivalent)) }), set: setMrrTarget },
     { icon: "👥", label: "Korisnici cilj", current: usersCurrent, target: usersTarget, unit: "", color: C.violet, hint: "Vanjski (bez lifetime)", set: setUsersTarget },
     { icon: "📈", label: "Posjete/dan", current: visitsCurrent, target: visitsTarget, unit: "", color: C.cyan, hint: "Prosjek zadnjih 30 dana", set: setVisitsTarget },
   ];
@@ -1901,9 +1906,9 @@ function TabCiljevi({ stats, extra }: { stats: Stats; extra: any }) {
   const months12 = ["Jun", "Jul", "Avg", "Sep", "Okt", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "Maj"];
   const projection = months12.map((m, i) => ({
     m,
-    konzervativno: mrrCurrent + (i + 1) * 9.99 * 1,
-    realisticno: mrrCurrent + (i + 1) * 9.99 * 3,
-    optimisticno: mrrCurrent + (i + 1) * 9.99 * 7,
+    konzervativno: mrrCurrent + (i + 1) * MEMBERSHIP.monthlyEquivalent * 1,
+    realisticno: mrrCurrent + (i + 1) * MEMBERSHIP.monthlyEquivalent * 3,
+    optimisticno: mrrCurrent + (i + 1) * MEMBERSHIP.monthlyEquivalent * 7,
   }));
 
   return (

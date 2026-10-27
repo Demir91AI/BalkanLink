@@ -1,9 +1,9 @@
 {
   "seoTitle": "BalkanLink Mitgliedschaft — 7 Tage kostenlos, danach 19,99 € pro Jahr",
   "seoDesc": "Teste alle BalkanLink-Tools 7 Tage ohne Karte. Danach, wenn du willst, Mitgliedschaft für 19,99 € pro Jahr. Jederzeit kündbar.",
-  "title": "BalkanLink Mitgliedschaft",
+  "title": "BalkanLink Plus",
   "subtitle": "Alle Tools an einem Ort. Zuerst 7 Tage kostenlos, ohne Karte.",
-  "name": "BalkanLink Mitgliedschaft",
+  "name": "BalkanLink Plus",
   "price": "19,99 € pro Jahr",
   "tagline": "7 Tage kostenlos, danach 19,99 € pro Jahr — nur wenn du dich dafür entscheidest.",
   "priceNote": "Jährliches Abo, das sich automatisch verlängert. Du kannst jederzeit zum Ende des bezahlten Jahres kündigen.",
@@ -27,7 +27,7 @@
   "cta": "Mitgliedschaft starten — 19,99 € pro Jahr",
   "ctaLogin": "Registrieren und 7 Tage kostenlos starten",
   "ctaDisabled": "Mitgliedschaft noch nicht aktiviert",
-  "ctaDisabledNote": "Die Zahlung für die neue Mitgliedschaft ist bald verfügbar. Bis dahin musst du nichts bezahlen.",
+  "ctaDisabledNote": "Neue Zahlungen sind nicht verfügbar, bis der jährliche Stripe-Preis, die Zahlungsabwicklung und die Prüfungen eingerichtet und freigegeben sind. Der Testzeitraum löst keine Abbuchung aus.",
   "owned": "Du hast vollen BalkanLink-Zugang",
   "ownedLegacy": "Dein bestehender Zugang bleibt vollständig gültig.",
   "secure": "Sichere Zahlung über Stripe · Rechnung per E-Mail · ohne MwSt. (§19 UStG)",
@@ -54,5 +54,8 @@
   "lockedTitle": "Dieser Bereich ist in der BalkanLink Mitgliedschaft enthalten",
   "login": "Schon ein Konto? Anmelden",
   "close": "Schließen",
-  "ctaRegisterPlain": "Kostenlos registrieren"
+  "ctaRegisterPlain": "Kostenlos registrieren",
+  "adminAnnualPlanning": "Plan: Plus / Jahr (Zahlung inaktiv)",
+  "adminMonthlyEquivalent": "Monatlicher Planungswert: {{amount}} €",
+  "adminAnnualProjection": "Plan nach Zahlungsfreigabe: noch {{count}} Jahresmitgliedschaften"
 }

@@ -295,7 +295,6 @@ const BS: Record<string, string> = {
   "docCheck.noInput": "Molimo učitaj datoteku ili unesi tekst.",
   "docCheck.analysisFailed": "Analiza nije uspjela.",
   "docCheck.freeLabel": "✓ Besplatno — 2 provjere dnevno",
-  "docCheck.singleCta": "Pojedinačni pristup — 3,99€",
   "docCheck.detailedTitle": "Detaljni koraci i rješenja",
   "premium.title": "Paketi i cijene",
   "premium.badge": "PREMIUM",

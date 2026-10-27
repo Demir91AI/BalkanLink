@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
-import { PRODUCTS, isProductKey } from "../_shared/products.ts";
+import { newCheckoutAvailability } from "../_shared/checkout-policy.ts";
 import { annualCheckoutGate, isExactAnnualPrice } from "../_shared/annual.ts";
 
 const corsHeaders = {
@@ -26,48 +26,13 @@ serve(async (req) => {
 
     let body: { product?: unknown; returnTo?: unknown } = {};
     try { body = await req.json(); } catch { /* empty */ }
-    if (body.product === "annual") return await annualCheckout(req, user, body.returnTo);
     // Retired consumer offers must never generate new Stripe sessions. Existing
     // historical payments remain verifiable via the webhook/verify-payment paths.
     if (body.product === "plus") return json({ error: "product_retired" }, 410);
-    if (!isProductKey(body.product)) return json({ error: "Unknown product" }, 400);
-    const product = PRODUCTS[body.product];
-
-    const admin = createClient(Deno.env.get("SUPABASE_URL") ?? "", Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "", {
-      auth: { persistSession: false },
-    });
-
-    // Plus is a one-time lifetime purchase — don't sell it twice.
-    if (body.product === "plus") {
-      const { data: prof } = await admin.from("profiles").select("subscription_tier").eq("id", user.id).maybeSingle();
-      const { data: has } = await admin.rpc("has_full_access", { uid: user.id });
-      if (has || prof?.subscription_tier === "lifetime") return json({ error: "already_owned" }, 409);
-    }
-
-    const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", { apiVersion: "2025-08-27.basil" });
-    const customers = await stripe.customers.list({ email: user.email, limit: 1 });
-    const customerId = customers.data[0]?.id;
-
-    const ALLOWED_ORIGINS = ["https://balkanlink.de", "https://www.balkanlink.de", "https://staro.lovable.app", "https://id-preview--42558ae9-0b5a-4abf-bab6-f6cb6cf85927.lovable.app"];
-    const rawOrigin = req.headers.get("origin") || "";
-    const origin = ALLOWED_ORIGINS.includes(rawOrigin) ? rawOrigin : "https://balkanlink.de";
-    const returnTo = body.returnTo;
-    const safeReturnTo = typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//") ? returnTo : "/";
-
-    const session = await stripe.checkout.sessions.create({
-      customer: customerId,
-      customer_email: customerId ? undefined : user.email,
-      customer_creation: customerId ? undefined : "always",
-      line_items: [{ price: product.priceId, quantity: 1 }],
-      mode: product.mode,
-      invoice_creation: { enabled: true },
-      payment_intent_data: { receipt_email: user.email, description: product.label },
-      success_url: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}&return_to=${encodeURIComponent(safeReturnTo)}`,
-      cancel_url: `${origin}/placanje-otkazano`,
-      metadata: { user_id: user.id, product_key: body.product, return_to: safeReturnTo },
-    });
-
-    return json({ url: session.url });
+    const unavailable = newCheckoutAvailability(body.product);
+    if (unavailable) return json({ error: unavailable.error }, unavailable.status);
+    if (body.product === "annual") return await annualCheckout(req, user, body.returnTo);
+    return json({ error: "product_retired" }, 410);
   } catch (error) {
     console.error("[create-checkout]", error instanceof Error ? error.message : String(error));
     return json({ error: "Checkout failed" }, 500);
@@ -97,9 +62,10 @@ async function annualCheckout(req: Request, user: any, returnTo: unknown) {
     hasActiveAnnualRow, stripeActiveSubCount: 0,
   });
   if (!pre.ok) return json({ error: pre.error }, pre.status);
+  if (!priceId) return json({ error: "annual_not_configured" }, 503);
 
   const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
-  const price = await stripe.prices.retrieve(priceId!);
+  const price = await stripe.prices.retrieve(priceId);
   if (!isExactAnnualPrice(price as never, priceId)) return json({ error: "annual_price_mismatch" }, 503);
 
   const customers = await stripe.customers.list({ email: user.email, limit: 1 });
@@ -117,7 +83,7 @@ async function annualCheckout(req: Request, user: any, returnTo: unknown) {
   const session = await stripe.checkout.sessions.create({
     customer: customerId,
     customer_email: customerId ? undefined : user.email,
-    line_items: [{ price: priceId!, quantity: 1 }],
+    line_items: [{ price: priceId, quantity: 1 }],
     mode: "subscription",
     client_reference_id: user.id,
     // No Stripe trial: the 7-day trial is cardless and server-side; the card is charged only on this voluntary checkout.

@@ -3,9 +3,8 @@ import { toast } from "@/hooks/use-toast";
 import i18n from "@/i18n";
 
 /**
- * Purchasable consumer products. The client only sends a product KEY — the server
- * (create-checkout) maps it to an allowlisted LIVE Stripe price and mode.
- *  - plus:      BalkanLink Plus, 19,90€ one-time (price_1UIwaPR9oGwbVekB3tcoSeHB)
+ * Historical one-time product type retained for payment verification only.
+ * New annual membership uses useMembership; lifetime checkout is retired.
  */
 export type ProductKey = "plus";
 
@@ -16,36 +15,13 @@ export const STRIPE_PRODUCT_IDS = {
 } as const;
 
 /**
- * Start a Stripe Checkout for an allowlisted product.
+ * Compatibility entry point for retired lifetime checkout. Never contacts Stripe.
  */
-export async function initiateCheckout(product: ProductKey) {
-  try {
-    const returnTo = `${window.location.pathname}${window.location.search}`;
-    const { data, error } = await supabase.functions.invoke("create-checkout", {
-      body: { product, returnTo },
-    });
-    if (error) {
-      // 409 = already owns Plus
-      const ctx = (error as { context?: Response }).context;
-      if (ctx && ctx.status === 409) {
-        toast({ title: i18n.t("plus:errorTitle"), description: i18n.t("plus:alreadyOwned") });
-        return;
-      }
-      throw error;
-    }
-    if (data?.url) {
-      window.location.href = data.url;
-    } else {
-      throw new Error("No checkout URL returned");
-    }
-  } catch (err) {
-    console.error("Checkout error:", err);
-    toast({
-      title: i18n.t("plus:errorTitle"),
-      description: i18n.t("plus:checkoutError"),
-      variant: "destructive",
-    });
-  }
+export async function initiateCheckout(_product: ProductKey) {
+  toast({
+    title: i18n.t("plus:errorTitle"),
+    description: i18n.t("plus:ctaDisabledNote"),
+  });
 }
 
 /**
