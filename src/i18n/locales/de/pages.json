@@ -1761,9 +1761,38 @@
         "formulare": "BA — Formulare Kindergeld"
       },
       "verified": "Inhalt geprüft anhand der genannten Seiten der Bundesagentur für Arbeit: 27.10.2026.",
-      "disclaimer": "Nur zur Information, keine Rechtsberatung. BalkanLink ist keine Behörde und stellt keine Anträge."
+      "disclaimer": "Nur zur Information, keine Rechtsberatung. BalkanLink ist keine Behörde und stellt keine Anträge.",
+      "special": {
+        "depends": "Besondere Voraussetzungen und Nachweise hängen von deiner Situation ab. BalkanLink prüft keinen Anspruch — darüber entscheidet die Familienkasse.",
+        "back": "← Zurück zum Leitfaden für Neugeborene",
+        "adult": {
+          "title": "Kindergeld für Kinder über 18",
+          "body": "Für volljährige Kinder gibt es Kindergeld nur unter besonderen Voraussetzungen (z. B. Schule oder Ausbildung). Offizielle Informationen und Nachweise findest du bei der Familienkasse.",
+          "cta": "BA — Kindergeld ab 18 Jahren"
+        },
+        "cross": {
+          "title": "Kind im Ausland oder Arbeit in einem anderen Staat",
+          "body": "Für grenzüberschreitende Fälle gelten besondere Regeln. Lies vor dem Antrag die offiziellen Informationen der Familienkasse zu Kindergeld und Ausland.",
+          "cta": "BA — Kindergeld und Ausland"
+        }
+      }
     },
     "panelEmpty": "Wähle links eine Leistung für Leitfaden und offizielle Quellen.",
-    "benefitsGuides": "40+ SmartGuide-Leitfäden — Schritt für Schritt zum offiziellen Antrag für Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG und mehr"
+    "benefitsGuides": "40+ SmartGuide-Leitfäden — Schritt für Schritt zum offiziellen Antrag für Bürgergeld, Kindergeld, Elterngeld, Wohngeld, BAföG und mehr",
+    "bgModal": {
+      "title": "Was ist Bürgergeld / Grundsicherungsgeld?",
+      "p1": "Grundsicherung nach SGB II für erwerbsfähige Menschen ohne ausreichendes Einkommen. Laut Bundesagentur für Arbeit hat das Grundsicherungsgeld am 01.07.2026 das Bürgergeld abgelöst.",
+      "p2": "Der Antrag wird beim Jobcenter gestellt. Welche Anlagen und Nachweise nötig sind, hängt von deiner Situation ab.",
+      "tipsTitle": "Gut zu wissen:",
+      "tips": [
+        "Bei bestehendem Anspruch wird in der Regel ab dem Ersten des Antragsmonats gezahlt — nicht für frühere Monate. Stelle den Antrag daher nicht zu spät.",
+        "Welche Anlagen und Nachweise du brauchst, hängt von deiner Situation ab — das Jobcenter teilt es dir mit.",
+        "Aktuelle Kontoauszüge bereitlegen und IBAN prüfen."
+      ],
+      "source": "Quelle: BA — Antrag und Bescheid",
+      "open": "SmartGuide öffnen",
+      "close": "Schließen"
+    },
+    "paywallFields": "Klar erklärt, was du vorbereitest und wie du Schritt für Schritt durch das offizielle Verfahren gehst"
   }
 }

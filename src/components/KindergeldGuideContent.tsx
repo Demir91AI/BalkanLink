@@ -18,6 +18,10 @@ const SOURCES = [
 ] as const;
 
 type Case = "newborn" | "adult" | "cross";
+const SPECIAL_URL: Record<Exclude<Case, "newborn">, string> = {
+  adult: "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ab-18-jahren",
+  cross: "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ausland",
+};
 const CASES: Case[] = ["newborn", "adult", "cross"];
 const STAGES = ["orient", "prepare", "access", "apply", "after"] as const;
 
@@ -57,16 +61,29 @@ export default function KindergeldGuideContent() {
             </button>
           ))}
         </div>
-        {c !== "newborn" && (
-          <div className="mt-3 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground/90">
-            <p>{t(k(`${c}Note`))}</p>
-            <a href={SOURCES[1].url} target="_blank" rel="noopener noreferrer" className={cn(linkCls, "mt-2")}>
-              {t(k("src.nachweise"))} <ExternalLink className="h-3.5 w-3.5" />
-            </a>
-          </div>
-        )}
       </section>
 
+      {c !== "newborn" && (
+        <section data-testid={`kg-special-${c}`} className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-5 text-sm text-foreground/90">
+          <h3 className="font-semibold text-foreground">{t(k(`special.${c}.title`))}</h3>
+          <p className="mt-2 leading-relaxed">{t(k(`special.${c}.body`))}</p>
+          <p className="mt-2 leading-relaxed">{t(k("special.depends"))}</p>
+          <div className="mt-4 flex flex-col gap-2">
+            <a href={SPECIAL_URL[c]} target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 rounded-xl bg-[hsl(var(--gold))] px-4 py-3 font-bold text-[hsl(var(--background))]">
+              {t(k(`special.${c}.cta`))} <ExternalLink className="h-4 w-4" />
+            </a>
+            <a href={SOURCES[3].url} target="_blank" rel="noopener noreferrer" className={linkCls}>
+              {t(k("src.formulare"))} <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+            <button type="button" onClick={() => setC("newborn")} className="mt-1 self-start text-sm font-semibold text-[hsl(var(--gold))] underline-offset-2 hover:underline">
+              {t(k("special.back"))}
+            </button>
+          </div>
+        </section>
+      )}
+
+      {c === "newborn" && (
       <ol className="space-y-3">
         {STAGES.map((s, i) => (
           <li key={s} className="rounded-2xl border border-border/60 bg-card/40 p-4">
@@ -102,6 +119,7 @@ export default function KindergeldGuideContent() {
           </li>
         ))}
       </ol>
+      )}
 
       <section className="rounded-2xl border border-border/60 bg-card/40 p-4">
         <div className="flex items-center gap-2 text-[hsl(var(--gold))]">

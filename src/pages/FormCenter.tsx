@@ -71,31 +71,29 @@ function getLangKey(lang: string): LangKey {
 
 /* ─── Bürgergeld Info Modal ─── */
 function BuergergeldInfoModal({ open, onClose, onOpenForm }: { open: boolean; onClose: () => void; onOpenForm: () => void }) {
+  const { t } = useTranslation("pages");
   if (!open) return null;
+  const tips = t("guideFirst.bgModal.tips", { returnObjects: true }) as string[];
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={onClose}>
       <div className="relative w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-xl" onClick={e => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"><X className="h-5 w-5" /></button>
-        <h3 className="text-lg font-bold mb-3">Šta je Bürgergeld?</h3>
-        <p className="text-sm text-muted-foreground mb-3">
-          Bürgergeld (ranije Hartz IV) je osnovna socijalna pomoć u Njemačkoj prema SGB II. Namijenjen je osobama koje su sposobne za rad ali nemaju dovoljno prihoda za osnovne životne potrebe.
-        </p>
-        <p className="text-sm text-muted-foreground mb-4">
-          Zahtjev se podnosi kod Jobcentra i uključuje glavni formular (Hauptantrag) te niz priloga zavisno od vaše situacije.
-        </p>
-        <h4 className="text-sm font-bold mb-2">⚠️ Najčešće greške:</h4>
-        <ul className="text-sm text-muted-foreground space-y-1 mb-5">
-          <li>• Kasno podnošenje — Bürgergeld NE ide retroaktivno</li>
-          <li>• Zaboravljena Anlage VM — obavezno uz Hauptantrag</li>
-          <li>• Nepotpuni kontoauszüge (izvodi iz banke)</li>
-          <li>• Pogrešna porezna klasa ili IBAN</li>
+        <button onClick={onClose} aria-label={t("guideFirst.bgModal.close")} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"><X className="h-5 w-5" /></button>
+        <h3 className="text-lg font-bold mb-3">{t("guideFirst.bgModal.title")}</h3>
+        <p className="text-sm text-muted-foreground mb-3">{t("guideFirst.bgModal.p1")}</p>
+        <p className="text-sm text-muted-foreground mb-4">{t("guideFirst.bgModal.p2")}</p>
+        <h4 className="text-sm font-bold mb-2">{t("guideFirst.bgModal.tipsTitle")}</h4>
+        <ul className="text-sm text-muted-foreground space-y-1 mb-3">
+          {tips.map((x) => <li key={x}>• {x}</li>)}
         </ul>
+        <a href="https://www.arbeitsagentur.de/grundsicherung/finanziell-absichern/antrag-bescheid" target="_blank" rel="noopener noreferrer" className="mb-5 inline-block text-xs text-[hsl(var(--gold))] underline">
+          {t("guideFirst.bgModal.source")}
+        </a>
         <div className="flex gap-3">
           <button onClick={onOpenForm} className="flex-1 rounded-full py-2.5 text-sm font-bold text-[hsl(var(--gold-foreground))]" style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))" }}>
-            Otvori formular
+            {t("guideFirst.bgModal.open")}
           </button>
           <button onClick={onClose} className="flex-1 rounded-full py-2.5 text-sm font-medium border border-border text-muted-foreground hover:bg-muted">
-            Zatvori
+            {t("guideFirst.bgModal.close")}
           </button>
         </div>
       </div>
@@ -118,7 +116,7 @@ function FormPremiumPaywall({ slug, entry }: { slug: string; entry: FormEntry | 
       </div>
       <ul className="text-left text-xs text-muted-foreground space-y-2 w-full">
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Kompletan Smart Guide — svaki korak detaljno objašnjen</li>
-        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Tačno šta upisati u svako polje formulara</li>
+        <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> {tp("guideFirst.paywallFields")}</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Detaljan spisak dokumenata (šta tačno, gdje nabaviti)</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> {tp("guideFirst.paywallItem")}</li>
         <li className="flex items-start gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" /> Najčešće greške i kako ih izbjeći</li>
