@@ -708,6 +708,30 @@ export type Database = {
         }
         Relationships: []
       }
+      entitlement_settings: {
+        Row: {
+          id: number
+          protective_caps_enforced: boolean
+          trial_rollout_at: string | null
+          trial_signup_enabled: boolean
+          updated_at: string
+        }
+        Insert: {
+          id?: number
+          protective_caps_enforced?: boolean
+          trial_rollout_at?: string | null
+          trial_signup_enabled?: boolean
+          updated_at?: string
+        }
+        Update: {
+          id?: number
+          protective_caps_enforced?: boolean
+          trial_rollout_at?: string | null
+          trial_signup_enabled?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
       external_pdf_versions: {
         Row: {
           content_length: number | null
@@ -1351,6 +1375,27 @@ export type Database = {
         }
         Relationships: []
       }
+      trial_grants: {
+        Row: {
+          email_hash: string
+          expires_at: string
+          granted_at: string
+          user_id: string
+        }
+        Insert: {
+          email_hash: string
+          expires_at: string
+          granted_at?: string
+          user_id: string
+        }
+        Update: {
+          email_hash?: string
+          expires_at?: string
+          granted_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       trial_redemptions: {
         Row: {
           code: string
@@ -1388,6 +1433,51 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      usage_events: {
+        Row: {
+          created_at: string
+          feature: string
+          finalized_at: string | null
+          id: string
+          legacy_credit_id: string | null
+          mode: string
+          period_key: string
+          request_id: string
+          shadow: boolean
+          source: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          feature: string
+          finalized_at?: string | null
+          id?: string
+          legacy_credit_id?: string | null
+          mode?: string
+          period_key: string
+          request_id: string
+          shadow?: boolean
+          source: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          feature?: string
+          finalized_at?: string | null
+          id?: string
+          legacy_credit_id?: string | null
+          mode?: string
+          period_key?: string
+          request_id?: string
+          shadow?: boolean
+          source?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       user_form_access: {
         Row: {
@@ -1599,6 +1689,16 @@ export type Database = {
       }
     }
     Functions: {
+      _entitlement_core: { Args: { uid: string }; Returns: Json }
+      _usage_count: {
+        Args: { p_feature: string; p_period: string; uid: string }
+        Returns: number
+      }
+      _usage_rule: {
+        Args: { p_feature: string; p_source: string; uid: string }
+        Returns: Record<string, unknown>
+      }
+      commit_usage: { Args: { reservation_id: string }; Returns: boolean }
       consume_doc_check: {
         Args: { daily_limit?: number; uid: string }
         Returns: boolean
@@ -1684,7 +1784,9 @@ export type Database = {
         }[]
       }
       get_entitlement: { Args: { uid: string }; Returns: Json }
+      get_feature_access: { Args: { uid: string }; Returns: Json }
       get_live_stats: { Args: never; Returns: Json }
+      get_usage_aggregates: { Args: { _days?: number }; Returns: Json }
       grant_doc_check_credit: {
         Args: {
           amt_cents?: number
@@ -1701,6 +1803,10 @@ export type Database = {
           target_user_id: string
         }
         Returns: undefined
+      }
+      grant_signup_trial: {
+        Args: { p_created_at: string; p_email: string; uid: string }
+        Returns: boolean
       }
       has_full_access: { Args: { uid: string }; Returns: boolean }
       has_role: {
@@ -1742,8 +1848,13 @@ export type Database = {
         Returns: boolean
       }
       release_legacy_doc_check: { Args: { usage_id: string }; Returns: boolean }
+      release_usage: { Args: { reservation_id: string }; Returns: boolean }
       reserve_doc_check_credit: { Args: { uid: string }; Returns: string }
       reserve_legacy_doc_check: { Args: { uid: string }; Returns: string }
+      reserve_usage: {
+        Args: { p_feature: string; p_request_id: string; uid: string }
+        Returns: Json
+      }
       search_community_listings: {
         Args: { search_terms: string[] }
         Returns: {
