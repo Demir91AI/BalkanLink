@@ -422,7 +422,7 @@ export default function DokumentenCheck() {
         <AuthGate>
         <div className="container max-w-4xl px-4 space-y-8">
 
-          {/* ── Included in the one-time BalkanLink access (19,90€) ── */}
+          {/* ── Included in the BalkanLink membership (Fair Use) ── */}
           <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">{tPlus("docTitle")}</p>
@@ -704,7 +704,7 @@ export default function DokumentenCheck() {
               <LetterReplyTask canAccess={hasAccess} />
 
               {sections.map((section, idx) => {
-                const locked = false; // every completed check is paid (1,99€) → full analysis for everyone
+                const locked = false; // full analysis for everyone who may run a check
                 return (
                   <motion.div
                     key={section.id}

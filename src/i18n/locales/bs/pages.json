@@ -164,23 +164,6 @@
         }
       }
     },
-    "beforeAfter": {
-      "heading": "Od komplikovanih formulara do jasnih koraka.",
-      "subline": "BalkanLink pretvara njemačku birokratiju u jednostavan proces.",
-      "before": "PRIJE",
-      "after": "SA BALKANLINK",
-      "afterCard": {
-        "title": "Kindergeld — Korak 1 od 4",
-        "subtitle": "Lični podaci podnosioca",
-        "field1": "Prezime",
-        "hint1": "Tvoje prezime (kao u pasošu)",
-        "field2": "Ime",
-        "hint2": "Tvoje ime",
-        "field3": "Datum rođenja",
-        "hint3": "DD.MM.GGGG format",
-        "ok": "Sva polja su ispravno popunjena"
-      }
-    },
     "flowBanner": {
       "heading": "Sve što ti treba u Njemačkoj — na jednom mjestu",
       "subline": "Formulari, viza, njemački, dokumenti i još mnogo toga — na tvom jeziku",
