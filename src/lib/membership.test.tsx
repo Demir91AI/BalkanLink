@@ -11,7 +11,7 @@ import hr from "@/i18n/locales/hr/plus.json";
 import sr from "@/i18n/locales/sr/plus.json";
 import de from "@/i18n/locales/de/plus.json";
 
-const state = { cta: "disabled" as string, loading: false };
+const state = { cta: "disabled" as string, loading: false, trialEnabled: false };
 vi.mock("@/hooks/useMembership", () => ({
   useMembership: () => state,
   startAnnualCheckout: vi.fn(),
@@ -71,6 +71,15 @@ describe("MembershipOffer render", () => {
     const { container } = show("disabled");
     expect(container.querySelector('[data-testid="membership-cta"]')).toBeNull();
     state.loading = false;
+  });
+});
+
+describe("trial wording follows the trial switch", () => {
+  it("signed-out CTA never promises a trial while the trial switch is off", () => {
+    state.cta = "register"; state.trialEnabled = false; cleanup();
+    render(<I18nextProvider i18n={i18n}><MemoryRouter><MembershipOffer /></MemoryRouter></I18nextProvider>);
+    expect(screen.getByText(bs.ctaRegisterPlain)).toBeTruthy();
+    expect(screen.queryByText(bs.ctaLogin)).toBeNull();
   });
 });
 

@@ -14,13 +14,13 @@ export function useMembershipSwitches() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("entitlement_settings")
-        .select("monetization_v2_enabled, annual_checkout_enabled")
+        .select("monetization_v2_enabled, annual_checkout_enabled, trial_signup_enabled")
         .maybeSingle();
-      if (error || !data) return { monetizationV2: false, checkoutEnabled: false };
-      return { monetizationV2: data.monetization_v2_enabled === true, checkoutEnabled: data.annual_checkout_enabled === true };
+      if (error || !data) return { monetizationV2: false, checkoutEnabled: false, trialEnabled: false };
+      return { monetizationV2: data.monetization_v2_enabled === true, checkoutEnabled: data.annual_checkout_enabled === true, trialEnabled: data.trial_signup_enabled === true };
     },
   });
-  return { ...(q.data ?? { monetizationV2: false, checkoutEnabled: false }), loading: q.isLoading };
+  return { ...(q.data ?? { monetizationV2: false, checkoutEnabled: false, trialEnabled: false }), loading: q.isLoading };
 }
 
 export async function startAnnualCheckout() {

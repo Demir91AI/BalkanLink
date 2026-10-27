@@ -19,7 +19,7 @@ export default function MembershipOffer({ variant = "compact", title, className,
 }) {
   const { t } = useTranslation("plus");
   const navigate = useNavigate();
-  const { cta, loading } = useMembership();
+  const { cta, loading, trialEnabled } = useMembership();
   const go = (p: string) => { onNavigate?.(); navigate(p); };
 
   const button = loading ? (
@@ -32,7 +32,7 @@ export default function MembershipOffer({ variant = "compact", title, className,
   ) : cta === "register" ? (
     <>
       <button onClick={() => go("/register")} className="h-12 w-full rounded-full bg-[hsl(var(--gold))] text-sm font-bold text-[#0B1220]" data-testid="membership-cta" data-cta="register">
-        {t("ctaLogin")}
+        {trialEnabled ? t("ctaLogin") : t("ctaRegisterPlain")}
       </button>
       <button onClick={() => go("/login")} className="w-full text-xs text-[#CBD5E1] underline">{t("login")}</button>
     </>

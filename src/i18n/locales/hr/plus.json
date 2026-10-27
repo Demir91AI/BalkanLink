@@ -53,5 +53,6 @@
   "unlockNote": "7 dana besplatno, zatim 19,99 € godišnje. Otkazivanje u svakom trenutku.",
   "lockedTitle": "Ovaj dio je uključen u BalkanLink članstvo",
   "login": "Već imaš račun? Prijavi se",
-  "close": "Zatvori"
+  "close": "Zatvori",
+  "ctaRegisterPlain": "Registriraj se besplatno"
 }
