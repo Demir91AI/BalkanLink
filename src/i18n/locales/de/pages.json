@@ -1959,8 +1959,8 @@
         "notice": "Dies ist nur eine Lesehilfe: Hier geben Sie nichts ein und nichts wird gesendet. Die Angaben folgen den Papierformularen KG1 und Anlage Kind (Stand 09/2025) – Seite und Abschnitt. Der Online-Antrag stellt dieselben Fragen, Reihenfolge und Bezeichnungen können aber abweichen.",
         "important": "Wichtig",
         "mode": {
-          "online": "Ich fülle online aus (empfohlen)",
-          "paper": "Ich fülle den KG1 auf Papier aus"
+          "online": "Online-Antrag – nur Themenüberblick",
+          "paper": "Originalformular – Feld für Feld"
         },
         "paperGroups": [
           "Du und der andere Elternteil",
@@ -3686,7 +3686,14 @@
               "meaning": "Erklärung zu vollständigen, wahren Angaben und Mitteilung relevanter Änderungen lesen. Bei minderjährigem Antragsteller unterschreibt die gesetzliche Vertretung. Eine Guide-Markierung ist keine Unterschrift."
             }
           ]
-        }
+        },
+        "companionTitle": "Originalformular Feld für Feld – Begleiter zu KG1 und Anlage Kind",
+        "companionHowTo": "Öffnen Sie das Originalformular in einem anderen Tab und wählen Sie hier dasselbe Feld. Zu jedem Feld sehen Sie die genaue Bezeichnung, alle Auswahlmöglichkeiten, was einzutragen ist, wo Sie die Angabe finden, ein erfundenes Beispiel und einen häufigen Fehler. Hier wird nichts eingegeben.",
+        "kg1Link": "Original-KG1 öffnen (BA, PDF)",
+        "ankLink": "Original-Anlage Kind öffnen (BA, PDF)",
+        "onlineOverview": "Online-Antrag: nur ein Themenüberblick, keine Feldzuordnung. Die Reihenfolge der Portalseiten kann abweichen.",
+        "jumpLabel": "Zum Feld springen",
+        "stepPointer": "Die ausführliche Feld-für-Feld-Hilfe steht oberhalb dieses Leitfadens unter „Originalformular Feld für Feld“."
       }
     },
     "panelEmpty": "Wähle links eine Leistung für Leitfaden und offizielle Quellen.",
