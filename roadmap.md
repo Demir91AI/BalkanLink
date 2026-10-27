@@ -1,4 +1,9 @@
 
+## Reusable SmartGuide standard (2026-10-27, Preview/code only)
+- [ ] Record full route/category inventory and content parity gaps before guide changes.
+- [ ] Build reusable accessible navigation/progress/source standard; migrate prioritized guides while preserving their content and branches.
+- [ ] Test navigation, privacy, locales and regressions; visually check real routes and report exact coverage/remaining migrations.
+
 ## Confirmed Stripe catalog synchronization (2026-10-27, code only)
 - [x] Audit and remove obsolete new-customer offers; preserve legacy subscriptions and webhook handling.
 - [x] Keep annual checkout unavailable and one-time plus retired; 998 tests and automatic preview build passed; public browser QA in four locales at phone/desktop sizes.
