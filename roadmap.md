@@ -13,6 +13,7 @@
 - [x] Run no-downgrade/full tests and preview checks; no publish/deploy. Separate TypeScript check not manually run under harness rules.
 
 ## Task-to-output phase 1 (development only)
+- [x] Prepare future published visibility, production-mode regressions, read-only PWA audit with version-baseline recovery and release checklist; 782 tests passed; no publish/deploy. See `docs/release-readiness-2026-10-27.md` for unverified signed-in/installed-PWA/accessibility checks.
 - [x] Add preview-only translated sidebar reply entry and direct localized wizard opening; 778 tests passed, signed-out desktop/mobile checks passed; authorized Preview session remains the existing blocker. Report: `docs/letter-reply-sidebar-2026-10-27.md`. No publishing.
 - [x] Add isolated browser-only agency reply drafting from Vorlagen and DocumentenCheck results, four languages, editable German output and PDF/copy.
 - [x] Replace inferred deadline headline with an original-letter review warning; preserve existing analysis and gates.

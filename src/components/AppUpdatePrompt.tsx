@@ -35,7 +35,9 @@ export default function AppUpdatePrompt() {
 
     const poll = window.setInterval(async () => {
       const v = await fetchVersion();
-      if (!v || !initialVersion.current) return;
+      if (cancelled || !v) return;
+      // A transient first-request failure must not disable detection for this session.
+      if (!initialVersion.current) { initialVersion.current = v; return; }
       if (v !== initialVersion.current) setShow(true);
     }, POLL_MS);
 

@@ -14,8 +14,7 @@ import hrReply from '@/i18n/locales/hr/reply.json';
 import srReply from '@/i18n/locales/sr/reply.json';
 import deReply from '@/i18n/locales/de/reply.json';
 
-const state = vi.hoisted(() => ({ visible: true, access: true, loading: false }));
-vi.mock('./visibility', () => ({ isLetterReplyVisible: () => state.visible }));
+const state = vi.hoisted(() => ({ access: true, loading: false }));
 vi.mock('@/contexts/AuthContext', () => ({ useAuth: () => ({ user: null, displayName: '', isAdmin: false, loading: false }) }));
 vi.mock('@/hooks/usePremiumAccess', () => ({ usePremiumAccess: () => ({ isPremium: false }) }));
 vi.mock('@/hooks/useRecentPages', () => ({ useRecentPages: () => [] }));
@@ -40,10 +39,10 @@ async function mount(lang: Lang = 'bs', initial?: string) {
   const view = render(<I18nextProvider i18n={i18n}><MemoryRouter initialEntries={[initial ?? (prefix || '/')]}><AppSidebar /><LocationProbe /><Routes><Route path={`${prefix}/vorlagen`} element={<Vorlagen />} /></Routes></MemoryRouter></I18nextProvider>);
   return { ...view, prefix };
 }
-beforeEach(() => { state.visible = true; state.access = true; state.loading = false; });
-afterEach(cleanup);
+beforeEach(() => { vi.stubEnv('DEV', false); state.access = true; state.loading = false; });
+afterEach(() => { cleanup(); vi.unstubAllEnvs(); });
 
-describe('preview sidebar → existing letter reply wizard', () => {
+describe('production-mode sidebar → existing letter reply wizard (real visibility policy)', () => {
   it.each([
     ['bs', 'Odgovor na pismo', 'NOVO'], ['hr', 'Odgovor na dopis', 'NOVO'],
     ['sr', 'Odgovor na pismo', 'NOVO'], ['de', 'Behördenbrief beantworten', 'NEU'],
@@ -91,11 +90,11 @@ describe('preview sidebar → existing letter reply wizard', () => {
     expect(screen.getByTestId('location').textContent).toBe('/vorlagen?task=reply');
     expect(screen.queryByRole('dialog', { name: bsReply.title })).not.toBeInTheDocument();
   });
-  it('hidden production entry ignores the deep link, even without access', async () => {
-    state.visible = false; state.access = false;
+  it('visible production entry still denies access through the existing gate', async () => {
+    state.access = false;
     await mount('bs', '/vorlagen?task=reply');
-    expect(screen.queryByRole('button', { name: 'Odgovor na pismo NOVO' })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Odgovor na pismo NOVO' })).toBeInTheDocument();
     expect(screen.queryByRole('dialog', { name: bsReply.title })).not.toBeInTheDocument();
-    expect(screen.getByTestId('location').textContent).toBe('/vorlagen?task=reply');
+    await waitFor(() => expect(screen.getByTestId('location').textContent).toBe('/paketi'));
   });
 });
