@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronDown, Search, Lock, Sparkles, Info, X, Crown, FileText } from "lucide-react";
+import { ArrowRight, ChevronDown, Search, Sparkles, Info, X, FileText, Home, Users, Wallet, Building2, Briefcase, GraduationCap, ClipboardList, Shield, type LucideIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import {
@@ -24,22 +24,16 @@ interface Props {
 
 /* ---------- Sub-components ---------- */
 
-function StatusPill({ free }: { free: boolean }) {
-  if (free) {
-    return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-[hsl(var(--success)/0.12)] px-2 py-0.5 text-[10px] font-bold text-[hsl(var(--success))]">
-        <span className="block size-1 rounded-full bg-[hsl(var(--success))]" />
-        Free
-      </span>
-    );
-  }
-  return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/[0.08] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold">
-      <Crown className="h-2.5 w-2.5" />
-      Premium
-    </span>
-  );
-}
+const CATEGORY_ICONS: Record<string, LucideIcon> = {
+  dolazak: Home,
+  porodica: Users,
+  buergergeld: Wallet,
+  wohngeld: Building2,
+  posao: Briefcase,
+  obrazovanje: GraduationCap,
+  dokumenti: ClipboardList,
+  vize: Shield,
+};
 
 function FormRow({
   item,
@@ -89,7 +83,6 @@ function FormRow({
           <h3 className="text-sm font-bold text-white/90 leading-tight">
             {item.label}
           </h3>
-          <StatusPill free={free} />
           {item.slug === "hauptantrag" && onShowBuergergeldInfo && (
             <span
               role="button"
@@ -129,6 +122,7 @@ function CategorySection({
   onShowBuergergeldInfo?: () => void;
   index: number;
 }) {
+  const CategoryIcon = CATEGORY_ICONS[group.id] ?? FileText;
   const totalCount =
     group.items.length +
     (group.subGroups?.reduce((acc, s) => acc + s.items.length, 0) || 0);
@@ -151,9 +145,7 @@ function CategorySection({
         className="w-full flex items-center gap-3 px-5 py-4 text-left transition-colors hover:bg-white/[0.02]"
         aria-expanded={isOpen}
       >
-        <span className="text-2xl shrink-0" aria-hidden="true">
-          {group.icon}
-        </span>
+        <CategoryIcon className="h-6 w-6 shrink-0 text-gold" aria-hidden="true" />
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-2 flex-wrap">
             <h2 className="text-base font-black text-white/90 tracking-tight">
@@ -174,11 +166,6 @@ function CategorySection({
             >
               {totalCount}
             </span>
-            {group.isFree && (
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--success))]">
-                · Sve besplatno
-              </span>
-            )}
           </div>
         </div>
         <motion.div
@@ -277,7 +264,6 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
   const collapseAll = () => setOpenIds(new Set());
 
   const totalForms = allEntries.length;
-  const freeForms = allEntries.filter((e) => isFormFree(e.slug)).length;
 
   return (
     <div
@@ -368,14 +354,6 @@ export default function FormCatalogVault({ onSelect, onShowBuergergeldInfo }: Pr
                 </div>
                 <div className="text-[10px] font-bold uppercase tracking-wider text-white/40 mt-0.5">
                   Obrazaca
-                </div>
-              </div>
-              <div className="rounded-2xl border border-[hsl(var(--success)/0.2)] bg-[hsl(var(--success)/0.04)] px-4 py-3 text-center min-w-[88px]">
-                <div className="text-2xl font-black tabular-nums text-[hsl(var(--success))]">
-                  {freeForms}
-                </div>
-                <div className="text-[10px] font-bold uppercase tracking-wider text-white/40 mt-0.5">
-                  Besplatno
                 </div>
               </div>
             </motion.div>

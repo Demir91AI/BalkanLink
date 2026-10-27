@@ -212,30 +212,6 @@ export default function FlowBanner() {
                     <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[hsla(43,70%,53%,0.15)] blur-3xl pointer-events-none" />
                   )}
 
-                  {/* Badge */}
-                  {isPremium && (
-                    <span
-                      className={`absolute top-5 right-5 rounded-full px-3 py-1.5 text-[11px] font-black uppercase tracking-wider z-10 ${
-                        isCenter ? "text-[hsl(220,50%,8%)]" : "text-[hsl(220,50%,10%)]"
-                      }`}
-                      style={{
-                        background: isCenter
-                          ? "linear-gradient(135deg, #FFD700 0%, #FFB800 100%)"
-                          : "linear-gradient(135deg, #C9A84C 0%, #B8942E 100%)",
-                        boxShadow: isCenter
-                          ? "0 8px 24px rgba(255,200,0,0.4)"
-                          : "0 4px 12px rgba(200,168,76,0.2)",
-                      }}
-                    >
-                      ⭐ {t("home.flowBanner.premium").replace("⭐ ", "")}
-                    </span>
-                  )}
-                  {item.badge === "free" && (
-                    <span className="absolute top-5 right-5 z-10 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] font-bold text-white/70 backdrop-blur-sm">
-                      {t("home.flowBanner.free")}
-                    </span>
-                  )}
-
                   {/* Content — bottom-left */}
                   <div className="relative z-10 p-5 sm:p-8">
                     <span className={`block mb-2 ${isCenter ? "text-[44px]" : "text-[32px]"}`}>

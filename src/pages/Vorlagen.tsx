@@ -169,7 +169,6 @@ export default function Vorlagen() {
               <div className="grid gap-3">
                 {items.map((item) => {
                   const Icon = ICON_MAP[item.icon] ?? FileCheck;
-                  const isFree = FREE_TEMPLATE_SLUGS.has(item.slug);
                   return (
                     <div
                       key={item.slug}
@@ -185,7 +184,6 @@ export default function Vorlagen() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
                             <p className="font-semibold text-foreground">{item.titleDe}</p>
-                            {isPremium ? null : (isFree ? <FreeBadge label={t("vorlagen.ui.freeBadge")} /> : <PremiumBadge label={t("vorlagen.ui.premiumBadge")} />)}
                           </div>
                           <p className="text-xs text-muted-foreground mt-0.5">
                             {tplTitle(item.slug, item.titleBs)}

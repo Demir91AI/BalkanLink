@@ -6,7 +6,7 @@ import {
   FileText, Shield, BookOpen, ScanLine, Megaphone, Plane,
   Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
   Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
-  Coins, Search, Crown, Clock, ArrowRight, ChevronDown, User, Mail, MessageSquare,
+  Coins, Search, Clock, ArrowRight, ChevronDown, User, Mail, MessageSquare,
   ScrollText, BadgeCheck, LayoutGrid, Boxes, UserCircle2, Star,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
@@ -295,22 +295,10 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--gold))] to-[hsl(var(--gold))]/70 text-[13px] font-semibold text-[hsl(var(--primary))] shadow-sm ring-1 ring-[hsl(var(--gold))]/30">
                     {initials}
                   </div>
-                  {isPremium && (
-                    <div className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[hsl(var(--gold))] ring-2 ring-white">
-                      <Crown className="h-2.5 w-2.5 text-white" strokeWidth={2.5} />
-                    </div>
-                  )}
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-[14px] font-semibold text-[#2D2D2D] truncate leading-tight">
                     {firstName}
-                  </p>
-                  <p className="mt-0.5 truncate text-[11px] font-medium leading-tight">
-                    {isPremium ? (
-                      <span className="text-[hsl(var(--gold))]">{t("sidebar.statusPremium", "Premium")}</span>
-                    ) : (
-                      <span className="text-[#6B6B6B]/70">{t("sidebar.statusFree", "Free plan")}</span>
-                    )}
                   </p>
                 </div>
                 <ChevronDown
@@ -347,7 +335,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                       onClick={() => { setAccountOpen(false); handleNav("/paketi"); }}
                       className="flex items-center gap-3 w-full px-3 py-2 text-left transition-colors hover:bg-[hsl(var(--gold))]/10"
                     >
-                      <Crown className="h-[16px] w-[16px] shrink-0 text-[hsl(var(--gold))]" />
+                      <Files className="h-[16px] w-[16px] shrink-0 text-[hsl(var(--gold))]" />
                       <span className="text-[13px] font-semibold text-[hsl(var(--gold))]">{t("sidebar.upgrade", "Nadogradi")}</span>
                       <ArrowRight className="ml-auto h-3.5 w-3.5 text-[hsl(var(--gold))]" />
                     </button>
@@ -485,21 +473,6 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                     {item.isNew && (
                       <span className="ml-auto shrink-0 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white animate-pulse">
                         NOVO
-                      </span>
-                    )}
-                    {item.isFree && (
-                      <span className="ml-auto shrink-0 rounded-full bg-emerald-600 px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
-                        FREE
-                      </span>
-                    )}
-                    {item.premium && !item.isNew && (
-                      <span className="ml-auto shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
-                        {t("sidebar.premiumBadge")}
-                      </span>
-                    )}
-                    {item.premium && item.isNew && (
-                      <span className="shrink-0 rounded-full bg-[hsl(var(--gold))] px-1.5 py-0.5 text-[8px] font-bold leading-none text-white">
-                        {t("sidebar.premiumBadge")}
                       </span>
                     )}
                   </button>
