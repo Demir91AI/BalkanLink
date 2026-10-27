@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-type Row = { de: string; what: string; where: string; example: string; mistake: string };
+type Row = { form: string; page: number; sec: string; de: string; only?: boolean; what: string; where: string; example: string; mistake: string };
 
 /**
  * Read-only, field-by-field explanation of KG1 + Anlage Kind.
@@ -13,13 +13,21 @@ export default function KindergeldFieldGuide() {
   const kg1 = t(k("kg1"), { returnObjects: true }) as Row[];
   const ank = t(k("ank"), { returnObjects: true }) as Row[];
   const online = t(k("online"), { returnObjects: true }) as string[];
-  const lbl = (s: keyof Omit<Row, "de">) => t(k(`lbl.${s}`));
+  const lbl = (s: string) => t(k(`lbl.${s}`));
+  /** e.g. "KG1 · str. 1 · tačka 3: Zahlungsweg – IBAN …" */
+  const location = (r: Row) =>
+    `${r.form} · ${lbl("page")} ${r.page} · ${/^\d+$/.test(r.sec) ? `${lbl("sec")} ${r.sec}` : lbl(r.sec)}`;
 
   const renderRows = (rows: Row[], prefix: string) =>
     (Array.isArray(rows) ? rows : []).map((r, i) => (
       <AccordionItem key={`${prefix}-${i}`} value={`${prefix}-${i}`} className="border-border">
         <AccordionTrigger className="py-3 text-left text-sm font-semibold text-foreground hover:no-underline">
-          <span><span className="mr-2 text-[hsl(var(--gold))]">{i + 1}.</span>{r.de}</span>
+          <span className="flex flex-col gap-1">
+            <span><span className="text-[hsl(var(--gold))]">{location(r)}:</span> {r.de}</span>
+            {r.only && (
+              <span className="self-start rounded-full border border-border bg-popover px-2 py-0.5 text-xs font-medium text-muted-foreground">{lbl("only")}</span>
+            )}
+          </span>
         </AccordionTrigger>
         <AccordionContent>
           <dl className="space-y-2 text-sm leading-relaxed">
