@@ -11330,5 +11330,937 @@
         ]
       }
     }
+  },
+  "educationCompanions": {
+    "ui": {
+      "links": {
+        "bafoegDigital": "BAföG Digital: Online-Antrag (neuer Tab)",
+        "fb1": "Formblatt 01 – Antrag auf Ausbildungsförderung (PDF, Stand 2025)",
+        "fb2": "Formblatt 02 – Bescheinigung nach § 9 BAföG (PDF)",
+        "fb3": "Formblatt 03 – Einkommenserklärung der Eltern (PDF)",
+        "fbAll": "BAföG.de: alle Formblätter",
+        "schoolOffices": "BAföG.de: zuständiges Schüler-Amt nach Bundesland",
+        "ikForm": "BAMF: Antrag auf Zulassung (630.007) – Formularseite",
+        "ikPortal": "Bundesportal: Online-Antrag für den Integrationskurs",
+        "ikCost": "BAMF: Teilnahme und Kosten",
+        "ikBefreiung": "BAMF: Antrag auf Kostenbefreiung (630.027)",
+        "ikFahrt": "BAMF: Antrag auf Fahrtkostenzuschuss (630.032)",
+        "navi": "BAMF-NAvI: Kurse und Beratungsstellen in der Nähe"
+      },
+      "privacy": "Hier gibst du nichts ein und nichts wird gespeichert. Die Auswahl bleibt nur auf der geöffneten Seite. Den Antrag füllst du selbst aus, unterschreibst ihn und reichst ihn selbst ein."
+    },
+    "guides": {
+      "bafoeg": {
+        "title": "BAföG fürs Studium: Formblatt 01, Eltern und Nachweise",
+        "introduction": "BAföG ist staatliche Ausbildungsförderung. Du beantragst sie online über BAföG Digital oder mit den offiziellen Papierformularen (Formblättern). Hauptantrag ist Formblatt 01; dazu kommen gewöhnlich Formblatt 02 (Ausbildungsbescheinigung) und Formblatt 03 (Einkommen – jeweils für die Eltern und gegebenenfalls den Ehepartner). BalkanLink entscheidet nicht über deinen Anspruch und nennt keine Beträge.",
+        "variation": "Die Formblätter gelten bundesweit (Stand 2025 auf BAföG.de, geprüft am 28.10.2026). Für Studierende ist normalerweise das Studierendenwerk der Hochschule zuständig. Für eine Ausbildung im Ausland gibt es besondere Ämter und Formblatt 06.",
+        "vocabularyNote": "Seiten und Zeilen beziehen sich auf Formblatt 01 (Stand 2025, 8 Seiten) und Formblatt 03 (Stand 2025, 6 Seiten) von BAföG.de. BAföG Digital verwendet eigene Online-Felder – die Portalbildschirme werden hier nicht beschrieben.",
+        "gate": {
+          "title": "Deine Situation",
+          "question": "Wähle eine Situation (nur für diese Seite, ohne Speicherung).",
+          "options": [
+            {
+              "id": "first",
+              "label": "Erster Antrag (Erstantrag)",
+              "result": "Fülle Formblatt 01 vollständig aus, einschließlich Zeile 80 (lückenloser schulischer und beruflicher Werdegang). Die Hochschule stellt Formblatt 02 aus; die Eltern erklären ihr Einkommen mit Formblatt 03."
+            },
+            {
+              "id": "follow",
+              "label": "Weiterförderung (Folgeantrag)",
+              "result": "Für Studierende gibt es Formblatt 09 (Folgeantrag). Prüfe auf BAföG.de, welche Formblätter dein Amt benötigt. Ab dem fünften Semester wird häufig Formblatt 05 (Leistungsbescheinigung) benötigt."
+            },
+            {
+              "id": "abroad",
+              "label": "Studium oder Praktikum im Ausland",
+              "result": "Zuständig ist das besondere Auslandsamt für das jeweilige Land. Zusätzlich zu Formblatt 01 gibt es Formblatt 06. Stelle den Auslandsantrag auch dann, wenn du bereits BAföG in Deutschland erhältst."
+            },
+            {
+              "id": "unsure",
+              "label": "Ich bin unsicher",
+              "result": "Frage das Studierendenwerk oder nutze die BAföG-Hotline 0800-223 63 41. Ein BAföG-Rechner liefert nur eine Schätzung, keinen Bescheid."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papier: Lade die Formblätter bei BAföG.de herunter und fülle sie aus, gegebenenfalls am Computer. Trage auf Seite 6, Zeile 85 Datum und Unterschrift/Namensangabe ein. Kläre mit deinem Amt, welchen Einreichungsweg es akzeptiert.",
+          "online": "Online: BAföG Digital verwendet ein Benutzerkonto, etwa BundID. Die Darstellung und Reihenfolge können von den Papierformularen abweichen; dies ist keine Anleitung zu den Portalbildschirmen."
+        },
+        "steps": [
+          {
+            "id": "b1",
+            "title": "Prüfe, ob BAföG für dich infrage kommt",
+            "sections": {
+              "meaning": "BAföG hängt unter anderem von Ausbildungsart, Alter, Aufenthalt sowie Einkommen und Vermögen ab. Das Amt prüft auch das Einkommen der Eltern, soweit es anzurechnen ist. Altersvoraussetzungen, Ausnahmen und elternunabhängige Förderung müssen im Einzelfall mit dem Amt geklärt werden.",
+              "action": "Lies die Informationen auf BAföG.de. Ohne deutsche Staatsangehörigkeit frage das Amt, ob dein Aufenthaltsstatus die Voraussetzungen nach § 8 BAföG erfüllen kann.",
+              "where": "BAföG.de, BAföG-Rechner, Studierendenwerk.",
+              "example": "Fiktives Beispiel: Maja Kovač (22) beginnt ein Bachelorstudium in Köln und hat eine Aufenthaltserlaubnis. Sie fragt das Studierendenwerk nach § 8.",
+              "mistake": "Keinen Antrag stellen, weil die Eltern vermeintlich zu viel verdienen – nur das Amt entscheidet.",
+              "next": "Kläre, welche Formblätter du brauchst."
+            }
+          },
+          {
+            "id": "b2",
+            "title": "Stelle den Antrag rechtzeitig",
+            "sections": {
+              "meaning": "BAföG wird frühestens ab dem Antragsmonat und nicht vor Ausbildungsbeginn geleistet. Zeile 48 betrifft den Bewilligungszeitraum, nicht die gesetzliche Frist.",
+              "action": "Reiche zumindest Formblatt 01 frühzeitig ein, auch wenn Nachweise fehlen. Diese kannst du nachreichen.",
+              "where": "Amt für Ausbildungsförderung beim Studierendenwerk.",
+              "example": "Fiktives Beispiel: Das Studium beginnt im Oktober; Maja reicht Formblatt 01 bereits im September ein.",
+              "mistake": "Auf Formblatt 03 der Eltern warten und dadurch einen Antragsmonat verlieren.",
+              "next": "Gehe Formblatt 01 Abschnitt für Abschnitt durch."
+            }
+          },
+          {
+            "id": "b3",
+            "title": "Fülle Formblatt 01 aus",
+            "sections": {
+              "meaning": "Formblatt 01 enthält Ausbildung, persönliche Angaben, Anschriften, Bankverbindung, Versicherung, Eltern, Einkommen, Vermögen, Werdegang und Erklärung.",
+              "action": "Gehe die Erläuterungen zu Zeile 1–85 durch. Beachte bei ja/nein-Fragen die jeweilige Bedingung und markiere die zutreffende Antwort.",
+              "where": "Reisepass/Personalausweis, Meldebescheinigung, Immatrikulationsbescheinigung, Bankunterlagen, Versicherungsnachweis.",
+              "example": "Fiktives Beispiel: Maja trägt in Zeile 1 „Universität zu Köln, Köln“ ein.",
+              "mistake": "Erforderliche Angaben ohne Erklärung leer lassen – das Amt kann nachfragen und die Bearbeitung dauert länger.",
+              "next": "Formblatt 02 und 03."
+            }
+          },
+          {
+            "id": "b4",
+            "title": "Formblatt 02 (Hochschule) und Formblatt 03 (Eltern)",
+            "sections": {
+              "meaning": "Formblatt 02 wird von der Ausbildungsstätte ausgefüllt. Formblatt 03 erklärt das Einkommen der Eltern sowie gegebenenfalls des Ehepartners oder eingetragenen Lebenspartners; beachte die Möglichkeit einer gemeinsamen Erklärung auf dem Formular.",
+              "action": "Gib deinen Eltern ein leeres Formblatt 03 und diese Erläuterungen. Maßgeblich ist gewöhnlich das vorletzte Kalenderjahr vor Beginn des Bewilligungszeitraums.",
+              "where": "Studierendensekretariat; Eltern: Einkommensteuerbescheid und Lohnsteuerbescheinigung.",
+              "example": "Fiktives Beispiel: Für den Zeitraum ab 10/2026 erklären Damir Novaks Eltern ihr Einkommen von 2024.",
+              "mistake": "Ein gemeinsames Formblatt 03 verwenden, obwohl dessen Voraussetzungen nicht erfüllt sind; Zeile 1 beschreibt die zulässigen Fälle.",
+              "next": "Eltern im Ausland."
+            }
+          },
+          {
+            "id": "b5",
+            "title": "Eltern im Ausland oder ohne Kontakt",
+            "sections": {
+              "meaning": "Auch Eltern in Bosnien und Herzegowina, Kroatien oder Serbien erklären gegebenenfalls ihr Einkommen mit Formblatt 03. Ausländische Einkünfte benötigen die entsprechenden Nachweise (Zeile 51 und Hinweise).",
+              "action": "Bitte um den ausländischen Steuerbescheid oder Gehaltsnachweis des vorletzten Kalenderjahres, mit Übersetzung, falls das Amt diese verlangt. Ohne Kontakt zu einem Elternteil schildere dem Amt die Situation schriftlich und frage nach Vorausleistung (Formblatt 08).",
+              "where": "Steuerbehörde im Land der Eltern, Arbeitgeber der Eltern.",
+              "example": "Fiktives Beispiel: Damirs Vater arbeitet in Tuzla und beschafft einen Jahresgehaltsnachweis für 2024.",
+              "mistake": "Annehmen, dass Eltern im Ausland keine Angaben machen müssen.",
+              "next": "Stelle die Nachweise zusammen."
+            }
+          },
+          {
+            "id": "b6",
+            "title": "Nachweise: Kopien statt Originale",
+            "sections": {
+              "meaning": "Das Nachweissymbol links auf Formblatt 01 weist auf eine beizufügende Kopie hin.",
+              "action": "Je nach Fall: Immatrikulationsbescheinigung oder Formblatt 02, Identitäts- und Aufenthaltsnachweise, Kontostände am Antragstag, Versicherungsnachweis, Arbeitsvertrag/Gehaltsabrechnungen, Zeugnisse für Zeile 80 und Formblatt 04 bei Kindern unter 14 Jahren. Beachte die Nachweishinweise und die Anforderungen des Amtes.",
+              "where": "Bank (Online-Banking), Schule, Arbeitgeber, Ausländerbehörde.",
+              "example": "Fiktives Beispiel: Maja legt die Kontostände aller drei Konten zum Antragstag vor.",
+              "mistake": "Ein kleines Sparkonto oder Kryptowährungen vergessen (Zeile 74: digitales Vermögen).",
+              "next": "Einreichen und danach."
+            }
+          },
+          {
+            "id": "b7",
+            "title": "Einreichen, Bescheid und Änderungen",
+            "sections": {
+              "meaning": "Das Amt prüft den Antrag und entscheidet mit einem Bescheid. Fehlende Angaben oder Nachweise können die Bearbeitung verzögern.",
+              "action": "Behalte Kopien. Antworte auf Nachforderungen innerhalb der im Schreiben genannten Frist. Melde relevante Änderungen, etwa Einkommen, Unterbrechung oder Studienwechsel, unverzüglich schriftlich; beachte auch die Erklärung in Zeile 85.",
+              "where": "Post des Amtes, BAföG-Digital-Postfach.",
+              "example": "Fiktives Beispiel: Maja beginnt einen Minijob und informiert sofort das Amt.",
+              "mistake": "Änderungen nicht mitteilen – Rückforderungen und weitere Folgen sind möglich.",
+              "next": "Prüfe bei offenen Fragen die Begriffe und frage das Amt."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "z1",
+            "german": "Ausbildungsstätte und Ausbildungsort / Klasse/Fachrichtung / angestrebter Abschluss",
+            "meaning": "Ausbildungsstätte und Ort / Klasse oder Fachrichtung / angestrebter Abschluss",
+            "reference": "Formblatt 01, Seite 1, Zeile 1–3",
+            "instruction": "Trage den vollständigen Namen und Ort der Ausbildungsstätte, deinen Studiengang und den angestrebten Abschluss ein, etwa Bachelor of Science.",
+            "where": "Immatrikulationsbescheinigung oder Zulassungsbescheid.",
+            "example": "Fiktives Beispiel: „Universität zu Köln, Köln“ · „Betriebswirtschaftslehre“ · „Bachelor of Science“.",
+            "mistake": "Nur die Abkürzung „Uni Köln“ eintragen."
+          },
+          {
+            "id": "z4",
+            "german": "Vollzeitausbildung",
+            "meaning": "Ausbildung in Vollzeit",
+            "reference": "Formblatt 01, Seite 1, Zeile 4",
+            "instruction": "Markiere ja oder nein. Das Formular erläutert: an Hochschulen normalerweise 30 ECTS pro Semester, an Schulen mindestens 20 Unterrichtsstunden wöchentlich.",
+            "where": "Studienplan, Schulbescheinigung.",
+            "example": "Fiktives Beispiel: Vollzeit-Bachelor mit 30 ECTS → ja.",
+            "mistake": "Bei einem Teilzeitstudium ohne Prüfung ja markieren.",
+            "options": [
+              {
+                "german": "ja",
+                "meaning": "ja"
+              },
+              {
+                "german": "nein",
+                "meaning": "nein"
+              }
+            ]
+          },
+          {
+            "id": "z5",
+            "german": "Ich habe bereits früher einen BAföG-Antrag gestellt / bisheriges Amt / bisherige Förderungsnummer",
+            "meaning": "früherer BAföG-Antrag / bisheriges Amt / bisherige Förderungsnummer",
+            "reference": "Formblatt 01, Seite 1, Zeile 5–6",
+            "instruction": "Falls du schon einmal BAföG beantragt hast, auch Schüler-BAföG, markiere ja und nenne das bisherige Amt sowie die Förderungsnummer.",
+            "where": "Alter Bescheid.",
+            "example": "Fiktives Beispiel: Damir erhielt 2021 Schüler-BAföG → ja, „Amt für Ausbildungsförderung Musterstadt“.",
+            "mistake": "Einen früheren Antrag verschweigen.",
+            "options": [
+              {
+                "german": "ja",
+                "meaning": "ja"
+              },
+              {
+                "german": "nein",
+                "meaning": "nein"
+              }
+            ]
+          },
+          {
+            "id": "z7",
+            "german": "Name / Vorname / Geburtsname / Geburtsdatum / Geburtsort",
+            "meaning": "Nachname / Vorname / Geburtsname / Geburtsdatum / Geburtsort",
+            "reference": "Formblatt 01, Seite 1, Zeile 7–10",
+            "instruction": "Übernimm die Angaben aus deinem Ausweis. Den Geburtsnamen gibst du an, wenn er vom aktuellen Namen abweicht.",
+            "where": "Reisepass oder Personalausweis.",
+            "example": "Fiktives Beispiel: Kovač · Maja · – · 14.03.2004 · Zenica.",
+            "mistake": "Sonderzeichen wie č und ć weglassen oder Vor- und Nachname vertauschen."
+          },
+          {
+            "id": "z9fs",
+            "german": "Familienstand (1–5) · seit",
+            "meaning": "Familienstand als Ziffer · seit wann",
+            "reference": "Formblatt 01, Seite 1, Zeile 9",
+            "instruction": "Trage die passende Ziffer ein. Bei einem datierbaren Familienstand trage das zutreffende Datum unter „seit“ ein; beachte den Hinweis im Originalformular.",
+            "where": "Heiratsurkunde, Scheidungsbeschluss.",
+            "example": "Fiktives Beispiel: Maja ist unverheiratet → „1“.",
+            "mistake": "„ledig“ statt der Ziffer 1 eintragen.",
+            "options": [
+              {
+                "german": "1 = ledig",
+                "meaning": "ledig"
+              },
+              {
+                "german": "2 = verheiratet/in eingetragener Lebenspartnerschaft",
+                "meaning": "verheiratet oder in eingetragener Lebenspartnerschaft"
+              },
+              {
+                "german": "3 = dauernd getrennt lebend",
+                "meaning": "dauernd vom Ehepartner getrennt lebend"
+              },
+              {
+                "german": "4 = verwitwet",
+                "meaning": "verwitwet"
+              },
+              {
+                "german": "5 = geschieden/aufgehoben",
+                "meaning": "geschieden oder Lebenspartnerschaft aufgehoben"
+              }
+            ]
+          },
+          {
+            "id": "z10g",
+            "german": "Geschlecht (1–4)",
+            "meaning": "Geschlecht als Ziffer",
+            "reference": "Formblatt 01, Seite 1, Zeile 10",
+            "instruction": "Trage die zum Eintrag im Geburtenregister passende Ziffer ein.",
+            "where": "Geburtsurkunde oder Ausweis.",
+            "example": "Fiktives Beispiel: Maja → „1“.",
+            "mistake": "Buchstaben statt einer Ziffer eintragen.",
+            "options": [
+              {
+                "german": "1 = weiblich",
+                "meaning": "weiblich"
+              },
+              {
+                "german": "2 = männlich",
+                "meaning": "männlich"
+              },
+              {
+                "german": "3 = divers",
+                "meaning": "divers (entsprechender Registereintrag)"
+              },
+              {
+                "german": "4 = ohne Angabe (gemäß Geburtenregister)",
+                "meaning": "ohne Angabe laut Geburtenregister"
+              }
+            ]
+          },
+          {
+            "id": "z11",
+            "german": "eigene Staatsangehörigkeit / Staatsangehörigkeit Ehegatte / Ich habe eigene Kinder",
+            "meaning": "eigene Staatsangehörigkeit / Staatsangehörigkeit des Ehepartners / eigene Kinder",
+            "reference": "Formblatt 01, Seite 1, Zeile 11–12",
+            "instruction": "Gib deine Staatsangehörigkeiten an. Bei eigenen Kindern beachte die Frage und Formblatt 04.",
+            "where": "Reisepass.",
+            "example": "Fiktives Beispiel: „bosnisch-herzegowinisch“ · Ehepartner: nicht zutreffend · eigene Kinder: nicht zutreffend.",
+            "mistake": "Nur eine von zwei Staatsangehörigkeiten angeben."
+          },
+          {
+            "id": "z13",
+            "german": "Anschrift am ständigen Wohnsitz / während der Ausbildung",
+            "meaning": "ständiger Wohnsitz / Anschrift während der Ausbildung",
+            "reference": "Formblatt 01, Seite 1, Zeile 13–18",
+            "instruction": "Zeile 15: Wohnst du während der Ausbildung bei deinen Eltern (ja/nein)? Zeile 16 nur bei nein: Steht der Wohnraum im Eigentum der Eltern? Zeile 17–18 bei abweichender Anschrift. Verwende beim Land das verlangte Länderkennzeichen, etwa BIH, HR oder SRB.",
+            "where": "Meldebescheinigung, Mietvertrag.",
+            "example": "Fiktives Beispiel: Maja wohnt im Studierendenwohnheim → Zeile 15 nein, Zeile 16 nein.",
+            "mistake": "Die Elternadresse angeben, obwohl du tatsächlich woanders wohnst – die Wohnsituation ist für die Prüfung wichtig.",
+            "options": [
+              {
+                "german": "ja",
+                "meaning": "ja"
+              },
+              {
+                "german": "nein",
+                "meaning": "nein"
+              }
+            ]
+          },
+          {
+            "id": "z19",
+            "german": "Telefon / E-Mail / Der Bescheid soll übermittelt werden an",
+            "meaning": "Telefon / E-Mail / Empfänger des Bescheids",
+            "reference": "Formblatt 01, Seite 2, Zeile 19–23",
+            "instruction": "Telefon und E-Mail sind freiwillig. Markiere den vorgesehenen Empfänger. Für eine bevollmächtigte Person lege eine Vollmacht bei.",
+            "where": "Deine Kontaktdaten.",
+            "example": "Fiktives Beispiel: „mich (Wohnsitz am Ausbildungsort)“.",
+            "mistake": "Mehrere Empfänger markieren.",
+            "options": [
+              {
+                "german": "mich (ständiger Wohnsitz)",
+                "meaning": "an mich am ständigen Wohnsitz"
+              },
+              {
+                "german": "mich (Wohnsitz am Ausbildungsort)",
+                "meaning": "an mich am Ausbildungsort"
+              },
+              {
+                "german": "meinen ersten Elternteil",
+                "meaning": "an meinen ersten Elternteil"
+              },
+              {
+                "german": "meinen zweiten Elternteil",
+                "meaning": "an meinen zweiten Elternteil"
+              },
+              {
+                "german": "meine/-n Sorgeberechtigte/-n",
+                "meaning": "an meine sorgeberechtigte Person"
+              },
+              {
+                "german": "die von mir bevollmächtigte Person",
+                "meaning": "an die von mir bevollmächtigte Person"
+              }
+            ]
+          },
+          {
+            "id": "z24",
+            "german": "IBAN / Name des Geldinstituts / Kontoinhaber",
+            "meaning": "IBAN / Bankname / Kontoinhaber",
+            "reference": "Formblatt 01, Seite 2, Zeile 24–26",
+            "instruction": "Das Formular verlangt ein Konto im SEPA-Raum; Barauszahlung ist nicht vorgesehen. Zeile 26 nur ausfüllen, wenn das Konto nicht dir gehört.",
+            "where": "Bankkarte, Online-Banking.",
+            "example": "Fiktives Beispiel, keine gültige IBAN: DE00 0000 0000 0000 0000 00 · Musterbank.",
+            "mistake": "Eine falsche IBAN-Ziffer eintragen – die Zahlung kann sich verzögern."
+          },
+          {
+            "id": "z27",
+            "german": "Krankenversicherung / Pflegeversicherung / Steueridentifikationsnummer",
+            "meaning": "Krankenversicherung / Pflegeversicherung / Steuer-ID",
+            "reference": "Formblatt 01, Seite 2, Zeile 27–31",
+            "instruction": "Markiere die zutreffende Versicherungsart. Zeile 30 fragt nach eigenen Beiträgen zur Pflegeversicherung. Beachte für die Steuer-ID in Zeile 31 die Bedingung im Originalformular bei eigenen Beiträgen.",
+            "where": "Versicherungsnachweis, BZSt-Schreiben mit der Steuer-ID.",
+            "example": "Fiktives Beispiel: Maja ist studentisch gesetzlich versichert → entsprechende Auswahl; eigene Pflegeversicherungsbeiträge: ja.",
+            "mistake": "Familienversicherung markieren, obwohl sie bereits beendet ist.",
+            "options": [
+              {
+                "german": "gesetzlich familienversichert",
+                "meaning": "beitragsfrei über ein Familienmitglied gesetzlich versichert"
+              },
+              {
+                "german": "studentisch gesetzlich versichert",
+                "meaning": "als Studentin oder Student gesetzlich versichert"
+              },
+              {
+                "german": "privat versichert",
+                "meaning": "privat versichert"
+              },
+              {
+                "german": "freiwillig gesetzlich versichert",
+                "meaning": "freiwillig gesetzlich versichert"
+              },
+              {
+                "german": "anders versichert",
+                "meaning": "anders versichert, etwa über Beschäftigung, Waisenrente oder SGB II"
+              }
+            ]
+          },
+          {
+            "id": "z32",
+            "german": "Meine leiblichen Eltern oder Adoptiveltern",
+            "meaning": "leibliche Eltern oder Adoptiveltern",
+            "reference": "Formblatt 01, Seite 2, Zeile 32–43",
+            "instruction": "Für beide Eltern: Name, Geschlecht als Ziffer, Geburtsdatum, gegebenenfalls Sterbedatum, Staatsangehörigkeit und Adresse. Ist die aktuelle Adresse unbekannt, nenne die letzte bekannte und ergänze bei Ort „zuletzt“. Zeile 42–43 betrifft den Familienstand der Eltern.",
+            "where": "Geburtsurkunde, Angaben der Eltern.",
+            "example": "Fiktives Beispiel: Der zweite Elternteil lebt in Banja Luka → Land „BIH“.",
+            "mistake": "Einen Elternteil ohne Kontakt weglassen.",
+            "options": [
+              {
+                "german": "ja",
+                "meaning": "ja, sie sind miteinander verheiratet"
+              },
+              {
+                "german": "ja, aber dauernd getrennt lebend",
+                "meaning": "ja, aber sie leben dauernd getrennt"
+              },
+              {
+                "german": "nein",
+                "meaning": "nein"
+              }
+            ]
+          },
+          {
+            "id": "z44",
+            "german": "Konkurrierende Leistungen",
+            "meaning": "andere, möglicherweise ausschließende Leistungen",
+            "reference": "Formblatt 01, Seite 3, Zeile 44–47",
+            "instruction": "Gib an, ob du Anwärterbezüge (Z.44), Förderung mit Bildungsgutschein nach SGB II/III (Z.45) oder ein Stipendium eines Begabtenförderungswerks (Z.46) erhältst oder beantragt hast; sonst beachte Z.47 „nein“. Die Hinweise nennen mögliche Ausschlüsse; das Amt beurteilt deinen Fall.",
+            "where": "Bescheide der jeweiligen Stellen.",
+            "example": "Fiktives Beispiel: Nichts trifft auf Maja zu → Zeile 47.",
+            "mistake": "Keine Antwort markieren."
+          },
+          {
+            "id": "z48",
+            "german": "Einkommensangaben für den Bewilligungszeitraum / Einnahmen",
+            "meaning": "Einkommen im Bewilligungszeitraum",
+            "reference": "Formblatt 01, Seite 3, Zeile 48–62",
+            "instruction": "Zeile 48: Zeitraum, gewöhnlich Schul- oder Studienjahr. Zeile 52: Erwartest du Einnahmen? Bei nein geht es zum Vermögen auf Seite 4. Zeile 53–62: gesamtes Bruttoeinkommen des Zeitraums nach Art, etwa Arbeit/Minijob, Ausbildungsvergütung, Selbstständigkeit, Zinsen, Waisenrente, Stipendien, Unterhalt, Unterhaltsvorschuss oder Sonstiges. Abzüge berechnet das Amt.",
+            "where": "Arbeitsvertrag, Gehaltsabrechnungen, Bescheide.",
+            "example": "Fiktives Beispiel: Erwartetes Minijob-Einkommen für zwölf Monate zusammenrechnen und in Zeile 53 eintragen.",
+            "mistake": "Den monatlichen statt des gesamten Betrags eintragen."
+          },
+          {
+            "id": "z63",
+            "german": "Angaben zu meinem Vermögen",
+            "meaning": "Vermögen",
+            "reference": "Formblatt 01, Seite 4, Zeile 63–79",
+            "instruction": "Zeile 63 gilt unter 30 Jahren, Zeile 64 ab 30 Jahren. Prüfe die dort genannte Grenze für das Vermögen aus Zeile 65–75. Bei ja folge dem Sprunghinweis zu Seite 5. Sonst gib den Wert am Antragstag an oder markiere nein: Bargeld, Konten, Bausparen, Wertpapiere, Fahrzeuge, Versicherungen, Riester, Immobilien, Betriebsvermögen, Forderungen, digitales und sonstiges Vermögen. Zeile 78–79 betrifft Schulden und Lasten.",
+            "where": "Kontostände am Antragstag, auch Konten im Ausland.",
+            "example": "Fiktives Beispiel: Maja hat ein deutsches Konto und Ersparnisse in Bosnien und Herzegowina – beide berücksichtigt sie in Zeile 66.",
+            "mistake": "Ein Auslandskonto vergessen oder vor dem Antrag Vermögen auf Eltern übertragen; beachte die Erklärung in Zeile 85."
+          },
+          {
+            "id": "z80",
+            "german": "Mein schulischer und beruflicher Werdegang",
+            "meaning": "schulischer und beruflicher Werdegang",
+            "reference": "Formblatt 01, Seite 5, Zeile 80",
+            "instruction": "Beim Erstantrag, nach einer Unterbrechung oder für eine Auslandsausbildung: chronologisch und lückenlos mit Monat/Jahr von–bis, Ausbildungsstätte/Arbeitgeber, Art und Abschluss oder Bruttoeinkommen. Kennzeichne Zwischenzeiten entsprechend.",
+            "where": "Zeugnisse, Arbeitsverträge.",
+            "example": "Fiktives Beispiel: 09/2019–06/2023 Gymnasium Zenica · Schulabschluss; 07/2023–09/2023 Zwischenzeit.",
+            "mistake": "Ein abgebrochenes Studium weglassen – ein Fachrichtungswechsel muss geprüft werden können."
+          },
+          {
+            "id": "z85",
+            "german": "Abschließende Erklärung · Datum, Unterschrift/Namensangabe",
+            "meaning": "abschließende Erklärung · Datum und Unterschrift/Namensangabe",
+            "reference": "Formblatt 01, Seite 6, Zeile 85",
+            "instruction": "Lies die Erklärung zu Änderungen, Datenprüfung und Vermögen. Trage Datum und Unterschrift/Namensangabe ein. Die gesetzliche Vertretung muss in den im Formular genannten Fällen mitwirken, etwa bei unter 15-Jährigen.",
+            "where": "—",
+            "example": "Fiktives Beispiel: „28.10.2026, Maja Kovač“.",
+            "mistake": "Ohne die erforderliche Unterschrift/Namensangabe einreichen."
+          },
+          {
+            "id": "fb3",
+            "german": "Formblatt 03 – Einkommenserklärung (vorletztes Kalenderjahr)",
+            "meaning": "Einkommenserklärung der Eltern für das vorletzte Kalenderjahr",
+            "reference": "Formblatt 03, Seite 1–4, Zeile 1–63",
+            "instruction": "Elternteil: Z.1 Art der Erklärung (Ehepartner, Elternteil oder gemeinsame Erklärung); Z.2–3 Angaben zur antragstellenden Person; Z.4–11 eigene Angaben einschließlich Beruf/Ausbildung; Z.16–33 weitere Kinder und unterhaltene Personen; Z.34–62 Einkommen und Steuern des vorletzten Kalenderjahres, einschließlich ausländischer Einkünfte in Z.51; Z.63 Datum und Unterschrift.",
+            "where": "Einkommensteuerbescheid, elektronische Lohnsteuerbescheinigung, ausländischer Einkommensnachweis.",
+            "example": "Fiktives Beispiel: Für BAföG ab 10/2026 legt die Mutter den Steuerbescheid von 2024 vor.",
+            "mistake": "Einkommen des letzten statt des vorletzten Kalenderjahres angeben."
+          }
+        ]
+      },
+      "schueler-bafoeg": {
+        "title": "Schüler-BAföG: wann und wie beantragen",
+        "introduction": "Schüler-BAföG fördert bestimmte schulische Ausbildungen. Die Zuschussförderung muss laut dem offiziellen Schülerflyer gewöhnlich nicht zurückgezahlt werden; die Ausbildungsart ist entscheidend. Verwendet werden Formblatt 01, die Schulbescheinigung Formblatt 02 und gegebenenfalls Formblatt 03 der Eltern. Über deinen Anspruch entscheidet das Amt.",
+        "variation": "Die Formblätter gelten bundesweit (Stand 2025). Zuständig ist normalerweise das kommunale Amt am Wohnort der Eltern. Bei Abendgymnasium, Kolleg, höherer Fachschule und in der Regel Akademie ist es das Amt am Schulort. BAföG.de verlinkt die Ämter nach Bundesland.",
+        "vocabularyNote": "Zeilenangaben beziehen sich auf Formblatt 01 (Stand 2025). Zeile 81–84 ist ausdrücklich „Nur für Schülerinnen und Schüler“.",
+        "gate": {
+          "title": "Welche Schule besuchst du?",
+          "question": "Wähle die Schulart (nur Orientierung, ohne Speicherung).",
+          "options": [
+            {
+              "id": "general",
+              "label": "Allgemeinbildende Schule ab Klasse 10 (Gymnasium, Realschule …)",
+              "result": "Bei diesen Schularten kann eine notwendige auswärtige Unterbringung maßgeblich sein. Auch andere gesetzliche Fallgruppen können relevant sein; das Amt prüft deinen konkreten Fall."
+            },
+            {
+              "id": "vocational",
+              "label": "Berufsfachschule / Fachschule / Fachoberschule",
+              "result": "Es kommt unter anderem auf eine vorausgesetzte Berufsausbildung und die Dauer des Bildungsgangs an. Für manche Schularten gelten besondere Wohnvoraussetzungen. Frage Schule und Amt."
+            },
+            {
+              "id": "evening",
+              "label": "Abendschule, Kolleg, Akademie",
+              "result": "Die Voraussetzungen unterscheiden sich nach Schulart; Abendgymnasium, Kolleg und Akademie dürfen nicht pauschal gleichgesetzt werden. Frage auch nach Alter, Ausnahmen und zuständigem Amt."
+            },
+            {
+              "id": "dual",
+              "label": "Duale Ausbildung im Betrieb",
+              "result": "Für eine betriebliche duale Ausbildung ist gewöhnlich nicht BAföG, sondern gegebenenfalls Berufsausbildungsbeihilfe (BAB) der Agentur für Arbeit relevant."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papier: Formblatt 01, Formblatt 02 der Schule und gegebenenfalls Formblatt 03 der Eltern. Datum und Unterschrift/Namensangabe auf Seite 6, Zeile 85. Unter 15 Jahren muss die gesetzliche Vertretung mitwirken; beachte die Fußnote.",
+          "online": "Online: BAföG Digital bietet auch Schüleranträge. Beachte die dortigen Anforderungen an das Benutzerkonto; die Bildschirme entsprechen nicht den Papierseiten."
+        },
+        "steps": [
+          {
+            "id": "s1",
+            "title": "Prüfe Schulart und Wohnsituation",
+            "sections": {
+              "meaning": "Bei allgemeinbildenden Schulen ab Klasse 10 können Schulart und notwendiges Wohnen außerhalb des Elternhauses entscheidend sein. Das Amt prüft auch weitere gesetzliche Fallgruppen.",
+              "action": "Frage Schule und Amt nach den Voraussetzungen, etwa der Erreichbarkeit einer entsprechenden Schule vom Elternhaus. Nimm das Ergebnis nicht vorweg.",
+              "where": "Schule, BAföG.de „Schülerinnen und Schüler“.",
+              "example": "Fiktives Beispiel: Damir (16) besucht ein Sportgymnasium 120 km von den Eltern entfernt und fragt das Amt.",
+              "mistake": "Annehmen, dass jeder Schüler Schüler-BAföG erhält.",
+              "next": "Finde das zuständige Amt."
+            }
+          },
+          {
+            "id": "s2",
+            "title": "Finde dein Amt für Ausbildungsförderung",
+            "sections": {
+              "meaning": "Für Schüleranträge sind die zuständigen kommunalen Ämter maßgeblich, nicht das Studierendenwerk. Beachte die Ausnahmen nach Schulart.",
+              "action": "Wähle auf BAföG.de dein Bundesland und die kommunalen Ämter.",
+              "where": "BAföG.de: Schüler-Ämter (Link oben).",
+              "example": "Fiktives Beispiel: Die Eltern wohnen im Kreis Musterland; Damir prüft das dortige Amt und die Zuständigkeitsregeln für seine Schulart.",
+              "mistake": "Ohne Zuständigkeitsprüfung an ein Studierendenwerk senden.",
+              "next": "Formblatt 01."
+            }
+          },
+          {
+            "id": "s3",
+            "title": "Fülle Formblatt 01 für die schulische Ausbildung aus",
+            "sections": {
+              "meaning": "Es ist dasselbe Formular wie für Studierende. Zeile 2 fragt nach der Klasse; Zeile 81–84 gilt nur für Schülerinnen und Schüler.",
+              "action": "Nutze die Erläuterungen. Zeile 15–16 zur Wohnsituation ist besonders wichtig.",
+              "where": "Schulbescheinigung, Meldebescheinigung.",
+              "example": "Fiktives Beispiel: Zeile 2 „11. Klasse“.",
+              "mistake": "Zeile 15 unbeantwortet lassen.",
+              "next": "Formblatt 02 und 03."
+            }
+          },
+          {
+            "id": "s4",
+            "title": "Schule und Eltern",
+            "sections": {
+              "meaning": "Die Schule stellt Formblatt 02 aus. Die Eltern erklären gegebenenfalls mit Formblatt 03 ihr Einkommen des vorletzten Kalenderjahres.",
+              "action": "Gib Formblatt 02 frühzeitig im Schulsekretariat ab.",
+              "where": "Schulsekretariat, Einkommensnachweise der Eltern.",
+              "example": "Fiktives Beispiel: Das Sekretariat bestätigt „11. Klasse, Vollzeit“.",
+              "mistake": "Bis zum Ende des Schuljahres warten.",
+              "next": "Nachweise."
+            }
+          },
+          {
+            "id": "s5",
+            "title": "Nachweise und Einreichung",
+            "sections": {
+              "meaning": "Förderung ist frühestens ab dem Antragsmonat und nicht vor Ausbildungsbeginn möglich.",
+              "action": "Reiche Formblatt 01 frühzeitig ein. Lege die verlangten Kopien bei, etwa Anschrift, Aufenthaltsnachweis, Kontostände und Formblatt 02; fehlende Unterlagen kannst du nachreichen.",
+              "where": "Bank, Ausländerbehörde, Schule.",
+              "example": "Fiktives Beispiel: Damir reicht Formblatt 01 im August ein; die Einkommenserklärung der Eltern folgt im September.",
+              "mistake": "Originale statt verlangter Kopien senden.",
+              "next": "Beachte den Bescheid und melde relevante Änderungen."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "s-z1",
+            "german": "Ausbildungsstätte / Klasse/Fachrichtung / angestrebter Abschluss",
+            "meaning": "Schule / Klasse oder Fachrichtung / angestrebter Abschluss",
+            "reference": "Formblatt 01, Seite 1, Zeile 1–3",
+            "instruction": "Vollständiger Schulname und Ort, Klasse (etwa 11. Klasse) und Abschluss (etwa Abitur oder Fachhochschulreife).",
+            "where": "Schulbescheinigung.",
+            "example": "Fiktives Beispiel: „Sportgymnasium Musterstadt“ · „11. Klasse“ · „Abitur“.",
+            "mistake": "Nur „Gymnasium“ angeben."
+          },
+          {
+            "id": "s-z4",
+            "german": "Vollzeitausbildung",
+            "meaning": "Vollzeitunterricht",
+            "reference": "Formblatt 01, Seite 1, Zeile 4",
+            "instruction": "Das Formular nennt für Schulen mindestens 20 Unterrichtsstunden wöchentlich. Markiere ja/nein entsprechend.",
+            "where": "Stundenplan, Schule.",
+            "example": "Fiktives Beispiel: 32 Unterrichtsstunden wöchentlich → ja.",
+            "mistake": "Ohne Stundenplan raten.",
+            "options": [
+              {
+                "german": "ja",
+                "meaning": "ja"
+              },
+              {
+                "german": "nein",
+                "meaning": "nein"
+              }
+            ]
+          },
+          {
+            "id": "s-z15",
+            "german": "mit meinen Eltern in häuslicher Gemeinschaft / Wohnraum im Eigentum der Eltern",
+            "meaning": "Wohnen bei den Eltern / Wohnraum im Eigentum der Eltern",
+            "reference": "Formblatt 01, Seite 1, Zeile 15–16",
+            "instruction": "Zeile 15: ja, wenn du während der Ausbildung bei den Eltern wohnst. Zeile 16 nur bei nein: Gehört der Wohnraum ganz oder teilweise den Eltern?",
+            "where": "Mietvertrag, Meldebescheinigung.",
+            "example": "Fiktives Beispiel: Damir wohnt im Internat → Zeile 15 nein, Zeile 16 nein.",
+            "mistake": "Eine getrennte Wohnsituation angeben, die tatsächlich nicht besteht.",
+            "options": [
+              {
+                "german": "ja",
+                "meaning": "ja"
+              },
+              {
+                "german": "nein",
+                "meaning": "nein"
+              }
+            ]
+          },
+          {
+            "id": "s-z9",
+            "german": "Familienstand (1–5) / Geschlecht (1–4)",
+            "meaning": "Familienstand / Geschlecht als Ziffern",
+            "reference": "Formblatt 01, Seite 1, Zeile 9–10",
+            "instruction": "Verwende die Formularcodes: Familienstand 1 ledig bis 5 geschieden/aufgehoben; Geschlecht 1 weiblich, 2 männlich, 3 divers, 4 ohne Angabe laut Register.",
+            "where": "Reisepass, Geburtsurkunde.",
+            "example": "Fiktives Beispiel: „1“ und „2“.",
+            "mistake": "Wörter statt Ziffern eintragen.",
+            "options": [
+              {
+                "german": "1 = ledig",
+                "meaning": "ledig"
+              },
+              {
+                "german": "2 = verheiratet/in eingetragener Lebenspartnerschaft",
+                "meaning": "verheiratet/in Lebenspartnerschaft"
+              },
+              {
+                "german": "3 = dauernd getrennt lebend",
+                "meaning": "dauernd getrennt lebend"
+              },
+              {
+                "german": "4 = verwitwet",
+                "meaning": "verwitwet"
+              },
+              {
+                "german": "5 = geschieden/aufgehoben",
+                "meaning": "geschieden"
+              }
+            ]
+          },
+          {
+            "id": "s-z32",
+            "german": "Eltern (Zeile 32–43)",
+            "meaning": "Eltern",
+            "reference": "Formblatt 01, Seite 2, Zeile 32–43",
+            "instruction": "Gib beide Eltern an, auch im Ausland. Bei unbekannter Anschrift: letzte bekannte Adresse und „zuletzt“ ergänzen.",
+            "where": "Geburtsurkunde.",
+            "example": "Fiktives Beispiel: Die Mutter lebt in Mostar, Land „BIH“.",
+            "mistake": "Einen Elternteil weglassen.",
+            "options": [
+              {
+                "german": "ja",
+                "meaning": "ja, miteinander verheiratet"
+              },
+              {
+                "german": "ja, aber dauernd getrennt lebend",
+                "meaning": "ja, aber getrennt lebend"
+              },
+              {
+                "german": "nein",
+                "meaning": "nein"
+              }
+            ]
+          },
+          {
+            "id": "s-z81",
+            "german": "Elterliche Sorge/Aufenthaltsbestimmungsrecht durch Gericht zuerkannt",
+            "meaning": "gerichtlich zugewiesene elterliche Sorge/Aufenthaltsbestimmung",
+            "reference": "Formblatt 01, Seite 6, Zeile 81–84 (Nur für Schülerinnen und Schüler)",
+            "instruction": "Ohne entsprechende Gerichtsentscheidung: nein. Bei ja gib Name und Adresse der sorgeberechtigten Person in Zeile 82–84 an.",
+            "where": "Gerichtsbeschluss.",
+            "example": "Fiktives Beispiel: Keine entsprechende Entscheidung → nein.",
+            "mistake": "Die Frage überspringen.",
+            "options": [
+              {
+                "german": "nein",
+                "meaning": "nein"
+              },
+              {
+                "german": "ja, und zwar",
+                "meaning": "ja, mit Angaben zur sorgeberechtigten Person"
+              }
+            ]
+          },
+          {
+            "id": "s-z85",
+            "german": "Unterschrift der gesetzlichen Vertreterin/des gesetzlichen Vertreters",
+            "meaning": "Unterschrift der gesetzlichen Vertretung",
+            "reference": "Formblatt 01, Seite 6, Zeile 85",
+            "instruction": "Trage die erforderliche Unterschrift/Namensangabe ein. Bei unter 15-Jährigen muss die gesetzliche Vertretung nach der Fußnote mitwirken. Beachte auch die weiteren dort genannten Fälle.",
+            "where": "—",
+            "example": "Fiktives Beispiel: Damir (16, Gymnasium) prüft die Fußnote und unterschreibt selbst.",
+            "mistake": "Datum vergessen."
+          },
+          {
+            "id": "s-fb2",
+            "german": "Formblatt 02 – Bescheinigung nach § 9 BAföG",
+            "meaning": "Schulbescheinigung",
+            "reference": "Formblatt 02 (Stand 2025, 2 stranice) – popunjava škola",
+            "instruction": "Lass die Bescheinigung von der Schule ausfüllen und füge sie dem Antrag bei.",
+            "where": "Schulsekretariat.",
+            "example": "Fiktives Beispiel: Die Schule bestätigt die Angaben und gibt das Formular zurück.",
+            "mistake": "Den für die Schule vorgesehenen Teil selbst ausfüllen."
+          }
+        ]
+      },
+      "integrationskurs": {
+        "title": "Integrationskurs: Zulassung, Anmeldung, Kosten und Fahrtkosten",
+        "introduction": "Der Integrationskurs besteht aus Sprach- und Orientierungskurs zu Recht, Kultur und Gesellschaft. Es gibt drei Wege: Berechtigung mit Berechtigungsschein, Verpflichtung durch die zuständige Stelle und freiwillige Zulassung auf Antrag beim BAMF (630.007, § 44 Abs. 4 AufenthG). Kostenbefreiung und Fahrtkostenzuschuss sind separate Anträge.",
+        "variation": "Prüfstand 28.10.2026: Die BAMF-Seite zu 630.007 verlinkt das Bundesportal und erwähnt eine Offline-Version, bot aber keinen zugänglichen PDF-Download. Daher nennt BalkanLink keine Feldpositionen oder Seiten. Beachte auch den dortigen Hinweis zur Wiederzulassung bestimmter Gruppen.",
+        "vocabularyNote": "Die Begriffe stammen aus offiziellen BAMF-Informationen, nicht aus einem verifizierten Feldplan. Aktuelle Beträge und Grenzen prüfst du beim BAMF.",
+        "gate": {
+          "title": "Welcher Weg trifft auf dich zu?",
+          "question": "Wähle einen Weg (nur Orientierung, ohne Speicherung).",
+          "options": [
+            {
+              "id": "berechtigt",
+              "label": "Ich habe einen Berechtigungsschein",
+              "result": "Mit einem gültigen Berechtigungsschein meldest du dich direkt bei einem Kursträger an; ein zusätzlicher Antrag 630.007 ist normalerweise nicht nötig. Suche über BAMF-NAvI. Prüfe, ob Kostenbefreiung bereits bestätigt wurde oder separat mit 630.027 beantragt werden muss."
+            },
+            {
+              "id": "verpflichtet",
+              "label": "Ich bin verpflichtet (Ausländerbehörde oder Jobcenter)",
+              "result": "Beachte das Schreiben der zuständigen Stelle und melde dich zeitnah beim Kursträger an. Nichtteilnahme kann Folgen haben; kläre deine konkrete Situation und die Kosten mit der zuständigen Stelle."
+            },
+            {
+              "id": "freiwillig",
+              "label": "Ich habe weder Berechtigung noch Verpflichtung, möchte aber teilnehmen",
+              "result": "Dafür kommt eine freiwillige Zulassung auf Antrag 630.007 beim BAMF infrage. Nutze den verlinkten Zugang zum Bundesportal. Zulassung hängt von Voraussetzungen und verfügbaren Plätzen ab und ist nicht garantiert. Beachte den Hinweis zur Wiederzulassung."
+            },
+            {
+              "id": "eu",
+              "label": "Ich bin EU-Bürger/in, etwa aus Kroatien",
+              "result": "EU-Bürger haben grundsätzlich keinen gesetzlichen Teilnahmeanspruch, können aber eine Zulassung beantragen. Beachte die aktuellen BAMF-Informationen für EU-Bürger."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papier: Beim letzten Quellencheck war kein PDF 630.007 zugänglich. Erhältst du von Amt oder Kursträger ein Formular, kläre dessen aktuelle Fassung, bevor du es verwendest.",
+          "online": "Online: Das Bundesportal bietet den Zulassungsantrag. Kostenbefreiung (630.027) und Fahrtkostenzuschuss (630.032) sind getrennte Anträge. Die Portalbildschirme werden hier nicht nachgebildet."
+        },
+        "steps": [
+          {
+            "id": "i1",
+            "title": "Kläre Berechtigung, Verpflichtung oder freiwillige Zulassung",
+            "sections": {
+              "meaning": "Davon hängt ab, wer dein Dokument ausstellt und ob Antrag 630.007 überhaupt erforderlich ist.",
+              "action": "Lies Aufenthaltstitel und Schreiben der Ausländerbehörde oder des Jobcenters. Mit gültigem Berechtigungsschein ist normalerweise kein zusätzlicher Zulassungsantrag nötig.",
+              "where": "Aufenthaltstitel, Zusatzblatt, Schreiben des Jobcenters.",
+              "example": "Fiktives Beispiel: Maja erhält 2026 beim Familiennachzug einen Berechtigungsschein zusammen mit ihrer Aufenthaltserlaubnis.",
+              "mistake": "630.007 beantragen, obwohl bereits ein gültiger Berechtigungsschein vorliegt.",
+              "next": "Freiwillige Zulassung oder Anmeldung."
+            }
+          },
+          {
+            "id": "i2",
+            "title": "Freiwilliger Antrag auf Zulassung (630.007)",
+            "sections": {
+              "meaning": "Antrag beim BAMF nach § 44 Abs. 4 AufenthG, wenn kein gesetzlicher Anspruch und keine Verpflichtung bestehen.",
+              "action": "Nutze den offiziellen Zugang zum Bundesportal. Halte Identitäts-/Aufenthaltsnachweise und Anschrift bereit. Beachte die BAMF-Hinweise zur Wiederzulassung.",
+              "where": "BAMF-Formularseite 630.007, Bundesportal.",
+              "example": "Fiktives Beispiel: Damir lebt seit drei Jahren in Deutschland und ist nicht verpflichtet. Er fragt nach freiwilliger Zulassung.",
+              "mistake": "Eine sichere Zulassung erwarten – das BAMF entscheidet.",
+              "next": "Kursträger."
+            }
+          },
+          {
+            "id": "i3",
+            "title": "Finde einen Kursträger und melde dich an",
+            "sections": {
+              "meaning": "Der Kurs wird von zugelassenen Kursträgern durchgeführt, nicht unmittelbar vom BAMF.",
+              "action": "Suche Integrationskurse über BAMF-NAvI. Lege Berechtigungsschein oder Zulassung vor und absolviere den Einstufungstest.",
+              "where": "BAMF-NAvI, Migrationsberatung.",
+              "example": "Fiktives Beispiel: Maja wählt einen Abendkurs in ihrer Stadt.",
+              "mistake": "Auf eine automatische Einladung warten statt sich selbst anzumelden.",
+              "next": "Kosten."
+            }
+          },
+          {
+            "id": "i4",
+            "title": "Kostenbeitrag und Kostenbefreiung (630.027)",
+            "sections": {
+              "meaning": "Grundsätzlich kann ein Beitrag pro Unterrichtsstunde anfallen. Die Kostenbefreiung ist ein eigener Antrag nach § 9 Abs. 2 IntV.",
+              "action": "Bei bestimmten Sozialleistungen, niedrigem Einkommen oder finanzieller Bedürftigkeit kann ein Antrag auf Kostenbefreiung mit Nachweisen infrage kommen. Prüfe die aktuellen Voraussetzungen und Grenzen auf der BAMF-Seite zu 630.027; eine Bewilligung wird hier nicht zugesagt.",
+              "where": "Leistungsbescheid, Gehaltsabrechnung oder andere vom BAMF verlangte Nachweise, etwa zu Wohngeld, BAföG oder Kinderzuschlag.",
+              "example": "Fiktives Beispiel: Damir beantragt Kostenbefreiung mit einer Kopie seines Leistungsbescheids.",
+              "mistake": "Annehmen, die Zulassung enthalte automatisch eine Kostenbefreiung.",
+              "next": "Fahrtkosten."
+            }
+          },
+          {
+            "id": "i5",
+            "title": "Fahrtkostenzuschuss (630.032): eigener Antrag",
+            "sections": {
+              "meaning": "Zuschuss zu notwendigen Fahrtkosten zum Kurs nach § 4a Abs. 1 IntV, wenn die Voraussetzungen erfüllt sind.",
+              "action": "Stelle den gesonderten Antrag über den offiziellen Zugang. Kläre Voraussetzungen und Nachweise mit dem Kursträger.",
+              "where": "BAMF-Seite 630.032, Kursträger.",
+              "example": "Fiktives Beispiel: Maja fährt 25 km mit dem Bus, behält Fahrkarten und fragt den Kursträger nach den Voraussetzungen.",
+              "mistake": "Fahrkarten wegwerfen.",
+              "next": "Während des Kurses."
+            }
+          },
+          {
+            "id": "i6",
+            "title": "Während und nach dem Kurs",
+            "sections": {
+              "meaning": "Zum Abschluss gehören Deutsch-Test für Zuwanderer (DTZ) und „Leben in Deutschland“.",
+              "action": "Nimm regelmäßig teil und beachte gegebenenfalls deine Teilnahmeverpflichtung. Bewahre die Bescheinigungen und das Zertifikat Integrationskurs auf.",
+              "where": "Kursträger.",
+              "example": "Fiktives Beispiel: Damir bewahrt das Zertifikat für einen späteren Antrag auf Niederlassungserlaubnis auf.",
+              "mistake": "Das Zertifikat verlieren.",
+              "next": "Abgeschlossen."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "berechtigungsschein",
+            "german": "Berechtigungsschein / Teilnahmeberechtigung",
+            "meaning": "Nachweis der Teilnahmeberechtigung",
+            "instruction": "Bei gesetzlichem Anspruch stellt die zuständige Stelle, etwa die Ausländerbehörde, den Nachweis aus. Damit kannst du dich beim Kursträger anmelden.",
+            "where": "Zusammen mit dem Aufenthaltstitel oder im Schreiben der zuständigen Stelle.",
+            "example": "Fiktives Beispiel: Maja erhält eine „Bestätigung über die Berechtigung“.",
+            "mistake": "Den Nachweis ungenutzt lassen; frage nach seiner Gültigkeit."
+          },
+          {
+            "id": "aufenthaltszweck",
+            "german": "Aufenthaltszweck (Aufenthaltstitel ab 2005)",
+            "meaning": "Zweck des Aufenthalts",
+            "instruction": "Die BAMF-Informationen nennen bestimmte Aufenthaltszwecke und weitere Voraussetzungen bei seit 2005 erteilten Titeln. Die Kategorie allein garantiert keinen Anspruch. Lies den Paragraphen deines Titels und frage die Ausländerbehörde.",
+            "where": "Aufenthaltstitel mit Rechtsgrundlage.",
+            "example": "Fiktives Beispiel: „§ 36a AufenthG“ bezeichnet Familiennachzug; Maja lässt ihren Anspruch gesondert prüfen.",
+            "mistake": "Den Aufenthaltszweck raten, ohne den Titel zu lesen.",
+            "options": [
+              {
+                "german": "zu Erwerbszwecken",
+                "meaning": "Beschäftigung"
+              },
+              {
+                "german": "zum Zwecke des Familiennachzuges",
+                "meaning": "Familiennachzug"
+              },
+              {
+                "german": "aus humanitären Gründen",
+                "meaning": "humanitäre Gründe"
+              },
+              {
+                "german": "langfristig Aufenthaltsberechtigter nach § 38a AufenthG",
+                "meaning": "langfristig Aufenthaltsberechtigte aus einem anderen EU-Staat (§ 38a)"
+              },
+              {
+                "german": "Niederlassungserlaubnis nach § 23 Abs. 2 oder 4 AufenthG",
+                "meaning": "Niederlassungserlaubnis nach § 23 Absatz 2 oder 4"
+              }
+            ]
+          },
+          {
+            "id": "verpflichtung",
+            "german": "Teilnahmeverpflichtung",
+            "meaning": "Verpflichtung zur Teilnahme",
+            "instruction": "Eine Verpflichtung kann durch die zuständige Stelle ausgesprochen werden. Beachte das konkrete Schreiben und frage nach Ausnahmen oder Hindernissen, etwa Ausbildung, Pflege oder fehlender Vereinbarkeit mit Arbeit. Dies ist keine Entscheidung über deinen Fall.",
+            "where": "Schreiben der Ausländerbehörde oder des Jobcenters.",
+            "example": "Fiktives Beispiel: Damir findet einen Kurshinweis im Kooperationsplan und klärt mit dem Jobcenter, welches Schreiben für ihn verbindlich ist.",
+            "mistake": "Eine Verpflichtung ignorieren."
+          },
+          {
+            "id": "zulassung",
+            "german": "Zulassung auf Antrag (§ 44 Abs. 4 AufenthG) – Formular 630.007",
+            "meaning": "freiwillige Zulassung auf Antrag",
+            "instruction": "Ohne gesetzlichen Anspruch oder Verpflichtung kann dieser Weg infrage kommen. Nutze den offiziellen Zugang. Es werden keine Feldpositionen angegeben, da kein aktuelles PDF verfügbar war.",
+            "where": "BAMF-Seite 630.007.",
+            "example": "Fiktives Beispiel: Eine kroatische Staatsbürgerin beantragt freiwillige Zulassung.",
+            "mistake": "Ein altes Papierformular ohne Prüfung der Fassung verwenden."
+          },
+          {
+            "id": "geschlecht",
+            "german": "Geschlecht",
+            "meaning": "Geschlecht",
+            "instruction": "Allgemeine deutsche Begriffe, kein Nachweis der Auswahl oder Position im aktuellen Formular 630.007. Beachte die tatsächlich angebotenen Angaben im offiziellen Antrag.",
+            "where": "Reisepass.",
+            "example": "Fiktives Beispiel: Maja → weiblich.",
+            "mistake": "—",
+            "options": [
+              {
+                "german": "männlich",
+                "meaning": "männlich"
+              },
+              {
+                "german": "weiblich",
+                "meaning": "weiblich"
+              },
+              {
+                "german": "divers",
+                "meaning": "divers"
+              }
+            ]
+          },
+          {
+            "id": "kurstraeger",
+            "german": "Kursträger / Einstufungstest",
+            "meaning": "Kursanbieter / Einstufungstest",
+            "instruction": "Der Kursträger ordnet dich anhand des Einstufungstests einem passenden Modul zu. Du wählst einen zugelassenen Anbieter.",
+            "where": "BAMF-NAvI.",
+            "example": "Fiktives Beispiel: Maja beginnt nach dem Test in Modul 3.",
+            "mistake": "Einen nicht zugelassenen Kurs wählen."
+          },
+          {
+            "id": "kostenbeitrag",
+            "german": "Kostenbeitrag / Antrag auf Befreiung vom Kostenbeitrag (630.027)",
+            "meaning": "Eigenbeitrag / Antrag auf Kostenbefreiung",
+            "instruction": "Gesonderter Antrag mit den verlangten Nachweisen zu Leistungen oder niedrigem Einkommen. Aktuelle Grenzen stehen beim BAMF.",
+            "where": "Bescheide, Gehaltsabrechnung.",
+            "example": "Fiktives Beispiel: Kopie eines Wohngeldbescheids als angeforderter Nachweis.",
+            "mistake": "Den erforderlichen Nachweis nicht beifügen."
+          },
+          {
+            "id": "fahrtkosten",
+            "german": "Fahrtkostenzuschuss (630.032)",
+            "meaning": "Zuschuss zu Fahrtkosten",
+            "instruction": "Separater Antrag; nutze den offiziellen Zugang und bewahre die verlangten Nachweise auf.",
+            "where": "Kursträger, BAMF.",
+            "example": "Fiktives Beispiel: Damir behält seine Monatsfahrkarten.",
+            "mistake": "Annehmen, der Zuschuss sei bereits in der Kostenbefreiung enthalten."
+          },
+          {
+            "id": "dtz",
+            "german": "Deutsch-Test für Zuwanderer (DTZ) / Test 'Leben in Deutschland'",
+            "meaning": "Sprachabschlussprüfung / Orientierungstest",
+            "instruction": "Am Kursende. Bewahre die Bescheinigungen für spätere Anliegen auf; sie allein garantieren keinen Aufenthaltstitel.",
+            "where": "Kursträger.",
+            "example": "Fiktives Beispiel: Maja erreicht im DTZ das Niveau B1.",
+            "mistake": "Das Zertifikat verlieren."
+          }
+        ]
+      }
+    }
   }
 }
