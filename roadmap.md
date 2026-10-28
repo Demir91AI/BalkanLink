@@ -1,7 +1,7 @@
 ## Dokumenti i potvrde batch (28.10.2026; no release)
-- [ ] Verify SGB XII Sozialamt, BfJ certificates and regional church-exit procedures; preserve three existing routes and free Führungszeugnis access.
-- [ ] Three complete four-locale companions using existing navigation, no inputs/storage/PDF handling and no other guide changes.
-- [ ] Focused/full tests, 24 browser fixtures, automatic build and exact inventory/results documentation.
+- [x] Verify SGB XII Sozialamt, BfJ certificates and regional church-exit procedures; preserve three existing routes and free Führungszeugnis access.
+- [x] Three complete four-locale companions, 17 terms/16 steps, existing navigation, no inputs/storage/PDF handling and no other guide changes.
+- [x] 16 focused / 1219 full tests, 24 browser fixtures (8 genuinely public), automatic build OK; exact files/source and member/locality limits in docs/documents-guide-results.md.
 
 ## Education batch resumed (28.10.2026; no release)
 - [x] Reuse saved inventory and BS draft; direct four-locale translation without gateway, downloads or packages.
