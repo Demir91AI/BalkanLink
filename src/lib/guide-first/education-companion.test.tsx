@@ -71,7 +71,7 @@ describe.each(Object.keys(locales) as Lng[])("education UI (%s)", lng => {
       expect(link.getAttribute("rel")).toContain("noopener");
     }
     for (const option of data.gate.options) {
-      fireEvent.click(within(root).getByRole("button", { name: option.label, exact: true }));
+      fireEvent.click(within(root).getByRole("button", { name: option.label }));
       expect(within(root).getByTestId("companion-gate-result").textContent).toBe(option.result);
     }
     const select = within(root).getByRole("combobox");
@@ -79,21 +79,21 @@ describe.each(Object.keys(locales) as Lng[])("education UI (%s)", lng => {
     for (const [index, term] of data.terms.entries()) {
       fireEvent.change(select, { target: { value: String(index) } });
       expect(root.querySelector("h4[tabindex]")?.textContent).toContain(term.german);
-      for (const option of ("options" in term ? term.options : []) ?? []) expect(within(root).getByText(option.german, { exact: true })).toBeTruthy();
+      for (const option of ("options" in term ? term.options : []) ?? []) expect([...root.querySelectorAll("li strong")].some(el => el.textContent === option.german)).toBe(true);
     }
-    fireEvent.click(within(root).getByRole("button", { name: ui.online, exact: true }));
+    fireEvent.click(within(root).getByRole("button", { name: ui.online }));
     expect(within(root).getByTestId("arrival-mode-note").textContent).toBe(data.modes.online);
     const wizard = within(root).getByTestId("smartguide-template");
-    fireEvent.click(within(wizard).getByRole("button", { name: ui.advance, exact: true }));
+    fireEvent.click(within(wizard).getByRole("button", { name: ui.advance }));
     expect(within(wizard).getByRole("progressbar").getAttribute("aria-valuenow")).toBe("2");
     await waitFor(() => expect(document.activeElement?.textContent).toBe(data.steps[1].title));
     expect(within(wizard).getByTestId("guide-reviewed-count").textContent).toContain("1");
-    for (let i = 1; i < data.steps.length - 1; i++) fireEvent.click(within(wizard).getByRole("button", { name: ui.advance, exact: true }));
-    fireEvent.click(within(wizard).getByRole("button", { name: ui.finish, exact: true }));
+    for (let i = 1; i < data.steps.length - 1; i++) fireEvent.click(within(wizard).getByRole("button", { name: ui.advance }));
+    fireEvent.click(within(wizard).getByRole("button", { name: ui.finish }));
     expect(within(wizard).getByTestId("guide-completion").textContent).toContain(ui.completionBody);
-    fireEvent.click(within(wizard).getByRole("button", { name: ui.reopen, exact: true }));
+    fireEvent.click(within(wizard).getByRole("button", { name: ui.reopen }));
     expect(within(wizard).queryByTestId("guide-completion")).toBeNull();
-    fireEvent.click(within(wizard).getByRole("button", { name: ui.unmark, exact: true }));
+    fireEvent.click(within(wizard).getByRole("button", { name: ui.unmark }));
     expect(view.container.querySelectorAll("input, textarea, [data-workflow] details")).toHaveLength(0);
     view.unmount();
     const fresh = await mount(lng, slug);
