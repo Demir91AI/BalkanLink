@@ -124,7 +124,8 @@ function FormPremiumPaywall({ entry }: { slug: string; entry: FormEntry | null; 
 
 /* ─── Guide Content (right side) ─── */
 export function GuideContent({ slug, title }: { slug: string; title?: string }) {
-  return <GuideFrame slug={slug} title={title}><GuideBody slug={slug} /></GuideFrame>;
+  const { t } = useTranslation("pages");
+  return <GuideFrame slug={slug} title={slug === "hauptantrag" ? t("grundsicherungCompanions.ui.heading") : title}><GuideBody slug={slug} /></GuideFrame>;
 }
 
 function GuideBody({ slug }: { slug: string }) {
@@ -276,7 +277,7 @@ export default function FormCenter() {
     });
   };
 
-  const getGroupTitle = (group: FormGroup) => group.title;
+  const getGroupTitle = (group: FormGroup) => group.id === "buergergeld" ? tp("grundsicherungCompanions.ui.heading") : group.title;
 
   const renderItem = (item: FormEntry) => {
     const isActive = item.slug === activeSlug;
