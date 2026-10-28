@@ -467,7 +467,7 @@
     },
     "privacy": {
       "title": "Tvoji podaci su sigurni",
-      "body": "Prije slanja, sakrij ime, adresu i broj predmeta (npr. crnim flomasterom ili olovkom u editoru). Mi ne čuvamo dokumente — pogledamo ih, objasnimo i odmah izbrišemo."
+      "body": "Prije slanja sakrij ime, adresu i broj predmeta (npr. flomasterom ili u editoru). Dokument se jednokratno šalje vanjskom servisu za analizu teksta i ne čuvamo ga — nakon rezultata se ne pohranjuje kod nas."
     },
     "upload": {
       "label": "Učitaj svoj dokument",
@@ -505,7 +505,10 @@
       "fallback": "Greška servera pri analizi dokumenta.",
       "tooManyFiles": "Maksimalno {{max}} fajlova.",
       "totalTooLarge": "Ukupna veličina prelazi 25 MB.",
-      "paymentRequired": "Za analizu je potreban 1 kredit (uključeno u članstvo (Fair Use))."
+      "paymentRequired": "Za analizu je potreban 1 kredit (uključeno u članstvo (Fair Use)).",
+      "accessRequired": "Za provjeru dokumenta potreban je aktivan BalkanLink pristup.",
+      "quotaExhausted": "Iskoristio/la si sve provjere dokumenata za ovaj period. Nove provjere su dostupne nakon obnove perioda.",
+      "busy": "Provjera je trenutno preopterećena. Pokušaj ponovo za nekoliko minuta."
     },
     "paywall": {
       "title": "Dokumenten-Check",
@@ -558,6 +561,10 @@
     "disclaimer": {
       "title": "Napomena o zaštiti podataka:",
       "body": "Učitane datoteke i uneseni tekstovi se koriste isključivo za jednokratnu analizu i odmah se brišu nakon rezultata. Nema trajnog pohranjivanja, praćenja niti dijeljenja s trećim stranama. BalkanLink nije državni organ i ne pruža pravne savjete."
+    },
+    "seo": {
+      "title": "Provjera dokumenata — njemačko pismo objašnjeno na našem jeziku",
+      "description": "Slikaj ili učitaj njemačko pismo, Bescheid ili ugovor i dobij jasno objašnjenje: šta znači, šta traže i šta možeš uraditi sljedeće."
     }
   },
   "visa": {
