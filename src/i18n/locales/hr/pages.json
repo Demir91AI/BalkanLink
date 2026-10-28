@@ -5759,10 +5759,10 @@
       "anlage-eks": {
         "title": "EKS — vodič uz službeni obrazac 10/2026",
         "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
-        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti jamstvo odobrenja.",
         "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
         "modes": {
-          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktualno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
           "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
         },
         "terms": [
@@ -5870,15 +5870,15 @@
             "id": "eks-26",
             "german": "Werden oder wurden in Verbindung mit der selbständigen/freiberuflichen Tätigkeit Produkte kostenfrei und auf Dauer überlassen, zum Beispiel zur Produktplatzierung?",
             "reference": "EKS · Seite 3 · F · 26",
-            "meaning": "Besplatno trajno ustupljeni proizvodi",
-            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi listu svih proizvoda, vrstu i vrijednost u EUR te dokaz o ustupanju.",
-            "where": "Pripremi listu svih proizvoda, vrstu i vrijednost u EUR te dokaz o ustupanju.",
+            "meaning": "Besplatno trajno ustupljeni proizvadci",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi listu svih proizvadaka, vrstu i vrijednost u EUR te dokaz o ustupanju.",
+            "where": "Pripremi listu svih proizvadaka, vrstu i vrijednost u EUR te dokaz o ustupanju.",
             "example": "Izmišljeno: fotooprema trajno ustupljena za poslovnu objavu ima dokumentiranu vrijednost 180 EUR.",
             "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
             "options": [
               {
                 "german": "Ja (bitte fügen Sie eine Auflistung und Nachweise über die Art und den Wert in Euro aller Produkte bei)",
-                "meaning": "Da — proizvodi su trajno besplatno ustupljeni u vezi s poslovanjem, npr. product placement"
+                "meaning": "Da — proizvadci su trajno besplatno ustupljeni u vezi s poslovanjem, npr. product placement"
               },
               {
                 "german": "Nein",
@@ -6011,8 +6011,8 @@
             "german": "Hat die selbständige/freiberufliche Person für den Betrieb/das Gewerbe ein Darlehen aufgenommen?",
             "reference": "EKS · Seite 3 · F · 35",
             "meaning": "Poslovni zajam",
-            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi ugovor, izvod uplate i dokaze ulaganja. BA upute str. 4 razlikuju zajam, financiranu kupovinu, kamate i otplatu; pitaj Jobcenter prije nejasnog razvrstavanja.",
-            "where": "Pripremi ugovor, izvod uplate i dokaze ulaganja. BA upute str. 4 razlikuju zajam, financiranu kupovinu, kamate i otplatu; pitaj Jobcenter prije nejasnog razvrstavanja.",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi ugovor, izvadak uplate i dokaze ulaganja. BA upute str. 4 razlikuju zajam, financiranu kupovinu, kamate i otplatu; pitaj Jobcenter prije nejasnog razvrstavanja.",
+            "where": "Pripremi ugovor, izvadak uplate i dokaze ulaganja. BA upute str. 4 razlikuju zajam, financiranu kupovinu, kamate i otplatu; pitaj Jobcenter prije nejasnog razvrstavanja.",
             "example": "Izmišljeno: poslovni zajam 2.000 EUR ima ugovor i obavezu vraćanja.",
             "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
             "options": [
@@ -6032,7 +6032,7 @@
             "reference": "EKS · Seite 3 · F · 36–41",
             "meaning": "Iznos zajma, datumi, otplata i namjena",
             "instruction": "36 ukupan zajam EUR; 37 datum uplate; 38 početak otplate; 39 mjesečna otplata; 40 vrsta i 41 iznos financiranog poslovnog izdatka. Kamata i otplata nisu isto. Upute ne tretiraju zajam i njime financirane kupovine kao običan prihod/izdatak u dobiti; B15/B16 posebno prate kamate/otplatu uz uslove iz uputa.",
-            "where": "Ugovor zajma, bankovni izvod, plan otplate, računi; BA upute str. 4. U dokazima zaštiti osobne podatke zajmodavca prema uputama.",
+            "where": "Ugovor zajma, bankovni izvadak, plan otplate, računi; BA upute str. 4. U dokazima zaštiti osobne podatke zajmodavca prema uputama.",
             "example": "Izmišljeno: 2.000 EUR uplaćeno 05.11.2026, otplata od 01.12.2026 po 100 EUR, oprema 1.500 EUR.",
             "mistake": "Ne ubaci zajam u A1 niti dvaput trošak financiran zajmom. Za nejasnu/miješanu namjenu pitaj Jobcenter; nema automatske formule."
           },
@@ -6062,7 +6062,7 @@
             "reference": "EKS · Seite 4 · G · 43",
             "meaning": "Tabela A: poslovni primici",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: usluga fakturisana u novembru, 400 EUR neto naplaćeno u decembru → decembarski A1; naplaćena Umsatzsteuer zasebno A5.1.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6080,11 +6080,11 @@
               },
               {
                 "german": "A3 sonstige betriebliche Einnahmen (zum Beispiel auch kostenfrei auf Dauer überlassene Produkte)",
-                "meaning": "Ostali poslovni primici, npr. provizija/kamata i vrijednost trajno ustupljenih proizvoda u mjesecu primitka."
+                "meaning": "Ostali poslovni primici, npr. provizija/kamata i vrijednost trajno ustupljenih proizvadaka u mjesecu primitka."
               },
               {
                 "german": "A4 Zuwendungen von Dritten",
-                "meaning": "Davanjа trećih osoba: dokumentiraj iznos i svrhu; razlikuj od zajma uz vraćanje."
+                "meaning": "Davanja trećih osoba: dokumentiraj iznos i svrhu; razlikuj od zajma uz vraćanje."
               },
               {
                 "german": "A5.1 vereinnahmte Umsatzsteuer",
@@ -6110,7 +6110,7 @@
             "reference": "EKS · Seite 4 · G · 44",
             "meaning": "Napomena uz tačan red tabele",
             "instruction": "Navedi oznaku reda i mjesec te kratko objašnjenje iznosa, procjene ili neobične uplate. U 50 možeš konkretno opisati B14.5.",
-            "where": "Odgovarajući račun/izvod i izvor procjene.",
+            "where": "Odgovarajući račun/izvadak i izvor procjene.",
             "example": "Izmišljeno: „A1, novembar: iznos prema priloženom računu; budući mjesec procijenjen iz potvrđene narudžbe.“",
             "mistake": "Ne ostavljaj neobjašnjenu zbirnu napomenu bez reda i mjeseca."
           },
@@ -6120,7 +6120,7 @@
             "reference": "EKS · Seite 5 · G · 45",
             "meaning": "Tabela B: poslovni izdaci, dio 1",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: materijal plaćen u novembru 60 EUR neto → B1; Vorsteuer, ako primjenjivo, zasebno B17.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6172,7 +6172,7 @@
             "reference": "EKS · Seite 5 · G · 46",
             "meaning": "Napomena uz tačan red tabele",
             "instruction": "Navedi oznaku reda i mjesec te kratko objašnjenje iznosa, procjene ili neobične uplate. U 50 možeš konkretno opisati B14.5.",
-            "where": "Odgovarajući račun/izvod i izvor procjene.",
+            "where": "Odgovarajući račun/izvadak i izvor procjene.",
             "example": "Izmišljeno: „B1, novembar: iznos prema priloženom računu; budući mjesec procijenjen iz potvrđene narudžbe.“",
             "mistake": "Ne ostavljaj neobjašnjenu zbirnu napomenu bez reda i mjeseca."
           },
@@ -6192,7 +6192,7 @@
             "reference": "EKS · Seite 6 · G · 48",
             "meaning": "Tabela B: poslovni izdaci, dio 2",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: Fahrtenbuch privatnog vozila dokumentira 100 km poslovnih vožnji → štampani B6.5 red 10 EUR; put do poslovnice nije uključen.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6264,7 +6264,7 @@
             "reference": "EKS · Seite 7 · G · 49",
             "meaning": "Tabela B: poslovni izdaci, dio 3",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: 20 EUR poslovnog telefona u novembru → B11; ukupna dobit nije odluka o pravima.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6298,7 +6298,7 @@
               },
               {
                 "german": "B14.3 Sonstige Betriebsausgaben – Nebenkosten des Geldverkehrs",
-                "meaning": "Poslovne bankovne naknade uz izvod."
+                "meaning": "Poslovne bankovne naknade uz izvadak."
               },
               {
                 "german": "B14.4 Sonstige Betriebsausgaben – Betriebliche Abfallbeseitigung",
@@ -6306,7 +6306,7 @@
               },
               {
                 "german": "B14.5 weitere bisher nicht erfasste Betriebsausgaben",
-                "meaning": "Drugi još neupisani poslovni izdaci: u 50 tačno imenuj trošak i dokaz, ne zbir bez objašnjenja."
+                "meaning": "Drugi još neupisani poslovni izdaci: u 50 točno imenuj trošak i dokaz, ne zbir bez objašnjenja."
               },
               {
                 "german": "B15 Schuldzinsen aus Anlagevermögen",
@@ -6340,7 +6340,7 @@
             "reference": "EKS · Seite 7 · G · 50",
             "meaning": "Napomena uz tačan red tabele",
             "instruction": "Navedi oznaku reda i mjesec te kratko objašnjenje iznosa, procjene ili neobične uplate. U 50 možeš konkretno opisati B14.5.",
-            "where": "Odgovarajući račun/izvod i izvor procjene.",
+            "where": "Odgovarajući račun/izvadak i izvor procjene.",
             "example": "Izmišljeno: „B6.1, novembar: iznos prema priloženom računu; budući mjesec procijenjen iz potvrđene narudžbe.“",
             "mistake": "Ne ostavljaj neobjašnjenu zbirnu napomenu bez reda i mjeseca."
           },
@@ -6350,7 +6350,7 @@
             "reference": "EKS · Seite 8 · G · 51",
             "meaning": "Tabela C: osobna izdvajanja",
             "instruction": "Prođi svaki štampani red ispod. Upiši vrstu, iznos EUR i ritam plaćanja odgovarajuće osobne stavke. Ne upisuj isti trošak ponovo u B. Priznavanje provjerava Jobcenter.",
-            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, police/doprinosi i ritam plaćanja; EKS upute str. 2.",
+            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, police/doprinosi i ritam plaćanja; EKS upute str. 2.",
             "example": "Izmišljeno: Kfz-Haftpflicht 120 EUR kvartalno → 120 EUR i „quartalsweise“, ne 120 EUR mjesečno.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6372,7 +6372,7 @@
               },
               {
                 "german": "Pflichtbeiträge zur Kranken-/Pflege- und/oder Rentenversicherung",
-                "meaning": "Obavezni zdravstveni/Pflege/penzijski doprinosi uz dokaz obaveze i plaćanja."
+                "meaning": "Obavezni zdravstveni/Pflege/mirovinski doprinosi uz dokaz obaveze i plaćanja."
               },
               {
                 "german": "Beiträge zur privaten Kranken- und Pflegeversicherung oder freiwillige Beiträge zur gesetzlichen Kranken- und Pflegeversicherung",
@@ -6534,7 +6534,7 @@
             "title": "Pripremi poslovne podatke",
             "sections": {
               "meaning": "D/F opisuju poslovnicu, radnike, porezni status, subvencije i zajmove.",
-              "action": "Prikupi prijavu djelatnosti, ugovore, police, izvode i dokumente zajma. Ne šalji nepotrebne podatke trećih osoba; prati pravila zaštite iz BA uputa.",
+              "action": "Prikupi prijavu djelatnosti, ugovore, police, izvadake i dokumente zajma. Ne šalji nepotrebne podatke trećih osoba; prati pravila zaštite iz BA uputa.",
               "mistake": "Ne izaberi Umsatzsteuer status samo iz visine prihoda."
             }
           },
@@ -6549,7 +6549,7 @@
           },
           {
             "id": "personal",
-            "title": "Lična izdvajanja C i završna pitanja",
+            "title": "Osobna izdvajanja C i završna pitanja",
             "sections": {
               "meaning": "51–58 odvajaju osobna osiguranja/porez/izdržavanje i put do poslovnice od poslovnih tabela.",
               "action": "Priloži odgovarajuće odluke i uplate. Iznos i ritam plaćanja u C zapiši odvojeno. 54 Nein preskače na 57.",
@@ -6570,10 +6570,10 @@
       "anlage-sv": {
         "title": "SV — vodič uz službeni obrazac 10/2026",
         "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
-        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti jamstvo odobrenja.",
         "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
         "modes": {
-          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktualno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
           "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
         },
         "terms": [
@@ -6682,10 +6682,10 @@
             "german": "Möchten Sie einen Zuschuss zu den Beiträgen zur Kranken- und Pflegeversicherung beantragen?",
             "reference": "SV · Seite 2 · D · 12",
             "meaning": "Zahtjev za subvenciju doprinosa",
-            "instruction": "Ja znači da želiš zatražiti subvenciju, ne da je odobrena. Priloži aktuelnu odluku o mjesečnom doprinosu; za privatno osiguranje i potvrdu iznosa koji bi se plaćao u Basistarifu. Nein znači da ovim poljem ne tražiš subvenciju.",
+            "instruction": "Ja znači da želiš zatražiti subvenciju, ne da je odobrena. Priloži aktualnu odluku o mjesečnom doprinosu; za privatno osiguranje i potvrdu iznosa koji bi se plaćao u Basistarifu. Nein znači da ovim poljem ne tražiš subvenciju.",
             "where": "Doprinosni Bescheid i potvrda osiguravatelja o Basistarifu; BA Merkblätter iz službenog spiska. Uvod C kod svih Nein traži odabir Krankenkasse i dokaz u dvije tjedna, najbolje uz zahtjev; potvrdi vlastiti slučaj s osiguranjem.",
-            "example": "Izmišljeno: aktuelni doprinos i potvrda Basistarifa su dva odvojena dokumenta uz Ja.",
-            "mistake": "Ne obećavaj punu nadoknadu i ne zamijeni aktuelnu premiju s hipotetičnim Basistarifom.",
+            "example": "Izmišljeno: aktualni doprinos i potvrda Basistarifa su dva odvojena dokumenta uz Ja.",
+            "mistake": "Ne obećavaj punu nadoknadu i ne zamijeni aktualnu premiju s hipotetičnim Basistarifom.",
             "options": [
               {
                 "german": "Ja (bitte fügen Sie den aktuellen Bescheid über die monatlichen Beiträge sowie bei privater Versicherung einen Nachweis über den Beitrag, den Sie im Basistarif zahlen würden, bei)",
@@ -6732,15 +6732,15 @@
             "title": "Zatraži subvenciju ako je želiš",
             "sections": {
               "meaning": "12 traži izbor zahtjeva za subvenciju; ne potvrđuje odobrenje ili visinu.",
-              "action": "Za Ja priloži aktuelni mjesečni Bescheid doprinosa i kod privatnog osiguranja potvrdu Basistarifa. Pročitaj oba navedena Merkblätter preko službene BA liste.",
-              "mistake": "Ne zamijeni Basistarif s aktuelnom premijom."
+              "action": "Za Ja priloži aktualni mjesečni Bescheid doprinosa i kod privatnog osiguranja potvrdu Basistarifa. Pročitaj oba navedena Merkblätter preko službene BA liste.",
+              "mistake": "Ne zamijeni Basistarif s aktualnom premijom."
             }
           },
           {
             "id": "send",
             "title": "Pregled, potpis i dalje",
             "sections": {
-              "meaning": "E potvrđuje tačnost podataka i pročitane Merkblätter; Jobcenter/osiguranje provjeravaju status.",
+              "meaning": "E potvrđuje točnost podataka i pročitane Merkblätter; Jobcenter/osiguranje provjeravaju status.",
               "action": "Pregledaj A/B, dokaze i 13–16. Podnesi službeni SV svom Jobcenteru uz kopije i sačuvaj potvrdu; prati dopunu bez pretpostavljenog roka obrade.",
               "mistake": "Pregledano ne znači osigurano ili predato."
             }
@@ -6750,10 +6750,10 @@
       "anlage-bb": {
         "title": "BB — vodič uz službeni obrazac 10/2026",
         "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
-        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti jamstvo odobrenja.",
         "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
         "modes": {
-          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktualno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
           "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
         },
         "terms": [
@@ -6907,7 +6907,7 @@
             "sections": {
               "meaning": "BB je zahtjev za unabweisbarer besonderer Bedarf za sebe ili osobu BG; nije svaka dodatna životna potreba.",
               "action": "Potvrdi s Jobcenterom koji prilog odgovara, zatim odvoji podnositelja A i osobu B. Ne pretpostavljaj BB umjesto MEB ili SGB XII.",
-              "mistake": "Primjer nije garancija odobrenja."
+              "mistake": "Primjer nije jamstvo odobrenja."
             }
           },
           {
@@ -6942,10 +6942,10 @@
       "anlage-ve": {
         "title": "VE — vodič uz službeni obrazac 10/2026",
         "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
-        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti jamstvo odobrenja.",
         "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
         "modes": {
-          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktualno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
           "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
         },
         "terms": [
@@ -6994,7 +6994,7 @@
             "german": "Leben Sie seit mehr als einem Jahr mit der Person in einem gemeinsamen Haushalt?",
             "reference": "VE · Seite 1 · B · 9",
             "meaning": "Zajedničko domaćinstvo duže od godinu",
-            "instruction": "Provjeri stvarni početak zajedničkog domaćinstva. Tačno godinu nije „više od godinu“; samo ista adresa ne rješava sve druge okolnosti. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
+            "instruction": "Provjeri stvarni početak zajedničkog domaćinstva. Točno godinu nije „više od godinu“; samo ista adresa ne rješava sve druge okolnosti. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
             "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlaštenja prema pitanju. Dokaze predaj samo službenom organu.",
             "example": "Izmišljeno: Maja i Damir dijele stan; Maja provjerava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
             "mistake": "Ne označavaj strateški radi željenog ishoda niti stigmatizuj sustanare. Za nejasan pojam traži objašnjenje Jobcentera.",
@@ -7115,14 +7115,14 @@
             "sections": {
               "meaning": "Uvod C opisuje pretpostavku kod Ja u B i mogućnost protivljenja; nije nepobitna presuda.",
               "action": "Ako smatraš da zajednica ne postoji, u 13 opiši stvarne razloge i dostupne dokaze. Za složeno pitanje pitaj Jobcenter ili nezavisno savjetovalište, bez izmišljenih tvrdnji.",
-              "mistake": "Ne predstavljaj obrazloženje kao automatsku žalbu ili garantovan ishod."
+              "mistake": "Ne predstavljaj obrazloženje kao automatsku žalbu ili zajamčen ishod."
             }
           },
           {
             "id": "send",
             "title": "Pregled i službena predaja",
             "sections": {
-              "meaning": "D potvrđuje tačnost; konačno utvrđivanje odnosa radi Jobcenter.",
+              "meaning": "D potvrđuje točnost; konačno utvrđivanje odnosa radi Jobcenter.",
               "action": "Pregledaj činjenice, kopije i potpis 14–17. Predaj svom Jobcenteru i sačuvaj potvrdu; na dodatna pitanja odgovori činjenično, bez pretpostavljenog roka/odluke.",
               "mistake": "BalkanLink ništa ne prikuplja ni ne šalje; pregledano nije predato."
             }
