@@ -1,4 +1,12 @@
 {
+  "assistantGuides": {
+    "open": "Otvori SmartGuide",
+    "sources": "Službeni izvori",
+    "checked": "Zabeležena provera vodiča: {{date}}. Ovo nije provera uživo; pre predaje proveri službeni izvor.",
+    "unknown": "Nemam proveren vodič za tu temu. Ne mogu potvrditi postupak, rok ili nadležni organ; proveri službeni izvor.",
+    "limits": "Ovo je pregled postojećeg vodiča, ne odluka o pravu niti potvrda predaje. Ne znamo tvoje posebne okolnosti, aktuelni raspored online polja ni vreme obrade. BalkanLink ne podnosi zahtev i ne računa pravne rokove.",
+    "redirect": "Za konkretne korake i objašnjenja koristi postojeći SmartGuide; zahtev predaješ nadležnom organu, ne BalkanLinku."
+  },
   "reliability": {
     "clearConfirm": "Obrisati ceo razgovor sa svih uređaja? Ova radnja se ne može poništiti.",
     "clearAction": "Obriši razgovor",

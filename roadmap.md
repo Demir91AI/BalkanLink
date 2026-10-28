@@ -1,3 +1,7 @@
+## Asistent → SmartGuide first step (28.10.2026; source-only)
+- [ ] Align assistant catalogs/routes and source-backed Kindergeld, Anmeldung, Wohngeld context without changing access/metering.
+- [ ] Focused/full regressions, link-render checks and report; no deployment/publication.
+
 ## Admin Control Center (28.10.2026; source-only)
 - [x] Map live sources, admin authorization, metric limitations and PDF monitoring dependencies.
 - [x] Reconstruct dashboard with isolated refresh, four locales, honest metrics and preserved admin actions/sections.
