@@ -1,6 +1,7 @@
 ## Asistent → SmartGuide first step (28.10.2026; source-only)
-- [ ] Align assistant catalogs/routes and source-backed Kindergeld, Anmeldung, Wohngeld context without changing access/metering.
-- [ ] Focused/full regressions, link-render checks and report; no deployment/publication.
+- [x] Align assistant catalogs/routes and source-backed Kindergeld, Anmeldung, Wohngeld context without changing access/metering.
+- [x] 85 focused /1499 final full regressions passed; 32 isolated browser topic fixtures +8 navigation checks, automatic build OK. Report: docs/assistant-smartguide-first-step-2026-10-28.md; no deployment/publication.
+- [ ] Hosted source-backed assistant E2E/activation: blocked by explicit Edge deployment hold; existing hosted Preview/production endpoint remains unchanged. No activation attempted.
 
 ## Admin Control Center (28.10.2026; source-only)
 - [x] Map live sources, admin authorization, metric limitations and PDF monitoring dependencies.
