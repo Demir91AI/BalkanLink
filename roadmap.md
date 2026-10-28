@@ -1,3 +1,7 @@
+## Asistent conversational guidance (28.10.2026; source-only)
+- [ ] Minimal necessary questions, concise sourced preparation/submission steps and bounded follow-ups; preserve model/usage/gates/UI.
+- [ ] Five-topic four-locale tests, regressions, isolated browser verification and report; no activation.
+
 ## Asistent → SmartGuide first step (28.10.2026; source-only)
 - [x] Align assistant catalogs/routes and source-backed Kindergeld, Anmeldung, Wohngeld context without changing access/metering.
 - [x] 85 focused /1499 final full regressions passed; 32 isolated browser topic fixtures +8 navigation checks, automatic build OK. Report: docs/assistant-smartguide-first-step-2026-10-28.md; no deployment/publication.
