@@ -6,13 +6,15 @@ import SmartGuide from "./SmartGuide";
 import { getGuideSource } from "@/lib/guide-first/official-sources";
 import type { ArrivalProcedure, ArrivalSlug } from "@/lib/guide-first/arrival-model";
 import { isFamilySlug, type FamilySlug } from "@/lib/guide-first/family-model";
+import { isGrundsicherungSlug, type GrundsicherungSlug } from "@/lib/guide-first/grundsicherung-model";
 
 /** Portable procedure + vocabulary companion. No answers, field mapping or storage. */
-export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug | FamilySlug }) {
+export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug | FamilySlug | GrundsicherungSlug }) {
   const { t } = useTranslation("pages");
   const family = isFamilySlug(slug);
-  const data = t(`${family ? "familyCompanions" : "arrivalCompanions"}.guides.${slug}`, { returnObjects: true }) as ArrivalProcedure;
-  const fui = (key: string) => t(`familyCompanions.ui.${key}`);
+  const grundsicherung = isGrundsicherungSlug(slug);
+  const data = t(`${grundsicherung ? "grundsicherungCompanions" : family ? "familyCompanions" : "arrivalCompanions"}.guides.${slug}`, { returnObjects: true }) as ArrivalProcedure;
+  const fui = (key: string) => t(`${grundsicherung ? "grundsicherungCompanions" : "familyCompanions"}.ui.${key}`);
   const [gateChoice, setGateChoice] = useState<string | null>(null);
   const ui = (key: string, values?: Record<string, string | number>) => t(`arrivalCompanions.ui.${key}`, values);
   const [termIndex, setTermIndex] = useState(0);

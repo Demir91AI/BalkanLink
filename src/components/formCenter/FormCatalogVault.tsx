@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronDown, Search, Sparkles, Info, X, FileText, Home, Users, Wallet, Building2, Briefcase, GraduationCap, ClipboardList, Shield, type LucideIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -123,6 +124,7 @@ function CategorySection({
   index: number;
 }) {
   const CategoryIcon = CATEGORY_ICONS[group.id] ?? FileText;
+  const { t } = useTranslation("pages");
   const totalCount =
     group.items.length +
     (group.subGroups?.reduce((acc, s) => acc + s.items.length, 0) || 0);
@@ -149,7 +151,7 @@ function CategorySection({
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-2 flex-wrap">
             <h2 className="text-base font-black text-white/90 tracking-tight">
-              {group.title}
+              {group.id === "buergergeld" ? t("grundsicherungCompanions.ui.heading") : group.title}
             </h2>
             <span
               className={cn(

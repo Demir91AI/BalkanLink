@@ -65,6 +65,8 @@ import GuideFrame from "@/components/guide-first/GuideFrame";
 import ProcedureCompanion from "@/components/guide-first/ProcedureCompanion";
 import { isArrivalSlug } from "@/lib/guide-first/arrival-model";
 import { isFamilySlug } from "@/lib/guide-first/family-model";
+import { isGrundsicherungSlug } from "@/lib/guide-first/grundsicherung-model";
+import GrundsicherungNavigator from "@/components/guide-first/GrundsicherungNavigator";
 import { useEntitlement } from "@/hooks/useEntitlement";
 import { useMonetizationV2 } from "@/hooks/useMonetizationV2";
 import { useAuth } from "@/contexts/AuthContext";
@@ -122,10 +124,12 @@ function FormPremiumPaywall({ entry }: { slug: string; entry: FormEntry | null; 
 
 /* ─── Guide Content (right side) ─── */
 export function GuideContent({ slug, title }: { slug: string; title?: string }) {
-  return <GuideFrame slug={slug} title={title}><GuideBody slug={slug} /></GuideFrame>;
+  const { t } = useTranslation("pages");
+  return <GuideFrame slug={slug} title={slug === "hauptantrag" ? t("grundsicherungCompanions.ui.heading") : title}><GuideBody slug={slug} /></GuideFrame>;
 }
 
 function GuideBody({ slug }: { slug: string }) {
+  if (isGrundsicherungSlug(slug)) return <>{slug === "hauptantrag" && <GrundsicherungNavigator />}<ProcedureCompanion key={slug} slug={slug} /><OfficialNextStep slug={slug} /></>;
   if (isArrivalSlug(slug)) return <><ProcedureCompanion key={slug} slug={slug} />{slug === "steuer-id" && <SteuerIdGuideContent />}<OfficialNextStep slug={slug} /></>;
   if (isFamilySlug(slug)) return <><ProcedureCompanion key={slug} slug={slug} />{slug === "elterngeld" && <ElterngeldGuideContent />}{slug === "mutterschaftsgeld" && <MutterschaftsgeldGuideContent />}{slug === "kinderzuschlag" && <KinderzuschlagGuideContent />}{slug === "wirtschaftliche-jugendhilfe" && <WirtschaftlicheJugendhilfeGuideContent />}<OfficialNextStep slug={slug} /></>;
   const guide = getGuideBySlug(slug);
@@ -273,7 +277,7 @@ export default function FormCenter() {
     });
   };
 
-  const getGroupTitle = (group: FormGroup) => group.title;
+  const getGroupTitle = (group: FormGroup) => group.id === "buergergeld" ? tp("grundsicherungCompanions.ui.heading") : group.title;
 
   const renderItem = (item: FormEntry) => {
     const isActive = item.slug === activeSlug;

@@ -1,3 +1,9 @@
+## Grundsicherung Phase 3A (28.10.2026; no release)
+- [x] Pre-change inventory and current BA 10/2026 HA/WBA/KDU verification.
+- [x] Memory-only navigator and 67 field groups covering 85 HA, 30 WBA, 40 KDU numbered fields; all four locales.
+- [x] 1117 full tests and 24 browser-only test-access route fixtures passed; automatic build OK.
+- [x] Results, exact files and authorized-session / online-portal limits recorded in docs/grundsicherung-phase3a-results.md.
+
 
 ## Arrival companion Phase 1 of 7 (2026-10-27; no release)
 - [x] Inventory existing four routes/content before implementation; verify four requested primary sources and supplementary BMG/FeV/Bremen/BMV/BOP sources.
