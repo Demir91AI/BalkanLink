@@ -341,6 +341,23 @@ export const AUTHORITIES: AuthorityMap = {
   },
 };
 
+/**
+ * 2026-10-28 — IHK FOSA is the competent body for most IHK occupations (BQFG);
+ * craft occupations go to the HWK of the place of work. The Anerkennungs-Finder
+ * remains the binding lookup. Source list: docs/anerkennung-audit-2026-10-28.md
+ */
+const IHK_FOSA: AuthorityContact = {
+  name: "IHK FOSA — Foreign Skills Approval (Nürnberg)",
+  authorityType: "IHK FOSA",
+  url: "https://www.ihk-fosa.de/",
+  notes: "Za većinu IHK zanimanja postupak vodi IHK FOSA; lokalna IHK savjetuje. Anerkennungs-Finder potvrđuje nadležnost za tvoje mjesto.",
+};
+const HWK_NOTE = "Nadležna je Handwerkskammer prema mjestu rada (u većim pokrajinama ima više komora). Tačnu komoru pokazuje Anerkennungs-Finder.";
+const everyLand = (c: AuthorityContact) => Object.fromEntries(BUNDESLAENDER.map((b) => [b.code, c]));
+const hwkByLand = () => Object.fromEntries(Object.entries(AUTHORITIES.maurer).map(([k, v]) => [k, { ...v, notes: HWK_NOTE }]));
+for (const id of ["elektroniker_betriebstechnik", "industriemechaniker", "zerspanungsmechaniker", "maschinen_anlagenfuehrer", "konstruktionsmechaniker", "mechatroniker", "fachkraft_lagerlogistik", "koch", "it_fachkraft", "berufskraftfahrer"]) AUTHORITIES[id] = everyLand(IHK_FOSA);
+for (const id of ["metallbauer", "tischler", "zimmerer", "fliesenleger", "maler_lackierer", "strassenbauer", "beton_stahlbetonbauer", "gebaeudereiniger", "baecker", "friseur", "dachdecker", "anlagenmechaniker_shk"]) AUTHORITIES[id] = hwkByLand();
+
 /** Default: ZAB Zeugnisbewertung (uvijek dostupno za fakultetske diplome) */
 export const ZAB_FALLBACK: AuthorityContact = {
   name: "ZAB — Zentralstelle für ausländisches Bildungswesen",

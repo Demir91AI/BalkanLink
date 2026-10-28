@@ -308,9 +308,9 @@
       "description": "Nicht-reglementiert! Možeš raditi kao kuhar bez formalnog priznavanja. Priznavanje je dobrovoljno, ali korisno za bolju platu i trajni ugovor.",
       "durationRange": "3–4 mjeseca (IHK postupak)",
       "costRange": "100–600 € (zavisi od IHK)",
-      "notes": "Bez priznavanja možeš odmah početi raditi. S priznavanjem dobiješ status 'Fachkraft' što povlači viši Tarif (često +300-500 €/mj).",
+      "notes": "Bez priznavanja možeš raditi kao kuhar. Priznavanje (u većini slučajeva pri IHK FOSA) je dobrovoljno, ali pomaže kod poslodavca i vize kao Fachkraft; konkretan utjecaj na plaću nije zajamčen.",
       "steps": [
-        "OPCIJSKI: predaj zahtjev za Anerkennung kod Industrie- und Handelskammer (IHK)",
+        "NEOBVEZNO: podnesi zahtjev za Anerkennung — za većinu IHK zanimanja pri IHK FOSA (Anerkennungs-Finder potvrđuje)",
         "Gleichwertigkeitsprüfung sa njemačkim Ausbildung-om",
         "Bescheid: 'gleichwertig' / 'wesentliche Unterschiede'",
         "Ako se utvrdi razlika — možeš birati Anpassungsqualifizierung"
@@ -333,7 +333,7 @@
         "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
         "Gleichwertigkeitsprüfung sa njemačkim Ausbildung-om Elektroniker",
         "Ako želiš otvoriti vlastitu firmu — često se traži Meister-Anerkennung",
-        "Ako se utvrdi razlika — Anpassungslehrgang ili Kenntnisprüfung"
+        "Ako se utvrde razlike — Anpassungsqualifizierung (tečaj ili praksa) za njihovo zatvaranje"
       ],
       "documents": [
         "Svjedočanstvo zanata / fakulteta elektrotehnike",
@@ -350,11 +350,11 @@
       "costRange": "100–600 € (HWK takse) + dodatno za Meister-postupak",
       "notes": "Iskustvo na gradilištima u Njemačkoj (potvrde poslodavca) puno znači — često važnije od formalnog priznavanja.",
       "steps": [
-        "Provjeri ustanovu / školu u Anabin bazi",
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje (Maurer ili Beton- und Stahlbetonbauer) i nadležnu komoru",
         "Kao zaposlenik: dovoljno svjedočanstvo + prevod (bez priznavanja)",
         "Za samostalan rad: zahtjev kod Handwerkskammer (HWK)",
         "Gleichwertigkeitsprüfung sa njemačkim Maurer Ausbildung-om",
-        "Ako se utvrdi razlika: Anpassungslehrgang ili Eignungsprüfung",
+        "Ako se utvrde razlike: Anpassungsqualifizierung",
         "Eintrag in die Handwerksrolle nakon Meister-priznavanja"
       ],
       "documents": [
@@ -373,10 +373,10 @@
       "costRange": "100–600 €",
       "notes": "Veliki nedostatak radne snage u Njemačkoj — često radionice direktno zapošljavaju i pomažu oko Anerkennung-a.",
       "steps": [
-        "Provjeri školu u Anabin bazi",
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje i nadležnu HWK",
         "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
         "Gleichwertigkeitsprüfung",
-        "Ako razlika: Anpassungslehrgang ili Eignungsprüfung",
+        "Ako se utvrde razlike: Anpassungsqualifizierung",
         "Za samostalan rad: Meister-Anerkennung"
       ],
       "documents": [
@@ -389,15 +389,15 @@
     },
     "schweisser": {
       "name": "Zavarivač",
-      "description": "Nicht-reglementiert! Možeš odmah početi raditi. Ono što stvarno vrijedi su DIN/EN ISO certifikati zavarivanja (npr. EN ISO 9606-1) — njih izdaju SLV (Schweißtechnische Lehr- und Versuchsanstalten) i priznaju se širom EU.",
+      "description": "Nereguliran. „Zavarivač“ je u Njemačkoj djelatnost, ne samostalan Ausbildungsberuf. Formalno priznavanje moguće je samo uz završeno strukovno obrazovanje i preko referentnog zanimanja (npr. Konstruktionsmechaniker pri IHK FOSA ili Metallbauer pri HWK). Certifikati EN ISO 9606 su zaseban dokaz.",
       "durationRange": "1–3 mjeseca (ako trebaš preispit u SLV)",
       "costRange": "200–800 € (po vrsti certifikata) / 100–400 € (priznavanje svjedočanstva)",
-      "notes": "Top zanimanje za brzo zapošljavanje. Procedura preispitivanja u SLV traje par dana, certifikat važi 6 mjeseci–3 god (zavisno od vrste).",
+      "notes": "Samo iskustvo zavarivanja bez završenog obrazovanja ne daje formalnu istovrijednost. Certifikati po EN ISO 9606 redovno se potvrđuju i obnavljaju — rokove provjeri kod tijela koje ih izdaje.",
       "steps": [
         "Donesi sve postojeće zavarivačke certifikate (DIN/EN, ISO 9606)",
-        "Ako su iz BiH/HR/SR/CG/MK/XK po EN normama — često se priznaju direktno",
+        "Strani certifikati (EN ISO 9606): poslodavac ili nadzorno tijelo provjerava valjanost; po potrebi novi ispit kod ovlaštenog tijela (npr. SLV)",
         "Ako nisu po EN — položi praktični ispit u SLV centru u Njemačkoj",
-        "OPCIJSKI: priznaj svjedočanstvo zanata kod IHK / HWK za Fachkraft status"
+        "NEOBVEZNO, samo uz završeno strukovno obrazovanje: priznavanje preko referentnog zanimanja (Konstruktionsmechaniker / Metallbauer)"
       ],
       "documents": [
         "Svi zavarivački certifikati (originalni + prevod)",
@@ -425,6 +425,407 @@
         "Portfolio / GitHub / certifikati (Microsoft, AWS, Cisco…)",
         "Lebenslauf na njemačkom ili engleskom",
         "Pasoš"
+      ]
+    },
+    "elektroniker_betriebstechnik": {
+      "name": "Elektroničar za pogonsku tehniku",
+      "description": "Nereguliran IHK poziv (Ausbildungsberuf). Raditi se može i bez priznavanja; priznavanje pri IHK FOSA je dobrovoljno, ali često važno za vizu i poslodavca.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "IHK FOSA: 100–600 € prema opsegu postupka + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Industrijsko elektro-zanimanje (IHK), različito od obrtničkog Elektroniker für Energie- und Gebäudetechnik (HWK). Za samostalne elektroinstalacije u zgradama vrijede pravila obrta i mrežnih operatora.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Elektronikerin / Elektroniker für Betriebstechnik“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung (BQFG) — za većinu IHK zanimanja kod IHK FOSA; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "industriemechaniker": {
+      "name": "Industrijski mehaničar",
+      "description": "Nereguliran IHK poziv (Ausbildungsberuf). Raditi se može i bez priznavanja; priznavanje pri IHK FOSA je dobrovoljno, ali često važno za vizu i poslodavca.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "IHK FOSA: 100–600 € prema opsegu postupka + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Česta referenca za strojobravare i održavanje strojeva; točnu referencu bira nadležna ustanova prema sadržaju tvog obrazovanja.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Industriemechanikerin / Industriemechaniker“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung (BQFG) — za većinu IHK zanimanja kod IHK FOSA; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "zerspanungsmechaniker": {
+      "name": "Mehaničar za obradu odvajanjem čestica (CNC)",
+      "description": "Nereguliran IHK poziv (Ausbildungsberuf). Raditi se može i bez priznavanja; priznavanje pri IHK FOSA je dobrovoljno, ali često važno za vizu i poslodavca.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "IHK FOSA: 100–600 € prema opsegu postupka + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "„CNC operater“ je djelatnost, ne samostalan njemački Ausbildungsberuf. Formalna referenca je npr. Zerspanungsmechaniker ili Maschinen- und Anlagenführer — samo uz završeno strukovno obrazovanje; samo iskustvo na CNC stroju ne daje istovrijednost.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Zerspanungsmechanikerin / Zerspanungsmechaniker“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung (BQFG) — za većinu IHK zanimanja kod IHK FOSA; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "maschinen_anlagenfuehrer": {
+      "name": "Rukovatelj strojevima i postrojenjima",
+      "description": "Nereguliran IHK poziv (Ausbildungsberuf). Raditi se može i bez priznavanja; priznavanje pri IHK FOSA je dobrovoljno, ali često važno za vizu i poslodavca.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "IHK FOSA: 100–600 € prema opsegu postupka + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Dvogodišnji njemački Ausbildungsberuf; može biti referenca za kraća strukovna obrazovanja u proizvodnji. Ne treba ga miješati s nekvalificiranim radom na stroju.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Maschinen- und Anlagenführerin / Maschinen- und Anlagenführer“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung (BQFG) — za većinu IHK zanimanja kod IHK FOSA; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "metallbauer": {
+      "name": "Bravar konstrukcija (Metallbauer)",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Obrt Metallbauer (Anlage A br. 13). Može biti referenca za bravare i zavarivače sa završenim obrtničkim obrazovanjem; u industrijskim tvrtkama moguća je i IHK-referenca (npr. Konstruktionsmechaniker).",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Metallbauerin / Metallbauer“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "konstruktionsmechaniker": {
+      "name": "Konstrukcijski mehaničar (zavarivanje, čelične konstrukcije)",
+      "description": "Nereguliran IHK poziv (Ausbildungsberuf). Raditi se može i bez priznavanja; priznavanje pri IHK FOSA je dobrovoljno, ali često važno za vizu i poslodavca.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "IHK FOSA: 100–600 € prema opsegu postupka + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Česta formalna referenca za zavarivače i bravare čeličnih konstrukcija sa završenim obrazovanjem. Certifikati zavarivanja (EN ISO 9606) su zaseban dokaz, ne zamjenjuju priznavanje.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Konstruktionsmechanikerin / Konstruktionsmechaniker“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung (BQFG) — za većinu IHK zanimanja kod IHK FOSA; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "mechatroniker": {
+      "name": "Mehatroničar",
+      "description": "Nereguliran IHK poziv (Ausbildungsberuf). Raditi se može i bez priznavanja; priznavanje pri IHK FOSA je dobrovoljno, ali često važno za vizu i poslodavca.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "IHK FOSA: 100–600 € prema opsegu postupka + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Industrijski Mechatroniker (IHK) nije isto što i Kfz-Mechatroniker (obrt, HWK) — odaberi referencu prema sadržaju obrazovanja.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Mechatronikerin / Mechatroniker“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung (BQFG) — za većinu IHK zanimanja kod IHK FOSA; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "tischler": {
+      "name": "Stolar (Tischler / Schreiner)",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "„Schreiner“ je južnonjemački naziv za isto zanimanje — nije posebna referenca. Obrt Anlage A br. 27.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Tischlerin / Tischler (Schreinerin / Schreiner)“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "zimmerer": {
+      "name": "Tesar (Zimmerer)",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Obrt Anlage A br. 3. U građevinskoj industriji nadležnost može biti i pri IHK — Anerkennungs-Finder pokazuje točnu ustanovu.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Zimmerin / Zimmerer“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "fliesenleger": {
+      "name": "Keramičar (Fliesenleger)",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Od 2020. ponovno obrt iz Anlage A (br. 42): samostalno vođenje obrta traži upis u Handwerksrolle.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Fliesen-, Platten- und Mosaikleger/in“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "maler_lackierer": {
+      "name": "Ličilac i lakirer",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Obrt Anlage A br. 10. Industrijski lakirer (Verfahrensmechaniker für Beschichtungstechnik, IHK) je druga referenca.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Malerin und Lackiererin / Maler und Lackierer“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "strassenbauer": {
+      "name": "Graditelj cesta (Straßenbauer)",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Obrt Anlage A br. 5. U velikim građevinskim tvrtkama nadležnost može biti i pri IHK — provjeri u Anerkennungs-Finderu.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Straßenbauerin / Straßenbauer“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "beton_stahlbetonbauer": {
+      "name": "Betonirac / armirač (Beton- und Stahlbetonbauer)",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Poseban Ausbildungsberuf, različit od Maurer. Obrtnički pripada obrtu „Maurer und Betonbauer“ (Anlage A br. 1); u industriji nadležna može biti IHK.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Beton- und Stahlbetonbauerin / Beton- und Stahlbetonbauer“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "gebaeudereiniger": {
+      "name": "Čistač zgrada (Gebäudereiniger)",
+      "description": "Zulassungsfrei obrt (Anlage B1 HwO), nereguliran. Priznavanje pri HWK je dobrovoljno i služi kao dokaz kvalifikacije.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Za rad na čišćenju nije potrebna formalna kvalifikacija; priznavanje ima smisla samo uz završeno strukovno obrazovanje u ovom području.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Gebäudereinigerin / Gebäudereiniger“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Ovaj obrt je zulassungsfrei (Anlage B1 HwO): obrt se može otvoriti i bez Meistera; priznavanje je dobrovoljno.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "baecker": {
+      "name": "Pekar",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Obrt Anlage A br. 30. Za rad s namirnicama trebaš i higijenske propise (npr. pouka po Infektionsschutzgesetz) — to nije dio priznavanja.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Bäckerin / Bäcker“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "friseur": {
+      "name": "Frizer",
+      "description": "Obrt iz Anlage A HwO. Kao zaposlenik u pravilu možeš raditi bez priznavanja; samostalno vođenje obrta traži upis u Handwerksrolle. Nadležna je HWK prema mjestu rada.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "Pristojbu određuje nadležna HWK (nije jedinstvena) + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Obrt Anlage A br. 38: vlastiti salon traži upis u Handwerksrolle.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Friseurin / Friseur“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung pri Handwerkskammer (HWK) nadležnoj za mjesto rada; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Za samostalno vođenje obrta ovog zanata (Anlage A HwO) potreban je upis u Handwerksrolle — npr. Meister, kvalifikacija priznata kao istovrijedna Meisteru, Ausnahmebewilligung ili Ausübungsberechtigung. Priznata Geselle-razina za to nije dovoljna; to je zaseban postupak pri HWK.",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
+      ]
+    },
+    "fachkraft_lagerlogistik": {
+      "name": "Stručnjak za skladišnu logistiku",
+      "description": "Nereguliran IHK poziv (Ausbildungsberuf). Raditi se može i bez priznavanja; priznavanje pri IHK FOSA je dobrovoljno, ali često važno za vizu i poslodavca.",
+      "durationRange": "Zakonski rok 3 mjeseca od potpune dokumentacije (jednom produljiv); prikupljanje i prijevodi traju dodatno",
+      "costRange": "IHK FOSA: 100–600 € prema opsegu postupka + prijevodi; moguća financijska potpora (npr. Anerkennungszuschuss)",
+      "notes": "Za viličar (Stapler) u Njemačkoj obično je potrebna interna obuka i pisano ovlaštenje poslodavca — to je odvojeno od priznavanja.",
+      "steps": [
+        "Provjeri u Anerkennungs-Finderu referentno zanimanje „Fachkraft für Lagerlogistik“ i nadležnu ustanovu za mjesto gdje želiš raditi.",
+        "Za rad kao zaposlenik priznavanje u pravilu nije zakonski obvezno (nereguliran poziv), ali poslodavac ili postupak za vizu mogu ga tražiti.",
+        "Uz završeno, u zemlji podrijetla državno priznato strukovno obrazovanje podnesi zahtjev za Gleichwertigkeitsfeststellung (BQFG) — za većinu IHK zanimanja kod IHK FOSA; moguće i iz inozemstva.",
+        "Odluka (Bescheid): potpuna ili djelomična istovrijednost. Kod djelomične se razlike mogu zatvoriti kroz Anpassungsqualifizierung. Zakonski rok: 3 mjeseca od potpune dokumentacije, jednom se može produljiti (§6 BQFG).",
+        "Samo radno iskustvo bez završenog obrazovanja ne daje formalnu istovrijednost. Pitaj komoru za Qualifikationsanalyse (ako dokumenti nedostaju) ili Validierungsverfahren (od 2025., za višegodišnje iskustvo bez diplome) — to su zasebni postupci bez zajamčenog ishoda.",
+        "Za vizu kao Fachkraft s Berufsausbildung (§18a AufenthG) obično je potrebna priznata kvalifikacija. Drugi putovi (Westbalkanregelung, iskustvo po §19c(2) uz potvrdu ZAB, Anerkennungspartnerschaft) imaju vlastite uvjete — provjeri Make it in Germany."
+      ],
+      "documents": [
+        "Obrazac zahtjeva nadležne ustanove",
+        "Svjedodžba / diploma o završenom strukovnom obrazovanju",
+        "Prilog s predmetima i satnicom / sadržajem obrazovanja (ako postoji)",
+        "Potvrde o radnom iskustvu s opisom poslova (Arbeitszeugnisse)",
+        "Tablični Lebenslauf i osobna iskaznica / putovnica",
+        "Prijevod na njemački; vrstu prijevoda, ovjere ili Apostille određuje nadležna ustanova"
       ]
     }
   },
