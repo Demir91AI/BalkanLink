@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { reserveUsage, commitUsage, releaseUsage, meterStream, assistantGate, type Reservation } from "../_shared/usage.ts";
-import { ASSISTANT_CATALOG as FORM_CATALOG, detectAssistantGuide, assistantGuideRoute, resolveSourceGuide, buildSourceGuideReply, guideRedirectReply, guideReplyStream } from "./guide-context.ts";
+import { ASSISTANT_CATALOG as FORM_CATALOG, detectAssistantGuide, assistantGuideRoute, resolveConversationGuide, buildSourceGuideReply, buildConversationGuideReply, visaNavigationContext, guideRedirectReply, guideReplyStream } from "./guide-context.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
@@ -1459,7 +1459,7 @@ serve(async (req) => {
     const userText = typeof lastUserMsg?.content === "string" ? lastUserMsg.content : 
       Array.isArray(lastUserMsg?.content) ? lastUserMsg.content.find((c: any) => c.type === "text")?.text || "" : "";
 
-    const sourceGuide = resolveSourceGuide(userText, currentPage || "");
+    const sourceGuide = resolveConversationGuide(messages, currentPage || "");
     // A recognized question wins over an unrelated page. URLs alone are not verified facts.
     const pageContext = sourceGuide ? "" : buildEnrichedPageContext(currentPage || "");
 
@@ -1560,7 +1560,7 @@ serve(async (req) => {
     if (reservation.mode === "basic") isPremium = false;
     if (sourceGuide) {
       // Existing access/gate/reservation/settlement stay authoritative; no model invents guide steps.
-      const content = buildSourceGuideReply(sourceGuide, language);
+      const content = buildConversationGuideReply(sourceGuide, language, messages);
       const stream = meterStream(guideReplyStream(content), () => commitUsage(admin, reservation), () => releaseUsage(admin, reservation));
       return new Response(stream, { headers: { ...corsHeaders, "Content-Type": "text/event-stream",
         "Access-Control-Expose-Headers": "X-Guide-Slug, X-Usage-Mode",
@@ -1568,6 +1568,8 @@ serve(async (req) => {
     }
     const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext) + `
 INTERNAL GUIDE ACCURACY: Use only catalog slugs from the supplied catalog. Never invent a /formulari/ slug or default an unknown topic to Kindergeld. No source-backed guide was resolved for this question. Do not claim you checked a guide/source live. For unknown procedures say what is unknown; unrelated page context is not proof. Do not promise PDF filling, submission or eligibility.`;
+    const conversationInstructions = `Respond with 2–4 understandable numbered actions where supported: what to prepare, where to go, what the user must personally check/sign/submit. Reuse the existing conversation, do not repeat answered questions. Ask at most one necessary, non-sensitive clarification only if it changes the next action. Unknown facts remain unknown, not a made-up procedure. Do not generate generic follow-up questions just to prolong the conversation.`;
+    const navigationContext = /viza|visa|visum|aufenthalt|boravišn|boravisn|blue.?card|blaue karte/i.test(userText) ? visaNavigationContext(language) : "";
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
@@ -1579,7 +1581,7 @@ INTERNAL GUIDE ACCURACY: Use only catalog slugs from the supplied catalog. Never
         },
         body: JSON.stringify({
           model: "google/gemini-2.5-flash",
-          messages: [{ role: "system", content: systemPrompt }, ...messages],
+          messages: [{ role: "system", content: `${systemPrompt}\n${conversationInstructions}\n${navigationContext}` }, ...messages],
           stream: true,
           max_tokens: 1024,
         }),
