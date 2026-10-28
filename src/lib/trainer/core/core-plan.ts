@@ -33,6 +33,26 @@ export interface CorePlan {
   mistakes: { wrong: string; correct: string; tip: string }[];
   /** Exercises not in the core: available as optional extra practice. */
   extraCount: number;
+  /** Core items that also appear (templated) in ≥ GENERIC_THRESHOLD lessons of the level. */
+  genericItems: number;
+}
+
+/** Content repeated in this many lessons of a level is treated as generic template filler. */
+export const GENERIC_THRESHOLD = 4;
+
+interface LevelFreq { ex: Map<string, number>; phrase: Map<string, number>; mistake: Map<string, number> }
+const freqCache = new WeakMap<Lesson[], LevelFreq>();
+export function levelFrequencies(levelLessons: Lesson[]): LevelFreq {
+  const hit = freqCache.get(levelLessons); if (hit) return hit;
+  const f: LevelFreq = { ex: new Map(), phrase: new Map(), mistake: new Map() };
+  const bump = (m: Map<string, number>, keys: Iterable<string>) => { for (const k of new Set(keys)) m.set(k, (m.get(k) ?? 0) + 1); };
+  for (const l of levelLessons) {
+    bump(f.ex, l.stages.flatMap((st) => st.exercises).map(signature));
+    bump(f.phrase, l.importantPhrases.map((p) => p.de.trim()));
+    bump(f.mistake, l.commonMistakes.map((m) => `${m.wrong}|${m.correct}`));
+  }
+  freqCache.set(levelLessons, f);
+  return f;
 }
 
 /** Structural validity of a legacy exercise (answer must be reachable). */
@@ -86,18 +106,27 @@ export function pickVaried(refs: ExerciseRef[], cap: number): ExerciseRef[] {
   return picked.sort((a, b) => order.get(a.key)! - order.get(b.key)!);
 }
 
-export function buildCorePlan(lesson: Lesson): CorePlan {
+/**
+ * @param levelLessons all lessons of the same level; when given, lesson-specific
+ * content is preferred over templated items repeated across many lessons, and
+ * repeated phrases/mistakes are not shown as if they were lesson-specific.
+ */
+export function buildCorePlan(lesson: Lesson, levelLessons?: Lesson[]): CorePlan {
+  const freq = levelLessons?.length ? levelFrequencies(levelLessons) : undefined;
+  const exFreq = (r: ExerciseRef) => freq?.ex.get(signature(r.exercise)) ?? 1;
+  const bySpecificity = (refs: ExerciseRef[]) => (freq ? [...refs].sort((a, b) => exFreq(a) - exFreq(b)) : refs);
   const seen = new Set<string>();
-  const basics = uniqueRefs(lesson, [0, 1], seen);
+  const basics = bySpecificity(uniqueRefs(lesson, [0, 1], seen));
   const practice = pickVaried(basics, CORE_PRACTICE_CAP);
   const used = new Set(practice.map((p) => p.key));
   // Checkpoint prefers the "Realität" stage; falls back to unused basics.
-  const reality = uniqueRefs(lesson, [2], seen);
+  const reality = bySpecificity(uniqueRefs(lesson, [2], seen));
   const checkpoint = pickVaried([...reality, ...basics.filter((b) => !used.has(b.key))], CORE_CHECKPOINT_CAP);
 
   const phraseSeen = new Set<string>();
   const phrases = lesson.importantPhrases.filter((p) => {
-    const k = p.de.trim(); if (!k || phraseSeen.has(k)) return false; phraseSeen.add(k); return true;
+    const k = p.de.trim(); if (!k || phraseSeen.has(k)) return false; phraseSeen.add(k);
+    return !freq || (freq.phrase.get(k) ?? 1) < GENERIC_THRESHOLD;
   }).slice(0, CORE_PHRASE_CAP);
 
   const total = lesson.stages.reduce((n, s) => n + s.exercises.length, 0);
@@ -109,8 +138,9 @@ export function buildCorePlan(lesson: Lesson): CorePlan {
     practice,
     checkpoint,
     phrases,
-    mistakes: lesson.commonMistakes.slice(0, CORE_MISTAKE_CAP),
+    mistakes: lesson.commonMistakes.filter((m) => !freq || (freq.mistake.get(`${m.wrong}|${m.correct}`) ?? 1) < GENERIC_THRESHOLD).slice(0, CORE_MISTAKE_CAP),
     extraCount: Math.max(0, total - practice.length - checkpoint.length),
+    genericItems: freq ? [...practice, ...checkpoint].filter((r) => exFreq(r) >= GENERIC_THRESHOLD).length : 0,
   };
 }
 

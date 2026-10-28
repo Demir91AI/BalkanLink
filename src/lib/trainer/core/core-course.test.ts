@@ -38,7 +38,7 @@ describe("course invariants (240 legacy lessons preserved)", () => {
 describe("core plan for every lesson", () => {
   it("is capped, valid, de-duplicated and accounts for every legacy exercise", () => {
     for (const lesson of all) {
-      const plan = buildCorePlan(lesson);
+      const plan = buildCorePlan(lesson, byLevel[lesson.level as keyof typeof byLevel]);
       expect(plan.practice.length).toBeGreaterThanOrEqual(3);
       expect(plan.practice.length).toBeLessThanOrEqual(CORE_PRACTICE_CAP);
       expect(plan.checkpoint.length).toBeGreaterThanOrEqual(1);
@@ -56,6 +56,15 @@ describe("core plan for every lesson", () => {
       expect(plan.extraCount + refs.length).toBe(15);
       expect(plan.status).toBe(getStandardizedFor(lesson.id) ? "standardized" : "legacy-adapted");
     }
+  });
+
+  it("prefers lesson-specific items and hides phrases repeated across ≥4 lessons", () => {
+    const plain = buildCorePlan(lessonsC1[3]);
+    const aware = buildCorePlan(lessonsC1[3], lessonsC1);
+    expect(aware.genericItems).toBeLessThanOrEqual(aware.practice.length + aware.checkpoint.length);
+    expect(plain.phrases.length).toBe(6);
+    // C1 shares the same 50 phrases in every lesson → none is presented as lesson-specific
+    expect(aware.phrases.length).toBe(0);
   });
 
   it("mixes exercise types in practice where the lesson offers them", () => {

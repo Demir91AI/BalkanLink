@@ -5,7 +5,7 @@ import AuthGate from "@/components/AuthGate";
 import type { BreadcrumbItem } from "@/components/navigation/SectionHeader";
 import { ArrowRight, ArrowLeft, AlertTriangle, Lock, Crown, Loader2, RotateCcw } from "lucide-react";
 import type { Lesson, Exercise } from "@/lib/deutsch-trainer-data";
-import { shuffleExercise } from "@/lib/deutsch-trainer-data";
+import { shuffleExercise, getLessonsForLevel } from "@/lib/deutsch-trainer-data";
 import MultipleChoice from "./MultipleChoice";
 import SortSentence from "./SortSentence";
 import FillBlank from "./FillBlank";
@@ -86,7 +86,7 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
   const { generate, error: aiError } = useGeneratedExercises();
 
   const maxExercises = isPremium ? EXERCISES_PER_STAGE : FREE_EXERCISES_PER_STAGE;
-  const plan = useMemo(() => buildCorePlan(lesson), [lesson]);
+  const plan = useMemo(() => buildCorePlan(lesson, getLessonsForLevel(lesson.level)), [lesson]);
   const standardized = useMemo(() => getStandardizedFor(lesson.id), [lesson.id]);
   const { state: learning } = useLearningState();
   const [coreOpenLocal, setCoreOpenLocal] = useState(false);
