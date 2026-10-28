@@ -37,3 +37,8 @@ Content-only. Routes, IDs, gates (`premium: true`), auth, payments, layout and g
 - No native-speaker proofreading of HR/SR/DE.
 - Albania consolidated 2026 law and Montenegro Art. 24 not read in full text.
 - Treaty texts (BiH–Serbia/Croatia/Sweden) not analysed in detail; only their existence is stated.
+
+## Focus adjustment (owner clarification, 18:35 UTC)
+- BiH treaty mention cut down to a short note in parentheses: no treaty is needed to keep BiH citizenship when becoming German; the Serbia/Croatia/Sweden treaties don't apply to Germany. There is no section just about Sweden.
+- Kosovo: added what becoming German means for you (you don't lose Kosovo citizenship by doing so). Montenegro: added that the Art. 11 amendment is not relevant to German naturalization.
+- Focused + phase1 tests: 52/52 pass.
