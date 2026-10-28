@@ -1,0 +1,1629 @@
+{
+  "ek": [
+    {
+      "id": "ek-notice-1",
+      "german": "Anlage EK — Einkommen einer Person ab 15 Jahren",
+      "reference": "EK · Seite 1 · Hinweise",
+      "numbers": []
+    },
+    {
+      "id": "ek-1-4",
+      "german": "1–4 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ) Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "EK · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ek-5-7",
+      "german": "5–7 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "EK · Seite 1 · B · 5–7",
+      "numbers": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "ek-8",
+      "german": "8 · Hat die Person Einkommen aus Erwerbstätigkeit? Anzugeben sind alle Einkünfte aus haupt- und nebenberuflichen Tätigkeiten, Ausbildungsverhältnissen, Minijob und Ferienjob.",
+      "reference": "EK · Seite 1 · C · 8",
+      "numbers": [
+        8
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-9-13",
+      "german": "9–13 · Name der Arbeitgeberin/des Arbeitgebers Straße Hausnummer Postleitzahl Ort",
+      "reference": "EK · Seite 2 · C · 9–13",
+      "numbers": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": "ek-14",
+      "german": "14 · Bitte geben Sie an, wann die Zahlung des Arbeitseinkommens durch die Arbeitgeberin/den Arbeitgeber erfolgt.",
+      "reference": "EK · Seite 2 · C · 14",
+      "numbers": [
+        14
+      ],
+      "options": [
+        "Im laufenden Monat",
+        "Im Folgemonat"
+      ]
+    },
+    {
+      "id": "ek-15-19",
+      "german": "15–19 · Name einer weiteren Arbeitgeberin/eines weiteren Arbeitgebers Straße Hausnummer Postleitzahl Ort",
+      "reference": "EK · Seite 2 · C · 15–19",
+      "numbers": [
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "id": "ek-20",
+      "german": "20 · Bitte geben Sie an, wann die Zahlung des Arbeitseinkommens durch die weitere Arbeitgeberin/den weiteren Arbeitgeber erfolgt.",
+      "reference": "EK · Seite 2 · C · 20",
+      "numbers": [
+        20
+      ],
+      "options": [
+        "Im laufenden Monat",
+        "Im Folgemonat"
+      ]
+    },
+    {
+      "id": "ek-21",
+      "german": "21 · Übt die Person eine selbständige oder freiberufliche Tätigkeit, auch in der Land- und Forstwirtschaft, aus?",
+      "reference": "EK · Seite 2 · C · 21",
+      "numbers": [
+        21
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage EKS aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-22",
+      "german": "22 · Erhält die Person (steuerfreie) Aufwandsentschädigungen oder Aufwandspauschalen aus einer gemeinnützigen oder ehrenamtlichen Tätigkeit? (Hinweis Aufwandsentschädigungen/Aufwandspauschalen)",
+      "reference": "EK · Seite 2 · C · 22",
+      "numbers": [
+        22
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-23",
+      "german": "23 · Bitte kreuzen Sie nachfolgend alle Einnahmen an, die auf die Person zutreffen. Hierzu zählen auch Einnahmen, die Sie für Personen unter 15 Jahren erhalten, zum Beispiel Kindergeld.",
+      "reference": "EK · Seite 2–3 · C · 23",
+      "numbers": [
+        23
+      ],
+      "options": [
+        "Wohngeld",
+        "Arbeitslosengeld (Agentur für Arbeit)",
+        "Krankengeld",
+        "Übergangsgeld",
+        "Kurzarbeitergeld",
+        "Insolvenzgeld",
+        "Elterngeld",
+        "Kindergeld",
+        "Kinderzuschlag",
+        "Unterhalt",
+        "Unterhaltsvorschuss",
+        "BAföG (Leistung nach dem Bundesausbildungsförderungsgesetz)",
+        "Berufsausbildungsbeihilfe (BAB)",
+        "Ausbildungsgeld",
+        "Renten (zum Beispiel aus der gesetzlichen Sozialversicherung wie Altersrente, Erwerbsminderungsrente, Knappschaftsausgleichsleistungen, Unfall-/Verletztenrente, Hinterbliebenenrente und Grundrente), Betriebsrenten, Pensionen, ausländische Renten, Arbeitsmarktrenten",
+        "Einnahmen aus Vermietung, Untervermietung oder Verpachtung (auch aus Land- und Forstwirtschaft)",
+        "Sozialhilfe",
+        "Sachbezüge (zum Beispiel kostenfreie Verpflegung)",
+        "Einnahmen aus digitalen Plattformen, auch Werbeeinnahmen (zum Beispiel Instagram, TikTok, YouTube und ebay)",
+        "Sonstige und/oder unregelmäßige Einnahmen (zum Beispiel Pflegegeld, Trinkgelder, Einnahmen aus dem Bundesfreiwilligendienst, Steuerrückerstattungen, Zinsen, sonstige Kapitalerträge, Schenkungen, Einnahmen aus Glücksspiel, Guthaben aus Betriebskostenabrechnungen, Leibrente, Ansprüche gegenüber Dritten); Grundsicherungsgeld brauchen Sie hier nicht einzutragen",
+        "Keine der Einnahmen"
+      ]
+    },
+    {
+      "id": "ek-24",
+      "german": "24 · Entstehen Ausgaben für die Fahrten zwischen Wohnung und Arbeitsstätte? (Hinweis Werbungskosten/Absetzungen)",
+      "reference": "EK · Seite 3 · D · 24",
+      "numbers": [
+        24
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 33)"
+      ]
+    },
+    {
+      "id": "ek-25-28",
+      "german": "25–28 · Straße Hausnummer Postleitzahl Ort",
+      "reference": "EK · Seite 3 · D · 25–28",
+      "numbers": [
+        25,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "id": "ek-29",
+      "german": "29 · Bitte geben Sie die kürzeste Strecke zwischen Wohnung und Arbeitsstätte in Kilometern an.",
+      "reference": "EK · Seite 3 · D · 29",
+      "numbers": [
+        29
+      ]
+    },
+    {
+      "id": "ek-30",
+      "german": "30 · An wie vielen Tagen je Woche wird die Strecke gefahren?",
+      "reference": "EK · Seite 3 · D · 30",
+      "numbers": [
+        30
+      ]
+    },
+    {
+      "id": "ek-31",
+      "german": "31 · Wie wird die Strecke zurückgelegt?",
+      "reference": "EK · Seite 3 · D · 31",
+      "numbers": [
+        31
+      ],
+      "options": [
+        "Mit einem Kraftfahrzeug",
+        "Mit öffentlichen Verkehrsmitteln (bitte fügen Sie Nachweise bei, zum Beispiel einen Fahrschein)",
+        "Mit sonstigen Fahrzeugen, zum Beispiel Fahrrad, E-Roller"
+      ]
+    },
+    {
+      "id": "ek-32",
+      "german": "32 · Werden Zuschüsse zu den Fahrtkosten gezahlt?",
+      "reference": "EK · Seite 3 · D · 32",
+      "numbers": [
+        32
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Reisekostenabrechnungen)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-33",
+      "german": "33 · Gibt es weitere Ausgaben aus einem Arbeitsverhältnis, die nicht vom Arbeitgeber erstattet werden, zum Beispiel Arbeitsmittel, doppelte Haushaltsführung, Mehraufwendungen für Verpflegung?",
+      "reference": "EK · Seite 3 · D · 33",
+      "numbers": [
+        33
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Kaufbelege für Arbeitsmittel)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-34",
+      "german": "34 · Werden Beiträge zu folgenden Versicherungen gezahlt? Sie können mehrere Versicherungen angeben. Bitte fügen Sie zu allen Versicherungen und den geleisteten Beiträgen Nachweise bei, zum Beispiel Versicherungspolicen, Beitragsrechnungen.",
+      "reference": "EK · Seite 4 · D · 34",
+      "numbers": [
+        34
+      ],
+      "options": [
+        "Kraftfahrzeug-Haftpflichtversicherung (ohne Teilkasko, Vollkasko, Schutzbrief)",
+        "Weitere gesetzlich vorgeschriebene Versicherungen, zum Beispiel Haftpflichtversicherung für bestimmte Berufsgruppen wie Rechtsanwälte oder Hebammen",
+        "Beiträge zur geförderten Altersvorsorge nach § 82 Einkommensteuergesetz, zum Beispiel Beiträge zur „Riester-Rente“",
+        "Private Versicherung von Kindern unter 18 Jahren"
+      ]
+    },
+    {
+      "id": "ek-35",
+      "german": "35 · Hat die unter Abschnitt B angegebene Person mindestens ein Kind unter 18 Jahren, welches nicht bei der Person wohnt?",
+      "reference": "EK · Seite 4 · D · 35",
+      "numbers": [
+        35
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis bei, zum Beispiel Geburtsurkunde oder Unterhaltstitel)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-36",
+      "german": "36 · Zahlt die Person Unterhalt?",
+      "reference": "EK · Seite 4 · D · 36",
+      "numbers": [
+        36
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis zur Höhe der Unterhaltsverpflichtung und einen Zahlungsnachweis bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-37",
+      "german": "37 · Wird bei der Einnahme aus Ausbildungsförderung für ein Kind (Berufsausbildungsbeihilfe, Ausbildungsgeld, BAföG) Einkommen der Eltern berücksichtigt?",
+      "reference": "EK · Seite 4 · D · 37",
+      "numbers": [
+        37
+      ],
+      "options": [
+        "Ja (bitte fügen Sie den Bescheid und den Berechnungsbogen bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ek-notice-8",
+      "german": "Mitwirkungspflichten · Datenschutzhinweise · Angaben richtig",
+      "reference": "EK · Seite 4 · E",
+      "numbers": []
+    },
+    {
+      "id": "ek-38-39",
+      "german": "38–39 · Datum Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person)",
+      "reference": "EK · Seite 4 · E · 38–39",
+      "numbers": [
+        38,
+        39
+      ]
+    },
+    {
+      "id": "ek-40-41",
+      "german": "40–41 · Datum Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "EK · Seite 4 · E · 40–41",
+      "numbers": [
+        40,
+        41
+      ]
+    }
+  ],
+  "vm": [
+    {
+      "id": "vm-notice-1",
+      "german": "Anlage VM — Vermögensverhältnisse der gesamten Bedarfsgemeinschaft (Inland und Ausland)",
+      "reference": "VM · Seite 1 · Hinweise",
+      "numbers": []
+    },
+    {
+      "id": "vm-1-4",
+      "german": "1–4 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ) Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "VM · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "vm-5",
+      "german": "5 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft ein selbst bewohntes Hausgrundstück oder eine selbst bewohnte Eigentumswohnung?",
+      "reference": "VM · Seite 1 · B · 5",
+      "numbers": [
+        5
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-6",
+      "german": "6 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft nicht selbst bewohnte Hausgrundstücke und/oder Eigentumswohnungen?",
+      "reference": "VM · Seite 1 · B · 6",
+      "numbers": [
+        6
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-7-8",
+      "german": "7–8 · Miteigentumsanteil in Prozent Verkehrswert in Euro (Hinweis Verkehrswert von Immobilien)",
+      "reference": "VM · Seite 1 · B · 7–8",
+      "numbers": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "vm-9",
+      "german": "9 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft unbebaute Grundstücke?",
+      "reference": "VM · Seite 1 · B · 9",
+      "numbers": [
+        9
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-10-11",
+      "german": "10–11 · Miteigentumsanteil in Prozent Verkehrswert in Euro (Hinweis Verkehrswert von Immobilien)",
+      "reference": "VM · Seite 1 · B · 10–11",
+      "numbers": [
+        10,
+        11
+      ]
+    },
+    {
+      "id": "vm-12",
+      "german": "12 · Besitzen Sie und/oder die Personen in der Bedarfsgemeinschaft Kraftfahrzeuge, zum Beispiel PKW, Motorrad, Wohnmobil?",
+      "reference": "VM · Seite 2 · C · 12",
+      "numbers": [
+        12
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-13",
+      "german": "13 · Bitte geben Sie die vorhandenen Kraftfahrzeuge an und fügen Sie Nachweise bei, zum Beispiel Zulassungsbescheinigung Teil I, Foto vom Kilometerstand, Wertermittlung aus dem Internet. Wert des Name der Eigentümerin/des Fabrikat/Modell des Baujahr Kilometer- Kraftfahrzeugs Eigentümers Kraftfahrzeugs stand in Euro",
+      "reference": "VM · Seite 2 · C · 13",
+      "numbers": [
+        13
+      ]
+    },
+    {
+      "id": "vm-14",
+      "german": "14 · Hat eine Person in der Bedarfsgemeinschaft innerhalb der letzten 10 Jahre Werte aus dem Vermögen verschenkt, gespendet oder übertragen, zum Beispiel Geldbeträge, Schmuck?",
+      "reference": "VM · Seite 2 · D · 14",
+      "numbers": [
+        14
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Schenkungsurkunde, Spendennachweis des Empfängers)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-15-17",
+      "german": "15–17 · Name der Person Art der Schenkung/Spende/Übertragung Werte in Euro",
+      "reference": "VM · Seite 2 · D · 15–17",
+      "numbers": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "id": "vm-18",
+      "german": "18 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft Bargeld? · Gesamtbetrag des Bargelds Name der Person in Euro",
+      "reference": "VM · Seite 2 · E · 18",
+      "numbers": [
+        18
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-19",
+      "german": "19 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft Konten, zum Beispiel Girokonten, Kreditkartenkonten, PayPal und weitere (Online-)Konten? · Aktueller Kontostand Name der Person Kontoart und Kontonummer in Euro",
+      "reference": "VM · Seite 3 · E · 19",
+      "numbers": [
+        19
+      ],
+      "options": [
+        "Ja (bitte füllen Sie die nachfolgende Tabelle aus und fügen Sie Kontoauszüge bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-20",
+      "german": "20 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft Spareinlagen, zum Beispiel Sparkonten, Sparbücher, Tagesgeldkonten, Prämiensparen? · Aktueller Kontostand Name der Person Kontoart und Kontonummer in Euro",
+      "reference": "VM · Seite 3 · E · 20",
+      "numbers": [
+        20
+      ],
+      "options": [
+        "Ja (bitte füllen Sie die nachfolgende Tabelle aus und fügen Sie Nachweise bei, zum Beispiel Kontoauszüge)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-21",
+      "german": "21 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft Sparbriefe oder sonstige Wertpapiere, zum Beispiel Aktien, Anleihen, Fondsanteile? · Derzeitiger Wert Name der Person Kontoart und Kontonummer in Euro",
+      "reference": "VM · Seite 4 · E · 21",
+      "numbers": [
+        21
+      ],
+      "options": [
+        "Ja (bitte füllen Sie die nachfolgende Tabelle aus und fügen Sie Nachweise bei, zum Beispiel Mitteilung zum aktuellen Kontostand, Auszug aus dem Wertpapierdepot)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-22",
+      "german": "22 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft Bausparverträge? · Aktueller Stand Name der Person Kontodaten des Guthabens in Euro",
+      "reference": "VM · Seite 4 · E · 22",
+      "numbers": [
+        22
+      ],
+      "options": [
+        "Ja (bitte füllen Sie die nachfolgende Tabelle aus und fügen Sie die Vertragsunterlagen und den aktuellen Jahreskontoauszug bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-23",
+      "german": "23 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft Altersvorsorgevermögen, zum Beispiel Riesterrente oder für die Altersvorsorge bestimmte Versicherungsverträge? · Aktueller Wert Name der Person Vermögensart in Euro",
+      "reference": "VM · Seite 4 · E · 23",
+      "numbers": [
+        23
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-24",
+      "german": "24 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft Versicherungen mit Prämienrückgewähr, zum Beispiel Berufsunfähigkeitsversicherungen, Sterbegeldversicherungen, Unfallversicherungen? · Aktueller Wert Name der Person Versicherungsart in Euro",
+      "reference": "VM · Seite 5 · E · 24",
+      "numbers": [
+        24
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-25",
+      "german": "25 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft sonstiges Vermögen, zum Beispiel Edelmetalle, Schmuck, Antiquitäten, Gemälde, Kryptowährungen? · Aktueller Wert Name der Person Vermögensart in Euro",
+      "reference": "VM · Seite 5 · E · 25",
+      "numbers": [
+        25
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-26",
+      "german": "26 · Wird oder wurde von einer Person in der Bedarfsgemeinschaft eine selbständige Tätigkeit ausgeübt?",
+      "reference": "VM · Seite 5 · F · 26",
+      "numbers": [
+        26
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-27-28",
+      "german": "27–28 · Name der Person Anzahl der Jahre, in denen eine selbständige Tätigkeit insgesamt ausgeübt wurde",
+      "reference": "VM · Seite 5 · F · 27–28",
+      "numbers": [
+        27,
+        28
+      ]
+    },
+    {
+      "id": "vm-29",
+      "german": "29 · Wurden in diesen Jahren für die vorgenannte Person Beiträge an die gesetzliche Rentenversicherung, an eine öffentlich-rechtliche Versicherungseinrichtung oder an eine Versorgungseinrichtung einer Berufsgruppe entrichtet?",
+      "reference": "VM · Seite 5 · F · 29",
+      "numbers": [
+        29
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-30",
+      "german": "30 · Bitte geben Sie diejenigen Vermögenswerte aus dem Abschnitt E an, die für die Altersversorgung der vorgenannten Person bestimmt sind.",
+      "reference": "VM · Seite 5 · F · 30",
+      "numbers": [
+        30
+      ]
+    },
+    {
+      "id": "vm-31",
+      "german": "31 · Ist oder war die vorgenannte Person während der Selbständigkeit nach § 6 Sechstes Buch Sozialgesetzbuch von der Rentenversicherungspflicht befreit?",
+      "reference": "VM · Seite 5 · F · 31",
+      "numbers": [
+        31
+      ],
+      "options": [
+        "Ja (bitte fügen Sie den Bescheid der Rentenversicherung bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "vm-notice-8",
+      "german": "Informationen zum Kontenabruf · Datenschutzhinweise · Angaben richtig",
+      "reference": "VM · Seite 6 · G",
+      "numbers": []
+    },
+    {
+      "id": "vm-32-33",
+      "german": "32–33 · Datum Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person)",
+      "reference": "VM · Seite 6 · G · 32–33",
+      "numbers": [
+        32,
+        33
+      ]
+    },
+    {
+      "id": "vm-34-35",
+      "german": "34–35 · Datum Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "VM · Seite 6 · G · 34–35",
+      "numbers": [
+        34,
+        35
+      ]
+    }
+  ],
+  "ki": [
+    {
+      "id": "ki-notice-1",
+      "german": "Anlage KI — Kind unter 15 Jahren",
+      "reference": "KI · Seite 1 · Hinweise",
+      "numbers": []
+    },
+    {
+      "id": "ki-1-4",
+      "german": "1–4 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ) Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "KI · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ki-5-11",
+      "german": "5–11 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ) Geburtsname/früherer Name Geburtsort Geburtsland Staatsangehörigkeit",
+      "reference": "KI · Seite 1 · B · 5–11",
+      "numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "ki-12",
+      "german": "12 · Geschlecht",
+      "reference": "KI · Seite 1 · B · 12",
+      "numbers": [
+        12
+      ],
+      "options": [
+        "Männlich",
+        "Weiblich",
+        "Divers",
+        "Keine Angabe"
+      ]
+    },
+    {
+      "id": "ki-13",
+      "german": "13 · Bitte machen Sie Angaben zur Rentenversicherungsnummer/Sozialversicherungsnummer des Kindes. (Hinweis Persönliche Identifikationsnummern)",
+      "reference": "KI · Seite 1 · B · 13",
+      "numbers": [
+        13
+      ],
+      "options": [
+        "Diese ist vorhanden und lautet:",
+        "Diese ist nicht vorhanden.",
+        "Diese wurde beantragt."
+      ]
+    },
+    {
+      "id": "ki-14",
+      "german": "14 · Bitte geben Sie die (steuerliche) Identifikationsnummer des Kindes an. (Hinweis Persönliche Identifikationsnummern)",
+      "reference": "KI · Seite 1 · B · 14",
+      "numbers": [
+        14
+      ]
+    },
+    {
+      "id": "ki-15",
+      "german": "15 · Hat das Kind einen Vormund?",
+      "reference": "KI · Seite 1 · B · 15",
+      "numbers": [
+        15
+      ],
+      "options": [
+        "Ja (bitte fügen Sie die Bestellungsurkunde bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-16",
+      "german": "16 · Hat das Kind einen gültigen Aufenthaltstitel?",
+      "reference": "KI · Seite 2 · C · 16",
+      "numbers": [
+        16
+      ],
+      "options": [
+        "Ja (bitte fügen Sie den Aufenthaltstitel bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-17",
+      "german": "17 · Erhält das Kind Leistungen nach dem Asylbewerberleistungsgesetz? (Hinweis Berechtigte nach dem Asylbewerberleistungsgesetz)",
+      "reference": "KI · Seite 2 · C · 17",
+      "numbers": [
+        17
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis über den aufenthaltsrechtlichen Status und den Bescheid bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-18",
+      "german": "18 · Bis wann erhält das Kind Asylbewerberleistungen? bis (TT.MM.JJJJ)",
+      "reference": "KI · Seite 2 · C · 18",
+      "numbers": [
+        18
+      ]
+    },
+    {
+      "id": "ki-19",
+      "german": "19 · Bitte geben Sie die Ausländerzentralregisternummer des Kindes an, falls vorhanden.",
+      "reference": "KI · Seite 2 · C · 19",
+      "numbers": [
+        19
+      ]
+    },
+    {
+      "id": "ki-20",
+      "german": "20 · Hat jemand gegenüber der Ausländerbehörde oder der Auslandsvertretung zugesagt, alle Kosten während des Aufenthalts des Kindes in Deutschland zu übernehmen (Verpflichtungserklärung)? (Hinweis Verpflichtungserklärung)",
+      "reference": "KI · Seite 2 · C · 20",
+      "numbers": [
+        20
+      ],
+      "options": [
+        "Ja (bitte fügen Sie die Verpflichtungserklärung oder einen anderen Nachweis bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-21",
+      "german": "21 · Bitte geben Sie für das Kind die nationale Personenidentifikationsnummer des Herkunftslandes an, falls vorhanden. (Hinweis Persönliche Identifikationsnummern)",
+      "reference": "KI · Seite 2 · C · 21",
+      "numbers": [
+        21
+      ]
+    },
+    {
+      "id": "ki-22",
+      "german": "22 · In welcher Beziehung stehen Sie zu dem Kind?",
+      "reference": "KI · Seite 2 · D · 22",
+      "numbers": [
+        22
+      ],
+      "options": [
+        "Leibliches Kind/Adoptivkind",
+        "Kind meiner Partnerin/meines Partners",
+        "Bruder/Schwester/Geschwisterkind",
+        "Sonstiges"
+      ]
+    },
+    {
+      "id": "ki-23",
+      "german": "23 · Lebt ein Elternteil des Kindes außerhalb der Bedarfsgemeinschaft? (Hinweis Bedarfsgemeinschaft)",
+      "reference": "KI · Seite 2 · D · 23",
+      "numbers": [
+        23
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage UH3 aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-24",
+      "german": "24 · Lebt das Kind regelmäßig abwechselnd in Ihrem Haushalt und im Haushalt des anderen Elternteils?",
+      "reference": "KI · Seite 2 · D · 24",
+      "numbers": [
+        24
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-25",
+      "german": "25 · Ist das Kind Schülerin/Schüler?",
+      "reference": "KI · Seite 2 · D · 25",
+      "numbers": [
+        25
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-26",
+      "german": "26 · Bitte geben Sie das (voraussichtliche) Einschulungsdatum an. am (TT.MM.JJJJ)",
+      "reference": "KI · Seite 2 · D · 26",
+      "numbers": [
+        26
+      ]
+    },
+    {
+      "id": "ki-27",
+      "german": "27 · Fallen Kosten für Schulbücher/Arbeitshefte an? (Hinweis Schulbücher/Arbeitshefte)",
+      "reference": "KI · Seite 2 · D · 27",
+      "numbers": [
+        27
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-28",
+      "german": "28 · Wurden für das Kind bereits Leistungen für persönliche Schulbedarfe des aktuellen Schuljahres bei einer anderen Stelle beantragt oder von dieser geleistet?",
+      "reference": "KI · Seite 3 · D · 28",
+      "numbers": [
+        28
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-29",
+      "german": "29 · Ist das Kind schwanger? (Hinweis Mehrbedarfe)",
+      "reference": "KI · Seite 3 · D · 29",
+      "numbers": [
+        29
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-30",
+      "german": "30 · Wann ist der voraussichtliche Entbindungstermin? am (TT.MM.JJJJ)",
+      "reference": "KI · Seite 3 · D · 30",
+      "numbers": [
+        30
+      ]
+    },
+    {
+      "id": "ki-31",
+      "german": "31 · Benötigt das Kind aus medizinischen Gründen eine kostenaufwändige Ernährung? (Hinweis Mehrbedarfe)",
+      "reference": "KI · Seite 3 · D · 31",
+      "numbers": [
+        31
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage MEB aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-32",
+      "german": "32 · Hat das Kind einen unabweisbaren besonderen Bedarf, der nicht durch Einsparungen oder auf andere Weise abgedeckt werden kann, zum Beispiel Kosten zur Wahrnehmung des Umgangsrechts bei getrennt lebenden Eltern? (Hinweis Unabweisbarer besonderer Bedarf)",
+      "reference": "KI · Seite 3 · D · 32",
+      "numbers": [
+        32
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage BB aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-33",
+      "german": "33 · Befindet sich das Kind derzeit oder demnächst in einer stationären Einrichtung, zum Beispiel Krankenhaus oder Rehabilitationseinrichtung? (Hinweis Stationäre Einrichtung)",
+      "reference": "KI · Seite 3 · D · 33",
+      "numbers": [
+        33
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 36)"
+      ]
+    },
+    {
+      "id": "ki-34-35",
+      "german": "34–35 · Bitte geben Sie die Art der stationären Einrichtung an. Bitte geben Sie die (voraussichtliche) Dauer des Aufenthalts an. von (TT.MM.JJJJ) bis (TT.MM.JJJJ)",
+      "reference": "KI · Seite 3 · D · 34–35",
+      "numbers": [
+        34,
+        35
+      ]
+    },
+    {
+      "id": "ki-36",
+      "german": "36 · Hat das Kind Einnahmen? Einnahmen eines Kindes sind zum Beispiel Kindergeld, Kinderzuschlag, Unterhalt, Einnahmen aus einer Beschäftigung, Waisenrente, Unfall-/Verletztenrente, Zinsen und Kapitalerträge.",
+      "reference": "KI · Seite 3 · D · 36",
+      "numbers": [
+        36
+      ],
+      "options": [
+        "Ja (bitte fügen Sie zu allen Einnahmen Nachweise bei. Die Nachweise müssen sowohl die Art der Einnahme als auch den Zahlungseingang enthalten.)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-37",
+      "german": "37 · Wenn das Kind zuvor im Ausland gelebt hat, geben Sie bitte das Datum der Einreise nach Deutschland an (TT.MM.JJJJ).",
+      "reference": "KI · Seite 3 · E · 37",
+      "numbers": [
+        37
+      ]
+    },
+    {
+      "id": "ki-38",
+      "german": "38 · Wurde für das Kind innerhalb der letzten drei Jahre bereits Bürgergeld, Grundsicherungsgeld oder Sozialhilfe beantragt oder bezogen?",
+      "reference": "KI · Seite 3 · E · 38",
+      "numbers": [
+        38
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-39-45",
+      "german": "39–45 · Bitte geben Sie die Art der Leistung an. Bitte geben Sie den Zeitraum des Bezugs an. von (TT.MM.JJJJ) bis (TT.MM.JJJJ) Name des Leistungsträgers Straße Hausnummer Postleitzahl Ort",
+      "reference": "KI · Seite 4 · E · 39–45",
+      "numbers": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    {
+      "id": "ki-46",
+      "german": "46 · Hat das Kind einen Anspruch gegenüber Dritten, zum Beispiel Schadensersatz, Erbschaft? (Hinweis Ansprüche gegenüber Dritten)",
+      "reference": "KI · Seite 4 · E · 46",
+      "numbers": [
+        46
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis über den Anspruch bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-47",
+      "german": "47 · Hat das Kind in seinem bisherigen Leben einen Unfall oder einen gesundheitlichen Schaden durch einen Dritten erlitten (zum Beispiel Arbeits-, Verkehrs-, Spiel- oder Sportunfall, ärztlicher Behandlungsfehler oder tätliche Auseinandersetzung)?",
+      "reference": "KI · Seite 4 · E · 47",
+      "numbers": [
+        47
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage UF aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-48",
+      "german": "48 · Ist oder war das Kind zuletzt in der gesetzlichen Kranken- und Pflegeversicherung versichert? (Hinweis Kranken- und Pflegeversicherung)",
+      "reference": "KI · Seite 4 · F · 48",
+      "numbers": [
+        48
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-49",
+      "german": "49 · Bei welcher Krankenkasse ist das Kind oder möchte das Kind versichert werden? Bitte geben Sie den Namen der Krankenkasse an und fügen Sie einen aktuellen Nachweis über die Versicherung bei.",
+      "reference": "KI · Seite 4 · F · 49",
+      "numbers": [
+        49
+      ]
+    },
+    {
+      "id": "ki-50",
+      "german": "50 · Ist das Kind privat versichert, freiwillig gesetzlich versichert oder nicht versichert?",
+      "reference": "KI · Seite 4 · F · 50",
+      "numbers": [
+        50
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage SV aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "ki-notice-10",
+      "german": "Erforderliche Anlagen zur Prüfung Ihres Antrags · VM · Kontoauszüge",
+      "reference": "KI · Seite 4 · G",
+      "numbers": []
+    },
+    {
+      "id": "ki-notice-11",
+      "german": "Bildung und Teilhabe · Datenschutzhinweise · Angaben richtig",
+      "reference": "KI · Seite 5 · H",
+      "numbers": []
+    },
+    {
+      "id": "ki-51-52",
+      "german": "51–52 · Datum Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person)",
+      "reference": "KI · Seite 5 · H · 51–52",
+      "numbers": [
+        51,
+        52
+      ]
+    },
+    {
+      "id": "ki-53-54",
+      "german": "53–54 · Datum Betreuerin/Betreuer/Vormund",
+      "reference": "KI · Seite 5 · H · 53–54",
+      "numbers": [
+        53,
+        54
+      ]
+    }
+  ],
+  "wep": [
+    {
+      "id": "wep-notice-1",
+      "german": "Anlage WEP — Weitere Person ab 15 Jahren in der Bedarfsgemeinschaft",
+      "reference": "WEP · Seite 1 · Hinweise",
+      "numbers": []
+    },
+    {
+      "id": "wep-1-4",
+      "german": "1–4 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ) Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "WEP · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "wep-5-11",
+      "german": "5–11 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ) Geburtsname/früherer Name Geburtsort Geburtsland Staatsangehörigkeit",
+      "reference": "WEP · Seite 1 · B · 5–11",
+      "numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "wep-12",
+      "german": "12 · Geschlecht",
+      "reference": "WEP · Seite 1 · B · 12",
+      "numbers": [
+        12
+      ],
+      "options": [
+        "Männlich",
+        "Weiblich",
+        "Divers",
+        "Keine Angabe"
+      ]
+    },
+    {
+      "id": "wep-13",
+      "german": "13 · In welcher Beziehung stehen Sie zu der Person? (Hinweis Bedarfsgemeinschaft)",
+      "reference": "WEP · Seite 1 · B · 13",
+      "numbers": [
+        13
+      ],
+      "options": [
+        "Leibliches Kind, Kind meiner Partnerin/meines Partners, Adoptivkind",
+        "Ehegattin/Ehegatte/eingetragene Lebenspartnerin/eingetragener Lebenspartner",
+        "Partnerin/Partner (bitte füllen Sie auch die Anlage VE aus)",
+        "Verwandte/Verschwägerte Person, zum Beispiel Geschwister, Großeltern (bitte weiter mit Abschnitt „Unterschrift“. Bitte füllen Sie auch die Anlage HG aus.)",
+        "Sonstige Person (bitte weiter mit Abschnitt „Unterschrift“. Bitte füllen Sie auch die Anlage VE aus.)"
+      ]
+    },
+    {
+      "id": "wep-14",
+      "german": "14 · Bitte machen Sie Angaben zur Rentenversicherungsnummer/Sozialversicherungsnummer der Person. (Hinweis Persönliche Identifikationsnummern)",
+      "reference": "WEP · Seite 2 · B · 14",
+      "numbers": [
+        14
+      ],
+      "options": [
+        "Diese ist vorhanden und lautet:",
+        "Diese ist nicht vorhanden.",
+        "Diese wurde beantragt."
+      ]
+    },
+    {
+      "id": "wep-15",
+      "german": "15 · Bitte geben Sie die (steuerliche) Identifikationsnummer der Person an. (Hinweis Persönliche Identifikationsnummern)",
+      "reference": "WEP · Seite 2 · B · 15",
+      "numbers": [
+        15
+      ]
+    },
+    {
+      "id": "wep-16",
+      "german": "16 · Hat die Person eine gesetzlich bestellte Betreuerin/einen gesetzlich bestellten Betreuer, eine Bevollmächtigte/ einen Bevollmächtigten oder Vormund?",
+      "reference": "WEP · Seite 2 · B · 16",
+      "numbers": [
+        16
+      ],
+      "options": [
+        "Ja (bitte fügen Sie die Bestellungsurkunde, die Vollmacht oder den Betreuerausweis bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-17",
+      "german": "17 · Hat die Person einen gültigen Aufenthaltstitel?",
+      "reference": "WEP · Seite 2 · C · 17",
+      "numbers": [
+        17
+      ],
+      "options": [
+        "Ja (bitte fügen Sie den Aufenthaltstitel bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-18",
+      "german": "18 · Erhält die Person Leistungen nach dem Asylbewerberleistungsgesetz? (Hinweis Berechtigte nach dem Asylbewerberleistungsgesetz)",
+      "reference": "WEP · Seite 2 · C · 18",
+      "numbers": [
+        18
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis über den aufenthaltsrechtlichen Status und den Bescheid bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-19",
+      "german": "19 · Bis wann erhält die Person Asylbewerberleistungen? bis (TT.MM.JJJJ)",
+      "reference": "WEP · Seite 2 · C · 19",
+      "numbers": [
+        19
+      ]
+    },
+    {
+      "id": "wep-20",
+      "german": "20 · Bitte geben Sie die Ausländerzentralregisternummer der Person an, falls vorhanden.",
+      "reference": "WEP · Seite 2 · C · 20",
+      "numbers": [
+        20
+      ]
+    },
+    {
+      "id": "wep-21",
+      "german": "21 · Hat jemand gegenüber der Ausländerbehörde oder der Auslandsvertretung zugesagt, alle Kosten während des Aufenthalts der Person in Deutschland zu übernehmen (Verpflichtungserklärung)? (Hinweis Verpflichtungserklärung)",
+      "reference": "WEP · Seite 2 · C · 21",
+      "numbers": [
+        21
+      ],
+      "options": [
+        "Ja (bitte fügen Sie die Verpflichtungserklärung oder einen anderen Nachweis bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-22",
+      "german": "22 · Bitte geben Sie für die Person die nationale Personenidentifikationsnummer des Herkunftslandes an, falls vorhanden. (Hinweis Persönliche Identifikationsnummern)",
+      "reference": "WEP · Seite 2 · C · 22",
+      "numbers": [
+        22
+      ]
+    },
+    {
+      "id": "wep-23",
+      "german": "23 · Bitte geben Sie den aktuellen Familienstand der Person an.",
+      "reference": "WEP · Seite 2 · D · 23",
+      "numbers": [
+        23
+      ],
+      "options": [
+        "Ledig",
+        "Verheiratet",
+        "Verwitwet",
+        "Eingetragene Lebenspartnerschaft",
+        "Dauernd getrennt lebend (bitte füllen Sie auch die Anlage UH1 aus)",
+        "Geschieden (bitte füllen Sie auch die Anlage UH1 aus)",
+        "Aufgehobene Lebenspartnerschaft (bitte füllen Sie auch die Anlage UH1 aus)"
+      ]
+    },
+    {
+      "id": "wep-24",
+      "german": "24 · Seit wann ist die Person dauernd getrennt lebend, geschieden oder wann wurde die Lebenspartnerschaft aufgehoben? seit/am (TT.MM.JJJJ)",
+      "reference": "WEP · Seite 2 · D · 24",
+      "numbers": [
+        24
+      ]
+    },
+    {
+      "id": "wep-25",
+      "german": "25 · Ist die Person erwerbsfähig? Dies bedeutet, die Person ist grundsätzlich gesundheitlich in der Lage, regelmäßig eine Tätigkeit von mindestens drei Stunden täglich auszuüben. (Hinweis Erwerbsfähigkeit)",
+      "reference": "WEP · Seite 3 · D · 25",
+      "numbers": [
+        25
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-26",
+      "german": "26 · Ist die Person schwanger? (Hinweis Mehrbedarfe)",
+      "reference": "WEP · Seite 3 · D · 26",
+      "numbers": [
+        26
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-27",
+      "german": "27 · Wann ist der voraussichtliche Entbindungstermin? am (TT.MM.JJJJ)",
+      "reference": "WEP · Seite 3 · D · 27",
+      "numbers": [
+        27
+      ]
+    },
+    {
+      "id": "wep-28",
+      "german": "28 · Ist die Person zwischen 15 und 18 Jahre alt, beantworten Sie bitte folgende Frage: Lebt die Person regelmäßig abwechselnd in Ihrem Haushalt und im Haushalt des anderen Elternteils?",
+      "reference": "WEP · Seite 3 · D · 28",
+      "numbers": [
+        28
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-29",
+      "german": "29 · Ist die Person unter 25 Jahre alt und lebt mindestens ein Elternteil außerhalb der Bedarfsgemeinschaft? (Hinweis Bedarfsgemeinschaft)",
+      "reference": "WEP · Seite 3 · D · 29",
+      "numbers": [
+        29
+      ],
+      "options": [
+        "Ja (bitte füllen Sie die Anlage UH3 aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-30",
+      "german": "30 · Ist die Person Schülerin/Schüler, Studentin/Student oder Auszubildende/Auszubildender? (Hinweis Schule/Studium/Ausbildung)",
+      "reference": "WEP · Seite 3 · D · 30",
+      "numbers": [
+        30
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei)",
+        "Nein (weiter mit 33)"
+      ]
+    },
+    {
+      "id": "wep-31",
+      "german": "31 · Fallen Kosten für Schulbücher/Arbeitshefte an? (Hinweis Schulbücher/Arbeitshefte)",
+      "reference": "WEP · Seite 3 · D · 31",
+      "numbers": [
+        31
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-32",
+      "german": "32 · Ist die Person während der Ausbildung auswärts untergebracht? (Hinweis Schule/Studium/Ausbildung)",
+      "reference": "WEP · Seite 3 · D · 32",
+      "numbers": [
+        32
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-33",
+      "german": "33 · Hat die Person schon andere Leistungen beantragt oder beabsichtigt die Person, Leistungen zu beantragen?",
+      "reference": "WEP · Seite 3 · D · 33",
+      "numbers": [
+        33
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-34",
+      "german": "34 · Bitte geben Sie an, welche Leistungen die Person beantragt hat oder beantragen möchte. Bitte fügen Sie soweit möglich Nachweise bei.",
+      "reference": "WEP · Seite 3 · D · 34",
+      "numbers": [
+        34
+      ],
+      "options": [
+        "BAföG (Leistungen nach dem Bundesausbildungsförderungsgesetz)",
+        "BAB (Berufsausbildungsbeihilfe)",
+        "Wohngeld",
+        "Arbeitslosengeld",
+        "Rente",
+        "Krankengeld",
+        "Kindergeld",
+        "Kinderzuschlag",
+        "Sonstiges"
+      ]
+    },
+    {
+      "id": "wep-35",
+      "german": "35 · Benötigt die Person aus medizinischen Gründen eine kostenaufwändige Ernährung? (Hinweis Mehrbedarfe)",
+      "reference": "WEP · Seite 4 · D · 35",
+      "numbers": [
+        35
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage MEB aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-36",
+      "german": "36 · Ist die Person nicht erwerbsfähig und hat einen Ausweis nach § 152 Absatz 5 Neuntes Buch Sozialgesetzbuch (SGB IX) mit dem Merkzeichen G? (Hinweis Mehrbedarfe)",
+      "reference": "WEP · Seite 4 · D · 36",
+      "numbers": [
+        36
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-37",
+      "german": "37 · Hat die Person eine Behinderung?",
+      "reference": "WEP · Seite 4 · D · 37",
+      "numbers": [
+        37
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 39)"
+      ]
+    },
+    {
+      "id": "wep-38",
+      "german": "38 · Erhält die Person Leistungen zur Teilhabe am Arbeitsleben nach § 49 SGB IX oder sonstige Hilfen zur Erlangung eines geeigneten Arbeitsplatzes oder Eingliederungshilfen nach § 112 SGB IX?",
+      "reference": "WEP · Seite 4 · D · 38",
+      "numbers": [
+        38
+      ],
+      "options": [
+        "Ja (bitte fügen Sie den Bescheid bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-39",
+      "german": "39 · Hat die Person einen unabweisbaren besonderen Bedarf, den die Person nicht durch Einsparungen oder auf andere Weise abdecken kann, zum Beispiel Kosten zur Wahrnehmung des Umgangsrechts bei getrennt lebenden Eltern? (Hinweis Unabweisbarer besonderer Bedarf)",
+      "reference": "WEP · Seite 4 · D · 39",
+      "numbers": [
+        39
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage BB aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-40",
+      "german": "40 · Befindet sich die Person derzeit oder demnächst in einer stationären Einrichtung, zum Beispiel Krankenhaus, Altenheim, Justizvollzugsanstalt? (Hinweis Stationäre Einrichtung)",
+      "reference": "WEP · Seite 4 · D · 40",
+      "numbers": [
+        40
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-41-42",
+      "german": "41–42 · Bitte geben Sie die Art der stationären Einrichtung an. Bitte geben Sie die (voraussichtliche) Dauer des Aufenthalts an. von (TT.MM.JJJJ) bis (TT.MM.JJJJ)",
+      "reference": "WEP · Seite 4 · D · 41–42",
+      "numbers": [
+        41,
+        42
+      ]
+    },
+    {
+      "id": "wep-43",
+      "german": "43 · Wenn die Person zuvor im Ausland gelebt hat, geben Sie bitte das Datum der Einreise nach Deutschland an (TT.MM.JJJJ).",
+      "reference": "WEP · Seite 4 · E · 43",
+      "numbers": [
+        43
+      ]
+    },
+    {
+      "id": "wep-44",
+      "german": "44 · Hat die Person innerhalb der letzten drei Jahre bereits Bürgergeld, Grundsicherungsgeld oder Sozialhilfe beantragt oder bezogen?",
+      "reference": "WEP · Seite 4 · E · 44",
+      "numbers": [
+        44
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-45-46",
+      "german": "45–46 · Bitte geben Sie die Art der Leistung an. Bitte geben Sie den Zeitraum des Bezugs an. von (TT.MM.JJJJ) bis (TT.MM.JJJJ)",
+      "reference": "WEP · Seite 4 · E · 45–46",
+      "numbers": [
+        45,
+        46
+      ]
+    },
+    {
+      "id": "wep-47-51",
+      "german": "47–51 · Name des Leistungsträgers Straße Hausnummer Postleitzahl Ort",
+      "reference": "WEP · Seite 5 · E · 47–51",
+      "numbers": [
+        47,
+        48,
+        49,
+        50,
+        51
+      ]
+    },
+    {
+      "id": "wep-52",
+      "german": "52 · War die Person bei einer Arbeitgeberin/einem Arbeitgeber angestellt beziehungsweise beschäftigt?",
+      "reference": "WEP · Seite 5 · E · 52",
+      "numbers": [
+        52
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 60)"
+      ]
+    },
+    {
+      "id": "wep-53",
+      "german": "53 · Bitte geben Sie den Zeitraum der Beschäftigungen an. von (TT.MM.JJJJ) bis (TT.MM.JJJJ) von (TT.MM.JJJJ) bis (TT.MM.JJJJ)",
+      "reference": "WEP · Seite 5 · E · 53",
+      "numbers": [
+        53
+      ]
+    },
+    {
+      "id": "wep-54",
+      "german": "54 · Hat die Person ausstehende Lohnansprüche gegen eine (ehemalige) Arbeitgeberin/einen (ehemaligen) Arbeitgeber? (Hinweis Ansprüche gegenüber Dritten)",
+      "reference": "WEP · Seite 5 · E · 54",
+      "numbers": [
+        54
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 60)"
+      ]
+    },
+    {
+      "id": "wep-55-59",
+      "german": "55–59 · Name (ehemalige) Arbeitgeberin/(ehemaliger) Arbeitgeber Straße Hausnummer Postleitzahl Ort",
+      "reference": "WEP · Seite 5 · E · 55–59",
+      "numbers": [
+        55,
+        56,
+        57,
+        58,
+        59
+      ]
+    },
+    {
+      "id": "wep-60",
+      "german": "60 · War die Person selbständig/freiberuflich tätig?",
+      "reference": "WEP · Seite 5 · E · 60",
+      "numbers": [
+        60
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-61",
+      "german": "61 · Hat die Person Entgeltersatzleistungen erhalten, zum Beispiel Krankengeld, Arbeitslosengeld, Übergangsgeld, Elterngeld?",
+      "reference": "WEP · Seite 5 · E · 61",
+      "numbers": [
+        61
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 64)"
+      ]
+    },
+    {
+      "id": "wep-62-63",
+      "german": "62–63 · Bitte geben Sie die Entgeltersatzleistung an. Bitte geben Sie den Zeitraum an, in dem die Person die Entgeltersatzleistung erhalten hat. von (TT.MM.JJJJ) bis (TT.MM.JJJJ)",
+      "reference": "WEP · Seite 5 · E · 62–63",
+      "numbers": [
+        62,
+        63
+      ]
+    },
+    {
+      "id": "wep-64",
+      "german": "64 · Hat die Person Wehrdienst oder einen freiwilligen Dienst geleistet, zum Beispiel Freiwilliges Soziales Jahr, Bundesfreiwilligendienst?",
+      "reference": "WEP · Seite 5 · E · 64",
+      "numbers": [
+        64
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-65",
+      "german": "65 · Hat die Person Angehörige gepflegt (Pflege nach dem Elften Buch Sozialgesetzbuch)?",
+      "reference": "WEP · Seite 5 · E · 65",
+      "numbers": [
+        65
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-66",
+      "german": "66 · Wenn keine der obigen Aussagen auf die Person zutrifft, geben Sie bitte an, wie die Person Ihren Lebensunterhalt bestritten hat, zum Beispiel finanzielle Unterstützung durch Verwandte/Bekannte, Ersparnisse, Erbschaft.",
+      "reference": "WEP · Seite 6 · E · 66",
+      "numbers": [
+        66
+      ]
+    },
+    {
+      "id": "wep-67",
+      "german": "67 · Hat die Person einen Anspruch gegenüber Dritten, zum Beispiel Schadensersatz, Erbschaft? (Hinweis Ansprüche gegenüber Dritten)",
+      "reference": "WEP · Seite 6 · E · 67",
+      "numbers": [
+        67
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis über den Anspruch bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-68",
+      "german": "68 · Hat die Person in ihrem bisherigen Leben einen Unfall oder einen gesundheitlichen Schaden durch einen Dritten erlitten (zum Beispiel Arbeits-, Verkehrs-, Spiel- oder Sportunfall, ärztlicher Behandlungsfehler oder tätliche Auseinandersetzung)?",
+      "reference": "WEP · Seite 6 · E · 68",
+      "numbers": [
+        68
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage UF aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-69",
+      "german": "69 · Ist oder war die Person zuletzt in der gesetzlichen Kranken- und Pflegeversicherung familien- oder pflichtversichert? (Hinweis Kranken- und Pflegeversicherung)",
+      "reference": "WEP · Seite 6 · F · 69",
+      "numbers": [
+        69
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-70",
+      "german": "70 · Bei welcher Krankenkasse ist die Person oder möchte die Person versichert werden? Bitte geben Sie den Namen der Krankenkasse an und fügen Sie einen aktuellen Nachweis über die Versicherung bei.",
+      "reference": "WEP · Seite 6 · F · 70",
+      "numbers": [
+        70
+      ]
+    },
+    {
+      "id": "wep-71",
+      "german": "71 · Ist die Person privat versichert, freiwillig gesetzlich versichert oder nicht versichert?",
+      "reference": "WEP · Seite 6 · F · 71",
+      "numbers": [
+        71
+      ],
+      "options": [
+        "Ja (bitte füllen Sie auch die Anlage SV aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "wep-notice-12",
+      "german": "Erforderliche Anlagen zur Prüfung Ihres Antrags · VM · Kontoauszüge · EK · EKS",
+      "reference": "WEP · Seite 6 · G",
+      "numbers": []
+    },
+    {
+      "id": "wep-notice-13",
+      "german": "Bildung und Teilhabe · Datenschutzhinweise · Angaben richtig",
+      "reference": "WEP · Seite 7 · H",
+      "numbers": []
+    },
+    {
+      "id": "wep-72-73",
+      "german": "72–73 · Datum Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person)",
+      "reference": "WEP · Seite 7 · H · 72–73",
+      "numbers": [
+        72,
+        73
+      ]
+    },
+    {
+      "id": "wep-74-75",
+      "german": "74–75 · Datum Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "WEP · Seite 7 · H · 74–75",
+      "numbers": [
+        74,
+        75
+      ]
+    },
+    {
+      "id": "wep-provider-instruction",
+      "german": "E · Bitte geben Sie Name und Anschrift des Leistungsträgers an.",
+      "reference": "WEP · Seite 5 · E",
+      "numbers": []
+    }
+  ]
+}
