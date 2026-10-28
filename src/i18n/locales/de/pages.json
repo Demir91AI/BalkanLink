@@ -12262,5 +12262,432 @@
         ]
       }
     }
+  },
+  "documentsCompanions": {
+    "ui": {
+      "links": {
+        "bmas": "BMAS: SGB XII und Sozialamt",
+        "berlin": "Berlin: örtliches Verfahrensbeispiel, nicht bundesweit",
+        "faq": "BfJ: Arten und Fragen zum Führungszeugnis",
+        "portal": "BfJ: offizieller Antrag",
+        "digital": "BfJ: digitale Zustellung des privaten Zeugnisses",
+        "bund": "Bundesportal: zuständigen Ort auswählen",
+        "bayern": "Bayern: Standesamt, nur für Bayern",
+        "nrw": "NRW: Amtsgericht, nur für NRW"
+      }
+    },
+    "guides": {
+      "grundsicherung": {
+        "title": "Grundsicherung im Alter und bei Erwerbsminderung: Sozialamt, SGB XII",
+        "introduction": "Dies ist Hilfe zum Lebensunterhalt nach dem Vierten Kapitel SGB XII durch das Sozialamt. Sie ist weder Grundsicherungsgeld/Bürgergeld nach SGB II beim Jobcenter noch Erwerbsminderungsrente. Das Sozialamt prüft Bedarf, Einkommen und Vermögen; ein Anspruch wird hier nicht zugesagt.",
+        "variation": "Zuständig ist der örtliche Sozialhilfeträger, häufig das Sozialamt der Stadt oder des Kreises. Formulare und Nachweise unterscheiden sich. Berlin ist nur ein Beispiel; nutze die für deinen Aufenthalt zuständige Stelle.",
+        "vocabularyNote": "Die Begriffe helfen beim Verständnis, sind aber kein Feldplan. Hier werden keine persönlichen Angaben erfasst und keine Einzelfallentscheidungen getroffen.",
+        "modes": {
+          "paper": "Papier/Amt: Fordere den örtlichen SGB-XII-Antrag an, nicht BA-Formulare HA/WBA. Kläre die Einreichung und behalte den Eingangsbeleg.",
+          "online": "Online: Das Angebot hängt von Stadt oder Kreis ab. Nutze deren amtliches Portal; dessen Bildschirme werden hier nicht dargestellt."
+        },
+        "steps": [
+          {
+            "id": "s1",
+            "title": "1. SGB XII klären, nicht Jobcenter",
+            "sections": {
+              "meaning": "Versicherungsrente / bedarfsabhängige Sozialleistung",
+              "action": "Über die Versicherungsrente entscheidet die Rentenversicherung, über SGB XII das Sozialamt. Beides kann zusammentreffen, doch eine Rente bedeutet keinen automatischen Aufstockungsanspruch.",
+              "where": "Rentenbescheid und Schreiben des Sozialamts.",
+              "example": "Fiktives Beispiel: Maja legt den Rentenbescheid vor und bittet gesondert um Prüfung nach SGB XII.",
+              "mistake": "Einen Jobcenter-Antrag verwenden oder eine Rentenablehnung mit einer Sozialhilfeentscheidung gleichsetzen.",
+              "next": "Finde das örtliche Sozialamt."
+            }
+          },
+          {
+            "id": "s2",
+            "title": "2. Zuständiges Amt und örtlicher Antrag",
+            "sections": {
+              "meaning": "Das Sozialamt der Stadt/des Kreises prüft deinen Fall.",
+              "action": "Suche auf der amtlichen Ortsseite nach Grundsicherung im Alter und bei Erwerbsminderung SGB XII. Kläre Zuständigkeit, Antrag und möglichen Leistungsbeginn frühzeitig, auch wenn Nachweise noch fehlen.",
+              "where": "Amtliche Stadt-/Kreisseite und Sozialamt; Berlin nur als Beispiel.",
+              "example": "Fiktives Beispiel: Maja fordert den Antrag ihres Kreises an statt den Berliner Antrag in einer anderen Stadt einzureichen.",
+              "mistake": "Den BA-Hauptantrag ans Sozialamt senden oder ein bundesweit einheitliches Formular unterstellen.",
+              "next": "Kläre die Grundlage: Altersgrenze oder dauerhafte Erwerbsminderung."
+            }
+          },
+          {
+            "id": "s3",
+            "title": "3. Altersgrenze und medizinische Feststellung",
+            "sections": {
+              "meaning": "dauerhaft vollständig geminderte Erwerbsfähigkeit",
+              "action": "Dieser Weg setzt mindestens 18 Jahre und medizinisch festgestellte dauerhafte volle Erwerbsminderung voraus. Gemeint sind regelmäßig weniger als drei Arbeitsstunden täglich unter den üblichen Bedingungen des allgemeinen Arbeitsmarkts. Das ist nicht gleichbedeutend mit Arbeitsunfähigkeit oder einem Behinderungsgrad. Frage das Sozialamt zur Feststellung.",
+              "where": "Bescheid der Rentenversicherung oder angeforderter medizinischer Nachweis. Keine vollständige Krankenakte unaufgefordert senden.",
+              "example": "Fiktives Beispiel: Damir ist vorübergehend krankgeschrieben und stellt daraus keine dauerhafte Erwerbsminderung fest.",
+              "mistake": "Einen Schwerbehindertenausweis mit einem automatischen Anspruch gleichsetzen.",
+              "next": "Für den Altersweg prüfe zusätzlich den Begriff Regelaltersgrenze oben."
+            }
+          },
+          {
+            "id": "s4",
+            "title": "4. Einkommen und Vermögen belegen",
+            "sections": {
+              "meaning": "laufende Einnahmen",
+              "action": "Gib tatsächliche Einnahmen aus Deutschland und dem Ausland an: Renten, Arbeit und weitere Zahlungen entsprechend der örtlichen Frage. Abzüge und Ausnahmen prüft das Amt; lasse Einnahmen nicht eigenständig weg.",
+              "where": "Rentenbescheide, Gehaltsabrechnungen, angeforderte Kontoauszüge.",
+              "example": "Fiktives Beispiel: Damir nennt auch seine Rente aus Bosnien und Herzegowina.",
+              "mistake": "Miete selbst vom Einkommen abziehen oder eine Auslandsrente verschweigen.",
+              "next": "Ergänze die geforderten Vermögensnachweise gemäß Begriff Vermögen."
+            }
+          },
+          {
+            "id": "s5",
+            "title": "5. Wohnen, Haushalt und Versicherung",
+            "sections": {
+              "meaning": "Wohn- und Heizkosten / gemeinsamer Haushalt",
+              "action": "Nenne tatsächliche Mitbewohner, die Beziehung und die Wohnkosten. Partnerangaben können nötig sein; nicht jeder Mitbewohner ist ein Partner. Anerkannte Kosten beurteilt das Amt.",
+              "where": "Mietvertrag, Neben- und Heizkosten, angeforderte Haushaltsnachweise.",
+              "example": "Fiktives Beispiel: Damir wohnt in einer WG und erklärt seinen Mietanteil.",
+              "mistake": "Die gesamte WG-Miete als eigene Kosten oder jeden Mitbewohner als Partner angeben.",
+              "next": "Kläre Mehrbedarf und Versicherungsnachweise; kein automatischer Zuschlag."
+            }
+          },
+          {
+            "id": "s6",
+            "title": "6. Einreichen, Bescheid und Änderungen",
+            "sections": {
+              "meaning": "Ein Bescheid ist die schriftliche Entscheidung, keine Bestätigung dieses Wegweisers.",
+              "action": "Reiche nach örtlichen Vorgaben ein und behalte Kopie/Eingangsbeleg. Beantworte Nachforderungen in der genannten Frist. Prüfe Bewilligungszeitraum und Rechtsbehelfsbelehrung; melde Änderungen bei Einkommen, Wohnen oder Haushalt dem Amt.",
+              "where": "Örtliche Nachweisliste und Schreiben des Sozialamts.",
+              "example": "Fiktives Beispiel: Damir erhält einen neuen Rentenbescheid und meldet die Änderung.",
+              "mistake": "Nachforderungen ignorieren oder Durchlesen mit Antragstellung verwechseln.",
+              "next": "Die Durchsicht ist beendet; nichts wurde eingereicht."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "age",
+            "german": "Regelaltersgrenze",
+            "meaning": "reguläre Altersgrenze für die Altersrente",
+            "instruction": "Die Grenze hängt vom Geburtsjahr ab. Prüfe sie im Rentenbescheid; das Alter allein garantiert keine Leistung.",
+            "where": "Rentenbescheid, Deutsche Rentenversicherung.",
+            "example": "Fiktives Beispiel: Maja prüft die Grenze in ihrem Rentenbescheid statt das Alter einer Freundin zu übernehmen.",
+            "mistake": "Annehmen, jede vorgezogene Rente erfülle die Altersvoraussetzung."
+          },
+          {
+            "id": "capacity",
+            "german": "dauerhaft voll erwerbsgemindert",
+            "meaning": "dauerhaft vollständig geminderte Erwerbsfähigkeit",
+            "instruction": "Dieser Weg setzt mindestens 18 Jahre und medizinisch festgestellte dauerhafte volle Erwerbsminderung voraus. Gemeint sind regelmäßig weniger als drei Arbeitsstunden täglich unter den üblichen Bedingungen des allgemeinen Arbeitsmarkts. Das ist nicht gleichbedeutend mit Arbeitsunfähigkeit oder einem Behinderungsgrad. Frage das Sozialamt zur Feststellung.",
+            "where": "Bescheid der Rentenversicherung oder angeforderter medizinischer Nachweis. Keine vollständige Krankenakte unaufgefordert senden.",
+            "example": "Fiktives Beispiel: Damir ist vorübergehend krankgeschrieben und stellt daraus keine dauerhafte Erwerbsminderung fest.",
+            "mistake": "Einen Schwerbehindertenausweis mit einem automatischen Anspruch gleichsetzen."
+          },
+          {
+            "id": "pension",
+            "german": "Erwerbsminderungsrente / Grundsicherung",
+            "meaning": "Versicherungsrente / bedarfsabhängige Sozialleistung",
+            "instruction": "Über die Versicherungsrente entscheidet die Rentenversicherung, über SGB XII das Sozialamt. Beides kann zusammentreffen, doch eine Rente bedeutet keinen automatischen Aufstockungsanspruch.",
+            "where": "Rentenbescheid und Schreiben des Sozialamts.",
+            "example": "Fiktives Beispiel: Maja legt den Rentenbescheid vor und bittet gesondert um Prüfung nach SGB XII.",
+            "mistake": "Einen Jobcenter-Antrag verwenden oder eine Rentenablehnung mit einer Sozialhilfeentscheidung gleichsetzen."
+          },
+          {
+            "id": "income",
+            "german": "Einkommen",
+            "meaning": "laufende Einnahmen",
+            "instruction": "Gib tatsächliche Einnahmen aus Deutschland und dem Ausland an: Renten, Arbeit und weitere Zahlungen entsprechend der örtlichen Frage. Abzüge und Ausnahmen prüft das Amt; lasse Einnahmen nicht eigenständig weg.",
+            "where": "Rentenbescheide, Gehaltsabrechnungen, angeforderte Kontoauszüge.",
+            "example": "Fiktives Beispiel: Damir nennt auch seine Rente aus Bosnien und Herzegowina.",
+            "mistake": "Miete selbst vom Einkommen abziehen oder eine Auslandsrente verschweigen."
+          },
+          {
+            "id": "assets",
+            "german": "Vermögen",
+            "meaning": "vorhandenes Vermögen und Ersparnisse",
+            "instruction": "Nenne entsprechend dem Antrag Konten, Ersparnisse, Immobilien und sonstiges Vermögen, auch im Ausland. Geschütztes Vermögen und Ausnahmen prüft das Amt. Übertrage kein Geld, um fehlendes Vermögen vorzutäuschen.",
+            "where": "Kontoauszüge, Sparnachweise und angeforderte Eigentumsbelege.",
+            "example": "Fiktives Beispiel: Maja nennt auch ihr kleines Sparkonto.",
+            "mistake": "Annehmen, sämtliches Vermögen müsse verbraucht werden oder sei vollständig geschützt."
+          },
+          {
+            "id": "housing",
+            "german": "Unterkunft und Heizung / Haushaltsgemeinschaft",
+            "meaning": "Wohn- und Heizkosten / gemeinsamer Haushalt",
+            "instruction": "Nenne tatsächliche Mitbewohner, die Beziehung und die Wohnkosten. Partnerangaben können nötig sein; nicht jeder Mitbewohner ist ein Partner. Anerkannte Kosten beurteilt das Amt.",
+            "where": "Mietvertrag, Neben- und Heizkosten, angeforderte Haushaltsnachweise.",
+            "example": "Fiktives Beispiel: Damir wohnt in einer WG und erklärt seinen Mietanteil.",
+            "mistake": "Die gesamte WG-Miete als eigene Kosten oder jeden Mitbewohner als Partner angeben."
+          },
+          {
+            "id": "extra",
+            "german": "Mehrbedarf / Kranken- und Pflegeversicherung",
+            "meaning": "zusätzlicher Bedarf / Kranken- und Pflegeversicherung",
+            "instruction": "Mehrbedarf setzt einen konkreten gesetzlichen Grund voraus, etwa bestimmte Behinderungsmerkmale oder medizinisch notwendige kostenaufwendige Ernährung. Er kann gesondert zu beantragen sein. Lege nur geforderte Nachweise und Versicherungsbelege vor; ein Zuschlag ist nicht automatisch.",
+            "where": "Nachweisliste des Sozialamts, Versicherung, angeforderte Bescheinigung.",
+            "example": "Fiktives Beispiel: Maja fragt nach dem Nachweis für einen ernährungsbedingten Mehrbedarf.",
+            "mistake": "Alle Mehrbedarfe ankreuzen oder unnötig vollständige medizinische Unterlagen senden."
+          }
+        ]
+      },
+      "fuehrungszeugnis": {
+        "title": "Führungszeugnis: passende Art und offizieller Antrag",
+        "introduction": "Ein Führungszeugnis ist eine Registerauskunft, keine Zusage eines eintragungsfreien Ergebnisses. Kläre zuerst die Anforderungen der anfordernden Stelle. Online-Antrag und digitale Zustellung sind nicht dasselbe.",
+        "variation": "Das BfJ stellt das Zeugnis aus; die Meldebehörde nimmt persönliche Anträge entgegen. Online sind auch Behörden- und erweiterte Zeugnisse beantragbar. Die digitale Zeugnisoption wird für private Zwecke beschrieben; digitale Zustellung anderer Arten wird hier nicht zugesagt.",
+        "vocabularyNote": "Die Begriffe helfen beim Verständnis, sind aber kein Feldplan. Hier werden keine persönlichen Angaben erfasst und keine Einzelfallentscheidungen getroffen.",
+        "modes": {
+          "paper": "Amt/Papier: Persönlich bei der Meldebehörde mit gültigem Ausweis. Für erweitert die schriftliche Bestätigung mitnehmen, für Behörden Empfängeradresse und Zweck.",
+          "online": "Online: Nutze das BfJ-Portal und prüfe die aktuellen eID-Anforderungen. Die digitale private Zustellung nutzt BundID. Angemeldete Bildschirme und ihre Reihenfolge werden nicht beschrieben."
+        },
+        "steps": [
+          {
+            "id": "f1",
+            "title": "1. Angeforderte Zeugnisart klären",
+            "sections": {
+              "meaning": "privat / erweitert / zur Vorlage bei einer Behörde",
+              "action": "Wähle nicht nach dem vermeintlich besseren Namen. Frage nach der genauen Art. Erweitert und Behördenvorlage sind verschiedene Merkmale und können zusammentreffen.",
+              "where": "Schriftliche Anforderung des Arbeitgebers oder der Behörde.",
+              "example": "Fiktives Beispiel: Die Kita gibt Maja eine Bestätigung für ein erweitertes Führungszeugnis.",
+              "mistake": "Ein privates Zeugnis bestellen, obwohl die Behörde direkte Zustellung verlangt.",
+              "next": "Prüfe alle Staatsangehörigkeiten für das europäische Zeugnis."
+            }
+          },
+          {
+            "id": "f2",
+            "title": "2. Zweck und Empfänger belegen",
+            "sections": {
+              "meaning": "schriftliche Bestätigung / Verwendungszweck",
+              "action": "Für erweitert bestätigt die anfordernde Stelle die gesetzlichen Voraussetzungen. Für Behördenvorlage übernimm Name, Adresse und Zweck aus deren Schreiben; erfinde keinen Empfänger.",
+              "where": "Arbeitgeber, Kita oder anfordernde Behörde.",
+              "example": "Fiktives Beispiel: Maja bittet die Kita vor dem Antrag um die schriftliche Bestätigung.",
+              "mistake": "Die Bestätigung der Stelle selbst verfassen oder erweitert ohne gesetzlichen Zweck verlangen.",
+              "next": "Wähle Online-Antrag oder Meldebehörde."
+            }
+          },
+          {
+            "id": "f3",
+            "title": "3. Online-Identifizierung oder Amtstermin",
+            "sections": {
+              "meaning": "elektronische Identifizierung / Benutzerkonto",
+              "action": "eID ist die Identifizierungsfunktion eines unterstützten Ausweises mit PIN und geeignetem Gerät/App. BundID ist ein Konto, kein Ersatz für geforderte Identifizierung. Funktioniert eID nicht, nutze die Meldebehörde.",
+              "where": "Amtliche technische Hinweise des BfJ-Portals; hier keine PIN eingeben.",
+              "example": "Fiktives Beispiel: Damir hat keine aktive eID und vereinbart einen Termin beim Amt.",
+              "mistake": "Die PIN auf einer fremden Seite eingeben oder jeden Reisepass für eID-fähig halten.",
+              "next": "Halte Ausweis, Anschrift, alle Staatsangehörigkeiten und Zwecknachweis bereit."
+            }
+          },
+          {
+            "id": "f4",
+            "title": "4. Offiziellen Antrag stellen",
+            "sections": {
+              "meaning": "BfJ-Portal oder Meldebehörde sind amtliche Wege; BalkanLink stellt keinen Antrag.",
+              "action": "Prüfe im amtlichen Antrag Name, Geburtsname, Geburtsdatum/-ort, Anschrift, Staatsangehörigkeiten, Art und Zweck. Prüfe vor Zahlung die aktuelle Gebühr und mögliche Befreiung beim BfJ; behalte den Antragsbeleg. Persönlich bringst du Ausweis und geforderte Nachweise mit.",
+              "where": "BfJ-FAQ/Portal, Meldebehörde.",
+              "example": "Fiktives Beispiel: Maja gleicht die Behördenadresse mit dem Anforderungsschreiben ab.",
+              "mistake": "Einen Vermittler mit dem BfJ verwechseln oder eine feste Bearbeitungszeit zusagen.",
+              "next": "Zustellungsweg prüfen und Beleg behalten."
+            }
+          },
+          {
+            "id": "f5",
+            "title": "5. Zustellung und Ergebnis prüfen",
+            "sections": {
+              "meaning": "digitales Zeugnis / Zustellung",
+              "action": "Ein Online-Antrag kann zu Papierzustellung führen. Das BfJ beschreibt die digitale Option für private Zwecke mit BundID. Ein Behördenzeugnis geht an die Behörde; kläre vorher, was der Empfänger akzeptiert.",
+              "where": "BfJ-Hinweise zum digitalen Zeugnis und Anforderung des Empfängers.",
+              "example": "Fiktives Beispiel: Maja fragt, ob ihr Arbeitgeber das digitale private Zeugnis akzeptiert.",
+              "mistake": "Online-Anträge auf private Zwecke beschränken oder jede Zustellung als digital darstellen.",
+              "next": "Bei unklaren Angaben oder Zustellung frage BfJ/Meldebehörde mit dem Antragsbezug; hier kein Zeugnis hochladen."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "type",
+            "german": "privates / erweitertes / Behördenführungszeugnis",
+            "meaning": "privat / erweitert / zur Vorlage bei einer Behörde",
+            "instruction": "Wähle nicht nach dem vermeintlich besseren Namen. Frage nach der genauen Art. Erweitert und Behördenvorlage sind verschiedene Merkmale und können zusammentreffen.",
+            "where": "Schriftliche Anforderung des Arbeitgebers oder der Behörde.",
+            "example": "Fiktives Beispiel: Die Kita gibt Maja eine Bestätigung für ein erweitertes Führungszeugnis.",
+            "mistake": "Ein privates Zeugnis bestellen, obwohl die Behörde direkte Zustellung verlangt.",
+            "options": [
+              {
+                "german": "privat (Belegart N)",
+                "meaning": "für private Zwecke; Zustellung an dich, etwa nach Arbeitgeberanforderung"
+              },
+              {
+                "german": "erweitert",
+                "meaning": "nur für gesetzlich vorgesehene Zwecke mit schriftlicher Bestätigung, etwa Arbeit mit Kindern"
+              },
+              {
+                "german": "zur Vorlage bei einer Behörde (Belegart O)",
+                "meaning": "für eine Behörde; genaue Adresse und Zweck angeben, BfJ sendet an die Behörde"
+              }
+            ]
+          },
+          {
+            "id": "europe",
+            "german": "Europäisches Führungszeugnis",
+            "meaning": "europäische Registerauskunft",
+            "instruction": "Es knüpft nach den BfJ-Regeln an eine weitere EU- oder britische Staatsangehörigkeit an, nicht an jede ausländische Staatsangehörigkeit. Nenne alle Staatsangehörigkeiten; eine zusätzliche deutsche hebt die Prüfung nicht auf.",
+            "where": "Pässe und Staatsangehörigkeitsnachweise.",
+            "example": "Fiktives Beispiel: Damir hat die kroatische und deutsche Staatsangehörigkeit und nennt beide.",
+            "mistake": "Eine weitere Staatsangehörigkeit verschweigen oder dieselbe Bearbeitungszeit voraussetzen."
+          },
+          {
+            "id": "proof",
+            "german": "schriftliche Aufforderung / Verwendungszweck",
+            "meaning": "schriftliche Bestätigung / Verwendungszweck",
+            "instruction": "Für erweitert bestätigt die anfordernde Stelle die gesetzlichen Voraussetzungen. Für Behördenvorlage übernimm Name, Adresse und Zweck aus deren Schreiben; erfinde keinen Empfänger.",
+            "where": "Arbeitgeber, Kita oder anfordernde Behörde.",
+            "example": "Fiktives Beispiel: Maja bittet die Kita vor dem Antrag um die schriftliche Bestätigung.",
+            "mistake": "Die Bestätigung der Stelle selbst verfassen oder erweitert ohne gesetzlichen Zweck verlangen."
+          },
+          {
+            "id": "identity",
+            "german": "Online-Ausweisfunktion (eID) / BundID",
+            "meaning": "elektronische Identifizierung / Benutzerkonto",
+            "instruction": "eID ist die Identifizierungsfunktion eines unterstützten Ausweises mit PIN und geeignetem Gerät/App. BundID ist ein Konto, kein Ersatz für geforderte Identifizierung. Funktioniert eID nicht, nutze die Meldebehörde.",
+            "where": "Amtliche technische Hinweise des BfJ-Portals; hier keine PIN eingeben.",
+            "example": "Fiktives Beispiel: Damir hat keine aktive eID und vereinbart einen Termin beim Amt.",
+            "mistake": "Die PIN auf einer fremden Seite eingeben oder jeden Reisepass für eID-fähig halten."
+          },
+          {
+            "id": "delivery",
+            "german": "digitales Führungszeugnis / Zustellung",
+            "meaning": "digitales Zeugnis / Zustellung",
+            "instruction": "Ein Online-Antrag kann zu Papierzustellung führen. Das BfJ beschreibt die digitale Option für private Zwecke mit BundID. Ein Behördenzeugnis geht an die Behörde; kläre vorher, was der Empfänger akzeptiert.",
+            "where": "BfJ-Hinweise zum digitalen Zeugnis und Anforderung des Empfängers.",
+            "example": "Fiktives Beispiel: Maja fragt, ob ihr Arbeitgeber das digitale private Zeugnis akzeptiert.",
+            "mistake": "Online-Anträge auf private Zwecke beschränken oder jede Zustellung als digital darstellen."
+          }
+        ]
+      },
+      "kirchenaustritt": {
+        "title": "Kirchenaustritt: neutraler Wegweiser nach Bundesland",
+        "introduction": "Der Kirchenaustritt ist eine persönliche und religiös sensible Entscheidung. Dieser Wegweiser erklärt das Verfahren, ohne Mitgliedschaft vorauszusetzen oder Austritt bzw. Verbleib zu empfehlen. Steuerliche Folgen hängen vom Fall und den Vorschriften ab.",
+        "variation": "In Bayern ist das Standesamt zuständig, in NRW das Amtsgericht. Andere Länder haben eigene Verfahren. Wähle deinen Ort im Bundesportal; regionale Links gelten nur für das genannte Land. Dies ist keine Rechtsberatung.",
+        "vocabularyNote": "Die Begriffe helfen beim Verständnis, sind aber kein Feldplan. Hier werden keine persönlichen Angaben erfasst und keine Einzelfallentscheidungen getroffen.",
+        "modes": {
+          "paper": "Amt/Papier: Persönliche Erklärung oder formgerecht beglaubigte schriftliche Erklärung, soweit vorgesehen. Eine einfache E-Mail oder ein Brief ersetzt die vorgeschriebene Form nicht. Kläre Unterlagen und Kosten beim zuständigen Amt.",
+          "online": "Online: Eine Terminbuchung ist noch keine Austrittserklärung. Hier gibt es keinen digitalen Austritt und keine Erfassung religiöser Angaben."
+        },
+        "steps": [
+          {
+            "id": "k1",
+            "title": "1. Zuständigkeit prüfen, ohne Mitgliedschaft zu unterstellen",
+            "sections": {
+              "meaning": "Personenstandsbehörde / örtliches Gericht",
+              "action": "Prüfe die Zuständigkeit nach Bundesland und Wohnort. Bayern: Standesamt; NRW: örtliches Amtsgericht. Übertrage diese Regeln nicht auf alle Länder.",
+              "where": "Bundesportal und amtliche Seite deines Wohnorts.",
+              "example": "Fiktives Beispiel: Maja prüft in München das Standesamt, Damir in Köln das Amtsgericht.",
+              "mistake": "Nur der Kirche schreiben und das staatliche Verfahren für abgeschlossen halten.",
+              "next": "Nur wenn du fortfahren möchtest: Termin und Erklärungsform prüfen."
+            }
+          },
+          {
+            "id": "k2",
+            "title": "2. Unterlagen und genaue Gemeinschaft",
+            "sections": {
+              "meaning": "aktueller Name, Geburtsname / Religionsgemeinschaft",
+              "action": "Im amtlichen Verfahren gibst du korrekte Angaben aus deinen Dokumenten und die betreffende Gemeinschaft an. Ist die Mitgliedschaft unklar, kläre sie zunächst mit der zuständigen Stelle. Hier nichts eingeben oder vermuten.",
+              "where": "Gültiger Ausweis und örtlich verlangte zusätzliche Nachweise.",
+              "example": "Fiktives Beispiel: Maja fragt nach einer Namensänderung, welcher zusätzliche Nachweis nötig ist.",
+              "mistake": "Mitgliedschaft aus der Herkunft vermuten oder von allen eine Taufurkunde verlangen.",
+              "next": "Gültigen Ausweis und nur örtlich geforderte Zusatzunterlagen mitnehmen."
+            }
+          },
+          {
+            "id": "k3",
+            "title": "3. Termin oder zulässiger schriftlicher Weg",
+            "sections": {
+              "meaning": "Austrittserklärung / Erklärung mit vorgeschriebener Beglaubigung",
+              "action": "Persönlich erklärst du den Austritt bei der zuständigen Stelle. Schriftlich verlangt Bayern eine notariell beglaubigte Unterschrift, NRW öffentliche Beglaubigung. Die Erklärung muss trotzdem bei der zuständigen Stelle eingehen. Prüfe vorher deren Hinweise.",
+              "where": "BayernPortal/NRW Justiz, zuständiges Amt und gegebenenfalls Notariat.",
+              "example": "Fiktives Beispiel: Damir fragt das Gericht nach der Einreichung einer beglaubigten Erklärung.",
+              "mistake": "Einen Unterschriftsscan per E-Mail mit öffentlicher Beglaubigung gleichsetzen.",
+              "next": "Eine Terminbuchung ist kein Austritt. Gebühren vorher prüfen."
+            }
+          },
+          {
+            "id": "k4",
+            "title": "4. Bescheinigung und örtliche Wirksamkeit",
+            "sections": {
+              "meaning": "Gebühr / Nachweis des Austritts",
+              "action": "Gebühren hängen von Land und Verfahren ab; beim Notariat können zusätzliche Kosten entstehen. Prüfe sie vorher. Bewahre die Bescheinigung dauerhaft für spätere Rückfragen auf; hier wird sie nicht hochgeladen.",
+              "where": "Amtliche Seite der Stelle und ausgestellte Bescheinigung.",
+              "example": "Fiktives Beispiel: Maja bewahrt den Nachweis bei ihren eigenen Unterlagen auf, nicht auf BalkanLink.",
+              "mistake": "Die Bescheinigung verlieren oder eine einheitliche Gebühr für alle Länder nennen.",
+              "next": "Kläre das Datum mit der zuständigen Stelle; nicht auf andere Länder übertragen."
+            }
+          },
+          {
+            "id": "k5",
+            "title": "5. Mögliche Steuerfolgen und Rückfragen",
+            "sections": {
+              "meaning": "Wirksamkeit / Kirchensteuer / Lohnsteuermerkmale",
+              "action": "Austrittsdatum und steuerliche Wirkung sind nicht dasselbe. Die Steuerpflicht kann nach den jeweiligen Landesregeln enden. Frage Amt/Finanzamt nach dem maßgeblichen Datum und prüfe spätere Abrechnungen. Eine allgemeine Steuerersparnis wird nicht zugesagt.",
+              "where": "Austrittsbescheinigung, Finanzamt und Gehaltsabrechnung.",
+              "example": "Fiktives Beispiel: Damir sieht später weiterhin Kirchensteuer und fragt mit der Bescheinigung beim Finanzamt nach.",
+              "mistake": "Ein sofortiges oder bundesweit gleiches Ende der Steuer versprechen.",
+              "next": "Die Entscheidung bleibt deine; die Durchsicht ändert oder versendet nichts."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "authority",
+            "german": "Standesamt / Amtsgericht",
+            "meaning": "Personenstandsbehörde / örtliches Gericht",
+            "instruction": "Prüfe die Zuständigkeit nach Bundesland und Wohnort. Bayern: Standesamt; NRW: örtliches Amtsgericht. Übertrage diese Regeln nicht auf alle Länder.",
+            "where": "Bundesportal und amtliche Seite deines Wohnorts.",
+            "example": "Fiktives Beispiel: Maja prüft in München das Standesamt, Damir in Köln das Amtsgericht.",
+            "mistake": "Nur der Kirche schreiben und das staatliche Verfahren für abgeschlossen halten."
+          },
+          {
+            "id": "declaration",
+            "german": "Austrittserklärung / öffentlich beglaubigte Erklärung",
+            "meaning": "Austrittserklärung / Erklärung mit vorgeschriebener Beglaubigung",
+            "instruction": "Persönlich erklärst du den Austritt bei der zuständigen Stelle. Schriftlich verlangt Bayern eine notariell beglaubigte Unterschrift, NRW öffentliche Beglaubigung. Die Erklärung muss trotzdem bei der zuständigen Stelle eingehen. Prüfe vorher deren Hinweise.",
+            "where": "BayernPortal/NRW Justiz, zuständiges Amt und gegebenenfalls Notariat.",
+            "example": "Fiktives Beispiel: Damir fragt das Gericht nach der Einreichung einer beglaubigten Erklärung.",
+            "mistake": "Einen Unterschriftsscan per E-Mail mit öffentlicher Beglaubigung gleichsetzen.",
+            "options": [
+              {
+                "german": "persönlich zur Niederschrift",
+                "meaning": "persönlich bei der Stelle; Protokoll nach örtlichem Verfahren unterschreiben"
+              },
+              {
+                "german": "schriftlich, öffentlich/notariell beglaubigt",
+                "meaning": "schriftlich nur in der vorgesehenen beglaubigten Form; zuständigen Empfänger prüfen"
+              }
+            ]
+          },
+          {
+            "id": "names",
+            "german": "Name, Geburtsname / Religionsgemeinschaft",
+            "meaning": "aktueller Name, Geburtsname / Religionsgemeinschaft",
+            "instruction": "Im amtlichen Verfahren gibst du korrekte Angaben aus deinen Dokumenten und die betreffende Gemeinschaft an. Ist die Mitgliedschaft unklar, kläre sie zunächst mit der zuständigen Stelle. Hier nichts eingeben oder vermuten.",
+            "where": "Gültiger Ausweis und örtlich verlangte zusätzliche Nachweise.",
+            "example": "Fiktives Beispiel: Maja fragt nach einer Namensänderung, welcher zusätzliche Nachweis nötig ist.",
+            "mistake": "Mitgliedschaft aus der Herkunft vermuten oder von allen eine Taufurkunde verlangen."
+          },
+          {
+            "id": "effective",
+            "german": "Wirksamkeit / Kirchensteuer / ELStAM",
+            "meaning": "Wirksamkeit / Kirchensteuer / Lohnsteuermerkmale",
+            "instruction": "Austrittsdatum und steuerliche Wirkung sind nicht dasselbe. Die Steuerpflicht kann nach den jeweiligen Landesregeln enden. Frage Amt/Finanzamt nach dem maßgeblichen Datum und prüfe spätere Abrechnungen. Eine allgemeine Steuerersparnis wird nicht zugesagt.",
+            "where": "Austrittsbescheinigung, Finanzamt und Gehaltsabrechnung.",
+            "example": "Fiktives Beispiel: Damir sieht später weiterhin Kirchensteuer und fragt mit der Bescheinigung beim Finanzamt nach.",
+            "mistake": "Ein sofortiges oder bundesweit gleiches Ende der Steuer versprechen."
+          },
+          {
+            "id": "receipt",
+            "german": "Gebühr / Austrittsbescheinigung",
+            "meaning": "Gebühr / Nachweis des Austritts",
+            "instruction": "Gebühren hängen von Land und Verfahren ab; beim Notariat können zusätzliche Kosten entstehen. Prüfe sie vorher. Bewahre die Bescheinigung dauerhaft für spätere Rückfragen auf; hier wird sie nicht hochgeladen.",
+            "where": "Amtliche Seite der Stelle und ausgestellte Bescheinigung.",
+            "example": "Fiktives Beispiel: Maja bewahrt den Nachweis bei ihren eigenen Unterlagen auf, nicht auf BalkanLink.",
+            "mistake": "Die Bescheinigung verlieren oder eine einheitliche Gebühr für alle Länder nennen."
+          }
+        ]
+      }
+    }
   }
 }
