@@ -1,3 +1,9 @@
+## DokumentenCheck professional upgrade (28.10.2026; no release)
+- [x] Read current page, backend, four locales, central entitlement and tests.
+- [x] Implement validated structured results, safe upload validation and localized concise UI; retain server quota rules.
+- [x] 85 focused / 1404 full tests, eight isolated four-language mobile/desktop flows, one fictional gateway PDF check and automatic build/type validation OK; exact files/risks in docs/document-check-upgrade-2026-10-28.md.
+- [ ] Hosted authenticated analysis/reservation verification: blocked by explicit deployment hold; existing live endpoint remains unchanged.
+
 ## Viza content accuracy (28.10.2026; no release)
 - [x] Audit official sources and all country/locale content; retain data keys and array order.
 - [x] Correct verified figures and unsupported absolutes in content only, with source citations.

@@ -1,332 +1,101 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
-import { reserveUsage, commitUsage, releaseUsage, type Reservation } from "../_shared/usage.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.2';
+import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
+import { PDFDocument } from 'npm:pdf-lib@1.17.1';
+import { reserveUsage, commitUsage, releaseUsage } from '../_shared/usage.ts';
+import { ANALYSIS_SCHEMA, CheckError, LIMITS, analysisPrompt, languageOf, validateUploads } from './contract.ts';
+import { consumeCompletion, runAnalysis } from './pipeline.ts';
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
-};
-
+// Kept model/endpoint/budget. No document contents, names or provider response bodies in logs.
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
-
-  // Credit reserved up-front (atomic) and released again if the check does not complete.
-  let reservation: Reservation | null = null;
-  let completed = false;
-  // deno-lint-ignore no-explicit-any
-  let adminRef: any = null;
-
+  if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
+  const headers = new Headers({ ...corsHeaders, 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+  const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers });
   try {
-    // ── Auth check (paid feature — must require login) ──
-    const authHeader = req.headers.get("Authorization");
-    if (!authHeader?.startsWith("Bearer ")) {
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "UNAUTHORIZED", message: "Prijava je obavezna." }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    if (req.method !== 'POST') return json({ success: false, errorCode: 'INVALID_REQUEST' }, 405);
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader?.startsWith('Bearer ')) throw new CheckError('UNAUTHORIZED', 401);
+    const client = createClient(Deno.env.get('SUPABASE_URL') ?? '', Deno.env.get('SUPABASE_ANON_KEY') ?? '', { global: { headers: { Authorization: authHeader } } });
+    const { data, error } = await client.auth.getClaims(authHeader.slice(7));
+    if (error || !data?.claims?.sub) throw new CheckError('UNAUTHORIZED', 401);
+    const userId = String(data.claims.sub);
+    if (Number(req.headers.get('content-length')) > LIMITS.payloadBytes) throw new CheckError('PAYLOAD_TOO_LARGE', 413);
+    // Bound the actual body, not just a spoofable Content-Length.
+    const reader = req.body?.getReader();
+    if (!reader) throw new CheckError('EMPTY_INPUT');
+    const chunks: Uint8Array[] = []; let size = 0;
+    for (;;) {
+      const { value, done } = await reader.read(); if (done) break;
+      size += value.length;
+      if (size > LIMITS.payloadBytes) { await reader.cancel(); throw new CheckError('PAYLOAD_TOO_LARGE', 413); }
+      chunks.push(value);
     }
-
-    const supabase = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
-      { global: { headers: { Authorization: authHeader } } }
-    );
-
-    const token = authHeader.replace("Bearer ", "");
-    const { data: claimsData, error: claimsErr } = await supabase.auth.getClaims(token);
-    if (claimsErr || !claimsData?.claims?.sub) {
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "UNAUTHORIZED", message: "Sesija nije važeća." }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    const bodyBytes = new Uint8Array(size); let offset = 0;
+    for (const chunk of chunks) { bodyBytes.set(chunk, offset); offset += chunk.length; }
+    let body;
+    try { body = JSON.parse(new TextDecoder().decode(bodyBytes)); } catch { throw new CheckError('INVALID_FILE'); }
+    if (!body || typeof body !== 'object') throw new CheckError('INVALID_FILE');
+    const language = languageOf(body.language);
+    // Retain legacy text and single-file request shapes, but never silently slice attachments.
+    const input = body.files ?? (body.imageBase64 && body.mimeType ? [{ base64: body.imageBase64, mimeType: body.mimeType }] : []);
+    const text = typeof body.text === 'string' ? body.text : '';
+    if (text.length > 100000) throw new CheckError('TOO_LARGE', 413);
+    const validated = Array.isArray(input) && input.length === 0 && text.trim() ? { files: [], bytes: [] } : validateUploads(input);
+    const pageCounts: number[] = [];
+    for (let i = 0; i < validated.files.length; i++) {
+      const f = validated.files[i]; let count = 1;
+      if (f.mimeType === 'application/pdf') {
+        try {
+          const pdf = await PDFDocument.load(validated.bytes[i], { updateMetadata: false });
+          if (pdf.isEncrypted || !pdf.getPageCount()) throw new Error('unreadable');
+          count = pdf.getPageCount();
+        } catch { throw new CheckError('PDF_UNREADABLE', 422); }
+      }
+      pageCounts.push(count);
     }
-    const userId = claimsData.claims.sub as string;
-
-    // ── Access & quota are decided server-side by reserve_usage (see _shared/usage.ts) ──
-    const adminSupabase = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
-      { auth: { persistSession: false } }
-    );
-    adminRef = adminSupabase;
-    const isPremium = false; // kept for logging compatibility; no quota logic anymore
-
-    const body = await req.json();
-    const { text, imageBase64, mimeType } = body;
-    let files: Array<{ base64: string; mimeType: string; name?: string }> = Array.isArray(body.files) ? body.files : [];
-
-    // Backward compat: ako nije poslan files niz, koristi imageBase64/mimeType
-    if (files.length === 0 && imageBase64 && mimeType) {
-      files = [{ base64: imageBase64, mimeType }];
-    }
-
-    // Limit fajlova na serveru (defense-in-depth)
-    const MAX_FILES_SERVER = 10;
-    if (files.length > MAX_FILES_SERVER) {
-      files = files.slice(0, MAX_FILES_SERVER);
-    }
-
-    console.log("Request received:", {
-      userId,
-      isPremium,
-      hasText: !!text,
-      textLength: text?.length || 0,
-      fileCount: files.length,
-    });
-
-    if (!text && files.length === 0) {
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "EMPTY_INPUT", message: "Kein Text oder Bild uebermittelt." }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    // Server-side entitlement + quota (trial 2 total, yearly 5/month, legacy unlimited, old credits honored).
-    try {
-      reservation = await reserveUsage(adminSupabase, userId, "document_analysis");
-    } catch (e) {
-      console.error("usage reservation error:", e instanceof Error ? e.message : "unknown");
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Provjera pristupa nije uspjela." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-    if (!reservation.ok) {
-      const code = reservation.reason === "quota_exhausted" ? "QUOTA_EXHAUSTED" : "ACCESS_REQUIRED";
-      return new Response(
-        JSON.stringify({ success: false, errorCode: code, used: reservation.used ?? null, limit: reservation.limit ?? null,
-          message: code === "QUOTA_EXHAUSTED" ? "Iskorištene su sve analize dokumenata za ovaj period." : "Dokumenten-Check zahtijeva aktivan BalkanLink pristup." }),
-        { status: code === "QUOTA_EXHAUSTED" ? 429 : 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      console.error("LOVABLE_API_KEY not configured");
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Server-Konfigurationsfehler." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    const systemPrompt = `Du bist ein Premium-Dokumenten-Analyst fuer BalkanLink – eine Plattform fuer Menschen aus den Balkanlaendern, die in Deutschland leben.
-
-Deine Aufgabe: Dokumente und Briefe TIEFGREIFEND und STRUKTURIERT erklaeren, so dass ein Nutzer ohne Deutschkenntnisse oder Buerokratie-Erfahrung alles versteht.
-
-QUALITAETSSTANDARD:
-- Dies ist ein Premium-Feature. Die Analyse muss hoechste Qualitaet haben.
-- NIEMALS oberflaechlich oder generisch antworten.
-- Jeder Abschnitt muss ECHTE, KONKRETE Erklaerungen enthalten.
-- Minimum 3-5 Saetze pro Abschnitt wo anwendbar.
-- Wenn du etwas nicht erkennen kannst, sage es EHRLICH.
-
-VERBOTENE PHRASEN (ohne Kontext):
-- "Pruefen Sie das Dokument" → stattdessen: WAS genau pruefen und WARUM
-- "Kontaktieren Sie die zustaendige Stelle" → stattdessen: WELCHE Stelle, WARUM, und WAS sagen
-- "Bewahren Sie das Dokument auf" → stattdessen: WIE LANGE und WARUM
-
-REGELN:
-- Du bist KEIN Rechtsanwalt. Keine Rechtsberatung.
-- Verwende: "In der Regel", "Typischerweise", "Es kann sein"
-- Verwende NIE: "Sie haben Anspruch", "Garantiert", "Sie muessen zwingend"
-- IGNORIERE sensible Daten (IBAN, Steuer-ID, Ausweisnummer) – erwaehne sie NICHT
-- Schreibe ALLES auf Bosnisch/Kroatisch/Serbisch (BKS). Deutsche Fachbegriffe in Klammern.
-
-AUSGABEFORMAT – Verwende EXAKT diese Markdown-Ueberschriften:
-
-## 📋 Dokument na prvi pogled
-- Tip dokumenta
-- Posiljilac (firma/institucija)
-- Svrha dokumenta
-- Kategorija: informativno / racun / zahtjev / upozorenje / promjena ugovora
-Jasna klasifikacija u 3-4 recenice.
-
-## 📖 Jednostavno objasnjenje
-Objasni kao da korisnik:
-- ne razumije njemacku birokratiju
-- treba prakticno znacenje
-Koristi jednostavan jezik. Svaki pravni pojam objasni u zagradi.
-Minimum 4-5 recenica.
-
-## 🔍 Detaljna analiza
-OVO JE NAJVAZNIJI DIO – mora biti DUGACAK i DETALJAN.
-Izvuci I objasni SVE od sljedeceg sto je prisutno u dokumentu:
-- Iznosi (sta, zasto, koliko cesto)
-- Datumi (sta se desava na te datume)
-- Promjene ugovora
-- Ukljucene vs iskljucene usluge
-- Detalji tarife/paketa
-- Pravne napomene
-- Automatski procesi (npr. direktno zaduzienje)
-- Razlike od prethodne situacije (ako su vidljive)
-Za SVAKU tacku: objasni znacenje, posljedicu i relevantnost.
-Minimum 8-12 znacajnih objasnjenih tacaka ako je moguce.
-
-## ⚠️ Sta je stvarno bitno
-Razdvoji:
-- KRITICNE informacije (korisnik MORA znati)
-- Sekundarne informacije (korisno ali ne hitno)
-- Nebitni standardni tekst (boilerplate)
-Za svaku tacku objasni ZASTO je bitna ili nebitna.
-
-## ⏰ Rokovi i hitnost
-Klasificiraj jasno:
-- ✅ Nije potrebna akcija
-- ⚡ Preporucena akcija
-- 🚨 Hitno
-Ako postoji rok: TACNO navedi vremenski okvir i sta se desava ako se propusti.
-Ako nema roka: jasno napisi "Nema vidljivog roka u dokumentu."
-
-## 💰 Finansijska analiza
-OBAVEZNO ako se spominje novac:
-- Ukupan iznos
-- Period (mjesecno / godisnje / jednokratno)
-- Povecanje ili smanjenje u odnosu na ranije
-- Buduca placanja
-- Automatska zaduzienja
-- Moguce ustede ili dodatni troskovi
-Ako nema finansijskih podataka, napisi: "Dokument ne sadrzi finansijske informacije."
-
-## 🛠️ Konkretne opcije
-NE GENERICKE – daj STVARNE opcije:
-- Ne uraditi nista (ako je validno – objasni zasto)
-- Provjeriti konkretne podatke (KOJI tacno)
-- Otkazati (ako je moguce – KADA i KAKO)
-- Uporediti alternative
-- Kontaktirati instituciju (ZASTO tacno i STA reci)
-- Pripremiti dokumente (ako je potrebno – KOJE)
-Svaka opcija mora imati obrazlozenje.
-
-## ❌ Ako nista ne uradis
-Objasni jasno:
-- Sta se desava automatski
-- Finansijske posljedice
-- Nastavak ugovora
-- Rizik ignorisanja
-Ovaj dio povecava percipiranu vrijednost – mora biti JAK.
-
-## 🔒 Rizici i ceste greske
-Navedi realisticne rizike:
-- Pogresan iznos
-- Pogresni licni podaci
-- Skriveni uslovi
-- Propusten rok
-- Automatsko produzenje
-Svaki rizik kratko ali jasno objasni.
-
-## 🇧🇦 Sazetak na nasem jeziku
-5-8 jakih recenica. Bez ponavljanja. Mora sadrzavati:
-- Sta je dokument
-- Sta se mijenja
-- Da li je potrebna akcija
-- Koji je sljedeci korak
-
-## ⚖️ Pravna napomena
-"Ova analiza pruza opce informacije i ne predstavlja pravni savjet. Za obavezujuce informacije obratite se nadleznoj instituciji ili pravnom savjetniku."
-
-KVALITETNA PROVJERA PRIJE ODGOVORA:
-- Da li je ovo dovoljno detaljno za placeni feature?
-- Da li bi korisnik rekao: "Ovo mi je stvarno pomoglo"?
-- Da li jasno odgovara na: sta je ovo, sta znaci za mene, trebam li nesto uraditi?
-Ako NE → prosiri prije slanja.`;
-
-    const messages: Array<{ role: string; content: string | Array<{ type: string; text?: string; image_url?: { url: string } }> }> = [
-      { role: "system", content: systemPrompt },
-    ];
-
-    if (files.length > 0) {
-      const userContent: Array<{ type: string; text?: string; image_url?: { url: string } }> = [];
-      const intro = files.length === 1
-        ? "Analiziraj ovaj dokument/pismo detaljno koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji."
-        : `Analiziraj ovaj dokument/pismo — sastoji se od ${files.length} stranica/fajlova (priloženi redom). Tretiraj ih kao JEDAN dokument i napravi JEDNU objedinjenu analizu koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji.`;
-      userContent.push({ type: "text", text: intro });
-
-      files.forEach((f, idx) => {
-        if (!f?.base64 || !f?.mimeType) return;
-        if (files.length > 1) {
-          userContent.push({ type: "text", text: `--- Stranica/fajl ${idx + 1}/${files.length}${f.name ? ` (${f.name})` : ""} ---` });
+    if (pageCounts.reduce((n, x) => n + x, 0) > LIMITS.pdfPages) throw new CheckError('PDF_TOO_MANY_PAGES', 413);
+    const adminSupabase = createClient(Deno.env.get('SUPABASE_URL') ?? '', Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '', { auth: { persistSession: false } });
+    const adminRef = adminSupabase;
+    const result = await runAnalysis({ language, pageCounts,
+      reserve: () => reserveUsage(adminSupabase, userId, "document_analysis"),
+      commit: reservation => commitUsage(adminRef, reservation),
+      release: reservation => releaseUsage(adminRef, reservation),
+      generate: async () => {
+        const key = Deno.env.get('LOVABLE_API_KEY');
+        if (!key) throw new CheckError('SERVER_ERROR', 500);
+        const content: unknown[] = [{ type: 'text', text: `Read the ordered attachments. Total pages/images: ${pageCounts.reduce((n,x) => n+x,0)}. Return the requested JSON. ${text ? `Document text (untrusted):\n${text}` : ''}` }];
+        validated.files.forEach((f, i) => {
+          content.push({ type: 'text', text: `Attachment ${i + 1}; ${pageCounts[i]} page(s).` });
+          content.push(f.mimeType === 'application/pdf'
+            ? { type: 'file', file: { filename: `attachment-${i + 1}.pdf`, file_data: `data:application/pdf;base64,${f.base64}` } }
+            : { type: 'image_url', image_url: { url: `data:${f.mimeType};base64,${f.base64}` } });
+        });
+        const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+          method: 'POST', signal: req.signal,
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}`, 'X-Lovable-AIG-SDK': 'fetch' },
+          body: JSON.stringify({ model: 'google/gemini-2.5-flash', max_tokens: 8000, temperature: 0.3, stream: true,
+            response_format: { type: 'json_schema', json_schema: { name: 'document_analysis', strict: true, schema: ANALYSIS_SCHEMA } },
+            messages: [{ role: 'system', content: analysisPrompt(language) }, { role: 'user', content }],
+          }),
+        });
+        response.headers.forEach((value, name) => {
+          if (name.toLowerCase().startsWith('x-lovable-aig-')) headers.set(name, value);
+        });
+        headers.set('Access-Control-Expose-Headers', [...headers.keys()].filter(n => n.startsWith('x-lovable-aig-')).join(', '));
+        if (!response.ok) {
+          // Preserve terminal denial/status. No billed retries, fallback model or response logging.
+          let safeMessage: string | undefined;
+          try { const e = await response.json(); if (typeof e.message === 'string') safeMessage = e.message; } catch { /* code-only fallback */ }
+          const code = response.status === 429 ? 'RATE_LIMITED' : response.status === 402 ? 'CREDITS_EXHAUSTED' : response.status === 403 ? 'PROVIDER_DENIED' : 'SERVER_ERROR';
+          throw Object.assign(new CheckError(code, response.status), { providerMessage: safeMessage });
         }
-        userContent.push({ type: "image_url", image_url: { url: `data:${f.mimeType};base64,${f.base64}` } });
-      });
-
-      if (text) {
-        userContent.push({ type: "text", text: `\nDodatni tekstualni kontekst:\n${text}` });
-      }
-
-      messages.push({ role: "user", content: userContent });
-    } else {
-      messages.push({
-        role: "user",
-        content: `Analiziraj sljedeci tekst iz dokumenta/pisma detaljno koristeci SVE sekcije iz formata. Budi sto detaljniji i konkretniji.\n\n---\n${text}\n---`,
-      });
-    }
-
-    console.log("Calling AI API with deep analysis prompt...");
-
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        return consumeCompletion(response);
       },
-      body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
-        messages,
-        max_tokens: 8000,
-        temperature: 0.3,
-      }),
     });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error("AI API error:", response.status, errText);
-
-      if (response.status === 429) {
-        return new Response(
-          JSON.stringify({ success: false, errorCode: "RATE_LIMITED", message: "Previse zahtjeva. Pokusajte ponovo za nekoliko trenutaka." }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-      if (response.status === 402) {
-        return new Response(
-          JSON.stringify({ success: false, errorCode: "CREDITS_EXHAUSTED", message: "Servis privremeno nedostupan. Pokusajte ponovo kasnije." }),
-          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analiza nije uspjela. Pokusajte ponovo." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    const data = await response.json();
-    const result = data.choices?.[0]?.message?.content || "";
-
-    if (!result) {
-      console.error("Empty AI response");
-      return new Response(
-        JSON.stringify({ success: false, errorCode: "PARSING_FAILED", message: "Analiza nije mogla biti provedena." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    console.log("Analysis completed successfully, length:", result.length);
-
-    completed = true;
-    await commitUsage(adminRef, reservation);
-
-    return new Response(
-      JSON.stringify({ success: true, analysis: result, status: { fullAccess: true, used: reservation?.used ?? null, limit: reservation?.limit ?? null } }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
+    return json({ success: true, ...result });
   } catch (error) {
-    console.error("Document check error:", error instanceof Error ? error.message : "Unknown");
-    return new Response(
-      JSON.stringify({ success: false, errorCode: "SERVER_ERROR", message: "Analiza nije uspjela. Pokusajte ponovo." }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-    );
-  } finally {
-    if (!completed && adminRef && reservation?.ok) await releaseUsage(adminRef, reservation);
+    if (req.signal.aborted) return json({ success: false, errorCode: 'CANCELLED' }, 499);
+    const e = error instanceof CheckError ? error : new CheckError('SERVER_ERROR', 500);
+    const extra = e as CheckError & { resets_at?: string | null; used?: number; limit?: number | null; providerMessage?: string };
+    return json({ success: false, errorCode: e.code, resets_at: extra.resets_at ?? null, used: extra.used ?? null, limit: extra.limit ?? null, providerMessage: extra.providerMessage }, e.status);
   }
 });

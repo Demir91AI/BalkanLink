@@ -408,7 +408,7 @@
   },
   "documentCheck": {
     "title": "Dokumentenprüfung",
-    "subtitle": "Foto machen oder Datei hochladen — in Sekunden erklären wir dir in einfachen Worten, was im Brief steht, was du tun musst und bis wann.",
+    "subtitle": "Deutsche Schreiben, Bescheide und Verträge verständlich erklärt — mit sichtbaren Forderungen, Fristen und nächsten Schritten.",
     "ctaPrimary": "Dokument prüfen",
     "examples": {
       "letterFromFinanzamt": "Schreiben vom Finanzamt",
@@ -430,51 +430,16 @@
       "bussgeld": "Bußgeldbescheid",
       "anerkennungBescheid": "Anerkennungsbescheid"
     },
-    "whatYouGet": {
-      "label": "Das erhalten Sie mit der Analyse:",
-      "items": {
-        "translation": "Übersetzung und Erklärung in Ihrer Sprache",
-        "whatIsAsked": "Was von Ihnen verlangt wird und bis wann",
-        "urgency": "Ob das Dokument dringend ist",
-        "nextStep": "Welcher nächste Schritt zu unternehmen ist",
-        "institutions": "An welche Stellen Sie sich wenden können",
-        "warning": "Hinweis bei Fristen oder rechtlichen Folgen"
-      }
-    },
-    "pricing": {
-      "oneTimeLabel": "Einmalig",
-      "oneTimePerCheck": "pro Prüfung",
-      "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
-      "buyOneTime": "Mitgliedschaft ansehen →",
-      "creditAvailable_one": "Verfügbar: {{count}} Prüfung",
-      "creditAvailable_other": "Verfügbar: {{count}} Prüfungen",
-      "premiumLabel": "Mitgliedschaft",
-      "premiumBadge": "⭐ Mitgliedschaft",
-      "premiumPerMonth": "/Monat",
-      "premiumFeature1": "Unbegrenzte Prüfungen — immer kostenlos",
-      "premiumFeature2": "Schnelle und priorisierte Analyse",
-      "premiumFeature3": "+ alle Funktionen der Mitgliedschaft der Plattform",
-      "buyPremium": "Mitgliedschaft ansehen →"
-    },
-    "quota": {
-      "remaining": "Du hast heute noch {{count}} kostenlose Prüfungen",
-      "exhausted": "Keine Prüfungen verfügbar",
-      "resetHint": "Der Zähler wird morgen um 00:00 (Berlin) zurückgesetzt",
-      "usingPaid": "Du hast {{count}} zusätzliche bezahlte Prüfungen",
-      "buyExtra": "Weitere Prüfungen: in der Mitgliedschaft enthalten (Fair Use)",
-      "paidAvailable": "Du hast {{count}} bezahlte Prüfungen bereit",
-      "paidHint": "Ohne Ablauf — nutze sie jederzeit"
-    },
     "privacy": {
-      "title": "Deine Daten sind sicher",
-      "body": "Schwärze vor dem Senden Name, Adresse und Aktenzeichen (z. B. mit Stift oder im Editor). Das Dokument wird einmalig an einen externen Dienst zur Textanalyse übermittelt und von uns nicht gespeichert — nach dem Ergebnis wird es bei uns nicht aufbewahrt."
+      "title": "Vor dem Upload: Daten reduzieren",
+      "body": "Entferne unnötige Namen, Adressen, Aktenzeichen, Konto-, Identitäts- und Gesundheitsdaten. Die ausgewählten Dateien werden an einen externen Analyseanbieter übermittelt. BalkanLink speichert den Dokumentinhalt nicht in seiner Datenbank oder Dateiablage; eine sofortige Löschung beim Anbieter wird nicht zugesichert."
     },
     "upload": {
       "label": "Dokument hochladen",
-      "hint": "PDF oder Bild (JPG, PNG) — max. 25 MB gesamt",
-      "deletedAfter": "Dein Dokument wird sofort nach der Analyse gelöscht. Wir speichern nichts.",
+      "hint": "Bis zu 10 Dateien, insgesamt 25 MB und 30 PDF-Seiten/Bilder. PDF, JPG, PNG und WebP. HEIC/HEIF bitte vorher als JPG oder PNG exportieren. Verschlüsselte PDFs werden nicht geöffnet.",
+      "deletedAfter": "Entferne unnötige Namen, Adressen, Aktenzeichen, Konto-, Identitäts- und Gesundheitsdaten. Die ausgewählten Dateien werden an einen externen Analyseanbieter übermittelt. BalkanLink speichert den Dokumentinhalt nicht in seiner Datenbank oder Dateiablage; eine sofortige Löschung beim Anbieter wird nicht zugesichert.",
       "multiPageTitle": "Brief mit mehreren Seiten?",
-      "multiPageHint": "Fotografiere jede Seite mit dem Handy (bis 10 Bilder) oder lade ein PDF hoch — wir lesen alles als ein Dokument.",
+      "multiPageHint": "Bis zu 10 Dateien, insgesamt 25 MB und 30 PDF-Seiten/Bilder. PDF, JPG, PNG und WebP. HEIC/HEIF bitte vorher als JPG oder PNG exportieren. Verschlüsselte PDFs werden nicht geöffnet.",
       "filesCount": "{{count}} von {{max}} Dokumenten",
       "addMore": "Weitere Seite hinzufügen",
       "remove": "Entfernen",
@@ -486,16 +451,16 @@
       "step2Desc": "Assistent übersetzt & erklärt",
       "step3Title": "Du weißt alles",
       "step3Desc": "Was, bis wann, wie viel",
-      "takePhoto": "📷 Mit Kamera fotografieren"
+      "takePhoto": "Foto aufnehmen"
     },
-    "confirm": "Ich verstehe, dass ich keine sensiblen Daten senden darf (Personalausweisnummer, Steuer-ID, IBAN, Gesundheitsdaten).",
+    "confirm": "Ich habe unnötige sensible Daten entfernt und stimme der Übermittlung an den externen Analyseanbieter für diese Prüfung zu.",
     "buttons": {
       "checking": "Wird geprüft …",
       "checkDocument": "Dokument prüfen →",
       "reset": "Zurücksetzen"
     },
     "errors": {
-      "unsupportedFormat": "Es werden nur PDF, JPG und PNG unterstützt.",
+      "unsupportedFormat": "Unterstützt: PDF, JPG, PNG und WebP. HEIC/HEIF bitte zuerst als JPG/PNG exportieren.",
       "fileTooLarge": "Die Datei ist zu groß für die Analyse. Bitte versuchen Sie es mit einer kleineren Datei (max. 25 MB).",
       "confirmRequired": "Bitte bestätigen Sie das Kontrollkästchen vor der Analyse.",
       "noFile": "Es wurde kein Dokument ausgewählt.",
@@ -508,7 +473,16 @@
       "paymentRequired": "Für die Analyse ist 1 Guthaben erforderlich (in der Mitgliedschaft enthalten (Fair Use)).",
       "accessRequired": "Für die Dokumentenprüfung ist ein aktiver BalkanLink-Zugang nötig.",
       "quotaExhausted": "Du hast alle Dokumentenprüfungen für diesen Zeitraum genutzt. Neue Prüfungen sind nach Beginn des nächsten Zeitraums verfügbar.",
-      "busy": "Die Prüfung ist gerade ausgelastet. Bitte versuche es in einigen Minuten erneut."
+      "busy": "Die Prüfung ist gerade ausgelastet. Bitte versuche es in einigen Minuten erneut.",
+      "rateLimited": "Zu viele Anfragen. Bitte versuche es später erneut.",
+      "creditsExhausted": "Der Analysedienst hat derzeit keine verfügbaren Nutzungsguthaben. Deine Mitgliedschaft wird dadurch nicht geändert.",
+      "unreadable": "Der Inhalt ist nicht ausreichend lesbar. Lade ein scharfes, vollständiges Foto bei gutem Licht hoch.",
+      "payloadTooLarge": "Die Übertragung ist zu groß. Wähle kleinere Dateien; keine Seiten wurden abgeschnitten.",
+      "pdfTooManyPages": "Maximal 30 PDF-Seiten/Bilder pro Prüfung. Teile das Dokument bewusst auf; es wird nichts abgeschnitten.",
+      "pdfUnreadable": "Das PDF ist verschlüsselt, beschädigt oder nicht lesbar. Verwende klare Fotos oder eine lesbare, ungeschützte Datei.",
+      "invalidFile": "Dateityp oder Dateiinhalt ungültig. Wähle eine gültige PDF-, JPG-, PNG- oder WebP-Datei.",
+      "invalidResult": "Die Antwort konnte nicht zuverlässig gelesen werden. Es wird keine erfundene Analyse angezeigt. Versuche es später erneut.",
+      "providerDenied": "Der Analyseanbieter hat diese Anfrage abgelehnt. Es erfolgt kein automatischer weiterer Versuch."
     },
     "paywall": {
       "title": "Dokumenten-Check",
@@ -519,24 +493,6 @@
       "oneTimeCta": "Mitgliedschaft ansehen →",
       "oneTimeReset": "Pro Analyse wird einzeln bezahlt",
       "paymentReadyToast": "Zahlung erhalten. Klicken Sie auf Dokument prüfen, um die Analyse zu starten."
-    },
-    "example": {
-      "trigger": "👁 Beispielanalyse — zum Ansehen klicken",
-      "heading": "Beispiel: Mahnung der Deutschen Telekom",
-      "docTypeLabel": "Dokumenttyp:",
-      "docType": "Mahnung — Aufforderung zur Zahlung einer fälligen Rechnung.",
-      "askedLabel": "Was wird verlangt:",
-      "asked1": "Es handelt sich um eine Mahnung für eine unbezahlte Rechnung. Betrag:",
-      "askedAmount": "47,50 €",
-      "askedDeadlineLabel": "Zahlungsfrist:",
-      "askedDeadline": "15 Tage",
-      "askedDeadlineSuffix": "ab dem Datum des Schreibens.",
-      "riskLabel": "Risiko:",
-      "risk": "Bei Nichtzahlung folgt das Inkasso, was sich negativ auf die Schufa (Bonität) auswirken kann.",
-      "nextLabel": "Nächster Schritt:",
-      "nextPrefix": "Wir empfehlen, die Telekom unter",
-      "nextPhone": "0800 330 1000",
-      "nextSuffix": "zu kontaktieren oder online über das Mein-Telekom-Portal zu zahlen."
     },
     "results": {
       "fallbackTitle": "Analyseergebnis",
@@ -560,11 +516,43 @@
     },
     "disclaimer": {
       "title": "Hinweis zum Datenschutz:",
-      "body": "Hochgeladene Dateien und eingegebene Texte werden ausschließlich für eine einmalige Analyse genutzt und nach dem Ergebnis sofort gelöscht. Es gibt keine dauerhafte Speicherung, kein Tracking und keine Weitergabe an Dritte. BalkanLink ist keine Behörde und bietet keine Rechtsberatung."
+      "body": "Die Prüfung dient der Orientierung, nicht der Rechtsberatung. Es gibt keine automatische Übermittlung an Behörden. Kontrolliere wichtige Angaben im Original. Die Speicher- und Löschfristen des externen Analyseanbieters sind hier nicht vollständig überprüft."
     },
     "seo": {
       "title": "Dokumentenprüfung — deutsche Briefe verständlich erklärt",
       "description": "Fotografiere oder lade einen deutschen Brief, Bescheid oder Vertrag hoch und erhalte eine klare Erklärung: was er bedeutet, was verlangt wird und was du als Nächstes tun kannst."
+    },
+    "professional": {
+      "overview": "Ergebnis",
+      "what": "Was ist das?",
+      "actions": "Was wird von mir verlangt?",
+      "deadlines": "Fristen",
+      "money": "Geld",
+      "next": "Nächste Schritte",
+      "details": "Details und Erklärung",
+      "risks": "Hinweise und Risiken",
+      "uncertainty": "Was bleibt unklar?",
+      "sources": "Zitate aus den Dateien",
+      "quoted": "Wörtlich im Dokument",
+      "visible": "Sichtbar im Dokument; keine rechtliche Bestätigung",
+      "unconfirmed": "Nicht bestätigt",
+      "explanation": "Erklärung, keine verbindliche rechtliche Bewertung",
+      "recommendation": "Empfehlung, keine Anweisung der Behörde",
+      "noActions": "Keine eindeutig lesbare Aufforderung erkannt.",
+      "noDeadlines": "Keine eindeutig lesbare Frist erkannt.",
+      "deadlineCaution": "Fristen werden nicht berechnet. Prüfe den Wortlaut im Original; unklare Angaben sind nicht bestätigt.",
+      "guides": "Leitfäden öffnen",
+      "askAssistant": "Asistent fragen",
+      "noTransfer": "Der Asistent erhält weder Dateien noch Zusammenfassung automatisch.",
+      "empty": "Noch keine Datei ausgewählt.",
+      "limits": "Bis zu 10 Dateien, insgesamt 25 MB und 30 PDF-Seiten/Bilder. PDF, JPG, PNG und WebP. HEIC/HEIF bitte vorher als JPG oder PNG exportieren. Verschlüsselte PDFs werden nicht geöffnet.",
+      "loading": "Die Dateien werden gelesen. Bitte lass diese Seite geöffnet.",
+      "accessLoading": "Zugriff wird geprüft…",
+      "removeFile": "Datei {{name}} entfernen",
+      "attachment": "Datei {{number}}",
+      "page": "Seite {{number}}",
+      "resetAt": "Neue Prüfungen laut Server ab: {{date}}",
+      "legacyNotice": "Der aktuell bereitgestellte Dienst liefert noch das ältere Textformat. Es wird unverändert angezeigt; strukturierte Angaben und die Ausgabesprache sind erst nach separat freigegebener Bereitstellung verfügbar."
     }
   },
   "visa": {

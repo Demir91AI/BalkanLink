@@ -53,9 +53,19 @@ describe("saved form data", () => {
 });
 
 describe("hub imports", () => {
+  // Owner-authorized DokumentenCheck-only cleanup (2026-10-28): central entitlement
+  // replaces the old hook; removed markdown/payment/toast/animation imports are not features.
+  // Baseline itself stays byte-identical; all routes, user data and other hub imports stay pinned.
+  const documentCleanup = ["@/hooks/usePremiumAccess", "@/lib/stripe", "framer-motion", "react-markdown", "sonner"];
   for (const [file, imps] of Object.entries(baseline.hubImports)) {
     it(`${file} keeps its feature imports`, () => {
-      expect(missing(imps as string[], importsOf(file))).toEqual([]);
+      const pinned = file === "src/pages/DokumentenCheck.tsx"
+        ? (imps as string[]).filter(i => !documentCleanup.includes(i)) : imps as string[];
+      expect(missing(pinned, importsOf(file))).toEqual([]);
+      if (file === "src/pages/DokumentenCheck.tsx") {
+        expect(importsOf(file)).toContain("@/hooks/useEntitlement");
+        expect(importsOf(file)).not.toContain("@/hooks/usePremiumAccess");
+      }
     });
   }
 });
