@@ -15,10 +15,10 @@ export const VERIFIED_PDFS: Record<GrundsicherungSlug, { url: string; edition: s
   "anlage-vm": { url: "https://www.arbeitsagentur.de/datei/anlagevm_ba033055.pdf", edition: "10/2026", pages: 6, sha256Prefix: "dd0f8cebc3049d45" },
   "anlage-ki": { url: "https://www.arbeitsagentur.de/datei/anlageki_ba033000.pdf", edition: "10/2026", pages: 5, sha256Prefix: "6c7f97165fca5f84" },
   "anlage-wep": { url: "https://www.arbeitsagentur.de/datei/anlagewep_ba033100.pdf", edition: "10/2026", pages: 7, sha256Prefix: "de9e9b6249d88278" },
-  "anlage-eks": { url: "https://www.arbeitsagentur.de/datei/anlageeks_ba033540.pdf", edition: "10/2026", pages: 9, sha256Prefix: "PLACEHOLDER_EKS" },
-  "anlage-sv": { url: "https://www.arbeitsagentur.de/datei/anlagesv_ba033005.pdf", edition: "10/2026", pages: 2, sha256Prefix: "PLACEHOLDER_SV" },
-  "anlage-bb": { url: "https://www.arbeitsagentur.de/datei/anlagebb_ba032985.pdf", edition: "10/2026", pages: 2, sha256Prefix: "PLACEHOLDER_BB" },
-  "anlage-ve": { url: "https://www.arbeitsagentur.de/datei/anlageve_ba033130.pdf", edition: "10/2026", pages: 2, sha256Prefix: "PLACEHOLDER_VE" },
+  "anlage-eks": { url: "https://www.arbeitsagentur.de/datei/anlageeks_ba033540.pdf", edition: "10/2026", pages: 9, sha256Prefix: "c1cac86eb8632d52" },
+  "anlage-sv": { url: "https://www.arbeitsagentur.de/datei/anlagesv_ba033005.pdf", edition: "10/2026", pages: 2, sha256Prefix: "c24b142bf6086501" },
+  "anlage-bb": { url: "https://www.arbeitsagentur.de/datei/anlagebb_ba032985.pdf", edition: "10/2026", pages: 2, sha256Prefix: "7f113da78445bc9e" },
+  "anlage-ve": { url: "https://www.arbeitsagentur.de/datei/anlageve_ba033130.pdf", edition: "10/2026", pages: 2, sha256Prefix: "acd507c0efa4e563" },
 };
 
 /* ── Memory-only navigator. Answers never leave component state. ── */
