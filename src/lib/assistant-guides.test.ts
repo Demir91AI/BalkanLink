@@ -14,7 +14,7 @@ const question = "Dobio sam dijete u Njemačkoj, kako podnijeti zahtjev za Kinde
 function endpoint(premium = true, reservation = { ok: true, mode: "full" }, callAI = true) {
   let handler: (r: Request) => Promise<Response> = async () => new Response();
   const commit = vi.fn(async () => {}), release = vi.fn(async () => {}), reserve = vi.fn(async () => reservation);
-  const fetchMock = vi.fn(async () => new Response(guides.guideReplyStream("mock general answer")));
+  const fetchMock = vi.fn(async (_url: string, _init?: RequestInit) => new Response(guides.guideReplyStream("mock general answer")));
   const source = readFileSync("supabase/functions/chat-assistant/index.ts", "utf8").replace(/^import .*;\n/gm, "");
   const js = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.None } }).outputText;
   vm.runInNewContext(js, {
@@ -95,7 +95,7 @@ describe("actual staged assistant handler, isolated dependencies", () => {
     expect(r.status).toBe(429); expect((await r.json()).errorCode).toBe("QUOTA_EXHAUSTED"); expect(e.commit).not.toHaveBeenCalled(); expect(e.fetchMock).not.toHaveBeenCalled();
   });
   it("unsafe requests retain safety-first behavior before guide or quota processing", async () => {
-    const e = endpoint(); const body = await (await e.handler(request("Kindergeld falsifikuj dokument"))).json();
+    const e = endpoint(); const body = await (await e.handler(request("Kindergeld prevara"))).json();
     expect(body.safety_blocked).toBe(true); expect(e.reserve).not.toHaveBeenCalled(); expect(e.fetchMock).not.toHaveBeenCalled();
   });
 });
