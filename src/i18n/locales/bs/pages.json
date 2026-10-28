@@ -5756,6 +5756,1379 @@
       }
     },
     "guides": {
+      "anlage-eks": {
+        "title": "EKS — vodič uz službeni obrazac 10/2026",
+        "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
+        "modes": {
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
+        },
+        "terms": [
+          {
+            "id": "eks-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "EKS · Seite 1 · A · 1–4",
+            "meaning": "Podnosilac glavnog zahtjeva",
+            "instruction": "Upiši ime, prezime i datum rođenja podnosioca glavnog zahtjeva. BG broj prepiši samo ako već postoji; bez njega ne izmišljaj broj. Ovo nije nužno osoba na koju se prilog odnosi.",
+            "where": "Lični dokument i postojeći Jobcenter Bescheid: potraži „Nummer der Bedarfsgemeinschaft“, ne Versicherungsnummer.",
+            "example": "Izmišljeno: Maja Kovač, 15.05.1985; BG broj se prepisuje iz vlastitog Bescheida, ne iz primjera.",
+            "mistake": "Ne zamijeni podnosioca i drugu osobu iz B. TT.MM.JJJJ znači dan.mjesec.godina."
+          },
+          {
+            "id": "eks-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "EKS · Seite 1 · B · 5–7",
+            "meaning": "Samostalno zaposlena osoba",
+            "instruction": "Upiši ime, prezime i datum rođenja osobe opisane u B. To je osoba koja obavlja samostalnu djelatnost; ako si to ti, A i B opisuju istu osobu.",
+            "where": "Lični dokument te osobe. Pitanja koja slijede odnose se na nju, ne automatski na podnosioca.",
+            "example": "Izmišljeno: Maja podnosi zahtjev; za prilog koji se odnosi na Damira Novaka u B stoji Damir Novak, 20.03.1987.",
+            "mistake": "Ne koristi podatke svakog sustanara. Svrhu priloga prvo potvrdi prema službenom uvodu."
+          },
+          {
+            "id": "eks-8",
+            "german": "Bitte geben Sie an, ob Sie in diesem Formular vorläufige oder abschließende Angaben machen.",
+            "reference": "EKS · Seite 1 · C · 8",
+            "meaning": "Procjena ili konačni podaci",
+            "instruction": "Izaberi vrstu izjave prema periodu koji predaješ. Za nastavak mogu biti potrebna dva odvojena EKS: konačni za prošli i privremeni za naredni period.",
+            "where": "Jobcenter dopis/Bescheid i poslovna evidencija; BA Ausfüllhinweise EKS str. 1.",
+            "example": "Izmišljeno: za budući novembar Maja pravi procjenu; nakon isteka odobrenog perioda prijavljuje stvarne uplate.",
+            "mistake": "Ne miješaj buduće i stvarne iznose u istoj izjavi. Konačna provjera može promijeniti raniji obračun; ovdje se ne računa pravo.",
+            "options": [
+              {
+                "german": "Vorläufig (für die Zukunft)",
+                "meaning": "Privremeno — razumljiva procjena očekivanih primitaka i izdataka za budući period. Potkrijepi je prethodnim poslovnim podacima i poznatim narudžbama."
+              },
+              {
+                "german": "Abschließend (für die Vergangenheit)",
+                "meaning": "Konačno — stvarni primici i izdaci za već završeni period uz dokaze. Ne ostavljaj raniju procjenu kao da je stvarno ostvarena."
+              }
+            ]
+          },
+          {
+            "id": "eks-9",
+            "german": "Bitte geben Sie den Bewilligungszeitraum an, für den dieses Formular ausgefüllt wird.",
+            "reference": "EKS · Seite 1 · C · 9",
+            "meaning": "Period odobrenja: od–do",
+            "instruction": "Upiši početni i završni datum TT.MM.JJJJ. Obrazac za privremenu izjavu navodi mjesec zahtjeva i u pravilu ukupno šest mjeseci; za konačnu prepiši period iz Bescheida. Poseban/sezonski period potvrdi s Jobcenterom, ne nameći šest mjeseci svakom slučaju.",
+            "where": "Bewilligungsbescheid i BA EKS upute str. 1/3; za sezonske djelatnosti upute navode i 12-mjesečno posmatranje s dodatnim EKS.",
+            "example": "Izmišljeno: Bescheid navodi 01.11.2026–30.04.2027; oba datuma se prenose, a tabele koriste iste mjesece.",
+            "mistake": "Ne koristi automatski kalendarsku godinu ili datum fakture kao period odobrenja."
+          },
+          {
+            "id": "eks-10-11-12-13-14-15-16-17-18",
+            "german": "Firmenname · Anschrift der Betriebsstätte · Gewerbe oder Tätigkeit · Beginn/Aufnahme der Tätigkeit (MM.JJJJ) · gegebenenfalls Ende der Tätigkeit (MM.JJJJ) · Rechtsform des Unternehmens",
+            "reference": "EKS · Seite 2 · D · 10–18",
+            "meaning": "Naziv, adresa i vrsta djelatnosti",
+            "instruction": "10 naziv firme; 11–14 ulica, kućni broj, poštanski broj i mjesto poslovnice; 15 konkretna djelatnost; 16 početak MM.JJJJ; 17 završetak samo ako je relevantan; 18 stvarni pravni oblik. U 18 primjeri GmbH/GbR/e.K. nisu unaprijed izabran odgovor.",
+            "where": "Gewerbeanmeldung/steuerliche Anmeldung, ugovor o radu po honoraru/usluzi, dokument osnivanja. BA upute str. 3 traže zaštitu podataka drugih članova društva u dokazima.",
+            "example": "Izmišljeno: „Novak Übersetzungen“, djelatnost prevodilac, početak 09.2026, Einzelunternehmen; Maja ne prepisuje izmišljenu adresu.",
+            "mistake": "Ne zamijeni kućnu adresu i poslovnicu niti datum zahtjeva i početak poslovanja."
+          },
+          {
+            "id": "eks-19-20-21-22",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "EKS · Seite 2 · E · 19–22",
+            "meaning": "Provjera i odgovarajući potpis",
+            "instruction": "Navedi stvarni datum potpisa i potpis podnosioca; kod maloljetnika zakonski odgovarajuća osoba. Drugi par datum/potpis je za Betreuer/Vormund samo ako postoji odgovarajuće zastupanje. E potvrđuje A–D; H na str. 9 zasebno potpisuje samostalna osoba.",
+            "where": "Službeni obrazac, pročitane upute i dokument zastupanja ako je primjenjivo. ",
+            "example": "Izmišljeno: Maja je i podnosilac i samostalna osoba pa potpisuje E i H; u ostalim obrascima prati njihov odjeljak potpisa.",
+            "mistake": "„Pregledano“ na BalkanLinku nije potpis ili predaja. Ne potpisuj u ime druge odrasle osobe bez odgovarajućeg ovlaštenja."
+          },
+          {
+            "id": "eks-23",
+            "german": "Wird oder wurde die Miet-/Eigentumswohnung oder das Eigenheim – teilweise – für die selbständige/freiberufliche Tätigkeit gewerblich genutzt?",
+            "reference": "EKS · Seite 3 · F · 23",
+            "meaning": "Poslovna upotreba doma",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Provjeri najam/tlocrt i stvarnu poslovnu upotrebu.",
+            "where": "Provjeri najam/tlocrt i stvarnu poslovnu upotrebu.",
+            "example": "Izmišljeno: zasebna prostorija koristi se za prevodilačku djelatnost.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — dio stana se stvarno koristi za djelatnost"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-24-25",
+            "german": "Anzahl der gewerblich genutzten Räume · Gewerblich genutzte Fläche in Quadratmetern (m2)",
+            "reference": "EKS · Seite 3 · F · 24–25",
+            "meaning": "Broj i površina poslovnih prostorija",
+            "instruction": "Ako se dom koristi poslovno, upiši broj poslovno korištenih prostorija i pripadajuću površinu u m², ne cijeli stan.",
+            "where": "Tlocrt, mjerenje i ugovor prostora.",
+            "example": "Izmišljeno: 1 prostorija, 12 m².",
+            "mistake": "Površina nije iznos najamnine; prijava ne garantuje priznanje troška."
+          },
+          {
+            "id": "eks-26",
+            "german": "Werden oder wurden in Verbindung mit der selbständigen/freiberuflichen Tätigkeit Produkte kostenfrei und auf Dauer überlassen, zum Beispiel zur Produktplatzierung?",
+            "reference": "EKS · Seite 3 · F · 26",
+            "meaning": "Besplatno trajno ustupljeni proizvodi",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi listu svih proizvoda, vrstu i vrijednost u EUR te dokaz o ustupanju.",
+            "where": "Pripremi listu svih proizvoda, vrstu i vrijednost u EUR te dokaz o ustupanju.",
+            "example": "Izmišljeno: fotooprema trajno ustupljena za poslovnu objavu ima dokumentovanu vrijednost 180 EUR.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie eine Auflistung und Nachweise über die Art und den Wert in Euro aller Produkte bei)",
+                "meaning": "Da — proizvodi su trajno besplatno ustupljeni u vezi s poslovanjem, npr. product placement"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-27",
+            "german": "Wird oder wurde Personal im Zusammenhang mit der selbständigen/freiberuflichen Tätigkeit beschäftigt?",
+            "reference": "EKS · Seite 3 · F · 27",
+            "meaning": "Zaposleno osoblje",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Provjeri ugovore i obračune plata; samostalna osoba se ne broji u 28.",
+            "where": "Provjeri ugovore i obračune plata; samostalna osoba se ne broji u 28.",
+            "example": "Izmišljeno: jedan zaposlenik uz vlasnicu znači 28 = 1.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — djelatnost ima ili je imala zaposlene"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-28",
+            "german": "Anzahl der Gesamtbeschäftigten (ohne selbständige/freiberufliche Person)",
+            "reference": "EKS · Seite 3 · F · 28",
+            "meaning": "Broj zaposlenih bez samostalne osobe",
+            "instruction": "Prebroji zaposlene prema 27; ne uključuj samostalnu osobu.",
+            "where": "Ugovori i evidencija zaposlenih.",
+            "example": "Izmišljeno: vlasnica i dva zaposlenika → 2.",
+            "mistake": "Ne zbrajaj planirane nove zaposlene iz 30 s postojećima."
+          },
+          {
+            "id": "eks-29",
+            "german": "Ist beabsichtigt, weiteres Personal zu beschäftigen?",
+            "reference": "EKS · Seite 3 · F · 29",
+            "meaning": "Planirano dodatno osoblje",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Provjeri plan zapošljavanja i očekivani početak; ne prijavljuj želju kao već zaključen ugovor.",
+            "where": "Provjeri plan zapošljavanja i očekivani početak; ne prijavljuj želju kao već zaključen ugovor.",
+            "example": "Izmišljeno: planira se jedan dodatni zaposlenik od 01.02.2027.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — postoji konkretan plan dodatnog zapošljavanja"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-30-31",
+            "german": "Anzahl des weiteren Personals · Eine Einstellung erfolgt voraussichtlich ab (TT.MM.JJJJ)",
+            "reference": "EKS · Seite 3 · F · 30–31",
+            "meaning": "Broj i datum planiranog zapošljavanja",
+            "instruction": "Ako 29 glasi Ja, navedi dodatni broj zaposlenih i očekivani datum TT.MM.JJJJ. Procjenu jasno razlikuj od već ostvarenog stanja.",
+            "where": "Plan zapošljavanja, narudžbe, nacrt/ugovor zaposlenja.",
+            "example": "Izmišljeno: 1 osoba, 01.02.2027.",
+            "mistake": "Ne upisuj sadašnji broj zaposlenih ponovo."
+          },
+          {
+            "id": "eks-32",
+            "german": "Unterliegt die selbständige/freiberufliche Tätigkeit der Umsatzsteuerpflicht?",
+            "reference": "EKS · Seite 3 · F · 32",
+            "meaning": "Obaveza Umsatzsteuer",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Provjeri poreznu prijavu/status s Finanzamtom ili poreznim savjetnikom. Kod Nein u G otpadaju podaci o Umsatzsteuer/Vorsteuer; ne zaključuj status iz niskog prometa.",
+            "where": "Provjeri poreznu prijavu/status s Finanzamtom ili poreznim savjetnikom. Kod Nein u G otpadaju podaci o Umsatzsteuer/Vorsteuer; ne zaključuj status iz niskog prometa.",
+            "example": "Izmišljeno: Damir provjerava potvrđeni status prije A5 i B17/B18.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — stvarni porezni status djelatnosti uključuje obavezu Umsatzsteuer"
+              },
+              {
+                "german": "Nein (im Abschnitt G entfallen die Angaben zur Umsatzsteuer und zur Vorsteuer)",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-33",
+            "german": "Erhält oder erhielt die selbständige/freiberufliche Person Zuschüsse/Beihilfen zu ihrer selbständigen/freiberuflichen Tätigkeit, zum Beispiel Lohnkostenzuschüsse, Gründungsdarlehen, Einstiegsgeld, Leistungen aus dem europäischen Sozialfond oder Subventionen/Förderungen für landwirtschaftliche Betriebe?",
+            "reference": "EKS · Seite 3 · F · 33",
+            "meaning": "Primljene poslovne subvencije/pomoći",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Priloži dokaz o davaocu, vrsti, trajanju i visini pomoći; prijavljivanje nije automatska odluka o obračunu.",
+            "where": "Priloži dokaz o davaocu, vrsti, trajanju i visini pomoći; prijavljivanje nije automatska odluka o obračunu.",
+            "example": "Izmišljeno: Bescheid navodi pomoć za poslovanje 200 EUR mjesečno tokom tri mjeseca.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie Nachweise zum Leistungsträger sowie zur Art, Dauer und Höhe des Zuschusses bei)",
+                "meaning": "Da — postoji ili je postojala navedena poslovna subvencija/pomoć"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-34",
+            "german": "Hat die selbständige/freiberufliche Person Zuschüsse/Beihilfen beantragt oder hat sie vor, diese zu beantragen?",
+            "reference": "EKS · Seite 3 · F · 34",
+            "meaning": "Zatražena ili planirana pomoć",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Priloži dokaz zahtjeva koliko je moguće; razdvoji od već primljene pomoći u 33.",
+            "where": "Priloži dokaz zahtjeva koliko je moguće; razdvoji od već primljene pomoći u 33.",
+            "example": "Izmišljeno: zahtjev je predat, ali nema odluke ni uplate.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie soweit möglich Nachweise über die Antragstellung bei)",
+                "meaning": "Da — pomoć je zatražena ili se namjerava zatražiti, iako još nije isplaćena"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-35",
+            "german": "Hat die selbständige/freiberufliche Person für den Betrieb/das Gewerbe ein Darlehen aufgenommen?",
+            "reference": "EKS · Seite 3 · F · 35",
+            "meaning": "Poslovni zajam",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi ugovor, izvod uplate i dokaze ulaganja. BA upute str. 4 razlikuju zajam, finansiranu kupovinu, kamate i otplatu; pitaj Jobcenter prije nejasnog razvrstavanja.",
+            "where": "Pripremi ugovor, izvod uplate i dokaze ulaganja. BA upute str. 4 razlikuju zajam, finansiranu kupovinu, kamate i otplatu; pitaj Jobcenter prije nejasnog razvrstavanja.",
+            "example": "Izmišljeno: poslovni zajam 2.000 EUR ima ugovor i obavezu vraćanja.",
+            "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Darlehensbescheid, Kontoauszug, Investitionsausgaben)",
+                "meaning": "Da — primljen je poslovni novac uz obavezu vraćanja, uključujući zajam od poznanika"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-36-37-38-39-40-41",
+            "german": "Höhe des Darlehens in Euro · Datum des Geldeingangs auf dem Konto (TT.MM.JJJJ) · Beginn der Rückzahlung des Darlehens (TT.MM.JJJJ) · Monatliche Tilgungsrate in Euro · Mit dem Darlehen finanzierte Betriebsausgaben (Art / Höhe in Euro)",
+            "reference": "EKS · Seite 3 · F · 36–41",
+            "meaning": "Iznos zajma, datumi, otplata i namjena",
+            "instruction": "36 ukupan zajam EUR; 37 datum uplate; 38 početak otplate; 39 mjesečna otplata; 40 vrsta i 41 iznos finansiranog poslovnog izdatka. Kamata i otplata nisu isto. Upute ne tretiraju zajam i njime finansirane kupovine kao običan prihod/izdatak u dobiti; B15/B16 posebno prate kamate/otplatu uz uslove iz uputa.",
+            "where": "Ugovor zajma, bankovni izvod, plan otplate, računi; BA upute str. 4. U dokazima zaštiti lične podatke zajmodavca prema uputama.",
+            "example": "Izmišljeno: 2.000 EUR uplaćeno 05.11.2026, otplata od 01.12.2026 po 100 EUR, oprema 1.500 EUR.",
+            "mistake": "Ne ubaci zajam u A1 niti dvaput trošak finansiran zajmom. Za nejasnu/miješanu namjenu pitaj Jobcenter; nema automatske formule."
+          },
+          {
+            "id": "eks-42",
+            "german": "Bitte geben Sie an, ob die nachfolgenden Angaben in den Tabellen vorläufig oder abschließend sind.",
+            "reference": "EKS · Seite 4 · G · 42",
+            "meaning": "Vrsta podataka u tabelama",
+            "instruction": "Izbor mora odgovarati 8 i periodu 9. U svakom mjesečnom stupcu koristi EUR; za mjesec bez primitka/izdatka obrazac dopušta 0.",
+            "where": "BWA s Summen- und Saldenliste ili pojedinačni dokazi; kod procjene prethodni podaci i poznati plan.",
+            "example": "Izmišljeno: novembar–april imaju svoje stupce; januar bez prodaje A1 = 0.",
+            "mistake": "Ne zamijeni datum fakture i stvarni priliv. Porezna godišnja dobit nije automatski EKS rezultat.",
+            "options": [
+              {
+                "german": "Vorläufige Erklärung: Die Angaben sind geschätzt und beziehen sich auf den Bewilligungszeitraum im Abschnitt C",
+                "meaning": "Privremeno — razumljiva procjena očekivanih primitaka i izdataka za budući period. Potkrijepi je prethodnim poslovnim podacima i poznatim narudžbama."
+              },
+              {
+                "german": "Abschließende Erklärung: Die Angaben sind abschließend und beziehen sich auf den Bewilligungszeitraum im Abschnitt C",
+                "meaning": "Konačno — stvarni primici i izdaci za već završeni period uz dokaze. Ne ostavljaj raniju procjenu kao da je stvarno ostvarena."
+              }
+            ]
+          },
+          {
+            "id": "eks-43",
+            "german": "Tabelle A: Angaben zu den Betriebseinnahmen",
+            "reference": "EKS · Seite 4 · G · 43",
+            "meaning": "Tabela A: poslovni primici",
+            "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
+            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "example": "Izmišljeno: usluga fakturisana u novembru, 400 EUR neto naplaćeno u decembru → decembarski A1; naplaćena Umsatzsteuer zasebno A5.1.",
+            "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Kalendarski mjesec, po potrebi dio mjeseca: isti period kao C."
+              },
+              {
+                "german": "A1 Betriebseinnahmen",
+                "meaning": "Poslovni primici bez Umsatzsteuer, po mjesecu stvarne uplate; procjenu zasnuj na očekivanim uplatama."
+              },
+              {
+                "german": "A2 Privatentnahmen von Waren",
+                "meaning": "Roba iz poslovanja uzeta za vlastitu upotrebu: vrijednost bez Umsatzsteuer. Nije običan bankovni transfer vlasnici."
+              },
+              {
+                "german": "A3 sonstige betriebliche Einnahmen (zum Beispiel auch kostenfrei auf Dauer überlassene Produkte)",
+                "meaning": "Ostali poslovni primici, npr. provizija/kamata i vrijednost trajno ustupljenih proizvoda u mjesecu primitka."
+              },
+              {
+                "german": "A4 Zuwendungen von Dritten",
+                "meaning": "Davanja trećih osoba: dokumentuj iznos i svrhu; razlikuj od zajma uz vraćanje."
+              },
+              {
+                "german": "A5.1 vereinnahmte Umsatzsteuer",
+                "meaning": "Naplaćena Umsatzsteuer: zasebno iz primitaka A1/A3, u mjesecu naplate."
+              },
+              {
+                "german": "A5.2 Umsatzsteuer auf Privatentnahmen von Waren",
+                "meaning": "Umsatzsteuer na privatno uzetu robu, odvojeno od neto vrijednosti A2; prati poreznu evidenciju."
+              },
+              {
+                "german": "A5.3 vom Finanzamt erstattete Umsatzsteuer",
+                "meaning": "Povrat Umsatzsteuer od Finanzamta u mjesecu stvarne uplate; nije tek zatraženi povrat."
+              },
+              {
+                "german": "Summe der Betriebseinnahmen",
+                "meaning": "Zbroj primitaka odgovarajućeg mjeseca; izbjegni dvostruko uračunavanje poreza."
+              }
+            ]
+          },
+          {
+            "id": "eks-44",
+            "german": "Anmerkungen tragen Sie bitte hier ein. Bitte geben Sie die jeweilige Position (zum Beispiel A1) an, auf die sich Ihre Anmerkung bezieht.",
+            "reference": "EKS · Seite 4 · G · 44",
+            "meaning": "Napomena uz tačan red tabele",
+            "instruction": "Navedi oznaku reda i mjesec te kratko objašnjenje iznosa, procjene ili neobične uplate. U 50 možeš konkretno opisati B14.5.",
+            "where": "Odgovarajući račun/izvod i izvor procjene.",
+            "example": "Izmišljeno: „A1, novembar: iznos prema priloženom računu; budući mjesec procijenjen iz potvrđene narudžbe.“",
+            "mistake": "Ne ostavljaj neobjašnjenu zbirnu napomenu bez reda i mjeseca."
+          },
+          {
+            "id": "eks-45",
+            "german": "Tabelle B – Teil 1: Angaben zu den Betriebsausgaben",
+            "reference": "EKS · Seite 5 · G · 45",
+            "meaning": "Tabela B: poslovni izdaci, dio 1",
+            "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
+            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "example": "Izmišljeno: materijal plaćen u novembru 60 EUR neto → B1; Vorsteuer, ako primjenjivo, zasebno B17.",
+            "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Mjesec odgovara C/A; zapiši stvarne isplate ili potkrijepljenu procjenu."
+              },
+              {
+                "german": "B1 Wareneinkauf",
+                "meaning": "Kupovina robe/materijala: stvarni poslovni izdatak, kod Umsatzsteuerpflicht neto bez Vorsteuer."
+              },
+              {
+                "german": "B2.1 Personalkosten (einschließlich Sozialversicherungsbeiträge) – Vollzeitbeschäftigte",
+                "meaning": "Troškovi zaposlenih puno radno vrijeme, uključujući socijalne doprinose; prema obračunima."
+              },
+              {
+                "german": "B2.2 Personalkosten (einschließlich Sozialversicherungsbeiträge) – Teilzeitbeschäftigte",
+                "meaning": "Troškovi zaposlenih nepuno radno vrijeme i socijalni doprinosi."
+              },
+              {
+                "german": "B2.3 Personalkosten (einschließlich Sozialversicherungsbeiträge) – geringfügig Beschäftigte",
+                "meaning": "Troškovi Minijob zaposlenih uključujući pripadajuće doprinose; ne prepisuj ih ponovo u B2.1."
+              },
+              {
+                "german": "B2.4 Personalkosten (einschließlich Sozialversicherungsbeiträge) – mithelfende Familienangehörige",
+                "meaning": "Troškovi zaposlenih članova porodice koji pomažu: dokazi zaposlenja/prijave, ne zamišljena plata za besplatnu pomoć."
+              },
+              {
+                "german": "B3 Betriebliche Raumkosten (einschließlich Nebenkosten und Energiekosten)",
+                "meaning": "Poslovni prostor, sporedni troškovi i energija; kod doma samo dokumentovani poslovni dio."
+              },
+              {
+                "german": "B4 Betriebliche Versicherungen/Beiträge",
+                "meaning": "Potrebna poslovna osiguranja/članarine uz policu/Bescheid; osiguranje vozila ide B6.2."
+              },
+              {
+                "german": "B5 Kosten für Werbung",
+                "meaning": "Poslovno oglašavanje, npr. oglas ili letak; ne poistovjećuj s ličnim izdacima u C."
+              },
+              {
+                "german": "Zwischensumme Tabelle B – Teil 1",
+                "meaning": "Međuzbroj dijela 1 prenesi u dio 2 istog mjeseca."
+              }
+            ]
+          },
+          {
+            "id": "eks-46",
+            "german": "Anmerkungen tragen Sie bitte hier ein. Bitte geben Sie die jeweilige Position (zum Beispiel B1) an, auf die sich Ihre Anmerkung bezieht.",
+            "reference": "EKS · Seite 5 · G · 46",
+            "meaning": "Napomena uz tačan red tabele",
+            "instruction": "Navedi oznaku reda i mjesec te kratko objašnjenje iznosa, procjene ili neobične uplate. U 50 možeš konkretno opisati B14.5.",
+            "where": "Odgovarajući račun/izvod i izvor procjene.",
+            "example": "Izmišljeno: „B1, novembar: iznos prema priloženom računu; budući mjesec procijenjen iz potvrđene narudžbe.“",
+            "mistake": "Ne ostavljaj neobjašnjenu zbirnu napomenu bez reda i mjeseca."
+          },
+          {
+            "id": "eks-47",
+            "german": "Wie viele Kilometer wird die selbständige/freiberufliche Person voraussichtlich betrieblich und/oder privat fahren? Bei abschließenden Angaben: Wie viele Kilometer ist die selbständige/freiberufliche Person betrieblich und/oder privat gefahren?",
+            "reference": "EKS · Seite 6 · G · 47",
+            "meaning": "Poslovni i privatni kilometri",
+            "instruction": "Odvojeno navedi poslovne i privatne kilometre: predviđene za privremenu izjavu, stvarne za konačnu. Štampane upute razlikuju poslovno vozilo uz najmanje 50% poslovne upotrebe i privatno vozilo. Put kuća–poslovnica je u uputama privatna vožnja, a zasebno se pita 54–56.",
+            "where": "Fahrtenbuch s poslovnim ciljem/svrhom i označenim privatnim vožnjama; EKS upute str. 5.",
+            "example": "Izmišljeno: evidencija pokazuje 600 km poslovno, 400 km privatno; podjela se dokumentuje, ne bira proizvoljno.",
+            "mistake": "Ne prijavi ukupnu kilometražu kao poslovnu. Isti put ne ide u B6.5 i 54–56."
+          },
+          {
+            "id": "eks-48",
+            "german": "Tabelle B – Teil 2: Angaben zu den Betriebsausgaben",
+            "reference": "EKS · Seite 6 · G · 48",
+            "meaning": "Tabela B: poslovni izdaci, dio 2",
+            "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
+            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "example": "Izmišljeno: Fahrtenbuch privatnog vozila dokumentuje 100 km poslovnih vožnji → štampani B6.5 red 10 EUR; put do poslovnice nije uključen.",
+            "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Isti mjeseci kao prethodne tabele."
+              },
+              {
+                "german": "Übertrag Zwischensumme Tabelle B – Teil 1",
+                "meaning": "Prenesi međuzbroj B dijela 1 bez ponovnog dodavanja pojedinih redova."
+              },
+              {
+                "german": "B6.1 betriebliches Kraftfahrzeug – Steuern",
+                "meaning": "Porez poslovnog vozila: dokumentovana stvarna isplata."
+              },
+              {
+                "german": "B6.2 betriebliches Kraftfahrzeug – Versicherung",
+                "meaning": "Osiguranje poslovnog vozila uz policu i dokaz plaćanja."
+              },
+              {
+                "german": "B6.3 betriebliches Kraftfahrzeug – laufende Betriebskosten",
+                "meaning": "Tekući troškovi poslovnog vozila uz račune, npr. gorivo; ne privatni trošak bez korekcije."
+              },
+              {
+                "german": "B6.4 betriebliches Kraftfahrzeug – Reparaturkosten",
+                "meaning": "Popravke poslovnog vozila uz račun i uplatu."
+              },
+              {
+                "german": "Abzüglich privat gefahrener Kilometer (0,10 Euro je gefahrenem Kilometer)",
+                "meaning": "U ovom izdanju štampani red umanjuje za privatne kilometre po 0,10 EUR/km; kilometre dokazuje Fahrtenbuch. Nije dodatni prihod ili odbitak za svako vozilo."
+              },
+              {
+                "german": "B6.5 privates Kraftfahrzeug – betriebliche Fahrten (0,10 Euro je gefahrenem Kilometer)",
+                "meaning": "Za privatno vozilo samo poslovne vožnje po štampanoj stopi 0,10 EUR/km; odlazak od kuće do poslovnice pripada 54–56, ne ovom redu."
+              },
+              {
+                "german": "B7.1 Reisekosten – Übernachtungskosten",
+                "meaning": "Poslovno putovanje: noćenja s računima."
+              },
+              {
+                "german": "B7.2 Reisekosten – Reisenebenkosten",
+                "meaning": "Sporedni troškovi poslovnog puta uz svrhu i račun, npr. parking/sajam; provjeri upute."
+              },
+              {
+                "german": "B7.3 Reisekosten – Kosten für öffentliche Verkehrsmittel",
+                "meaning": "Javni prevoz za poslovni put uz kartu i svrhu."
+              },
+              {
+                "german": "B8 Investitionen",
+                "meaning": "Dokumentovane poslovne investicije uz račun/ponudu; priznavanje provjerava Jobcenter, posebno neplanirane veće kupovine."
+              },
+              {
+                "german": "B9 Investitionen aus Zuwendungen Dritter",
+                "meaning": "Investicije iz davanja trećih osoba: pokaži finansiranje i račun, ne zbrajaj istu kupovinu dvaput."
+              },
+              {
+                "german": "B10 Büromaterial einschließlich Porto",
+                "meaning": "Kancelarijski materijal i poštarina uz poslovne račune."
+              },
+              {
+                "german": "Zwischensumme Tabelle B – Teil 2",
+                "meaning": "Međuzbroj dijela 2, s prenesenim dijelom 1, ide u dio 3."
+              }
+            ]
+          },
+          {
+            "id": "eks-49",
+            "german": "Tabelle B – Teil 3: Angaben zu den Betriebsausgaben und zum Gewinn",
+            "reference": "EKS · Seite 7 · G · 49",
+            "meaning": "Tabela B: poslovni izdaci, dio 3",
+            "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
+            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "example": "Izmišljeno: 20 EUR poslovnog telefona u novembru → B11; ukupna dobit nije odluka o pravima.",
+            "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Mjesec iz istog perioda C."
+              },
+              {
+                "german": "Übertrag Zwischensumme Tabelle B – Teil 2",
+                "meaning": "Prenesi rezultat prethodne tabele istog mjeseca."
+              },
+              {
+                "german": "B11 Telefonkosten",
+                "meaning": "Samo poslovni dio telefona. Ako nema odvojenog priključka i dio se ne može utvrditi, BA upute navode mogućih 50%; ne primjenjuj automatski."
+              },
+              {
+                "german": "B12 Beratungskosten",
+                "meaning": "Poslovno savjetovanje, npr. knjigovodstvo/porezni savjet, uz račun."
+              },
+              {
+                "german": "B13 Fortbildungskosten",
+                "meaning": "Poslovno potrebna edukacija/literatura uz dokaz veze s djelatnošću."
+              },
+              {
+                "german": "B14.1 Sonstige Betriebsausgaben – Reparaturkosten Anlagevermögen",
+                "meaning": "Popravke dugotrajne poslovne opreme, ne ponovo vozila iz B6.4."
+              },
+              {
+                "german": "B14.2 Sonstige Betriebsausgaben – Miete Einrichtung",
+                "meaning": "Najam poslovne opreme/namještaja uz ugovor i uplatu."
+              },
+              {
+                "german": "B14.3 Sonstige Betriebsausgaben – Nebenkosten des Geldverkehrs",
+                "meaning": "Poslovne bankovne naknade uz izvod."
+              },
+              {
+                "german": "B14.4 Sonstige Betriebsausgaben – Betriebliche Abfallbeseitigung",
+                "meaning": "Odvoz poslovnog otpada uz račun."
+              },
+              {
+                "german": "B14.5 weitere bisher nicht erfasste Betriebsausgaben",
+                "meaning": "Drugi još neupisani poslovni izdaci: u 50 tačno imenuj trošak i dokaz, ne zbir bez objašnjenja."
+              },
+              {
+                "german": "B15 Schuldzinsen aus Anlagevermögen",
+                "meaning": "Kamate poslovnog zajma za dugotrajnu opremu uz dokaz uplate; nisu glavnica otplate B16."
+              },
+              {
+                "german": "B16 Tilgung bestehender betrieblicher Darlehen",
+                "meaning": "Otplata postojećih poslovnih zajmova prema ugovoru/planu; uslovi iz EKS uputa, bez automatskog priznanja svake rate."
+              },
+              {
+                "german": "B17 gezahlte Vorsteuer",
+                "meaning": "Plaćena ulazna Umsatzsteuer prema računima/poreznoj evidenciji; razdvoji privatni dio i neto trošak."
+              },
+              {
+                "german": "B18 an das Finanzamt gezahlte Umsatzsteuer",
+                "meaning": "Umsatzsteuer stvarno plaćena Finanzamtu u mjesecu isplate."
+              },
+              {
+                "german": "Summe Betriebsausgaben (Tabelle B Teil 1, 2 und 3)",
+                "meaning": "Ukupni poslovni izdaci svih triju dijelova; prenesene međuzbrojeve ne dodaj drugi put."
+              },
+              {
+                "german": "Gewinn (Betriebseinnahmen abzüglich Betriebsausgaben)",
+                "meaning": "Dobit ovog mjeseca: poslovni primici minus poslovni izdaci; nije konačno pravo na pomoć niti godišnja porezna dobit."
+              }
+            ]
+          },
+          {
+            "id": "eks-50",
+            "german": "Anmerkungen tragen Sie bitte hier ein. Bitte geben Sie die jeweilige Position (zum Beispiel B6.1) an, auf die sich Ihre Anmerkung bezieht.",
+            "reference": "EKS · Seite 7 · G · 50",
+            "meaning": "Napomena uz tačan red tabele",
+            "instruction": "Navedi oznaku reda i mjesec te kratko objašnjenje iznosa, procjene ili neobične uplate. U 50 možeš konkretno opisati B14.5.",
+            "where": "Odgovarajući račun/izvod i izvor procjene.",
+            "example": "Izmišljeno: „B6.1, novembar: iznos prema priloženom računu; budući mjesec procijenjen iz potvrđene narudžbe.“",
+            "mistake": "Ne ostavljaj neobjašnjenu zbirnu napomenu bez reda i mjeseca."
+          },
+          {
+            "id": "eks-51",
+            "german": "Tabelle C: Absetzungen vom Einkommen",
+            "reference": "EKS · Seite 8 · G · 51",
+            "meaning": "Tabela C: lična izdvajanja",
+            "instruction": "Prođi svaki štampani red ispod. Upiši vrstu, iznos EUR i ritam plaćanja odgovarajuće lične stavke. Ne upisuj isti trošak ponovo u B. Priznavanje provjerava Jobcenter.",
+            "where": "Računi, bankovni izvodi, poslovna evidencija/BWA i porezni dokumenti, police/doprinosi i ritam plaćanja; EKS upute str. 2.",
+            "example": "Izmišljeno: Kfz-Haftpflicht 120 EUR kvartalno → 120 EUR i „quartalsweise“, ne 120 EUR mjesečno.",
+            "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
+            "options": [
+              {
+                "german": "Art der Absetzung",
+                "meaning": "Vrsta ličnog izdvajanja, ne još jedan zbir poslovnih izdataka B."
+              },
+              {
+                "german": "Höhe in Euro",
+                "meaning": "Iznos u EUR prema računu/odluci; ne godišnji iznos predstavljen kao mjesečni."
+              },
+              {
+                "german": "Zahlungsrhythmus (zum Beispiel monatlich, quartalsweise oder zu bestimmten Terminen)",
+                "meaning": "Ritam stvarnog plaćanja: mjesečno, kvartalno ili određeni datumi."
+              },
+              {
+                "german": "Einkommensteuervorauszahlungen/Einkommensteuernachzahlungen (siehe letzten Vorauszahlungsbescheid/Einkommensteuerbescheid)",
+                "meaning": "Akontacije/doplate poreza na prihod prema posljednjem poreznom Bescheidu."
+              },
+              {
+                "german": "Pflichtbeiträge zur Kranken-/Pflege- und/oder Rentenversicherung",
+                "meaning": "Obavezni zdravstveni/Pflege/penzijski doprinosi uz dokaz obaveze i plaćanja."
+              },
+              {
+                "german": "Beiträge zur privaten Kranken- und Pflegeversicherung oder freiwillige Beiträge zur gesetzlichen Kranken- und Pflegeversicherung",
+                "meaning": "Privatno ili dobrovoljno zakonsko zdravstveno/Pflege osiguranje uz policu i iznos."
+              },
+              {
+                "german": "Beiträge zur Rentenversicherung",
+                "meaning": "Penzijsko osiguranje prema potvrdi doprinosa."
+              },
+              {
+                "german": "Beiträge zu einer kapitalbildenden Lebensversicherung",
+                "meaning": "Životno osiguranje koje stvara kapital uz policu; prijava nije obećanje odbitka."
+              },
+              {
+                "german": "Beiträge zu einer Versorgungseinrichtung",
+                "meaning": "Doprinosi ustanovi profesionalnog penzijskog zbrinjavanja uz potvrdu."
+              },
+              {
+                "german": "Beiträge für eine Kraftfahrzeug-Haftpflichtversicherung (ohne Teil-/Vollkasko/Kraftfahrzeug-Schutzbrief)",
+                "meaning": "Obavezna odgovornost privatnog vozila, bez Kasko/Schutzbrief; odvoji od poslovnog B6.2."
+              },
+              {
+                "german": "Beiträge für weitere gesetzlich vorgeschriebene Versicherungen (zum Beispiel Haftpflichtversicherung für bestimmte Berufsgruppen wie Rechtsanwälte oder Hebammen)",
+                "meaning": "Druga zakonom obavezna osiguranja uz dokaz obaveze; ne sva dobrovoljna osiguranja."
+              },
+              {
+                "german": "Beiträge für eine geförderte Altersvorsorge nach § 82 Einkommenssteuergesetz (Beiträge zur „Riester-Rente“)",
+                "meaning": "Doprinosi potpomognutoj penzijskoj štednji Riester uz ugovor/dokaz plaćanja."
+              },
+              {
+                "german": "Sonstige Absetzungsmöglichkeiten (zum Beispiel Beiträge zur Arbeitsförderung bei freiwilliger Weiterversicherung (§ 28a Absatz 1 Nummer 2 Drittes Buch Sozialgesetzbuch) oder Einkommen, das bereits bei der Feststellung von Ansprüchen der Ausbildungsförderung angerechnet wurde)",
+                "meaning": "Druge navedene mogućnosti, npr. dobrovoljno osiguranje od nezaposlenosti ili prihod već obračunat u Ausbildungsförderung; precizan dokaz i provjera Jobcentera."
+              }
+            ]
+          },
+          {
+            "id": "eks-52",
+            "german": "Hat die selbständige/freiberufliche Person mindestens ein Kind unter 18 Jahren, welches nicht bei ihr wohnt?",
+            "reference": "EKS · Seite 9 · G · 52",
+            "meaning": "Dijete mlađe od 18 izvan doma",
+            "instruction": "Odgovori za osobu B. Priloži dokaz, npr. rodni list ili Unterhaltstitel; ovo nije pitanje za svako dijete u domaćinstvu.",
+            "where": "Dokaz odgovarajuće okolnosti: Priloži dokaz, npr. rodni list ili Unterhaltstitel; ovo nije pitanje za svako dijete u domaćinstvu.",
+            "example": "Izmišljeno: dijete od 10 godina živi s drugim roditeljem.",
+            "mistake": "Ne pretpostavljaj priznavanje troška ili prava samo iz Ja.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie einen Nachweis bei, zum Beispiel Geburtsurkunde oder Unterhaltstitel)",
+                "meaning": "Da — ima najmanje jedno dijete mlađe od 18 koje ne živi s njom"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-53",
+            "german": "Zahlt die selbständige/freiberufliche Person Unterhalt?",
+            "reference": "EKS · Seite 9 · G · 53",
+            "meaning": "Stvarno plaćeno izdržavanje",
+            "instruction": "Odgovori za osobu B. Priloži dokaz visine obaveze i dokaz stvarne uplate; samo obaveza nije uplata.",
+            "where": "Dokaz odgovarajuće okolnosti: Priloži dokaz visine obaveze i dokaz stvarne uplate; samo obaveza nije uplata.",
+            "example": "Izmišljeno: obaveza i bankovna uplata potvrđuju 150 EUR.",
+            "mistake": "Ne pretpostavljaj priznavanje troška ili prava samo iz Ja.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie einen Nachweis zur Höhe der Unterhaltsverpflichtung und einen Zahlungsnachweis bei)",
+                "meaning": "Da — stvarno plaća izdržavanje"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-54",
+            "german": "Hat die selbständige/freiberufliche Person Ausgaben für die Fahrten zur Betriebsstätte mit dem privaten Kraftfahrzeug?",
+            "reference": "EKS · Seite 9 · G · 54",
+            "meaning": "Privatnim vozilom do poslovnice",
+            "instruction": "Odgovori za osobu B. Kod Ja prati 55–56; Nein vodi na 57.",
+            "where": "Dokaz odgovarajuće okolnosti: Kod Ja prati 55–56; Nein vodi na 57.",
+            "example": "Izmišljeno: privatnim autom put do radionice, ne put do klijenta.",
+            "mistake": "Ne pretpostavljaj priznavanje troška ili prava samo iz Ja.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — privatnim vozilom putuje do poslovnice uz trošak"
+              },
+              {
+                "german": "Nein (weiter mit 57)",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-55-56",
+            "german": "Bitte geben Sie die einfache Strecke zwischen Wohnung und Betriebsstätte in Kilometern an. · An wie vielen Arbeitstagen je Woche fährt die selbständige/freiberufliche Person regelmäßig die Strecke?",
+            "reference": "EKS · Seite 9 · G · 55–56",
+            "meaning": "Jednosmjerni put i dani sedmično",
+            "instruction": "55 jednosmjerna udaljenost u km; 56 redovni radni dani sedmično. Ne upisuj dvostruku povratnu udaljenost niti mjesečne dane.",
+            "where": "Adresa kuće/poslovnice, ruta i kalendar rada.",
+            "example": "Izmišljeno: 8 km u jednom smjeru, 4 dana sedmično.",
+            "mistake": "Ne dupliraj ove vožnje u B6.5."
+          },
+          {
+            "id": "eks-57",
+            "german": "Entstehen der selbständigen/freiberuflichen Person Mehraufwendungen für Verpflegung wegen einer täglichen Abwesenheit von mindestens 12 Stunden von der Wohnung oder dem üblichen Beschäftigungsort, ohne dass eine doppelte Haushaltsführung vorliegt?",
+            "reference": "EKS · Seite 9 · G · 57",
+            "meaning": "Dodatna ishrana kod dugog odsustva",
+            "instruction": "Odgovori za osobu B. Provjeri vrijeme/svrhu odsustva; 58 traži broj odgovarajućih radnih dana u mjesecu, ne izmišljenu paušalnu svotu.",
+            "where": "Dokaz odgovarajuće okolnosti: Provjeri vrijeme/svrhu odsustva; 58 traži broj odgovarajućih radnih dana u mjesecu, ne izmišljenu paušalnu svotu.",
+            "example": "Izmišljeno: evidencija dokumentuje 3 dana s najmanje 12 sati odsustva.",
+            "mistake": "Ne pretpostavljaj priznavanje troška ili prava samo iz Ja.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — ima navedeni dodatni trošak i najmanje 12 sati dnevnog odsustva, bez dvojne kuće u smislu pitanja"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "eks-58",
+            "german": "Bitte geben Sie die Anzahl der Arbeitstage im Monat an, bei denen Mehraufwendungen für Verpflegung entstehen.",
+            "reference": "EKS · Seite 9 · G · 58",
+            "meaning": "Broj dana mjesečno iz 57",
+            "instruction": "Prebroji samo radne dane u mjesecu koji odgovaraju uslovima pitanja 57.",
+            "where": "Kalendar, putna evidencija i trajanje odsustva.",
+            "example": "Izmišljeno: tri odgovarajuća dana → 3.",
+            "mistake": "Ne navodi sve radne dane bez provjere trajanja odsustva."
+          },
+          {
+            "id": "eks-59-60",
+            "german": "Datum · Unterschrift selbständige/freiberufliche Person",
+            "reference": "EKS · Seite 9 · H · 59–60",
+            "meaning": "Provjera i odgovarajući potpis",
+            "instruction": "U H samostalna osoba potvrđuje F–G i poznavanje EKS uputa. Podnosilac zasebno potpisuje E za A–D. Ako je ista osoba, potpisuje oba mjesta.",
+            "where": "Službeni obrazac, pročitane upute i dokument zastupanja ako je primjenjivo. ",
+            "example": "Izmišljeno: Maja je i podnosilac i samostalna osoba pa potpisuje E i H; u ostalim obrascima prati njihov odjeljak potpisa.",
+            "mistake": "„Pregledano“ na BalkanLinku nije potpis ili predaja. Ne potpisuj u ime druge odrasle osobe bez odgovarajućeg ovlaštenja."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Čija djelatnost i koji period?",
+            "sections": {
+              "meaning": "EKS opisuje samostalnu/freelance djelatnost. Uvod traži odvojen primjerak za svaku odgovarajuću osobu BG „über 15 Jahren“; kod nejasne granice provjeri Jobcenter. A je podnosilac, B samostalna osoba.",
+              "action": "Potvrdi svrhu, osobu B, period 9 i privremeno/konačno u 8/42. Za sezonsku ili skraćenu djelatnost prvo pročitaj EKS upute.",
+              "mistake": "Ne prepiši poreznu godišnju dobit kao EKS dobit."
+            }
+          },
+          {
+            "id": "business",
+            "title": "Pripremi poslovne podatke",
+            "sections": {
+              "meaning": "D/F opisuju poslovnicu, radnike, porezni status, subvencije i zajmove.",
+              "action": "Prikupi prijavu djelatnosti, ugovore, police, izvode i dokumente zajma. Ne šalji nepotrebne podatke trećih osoba; prati pravila zaštite iz BA uputa.",
+              "mistake": "Ne izaberi Umsatzsteuer status samo iz visine prihoda."
+            }
+          },
+          {
+            "id": "tables",
+            "title": "Mjesečni primici i izdaci A/B",
+            "sections": {
+              "meaning": "A bilježi poslovne primitke, B dokumentovane izdatke; procjena i stvarne uplate ostaju različiti.",
+              "action": "Prođi sve redove 43/45/48/49. Koristi iste mjesece, datume stvarnog priliva/isplate i dokaze. Zajam i finansirane kupovine provjeri u uputama prije razvrstavanja.",
+              "mistake": "Nema automatske priznatosti izdatka ni poreznih amortizacija kao stvarnog plaćanja. Veće neočekivane izdatke prema uputama odmah prijavi Jobcenteru."
+            }
+          },
+          {
+            "id": "personal",
+            "title": "Lična izdvajanja C i završna pitanja",
+            "sections": {
+              "meaning": "51–58 odvajaju lična osiguranja/porez/izdržavanje i put do poslovnice od poslovnih tabela.",
+              "action": "Priloži odgovarajuće odluke i uplate. Iznos i ritam plaćanja u C zapiši odvojeno. 54 Nein preskače na 57.",
+              "mistake": "Ne dupliraj trošak u B i C ili poslovne kilometre i put do poslovnice."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Dva potpisa, predaja i konačna provjera",
+            "sections": {
+              "meaning": "E potvrđuje A–D, H potvrđuje F–G i poznavanje EKS uputa.",
+              "action": "Podnosilac potpisuje E, samostalna osoba H; ako ista osoba, oba. Predaj originalni obrazac s kopijama putem vlastitog Jobcentera, sačuvaj potvrdu. Promjene prijavi odmah prema uputama; nakon perioda dostavi stvarne dokazane podatke.",
+              "mistake": "Pregledano nije predato. Konačni obračun može dovesti do povrata ili dodatne isplate; ne obećavamo ishod."
+            }
+          }
+        ]
+      },
+      "anlage-sv": {
+        "title": "SV — vodič uz službeni obrazac 10/2026",
+        "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
+        "modes": {
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
+        },
+        "terms": [
+          {
+            "id": "sv-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "SV · Seite 1 · A · 1–4",
+            "meaning": "Podnosilac glavnog zahtjeva",
+            "instruction": "Upiši ime, prezime i datum rođenja podnosioca glavnog zahtjeva. BG broj prepiši samo ako već postoji; bez njega ne izmišljaj broj. Ovo nije nužno osoba na koju se prilog odnosi.",
+            "where": "Lični dokument i postojeći Jobcenter Bescheid: potraži „Nummer der Bedarfsgemeinschaft“, ne Versicherungsnummer.",
+            "example": "Izmišljeno: Maja Kovač, 15.05.1985; BG broj se prepisuje iz vlastitog Bescheida, ne iz primjera.",
+            "mistake": "Ne zamijeni podnosioca i drugu osobu iz B. TT.MM.JJJJ znači dan.mjesec.godina."
+          },
+          {
+            "id": "sv-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "SV · Seite 1 · B · 5–7",
+            "meaning": "Osoba čije se osiguranje provjerava",
+            "instruction": "Upiši ime, prezime i datum rođenja osobe opisane u B. Ako se prilog odnosi na tebe, ponovi svoje podatke; inače koristi podatke te druge osobe.",
+            "where": "Lični dokument te osobe. Pitanja koja slijede odnose se na nju, ne automatski na podnosioca.",
+            "example": "Izmišljeno: Maja podnosi zahtjev; za prilog koji se odnosi na Damira Novaka u B stoji Damir Novak, 20.03.1987.",
+            "mistake": "Ne koristi podatke svakog sustanara. Svrhu priloga prvo potvrdi prema službenom uvodu."
+          },
+          {
+            "id": "sv-8",
+            "german": "Ist die Person derzeit oder war sie zuletzt privat krankenversichert?",
+            "reference": "SV · Seite 1 · C · 8",
+            "meaning": "Sadašnje ili posljednje privatno osiguranje",
+            "instruction": "Odgovori za osobu B. Provjeri policu i potvrdu prethodnog osiguravatelja; nije pitanje za podnosioca ako B označava drugu osobu. Uvod C opisuje posljedice kombinacije odgovora, ali BalkanLink ne određuje obavezu osiguranja.",
+            "where": "Polica, potvrda osiguranja i dokazi statusa; za nejasan period pitaj Krankenkasse/Jobcenter.",
+            "example": "Izmišljeno: Maja provjerava osiguranje osobe B iz potvrde; odgovor na 11 zasniva se na cijelom petogodišnjem periodu, ne samo rođendanu.",
+            "mistake": "Ne označavaj Ja zbog jednog dijela složenog pitanja. Ne prekidaj osiguranje na osnovu ovog vodiča.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — osoba je sada ili je posljednje bila privatno zdravstveno osigurana"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "sv-9",
+            "german": "Ist die Person derzeit oder war sie zuletzt hauptberuflich selbständig tätig?",
+            "reference": "SV · Seite 2 · C · 9",
+            "meaning": "Samostalna djelatnost kao glavno zanimanje",
+            "instruction": "Odgovori za osobu B. Provjeri radni/poslovni status s osiguranjem; sporedna djelatnost nije automatski hauptberuflich. Uvod C opisuje posljedice kombinacije odgovora, ali BalkanLink ne određuje obavezu osiguranja.",
+            "where": "Polica, potvrda osiguranja i dokazi statusa; za nejasan period pitaj Krankenkasse/Jobcenter.",
+            "example": "Izmišljeno: Maja provjerava osiguranje osobe B iz potvrde; odgovor na 11 zasniva se na cijelom petogodišnjem periodu, ne samo rođendanu.",
+            "mistake": "Ne označavaj Ja zbog jednog dijela složenog pitanja. Ne prekidaj osiguranje na osnovu ovog vodiča.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — osoba je sada ili je posljednje bila samostalna kao glavno zanimanje"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "sv-10",
+            "german": "Ist die Person oder war sie zuletzt nach beamtenrechtlichen Vorschriften oder Grundsätzen im Krankheitsfall abgesichert beziehungsweise beihilfeberechtigt (zum Beispiel Beamtinnen und Beamte, Soldatinnen und Soldaten auf Zeit sowie Berufssoldatinnen und Berufssoldaten)?",
+            "reference": "SV · Seite 2 · C · 10",
+            "meaning": "Zaštita prema pravilima za državne službenike / Beihilfe",
+            "instruction": "Odgovori za osobu B. Potvrda službenog statusa/Beihilfe; zaposlenje u javnom sektoru samo nije isto što i Beamtenstatus. Uvod C opisuje posljedice kombinacije odgovora, ali BalkanLink ne određuje obavezu osiguranja.",
+            "where": "Polica, potvrda osiguranja i dokazi statusa; za nejasan period pitaj Krankenkasse/Jobcenter.",
+            "example": "Izmišljeno: Maja provjerava osiguranje osobe B iz potvrde; odgovor na 11 zasniva se na cijelom petogodišnjem periodu, ne samo rođendanu.",
+            "mistake": "Ne označavaj Ja zbog jednog dijela složenog pitanja. Ne prekidaj osiguranje na osnovu ovog vodiča.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — postoji ili je posljednje postojala opisana službenička zaštita/Beihilfe"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "sv-11",
+            "german": "Hat die Person das 55. Lebensjahr vollendet, beantworten Sie bitte folgende Frage: War die Person in den letzten fünf Jahren vor Antragstellung nicht gesetzlich versichert und war sie für mindestens zweieinhalb Jahre versicherungsfrei oder von der Versicherungspflicht befreit oder nicht versicherungspflichtig wegen der Ausübung einer hauptberuflichen selbständigen Tätigkeit?",
+            "reference": "SV · Seite 2 · C · 11",
+            "meaning": "Složeno pitanje samo od 55 godina",
+            "instruction": "Odgovori za osobu B. Prije odgovora utvrdi sve periode s Krankenkasse: dob sama ne znači Ja. Za mlađu osobu uslovni tekst nije primjenjiv; ne pretpostavljaj istoriju. Uvod C opisuje posljedice kombinacije odgovora, ali BalkanLink ne određuje obavezu osiguranja.",
+            "where": "Polica, potvrda osiguranja i dokazi statusa; za nejasan period pitaj Krankenkasse/Jobcenter.",
+            "example": "Izmišljeno: Maja provjerava osiguranje osobe B iz potvrde; odgovor na 11 zasniva se na cijelom petogodišnjem periodu, ne samo rođendanu.",
+            "mistake": "Ne označavaj Ja zbog jednog dijela složenog pitanja. Ne prekidaj osiguranje na osnovu ovog vodiča.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — osoba ima 55 ili više, posljednjih pet godina nije bila zakonski osigurana I najmanje dvije i po godine imala je jednu od opisanih vrsta izuzeća/neobaveznosti"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "sv-12",
+            "german": "Möchten Sie einen Zuschuss zu den Beiträgen zur Kranken- und Pflegeversicherung beantragen?",
+            "reference": "SV · Seite 2 · D · 12",
+            "meaning": "Zahtjev za subvenciju doprinosa",
+            "instruction": "Ja znači da želiš zatražiti subvenciju, ne da je odobrena. Priloži aktuelnu odluku o mjesečnom doprinosu; za privatno osiguranje i potvrdu iznosa koji bi se plaćao u Basistarifu. Nein znači da ovim poljem ne tražiš subvenciju.",
+            "where": "Doprinosni Bescheid i potvrda osiguravatelja o Basistarifu; BA Merkblätter iz službenog spiska. Uvod C kod svih Nein traži odabir Krankenkasse i dokaz u dvije sedmice, najbolje uz zahtjev; potvrdi vlastiti slučaj s osiguranjem.",
+            "example": "Izmišljeno: aktuelni doprinos i potvrda Basistarifa su dva odvojena dokumenta uz Ja.",
+            "mistake": "Ne obećavaj punu nadoknadu i ne zamijeni aktuelnu premiju s hipotetičnim Basistarifom.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie den aktuellen Bescheid über die monatlichen Beiträge sowie bei privater Versicherung einen Nachweis über den Beitrag, den Sie im Basistarif zahlen würden, bei)",
+                "meaning": "Da — želiš podnijeti zahtjev za subvenciju doprinosa"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "sv-13-14-15-16",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "SV · Seite 2 · E · 13–16",
+            "meaning": "Provjera i odgovarajući potpis",
+            "instruction": "Navedi stvarni datum potpisa i potpis podnosioca; kod maloljetnika zakonski odgovarajuća osoba. Drugi par datum/potpis je za Betreuer/Vormund samo ako postoji odgovarajuće zastupanje. ",
+            "where": "Službeni obrazac, pročitane upute i dokument zastupanja ako je primjenjivo. SV potvrđuje i da su navedeni Merkblätter pročitani; otvori ih preko službenog BA spiska.",
+            "example": "Izmišljeno: Maja je i podnosilac i samostalna osoba pa potpisuje E i H; u ostalim obrascima prati njihov odjeljak potpisa.",
+            "mistake": "„Pregledano“ na BalkanLinku nije potpis ili predaja. Ne potpisuj u ime druge odrasle osobe bez odgovarajućeg ovlaštenja."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Provjeri kome treba SV",
+            "sections": {
+              "meaning": "SV uvod se odnosi na BG osobe koje nisu obavezno ili porodično osigurane u zakonskom Kranken-/Pflegeversicherung.",
+              "action": "Prvo provjeri mogućnost zakonskog osiguranja s Krankenkasse. Pripremi dokumente osobe B i ne zaključuj status iz jednog odgovora.",
+              "mistake": "Ne otkazuj postojeću policu zbog ovog vodiča."
+            }
+          },
+          {
+            "id": "questions",
+            "title": "Razjasni pitanja 8–11",
+            "sections": {
+              "meaning": "Privatno osiguranje, glavna samostalna djelatnost, Beihilfe i složeni uslov od 55 godina su zasebna pitanja.",
+              "action": "Prođi svako pitanje s dokazom. Uvod C opisuje put kod Ja i svih Nein; kod svih Nein navodi Krankenkasse i dokaz unutar dvije sedmice, najbolje uz zahtjev. Svoj slučaj potvrdi s osiguranjem.",
+              "mistake": "Dob od 55 sama nije odgovor Ja na cijelo 11."
+            }
+          },
+          {
+            "id": "subsidy",
+            "title": "Zatraži subvenciju ako je želiš",
+            "sections": {
+              "meaning": "12 traži izbor zahtjeva za subvenciju; ne potvrđuje odobrenje ili visinu.",
+              "action": "Za Ja priloži aktuelni mjesečni Bescheid doprinosa i kod privatnog osiguranja potvrdu Basistarifa. Pročitaj oba navedena Merkblätter preko službene BA liste.",
+              "mistake": "Ne zamijeni Basistarif s aktuelnom premijom."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Pregled, potpis i dalje",
+            "sections": {
+              "meaning": "E potvrđuje tačnost podataka i pročitane Merkblätter; Jobcenter/osiguranje provjeravaju status.",
+              "action": "Pregledaj A/B, dokaze i 13–16. Podnesi službeni SV svom Jobcenteru uz kopije i sačuvaj potvrdu; prati dopunu bez pretpostavljenog roka obrade.",
+              "mistake": "Pregledano ne znači osigurano ili predato."
+            }
+          }
+        ]
+      },
+      "anlage-bb": {
+        "title": "BB — vodič uz službeni obrazac 10/2026",
+        "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
+        "modes": {
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
+        },
+        "terms": [
+          {
+            "id": "bb-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "BB · Seite 1 · A · 1–4",
+            "meaning": "Podnosilac glavnog zahtjeva",
+            "instruction": "Upiši ime, prezime i datum rođenja podnosioca glavnog zahtjeva. BG broj prepiši samo ako već postoji; bez njega ne izmišljaj broj. Ovo nije nužno osoba na koju se prilog odnosi.",
+            "where": "Lični dokument i postojeći Jobcenter Bescheid: potraži „Nummer der Bedarfsgemeinschaft“, ne Versicherungsnummer.",
+            "example": "Izmišljeno: Maja Kovač, 15.05.1985; BG broj se prepisuje iz vlastitog Bescheida, ne iz primjera.",
+            "mistake": "Ne zamijeni podnosioca i drugu osobu iz B. TT.MM.JJJJ znači dan.mjesec.godina."
+          },
+          {
+            "id": "bb-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "BB · Seite 1 · B · 5–7",
+            "meaning": "Osoba kojoj nastaje posebna potreba",
+            "instruction": "Upiši ime, prezime i datum rođenja osobe opisane u B. Ako se prilog odnosi na tebe, ponovi svoje podatke; inače koristi podatke te druge osobe.",
+            "where": "Lični dokument te osobe. Pitanja koja slijede odnose se na nju, ne automatski na podnosioca.",
+            "example": "Izmišljeno: Maja podnosi zahtjev; za prilog koji se odnosi na Damira Novaka u B stoji Damir Novak, 20.03.1987.",
+            "mistake": "Ne koristi podatke svakog sustanara. Svrhu priloga prvo potvrdi prema službenom uvodu."
+          },
+          {
+            "id": "bb-8",
+            "german": "Welchen unabweisbaren besonderen Bedarf möchten Sie beantragen? (Hinweis Unabweisbarer besonderer Bedarf)",
+            "reference": "BB · Seite 1 · C · 8",
+            "meaning": "Koju konkretnu posebnu potrebu prijavljuješ?",
+            "instruction": "Opiši konkretan potreban trošak i za koga nastaje. „Unabweisbar“ označava potrebu koja se ne može izbjeći; Jobcenter provjerava pravne uslove. BB nije automatski prilog za svaku dodatnu potrebu niti zamjena za MEB.",
+            "where": "Dokument svrhe/okolnosti, ponuda/račun i konkretan zahtjev Jobcentera. Ne treba ovdje iznositi osjetljive podatke.",
+            "example": "Izmišljeno: Maja opisuje konkretan trošak nužnih ponovljenih putovanja radi lične obaveze; ne tvrdi da će biti priznat.",
+            "mistake": "Ne piši samo „treba mi novac“ niti prepisuj primjer kao dokaz prava."
+          },
+          {
+            "id": "bb-9",
+            "german": "Wann entsteht der unabweisbare besondere Bedarf?",
+            "reference": "BB · Seite 1 · C · 9",
+            "meaning": "Kada i koliko često nastaje trošak?",
+            "instruction": "Odaberi stvarni ritam i popuni pripadajući datum: jednom MM.JJJJ; mjesečno/kvartalno/polugodišnje TT.MM; kod drugog ritma konkretno ga opiši.",
+            "where": "Ponuda, plan termina, obaveza plaćanja ili prethodni računi.",
+            "example": "Izmišljeno: jedan trošak u 11.2026 ili ponavljani mjesečni trošak na 15. dan; izaberi samo stvarni slučaj.",
+            "mistake": "Ne miješaj mjesečni iznos i kvartalni ritam.",
+            "options": [
+              {
+                "german": "Einmalig (MM.JJJJ)",
+                "meaning": "Jednom: navedi mjesec i godinu nastanka."
+              },
+              {
+                "german": "Monatlich, jeweils zum (TT.MM)",
+                "meaning": "Mjesečno: navedi traženi dan/mjesec plaćanja."
+              },
+              {
+                "german": "Vierteljährlich, zum (TT.MM)",
+                "meaning": "Svaka tri mjeseca: datum početka/plaćanja prema dokumentu."
+              },
+              {
+                "german": "Halbjährlich, zum (TT.MM)",
+                "meaning": "Svaka šest mjeseci: odgovarajući datum prema obavezi."
+              },
+              {
+                "german": "Sonstiger Zahlungsrhythmus",
+                "meaning": "Drugi ritam: opiši stvarnu učestalost, ne označavaj naslijepo."
+              }
+            ]
+          },
+          {
+            "id": "bb-10",
+            "german": "Bitte geben Sie an, weshalb der unabweisbare besondere Bedarf entsteht. Falls der Bedarf nur einmal entsteht, erläutern Sie bitte zusätzlich, weshalb die Aufnahme eines Darlehens über das Jobcenter nicht möglich ist.",
+            "reference": "BB · Seite 2 · C · 10",
+            "meaning": "Razlog potrebe; kod jednokratne i pitanje zajma",
+            "instruction": "Objasni činjenice: zašto trošak nastaje i ne može se izbjeći. Ako nastaje jednom, obrazac dodatno traži zašto zajam preko Jobcentera nije moguć. Ako to ne znaš, prvo razjasni s Jobcenterom; ne izmišljaj razloge ili pravne tvrdnje.",
+            "where": "Dokazi okolnosti, korespondencija i ponude; pravni uslov procjenjuje Jobcenter.",
+            "example": "Izmišljeno: Maja navodi konkretne termine, potreban put i šta je već provjerila; ne tvrdi da je zajam odbijen ako nije.",
+            "mistake": "Ne ostavi pitanje o zajmu neobjašnjeno kod jednokratne potrebe niti garantuj priznanje."
+          },
+          {
+            "id": "bb-11",
+            "german": "Steht die Höhe des unabweisbaren besonderen Bedarfs bereits fest?",
+            "reference": "BB · Seite 2 · C · 11",
+            "meaning": "Je li iznos poznat?",
+            "instruction": "Odgovori odvojeno na ovo pitanje. Ako je iznos poznat, 12 traži EUR i ponudu/sličan dokaz; ako nije, jasno označi neizvjesnost umjesto izmišljenog iznosa.",
+            "where": "Ponuda/račun i datum dospijeća; provjeri s Jobcenterom ako iznos još nije poznat.",
+            "example": "Izmišljeno: ponuda 85 EUR potvrđuje poznat iznos; predujam se zasebno traži u 13/14.",
+            "mistake": "Ne smatraj Ja odlukom o pravu. Poznat trošak i potreba predujma su dva različita pitanja.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — iznos je već utvrđen dokazom"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "bb-12",
+            "german": "Bitte geben Sie die Höhe des unabweisbaren besonderen Bedarfs in Euro an und fügen Sie einen Kostenvoranschlag oder ähnliche Nachweise bei.",
+            "reference": "BB · Seite 2 · C · 12",
+            "meaning": "Visina posebne potrebe u EUR",
+            "instruction": "Navedi dokazani iznos troška i priloži ponudu ili sličan dokaz.",
+            "where": "Ponuda/račun, plan plaćanja i raspoloživi dokazi.",
+            "example": "Izmišljeno: trošak 85 EUR u 12; ako se traži predujam 40 EUR, to stoji u 14.",
+            "mistake": "Ne zamijeni ukupan trošak, već plaćen iznos i traženi predujam."
+          },
+          {
+            "id": "bb-13",
+            "german": "Benötigen Sie einen Vorschuss für den unabweisbaren besonderen Bedarf?",
+            "reference": "BB · Seite 2 · C · 13",
+            "meaning": "Treba li predujam?",
+            "instruction": "Odgovori odvojeno na ovo pitanje. Ja je zahtjev za predujam; 14 navodi iznos koji tražiš. To nije odobrenje predujma.",
+            "where": "Ponuda/račun i datum dospijeća; provjeri s Jobcenterom ako iznos još nije poznat.",
+            "example": "Izmišljeno: ponuda 85 EUR potvrđuje poznat iznos; predujam se zasebno traži u 13/14.",
+            "mistake": "Ne smatraj Ja odlukom o pravu. Poznat trošak i potreba predujma su dva različita pitanja.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — tražiš predujam prije konačnog plaćanja/odluke"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "bb-14",
+            "german": "Wie hoch soll der Vorschuss sein? Bitte geben Sie die Höhe des Vorschusses in Euro an.",
+            "reference": "BB · Seite 2 · C · 14",
+            "meaning": "Traženi predujam u EUR",
+            "instruction": "Navedi iznos predujma koji zaista tražiš, uz vezu sa ukupnim troškom i dospijećem; nije automatski isti kao 12.",
+            "where": "Ponuda/račun, plan plaćanja i raspoloživi dokazi.",
+            "example": "Izmišljeno: trošak 85 EUR u 12; ako se traži predujam 40 EUR, to stoji u 14.",
+            "mistake": "Ne zamijeni ukupan trošak, već plaćen iznos i traženi predujam."
+          },
+          {
+            "id": "bb-15-16-17-18",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "BB · Seite 2 · D · 15–18",
+            "meaning": "Provjera i odgovarajući potpis",
+            "instruction": "Navedi stvarni datum potpisa i potpis podnosioca; kod maloljetnika zakonski odgovarajuća osoba. Drugi par datum/potpis je za Betreuer/Vormund samo ako postoji odgovarajuće zastupanje. ",
+            "where": "Službeni obrazac, pročitane upute i dokument zastupanja ako je primjenjivo. ",
+            "example": "Izmišljeno: Maja je i podnosilac i samostalna osoba pa potpisuje E i H; u ostalim obrascima prati njihov odjeljak potpisa.",
+            "mistake": "„Pregledano“ na BalkanLinku nije potpis ili predaja. Ne potpisuj u ime druge odrasle osobe bez odgovarajućeg ovlaštenja."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Posebna potreba nije automatsko pravo",
+            "sections": {
+              "meaning": "BB je zahtjev za unabweisbarer besonderer Bedarf za sebe ili osobu BG; nije svaka dodatna životna potreba.",
+              "action": "Potvrdi s Jobcenterom koji prilog odgovara, zatim odvoji podnosioca A i osobu B. Ne pretpostavljaj BB umjesto MEB ili SGB XII.",
+              "mistake": "Primjer nije garancija odobrenja."
+            }
+          },
+          {
+            "id": "explain",
+            "title": "Opiši razlog i ritam",
+            "sections": {
+              "meaning": "8–10 odvajaju potrebu, vrijeme i razlog; jednokratna potreba dodatno pita za nemogućnost Jobcenter zajma.",
+              "action": "Navedi konkretne činjenice i dokaze. Ako pitanje zajma nije jasno, pitaj prije pravne tvrdnje. Izaberi stvarni ritam iz svih pet opcija.",
+              "mistake": "Ne izmišljaj razloge ili već odbijen zajam."
+            }
+          },
+          {
+            "id": "cost",
+            "title": "Trošak i traženi predujam",
+            "sections": {
+              "meaning": "11/12 poznati iznos i dokaz; 13/14 odvojeni zahtjev za predujam.",
+              "action": "Priloži dostupne ponude/račune. Odvoji ukupnu potrebu i traženi predujam; nepoznat iznos jasno razjasni s Jobcenterom.",
+              "mistake": "Poznata cijena ne znači da je odobreno."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Namjensko korištenje i dokazi",
+            "sections": {
+              "meaning": "D traži raspoložive dokaze i dokaze korištenja novca za navedenu svrhu; druga upotreba može značiti vraćanje.",
+              "action": "Pregledaj 15–18, potpiši službeni BB i predaj kopije svom Jobcenteru. Sačuvaj potvrdu, račune i eventualni Bescheid; dopunu i odluku čitaj bez pretpostavke ishoda.",
+              "mistake": "Pregledano ovdje nije zahtjev za isplatu niti odobrenje."
+            }
+          }
+        ]
+      },
+      "anlage-ve": {
+        "title": "VE — vodič uz službeni obrazac 10/2026",
+        "introduction": "Otvori službeni original u novoj kartici i prati oznake polja. Svoje podatke upisuješ samo u original i dokaze predaješ Jobcenteru. BalkanLink ne prikuplja odgovore, ne čuva podatke, ne popunjava i ne šalje obrazac.",
+        "variation": "BA · izdanje 10/2026, izvor provjeren 28.10.2026. Brojevi važe samo za ovo izdanje. Jobcenter provjerava okolnosti i odlučuje; ovo nije procjena prava niti garancija odobrenja.",
+        "vocabularyNote": "Prati stranicu, odjeljak i broj. Svaki izbor ispod je iz papirnog originala, ne potvrđenog rasporeda portala. Primjeri su izmišljeni: nikad ih ne predstavljaj kao svoje činjenice.",
+        "modes": {
+          "paper": "Ovo je objašnjenje uz originalni BA PDF 10/2026, ne novi PDF. Prije rada potvrdi aktuelno izdanje. Organ traži kopije dokaza; ostavi originale kod sebe.",
+          "online": "Službeni digitalni put provjeri preko jobcenter.digital i svog Jobcentera. Ovdje nisu provjereni online redoslijed, nazivi ekrana niti dostupnost svakog priloga kao online obrasca."
+        },
+        "terms": [
+          {
+            "id": "ve-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "VE · Seite 1 · A · 1–4",
+            "meaning": "Podnosilac glavnog zahtjeva",
+            "instruction": "Upiši ime, prezime i datum rođenja podnosioca glavnog zahtjeva. BG broj prepiši samo ako već postoji; bez njega ne izmišljaj broj. Ovo nije nužno osoba na koju se prilog odnosi.",
+            "where": "Lični dokument i postojeći Jobcenter Bescheid: potraži „Nummer der Bedarfsgemeinschaft“, ne Versicherungsnummer.",
+            "example": "Izmišljeno: Maja Kovač, 15.05.1985; BG broj se prepisuje iz vlastitog Bescheida, ne iz primjera.",
+            "mistake": "Ne zamijeni podnosioca i drugu osobu iz B. TT.MM.JJJJ znači dan.mjesec.godina."
+          },
+          {
+            "id": "ve-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "VE · Seite 1 · B · 5–7",
+            "meaning": "Osoba koja nije u srodstvu i živi u domaćinstvu",
+            "instruction": "Upiši ime, prezime i datum rođenja osobe opisane u B. Za VE navodi se osoba koja nije u srodstvu i živi s tobom; zajednička adresa sama ne dokazuje partnerstvo.",
+            "where": "Lični dokument te osobe. Pitanja koja slijede odnose se na nju, ne automatski na podnosioca.",
+            "example": "Izmišljeno: Maja podnosi zahtjev; za prilog koji se odnosi na Damira Novaka u B stoji Damir Novak, 20.03.1987.",
+            "mistake": "Ne koristi podatke svakog sustanara. Svrhu priloga prvo potvrdi prema službenom uvodu."
+          },
+          {
+            "id": "ve-8",
+            "german": "Ist die Person Ihre Partnerin/Ihr Partner?",
+            "reference": "VE · Seite 1 · B · 8",
+            "meaning": "Partnerica/partner",
+            "instruction": "Zajednička adresa ili podjela najamnine sama ne znači partnerski odnos. Odgovori stvarno, bez pretpostavki o spolu. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
+            "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlaštenja prema pitanju. Dokaze predaj samo službenom organu.",
+            "example": "Izmišljeno: Maja i Damir dijele stan; Maja provjerava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
+            "mistake": "Ne označavaj strateški radi željenog ishoda niti stigmatizuj sustanare. Za nejasan pojam traži objašnjenje Jobcentera.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — osoba je stvarno tvoja partnerica/partner"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "ve-9",
+            "german": "Leben Sie seit mehr als einem Jahr mit der Person in einem gemeinsamen Haushalt?",
+            "reference": "VE · Seite 1 · B · 9",
+            "meaning": "Zajedničko domaćinstvo duže od godinu",
+            "instruction": "Provjeri stvarni početak zajedničkog domaćinstva. Tačno godinu nije „više od godinu“; samo ista adresa ne rješava sve druge okolnosti. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
+            "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlaštenja prema pitanju. Dokaze predaj samo službenom organu.",
+            "example": "Izmišljeno: Maja i Damir dijele stan; Maja provjerava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
+            "mistake": "Ne označavaj strateški radi željenog ishoda niti stigmatizuj sustanare. Za nejasan pojam traži objašnjenje Jobcentera.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — zajedničko domaćinstvo s osobom traje duže od jedne godine"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "ve-10",
+            "german": "Leben Sie mit der Person und mindestens einem gemeinsamen Kind zusammen?",
+            "reference": "VE · Seite 1 · B · 10",
+            "meaning": "Zajedničko dijete koje živi s oboje",
+            "instruction": "Pitanje traži zajedničko dijete koje tu živi; nije samo bilo koje dijete jednog sustanara. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
+            "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlaštenja prema pitanju. Dokaze predaj samo službenom organu.",
+            "example": "Izmišljeno: Maja i Damir dijele stan; Maja provjerava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
+            "mistake": "Ne označavaj strateški radi željenog ishoda niti stigmatizuj sustanare. Za nejasan pojam traži objašnjenje Jobcentera.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — s osobom i najmanje jednim vašim zajedničkim djetetom živiš zajedno"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "ve-11",
+            "german": "Versorgen Sie und die Person gemeinsam mindestens ein Kind oder eine Angehörige/einen Angehörigen im Haushalt?",
+            "reference": "VE · Seite 2 · B · 11",
+            "meaning": "Zajednička briga o djetetu ili članu porodice",
+            "instruction": "Ovo je zasebno pitanje od zajedničkog djeteta u 10. Navedi stvarnu zajedničku brigu, ne pretpostavku iz podjele stana. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
+            "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlaštenja prema pitanju. Dokaze predaj samo službenom organu.",
+            "example": "Izmišljeno: Maja i Damir dijele stan; Maja provjerava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
+            "mistake": "Ne označavaj strateški radi željenog ishoda niti stigmatizuj sustanare. Za nejasan pojam traži objašnjenje Jobcentera.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — oboje zajednički brinete o najmanje jednom djetetu ili članu porodice u domaćinstvu"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "ve-12",
+            "german": "Dürfen Sie über das Einkommen oder das Vermögen der Person verfügen?",
+            "reference": "VE · Seite 2 · B · 12",
+            "meaning": "Ovlaštenje raspolaganja tuđim prihodom/imovinom",
+            "instruction": "Provjeri ovlaštenje/punomoć i stvarne dogovore. Znati iznos prihoda nije isto što i smjeti njime raspolagati. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
+            "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlaštenja prema pitanju. Dokaze predaj samo službenom organu.",
+            "example": "Izmišljeno: Maja i Damir dijele stan; Maja provjerava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
+            "mistake": "Ne označavaj strateški radi željenog ishoda niti stigmatizuj sustanare. Za nejasan pojam traži objašnjenje Jobcentera.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Da — imaš ovlaštenje raspolagati prihodom ili imovinom druge osobe"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Ne — označi samo ako opis iz pitanja ne odgovara stvarnim okolnostima. Ako ne znaš, provjeri dokaz ili pitaj Jobcenter."
+              }
+            ]
+          },
+          {
+            "id": "ve-13",
+            "german": "Bitte geben Sie an, weshalb Sie glauben, mit der unter Abschnitt B angegebenen Person keine Verantwortungs- und Einstehensgemeinschaft zu bilden.",
+            "reference": "VE · Seite 2 · C · 13",
+            "meaning": "Činjenično objašnjenje protiv pretpostavke",
+            "instruction": "Uvod C kaže da se kod jednog Ja u B pretpostavlja takva zajednica i da se toj pretpostavci može protiviti. Opiši stvarne okolnosti koje smatraš relevantnim, npr. odvojeno vođenje domaćinstva/finansija ako je stvarno tako. Ne izmišljaj razloge i ne garantuj da jedan dokaz pobija pretpostavku.",
+            "where": "Stvarni dogovori i dokazi o vođenju domaćinstva/finansija; kod nesigurnosti pitaj Jobcenter ili nezavisno savjetovalište. Ovo polje nije automatski žalba protiv Bescheida.",
+            "example": "Izmišljeno: Maja opisuje da svako kupuje svoju hranu i plaća ugovoreni dio najamnine samo ako to stvarno rade; ne koristi gotovu tvrdnju kao pravni dokaz.",
+            "mistake": "Ne pretvaraj Ja u nepobitnu odluku ili Nein u garanciju. Odluku donosi Jobcenter nakon provjere činjenica."
+          },
+          {
+            "id": "ve-14-15-16-17",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "VE · Seite 2 · D · 14–17",
+            "meaning": "Provjera i odgovarajući potpis",
+            "instruction": "Navedi stvarni datum potpisa i potpis podnosioca; kod maloljetnika zakonski odgovarajuća osoba. Drugi par datum/potpis je za Betreuer/Vormund samo ako postoji odgovarajuće zastupanje. ",
+            "where": "Službeni obrazac, pročitane upute i dokument zastupanja ako je primjenjivo. ",
+            "example": "Izmišljeno: Maja je i podnosilac i samostalna osoba pa potpisuje E i H; u ostalim obrascima prati njihov odjeljak potpisa.",
+            "mistake": "„Pregledano“ na BalkanLinku nije potpis ili predaja. Ne potpisuj u ime druge odrasle osobe bez odgovarajućeg ovlaštenja."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Provjera odnosa bez pretpostavki",
+            "sections": {
+              "meaning": "VE uvod navodi zajedničko domaćinstvo s osobom koja nije u srodstvu, radi provjere Verantwortungs- und Einstehensgemeinschaft.",
+              "action": "Potvrdi svrhu sa Jobcenterom, odvoji podnosioca A i osobu B. Dijeljeni stan ne proglašava automatski partnerstvo.",
+              "mistake": "Ne pretpostavljaj odnos iz adrese ili spola."
+            }
+          },
+          {
+            "id": "facts",
+            "title": "Pet zasebnih pitanja",
+            "sections": {
+              "meaning": "8–12 pitaju partnerstvo, više od godinu, zajedničko dijete, zajedničku brigu i raspolaganje prihodom/imovinom.",
+              "action": "Odgovori na svako prema činjenicama i odgovarajućim dokazima. Raspoloživost bankovnog podatka nije ovlaštenje raspolaganja.",
+              "mistake": "Nije svako Ja/Nein isto i nema automatske procjene prava."
+            }
+          },
+          {
+            "id": "explain",
+            "title": "Moguće obrazloženje u C",
+            "sections": {
+              "meaning": "Uvod C opisuje pretpostavku kod Ja u B i mogućnost protivljenja; nije nepobitna presuda.",
+              "action": "Ako smatraš da zajednica ne postoji, u 13 opiši stvarne razloge i dostupne dokaze. Za složeno pitanje pitaj Jobcenter ili nezavisno savjetovalište, bez izmišljenih tvrdnji.",
+              "mistake": "Ne predstavljaj obrazloženje kao automatsku žalbu ili garantovan ishod."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Pregled i službena predaja",
+            "sections": {
+              "meaning": "D potvrđuje tačnost; konačno utvrđivanje odnosa radi Jobcenter.",
+              "action": "Pregledaj činjenice, kopije i potpis 14–17. Predaj svom Jobcenteru i sačuvaj potvrdu; na dodatna pitanja odgovori činjenično, bez pretpostavljenog roka/odluke.",
+              "mistake": "BalkanLink ništa ne prikuplja ni ne šalje; pregledano nije predato."
+            }
+          }
+        ]
+      },
       "hauptantrag": {
         "title": "Vodič za popunjavanje glavnog zahtjeva (HA - 10/2026)",
         "introduction": "Otvori službeni obrazac u novoj kartici. Ovdje prati svako polje i opciju; podatke upisuješ samo u službeni obrazac. BalkanLink ništa ne popunjava niti šalje. Ovaj vodič ne traži i ne čuva tvoje lične podatke.",

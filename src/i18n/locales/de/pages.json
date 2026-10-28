@@ -5756,6 +5756,1379 @@
       }
     },
     "guides": {
+      "anlage-eks": {
+        "title": "EKS — Begleiter zum offiziellen Formular 10/2026",
+        "introduction": "Offizielles Original im neuen Tab öffnen und den Feldangaben folgen. Eigene Daten nur dort eintragen und Nachweise an das Jobcenter geben. BalkanLink erhebt keine Antworten, speichert keine Daten, füllt nichts aus und reicht nichts ein.",
+        "variation": "BA · Ausgabe 10/2026, Quelle geprüft am 28.10.2026. Nummern gelten nur für diese Ausgabe. Das Jobcenter prüft und entscheidet; dies ist keine Anspruchsprüfung oder Bewilligungsgarantie.",
+        "vocabularyNote": "Seite, Abschnitt und Nummer beachten. Optionen stammen aus dem Papieroriginal, nicht aus einer bestätigten Portalreihenfolge. Beispiele sind erfunden: niemals als eigene Tatsachen ausgeben.",
+        "modes": {
+          "paper": "Begleitung zum originalen BA-PDF 10/2026, kein neues PDF. Aktuelle Ausgabe vor Verwendung prüfen. Die Behörde verlangt Nachweiskopien; Originale behalten.",
+          "online": "Offiziellen digitalen Weg über jobcenter.digital und das eigene Jobcenter prüfen. Online-Reihenfolge, Bildschirmbezeichnungen und Verfügbarkeit jeder Anlage als Online-Formular sind hier nicht verifiziert."
+        },
+        "terms": [
+          {
+            "id": "eks-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "EKS · Seite 1 · A · 1–4",
+            "meaning": "Antragstellende Person",
+            "instruction": "Vorname, Nachname und Geburtsdatum der Person eintragen, die den Hauptantrag stellt. BG-Nummer nur übernehmen, wenn vorhanden. Diese Person muss nicht die Person sein, auf die sich die Anlage bezieht.",
+            "where": "Ausweisdokument und vorhandener Jobcenter-Bescheid: „Nummer der Bedarfsgemeinschaft“, nicht Versicherungsnummer.",
+            "example": "Erfunden: Maja Kovač, 15.05.1985; die BG-Nummer wird aus dem eigenen Bescheid übernommen, nicht aus dem Beispiel.",
+            "mistake": "Antragstellende Person und andere Person in B nicht verwechseln. TT.MM.JJJJ bedeutet Tag.Monat.Jahr."
+          },
+          {
+            "id": "eks-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "EKS · Seite 1 · B · 5–7",
+            "meaning": "Selbständige/freiberufliche Person",
+            "instruction": "Vorname, Nachname und Geburtsdatum der in B gemeinten Person eintragen. Dies ist die selbständige Person; wenn Sie es selbst sind, betreffen A und B dieselbe Person.",
+            "where": "Ausweisdokument dieser Person. Die folgenden Fragen beziehen sich auf sie, nicht automatisch auf die antragstellende Person.",
+            "example": "Erfunden: Maja stellt den Antrag; betrifft die Anlage Damir Novak, steht in B Damir Novak, 20.03.1987.",
+            "mistake": "Nicht die Daten jedes Mitbewohners einsetzen. Den Zweck der Anlage zuerst anhand des offiziellen Einleitungstextes prüfen."
+          },
+          {
+            "id": "eks-8",
+            "german": "Bitte geben Sie an, ob Sie in diesem Formular vorläufige oder abschließende Angaben machen.",
+            "reference": "EKS · Seite 1 · C · 8",
+            "meaning": "Schätzung oder endgültige Angaben",
+            "instruction": "Art der Erklärung nach dem eingereichten Zeitraum wählen. Bei Fortführung können zwei getrennte EKS nötig sein: abschließend für den vergangenen und vorläufig für den nächsten Zeitraum.",
+            "where": "Jobcenter-Schreiben/Bescheid und Geschäftsunterlagen; BA-Ausfüllhinweise EKS Seite 1.",
+            "example": "Erfunden: Für den künftigen November schätzt Maja; nach dem Bewilligungszeitraum meldet sie tatsächliche Zuflüsse.",
+            "mistake": "Zukunfts- und Ist-Werte nicht in einer Erklärung mischen. Die abschließende Prüfung kann die Berechnung ändern; hier wird kein Anspruch berechnet.",
+            "options": [
+              {
+                "german": "Vorläufig (für die Zukunft)",
+                "meaning": "Vorläufig — nachvollziehbare Schätzung erwarteter Einnahmen und Ausgaben für den künftigen Zeitraum, gestützt auf bisherige Geschäftsdaten und bekannte Aufträge."
+              },
+              {
+                "german": "Abschließend (für die Vergangenheit)",
+                "meaning": "Abschließend — tatsächliche Einnahmen und Ausgaben des abgeschlossenen Zeitraums mit Nachweisen; frühere Schätzungen nicht als Ist-Werte stehen lassen."
+              }
+            ]
+          },
+          {
+            "id": "eks-9",
+            "german": "Bitte geben Sie den Bewilligungszeitraum an, für den dieses Formular ausgefüllt wird.",
+            "reference": "EKS · Seite 1 · C · 9",
+            "meaning": "Bewilligungszeitraum: von–bis",
+            "instruction": "Beginn und Ende TT.MM.JJJJ eintragen. Für vorläufige Angaben nennt das Formular den Antragsmonat und in der Regel insgesamt sechs Monate; abschließend den Zeitraum aus dem Bescheid übernehmen. Abweichende/saisonale Zeiträume mit dem Jobcenter klären, nicht jedem Fall sechs Monate aufzwingen.",
+            "where": "Bewilligungsbescheid und BA-EKS-Hinweise Seiten 1/3; bei Saisonbetrieben nennen die Hinweise auch eine Betrachtung über zwölf Monate mit weiterer EKS.",
+            "example": "Erfunden: Bescheid 01.11.2026–30.04.2027; beide Daten übernehmen und dieselben Monate in den Tabellen verwenden.",
+            "mistake": "Nicht automatisch das Kalenderjahr oder ein Rechnungsdatum als Bewilligungszeitraum verwenden."
+          },
+          {
+            "id": "eks-10-11-12-13-14-15-16-17-18",
+            "german": "Firmenname · Anschrift der Betriebsstätte · Gewerbe oder Tätigkeit · Beginn/Aufnahme der Tätigkeit (MM.JJJJ) · gegebenenfalls Ende der Tätigkeit (MM.JJJJ) · Rechtsform des Unternehmens",
+            "reference": "EKS · Seite 2 · D · 10–18",
+            "meaning": "Name, Anschrift und Art des Betriebs",
+            "instruction": "10 Firmenname; 11–14 Straße, Hausnummer, PLZ und Ort der Betriebsstätte; 15 konkrete Tätigkeit; 16 Beginn MM.JJJJ; 17 Ende nur falls relevant; 18 tatsächliche Rechtsform. Die Beispiele GmbH/GbR/e.K. sind keine vorausgewählte Antwort.",
+            "where": "Gewerbeanmeldung/steuerliche Anmeldung, Honorar-/Dienstleistungsvertrag, Gründungsunterlagen. BA-Hinweise Seite 3 verlangen das Schwärzen der Daten weiterer Gesellschafter in Nachweisen.",
+            "example": "Erfunden: „Novak Übersetzungen“, Tätigkeit Übersetzer, Beginn 09.2026, Einzelunternehmen; Maja übernimmt keine erfundene Anschrift.",
+            "mistake": "Wohnanschrift und Betriebsstätte sowie Antragsdatum und Tätigkeitsbeginn nicht verwechseln."
+          },
+          {
+            "id": "eks-19-20-21-22",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "EKS · Seite 2 · E · 19–22",
+            "meaning": "Prüfung und richtiger Unterschriftsbereich",
+            "instruction": "Tatsächliches Unterschriftsdatum und Unterschrift der antragstellenden Person; bei Minderjährigen die rechtlich zuständige Person. Das zweite Paar Datum/Unterschrift ist für Betreuer/Vormund nur bei entsprechender Vertretung. E bestätigt A–D; H auf Seite 9 wird getrennt von der selbständigen Person unterschrieben.",
+            "where": "Offizielles Formular, gelesene Hinweise und ggf. Vertretungsunterlagen. ",
+            "example": "Erfunden: Maja ist Antragstellerin und Selbständige und unterschreibt E und H; in anderen Anlagen folgt sie deren Unterschriftsbereich.",
+            "mistake": "„Geprüft“ in BalkanLink ist weder Unterschrift noch Einreichung. Nicht ohne entsprechende Befugnis für eine andere erwachsene Person unterschreiben."
+          },
+          {
+            "id": "eks-23",
+            "german": "Wird oder wurde die Miet-/Eigentumswohnung oder das Eigenheim – teilweise – für die selbständige/freiberufliche Tätigkeit gewerblich genutzt?",
+            "reference": "EKS · Seite 3 · F · 23",
+            "meaning": "Gewerbliche Nutzung der Wohnung",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Mietvertrag/Grundriss und tatsächliche gewerbliche Nutzung prüfen.",
+            "where": "Mietvertrag/Grundriss und tatsächliche gewerbliche Nutzung prüfen.",
+            "example": "Erfunden: Ein eigener Raum wird für Übersetzungen genutzt.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — ein Teil der Wohnung tatsächlich gewerblich genutzt wird"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-24-25",
+            "german": "Anzahl der gewerblich genutzten Räume · Gewerblich genutzte Fläche in Quadratmetern (m2)",
+            "reference": "EKS · Seite 3 · F · 24–25",
+            "meaning": "Zahl und Fläche gewerblich genutzter Räume",
+            "instruction": "Bei gewerblicher Wohnungsnutzung Zahl der genutzten Räume und deren Fläche in m² angeben, nicht die ganze Wohnung.",
+            "where": "Grundriss, Messung und Raumvertrag.",
+            "example": "Erfunden: 1 Raum, 12 m².",
+            "mistake": "Fläche ist kein Mietbetrag; Angabe garantiert keine Kostenanerkennung."
+          },
+          {
+            "id": "eks-26",
+            "german": "Werden oder wurden in Verbindung mit der selbständigen/freiberuflichen Tätigkeit Produkte kostenfrei und auf Dauer überlassen, zum Beispiel zur Produktplatzierung?",
+            "reference": "EKS · Seite 3 · F · 26",
+            "meaning": "Dauerhaft kostenlos überlassene Produkte",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Liste aller Produkte mit Art, Wert in Euro und Überlassungsnachweis vorbereiten.",
+            "where": "Liste aller Produkte mit Art, Wert in Euro und Überlassungsnachweis vorbereiten.",
+            "example": "Erfunden: Für einen geschäftlichen Beitrag dauerhaft überlassene Fotoausrüstung hat einen belegten Wert von 180 EUR.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie eine Auflistung und Nachweise über die Art und den Wert in Euro aller Produkte bei)",
+                "meaning": "Ja — Produkte dauerhaft kostenlos im Zusammenhang mit dem Betrieb überlassen wurden, etwa Produktplatzierung"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-27",
+            "german": "Wird oder wurde Personal im Zusammenhang mit der selbständigen/freiberuflichen Tätigkeit beschäftigt?",
+            "reference": "EKS · Seite 3 · F · 27",
+            "meaning": "Beschäftigtes Personal",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Arbeitsverträge und Lohnabrechnungen prüfen; die selbständige Person zählt in 28 nicht mit.",
+            "where": "Arbeitsverträge und Lohnabrechnungen prüfen; die selbständige Person zählt in 28 nicht mit.",
+            "example": "Erfunden: Ein Mitarbeiter neben der Inhaberin bedeutet 28 = 1.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — Personal im Betrieb beschäftigt wird oder wurde"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-28",
+            "german": "Anzahl der Gesamtbeschäftigten (ohne selbständige/freiberufliche Person)",
+            "reference": "EKS · Seite 3 · F · 28",
+            "meaning": "Beschäftigtenzahl ohne selbständige Person",
+            "instruction": "Beschäftigte nach 27 zählen; die selbständige Person ausschließen.",
+            "where": "Verträge und Personalübersicht.",
+            "example": "Erfunden: Inhaberin und zwei Beschäftigte → 2.",
+            "mistake": "Geplante neue Beschäftigte aus 30 nicht zu bestehenden addieren."
+          },
+          {
+            "id": "eks-29",
+            "german": "Ist beabsichtigt, weiteres Personal zu beschäftigen?",
+            "reference": "EKS · Seite 3 · F · 29",
+            "meaning": "Geplantes weiteres Personal",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Personalplanung und erwarteten Beginn prüfen; einen Wunsch nicht als bereits abgeschlossenen Vertrag darstellen.",
+            "where": "Personalplanung und erwarteten Beginn prüfen; einen Wunsch nicht als bereits abgeschlossenen Vertrag darstellen.",
+            "example": "Erfunden: Eine zusätzliche Person ist ab 01.02.2027 geplant.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — weitere Beschäftigung konkret geplant ist"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-30-31",
+            "german": "Anzahl des weiteren Personals · Eine Einstellung erfolgt voraussichtlich ab (TT.MM.JJJJ)",
+            "reference": "EKS · Seite 3 · F · 30–31",
+            "meaning": "Zahl und Datum geplanter Einstellungen",
+            "instruction": "Bei Ja in 29 zusätzliche Beschäftigtenzahl und voraussichtliches Datum TT.MM.JJJJ angeben. Planung klar vom Ist-Stand trennen.",
+            "where": "Personalplan, Aufträge, Entwurf/Arbeitsvertrag.",
+            "example": "Erfunden: 1 Person, 01.02.2027.",
+            "mistake": "Bestehende Beschäftigtenzahl nicht nochmals eintragen."
+          },
+          {
+            "id": "eks-32",
+            "german": "Unterliegt die selbständige/freiberufliche Tätigkeit der Umsatzsteuerpflicht?",
+            "reference": "EKS · Seite 3 · F · 32",
+            "meaning": "Umsatzsteuerpflicht",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Steuerlichen Status beim Finanzamt oder mit Steuerberatung prüfen. Bei Nein entfallen in G Angaben zur Umsatzsteuer/Vorsteuer; Status nicht allein aus geringem Umsatz ableiten.",
+            "where": "Steuerlichen Status beim Finanzamt oder mit Steuerberatung prüfen. Bei Nein entfallen in G Angaben zur Umsatzsteuer/Vorsteuer; Status nicht allein aus geringem Umsatz ableiten.",
+            "example": "Erfunden: Damir prüft seinen bestätigten Status vor A5 und B17/B18.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — die Tätigkeit tatsächlich umsatzsteuerpflichtig ist"
+              },
+              {
+                "german": "Nein (im Abschnitt G entfallen die Angaben zur Umsatzsteuer und zur Vorsteuer)",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-33",
+            "german": "Erhält oder erhielt die selbständige/freiberufliche Person Zuschüsse/Beihilfen zu ihrer selbständigen/freiberuflichen Tätigkeit, zum Beispiel Lohnkostenzuschüsse, Gründungsdarlehen, Einstiegsgeld, Leistungen aus dem europäischen Sozialfond oder Subventionen/Förderungen für landwirtschaftliche Betriebe?",
+            "reference": "EKS · Seite 3 · F · 33",
+            "meaning": "Erhaltene betriebliche Zuschüsse/Beihilfen",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Nachweise über Leistungsträger, Art, Dauer und Höhe beifügen; die Angabe ist keine automatische Anrechnungsentscheidung.",
+            "where": "Nachweise über Leistungsträger, Art, Dauer und Höhe beifügen; die Angabe ist keine automatische Anrechnungsentscheidung.",
+            "example": "Erfunden: Ein Bescheid nennt 200 EUR betriebliche Förderung monatlich für drei Monate.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie Nachweise zum Leistungsträger sowie zur Art, Dauer und Höhe des Zuschusses bei)",
+                "meaning": "Ja — betriebliche Zuschüsse/Beihilfen bezogen werden oder wurden"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-34",
+            "german": "Hat die selbständige/freiberufliche Person Zuschüsse/Beihilfen beantragt oder hat sie vor, diese zu beantragen?",
+            "reference": "EKS · Seite 3 · F · 34",
+            "meaning": "Beantragte oder geplante Förderung",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Antragsnachweis soweit möglich beifügen; von bereits erhaltener Förderung in 33 trennen.",
+            "where": "Antragsnachweis soweit möglich beifügen; von bereits erhaltener Förderung in 33 trennen.",
+            "example": "Erfunden: Antrag gestellt, aber noch kein Bescheid und kein Zahlungseingang.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie soweit möglich Nachweise über die Antragstellung bei)",
+                "meaning": "Ja — Förderung beantragt wurde oder beantragt werden soll, auch ohne Auszahlung"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-35",
+            "german": "Hat die selbständige/freiberufliche Person für den Betrieb/das Gewerbe ein Darlehen aufgenommen?",
+            "reference": "EKS · Seite 3 · F · 35",
+            "meaning": "Betriebliches Darlehen",
+            "instruction": "Für die selbständige Person B nach tatsächlichen oder für den vorläufigen Zeitraum geplanten Umständen antworten. Vertrag, Kontoauszug des Eingangs und Investitionsnachweise vorbereiten. BA-Hinweise Seite 4 unterscheiden Darlehen, finanzierte Anschaffung, Zinsen und Tilgung; unklare Zuordnung mit dem Jobcenter klären.",
+            "where": "Vertrag, Kontoauszug des Eingangs und Investitionsnachweise vorbereiten. BA-Hinweise Seite 4 unterscheiden Darlehen, finanzierte Anschaffung, Zinsen und Tilgung; unklare Zuordnung mit dem Jobcenter klären.",
+            "example": "Erfunden: Ein betriebliches Darlehen von 2.000 EUR ist durch Vertrag und Rückzahlungspflicht belegt.",
+            "mistake": "Nicht blind ankreuzen. Nachweise gehen nur an das Jobcenter; hier gibt es keine Eingaben.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Darlehensbescheid, Kontoauszug, Investitionsausgaben)",
+                "meaning": "Ja — Geld für den Betrieb mit Rückzahlungspflicht aufgenommen wurde, auch von Bekannten"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-36-37-38-39-40-41",
+            "german": "Höhe des Darlehens in Euro · Datum des Geldeingangs auf dem Konto (TT.MM.JJJJ) · Beginn der Rückzahlung des Darlehens (TT.MM.JJJJ) · Monatliche Tilgungsrate in Euro · Mit dem Darlehen finanzierte Betriebsausgaben (Art / Höhe in Euro)",
+            "reference": "EKS · Seite 3 · F · 36–41",
+            "meaning": "Darlehenshöhe, Daten, Tilgung und Verwendung",
+            "instruction": "36 Darlehensbetrag EUR; 37 Eingang; 38 Tilgungsbeginn; 39 monatliche Tilgung; 40 Art und 41 Höhe finanzierter Betriebsausgaben. Zinsen und Tilgung unterscheiden. Die Hinweise behandeln Darlehen und damit finanzierte Käufe nicht als gewöhnliche Einnahme/Ausgabe der Gewinnermittlung; B15/B16 erfassen Zinsen/Tilgung unter den Bedingungen der Hinweise.",
+            "where": "Darlehensvertrag, Kontoauszug, Tilgungsplan, Rechnungen; BA-Hinweise Seite 4. Persönliche Daten des Darlehensgebers gemäß Hinweisen schwärzen.",
+            "example": "Erfunden: 2.000 EUR Eingang 05.11.2026, Tilgung ab 01.12.2026 je 100 EUR, Ausstattung 1.500 EUR.",
+            "mistake": "Darlehen nicht in A1 oder darlehensfinanzierte Kosten doppelt eintragen. Bei unklarer/gemischter Verwendung Jobcenter fragen; keine automatische Formel."
+          },
+          {
+            "id": "eks-42",
+            "german": "Bitte geben Sie an, ob die nachfolgenden Angaben in den Tabellen vorläufig oder abschließend sind.",
+            "reference": "EKS · Seite 4 · G · 42",
+            "meaning": "Art der Tabellenangaben",
+            "instruction": "Auswahl muss 8 und Zeitraum 9 entsprechen. In jeder Monatsspalte Euro verwenden; für Monate ohne Einnahmen/Ausgaben erlaubt das Formular 0.",
+            "where": "BWA mit Summen- und Saldenliste oder Einzelbelege; für Schätzungen frühere Daten und bekannte Planung.",
+            "example": "Erfunden: November–April haben eigene Spalten; Januar ohne Verkäufe A1 = 0.",
+            "mistake": "Rechnungsdatum und tatsächlichen Zufluss nicht verwechseln. Steuerlicher Jahresgewinn ist nicht automatisch das EKS-Ergebnis.",
+            "options": [
+              {
+                "german": "Vorläufige Erklärung: Die Angaben sind geschätzt und beziehen sich auf den Bewilligungszeitraum im Abschnitt C",
+                "meaning": "Vorläufig — nachvollziehbare Schätzung erwarteter Einnahmen und Ausgaben für den künftigen Zeitraum, gestützt auf bisherige Geschäftsdaten und bekannte Aufträge."
+              },
+              {
+                "german": "Abschließende Erklärung: Die Angaben sind abschließend und beziehen sich auf den Bewilligungszeitraum im Abschnitt C",
+                "meaning": "Abschließend — tatsächliche Einnahmen und Ausgaben des abgeschlossenen Zeitraums mit Nachweisen; frühere Schätzungen nicht als Ist-Werte stehen lassen."
+              }
+            ]
+          },
+          {
+            "id": "eks-43",
+            "german": "Tabelle A: Angaben zu den Betriebseinnahmen",
+            "reference": "EKS · Seite 4 · G · 43",
+            "meaning": "Tabelle A: Betriebseinnahmen",
+            "instruction": "Jede gedruckte Zeile unten prüfen. Spalten sind einzelne Monate desselben Zeitraums C. Vorläufig: nachvollziehbare belegbare Schätzung; abschließend: tatsächlicher Zu-/Abfluss mit Beleg. Bei Monaten ohne Vorgang ist 0 möglich. Nettokosten und Vorsteuer bei Umsatzsteuerpflicht trennen.",
+            "where": "Rechnungen, Kontoauszüge, Geschäftsunterlagen/BWA und Steuerunterlagen, BA-EKS-Hinweise Seiten 4–6. Rechnungsdatum beweist nicht den Zahlungseingang.",
+            "example": "Erfunden: Leistung im November berechnet, 400 EUR netto im Dezember erhalten → Dezember A1; erhaltene Umsatzsteuer getrennt A5.1.",
+            "mistake": "Nicht jeden steuerlich anerkannten Posten automatisch für EKS anerkannt halten. Keine automatische Absetzung, Doppelerfassung oder erfundene Pauschalen; Mischkosten/Darlehen anhand der Hinweise klären.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Kalendermonat, ggf. Teilmonat: derselbe Zeitraum wie C."
+              },
+              {
+                "german": "A1 Betriebseinnahmen",
+                "meaning": "Betriebliche Zuflüsse ohne Umsatzsteuer, im tatsächlichen Zuflussmonat; Schätzung nach erwarteten Zahlungen."
+              },
+              {
+                "german": "A2 Privatentnahmen von Waren",
+                "meaning": "Warenentnahmen für eigenen Gebrauch: Wert ohne Umsatzsteuer. Kein gewöhnlicher Banktransfer an die Inhaberin."
+              },
+              {
+                "german": "A3 sonstige betriebliche Einnahmen (zum Beispiel auch kostenfrei auf Dauer überlassene Produkte)",
+                "meaning": "Sonstige betriebliche Einnahmen, etwa Provision/Zinsen und Wert dauerhaft überlassener Produkte im Empfangsmonat."
+              },
+              {
+                "german": "A4 Zuwendungen von Dritten",
+                "meaning": "Zuwendungen Dritter: Betrag und Zweck belegen; von rückzahlbaren Darlehen unterscheiden."
+              },
+              {
+                "german": "A5.1 vereinnahmte Umsatzsteuer",
+                "meaning": "Vereinnahmte Umsatzsteuer aus A1/A3 getrennt im Zuflussmonat."
+              },
+              {
+                "german": "A5.2 Umsatzsteuer auf Privatentnahmen von Waren",
+                "meaning": "Umsatzsteuer auf private Warenentnahme getrennt vom Nettowert A2; Steuerunterlagen beachten."
+              },
+              {
+                "german": "A5.3 vom Finanzamt erstattete Umsatzsteuer",
+                "meaning": "Erstattung vom Finanzamt im tatsächlichen Eingangsmonat, nicht lediglich beantragte Erstattung."
+              },
+              {
+                "german": "Summe der Betriebseinnahmen",
+                "meaning": "Summe der Einnahmen des jeweiligen Monats; Steuer nicht doppelt zählen."
+              }
+            ]
+          },
+          {
+            "id": "eks-44",
+            "german": "Anmerkungen tragen Sie bitte hier ein. Bitte geben Sie die jeweilige Position (zum Beispiel A1) an, auf die sich Ihre Anmerkung bezieht.",
+            "reference": "EKS · Seite 4 · G · 44",
+            "meaning": "Anmerkung zur konkreten Tabellenzeile",
+            "instruction": "Zeilenkennzeichen und Monat sowie kurze Erklärung des Betrags, der Schätzung oder ungewöhnlichen Zahlung angeben. In 50 ggf. B14.5 konkret erläutern.",
+            "where": "Zugehörige Rechnung/Kontoauszug und Schätzgrundlage.",
+            "example": "Erfunden: „A1, November: Betrag laut beigefügtem Beleg; künftiger Monat nach bestätigtem Auftrag geschätzt.“",
+            "mistake": "Keine unerläuterte Sammelanmerkung ohne Zeile und Monat."
+          },
+          {
+            "id": "eks-45",
+            "german": "Tabelle B – Teil 1: Angaben zu den Betriebsausgaben",
+            "reference": "EKS · Seite 5 · G · 45",
+            "meaning": "Tabelle B: Betriebsausgaben Teil 1",
+            "instruction": "Jede gedruckte Zeile unten prüfen. Spalten sind einzelne Monate desselben Zeitraums C. Vorläufig: nachvollziehbare belegbare Schätzung; abschließend: tatsächlicher Zu-/Abfluss mit Beleg. Bei Monaten ohne Vorgang ist 0 möglich. Nettokosten und Vorsteuer bei Umsatzsteuerpflicht trennen.",
+            "where": "Rechnungen, Kontoauszüge, Geschäftsunterlagen/BWA und Steuerunterlagen, BA-EKS-Hinweise Seiten 4–6. Rechnungsdatum beweist nicht den Zahlungseingang.",
+            "example": "Erfunden: Material im November mit 60 EUR netto bezahlt → B1; ggf. Vorsteuer getrennt B17.",
+            "mistake": "Nicht jeden steuerlich anerkannten Posten automatisch für EKS anerkannt halten. Keine automatische Absetzung, Doppelerfassung oder erfundene Pauschalen; Mischkosten/Darlehen anhand der Hinweise klären.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Monat entspricht C/A; tatsächliche Zahlungen oder belegbare Schätzung."
+              },
+              {
+                "german": "B1 Wareneinkauf",
+                "meaning": "Waren-/Materialkauf: tatsächliche Betriebsausgabe, bei Umsatzsteuerpflicht netto ohne Vorsteuer."
+              },
+              {
+                "german": "B2.1 Personalkosten (einschließlich Sozialversicherungsbeiträge) – Vollzeitbeschäftigte",
+                "meaning": "Kosten Vollzeitbeschäftigter einschließlich Sozialversicherung laut Abrechnung."
+              },
+              {
+                "german": "B2.2 Personalkosten (einschließlich Sozialversicherungsbeiträge) – Teilzeitbeschäftigte",
+                "meaning": "Kosten Teilzeitbeschäftigter einschließlich Sozialversicherung."
+              },
+              {
+                "german": "B2.3 Personalkosten (einschließlich Sozialversicherungsbeiträge) – geringfügig Beschäftigte",
+                "meaning": "Kosten geringfügig Beschäftigter einschließlich entsprechender Beiträge; nicht zusätzlich in B2.1 erfassen."
+              },
+              {
+                "german": "B2.4 Personalkosten (einschließlich Sozialversicherungsbeiträge) – mithelfende Familienangehörige",
+                "meaning": "Kosten beschäftigter mithelfender Familienangehöriger: Beschäftigungs-/Anmeldenachweis, kein fiktiver Lohn für unentgeltliche Hilfe."
+              },
+              {
+                "german": "B3 Betriebliche Raumkosten (einschließlich Nebenkosten und Energiekosten)",
+                "meaning": "Betriebliche Raum-, Neben- und Energiekosten; bei Wohnung nur belegter betrieblicher Anteil."
+              },
+              {
+                "german": "B4 Betriebliche Versicherungen/Beiträge",
+                "meaning": "Notwendige betriebliche Versicherungen/Beiträge mit Police/Bescheid; Kfz-Versicherung gehört zu B6.2."
+              },
+              {
+                "german": "B5 Kosten für Werbung",
+                "meaning": "Betriebliche Werbung, etwa Anzeige/Flyer; nicht mit personenbezogenen Absetzungen in C gleichsetzen."
+              },
+              {
+                "german": "Zwischensumme Tabelle B – Teil 1",
+                "meaning": "Zwischensumme Teil 1 in Teil 2 desselben Monats übertragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-46",
+            "german": "Anmerkungen tragen Sie bitte hier ein. Bitte geben Sie die jeweilige Position (zum Beispiel B1) an, auf die sich Ihre Anmerkung bezieht.",
+            "reference": "EKS · Seite 5 · G · 46",
+            "meaning": "Anmerkung zur konkreten Tabellenzeile",
+            "instruction": "Zeilenkennzeichen und Monat sowie kurze Erklärung des Betrags, der Schätzung oder ungewöhnlichen Zahlung angeben. In 50 ggf. B14.5 konkret erläutern.",
+            "where": "Zugehörige Rechnung/Kontoauszug und Schätzgrundlage.",
+            "example": "Erfunden: „B1, November: Betrag laut beigefügtem Beleg; künftiger Monat nach bestätigtem Auftrag geschätzt.“",
+            "mistake": "Keine unerläuterte Sammelanmerkung ohne Zeile und Monat."
+          },
+          {
+            "id": "eks-47",
+            "german": "Wie viele Kilometer wird die selbständige/freiberufliche Person voraussichtlich betrieblich und/oder privat fahren? Bei abschließenden Angaben: Wie viele Kilometer ist die selbständige/freiberufliche Person betrieblich und/oder privat gefahren?",
+            "reference": "EKS · Seite 6 · G · 47",
+            "meaning": "Betriebliche und private Kilometer",
+            "instruction": "Betriebliche und private Kilometer getrennt angeben: erwartet für vorläufig, tatsächlich für abschließend. Gedruckte Hinweise unterscheiden betriebliches Kfz bei mindestens 50% betrieblicher Nutzung und privates Kfz. Wohnung–Betriebsstätte gilt in den Hinweisen als Privatfahrt und wird getrennt in 54–56 abgefragt.",
+            "where": "Fahrtenbuch mit betrieblichen Zielen/Zwecken und gekennzeichneten Privatfahrten; EKS-Hinweise Seite 5.",
+            "example": "Erfunden: Fahrtenbuch zeigt 600 km betrieblich, 400 km privat; Aufteilung belegen, nicht frei wählen.",
+            "mistake": "Gesamtkilometer nicht als betrieblich melden. Dieselbe Fahrt nicht in B6.5 und 54–56 erfassen."
+          },
+          {
+            "id": "eks-48",
+            "german": "Tabelle B – Teil 2: Angaben zu den Betriebsausgaben",
+            "reference": "EKS · Seite 6 · G · 48",
+            "meaning": "Tabelle B: Betriebsausgaben Teil 2",
+            "instruction": "Jede gedruckte Zeile unten prüfen. Spalten sind einzelne Monate desselben Zeitraums C. Vorläufig: nachvollziehbare belegbare Schätzung; abschließend: tatsächlicher Zu-/Abfluss mit Beleg. Bei Monaten ohne Vorgang ist 0 möglich. Nettokosten und Vorsteuer bei Umsatzsteuerpflicht trennen.",
+            "where": "Rechnungen, Kontoauszüge, Geschäftsunterlagen/BWA und Steuerunterlagen, BA-EKS-Hinweise Seiten 4–6. Rechnungsdatum beweist nicht den Zahlungseingang.",
+            "example": "Erfunden: Fahrtenbuch eines privaten Kfz belegt 100 km betriebliche Fahrten → gedruckte B6.5-Zeile 10 EUR; Arbeitsweg nicht enthalten.",
+            "mistake": "Nicht jeden steuerlich anerkannten Posten automatisch für EKS anerkannt halten. Keine automatische Absetzung, Doppelerfassung oder erfundene Pauschalen; Mischkosten/Darlehen anhand der Hinweise klären.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Dieselben Monate wie zuvor."
+              },
+              {
+                "german": "Übertrag Zwischensumme Tabelle B – Teil 1",
+                "meaning": "Zwischensumme Teil 1 übertragen, ohne Einzelzeilen erneut hinzuzurechnen."
+              },
+              {
+                "german": "B6.1 betriebliches Kraftfahrzeug – Steuern",
+                "meaning": "Steuern für betriebliches Kfz: belegte tatsächliche Zahlung."
+              },
+              {
+                "german": "B6.2 betriebliches Kraftfahrzeug – Versicherung",
+                "meaning": "Betriebliche Kfz-Versicherung mit Police und Zahlungsnachweis."
+              },
+              {
+                "german": "B6.3 betriebliches Kraftfahrzeug – laufende Betriebskosten",
+                "meaning": "Laufende Betriebskosten mit Belegen, etwa Kraftstoff; Privatanteil nicht unkorrigiert übernehmen."
+              },
+              {
+                "german": "B6.4 betriebliches Kraftfahrzeug – Reparaturkosten",
+                "meaning": "Reparaturen des betrieblichen Kfz mit Rechnung und Zahlung."
+              },
+              {
+                "german": "Abzüglich privat gefahrener Kilometer (0,10 Euro je gefahrenem Kilometer)",
+                "meaning": "Die gedruckte Zeile dieser Ausgabe zieht private Kilometer mit 0,10 Euro/km ab; Fahrtenbuch als Nachweis. Keine zusätzliche Einnahme oder Absetzung für jedes Fahrzeug."
+              },
+              {
+                "german": "B6.5 privates Kraftfahrzeug – betriebliche Fahrten (0,10 Euro je gefahrenem Kilometer)",
+                "meaning": "Beim privaten Kfz nur betriebliche Fahrten nach gedruckten 0,10 Euro/km; Wohnung–Betriebsstätte gehört zu 54–56, nicht hierher."
+              },
+              {
+                "german": "B7.1 Reisekosten – Übernachtungskosten",
+                "meaning": "Betriebliche Reise: Übernachtungen mit Belegen."
+              },
+              {
+                "german": "B7.2 Reisekosten – Reisenebenkosten",
+                "meaning": "Betriebliche Reisenebenkosten mit Zweck/Beleg, etwa Parken/Messe; Hinweise prüfen."
+              },
+              {
+                "german": "B7.3 Reisekosten – Kosten für öffentliche Verkehrsmittel",
+                "meaning": "Öffentliche Verkehrsmittel für betriebliche Reise mit Ticket und Zweck."
+              },
+              {
+                "german": "B8 Investitionen",
+                "meaning": "Belegte betriebliche Investitionen mit Rechnung/Angebot; Jobcenter prüft Anerkennung, besonders ungeplante größere Anschaffungen."
+              },
+              {
+                "german": "B9 Investitionen aus Zuwendungen Dritter",
+                "meaning": "Investitionen aus Zuwendungen Dritter: Finanzierung/Rechnung zeigen, denselben Kauf nicht doppelt zählen."
+              },
+              {
+                "german": "B10 Büromaterial einschließlich Porto",
+                "meaning": "Büromaterial einschließlich Porto mit betrieblichen Belegen."
+              },
+              {
+                "german": "Zwischensumme Tabelle B – Teil 2",
+                "meaning": "Zwischensumme Teil 2 einschließlich Übertrag Teil 1 in Teil 3 übernehmen."
+              }
+            ]
+          },
+          {
+            "id": "eks-49",
+            "german": "Tabelle B – Teil 3: Angaben zu den Betriebsausgaben und zum Gewinn",
+            "reference": "EKS · Seite 7 · G · 49",
+            "meaning": "Tabelle B: Betriebsausgaben Teil 3",
+            "instruction": "Jede gedruckte Zeile unten prüfen. Spalten sind einzelne Monate desselben Zeitraums C. Vorläufig: nachvollziehbare belegbare Schätzung; abschließend: tatsächlicher Zu-/Abfluss mit Beleg. Bei Monaten ohne Vorgang ist 0 möglich. Nettokosten und Vorsteuer bei Umsatzsteuerpflicht trennen.",
+            "where": "Rechnungen, Kontoauszüge, Geschäftsunterlagen/BWA und Steuerunterlagen, BA-EKS-Hinweise Seiten 4–6. Rechnungsdatum beweist nicht den Zahlungseingang.",
+            "example": "Erfunden: 20 EUR betrieblicher Telefonanteil im November → B11; Gesamtgewinn ist keine Anspruchsentscheidung.",
+            "mistake": "Nicht jeden steuerlich anerkannten Posten automatisch für EKS anerkannt halten. Keine automatische Absetzung, Doppelerfassung oder erfundene Pauschalen; Mischkosten/Darlehen anhand der Hinweise klären.",
+            "options": [
+              {
+                "german": "Kalendermonat (gegebenenfalls Teilmonat)",
+                "meaning": "Monat aus demselben Zeitraum C."
+              },
+              {
+                "german": "Übertrag Zwischensumme Tabelle B – Teil 2",
+                "meaning": "Ergebnis der vorigen Tabelle desselben Monats übertragen."
+              },
+              {
+                "german": "B11 Telefonkosten",
+                "meaning": "Nur betrieblicher Telefonanteil. Ohne separaten Anschluss und bestimmbaren Anteil nennen BA-Hinweise mögliche 50%; nicht automatisch anwenden."
+              },
+              {
+                "german": "B12 Beratungskosten",
+                "meaning": "Betriebliche Beratung, etwa Buchführung/Steuerberatung, mit Rechnung."
+              },
+              {
+                "german": "B13 Fortbildungskosten",
+                "meaning": "Betrieblich notwendige Fortbildung/Literatur mit Tätigkeitsbezug."
+              },
+              {
+                "german": "B14.1 Sonstige Betriebsausgaben – Reparaturkosten Anlagevermögen",
+                "meaning": "Reparaturen betrieblichen Anlagevermögens, Kfz aus B6.4 nicht erneut erfassen."
+              },
+              {
+                "german": "B14.2 Sonstige Betriebsausgaben – Miete Einrichtung",
+                "meaning": "Miete betrieblicher Einrichtung mit Vertrag und Zahlung."
+              },
+              {
+                "german": "B14.3 Sonstige Betriebsausgaben – Nebenkosten des Geldverkehrs",
+                "meaning": "Betriebliche Kosten des Geldverkehrs mit Kontoauszug."
+              },
+              {
+                "german": "B14.4 Sonstige Betriebsausgaben – Betriebliche Abfallbeseitigung",
+                "meaning": "Betriebliche Abfallbeseitigung mit Rechnung."
+              },
+              {
+                "german": "B14.5 weitere bisher nicht erfasste Betriebsausgaben",
+                "meaning": "Weitere noch nicht erfasste Betriebsausgaben: in 50 genau benennen und belegen, keine unerläuterte Summe."
+              },
+              {
+                "german": "B15 Schuldzinsen aus Anlagevermögen",
+                "meaning": "Schuldzinsen betrieblicher Anlagefinanzierung mit Zahlungsnachweis, nicht Tilgung B16."
+              },
+              {
+                "german": "B16 Tilgung bestehender betrieblicher Darlehen",
+                "meaning": "Tilgung bestehender betrieblicher Darlehen nach Vertrag/Plan und EKS-Hinweisen, keine automatische Anerkennung jeder Rate."
+              },
+              {
+                "german": "B17 gezahlte Vorsteuer",
+                "meaning": "Gezahlte Vorsteuer nach Belegen/Steuerunterlagen; Privatanteil und Nettokosten trennen."
+              },
+              {
+                "german": "B18 an das Finanzamt gezahlte Umsatzsteuer",
+                "meaning": "Umsatzsteuer tatsächlich an das Finanzamt im Zahlungsmonat abgeführt."
+              },
+              {
+                "german": "Summe Betriebsausgaben (Tabelle B Teil 1, 2 und 3)",
+                "meaning": "Gesamtausgaben der drei Teile; übertragene Zwischensummen nicht doppelt addieren."
+              },
+              {
+                "german": "Gewinn (Betriebseinnahmen abzüglich Betriebsausgaben)",
+                "meaning": "Monatsgewinn: Betriebseinnahmen minus Betriebsausgaben; kein endgültiger Leistungsanspruch oder steuerlicher Jahresgewinn."
+              }
+            ]
+          },
+          {
+            "id": "eks-50",
+            "german": "Anmerkungen tragen Sie bitte hier ein. Bitte geben Sie die jeweilige Position (zum Beispiel B6.1) an, auf die sich Ihre Anmerkung bezieht.",
+            "reference": "EKS · Seite 7 · G · 50",
+            "meaning": "Anmerkung zur konkreten Tabellenzeile",
+            "instruction": "Zeilenkennzeichen und Monat sowie kurze Erklärung des Betrags, der Schätzung oder ungewöhnlichen Zahlung angeben. In 50 ggf. B14.5 konkret erläutern.",
+            "where": "Zugehörige Rechnung/Kontoauszug und Schätzgrundlage.",
+            "example": "Erfunden: „B6.1, November: Betrag laut beigefügtem Beleg; künftiger Monat nach bestätigtem Auftrag geschätzt.“",
+            "mistake": "Keine unerläuterte Sammelanmerkung ohne Zeile und Monat."
+          },
+          {
+            "id": "eks-51",
+            "german": "Tabelle C: Absetzungen vom Einkommen",
+            "reference": "EKS · Seite 8 · G · 51",
+            "meaning": "Tabelle C: personenbezogene Absetzungen",
+            "instruction": "Jede gedruckte Zeile unten prüfen. Art, Eurobetrag und Zahlungsrhythmus des jeweiligen personenbezogenen Postens angeben. Dieselbe Ausgabe nicht zusätzlich in B erfassen. Anerkennung prüft das Jobcenter.",
+            "where": "Rechnungen, Kontoauszüge, Geschäftsunterlagen/BWA und Steuerunterlagen, Policen/Beiträge und Zahlungsrhythmus; EKS-Hinweise Seite 2.",
+            "example": "Erfunden: Kfz-Haftpflicht 120 EUR quartalsweise → 120 EUR und „quartalsweise“, nicht 120 EUR monatlich.",
+            "mistake": "Nicht jeden steuerlich anerkannten Posten automatisch für EKS anerkannt halten. Keine automatische Absetzung, Doppelerfassung oder erfundene Pauschalen; Mischkosten/Darlehen anhand der Hinweise klären.",
+            "options": [
+              {
+                "german": "Art der Absetzung",
+                "meaning": "Art personenbezogener Absetzung, keine weitere Betriebsausgabensumme B."
+              },
+              {
+                "german": "Höhe in Euro",
+                "meaning": "Eurobetrag laut Beleg/Bescheid; Jahresbetrag nicht als Monatsbetrag ausgeben."
+              },
+              {
+                "german": "Zahlungsrhythmus (zum Beispiel monatlich, quartalsweise oder zu bestimmten Terminen)",
+                "meaning": "Tatsächlicher Zahlungsrhythmus: monatlich, quartalsweise oder bestimmte Termine."
+              },
+              {
+                "german": "Einkommensteuervorauszahlungen/Einkommensteuernachzahlungen (siehe letzten Vorauszahlungsbescheid/Einkommensteuerbescheid)",
+                "meaning": "Einkommensteuervoraus-/nachzahlungen laut letztem Steuerbescheid."
+              },
+              {
+                "german": "Pflichtbeiträge zur Kranken-/Pflege- und/oder Rentenversicherung",
+                "meaning": "Pflichtbeiträge Kranken/Pflege/Rente mit Pflicht- und Zahlungsnachweis."
+              },
+              {
+                "german": "Beiträge zur privaten Kranken- und Pflegeversicherung oder freiwillige Beiträge zur gesetzlichen Kranken- und Pflegeversicherung",
+                "meaning": "Private oder freiwillige gesetzliche Kranken/Pflege-Beiträge mit Police und Betrag."
+              },
+              {
+                "german": "Beiträge zur Rentenversicherung",
+                "meaning": "Rentenversicherungsbeiträge laut Beitragsnachweis."
+              },
+              {
+                "german": "Beiträge zu einer kapitalbildenden Lebensversicherung",
+                "meaning": "Kapitalbildende Lebensversicherung mit Police; Angabe verspricht keine Absetzung."
+              },
+              {
+                "german": "Beiträge zu einer Versorgungseinrichtung",
+                "meaning": "Beiträge einer Versorgungseinrichtung mit Nachweis."
+              },
+              {
+                "german": "Beiträge für eine Kraftfahrzeug-Haftpflichtversicherung (ohne Teil-/Vollkasko/Kraftfahrzeug-Schutzbrief)",
+                "meaning": "Private Kfz-Haftpflicht ohne Kasko/Schutzbrief; von betrieblicher B6.2 trennen."
+              },
+              {
+                "german": "Beiträge für weitere gesetzlich vorgeschriebene Versicherungen (zum Beispiel Haftpflichtversicherung für bestimmte Berufsgruppen wie Rechtsanwälte oder Hebammen)",
+                "meaning": "Weitere gesetzlich vorgeschriebene Versicherungen mit Pflichtnachweis; nicht jede freiwillige Police."
+              },
+              {
+                "german": "Beiträge für eine geförderte Altersvorsorge nach § 82 Einkommenssteuergesetz (Beiträge zur „Riester-Rente“)",
+                "meaning": "Geförderte Altersvorsorge Riester mit Vertrag/Zahlungsnachweis."
+              },
+              {
+                "german": "Sonstige Absetzungsmöglichkeiten (zum Beispiel Beiträge zur Arbeitsförderung bei freiwilliger Weiterversicherung (§ 28a Absatz 1 Nummer 2 Drittes Buch Sozialgesetzbuch) oder Einkommen, das bereits bei der Feststellung von Ansprüchen der Ausbildungsförderung angerechnet wurde)",
+                "meaning": "Weitere genannte Möglichkeiten, etwa freiwillige Arbeitslosenversicherung oder bereits bei Ausbildungsförderung angerechnetes Einkommen; genau belegen und vom Jobcenter prüfen lassen."
+              }
+            ]
+          },
+          {
+            "id": "eks-52",
+            "german": "Hat die selbständige/freiberufliche Person mindestens ein Kind unter 18 Jahren, welches nicht bei ihr wohnt?",
+            "reference": "EKS · Seite 9 · G · 52",
+            "meaning": "Kind unter 18 außerhalb des Haushalts",
+            "instruction": "Für Person B antworten. Nachweis, etwa Geburtsurkunde/Unterhaltstitel, beifügen; nicht jedes Kind im Haushalt ist gemeint.",
+            "where": "Nachweis des betreffenden Sachverhalts: Nachweis, etwa Geburtsurkunde/Unterhaltstitel, beifügen; nicht jedes Kind im Haushalt ist gemeint.",
+            "example": "Erfunden: Ein zehnjähriges Kind lebt beim anderen Elternteil.",
+            "mistake": "Aus Ja keine Kostenanerkennung oder Berechtigung ableiten.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie einen Nachweis bei, zum Beispiel Geburtsurkunde oder Unterhaltstitel)",
+                "meaning": "Ja — sie mindestens ein Kind unter 18 hat, das nicht bei ihr wohnt"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-53",
+            "german": "Zahlt die selbständige/freiberufliche Person Unterhalt?",
+            "reference": "EKS · Seite 9 · G · 53",
+            "meaning": "Tatsächlich gezahlter Unterhalt",
+            "instruction": "Für Person B antworten. Nachweis der Verpflichtungshöhe und tatsächlichen Zahlung beifügen; Verpflichtung allein ist keine Zahlung.",
+            "where": "Nachweis des betreffenden Sachverhalts: Nachweis der Verpflichtungshöhe und tatsächlichen Zahlung beifügen; Verpflichtung allein ist keine Zahlung.",
+            "example": "Erfunden: Verpflichtung und Bankzahlung belegen 150 EUR.",
+            "mistake": "Aus Ja keine Kostenanerkennung oder Berechtigung ableiten.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie einen Nachweis zur Höhe der Unterhaltsverpflichtung und einen Zahlungsnachweis bei)",
+                "meaning": "Ja — sie tatsächlich Unterhalt zahlt"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-54",
+            "german": "Hat die selbständige/freiberufliche Person Ausgaben für die Fahrten zur Betriebsstätte mit dem privaten Kraftfahrzeug?",
+            "reference": "EKS · Seite 9 · G · 54",
+            "meaning": "Arbeitsweg mit privatem Kfz",
+            "instruction": "Für Person B antworten. Bei Ja 55–56 bearbeiten; Nein führt zu 57.",
+            "where": "Nachweis des betreffenden Sachverhalts: Bei Ja 55–56 bearbeiten; Nein führt zu 57.",
+            "example": "Erfunden: Privates Auto zur Werkstatt, nicht zum Kunden.",
+            "mistake": "Aus Ja keine Kostenanerkennung oder Berechtigung ableiten.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — sie kostenpflichtig mit privatem Kfz zur Betriebsstätte fährt"
+              },
+              {
+                "german": "Nein (weiter mit 57)",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-55-56",
+            "german": "Bitte geben Sie die einfache Strecke zwischen Wohnung und Betriebsstätte in Kilometern an. · An wie vielen Arbeitstagen je Woche fährt die selbständige/freiberufliche Person regelmäßig die Strecke?",
+            "reference": "EKS · Seite 9 · G · 55–56",
+            "meaning": "Einfache Strecke und Tage pro Woche",
+            "instruction": "55 einfache Entfernung in km; 56 regelmäßige Arbeitstage pro Woche. Nicht Hin- und Rückweg oder Monatstage eintragen.",
+            "where": "Wohn-/Betriebsanschrift, Strecke und Arbeitskalender.",
+            "example": "Erfunden: 8 km einfache Strecke, vier Tage pro Woche.",
+            "mistake": "Diese Fahrten nicht in B6.5 doppelt erfassen."
+          },
+          {
+            "id": "eks-57",
+            "german": "Entstehen der selbständigen/freiberuflichen Person Mehraufwendungen für Verpflegung wegen einer täglichen Abwesenheit von mindestens 12 Stunden von der Wohnung oder dem üblichen Beschäftigungsort, ohne dass eine doppelte Haushaltsführung vorliegt?",
+            "reference": "EKS · Seite 9 · G · 57",
+            "meaning": "Verpflegungsmehraufwand bei langer Abwesenheit",
+            "instruction": "Für Person B antworten. Abwesenheitsdauer/-zweck prüfen; 58 verlangt die Zahl entsprechender Arbeitstage im Monat, keine erfundene Pauschale.",
+            "where": "Nachweis des betreffenden Sachverhalts: Abwesenheitsdauer/-zweck prüfen; 58 verlangt die Zahl entsprechender Arbeitstage im Monat, keine erfundene Pauschale.",
+            "example": "Erfunden: Nachweise dokumentieren drei Tage mit mindestens zwölf Stunden Abwesenheit.",
+            "mistake": "Aus Ja keine Kostenanerkennung oder Berechtigung ableiten.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — der genannte Mehraufwand bei mindestens zwölf Stunden täglicher Abwesenheit ohne doppelte Haushaltsführung vorliegt"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "eks-58",
+            "german": "Bitte geben Sie die Anzahl der Arbeitstage im Monat an, bei denen Mehraufwendungen für Verpflegung entstehen.",
+            "reference": "EKS · Seite 9 · G · 58",
+            "meaning": "Monatliche Tage zu 57",
+            "instruction": "Nur monatliche Arbeitstage zählen, die den Bedingungen der Frage 57 entsprechen.",
+            "where": "Kalender, Reiseunterlagen und Abwesenheitsdauer.",
+            "example": "Erfunden: Drei entsprechende Tage → 3.",
+            "mistake": "Nicht alle Arbeitstage ohne Prüfung der Abwesenheitsdauer melden."
+          },
+          {
+            "id": "eks-59-60",
+            "german": "Datum · Unterschrift selbständige/freiberufliche Person",
+            "reference": "EKS · Seite 9 · H · 59–60",
+            "meaning": "Prüfung und richtiger Unterschriftsbereich",
+            "instruction": "In H bestätigt die selbständige Person F–G und die Kenntnis der EKS-Hinweise. Die antragstellende Person unterschreibt E für A–D getrennt. Ist es dieselbe Person, unterschreibt sie an beiden Stellen.",
+            "where": "Offizielles Formular, gelesene Hinweise und ggf. Vertretungsunterlagen. ",
+            "example": "Erfunden: Maja ist Antragstellerin und Selbständige und unterschreibt E und H; in anderen Anlagen folgt sie deren Unterschriftsbereich.",
+            "mistake": "„Geprüft“ in BalkanLink ist weder Unterschrift noch Einreichung. Nicht ohne entsprechende Befugnis für eine andere erwachsene Person unterschreiben."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Wessen Tätigkeit, welcher Zeitraum?",
+            "sections": {
+              "meaning": "EKS beschreibt selbständige/freiberufliche Tätigkeit. Einleitung verlangt getrennte Anlage für jede entsprechende BG-Person „über 15 Jahren“; unklare Altersgrenze mit Jobcenter klären. A ist Antragsteller, B die selbständige Person.",
+              "action": "Zweck, Person B, Zeitraum 9 und vorläufig/abschließend in 8/42 prüfen. Bei saisonaler/verkürzter Tätigkeit zuerst EKS-Hinweise lesen.",
+              "mistake": "Steuerlichen Jahresgewinn nicht als EKS-Gewinn übernehmen."
+            }
+          },
+          {
+            "id": "business",
+            "title": "Geschäftsdaten vorbereiten",
+            "sections": {
+              "meaning": "D/F betreffen Betriebsstätte, Personal, Steuerstatus, Förderung und Darlehen.",
+              "action": "Anmeldung, Verträge, Policen, Kontoauszüge und Darlehensunterlagen sammeln. Unnötige Drittdaten nicht weitergeben; Schwärzhinweise der BA beachten.",
+              "mistake": "Umsatzsteuerstatus nicht allein aus Einnahmenhöhe wählen."
+            }
+          },
+          {
+            "id": "tables",
+            "title": "Monatliche Einnahmen und Ausgaben A/B",
+            "sections": {
+              "meaning": "A erfasst Betriebseinnahmen, B belegte Ausgaben; Schätzung und tatsächliche Zahlungen bleiben getrennt.",
+              "action": "Alle Zeilen 43/45/48/49 prüfen. Gleiche Monate, tatsächliche Zu-/Abflussdaten und Belege verwenden. Darlehen und finanzierte Anschaffungen vor Zuordnung in den Hinweisen prüfen.",
+              "mistake": "Keine automatische Anerkennung oder steuerliche Abschreibung als tatsächliche Zahlung. Größere unerwartete Ausgaben gemäß Hinweisen unverzüglich dem Jobcenter mitteilen."
+            }
+          },
+          {
+            "id": "personal",
+            "title": "Persönliche Absetzungen C und Schlussfragen",
+            "sections": {
+              "meaning": "51–58 trennen persönliche Versicherung/Steuer/Unterhalt und Arbeitsweg von Betriebsausgabentabellen.",
+              "action": "Zugehörige Bescheide und Zahlungen beifügen. Betrag und Zahlungsrhythmus in C getrennt angeben. 54 Nein führt zu 57.",
+              "mistake": "Ausgaben in B/C und betriebliche Fahrten/Arbeitsweg nicht doppelt erfassen."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Zwei Unterschriften, Einreichung und Abschluss",
+            "sections": {
+              "meaning": "E bestätigt A–D, H F–G und Kenntnis der EKS-Hinweise.",
+              "action": "Antragsteller unterschreibt E, selbständige Person H; bei Identität beide. Originalformular mit Kopien beim eigenen Jobcenter einreichen, Bestätigung behalten. Änderungen gemäß Hinweisen unverzüglich melden; nach Zeitraum tatsächliche belegte Angaben einreichen.",
+              "mistake": "Geprüft ist nicht eingereicht. Endabrechnung kann Rückforderung oder Nachzahlung ergeben; kein Ergebnisversprechen."
+            }
+          }
+        ]
+      },
+      "anlage-sv": {
+        "title": "SV — Begleiter zum offiziellen Formular 10/2026",
+        "introduction": "Offizielles Original im neuen Tab öffnen und den Feldangaben folgen. Eigene Daten nur dort eintragen und Nachweise an das Jobcenter geben. BalkanLink erhebt keine Antworten, speichert keine Daten, füllt nichts aus und reicht nichts ein.",
+        "variation": "BA · Ausgabe 10/2026, Quelle geprüft am 28.10.2026. Nummern gelten nur für diese Ausgabe. Das Jobcenter prüft und entscheidet; dies ist keine Anspruchsprüfung oder Bewilligungsgarantie.",
+        "vocabularyNote": "Seite, Abschnitt und Nummer beachten. Optionen stammen aus dem Papieroriginal, nicht aus einer bestätigten Portalreihenfolge. Beispiele sind erfunden: niemals als eigene Tatsachen ausgeben.",
+        "modes": {
+          "paper": "Begleitung zum originalen BA-PDF 10/2026, kein neues PDF. Aktuelle Ausgabe vor Verwendung prüfen. Die Behörde verlangt Nachweiskopien; Originale behalten.",
+          "online": "Offiziellen digitalen Weg über jobcenter.digital und das eigene Jobcenter prüfen. Online-Reihenfolge, Bildschirmbezeichnungen und Verfügbarkeit jeder Anlage als Online-Formular sind hier nicht verifiziert."
+        },
+        "terms": [
+          {
+            "id": "sv-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "SV · Seite 1 · A · 1–4",
+            "meaning": "Antragstellende Person",
+            "instruction": "Vorname, Nachname und Geburtsdatum der Person eintragen, die den Hauptantrag stellt. BG-Nummer nur übernehmen, wenn vorhanden. Diese Person muss nicht die Person sein, auf die sich die Anlage bezieht.",
+            "where": "Ausweisdokument und vorhandener Jobcenter-Bescheid: „Nummer der Bedarfsgemeinschaft“, nicht Versicherungsnummer.",
+            "example": "Erfunden: Maja Kovač, 15.05.1985; die BG-Nummer wird aus dem eigenen Bescheid übernommen, nicht aus dem Beispiel.",
+            "mistake": "Antragstellende Person und andere Person in B nicht verwechseln. TT.MM.JJJJ bedeutet Tag.Monat.Jahr."
+          },
+          {
+            "id": "sv-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "SV · Seite 1 · B · 5–7",
+            "meaning": "Person, deren Versicherung geprüft wird",
+            "instruction": "Vorname, Nachname und Geburtsdatum der in B gemeinten Person eintragen. Betrifft die Anlage Sie selbst, eigene Daten wiederholen; sonst die Daten der anderen Person verwenden.",
+            "where": "Ausweisdokument dieser Person. Die folgenden Fragen beziehen sich auf sie, nicht automatisch auf die antragstellende Person.",
+            "example": "Erfunden: Maja stellt den Antrag; betrifft die Anlage Damir Novak, steht in B Damir Novak, 20.03.1987.",
+            "mistake": "Nicht die Daten jedes Mitbewohners einsetzen. Den Zweck der Anlage zuerst anhand des offiziellen Einleitungstextes prüfen."
+          },
+          {
+            "id": "sv-8",
+            "german": "Ist die Person derzeit oder war sie zuletzt privat krankenversichert?",
+            "reference": "SV · Seite 1 · C · 8",
+            "meaning": "Derzeitige oder letzte private Krankenversicherung",
+            "instruction": "Für Person B antworten. Police und Bestätigung des letzten Versicherers prüfen; betrifft B, nicht automatisch die antragstellende Person. C beschreibt Folgen der Antwortkombination, BalkanLink entscheidet jedoch nicht über Versicherungspflicht.",
+            "where": "Police, Versicherungsverlauf und Statusnachweise; unklare Zeiträume mit Krankenkasse/Jobcenter klären.",
+            "example": "Erfunden: Maja prüft Person B anhand der Versicherungsbestätigung; Antwort 11 folgt dem gesamten Fünfjahresverlauf, nicht nur dem Geburtstag.",
+            "mistake": "Bei mehrteiligen Fragen nicht wegen eines einzelnen Teils Ja wählen. Keine Versicherung aufgrund dieses Leitfadens kündigen.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — die Person derzeit oder zuletzt privat krankenversichert ist/war"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "sv-9",
+            "german": "Ist die Person derzeit oder war sie zuletzt hauptberuflich selbständig tätig?",
+            "reference": "SV · Seite 2 · C · 9",
+            "meaning": "Hauptberufliche Selbständigkeit",
+            "instruction": "Für Person B antworten. Erwerbsstatus mit Krankenkasse prüfen; Nebentätigkeit ist nicht automatisch hauptberuflich. C beschreibt Folgen der Antwortkombination, BalkanLink entscheidet jedoch nicht über Versicherungspflicht.",
+            "where": "Police, Versicherungsverlauf und Statusnachweise; unklare Zeiträume mit Krankenkasse/Jobcenter klären.",
+            "example": "Erfunden: Maja prüft Person B anhand der Versicherungsbestätigung; Antwort 11 folgt dem gesamten Fünfjahresverlauf, nicht nur dem Geburtstag.",
+            "mistake": "Bei mehrteiligen Fragen nicht wegen eines einzelnen Teils Ja wählen. Keine Versicherung aufgrund dieses Leitfadens kündigen.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — die Person derzeit oder zuletzt hauptberuflich selbständig tätig ist/war"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "sv-10",
+            "german": "Ist die Person oder war sie zuletzt nach beamtenrechtlichen Vorschriften oder Grundsätzen im Krankheitsfall abgesichert beziehungsweise beihilfeberechtigt (zum Beispiel Beamtinnen und Beamte, Soldatinnen und Soldaten auf Zeit sowie Berufssoldatinnen und Berufssoldaten)?",
+            "reference": "SV · Seite 2 · C · 10",
+            "meaning": "Absicherung nach Beamtenrecht / Beihilfe",
+            "instruction": "Für Person B antworten. Status-/Beihilfenachweis; Beschäftigung im öffentlichen Dienst ist nicht automatisch Beamtenstatus. C beschreibt Folgen der Antwortkombination, BalkanLink entscheidet jedoch nicht über Versicherungspflicht.",
+            "where": "Police, Versicherungsverlauf und Statusnachweise; unklare Zeiträume mit Krankenkasse/Jobcenter klären.",
+            "example": "Erfunden: Maja prüft Person B anhand der Versicherungsbestätigung; Antwort 11 folgt dem gesamten Fünfjahresverlauf, nicht nur dem Geburtstag.",
+            "mistake": "Bei mehrteiligen Fragen nicht wegen eines einzelnen Teils Ja wählen. Keine Versicherung aufgrund dieses Leitfadens kündigen.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — die beschriebene beamtenrechtliche Absicherung/Beihilfeberechtigung besteht oder zuletzt bestand"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "sv-11",
+            "german": "Hat die Person das 55. Lebensjahr vollendet, beantworten Sie bitte folgende Frage: War die Person in den letzten fünf Jahren vor Antragstellung nicht gesetzlich versichert und war sie für mindestens zweieinhalb Jahre versicherungsfrei oder von der Versicherungspflicht befreit oder nicht versicherungspflichtig wegen der Ausübung einer hauptberuflichen selbständigen Tätigkeit?",
+            "reference": "SV · Seite 2 · C · 11",
+            "meaning": "Mehrteilige Frage ab vollendetem 55. Lebensjahr",
+            "instruction": "Für Person B antworten. Vor Antwort Versicherungsverlauf mit Krankenkasse klären: Alter allein bedeutet nicht Ja. Bei jüngeren Personen ist die bedingte Frage nicht einschlägig; Versicherungsverlauf nicht unterstellen. C beschreibt Folgen der Antwortkombination, BalkanLink entscheidet jedoch nicht über Versicherungspflicht.",
+            "where": "Police, Versicherungsverlauf und Statusnachweise; unklare Zeiträume mit Krankenkasse/Jobcenter klären.",
+            "example": "Erfunden: Maja prüft Person B anhand der Versicherungsbestätigung; Antwort 11 folgt dem gesamten Fünfjahresverlauf, nicht nur dem Geburtstag.",
+            "mistake": "Bei mehrteiligen Fragen nicht wegen eines einzelnen Teils Ja wählen. Keine Versicherung aufgrund dieses Leitfadens kündigen.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — die Person mindestens 55 ist, in den letzten fünf Jahren nicht gesetzlich versichert war UND mindestens zweieinhalb Jahre einen der genannten Ausnahme-/Befreiungsstatus hatte"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "sv-12",
+            "german": "Möchten Sie einen Zuschuss zu den Beiträgen zur Kranken- und Pflegeversicherung beantragen?",
+            "reference": "SV · Seite 2 · D · 12",
+            "meaning": "Zuschuss zu Versicherungsbeiträgen beantragen",
+            "instruction": "Ja bedeutet, dass Sie einen Zuschuss beantragen möchten, nicht dass er bewilligt ist. Aktuellen Bescheid über Monatsbeiträge beifügen; bei privater Versicherung auch den Beitrag belegen, der im Basistarif zu zahlen wäre. Nein heißt, dass hier kein Zuschuss beantragt wird.",
+            "where": "Beitragsbescheid und Basistarifnachweis des Versicherers; BA-Merkblätter der offiziellen Liste. C fordert bei allen Nein die Wahl einer Krankenkasse und Nachweis innerhalb von zwei Wochen, am besten mit dem Antrag; eigenen Fall mit Krankenkasse klären.",
+            "example": "Erfunden: Aktueller Beitrag und Basistarifnachweis sind zwei getrennte Dokumente bei Ja.",
+            "mistake": "Keine volle Erstattung versprechen; aktuellen Beitrag und hypothetischen Basistarif nicht verwechseln.",
+            "options": [
+              {
+                "german": "Ja (bitte fügen Sie den aktuellen Bescheid über die monatlichen Beiträge sowie bei privater Versicherung einen Nachweis über den Beitrag, den Sie im Basistarif zahlen würden, bei)",
+                "meaning": "Ja — Sie den Beitragszuschuss beantragen möchten"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "sv-13-14-15-16",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "SV · Seite 2 · E · 13–16",
+            "meaning": "Prüfung und richtiger Unterschriftsbereich",
+            "instruction": "Tatsächliches Unterschriftsdatum und Unterschrift der antragstellenden Person; bei Minderjährigen die rechtlich zuständige Person. Das zweite Paar Datum/Unterschrift ist für Betreuer/Vormund nur bei entsprechender Vertretung. ",
+            "where": "Offizielles Formular, gelesene Hinweise und ggf. Vertretungsunterlagen. SV bestätigt auch das Lesen der genannten Merkblätter; über die offizielle BA-Liste öffnen.",
+            "example": "Erfunden: Maja ist Antragstellerin und Selbständige und unterschreibt E und H; in anderen Anlagen folgt sie deren Unterschriftsbereich.",
+            "mistake": "„Geprüft“ in BalkanLink ist weder Unterschrift noch Einreichung. Nicht ohne entsprechende Befugnis für eine andere erwachsene Person unterschreiben."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Prüfen, für wen SV benötigt wird",
+            "sections": {
+              "meaning": "SV-Einleitung betrifft BG-Personen ohne gesetzliche Pflicht-/Familienversicherung in Kranken/Pflegeversicherung.",
+              "action": "Möglichkeit gesetzlicher Versicherung zuerst mit Krankenkasse prüfen. Unterlagen der Person B vorbereiten; Status nicht aus einer Antwort ableiten.",
+              "mistake": "Bestehende Police nicht wegen dieses Leitfadens kündigen."
+            }
+          },
+          {
+            "id": "questions",
+            "title": "Fragen 8–11 klären",
+            "sections": {
+              "meaning": "Private Versicherung, hauptberufliche Selbständigkeit, Beihilfe und mehrteilige Bedingung ab 55 sind getrennte Fragen.",
+              "action": "Jede Frage mit Nachweis prüfen. C beschreibt Vorgehen bei Ja und allen Nein; bei allen Nein nennt es Krankenkasse und Nachweis innerhalb von zwei Wochen, am besten mit Antrag. Eigenen Fall mit Krankenkasse bestätigen.",
+              "mistake": "Alter 55 allein bedeutet nicht Ja zu ganz 11."
+            }
+          },
+          {
+            "id": "subsidy",
+            "title": "Gewünschten Zuschuss beantragen",
+            "sections": {
+              "meaning": "12 fragt nach einem Zuschussantrag, bestätigt weder Bewilligung noch Höhe.",
+              "action": "Bei Ja aktuellen monatlichen Beitragsbescheid und bei Privatversicherung Basistarifnachweis beifügen. Beide genannten Merkblätter über die BA-Liste lesen.",
+              "mistake": "Basistarif und aktuellen Beitrag nicht verwechseln."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Prüfen, unterschreiben, weiter vorgehen",
+            "sections": {
+              "meaning": "E bestätigt Richtigkeit und gelesene Merkblätter; Jobcenter/Krankenkasse prüfen den Status.",
+              "action": "A/B, Belege und 13–16 prüfen. Offizielle SV mit Kopien beim eigenen Jobcenter einreichen, Bestätigung behalten; Ergänzungsanforderungen beachten ohne angenommenen Bearbeitungszeitraum.",
+              "mistake": "Geprüft heißt nicht versichert oder eingereicht."
+            }
+          }
+        ]
+      },
+      "anlage-bb": {
+        "title": "BB — Begleiter zum offiziellen Formular 10/2026",
+        "introduction": "Offizielles Original im neuen Tab öffnen und den Feldangaben folgen. Eigene Daten nur dort eintragen und Nachweise an das Jobcenter geben. BalkanLink erhebt keine Antworten, speichert keine Daten, füllt nichts aus und reicht nichts ein.",
+        "variation": "BA · Ausgabe 10/2026, Quelle geprüft am 28.10.2026. Nummern gelten nur für diese Ausgabe. Das Jobcenter prüft und entscheidet; dies ist keine Anspruchsprüfung oder Bewilligungsgarantie.",
+        "vocabularyNote": "Seite, Abschnitt und Nummer beachten. Optionen stammen aus dem Papieroriginal, nicht aus einer bestätigten Portalreihenfolge. Beispiele sind erfunden: niemals als eigene Tatsachen ausgeben.",
+        "modes": {
+          "paper": "Begleitung zum originalen BA-PDF 10/2026, kein neues PDF. Aktuelle Ausgabe vor Verwendung prüfen. Die Behörde verlangt Nachweiskopien; Originale behalten.",
+          "online": "Offiziellen digitalen Weg über jobcenter.digital und das eigene Jobcenter prüfen. Online-Reihenfolge, Bildschirmbezeichnungen und Verfügbarkeit jeder Anlage als Online-Formular sind hier nicht verifiziert."
+        },
+        "terms": [
+          {
+            "id": "bb-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "BB · Seite 1 · A · 1–4",
+            "meaning": "Antragstellende Person",
+            "instruction": "Vorname, Nachname und Geburtsdatum der Person eintragen, die den Hauptantrag stellt. BG-Nummer nur übernehmen, wenn vorhanden. Diese Person muss nicht die Person sein, auf die sich die Anlage bezieht.",
+            "where": "Ausweisdokument und vorhandener Jobcenter-Bescheid: „Nummer der Bedarfsgemeinschaft“, nicht Versicherungsnummer.",
+            "example": "Erfunden: Maja Kovač, 15.05.1985; die BG-Nummer wird aus dem eigenen Bescheid übernommen, nicht aus dem Beispiel.",
+            "mistake": "Antragstellende Person und andere Person in B nicht verwechseln. TT.MM.JJJJ bedeutet Tag.Monat.Jahr."
+          },
+          {
+            "id": "bb-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "BB · Seite 1 · B · 5–7",
+            "meaning": "Person mit dem besonderen Bedarf",
+            "instruction": "Vorname, Nachname und Geburtsdatum der in B gemeinten Person eintragen. Betrifft die Anlage Sie selbst, eigene Daten wiederholen; sonst die Daten der anderen Person verwenden.",
+            "where": "Ausweisdokument dieser Person. Die folgenden Fragen beziehen sich auf sie, nicht automatisch auf die antragstellende Person.",
+            "example": "Erfunden: Maja stellt den Antrag; betrifft die Anlage Damir Novak, steht in B Damir Novak, 20.03.1987.",
+            "mistake": "Nicht die Daten jedes Mitbewohners einsetzen. Den Zweck der Anlage zuerst anhand des offiziellen Einleitungstextes prüfen."
+          },
+          {
+            "id": "bb-8",
+            "german": "Welchen unabweisbaren besonderen Bedarf möchten Sie beantragen? (Hinweis Unabweisbarer besonderer Bedarf)",
+            "reference": "BB · Seite 1 · C · 8",
+            "meaning": "Welcher konkrete besondere Bedarf?",
+            "instruction": "Konkreten notwendigen Aufwand und betroffene Person beschreiben. „Unabweisbar“ bezeichnet einen nicht vermeidbaren Bedarf; das Jobcenter prüft rechtliche Voraussetzungen. BB ist nicht automatisch für jeden Mehrbedarf und ersetzt MEB nicht.",
+            "where": "Zweck-/Sachnachweis, Angebot/Rechnung und konkrete Jobcenter-Anforderung. Hier keine sensiblen Angaben nötig.",
+            "example": "Erfunden: Maja beschreibt konkrete Kosten notwendiger wiederkehrender Fahrten für eine persönliche Verpflichtung, ohne Anerkennung zu behaupten.",
+            "mistake": "Nicht nur „ich brauche Geld“ schreiben oder das Beispiel als Anspruchsnachweis übernehmen."
+          },
+          {
+            "id": "bb-9",
+            "german": "Wann entsteht der unabweisbare besondere Bedarf?",
+            "reference": "BB · Seite 1 · C · 9",
+            "meaning": "Wann und wie oft entsteht der Bedarf?",
+            "instruction": "Tatsächlichen Rhythmus wählen und zugehörigen Zeitpunkt eintragen: einmalig MM.JJJJ; monatlich/vierteljährlich/halbjährlich TT.MM; sonstigen Rhythmus konkret benennen.",
+            "where": "Angebot, Terminplan, Zahlungsanforderung oder frühere Rechnungen.",
+            "example": "Erfunden: Einmaliger Aufwand 11.2026 oder monatlicher Aufwand jeweils am 15.; nur den tatsächlichen Fall wählen.",
+            "mistake": "Monatsbetrag und vierteljährlichen Rhythmus nicht vermischen.",
+            "options": [
+              {
+                "german": "Einmalig (MM.JJJJ)",
+                "meaning": "Einmalig: Monat und Jahr des Entstehens."
+              },
+              {
+                "german": "Monatlich, jeweils zum (TT.MM)",
+                "meaning": "Monatlich: gefragten Tag/Monat angeben."
+              },
+              {
+                "german": "Vierteljährlich, zum (TT.MM)",
+                "meaning": "Alle drei Monate: Zeitpunkt laut Unterlage."
+              },
+              {
+                "german": "Halbjährlich, zum (TT.MM)",
+                "meaning": "Alle sechs Monate: entsprechender Zeitpunkt laut Verpflichtung."
+              },
+              {
+                "german": "Sonstiger Zahlungsrhythmus",
+                "meaning": "Anderer Rhythmus: tatsächliche Häufigkeit beschreiben, nicht blind auswählen."
+              }
+            ]
+          },
+          {
+            "id": "bb-10",
+            "german": "Bitte geben Sie an, weshalb der unabweisbare besondere Bedarf entsteht. Falls der Bedarf nur einmal entsteht, erläutern Sie bitte zusätzlich, weshalb die Aufnahme eines Darlehens über das Jobcenter nicht möglich ist.",
+            "reference": "BB · Seite 2 · C · 10",
+            "meaning": "Begründung; bei einmaligem Bedarf auch Darlehen",
+            "instruction": "Sachlich erklären, weshalb der Aufwand entsteht und nicht vermeidbar ist. Bei einmaligem Bedarf verlangt das Formular zusätzlich, weshalb ein Jobcenter-Darlehen nicht möglich ist. Wenn unklar, zuerst mit dem Jobcenter klären; keine Gründe oder Rechtsbehauptungen erfinden.",
+            "where": "Sachnachweise, Korrespondenz und Angebote; Rechtsvoraussetzungen prüft das Jobcenter.",
+            "example": "Erfunden: Maja nennt konkrete Termine, notwendige Fahrt und bereits geprüfte Möglichkeiten; behauptet keine Darlehensablehnung ohne Grundlage.",
+            "mistake": "Darlehensfrage bei einmaligem Bedarf nicht unerläutert lassen; Anerkennung nicht garantieren."
+          },
+          {
+            "id": "bb-11",
+            "german": "Steht die Höhe des unabweisbaren besonderen Bedarfs bereits fest?",
+            "reference": "BB · Seite 2 · C · 11",
+            "meaning": "Steht die Höhe fest?",
+            "instruction": "Diese Frage getrennt beantworten. Bei bekanntem Betrag verlangt 12 Euro und Kostenvoranschlag/ähnlichen Nachweis; andernfalls Unsicherheit kenntlich machen statt Betrag erfinden.",
+            "where": "Angebot/Rechnung und Fälligkeit; bei unbekannter Höhe mit dem Jobcenter klären.",
+            "example": "Erfunden: Angebot 85 EUR belegt bekannten Betrag; Vorschuss wird getrennt in 13/14 beantragt.",
+            "mistake": "Ja nicht als Anspruchsentscheidung lesen. Bekannter Betrag und Vorschussbedarf sind verschiedene Fragen.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — die Höhe bereits durch Unterlagen feststeht"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "bb-12",
+            "german": "Bitte geben Sie die Höhe des unabweisbaren besonderen Bedarfs in Euro an und fügen Sie einen Kostenvoranschlag oder ähnliche Nachweise bei.",
+            "reference": "BB · Seite 2 · C · 12",
+            "meaning": "Bedarfshöhe in Euro",
+            "instruction": "Den belegten Bedarfsbetrag nennen und Kostenvoranschlag/ähnlichen Nachweis beifügen.",
+            "where": "Angebot/Rechnung, Zahlungsplan und verfügbare Nachweise.",
+            "example": "Erfunden: Bedarf 85 EUR in 12; gewünschter Vorschuss von 40 EUR in 14.",
+            "mistake": "Gesamtbedarf, bereits gezahlten Betrag und Vorschuss nicht verwechseln."
+          },
+          {
+            "id": "bb-13",
+            "german": "Benötigen Sie einen Vorschuss für den unabweisbaren besonderen Bedarf?",
+            "reference": "BB · Seite 2 · C · 13",
+            "meaning": "Wird ein Vorschuss benötigt?",
+            "instruction": "Diese Frage getrennt beantworten. Ja ist ein Vorschussantrag; 14 nennt dessen gewünschte Höhe, keine Bewilligung.",
+            "where": "Angebot/Rechnung und Fälligkeit; bei unbekannter Höhe mit dem Jobcenter klären.",
+            "example": "Erfunden: Angebot 85 EUR belegt bekannten Betrag; Vorschuss wird getrennt in 13/14 beantragt.",
+            "mistake": "Ja nicht als Anspruchsentscheidung lesen. Bekannter Betrag und Vorschussbedarf sind verschiedene Fragen.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — Sie einen Vorschuss für den Bedarf beantragen möchten"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "bb-14",
+            "german": "Wie hoch soll der Vorschuss sein? Bitte geben Sie die Höhe des Vorschusses in Euro an.",
+            "reference": "BB · Seite 2 · C · 14",
+            "meaning": "Gewünschter Vorschuss in Euro",
+            "instruction": "Den tatsächlich gewünschten Vorschussbetrag nennen, bezogen auf Gesamtbedarf und Fälligkeit; nicht automatisch identisch mit 12.",
+            "where": "Angebot/Rechnung, Zahlungsplan und verfügbare Nachweise.",
+            "example": "Erfunden: Bedarf 85 EUR in 12; gewünschter Vorschuss von 40 EUR in 14.",
+            "mistake": "Gesamtbedarf, bereits gezahlten Betrag und Vorschuss nicht verwechseln."
+          },
+          {
+            "id": "bb-15-16-17-18",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "BB · Seite 2 · D · 15–18",
+            "meaning": "Prüfung und richtiger Unterschriftsbereich",
+            "instruction": "Tatsächliches Unterschriftsdatum und Unterschrift der antragstellenden Person; bei Minderjährigen die rechtlich zuständige Person. Das zweite Paar Datum/Unterschrift ist für Betreuer/Vormund nur bei entsprechender Vertretung. ",
+            "where": "Offizielles Formular, gelesene Hinweise und ggf. Vertretungsunterlagen. ",
+            "example": "Erfunden: Maja ist Antragstellerin und Selbständige und unterschreibt E und H; in anderen Anlagen folgt sie deren Unterschriftsbereich.",
+            "mistake": "„Geprüft“ in BalkanLink ist weder Unterschrift noch Einreichung. Nicht ohne entsprechende Befugnis für eine andere erwachsene Person unterschreiben."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Besonderer Bedarf ist kein automatischer Anspruch",
+            "sections": {
+              "meaning": "BB beantragt unabweisbaren besonderen Bedarf für sich/BG-Person; nicht jeder zusätzliche Lebensbedarf.",
+              "action": "Passende Anlage mit Jobcenter klären, dann Antragsteller A und Person B trennen. BB nicht statt MEB oder für SGB XII unterstellen.",
+              "mistake": "Beispiel garantiert keine Bewilligung."
+            }
+          },
+          {
+            "id": "explain",
+            "title": "Grund und Rhythmus beschreiben",
+            "sections": {
+              "meaning": "8–10 trennen Bedarf, Zeitpunkt und Grund; einmaliger Bedarf fragt zusätzlich nach Unmöglichkeit eines Jobcenter-Darlehens.",
+              "action": "Konkrete Tatsachen und Belege nennen. Unklare Darlehensfrage vor Rechtsbehauptung klären. Tatsächlichen Rhythmus aus fünf Optionen wählen.",
+              "mistake": "Keine Gründe oder bereits abgelehntes Darlehen erfinden."
+            }
+          },
+          {
+            "id": "cost",
+            "title": "Kosten und gewünschter Vorschuss",
+            "sections": {
+              "meaning": "11/12 bekannte Höhe mit Nachweis; 13/14 getrennter Vorschussantrag.",
+              "action": "Verfügbare Angebote/Rechnungen beifügen. Gesamtbedarf und Vorschuss trennen; unbekannten Betrag mit Jobcenter klären.",
+              "mistake": "Bekannter Preis bedeutet keine Bewilligung."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Zweckbindung und Nachweise",
+            "sections": {
+              "meaning": "D verlangt vorhandene Bedarfsnachweise und Belege zweckgebundener Verwendung; andere Nutzung kann Rückzahlung bedeuten.",
+              "action": "15–18 prüfen, offizielle BB unterschreiben und Kopien beim eigenen Jobcenter einreichen. Bestätigung, Quittungen und ggf. Bescheid behalten; Ergänzung/Entscheidung ohne Ergebnisannahme lesen.",
+              "mistake": "Hier geprüft ist weder Zahlungsantrag noch Bewilligung."
+            }
+          }
+        ]
+      },
+      "anlage-ve": {
+        "title": "VE — Begleiter zum offiziellen Formular 10/2026",
+        "introduction": "Offizielles Original im neuen Tab öffnen und den Feldangaben folgen. Eigene Daten nur dort eintragen und Nachweise an das Jobcenter geben. BalkanLink erhebt keine Antworten, speichert keine Daten, füllt nichts aus und reicht nichts ein.",
+        "variation": "BA · Ausgabe 10/2026, Quelle geprüft am 28.10.2026. Nummern gelten nur für diese Ausgabe. Das Jobcenter prüft und entscheidet; dies ist keine Anspruchsprüfung oder Bewilligungsgarantie.",
+        "vocabularyNote": "Seite, Abschnitt und Nummer beachten. Optionen stammen aus dem Papieroriginal, nicht aus einer bestätigten Portalreihenfolge. Beispiele sind erfunden: niemals als eigene Tatsachen ausgeben.",
+        "modes": {
+          "paper": "Begleitung zum originalen BA-PDF 10/2026, kein neues PDF. Aktuelle Ausgabe vor Verwendung prüfen. Die Behörde verlangt Nachweiskopien; Originale behalten.",
+          "online": "Offiziellen digitalen Weg über jobcenter.digital und das eigene Jobcenter prüfen. Online-Reihenfolge, Bildschirmbezeichnungen und Verfügbarkeit jeder Anlage als Online-Formular sind hier nicht verifiziert."
+        },
+        "terms": [
+          {
+            "id": "ve-1-2-3-4",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+            "reference": "VE · Seite 1 · A · 1–4",
+            "meaning": "Antragstellende Person",
+            "instruction": "Vorname, Nachname und Geburtsdatum der Person eintragen, die den Hauptantrag stellt. BG-Nummer nur übernehmen, wenn vorhanden. Diese Person muss nicht die Person sein, auf die sich die Anlage bezieht.",
+            "where": "Ausweisdokument und vorhandener Jobcenter-Bescheid: „Nummer der Bedarfsgemeinschaft“, nicht Versicherungsnummer.",
+            "example": "Erfunden: Maja Kovač, 15.05.1985; die BG-Nummer wird aus dem eigenen Bescheid übernommen, nicht aus dem Beispiel.",
+            "mistake": "Antragstellende Person und andere Person in B nicht verwechseln. TT.MM.JJJJ bedeutet Tag.Monat.Jahr."
+          },
+          {
+            "id": "ve-5-6-7",
+            "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+            "reference": "VE · Seite 1 · B · 5–7",
+            "meaning": "Nicht verwandte Person im Haushalt",
+            "instruction": "Vorname, Nachname und Geburtsdatum der in B gemeinten Person eintragen. Bei VE ist dies die nicht verwandte Person im Haushalt; eine gemeinsame Adresse beweist für sich keine Partnerschaft.",
+            "where": "Ausweisdokument dieser Person. Die folgenden Fragen beziehen sich auf sie, nicht automatisch auf die antragstellende Person.",
+            "example": "Erfunden: Maja stellt den Antrag; betrifft die Anlage Damir Novak, steht in B Damir Novak, 20.03.1987.",
+            "mistake": "Nicht die Daten jedes Mitbewohners einsetzen. Den Zweck der Anlage zuerst anhand des offiziellen Einleitungstextes prüfen."
+          },
+          {
+            "id": "ve-8",
+            "german": "Ist die Person Ihre Partnerin/Ihr Partner?",
+            "reference": "VE · Seite 1 · B · 8",
+            "meaning": "Partnerin/Partner",
+            "instruction": "Gemeinsame Adresse oder Mietteilung allein bedeutet keine Partnerschaft. Sachlich ohne Geschlechtsannahmen antworten. Jedes Ja/Nein betrifft nur diese Frage; BalkanLink entscheidet nicht, ob rechtlich eine Einstehensgemeinschaft besteht.",
+            "where": "Tatsächliche Umstände, Haushaltsvertrag/-beginn, Elternschafts-/Versorgungs- oder Vollmachtsnachweise je nach Frage. Nachweise nur an die Behörde geben.",
+            "example": "Erfunden: Maja und Damir teilen eine Wohnung; Maja prüft jede Frage getrennt und leitet Partnerschaft nicht allein aus der Adresse ab.",
+            "mistake": "Nicht strategisch für ein gewünschtes Ergebnis antworten oder Mitbewohner stigmatisieren. Unklare Begriffe mit dem Jobcenter klären.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — die Person tatsächlich Ihre Partnerin/Ihr Partner ist"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "ve-9",
+            "german": "Leben Sie seit mehr als einem Jahr mit der Person in einem gemeinsamen Haushalt?",
+            "reference": "VE · Seite 1 · B · 9",
+            "meaning": "Gemeinsamer Haushalt seit mehr als einem Jahr",
+            "instruction": "Tatsächlichen Haushaltsbeginn prüfen. Genau ein Jahr ist nicht „mehr als ein Jahr“; gleiche Adresse klärt nicht alle anderen Umstände. Jedes Ja/Nein betrifft nur diese Frage; BalkanLink entscheidet nicht, ob rechtlich eine Einstehensgemeinschaft besteht.",
+            "where": "Tatsächliche Umstände, Haushaltsvertrag/-beginn, Elternschafts-/Versorgungs- oder Vollmachtsnachweise je nach Frage. Nachweise nur an die Behörde geben.",
+            "example": "Erfunden: Maja und Damir teilen eine Wohnung; Maja prüft jede Frage getrennt und leitet Partnerschaft nicht allein aus der Adresse ab.",
+            "mistake": "Nicht strategisch für ein gewünschtes Ergebnis antworten oder Mitbewohner stigmatisieren. Unklare Begriffe mit dem Jobcenter klären.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — der gemeinsame Haushalt mit dieser Person länger als ein Jahr besteht"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "ve-10",
+            "german": "Leben Sie mit der Person und mindestens einem gemeinsamen Kind zusammen?",
+            "reference": "VE · Seite 1 · B · 10",
+            "meaning": "Gemeinsames Kind im gemeinsamen Haushalt",
+            "instruction": "Gefragt ist ein gemeinsames Kind, das dort lebt, nicht irgendein Kind eines Mitbewohners. Jedes Ja/Nein betrifft nur diese Frage; BalkanLink entscheidet nicht, ob rechtlich eine Einstehensgemeinschaft besteht.",
+            "where": "Tatsächliche Umstände, Haushaltsvertrag/-beginn, Elternschafts-/Versorgungs- oder Vollmachtsnachweise je nach Frage. Nachweise nur an die Behörde geben.",
+            "example": "Erfunden: Maja und Damir teilen eine Wohnung; Maja prüft jede Frage getrennt und leitet Partnerschaft nicht allein aus der Adresse ab.",
+            "mistake": "Nicht strategisch für ein gewünschtes Ergebnis antworten oder Mitbewohner stigmatisieren. Unklare Begriffe mit dem Jobcenter klären.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — Sie mit der Person und mindestens einem gemeinsamen Kind zusammenleben"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "ve-11",
+            "german": "Versorgen Sie und die Person gemeinsam mindestens ein Kind oder eine Angehörige/einen Angehörigen im Haushalt?",
+            "reference": "VE · Seite 2 · B · 11",
+            "meaning": "Gemeinsame Versorgung von Kind/Angehörigen",
+            "instruction": "Eigenständige Frage neben dem gemeinsamen Kind in 10. Tatsächliche gemeinsame Versorgung prüfen, nicht aus Wohnteilung ableiten. Jedes Ja/Nein betrifft nur diese Frage; BalkanLink entscheidet nicht, ob rechtlich eine Einstehensgemeinschaft besteht.",
+            "where": "Tatsächliche Umstände, Haushaltsvertrag/-beginn, Elternschafts-/Versorgungs- oder Vollmachtsnachweise je nach Frage. Nachweise nur an die Behörde geben.",
+            "example": "Erfunden: Maja und Damir teilen eine Wohnung; Maja prüft jede Frage getrennt und leitet Partnerschaft nicht allein aus der Adresse ab.",
+            "mistake": "Nicht strategisch für ein gewünschtes Ergebnis antworten oder Mitbewohner stigmatisieren. Unklare Begriffe mit dem Jobcenter klären.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — Sie beide mindestens ein Kind oder eine angehörige Person im Haushalt gemeinsam versorgen"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "ve-12",
+            "german": "Dürfen Sie über das Einkommen oder das Vermögen der Person verfügen?",
+            "reference": "VE · Seite 2 · B · 12",
+            "meaning": "Verfügungsbefugnis über Einkommen/Vermögen",
+            "instruction": "Befugnis/Vollmacht und tatsächliche Vereinbarungen prüfen. Einkommen kennen ist nicht dasselbe wie darüber verfügen dürfen. Jedes Ja/Nein betrifft nur diese Frage; BalkanLink entscheidet nicht, ob rechtlich eine Einstehensgemeinschaft besteht.",
+            "where": "Tatsächliche Umstände, Haushaltsvertrag/-beginn, Elternschafts-/Versorgungs- oder Vollmachtsnachweise je nach Frage. Nachweise nur an die Behörde geben.",
+            "example": "Erfunden: Maja und Damir teilen eine Wohnung; Maja prüft jede Frage getrennt und leitet Partnerschaft nicht allein aus der Adresse ab.",
+            "mistake": "Nicht strategisch für ein gewünschtes Ergebnis antworten oder Mitbewohner stigmatisieren. Unklare Begriffe mit dem Jobcenter klären.",
+            "options": [
+              {
+                "german": "Ja",
+                "meaning": "Ja — Sie über Einkommen oder Vermögen der anderen Person verfügen dürfen"
+              },
+              {
+                "german": "Nein",
+                "meaning": "Nein — nur ankreuzen, wenn der beschriebene Sachverhalt nicht zutrifft. Bei Unklarheit Nachweise prüfen oder das Jobcenter fragen."
+              }
+            ]
+          },
+          {
+            "id": "ve-13",
+            "german": "Bitte geben Sie an, weshalb Sie glauben, mit der unter Abschnitt B angegebenen Person keine Verantwortungs- und Einstehensgemeinschaft zu bilden.",
+            "reference": "VE · Seite 2 · C · 13",
+            "meaning": "Sachliche Gründe gegen die Vermutung",
+            "instruction": "C erklärt die Vermutung bei einer Ja-Antwort in B und die Möglichkeit, ihr zu widersprechen. Tatsächlich relevante Umstände beschreiben, etwa getrennte Haushaltsführung/Finanzen, sofern zutreffend. Keine Gründe erfinden oder behaupten, ein Beleg widerlege die Vermutung sicher.",
+            "where": "Tatsächliche Vereinbarungen und Haushalts-/Finanznachweise; bei Unsicherheit Jobcenter oder unabhängige Beratung fragen. Das Feld ist kein automatischer Widerspruch gegen einen Bescheid.",
+            "example": "Erfunden: Maja beschreibt eigene Lebensmitteleinkäufe und vereinbarte Mietanteile nur, wenn dies tatsächlich so ist; keine vorgefertigte Aussage als Rechtsbeweis verwenden.",
+            "mistake": "Ja nicht als unwiderlegbare Entscheidung oder Nein als Garantie darstellen. Das Jobcenter entscheidet nach Sachverhaltsprüfung."
+          },
+          {
+            "id": "ve-14-15-16-17",
+            "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+            "reference": "VE · Seite 2 · D · 14–17",
+            "meaning": "Prüfung und richtiger Unterschriftsbereich",
+            "instruction": "Tatsächliches Unterschriftsdatum und Unterschrift der antragstellenden Person; bei Minderjährigen die rechtlich zuständige Person. Das zweite Paar Datum/Unterschrift ist für Betreuer/Vormund nur bei entsprechender Vertretung. ",
+            "where": "Offizielles Formular, gelesene Hinweise und ggf. Vertretungsunterlagen. ",
+            "example": "Erfunden: Maja ist Antragstellerin und Selbständige und unterschreibt E und H; in anderen Anlagen folgt sie deren Unterschriftsbereich.",
+            "mistake": "„Geprüft“ in BalkanLink ist weder Unterschrift noch Einreichung. Nicht ohne entsprechende Befugnis für eine andere erwachsene Person unterschreiben."
+          }
+        ],
+        "steps": [
+          {
+            "id": "scope",
+            "title": "Beziehungsprüfung ohne Vorannahmen",
+            "sections": {
+              "meaning": "VE-Einleitung nennt gemeinsamen Haushalt mit nicht verwandter Person zur Prüfung einer Verantwortungs- und Einstehensgemeinschaft.",
+              "action": "Zweck mit Jobcenter klären, Antragsteller A und Person B trennen. Geteilte Wohnung nicht automatisch zur Partnerschaft erklären.",
+              "mistake": "Beziehung nicht aus Adresse oder Geschlecht ableiten."
+            }
+          },
+          {
+            "id": "facts",
+            "title": "Fünf getrennte Fragen",
+            "sections": {
+              "meaning": "8–12 fragen Partnerschaft, mehr als ein Jahr, gemeinsames Kind, gemeinsame Versorgung und Verfügungsbefugnis.",
+              "action": "Jede Frage nach Tatsachen und entsprechenden Nachweisen beantworten. Kenntnis von Bankdaten ist keine Verfügungsbefugnis.",
+              "mistake": "Nicht jedes Ja/Nein ist dasselbe; keine automatische Anspruchsprüfung."
+            }
+          },
+          {
+            "id": "explain",
+            "title": "Mögliche Erklärung in C",
+            "sections": {
+              "meaning": "C beschreibt Vermutung bei Ja in B und Möglichkeit zu widersprechen; kein unwiderlegbares Urteil.",
+              "action": "Wenn Sie keine solche Gemeinschaft sehen, in 13 tatsächliche Gründe und verfügbare Nachweise erläutern. Komplexe Fragen mit Jobcenter/unabhängiger Beratung klären, ohne erfundene Behauptungen.",
+              "mistake": "Erklärung nicht als automatischen Widerspruch oder sicheren Ausgang darstellen."
+            }
+          },
+          {
+            "id": "send",
+            "title": "Prüfen und offiziell einreichen",
+            "sections": {
+              "meaning": "D bestätigt Richtigkeit; abschließende Feststellung erfolgt durch Jobcenter.",
+              "action": "Tatsachen, Kopien und Unterschrift 14–17 prüfen. Beim eigenen Jobcenter einreichen, Bestätigung behalten; Ergänzungen sachlich beantworten, ohne angenommenen Zeitraum/Bescheid.",
+              "mistake": "BalkanLink erhebt und sendet nichts; geprüft ist nicht eingereicht."
+            }
+          }
+        ]
+      },
       "hauptantrag": {
         "title": "Leitfaden zum Ausfüllen des Hauptantrags (HA - 10/2026)",
         "introduction": "Öffnen Sie das offizielle Formular in einem neuen Tab. Folgen Sie hier jedem Feld und jeder Option; tragen Sie Daten nur in das offizielle Formular ein. BalkanLink füllt nichts aus und versendet nichts. Dieser Leitfaden fragt keine persönlichen Daten ab und speichert diese nicht.",
