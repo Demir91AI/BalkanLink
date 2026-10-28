@@ -7,6 +7,19 @@ const event = (text: string) => `data: ${JSON.stringify({ choices: [{ delta: { c
 const body = (text: string) => new ReadableStream<Uint8Array>({ start(c) { c.enqueue(encode(text)); c.close(); } });
 
 describe("assistant request and SSE reliability", () => {
+  it("measures same-tick preflight calls: legacy async state guard 2 → synchronous lock 1", async () => {
+    const counts: number[] = [];
+    for (const locked of [false, true]) {
+      const lock = createAssistantRequestLock(); const record = vi.fn(async () => {});
+      let loading = false;
+      const send = async () => {
+        if (loading || (locked && !lock.acquire())) return;
+        try { await record(); loading = true; } finally { if (locked) lock.release(); }
+      };
+      await Promise.all([send(), send()]); counts.push(record.mock.calls.length);
+    }
+    expect(counts).toEqual([2, 1]);
+  });
   it("concurrent sends acquire once before the first await; next explicit request remains allowed", async () => {
     const lock = createAssistantRequestLock(); let finish: (() => void) | undefined;
     const wait = new Promise<void>(r => { finish = r; }); const record = vi.fn(() => wait); const fetch = vi.fn();

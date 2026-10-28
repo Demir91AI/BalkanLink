@@ -70,6 +70,18 @@ describe("assistant guide projection and routing", () => {
 });
 
 describe("isolated transport reliability and call-count profiling", () => {
+  it("measures two catalog prompt builds: 2 → 1 joins per worker, with identical bytes", () => {
+    const source = readFileSync("supabase/functions/chat-assistant/index.ts", "utf8");
+    const section = source.slice(source.indexOf("function buildFormCatalogContext"), source.indexOf("// ── SITE CONTENT INDEX"));
+    const outputs: string[][] = [], counts: number[] = [];
+    for (const cached of [false, true]) {
+      const map = vi.fn((callback: (f: typeof guides.ASSISTANT_CATALOG[number]) => string) => guides.ASSISTANT_CATALOG.map(callback));
+      const code = cached ? section : 'function buildFormCatalogContext() { return FORM_CATALOG.map(f => `- ${f.label} (slug: ${f.slug}): ${f.desc}`).join("\\n"); }';
+      outputs.push(vm.runInNewContext(ts.transpileModule(code + '\n[buildFormCatalogContext(), buildFormCatalogContext()]', { compilerOptions: { target: ts.ScriptTarget.ES2022 } }).outputText, { FORM_CATALOG: { map } }));
+      counts.push(map.mock.calls.length);
+    }
+    expect(counts).toEqual([2, 1]); expect(outputs[1]).toEqual(outputs[0]);
+  });
   it("measures search calls: 1→0 for sourced and gated requests, 1→1 for allowed unknown questions", async () => {
     const counts: number[] = [];
     for (const [text, allowed] of [[question, true], ["Šta je nepoznata usluga?", false], ["Šta je nepoznata usluga?", true]] as const) {
@@ -116,6 +128,16 @@ describe("isolated transport reliability and call-count profiling", () => {
     e.fetchMock.mockResolvedValueOnce(new Response(new ReadableStream({ start(c) { c.error(new Error("interrupted")); } })));
     await expect((await e.handler(request("Šta je nepoznata usluga?"))).text()).rejects.toThrow("interrupted");
     expect(e.reserve).toHaveBeenCalledTimes(1); expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
+  });
+  it("HTTP upstream rejection retains one release and no retry", async () => {
+    const e = endpoint(); e.fetchMock.mockResolvedValueOnce(new Response("limited", { status: 429 }));
+    expect((await e.handler(request("Šta je nepoznata usluga?"))).status).toBe(429);
+    expect(e.reserve).toHaveBeenCalledTimes(1); expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled(); expect(e.fetchMock).toHaveBeenCalledTimes(1);
+  });
+  it("failed release after network rejection is not retried or compensated", async () => {
+    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline")); e.release.mockRejectedValueOnce(new Error("unconfirmed"));
+    expect((await e.handler(request("Šta je nepoznata usluga?"))).status).toBe(500);
+    expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
   });
 });
 
