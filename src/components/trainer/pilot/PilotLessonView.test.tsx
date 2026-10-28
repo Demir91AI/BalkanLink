@@ -5,7 +5,7 @@ import i18n from "i18next";
 import { A1_PILOT_LESSONS } from "@/lib/trainer/pilot/a1-pilot-lessons";
 
 const completeLesson = vi.fn();
-vi.mock("@/hooks/useTTS", () => ({ useTTS: () => ({ toggle: vi.fn(), stop: vi.fn(), activeId: null, playState: "idle", rate: 1, setRate: vi.fn(), usingFallback: false, audioError: false }) }));
+vi.mock("@/hooks/useTTS", () => ({ useTTS: () => ({ toggle: vi.fn(), activeId: null, playState: "idle" }) }));
 vi.mock("@/hooks/useTrainerProgress", () => ({ useTrainerProgress: () => ({ completeLesson }) }));
 import PilotLessonView from "./PilotLessonView";
 

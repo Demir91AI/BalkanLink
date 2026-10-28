@@ -4,7 +4,6 @@ import { ArrowLeft, CheckCircle2, Lightbulb, RotateCcw, XCircle } from "lucide-r
 import { Button } from "@/components/ui/button";
 import AudioButton from "@/components/trainer/AudioButton";
 import { useTTS } from "@/hooks/useTTS";
-import { AudioStatusNotice, DialoguePlayer, SpeedToggle } from "@/components/trainer/audio/AudioPlayerParts";
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import {
   buildQueue, checkAnswer, pilotLocale,
@@ -27,7 +26,7 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
   const { t, i18n } = useTranslation("pages");
   const loc = pilotLocale(i18n.language);
   const p = (k: string, o?: Record<string, unknown>) => t(`deutschTrainer.pilot.${k}`, o);
-  const { toggle, stop, activeId, playState, rate, setRate, usingFallback, audioError } = useTTS();
+  const { toggle, activeId, playState } = useTTS();
   const { completeLesson } = useTrainerProgress();
 
   const [phase, setPhase] = useState<"learn" | "practice" | "done">("learn");
@@ -73,10 +72,6 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
 
         {phase === "learn" && (
           <>
-            <div className="flex flex-wrap items-center gap-3">
-              <SpeedToggle rate={rate} setRate={setRate} />
-            </div>
-            <AudioStatusNotice usingFallback={usingFallback} audioError={audioError} />
             <section className={card} aria-labelledby="obj">
               <h2 id="obj" className={h2}>{p("objectives")}</h2>
               <ul className="space-y-1.5">
@@ -104,8 +99,18 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
 
             <section className={card} aria-labelledby="dia">
               <h2 id="dia" className={h2}>{p("dialogue")}</h2>
-              <DialoguePlayer idPrefix={lesson.id} lines={lesson.dialogue.map((d) => ({ speaker: d.speaker, de: d.de, tr: d.tr[loc] }))}
-                toggle={toggle} stop={stop} activeId={activeId} playState={playState} />
+              <ol className="space-y-3">
+                {lesson.dialogue.map((d, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    {audio(`d${i}`, d.de)}
+                    <div>
+                      <p className="text-xs font-bold text-gold">{d.speaker}</p>
+                      <p className="text-white" lang="de">{d.de}</p>
+                      <p className="text-xs text-white/60">{d.tr[loc]}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
               <p className="mt-4 text-[11px] text-white/50">{p("translationNote")}</p>
             </section>
 

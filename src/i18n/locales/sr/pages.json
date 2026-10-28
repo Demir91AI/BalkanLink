@@ -835,16 +835,6 @@
       "listen": "Poslušaj",
       "startExercises": "Na vežbe",
       "translationNote": "Prevodi služe kao pomoć; nemački tekst je merodavan."
-    },
-    "audio": {
-      "speed": "Brzina reprodukcije",
-      "normal": "Normalno",
-      "slow": "Sporije",
-      "playAll": "Pusti ceo dijalog",
-      "stopAll": "Zaustavi",
-      "fallback": "Profesionalni glas trenutno nije dostupan — koristi se osnovni glas tvog uređaja (slabiji kvalitet).",
-      "error": "Audio trenutno nije dostupan. Pokušaj ponovo kasnije.",
-      "voiceNote": "Glasove generiše spoljni servis za sintezu govora (ElevenLabs) samo iz teksta lekcije; tvoji podaci se ne šalju."
     }
   },
   "classifieds": {
