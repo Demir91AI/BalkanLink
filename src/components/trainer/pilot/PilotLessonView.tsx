@@ -54,7 +54,7 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
   const restart = () => { setMissed([]); setIdx(0); setFirstTry(0); reset(); setPhase("learn"); };
 
   const audio = (id: string, text: string) => (
-    <AudioButton id={`${lesson.id}-${id}`} text={text} toggle={toggle} activeId={activeId} playState={playState} />
+    <AudioButton id={`${lesson.id}-${id}`} text={text} toggle={toggle} activeId={activeId} playState={playState} className={activeId === `${lesson.id}-${id}` ? undefined : "bg-gold/15 text-gold hover:bg-gold/25"} />
   );
 
   return (

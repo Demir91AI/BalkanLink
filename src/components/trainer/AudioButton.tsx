@@ -8,10 +8,11 @@ interface AudioButtonProps {
   toggle: (id: string, text: string) => void;
   activeId: string | null;
   playState: "idle" | "loading" | "playing" | "paused";
+  className?: string;
 }
 
 const AudioButton = React.forwardRef<HTMLButtonElement, AudioButtonProps>(
-  ({ id, text, toggle, activeId, playState }, ref) => {
+  ({ id, text, toggle, activeId, playState, className }, ref) => {
     const isThisActive = activeId === id;
     const isLoading = isThisActive && playState === "loading";
     const isPlaying = isThisActive && playState === "playing";
@@ -31,7 +32,8 @@ const AudioButton = React.forwardRef<HTMLButtonElement, AudioButtonProps>(
             ? "bg-primary text-primary-foreground shadow-[0_0_12px_hsl(var(--primary)/0.4)]"
             : isThisActive && playState === "paused"
               ? "bg-primary/20 text-primary ring-1 ring-primary/30"
-              : "bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-sm active:scale-95"
+              : "bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-sm active:scale-95",
+          className
         )}
         aria-label={isPlaying || isLoading ? "Pause" : "Abspielen"}
       >
