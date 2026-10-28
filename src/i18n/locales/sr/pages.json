@@ -7498,7 +7498,7 @@
             "instruction": "Koristite ovaj naslov kao referencu za ceo obrazac. Ispunite ga za svaku osobu u zajednici (Bedarfsgemeinschaft) koja ima 15 ili više godina. Ako osoba ima tačno 15 godina, proverite status, ali se obrazac načelno primenjuje 'ab 15'. Dokumentujte prihode isključivo kopijama.",
             "mistake": "Pogrešno pretpostavljanje da se obrazac popunjava za decu mlađu od 15 godina (za njih se koriste drugi prilozi).",
             "german": "Anlage EK — Einkommen einer Person ab 15 Jahren",
-            "example": "Maja Kovač",
+            "example": "Maja Kovač unosi svoje podatke na vrhu obrasca 'Dodatak EK — Prihodi osobe starije od 15 godina' kako bi prijavila svoje mesečne zarade.",
             "reference": "EK · Seite 1 · Hinweise",
             "id": "ek-notice-1",
             "meaning": "Dodatak EK — Prihodi osobe od 15 godina",
@@ -7520,12 +7520,12 @@
             "meaning": "Podaci o osobi za koju se popunjava prilog",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: ugovor/platne liste, rešenje (Bescheid) i izvode iz banke (Kontoauszüge) s datumom uplate. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "instruction": "5. Unesite ime osobe za koju se ovaj specifični EK prilog popunjava. 6. Unesite prezime. 7. Unesite datum rođenja (DD.MM.GGGG). Ako podnosilac zahteva popunjava za sebe, podaci će biti isti kao u odeljku A.",
-            "example": "Marko, Kovač, 10.10.2008",
+            "example": "Maja popunjava podatke za svog sina: Ime: Marko, Prezime: Kovač, Datum rođenja: 10.10.2008. godine.",
             "german": "5–7 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ)",
             "mistake": "Ostavljanje polja praznim ako podnosilac zahteva popunjava obrazac za samog sebe."
           },
           {
-            "example": "Ja (označeno krstićem)",
+            "example": "Maja proverava svoje ugovore i stavlja krstić u polje 'Da', jer trenutno ostvaruje prihode od stalnog zaposlenja i dopunskog rada.",
             "mistake": "Neprijavljivanje minijoba ili kratkotrajnog posla tokom raspusta misleći da su nebitni.",
             "instruction": "Odgovorite sa 'Ja' ili 'Nein'. Uključite sve vrste zaposlenja: glavni posao, sporedni posao, obuku, minijob ili posao tokom raspusta. Ako je odgovor 'Nein', preskočite na sledeća relevantna pitanja o drugim vrstama prihoda.",
             "options": [
@@ -8107,7 +8107,7 @@
             "id": "vm-7-8",
             "instruction": "1. U polje 7 unesite procenat suvlasništva (npr. 50 ako ste vlasnik polovine). 2. U polje 8 unesite trenutnu tržišnu vrednost nekretnine (procena koliko bi se dobilo prodajom). 3. Za tržišnu vrednost pogledajte napomenu o proceni (Verkehrswert).",
             "mistake": "Unos nabavne cene od pre 20 godina umesto trenutne tržišne vrednosti.",
-            "example": "7: 50; 8: 120.000.",
+            "example": "Maja proverava vlasnički list za svoj stan i unosi: pod tačkom 7 navodi suvlasnički udeo od 50%, a pod tačkom 8 procenjuje tržišnu vrednost nekretnine na 120.000 EUR.",
             "where": "Sekcija B, polja 7 i 8, odmah ispod pitanja 6."
           },
           {
@@ -8127,7 +8127,7 @@
             "reference": "VM · Seite 1 · B · 9",
             "instruction": "Označite krstićem 'Ja' ako Vi ili bilo koji član Vaše zajednice (BG) posedujete neizgrađeno zemljište u zemlji ili inostranstvu. U suprotnom označite 'Nein'. Ako je 'Nein', preskočite polja 10 i 11.",
             "mistake": "Korisnik označava 'Nein' iako poseduje poljoprivredno zemljište u inostranstvu; sva imovina se mora navesti bez obzira na lokaciju.",
-            "example": "Nein (označeno iksom)",
+            "example": "Maja pregleda katastarske izvode i potvrđuje da niko u domaćinstvu ne poseduje neizgrađeno zemljište tako što označava polje 'Ne' krstićem.",
             "id": "vm-9"
           },
           {
@@ -8137,7 +8137,7 @@
             "reference": "VM · Seite 1 · B · 10–11",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: bankovne izvode, vlasničke listove, ugovore, godišnje izveštaje i procene aktuelne vrednosti. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "instruction": "10. Unesite Vaš procentualni udeo u vlasništvu (npr. 100 ako ste jedini vlasnik ili 50 ako ste suvlasnik). 11. Unesite trenutnu tržišnu vrednost celog zemljišta u evrima. Ako je polje 9 'Nein', ostavite prazno.",
-            "example": "10: 50%, 11: 15.000 EUR",
+            "example": "Za nasleđenu parcelu, Maja pod stavkom 10 upisuje svoj udeo od 50%, a pod stavkom 11 navodi procenjenu vrednost tog dela od 15.000 EUR.",
             "mistake": "Upisivanje nabavne cene od pre 20 godina umesto trenutne procenjene tržišne vrednosti."
           },
           {
@@ -8147,7 +8147,7 @@
             "instruction": "Označite 'Ja' ako bilo ko u zajednici (BG) poseduje motorno vozilo (auto, motor, kamper itd.). Ako je 'Nein', preskočite tabelu u polju 13. Sva vozila, uključujući ona u inostranstvu, moraju biti prijavljena.",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: bankovne izvode, vlasničke listove, ugovore, godišnje izveštaje i procene aktuelne vrednosti. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "mistake": "Neprijavljivanje vozila koje je registrovano na člana porodice, ali se retko koristi.",
-            "example": "Ja (označeno iksom)",
+            "example": "Maja proverava saobraćajnu dozvolu svog automobila i u obrascu označava polje 'Da' kako bi prijavila vlasništvo nad vozilom.",
             "options": [
               {
                 "meaning": "Da - u posedu je jedno ili više vozila. Obavezno je popunjavanje tabele u polju 13. Odaberi samo ako se opisana situacija stvarno odnosi na osobu/zajednicu o kojoj pitanje govori.",
@@ -8361,7 +8361,7 @@
             "example": "Maja Kovač, Zlatne poluge/Bitcoin, 4000.00 EUR."
           },
           {
-            "example": "Ja (označeno krstićem).",
+            "example": "S obzirom na to da je ranije vodila mali krojački salon, Maja u polje o samostalnoj delatnosti upisuje krstić pored opcije 'Da'.",
             "id": "vm-26",
             "instruction": "1. Označite da li je bilo koji član zajednice ikada bio ili je trenutno samostalni preduzetnik (Ja/Nein). 2. Ako je 'Ja', nastavite na polje 27. Ako je 'Nein', preskočite na odeljak G.",
             "mistake": "Označavanje 'Nein' za bivše preduzetničke radnje koje su davno zatvorene (pitanje glasi 'da li je bila').",
@@ -8388,7 +8388,7 @@
             "id": "vm-27-28",
             "meaning": "Podaci o samostalnoj delatnosti",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: bankarske izvode, vlasničke dokumente, ugovore, godišnje izveštaje i procene aktuelne vrednosti. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
-            "example": "Maja Kovač, 8 godina"
+            "example": "Maja Kovač navodi svoje ime kao osobe koja je obavljala delatnost i precizira da je samostalni rad trajao ukupno 8 godina."
           },
           {
             "example": "Označeno 'Ja' jer je Maja uplaćivala doprinose u DRV.",
@@ -8627,7 +8627,7 @@
             "german": "14 · Bitte geben Sie die (steuerliche) Identifikationsnummer des Kindes an. (Hinweis Persönliche Identifikationsnummern)",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične isprave, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "mistake": "Upisivanje broja zdravstvenog osiguranja ili ID broja roditelja.",
-            "example": "01234567890",
+            "example": "Maja Kovač pažljivo prepisuje poreski identifikacioni broj svog deteta 01234567890 iz službene dokumentacije u predviđeno polje.",
             "instruction": "Upišite jedanaestocifreni poreski identifikacioni broj deteta u polje 14. Ovaj broj se obično dodeljuje pri rođenju i ostaje nepromenjen. Ne upisivati broj penzionog osiguranja ovde."
           },
           {
@@ -8697,7 +8697,7 @@
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "instruction": "Ako ste u polju 17 odgovorili sa 'Da', u polje 18 unesite datum do kojeg važi rešenje o naknadama u formatu dan.mesec.godina (TT.MM.GGGG). Ako je odgovor 'Ne', preskočite ovo polje.",
             "meaning": "Trajanje primanja azilantskih naknada",
-            "example": "31.12.2024",
+            "example": "Proverom rešenja o pomoći za tražioce azila, Maja Kovač unosi 31.12.2024. kao datum do kojeg njeno dete ostvaruje ovo pravo.",
             "reference": "KI · Seite 2 · C · 18"
           },
           {
@@ -8707,7 +8707,7 @@
             "instruction": "U polje 19 unesite AZR broj deteta ako ga posedujete. Ako dete nema ovaj broj, ostavite polje praznim. Broj se obično nalazi na dokumentima o boravku.",
             "german": "19 · Bitte geben Sie die Ausländerzentralregisternummer des Kindes an, falls vorhanden.",
             "meaning": "AZR broj deteta",
-            "example": "987654321098",
+            "example": "Maja Kovač u formular upisuje broj iz Centralnog registra za strance 987654321098, koji je pronašla na identifikacionom dokumentu svog deteta.",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj."
           },
           {
@@ -8830,7 +8830,7 @@
           },
           {
             "meaning": "Datum polaska u školu",
-            "example": "01.09.2025.",
+            "example": "Na osnovu obaveštenja iz škole, Maja Kovač navodi 01.09.2025. kao očekivani datum polaska njenog deteta u prvi razred.",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "reference": "KI · Seite 2 · D · 26",
             "german": "26 · Bitte geben Sie das (voraussichtliche) Einschulungsdatum an. am (TT.MM.JJJJ)",
@@ -9286,7 +9286,7 @@
                 "german": "Keine Angabe"
               }
             ],
-            "example": "Krstić kod 'Weiblich'.",
+            "example": "Maja označava polje ispred opcije 'ženski' (Weiblich).",
             "id": "wep-12",
             "reference": "WEP · Seite 1 · B · 12",
             "instruction": "12. Označite pol osobe za koju se popunjava obrazac krstićem u odgovarajućem polju. Izbor je obavezan.",
@@ -9428,14 +9428,14 @@
             "mistake": "Unos datuma podnošenja zahteva umesto datuma isteka prava na naknadu.",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid (rešenje) ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "reference": "WEP · Seite 2 · C · 19",
-            "example": "01.05.2024."
+            "example": "Maja navodi 01.05.2024. kao datum do kojeg ostvaruje pravo na naknadu za tražioce azila."
           },
           {
             "id": "wep-20",
             "instruction": "Unesite Centralni registarski broj za strance (AZR-Nummer) ukoliko ga osoba poseduje. Broj se obično nalazi na dozvoli boravka ili dokumentu o tolerisanom boravku (Duldung). Ukoliko broj nije poznat, ostavite polje praznim.",
             "reference": "WEP · Seite 2 · C · 20",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid (rešenje) ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
-            "example": "123456789012",
+            "example": "Maja prepisuje broj 123-456-789-012 iz svog registra za strance (AZR-Nummer).",
             "german": "20 · Bitte geben Sie die Ausländerzentralregisternummer der Person an, falls vorhanden.",
             "meaning": "Centralni registarski broj za strance (AZR).",
             "mistake": "Mešanje AZR broja sa brojem socijalnog osiguranja."
@@ -9445,7 +9445,7 @@
             "id": "wep-21",
             "german": "21 · Hat jemand gegenüber der Ausländerbehörde oder der Auslandsvertretung zugesagt, alle Kosten während des Aufenthalts der Person in Deutschland zu übernehmen (Verpflichtungserklärung)? (Hinweis Verpflichtungserklärung)",
             "mistake": "Označavanje sa 'Ne' iako postoji osoba koja garantuje za troškove boravka, što može dovesti do zahteva za povraćaj sredstava.",
-            "example": "Nein",
+            "example": "Maja bira opciju 'Ne', jer niko nije potpisao obavezu izdržavanja (Verpflichtungserklärung) za njen boravak.",
             "instruction": "Označite da li je neka treća osoba ili institucija potpisala službenu izjavu o preuzimanju obaveza (Verpflichtungserklärung) za troškove života ove osobe. Ako je odgovor 'Da', obavezno priložite dokaz.",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "options": [
@@ -9465,7 +9465,7 @@
             "german": "22 · Bitte geben Sie für die Person die nationale Personenidentifikationsnummer des Herkunftslandes an, falls vorhanden. (Hinweis Persönliche Identifikationsnummern)",
             "id": "wep-22",
             "meaning": "Nacionalni identifikacioni broj iz zemlje porekla",
-            "example": "1506985170045",
+            "example": "Maja upisuje svoj jedinstveni matični broj iz matične zemlje koji glasi 1506985170045.",
             "instruction": "Unesite nacionalni identifikacioni broj iz zemlje porekla (npr. JMBG za državljane Srbije) ukoliko je isti dostupan. Ovo služi za nedvosmislenu identifikaciju u međunarodnom kontekstu.",
             "mistake": "Unošenje nemačkog poreskog broja (Steuer-ID) umesto broja iz matične zemlje.",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj."
@@ -9503,7 +9503,7 @@
             ],
             "german": "23 · Bitte geben Sie den aktuellen Familienstand der Person an.",
             "instruction": "Označite trenutno bračno stanje osobe. Ako odaberete opciju koja uključuje razvod, trajni rastanak ili poništenje partnerstva, obavezno popunite i dodatni obrazac Anlage UH1.",
-            "example": "Ledig",
+            "example": "Maja navodi da je njen trenutni bračni status 'neudata'.",
             "id": "wep-23",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "mistake": "Označavanje 'Verheiratet' (u braku) za supružnike koji žive trajno odvojeno; u tom slučaju se mora izabrati 'Dauernd getrennt lebend'.",
@@ -9512,7 +9512,7 @@
           },
           {
             "meaning": "Datum razvoda ili razdvajanja",
-            "example": "15.05.2023.",
+            "example": "Budući da je razvedena, Maja upisuje 15.05.2023. kao datum kada je razvod postao pravosnažan.",
             "id": "wep-24",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "reference": "WEP · Seite 2 · D · 24",
@@ -9531,7 +9531,7 @@
                 "german": "Nein"
               }
             ],
-            "example": "Ja",
+            "example": "Maja potvrđuje opciju 'Da', jer je zdrava i sposobna da radi barem tri sata dnevno.",
             "id": "wep-25",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične isprave, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "german": "25 · Ist die Person erwerbsfähig? Dies bedeutet, die Person ist grundsätzlich gesundheitlich in der Lage, regelmäßig eine Tätigkeit von mindestens drei Stunden täglich auszuüben. (Hinweis Erwerbsfähigkeit)",
@@ -9547,7 +9547,7 @@
             "mistake": "Preskakanje pitanja kod osoba mlađih od 15 godina (iako se za njih koristi KI, u WEP-u se ovo popunjava za sve osobe od 15 godina naviše).",
             "reference": "WEP · Seite 3 · D · 26",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične isprave, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
-            "example": "Ja",
+            "example": "Maja označava 'Da', potvrđujući da je u drugom stanju.",
             "german": "26 · Ist die Person schwanger? (Hinweis Mehrbedarfe)",
             "options": [
               {
@@ -9568,13 +9568,13 @@
             "german": "27 · Wann ist der voraussichtliche Entbindungstermin? am (TT.MM.JJJJ)",
             "id": "wep-27",
             "meaning": "Očekivani datum porođaja",
-            "example": "20.12.2024."
+            "example": "Maja navodi 20.12.2024. kao predviđeni termin porođaja prema lekarskom nalazu."
           },
           {
             "reference": "WEP · Seite 3 · D · 28",
             "id": "wep-28",
             "instruction": "Polje 28 popunjavaju samo osobe uzrasta od 15 do 17 godina. Označite da li dete živi naizmenično kod Vas i kod drugog roditelja (tzv. model naizmeničnog staranja). Ako osoba ima 18 ili više godina, preskočite ovo polje.",
-            "example": "Nein",
+            "example": "Budući da Maja živi sama sa detetom koje ne boravi kod drugog roditelja, ona bira 'Ne'.",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične isprave, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "options": [
               {
@@ -9870,7 +9870,7 @@
           },
           {
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične knjige, dopis BZSt/DRV, odgovarajuće rešenje (Bescheid) ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
-            "example": "12.03.2023.",
+            "example": "Maja upisuje 12.03.2023. kao tačan datum svog ulaska u Nemačku.",
             "meaning": "Datum ulaska u Nemačku",
             "german": "43 · Wenn die Person zuvor im Ausland gelebt hat, geben Sie bitte das Datum der Einreise nach Deutschland an (TT.MM.JJJJ).",
             "id": "wep-43",

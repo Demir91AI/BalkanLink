@@ -7493,7 +7493,7 @@
             "mistake": "Fälschliche Annahme, dass das Formular für Kinder unter 15 Jahren auszufüllen ist (für diese werden andere Anlagen verwendet).",
             "german": "Anlage EK — Einkommen einer Person ab 15 Jahren",
             "reference": "EK · Seite 1 · Hinweise",
-            "example": "Maja Kovač",
+            "example": "Maja Kovač trägt ihre Daten oben im Formular 'Anlage EK — Einkommen einer Person ab 15 Jahren' ein, um ihre monatlichen Verdienste anzugeben.",
             "where": "Prüfen Sie Ihre eigenen für die Frage relevanten Unterlagen: Vertrag/Lohnabrechnungen, Bescheid und Kontoauszüge mit dem Zahlungsdatum. Wenn eine Information nicht bekannt ist, fragen Sie das Jobcenter; erfinden Sie nichts.",
             "meaning": "Anlage EK — Einkommen einer Person ab 15 Jahren",
             "id": "ek-notice-1",
@@ -7513,7 +7513,7 @@
             "mistake": "Das Feld leer lassen, wenn der Antragsteller das Formular für sich selbst ausfüllt.",
             "reference": "EK · Seite 1 · B · 5–7",
             "german": "5–7 · Vorname Nachname Geburtsdatum (TT.MM.JJJJ)",
-            "example": "Marko, Kovač, 10.10.2008",
+            "example": "Maja füllt die Daten für ihren Sohn aus: Vorname: Marko, Nachname: Kovač, Geburtsdatum: 10.10.2008.",
             "where": "Prüfen Sie Ihre eigenen für die Frage relevanten Unterlagen: Vertrag/Lohnabrechnungen, Bescheid und Kontoauszüge mit dem Zahlungsdatum. Wenn eine Information nicht bekannt ist, fragen Sie das Jobcenter; erfinden Sie nichts.",
             "meaning": "Angaben zu der Person, für die die Anlage ausgefüllt wird",
             "instruction": "5. Geben Sie den Vornamen der Person ein, für die diese spezifische Anlage EK ausgefüllt wird. 6. Geben Sie den Nachnamen ein. 7. Geben Sie das Geburtsdatum ein (TT.MM.JJJJ). Wenn der Antragsteller das Formular für sich selbst ausfüllt, sind die Daten identisch mit denen in Abschnitt A.",
@@ -7522,7 +7522,7 @@
           {
             "mistake": "Nichtangabe eines Minijobs oder eines kurzzeitigen Ferienjobs in der Annahme, diese seien unerheblich.",
             "german": "8 · Hat die Person Einkommen aus Erwerbstätigkeit? Anzugeben sind alle Einkünfte aus haupt- und nebenberuflichen Tätigkeiten, Ausbildungsverhältnissen, Minijob und Ferienjob.",
-            "example": "Ja (angekreuzt)",
+            "example": "Maja prüft ihre Verträge und setzt ein Kreuz bei 'Ja', da sie derzeit Einkünfte aus einer Hauptbeschäftigung und einem Nebenjob erzielt.",
             "meaning": "Einkommen aus Erwerbstätigkeit",
             "where": "Prüfen Sie Ihre eigenen für die Frage relevanten Unterlagen: Vertrag/Lohnabrechnungen, Bescheid und Kontoauszüge mit dem Zahlungsdatum. Wenn eine Information nicht bekannt ist, fragen Sie das Jobcenter; erfinden Sie nichts.",
             "options": [
@@ -8102,7 +8102,7 @@
             "reference": "VM · Seite 1 · B · 7–8",
             "mistake": "Eintragung des Kaufpreises von vor 20 Jahren anstelle des aktuellen Verkehrswertes.",
             "instruction": "1. Tragen Sie in Feld 7 den Prozentsatz des Miteigentums ein (z. B. 50, wenn Sie Eigentümer der Hälfte sind). 2. Tragen Sie in Feld 8 den aktuellen Verkehrswert der Immobilie ein (Schätzung des Verkaufserlöses). 3. Beachten Sie für den Verkehrswert den Hinweis zur Wertermittlung (Verkehrswert).",
-            "example": "7: 50; 8: 120.000.",
+            "example": "Maja prüft den Grundbuchauszug ihrer Eigentumswohnung und trägt ein: unter Punkt 7 gibt sie einen Miteigentumsanteil von 50 % an und unter Punkt 8 beziffert sie den Verkehrswert der Immobilie auf 120.000 EUR.",
             "meaning": "Miteigentumsanteil und Verkehrswert der Immobilie"
           },
           {
@@ -8117,7 +8117,7 @@
               }
             ],
             "meaning": "Besitz von unbebauten Grundstücken",
-            "example": "Nein (angekreuzt)",
+            "example": "Maja prüft die Katasterauszüge und bestätigt, dass niemand in der Bedarfsgemeinschaft über unbebaute Grundstücke verfügt, indem sie das Feld „Nein“ mit einem Kreuz markiert.",
             "reference": "VM · Seite 1 · B · 9",
             "id": "vm-9",
             "german": "9 · Haben Sie und/oder die Personen in der Bedarfsgemeinschaft unbebaute Grundstücke?",
@@ -8131,7 +8131,7 @@
             "german": "10–11 · Miteigentumsanteil in Prozent Verkehrswert in Euro (Hinweis Verkehrswert von Immobilien)",
             "meaning": "Eigentumsanteil und Verkehrswert des Grundstücks",
             "id": "vm-10-11",
-            "example": "10: 50%, 11: 15.000 EUR",
+            "example": "Für das geerbte Grundstück trägt Maja unter Punkt 10 ihren Anteil von 50 % ein und gibt unter Punkt 11 den geschätzten Verkehrswert dieses Anteils mit 15.000 EUR an.",
             "instruction": "10. Geben Sie Ihren prozentualen Miteigentumsanteil ein (z. B. 100, wenn Sie Alleineigentümer sind, oder 50, wenn Sie Miteigentümer sind). 11. Geben Sie den aktuellen Verkehrswert des gesamten Grundstücks in Euro an. Wenn Feld 9 'Nein' ist, lassen Sie dies leer.",
             "reference": "VM · Seite 1 · B · 10–11"
           },
@@ -8139,7 +8139,7 @@
             "reference": "VM · Seite 2 · C · 12",
             "where": "Prüfen Sie eigene Unterlagen, die für die Frage relevant sind: Kontoauszüge, Eigentumsnachweise, Verträge, Jahresberichte und aktuelle Wertgutachten. Wenn Informationen unbekannt sind, fragen Sie das Jobcenter; erfinden Sie keine Daten.",
             "mistake": "Nichtangabe eines Fahrzeugs, das auf ein Familienmitglied zugelassen ist, aber selten benutzt wird.",
-            "example": "Ja (angekreuzt)",
+            "example": "Maja prüft den Fahrzeugschein ihres Autos und markiert im Formular das Feld „Ja“, um den Besitz eines Kraftfahrzeugs anzugeben.",
             "id": "vm-12",
             "german": "12 · Besitzen Sie und/oder die Personen in der Bedarfsgemeinschaft Kraftfahrzeuge, zum Beispiel PKW, Motorrad, Wohnmobil?",
             "meaning": "Besitz von Kraftfahrzeugen",
@@ -8371,14 +8371,14 @@
             ],
             "id": "vm-26",
             "meaning": "Selbstständige Tätigkeit (Erwerbsstatus)",
-            "example": "Ja (mit Kreuz markiert).",
+            "example": "Da sie früher ein kleines Schneideratelier geführt hat, setzt Maja im Feld zur selbständigen Tätigkeit ein Kreuz bei „Ja“.",
             "mistake": "Ankreuzen von 'Nein' für ehemalige Gewerbe, die vor langer Zeit geschlossen wurden (die Frage lautet 'wurde ausgeübt').",
             "reference": "VM · Seite 5 · F · 26"
           },
           {
             "meaning": "Angaben zur selbstständigen Tätigkeit",
             "german": "27–28 · Name der Person Anzahl der Jahre, in denen eine selbständige Tätigkeit insgesamt ausgeübt wurde",
-            "example": "Maja Kovač, 8 Jahre",
+            "example": "Maja Kovač gibt ihren Namen als die Person an, die die Tätigkeit ausgeübt hat, und präzisiert, dass die selbständige Arbeit insgesamt 8 Jahre dauerte.",
             "reference": "VM · Seite 5 · F · 27–28",
             "id": "vm-27-28",
             "where": "Prüfen Sie Ihre eigenen für die Frage relevanten Unterlagen: Kontoauszüge, Eigentumsnachweise, Verträge, Jahresberichte und aktuelle Verkehrswertgutachten. Wenn eine Information nicht bekannt ist, fragen Sie das Jobcenter; erfinden Sie nichts.",
@@ -8620,7 +8620,7 @@
             "where": "Prüfen Sie eigene Unterlagen, die für die Frage relevant sind: Dokumente der Person/des Kindes: Identität, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechender Bescheid oder Schul-/Versicherungsbescheinigung. Wenn die Information nicht bekannt ist, fragen Sie das Jobcenter; erfinden Sie nichts.",
             "instruction": "Tragen Sie die elfstellige steuerliche Identifikationsnummer des Kindes in Feld 14 ein. Diese Nummer wird in der Regel bei der Geburt vergeben und bleibt unverändert. Tragen Sie hier nicht die Rentenversicherungsnummer ein.",
             "mistake": "Eintragen der Krankenversicherungsnummer oder der ID-Nummer eines Elternteils.",
-            "example": "01234567890",
+            "example": "Maja Kovač trägt die steuerliche Identifikationsnummer ihres Kindes 01234567890 sorgfältig aus den amtlichen Unterlagen in das vorgesehene Feld ein.",
             "german": "14 · Bitte geben Sie die (steuerliche) Identifikationsnummer des Kindes an. (Hinweis Persönliche Identifikationsnummern)",
             "meaning": "Steuerliche Identifikationsnummer des Kindes",
             "reference": "KI · Seite 1 · B · 14"
@@ -8686,7 +8686,7 @@
             "instruction": "Geben Sie in Feld 17 an, ob das Kind Leistungen nach dem Asylbewerberleistungsgesetz bezieht. Falls „Ja“, fügen Sie den Bescheid und einen Nachweis über den Aufenthaltsstatus bei."
           },
           {
-            "example": "31.12.2024",
+            "example": "Nach Prüfung des Bescheids über Leistungen für Asylbewerber trägt Maja Kovač den 31.12.2024 als Datum ein, bis zu dem ihr Kind diese Leistungen erhält.",
             "mistake": "Eintragung des Ablaufdatums des Reisepasses anstelle des Enddatums des Leistungsanspruchs.",
             "instruction": "Falls Sie in Feld 17 mit „Ja“ geantwortet haben, tragen Sie in Feld 18 das Datum ein, bis zu dem der Leistungsbescheid gültig ist, im Format Tag.Monat.Jahr (TT.MM.JJJJ). Falls „Nein“, überspringen Sie dieses Feld.",
             "meaning": "Dauer des Bezugs von Asylbewerberleistungen",
@@ -8700,7 +8700,7 @@
             "id": "ki-19",
             "where": "Prüfen Sie Ihre eigenen Unterlagen zur Frage: Dokumente der Person/des Kindes: Identität, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechender Bescheid oder Schul-/Versicherungsbescheinigung. Falls Daten unbekannt sind, fragen Sie das Jobcenter; nicht raten.",
             "mistake": "Eintragung der Sozialversicherungsnummer anstelle der AZR-Nummer. Die Nummer aus dem Ausländerzentralregister hat ein spezifisches Format.",
-            "example": "987654321098",
+            "example": "Maja Kovač trägt die Ausländerzentralregisternummer 987654321098 in das Formular ein, die sie auf dem Ausweisdokument ihres Kindes gefunden hat.",
             "reference": "KI · Seite 2 · C · 19",
             "german": "19 · Bitte geben Sie die Ausländerzentralregisternummer des Kindes an, falls vorhanden.",
             "meaning": "AZR-Nummer des Kindes (Ausländerzentralregister)"
@@ -8828,7 +8828,7 @@
             "instruction": "Geben Sie das (geplante) Einschulungsdatum im Format Tag.Monat.Jahr (TT.MM.JJJJ) an. Dieses Feld füllen Sie nur aus, wenn das Kind noch nicht zur Schule geht.",
             "meaning": "Einschulungsdatum",
             "where": "Prüfen Sie Ihre eigenen für die Frage relevanten Dokumente: Dokumente der Person/des Kindes: Identität, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechende Bescheide oder Schul-/Versicherungsbescheinigungen. Wenn die Information nicht bekannt ist, fragen Sie das Jobcenter; erfinden Sie nichts.",
-            "example": "01.09.2025",
+            "example": "Basierend auf der Mitteilung der Schule gibt Maja Kovač den 01.09.2025 als voraussichtliches Datum für die Einschulung ihres Kindes an.",
             "mistake": "Das Feld leer lassen, wenn das Kind 6 oder 7 Jahre alt wird, aber noch nicht eingeschult wurde.",
             "german": "26 · Bitte geben Sie das (voraussichtliche) Einschulungsdatum an. am (TT.MM.JJJJ)",
             "id": "ki-26"
@@ -9285,7 +9285,7 @@
                 "german": "Keine Angabe"
               }
             ],
-            "example": "Kreuzchen bei 'Weiblich'.",
+            "example": "Maja setzt das Kreuz im Feld 'Weiblich'.",
             "meaning": "Geschlecht der Person.",
             "reference": "WEP · Seite 1 · B · 12"
           },
@@ -9423,7 +9423,7 @@
             "instruction": "Geben Sie das Datum an, bis zu dem die Person Leistungen nach dem Asylbewerberleistungsgesetz (AsylbLG) erhält, im Format Tag.Monat.Jahr (TT.MM.JJJJ). Füllen Sie dieses Feld nur aus, wenn unter Punkt 18 die Antwort 'Ja' markiert wurde.",
             "id": "wep-19",
             "meaning": "Dauer der Leistungen für Asylbewerber.",
-            "example": "01.05.2024"
+            "example": "Maja gibt den 01.05.2024 als das Datum an, bis zu dem sie Leistungen nach dem Asylbewerberleistungsgesetz erhält."
           },
           {
             "id": "wep-20",
@@ -9433,7 +9433,7 @@
             "instruction": "Geben Sie die Ausländerzentralregisternummer (AZR-Nummer) an, sofern die Person eine besitzt. Die Nummer befindet sich in der Regel auf dem Aufenthaltstitel oder der Duldung. Falls die Nummer nicht bekannt ist, lassen Sie das Feld leer.",
             "where": "Prüfen Sie die eigenen Dokumente, die für die Frage relevant sind: Dokumente der Person/des Kindes: Identität, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechender Bescheid oder Schul-/Versicherungsbescheinigung. Wenn die Information nicht bekannt ist, fragen Sie das Jobcenter; erfinden Sie nichts.",
             "meaning": "Ausländerzentralregisternummer (AZR).",
-            "example": "123456789012"
+            "example": "Maja trägt die Nummer 123456789012 aus ihrem Ausländerzentralregister-Eintrag ein."
           },
           {
             "id": "wep-21",
@@ -9453,7 +9453,7 @@
               }
             ],
             "where": "Prüfen Sie eigene Unterlagen zum Fall: Dokumente der Person/des Kindes: Identität, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechender Bescheid oder Schul-/Versicherungsbescheinigung. Falls unbekannt, beim Jobcenter nachfragen; keine Angaben erfinden.",
-            "example": "Nein"
+            "example": "Maja wählt 'Nein' aus, da niemand eine Verpflichtungserklärung für ihren Aufenthalt abgegeben hat."
           },
           {
             "id": "wep-22",
@@ -9462,7 +9462,7 @@
             "reference": "WEP · Seite 2 · C · 22",
             "german": "22 · Bitte geben Sie für die Person die nationale Personenidentifikationsnummer des Herkunftslandes an, falls vorhanden. (Hinweis Persönliche Identifikationsnummern)",
             "meaning": "Nationale Identifikationsnummer aus dem Herkunftsland",
-            "example": "1506985170045",
+            "example": "Maja trägt ihre nationale Identifikationsnummer aus dem Herkunftsland 1506985170045 ein.",
             "instruction": "Geben Sie die nationale Identifikationsnummer aus dem Herkunftsland an (z. B. JMBG für Staatsangehörige von Bosnien und Herzegowina), sofern diese verfügbar ist. Dies dient der eindeutigen Identifizierung im internationalen Kontext."
           },
           {
@@ -9497,7 +9497,7 @@
               }
             ],
             "where": "Prüfen Sie eigene Unterlagen zum Fall: Dokumente der Person/des Kindes: Identität, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechender Bescheid oder Schul-/Versicherungsbescheinigung. Falls unbekannt, beim Jobcenter nachfragen; keine Angaben erfinden.",
-            "example": "Ledig",
+            "example": "Maja gibt ihren aktuellen Familienstand mit 'ledig' an.",
             "mistake": "Ankreuzen von „Verheiratet“ bei Ehegatten, die dauerhaft getrennt leben; in diesem Fall muss „Dauernd getrennt lebend“ gewählt werden.",
             "id": "wep-23",
             "instruction": "Geben Sie den aktuellen Familienstand der Person an. Wenn Sie eine Option wählen, die Scheidung, dauerndes Getrenntleben oder die Aufhebung einer Partnerschaft beinhaltet, muss zusätzlich die Anlage UH1 ausgefüllt werden.",
@@ -9507,7 +9507,7 @@
           },
           {
             "instruction": "Tragen Sie in Feld 24 das genaue Datum ein, seit dem die Person dauerhaft getrennt lebt, seit wann sie geschieden ist oder seit wann die Lebenspartnerschaft rechtlich aufgehoben wurde. Verwenden Sie das Format TT.MM.JJJJ. Je nach in Feld 23 gewähltem Status muss auch die Anlage UH1 ausgefüllt werden.",
-            "example": "15.05.2023.",
+            "example": "Da sie geschieden ist, gibt Maja den 15.05.2023 als Datum der Rechtskraft der Scheidung an.",
             "meaning": "Datum der Scheidung oder Trennung",
             "id": "wep-24",
             "german": "24 · Seit wann ist die Person dauernd getrennt lebend, geschieden oder wann wurde die Lebenspartnerschaft aufgehoben? seit/am (TT.MM.JJJJ)",
@@ -9517,7 +9517,7 @@
           },
           {
             "id": "wep-25",
-            "example": "Ja",
+            "example": "Maja bestätigt mit 'Ja', dass sie gesundheitlich in der Lage ist, mindestens drei Stunden täglich zu arbeiten.",
             "german": "25 · Ist die Person erwerbsfähig? Dies bedeutet, die Person ist grundsätzlich gesundheitlich in der Lage, regelmäßig eine Tätigkeit von mindestens drei Stunden täglich auszuüben. (Hinweis Erwerbsfähigkeit)",
             "meaning": "Erwerbsfähigkeit (3+ Stunden täglich)",
             "instruction": "Markieren Sie in Feld 25 mit einem Kreuz, ob die Person erwerbsfähig ist. Erwerbsfähigkeit bedeutet, dass der Gesundheitszustand eine Arbeit von mindestens drei Stunden täglich zulässt. Wenn Sie sich aufgrund einer Krankheit unsicher sind, lesen Sie den Hinweis 'Erwerbsfähigkeit'.",
@@ -9536,7 +9536,7 @@
             "mistake": "Markieren von 'Nein', nur weil die Person derzeit keine Arbeit hat, obwohl sie gesund ist."
           },
           {
-            "example": "Ja",
+            "example": "Maja kreuzt 'Ja' an, um zu bestätigen, dass sie schwanger ist.",
             "where": "Prüfen Sie Ihre eigenen relevanten Dokumente: Identitätsdokumente der Person/des Kindes, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechende Bescheide oder Schul-/Versicherungsbescheinigungen. Wenn die Information nicht bekannt ist, fragen Sie beim Jobcenter nach; machen Sie keine Erfindungen.",
             "reference": "WEP · Seite 3 · D · 26",
             "meaning": "Angabe zur Schwangerschaft",
@@ -9558,7 +9558,7 @@
           {
             "instruction": "Tragen Sie in Feld 27 den voraussichtlichen Entbindungstermin im Format TT.MM.JJJJ ein. Falls der Vater des Kindes nicht in derselben Bedarfsgemeinschaft lebt, muss zusätzlich die Anlage UH2 ausgefüllt werden. Achten Sie auf die Richtigkeit, da auf Basis dieses Datums der Mehrbedarf berechnet wird.",
             "meaning": "Voraussichtlicher Entbindungstermin",
-            "example": "20.12.2024.",
+            "example": "Maja gibt den 20.12.2024 als den von ihrem Arzt berechneten voraussichtlichen Entbindungstermin an.",
             "mistake": "Nicht eintragen des Datums, obwohl in Feld 26 'Ja' markiert wurde.",
             "german": "27 · Wann ist der voraussichtliche Entbindungstermin? am (TT.MM.JJJJ)",
             "reference": "WEP · Seite 3 · D · 27",
@@ -9568,7 +9568,7 @@
           {
             "reference": "WEP · Seite 3 · D · 28",
             "german": "28 · Ist die Person zwischen 15 und 18 Jahre alt, beantworten Sie bitte folgende Frage: Lebt die Person regelmäßig abwechselnd in Ihrem Haushalt und im Haushalt des anderen Elternteils?",
-            "example": "Nein",
+            "example": "Da Majas Kind nicht wechselnd bei beiden Elternteilen lebt, wählt sie 'Nein' aus.",
             "instruction": "Feld 28 wird nur für Personen im Alter von 15 bis 17 Jahren ausgefüllt. Geben Sie an, ob das Kind abwechselnd bei Ihnen und beim anderen Elternteil lebt (sog. Wechselmodell). Wenn die Person 18 Jahre oder älter ist, überspringen Sie dieses Feld.",
             "meaning": "Wechselweiser Aufenthalt (15-18 J.)",
             "mistake": "Beantwortung der Frage für Personen, die bereits volljährig (18+ Jahre) sind.",
@@ -9865,7 +9865,7 @@
           },
           {
             "german": "43 · Wenn die Person zuvor im Ausland gelebt hat, geben Sie bitte das Datum der Einreise nach Deutschland an (TT.MM.JJJJ).",
-            "example": "12.03.2023.",
+            "example": "Maja trägt den 12.03.2023 als das genaue Datum ihrer Einreise nach Deutschland ein.",
             "mistake": "Angabe des Datums einer touristischen Einreise anstelle des tatsächlichen Umzugsdatums.",
             "instruction": "Wenn die Person zuvor außerhalb Deutschlands gelebt hat, geben Sie das genaue Datum der Einreise nach Deutschland im Format TT.MM.JJJJ an. Dies bezieht sich auf die letzte Einreise zum Zweck des ständigen Aufenthalts.",
             "reference": "WEP · Seite 4 · E · 43",
