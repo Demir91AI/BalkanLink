@@ -69,9 +69,19 @@ export const GUIDE_SOURCES: Record<string, GuideSource> = {
     { url: "https://www.zbfs.bayern.de/familienleistungen/krippengeld/papierantrag/", label: "ZBFS Bayern — Krippengeld Papierantrag" },
   ] },
   "wirtschaftliche-jugendhilfe": { kind: "local", url: "https://verwaltung.bund.de/leistungsverzeichnis/de/leistung/99107007010000", label: "Verwaltungsportal des Bundes — Leistungsbeschreibung (Kostenbeitrag Kindertagesbetreuung)" },
-  hauptantrag: JC,
-  weiterbewilligung: JC,
-  "anlage-kdu": JC, "anlage-ek": JC, "anlage-eks": JC, "anlage-vm": JC, "anlage-wep": JC,
+  hauptantrag: { kind: "official", url: "https://www.arbeitsagentur.de/datei/antrag-sgb2_ba042689.pdf", label: "BA · HA · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [
+    { url: "https://www.arbeitsagentur.de/grundsicherung/ausfuellhinweise", label: "BA · Ausfüllhinweise" },
+    { url: "https://jobcenter.digital", label: "jobcenter.digital" },
+    { url: "https://www.arbeitsagentur.de/grundsicherung-loest-buergergeld-ab", label: "BA · Grundsicherungsgeld / Bürgergeld" },
+  ] },
+  weiterbewilligung: { kind: "official", url: "https://www.arbeitsagentur.de/datei/weiterbewilligung-sgb2_ba042699.pdf", label: "BA · WBA · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [
+    { url: "https://www.arbeitsagentur.de/grundsicherung/ausfuellhinweise", label: "BA · Ausfüllhinweise" },
+    { url: "https://jobcenter.digital/weiterbewilligungsantrag", label: "jobcenter.digital · WBA" },
+  ] },
+  "anlage-kdu": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlagekdu_ba032980.pdf", label: "BA · KDU · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [
+    { url: "https://www.arbeitsagentur.de/grundsicherung/ausfuellhinweise", label: "BA · Ausfüllhinweise" },
+    { url: "https://jobcenter.digital", label: "jobcenter.digital" },
+  ] }, "anlage-ek": JC, "anlage-eks": JC, "anlage-vm": JC, "anlage-wep": JC,
   "anlage-ki": JC, "anlage-sv": JC, "anlage-bb": JC, "anlage-ve": JC, "anlage-hg": JC,
   "anlage-meb": JC, "anlage-uf": JC, "anlage-se": JC, "anlage-uh1": JC, "anlage-uh2": JC,
   "anlage-uh3": JC, nichterreichbarkeit: JC, antragsruecknahme: JC,
