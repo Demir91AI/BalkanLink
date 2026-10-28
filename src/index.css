@@ -165,6 +165,17 @@
   .guide-dark-surface :where(h1, h2, h3, h4, h5, h6) {
     color: hsl(var(--foreground));
   }
+  .admin-control-surface {
+    --background: 220 30% 7%;
+    --card: 220 24% 11%;
+    --border: 220 17% 28%;
+    --muted: 220 22% 16%;
+    --muted-foreground: 214 22% 78%;
+    --destructive: 0 85% 75%;
+    --primary: 43 52% 62%;
+    --ring: 43 52% 62%;
+    letter-spacing: 0;
+  }
   .smartguide-standard {
     --guide-action: 211 80% 35%;
     --guide-where: 155 70% 28%;
