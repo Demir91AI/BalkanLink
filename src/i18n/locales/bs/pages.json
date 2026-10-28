@@ -5914,7 +5914,7 @@
             "reference": "HA · Seite 2 · A · 17–19",
             "german": "17 Kontoinhaberin/Kontoinhaber · 18 IBAN (22-stellig) · 19 Wenn Sie keine Bankverbindung angeben können, teilen Sie dem Jobcenter mit, weshalb Sie kein Basiskonto eröffnen können.",
             "meaning": "Podaci o bankovnom računu",
-            "instruction": "U polje 17 upišite ime vlasnika računa (obično vi). U polje 18 unesite svoj IBAN (22 znaka). Ako nemate račun, u polju 19 detaljno objasnite zašto ne možete otvoriti osnovni račun u banci.",
+            "instruction": "U 17 upiši ime vlasnika računa. U 18 prepiši cijeli IBAN, uključujući slova. Obrazac prikazuje 22-stellig; ako se format tvog računa razlikuje, zatraži pojašnjenje Jobcentera, ne mijenjaj broj. Ako nemaš račun, u 19 objasni zašto ne možeš otvoriti Basiskonto.",
             "where": "Odjeljak A, vrh druge stranice.",
             "example": "17: Marko Petrović, 18: DE12 3456 7890 1234 5678 90.",
             "mistake": "Pogrešno prepisan IBAN broj, što onemogućava isplatu sredstava."
@@ -6108,7 +6108,7 @@
               }
             ],
             "meaning": "Radna sposobnost",
-            "instruction": "Razmislite možete li raditi bilo kakav posao 3 sata na dan. Ako možete, označite 'Ja'. Ako ste bolesni duže vrijeme i ne možete raditi, označite 'Nein'.",
+            "instruction": "34 pita da li si zdravstveno načelno sposoban/sposobna redovno raditi najmanje tri sata dnevno. To nije pitanje imaš li posao. Ako nisi siguran/sigurna, pitaj Jobcenter i ljekara; ne procjenjuj pravo samo iz ovog odgovora.",
             "where": "Glavni zahtjev, stranica 3, polje 34.",
             "example": "Iako ste nezaposleni, ako ste fizički zdravi, trebate označiti 'Ja'.",
             "mistake": "Označavanje 'Nein' samo zato što trenutno nemate posao, a zapravo ste zdravi i možete raditi."
@@ -6585,7 +6585,7 @@
             "instruction": "U polje 82 upišite datum potpisivanja. U polje 83 se potpišite lično. Polja 84 i 85 popunjavaju samo zakonski staratelji ako podnosilac ima dodijeljenog staraoca.",
             "where": "Glavni zahtjev (Hauptantrag), stranica 8, dio I",
             "example": "Osoba upisuje '15.02.2024' u polje 82 i potpisuje se u polje 83.",
-            "mistake": "Slanje zahtjeva bez potpisa, zbog čega se zahtjev smatra nevažećim i neće biti obrađen."
+            "mistake": "Pregledaj datum i potpis na službenom obrascu; nepotpisan primjerak može zahtijevati dopunu. Potvrdi samo tačne podatke."
           }
         ]
       },
@@ -6802,7 +6802,7 @@
             "reference": "WBA · Seite 3 · D · 16",
             "german": "16 Einkommen aus Erwerbstätigkeit (haupt-/nebenberuflich, Ausbildung, Minijob, Ferienjob)? Tabelle: Name der Person, Arbeitgeber, monatliche Höhe",
             "meaning": "Prihodi od radnog odnosa",
-            "instruction": "Označite 'Ja' ako bilo ko iz vašeg domaćinstva radi (glavni posao, honorarno, praksa ili Minijob). U tabeli navedite ime osobe, naziv poslodavca i mjesečni bruto/neto iznos. Priložite platne liste (Lohnabrechnungen).",
+            "instruction": "16 pita za prihod od zaposlenja svake osobe Bedarfsgemeinschaft, ne automatski svih sustanara. Navedi osobu, poslodavca i mjesečni iznos prema BA uputstvu; priloži platne liste. Ne pretpostavljaj samo bruto ili samo neto ako nije pojašnjeno.",
             "where": "Glavni formular WBA, stranica 3, dio D",
             "example": "Maja radi Minijob: navodi svoje ime, poslodavca i iznos prema obračunu, te prilaže obračun. Primjer ne određuje zakonsku granicu Minijoba.",
             "mistake": "Neprijavljivanje sezonskog rada ili rada tokom raspusta za djecu.",
@@ -7029,7 +7029,7 @@
             "instruction": "U polju 27 upišite datum potpisivanja. U polju 28 se potpisuje osoba koja podnosi zahtjev. Polja 29 i 30 popunjava samo zakonski staratelj ako korisnik ima dodijeljenog asistenta (Betreuer). Potpisom potvrđujete tačnost podataka.",
             "where": "WBA obrazac, strana 6, kraj odjeljka G.",
             "example": "Korisnik upisuje '01.05.2024.' i potpisuje se svojeručno plavom ili crnom olovkom.",
-            "mistake": "Zaboravljanje potpisa, što čini cijeli zahtjev pravno nevažećim."
+            "mistake": "Pregledaj datum i potpis na službenom obrascu; nepotpisan primjerak može zahtijevati dopunu. Potvrdi samo tačne podatke."
           }
         ]
       },
@@ -7419,7 +7419,7 @@
             "instruction": "U polje 37 upišite trenutni datum potpisivanja. U polje 38 potpišite se svojeručno. Ako je podnosilac maloljetan, potpisuje roditelj ili staratelj. Polja 39 i 40 popunjavaju se samo ako imate službeno postavljenog zakonskog zastupnika (Betreuer) ili staratelja (Vormund). Potpisom potvrđujete tačnost podataka i upoznatost sa zaštitom podataka.",
             "where": "Dodatak KDU, stranica 3, dio G",
             "example": "Podnosilac upisuje '15.03.2024' u polje 37 i potpisuje se u polje 38. Polja 39 i 40 ostavlja prazna jer nema zakonskog zastupnika.",
-            "mistake": "Zaboravljanje datuma ili potpisivanje pogrešne osobe u polje predviđeno za zakonskog zastupnika (polje 40)."
+            "mistake": "Pregledaj datum i potpis na službenom obrascu; nepotpisan primjerak može zahtijevati dopunu. Potvrdi samo tačne podatke."
           }
         ]
       }

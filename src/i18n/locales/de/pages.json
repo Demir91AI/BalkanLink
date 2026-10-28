@@ -5914,7 +5914,7 @@
             "reference": "HA · Seite 2 · A · 17–19",
             "german": "17 Kontoinhaberin/Kontoinhaber · 18 IBAN (22-stellig) · 19 Wenn Sie keine Bankverbindung angeben können, teilen Sie dem Jobcenter mit, weshalb Sie kein Basiskonto eröffnen können.",
             "meaning": "Bankverbindung",
-            "instruction": "Tragen Sie in Feld 17 den Namen des Kontoinhabers ein (normalerweise Sie selbst). In Feld 18 geben Sie Ihre IBAN (22 Zeichen) ein. Wenn Sie kein Konto haben, erklären Sie in Feld 19 detailliert, warum Sie kein Basiskonto bei einer Bank eröffnen können.",
+            "instruction": "Trage in 17 den Namen der kontoinhabenden Person ein. Übertrage in 18 die vollständige IBAN einschließlich Buchstaben. Das Formular zeigt 22-stellig; bei abweichendem Kontofomat frage das Jobcenter, ändere die Nummer nicht. Ohne Konto erläutere in 19, weshalb du kein Basiskonto eröffnen kannst.",
             "where": "Abschnitt A, oben auf der zweiten Seite.",
             "example": "17: Marko Petrović, 18: DE12 3456 7890 1234 5678 90.",
             "mistake": "Falsch abgeschriebene IBAN-Nummer, was die Auszahlung der Mittel verhindert."
@@ -6108,7 +6108,7 @@
               }
             ],
             "meaning": "Erwerbsfähigkeit",
-            "instruction": "Überlegen Sie, ob Sie irgendeine Arbeit für 3 Stunden am Tag ausüben können. Wenn ja, markieren Sie 'Ja'. Wenn Sie längere Zeit krank sind und nicht arbeiten können, markieren Sie 'Nein'.",
+            "instruction": "34 fragt, ob du grundsätzlich gesundheitlich regelmäßig mindestens drei Stunden täglich arbeiten kannst, nicht ob du einen Arbeitsplatz hast. Bei Unsicherheit frage Jobcenter und Arzt/Ärztin; leite daraus allein keinen Leistungsanspruch ab.",
             "where": "Hauptantrag, Seite 3, Feld 34.",
             "example": "Auch wenn Sie arbeitslos sind, sollten Sie 'Ja' markieren, wenn Sie körperlich gesund sind.",
             "mistake": "Markieren von 'Nein' nur weil Sie derzeit keinen Job haben, obwohl Sie eigentlich gesund sind und arbeiten könnten."
@@ -6585,7 +6585,7 @@
             "instruction": "Tragen Sie in Feld 82 das Datum der Unterzeichnung ein. Unterschreiben Sie in Feld 83 persönlich. Die Felder 84 und 85 werden nur von gesetzlichen Betreuern ausgefüllt, falls der Antragsteller einen bestellten Betreuer hat.",
             "where": "Hauptantrag (HA), Seite 8, Teil I",
             "example": "Eine Person trägt '15.02.2024' in Feld 82 ein und unterschreibt in Feld 83.",
-            "mistake": "Absenden des Antrags ohne Unterschrift, wodurch der Antrag als ungültig gilt und nicht bearbeitet wird."
+            "mistake": "Prüfe Datum und Unterschrift im offiziellen Formular; eine fehlende Unterschrift kann eine Nachforderung erfordern. Bestätige nur richtige Angaben."
           }
         ]
       },
@@ -6802,7 +6802,7 @@
             "reference": "WBA · Seite 3 · D · 16",
             "german": "16 Einkommen aus Erwerbstätigkeit (haupt-/nebenberuflich, Ausbildung, Minijob, Ferienjob)? Tabelle: Name der Person, Arbeitgeber, monatliche Höhe",
             "meaning": "Einkommen aus Erwerbstätigkeit",
-            "instruction": "Markieren Sie 'Ja', wenn jemand aus Ihrem Haushalt arbeitet (Hauptberuf, Nebenjob, Ausbildung oder Minijob). Geben Sie in der Tabelle den Namen der Person, den Namen des Arbeitgebers und den monatlichen Brutto-/Nettobetrag an. Fügen Sie Lohnabrechnungen bei.",
+            "instruction": "16 fragt nach Erwerbseinkommen jeder Person der Bedarfsgemeinschaft, nicht automatisch aller Mitbewohnenden. Nenne Person, Arbeitgeber und monatlichen Betrag gemäß BA-Ausfüllhinweisen; füge Verdienstabrechnungen bei. Nicht ungeprüft nur Brutto oder nur Netto annehmen.",
             "where": "Hauptformular WBA, Seite 3, Teil D",
             "example": "Maja hat einen Minijob: Sie gibt ihren Namen, den Arbeitgeber und den Betrag laut Abrechnung an und fügt die Abrechnung bei. Das Beispiel legt keine gesetzliche Grenze für den Minijob fest.",
             "mistake": "Nichtangabe von Saisonarbeit oder Ferienjobs der Kinder.",
@@ -7029,7 +7029,7 @@
             "instruction": "Tragen Sie in Feld 27 das Datum der Unterzeichnung ein. In Feld 28 unterschreibt die Person, die den Antrag stellt. Die Felder 29 und 30 werden nur vom gesetzlichen Vertreter ausgefüllt, wenn der Nutzer einen bestellten Betreuer hat. Mit der Unterschrift bestätigen Sie die Richtigkeit der Angaben.",
             "where": "WBA-Formular, Seite 6, Ende von Abschnitt G.",
             "example": "Der Nutzer trägt '01.05.2024' ein und unterschreibt eigenhändig mit blauem oder schwarzem Stift.",
-            "mistake": "Vergessen der Unterschrift, was den gesamten Antrag rechtlich unwirksam macht."
+            "mistake": "Prüfe Datum und Unterschrift im offiziellen Formular; eine fehlende Unterschrift kann eine Nachforderung erfordern. Bestätige nur richtige Angaben."
           }
         ]
       },
@@ -7419,7 +7419,7 @@
             "instruction": "Geben Sie in Feld 37 das aktuelle Datum der Unterzeichnung ein. Unterschreiben Sie in Feld 38 eigenhändig. Wenn der Antragsteller minderjährig ist, unterschreibt ein Elternteil oder Vormund. Die Felder 39 und 40 werden nur ausgefüllt, wenn Sie einen offiziell bestellten gesetzlichen Betreuer oder Vormund haben. Mit der Unterschrift bestätigen Sie die Richtigkeit der Angaben und die Kenntnisnahme der Datenschutzhinweise.",
             "where": "Anlage KDU, Seite 3, Teil G",
             "example": "Der Antragsteller trägt '15.03.2024' in Feld 37 ein und unterschreibt in Feld 38. Die Felder 39 und 40 lässt er leer, da er keinen gesetzlichen Vertreter hat.",
-            "mistake": "Vergessen des Datums oder Unterschrift der falschen Person in dem für den gesetzlichen Vertreter vorgesehenen Feld (Feld 40)."
+            "mistake": "Prüfe Datum und Unterschrift im offiziellen Formular; eine fehlende Unterschrift kann eine Nachforderung erfordern. Bestätige nur richtige Angaben."
           }
         ]
       }
