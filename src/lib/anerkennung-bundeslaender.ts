@@ -373,8 +373,8 @@ AUTHORITIES.altenpfleger = { ...AUTHORITIES.pflegefachperson };
 
 const FINDER_URL = "https://www.anerkennung-in-deutschland.de/de/interest/finder/profession";
 AUTHORITIES.berufskraftfahrer = everyLand({ ...IHK_FOSA, noteKey: "bkf", notes: undefined });
-AUTHORITIES.buchhalter = everyLand({ name: "Anerkennungs-Finder (BIBB) — prema referentnom zanimanju", authorityType: "IHK FOSA / Steuerberaterkammer / ZAB", url: FINDER_URL, noteKey: "buchhalter" });
-AUTHORITIES.sozialpaedagoge = everyLand({ name: "Anerkennungs-Finder (BIBB) — nadležna ustanova pokrajine", authorityType: "Landesbehörde", url: FINDER_URL, noteKey: "sozial" });
+AUTHORITIES.buchhalter = everyLand({ name: "Anerkennungs-Finder (BIBB)", authorityType: "IHK FOSA / Steuerberaterkammer / ZAB", url: FINDER_URL, noteKey: "buchhalter" });
+AUTHORITIES.sozialpaedagoge = everyLand({ name: "Anerkennungs-Finder (BIBB)", authorityType: "Landesbehörde", url: FINDER_URL, noteKey: "sozial" });
 const AEKWL: AuthorityContact = { name: "Ärztekammer Westfalen-Lippe", authorityType: "Ärztekammer", url: "https://www.aekwl.de/fuer-mfa/nach-der-ausbildung/auslaendische-abschluesse/", noteKey: "mfa" };
 AUTHORITIES.medizinische_fachangestellte = {
   ...everyLand(AEKWL),
