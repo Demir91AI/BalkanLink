@@ -20,7 +20,7 @@ import { getPilotLesson, pilotLocale } from "@/lib/trainer/pilot/a1-pilot-lesson
 import { STANDARDIZED_LESSONS, getStandardizedFor } from "@/lib/trainer/core/authored-lessons";
 import ReviewSession from "@/components/trainer/core/ReviewSession";
 import { useLearningState } from "@/hooks/useLearningState";
-import { clearState, dueKeys } from "@/lib/trainer/core/learning-state";
+import { clearState, dueKeys, emptyState } from "@/lib/trainer/core/learning-state";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 const LESSONS_PER_PAGE = 9;
 
@@ -43,7 +43,7 @@ export default function DeutschTrainer() {
 
   const { progress, resetProgress } = useTrainerProgress();
   const { isPremium } = useSubscription();
-  const { state: learning } = useLearningState();
+  const { state: learning, update: updateLearning } = useLearningState();
   const dueCount = dueKeys(learning).length;
   const coreOpen = params.get("core") === "1";
   const reviewOpen = params.get("review") === "1";
@@ -594,7 +594,7 @@ export default function DeutschTrainer() {
               {t("deutschTrainer.resetDialog.cancel")}
             </AlertDialogCancel>
             <AlertDialogAction
-              onClick={() => { resetProgress(); clearState(); setShowResetConfirm(false); }}
+              onClick={() => { resetProgress(); updateLearning(() => emptyState()); clearState(); setShowResetConfirm(false); }}
               className="bg-red-600 text-white hover:bg-red-500"
             >
               {t("deutschTrainer.resetDialog.confirm")}
