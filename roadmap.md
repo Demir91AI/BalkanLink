@@ -1,3 +1,10 @@
+## Admin Control Center (28.10.2026; source-only)
+- [x] Map live sources, admin authorization, metric limitations and PDF monitoring dependencies.
+- [x] Reconstruct dashboard with isolated refresh, four locales, honest metrics and preserved admin actions/sections.
+- [x] Internal notification center; staged atomic PDF observations and audited review/retry SQL, no Cloud mutation.
+- [x] 21 focused /1468 full tests; eight admin browser fixtures, automatic build/TypeScript OK; docs/admin-control-center-results-2026-10-28.md.
+- [ ] Hosted audit/review/PDF durability activation and SQL integration: blocked by owner deployment/migration hold; no retry worker activated.
+
 ## BalkanLink 3.0 Phase 01 reliability (28.10.2026; staged, no release)
 - [x] Read callers/migrations; implement settlement confirmation, full-history keysets, confirmed deletion, recoverable unsubscribe, enqueue semantics, admin refresh and checked session-aware profile upsert.
 - [x] 117 focused / 1441 full tests passed; isolated four-locale chat, unsubscribe and deferred-signup flows passed; automatic build OK. Details: docs/phase01-reliability-2026-10-28.md.

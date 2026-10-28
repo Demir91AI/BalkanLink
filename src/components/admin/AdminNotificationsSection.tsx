@@ -1,185 +1,91 @@
-import { useCallback, useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { Bell, Check, CheckCheck, RefreshCw, Trash2, AlertTriangle, CircleCheck, Info, XCircle } from "lucide-react";
-
-type Notification = {
-  id: string;
-  type: string;
-  severity: string;
-  title: string;
-  body: string | null;
-  metadata: Record<string, unknown> | null;
-  read_at: string | null;
-  created_at: string;
-};
-
-const SEV = {
-  error: { color: "#f87171", bg: "rgba(248,113,113,0.10)", Icon: XCircle, label: "Greška" },
-  warning: { color: "#fbbf24", bg: "rgba(251,191,36,0.10)", Icon: AlertTriangle, label: "Upozorenje" },
-  success: { color: "#34d399", bg: "rgba(52,211,153,0.10)", Icon: CircleCheck, label: "Uspjeh" },
-  info: { color: "#60a5fa", bg: "rgba(96,165,250,0.10)", Icon: Info, label: "Info" },
-} as const;
-
-const sevOf = (s: string) => SEV[(s as keyof typeof SEV)] ?? SEV.info;
-
-const fmt = (iso: string) =>
-  new Date(iso).toLocaleString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Bell, Check, RefreshCw, Trash2, Undo2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
+import { Button } from '@/components/ui/button';
+import SourceStatus from './SourceStatus';
+import { emptySource, settleSource } from '@/lib/admin-center/model';
+import { canReview, confirmedRows, mergeNotifications, type AdminNotification } from '@/lib/admin-center/notifications';
 
 export default function AdminNotificationsSection() {
-  const [items, setItems] = useState<Notification[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState<"all" | "unread">("all");
-
+  const { t,i18n } = useTranslation('common'); const a = (key:string) => t(`adminCenter.${key}`);
+  const { isAdmin,profileLoading } = useAuth();
+  const [items,setItems] = useState<AdminNotification[]>([]);
+  const [state,setState] = useState(emptySource);
+  const [filter,setFilter] = useState('all');
+  const [busy,setBusy] = useState(false);
+  const [actionError,setActionError] = useState(false);
+  const [capabilities,setCapabilities] = useState(false);
+  const [page,setPage] = useState(0);
+  const [audit,setAudit] = useState<Record<string,unknown>[]>([]);
+  const pending = useRef(false); const alive = useRef(true);
   const load = useCallback(async () => {
-    setLoading(true);
-    const { data } = await supabase
-      .from("admin_notifications")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .limit(100);
-    setItems((data as Notification[]) ?? []);
-    setLoading(false);
-  }, []);
-
+    if (!isAdmin || profileLoading || pending.current) return;
+    pending.current=true;setState(prev => ({ ...prev,loading:true }));
+    try {
+      const result = await supabase.from('admin_notifications').select('*').order('created_at',{ ascending:false }).order('id',{ ascending:false }).range(page*100,page*100+99);
+      if (!alive.current) return;
+      setState(prev => settleSource(prev,{ status:'fulfilled',value:result },new Date().toISOString()));
+      if (!result.error && result.data) setItems(mergeNotifications(result.data as AdminNotification[]));
+    } catch { if (alive.current) setState(prev => ({ ...prev,error:true,loading:false })); }
+    finally { pending.current=false; }
+  },[isAdmin,profileLoading,page]);
+  useEffect(() => { alive.current=true;void load();const timer=setInterval(() => { if(document.visibilityState==='visible') void load(); },120000);return () => { alive.current=false;clearInterval(timer); }; },[load]);
   useEffect(() => {
-    load();
-    const channel = supabase
-      .channel("admin-notifications")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "admin_notifications" }, (payload) => {
-        setItems((prev) => [payload.new as Notification, ...prev]);
-      })
-      .subscribe();
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [load]);
-
-  const markRead = async (id: string) => {
-    await supabase.from("admin_notifications").update({ read_at: new Date().toISOString() }).eq("id", id);
-    setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read_at: new Date().toISOString() } : n)));
+    if (!isAdmin || profileLoading) return;
+    // One capability probe; no failed-RPC polling or privileged fallback.
+    void supabase.rpc('admin_notification_capabilities' as never).then(({ data,error }) => setCapabilities(!error && (data as unknown as { version?:number })?.version===1));
+  },[isAdmin,profileLoading]);
+  const shown = items.filter(row => filter==='all' || (filter==='unread' ? !row.read_at : !!row.read_at));
+  const mark = async (ids:string[],read:boolean) => {
+    if (!ids.length || busy) return;setBusy(true);setActionError(false);
+    try {
+      const stamp=read?new Date().toISOString():null;
+      const result=await supabase.from('admin_notifications').update({ read_at:stamp }).in('id',ids).select('id,read_at');
+      if (!confirmedRows(result.data,result.error,ids.length)) throw new Error('unconfirmed');
+      setItems(prev => prev.map(row => ids.includes(row.id)?{ ...row,read_at:stamp }:row));
+    } catch { setActionError(true); } finally { setBusy(false); }
   };
-
-  const markAllRead = async () => {
-    const ts = new Date().toISOString();
-    await supabase.from("admin_notifications").update({ read_at: ts }).is("read_at", null);
-    setItems((prev) => prev.map((n) => (n.read_at ? n : { ...n, read_at: ts })));
+  const remove = async (row:AdminNotification) => {
+    if (busy || !window.confirm(a('deleteConfirm'))) return;setBusy(true);setActionError(false);
+    try {
+      const result=await supabase.from('admin_notifications').delete().eq('id',row.id).select('id');
+      if (!confirmedRows(result.data,result.error,1)) throw new Error('unconfirmed');
+      setItems(prev => prev.filter(item => item.id!==row.id));
+    } catch { setActionError(true); } finally { setBusy(false); }
   };
-
-  const remove = async (id: string) => {
-    await supabase.from("admin_notifications").delete().eq("id", id);
-    setItems((prev) => prev.filter((n) => n.id !== id));
+  const review = async (row:AdminNotification,action:string) => {
+    if (!capabilities || busy || !window.confirm(a('reviewConfirm'))) return;setBusy(true);setActionError(false);
+    try {
+      const result=await supabase.rpc('admin_review_notification' as never,{ p_id:row.id,p_action:action } as never);
+      if (result.error || (result.data as unknown as { success?:boolean })?.success!==true) throw new Error('unconfirmed');
+      await load();
+    } catch { setActionError(true); } finally { setBusy(false); }
   };
-
-  const unread = items.filter((n) => !n.read_at).length;
-  const shown = filter === "unread" ? items.filter((n) => !n.read_at) : items;
-
-  return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap items-center gap-2 justify-between">
-        <div className="flex items-center gap-2">
-          <Bell className="w-4 h-4" style={{ color: "#C9A84C" }} />
-          <h2 className="text-sm font-bold text-white">Notifikacije</h2>
-          {unread > 0 && (
-            <span
-              className="text-[11px] font-bold px-2 py-0.5 rounded-full"
-              style={{ background: "rgba(248,113,113,0.15)", color: "#f87171" }}
-            >
-              {unread} nepročitano
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-2">
-          {(["all", "unread"] as const).map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className="text-[11px] font-bold px-3 py-1.5 rounded-lg"
-              style={{
-                background: filter === f ? "rgba(201,168,76,0.15)" : "rgba(255,255,255,0.04)",
-                border: `1px solid ${filter === f ? "#C9A84C" : "rgba(255,255,255,0.08)"}`,
-                color: filter === f ? "#C9A84C" : "#94a3b8",
-              }}
-            >
-              {f === "all" ? "Sve" : "Nepročitane"}
-            </button>
-          ))}
-          <button
-            onClick={markAllRead}
-            className="text-[11px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1"
-            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#94a3b8" }}
-          >
-            <CheckCheck className="w-3.5 h-3.5" /> Sve pročitano
-          </button>
-          <button
-            onClick={load}
-            className="text-[11px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1"
-            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#94a3b8" }}
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} /> Osvježi
-          </button>
-        </div>
-      </div>
-
-      {loading && items.length === 0 ? (
-        <div className="text-xs text-slate-400">Učitavanje…</div>
-      ) : shown.length === 0 ? (
-        <div
-          className="text-xs text-slate-400 rounded-xl p-6 text-center"
-          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
-        >
-          Nema notifikacija.
-        </div>
-      ) : (
-        <div className="space-y-2">
-          {shown.map((n) => {
-            const s = sevOf(n.severity);
-            const Icon = s.Icon;
-            return (
-              <div
-                key={n.id}
-                className="rounded-xl p-4 flex gap-3 items-start"
-                style={{
-                  background: n.read_at ? "rgba(255,255,255,0.03)" : s.bg,
-                  border: `1px solid ${n.read_at ? "rgba(255,255,255,0.08)" : s.color}`,
-                  borderLeft: `3px solid ${s.color}`,
-                }}
-              >
-                <Icon className="w-4 h-4 mt-0.5 shrink-0" style={{ color: s.color }} />
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-[13px] font-bold text-white">{n.title}</span>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded" style={{ background: "rgba(255,255,255,0.06)", color: s.color }}>
-                      {n.type}
-                    </span>
-                  </div>
-                  {n.body && <p className="text-[12px] text-slate-300 mt-1 break-words">{n.body}</p>}
-                  <span className="text-[11px] text-slate-500">{fmt(n.created_at)}</span>
-                </div>
-                <div className="flex items-center gap-1 shrink-0">
-                  {!n.read_at && (
-                    <button
-                      onClick={() => markRead(n.id)}
-                      title="Označi kao pročitano"
-                      className="p-1.5 rounded-lg"
-                      style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8" }}
-                    >
-                      <Check className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                  <button
-                    onClick={() => remove(n.id)}
-                    title="Obriši"
-                    className="p-1.5 rounded-lg"
-                    style={{ background: "rgba(255,255,255,0.05)", color: "#f87171" }}
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
+  const loadAudit = async () => {
+    if (!capabilities || busy) return;setBusy(true);setActionError(false);
+    try {
+      const result=await supabase.from('admin_notification_audit' as never).select('notification_id,action,created_at').order('created_at',{ ascending:false }).limit(100);
+      if (result.error) throw result.error;
+      setAudit((result.data ?? []) as unknown as Record<string,unknown>[]);
+    } catch { setActionError(true); } finally { setBusy(false); }
+  };
+  if (!isAdmin || profileLoading) return <p>{a('loading')}</p>;
+  return <section className="space-y-4">
+    <div className="flex flex-wrap justify-between items-center gap-3"><h2 className="text-xl font-semibold flex items-center gap-2"><Bell className="h-5 w-5 text-primary" />{a('notifications')}</h2><div className="flex flex-wrap gap-2">{['all','unread','read'].map(key => <Button key={key} variant={filter===key?'default':'outline'} aria-pressed={filter===key} onClick={() => setFilter(key)}>{a(key)}</Button>)}<Button variant="outline" disabled={busy || !items.some(row => !row.read_at)} onClick={() => void mark(items.filter(row => !row.read_at).map(row => row.id),true)}>{a('markAll')}</Button></div></div>
+    <SourceStatus state={state} source="admin_notifications" clock={Date.now()} retry={() => void load()} />
+    <p className="text-sm text-muted-foreground">{a('notificationDefinition')} · {a('unread')}: {items.filter(row => !row.read_at).length}</p>
+    {!capabilities && <p className="text-sm border-l-2 border-primary pl-4 text-muted-foreground">{a('staged')}</p>}
+    {actionError && <p role="alert" className="text-destructive">{a('actionFailed')}</p>}
+    {state.error && <p role="alert" className="text-destructive">{a('error')}</p>}
+    {!state.loading && !shown.length && <p className="border border-border rounded-lg py-12 text-center text-muted-foreground">{a('empty')}</p>}
+    {shown.map(row => <article key={row.id} className={`border rounded-lg p-4 ${row.read_at?'border-border bg-card':'border-primary bg-muted'}`}>
+      <div className="flex flex-wrap items-start justify-between gap-3"><div className="min-w-0 flex-1"><p className="text-xs text-primary mb-2">{a(row.severity==='error'?'severityError':['info','warning','success'].includes(row.severity)?row.severity:'info')} · {a('source')}: {row.source??row.type}</p><h3 className="font-semibold break-words">{row.title}</h3>{row.body && <p className="text-sm text-muted-foreground mt-2 whitespace-pre-wrap break-words">{row.body}</p>}<p className="text-xs text-muted-foreground mt-3">{a('occurred')}: {new Date(row.occurred_at??row.created_at).toLocaleString(i18n.language)} · {a('status')}: {row.status?a(row.status):a('snapshot')}</p></div><div className="flex gap-1"><Button size="icon" variant="ghost" title={a(row.read_at?'markUnread':'markRead')} aria-label={a(row.read_at?'markUnread':'markRead')} disabled={busy} onClick={() => void mark([row.id],!row.read_at)}>{row.read_at?<Undo2 className="h-4 w-4" />:<Check className="h-4 w-4" />}</Button>{!row.dedupe_key && <Button size="icon" variant="ghost" title={a('delete')} aria-label={a('delete')} disabled={busy} onClick={() => void remove(row)}><Trash2 className="h-4 w-4" /></Button>}</div></div>
+      {canReview(row,capabilities) && <div className="mt-4 space-y-2"><p className="text-xs text-muted-foreground">{a('reviewNote')}</p><div className="flex gap-2"><Button disabled={busy} onClick={() => void review(row,'approve')}>{a('approve')}</Button><Button variant="outline" disabled={busy} onClick={() => void review(row,'reject')}>{a('reject')}</Button></div></div>}
+      {capabilities && row.status==='failed' && <Button className="mt-3" variant="outline" disabled={busy} onClick={() => void review(row,'retry')}><RefreshCw className="h-4 w-4 mr-2" />{a('retry')}</Button>}
+    </article>)}
+    <div className="flex gap-2"><Button variant="outline" disabled={page===0 || state.loading} onClick={() => { setItems([]);setState(emptySource());setPage(p => p-1); }}>{a('backPage')}</Button><Button variant="outline" disabled={items.length<100 || state.loading} onClick={() => { setItems([]);setState(emptySource());setPage(p => p+1); }}>{a('nextPage')}</Button></div>
+    <section className="border-t border-border pt-5"><Button variant="outline" disabled={!capabilities || busy} onClick={() => void loadAudit()}>{a('audit')}</Button>{!capabilities && <p className="text-xs text-muted-foreground mt-3">{a('auditUnavailable')}</p>}<ul className="mt-3 space-y-2">{audit.map((row,index) => <li key={index} className="text-sm">{String(row.created_at)} · {String(row.action)} · {String(row.notification_id)}</li>)}</ul></section>
+  </section>;
 }

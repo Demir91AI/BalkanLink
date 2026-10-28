@@ -24,25 +24,11 @@ type NotifyArgs = {
   email?: Record<string, unknown> | null;
 };
 
-async function notifyAdmins({ admin, type, severity, title, body, metadata = {}, email = null }: NotifyArgs) {
-  try {
-    await admin.from("admin_notifications").insert({ type, severity, title, body, metadata });
-  } catch (e) {
-    log("notification insert failed", { message: String(e) });
-  }
-  if (!email) return;
-  try {
-    await admin.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "admin-stripe-sync",
-        recipientEmail: "kontakt@balkanlink.de",
-        idempotencyKey: `stripe-sync-${type}-${Date.now()}`,
-        templateData: email,
-      },
-    });
-  } catch (e) {
-    log("notification email failed", { message: String(e) });
-  }
+async function notifyAdmins({ admin, type, severity, title, body, metadata = {} }: NotifyArgs) {
+  // Source-only: internal audits no longer depend on the user email queue.
+  // Checked insert preserves existing table compatibility; atomic dedupe needs staged SQL.
+  const result = await admin.from("admin_notifications").insert({ type, severity, title, body, metadata });
+  if (result.error) throw new Error("INTERNAL_NOTIFICATION_NOT_PERSISTED");
 }
 
 const toIso = (value: unknown): string | null => {

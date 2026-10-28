@@ -1,120 +1,42 @@
-// Edge: check-pdf-versions
-// Mjesečno (preko pg_cron) HEAD-checka eksterne PDF formulare i upisuje
-// promjene u public.external_pdf_versions. Ako se ETag ili Last-Modified
-// promijeni, šalje email obavještenje admin-u.
+// STAGED source only. Requires docs/staged/admin-notifications.sql before deployment.
+// Internal form monitoring never invokes user/transactional email infrastructure.
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { rejectUnlessServiceRole } from './auth.ts';
-import { emailEnqueueAccepted } from '../_shared/email-enqueue.ts';
-
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-};
-
-const ADMIN_EMAIL = 'kontakt@balkanlink.de';
-
-interface VersionRow {
-  id: string;
-  form_key: string;
-  source_url: string;
-  etag: string | null;
-  last_modified: string | null;
-  content_length: number | null;
+import { checkedObservation, observedLength, trustedSource } from './observation.ts';
+const corsHeaders = { 'Access-Control-Allow-Origin':'*', 'Access-Control-Allow-Headers':'authorization, x-client-info, apikey, content-type' };
+const json = (body:unknown,status=200) => new Response(JSON.stringify(body),{ status,headers:{ ...corsHeaders,'Content-Type':'application/json' } });
+async function requestSource(url:string,method:string):Promise<Response> {
+  let current=url;
+  for(let redirects=0;redirects<=3;redirects++) {
+    if(!trustedSource(current)) throw new Error('SOURCE_NOT_ALLOWLISTED');
+    const response=await fetch(current,{ method,redirect:'manual',signal:AbortSignal.timeout(15000),headers:method==='GET'?{ Range:'bytes=0-0' }:{} });
+    if([301,302,303,307,308].includes(response.status)) {
+      const location=response.headers.get('location'); await response.body?.cancel();
+      if(!location) throw new Error('REDIRECT_INVALID'); current=new URL(location,current).href;continue;
+    }
+    return response;
+  }
+  throw new Error('REDIRECT_LIMIT');
 }
-
-Deno.serve(async (req) => {
-  if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
-
-  // Cron-only: require a signature-verified service-role key (fail closed).
-  const denied = await rejectUnlessServiceRole(req, corsHeaders);
-  if (denied) return denied;
-
-  const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-  const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-  const supabase = createClient(supabaseUrl, serviceKey);
-
-  const { data: rows, error } = await supabase
-    .from('external_pdf_versions')
-    .select('id, form_key, source_url, etag, last_modified, content_length')
-    .returns<VersionRow[]>();
-
-  if (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
-  }
-
-  const changes: { form_key: string; old: Partial<VersionRow>; new: Partial<VersionRow>; source_url: string }[] = [];
-
-  for (const row of rows ?? []) {
+Deno.serve(async req => {
+  if(req.method==='OPTIONS') return new Response(null,{ headers:corsHeaders });
+  const denied=await rejectUnlessServiceRole(req,corsHeaders); if(denied) return denied;
+  const url=Deno.env.get('SUPABASE_URL'); const key=Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+  if(!url || !key) return json({ error:'CONFIGURATION_UNAVAILABLE' },503);
+  const client=createClient(url,key);
+  const { data:rows,error }=await client.from('external_pdf_versions').select('id,source_url');
+  if(error) return json({ error:'MONITOR_SOURCE_UNAVAILABLE' },503);
+  let changed=0,checked=0,failed=0;
+  for(const row of rows ?? []) {
     try {
-      // Try HEAD first; fall back to GET range if HEAD blocked
-      let res = await fetch(row.source_url, { method: 'HEAD', redirect: 'follow' });
-      if (!res.ok) {
-        res = await fetch(row.source_url, { method: 'GET', headers: { Range: 'bytes=0-0' }, redirect: 'follow' });
-      }
-
-      const etag = res.headers.get('etag');
-      const lastModified = res.headers.get('last-modified');
-      const contentLengthHeader = res.headers.get('content-length');
-      const contentLength = contentLengthHeader ? Number(contentLengthHeader) : null;
-
-      const changed =
-        (etag && row.etag && etag !== row.etag) ||
-        (lastModified && row.last_modified && lastModified !== row.last_modified) ||
-        (contentLength && row.content_length && contentLength !== row.content_length);
-
-      const update: Record<string, unknown> = {
-        last_checked_at: new Date().toISOString(),
-        etag, last_modified: lastModified, content_length: contentLength,
-      };
-      if (changed) {
-        update.last_changed_at = new Date().toISOString();
-        changes.push({
-          form_key: row.form_key,
-          source_url: row.source_url,
-          old: { etag: row.etag, last_modified: row.last_modified, content_length: row.content_length },
-          new: { etag, last_modified: lastModified, content_length: contentLength },
-        });
-      }
-
-      await supabase.from('external_pdf_versions').update(update).eq('id', row.id);
-    } catch (e) {
-      console.error(`Check failed for ${row.form_key}:`, e);
-    }
+      let response=await requestSource(row.source_url,'HEAD');
+      if(!response.ok) { await response.body?.cancel();response=await requestSource(row.source_url,'GET'); }
+      if(!response.ok) { await response.body?.cancel();throw new Error('SOURCE_HTTP_FAILED'); }
+      const headers=response.headers; const length=observedLength(headers); await response.body?.cancel();
+      const wasChanged=await checkedObservation(() => client.rpc('observe_pdf_version',{ p_id:row.id,p_etag:headers.get('etag'),p_modified:headers.get('last-modified'),p_length:length }));
+      checked++; if(wasChanged) changed++;
+    } catch { failed++; }
   }
-
-  // Send email via Lovable Emails (send-transactional-email) if any change detected
-  let notificationQueued = false;
-  if (changes.length > 0) {
-    try {
-      const response = await supabase.functions.invoke('send-transactional-email', {
-        body: {
-          templateName: 'admin-pdf-version-changed',
-          recipientEmail: ADMIN_EMAIL,
-          idempotencyKey: `pdf-version-${new Date().toISOString().slice(0, 10)}-${changes.map(c => c.form_key).join('-')}`,
-          templateData: { changes },
-        },
-      });
-      if (!emailEnqueueAccepted(response)) {
-        console.error('PDF notification enqueue not confirmed');
-      } else {
-        notificationQueued = true;
-        for (const c of changes) {
-          // Legacy column remains an enqueue marker, NOT provider delivery confirmation.
-          // Keep it for compatibility; delivery is recorded separately by the email worker.
-          await supabase.from('external_pdf_versions')
-            .update({ notified_at: new Date().toISOString() })
-            .eq('form_key', c.form_key);
-        }
-      }
-    } catch (e) {
-      console.error('Email send failed:', e);
-    }
-  }
-
-  return new Response(JSON.stringify({ checked: rows?.length ?? 0, changes: changes.length, details: changes,
-    notification_queued: notificationQueued, notification_delivered: null }), {
-    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-  });
+  // Failed observations leave previous metadata untouched for the next monthly/manual run.
+  return json({ checked,changes:changed,failed,notification_persisted:changed,notification_queued:false,notification_delivered:null,retry_required:failed>0 },failed?503:200);
 });
