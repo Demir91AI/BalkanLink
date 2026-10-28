@@ -1,3 +1,8 @@
+## Grundsicherung Phase 3B (28.10.2026; no release)
+- [x] Audit four routes and verify all live-index PDF editions/pages/hashes before mapping.
+- [x] Four companions, 148 groups/205 fields/217 options across four locales; Phase3A untouched.
+- [x] 1145 tests (38 files), 32 test-access browser fixtures and build OK; exact results/limits in docs/grundsicherung-phase3b-results.md.
+
 ## Grundsicherung Phase 3A (28.10.2026; no release)
 - [x] Pre-change inventory and current BA 10/2026 HA/WBA/KDU verification.
 - [x] Memory-only navigator and 67 field groups covering 85 HA, 30 WBA, 40 KDU numbered fields; all four locales.
