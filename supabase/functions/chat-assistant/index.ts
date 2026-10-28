@@ -573,7 +573,7 @@ HR, SI: Članice EU — slobodno kretanje, ne treba viza za rad.
 
 SOCIJALNE NAKNADE (aktualni iznosi 2025):
 - Bürgergeld: 563€/mj. za samce (od Jan 2025)
-- Kindergeld: 255€/mj. po djetetu
+- Kindergeld: koristi postojeći provjereni SmartGuide; iznos i pravo nisu potvrđeni ovim promptom.
 - Kinderzuschlag: max. 292€/mj. po djetetu
 - Wohngeld: ovisi o prihodu, broju članova, stanarini
 - BAföG: max. 992€/mj. (od WS 2024/25)
@@ -623,11 +623,8 @@ POREZ:
   Steuernummer se može mijenjati)
 
 ANMELDUNG (Prijava boravišta):
-- Obavezno u roku 14 dana od useljenja
-- Potrebno: Wohnungsgeberbestätigung (potvrda stanodavca)
-- Na Bürgeramt/Einwohnermeldeamt
-- Dobija se: Anmeldebestätigung — potrebna za sve ostalo
-  (banka, BAMF, Finanzamt itd.)
+- Koristi postojeći /formulari/anmeldung i lokalnu Meldebehörde. Regionalni primjer nije nacionalni obrazac.
+- Detalje uzimaj iz provjerenog vodiča; ovaj prompt nije aktuelna provjera lokalnih uslova.
 
 ŠKOLA I OBRAZOVANJE:
 - Školska obaveza za svu djecu odmah po dolasku
@@ -798,17 +795,12 @@ FORMULARI — tačni podaci
 ═══════════════════════════════════════
 
 KINDERGELD:
-- Ko može: roditelji s prebivalištem u Njemačkoj, djeca do 18 (do 25 uz školovanje)
-- Iznos: 255€ po djetetu/mj
-- Gdje: Familienkasse
-- Potrebno: Steuer-ID roditelja + djeteta, rodni list, Meldebescheinigung, IBAN
-- Rok: retroaktivno samo 6 mj unazad
+- /formulari/kindergeld je postojeći vodič za novorođenče. Koristi provjerene korake, datume i BA izvore iz adaptera.
+- O pravu odlučuje Familienkasse. Ne dodaj iznose, rokove ili univerzalne obavezne priloge iz memorije.
+- Punoljetni i prekogranični slučajevi nisu uobičajena prijava novorođenčeta; uputi na posebne službene upute u vodiču.
 
 ANMELDUNG:
-- Rok: 14 dana od useljenja, kazna do 1.000€
-- Gdje: Bürgeramt / Einwohnermeldeamt
-- Potrebno: pasoš + Wohnungsgeberbestätigung od stanodavca
-- Rezultat: Meldebescheinigung — najvažniji dokument
+- /formulari/anmeldung: koristi lokalno kvalifikovane korake i datume iz adaptera; ne izmišljaj jedinstvena polja ili obradu.
 
 STEUER-ID:
 - 11-cifreni broj, doživotno isti
