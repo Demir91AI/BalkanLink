@@ -7,12 +7,12 @@
     "title": "Dvojno državljanstvo",
     "subtitle": "Možeš li zadržati svoju putovnicu kad uzmeš njemačku? Pregled po zemljama.",
     "infoBannerTitle": "Novi njemački zakon — Stand 27.06.2024",
-    "infoBannerBody": "Stupanjem na snagu Zakona o modernizaciji prava o državljanstvu (StARModG), Njemačka općenito prihvaća višestruko državljanstvo. Više se ne mora odreći prethodnog državljanstva pri njemačkoj naturalizaciji — ali pravila države podrijetla i dalje vrijede."
+    "infoBannerBody": "Stupanjem na snagu Zakona o modernizaciji prava o državljanstvu (StARModG) 27. 6. 2024. Njemačka općenito prihvaća višestruko državljanstvo i više ne traži odricanje od dosadašnjeg državljanstva. Zadržavaš li dosadašnje državljanstvo, odlučuje isključivo pravo tvoje zemlje podrijetla."
   },
   "status": {
     "ok": "Dvojno državljanstvo dopušteno",
     "okEu": "Dvojno državljanstvo dopušteno (EU)",
-    "warning": "Posebna pravila — potreban bilateralni sporazum"
+    "warning": "Posebna pravila — provjeri pravo zemlje podrijetla"
   },
   "disclaimer": {
     "title": "Pravna napomena",
@@ -24,15 +24,15 @@
       "sections": {
         "germanLaw": {
           "title": "Njemački zakon (od 27.06.2024.)",
-          "body": "Od stupanja na snagu Zakona o modernizaciji prava o državljanstvu (StARModG) 27. lipnja 2024., Njemačka općenito prihvaća višestruko državljanstvo. Tko se naturalizira u Njemačkoj, više se ne mora odreći bosanskog državljanstva. Isto vrijedi i obrnuto — Nijemac koji uzme strano državljanstvo više ne gubi automatski njemačko."
+          "body": "Od stupanja na snagu Zakona o modernizaciji prava o državljanstvu (StARModG) 27. lipnja 2024. Njemačka općenito prihvaća višestruko državljanstvo. Pri naturalizaciji u Njemačkoj više se ne traži odricanje od državljanstva BiH — što to znači za državljanstvo BiH, uređuje pravo BiH. Nijemac koji na zahtjev stekne strano državljanstvo više zbog toga ne gubi njemačko."
         },
         "bihLaw": {
-          "title": "BiH zakon — bilateralni sporazum",
-          "body": "Ustav BiH, Članak I/7.d propisuje da državljani BiH mogu imati državljanstvo druge države isključivo ako postoji bilateralni sporazum između BiH i te države. BiH ima takve sporazume s Hrvatskom, Srbijom i Švedskom — ali NE i s Njemačkom. Njemačka općenito ne sklapa bilateralne sporazume o dvojnom državljanstvu."
+          "title": "Pravo BiH — zadržavanje državljanstva",
+          "body": "BiH i Njemačka nemaju međunarodni ugovor o dvojnom državljanstvu (Ministarstvo civilnih poslova BiH). Prema odluci Ustavnog suda BiH stjecanjem državljanstva druge države NE dolazi po sili zakona do gubitka državljanstva BiH. Tko ima državljanstvo BiH i stekne njemačko bez odricanja, time ne gubi automatski državljanstvo BiH."
         },
         "practical": {
-          "title": "Praktična situacija — što to znači za tebe",
-          "body": "BiH ustav ne propisuje da se MORA odreći stranog državljanstva ako nema bilateralnog sporazuma — samo kaže da dvojno državljanstvo nije formalno priznato. U praksi: BiH ti ne oduzima automatski putovnicu kad uzmeš njemačku. Mnogi dijasporci faktički imaju oba dokumenta. Međutim, formalno dvojno državljanstvo BiH–Njemačka nije regulirano, te BiH ne može službeno evidentirati taj status. Za rješenje je potrebna izmjena zakona u BiH ili potpisivanje bilateralnog sporazuma. Preporučujemo konzultaciju s odvjetnikom ili BiH konzulatom."
+          "title": "Zadržavanje ili ponovno stjecanje — velika razlika",
+          "body": "Zadržavanje: ako se NISI odrekao državljanstva BiH, ono ne prestaje samim stjecanjem njemačkog. Ponovno stjecanje: ako si se ranije ODREKAO državljanstva BiH (npr. zbog starih njemačkih pravila) i danas imaš njemačko, Ministarstvo civilnih poslova BiH navodi da je ponovno stjecanje državljanstva BiH moguće uz obvezan uvjet odricanja od njemačkog državljanstva. Prije bilo kakvog odricanja ili zahtjeva provjeri svoj slučaj u diplomatsko-konzularnom predstavništvu BiH ili Ministarstvu civilnih poslova BiH."
         },
         "note": {
           "title": "Važna napomena",
@@ -49,7 +49,7 @@
         },
         "ownLaw": {
           "title": "Srpski zakon",
-          "body": "Srbija dopušta dvojno državljanstvo. Srpski Zakon o državljanstvu ne zahtijeva odricanje od srpskog državljanstva pri stjecanju stranog. Stoga Srbin koji uzme njemačku putovnicu zadržava srpsku — bez formalnih prepreka s obje strane."
+          "body": "Zakon o državljanstvu Republike Srbije (MUP Srbije) poznaje državljane koji imaju i strano državljanstvo; srpsko državljanstvo prestaje tek otpustom, odricanjem ili prema međunarodnom ugovoru, a ne samim stjecanjem stranog. Srbija i BiH imaju sporazum o dvojnom državljanstvu. Za svoj slučaj provjeri u konzulatu Srbije."
         }
       }
     },
@@ -62,7 +62,7 @@
         },
         "ownLaw": {
           "title": "Kosovski zakon",
-          "body": "Kosovo dopušta dvojno državljanstvo. Kosovski Zakon o državljanstvu prihvaća da državljani Kosova imaju i drugo strano državljanstvo."
+          "body": "Kosovski zakon o državljanstvu dopušta da državljani Kosova imaju i drugo državljanstvo. Zakonski detalji i dokazi mogu se mijenjati — za svoj slučaj provjeri u konzulatu Kosova."
         }
       }
     },
@@ -75,7 +75,7 @@
         },
         "ownLaw": {
           "title": "Hrvatski zakon",
-          "body": "Hrvatska dopušta dvojno državljanstvo. Uz to, Hrvatska ima bilateralni sporazum s Bosnom i Hercegovinom iz 2011. koji izričito uređuje dvojno državljanstvo između tih dviju država."
+          "body": "Prema MUP-u RH hrvatski državljanin može imati i drugo državljanstvo; stjecanjem stranog državljanstva hrvatsko ne prestaje samo po sebi. Hrvatska i BiH imaju ugovor o dvojnom državljanstvu iz 2011. Za stjecanje hrvatskog državljanstva prirođenjem u pravilu se traži otpust iz stranog — to je drugo pitanje."
         }
       }
     },
@@ -83,8 +83,8 @@
       "name": "Crna Gora",
       "sections": {
         "bothLaws": {
-          "title": "Crnogorski i njemački zakon",
-          "body": "I Crna Gora i Njemačka (od 27.06.2024.) dopuštaju dvojno državljanstvo. Crnogorac koji se naturalizira u Njemačkoj zadržava crnogorsku putovnicu bez formalnih prepreka s obje strane."
+          "title": "Crnogorski zakon — oprez",
+          "body": "Njemačka od 27. 6. 2024. ne traži odricanje, ali crnogorski zakon je restriktivan: prema Vladi Crne Gore (članak 24. Zakona o crnogorskom državljanstvu) punoljetni državljani koji imaju državljanstvo druge države gube crnogorsko državljanstvo, osim ako je drugo državljanstvo stečeno prije 3. lipnja 2006. ili to uređuje međunarodni ugovor. Zakon je izmijenjen u kolovozu 2026. — prije naturalizacije provjeri trenutačno stanje u konzulatu Crne Gore."
         }
       }
     },
@@ -93,7 +93,7 @@
       "sections": {
         "bothLaws": {
           "title": "Albanski i njemački zakon",
-          "body": "I Albanija i Njemačka (od 27.06.2024.) dopuštaju dvojno državljanstvo. Albanac koji se naturalizira u Njemačkoj zadržava albansku putovnicu bez formalnih prepreka s obje strane."
+          "body": "Njemačka od 27. 6. 2024. ne traži odricanje, a albansko pravo dopušta dvojno državljanstvo — stjecanjem drugog državljanstva albansko ne prestaje samo po sebi. Za svoj slučaj provjeri u konzulatu Albanije."
         }
       }
     },
@@ -102,7 +102,7 @@
       "sections": {
         "bothLaws": {
           "title": "Makedonski i njemački zakon",
-          "body": "I Sjeverna Makedonija i Njemačka (od 27.06.2024.) dopuštaju dvojno državljanstvo. Makedonac koji se naturalizira u Njemačkoj zadržava makedonsku putovnicu bez formalnih prepreka s obje strane."
+          "body": "Njemačka od 27. 6. 2024. ne traži odricanje, a Zakon o državljanstvu Sjeverne Makedonije ne propisuje gubitak samim stjecanjem drugog državljanstva; državljanstvo prestaje npr. otpustom. Za svoj slučaj provjeri u konzulatu Sjeverne Makedonije."
         }
       }
     }

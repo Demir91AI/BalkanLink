@@ -48,7 +48,7 @@ export const DVOJNO_DRZAVLJANSTVO_COUNTRIES: CitizenshipCountry[] = [
   {
     id: "crnaGora",
     flag: "🇲🇪",
-    status: "ok",
+    status: "warning",
     sectionKeys: ["bothLaws"],
   },
   {
