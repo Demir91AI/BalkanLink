@@ -66,7 +66,7 @@ describe("verified Grundsicherung field companions", () => {
       expect(shape(locale.grundsicherungCompanions)).toEqual(shape(bs.grundsicherungCompanions));
     }
   });
-  it.each(Object.entries(locales).flatMap(([lng, locale]) => GRUNDSICHERUNG_SLUGS.map((slug) => [lng, locale, slug] as const)))("%s/%s companion jumps and reviews", async (lng, locale, slug) => {
+  it.each(Object.entries(locales).flatMap(([lng, locale]) => GRUNDSICHERUNG_SLUGS.map((slug) => [lng, locale, slug] as const)))("%s companion jumps and reviews", async (lng, locale, slug) => {
     const instance = i18next.createInstance();
     await instance.init({ lng, resources: { [lng]: { pages: locale } }, interpolation: { escapeValue: false } });
     const { container } = render(<I18nextProvider i18n={instance}><ProcedureCompanion slug={slug} /></I18nextProvider>);
