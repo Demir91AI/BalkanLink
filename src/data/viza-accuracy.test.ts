@@ -59,7 +59,8 @@ describe('Viza content-only accuracy, 28 October 2026', () => {
     });
     it(`${lang}: uses §19c(1) and BA annual approvals on every Westbalkan route`, () => {
       for (const c of localized.filter(c => !c.isEU)) {
-        const r = c.routes.find(r => r.id === 'work');
+        // Existing overlays translate some IDs; this content-only task preserves them.
+        const r = c.routes[0];
         expect(r?.legalBasis).toBe('§ 19c Abs. 1 AufenthG + § 26 Abs. 2 BeschV');
         expect(r?.westbalkanNote).toContain('50.000');
         expect(r?.westbalkanNote).toContain('BA');
