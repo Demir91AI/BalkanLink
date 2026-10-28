@@ -33,8 +33,8 @@
     "nregBadge": "Nicht reglementiert",
     "regWarning": "PFLICHT:",
     "regWarningBody": "Ohne formale Anerkennung darfst du diesen Beruf in Deutschland NICHT ausüben.",
-    "nregInfo": "GUTE NACHRICHT:",
-    "nregInfoBody": "Du kannst sofort arbeiten — auch ohne Anerkennung. Die Anerkennung wird empfohlen, um besseren Status und Gehalt zu erhalten.",
+    "nregInfo": "HINWEIS:",
+    "nregInfoBody": "Für diesen Beruf ist die Anerkennung keine gesetzliche Voraussetzung für die Arbeit. Für Visum oder Aufenthaltstitel kann sie trotzdem nötig sein. Sie kann Arbeitgebern die Einordnung deiner Qualifikation erleichtern, garantiert aber kein höheres Gehalt und keine bessere Stelle.",
     "statDuration": "Dauer",
     "statCost": "Kosten",
     "statLanguage": "Sprache",
@@ -118,57 +118,52 @@
   },
   "professions": {
     "pflegefachperson": {
-      "name": "Pflegefachperson / Krankenpfleger:in",
-      "description": "Der gefragteste reglementierte Beruf in Deutschland. Das Verfahren leitet die zuständige Stelle des Bundeslandes, in dem du arbeiten möchtest (z. B. Regierungspräsidium, Landesamt für Gesundheit).",
-      "durationRange": "6–18 Monate (je nach Bundesland und Vollständigkeit der Unterlagen)",
-      "costRange": "200–600 € (Verwaltungsgebühren) + Übersetzungs- und Anpassungslehrgang/Kenntnisprüfungs-Kosten",
-      "notes": "Seit 2020 sind Krankenpflege, Altenpflege und Kinderkrankenpflege zu einem Beruf 'Pflegefachperson' (generalistische Pflegeausbildung) zusammengeführt.",
+      "name": "Pflegefachperson / Pflegefachfrau / Pflegefachmann",
+      "description": "Reglementierter Beruf. Ohne Erlaubnis zur Führung der Berufsbezeichnung darfst du nicht als Pflegefachkraft arbeiten. Das Verfahren nach dem Pflegeberufegesetz (PflBG) führt die zuständige Stelle des Bundeslandes, in dem du arbeiten willst.",
+      "durationRange": "Einige Monate ab vollständigen Unterlagen (z. B. RP Stuttgart: bis 4 Monate); Ausgleichsmaßnahme zusätzlich",
+      "costRange": "Gebühren legt das Land fest; Übersetzungen, Kurs und Ausgleichsmaßnahme zusätzlich – den genauen Betrag nennt die Stelle",
+      "notes": "Seit 2020 gibt es die generalistische Ausbildung (Pflegefachfrau/-mann). Ergebnis kann auch eine bisherige Bezeichnung sein, z. B. Altenpfleger/in. In Bayern ist seit 2023 das Bayerische Landesamt für Pflege zuständig.",
       "steps": [
-        "Prüfe deine Bildungseinrichtung und deinen Abschluss in der Anabin-Datenbank",
-        "Reiche den Antrag auf Anerkennung bei der zuständigen Stelle deines Bundeslandes ein",
-        "Lege das Dossier bei: Diplom, Notenübersicht, Inhalt der Ausbildung",
-        "Die Stelle prüft die Gleichwertigkeit (Gleichwertigkeitsprüfung)",
-        "Bei festgestellten Unterschieden: Anpassungslehrgang (bis zu 3 Jahre) ODER Kenntnisprüfung",
-        "Bestandene Fachsprachprüfung (medizinisches Deutsch B2)",
-        "Endgültige Anerkennung (Berufsurkunde)"
+        "Im Anerkennungs-Finder den Referenzberuf „Pflegefachfrau / Pflegefachmann“ und den Arbeitsort wählen – so erhältst du die genaue zuständige Stelle",
+        "Antrag bei dieser Stelle stellen (auch aus dem Ausland möglich)",
+        "Die Stelle prüft die Unterlagen (Gleichwertigkeitsprüfung); in vielen Ländern kannst du darauf verzichten und direkt Kenntnisprüfung oder Anpassungslehrgang wählen",
+        "Bei wesentlichen Unterschieden: Ausgleichsmaßnahme – Kenntnisprüfung oder mehrmonatiger Anpassungslehrgang, nach deiner Wahl",
+        "Zusätzlich nachweisen: Deutschkenntnisse (meist B2; Niveau und Prüfungsart legt das Land fest), gesundheitliche Eignung und Zuverlässigkeit",
+        "Danach erhältst du die Erlaubnis zur Führung der Berufsbezeichnung"
       ],
       "documents": [
-        "Diplom der Krankenpflegeschule / Hochschule (beglaubigte Kopie)",
-        "Notenübersicht mit Stundenangaben",
-        "Curriculum / Stundennachweis",
-        "Apostille (Haager) auf den Originaldokumenten",
-        "Beglaubigte Übersetzung durch vereidigten Übersetzer ins Deutsche",
-        "Reisepass / Personalausweis",
-        "Bescheinigung über Berufserfahrung (falls vorhanden)",
-        "Führungszeugnis",
-        "Ärztliches Attest über die gesundheitliche Eignung",
-        "Deutsch-Zertifikat (B2)"
+        "Abschlusszeugnis und Nachweis der Berufsberechtigung im Ausbildungsstaat (Lizenz, falls vorhanden)",
+        "Fächer- und Stundennachweis für Theorie und Praxis",
+        "Nachweise über Berufserfahrung",
+        "Lebenslauf und Pass / Ausweis",
+        "Führungszeugnis bzw. Straffreiheitsbescheinigung des Herkunftslandes",
+        "Ärztliche Bescheinigung über die gesundheitliche Eignung",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen durch vereidigte Übersetzer; ob beglaubigte Kopien oder Apostille nötig sind, teilt die Stelle mit"
       ]
     },
     "arzt": {
       "name": "Ärztin / Arzt",
-      "description": "Streng reglementiert. Ohne Approbation oder Berufserlaubnis darf in Deutschland keine ärztliche Tätigkeit ausgeübt werden.",
-      "durationRange": "12–36 Monate (Kenntnisprüfung verlängert das Verfahren)",
-      "costRange": "350–1.100 € Verwaltungsgebühren + Prüfungs- und Vorbereitungskursgebühren",
-      "notes": "Facharztanerkennungen werden getrennt vom Grundabschluss bearbeitet. Für EU-Abschlüsse gilt die automatische Anerkennung nach EU-Richtlinie 2005/36/EG.",
+      "description": "Streng reglementiert. Für ärztliche Tätigkeit brauchst du die Approbation (dauerhaft) oder eine befristete Berufserlaubnis. Zuständig ist die Approbationsbehörde des Bundeslandes, in dem du arbeiten willst.",
+      "durationRange": "Abhängig von Land und Prüfungsterminen – oft mehrere Monate bis über ein Jahr",
+      "costRange": "Landesgebühren, Prüfungen und Vorbereitungskurse – Betrag nennt die Behörde",
+      "notes": "Kroatien ist EU-Mitglied: kroatische Abschlüsse nach Richtlinie 2005/36/EG werden in der Regel automatisch anerkannt. Für Bosnien-Herzegowina, Serbien, Montenegro, Nordmazedonien und Kosovo gilt das Drittstaatsverfahren.",
       "steps": [
-        "Prüfe deine Hochschule in der Anabin-Datenbank (Status H+ ist Pflicht)",
-        "Antrag auf Approbation beim Landesprüfungsamt deines Bundeslandes",
-        "Gleichwertigkeitsprüfung des Abschlusses",
-        "Bei 'wesentlichen Unterschieden': Kenntnisprüfung (Staatsexamen) oder Anpassungslehrgang",
-        "Fachsprachenprüfung (medizinisches Deutsch C1, organisiert durch Ärztekammer)",
-        "Erlaubnis zur Berufsausübung: Berufserlaubnis (befristet, bis 2 Jahre) ODER Approbation (unbefristet)"
+        "Im Anerkennungs-Finder die Approbationsbehörde für den Arbeitsort finden",
+        "Antrag auf Approbation stellen (bei Bedarf auch auf befristete Berufserlaubnis)",
+        "Ab 1.11.2026 (BGBl. 2026 I Nr. 225) ist für Drittstaatsabschlüsse die direkte Kenntnisprüfung der Regelfall; die dokumentenbasierte Gleichwertigkeitsprüfung gibt es nur noch auf Wunsch. Frag die Behörde, welche Regeln für deinen Antrag gelten",
+        "Fachsprachprüfung – medizinisches Deutsch, meist Niveau C1, häufig bei der Landesärztekammer",
+        "Nachweise über gesundheitliche Eignung und Zuverlässigkeit",
+        "Approbation; Facharzttitel werden gesondert bei der Landesärztekammer anerkannt"
       ],
       "documents": [
-        "Diplom des Medizinstudiums + Noten",
-        "Apostille",
-        "Beglaubigte Übersetzung",
-        "Lebenslauf mit beruflichem Werdegang",
-        "Tätigkeitsnachweis als Arzt (falls vorhanden)",
-        "Führungszeugnis",
-        "Ärztliches Attest über die gesundheitliche Eignung",
-        "Deutsch-Zertifikat (B2/C1)",
-        "Erklärung, dass die Berufserlaubnis in anderen Ländern nicht entzogen wurde"
+        "Abschlusszeugnis Medizin mit Diploma Supplement / Noten",
+        "Berufszulassung im Ausbildungsstaat und Certificate of Good Standing",
+        "Lebenslauf, Pass / Ausweis",
+        "Führungszeugnis / Straffreiheitsbescheinigung",
+        "Ärztliche Bescheinigung über die gesundheitliche Eignung",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen; Form der Kopien und Apostille bestimmt die Behörde"
       ]
     },
     "ingenieur": {
@@ -194,118 +189,131 @@
       ]
     },
     "lehrer": {
-      "name": "Lehrer:in (Lehramt)",
-      "description": "Streng reglementiert. Jedes Bundesland hat eigene Regeln. Das Verfahren leitet das Kultusministerium oder die zuständige Bildungsbehörde des Bundeslandes.",
-      "durationRange": "8–24 Monate (stark variierend nach Bundesland)",
-      "costRange": "100–500 € Verwaltungsgebühren + Anpassungsmaßnahmen",
-      "notes": "Für EU-Abschlüsse gilt die Richtlinie 2005/36/EG, dennoch werden meist Anpassungsmaßnahmen verlangt.",
+      "name": "Lehrerin / Lehrer (Lehramt)",
+      "description": "Auf Landesebene reglementiert. Jedes Bundesland entscheidet selbst über die Anerkennung der Lehrbefähigung für öffentliche Schulen; zuständig ist die Schul- bzw. Kultusverwaltung des Landes.",
+      "durationRange": "Je nach Land; Entscheidung meist einige Monate ab vollständigen Unterlagen, Ausgleichsmaßnahmen zusätzlich",
+      "costRange": "Gebühren legt das Land fest; Übersetzungen und Ausgleichsmaßnahmen zusätzlich",
+      "notes": "Manche Länder stellen auch ohne volle Anerkennung ein (z. B. als Vertretungslehrkraft oder in Programmen für ausländische Lehrkräfte) – das ist keine Anerkennung. Regeln beim Land prüfen.",
       "steps": [
-        "Prüfe deine Hochschule in der Anabin-Datenbank",
-        "Antrag beim Kultusministerium des Bundeslandes, in dem du arbeiten willst",
-        "Gleichwertigkeitsprüfung — Bewertung der Gleichwertigkeit mit dem deutschen Lehramt",
-        "Häufig werden Unterschiede in Fächern oder pädagogischer Praxis festgestellt",
-        "Anpassungsmaßnahmen (Zusatzkurse / Vorbereitungsdienst)",
-        "Bestandene Sprachprüfung (C1/C2)"
+        "Im Anerkennungs-Finder „Lehrerin / Lehrer“ und das gewünschte Bundesland wählen",
+        "Antrag bei der zuständigen Schul- bzw. Kultusverwaltung stellen",
+        "Die Stelle vergleicht Fächer, Bildungswissenschaften und Praxis mit dem deutschen Lehramt; viele Länder verlangen zwei Unterrichtsfächer",
+        "Bei wesentlichen Unterschieden: Anpassungslehrgang oder Eignungsprüfung",
+        "Deutschkenntnisse auf dem vom Land verlangten Niveau (oft C1, teils C2)",
+        "Anerkennungsbescheid; die Einstellung an einer Schule ist ein eigener Schritt"
       ],
       "documents": [
-        "Diplom + Noten + Fächerübersicht",
-        "Detaillierte Beschreibung des pädagogischen Studienteils",
-        "Tätigkeitsnachweis als Lehrer (falls vorhanden)",
-        "Apostille + Übersetzung",
-        "Reisepass",
-        "Führungszeugnis",
-        "Erweitertes Führungszeugnis (für Arbeit mit Kindern)"
+        "Abschlusszeugnis und Diploma Supplement mit Fächern",
+        "Nachweis über bildungswissenschaftliche Anteile und Praxis",
+        "Nachweis der Lehrberechtigung im Ausbildungsstaat (falls vorhanden)",
+        "Nachweise über Schulpraxis",
+        "Lebenslauf, Pass / Ausweis",
+        "Erweitertes Führungszeugnis (Arbeit mit Kindern)",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen; Form der Kopien und Apostille bestimmt die Stelle"
       ]
     },
     "physiotherapeut": {
-      "name": "Physiotherapeut:in",
-      "description": "Reglementierter Gesundheitsberuf. Das Verfahren leitet die zuständige Landesstelle (Landesprüfungsamt oder Regierungspräsidium).",
-      "durationRange": "6–18 Monate",
-      "costRange": "200–500 € + Kosten des Anpassungslehrgangs",
+      "name": "Physiotherapeutin / Physiotherapeut",
+      "description": "Reglementierter Gesundheitsfachberuf (Masseur- und Physiotherapeutengesetz). Für die Arbeit brauchst du die Erlaubnis zur Führung der Berufsbezeichnung der zuständigen Landesstelle.",
+      "durationRange": "Einige Monate ab vollständigen Unterlagen; Ausgleichsmaßnahme zusätzlich",
+      "costRange": "Gebühren legt das Land fest; Übersetzungen und Ausgleichsmaßnahme zusätzlich",
       "steps": [
-        "Prüfe deine Schule/Hochschule in der Anabin-Datenbank",
-        "Antrag auf Erlaubnis zur Führung der Berufsbezeichnung",
-        "Gleichwertigkeitsprüfung",
-        "Bei Unterschieden: Anpassungslehrgang (bis zu 3 Jahre) oder Kenntnisprüfung",
-        "Bestandene Sprachprüfung (B2)",
-        "Berufserlaubnis"
+        "Im Anerkennungs-Finder die zuständige Stelle für den Arbeitsort finden (z. B. in Bayern seit 1.7.2025 das Bayerische Landesamt für Pflege)",
+        "Antrag auf Erlaubnis zur Führung der Berufsbezeichnung stellen",
+        "Die Stelle prüft die Unterlagen (Gleichwertigkeitsprüfung)",
+        "Bei wesentlichen Unterschieden: Kenntnisprüfung oder Anpassungslehrgang",
+        "Nachweise über Deutsch (meist B2, legt das Land fest), gesundheitliche Eignung und Zuverlässigkeit",
+        "Erlaubnis zur Führung der Berufsbezeichnung"
       ],
       "documents": [
-        "Diplom + Noten",
-        "Inhalt der Ausbildung (Stundennachweis)",
-        "Apostille + Übersetzung",
-        "Führungszeugnis",
-        "Ärztliches Attest",
-        "B2-Deutsch-Zertifikat"
-      ]
+        "Abschlusszeugnis mit Stundennachweis Theorie/Praxis",
+        "Nachweis der Berufsberechtigung im Ausbildungsstaat (falls vorhanden)",
+        "Nachweise über Berufserfahrung",
+        "Lebenslauf, Pass / Ausweis",
+        "Führungszeugnis / Straffreiheitsbescheinigung",
+        "Ärztliche Bescheinigung",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen; Form der Kopien und Apostille bestimmt die Stelle"
+      ],
+      "notes": "Hochschul- (Bachelor) und schulische Physiotherapie-Abschlüsse werden mit demselben deutschen Beruf verglichen; das Ergebnis hängt vom Ausbildungsinhalt ab."
     },
     "erzieher": {
-      "name": "Erzieher:in",
-      "description": "In den Bundesländern unterschiedlich reglementiert. Das Verfahren leitet die zuständige Bildungsbehörde (z. B. Senatsverwaltung in Berlin, Bezirksregierung in NRW).",
-      "durationRange": "6–18 Monate",
-      "costRange": "100–400 € + Anpassungskosten",
+      "name": "Erzieherin / Erzieher",
+      "description": "Auf Landesebene reglementiert: Für die Arbeit als Erzieher/in brauchst du die staatliche Anerkennung. Die zuständige Stelle unterscheidet sich je nach Bundesland.",
+      "durationRange": "Einige Monate ab vollständigen Unterlagen; Ausgleichsmaßnahmen zusätzlich",
+      "costRange": "Gebühren legt das Land fest; Übersetzungen und Ausgleich zusätzlich",
       "steps": [
-        "Prüfe deine Schule in der Anabin-Datenbank",
-        "Antrag bei der zuständigen Stelle deines Bundeslandes",
-        "Gleichwertigkeitsprüfung",
-        "Häufig wird ein Anpassungslehrgang verlangt (oft inkl. Praxis im Kindergarten)",
-        "B2-Deutsch",
-        "Berufsurkunde"
+        "Im Anerkennungs-Finder „Erzieherin / Erzieher“ und das Bundesland wählen – so erhältst du die zuständige Stelle",
+        "Antrag bei dieser Stelle stellen",
+        "Gleichwertigkeitsprüfung – Vergleich mit der deutschen Ausbildung",
+        "Bei wesentlichen Unterschieden: Anpassungslehrgang (oft Praxis in der Kita) oder Prüfung",
+        "Deutsch auf dem vom Land verlangten Niveau (oft B2–C1), Zuverlässigkeit und gesundheitliche Eignung",
+        "Staatliche Anerkennung"
       ],
       "documents": [
-        "Diplom + Noten",
-        "Inhalt der Ausbildung",
-        "Apostille + Übersetzung",
-        "Erweitertes Führungszeugnis (für Arbeit mit Kindern)",
-        "Ärztliches Attest"
-      ]
+        "Abschlusszeugnis mit Inhalten und Praxisstunden",
+        "Nachweise über Berufserfahrung",
+        "Lebenslauf, Pass / Ausweis",
+        "Erweitertes Führungszeugnis (Arbeit mit Kindern)",
+        "Ärztliche Bescheinigung (falls vom Land verlangt)",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen; Form der Kopien und Apostille bestimmt die Stelle"
+      ],
+      "notes": "Hochschulabschlüsse (z. B. Vorschulpädagogik) können auch mit Kindheitspädagogik verglichen werden. In manchen Ländern ist bis zur Anerkennung eine Tätigkeit als Ergänzungskraft möglich – bei der Kita-Aufsicht des Landes prüfen."
     },
     "apotheker": {
-      "name": "Apotheker:in",
-      "description": "Streng reglementiert. Für die Tätigkeit in der Apotheke ist die Approbation erforderlich.",
-      "durationRange": "12–24 Monate",
-      "costRange": "350–1.000 €",
+      "name": "Apothekerin / Apotheker",
+      "description": "Streng reglementiert. Für die Tätigkeit als Apothekerin/Apotheker brauchst du die Approbation (oder eine befristete Berufserlaubnis) der zuständigen Stelle des Bundeslandes, in dem du arbeiten willst.",
+      "durationRange": "Abhängig von Land und Prüfungsterminen – oft mehrere Monate bis über ein Jahr",
+      "costRange": "Landesgebühren, Prüfungen und Kurse – Betrag nennt die Behörde",
       "steps": [
-        "Prüfe deine Hochschule in der Anabin-Datenbank",
-        "Antrag auf Approbation beim Landesprüfungsamt",
-        "Gleichwertigkeitsprüfung",
-        "Kenntnisprüfung oder Anpassungslehrgang bei festgestellten Unterschieden",
-        "Fachsprachenprüfung (C1)",
+        "Im Anerkennungs-Finder die zuständige Stelle für den Arbeitsort finden",
+        "Antrag auf Approbation stellen",
+        "Ab 1.11.2026 (BGBl. 2026 I Nr. 225) ist für Drittstaatsabschlüsse die direkte Kenntnisprüfung der Regelfall; die Dokumentenprüfung gibt es nur noch auf Wunsch. Frag die Behörde, welche Regeln für deinen Antrag gelten",
+        "Fachsprachprüfung (Fachdeutsch, meist C1; häufig bei der Landesapothekerkammer)",
+        "Nachweise über gesundheitliche Eignung und Zuverlässigkeit",
         "Approbation"
       ],
       "documents": [
-        "Diplom Pharmazie + Noten",
-        "Apostille + Übersetzung",
-        "Praktikumsbescheinigung",
-        "Führungszeugnis",
-        "Ärztliches Attest",
-        "Deutsch-Zertifikat (C1)"
-      ]
+        "Abschlusszeugnis (Pharmazie) mit Noten / Diploma Supplement",
+        "Nachweis über das praktische Jahr / Praktikum",
+        "Berufszulassung im Ausbildungsstaat und Certificate of Good Standing",
+        "Lebenslauf, Pass / Ausweis",
+        "Führungszeugnis / Straffreiheitsbescheinigung",
+        "Ärztliche Bescheinigung über die gesundheitliche Eignung",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen; Form der Kopien und Apostille bestimmt die Behörde"
+      ],
+      "notes": "Kroatische Abschlüsse (EU) werden in der Regel automatisch nach Richtlinie 2005/36/EG anerkannt; für die übrigen Länder der Region gilt das Drittstaatsverfahren."
     },
     "zahnarzt": {
       "name": "Zahnärztin / Zahnarzt",
-      "description": "Streng reglementiert. Approbation für die zahnärztliche Tätigkeit erforderlich.",
-      "durationRange": "12–30 Monate",
-      "costRange": "350–1.100 €",
+      "description": "Streng reglementiert. Für die Tätigkeit als Zahnärztin/Zahnarzt brauchst du die Approbation (oder eine befristete Berufserlaubnis) der zuständigen Stelle des Bundeslandes, in dem du arbeiten willst.",
+      "durationRange": "Abhängig von Land und Prüfungsterminen – oft mehrere Monate bis über ein Jahr",
+      "costRange": "Landesgebühren, Prüfungen und Kurse – Betrag nennt die Behörde",
       "steps": [
-        "Prüfe deine Hochschule in der Anabin-Datenbank",
-        "Antrag auf Approbation",
-        "Gleichwertigkeitsprüfung",
-        "Kenntnisprüfung bei festgestellten Unterschieden",
-        "Fachsprachenprüfung (C1)",
+        "Im Anerkennungs-Finder die zuständige Stelle für den Arbeitsort finden",
+        "Antrag auf Approbation stellen",
+        "Ab 1.11.2026 (BGBl. 2026 I Nr. 225) ist für Drittstaatsabschlüsse die direkte Kenntnisprüfung der Regelfall; die Dokumentenprüfung gibt es nur noch auf Wunsch. Frag die Behörde, welche Regeln für deinen Antrag gelten",
+        "Fachsprachprüfung (Fachdeutsch, meist C1; häufig bei der Landeszahnärztekammer)",
+        "Nachweise über gesundheitliche Eignung und Zuverlässigkeit",
         "Approbation"
       ],
       "documents": [
-        "Diplom Zahnmedizin + Noten",
-        "Apostille + Übersetzung",
-        "Ärztliches Attest",
-        "Führungszeugnis",
-        "Deutsch-Zertifikat (C1)"
-      ]
+        "Abschlusszeugnis (Zahnmedizin) mit Noten / Diploma Supplement",
+        "Berufszulassung im Ausbildungsstaat und Certificate of Good Standing",
+        "Lebenslauf, Pass / Ausweis",
+        "Führungszeugnis / Straffreiheitsbescheinigung",
+        "Ärztliche Bescheinigung über die gesundheitliche Eignung",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen; Form der Kopien und Apostille bestimmt die Behörde"
+      ],
+      "notes": "Kroatische Abschlüsse (EU) werden in der Regel automatisch nach Richtlinie 2005/36/EG anerkannt; für die übrigen Länder der Region gilt das Drittstaatsverfahren."
     },
     "koch": {
       "name": "Köchin / Koch",
-      "description": "Nicht reglementiert! Du kannst als Koch ohne formale Anerkennung arbeiten. Die Anerkennung ist freiwillig, aber sinnvoll für besseres Gehalt und unbefristeten Vertrag.",
+      "description": "Nicht reglementiert: Du kannst ohne formale Anerkennung als Koch arbeiten. Die Anerkennung ist freiwillig; sie kann bei Visum und Arbeitgebern helfen, garantiert aber weder höheres Gehalt noch unbefristeten Vertrag.",
       "durationRange": "3–4 Monate (IHK-Verfahren)",
       "costRange": "100–600 € (je nach IHK)",
       "notes": "Ohne Anerkennung kannst du als Koch arbeiten. Die Anerkennung (meist bei der IHK FOSA) ist freiwillig, hilft aber bei Arbeitgebern und beim Visum als Fachkraft; eine bestimmte Gehaltswirkung ist nicht garantiert.",
@@ -368,7 +376,7 @@
     },
     "kfz_mechatroniker": {
       "name": "Kraftfahrzeugmechatroniker:in",
-      "description": "Reglementiert für die selbstständige Tätigkeit. Als Angestellter in der Werkstatt nicht zwingend, erleichtert aber besseres Gehalt und Fachkraft-Status.",
+      "description": "Reglementiert für die selbstständige Tätigkeit. Als Angestellte/r in der Werkstatt ist die Anerkennung nicht zwingend; sie kann Visum und Einordnung durch Arbeitgeber erleichtern, garantiert aber kein höheres Gehalt.",
       "durationRange": "3–6 Monate",
       "costRange": "100–600 €",
       "notes": "Großer Fachkräftemangel in Deutschland — oft stellen Werkstätten direkt ein und unterstützen bei der Anerkennung.",
@@ -827,6 +835,180 @@
         "Tabellarischer Lebenslauf und Identitätsnachweis",
         "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
       ]
+    },
+    "dachdecker": {
+      "name": "Dachdeckerin / Dachdecker",
+      "description": "Zulassungspflichtiges Handwerk (Anlage A HwO). Als Angestellte/r (Geselle) kannst du in der Regel ohne Anerkennung arbeiten. Für einen eigenen Betrieb brauchst du die Eintragung in die Handwerksrolle (Meister oder gleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung).",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Dachdeckerin / Dachdecker“ und den Arbeitsort wählen – zeigt die zuständige Handwerkskammer (HWK)",
+        "Als Angestellte/r: Anerkennung ist keine gesetzliche Voraussetzung, kann aber für das Visum nötig sein",
+        "Antrag auf Gleichwertigkeitsfeststellung bei der HWK (nur für eine abgeschlossene, staatlich anerkannte Ausbildung)",
+        "Bei Unterschieden: teilweise Gleichwertigkeit; Ausgleich durch Anpassungsqualifizierung möglich",
+        "Ohne Zeugnis: eventuell Qualifikationsanalyse oder Validierungsverfahren – ohne garantiertes Ergebnis",
+        "Für die Selbstständigkeit: eigenes Verfahren zur Handwerksrolle bei der HWK"
+      ],
+      "documents": [
+        "Abschlusszeugnis Handwerk / Berufsschule",
+        "Fächer- und Praxisstundennachweis",
+        "Arbeitszeugnisse über Berufserfahrung",
+        "Lebenslauf und Pass / Ausweis",
+        "Übersetzungen; ob beglaubigte Kopien oder Apostille nötig sind, teilt die HWK mit"
+      ],
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzung zusätzlich",
+      "costRange": "HWK-Gebühren unterschiedlich – Betrag nennt die Kammer; Übersetzungen zusätzlich; Anerkennungszuschuss möglich",
+      "notes": "Berufserfahrung ohne abgeschlossene Ausbildung führt nicht automatisch zur Gleichwertigkeit."
+    },
+    "anlagenmechaniker_shk": {
+      "name": "Anlagenmechanikerin / Anlagenmechaniker SHK",
+      "description": "Zulassungspflichtiges Handwerk (Anlage A HwO). Als Angestellte/r (Geselle) kannst du in der Regel ohne Anerkennung arbeiten. Für einen eigenen Betrieb brauchst du die Eintragung in die Handwerksrolle (Meister oder gleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung).",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Anlagenmechaniker/in für Sanitär-, Heizungs- und Klimatechnik“ und den Arbeitsort wählen – zeigt die zuständige Handwerkskammer (HWK)",
+        "Als Angestellte/r: Anerkennung ist keine gesetzliche Voraussetzung, kann aber für das Visum nötig sein",
+        "Antrag auf Gleichwertigkeitsfeststellung bei der HWK (nur für eine abgeschlossene, staatlich anerkannte Ausbildung)",
+        "Bei Unterschieden: teilweise Gleichwertigkeit; Ausgleich durch Anpassungsqualifizierung möglich",
+        "Ohne Zeugnis: eventuell Qualifikationsanalyse oder Validierungsverfahren – ohne garantiertes Ergebnis",
+        "Für die Selbstständigkeit: eigenes Verfahren zur Handwerksrolle bei der HWK"
+      ],
+      "documents": [
+        "Abschlusszeugnis Handwerk / Berufsschule",
+        "Fächer- und Praxisstundennachweis",
+        "Arbeitszeugnisse über Berufserfahrung",
+        "Lebenslauf und Pass / Ausweis",
+        "Übersetzungen; ob beglaubigte Kopien oder Apostille nötig sind, teilt die HWK mit"
+      ],
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzung zusätzlich",
+      "costRange": "HWK-Gebühren unterschiedlich – Betrag nennt die Kammer; Übersetzungen zusätzlich; Anerkennungszuschuss möglich",
+      "notes": "Berufserfahrung ohne abgeschlossene Ausbildung führt nicht automatisch zur Gleichwertigkeit. In Anlage A heißt das Handwerk „Installateur und Heizungsbauer“."
+    },
+    "medizinische_fachangestellte": {
+      "name": "Medizinische Fachangestellte / MFA",
+      "description": "Nicht reglementiert: Für die Arbeit in der Praxis ist die Anerkennung keine gesetzliche Voraussetzung. Die freiwillige Gleichwertigkeitsfeststellung nach BQFG macht deine Qualifikation für Arbeitgeber transparent und kann für das Visum nötig sein.",
+      "steps": [
+        "Im Anerkennungs-Finder „Medizinische/r Fachangestellte/r“ und den Arbeitsort wählen",
+        "Zuständig ist die Ärztekammer: für fast ganz Deutschland die Ärztekammer Westfalen-Lippe; für Bayern, Brandenburg und Sachsen-Anhalt die jeweilige Landesärztekammer",
+        "Antrag stellen (unabhängig von Staatsangehörigkeit und Aufenthaltsstatus)",
+        "Bei Unterschieden: teilweise Gleichwertigkeit; Ausgleich durch Anpassungsqualifizierung",
+        "Ergebnis ist ein Gleichwertigkeitsbescheid, kein deutsches Prüfungszeugnis"
+      ],
+      "documents": [
+        "Abschlusszeugnis der medizinischen Schule / Ausbildung",
+        "Fächer- und Praxisnachweis",
+        "Nachweise über Berufserfahrung",
+        "Lebenslauf (z. B. Europass) und Pass / Ausweis",
+        "Übersetzungen; Form der Kopien bestimmt die Kammer"
+      ],
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar)",
+      "costRange": "Gebühren legt die Kammer fest; Übersetzungen zusätzlich; Anerkennungszuschuss möglich",
+      "notes": "Zahnmedizinische Fachangestellte (ZFA) ist ein eigener Beruf – zuständig ist die Landeszahnärztekammer. Krankenpflege ist der reglementierte Beruf Pflegefachperson."
+    },
+    "berufskraftfahrer": {
+      "name": "Berufskraftfahrerin / Berufskraftfahrer",
+      "description": "Entscheidend ist nicht die Anerkennung eines Abschlusses, sondern zwei Berechtigungen: eine in Deutschland gültige Fahrerlaubnis C/CE oder D und die Grundqualifikation nach dem Berufskraftfahrerqualifikationsgesetz (Schlüsselzahl 95).",
+      "steps": [
+        "Drittstaaten-Führerscheine (BA, RS, ME, MK, XK) der Klassen C/CE/D müssen bei der Fahrerlaubnisbehörde des Wohnorts umgeschrieben werden; für diese Klassen werden meist theoretische und praktische Prüfung verlangt",
+        "Kroatische Führerscheine (EU) gelten direkt",
+        "Eine Grundqualifikation aus Drittstaaten wird in der Regel nicht anerkannt: in Deutschland beschleunigte Grundqualifikation (140 Stunden) mit IHK-Prüfung oder Grundqualifikationsprüfung",
+        "Schlüsselzahl 95 wird im Führerschein eingetragen; alle 5 Jahre 35 Stunden Weiterbildung",
+        "Die Fahrerkarte für den digitalen Tachografen stellt die zuständige örtliche Behörde aus",
+        "Optional: Anerkennung der Ausbildung „Berufskraftfahrer/in“ (IHK-Beruf) – der Anerkennungs-Finder zeigt die Zuständigkeit"
+      ],
+      "documents": [
+        "Gültiger Führerschein mit Übersetzung",
+        "Nachweis Grundqualifikation / Schlüsselzahl 95 (falls vorhanden)",
+        "Pass / Ausweis, Meldebescheinigung",
+        "Ärztliches und augenärztliches Gutachten für Klassen C/D",
+        "Nachweise über Berufserfahrung"
+      ],
+      "durationRange": "Abhängig von Prüfungs- und Kursterminen – oft einige Monate",
+      "costRange": "Prüfungen, Kurs und Umschreibung – Beträge nennen Fahrschule, IHK und Fahrerlaubnisbehörde",
+      "notes": "Regeln zur Umschreibung und zur Schlüsselzahl 95 vor der Einreise bei der Fahrerlaubnisbehörde klären – sie hängen von deinem Führerschein und Wohnort ab."
+    },
+    "ekonomist_bachelor": {
+      "name": "Betriebswirtin / Betriebswirt (BWL Bachelor)",
+      "description": "Nicht reglementiert: Für die Arbeit ist keine Anerkennung nötig. Für das Visum (z. B. Blaue Karte) muss der Abschluss vergleichbar sein – das zeigt anabin (Status H+ und passender Abschlusseintrag) oder eine Zeugnisbewertung der ZAB.",
+      "steps": [
+        "In anabin Hochschule (H+) und Abschlussart prüfen",
+        "Wenn anabin keine klare Antwort gibt oder Arbeitgeber/Botschaft einen Nachweis verlangt: Zeugnisbewertung bei der ZAB online beantragen",
+        "Die ZAB beschreibt, welchem deutschen Abschluss deiner entspricht – das ist keine Arbeitserlaubnis und keine Anerkennung eines reglementierten Berufs",
+        "Geschützte Berufe wie Steuerberater oder Wirtschaftsprüfer haben eigene Prüfungen"
+      ],
+      "documents": [
+        "Abschlusszeugnis mit Diploma Supplement / Notenübersicht",
+        "Passkopie",
+        "Übersetzungen, wenn Dokumente nicht auf Deutsch, Englisch oder Französisch sind (nach ZAB-Vorgaben)"
+      ],
+      "durationRange": "Einige Monate; aktuelle Bearbeitungszeiten veröffentlicht die ZAB",
+      "costRange": "ZAB-Gebühr nach aktuellem ZAB-Gebührenhinweis (auf der Website prüfen); Übersetzungen zusätzlich",
+      "notes": "Für die meisten Stellen in Buchhaltung, Controlling oder Vertrieb zählen Kenntnisse und Sprache; eine Bewertung garantiert weder Stelle noch Gehalt."
+    },
+    "buchhalter": {
+      "name": "Buchhalter:in / Finanzbuchhalter:in",
+      "description": "Nicht reglementiert. „Buchhalter“ ist kein deutscher Ausbildungsberuf; der Referenzberuf hängt von deinem Abschluss ab: Berufsausbildung (z. B. Kaufmann/-frau für Büromanagement, Steuerfachangestellte) oder Hochschule (ZAB).",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf finden, der zu deiner Ausbildung passt",
+        "Für IHK-Berufe (z. B. Büromanagement, Industriekaufleute) ist meist die IHK FOSA zuständig",
+        "Für Steuerfachangestellte ist die Steuerberaterkammer zuständig",
+        "Für Hochschulabschlüsse: anabin oder Zeugnisbewertung der ZAB",
+        "„Geprüfte/r Bilanzbuchhalter/in“ ist eine IHK-Fortbildungsprüfung, keine Anerkennung"
+      ],
+      "documents": [
+        "Abschlusszeugnis und Fächerübersicht",
+        "Nachweise über Berufserfahrung",
+        "Lebenslauf und Pass / Ausweis",
+        "Kursnachweise (z. B. DATEV, SAP), falls vorhanden",
+        "Übersetzungen nach Vorgabe der zuständigen Stelle"
+      ],
+      "durationRange": "Gesetzliche Frist für die Gleichwertigkeitsfeststellung 3 Monate ab vollständigen Unterlagen; ZAB nach eigener Bearbeitungszeit",
+      "costRange": "IHK FOSA 100–600 € je nach Aufwand; andere Stellen nach eigenem Tarif; Übersetzungen zusätzlich",
+      "notes": "Viele Betriebe nutzen DATEV oder SAP; Kenntnisse können bei der Bewerbung helfen, sind aber keine gesetzliche Voraussetzung."
+    },
+    "sozialpaedagoge": {
+      "name": "Sozialpädagogin / Sozialpädagoge (Soziale Arbeit)",
+      "description": "Auf Landesebene reglementiert: Für die Bezeichnung „staatlich anerkannte/r Sozialarbeiter/in / Sozialpädagog/in“ und viele Stellen (z. B. Jugendamt) brauchst du die staatliche Anerkennung. Das Verfahren hat zwei Schritte und wird von einer Landesstelle geführt.",
+      "steps": [
+        "Im Anerkennungs-Finder „Sozialarbeiter/in, Sozialpädagoge/-in“ und das Bundesland wählen – so erhältst du die zuständige Stelle",
+        "1. Schritt: Feststellung der Gleichwertigkeit (Vergleich mit dem deutschen Studium)",
+        "Bei wesentlichen Unterschieden: Ausgleichsmaßnahme (Anpassungslehrgang oder Prüfung)",
+        "2. Schritt: Antrag auf staatliche Anerkennung – mit persönlicher Eignung und Deutsch (z. B. Berlin: C1)",
+        "Manche Arbeitgeber stellen auch ohne staatliche Anerkennung ein – dann gilt die Stellenbeschreibung; eine ZAB-Zeugnisbewertung beschreibt nur den Abschluss"
+      ],
+      "documents": [
+        "Abschlusszeugnis und Diploma Supplement mit Fächern und Praxis",
+        "Nachweis der Berufsberechtigung im Ausbildungsstaat (falls vorhanden)",
+        "Nachweise über Berufserfahrung",
+        "Lebenslauf, Pass / Ausweis",
+        "Erweitertes Führungszeugnis",
+        "Deutsch-Sprachzertifikat (kann je nach Stelle später nachgereicht werden)",
+        "Übersetzungen; Form der Kopien bestimmt die Stelle"
+      ],
+      "durationRange": "Bescheid spätestens 3 Monate ab vollständigen Unterlagen (Verlängerung möglich); Ausgleichsmaßnahmen zusätzlich",
+      "costRange": "Je nach Land (z. B. Berlin: 196 € für das Verfahren); Übersetzungen zusätzlich",
+      "notes": "Zuständigkeit und Sprachniveau unterscheiden sich je nach Land – immer im Anerkennungs-Finder prüfen."
+    },
+    "altenpfleger": {
+      "name": "Altenpflegerin / Altenpfleger (Pflegefachperson)",
+      "description": "Reglementiert nach dem Pflegeberufegesetz (PflBG). Ohne staatliche Erlaubnis darfst du nicht als Pflegefachkraft in der Altenpflege arbeiten. Ergebnis ist die Erlaubnis für Altenpfleger/in oder Pflegefachfrau/-mann – je nach Ausbildung.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Altenpflegerin / Altenpfleger“ und den Arbeitsort wählen – so erhältst du die genaue zuständige Stelle",
+        "Antrag bei dieser Stelle stellen (auch aus dem Ausland möglich)",
+        "Die Stelle prüft die Unterlagen (Gleichwertigkeitsprüfung); in vielen Ländern kannst du darauf verzichten und direkt Kenntnisprüfung oder Anpassungslehrgang wählen",
+        "Bei wesentlichen Unterschieden: Ausgleichsmaßnahme – Kenntnisprüfung oder mehrmonatiger Anpassungslehrgang, nach deiner Wahl",
+        "Zusätzlich nachweisen: Deutschkenntnisse (meist B2; Niveau und Prüfungsart legt das Land fest), gesundheitliche Eignung und Zuverlässigkeit",
+        "Danach erhältst du die Erlaubnis zur Führung der Berufsbezeichnung"
+      ],
+      "documents": [
+        "Abschlusszeugnis und Nachweis der Berufsberechtigung im Ausbildungsstaat (Lizenz, falls vorhanden)",
+        "Fächer- und Stundennachweis für Theorie und Praxis",
+        "Nachweise über Berufserfahrung",
+        "Lebenslauf und Pass / Ausweis",
+        "Führungszeugnis bzw. Straffreiheitsbescheinigung des Herkunftslandes",
+        "Ärztliche Bescheinigung über die gesundheitliche Eignung",
+        "Deutsch-Sprachzertifikat",
+        "Übersetzungen durch vereidigte Übersetzer; ob beglaubigte Kopien oder Apostille nötig sind, teilt die Stelle mit"
+      ],
+      "durationRange": "Einige Monate ab vollständigen Unterlagen (z. B. RP Stuttgart: bis 4 Monate); Ausgleichsmaßnahme zusätzlich",
+      "costRange": "Gebühren legt das Land fest; Übersetzungen, Kurs und Ausgleichsmaßnahme zusätzlich – den genauen Betrag nennt die Stelle",
+      "notes": "Ein Betreuungs- oder Hilfskräftekurs ohne Fachausbildung führt nicht zu dieser Erlaubnis; möglich ist eine Tätigkeit als Pflegehilfskraft oder eine Ausbildung zur Pflegefachhelfer/in nach Landesrecht."
     }
   },
   "anabin": {
@@ -906,5 +1088,15 @@
     "translationOutro": "Falls Ihre Behörde nicht zuständig sein sollte, bitte ich um einen Hinweis auf die zuständige Stelle.",
     "translationThanks": "Für Ihre Unterstützung danke ich Ihnen im Voraus.",
     "translationRegards": "Mit freundlichen Grüßen"
+  },
+  "authorityNotes": {
+    "ihkFosa": "Für die meisten IHK-Berufe führt die IHK FOSA das Verfahren; die örtliche IHK berät. Der Anerkennungs-Finder bestätigt die Zuständigkeit für deinen Ort.",
+    "hwk": "Zuständig ist die Handwerkskammer am Arbeitsort (größere Länder haben mehrere Kammern). Die genaue Kammer zeigt der Anerkennungs-Finder.",
+    "zab": "Für Hochschulabschlüsse in nicht reglementierten Berufen: Die Zeugnisbewertung beschreibt den Abschluss und gilt bundesweit. Sie ist keine Arbeitserlaubnis.",
+    "regulatedLand": "Die Zuständigkeit legt das Land fest und kann sich ändern. Vor dem Antrag die genaue Stelle im Anerkennungs-Finder bestätigen.",
+    "mfa": "Für MFA ist die Ärztekammer Westfalen-Lippe für fast ganz Deutschland zuständig; nur Bayern, Brandenburg und Sachsen-Anhalt haben eine eigene Landesärztekammer-Zuständigkeit.",
+    "bkf": "Die IHK FOSA ist nur für die freiwillige Anerkennung der Ausbildung „Berufskraftfahrer“ zuständig. Führerschein und Schlüsselzahl 95 regelt die Fahrerlaubnisbehörde am Wohnort; die Grundqualifikationsprüfung findet bei der IHK statt.",
+    "buchhalter": "Die Zuständigkeit hängt vom Referenzberuf ab: IHK FOSA (IHK-Berufe), Steuerberaterkammer (Steuerfachangestellte) oder ZAB (Hochschule). Beruf im Anerkennungs-Finder wählen.",
+    "sozial": "Für die staatliche Anerkennung ist eine Landesstelle zuständig – welche genau, ist unterschiedlich. Der Anerkennungs-Finder zeigt die Stelle für deinen Ort."
   }
 }
