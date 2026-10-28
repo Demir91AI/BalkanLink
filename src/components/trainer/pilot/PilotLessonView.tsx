@@ -145,7 +145,7 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
             <div className="mt-4 flex flex-wrap gap-2">
               {result === null ? (
                 <>
-                  <Button onClick={check} disabled={value === undefined}>{p("check")}</Button>
+                  <Button onClick={check} disabled={!isReady(ex, value)}>{p("check")}</Button>
                   {!showHint && <Button variant="outline" onClick={() => setShowHint(true)}>{p("hint")}</Button>}
                   <Button variant="ghost" onClick={() => setValue(undefined)}>{p("reset")}</Button>
                 </>
@@ -168,6 +168,13 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
       </div>
     </div>
   );
+}
+
+export function isReady(ex: PilotExercise, value: unknown): boolean {
+  if (value === undefined) return false;
+  if (ex.kind === "order") return (value as string[]).length === ex.words.length;
+  if (ex.kind === "match") return ex.pairs.every((x) => (value as Record<string, string>)[x.de]);
+  return true;
 }
 
 function answerText(ex: PilotExercise): string {
@@ -196,15 +203,14 @@ function ExerciseBody({ ex, loc, value, setValue, locked, p }: {
     </div>
   );
   if (ex.kind === "order") {
-    const picked = (value as number[] | undefined) ?? [];
-    const shuffled = ex.words; // words are stored pre-shuffled
+    const picked = (value as string[] | undefined) ?? [];
     return (
       <div>
         <p className="mb-2 text-sm text-white/70">{p("orderHelp")}</p>
-        <p className="mb-3 min-h-[2rem] rounded-lg border border-dashed border-white/20 px-3 py-2 text-lg font-semibold text-white" lang="de">{picked.map((i) => shuffled[i]).join(" ") || "…"}</p>
-        <div className="flex flex-wrap gap-2">{shuffled.map((w, i) => (
-          <button key={i} disabled={locked || picked.includes(i)} className={sel(false) + " disabled:opacity-30"} lang="de"
-            onClick={() => { const n = [...picked, i]; setValue(n.length === shuffled.length ? n.map((k) => shuffled[k]) : n); }}>{w}</button>
+        <p className="mb-3 min-h-[2rem] rounded-lg border border-dashed border-white/20 px-3 py-2 text-lg font-semibold text-white" lang="de">{picked.join(" ") || "…"}</p>
+        <div className="flex flex-wrap gap-2">{ex.words.map((w) => (
+          <button key={w} disabled={locked || picked.includes(w)} className={sel(false) + " disabled:opacity-30"} lang="de"
+            onClick={() => setValue([...picked, w])}>{w}</button>
         ))}</div>
       </div>
     );
@@ -220,7 +226,7 @@ function ExerciseBody({ ex, loc, value, setValue, locked, p }: {
           <p className="mb-1 text-sm font-semibold text-white/90">{pair.tr[loc]}</p>
           <div className="flex flex-wrap gap-1.5">{choices.map((c) => (
             <button key={c} disabled={locked} aria-pressed={m[pair.de] === c} className={sel(m[pair.de] === c)} lang="de"
-              onClick={() => { const n = { ...m, [pair.de]: c }; setValue(Object.keys(n).length === ex.pairs.length ? n : { ...n }); }}>{c}</button>
+              onClick={() => setValue({ ...m, [pair.de]: c })}>{c}</button>
           ))}</div>
         </li>
       ))}</ul>
