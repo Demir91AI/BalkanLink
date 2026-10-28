@@ -408,7 +408,7 @@
   },
   "documentCheck": {
     "title": "Provera dokumenata",
-    "subtitle": "Slikaj ili učitaj pismo — za par sekundi ti objasnimo šta piše, šta moraš da uradiš i do kada. Sve na našem jeziku, bez stručnih reči.",
+    "subtitle": "Nemačka pisma, rešenja i ugovori jasno objašnjeni — vidljivi zahtevi, rokovi i naredni koraci.",
     "ctaPrimary": "Proveri dokument",
     "examples": {
       "letterFromFinanzamt": "Pismo od Finanzamt",
@@ -430,51 +430,16 @@
       "bussgeld": "Bußgeldbescheid (kazna)",
       "anerkennungBescheid": "Anerkennung rešenje"
     },
-    "whatYouGet": {
-      "label": "Šta dobijaš analizom:",
-      "items": {
-        "translation": "Prevod i objašnjenje na tvom jeziku",
-        "whatIsAsked": "Šta se od tebe traži i do kada",
-        "urgency": "Da li je dokument hitne prirode",
-        "nextStep": "Koji je sledeći korak koji trebaš poduzeti",
-        "institutions": "Na koje institucije se možeš obratiti",
-        "warning": "Upozorenje ako dokument sadrži rok ili pravne posledice"
-      }
-    },
-    "pricing": {
-      "oneTimeLabel": "Jednokratno",
-      "oneTimePerCheck": "po Proveri",
-      "oneTimeReset": "Plaća se za svaku analizu pojedinačno",
-      "buyOneTime": "Pogledaj članstvo →",
-      "creditAvailable_one": "Dostupno: {{count}} provera",
-      "creditAvailable_other": "Dostupno: {{count}} provera",
-      "premiumLabel": "Članstvo",
-      "premiumBadge": "⭐ Članstvo",
-      "premiumPerMonth": "/mj.",
-      "premiumFeature1": "Neograničene provere — uvek besplatno",
-      "premiumFeature2": "Brza i prioritetna analiza",
-      "premiumFeature3": "+ sve funkcije članstva platforme",
-      "buyPremium": "Pogledaj članstvo →"
-    },
-    "quota": {
-      "remaining": "Ostalo ti je {{count}} besplatnih provera danas",
-      "exhausted": "Nemaš dostupnih provera",
-      "resetHint": "Brojač se resetuje sutra u 00:00 (Berlin)",
-      "usingPaid": "Imaš {{count}} dodatnih plaćenih provera",
-      "buyExtra": "Dodatne provere: uključeno u članstvo (Fair Use)",
-      "paidAvailable": "Imaš {{count}} plaćenih provera spremnih",
-      "paidHint": "Bez isteka — koristi kad god trebaš"
-    },
     "privacy": {
-      "title": "Tvoji podaci su bezbedni",
-      "body": "Pre slanja sakrij ime, adresu i broj predmeta (npr. flomasterom ili u editoru). Dokument se jednokratno šalje spoljnom servisu za analizu teksta i ne čuvamo ga — nakon rezultata se ne skladišti kod nas."
+      "title": "Pre slanja: ukloni nepotrebne podatke",
+      "body": "Ukloni nepotrebna imena, adrese, brojeve predmeta, podatke o računu, identitetu i zdravlju. Izabrane datoteke prosleđuju se vanjskom pružaocu analize. BalkanLink ne čuva sadržaj dokumenta u svojoj bazi ili skladištu datoteka; trenutno brisanje kod pružaoca nije garantovano."
     },
     "upload": {
       "label": "Učitaj svoj dokument",
-      "hint": "PDF ili slika (JPG, PNG) — do 25 MB ukupno",
-      "deletedAfter": "Tvoj dokument se odmah briše nakon analize. Ne čuvamo ništa.",
+      "hint": "Do 10 datoteka, ukupno 25 MB i 30 PDF stranica/slika. PDF, JPG, PNG i WebP. HEIC/HEIF prvo izvezi kao JPG ili PNG. Šifrovani PDF se ne otvara.",
+      "deletedAfter": "Ukloni nepotrebna imena, adrese, brojeve predmeta, podatke o računu, identitetu i zdravlju. Izabrane datoteke prosleđuju se vanjskom pružaocu analize. BalkanLink ne čuva sadržaj dokumenta u svojoj bazi ili skladištu datoteka; trenutno brisanje kod pružaoca nije garantovano.",
       "multiPageTitle": "Imaš pismo sa više strana?",
-      "multiPageHint": "Slikaj svaku stranu telefonom (do 10 slika) ili učitaj jedan PDF — gledamo sve zajedno kao jedan dokument.",
+      "multiPageHint": "Do 10 datoteka, ukupno 25 MB i 30 PDF stranica/slika. PDF, JPG, PNG i WebP. HEIC/HEIF prvo izvezi kao JPG ili PNG. Šifrovani PDF se ne otvara.",
       "filesCount": "{{count}} od {{max}} dokumenata",
       "addMore": "Dodaj još jednu stranu",
       "remove": "Ukloni",
@@ -486,16 +451,16 @@
       "step2Desc": "Asistent prevodi i objašnjava",
       "step3Title": "Saznaš sve",
       "step3Desc": "Šta, do kada, koliko košta",
-      "takePhoto": "📷 Slikaj kamerom"
+      "takePhoto": "Slikaj kamerom"
     },
-    "confirm": "Razumem da ne smem da šaljem osetljive podatke (broj lične karte, poreski broj/Steuer-ID, broj računa/IBAN, zdravstvene podatke).",
+    "confirm": "Uklonio/la sam nepotrebne osetljive podatke i pristajem na prosleđivanje vanjskom pružaocu analize za ovu proveru.",
     "buttons": {
       "checking": "Proveravam…",
       "checkDocument": "Proveri dokument →",
       "reset": "Resetuj"
     },
     "errors": {
-      "unsupportedFormat": "Podržani su samo PDF, JPG i PNG formati.",
+      "unsupportedFormat": "Podržani su PDF, JPG, PNG i WebP. HEIC/HEIF prvo izvezi kao JPG/PNG.",
       "fileTooLarge": "Datoteka je prevelika za analizu. Pokušajte sa manjom datotekom (max. 25 MB).",
       "confirmRequired": "Molimo potvrdite checkbox pre analize.",
       "noFile": "Nije odabran dokument.",
@@ -508,7 +473,16 @@
       "paymentRequired": "Za analizu je potreban 1 kredit (uključeno u članstvo (Fair Use)).",
       "accessRequired": "Za proveru dokumenta potreban je aktivan BalkanLink pristup.",
       "quotaExhausted": "Iskoristio/la si sve provere dokumenata za ovaj period. Nove provere su dostupne nakon obnove perioda.",
-      "busy": "Provera je trenutno preopterećena. Pokušaj ponovo za nekoliko minuta."
+      "busy": "Provera je trenutno preopterećena. Pokušaj ponovo za nekoliko minuta.",
+      "rateLimited": "Previše zahteva. Pokušaj ponovo kasnije.",
+      "creditsExhausted": "Usluga analize trenutno nema raspoloživih sredstava za obradu. Tvoje članstvo se time ne menja.",
+      "unreadable": "Sadržaj nije dovoljno čitljiv. Učitaj oštru, potpunu fotografiju sa dobrim svetlom.",
+      "payloadTooLarge": "Podaci za slanje su preveliki. Izaberi manje datoteke; nijedna stranica nije odsečena.",
+      "pdfTooManyPages": "Najviše 30 PDF stranica/slika po proveri. Svesno podeli dokument; ništa se ne odseca.",
+      "pdfUnreadable": "PDF je šifrovan, oštećen ili nečitljiv. Koristi jasne fotografije ili čitljivu nezaštićenu datoteku.",
+      "invalidFile": "Tip ili sadržaj datoteke nije validan. Izaberi validan PDF, JPG, PNG ili WebP.",
+      "invalidResult": "Odgovor nije mogao pouzdano da se pročita. Ne prikazujemo izmišljenu analizu. Pokušaj kasnije.",
+      "providerDenied": "Pružalac analize odbio je zahtev. Nema automatskog ponovnog pokušaja."
     },
     "paywall": {
       "title": "Dokumenten-Check",
@@ -519,24 +493,6 @@
       "oneTimeCta": "Pogledaj članstvo →",
       "oneTimeReset": "Plaćaš za svaku analizu pojedinačno",
       "paymentReadyToast": "Plaćanje je primljeno. Kliknite Proveri dokument za pokretanje analize."
-    },
-    "example": {
-      "trigger": "👁 Primer analize — klikni da vidiš",
-      "heading": "Primer: Mahnung od Deutsche Telekom",
-      "docTypeLabel": "Tip dokumenta:",
-      "docType": "Opomena (Mahnung) — zahtev za plaćanje dospelog računa.",
-      "askedLabel": "Šta se traži:",
-      "asked1": "Radi se o opomeni za neplaćeni račun. Iznos:",
-      "askedAmount": "47.50€",
-      "askedDeadlineLabel": "Rok plaćanja:",
-      "askedDeadline": "15 dana",
-      "askedDeadlineSuffix": "od datuma pisma.",
-      "riskLabel": "Rizik:",
-      "risk": "Ako ne platite, sledi naplata putem Inkasso agencije što može negativno uticati na Schufa (kreditni rejting).",
-      "nextLabel": "Sledeći korak:",
-      "nextPrefix": "Preporučujemo kontaktirati Telekom na",
-      "nextPhone": "0800 330 1000",
-      "nextSuffix": "ili platiti online putem Mein Telekom portala."
     },
     "results": {
       "fallbackTitle": "Rezultat analize",
@@ -560,11 +516,43 @@
     },
     "disclaimer": {
       "title": "Napomena o zaštiti podataka:",
-      "body": "Učitane datoteke i uneseni tekstovi se koriste isključivo za jednokratnu analizu i odmah se brišu nakon rezultata. Nema trajnog pohranjivanja, praćenja niti dijeljenja s trećim stranama. BalkanLink nije državni organ i ne pruža pravne savete."
+      "body": "Provera služi za orijentaciju, ne za pravni savet. Nema automatskog slanja institucijama. Važne navode proveri u originalu. Rokovi čuvanja i brisanja kod vanjskog pružaoca analize ovde nisu u potpunosti provereni."
     },
     "seo": {
       "title": "Provera dokumenata — nemačko pismo objašnjeno na našem jeziku",
       "description": "Slikaj ili učitaj nemačko pismo, Bescheid ili ugovor i dobij jasno objašnjenje: šta znači, šta traže i šta možeš da uradiš sledeće."
+    },
+    "professional": {
+      "overview": "Rezultat provere",
+      "what": "Šta je ovo?",
+      "actions": "Šta se od mene traži?",
+      "deadlines": "Rokovi",
+      "money": "Novac",
+      "next": "Naredni koraci",
+      "details": "Detalji i objašnjenje",
+      "risks": "Upozorenja i rizici",
+      "uncertainty": "Šta je nejasno?",
+      "sources": "Citati iz datoteka",
+      "quoted": "Tačno piše u dokumentu",
+      "visible": "Vidljivo u dokumentu; nije pravna potvrda",
+      "unconfirmed": "Nije potvrđeno",
+      "explanation": "Objašnjenje, ne obavezujuće pravno tumačenje",
+      "recommendation": "Preporuka, ne nalog institucije",
+      "noActions": "Nije prepoznat jasno čitljiv zahtev.",
+      "noDeadlines": "Nije prepoznat jasno čitljiv rok.",
+      "deadlineCaution": "Rokovi se ne računaju. Proveri tekst originala; nejasni navodi nisu potvrđeni.",
+      "guides": "Otvori vodiče",
+      "askAssistant": "Pitaj asistenta",
+      "noTransfer": "Asistentu se ne šalju datoteke ni sažetak automatski.",
+      "empty": "Još nije izabrana datoteka.",
+      "limits": "Do 10 datoteka, ukupno 25 MB i 30 PDF stranica/slika. PDF, JPG, PNG i WebP. HEIC/HEIF prvo izvezi kao JPG ili PNG. Šifrovani PDF se ne otvara.",
+      "loading": "Čitamo datoteke. Ostavi ovu stranicu otvorenu.",
+      "accessLoading": "Proveravamo pristup…",
+      "removeFile": "Ukloni datoteku {{name}}",
+      "attachment": "Datoteka {{number}}",
+      "page": "Stranica {{number}}",
+      "resetAt": "Prema serveru, nove provere od: {{date}}",
+      "legacyNotice": "Trenutno dostupna usluga još vraća stariji tekstualni format. Prikazuje se bez izmena; strukturirani podaci i jezik rezultata postaju dostupni tek nakon posebno odobrenog deploymenta."
     }
   },
   "visa": {

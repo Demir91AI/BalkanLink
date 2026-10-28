@@ -1,763 +1,150 @@
-import React, { useState, useRef, useCallback, useMemo, useEffect } from "react";
-import { FileText, Upload, Shield, AlertTriangle, Loader2, X, CheckCircle2, Lock, Eye, BookOpen, Search, AlertCircle, Clock, DollarSign, Wrench, XCircle, ShieldAlert, Globe, Scale, FileWarning, CalendarClock, Banknote, CheckSquare, Crown, ChevronDown, Plus, Info, Camera } from "lucide-react";
-import AuthGate from "@/components/AuthGate";
-import PageNavBar from "@/components/navigation/PageNavBar";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { supabase } from "@/integrations/supabase/client";
-import ReactMarkdown from "react-markdown";
-import { useNavigate } from "react-router-dom";
-import { navigateBackOrHome } from "@/lib/navigation";
-import { usePremiumAccess } from "@/hooks/usePremiumAccess";
-import { useEntitlement } from "@/hooks/useEntitlement";
-import { useAuth } from "@/contexts/AuthContext";
-import { toast } from "sonner";
-import { useTranslation } from "react-i18next";
-import { useLocalizedNavigate } from "@/hooks/useLocalizedHref";
-import { openCustomerPortal as keepStripeImport } from "@/lib/stripe";
-void keepStripeImport; // pinned import (phase1 baseline)
-import { SEO } from "@/components/SEO";
-
-
-type InputMode = "upload";
-
-const MAX_FILE_SIZE = 25 * 1024 * 1024;
-const MAX_FILES = 10;
-const MAX_TOTAL_SIZE = 25 * 1024 * 1024;
-const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png", "image/webp"];
-const ALLOWED_EXTENSIONS = [".pdf", ".jpg", ".jpeg", ".png", ".webp"];
-
-function getFileExtension(name: string): string {
-  return name.slice(name.lastIndexOf(".")).toLowerCase();
-}
-
-function isFileAllowed(file: File): boolean {
-  if (ALLOWED_TYPES.includes(file.type)) return true;
-  return ALLOWED_EXTENSIONS.includes(getFileExtension(file.name));
-}
-
-interface AnalysisSection {
-  id: string;
-  icon: React.ReactNode;
-  title: string;
-  content: string;
-  colorClass: string;
-  iconColorClass: string;
-  isPremium: boolean;
-}
-
-const SECTION_CONFIG: Record<string, { icon: React.ReactNode; colorClass: string; iconColorClass: string; isPremium: boolean }> = {
-  // Bosanski naslovi koje vraća edge funkcija (matchaju se kroz substring includes na normalizovan tekst)
-  "dokument na prvi pogled": { icon: <Eye className="h-5 w-5" />, colorClass: "border-blue-400/40 bg-blue-950/60", iconColorClass: "text-blue-300", isPremium: false },
-  "jednostavno objasnjenje": { icon: <BookOpen className="h-5 w-5" />, colorClass: "border-emerald-400/40 bg-emerald-950/60", iconColorClass: "text-emerald-300", isPremium: false },
-  "detaljna analiza": { icon: <Search className="h-5 w-5" />, colorClass: "border-purple-400/40 bg-purple-950/60", iconColorClass: "text-purple-300", isPremium: true },
-  "sta je stvarno bitno": { icon: <AlertCircle className="h-5 w-5" />, colorClass: "border-amber-400/40 bg-amber-950/60", iconColorClass: "text-amber-300", isPremium: true },
-  "rokovi i hitnost": { icon: <Clock className="h-5 w-5" />, colorClass: "border-red-400/40 bg-red-950/60", iconColorClass: "text-red-300", isPremium: true },
-  "finansijska analiza": { icon: <DollarSign className="h-5 w-5" />, colorClass: "border-green-400/40 bg-green-950/60", iconColorClass: "text-green-300", isPremium: true },
-  "konkretne opcije": { icon: <Wrench className="h-5 w-5" />, colorClass: "border-indigo-400/40 bg-indigo-950/60", iconColorClass: "text-indigo-300", isPremium: true },
-  "ako nista ne uradis": { icon: <XCircle className="h-5 w-5" />, colorClass: "border-orange-400/40 bg-orange-950/60", iconColorClass: "text-orange-300", isPremium: true },
-  "rizici i ceste greske": { icon: <ShieldAlert className="h-5 w-5" />, colorClass: "border-rose-400/40 bg-rose-950/60", iconColorClass: "text-rose-300", isPremium: true },
-  "sazetak na nasem jeziku": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-400/40 bg-cyan-950/60", iconColorClass: "text-cyan-300", isPremium: true },
-  "sazetak": { icon: <Globe className="h-5 w-5" />, colorClass: "border-cyan-400/40 bg-cyan-950/60", iconColorClass: "text-cyan-300", isPremium: true },
-  "pravna napomena": { icon: <Scale className="h-5 w-5" />, colorClass: "border-slate-400/40 bg-slate-900/60", iconColorClass: "text-slate-300", isPremium: false },
-};
-
-/**
- * Normalizuje naslov za matching: skida emoji, dijakritike (š→s, č→c, ć→c, ž→z, đ→d),
- * interpunkciju i višestruke razmake. Tako "## 📋 Dokument na prvi pogled" → "dokument na prvi pogled".
- */
-function normalizeHeading(heading: string): string {
-  return heading
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // ć/č/ž/š → c/c/z/s
-    .replace(/đ/g, "d")
-    .replace(/[^\w\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function matchSectionKey(heading: string): string | null {
-  const normalized = normalizeHeading(heading);
-  for (const key of Object.keys(SECTION_CONFIG)) {
-    if (normalized.includes(key)) return key;
-  }
-  return null;
-}
-
-function parseAnalysisSections(text: string, fallbackTitle: string): AnalysisSection[] {
-  const sections: AnalysisSection[] = [];
-  const lines = text.split("\n");
-  let currentTitle = "";
-  let currentKey: string | null = null;
-  let currentLines: string[] = [];
-
-  const flush = () => {
-    if (currentKey && currentLines.length > 0) {
-      const cfg = SECTION_CONFIG[currentKey];
-      sections.push({
-        id: currentKey,
-        icon: cfg.icon,
-        title: currentTitle,
-        content: currentLines.join("\n").trim(),
-        colorClass: cfg.colorClass,
-        iconColorClass: cfg.iconColorClass,
-        isPremium: cfg.isPremium,
-      });
-    }
-    currentLines = [];
-  };
-
-  for (const line of lines) {
-    if (line.startsWith("## ")) {
-      flush();
-      currentTitle = line.replace(/^##\s*/, "").trim();
-      currentKey = matchSectionKey(currentTitle);
-    } else {
-      currentLines.push(line);
-    }
-  }
-  flush();
-
-  if (sections.length === 0 && text.trim()) {
-    sections.push({
-      id: "full",
-      icon: <FileText className="h-5 w-5" />,
-      title: fallbackTitle,
-      content: text,
-      colorClass: "border-border bg-card",
-      iconColorClass: "text-foreground",
-      isPremium: false,
-    });
-  }
-
-  return sections;
-}
-
-function extractSummaryFromSections(sections: AnalysisSection[], t: (k: string, opts?: any) => string) {
-  const firstSection = sections.find((s) => s.id === "dokument na prvi pogled");
-  const urgencySection = sections.find((s) => s.id === "rokovi i hitnost");
-  const financeSection = sections.find((s) => s.id === "finansijska analiza");
-
-  const extractFirstLine = (content: string | undefined) => {
-    if (!content) return "—";
-    const lines = content.split("\n").filter((l) => l.trim().length > 5);
-    const first = lines[0]?.replace(/^[-*•]\s*/, "").replace(/\*\*/g, "").trim();
-    return first?.slice(0, 80) || "—";
-  };
-
-  let docType = t("documentCheck.results.fallbackDoc");
-  if (firstSection) {
-    const tipMatch = firstSection.content.match(/(?:tip\s+dokumenta|typ|art)\s*(?:des\s*)?dokument[aes]*[:\s]*([^\n]+)/i);
-    if (tipMatch) docType = tipMatch[1].replace(/\*\*/g, "").trim().slice(0, 50);
-    else docType = extractFirstLine(firstSection.content);
-  }
-
-  let action = t("documentCheck.results.viewAnalysis");
-  if (urgencySection) {
-    if (urgencySection.content.includes("🚨")) action = t("documentCheck.results.urgent");
-    else if (urgencySection.content.includes("⚡")) action = t("documentCheck.results.recommended");
-    else if (urgencySection.content.includes("✅")) action = t("documentCheck.results.noActionNeeded");
-    else action = extractFirstLine(urgencySection.content);
-  }
-
-  let financial = t("documentCheck.results.viewFinancial");
-  if (financeSection) {
-    const amountMatch = financeSection.content.match(/(\d+[.,]?\d*)\s*€/);
-    if (amountMatch) financial = t("documentCheck.results.amountIdentified", { amount: amountMatch[0] });
-    else financial = extractFirstLine(financeSection.content);
-  }
-
-  const deadline = t("documentCheck.results.deadlineUnconfirmed");
-
-  return { docType, action, financial, deadline };
-}
-
-async function fileToBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = reader.result as string;
-      resolve(result.split(',')[1]);
-    };
-    reader.onerror = () => reject(new Error('Fehler beim Lesen der Datei'));
-    reader.readAsDataURL(file);
-  });
-}
-
-/**
- * Komprimuje sliku na max dimenzije i JPEG kvalitet kako bi se smanjila veličina payload-a.
- * Ne dira PDF-ove. Vraća { base64, mimeType }.
- */
-async function fileToCompressedBase64(file: File): Promise<{ base64: string; mimeType: string }> {
-  const isPdf = file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
-  if (isPdf) {
-    return { base64: await fileToBase64(file), mimeType: "application/pdf" };
-  }
-
-  // Slike: učitaj, skaliraj na max 1600px duža strana, encode kao JPEG q=0.75
-  const dataUrl: string = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = () => reject(new Error("Fehler beim Lesen der Datei"));
-    reader.readAsDataURL(file);
-  });
-
-  const img: HTMLImageElement = await new Promise((resolve, reject) => {
-    const i = new Image();
-    i.onload = () => resolve(i);
-    i.onerror = () => reject(new Error("Fehler beim Laden des Bildes"));
-    i.src = dataUrl;
-  });
-
-  const MAX_DIM = 1600;
-  let { width, height } = img;
-  if (width > MAX_DIM || height > MAX_DIM) {
-    const ratio = Math.min(MAX_DIM / width, MAX_DIM / height);
-    width = Math.round(width * ratio);
-    height = Math.round(height * ratio);
-  }
-
-  const canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) {
-    return { base64: dataUrl.split(",")[1], mimeType: file.type || "image/jpeg" };
-  }
-  ctx.drawImage(img, 0, 0, width, height);
-  const compressed = canvas.toDataURL("image/jpeg", 0.75);
-  return { base64: compressed.split(",")[1], mimeType: "image/jpeg" };
-}
-
-/* ── Example document types (endless marquee) ── */
-const DOC_EXAMPLE_KEYS = [
-  { emoji: "📬", key: "letterFromFinanzamt" },
-  { emoji: "🏠", key: "rentalContract" },
-  { emoji: "💰", key: "buergergeldNotice" },
-  { emoji: "🏥", key: "insuranceLetter" },
-  { emoji: "⚠️", key: "mahnung" },
-  { emoji: "📋", key: "jobcenterDecision" },
-  { emoji: "👶", key: "kindergeldNotice" },
-  { emoji: "🍼", key: "elterngeldNotice" },
-  { emoji: "💊", key: "krankenkasseLetter" },
-  { emoji: "👴", key: "rentenversicherung" },
-  { emoji: "📊", key: "schufaReport" },
-  { emoji: "💶", key: "lohnabrechnung" },
-  { emoji: "🧾", key: "steuerbescheid" },
-  { emoji: "✋", key: "kuendigung" },
-  { emoji: "💼", key: "arbeitsvertrag" },
-  { emoji: "🔥", key: "nebenkostenabrechnung" },
-  { emoji: "🚗", key: "bussgeld" },
-  { emoji: "🎓", key: "anerkennungBescheid" },
-] as const;
+import { useCallback, useRef, useState } from 'react';
+import { FileText, Upload, Camera, X, Loader2, Shield, ChevronDown, MessageSquare, BookOpen } from 'lucide-react';
+import AuthGate from '@/components/AuthGate';
+import PageNavBar from '@/components/navigation/PageNavBar';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { SEO } from '@/components/SEO';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { useLocalizedNavigate } from '@/hooks/useLocalizedHref';
+import { navigateBackOrHome } from '@/lib/navigation';
+import { useAuth } from '@/contexts/AuthContext';
+import { useEntitlement } from '@/hooks/useEntitlement';
+import { DEV_MODE } from '@/lib/dev-mode';
+import { supabase } from '@/integrations/supabase/client';
+import { ERROR_KEYS, guideFor, languageOf, LIMITS, mayRequestAnalysis, MIME_TYPES, parseAnalysis, prepareFiles, type DocumentAnalysis, type EvidenceItem } from '@/lib/document-check/model';
 
 export default function DokumentenCheck() {
-  const navigate = useNavigate();
-  const localizedNavigate = useLocalizedNavigate();
-  const { t } = useTranslation("pages");
-  const { t: tPlus } = useTranslation("plus");
+  const { t, i18n } = useTranslation('pages');
+  const navigate = useNavigate(); const localizedNavigate = useLocalizedNavigate();
+  const { user } = useAuth();
+  const { entitlement, loading: accessLoading, error: accessError, refresh } = useEntitlement();
   const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
-  const submittingRef = useRef(false);
-  const [analysis, setAnalysis] = useState<string | null>(null);
+  const [analysis, setAnalysis] = useState<DocumentAnalysis | null>(null);
+  const [legacyResult, setLegacyResult] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const cameraInputRef = useRef<HTMLInputElement>(null);
-  const [showPaywall, setShowPaywall] = useState(false);
-  const [showExample, setShowExample] = useState(false);
-  const { isPremium: legacyAccess } = usePremiumAccess();
-  const { entitlement } = useEntitlement();
-  // Never narrower than the legacy rule; the server still makes the final decision.
-  const hasAccess = legacyAccess || entitlement.full_access || entitlement.unused_doc_credits > 0;
-  const { user } = useAuth();
-
-  const totalSize = useMemo(() => files.reduce((s, f) => s + f.size, 0), [files]);
-
-  const clearFiles = useCallback(() => {
-    setFiles([]);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  }, []);
-
-  const removeFile = useCallback((idx: number) => {
-    setFiles((prev) => prev.filter((_, i) => i !== idx));
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  }, []);
-
-  const addFiles = useCallback((list: FileList | null) => {
-    if (!list || list.length === 0) return;
-    setError(null);
-    setFiles((prev) => {
-      const next = [...prev];
-      for (const f of Array.from(list)) {
-        if (next.length >= MAX_FILES) {
-          setError(t("documentCheck.errors.tooManyFiles", { max: MAX_FILES }));
-          break;
-        }
-        if (!isFileAllowed(f)) { setError(t("documentCheck.errors.unsupportedFormat")); continue; }
-        if (f.size > MAX_FILE_SIZE) { setError(t("documentCheck.errors.fileTooLarge")); continue; }
-        const newTotal = next.reduce((s, x) => s + x.size, 0) + f.size;
-        if (newTotal > MAX_TOTAL_SIZE) {
-          setError(t("documentCheck.errors.totalTooLarge"));
-          break;
-        }
-        if (next.some((x) => x.name === f.name && x.size === f.size)) continue;
-        next.push(f);
-      }
-      return next;
-    });
-    setAnalysis(null);
-  }, [t]);
-
-  // New single offer: send users to the central membership page (no old €19.90 checkout).
-  const startOneOffCheckout = useCallback(() => {
-    localizedNavigate(user ? "/paketi" : "/register");
-  }, [user, localizedNavigate]);
-
-  const handleAnalyze = useCallback(async () => {
-    if (submittingRef.current || loading) return;
-    if (!confirmed) { setError(t("documentCheck.errors.confirmRequired")); return; }
-    if (files.length === 0) { setError(t("documentCheck.errors.noFile")); return; }
-    if (!hasAccess) { setShowPaywall(true); return; }
-
-    submittingRef.current = true;
-    setLoading(true);
-    setError(null);
-    setAnalysis(null);
-    setShowPaywall(false);
-
+  const [errorCode, setErrorCode] = useState<string | null>(null);
+  const [resetAt, setResetAt] = useState<string | null>(null);
+  const [providerMessage, setProviderMessage] = useState<string | null>(null);
+  const picker = useRef<HTMLInputElement>(null); const camera = useRef<HTMLInputElement>(null);
+  const submitting = useRef(false); const results = useRef<HTMLDivElement>(null);
+  const hasAccess = mayRequestAnalysis(entitlement, DEV_MODE);
+  const tx = (key: string) => t(`documentCheck.${key}`);
+  const addFiles = (list: FileList | null) => {
+    if (!list || loading) return;
+    const incoming = Array.from(list);
+    const next = [...files, ...incoming.filter(f => !files.some(x => x.name === f.name && x.size === f.size))];
+    // Reject the complete selection, never silently keep only its first attachments.
+    let code: string | null = null;
+    if (next.length > LIMITS.files) code = 'TOO_MANY_FILES';
+    else if (incoming.some(f => !MIME_TYPES.some(m => m === f.type) && !(f.type === '' && /\.(pdf|jpe?g|png|webp)$/i.test(f.name)))) code = 'UNSUPPORTED_FORMAT';
+    else if (next.some(f => !f.size)) code = 'INVALID_FILE';
+    else if (next.reduce((n,f) => n + f.size, 0) > LIMITS.bytes) code = 'TOO_LARGE';
+    setErrorCode(code);
+    if (!code) { setFiles(next); setAnalysis(null); setLegacyResult(null); }
+    if (picker.current) picker.current.value = '';
+    if (camera.current) camera.current.value = '';
+  };
+  const analyze = useCallback(async () => {
+    if (submitting.current) return;
+    if (!confirmed || !files.length) { setErrorCode(!confirmed ? 'CONFIRM_REQUIRED' : 'EMPTY_INPUT'); return; }
+    // On a failed entitlement read, let the authenticated server resolve it, not a false paywall.
+    if (!hasAccess && !accessError) { setErrorCode('ACCESS_REQUIRED'); return; }
+    submitting.current = true; setLoading(true); setErrorCode(null); setProviderMessage(null); setResetAt(null);
+    setAnalysis(null); setLegacyResult(null);
+    const language = languageOf(i18n.resolvedLanguage ?? i18n.language);
     try {
-      const filesPayload = await Promise.all(
-        files.map(async (f) => {
-          const { base64, mimeType } = await fileToCompressedBase64(f);
-          return { base64, mimeType, name: f.name };
-        })
-      );
-      const payload = {
-        files: filesPayload,
-        imageBase64: filesPayload[0]?.base64,
-        mimeType: filesPayload[0]?.mimeType,
-      };
-
-      const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
-
-      let body: any = data;
-      let status = 200;
-      if (fnError) {
-        const ctx = (fnError as any).context;
-        status = typeof ctx?.status === "number" ? ctx.status : 500;
-        try { body = ctx && typeof ctx.json === "function" ? await ctx.json() : null; } catch { body = null; }
+      const payload = { files: await prepareFiles(files), language };
+      if (new TextEncoder().encode(JSON.stringify(payload)).length > LIMITS.payloadBytes) throw new Error('PAYLOAD_TOO_LARGE');
+      const { data, error } = await supabase.functions.invoke('document-check', { body: payload });
+      let body: unknown = data; let status = 200;
+      if (error) {
+        const context = (error as { context?: Response }).context;
+        status = context?.status ?? 500;
+        try { body = await context?.json(); } catch { body = null; }
       }
-      if (fnError || body?.success === false) {
-        const code = body?.errorCode;
-        if (code === "ACCESS_REQUIRED" || status === 403) {
-          setShowPaywall(true);
-          throw new Error(t("documentCheck.errors.accessRequired"));
-        }
-        if (code === "QUOTA_EXHAUSTED") throw new Error(t("documentCheck.errors.quotaExhausted"));
-        if (status === 413) throw new Error(t("documentCheck.errors.totalTooLarge"));
-        if (status === 429 || status === 402) throw new Error(t("documentCheck.errors.busy"));
-        throw new Error(t("documentCheck.errors.processingFailed"));
+      const response = body as { success?: boolean; analysis?: unknown; errorCode?: string; resets_at?: string; providerMessage?: string } | null;
+      if (error || response?.success === false) {
+        setResetAt(response?.resets_at ?? null); setProviderMessage(response?.providerMessage ?? null);
+        throw new Error(response?.errorCode ?? (status === 413 ? 'PAYLOAD_TOO_LARGE' : status === 429 ? 'RATE_LIMITED' : 'SERVER_ERROR'));
       }
-      if (!body?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
-
-      setAnalysis(body.analysis);
-    } catch (err: any) {
-      const message = err.message || t("documentCheck.errors.fallback");
-      if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
-        setError(t("documentCheck.errors.serverError"));
+      if (typeof response?.analysis === 'string') {
+        // Compatibility while the deployed endpoint remains unchanged. Do not infer facts from markdown.
+        try { setAnalysis(parseAnalysis(response.analysis, language)); }
+        catch { setLegacyResult(response.analysis); }
       } else {
-        setError(message);
+        const parsed = parseAnalysis(response?.analysis, language);
+        if (!parsed.readable) throw new Error('UNREADABLE');
+        setAnalysis(parsed);
       }
-    } finally {
-      setLoading(false);
-      submittingRef.current = false;
-    }
-  }, [confirmed, files, hasAccess, loading, t]);
-
-  const handleClear = useCallback(() => {
-    clearFiles();
-    setAnalysis(null);
-    setError(null);
-    setConfirmed(false);
-    setShowPaywall(false);
-    setLoading(false);
-    submittingRef.current = false;
-  }, [clearFiles]);
-
-  const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
-
-  const sections = useMemo(() => analysis ? parseAnalysisSections(analysis, t("documentCheck.results.fallbackTitle")) : [], [analysis, t]);
-  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => String(t(key, opts))) : null, [sections, t]);
-
-  return (
-    <>
-      <SEO title={t("documentCheck.seo.title")} description={t("documentCheck.seo.description")} path="/dokumenten-check" />
-      {/* ── HEADER ── */}
-      <section className="border-b bg-primary py-10 sm:py-14">
-        <div className="container max-w-4xl px-4">
-          <PageNavBar onBack={handleBack} showShare />
-          <h1 className="text-2xl font-bold text-primary-foreground md:text-3xl lg:text-4xl">
-            {t("documentCheck.title")}
-          </h1>
-          <p className="mt-2 text-sm text-primary-foreground/80 max-w-xl leading-relaxed">
-            {t("documentCheck.subtitle")}
-          </p>
-
-          {/* Document type examples — endless marquee */}
-          <div
-            className="mt-6 relative overflow-hidden -mx-4 px-0"
-            style={{
-              maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-              WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-            }}
-            aria-label={t("documentCheck.examples.letterFromFinanzamt") + ", …"}
-          >
-            <div className="flex gap-2 w-max animate-marquee">
-              {[...DOC_EXAMPLE_KEYS, ...DOC_EXAMPLE_KEYS].map((ex, i) => (
-                <span
-                  key={`${ex.key}-${i}`}
-                  className="shrink-0 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-1.5 text-xs font-medium text-primary-foreground whitespace-nowrap"
-                >
-                  {ex.emoji} {t(`documentCheck.examples.${ex.key}`)}
-                </span>
-              ))}
-            </div>
-          </div>
+      void refresh();
+      requestAnimationFrame(() => { results.current?.focus(); results.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
+    } catch (e) { setErrorCode(e instanceof Error ? e.message : 'SERVER_ERROR'); }
+    finally { setLoading(false); submitting.current = false; }
+  }, [confirmed, files, hasAccess, accessError, i18n, refresh]);
+  const evidence = (items: EvidenceItem[], emptyKey: string) => items.length ? <ul className="space-y-4">{items.map((item, i) => {
+    const source = analysis?.sourceRefs.find(s => s.id === item.sourceId);
+    return <li key={i} className="space-y-1">
+      <p>{item.text}</p>
+      {item.quote && <blockquote className="border-l-2 border-border pl-3 break-words"><span className="font-semibold">{tx('professional.quoted')}: </span>“{item.quote}”</blockquote>}
+      <p className="text-sm text-muted-foreground">{tx(item.confirmed ? 'professional.visible' : 'professional.unconfirmed')}
+        {source && <> · {t('documentCheck.professional.attachment', { number: source.fileIndex })}{source.page !== null && <> · {t('documentCheck.professional.page', { number: source.page })}</>}</p>
+    </li>;
+  })}</ul> : <p className="text-muted-foreground">{tx(emptyKey)}</p>;
+  const detail = (key: string, children: React.ReactNode) => <Collapsible className="border-b border-border py-2">
+    <CollapsibleTrigger asChild><Button variant="ghost" className="h-auto min-h-12 w-full justify-between gap-3 whitespace-normal text-left"><span>{tx(key)}</span><ChevronDown className="h-4 w-4 shrink-0" /></Button></CollapsibleTrigger>
+    <CollapsibleContent className="px-4 py-4 whitespace-pre-wrap break-words leading-relaxed">{children}</CollapsibleContent>
+  </Collapsible>;
+  return <>
+    <SEO title={tx('seo.title')} description={tx('seo.description')} path="/dokumenten-check" />
+    <section className="border-b border-border py-8"><div className="container max-w-3xl px-4">
+      <PageNavBar onBack={() => navigateBackOrHome(navigate)} showShare />
+      <h1 className="mt-4 text-3xl font-bold text-foreground">{tx('title')}</h1>
+      <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">{tx('subtitle')}</p>
+    </div></section>
+    <AuthGate><main className="container max-w-3xl space-y-6 px-4 py-8">
+      <div className="flex items-start gap-3 text-foreground"><Shield className="mt-1 h-5 w-5 shrink-0" /><div><h2 className="font-semibold">{tx('privacy.title')}</h2><p className="mt-2 text-sm leading-relaxed">{tx('privacy.body')}</p></div></div>
+      <div className="space-y-4">
+        <h2 className="text-lg font-semibold">{tx('upload.label')}</h2>
+        <p className="text-sm leading-relaxed text-muted-foreground">{tx('professional.limits')}</p>
+        <input ref={picker} type="file" multiple accept="application/pdf,image/jpeg,image/png,image/webp,.pdf,.jpg,.jpeg,.png,.webp" className="sr-only" tabIndex={-1} aria-label={tx('upload.chooseFile')} onChange={e => addFiles(e.target.files)} />
+        <input ref={camera} type="file" accept="image/jpeg,image/png,image/webp" capture="environment" className="sr-only" tabIndex={-1} aria-label={tx('upload.takePhoto')} onChange={e => addFiles(e.target.files)} />
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <Button variant="outline" className="min-h-14 gap-2 whitespace-normal" disabled={loading} onClick={() => picker.current?.click()}><Upload className="h-5 w-5 shrink-0" />{tx('upload.chooseFile')}</Button>
+          <Button variant="outline" className="min-h-14 gap-2" disabled={loading} onClick={() => camera.current?.click()}><Camera className="h-5 w-5" />{tx('upload.takePhoto')}</Button>
         </div>
-      </section>
-
-      <section className="py-10 sm:py-14">
-        <AuthGate>
-        <div className="container max-w-4xl px-4 space-y-8">
-
-          {/* ── Included in the BalkanLink membership (Fair Use) ── */}
-          {!showPaywall && <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="flex-1">
-              <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">{tPlus("docTitle")}</p>
-              <p className="text-sm text-card-foreground/80">{hasAccess ? tPlus("docIncludedOwned") : tPlus("docDesc")}</p>
-            </div>
-            {!hasAccess && (
-              <button
-                onClick={startOneOffCheckout}
-                className="shrink-0 rounded-xl px-4 py-2.5 text-sm font-bold transition-all hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}
-              >
-                {tPlus("unlockCta")}
-              </button>
-            )}
-          </div>}
-
-          {/* ── Privacy notice ── */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            className="flex items-start gap-4 rounded-2xl border border-[hsl(var(--gold))]/25 bg-card p-5 sm:p-6 shadow-sm">
-            <Shield className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--gold))]" />
-            <div>
-              <p className="font-bold text-card-foreground">{t("documentCheck.privacy.title")}</p>
-              <p className="mt-1 text-sm text-card-foreground/80 leading-relaxed">{t("documentCheck.privacy.body")}</p>
-            </div>
-          </motion.div>
-
-          {/* ── Upload area ── */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
-            <div>
-              <label className="mb-3 block text-sm font-bold text-card-foreground">{t("documentCheck.upload.label")}</label>
-
-              {/* Kako funkcioniše — 3 koraka, jednostavnim jezikom */}
-              <div className="mb-4 grid grid-cols-3 gap-2 sm:gap-3">
-                {[
-                  { n: "1", title: t("documentCheck.upload.step1Title"), desc: t("documentCheck.upload.step1Desc") },
-                  { n: "2", title: t("documentCheck.upload.step2Title"), desc: t("documentCheck.upload.step2Desc") },
-                  { n: "3", title: t("documentCheck.upload.step3Title"), desc: t("documentCheck.upload.step3Desc") },
-                ].map((s) => (
-                  <div key={s.n} className="rounded-xl border border-border/60 bg-muted/30 p-3 text-center">
-                    <div className="mx-auto mb-1.5 grid h-7 w-7 place-items-center rounded-full bg-[hsl(var(--gold))]/15 text-xs font-black text-[hsl(var(--gold))]">{s.n}</div>
-                    <p className="text-xs sm:text-sm font-bold text-card-foreground leading-tight">{s.title}</p>
-                    <p className="text-[11px] sm:text-xs text-card-foreground/80 mt-1 leading-snug">{s.desc}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Info: više stranica */}
-              <div className="mb-4 rounded-xl border border-[hsl(var(--gold))]/30 bg-card p-3 sm:p-4 shadow-sm">
-                <div className="flex items-start gap-2.5">
-                  <Info className="h-4 w-4 text-[hsl(var(--gold))] shrink-0 mt-0.5" />
-                  <div className="text-xs sm:text-sm">
-                    <p className="font-semibold text-card-foreground">{t("documentCheck.upload.multiPageTitle")}</p>
-                    <p className="text-card-foreground/80 mt-1">{t("documentCheck.upload.multiPageHint")}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{display:'flex', flexDirection:'column', gap:'12px', width:'100%'}}>
-                {/* Glavni dropzone — file picker */}
-                <label className="relative flex flex-col items-center justify-center min-h-[180px] w-full border-2 border-dashed border-[hsl(var(--gold))] rounded-xl cursor-pointer p-6 bg-card hover:bg-accent transition-colors shadow-sm">
-                  <input
-                    type="file"
-                    multiple
-                    accept="application/pdf,image/jpeg,image/png,image/webp,.pdf,.jpg,.jpeg,.png,.webp"
-                    ref={fileInputRef}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                    onChange={(e) => addFiles(e.target.files)}
-                  />
-                  <Upload className="h-12 w-12 text-[hsl(var(--gold))] mb-3" />
-                  <strong className="text-base sm:text-lg text-card-foreground">{t("documentCheck.upload.chooseFile")}</strong>
-                  <span className="text-sm text-card-foreground/80 mt-1 text-center max-w-xs">{t("documentCheck.upload.hint")}</span>
-                  <span className="mt-3 text-[11px] text-card-foreground/70 text-center max-w-xs">
-                    {t("documentCheck.upload.tipPhotoFromGallery")}
-                  </span>
-                </label>
-
-                {/* Hidden camera-only input — opens native camera reliably */}
-                <input
-                  type="file"
-                  accept="image/jpeg,image/png,image/webp"
-                  capture="environment"
-                  ref={cameraInputRef}
-                  className="hidden"
-                  onChange={(e) => { addFiles(e.target.files); if (cameraInputRef.current) cameraInputRef.current.value = ""; }}
-                />
-                <button
-                  type="button"
-                  onClick={() => cameraInputRef.current?.click()}
-                  className="flex items-center justify-center gap-2 w-full rounded-xl border border-[hsl(var(--gold))]/40 bg-card hover:bg-[hsl(var(--gold))]/10 px-4 py-3 text-sm font-semibold text-card-foreground transition-colors"
-                >
-                  <Camera className="h-5 w-5 text-[hsl(var(--gold))]" />
-                  {t("documentCheck.upload.takePhoto", "Slikaj kamerom")}
-                </button>
-
-                <p className="text-xs text-card-foreground/75 text-center flex items-center justify-center gap-1.5">
-                  <Lock className="h-3 w-3" />
-                  {t("documentCheck.upload.deletedAfter")}
-                </p>
-
-                {files.length > 0 && (
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs font-medium text-card-foreground/75 px-1">
-                      <span>{t("documentCheck.upload.filesCount", { count: files.length, max: MAX_FILES })}</span>
-                      <span>{(totalSize / 1024 / 1024).toFixed(1)} MB</span>
-                    </div>
-                    <ul className="space-y-2">
-                      {files.map((f, idx) => (
-                        <li key={`${f.name}-${idx}`} className="flex items-center justify-between gap-2 rounded-xl border border-emerald-600/35 bg-emerald-50 px-3 py-2.5 dark:border-emerald-400/35 dark:bg-emerald-950/45">
-                          <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <FileText className="h-4 w-4 text-emerald-700 dark:text-emerald-300 shrink-0" />
-                            <span className="text-sm font-medium text-emerald-950 dark:text-emerald-50 truncate">{f.name}</span>
-                            <span className="text-[11px] font-medium text-emerald-800 dark:text-emerald-200 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => removeFile(idx)}
-                            className="text-emerald-800 hover:text-emerald-950 dark:text-emerald-200 dark:hover:text-white p-1 shrink-0"
-                            aria-label={t("documentCheck.upload.remove")}
-                          >
-                            <X className="h-4 w-4" />
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                    {files.length < MAX_FILES && (
-                      <button
-                        type="button"
-                        onClick={() => fileInputRef.current?.click()}
-                        className="w-full flex items-center justify-center gap-2 rounded-xl border border-dashed border-[hsl(var(--gold))]/50 bg-card hover:bg-accent px-3 py-2.5 text-xs font-semibold text-[hsl(var(--gold))] transition-colors"
-                      >
-                        <Plus className="h-4 w-4" />
-                        {t("documentCheck.upload.addMore")}
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ── Confirm checkbox ── */}
-          <div className="flex items-start gap-4 rounded-2xl border bg-card p-5">
-            <Checkbox id="confirm" checked={confirmed} onCheckedChange={(v) => setConfirmed(v === true)} className="mt-0.5" />
-            <label htmlFor="confirm" className="cursor-pointer text-sm leading-relaxed text-card-foreground/85">
-              {t("documentCheck.confirm")}
-            </label>
-          </div>
-
-          {/* ── Actions ── */}
-            <div className="flex gap-3">
-            <Button onClick={handleAnalyze} disabled={loading || !confirmed || files.length === 0} className="gap-2 rounded-xl px-6">
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-              {loading ? t("documentCheck.buttons.checking") : t("documentCheck.buttons.checkDocument")}
-            </Button>
-            {(analysis || files.length > 0 || error) && (
-              <Button variant="outline" onClick={handleClear} className="rounded-xl">{t("documentCheck.buttons.reset")}</Button>
-            )}
-          </div>
-
-          {/* ── Error ── */}
-          {error && (
-            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-3 rounded-xl border border-destructive/40 bg-destructive/10 p-4 text-sm font-medium text-destructive-foreground dark:text-red-100">
-              <AlertTriangle className="h-5 w-5 shrink-0" /> {error}
-            </motion.div>
-          )}
-
-          {/* ── Paywall ── */}
-          {showPaywall && (
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center rounded-2xl border border-[hsl(var(--gold))]/20 bg-primary p-10 text-center">
-              <Lock className="h-10 w-10 text-[hsl(var(--gold))] mb-4" />
-              <p className="text-lg font-bold text-primary-foreground mb-2">{t("documentCheck.paywall.title")}</p>
-              <p className="text-sm text-primary-foreground/85 mb-6 max-w-sm">
-                {t("documentCheck.paywall.subtitle")}
-              </p>
-              <div className="flex flex-col gap-3 w-full max-w-xs">
-                <button
-                  onClick={startOneOffCheckout}
-                  className="rounded-full px-6 py-3.5 font-bold transition-all hover:opacity-90"
-                  style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}
-                >
-                  {tPlus("unlockCta")}
-                </button>
-                <p className="text-[11px] text-primary-foreground/75">{tPlus("unlockNote")}</p>
-              </div>
-            </motion.div>
-          )}
-
-          {/* ── Example analysis (collapsible) ── */}
-          {!analysis && (
-            <Collapsible open={showExample} onOpenChange={setShowExample}>
-              <CollapsibleTrigger className="flex w-full items-center gap-2 rounded-xl border bg-card px-5 py-4 text-sm font-semibold hover:bg-accent/50 transition-colors">
-                <Eye className="h-4 w-4 text-[hsl(var(--gold))]" />
-                <span className="flex-1 text-left">{t("documentCheck.example.trigger")}</span>
-                <ChevronDown className={`h-4 w-4 transition-transform ${showExample ? "rotate-180" : ""}`} />
-              </CollapsibleTrigger>
-              <CollapsibleContent className="mt-3">
-                  <div className="rounded-2xl border border-amber-600/35 bg-amber-50 p-5 sm:p-6 space-y-3 dark:border-amber-400/35 dark:bg-amber-950/45">
-                  <div className="flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-300">
-                    <FileWarning className="h-4 w-4" />
-                    {t("documentCheck.example.heading")}
-                  </div>
-                  <div className="text-sm text-amber-950 leading-relaxed space-y-2 dark:text-amber-50">
-                    <p>
-                      <strong>{t("documentCheck.example.docTypeLabel")}</strong> {t("documentCheck.example.docType")}
-                    </p>
-                    <p>
-                      <strong>{t("documentCheck.example.askedLabel")}</strong> {t("documentCheck.example.asked1")} <strong>{t("documentCheck.example.askedAmount")}</strong>. {t("documentCheck.example.askedDeadlineLabel")} <strong>{t("documentCheck.example.askedDeadline")}</strong> {t("documentCheck.example.askedDeadlineSuffix")}
-                    </p>
-                    <p>
-                      <strong>{t("documentCheck.example.riskLabel")}</strong> {t("documentCheck.example.risk")}
-                    </p>
-                    <p>
-                      <strong>{t("documentCheck.example.nextLabel")}</strong> {t("documentCheck.example.nextPrefix")} <strong>{t("documentCheck.example.nextPhone")}</strong> {t("documentCheck.example.nextSuffix")}
-                    </p>
-                  </div>
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
-          )}
-
-          {/* ── RESULTS ── */}
-          {sections.length > 0 && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
-              {summary && (
-                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                  className="rounded-2xl border-2 border-[hsl(var(--gold))]/35 bg-slate-950 p-6 sm:p-8 shadow-lg">
-                  <h2 className="text-lg font-black tracking-tight text-white mb-5 flex items-center gap-2">
-                    <CheckSquare className="h-5 w-5 text-[hsl(var(--gold))]" />
-                    {t("documentCheck.results.overview")}
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex items-start gap-3 rounded-xl bg-blue-500/15 border border-blue-400/40 p-4">
-                      <FileWarning className="h-5 w-5 text-blue-300 mt-0.5 shrink-0" />
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-blue-200 mb-1">{t("documentCheck.results.docType")}</p>
-                        <p className="text-sm font-semibold text-white leading-snug">{summary.docType}</p>
-                      </div>
-                    </div>
-                    <div className={`flex items-start gap-3 rounded-xl p-4 border ${
-                      summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "bg-red-500/15 border-red-400/40" :
-                      summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "bg-amber-500/15 border-amber-400/40" :
-                      "bg-emerald-500/15 border-emerald-400/40"
-                    }`}>
-                      <AlertCircle className={`h-5 w-5 mt-0.5 shrink-0 ${
-                        summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-300" :
-                        summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-300" :
-                        "text-emerald-300"
-                      }`} />
-                      <div>
-                        <p className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${
-                          summary.action.includes("Dringend") || summary.action.includes("Hitna") ? "text-red-200" :
-                          summary.action.includes("Empfohlen") || summary.action.includes("Preporučena") ? "text-amber-200" :
-                          "text-emerald-200"
-                        }`}>{t("documentCheck.results.actionNeeded")}</p>
-                        <p className="text-sm font-semibold text-white leading-snug">{summary.action}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 rounded-xl bg-green-500/15 border border-green-400/40 p-4">
-                      <Banknote className="h-5 w-5 text-green-300 mt-0.5 shrink-0" />
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-green-200 mb-1">{t("documentCheck.results.financial")}</p>
-                        <p className="text-sm font-semibold text-white leading-snug">{summary.financial}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 rounded-xl bg-purple-500/15 border border-purple-400/40 p-4">
-                      <CalendarClock className="h-5 w-5 text-purple-300 mt-0.5 shrink-0" />
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-purple-200 mb-1">{t("documentCheck.results.deadline")}</p>
-                        <p className="text-sm font-semibold text-white leading-snug">{summary.deadline}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {sections.map((section, idx) => {
-                return (
-                  <motion.div
-                    key={section.id}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.04 }}
-                    className={`relative rounded-2xl border ${section.colorClass} overflow-hidden shadow-sm`}
-                  >
-                    <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10 bg-black/20">
-                      <span className={section.iconColorClass}>{section.icon}</span>
-                      <h3 className={`text-base font-bold tracking-tight ${section.iconColorClass}`}>{section.title}</h3>
-                    </div>
-                    <div className="px-6 py-5 sm:py-6">
-                      <div className={`max-w-none text-[15px] leading-relaxed text-white
-                        [&_p]:text-white [&_p]:leading-relaxed [&_p]:my-3
-                        [&_li]:text-white [&_li]:leading-relaxed [&_li]:my-1.5
-                        [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-3
-                        [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-3
-                        [&_strong]:text-white [&_strong]:font-semibold
-                        [&_em]:text-white/95
-                        [&_h1]:text-white [&_h1]:font-bold [&_h1]:text-lg [&_h1]:mt-4 [&_h1]:mb-2
-                        [&_h2]:text-white [&_h2]:font-bold [&_h2]:text-base [&_h2]:mt-4 [&_h2]:mb-2
-                        [&_h3]:text-white [&_h3]:font-semibold [&_h3]:text-sm [&_h3]:mt-3 [&_h3]:mb-1.5
-                        [&_a]:text-[hsl(var(--gold))] [&_a]:underline
-                        [&_code]:text-[hsl(var(--gold))] [&_code]:bg-white/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded
-                        [&_blockquote]:border-l-2 [&_blockquote]:border-white/30 [&_blockquote]:pl-3 [&_blockquote]:text-white/90`}
-                      >
-                        <ReactMarkdown>{section.content}</ReactMarkdown>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          )}
-
-          {/* ── Disclaimer ── */}
-          <div className="rounded-2xl border border-border bg-card p-5 text-xs text-card-foreground leading-relaxed shadow-sm">
-            <p>
-              <strong className="text-card-foreground">{t("documentCheck.disclaimer.title")}</strong> {t("documentCheck.disclaimer.body")}
-            </p>
-          </div>
-        </div>
-        </AuthGate>
-      </section>
-    </>
-  );
+        {!files.length && <p className="text-sm text-muted-foreground">{tx('professional.empty')}</p>}
+        {!!files.length && <><p className="text-sm">{t('documentCheck.upload.filesCount', { count: files.length, max: LIMITS.files })} · {(files.reduce((n,f) => n + f.size, 0) / 1048576).toFixed(1)} MB</p><ul className="divide-y divide-border">{files.map((f,i) => <li key={`${f.name}-${i}`} className="flex min-h-14 items-center gap-3 py-2"><FileText className="h-5 w-5 shrink-0" /><span className="min-w-0 flex-1 break-all text-sm">{f.name}</span><Button variant="ghost" size="icon" className="h-11 w-11 shrink-0" aria-label={t('documentCheck.professional.removeFile', { name: f.name })} disabled={loading} onClick={() => { setFiles(prev => prev.filter((_,idx) => idx !== i)); setAnalysis(null); setLegacyResult(null); }}><X className="h-4 w-4" /></Button></li>)}</ul></>}
+        <div className="flex items-start gap-3 py-2"><Checkbox id="document-check-consent" checked={confirmed} disabled={loading} onCheckedChange={v => setConfirmed(v === true)} className="mt-1" /><label htmlFor="document-check-consent" className="text-sm leading-relaxed">{tx('confirm')}</label></div>
+        <div className="flex flex-wrap gap-3"><Button className="min-h-12 gap-2" disabled={loading || accessLoading || !confirmed || !files.length} onClick={analyze}>{loading && <Loader2 className="h-4 w-4 animate-spin" />}{tx(loading ? 'buttons.checking' : 'buttons.checkDocument')}</Button>
+        {!!files.length && <Button variant="outline" className="min-h-12" disabled={loading} onClick={() => { setFiles([]); setAnalysis(null); setLegacyResult(null); setErrorCode(null); setConfirmed(false); }}>{tx('buttons.reset')}</Button>}</div>
+        {(loading || accessLoading) && <p role="status" aria-live="polite" className="text-sm">{tx(loading ? 'professional.loading' : 'professional.accessLoading')}</p>}
+        {errorCode && <div role="alert" className="border-l-4 border-destructive bg-muted p-4 text-foreground"><p>{t(`documentCheck.errors.${errorCode === 'CONFIRM_REQUIRED' ? 'confirmRequired' : ERROR_KEYS[errorCode] ?? 'serverError'}`, { max: LIMITS.files })}</p>
+          {resetAt && Number.isFinite(Date.parse(resetAt)) && <p className="mt-2 text-sm">{t('documentCheck.professional.resetAt', { date: new Date(resetAt).toLocaleString(languageOf(i18n.language)) })}</p>}
+          {providerMessage && <p className="mt-2 text-sm">{providerMessage}</p>}
+          {errorCode === 'ACCESS_REQUIRED' && <Button variant="outline" className="mt-3 min-h-12" onClick={() => localizedNavigate(user ? '/paketi' : '/register')}>{tx('paywall.premiumCta')}</Button>}</div>}
+      </div>
+      {(analysis || legacyResult) && <div ref={results} tabIndex={-1} className="scroll-mt-24 space-y-6 outline-none" aria-label={tx('professional.overview')}>
+        <h2 className="text-2xl font-bold">{tx('professional.overview')}</h2>
+        {analysis && <>
+          <section className="space-y-2 border-b border-border pb-5"><h3 className="font-bold">{tx('professional.what')}</h3><p className="font-medium">{analysis.documentType}{analysis.sender && <> · {analysis.sender}</>}</p><p className="leading-relaxed">{analysis.summary}</p><p className="text-sm text-muted-foreground">{tx('professional.explanation')}</p></section>
+          <section className="space-y-3 border-b border-border pb-5"><h3 className="font-bold">{tx('professional.actions')}</h3>{evidence(analysis.requestedActions,'professional.noActions')}</section>
+          <section className="space-y-3 border-b border-border pb-5"><h3 className="font-bold">{tx('professional.deadlines')}</h3>{evidence(analysis.deadlines,'professional.noDeadlines')}<p className="text-sm text-muted-foreground">{tx('professional.deadlineCaution')}</p></section>
+          {!!analysis.amounts.length && <section className="space-y-3 border-b border-border pb-5"><h3 className="font-bold">{tx('professional.money')}</h3>{evidence(analysis.amounts,'professional.noActions')}</section>}
+          <section className="space-y-3"><h3 className="font-bold">{tx('professional.next')}</h3><p className="text-sm text-muted-foreground">{tx('professional.recommendation')}</p><ol className="list-decimal space-y-2 pl-6">{analysis.nextSteps.map((step,i) => <li key={i}>{step}</li>)}</ol></section>
+          {detail('professional.details', <p>{analysis.detailedExplanation}</p>)}
+          {!!analysis.risks.length && detail('professional.risks', evidence(analysis.risks,'professional.noActions'))}
+          {!!analysis.uncertainty.length && detail('professional.uncertainty', <ul className="list-disc space-y-2 pl-5">{analysis.uncertainty.map((x,i) => <li key={i}>{x}</li>)}</ul>)}
+          {!!analysis.sourceRefs.length && detail('professional.sources', <ul className="space-y-4">{analysis.sourceRefs.map(s => <li key={s.id}><p>{t('documentCheck.professional.attachment', { number: s.fileIndex })}{s.page !== null && <> · {t('documentCheck.professional.page', { number: s.page })}</>}</p><blockquote>“{s.quote}”</blockquote></li>)}</ul>)}
+        </>}
+        {legacyResult && <><p role="status" className="text-sm">{tx('professional.legacyNotice')}</p>{detail('professional.details', <p>{legacyResult}</p>)}</>}
+        <div className="flex flex-wrap gap-3"><Button variant="outline" className="min-h-12 gap-2" onClick={() => localizedNavigate(analysis ? guideFor(analysis) : '/formulari')}><BookOpen className="h-4 w-4" />{tx('professional.guides')}</Button><Button variant="outline" className="min-h-12 gap-2" onClick={() => window.dispatchEvent(new CustomEvent('open-assistant'))}><MessageSquare className="h-4 w-4" />{tx('professional.askAssistant')}</Button></div>
+        <p className="text-sm text-muted-foreground">{tx('professional.noTransfer')}</p>
+      </div>}
+      <p className="border-t border-border pt-5 text-sm leading-relaxed">{tx('disclaimer.body')}</p>
+    </main></AuthGate>
+  </>;
 }
