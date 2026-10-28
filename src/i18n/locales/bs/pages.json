@@ -12925,6 +12925,16 @@
             ]
           },
           {
+            "id": "uh3-32",
+            "german": "Bitte geben Sie das Datum der Anerkennung oder gerichtlichen Feststellung an (TT.MM.JJJJ).",
+            "reference": "UH3 · Seite 2 · D · 32",
+            "meaning": "Datum dokumenta o očinstvu",
+            "instruction": "Prepiši datum formalnog priznanja ili sudskog utvrđivanja iz odgovarajućeg dokumenta.",
+            "where": "Isprava/odluka o očinstvu.",
+            "example": "Izmišljeno: prepisuje se stvarni datum dokumenta, ne rođendan djeteta.",
+            "mistake": "Ne izmišljaj datum za još tekući postupak."
+          },
+          {
             "id": "uh3-33",
             "german": "Läuft ein Vaterschaftsfeststellungsverfahren?",
             "reference": "UH3 · Seite 2 · D · 33",
@@ -12943,16 +12953,6 @@
                 "meaning": "Ne — opis iz ovog konkretnog pitanja ne odgovara činjenicama. Ne znaš li odgovor, provjeri umjesto nagađanja; prati odštampani skok."
               }
             ]
-          },
-          {
-            "id": "uh3-32",
-            "german": "Bitte geben Sie das Datum der Anerkennung oder gerichtlichen Feststellung an (TT.MM.JJJJ).",
-            "reference": "UH3 · Seite 2 · D · 32",
-            "meaning": "Datum dokumenta o očinstvu",
-            "instruction": "Prepiši datum formalnog priznanja ili sudskog utvrđivanja iz odgovarajućeg dokumenta.",
-            "where": "Isprava/odluka o očinstvu.",
-            "example": "Izmišljeno: prepisuje se stvarni datum dokumenta, ne rođendan djeteta.",
-            "mistake": "Ne izmišljaj datum za još tekući postupak."
           },
           {
             "id": "uh3-34-35",
@@ -14684,6 +14684,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-52",
+            "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
+            "meaning": "Datum opomene",
+            "instruction": "Popunjava samo poslodavac: Datum stvarno izdate opomene. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-53",
             "german": "Wurden vor oder nach der Kündigung zusätzliche Vereinbarungen getroffen (zum Beispiel Abwicklungsvertrag)?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 53",
@@ -14764,6 +14774,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-57",
+            "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
+            "meaning": "Agentur koja je provjerila socijalni odabir",
+            "instruction": "Popunjava samo poslodavac: Naziv iz stvarne odluke samo kod prethodnog Ja. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-58",
             "german": "Hätte der Arbeitgeber das Arbeitsverhältnis gekündigt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 58",
@@ -14780,6 +14800,36 @@
               {
                 "german": "Nein (weiter mit 61)",
                 "meaning": "Ne — opis iz ovog konkretnog pitanja ne odgovara činjenicama. Ne znaš li odgovor, provjeri umjesto nagađanja; prati odštampani skok."
+              }
+            ]
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-59",
+            "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
+            "meaning": "Datumi moguće poslodavčeve izjave i kraja",
+            "instruction": "Popunjava samo poslodavac: Kod 58 Ja: datum kada bi otkaz bio dat i datum završetka prema dokumentovanim činjenicama. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-60",
+            "german": "Bitte geben Sie den Grund der Kündigung an:",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
+            "meaning": "Razlog moguće poslodavčeve odluke",
+            "instruction": "Popunjava samo poslodavac: Samo relevantna grana 58–60 iz dokaza; ne strateški izbor. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "options": [
+              {
+                "german": "betriebsbedingt",
+                "meaning": "Poslovno uslovljeno — prema stvarnom dokumentu."
+              },
+              {
+                "german": "wegen vertragswidrigen Verhaltens",
+                "meaning": "Zbog povrede ugovora — dokumentovan razlog, ne naša procjena."
               }
             ]
           },
@@ -14804,6 +14854,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-62-63",
+            "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
+            "meaning": "Prvobitni rok i datum sklapanja ugovora",
+            "instruction": "Popunjava samo poslodavac: 62 prvobitni kraj, 63 datum sklapanja, ne kasnijeg produženja. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-64",
             "german": "Wurde der befristete Arbeitsvertrag verlängert?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 64",
@@ -14822,6 +14882,16 @@
                 "meaning": "Ne — opis iz ovog konkretnog pitanja ne odgovara činjenicama. Ne znaš li odgovor, provjeri umjesto nagađanja; prati odštampani skok."
               }
             ]
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-65",
+            "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
+            "meaning": "Datum i rok produženja",
+            "instruction": "Popunjava samo poslodavac: Datum stvarnog produženja i novi kraj iz dokumenta. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-66",
@@ -14904,56 +14974,6 @@
             ]
           },
           {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-52",
-            "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
-            "meaning": "Datum opomene",
-            "instruction": "Popunjava samo poslodavac: Datum stvarno izdate opomene. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-57",
-            "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
-            "meaning": "Agentur koja je provjerila socijalni odabir",
-            "instruction": "Popunjava samo poslodavac: Naziv iz stvarne odluke samo kod prethodnog Ja. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-59",
-            "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
-            "meaning": "Datumi moguće poslodavčeve izjave i kraja",
-            "instruction": "Popunjava samo poslodavac: Kod 58 Ja: datum kada bi otkaz bio dat i datum završetka prema dokumentovanim činjenicama. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-62-63",
-            "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
-            "meaning": "Prvobitni rok i datum sklapanja ugovora",
-            "instruction": "Popunjava samo poslodavac: 62 prvobitni kraj, 63 datum sklapanja, ne kasnijeg produženja. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-65",
-            "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
-            "meaning": "Datum i rok produženja",
-            "instruction": "Popunjava samo poslodavac: Datum stvarnog produženja i novi kraj iz dokumenta. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-70",
             "german": "Zu welchem Datum erfolgte die einvernehmliche Freistellung? · ab (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 70",
@@ -14962,26 +14982,6 @@
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
             "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-60",
-            "german": "Bitte geben Sie den Grund der Kündigung an:",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
-            "meaning": "Razlog moguće poslodavčeve odluke",
-            "instruction": "Popunjava samo poslodavac: Samo relevantna grana 58–60 iz dokaza; ne strateški izbor. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
-            "options": [
-              {
-                "german": "betriebsbedingt",
-                "meaning": "Poslovno uslovljeno — prema stvarnom dokumentu."
-              },
-              {
-                "german": "wegen vertragswidrigen Verhaltens",
-                "meaning": "Zbog povrede ugovora — dokumentovan razlog, ne naša procjena."
-              }
-            ]
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-71",
@@ -15248,6 +15248,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-92",
+            "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
+            "meaning": "Do kojeg datuma još plata",
+            "instruction": "Popunjava samo poslodavac: Datum posljednjeg perioda plate poslije kraja zaposlenja. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-93",
             "german": "Wurde eine Urlaubsabgeltung wegen der Beendigung des Beschäftigungs-/Arbeits-/Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu zahlen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 93",
@@ -15268,6 +15278,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-94",
+            "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
+            "meaning": "Hipotetički kraj plaćenog ostatka odmora",
+            "instruction": "Popunjava samo poslodavac: Poslodavac računa prema pravilu originala, ne proizvoljni putni datum. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-95",
             "german": "Wurde eine Abfindung, Entschädigung oder ähnliche Leistung wegen der Beendigung des Beschäftigungs-/Arbeits- beziehungsweise Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu bezahlen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 95",
@@ -15286,6 +15306,16 @@
                 "meaning": "Ne — opis iz ovog konkretnog pitanja ne odgovara činjenicama. Ne znaš li odgovor, provjeri umjesto nagađanja; prati odštampani skok."
               }
             ]
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-96-97",
+            "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
+            "meaning": "Bruto iznos otpremnine i pune godine staža",
+            "instruction": "Popunjava samo poslodavac: 96 bruto i kod neto dogovora uz izuzetke originala; 97 pune godine zaokružene naniže. Bez našeg kalkulatora. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
+            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
+            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-98",
@@ -15346,36 +15376,6 @@
                 "meaning": "Ne — opis iz ovog konkretnog pitanja ne odgovara činjenicama. Ne znaš li odgovor, provjeri umjesto nagađanja; prati odštampani skok."
               }
             ]
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-92",
-            "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
-            "meaning": "Do kojeg datuma još plata",
-            "instruction": "Popunjava samo poslodavac: Datum posljednjeg perioda plate poslije kraja zaposlenja. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-94",
-            "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
-            "meaning": "Hipotetički kraj plaćenog ostatka odmora",
-            "instruction": "Popunjava samo poslodavac: Poslodavac računa prema pravilu originala, ne proizvoljni putni datum. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-96-97",
-            "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
-            "meaning": "Bruto iznos otpremnine i pune godine staža",
-            "instruction": "Popunjava samo poslodavac: 96 bruto i kod neto dogovora uz izuzetke originala; 97 pune godine zaokružene naniže. Bez našeg kalkulatora. Radnik provjerava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
-            "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik provjerava svoje dokumente.",
-            "example": "Izmišljeno: Maja traži od poslodavca provjeru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-101",
@@ -15576,6 +15576,30 @@
             "mistake": "Ne zamijeni broj ALG predmeta i BG broj."
           },
           {
+            "id": "income-notes",
+            "german": "Angaben zum Arbeitsentgelt",
+            "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
+            "meaning": "Pročitaj dodatke plate i različite kategorije",
+            "instruction": "Poslodavac čita cijelu stranu 3: tekuća plata uključuje dodatke/odgovarajuće nenovčane pogodnosti; određene komponente su samo bruto/neto ili posebno. Arbeitskleidung, Dienstwohnung i Kindergartenplatz nisu u ovom bloku za potvrđivanje prema originalu. Ne pretvaramo to u odluku o pravu.",
+            "where": "Original strana 3 i obračunske upute poslodavca.",
+            "example": "Izmišljeno: poslodavac provjerava Fahrtkostenerstattung u odgovarajućoj posebnoj tabeli, ne dvaput.",
+            "mistake": "Ovdje nema kalkulatora bruto/neto ili odlučivanja šta je pravno priznato.",
+            "options": [
+              {
+                "german": "Bruttoarbeitsentgelt",
+                "meaning": "Bruto — prije odgovarajućih odbitaka; poslodavac prati upute."
+              },
+              {
+                "german": "Nettoarbeitsentgelt",
+                "meaning": "Neto — ono što je raspoloživo prema uputama, ne nužno samo novac."
+              },
+              {
+                "german": "Gesondert zu bescheinigen",
+                "meaning": "Posebno potvrđene komponente — ne dvaput u bruto/neto."
+              }
+            ]
+          },
+          {
             "id": "einkommensbescheinigung sgb ii 10/2026-1-2-3-4-5-6-7-8-9",
             "german": "Name der Arbeitgeberin/des Arbeitgebers · Straße · Hausnummer · Postleitzahl · Ort · Ansprechpartnerin/Ansprechpartner · Telefon · Geschäftszeichen · Betriebsnummer der Arbeitgeberin/des Arbeitgebers",
             "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 1 · A · 1–9",
@@ -15672,30 +15696,6 @@
               {
                 "german": "Nein",
                 "meaning": "Ne — opis iz ovog konkretnog pitanja ne odgovara činjenicama. Ne znaš li odgovor, provjeri umjesto nagađanja; prati odštampani skok."
-              }
-            ]
-          },
-          {
-            "id": "income-notes",
-            "german": "Angaben zum Arbeitsentgelt",
-            "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
-            "meaning": "Pročitaj dodatke plate i različite kategorije",
-            "instruction": "Poslodavac čita cijelu stranu 3: tekuća plata uključuje dodatke/odgovarajuće nenovčane pogodnosti; određene komponente su samo bruto/neto ili posebno. Arbeitskleidung, Dienstwohnung i Kindergartenplatz nisu u ovom bloku za potvrđivanje prema originalu. Ne pretvaramo to u odluku o pravu.",
-            "where": "Original strana 3 i obračunske upute poslodavca.",
-            "example": "Izmišljeno: poslodavac provjerava Fahrtkostenerstattung u odgovarajućoj posebnoj tabeli, ne dvaput.",
-            "mistake": "Ovdje nema kalkulatora bruto/neto ili odlučivanja šta je pravno priznato.",
-            "options": [
-              {
-                "german": "Bruttoarbeitsentgelt",
-                "meaning": "Bruto — prije odgovarajućih odbitaka; poslodavac prati upute."
-              },
-              {
-                "german": "Nettoarbeitsentgelt",
-                "meaning": "Neto — ono što je raspoloživo prema uputama, ne nužno samo novac."
-              },
-              {
-                "german": "Gesondert zu bescheinigen",
-                "meaning": "Posebno potvrđene komponente — ne dvaput u bruto/neto."
               }
             ]
           },

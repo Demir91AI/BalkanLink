@@ -12925,6 +12925,16 @@
             ]
           },
           {
+            "id": "uh3-32",
+            "german": "Bitte geben Sie das Datum der Anerkennung oder gerichtlichen Feststellung an (TT.MM.JJJJ).",
+            "reference": "UH3 · Seite 2 · D · 32",
+            "meaning": "Datum der Anerkennung/Feststellung",
+            "instruction": "Datum der Anerkennung oder gerichtlichen Feststellung aus passendem Dokument übernehmen.",
+            "where": "Anerkennungsurkunde/Gerichtsbeschluss.",
+            "example": "Erfunden: Urkundendatum, nicht Geburtstag des Kindes.",
+            "mistake": "Kein Datum für noch laufendes Verfahren erfinden."
+          },
+          {
             "id": "uh3-33",
             "german": "Läuft ein Vaterschaftsfeststellungsverfahren?",
             "reference": "UH3 · Seite 2 · D · 33",
@@ -12943,16 +12953,6 @@
                 "meaning": "Nein — dieser konkrete Sachverhalt trifft nicht zu. Bei Unklarheit nachfragen, nicht raten; gedruckten Sprung beachten."
               }
             ]
-          },
-          {
-            "id": "uh3-32",
-            "german": "Bitte geben Sie das Datum der Anerkennung oder gerichtlichen Feststellung an (TT.MM.JJJJ).",
-            "reference": "UH3 · Seite 2 · D · 32",
-            "meaning": "Datum der Anerkennung/Feststellung",
-            "instruction": "Datum der Anerkennung oder gerichtlichen Feststellung aus passendem Dokument übernehmen.",
-            "where": "Anerkennungsurkunde/Gerichtsbeschluss.",
-            "example": "Erfunden: Urkundendatum, nicht Geburtstag des Kindes.",
-            "mistake": "Kein Datum für noch laufendes Verfahren erfinden."
           },
           {
             "id": "uh3-34-35",
@@ -14684,6 +14684,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-52",
+            "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
+            "meaning": "Abmahnungsdatum",
+            "instruction": "Nur Arbeitgeber füllt aus: Tatsächliches Abmahnungsdatum. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-53",
             "german": "Wurden vor oder nach der Kündigung zusätzliche Vereinbarungen getroffen (zum Beispiel Abwicklungsvertrag)?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 53",
@@ -14764,6 +14774,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-57",
+            "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
+            "meaning": "Prüfende Agentur bei Sozialauswahl",
+            "instruction": "Nur Arbeitgeber füllt aus: Name aus tatsächlicher Entscheidung nach vorherigem Ja. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-58",
             "german": "Hätte der Arbeitgeber das Arbeitsverhältnis gekündigt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 58",
@@ -14780,6 +14800,36 @@
               {
                 "german": "Nein (weiter mit 61)",
                 "meaning": "Nein — dieser konkrete Sachverhalt trifft nicht zu. Bei Unklarheit nachfragen, nicht raten; gedruckten Sprung beachten."
+              }
+            ]
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-59",
+            "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
+            "meaning": "Daten hypothetischer Arbeitgeberkündigung",
+            "instruction": "Nur Arbeitgeber füllt aus: Nach Ja 58: Erklärungs- und Enddatum anhand dokumentierter Umstände. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-60",
+            "german": "Bitte geben Sie den Grund der Kündigung an:",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
+            "meaning": "Grund der hypothetischen Arbeitgeberkündigung",
+            "instruction": "Nur Arbeitgeber füllt aus: Nur zutreffender Zweig 58–60 laut Beleg; keine strategische Auswahl. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen.",
+            "options": [
+              {
+                "german": "betriebsbedingt",
+                "meaning": "Betriebsbedingt — laut tatsächlichem Dokument."
+              },
+              {
+                "german": "wegen vertragswidrigen Verhaltens",
+                "meaning": "Wegen Vertragsverstoß — dokumentierter Grund, keine Wertung hier."
               }
             ]
           },
@@ -14804,6 +14854,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-62-63",
+            "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
+            "meaning": "Ursprüngliche Befristung und Vertragsabschluss",
+            "instruction": "Nur Arbeitgeber füllt aus: 62 ursprüngliches Ende, 63 Vertragsabschluss, nicht Verlängerung. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-64",
             "german": "Wurde der befristete Arbeitsvertrag verlängert?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 64",
@@ -14822,6 +14882,16 @@
                 "meaning": "Nein — dieser konkrete Sachverhalt trifft nicht zu. Bei Unklarheit nachfragen, nicht raten; gedruckten Sprung beachten."
               }
             ]
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-65",
+            "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
+            "meaning": "Verlängerungsdatum und neues Ende",
+            "instruction": "Nur Arbeitgeber füllt aus: Tatsächliches Verlängerungsdatum und neues Ende aus Dokument. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-66",
@@ -14904,56 +14974,6 @@
             ]
           },
           {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-52",
-            "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
-            "meaning": "Abmahnungsdatum",
-            "instruction": "Nur Arbeitgeber füllt aus: Tatsächliches Abmahnungsdatum. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-57",
-            "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
-            "meaning": "Prüfende Agentur bei Sozialauswahl",
-            "instruction": "Nur Arbeitgeber füllt aus: Name aus tatsächlicher Entscheidung nach vorherigem Ja. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-59",
-            "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
-            "meaning": "Daten hypothetischer Arbeitgeberkündigung",
-            "instruction": "Nur Arbeitgeber füllt aus: Nach Ja 58: Erklärungs- und Enddatum anhand dokumentierter Umstände. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-62-63",
-            "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
-            "meaning": "Ursprüngliche Befristung und Vertragsabschluss",
-            "instruction": "Nur Arbeitgeber füllt aus: 62 ursprüngliches Ende, 63 Vertragsabschluss, nicht Verlängerung. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-65",
-            "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
-            "meaning": "Verlängerungsdatum und neues Ende",
-            "instruction": "Nur Arbeitgeber füllt aus: Tatsächliches Verlängerungsdatum und neues Ende aus Dokument. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-70",
             "german": "Zu welchem Datum erfolgte die einvernehmliche Freistellung? · ab (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 70",
@@ -14962,26 +14982,6 @@
             "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
             "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
             "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-60",
-            "german": "Bitte geben Sie den Grund der Kündigung an:",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
-            "meaning": "Grund der hypothetischen Arbeitgeberkündigung",
-            "instruction": "Nur Arbeitgeber füllt aus: Nur zutreffender Zweig 58–60 laut Beleg; keine strategische Auswahl. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen.",
-            "options": [
-              {
-                "german": "betriebsbedingt",
-                "meaning": "Betriebsbedingt — laut tatsächlichem Dokument."
-              },
-              {
-                "german": "wegen vertragswidrigen Verhaltens",
-                "meaning": "Wegen Vertragsverstoß — dokumentierter Grund, keine Wertung hier."
-              }
-            ]
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-71",
@@ -15248,6 +15248,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-92",
+            "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
+            "meaning": "Bis wann weiter Entgelt",
+            "instruction": "Nur Arbeitgeber füllt aus: Enddatum des weiteren Entgeltzeitraums. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-93",
             "german": "Wurde eine Urlaubsabgeltung wegen der Beendigung des Beschäftigungs-/Arbeits-/Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu zahlen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 93",
@@ -15268,6 +15278,16 @@
             ]
           },
           {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-94",
+            "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
+            "meaning": "Hypothetisches Ende des Resturlaubs",
+            "instruction": "Nur Arbeitgeber füllt aus: Arbeitgeber berechnet nach Originalregel, kein beliebiger Reisetag. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
+          },
+          {
             "id": "arbeitsbescheinigung sgb iii 08/2023-95",
             "german": "Wurde eine Abfindung, Entschädigung oder ähnliche Leistung wegen der Beendigung des Beschäftigungs-/Arbeits- beziehungsweise Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu bezahlen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 95",
@@ -15286,6 +15306,16 @@
                 "meaning": "Nein — dieser konkrete Sachverhalt trifft nicht zu. Bei Unklarheit nachfragen, nicht raten; gedruckten Sprung beachten."
               }
             ]
+          },
+          {
+            "id": "arbeitsbescheinigung sgb iii 08/2023-96-97",
+            "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
+            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
+            "meaning": "Bruttoabfindung und volle Zugehörigkeitsjahre",
+            "instruction": "Nur Arbeitgeber füllt aus: 96 Brutto auch bei Nettovereinbarung unter Originalausnahmen; 97 volle Jahre abgerundet. Kein Rechner hier. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
+            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
+            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
+            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-98",
@@ -15346,36 +15376,6 @@
                 "meaning": "Nein — dieser konkrete Sachverhalt trifft nicht zu. Bei Unklarheit nachfragen, nicht raten; gedruckten Sprung beachten."
               }
             ]
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-92",
-            "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
-            "meaning": "Bis wann weiter Entgelt",
-            "instruction": "Nur Arbeitgeber füllt aus: Enddatum des weiteren Entgeltzeitraums. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-94",
-            "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
-            "meaning": "Hypothetisches Ende des Resturlaubs",
-            "instruction": "Nur Arbeitgeber füllt aus: Arbeitgeber berechnet nach Originalregel, kein beliebiger Reisetag. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
-          },
-          {
-            "id": "arbeitsbescheinigung sgb iii 08/2023-96-97",
-            "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
-            "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
-            "meaning": "Bruttoabfindung und volle Zugehörigkeitsjahre",
-            "instruction": "Nur Arbeitgeber füllt aus: 96 Brutto auch bei Nettovereinbarung unter Originalausnahmen; 97 volle Jahre abgerundet. Kein Rechner hier. Arbeitnehmer prüft eigenen Abdruck, erfindet/ändert keine Arbeitgeberangaben.",
-            "where": "Entgeltabrechnung, Arbeitsvertrag, Beschäftigungsunterlagen und passende Arbeitgebernachweise; Arbeitnehmer prüft eigene Unterlagen.",
-            "example": "Erfunden: Maja bittet Arbeitgeber, passende Angabe im eigenen Abdruck zu prüfen, füllt sie nicht selbst aus.",
-            "mistake": "Papierreihenfolge nicht als BEA-Karte behandeln; ALG/Sperrzeit nicht aus Einzelantwort bestimmen."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-101",
@@ -15576,6 +15576,30 @@
             "mistake": "ALG-Vorgangsnummer und BG-Nummer nicht verwechseln."
           },
           {
+            "id": "income-notes",
+            "german": "Angaben zum Arbeitsentgelt",
+            "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
+            "meaning": "Entgeltbestandteile und Kategorien lesen",
+            "instruction": "Arbeitgeber liest gesamte Seite 3: laufendes Entgelt einschließlich Zuschlägen/passenden Sachbezügen; bestimmte Bestandteile nur Brutto/Netto oder gesondert. Arbeitskleidung, Dienstwohnung und Kindergartenplatz sind laut Original hier nicht zu bescheinigen. Keine Anspruchsentscheidung daraus.",
+            "where": "Original Seite 3 und Arbeitgeber-Abrechnungshinweise.",
+            "example": "Erfunden: Arbeitgeber prüft Fahrtkostenerstattung in passender Sondertabelle, nicht doppelt.",
+            "mistake": "Kein Brutto-/Nettorechner oder rechtliche Anerkennungsentscheidung hier.",
+            "options": [
+              {
+                "german": "Bruttoarbeitsentgelt",
+                "meaning": "Brutto vor Abzügen; Arbeitgeber beachtet Hinweise."
+              },
+              {
+                "german": "Nettoarbeitsentgelt",
+                "meaning": "Netto — verfügbar laut Hinweis, nicht zwingend nur Geld."
+              },
+              {
+                "german": "Gesondert zu bescheinigen",
+                "meaning": "Gesonderte Bestandteile — nicht doppelt Brutto/Netto."
+              }
+            ]
+          },
+          {
             "id": "einkommensbescheinigung sgb ii 10/2026-1-2-3-4-5-6-7-8-9",
             "german": "Name der Arbeitgeberin/des Arbeitgebers · Straße · Hausnummer · Postleitzahl · Ort · Ansprechpartnerin/Ansprechpartner · Telefon · Geschäftszeichen · Betriebsnummer der Arbeitgeberin/des Arbeitgebers",
             "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 1 · A · 1–9",
@@ -15672,30 +15696,6 @@
               {
                 "german": "Nein",
                 "meaning": "Nein — dieser konkrete Sachverhalt trifft nicht zu. Bei Unklarheit nachfragen, nicht raten; gedruckten Sprung beachten."
-              }
-            ]
-          },
-          {
-            "id": "income-notes",
-            "german": "Angaben zum Arbeitsentgelt",
-            "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
-            "meaning": "Entgeltbestandteile und Kategorien lesen",
-            "instruction": "Arbeitgeber liest gesamte Seite 3: laufendes Entgelt einschließlich Zuschlägen/passenden Sachbezügen; bestimmte Bestandteile nur Brutto/Netto oder gesondert. Arbeitskleidung, Dienstwohnung und Kindergartenplatz sind laut Original hier nicht zu bescheinigen. Keine Anspruchsentscheidung daraus.",
-            "where": "Original Seite 3 und Arbeitgeber-Abrechnungshinweise.",
-            "example": "Erfunden: Arbeitgeber prüft Fahrtkostenerstattung in passender Sondertabelle, nicht doppelt.",
-            "mistake": "Kein Brutto-/Nettorechner oder rechtliche Anerkennungsentscheidung hier.",
-            "options": [
-              {
-                "german": "Bruttoarbeitsentgelt",
-                "meaning": "Brutto vor Abzügen; Arbeitgeber beachtet Hinweise."
-              },
-              {
-                "german": "Nettoarbeitsentgelt",
-                "meaning": "Netto — verfügbar laut Hinweis, nicht zwingend nur Geld."
-              },
-              {
-                "german": "Gesondert zu bescheinigen",
-                "meaning": "Gesonderte Bestandteile — nicht doppelt Brutto/Netto."
               }
             ]
           },

@@ -900,6 +900,15 @@
       ]
     },
     {
+      "id": "uh3-32",
+      "german": "Bitte geben Sie das Datum der Anerkennung oder gerichtlichen Feststellung an (TT.MM.JJJJ).",
+      "reference": "UH3 · Seite 2 · D · 32",
+      "numbers": [
+        32
+      ],
+      "options": []
+    },
+    {
       "id": "uh3-33",
       "german": "Läuft ein Vaterschaftsfeststellungsverfahren?",
       "reference": "UH3 · Seite 2 · D · 33",
@@ -910,15 +919,6 @@
         "Ja",
         "Nein"
       ]
-    },
-    {
-      "id": "uh3-32",
-      "german": "Bitte geben Sie das Datum der Anerkennung oder gerichtlichen Feststellung an (TT.MM.JJJJ).",
-      "reference": "UH3 · Seite 2 · D · 32",
-      "numbers": [
-        32
-      ],
-      "options": []
     },
     {
       "id": "uh3-34-35",
@@ -2051,6 +2051,15 @@
       ]
     },
     {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-52",
+      "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
+      "numbers": [
+        52
+      ],
+      "options": []
+    },
+    {
       "id": "arbeitsbescheinigung sgb iii 08/2023-53",
       "german": "Wurden vor oder nach der Kündigung zusätzliche Vereinbarungen getroffen (zum Beispiel Abwicklungsvertrag)?",
       "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 53",
@@ -2099,6 +2108,15 @@
       ]
     },
     {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-57",
+      "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
+      "numbers": [
+        57
+      ],
+      "options": []
+    },
+    {
       "id": "arbeitsbescheinigung sgb iii 08/2023-58",
       "german": "Hätte der Arbeitgeber das Arbeitsverhältnis gekündigt?",
       "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 58",
@@ -2108,6 +2126,27 @@
       "options": [
         "Ja",
         "Nein (weiter mit 61)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-59",
+      "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
+      "numbers": [
+        59
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-60",
+      "german": "Bitte geben Sie den Grund der Kündigung an:",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
+      "numbers": [
+        60
+      ],
+      "options": [
+        "betriebsbedingt",
+        "wegen vertragswidrigen Verhaltens"
       ]
     },
     {
@@ -2123,6 +2162,16 @@
       ]
     },
     {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-62-63",
+      "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
+      "numbers": [
+        62,
+        63
+      ],
+      "options": []
+    },
+    {
       "id": "arbeitsbescheinigung sgb iii 08/2023-64",
       "german": "Wurde der befristete Arbeitsvertrag verlängert?",
       "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 64",
@@ -2133,6 +2182,15 @@
         "Ja",
         "Nein (weiter mit 66)"
       ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-65",
+      "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
+      "numbers": [
+        65
+      ],
+      "options": []
     },
     {
       "id": "arbeitsbescheinigung sgb iii 08/2023-66",
@@ -2183,52 +2241,6 @@
       ]
     },
     {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-52",
-      "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
-      "numbers": [
-        52
-      ],
-      "options": []
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-57",
-      "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
-      "numbers": [
-        57
-      ],
-      "options": []
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-59",
-      "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
-      "numbers": [
-        59
-      ],
-      "options": []
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-62-63",
-      "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
-      "numbers": [
-        62,
-        63
-      ],
-      "options": []
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-65",
-      "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
-      "numbers": [
-        65
-      ],
-      "options": []
-    },
-    {
       "id": "arbeitsbescheinigung sgb iii 08/2023-70",
       "german": "Zu welchem Datum erfolgte die einvernehmliche Freistellung? · ab (TT.MM.JJJJ)",
       "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 70",
@@ -2236,18 +2248,6 @@
         70
       ],
       "options": []
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-60",
-      "german": "Bitte geben Sie den Grund der Kündigung an:",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
-      "numbers": [
-        60
-      ],
-      "options": [
-        "betriebsbedingt",
-        "wegen vertragswidrigen Verhaltens"
-      ]
     },
     {
       "id": "arbeitsbescheinigung sgb iii 08/2023-71",
@@ -2424,6 +2424,15 @@
       ]
     },
     {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-92",
+      "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
+      "numbers": [
+        92
+      ],
+      "options": []
+    },
+    {
       "id": "arbeitsbescheinigung sgb iii 08/2023-93",
       "german": "Wurde eine Urlaubsabgeltung wegen der Beendigung des Beschäftigungs-/Arbeits-/Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu zahlen?",
       "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 93",
@@ -2436,6 +2445,15 @@
       ]
     },
     {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-94",
+      "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
+      "numbers": [
+        94
+      ],
+      "options": []
+    },
+    {
       "id": "arbeitsbescheinigung sgb iii 08/2023-95",
       "german": "Wurde eine Abfindung, Entschädigung oder ähnliche Leistung wegen der Beendigung des Beschäftigungs-/Arbeits- beziehungsweise Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu bezahlen?",
       "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 95",
@@ -2446,6 +2464,16 @@
         "Ja",
         "Nein (weiter mit 97)"
       ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-96-97",
+      "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
+      "numbers": [
+        96,
+        97
+      ],
+      "options": []
     },
     {
       "id": "arbeitsbescheinigung sgb iii 08/2023-98",
@@ -2482,34 +2510,6 @@
         "Ja",
         "Nein (weiter mit Abschnitt J.)"
       ]
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-92",
-      "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
-      "numbers": [
-        92
-      ],
-      "options": []
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-94",
-      "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
-      "numbers": [
-        94
-      ],
-      "options": []
-    },
-    {
-      "id": "arbeitsbescheinigung sgb iii 08/2023-96-97",
-      "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
-      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
-      "numbers": [
-        96,
-        97
-      ],
-      "options": []
     },
     {
       "id": "arbeitsbescheinigung sgb iii 08/2023-101",
@@ -2638,6 +2638,17 @@
       "options": []
     },
     {
+      "id": "income-notes",
+      "german": "Angaben zum Arbeitsentgelt",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
+      "numbers": [],
+      "options": [
+        "Bruttoarbeitsentgelt",
+        "Nettoarbeitsentgelt",
+        "Gesondert zu bescheinigen"
+      ]
+    },
+    {
       "id": "einkommensbescheinigung sgb ii 10/2026-1-2-3-4-5-6-7-8-9",
       "german": "Name der Arbeitgeberin/des Arbeitgebers · Straße · Hausnummer · Postleitzahl · Ort · Ansprechpartnerin/Ansprechpartner · Telefon · Geschäftszeichen · Betriebsnummer der Arbeitgeberin/des Arbeitgebers",
       "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 1 · A · 1–9",
@@ -2730,17 +2741,6 @@
       "options": [
         "Ja",
         "Nein"
-      ]
-    },
-    {
-      "id": "income-notes",
-      "german": "Angaben zum Arbeitsentgelt",
-      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
-      "numbers": [],
-      "options": [
-        "Bruttoarbeitsentgelt",
-        "Nettoarbeitsentgelt",
-        "Gesondert zu bescheinigen"
       ]
     },
     {

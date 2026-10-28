@@ -24,7 +24,7 @@ describe("Final ten verified specialist guides", () => {
   expect(getGuideSource(slug).verifiedOn).toBe("28.10.2026");
   expect(isGrundsicherungSlug(slug)).toBe(true);
  });
- it.each([["anlage-hg",24],["anlage-uf",125],["anlage-se",34],["anlage-uh1",44],["anlage-uh2",38],["anlage-uh3",56]] as const)("covers %s numbered fields exactly once",(slug,count)=>{
+ it.each([["anlage-hg",24],["anlage-uf",125],["anlage-se",34],["anlage-uh1",35],["anlage-uh2",35],["anlage-uh3",61]] as const)("covers %s numbered fields exactly once",(slug,count)=>{
   expect(inventory[slug].flatMap(t=>t.numbers)).toEqual(Array.from({length:count},(_,i)=>i+1));
  });
  it("keeps MEB medical numbering separate and employer document numbering separate",()=>{
@@ -49,8 +49,8 @@ describe("Final ten verified specialist guides", () => {
  it("retains all independently selectable SE declarations and UF accident-type branches",()=>{
   expect(bs.grundsicherungCompanions.guides["anlage-se"].terms.find(t=>t.id==="se-28")?.options).toHaveLength(3);
   const uf=inventory["anlage-uf"].flatMap(t=>t.options);
-  expect(uf).toContain("Straßenverkehrsunfall");
-  expect(uf).toContain("Arbeitsunfall");
+  expect(uf).toContain("Verkehrsunfall (weiter mit Abschnitt J)");
+  expect(uf).toContain("Arbeitsunfall (weiter mit Abschnitt I)");
  });
  it("introduces no answer intake, storage or transmission in the reused companion",()=>{
   const source=readFileSync("src/components/guide-first/ProcedureCompanion.tsx","utf8");
