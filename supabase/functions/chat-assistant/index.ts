@@ -17,8 +17,10 @@ const LANG_NAMES: Record<string, string> = {
 // ── FORM CATALOG ──
 
 function buildFormCatalogContext(): string {
-  return FORM_CATALOG.map(f => `- ${f.label} (slug: ${f.slug}): ${f.desc}`).join("\n");
+  return FORM_CATALOG_CONTEXT;
 }
+// Immutable generated catalog: preserve exact prompt bytes, construct once per worker.
+const FORM_CATALOG_CONTEXT = FORM_CATALOG.map(f => `- ${f.label} (slug: ${f.slug}): ${f.desc}`).join("\n");
 
 // ── SITE CONTENT INDEX ──
 
@@ -398,16 +400,12 @@ function detectConversationPremiumEscalation(messages: any[]): boolean {
 
 // ── DATABASE LOOKUP ──
 
-async function searchDatabase(query: string): Promise<any[]> {
-  const supabaseUrl = Deno.env.get("SUPABASE_URL");
-  const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-  if (!supabaseUrl || !supabaseKey) return [];
-  const supabase = createClient(supabaseUrl, supabaseKey);
+async function searchDatabase(query: string, admin: any): Promise<any[]> {
   const stopWords = new Set(["die", "der", "das", "und", "oder", "für", "von", "wie", "was", "ist", "ein", "the", "and", "for", "gdje", "kako", "sta", "koji"]);
   const terms = query.toLowerCase().replace(/[?!.,;:"""„'']/g, " ").split(/\s+/).filter((w) => w.length >= 3 && !stopWords.has(w));
   if (terms.length === 0) return [];
   try {
-    const { data, error } = await supabase.rpc("search_community_listings", { search_terms: terms });
+    const { data, error } = await admin.rpc("search_community_listings", { search_terms: terms });
     if (error) return [];
     return (data || []).slice(0, 5);
   } catch { return []; }
@@ -1461,7 +1459,6 @@ serve(async (req) => {
 
     const sourceGuide = resolveConversationGuide(messages, currentPage || "");
     // A recognized question wins over an unrelated page. URLs alone are not verified facts.
-    const pageContext = sourceGuide ? "" : buildEnrichedPageContext(currentPage || "");
 
     // Keep the existing general-chat language policy; sourced steps support all four locales.
     const lang = language === "de" ? "de" : language === "en" ? "en" : "bs";
@@ -1540,8 +1537,6 @@ serve(async (req) => {
       );
     }
 
-    // ── DB search for local business queries ──
-    const dbResults = await searchDatabase(userText);
     // Default language for system prompt = "bs" (system prompt itself forces BS replies anyway)
     let reservation: Reservation;
     try {
@@ -1566,12 +1561,19 @@ serve(async (req) => {
         "Access-Control-Expose-Headers": "X-Guide-Slug, X-Usage-Mode",
         "X-Guide-Slug": sourceGuide, "X-Usage-Mode": reservation.mode ?? "full" } });
     }
+    // These contexts are unused by gates and deterministic guides; preserve them on the model path.
+    let dbResults: any[];
+    try { dbResults = await searchDatabase(userText, admin); }
+    catch (e) { await releaseUsage(admin, reservation); throw e; }
+    const pageContext = buildEnrichedPageContext(currentPage || "");
     const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext) + `
 INTERNAL GUIDE ACCURACY: Use only catalog slugs from the supplied catalog. Never invent a /formulari/ slug or default an unknown topic to Kindergeld. No source-backed guide was resolved for this question. Do not claim you checked a guide/source live. For unknown procedures say what is unknown; unrelated page context is not proof. Do not promise PDF filling, submission or eligibility.`;
     const conversationInstructions = `Respond with 2–4 understandable numbered actions where supported: what to prepare, where to go, what the user must personally check/sign/submit. Reuse the existing conversation, do not repeat answered questions. Ask at most one necessary, non-sensitive clarification only if it changes the next action. Unknown facts remain unknown, not a made-up procedure. Do not generate generic follow-up questions just to prolong the conversation.`;
     const navigationContext = /viz[aeu]|visa|visum|aufenthalt|boravišn|boravisn|blue.?card|blaue karte/i.test(userText) ? visaNavigationContext(language) : "";
 
-    const response = await fetch(
+    let response: Response;
+    try {
+    response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
       {
         method: "POST",
@@ -1587,6 +1589,11 @@ INTERNAL GUIDE ACCURACY: Use only catalog slugs from the supplied catalog. Never
         }),
       }
     );
+    } catch (e) {
+      // No stream was delivered: release once, including network rejection; never retry the model.
+      await releaseUsage(admin, reservation);
+      throw e;
+    }
 
     if (!response.ok || !response.body) {
       await releaseUsage(admin, reservation);

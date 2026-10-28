@@ -8,6 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { useTranslation } from "react-i18next";
 import { readCompleteHistory, clearConfirmedHistory } from "@/lib/phase1-reliability/history";
+import { consumeAssistantStream, createAssistantRequestLock } from "@/lib/assistant-stream";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -359,6 +360,7 @@ export default function ChatAssistant() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const lastFailedMsgRef = useRef<string | null>(null);
+  const requestLockRef = useRef(createAssistantRequestLock());
 
   // Persist messages to localStorage (fast cache)
   useEffect(() => {
@@ -715,7 +717,7 @@ export default function ChatAssistant() {
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (clearPending.current) return;
     const file = e.target.files?.[0];
-    if (!file) return;
+    if (!file || !requestLockRef.current.acquire()) return;
 
     const reader = new FileReader();
     reader.onload = async () => {
@@ -773,8 +775,10 @@ export default function ChatAssistant() {
         setMessages(prev => [...prev, { role: "assistant", content: "Ups, nisam mogao analizirati ovaj dokument. Pokušaj ponovo." }]);
       } finally {
         setLoading(false);
+        requestLockRef.current.release();
       }
     };
+    reader.onerror = reader.onabort = () => { requestLockRef.current.release(); };
     reader.readAsDataURL(file);
     e.target.value = "";
   };
@@ -782,10 +786,10 @@ export default function ChatAssistant() {
   const streamResponse = async (resp: Response, userText: string) => {
     let assistantSoFar = "";
     const detectedSlug = detectGuideSlugFromText(userText);
-    let flushPending = false;
+    let flushFrame: number | null = null;
 
     const flushToState = () => {
-      flushPending = false;
+      flushFrame = null;
       const { cleanText: rawClean, formSlugs } = extractFormMarkers(assistantSoFar);
       const { cleanText, suggestions } = extractSuggestions(rawClean);
       setMessages(prev => {
@@ -798,9 +802,8 @@ export default function ChatAssistant() {
     };
 
     const scheduleFlush = () => {
-      if (!flushPending) {
-        flushPending = true;
-        requestAnimationFrame(flushToState);
+      if (flushFrame === null) {
+        flushFrame = requestAnimationFrame(flushToState);
       }
     };
 
@@ -814,39 +817,17 @@ export default function ChatAssistant() {
     let headerSiteTopics: SiteTopicAction[] = [];
     if (headerSiteTopicsRaw) { try { headerSiteTopics = JSON.parse(headerSiteTopicsRaw); } catch {} }
 
-    if (!resp.body) return;
-    const reader = resp.body.getReader();
-    const decoder = new TextDecoder();
-    let textBuffer = "";
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      textBuffer += decoder.decode(value, { stream: true });
-      let ni: number;
-      while ((ni = textBuffer.indexOf("\n")) !== -1) {
-        let line = textBuffer.slice(0, ni);
-        textBuffer = textBuffer.slice(ni + 1);
-        if (line.endsWith("\r")) line = line.slice(0, -1);
-        if (line.startsWith(":") || !line.trim() || !line.startsWith("data: ")) continue;
-        const jsonStr = line.slice(6).trim();
-        if (jsonStr === "[DONE]") break;
-        try {
-          const parsed = JSON.parse(jsonStr);
-          const c = parsed.choices?.[0]?.delta?.content as string | undefined;
-          if (c) {
-            assistantSoFar += c;
-            scheduleFlush();
-          }
-        } catch {
-          textBuffer = line + "\n" + textBuffer;
-          break;
-        }
-      }
+    if (!resp.body) throw new Error("ASSISTANT_STREAM_MISSING");
+    try {
+      await consumeAssistantStream(resp.body, content => {
+        assistantSoFar += content;
+        scheduleFlush();
+      });
+    } finally {
+      if (flushFrame !== null) cancelAnimationFrame(flushFrame);
+      // Preserve received text even on interruption; no late frame may overwrite the error.
+      if (assistantSoFar) flushToState();
     }
-
-    // Final flush to ensure all content is rendered
-    flushToState();
 
     if (headerSlug || headerFormSlug || headerSiteTopics.length > 0) {
       setMessages(prev => {
@@ -880,14 +861,14 @@ export default function ChatAssistant() {
       return;
     }
 
-    await recordQuery();
-    const userMsg: Msg = { role: "user", content: text.trim() };
-    const newMessages = [...messages, userMsg];
-    setMessages(newMessages);
-    setInput("");
+    if (!requestLockRef.current.acquire()) return;
     setLoading(true);
-
     try {
+      await recordQuery();
+      const userMsg: Msg = { role: "user", content: text.trim() };
+      const newMessages = [...messages, userMsg];
+      setMessages(newMessages);
+      setInput("");
       const { data: sessionData } = await supabase.auth.getSession();
       const accessToken = sessionData.session?.access_token;
       if (!accessToken) {
@@ -959,6 +940,7 @@ export default function ChatAssistant() {
       lastFailedMsgRef.current = text;
     } finally {
       setLoading(false);
+      requestLockRef.current.release();
     }
   }, [loading, messages, isPremium, chatLang, location.pathname, recordQuery]);
 
