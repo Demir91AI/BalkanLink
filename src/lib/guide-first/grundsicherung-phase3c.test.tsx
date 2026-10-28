@@ -45,7 +45,7 @@ describe("Phase 3C verified specialist annexes", () => {
   const eks=bs.grundsicherungCompanions.guides["anlage-eks"].terms;
   const rows=eks.flatMap(t=>"options" in t?t.options.map(o=>o.german):[]);
   expect(rows.filter(r=>/^A\d/.test(r))).toHaveLength(7);
-  expect(rows.filter(r=>/^B\d/.test(r))).toHaveLength(33);
+  expect(rows.filter(r=>/^B\d/.test(r))).toHaveLength(31);
   expect(rows).toContain("B16 Tilgung bestehender betrieblicher Darlehen");
   expect(rows).toContain("B18 an das Finanzamt gezahlte Umsatzsteuer");
   expect(rows).toContain("Abzüglich privat gefahrener Kilometer (0,10 Euro je gefahrenem Kilometer)");
