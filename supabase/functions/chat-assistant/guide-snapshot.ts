@@ -321,7 +321,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "documents",
               "title": "Šta ti treba — a šta nije automatski obavezno",
-              "concise": "Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva.",
+              "concise": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa.",
               "action": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa."
             },
             {
@@ -345,7 +345,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "submit",
               "title": "Provjeri i predaj zahtjev",
-              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu.",
+              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže.",
               "action": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže."
             },
             {
@@ -479,7 +479,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "documents",
               "title": "Šta ti treba — a šta nije automatski obavezno",
-              "concise": "Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva.",
+              "concise": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa.",
               "action": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa."
             },
             {
@@ -503,7 +503,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "submit",
               "title": "Provjeri i predaj zahtjev",
-              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu.",
+              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže.",
               "action": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže."
             },
             {
@@ -637,7 +637,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "documents",
               "title": "Šta ti treba — a šta nije automatski obavezno",
-              "concise": "Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva.",
+              "concise": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa.",
               "action": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa."
             },
             {
@@ -661,7 +661,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "submit",
               "title": "Provjeri i predaj zahtjev",
-              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu.",
+              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže.",
               "action": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže."
             },
             {
@@ -795,7 +795,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "documents",
               "title": "Was du brauchst — und was nicht pauschal nötig ist",
-              "concise": "Bereite deine Identitätsdaten, die Daten des Kindes und die Zahlungsdaten vor. Für Aufenthaltsstatus oder Sonderfälle beachte die Hinweise des amtlichen Antrags.",
+              "concise": "Für ein Kind unter 18 reichen normalerweise die Steuer-ID des Elternteils und des Kindes. Bei einem in Deutschland geborenen Neugeborenen ist die Geburtsurkunde nicht pauschal eine Pflichtanlage. Bereite deine Identitätsdaten, die Daten des Kindes und die Zahlungsdaten vor. Für Aufenthaltsstatus oder Sonderfälle beachte die Hinweise des amtlichen Antrags. Steuer-ID: BZSt-Schreiben oder elektronische Lohnsteuerbescheinigung des Elternteils; Ausweisdokumente; Bank-App oder Kontoauszug.",
               "action": "Für ein Kind unter 18 reichen normalerweise die Steuer-ID des Elternteils und des Kindes. Bei einem in Deutschland geborenen Neugeborenen ist die Geburtsurkunde nicht pauschal eine Pflichtanlage. Bereite deine Identitätsdaten, die Daten des Kindes und die Zahlungsdaten vor. Für Aufenthaltsstatus oder Sonderfälle beachte die Hinweise des amtlichen Antrags. Steuer-ID: BZSt-Schreiben oder elektronische Lohnsteuerbescheinigung des Elternteils; Ausweisdokumente; Bank-App oder Kontoauszug."
             },
             {
@@ -819,7 +819,7 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "submit",
               "title": "Prüfen und einreichen",
-              "concise": "Prüfe Eltern- und Kinderdaten, Steuer-IDs, Konto und Antworten zu anderen Staaten oder früheren Leistungen. Schließe online die amtliche Übermittlung ab und sichere die Bestätigung.",
+              "concise": "Prüfe Eltern- und Kinderdaten, Steuer-IDs, Konto und Antworten zu anderen Staaten oder früheren Leistungen. Schließe online die amtliche Übermittlung ab und sichere die Bestätigung. Auf Papier prüfst du die Unterschriften in KG1 und Anlage Kind sowie die zuständige Familienkasse anhand der amtlichen Hinweise. Sende keine Originale, sofern diese nicht ausdrücklich verlangt werden.",
               "action": "Prüfe Eltern- und Kinderdaten, Steuer-IDs, Konto und Antworten zu anderen Staaten oder früheren Leistungen. Schließe online die amtliche Übermittlung ab und sichere die Bestätigung. Auf Papier prüfst du die Unterschriften in KG1 und Anlage Kind sowie die zuständige Familienkasse anhand der amtlichen Hinweise. Sende keine Originale, sofern diese nicht ausdrücklich verlangt werden."
             },
             {
