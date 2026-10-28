@@ -87,3 +87,22 @@ describe('Viza content-only accuracy, 28 October 2026', () => {
     }
   });
 });
+describe('Viza regression fix, 28 October 2026', () => {
+  const langs = ['bs', 'hr', 'sr', 'de'] as const;
+  it('keeps every localized country code and route id identical to the base ids', () => {
+    for (const lang of langs) {
+      const loc = getLocalizedCountryContent(lang);
+      expect(loc.map(c => c.code)).toEqual(COUNTRY_CONTENT.map(c => c.code));
+      loc.forEach((c, i) => expect(c.routes.map(r => r.id)).toEqual(COUNTRY_CONTENT[i].routes.map(r => r.id)));
+    }
+    expect(COUNTRY_CONTENT.reduce((n, c) => n + c.routes.length, 0)).toBe(32);
+  });
+  it('has no repeated item inside any steps/documents/costs/errors list in any locale', () => {
+    for (const lang of langs) {
+      for (const c of getLocalizedCountryContent(lang)) for (const r of c.routes) for (const key of ['steps', 'documents', 'costs', 'errors'] as const) {
+        const list = (r[key] ?? []) as string[];
+        expect(new Set(list).size, `${lang} ${c.code}.${r.id}.${key}`).toBe(list.length);
+      }
+    }
+  });
+});
