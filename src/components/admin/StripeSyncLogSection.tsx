@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -30,17 +31,13 @@ type RetentionSettings = {
   last_purged_count: number;
 };
 
-const ACTION_LABEL: Record<string, string> = {
-  audit: "Provjera (audit)",
-  sync_all: "Sync svih",
-  sync_user: "Sync korisnika",
-};
-
 const fmt = (iso: string) =>
   new Date(iso).toLocaleString("de-DE", { dateStyle: "short", timeStyle: "medium" });
 
 export default function StripeSyncLogSection() {
   const { isAdmin, profileLoading } = useAuth();
+  const { t } = useTranslation("common");
+  const ACTION_LABEL: Record<string,string> = { audit:t("adminSync.audit"),sync_all:t("adminSync.syncAll"),sync_user:t("adminSync.syncUser") };
   const [rows, setRows] = useState<SyncLogRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [onlyFailed, setOnlyFailed] = useState(false);
@@ -70,7 +67,7 @@ export default function StripeSyncLogSection() {
       .order("created_at", { ascending: false })
       .limit(500);
     if (error) {
-      toast.error("Greška pri učitavanju audit loga");
+      toast.error(t("adminSync.auditError"));
     } else {
       setRows((data ?? []) as SyncLogRow[]);
     }
@@ -95,6 +92,7 @@ export default function StripeSyncLogSection() {
   }, [load, loadSettings, isAdmin]);
 
   const saveSettings = async (patch: Partial<RetentionSettings>) => {
+    if (!window.confirm(t("adminSync.confirmSettings"))) return;
     setSavingSettings(true);
     const { error } = await (supabase as any)
       .from("stripe_sync_log_settings")
@@ -102,31 +100,32 @@ export default function StripeSyncLogSection() {
       .eq("id", 1);
     setSavingSettings(false);
     if (error) {
-      toast.error("Nemate ovlaštenje ili je došlo do greške");
+      toast.error(t("adminSync.notAllowed"));
       return;
     }
-    toast.success("Politika zadržavanja sačuvana");
+    toast.success(t("adminSync.retentionSaved"));
     loadSettings();
   };
 
   const saveRetention = () => {
     const days = Number(retentionInput);
     if (!Number.isFinite(days) || days < 1 || days > 3650) {
-      toast.error("Unesite broj dana između 1 i 3650");
+      toast.error(t("adminSync.retentionRange"));
       return;
     }
     saveSettings({ retention_days: Math.round(days) });
   };
 
   const purgeNow = async () => {
+    if (!window.confirm(t("adminSync.confirmPurge"))) return;
     setPurging(true);
     const { data, error } = await (supabase as any).rpc("purge_stripe_sync_log", { _force: true });
     setPurging(false);
     if (error) {
-      toast.error("Čišćenje nije uspjelo");
+      toast.error(t("adminSync.purgeError"));
       return;
     }
-    toast.success(`Obrisano ${data ?? 0} starih zapisa`);
+    toast.success(t("adminSync.purged", { count:data ?? 0 }));
     load();
     loadSettings();
   };
@@ -149,7 +148,7 @@ export default function StripeSyncLogSection() {
 
   const exportCsv = () => {
     if (!visible.length) {
-      toast.error("Nema zapisa za izvoz");
+      toast.error(t("adminSync.exportEmpty"));
       return;
     }
     const head = [
@@ -169,7 +168,7 @@ export default function StripeSyncLogSection() {
         [
           new Date(r.created_at).toISOString(),
           ACTION_LABEL[r.action] ?? r.action,
-          r.success ? "uspjeh" : "neuspjeh",
+          r.success ? t("adminCenter.success") : t("adminCenter.failed"),
           r.admin_email ?? "",
           r.target_email ?? "",
           r.records_updated ?? 0,
@@ -188,7 +187,7 @@ export default function StripeSyncLogSection() {
     a.download = `stripe-sync-log-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
-    toast.success(`Izvezeno ${visible.length} zapisa`);
+    toast.success(t("adminSync.exported", { count:visible.length }));
   };
 
   if (profileLoading) {
@@ -200,9 +199,9 @@ export default function StripeSyncLogSection() {
       <Card className="p-6 flex items-start gap-3">
         <ShieldAlert className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
         <div>
-          <h2 className="text-base font-semibold text-foreground">Pristup ograničen</h2>
+          <h2 className="text-base font-semibold text-foreground">{t("adminSync.restricted")}</h2>
           <p className="text-sm text-muted-foreground">
-            Stripe podaci i audit log vidljivi su isključivo korisnicima s admin ulogom.
+            {t("adminSync.adminOnly")}
           </p>
         </div>
       </Card>
@@ -214,32 +213,32 @@ export default function StripeSyncLogSection() {
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold text-foreground">Stripe ↔ baza audit log</h2>
+          <h2 className="text-lg font-semibold text-foreground">{t("adminSync.title")}</h2>
           <p className="text-sm text-muted-foreground">
-            Svaki pokušaj sinhronizacije: vrijeme, admin, rezultat i broj ažuriranih zapisa.
+            {t("adminSync.description")}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <Button variant="outline" size="sm" onClick={() => setOnlyFailed((v) => !v)}>
-            {onlyFailed ? "Prikaži sve" : "Samo neuspjeli"}
+            {onlyFailed ? t("adminSync.showAll") : t("adminSync.onlyFailed")}
           </Button>
           <Button variant="outline" size="sm" onClick={load} disabled={loading}>
             <RefreshCw className={`h-4 w-4 mr-1.5 ${loading ? "animate-spin" : ""}`} />
-            Osvježi
+            {t("adminCenter.refresh")}
           </Button>
           <Button size="sm" onClick={exportCsv}>
             <Download className="h-4 w-4 mr-1.5" />
-            Izvoz CSV
+            {t("adminCenter.export")}
           </Button>
         </div>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
-          { label: "Ukupno pokušaja", value: stats.total },
-          { label: "Uspješnih", value: stats.ok },
-          { label: "Neuspješnih", value: stats.failed },
-          { label: "Ažuriranih zapisa", value: stats.updated },
+          { label: t("adminSync.total"), value: stats.total },
+          { label: t("adminSync.ok"), value: stats.ok },
+          { label: t("adminSync.fail"), value: stats.failed },
+          { label: t("adminSync.updated"), value: stats.updated },
         ].map((s) => (
           <Card key={s.label} className="p-4">
             <p className="text-xs text-muted-foreground">{s.label}</p>
@@ -251,16 +250,16 @@ export default function StripeSyncLogSection() {
       <Card className="p-4 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Politika zadržavanja logova</h3>
+            <h3 className="text-sm font-semibold text-foreground">{t("adminSync.retention")}</h3>
             <p className="text-xs text-muted-foreground">
-              Zapisi stariji od zadanog broja dana brišu se automatski (dnevno u 03:20).
+              {t("adminSync.retentionDesc")}
               {settings?.last_purged_at
-                ? ` Zadnje čišćenje: ${fmt(settings.last_purged_at)} (${settings.last_purged_count} zapisa).`
+                ? t("adminSync.lastPurge", { date:fmt(settings.last_purged_at),count:settings.last_purged_count })
                 : " Još nije bilo čišćenja."}
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground">Auto-čišćenje</span>
+            <span className="text-xs text-muted-foreground">{t("adminSync.autoPurge")}</span>
             <Switch
               checked={!!settings?.auto_purge_enabled}
               disabled={savingSettings || !settings}
@@ -277,14 +276,14 @@ export default function StripeSyncLogSection() {
             onChange={(e) => setRetentionInput(e.target.value)}
             className="w-28"
           />
-          <span className="text-sm text-muted-foreground">dana</span>
+          <span className="text-sm text-muted-foreground">{t("adminCenter.days", { count:Number(retentionInput) })}</span>
           <Button size="sm" variant="outline" onClick={saveRetention} disabled={savingSettings}>
             <Save className="h-4 w-4 mr-1.5" />
-            Sačuvaj
+            {t("buttons.save")}
           </Button>
           <Button size="sm" variant="destructive" onClick={purgeNow} disabled={purging}>
             <Trash2 className="h-4 w-4 mr-1.5" />
-            Očisti sada
+            {t("adminSync.purgeNow")}
           </Button>
         </div>
       </Card>
@@ -295,14 +294,14 @@ export default function StripeSyncLogSection() {
         <table className="w-full text-sm">
           <thead className="bg-muted/50 text-muted-foreground">
             <tr>
-              <th className="text-left font-medium px-3 py-2">Vrijeme</th>
-              <th className="text-left font-medium px-3 py-2">Akcija</th>
-              <th className="text-left font-medium px-3 py-2">Status</th>
-              <th className="text-left font-medium px-3 py-2">Admin</th>
-              <th className="text-left font-medium px-3 py-2">Korisnik</th>
-              <th className="text-right font-medium px-3 py-2">Ažurirano</th>
-              <th className="text-right font-medium px-3 py-2">Neslaganja</th>
-              <th className="text-left font-medium px-3 py-2">Greška</th>
+              <th className="text-left font-medium px-3 py-2">{t("adminSync.time")}</th>
+              <th className="text-left font-medium px-3 py-2">{t("adminSync.action")}</th>
+              <th className="text-left font-medium px-3 py-2">{t("adminCenter.status")}</th>
+              <th className="text-left font-medium px-3 py-2">{t("adminSync.admin")}</th>
+              <th className="text-left font-medium px-3 py-2">{t("adminSync.user")}</th>
+              <th className="text-right font-medium px-3 py-2">{t("adminSync.updated")}</th>
+              <th className="text-right font-medium px-3 py-2">{t("adminSync.mismatches")}</th>
+              <th className="text-left font-medium px-3 py-2">{t("adminSync.errors")}</th>
             </tr>
           </thead>
           <tbody>
@@ -315,7 +314,7 @@ export default function StripeSyncLogSection() {
                 <td className="px-3 py-2">
                   <Badge variant={r.success ? "secondary" : "destructive"} className="gap-1">
                     {r.success ? <CheckCircle2 className="h-3 w-3" /> : <XCircle className="h-3 w-3" />}
-                    {r.success ? "Uspjeh" : "Neuspjeh"}
+                    {r.success ? t("adminCenter.success") : t("adminCenter.failed")}
                   </Badge>
                 </td>
                 <td className="px-3 py-2 text-muted-foreground">{r.admin_email ?? "—"}</td>
@@ -330,7 +329,7 @@ export default function StripeSyncLogSection() {
             {!visible.length && !loading && (
               <tr>
                 <td colSpan={8} className="px-3 py-8 text-center text-muted-foreground">
-                  Nema zapisa.
+                  {t("adminCenter.empty")}
                 </td>
               </tr>
             )}
