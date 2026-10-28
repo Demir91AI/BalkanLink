@@ -55,7 +55,7 @@ export function isValidExercise(e: Exercise): boolean {
 
 function signature(e: Exercise): string {
   const ans = Array.isArray(e.answer) ? e.answer.map((i) => e.options[i]).join(" ") : typeof e.answer === "number" ? e.options[e.answer] : e.answer;
-  return `${e.question.trim()}|${String(ans).trim()}`;
+  return `${e.situation?.trim() ?? ""}|${e.question.trim()}|${String(ans).trim()}`;
 }
 
 /** Unique, valid exercises of given stages, in original order, with stable keys. */

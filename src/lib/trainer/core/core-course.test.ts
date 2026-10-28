@@ -45,7 +45,8 @@ describe("core plan for every lesson", () => {
       expect(plan.checkpoint.length).toBeLessThanOrEqual(CORE_CHECKPOINT_CAP);
       const refs = [...plan.practice, ...plan.checkpoint];
       expect(new Set(refs.map((r) => r.key)).size).toBe(refs.length);
-      expect(new Set(refs.map((r) => `${r.exercise.question}|${JSON.stringify(r.exercise.answer)}`)).size).toBe(refs.length);
+      const ansText = (e: typeof refs[number]["exercise"]) => Array.isArray(e.answer) ? e.answer.map((i) => e.options[i]).join(" ") : typeof e.answer === "number" ? e.options[e.answer] : e.answer;
+      expect(new Set(refs.map((r) => `${r.exercise.situation}|${r.exercise.question}|${ansText(r.exercise)}`)).size).toBe(refs.length);
       for (const r of refs) {
         expect(isValidExercise(r.exercise)).toBe(true);
         const m = /^(.+):s(\d):e(\d+)$/.exec(r.key)!;

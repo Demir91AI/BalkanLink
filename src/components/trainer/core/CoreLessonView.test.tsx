@@ -17,13 +17,13 @@ function answer(ref: ExerciseRef, right: boolean) {
   const q = within(region);
   if (e.type === "sort_sentence") {
     const order = right ? (e.answer as number[]) : [...(e.answer as number[])].reverse();
-    for (const i of order) q.getAllByRole("button", { name: e.options[i] }).find((b) => !(b as HTMLButtonElement).disabled)!.click();
+    for (const i of order) fireEvent.click(q.getAllByRole("button").find((b) => b.textContent?.trim() === e.options[i] && !(b as HTMLButtonElement).disabled)!);
     fireEvent.click(q.getByRole("button", { name: /Proveri|Provjeri/ }));
     return;
   }
   const correctText = e.type === "fill_blank" ? (e.answer as string) : e.options[e.answer as number];
   const text = right ? correctText : e.options.find((o) => o !== correctText)!;
-  fireEvent.click(q.getAllByRole("button", { name: text })[0]);
+  fireEvent.click(q.getAllByRole("button").find((b) => b.textContent?.trim().endsWith(text))!);
 }
 
 describe("CoreLessonView (legacy-adapted B1 lesson, Serbian UI)", () => {
