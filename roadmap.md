@@ -71,3 +71,6 @@
 
 ## Wohngeld batch
 - [x] Decision guide + Bayern MZ/LZ + general companion, 4 locales, tests, docs (exact Bavarian field mapping blocked: encrypted originals)
+
+## Rad i karijera batch
+- [x] arbeitslosengeld, krankenkasse, steuerklassenwechsel companions (topical, no field mapping)
