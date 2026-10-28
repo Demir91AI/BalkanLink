@@ -11595,12 +11595,12 @@
       },
       "anlage-hg": {
         "title": "HG — domaćinstvo sa srodnicima, polje po polje",
-        "introduction": "HG je za zajedničko domaćinstvo tvoje Bedarfsgemeinschaft sa srodnikom ili osobom u tazbinskom srodstvu; uvod traži poseban HG za svaku takvu osobu. Zajednička adresa ne zamjenjuje proveru stvarnih okolnosti. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "HG je za zajedničko domaćinstvo tvoje Bedarfsgemeinschaft sa srodnikom ili osobom u tazbinskom srodstvu; uvod traži poseban HG za svaku takvu osobu. Zajednička adresa ne zamjenjuje proveru stvarnih okolnosti. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original HG 10/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -11728,7 +11728,7 @@
             "german": "Monatliche Höhe der Unterkunftskosten in Euro · Monatliche Gesamtkosten für die gemeinsame Unterkunft in Euro",
             "reference": "HG · Seite 2 · C · 19–20",
             "meaning": "Tvoja uplata i ukupni trošak stana",
-            "instruction": "19 iznos koji BG plaća srodniku; 20 ukupan mesečni trošak cijelog stana samo koliko ti je poznat.",
+            "instruction": "19 iznos koji BG plaća srodniku; 20 ukupan mesečni trošak celog stana samo koliko ti je poznat.",
             "where": "Ugovor, obračun troškova i uplate.",
             "example": "Izmišljeno: Maja plaća 250 € od poznatih ukupnih 700 €.",
             "mistake": "Ne prijavi puni najam kao vlastitu uplatu niti nagađaj nepoznati ukupan trošak."
@@ -11758,7 +11758,7 @@
             "id": "evidence",
             "title": "Pripremi stvarne dogovore i uplate",
             "sections": {
-              "meaning": "Finansijska podrška i dijeljenje stambenih troškova su zasebna pitanja.",
+              "meaning": "Finansijska podrška i deljenje stambenih troškova su zasebna pitanja.",
               "action": "Pripremi kopije: odnos, ugovor/dogovor stanovanja, iznose i ritam podrške, uplate troškova. Primer: mesečno Haushaltsgeld odvojeno od Mietanteila.",
               "mistake": "Ne šalji originale niti nepoznate iznose pretvaraj u nulu."
             }
@@ -11785,12 +11785,12 @@
       },
       "anlage-meb": {
         "title": "MEB — medicinski neophodna skuplja ishrana",
-        "introduction": "MEB traži proveru dodatnih troškova medicinski potrebne ishrane, ne novac za svaku promenu ishrane. Medicinska potvrda ili konkretan lekarski atest su dokazi; atest ide u zatvorenoj koverti. Ne navodi zdravstvene podatke na BalkanLinku. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "MEB traži proveru dodatnih troškova medicinski potrebne ishrane, ne novac za svaku promenu ishrane. Medicinska potvrda ili konkretan lekarski atest su dokazi; atest ide u zatvorenoj koverti. Ne navodi zdravstvene podatke na BalkanLinku. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original MEB 10/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -11858,10 +11858,10 @@
             "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
             "reference": "MEB-Med · Seite 1 von 3 (PDF 2) · Patient · 1–3",
             "meaning": "Pacijent iz medicinske potvrde",
-            "instruction": "Podaci pacijenta moraju odgovarati osobi iz MEB B. U medicinskom dijelu brojevi počinju ponovo od 1.",
+            "instruction": "Podaci pacijenta moraju odgovarati osobi iz MEB B. U medicinskom delu brojevi počinju ponovo od 1.",
             "where": "Lični dokument i MEB B.",
             "example": "Izmišljeno: pacijent je Damir, iako Maja podnosi HA.",
-            "mistake": "Ne pomiješaj 1–3 medicinske potvrde sa 1–3 glavnog zahteva."
+            "mistake": "Ne pomešaj 1–3 medicinske potvrde sa 1–3 glavnog zahteva."
           },
           {
             "id": "meb-med-4-5-6-7-8-9-10",
@@ -11878,7 +11878,7 @@
             "german": "Datum · Unterschrift der Patientin/des Patienten",
             "reference": "MEB-Med · Seite 1 von 3 (PDF 2) · Patient · 11–12",
             "meaning": "Datum i potpis pacijenta na izjavi",
-            "instruction": "Ovo je zasebna medicinska izjava; pacijent odlučuje nakon razumijevanja obima. Za zastupanje pitaj nadležnu službu, ne potpisuj samovoljno za drugog.",
+            "instruction": "Ovo je zasebna medicinska izjava; pacijent odlučuje nakon razumevanja obima. Za zastupanje pitaj nadležnu službu, ne potpisuj samovoljno za drugog.",
             "where": "Pročitana dobrovoljna izjava i ovlašćenje ako postoji.",
             "example": "Izmišljeno: Maja prvo razjasni opoziv i tek potom odluči o potpisu.",
             "mistake": "Pregled vodiča ne daje saglasnost niti prenosi nalaze."
@@ -11888,7 +11888,7 @@
             "german": "Bitte kreuzen Sie das zutreffende Krankheitsbild an.",
             "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 13",
             "meaning": "Bolest i potrebna ishrana — popunjava lekar",
-            "instruction": "Lekar označava stvarno utvrđeno stanje. Kod „Sonstige Erkrankung“ navodi bolest i Erforderliche Kostform. Kod Krankheitsassoziierte Mangelernährung procjenjuje 14/15; inače 16. Ovdje nema medicinskog upitnika.",
+            "instruction": "Lekar označava stvarno utvrđeno stanje. Kod „Sonstige Erkrankung“ navodi bolest i Erforderliche Kostform. Kod Krankheitsassoziierte Mangelernährung procjenjuje 14/15; inače 16. Ovde nema medicinskog upitnika.",
             "where": "Popunjava isključivo lekar prema pregledu i medicinskim nalazima; ne biraš dijagnozu radi dodatka.",
             "example": "Izmišljeno: ordinacija upisuje stvarno potvrđenu kostform; Maja ništa ne dijagnosticira sama.",
             "mistake": "Lista bolesti ne znači automatsko pravo ili uputu za samodijagnozu.",
@@ -11924,7 +11924,7 @@
             "german": "Sind bei erwachsenen Personen die Kriterien für die Diagnose einer Mangelernährung (mindestens jeweils ein Kriterium phänotypischer und ätiologischer Natur) erfüllt?",
             "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 14",
             "meaning": "Medicinski kriteriji pothranjenosti odrasle osobe",
-            "instruction": "Samo kod bolesti povezane s pothranjenošću iz 13, lekar procjenjuje odgovarajuću dobnu granu. Medicinske kriterije ne izračunavaš ovdje.",
+            "instruction": "Samo kod bolesti povezane s pothranjenošću iz 13, lekar procjenjuje odgovarajuću dobnu granu. Medicinske kriterije ne izračunavaš ovde.",
             "where": "Popunjava isključivo lekar prema pregledu i medicinskim nalazima; ne biraš dijagnozu radi dodatka.",
             "example": "Izmišljeno: lekar proverava odgovarajuću dobnu grupu pacijenta.",
             "mistake": "Ne odgovaraj na oba dobna pitanja kao da se odnose na istu dob.",
@@ -11944,7 +11944,7 @@
             "german": "Liegt bei minderjährigen Personen ein erhöhter Ernährungsbedarf anhand des individuellen Entwicklungsstands (zum Beispiel Perzentilkurven Kromeyer-Hauschild 2001) vor?",
             "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 15",
             "meaning": "Povećana potreba maloljetnika prema razvoju",
-            "instruction": "Samo kod bolesti povezane s pothranjenošću iz 13, lekar procjenjuje odgovarajuću dobnu granu. Medicinske kriterije ne izračunavaš ovdje.",
+            "instruction": "Samo kod bolesti povezane s pothranjenošću iz 13, lekar procjenjuje odgovarajuću dobnu granu. Medicinske kriterije ne izračunavaš ovde.",
             "where": "Popunjava isključivo lekar prema pregledu i medicinskim nalazima; ne biraš dijagnozu radi dodatka.",
             "example": "Izmišljeno: lekar proverava odgovarajuću dobnu grupu pacijenta.",
             "mistake": "Ne odgovaraj na oba dobna pitanja kao da se odnose na istu dob.",
@@ -12025,8 +12025,8 @@
             "title": "Odvoji zahtev i medicinsku potvrdu",
             "sections": {
               "meaning": "Glavni MEB ima 1 stranu/12 polja; potvrda ima 3 strane i ponovljene brojeve.",
-              "action": "Pripremi kopije ranijeg Bescheida ako postoji, medicinsku potvrdu ili konkretan atest; original traži bolest i kostform u atestu. Dokaz ne unosi ovdje.",
-              "mistake": "Ne pomiješaj ime podnosioca, pacijenta i lekara."
+              "action": "Pripremi kopije ranijeg Bescheida ako postoji, medicinsku potvrdu ili konkretan atest; original traži bolest i kostform u atestu. Dokaz ne unosi ovde.",
+              "mistake": "Ne pomešaj ime podnosioca, pacijenta i lekara."
             }
           },
           {
@@ -12051,12 +12051,12 @@
       },
       "anlage-se": {
         "title": "SE — razumij tri odvojene medicinske saglasnosti",
-        "introduction": "SE je prilog UF za proveru odštetnih zahteva nakon štete od treće osobe; nije opća saglasnost za svu zdravstvenu dokumentaciju ili zamjena za MEB. C, D i E su odvojene dobrovoljne izjave. Ne tražimo zdravstvene podatke. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "SE je prilog UF za proveru odštetnih zahteva nakon štete od treće osobe; nije opća saglasnost za svu zdravstvenu dokumentaciju ili zamjena za MEB. C, D i E su odvojene dobrovoljne izjave. Ne tražimo zdravstvene podatke. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original SE 10/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -12084,7 +12084,7 @@
             "german": "Schweigepflichtentbindungserklärung für Ärztinnen/Ärzte, Krankenhäuser und Kliniken",
             "reference": "SE · Seite 1–2 · Abschnitt C",
             "meaning": "C: dokumenti od navedenih lekara/klinika",
-            "instruction": "C dopušta navedenim pružaocima slanje postojećih i budućih relevantnih nalaza Jobcenteru te nadležnoj regresnoj službi ako se uključi. Svrha je provera/provođenje odštete §116 SGB X, samo potrebni obim. Pre odluke pročitaj cijeli original; možeš tražiti pojašnjenje i zasebnu izjavu po ustanovi.",
+            "instruction": "C dopušta navedenim pružaocima slanje postojećih i budućih relevantnih nalaza Jobcenteru te nadležnoj regresnoj službi ako se uključi. Svrha je provera/provođenje odštete §116 SGB X, samo potrebni obim. Pre odluke pročitaj celi original; možeš tražiti pojašnjenje i zasebnu izjavu po ustanovi.",
             "where": "Tekst C i služba nadležna za odštetni postupak; ime/adresa iz stvarnih dokumenata.",
             "example": "Izmišljeno: Maja pre odluke pita koji se nalaz odnosi baš na opisani događaj.",
             "mistake": "Ne predstavljaj C kao obaveznu blanket saglasnost niti kao neograničen pristup."
@@ -12094,7 +12094,7 @@
             "german": "Name der ersten Ärztin/des ersten Arztes oder des ersten Krankenhauses oder der ersten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
             "reference": "SE · Seite 2 · C · 8–12",
             "meaning": "Prva konkretna ordinacija ili ustanova",
-            "instruction": "Samo za pružaoca koji je stvarno naveden u tvojoj izjavi C: naziv, ulica, broj, poštanski broj i mesto. Ne popunjavaj sva tri reda naslijepo; uvod dopušta zasebnu izjavu po ustanovi.",
+            "instruction": "Samo za pružaoca koji je stvarno naveden u tvojoj izjavi C: naziv, ulica, broj, poštanski broj i mesto. Ne popunjavaj sva tri reda naslepo; uvod dopušta zasebnu izjavu po ustanovi.",
             "where": "Naziv/adresa na nalazu, otpusnom pismu ili službenim podacima ustanove.",
             "example": "Izmišljeno: navodi se samo ustanova koju Maja nakon pojašnjenja stvarno želi obuhvatiti.",
             "mistake": "Ne unosi dijagnoze u adresna polja niti u BalkanLink."
@@ -12104,7 +12104,7 @@
             "german": "Name der zweiten Ärztin/des zweiten Arztes oder des zweiten Krankenhauses oder der zweiten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
             "reference": "SE · Seite 2 · C · 13–17",
             "meaning": "Druga konkretna ordinacija ili ustanova",
-            "instruction": "Samo za pružaoca koji je stvarno naveden u tvojoj izjavi C: naziv, ulica, broj, poštanski broj i mesto. Ne popunjavaj sva tri reda naslijepo; uvod dopušta zasebnu izjavu po ustanovi.",
+            "instruction": "Samo za pružaoca koji je stvarno naveden u tvojoj izjavi C: naziv, ulica, broj, poštanski broj i mesto. Ne popunjavaj sva tri reda naslepo; uvod dopušta zasebnu izjavu po ustanovi.",
             "where": "Naziv/adresa na nalazu, otpusnom pismu ili službenim podacima ustanove.",
             "example": "Izmišljeno: navodi se samo ustanova koju Maja nakon pojašnjenja stvarno želi obuhvatiti.",
             "mistake": "Ne unosi dijagnoze u adresna polja niti u BalkanLink."
@@ -12114,7 +12114,7 @@
             "german": "Name der dritten Ärztin/des dritten Arztes oder des dritten Krankenhauses oder der dritten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
             "reference": "SE · Seite 2 · C · 18–22",
             "meaning": "Treća konkretna ordinacija ili ustanova",
-            "instruction": "Samo za pružaoca koji je stvarno naveden u tvojoj izjavi C: naziv, ulica, broj, poštanski broj i mesto. Ne popunjavaj sva tri reda naslijepo; uvod dopušta zasebnu izjavu po ustanovi.",
+            "instruction": "Samo za pružaoca koji je stvarno naveden u tvojoj izjavi C: naziv, ulica, broj, poštanski broj i mesto. Ne popunjavaj sva tri reda naslepo; uvod dopušta zasebnu izjavu po ustanovi.",
             "where": "Naziv/adresa na nalazu, otpusnom pismu ili službenim podacima ustanove.",
             "example": "Izmišljeno: navodi se samo ustanova koju Maja nakon pojašnjenja stvarno želi obuhvatiti.",
             "mistake": "Ne unosi dijagnoze u adresna polja niti u BalkanLink."
@@ -12144,7 +12144,7 @@
             "german": "Bitte kreuzen Sie an, für welche Erklärung die geschädigte Person ihr Einverständnis gibt und lassen Sie die geschädigte Person unterschreiben.",
             "reference": "SE · Seite 3 · F · 28",
             "meaning": "Tri stvarna izbora, zasebna odluka",
-            "instruction": "Odabir se daje samo na originalu, nakon razumijevanja svake izjave. Ne označavaj sve automatski. Sve su dobrovoljne, opozive za budućnost i završavaju krajem postupka ili kada više nisu potrebne. Opoziv ne briše već zakonito provedenu obradu. Original navodi da bez saglasnosti mogu biti potrebni pregledi Ärztlicher Dienst; konkretan postupak potvrdi s organom.",
+            "instruction": "Odabir se daje samo na originalu, nakon razumevanja svake izjave. Ne označavaj sve automatski. Sve su dobrovoljne, opozive za budućnost i završavaju krajem postupka ili kada više nisu potrebne. Opoziv ne briše već zakonito provedenu obradu. Original navodi da bez saglasnosti mogu biti potrebni pregledi Ärztlicher Dienst; konkretan postupak potvrdi s organom.",
             "where": "C/D/E originala; mogućnost pojašnjenja obima, primalaca i opoziva.",
             "example": "Izmišljeno: Maja prvo pita šta svaki izbor znači i samostalno odlučuje; vodič ništa ne označava.",
             "mistake": "Ne tvrdi da je blanket saglasnost obavezna ili da odbijanje automatski ukida pomoć.",
@@ -12225,12 +12225,12 @@
       },
       "anlage-uh1": {
         "title": "UH1 — izdržavanje nakon razdvajanja ili razvoda",
-        "introduction": "UH1 ispituje mogući Trennungsunterhalt ili nachehelichen/nachpartnerschaftlichen Unterhalt zbog razdvajanja, razvoda ili ukidanja registrovanog partnerstva. Nije UH3 za dete; ne odlučujemo da li pravo postoji. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "UH1 ispituje mogući Trennungsunterhalt ili nachehelichen/nachpartnerschaftlichen Unterhalt zbog razdvajanja, razvoda ili ukidanja registrovanog partnerstva. Nije UH3 za dete; ne odlučujemo da li pravo postoji. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original UH1 10/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -12317,7 +12317,7 @@
             "reference": "UH1 · Seite 2 · D · 14–19",
             "meaning": "Posljednja poznata adresa partnera",
             "instruction": "Posljednja poznata ulica, broj, poštanski broj, mesto i država; „wohnhaft bei“ samo ako osoba stvarno stanuje kod druge osobe/ustanove. Ako nešto nije poznato, jasno objasni umesto izmišljanja.",
-            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtijevaj osjetljive podatke ovdje.",
+            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtevaj osjetljive podatke ovde.",
             "example": "Izmišljeno: Maja zna posljednju adresu u drugoj državi i navodi i Land.",
             "mistake": "Ne zameni svoju adresu s adresom druge osobe niti nepoznatu adresu sa „unbekannt“ roditeljem."
           },
@@ -12346,10 +12346,10 @@
             "german": "Bitte geben Sie die tatsächliche monatliche Höhe der Unterhaltszahlung in Euro an.",
             "reference": "UH1 · Seite 2 · E · 21",
             "meaning": "Stvarni mesečni novčani iznos",
-            "instruction": "Prepiši stvarnu mesečnu uplatu iz dokaza; promenjive uplate objasni. Ne procjenjuj vrijednost stvari bez pojašnjenja Jobcentera.",
+            "instruction": "Prepiši stvarnu mesečnu uplatu iz dokaza; promenjive uplate objasni. Ne procjenjuj vrednost stvari bez pojašnjenja Jobcentera.",
             "where": "Uplate i priznanice za odgovarajući period.",
             "example": "Izmišljeno: stvarno primljenih 120 €, ne dogovorenih 200 €.",
-            "mistake": "Ovdje nema obračuna prava ili alimentacije."
+            "mistake": "Ovde nema obračuna prava ili alimentacije."
           },
           {
             "id": "uh1-22",
@@ -12376,7 +12376,7 @@
             "german": "Bitte geben Sie die vereinbarte monatliche Höhe der Unterhaltszahlung in Euro an.",
             "reference": "UH1 · Seite 2 · E · 23",
             "meaning": "Dogovoreni ili određen mesečni iznos",
-            "instruction": "Prepiši iznos iz dogovora/titula/odluke, odvojeno od stvarnih uplata. Ako se dokument promijenio, priloži aktuelni.",
+            "instruction": "Prepiši iznos iz dogovora/titula/odluke, odvojeno od stvarnih uplata. Ako se dokument promenio, priloži aktuelni.",
             "where": "Važeći pisani dokument.",
             "example": "Izmišljeno: 200 € prema odluci i 120 € stvarno plaćeno ostaju odvojena polja.",
             "mistake": "Ne koristi iznos iz fiktivnog primera niti internet-kalkulator kao sudsku odluku."
@@ -12463,12 +12463,12 @@
             "sections": {
               "meaning": "UH1 je za partnerovo izdržavanje nakon razdvajanja/razvoda, ne za izdržavanje deteta.",
               "action": "Uporedi uvod originala s razlogom Jobcenter zahteva. Ako je složeno, pitaj službu ili nezavisno savjetovalište; ne utvrđujemo obavezu izdržavanja.",
-              "mistake": "Ne miješaj UH1 partnera, UH2 trudnoću i UH3 dete."
+              "mistake": "Ne mešaj UH1 partnera, UH2 trudnoću i UH3 dete."
             }
           },
           {
             "id": "evidence",
-            "title": "Pripremi dokaze bez slanja ovdje",
+            "title": "Pripremi dokaze bez slanja ovde",
             "sections": {
               "meaning": "Službeni original traži kopije činjenica, ne fiktivne primere.",
               "action": "Pripremi kopije relevantne bračne/partnerske isprave, dokaza razdvajanja/razvoda, uplata/stvari, pisanog dogovora/titula i zastupanja ako postoji.",
@@ -12480,7 +12480,7 @@
             "title": "Odvoji plaćeno i dogovoreno",
             "sections": {
               "meaning": "Primljene uplate, stvari/usluge i pisana obaveza su zasebni podaci.",
-              "action": "Prati sve konkretne Ja/Nein i skokove. Primer: stvarno 120 € i dogovoreno 200 € se ne miješaju; promene i nepoznato objasni nadležnoj službi.",
+              "action": "Prati sve konkretne Ja/Nein i skokove. Primer: stvarno 120 € i dogovoreno 200 € se ne mešaju; promene i nepoznato objasni nadležnoj službi.",
               "mistake": "Ne kalkuliši alimentaciju ili pravo na pomoć iz vodiča."
             }
           },
@@ -12488,21 +12488,21 @@
             "id": "send",
             "title": "Proveri zastupanje, potpis i daljnji dopis",
             "sections": {
-              "meaning": "Zastupanje i odluke zahtijevaju stvarne dokumente; Jobcenter proverava zahtev.",
+              "meaning": "Zastupanje i odluke zahtevaju stvarne dokumente; Jobcenter proverava zahtev.",
               "action": "Proveri odgovarajuće potpise, predaj putem nadležnog Jobcentera, zadrži kopije/potvrdu. Prati stvarni zahtev za dopunu i rok. Ne šaljemo poruke drugom roditelju/partneru.",
-              "mistake": "Pregledano ne znači predato, odobreno ili pravno riješeno."
+              "mistake": "Pregledano ne znači predato, odobreno ili pravno rešeno."
             }
           }
         ]
       },
       "anlage-uh2": {
         "title": "UH2 — izdržavanje zbog trudnoće",
-        "introduction": "UH2 ispituje moguće izdržavanje trudne osobe od oca deteta izvan BG. Nije opći dodatak za trudnoću niti UH3 za rođeno dete; ne računamo niti garantujemo obavezu. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "UH2 ispituje moguće izdržavanje trudne osobe od oca deteta izvan BG. Nije opći dodatak za trudnoću niti UH3 za rođeno dete; ne računamo niti garantujemo obavezu. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original UH2 10/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -12530,7 +12530,7 @@
             "german": "Bitte geben Sie den voraussichtlichen Entbindungstermin an (TT.MM.JJJJ).",
             "reference": "UH2 · Seite 1 · C · 8",
             "meaning": "Očekivani datum poroda",
-            "instruction": "Prepiši aktuelni očekivani datum iz potvrde; riječ voraussichtlich znači očekivano, ne garantovano. Za dokaz koristi potrebnu potvrdu i siguran put, ne sve zdravstvene stranice.",
+            "instruction": "Prepiši aktuelni očekivani datum iz potvrde; reč voraussichtlich znači očekivano, ne garantovano. Za dokaz koristi potrebnu potvrdu i siguran put, ne sve zdravstvene stranice.",
             "where": "Lekarska potvrda očekivanog datuma; šta je potrebno proveri s organom.",
             "example": "Izmišljeno: očekivani datum prepisuje se iz aktuelne potvrde, ne iz primerene trudnoće.",
             "mistake": "Ne objavljuj Mutterpass ili zdravstvene podatke na BalkanLinku."
@@ -12575,7 +12575,7 @@
             "reference": "UH2 · Seite 2 · D · 14–19",
             "meaning": "Posljednja poznata adresa oca",
             "instruction": "Posljednja poznata ulica, broj, poštanski broj, mesto i država; „wohnhaft bei“ samo ako osoba stvarno stanuje kod druge osobe/ustanove. Ako nešto nije poznato, jasno objasni umesto izmišljanja.",
-            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtijevaj osjetljive podatke ovdje.",
+            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtevaj osjetljive podatke ovde.",
             "example": "Izmišljeno: Maja zna posljednju adresu u drugoj državi i navodi i Land.",
             "mistake": "Ne zameni svoju adresu s adresom druge osobe niti nepoznatu adresu sa „unbekannt“ roditeljem."
           },
@@ -12615,9 +12615,9 @@
             "reference": "UH2 · Seite 2 · F · 22",
             "meaning": "Već primljeno izdržavanje ili stvari",
             "instruction": "Odgovori o već datim uplatama/stvarima od oca za trudnu osobu. Ja vodi izboru vrste 23; obećanje buduće uplate nije već primljeno.",
-            "where": "Izvodi/priznanice i stvarna predaja odjeće/opreme.",
-            "example": "Izmišljeno: otac je već dao trudničku odjeću, ali nije uplatio novac.",
-            "mistake": "Ne miješaj zahtev Jobcenteru za opremu sa onim što je otac već dao.",
+            "where": "Izvodi/priznanice i stvarna predaja odeće/opreme.",
+            "example": "Izmišljeno: otac je već dao trudničku odeću, ali nije uplatio novac.",
+            "mistake": "Ne mešaj zahtev Jobcenteru za opremu sa onim što je otac već dao.",
             "options": [
               {
                 "german": "Ja",
@@ -12634,9 +12634,9 @@
             "german": "Bitte geben Sie die Art des Unterhalts an und fügen Sie Nachweise bei, zum Beispiel Kontoauszüge/Quittungen.",
             "reference": "UH2 · Seite 2 · F · 23",
             "meaning": "Sve stvarne vrste već date podrške",
-            "instruction": "Označi samo stvarno primljene vrste; novac sa stvarnim mesečnim iznosom, opremu i odjeću odvojeno uz dokaz.",
+            "instruction": "Označi samo stvarno primljene vrste; novac sa stvarnim mesečnim iznosom, opremu i odeću odvojeno uz dokaz.",
             "where": "Uplate, priznanice, potvrda predaje stvari.",
-            "example": "Izmišljeno: odjeća je data, novčano izdržavanje nije; ne izmišlja se cijena.",
+            "example": "Izmišljeno: odeća je data, novčano izdržavanje nije; ne izmišlja se cena.",
             "mistake": "Ne navodi obećane ili neprimljene stvari kao već date.",
             "options": [
               {
@@ -12649,7 +12649,7 @@
               },
               {
                 "german": "Schwangerschaftsbekleidung",
-                "meaning": "Trudnička odjeća — samo stvarno data."
+                "meaning": "Trudnička odeća — samo stvarno data."
               }
             ]
           },
@@ -12739,15 +12739,15 @@
             "sections": {
               "meaning": "UH2 odnosi se na izdržavanje zbog trudnoće; Mehrbedarf trudnoće i oprema imaju druge postupke.",
               "action": "Uporedi uvod originala s razlogom Jobcenter zahteva. Ako je složeno, pitaj službu ili nezavisno savjetovalište; ne utvrđujemo obavezu izdržavanja.",
-              "mistake": "Ne miješaj UH1 partnera, UH2 trudnoću i UH3 dete."
+              "mistake": "Ne mešaj UH1 partnera, UH2 trudnoću i UH3 dete."
             }
           },
           {
             "id": "evidence",
-            "title": "Pripremi dokaze bez slanja ovdje",
+            "title": "Pripremi dokaze bez slanja ovde",
             "sections": {
               "meaning": "Službeni original traži kopije činjenica, ne fiktivne primere.",
-              "action": "Pripremi potrebnu potvrdu termina, poznate podatke oca, priznanje očinstva ako postoji, stvarne uplate/stvari i zastupanje. Izbjegni predaju cijele medicinske dokumentacije.",
+              "action": "Pripremi potrebnu potvrdu termina, poznate podatke oca, priznanje očinstva ako postoji, stvarne uplate/stvari i zastupanje. Izbjegni predaju cele medicinske dokumentacije.",
               "mistake": "Nepoznato pojasni; ne izmišljaj identitet, dokument ili adresu."
             }
           },
@@ -12756,7 +12756,7 @@
             "title": "Odvoji plaćeno i dogovoreno",
             "sections": {
               "meaning": "Primljene uplate, stvari/usluge i pisana obaveza su zasebni podaci.",
-              "action": "Prati sve konkretne Ja/Nein i skokove. Primer: stvarno 120 € i dogovoreno 200 € se ne miješaju; promene i nepoznato objasni nadležnoj službi.",
+              "action": "Prati sve konkretne Ja/Nein i skokove. Primer: stvarno 120 € i dogovoreno 200 € se ne mešaju; promene i nepoznato objasni nadležnoj službi.",
               "mistake": "Ne kalkuliši alimentaciju ili pravo na pomoć iz vodiča."
             }
           },
@@ -12764,21 +12764,21 @@
             "id": "send",
             "title": "Proveri zastupanje, potpis i daljnji dopis",
             "sections": {
-              "meaning": "Zastupanje i odluke zahtijevaju stvarne dokumente; Jobcenter proverava zahtev.",
+              "meaning": "Zastupanje i odluke zahtevaju stvarne dokumente; Jobcenter proverava zahtev.",
               "action": "Proveri odgovarajuće potpise, predaj putem nadležnog Jobcentera, zadrži kopije/potvrdu. Prati stvarni zahtev za dopunu i rok. Ne šaljemo poruke drugom roditelju/partneru.",
-              "mistake": "Pregledano ne znači predato, odobreno ili pravno riješeno."
+              "mistake": "Pregledano ne znači predato, odobreno ili pravno rešeno."
             }
           }
         ]
       },
       "anlage-uh3": {
         "title": "UH3 — dečije izdržavanje i oba roditelja",
-        "introduction": "UH3 je za svaku osobu mlađu od 25 u BG s mogućim izdržavanjem od najmanje jednog roditelja izvan BG; original traži zaseban UH3 za svaku takvu osobu. Pitanja o oba roditelja ne određuju automatski pravo. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "UH3 je za svaku osobu mlađu od 25 u BG s mogućim izdržavanjem od najmanje jednog roditelja izvan BG; original traži zaseban UH3 za svaku takvu osobu. Pitanja o oba roditelja ne određuju automatski pravo. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original UH3 10/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -12841,7 +12841,7 @@
             "reference": "UH3 · Seite 2 · C · 13–18",
             "meaning": "Prvi roditelj: posljednja poznata adresa",
             "instruction": "Posljednja poznata ulica, broj, poštanski broj, mesto i država; „wohnhaft bei“ samo ako osoba stvarno stanuje kod druge osobe/ustanove. Ako nešto nije poznato, jasno objasni umesto izmišljanja.",
-            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtijevaj osjetljive podatke ovdje.",
+            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtevaj osjetljive podatke ovde.",
             "example": "Izmišljeno: Maja zna posljednju adresu u drugoj državi i navodi i Land.",
             "mistake": "Ne zameni svoju adresu s adresom druge osobe niti nepoznatu adresu sa „unbekannt“ roditeljem."
           },
@@ -12885,7 +12885,7 @@
             "reference": "UH3 · Seite 2 · C · 24–29",
             "meaning": "Drugi roditelj: posljednja poznata adresa",
             "instruction": "Posljednja poznata ulica, broj, poštanski broj, mesto i država; „wohnhaft bei“ samo ako osoba stvarno stanuje kod druge osobe/ustanove. Ako nešto nije poznato, jasno objasni umesto izmišljanja.",
-            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtijevaj osjetljive podatke ovdje.",
+            "where": "Posljednji dopis, porodični dokument ili potvrđen kontakt; ne zahtevaj osjetljive podatke ovde.",
             "example": "Izmišljeno: Maja zna posljednju adresu u drugoj državi i navodi i Land.",
             "mistake": "Ne zameni svoju adresu s adresom druge osobe niti nepoznatu adresu sa „unbekannt“ roditeljem."
           },
@@ -12976,7 +12976,7 @@
             "meaning": "Redovno naizmjenično stanovanje, samo ispod 18",
             "instruction": "Odeljak E originala traži ovo pitanje samo za osobu mlađu od 18. Ja za stvarni redovni boravak u oba domaćinstva uz dokaz; povremena posjeta nije automatski Wechselmodell.",
             "where": "Stvarni raspored i pisani dogovor roditelja ako postoji.",
-            "example": "Izmišljeno: dete redovno mijenja dva domaćinstva prema dogovoru.",
+            "example": "Izmišljeno: dete redovno menja dva domaćinstva prema dogovoru.",
             "mistake": "Ne izračunavaj iznos alimentacije iz rasporeda boravka.",
             "options": [
               {
@@ -13014,10 +13014,10 @@
             "german": "Bitte geben Sie die tatsächliche monatliche Höhe der Unterhaltszahlung in Euro an.",
             "reference": "UH3 · Seite 3 · F · 38",
             "meaning": "Stvarni mesečni novčani iznos",
-            "instruction": "Prepiši stvarnu mesečnu uplatu iz dokaza; promenjive uplate objasni. Ne procjenjuj vrijednost stvari bez pojašnjenja Jobcentera.",
+            "instruction": "Prepiši stvarnu mesečnu uplatu iz dokaza; promenjive uplate objasni. Ne procjenjuj vrednost stvari bez pojašnjenja Jobcentera.",
             "where": "Uplate i priznanice za odgovarajući period.",
             "example": "Izmišljeno: stvarno primljenih 120 €, ne dogovorenih 200 €.",
-            "mistake": "Ovdje nema obračuna prava ili alimentacije."
+            "mistake": "Ovde nema obračuna prava ili alimentacije."
           },
           {
             "id": "uh3-39",
@@ -13044,7 +13044,7 @@
             "german": "Bitte geben Sie die vereinbarte monatliche Höhe der Unterhaltszahlung in Euro an.",
             "reference": "UH3 · Seite 3 · F · 40",
             "meaning": "Dogovoreni ili određen mesečni iznos",
-            "instruction": "Prepiši iznos iz dogovora/titula/odluke, odvojeno od stvarnih uplata. Ako se dokument promijenio, priloži aktuelni.",
+            "instruction": "Prepiši iznos iz dogovora/titula/odluke, odvojeno od stvarnih uplata. Ako se dokument promenio, priloži aktuelni.",
             "where": "Važeći pisani dokument.",
             "example": "Izmišljeno: 200 € prema odluci i 120 € stvarno plaćeno ostaju odvojena polja.",
             "mistake": "Ne koristi iznos iz fiktivnog primera niti internet-kalkulator kao sudsku odluku."
@@ -13195,7 +13195,7 @@
             "instruction": "Navedi školu i primenjivi zanat/studijski smjer te očekivani kraj prema potvrdi, ne garantovani datum.",
             "where": "Potvrda škole/fakulteta ili ugovor o obuci.",
             "example": "Izmišljeno: škola i očekivani kraj dolaze iz potvrde škole.",
-            "mistake": "Ne izmišljaj smjer ako je riječ o općoj školi."
+            "mistake": "Ne izmišljaj smjer ako je reč o općoj školi."
           },
           {
             "id": "uh3-55",
@@ -13255,12 +13255,12 @@
             "sections": {
               "meaning": "UH3 je zaseban za svaku osobu ispod 25; pitanja Wechselmodell/Unterhaltsvorschuss posebno navode dob ispod 18.",
               "action": "Uporedi uvod originala s razlogom Jobcenter zahteva. Ako je složeno, pitaj službu ili nezavisno savjetovalište; ne utvrđujemo obavezu izdržavanja.",
-              "mistake": "Ne miješaj UH1 partnera, UH2 trudnoću i UH3 dete."
+              "mistake": "Ne mešaj UH1 partnera, UH2 trudnoću i UH3 dete."
             }
           },
           {
             "id": "evidence",
-            "title": "Pripremi dokaze bez slanja ovdje",
+            "title": "Pripremi dokaze bez slanja ovde",
             "sections": {
               "meaning": "Službeni original traži kopije činjenica, ne fiktivne primere.",
               "action": "Pripremi rodne/porodične isprave, poznate podatke oba roditelja, dokaze očinstva i rasporeda, uplate/titul, Jugendamt odluke, obrazovanje i zastupanje prema stvarnom slučaju.",
@@ -13272,7 +13272,7 @@
             "title": "Odvoji plaćeno i dogovoreno",
             "sections": {
               "meaning": "Primljene uplate, stvari/usluge i pisana obaveza su zasebni podaci.",
-              "action": "Prati sve konkretne Ja/Nein i skokove. Primer: stvarno 120 € i dogovoreno 200 € se ne miješaju; promene i nepoznato objasni nadležnoj službi.",
+              "action": "Prati sve konkretne Ja/Nein i skokove. Primer: stvarno 120 € i dogovoreno 200 € se ne mešaju; promene i nepoznato objasni nadležnoj službi.",
               "mistake": "Ne kalkuliši alimentaciju ili pravo na pomoć iz vodiča."
             }
           },
@@ -13280,21 +13280,21 @@
             "id": "send",
             "title": "Proveri zastupanje, potpis i daljnji dopis",
             "sections": {
-              "meaning": "Zastupanje i odluke zahtijevaju stvarne dokumente; Jobcenter proverava zahtev.",
+              "meaning": "Zastupanje i odluke zahtevaju stvarne dokumente; Jobcenter proverava zahtev.",
               "action": "Proveri odgovarajuće potpise, predaj putem nadležnog Jobcentera, zadrži kopije/potvrdu. Prati stvarni zahtev za dopunu i rok. Ne šaljemo poruke drugom roditelju/partneru.",
-              "mistake": "Pregledano ne znači predato, odobreno ili pravno riješeno."
+              "mistake": "Pregledano ne znači predato, odobreno ili pravno rešeno."
             }
           }
         ]
       },
       "anlage-uf": {
         "title": "UF — nesreća ili šteta od treće osobe",
-        "introduction": "UF je za nesreću/štetu od treće osobe zbog koje se traže sredstva za život. Jobcenter može proveravati preneseni odštetni zahtev u obimu stvarnih davanja; vodič ne određuje krivicu, odštetu ili pravo. Ne šalji zdravstvene detalje ovdje. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "UF je za nesreću/štetu od treće osobe zbog koje se traže sredstva za život. Jobcenter može proveravati preneseni odštetni zahtev u obimu stvarnih davanja; vodič ne određuje krivicu, odštetu ili pravo. Ne šalji zdravstvene detalje ovde. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 10/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original UF 10/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -13455,7 +13455,7 @@
             "instruction": "Izaberi stvarno dokumentovan aktuelni status; pregovor, priznanje osiguranja, odbijanje, nagodba i sudska odluka nisu isto. Posljednji izbor vodi L.",
             "where": "Aktuelni dopis osiguranja, potpisana nagodba ili sudska odluka.",
             "example": "Izmišljeno: pregovori još traju pa se ne bira priznanje ili presuda.",
-            "mistake": "Ne zaključuj da je tvoje pravo konačno riješeno samo iz statusa.",
+            "mistake": "Ne zaključuj da je tvoje pravo konačno rešeno samo iz statusa.",
             "options": [
               {
                 "german": "Die Verhandlungen sind noch nicht abgeschlossen.",
@@ -13488,7 +13488,7 @@
             "german": "Bitte schildern Sie die Verletzungen der geschädigten Person. Geben Sie keine Diagnosen an.",
             "reference": "UF · Seite 3 · F · 36",
             "meaning": "Opis povrede bez dijagnoze, samo u originalu",
-            "instruction": "Original izričito traži povrede bez dijagnoza. Opiši samo relevantne činjenice u originalu; ne tražimo opis ili medicinske podatke ovdje.",
+            "instruction": "Original izričito traži povrede bez dijagnoza. Opiši samo relevantne činjenice u originalu; ne tražimo opis ili medicinske podatke ovde.",
             "where": "Stvarni događaj i potrebni pouzdani dokumenti; siguran put potvrdi s organom.",
             "example": "Izmišljeno: Maja prvo čita uputu „keine Diagnosen“ i ništa medicinsko ne unosi u BalkanLink.",
             "mistake": "Ne piši dijagnozu u 36 niti detalje o zdravlju u vodiču."
@@ -13585,7 +13585,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Poslodavac na dan događaja i poznata Berufsgenossenschaft iz dokumenata.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-47",
@@ -13659,7 +13659,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Izveštaj događaja i poznati podaci vozača.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-55-56-57-58-59-60",
@@ -13669,7 +13669,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Saobraćajni dokument ili poznati podaci; samo ako različito od 49–54.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-61-62-63-64-65-66",
@@ -13679,7 +13679,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Dopis osiguranja i vozilni dokument/izveštaj.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-67",
@@ -13737,7 +13737,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Poznati podaci iz izveštaja događaja.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-75-76-77-78-79-80",
@@ -13747,7 +13747,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Dokument vozila/izveštaj; samo ako različito od 69–74.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-81-82-83-84-85-86",
@@ -13757,7 +13757,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Dopis osiguranja ili izveštaj s podacima tog vozila.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-k",
@@ -13783,7 +13783,7 @@
               },
               {
                 "german": "Verstoß gegen eine Verkehrssicherungspflicht (zum Beispiel Räum- oder Streupflicht)",
-                "meaning": "Povreda povezane obaveze sigurnosti, npr. čišćenje snijega — 100–105, bez naše procjene odgovornosti."
+                "meaning": "Povreda povezane obaveze sigurnosti, npr. čišćenje snega — 100–105, bez naše procjene odgovornosti."
               },
               {
                 "german": "Verletzung durch ein fehlerhaftes Produkt/fehlerhaftes Material",
@@ -13827,7 +13827,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Dokument konkretnog događaja/ustanove, ne kompletna istorija zdravlja.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-94",
@@ -13837,7 +13837,7 @@
             "instruction": "Ja samo kod stvarno tekućeg postupka; tada kontakt 95–98. Sama pritužba doktoru nije dokaz tog postupka.",
             "where": "Aktuelni dopis Schlichtungsstelle.",
             "example": "Izmišljeno: Maja koristi dopis sa brojem predmeta mirenja.",
-            "mistake": "Ne predstavi neriješen postupak kao dokaz greške.",
+            "mistake": "Ne predstavi nerešen postupak kao dokaz greške.",
             "options": [
               {
                 "german": "Ja",
@@ -13857,16 +13857,16 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Dopis Schlichtungsstelle za taj predmet.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-99",
             "german": "Bitte schildern Sie ausführlich, wie und bei welcher Gelegenheit die geschädigte Person verletzt wurde.",
             "reference": "UF · Seite 5 · K · 99",
             "meaning": "Činjenični opis događaja telesne povrede",
-            "instruction": "Opisuj relevantan stvarni tok i priliku samo u originalu, ne ovdje. Ne izmišljaj motiv ili zdravstvenu dijagnozu; nepotrebne intimne detalje izbjegni.",
+            "instruction": "Opisuj relevantan stvarni tok i priliku samo u originalu, ne ovde. Ne izmišljaj motiv ili zdravstvenu dijagnozu; nepotrebne intimne detalje izbjegni.",
             "where": "Pouzdani zapis događaja i službeni dokumenti.",
-            "example": "Izmišljeno: Maja prati ko/kada/gdje prema zapisniku, bez fiktivnog napada ili dijagnoze.",
+            "example": "Izmišljeno: Maja prati ko/kada/gde prema zapisniku, bez fiktivnog napada ili dijagnoze.",
             "mistake": "Opis u vodiču nije dokaz ili krivična prijava."
           },
           {
@@ -13877,7 +13877,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Pouzdani podaci događaja i kontakt službe, bez naše procjene odgovornosti.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-106-107-108-109-110-111",
@@ -13887,7 +13887,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Dokument proizvoda, račun i poznati kontakt proizvođača.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-112",
@@ -13979,7 +13979,7 @@
             "instruction": "Navedi poznati naziv/ime i odgovarajuća adresna/brojčana polja upravo ove osobe/ustanove prema originalu. Samo primenjiva grana; nepoznato objasni umesto nagađanja.",
             "where": "Dokument događaja i poznati kontakt/osiguranje držaoca.",
             "example": "Izmišljeno: Maja prepisuje podatke iz odgovarajućeg dokumenta o događaju, ne iz tuđeg primera.",
-            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovdje."
+            "mistake": "Ne zameni osobu, vlasnika, vozača, poslodavca ili osiguranje; ne šalji njihove podatke ovde."
           },
           {
             "id": "uf-122-123-124-125",
@@ -14025,8 +14025,8 @@
             "title": "Povrede bez dijagnoza i dobrovoljni SE",
             "sections": {
               "meaning": "36 izričito kaže bez dijagnoza; 37 spominje SE s odvojenim dobrovoljnim C/D/E.",
-              "action": "Pročitaj medicinske granice u UF/SE i traži pojašnjenje pre odluke o saglasnosti; ovdje nema opisa zdravlja.",
-              "mistake": "Ne tvrdi da povreda uvijek znači obaveznu blanket saglasnost."
+              "action": "Pročitaj medicinske granice u UF/SE i traži pojašnjenje pre odluke o saglasnosti; ovde nema opisa zdravlja.",
+              "mistake": "Ne tvrdi da povreda uvek znači obaveznu blanket saglasnost."
             }
           },
           {
@@ -14042,12 +14042,12 @@
       },
       "nichterreichbarkeit": {
         "title": "Nichterreichbarkeit — traži odobrenje pre odsustva",
-        "introduction": "Sama obavest ili predaja nije odobrenje putovanja. Pre planiranog odsustva proveri nadležni Jobcenter; kod istovremenog ALG i SGB II prema originalu odlučuje Agentur für Arbeit. Pravila i posljedice zavise od stvarnog slučaja. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 05/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "Sama obavest ili predaja nije odobrenje putovanja. Pre planiranog odsustva proveri nadležni Jobcenter; kod istovremenog ALG i SGB II prema originalu odlučuje Agentur für Arbeit. Pravila i posljedice zavise od stvarnog slučaja. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 05/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original ANE 05/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -14082,7 +14082,7 @@
             "options": [
               {
                 "german": "Ich nehme an einer ärztlich verordneten Maßnahme der medizinischen Vorsorge oder Rehabilitation teil.",
-                "meaning": "Lekarski propisana prevencija ili rehabilitacija — priloži potreban dokaz, bez slanja nalaza ovdje."
+                "meaning": "Lekarski propisana prevencija ili rehabilitacija — priloži potreban dokaz, bez slanja nalaza ovde."
               },
               {
                 "german": "Ich nehme an einer Veranstaltung teil, die kirchlichen oder gewerkschaftlichen Zwecken dient oder im öffentlichen Interesse liegt.",
@@ -14090,7 +14090,7 @@
               },
               {
                 "german": "Ich verlasse vorübergehend den näheren Bereich, um mich um die Eingliederung in eine Ausbildungs- oder Arbeitsstelle zu kümmern.",
-                "meaning": "Privremeni odlazak radi konkretne obuke/posla — objasni gdje i koji cilj."
+                "meaning": "Privremeni odlazak radi konkretne obuke/posla — objasni gde i koji cilj."
               },
               {
                 "german": "Ich übe ein Ehrenamt außerhalb des näheren Bereichs aus.",
@@ -14114,7 +14114,7 @@
             "instruction": "Samo kod razloga 7 koji nije Urlaub: navedi stvarni dostupan put; original upozorava da bez potrebnog kontakta nema davanja za taj period. Online-Zusammenarbeit označi samo ako si joj stvarno pristao i dostupan si tim putem.",
             "where": "Dogovoreni kanal sa Jobcenterom i kontakt koji proveravaš.",
             "example": "Izmišljeno: Maja proverava službeni dogovor online saradnje pre izbora.",
-            "mistake": "Ne tražimo e-mail/telefon ovdje; kontakt ide samo organu.",
+            "mistake": "Ne tražimo e-mail/telefon ovde; kontakt ide samo organu.",
             "options": [
               {
                 "german": "Ich habe der Online-Zusammenarbeit zugestimmt und bin auf diesem Wege zu erreichen.",
@@ -14130,7 +14130,7 @@
             "id": "ane-9",
             "german": "Haben Sie während Ihrer Nichterreichbarkeit keinen Anspruch auf Leistungen? Oder bekommen Sie nur für einen kürzeren Zeitraum Leistungen?",
             "reference": "ANE · Seite 2 · B · 9",
-            "meaning": "Odluka ako se ne plaća cijeli traženi period",
+            "meaning": "Odluka ako se ne plaća celi traženi period",
             "instruction": "Samo ako se ovaj uslov odnosi na tvoj slučaj: pročitaj sve tri alternative i potvrdi posljedice s organom/insurerom pre odluke. Izbor nije naša procjena prava.",
             "where": "Stvarni službeni odgovor o odobrenju/davanjima i zdravstveno osiguranje.",
             "example": "Izmišljeno: Maja skraćuje plan samo na stvarno odobreni period, ne na proizvoljan broj dana.",
@@ -14146,7 +14146,7 @@
               },
               {
                 "german": "Ich werde mich dennoch für den beantragten Zeitraum außerhalb des näheren Bereichs aufhalten.",
-                "meaning": "Ipak ostaješ cijeli traženi period — original upozorava na prestanak plaćanja od četvrte sedmice i zakonskog osiguranja; ne odlučuj bez provere konkretnih posljedica."
+                "meaning": "Ipak ostaješ celi traženi period — original upozorava na prestanak plaćanja od četvrte sedmice i zakonskog osiguranja; ne odlučuj bez provere konkretnih posljedica."
               }
             ]
           },
@@ -14176,8 +14176,8 @@
             "title": "Pripremi razlog, datume i dokaz",
             "sections": {
               "meaning": "6–7 razlikuju stvarne datume i šest razloga; 8 kontakt samo kod ne-odmora.",
-              "action": "Pripremi potrebnu potvrdu događaja/rehabilitacije/posla/Ehrenamta ili drugi dokaz prema razlogu; ne šalji intimne dokumente ovdje.",
-              "mistake": "Ne mijenjaj razlog radi željenog ishoda."
+              "action": "Pripremi potrebnu potvrdu događaja/rehabilitacije/posla/Ehrenamta ili drugi dokaz prema razlogu; ne šalji intimne dokumente ovde.",
+              "mistake": "Ne menjaj razlog radi željenog ishoda."
             }
           },
           {
@@ -14185,7 +14185,7 @@
             "title": "Predaj zahtev i sačekaj konkretno odobrenje",
             "sections": {
               "meaning": "Slanje službenog originala preko dogovorenog puta nije automatska odluka.",
-              "action": "Sa nadležnom službom proveri način predaje, datume i potrebni kontakt. 9 pročitaj samo ako davanja ne pokrivaju cijeli period. Osiguranje i put duži od odobrenog razjasni unapred.",
+              "action": "Sa nadležnom službom proveri način predaje, datume i potrebni kontakt. 9 pročitaj samo ako davanja ne pokrivaju celi period. Osiguranje i put duži od odobrenog razjasni unapred.",
               "mistake": "Tri sedmice nisu bezuslovan odmor; prekoračenje može izazvati povrat i prekid osiguranja."
             }
           },
@@ -14193,7 +14193,7 @@
             "id": "return",
             "title": "Prati promene i povratak",
             "sections": {
-              "meaning": "Odobrenje važi za konkretan period/uslove; promena plana može zahtijevati novu proveru.",
+              "meaning": "Odobrenje važi za konkretan period/uslove; promena plana može zahtevati novu proveru.",
               "action": "Zadrži potvrdu i komuniciraj promenu/povratak kako traži služba. Čitaj poruke na dogovoreni način i stvarne rokove.",
               "mistake": "Pregledano nije putna dozvola ili automatska prijava povratka."
             }
@@ -14202,12 +14202,12 @@
       },
       "antragsruecknahme": {
         "title": "Antragsrücknahme — prvo proveri posljedice povlačenja",
-        "introduction": "Povlačenje SGB II zahteva je ozbiljna izjava, ne pauza. Službeni original 07/2026 izričito kaže da se povlačenje ne može opozvati i upozorava na novi zahtev/davanja/osiguranje. Pre ikakve predaje potvrdi posljedice s Jobcenterom; ništa ne povlačimo automatski. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "Izvor BA proveren 28.10.2026; original 07/2026. Oznake važe samo za navedeno izdanje, ne za redoslijed portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
+        "introduction": "Povlačenje SGB II zahteva je ozbiljna izjava, ne pauza. Službeni original 07/2026 izričito kaže da se povlačenje ne može opozvati i upozorava na novi zahtev/davanja/osiguranje. Pre ikakve predaje potvrdi posljedice s Jobcenterom; ništa ne povlačimo automatski. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "Izvor BA proveren 28.10.2026; original 07/2026. Oznake važe samo za navedeno izdanje, ne za redosled portala. Jobcenter/Agentur für Arbeit proverava činjenice i odlučuje; nema garancije prava.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Objašnjenja uz original Antragsrücknahme 07/2026, ne obrazac koji BalkanLink izrađuje. Proveri izdanje i odštampane uslovne skokove pre rada.",
-          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovdje nisu provereni; pregledano nije predato."
+          "online": "Digitalnu dostupnost i način predaje proveri preko službenih poveznica i nadležnog organa. Online raspored, prijava i slanje ovde nisu provereni; pregledano nije predato."
         },
         "terms": [
           {
@@ -14237,7 +14237,7 @@
             "meaning": "Datum prvobitnog zahteva, ne današnji datum",
             "instruction": "Navodi se datum prvog konkretnog SGB II zahteva koji bi se povukao. Pre izjave proveri da li želiš povlačenje, dopunu, promenu ili drugo; to nisu iste radnje.",
             "where": "Potvrda predaje prvobitnog zahteva i relevantni Jobcenter dopis.",
-            "example": "Izmišljeno: Maja proverava datum u potvrdi, ne upisuje današnji datum naslijepo.",
+            "example": "Izmišljeno: Maja proverava datum u potvrdi, ne upisuje današnji datum naslepo.",
             "mistake": "Greškom označen zahtev može imati ozbiljne posljedice; vodič ne šalje izjavu."
           },
           {
@@ -14292,12 +14292,12 @@
       },
       "arbeitsbescheinigung": {
         "title": "Arbeitsbescheinigung — popunjava i šalje poslodavac",
-        "introduction": "Za ALG I/SGB III poslodavac izdaje Arbeitsbescheinigung §312 i za odnose završene nakon 31.12.2022 mora slati preko BEA; ti tražiš izdavanje i proveravaš kopiju BA. SGB II Jobcenter Einkommensbescheinigung je drugi dokument, također samo za poslodavca. Ne popunjavaš poslodavčeva polja na BalkanLinku. Ovdje nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
-        "variation": "BA izvori provereni 28.10.2026. Važno: trenutno povezan SGB III papirni PDF ima izdanje 08/2023, ne 10/2026; današnji BEA ekrani nisu mapirani. Brojevi ispod služe razumijevanju tog papirnog dokumenta/kopije, ne zamjenjuju obaveznu elektronsku predaju poslodavca. SGB II potvrda ima zasebno izdanje 10/2026 i zasebne brojeve.",
+        "introduction": "Za ALG I/SGB III poslodavac izdaje Arbeitsbescheinigung §312 i za odnose završene nakon 31.12.2022 mora slati preko BEA; ti tražiš izdavanje i proveravaš kopiju BA. SGB II Jobcenter Einkommensbescheinigung je drugi dokument, također samo za poslodavca. Ne popunjavaš poslodavčeva polja na BalkanLinku. Ovde nema unosa: BalkanLink ne prikuplja, čuva, popunjava ili šalje tvoje podatke.",
+        "variation": "BA izvori provereni 28.10.2026. Važno: trenutno povezan SGB III papirni PDF ima izdanje 08/2023, ne 10/2026; današnji BEA ekrani nisu mapirani. Brojevi ispod služe razumevanju tog papirnog dokumenta/kopije, ne zamjenjuju obaveznu elektronsku predaju poslodavca. SGB II potvrda ima zasebno izdanje 10/2026 i zasebne brojeve.",
         "vocabularyNote": "Otvori službeni original zasebno i izaberi polje u popisu. TT.MM.JJJJ znači dan.mesec.godina. Primeri su izmišljeni i nisu tvoji odgovori. Dokaze šalješ samo nadležnom organu.",
         "modes": {
           "paper": "Ovo su objašnjenja kopije poslodavčevog SGB III 08/2023 dokumenta i odvojene SGB II potvrde 10/2026; ne uputa da radnik sam popunjava ili predaje BEA papir.",
-          "online": "BEA je elektronski put poslodavca prema Agentur für Arbeit za SGB III; BA radniku šalje kopiju. SGB II dokument nije isto i ne smije se automatski smatrati BEA prijavom. Proveri zahtev nadležne službe i svoj primerak; autentificirani ekrani nisu provereni."
+          "online": "BEA je elektronski put poslodavca prema Agentur für Arbeit za SGB III; BA radniku šalje kopiju. SGB II dokument nije isto i ne sme se automatski smatrati BEA prijavom. Proveri zahtev nadležne službe i svoj primerak; autentificirani ekrani nisu provereni."
         },
         "terms": [
           {
@@ -14305,50 +14305,50 @@
             "german": "Kundennummer · Betriebsnummer Arbeitgeber (siehe Hinweise zum Vordruck „Arbeitsbescheinigung“)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 1 · Kopf · 1–2",
             "meaning": "Kunden broj radnika i broj poslovanja poslodavca",
-            "instruction": "Popunjava samo poslodavac: Razlikuj BA Kundennummer i Betriebsnummer poslodavca iz evidencije; nisu BG/Versicherungsnummer. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Razlikuj BA Kundennummer i Betriebsnummer poslodavca iz evidencije; nisu BG/Versicherungsnummer. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-3-4-5-6-7-8-9-10-11-12-13",
             "german": "Name · Straße · Hausnummer · Postleitzahl · Ort · Ansprechpartnerin/Ansprechpartner Entgelt · Telefonnummer · E-Mail · Ansprechpartnerin/Ansprechpartner Personal (wenn abweichend von Ansprechpartnerin/Ansprechpartner Entgelt) · Telefonnummer · E-Mail",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 1 · A · 3–13",
             "meaning": "Poslodavac i kontakti obračuna/kadrova",
-            "instruction": "Popunjava samo poslodavac: 3 naziv, 4–7 adresa, 8–10 kontakt plate, 11–13 druga kadrovska osoba samo ako različita. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 3 naziv, 4–7 adresa, 8–10 kontakt plate, 11–13 druga kadrovska osoba samo ako različita. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-14-15-16-17-18-19-20",
             "german": "Vorname · Nachname · Straße · Hausnummer · Postleitzahl · Wohnort · Rentenversicherungsnummer– wenn nicht bekannt, bitte Geburtsdatum (TT.MM.JJJJ) eingtragen",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 1 · B · 14–20",
             "meaning": "Radnik i broj penzijskog osiguranja",
-            "instruction": "Popunjava samo poslodavac: Ime/adresa radnika; 20 Versicherungsnummer, ako nepoznata datum rođenja prema originalu. Ne zameni sa BG brojem. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Ime/adresa radnika; 20 Versicherungsnummer, ako nepoznata datum rođenja prema originalu. Ne zameni sa BG brojem. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-21-22-23-24",
             "german": "Jahr (JJJJ) · Steuerklasse · gegebenenfalls Faktor · Zahl der Kinderfreibeträge",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · B · Lohnsteuerabzugsmerkmale · 21–24",
             "meaning": "Poreske oznake početka relevantne godine",
-            "instruction": "Popunjava samo poslodavac: Godina, klasa, faktor ako postoji i dečiji Freibeträge na početku godine završetka zaposlenja; ako je posao počeo te godine, početak zaposlenja. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Godina, klasa, faktor ako postoji i dečiji Freibeträge na početku godine završetka zaposlenja; ako je posao počeo te godine, početak zaposlenja. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-25",
             "german": "Erfolgten während des Jahres Änderungen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · B · 25",
             "meaning": "Promena poreskih oznaka tokom godine",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14365,30 +14365,30 @@
             "german": "mit Wirkung ab Datum · Steuerklasse · gegebenenfalls Faktor · Zahl der Kinderfreibeträge",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · B · 26–29",
             "meaning": "Datum i nove poreske oznake",
-            "instruction": "Popunjava samo poslodavac: Samo kod promene 25: datum stupanja na snagu i nove vrijednosti prema evidenciji. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Samo kod promene 25: datum stupanja na snagu i nove vrednosti prema evidenciji. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-30-31-32-33",
             "german": "Zeitraum der Beschäftigung der Arbeitnehmerin/des Arbeitnehmers · vom (TT.MM.JJJJ) · bis (TT.MM.JJJJ) · zuletzt beschäftigt als · letzter Beschäftigungsort · Wann hat das Arbeitsverhältnis geendet?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · C · 30–33",
             "meaning": "Stvarno zaposlenje, posljednji posao/mesto i kraj ugovora",
-            "instruction": "Popunjava samo poslodavac: 30 stvarni period zaposlenja u posljednjih pet godina, 31–32 posljednje radno mesto/lokacija, 33 kraj radnog odnosa; to nisu nužno identični datumi, Freistellung je 68. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 30 stvarni period zaposlenja u posljednjih pet godina, 31–32 posljednje radno mesto/lokacija, 33 kraj radnog odnosa; to nisu nužno identični datumi, Freistellung je 68. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-34",
             "german": "Hat die Arbeitnehmerin/der Arbeitnehmer für eine Zeit kein Arbeitsentgelt erhalten?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · C · 34",
             "meaning": "Period bez plate",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Neplaćene pauze nisu plaćena Freistellung. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Neplaćene pauze nisu plaćena Freistellung. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14405,10 +14405,10 @@
             "german": "Die Zahlung war unterbrochen vom (TT.MM.JJJJ) bis (TT.MM.JJJJ) · Gründe für die Unterbrechung der Zahlung von Arbeitsentgelt",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · C · 35–40",
             "meaning": "Tri reda datuma i razloga prekida plate",
-            "instruction": "Popunjava samo poslodavac: 35/37/39 puni periodi od–do; 36/38/40 stvarni razlog iz evidencije. Drugi periodi mogu na odvojenom listu; dolje su štampani primeri razloga, ne automatski odabrani odgovori. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 35/37/39 puni periodi od–do; 36/38/40 stvarni razlog iz evidencije. Drugi periodi mogu na odvojenom listu; dolje su štampani primeri razloga, ne automatski odabrani odgovori. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Krankheit ohne Lohnfortzahlung",
@@ -14424,7 +14424,7 @@
               },
               {
                 "german": "Pflegezeit nach § 2 oder § 3 Absatz 1 Satz 1 Gesetz über die Pflegezeit (PflegeZG)",
-                "meaning": "Vrijeme nege prema navedenom zakonu."
+                "meaning": "Vreme nege prema navedenom zakonu."
               },
               {
                 "german": "Pflegeunterstützungsgeld",
@@ -14485,10 +14485,10 @@
             "german": "Wurde die/der Beschäftigte als arbeitslosenversicherungsfreie/r Arbeitnehmerin/Arbeitnehmer geführt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · D · 41",
             "meaning": "Oslobođen osiguranja za nezaposlenost",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Kod Ja navodi se i period od–do. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Kod Ja navodi se i period od–do. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14505,10 +14505,10 @@
             "german": "War die Arbeitnehmerin/der Arbeitnehmer zuletzt in der gesetzlichen Rentenversicherung versichert?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · D · 42",
             "meaning": "Posljednje zakonsko penzijsko osiguranje",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14525,10 +14525,10 @@
             "german": "Gehörte die Arbeitnehmerin/der Arbeitnehmer wegen ihrer/seiner Beschäftigung der Knappschaftlichen Rentenversicherung an (knappschaftlicher Beitragssatz)?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · D · 43",
             "meaning": "Posebno Knappschaft penzijsko osiguranje",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14545,20 +14545,20 @@
             "german": "Wann und zu welchem Datum wurde das Arbeitsverhältnis gekündigt/beendet? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 44",
             "meaning": "Kada je izjava data i na koji datum prestaje odnos",
-            "instruction": "Popunjava samo poslodavac: Odvoji „am“ datum otkaza/sporazuma od „zum“ datuma završetka. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odvoji „am“ datum otkaza/sporazuma od „zum“ datuma završetka. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-45",
             "german": "Durch wen oder was wurde das Arbeitsverhältnis gekündigt/beendet?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 45",
             "meaning": "Ko ili šta je završilo radni odnos",
-            "instruction": "Popunjava samo poslodavac: Stvarni dokumentovani način prestanka; bez automatskog zaključka o Sperrzeit. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Stvarni dokumentovani način prestanka; bez automatskog zaključka o Sperrzeit. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "durch den Arbeitgeber",
@@ -14583,10 +14583,10 @@
             "german": "Erfolgte die Kündigung durch den Arbeitgeber in schriftlicher Form?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 46",
             "meaning": "Pisani otkaz poslodavca",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14603,20 +14603,20 @@
             "german": "Wie wurde die Kündigung zugestellt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 47",
             "meaning": "Način dostavljanja otkaza",
-            "instruction": "Popunjava samo poslodavac: Stvarni način dostave iz dokaza, ne pretpostavljeni datum čitanja. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Stvarni način dostave iz dokaza, ne pretpostavljeni datum čitanja. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-48",
             "german": "Handelt es sich um eine betriebsbedingte Kündigung gemäß § 1a Kündigungsschutzgesetz (KSchG) mit Abfindungsangebot?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 48",
             "meaning": "Poslovni otkaz §1a uz ponudu otpremnine",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14633,10 +14633,10 @@
             "german": "Hat die Arbeitnehmerin/der Arbeitnehmer Kündigungsschutzklage innerhalb der Frist gemäß § 4 KSchG erhoben?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 49",
             "meaning": "Podnesena tužba protiv otkaza",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14653,10 +14653,10 @@
             "german": "War vertragswidriges Verhalten der Arbeitnehmerin/des Arbeitnehmers Anlass zur Kündigung?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 50",
             "meaning": "Povreda ugovora kao navedeni razlog otkaza",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14673,10 +14673,10 @@
             "german": "War die Arbeitnehmerin/der Arbeitnehmer wegen desselben Verhaltens bereits abgemahnt worden?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 51",
             "meaning": "Ranija opomena zbog istog ponašanja",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14693,20 +14693,20 @@
             "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
             "meaning": "Datum opomene",
-            "instruction": "Popunjava samo poslodavac: Datum stvarno izdate opomene. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Datum stvarno izdate opomene. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-53",
             "german": "Wurden vor oder nach der Kündigung zusätzliche Vereinbarungen getroffen (zum Beispiel Abwicklungsvertrag)?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 53",
             "meaning": "Dodatni sporazumi oko otkaza",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14723,10 +14723,10 @@
             "german": "Wurde eine Sozialauswahl vorgenommen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 54",
             "meaning": "Proveden socijalni odabir otkaza",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja (weiter mit 56)",
@@ -14743,10 +14743,10 @@
             "german": "Entfiel eine Sozialauswahl, da die Kündigung personenbedingt war?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 55",
             "meaning": "Socijalni odabir izostao zbog ličnog razloga",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14763,10 +14763,10 @@
             "german": "Wurde die Sozialauswahl von der Agentur für Arbeit geprüft (Sammelentscheidung)?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 56",
             "meaning": "Agentur je proverila socijalni odabir",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14783,20 +14783,20 @@
             "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
             "meaning": "Agentur koja je proverila socijalni odabir",
-            "instruction": "Popunjava samo poslodavac: Naziv iz stvarne odluke samo kod prethodnog Ja. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Naziv iz stvarne odluke samo kod prethodnog Ja. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-58",
             "german": "Hätte der Arbeitgeber das Arbeitsverhältnis gekündigt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 58",
             "meaning": "Bi li poslodavac otkazao kod sporazuma/otkaza radnika",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14813,20 +14813,20 @@
             "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
             "meaning": "Datumi moguće poslodavčeve izjave i kraja",
-            "instruction": "Popunjava samo poslodavac: Kod 58 Ja: datum kada bi otkaz bio dat i datum završetka prema dokumentovanim činjenicama. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Kod 58 Ja: datum kada bi otkaz bio dat i datum završetka prema dokumentovanim činjenicama. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-60",
             "german": "Bitte geben Sie den Grund der Kündigung an:",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
             "meaning": "Razlog moguće poslodavčeve odluke",
-            "instruction": "Popunjava samo poslodavac: Samo relevantna grana 58–60 iz dokaza; ne strateški izbor. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Samo relevantna grana 58–60 iz dokaza; ne strateški izbor. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "betriebsbedingt",
@@ -14843,10 +14843,10 @@
             "german": "War das Arbeitsverhältnis befristet?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 61",
             "meaning": "Ugovor bio vremenski ograničen",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14863,20 +14863,20 @@
             "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
             "meaning": "Prvobitni rok i datum sklapanja ugovora",
-            "instruction": "Popunjava samo poslodavac: 62 prvobitni kraj, 63 datum sklapanja, ne kasnijeg produženja. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 62 prvobitni kraj, 63 datum sklapanja, ne kasnijeg produženja. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-64",
             "german": "Wurde der befristete Arbeitsvertrag verlängert?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 64",
             "meaning": "Produžen ugovor na određeno",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14893,20 +14893,20 @@
             "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
             "meaning": "Datum i rok produženja",
-            "instruction": "Popunjava samo poslodavac: Datum stvarnog produženja i novi kraj iz dokumenta. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Datum stvarnog produženja i novi kraj iz dokumenta. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-66",
             "german": "Erfolgte die Befristung schriftlich?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 66",
             "meaning": "Ograničenje roka u pisanoj formi",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14923,10 +14923,10 @@
             "german": "War die befristete Beschäftigung für mindestens 2 Monate vorgesehen und wurde eine Möglichkeit der Weiterbeschäftigung durch den Arbeitgeber bei Abschluss des Vertrages in Aussicht gestellt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 67",
             "meaning": "Predviđeno najmanje 2 meseca i moguć nastavak",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14943,10 +14943,10 @@
             "german": "Handelt es sich um eine unwiderrufliche Freistellung durch den Arbeitgeber mit tatsächlicher Weiterzahlung des Arbeitsentgelts?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 68",
             "meaning": "Neopozivo oslobađanje od rada uz stvarnu platu",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14963,10 +14963,10 @@
             "german": "Erfolgte die Freistellung einvernehmlich?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 69",
             "meaning": "Sporazumno oslobađanje od rada",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Primenjivost proveri u konkretnom dokumentu; ne donosimo pravnu ocjenu zakonitosti. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -14983,30 +14983,30 @@
             "german": "Zu welchem Datum erfolgte die einvernehmliche Freistellung? · ab (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 70",
             "meaning": "Početak sporazumne Freistellung",
-            "instruction": "Popunjava samo poslodavac: Datum početka kod relevantnog Ja 69. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Datum početka kod relevantnog Ja 69. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-71",
             "german": "Wie hoch war die vereinbarte durchschnittliche regelmäßige Arbeitszeit in Stunden pro Woche?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 71",
             "meaning": "Ugovorena redovna sedmična satnica",
-            "instruction": "Popunjava samo poslodavac: Stvarni ugovoreni prosjek, ne automatski puna satnica. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Stvarni ugovoreni prosjek, ne automatski puna satnica. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-72",
             "german": "Hat sich die vereinbarte durchschnittliche regelmäßige Arbeitszeit in den letzten 42 Monaten des Beschäftigungsverhältnisses geändert?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 72",
             "meaning": "Promena satnice u posljednja 42 meseca",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pročitaj upute originala, ne preračunavaj automatski. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pročitaj upute originala, ne preračunavaj automatski. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja (siehe Hinweise zum Vordruck „Arbeitsbescheinigung“)",
@@ -15023,20 +15023,20 @@
             "german": "Bitte geben Sie den Grund für die Änderung der regelmäßigen Wochenarbeitszeit an. · Bitte geben Sie den Beginn der Arbeitszeitänderung an. · ab (TT.MM.JJJJ) · Bitte geben Sie die geänderte wöchentliche Arbeitszeit in Stunden pro Woche an.",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 73–75",
             "meaning": "Razlog, početak i nova sedmična satnica",
-            "instruction": "Popunjava samo poslodavac: 73 stvarni razlog, 74 početak, 75 nova ugovorena satnica. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 73 stvarni razlog, 74 početak, 75 nova ugovorena satnica. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-76",
             "german": "Hat sich die Arbeitszeit innerhalb der letzten 42 Monate erneut geändert?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 76",
             "meaning": "Još jedna promena satnice",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15053,30 +15053,30 @@
             "german": "Bitte geben Sie den Grund für die erneute Änderung der regelmäßigen Wochenarbeitszeit an. · Bitte geben Sie den Beginn der Arbeitszeitänderung an: · ab (TT.MM.JJJJ) · Bitte geben Sie die geänderte wöchentliche Arbeitszeit in Stunden pro Woche an.",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 77–79",
             "meaning": "Razlog nove promene, datum i satnica",
-            "instruction": "Popunjava samo poslodavac: 77 razlog ako relevantan, 78 datum, 79 promijenjena satnica prema uputi i ugovoru. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 77 razlog ako relevantan, 78 datum, 79 promenjena satnica prema uputi i ugovoru. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-80",
             "german": "Wie hoch war die durchschnittliche Arbeitszeit einer/eines vergleichbaren Vollzeitbeschäftigten in Stunden?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 80",
             "meaning": "Satnica uporedivog radnika s punim vremenom",
-            "instruction": "Popunjava samo poslodavac: Prosjek uporedivog punog radnog vremena iz evidencije, ne proizvoljno 40. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Prosjek uporedivog punog radnog vremena iz evidencije, ne proizvoljno 40. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-81",
             "german": "Angaben zum beitragspflichtigen Bruttoarbeitsentgelt",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 6 · G · 81",
             "meaning": "Tabela doprinosa bruto plate",
-            "instruction": "Popunjava samo poslodavac: Posljednjih 12 obračunskih meseci prema uputi: period od–do, Rechtskreis, bruto bez jednokratnih uplata i fiktivni bruto prema posebnom pravilu. Ovo nije kalkulator neto plate. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Posljednjih 12 obračunskih meseci prema uputi: period od–do, Rechtskreis, bruto bez jednokratnih uplata i fiktivni bruto prema posebnom pravilu. Ovo nije kalkulator neto plate. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Abrechnungszeiträume von (TT.MM.JJJJ)",
@@ -15109,10 +15109,10 @@
             "german": "Wurden beitragspflichtige Einmalzahlungen (bis zur anteiligen Beitragsbemessungsgrenze gemäß § 23a Absatz 3 bis 5 SGB IV) zusätzlich zum „Beitragspflichtigen Bruttoarbeitsentgelt“ (siehe Ziffer 81 Spalte 4) geleistet?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 82",
             "meaning": "Dodatne jednokratne uplate s doprinosima",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15129,10 +15129,10 @@
             "german": "Angaben zu Einmalzahlungen",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 83",
             "meaning": "Tabela jednokratnih bruto uplata",
-            "instruction": "Popunjava samo poslodavac: Stvarni jednokratni bruto i period od–do prema doprinosnim pravilima; ne dvaput u 81. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Stvarni jednokratni bruto i period od–do prema doprinosnim pravilima; ne dvaput u 81. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Einmalig gezahltes beitragspflichtiges Bruttoarbeitsentgelt in Euro",
@@ -15153,20 +15153,20 @@
             "german": "Anzahl der zu beanspruchenden Urlaubstage je Kalenderjahr · Anzahl der bescheinigten tatsächlichen Urlaubstage · Betrag des bescheinigten Bruttoarbeitsentgelt enthaltenes Urlaubsentgelts in Euro",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · Heimarbeit · 84–86",
             "meaning": "Posebna Heimarbeit polja o odmoru",
-            "instruction": "Popunjava samo poslodavac: Samo za Heimarbeiter/Heimarbeiterin prema uputi: broj prava na dane odmora, stvarni dani i bruto naknada odmora. Rad od kuće nije automatski ovaj poseban status. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Samo za Heimarbeiter/Heimarbeiterin prema uputi: broj prava na dane odmora, stvarni dani i bruto naknada odmora. Rad od kuće nije automatski ovaj poseban status. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-87",
             "german": "Wie wurde das Urlaubsentgelt gezahlt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · Heimarbeit · 87",
             "meaning": "Isplata odmora kod Heimarbeit",
-            "instruction": "Popunjava samo poslodavac: Samo relevantna Heimarbeit: stvarni način isplate. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Samo relevantna Heimarbeit: stvarni način isplate. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "bei Urlaubsantritt",
@@ -15183,10 +15183,10 @@
             "german": "Wurde das Arbeitsentgelt wegen einer Vereinbarung gemäß § 3 Absatz 1 Satz 1 des PflegeZG oder aufgrund von Zeiten nach dem Familienpflegegesetz vermindert?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 88",
             "meaning": "Smanjena plata zbog nege prema posebnom pravilu",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok.  Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15203,20 +15203,20 @@
             "german": "Wenn ja, in welchem Zeitraum? · von (TT.MM.JJJJ) · bis (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 89",
             "meaning": "Period smanjenja kod nege",
-            "instruction": "Popunjava samo poslodavac: Samo Ja 88: puni stvarni period od–do. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Samo Ja 88: puni stvarni period od–do. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-90",
             "german": "Wurden Leistungen im Zusammenhang mit der Beendigung des Arbeits-/Beschäftigungs- beziehungsweise Heimarbeitsverhältnisses gezahlt oder besteht hierauf noch ein Anspruch?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 90",
             "meaning": "Davanja povezana s prestankom rada",
-            "instruction": "Popunjava samo poslodavac: Proveri stvarno plaćeno ili postojeći zahtev; nepoznat ishod se može navesti „ist ungewiss“ uz razlog. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Proveri stvarno plaćeno ili postojeći zahtev; nepoznat ishod se može navesti „ist ungewiss“ uz razlog. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15237,10 +15237,10 @@
             "german": "Wurde das Arbeitsentgelt über das Ende des Beschäftigungsverhältnisses hinaus gezahlt beziehungsweise ist noch zu zahlen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 91",
             "meaning": "Plata nakon kraja zaposlenja",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15257,20 +15257,20 @@
             "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
             "meaning": "Do kojeg datuma još plata",
-            "instruction": "Popunjava samo poslodavac: Datum posljednjeg perioda plate posle kraja zaposlenja. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Datum posljednjeg perioda plate posle kraja zaposlenja. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-93",
             "german": "Wurde eine Urlaubsabgeltung wegen der Beendigung des Beschäftigungs-/Arbeits-/Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu zahlen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 93",
             "meaning": "Isplata neiskorišćenog odmora nakon prestanka",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15287,20 +15287,20 @@
             "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
             "meaning": "Hipotetički kraj plaćenog ostatka odmora",
-            "instruction": "Popunjava samo poslodavac: Poslodavac računa prema pravilu originala, ne proizvoljni putni datum. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Poslodavac računa prema pravilu originala, ne proizvoljni putni datum. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-95",
             "german": "Wurde eine Abfindung, Entschädigung oder ähnliche Leistung wegen der Beendigung des Beschäftigungs-/Arbeits- beziehungsweise Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu bezahlen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 95",
             "meaning": "Otpremnina/odšteta povezana s prestankom",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15317,20 +15317,20 @@
             "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
             "meaning": "Bruto iznos otpremnine i pune godine staža",
-            "instruction": "Popunjava samo poslodavac: 96 bruto i kod neto dogovora uz izuzetke originala; 97 pune godine zaokružene naniže. Bez našeg kalkulatora. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 96 bruto i kod neto dogovora uz izuzetke originala; 97 pune godine zaokružene naniže. Bez našeg kalkulatora. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-98",
             "german": "Wäre die Abfindung auch gezahlt worden, wenn die Kündigung durch den Arbeitgeber erfolgt wäre?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 98",
             "meaning": "Otpremnina i kod poslodavčevog otkaza",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15347,10 +15347,10 @@
             "german": "Beträgt die Abfindung bis zu 0,5 Monatsentgelte für jedes Jahr des Arbeitsverhältnisses (§ 1a Absatz 2 KSchG)?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 99",
             "meaning": "Otpremnina prema konkretnoj §1a granici",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15367,10 +15367,10 @@
             "german": "Wird/Wurde eine Vorruhestandsleistung oder eine vergleichbare Leistung bei Beendigung des Arbeitsverhältnisses gezahlt?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 100",
             "meaning": "Davanje pre penzionisanja nakon prestanka",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. 98–99 samo kod sporazuma/otkaza radnika; proveri primenjivost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15387,20 +15387,20 @@
             "german": "Ab wann und in welcher Höhe wurde eine Vorruhestandsleistung oder eine vergleichbare Leistung gezahlt? · ab (TT.MM.JJJJ) · Höhe in Euro",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 101",
             "meaning": "Početak i iznos predpenzionog davanja",
-            "instruction": "Popunjava samo poslodavac: Samo relevantno Ja 100: stvarni početak i iznos. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Samo relevantno Ja 100: stvarni početak i iznos. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "arbeitsbescheinigung sgb iii 08/2023-102-103-104-105",
             "german": "Kalendertage · Werktage · Wochen · Monate",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 102–105",
             "meaning": "Jedinice poslodavčevog otkaznog roka",
-            "instruction": "Popunjava samo poslodavac: Stvarna mjerodavna zakonska/kolektivna/ugovorna jedinica i broj, ne sve istovremeno. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Stvarna mjerodavna zakonska/kolektivna/ugovorna jedinica i broj, ne sve istovremeno. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Kalendertage",
@@ -15425,10 +15425,10 @@
             "german": "Zu welchem Zeitpunkt endet die maßgebende (gesetzliche, tarifvertragliche oder vertragliche) Kündigungsfrist des Arbeitgebers?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 106",
             "meaning": "Na koji periodični datum završava otkazni rok",
-            "instruction": "Popunjava samo poslodavac: Izaberi stvarno primenjivo ugovorno/zakonsko pravilo; to nije naš izračun datuma. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Izaberi stvarno primenjivo ugovorno/zakonsko pravilo; to nije naš izračun datuma. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "zum Ende der Woche",
@@ -15465,10 +15465,10 @@
             "german": "War die ordentliche Kündigung des Arbeitsverhältnisses (zeitlich begrenzt, unbegrenzt) durch den Arbeitgeber/Auftraggeber/Zwischenmeister gesetzlich oder (tarif-)vertraglich ausgeschlossen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 107",
             "meaning": "Isključen redovni otkaz poslodavca",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15485,10 +15485,10 @@
             "german": "War die ordentliche Kündigung zeitlich unbegrenzt ausgeschlossen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 108",
             "meaning": "Vremenski neograničeno isključenje otkaza",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15505,10 +15505,10 @@
             "german": "Wurde die fristgebundene Kündigung aus wichtigem Grund ausgesprochen, obwohl die ordentliche Kündigung zeitlich unbegrenzt ausgeschlossen war?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 109",
             "meaning": "Otkaz iz važnog razloga uprkos isključenju",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15525,10 +15525,10 @@
             "german": "War die ordentliche Kündigung (tarif-)vertraglich nur bei einer Abfindung, Entschädigung oder ähnlichen Leistung zulässig?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 110",
             "meaning": "Otkaz samo uz otpremninu prema ugovoru",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15545,10 +15545,10 @@
             "german": "Liegen gleichzeitig die Voraussetzungen für eine fristgebundene Kündigung aus wichtigem Grund vor oder wären diese ohne besondere (tarif-)vertragliche Kündigungsregelung gegeben gewesen?",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 111",
             "meaning": "Dodatni uslovi važnog razloga",
-            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: Odgovori prema konkretnoj stvarnoj činjenici iz pitanja i prati odštampani uslovni skok. Pravno osjetljivu primenjivost potvrđuje poslodavac; ne odlučujemo zakonitost. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora.",
             "options": [
               {
                 "german": "Ja",
@@ -15565,10 +15565,10 @@
             "german": "Firmenname · Straße · Hausnummer · Postleitzahl · Ort · Ort · Datum · Firmenstempel, Unterschrift des Arbeitgebers (für Heimarbeiterinnen/Heimarbeiter auch des Zwischenmeisters oder seiner/seines Beauftragten)",
             "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · K · 112–119",
             "meaning": "Firma, datum i poslodavčev potpis — ne radnikov",
-            "instruction": "Popunjava samo poslodavac: 112–116 firma/adresa, 117 mesto, 118 datum, 119 pečat i potpis poslodavca/ovlašćene osobe u papirnom originalu. Savremenu BEA predaju radi poslodavac; radnik ne potpisuje u njegovo ime. Radnik proverava vlastitu kopiju, ne izmišlja ili mijenja poslodavčeve podatke.",
+            "instruction": "Popunjava samo poslodavac: 112–116 firma/adresa, 117 mesto, 118 datum, 119 pečat i potpis poslodavca/ovlašćene osobe u papirnom originalu. Savremenu BEA predaju radi poslodavac; radnik ne potpisuje u njegovo ime. Radnik proverava vlastitu kopiju, ne izmišlja ili menja poslodavčeve podatke.",
             "where": "Obračun plate, ugovor, evidencija zaposlenja i dokument konkretnog pitanja kod poslodavca; radnik proverava svoje dokumente.",
             "example": "Izmišljeno: Maja traži od poslodavca proveru odgovarajućeg podatka u svojoj kopiji, ne popunjava ga sama.",
-            "mistake": "Ne smatraj ovaj papirni redoslijed mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
+            "mistake": "Ne smatraj ovaj papirni redosled mapom BEA niti određuj ALG/Sperrzeit iz jednog odgovora."
           },
           {
             "id": "income-head",
@@ -15585,10 +15585,10 @@
             "german": "Angaben zum Arbeitsentgelt",
             "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
             "meaning": "Pročitaj dodatke plate i različite kategorije",
-            "instruction": "Poslodavac čita cijelu stranu 3: tekuća plata uključuje dodatke/odgovarajuće nenovčane pogodnosti; određene komponente su samo bruto/neto ili posebno. Arbeitskleidung, Dienstwohnung i Kindergartenplatz nisu u ovom bloku za potvrđivanje prema originalu. Ne pretvaramo to u odluku o pravu.",
+            "instruction": "Poslodavac čita celu stranu 3: tekuća plata uključuje dodatke/odgovarajuće nenovčane pogodnosti; određene komponente su samo bruto/neto ili posebno. Arbeitskleidung, Dienstwohnung i Kindergartenplatz nisu u ovom bloku za potvrđivanje prema originalu. Ne pretvaramo to u odluku o pravu.",
             "where": "Original strana 3 i obračunske upute poslodavca.",
             "example": "Izmišljeno: poslodavac proverava Fahrtkostenerstattung u odgovarajućoj posebnoj tabeli, ne dvaput.",
-            "mistake": "Ovdje nema kalkulatora bruto/neto ili odlučivanja šta je pravno priznato.",
+            "mistake": "Ovde nema kalkulatora bruto/neto ili odlučivanja šta je pravno priznato.",
             "options": [
               {
                 "german": "Bruttoarbeitsentgelt",
@@ -15612,7 +15612,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Stvarni poslodavac/adresa, kontakt, poslovna oznaka i broj pod kojim je radnik prijavljen. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period."
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period."
           },
           {
             "id": "einkommensbescheinigung sgb ii 10/2026-10-11-12-13-14-15-16-17-18-19-20",
@@ -15622,7 +15622,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: 10–17 identitet/adresa radnika, 18–19 mjerodavne poreske oznake, 20 njegova Krankenkasse. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period."
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period."
           },
           {
             "id": "einkommensbescheinigung sgb ii 10/2026-21-22-23-24",
@@ -15632,7 +15632,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Kraj samo ako relevantan, razlog iz stvarnog otkaza; 24 stvarna sedmična satnica ili prosjek stvarno mesečno odrađenih sati kod promene. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period."
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period."
           },
           {
             "id": "einkommensbescheinigung sgb ii 10/2026-25-26",
@@ -15642,7 +15642,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: 25 stvarni Ja/Nein, 26 naziv primenjivog Tarifvertraga, ne pretpostavka po industriji. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Ja",
@@ -15662,7 +15662,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Industriju poslodavca i konkretni posao radnika odvojeno. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period."
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period."
           },
           {
             "id": "einkommensbescheinigung sgb ii 10/2026-29",
@@ -15672,7 +15672,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Razlikuj dospeće u tekućem ili narednom mesecu; tačan datum vidi u tabelama. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Im laufenden Monat",
@@ -15692,7 +15692,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Odgovor prema evidenciji, ne pretpostavljenoj prosječnoj plati; stvarni meseci u tabelama. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Ja",
@@ -15712,7 +15712,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Posljednjih šest obračunatih meseci ili meseci koje traži Jobcenter; stvarni bruto bez jednokratnih/naknadnih uplata. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Abrechnungsmonat",
@@ -15740,7 +15740,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Stvarna raspoloživa plata/doprinosni podaci; dodatak dobrovoljnom/privatnom osiguranju odvojeno prema originalu. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Abrechnungsmonat",
@@ -15772,7 +15772,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Samo stvarni avansi u mesecima tabele 31, svaki datum/iznos; ne dvostruka mesečna plata. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Auszahlung des Vorschusses am (TT.MM.JJJJ)",
@@ -15792,7 +15792,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Odgovarajuća posebna davanja iz originala, npr. troškovi prevoza/Kurzarbeitergeld, sa vrstom, dospećem i iznosom. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Art der laufenden Leistung",
@@ -15816,7 +15816,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Stvarne jednokratne/naknadne uplate u mesecima 31; kada prihod pristiže je važna informacija, ne automatska pravna odluka. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Art der Zahlung",
@@ -15841,10 +15841,10 @@
             "german": "Tabelle zur freien Verpflegung und zur kostenfreien Unterkunft",
             "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 6 · D · 36",
             "meaning": "Besplatni obroci i smještaj: broj dana",
-            "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Po mesecu broj dana stvarno datih obroka/smještaja, ne izmišljena vrijednost u eurima. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
+            "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Po mesecu broj dana stvarno datih obroka/smještaja, ne izmišljena vrednost u eurima. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period.",
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period.",
             "options": [
               {
                 "german": "Abrechnungsmonat",
@@ -15876,7 +15876,7 @@
             "instruction": "Odvojeni SGB II dokument, popunjava samo poslodavac: Stvarni datum i poslodavčev potpis nakon provere; radnik ne potpisuje u njegovo ime. Ti proveravaš kopiju i zahtev Jobcentera, ne prepisuješ SGB III brojeve.",
             "where": "Poslodavčeve platne/ugovorne evidencije i konkretni Jobcenter dopis.",
             "example": "Izmišljeno: Jobcenter traži Maji Einkommensbescheinigung, a ona prosljeđuje tačan službeni zahtev poslodavcu.",
-            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne miješaj bruto, neto, priliv i dokazni period."
+            "mistake": "Ovo nije BEA Arbeitsbescheinigung za ALG I; ne mešaj bruto, neto, priliv i dokazni period."
           }
         ],
         "steps": [
@@ -15894,7 +15894,7 @@
             "title": "Zatraži izdavanje od poslodavca",
             "sections": {
               "meaning": "Za savremene SGB III odnose BEA je obavezni elektronski put poslodavca; BA šalje kopiju radniku.",
-              "action": "Proslijedi tačan zahtev kadrovskoj/platnoj službi, potvrdi period i nadležni organ; ništa ne šaljemo automatski.",
+              "action": "Prosledi tačan zahtev kadrovskoj/platnoj službi, potvrdi period i nadležni organ; ništa ne šaljemo automatski.",
               "mistake": "Papir 08/2023 nije mapa današnjeg BEA ekrana."
             }
           },
@@ -15904,7 +15904,7 @@
             "sections": {
               "meaning": "Poslodavac potvrđuje iz svoje evidencije; radnik može uočiti grešku u kopiji.",
               "action": "Pripremi ugovor/izmjene, platne liste, otkaz/sporazum ako postoji, datume, potvrdu zahteva i kopiju BA. Proveri svoje ime, period, bruto/neto i stvarne uplate, bez vlastitog kalkulatora prava.",
-              "mistake": "Ne mijenjaj tuđi službeni dokument sam ili falsifikuj potpis."
+              "mistake": "Ne menjaj tuđi službeni dokument sam ili falsifikuj potpis."
             }
           },
           {
