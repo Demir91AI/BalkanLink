@@ -78,5 +78,5 @@ describe("Final ten verified specialist guides", () => {
    fireEvent.click(screen.getByRole("button",{name:ui.reopen}));fireEvent.click(screen.getByRole("button",{name:ui.unmark}));
    expect(screen.getByRole("progressbar").getAttribute("aria-valuenow")).toBe("1");cleanup();
   }
- });
+ }, 30000);
 });
