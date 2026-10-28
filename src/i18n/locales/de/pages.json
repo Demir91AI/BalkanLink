@@ -12106,7 +12106,7 @@
           },
           {
             "id": "se-18-19-20-21-22",
-            "german": "Name der dritten Ärztin/des dritten Arztes oder der dritten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
+            "german": "Name der dritten Ärztin/des dritten Arztes oder des dritten Krankenhauses oder der dritten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
             "reference": "SE · Seite 2 · C · 18–22",
             "meaning": "Dritte konkrete Praxis oder Einrichtung",
             "instruction": "Nur für tatsächlich von Erklärung C erfasste Stelle Name, Straße, Hausnummer, PLZ und Ort eintragen. Nicht alle drei Zeilen blind ausfüllen; Einleitung erlaubt separate Erklärung je Stelle.",

@@ -12111,7 +12111,7 @@
           },
           {
             "id": "se-18-19-20-21-22",
-            "german": "Name der dritten Ärztin/des dritten Arztes oder der dritten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
+            "german": "Name der dritten Ärztin/des dritten Arztes oder des dritten Krankenhauses oder der dritten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
             "reference": "SE · Seite 2 · C · 18–22",
             "meaning": "Treća konkretna ordinacija ili ustanova",
             "instruction": "Samo za pružaoca koji je stvarno naveden u tvojoj izjavi C: naziv, ulica, broj, poštanski broj i mesto. Ne popunjavaj sva tri reda naslijepo; uvod dopušta zasebnu izjavu po ustanovi.",

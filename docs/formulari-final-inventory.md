@@ -1,10 +1,10 @@
-# Formulari final inventory — pre-edit audit 28.10.2026
+# Formulari final inventory — audit + completed implementation 28.10.2026
 
 Actual catalog: **46 unique entries, 8 stored categories**. Vault hides `vize` (4 entries): **42 visible entries across 7 categories**. Grundsicherung group has **21**, not 19, including Arbeitsbescheinigung and Antragsrücknahme. Catalog/IDs/free flags/routes remain unchanged. Anerkennung redirects to the separate rich `/anerkennung-navigator`; no standard companion replacement.
 
 Dates distinguish registry metadata from wrapper overrides. A checked procedure is not an exact form map.
 
-|Category|Slug|Actual implementation before final batch|Source / date|
+|Category|Slug|Actual implementation after final batch|Source / date|
 |---|---|---|---|
 |dolazak|`anmeldung`|ProcedureCompanion (arrival)|https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99115005104000/herausgeber/BB-108321434/region/120000000000 · 27.10.2026|
 |dolazak|`steuer-id`|ProcedureCompanion (arrival)|https://online.portal.bzst.de/SharedDocs/Leistungsbeschreibung/DE/erneute_mitteilung_der_ID-Nr.html · 27.10.2026|
@@ -27,16 +27,16 @@ Dates distinguish registry metadata from wrapper overrides. A checked procedure 
 |buergergeld|`anlage-sv`|ProcedureCompanion (Grundsicherung; HA navigator unchanged)|https://www.arbeitsagentur.de/datei/anlagesv_ba033005.pdf · 28.10.2026|
 |buergergeld|`anlage-bb`|ProcedureCompanion (Grundsicherung; HA navigator unchanged)|https://www.arbeitsagentur.de/datei/anlagebb_ba032985.pdf · 28.10.2026|
 |buergergeld|`anlage-ve`|ProcedureCompanion (Grundsicherung; HA navigator unchanged)|https://www.arbeitsagentur.de/datei/anlageve_ba033130.pdf · 28.10.2026|
-|buergergeld|`anlage-hg`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`anlage-meb`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`anlage-uf`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`anlage-se`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`anlage-uh1`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`anlage-uh2`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`anlage-uh3`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`nichterreichbarkeit`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
-|buergergeld|`arbeitsbescheinigung`|Legacy dedicated GuideContent → final companion pending|https://www.arbeitsagentur.de · not marked verified in registry|
-|buergergeld|`antragsruecknahme`|Legacy dedicated GuideContent → final companion pending|https://jobcenter.digital · not marked verified in registry|
+|buergergeld|`anlage-hg`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anlagehg_ba032950.pdf · 28.10.2026|
+|buergergeld|`anlage-meb`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anlagemeb_ba032955.pdf · 28.10.2026|
+|buergergeld|`anlage-uf`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anlageuf_ba032970.pdf · 28.10.2026|
+|buergergeld|`anlage-se`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anlagese_ba032975.pdf · 28.10.2026|
+|buergergeld|`anlage-uh1`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anlageuh1_ba032990.pdf · 28.10.2026|
+|buergergeld|`anlage-uh2`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anlageuh2_ba032995.pdf · 28.10.2026|
+|buergergeld|`anlage-uh3`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anlageuh3_ba033050.pdf · 28.10.2026|
+|buergergeld|`nichterreichbarkeit`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/anfrage-ortsabwesenheit_ba147389.pdf · 28.10.2026|
+|buergergeld|`arbeitsbescheinigung`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/arbeitsbescheinigung_ba013140.pdf · 28.10.2026|
+|buergergeld|`antragsruecknahme`|ProcedureCompanion (verified original; employer/clinical roles labelled)|https://www.arbeitsagentur.de/datei/erklaerung-der-antragsruecknahme_ba053139.pdf · 28.10.2026|
 |wohngeld|`wohngeld`|WohngeldCompanion → ProcedureCompanion|local authority / wrapper-specific links · not marked verified in registry; wrapper source check 28.10.2026|
 |posao|`arbeitslosengeld`|CareerCompanion → ProcedureCompanion|https://www.arbeitsagentur.de · not marked verified in registry; wrapper source check 28.10.2026|
 |posao|`krankenkasse`|CareerCompanion → ProcedureCompanion|local authority / wrapper-specific links · not marked verified in registry; wrapper source check 28.10.2026|
