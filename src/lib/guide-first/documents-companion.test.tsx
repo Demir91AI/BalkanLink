@@ -5,6 +5,7 @@ import i18next from "i18next";
 import DocumentsCompanion from "@/components/guide-first/DocumentsCompanion";
 import { DOCUMENTS_LINKS, DOCUMENTS_SLUGS, isDocumentsSlug } from "./documents-model";
 import { isGrundsicherungSlug } from "./grundsicherung-model";
+import type { ProcedureTerm } from "./arrival-model";
 import { isFormFree, getAllFormEntries, formCatalog } from "@/lib/form-catalog";
 import bs from "@/i18n/locales/bs/pages.json";
 import hr from "@/i18n/locales/hr/pages.json";
@@ -63,7 +64,8 @@ describe.each(Object.keys(locales) as Lng[])('documents UI %s', lng => {
     const select=within(root).getByRole('combobox');expect(within(select).getAllByRole('option')).toHaveLength(data.terms.length);
     for(const [i,t] of data.terms.entries()) {
       fireEvent.change(select,{target:{value:String(i)}});expect(root.querySelector('h4[tabindex]')?.textContent).toContain(t.german);
-      for(const opt of ('options' in t ? t.options : []) ?? []) expect([...root.querySelectorAll('li strong')].some(e=>e.textContent===opt.german)).toBe(true);
+      const options = (t as ProcedureTerm).options ?? [];
+      for(const opt of options) expect([...root.querySelectorAll('li strong')].some(e=>e.textContent===opt.german)).toBe(true);
     }
     fireEvent.click(within(root).getByRole('button',{name:ui.previousTerm}));
     expect(root.querySelector('h4[tabindex]')?.textContent).toContain(data.terms[data.terms.length-2].german);
