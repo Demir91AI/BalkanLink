@@ -10,12 +10,14 @@ export function useAdminCenter(enabled: boolean, period: Period) {
   const pending = useRef(false);
   const periodRef = useRef(period); periodRef.current = period;
   const loadedPeriod = useRef<Period | null>(null);
+  const attemptedPeriod = useRef<Period | null>(null);
   const alive = useRef(true);
   const refresh = useCallback(async (only?: SourceKey) => {
     if (!enabled || pending.current) return;
     pending.current = true; setRefreshing(true);
     const requestedPeriod = periodRef.current;
     const keys: SourceKey[] = only ? [only] : ['stats','extra','users','usage'];
+    if (keys.includes('usage')) attemptedPeriod.current = requestedPeriod;
     setSources(prev => Object.fromEntries(Object.entries(prev).map(([k,v]) => [k, keys.includes(k as SourceKey) ? { ...v, loading: true } : v])) as Record<SourceKey, SourceState>);
     const calls = {
       stats: () => supabase.rpc('get_admin_stats'),
@@ -49,7 +51,7 @@ export function useAdminCenter(enabled: boolean, period: Period) {
   }, [refresh]);
   useEffect(() => {
     // Wait for an in-flight batch rather than silently dropping a period selection.
-    if (!enabled || loadedPeriod.current === period) return;
+    if (!enabled || attemptedPeriod.current === period) return;
     if (!pending.current) void refresh('usage');
   }, [enabled, period, refreshing, refresh]);
   return { sources, refreshing, refresh, clock, usagePeriod: loadedPeriod.current };
