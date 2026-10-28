@@ -95,7 +95,7 @@ describe('Viza regression fix, 28 October 2026', () => {
       expect(loc.map(c => c.code)).toEqual(COUNTRY_CONTENT.map(c => c.code));
       loc.forEach((c, i) => expect(c.routes.map(r => r.id)).toEqual(COUNTRY_CONTENT[i].routes.map(r => r.id)));
     }
-    expect(COUNTRY_CONTENT.reduce((n, c) => n + c.routes.length, 0)).toBe(32);
+    expect(COUNTRY_CONTENT.reduce((n, c) => n + c.routes.length, 0)).toBe(31);
   });
   it('has no repeated item inside any steps/documents/costs/errors list in any locale', () => {
     for (const lang of langs) {
