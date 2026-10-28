@@ -552,7 +552,8 @@
       "amountIdentified": "{{amount}} identifiziert",
       "noVisibleDeadline": "Keine sichtbare Frist",
       "deadlinePrefix": "Frist:",
-      "fallbackDoc": "Dokument"
+      "fallbackDoc": "Dokument",
+      "deadlineUnconfirmed": "Frist nicht bestätigt — prüfe das Originalschreiben und die Rechtsbehelfsbelehrung."
     },
     "disclaimer": {
       "title": "Hinweis zum Datenschutz:",

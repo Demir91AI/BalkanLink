@@ -376,7 +376,7 @@ export default function DokumentenCheck() {
   const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
   const sections = useMemo(() => analysis ? parseAnalysisSections(analysis, t("documentCheck.results.fallbackTitle")) : [], [analysis, t]);
-  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => String(key === "deadlineWarning" ? tReply(key) : t(key, opts))) : null, [sections, t, tReply]);
+  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => String(t(key, opts))) : null, [sections, t]);
 
   return (
     <>
@@ -697,8 +697,6 @@ export default function DokumentenCheck() {
                   </div>
                 </motion.div>
               )}
-
-              <LetterReplyTask canAccess={hasAccess} />
 
               {sections.map((section, idx) => {
                 const locked = false; // full analysis for everyone who may run a check

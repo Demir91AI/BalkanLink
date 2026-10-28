@@ -552,7 +552,8 @@
       "amountIdentified": "{{amount}} identifikovano",
       "noVisibleDeadline": "Nema vidljivog roka",
       "deadlinePrefix": "Rok:",
-      "fallbackDoc": "Dokument"
+      "fallbackDoc": "Dokument",
+      "deadlineUnconfirmed": "Rok nije potvrđen — provjeri originalno pismo i upute o pravnom lijeku."
     },
     "disclaimer": {
       "title": "Napomena o zaštiti podataka:",
