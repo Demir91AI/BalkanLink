@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Check, X, Crown, Eye, EyeOff } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import { SEO } from "@/components/SEO";
+import { persistSignupProfile } from '@/lib/phase1-reliability/signup-profile';
 
 const TRIAL_STORAGE_KEY = "pending_trial_code";
 
@@ -92,13 +93,22 @@ export default function Register() {
     }
 
     if (!error && signUpData.user) {
-      await supabase
+      const newUserId = signUpData.user.id;
+      try {
+      await persistSignupProfile(!!signUpData.session, () => supabase
         .from("profiles")
         .upsert({
-          id: signUpData.user.id,
+          id: newUserId,
           email: normalizedEmail,
           first_name: firstName.trim(),
-        } as any, { onConflict: "id" });
+        }, { onConflict: "id" }));
+      } catch {
+        // The account already exists; never encourage another signup after profile failure.
+        toast({ title: t('auth.register.successRegistered'), description: t('reliability.profileFailed'), variant: 'destructive' });
+        setLoading(false);
+        navigate('/login');
+        return;
+      }
 
       // Admin notification — fire & forget (ne blokirati registraciju)
       try {
