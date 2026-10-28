@@ -73,8 +73,12 @@ export default function DokumentenCheck() {
       }
       if (typeof response?.analysis === 'string') {
         // Compatibility while the deployed endpoint remains unchanged. Do not infer facts from markdown.
-        try { setAnalysis(parseAnalysis(response.analysis, language)); }
-        catch { setLegacyResult(response.analysis); }
+        if (response.analysis.trim().startsWith('## ')) setLegacyResult(response.analysis);
+        else {
+          const parsed = parseAnalysis(response.analysis, language);
+          if (!parsed.readable) throw new Error('UNREADABLE');
+          setAnalysis(parsed);
+        }
       } else {
         const parsed = parseAnalysis(response?.analysis, language);
         if (!parsed.readable) throw new Error('UNREADABLE');
