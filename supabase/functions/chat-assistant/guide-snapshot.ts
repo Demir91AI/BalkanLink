@@ -399,32 +399,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Da li se Wohngeld uopšte tiče mene?",
-              "action": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
+              "action": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured.",
+              "concise": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
             },
             {
               "id": "office",
               "title": "Nadležni ured (Wohngeldbehörde)",
-              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev."
+              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev.",
+              "concise": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev."
             },
             {
               "id": "evidence",
               "title": "Dokazi (Nachweise)",
-              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos."
+              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos.",
+              "concise": "Tačnu listu dokaza određuje tvoja pokrajina/ured. Tipično se traže: ugovor o najmu ili dokumenti o vlasništvu i kreditima, dokaz o kiriji/troškovima, dokazi o svim prihodima i imovini svih članova, kod stranaca izvan EU boravišni dokument. Zatraži listu od svog ureda. Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos."
             },
             {
               "id": "fill",
               "title": "Popuni zahtjev",
-              "action": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak."
+              "action": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak.",
+              "concise": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak."
             },
             {
               "id": "submit",
               "title": "Predaja",
-              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
+              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje.",
+              "concise": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
             },
             {
               "id": "after",
               "title": "Nakon predaje i ponovni zahtjev",
-              "action": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije."
+              "action": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije.",
+              "concise": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije."
             }
           ]
         }
@@ -551,32 +557,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Tiče li se Wohngeld uopće mene?",
-              "action": "Prvo provjerite prima li tko u kućanstvu Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitajte stavku o isključenju i pitajte ured."
+              "action": "Prvo provjerite prima li tko u kućanstvu Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitajte stavku o isključenju i pitajte ured.",
+              "concise": "Prvo provjerite prima li tko u kućanstvu Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitajte stavku o isključenju i pitajte ured."
             },
             {
               "id": "office",
               "title": "Nadležni ured (Wohngeldbehörde)",
-              "action": "Na službenom portalu upišite poštanski broj stana; tamo vidite i postoji li online-zahtjev."
+              "action": "Na službenom portalu upišite poštanski broj stana; tamo vidite i postoji li online-zahtjev.",
+              "concise": "Na službenom portalu upišite poštanski broj stana; tamo vidite i postoji li online-zahtjev."
             },
             {
               "id": "evidence",
               "title": "Dokazi (Nachweise)",
-              "action": "Kopirajte dokaze; originale ne šaljite osim ako ured to traži. Na izvadcima smijete zacrniti samo primatelja/svrhu kod posebno osjetljivih podataka, nikada iznos."
+              "action": "Kopirajte dokaze; originale ne šaljite osim ako ured to traži. Na izvadcima smijete zacrniti samo primatelja/svrhu kod posebno osjetljivih podataka, nikada iznos.",
+              "concise": "Točan popis dokaza određuje Vaša savezna pokrajina/ured. Tipično se traže: Mietvertrag ili dokumenti o vlasništvu i kreditima, dokaz o stanarini/troškovima, dokazi o svim prihodima i imovini svih članova, kod stranaca izvan EU boravišni dokument. Zatražite popis od svog ureda. Kopirajte dokaze; originale ne šaljite osim ako ured to traži. Na izvadcima smijete zacrniti samo primatelja/svrhu kod posebno osjetljivih podataka, nikada iznos."
             },
             {
               "id": "fill",
               "title": "Popunite zahtjev",
-              "action": "Koristite rječnik pojmova iznad: za svaki pojam piše što znači, što upisati i gdje naći podatak."
+              "action": "Koristite rječnik pojmova iznad: za svaki pojam piše što znači, što upisati i gdje naći podatak.",
+              "concise": "Koristite rječnik pojmova iznad: za svaki pojam piše što znači, što upisati i gdje naći podatak."
             },
             {
               "id": "submit",
               "title": "Predaja",
-              "action": "Potpišite, priložite dokaze, zadržite kopiju i datum predaje."
+              "action": "Potpišite, priložite dokaze, zadržite kopiju i datum predaje.",
+              "concise": "Potpišite, priložite dokaze, zadržite kopiju i datum predaje."
             },
             {
               "id": "after",
               "title": "Nakon predaje i ponovni zahtjev",
-              "action": "Odgovorite brzo na pitanja ureda. Promjene prijavite. Novi zahtjev predajte na vrijeme prije isteka – pitajte ured koliko ranije."
+              "action": "Odgovorite brzo na pitanja ureda. Promjene prijavite. Novi zahtjev predajte na vrijeme prije isteka – pitajte ured koliko ranije.",
+              "concise": "Odgovorite brzo na pitanja ureda. Promjene prijavite. Novi zahtjev predajte na vrijeme prije isteka – pitajte ured koliko ranije."
             }
           ]
         }
@@ -703,32 +715,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Da li se Wohngeld uopšte tiče mene?",
-              "action": "Prvo proveri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
+              "action": "Prvo proveri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured.",
+              "concise": "Prvo proveri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
             },
             {
               "id": "office",
               "title": "Nadležni ured (Wohngeldbehörde)",
-              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtev."
+              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtev.",
+              "concise": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtev."
             },
             {
               "id": "evidence",
               "title": "Dokazi (Nachweise)",
-              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smeš zacrniti samo primaoca/svrhu kod posebno osetljivih podataka, nikad iznos."
+              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smeš zacrniti samo primaoca/svrhu kod posebno osetljivih podataka, nikad iznos.",
+              "concise": "Tačnu listu dokaza određuje tvoja pokrajina/ured. Tipično se traže: ugovor o najmu (Mietvertrag) ili dokumenti o vlasništvu i kreditima, dokaz o kiriji/troškovima, dokazi o svim prihodima i imovini svih članova, kod stranaca izvan EU boravišni dokument. Zatraži listu od svog ureda. Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smeš zacrniti samo primaoca/svrhu kod posebno osetljivih podataka, nikad iznos."
             },
             {
               "id": "fill",
               "title": "Popuni zahtev",
-              "action": "Koristi rečnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gde naći podatak."
+              "action": "Koristi rečnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gde naći podatak.",
+              "concise": "Koristi rečnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gde naći podatak."
             },
             {
               "id": "submit",
               "title": "Predaja",
-              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
+              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje.",
+              "concise": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
             },
             {
               "id": "after",
               "title": "Nakon predaje i ponovni zahtev",
-              "action": "Odgovori brzo na pitanja ureda. Promene prijavi. Novi zahtev predaj na vreme pre isteka – pitaj ured koliko ranije."
+              "action": "Odgovori brzo na pitanja ureda. Promene prijavi. Novi zahtev predaj na vreme pre isteka – pitaj ured koliko ranije.",
+              "concise": "Odgovori brzo na pitanja ureda. Promene prijavi. Novi zahtev predaj na vreme pre isteka – pitaj ured koliko ranije."
             }
           ]
         }
@@ -855,32 +873,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Betrifft mich Wohngeld überhaupt?",
-              "action": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inkl. Unterkunftskosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde."
+              "action": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inkl. Unterkunftskosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde.",
+              "concise": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inkl. Unterkunftskosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde."
             },
             {
               "id": "office",
               "title": "Zuständige Behörde (Wohngeldbehörde)",
-              "action": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist."
+              "action": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist.",
+              "concise": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist."
             },
             {
               "id": "evidence",
               "title": "Nachweise (Nachweise)",
-              "action": "Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag."
+              "action": "Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag.",
+              "concise": "Die genaue Liste der Nachweise bestimmt Ihr Bundesland/Ihre Behörde. Typischerweise werden verlangt: Mietvertrag oder Dokumente über Eigentum und Kredite, Nachweis über Miete/Kosten, Nachweise über alle Einkommen und Vermögen aller Mitglieder, bei Nicht-EU-Bürgern das Ausweisdokument. Fordern Sie die Liste bei Ihrer Behörde an. Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag."
             },
             {
               "id": "fill",
               "title": "Antrag ausfüllen",
-              "action": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind."
+              "action": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind.",
+              "concise": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind."
             },
             {
               "id": "submit",
               "title": "Abgabe",
-              "action": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum."
+              "action": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum.",
+              "concise": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum."
             },
             {
               "id": "after",
               "title": "Nach der Abgabe und Folgeantrag",
-              "action": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus."
+              "action": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus.",
+              "concise": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus."
             }
           ]
         }
