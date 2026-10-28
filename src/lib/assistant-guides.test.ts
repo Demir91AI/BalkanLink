@@ -11,21 +11,25 @@ import { isValidProductionRoute } from "./canonical-routes";
 import { autoLinkAssistantText } from "./assistant-links";
 
 const question = "Dobio sam dijete u Njemačkoj, kako podnijeti zahtjev za Kindergeld?";
-function endpoint(premium = true, reservation = { ok: true, mode: "full" }, callAI = true) {
+function endpoint(premium = true, reservation = { ok: true, mode: "full" }, callAI = true, before = false) {
   let handler: (r: Request) => Promise<Response> = async () => new Response();
   const commit = vi.fn(async () => {}), release = vi.fn(async () => {}), reserve = vi.fn(async () => reservation);
   const fetchMock = vi.fn(async (_url: string, _init?: RequestInit) => new Response(guides.guideReplyStream("mock general answer")));
-  const source = readFileSync("supabase/functions/chat-assistant/index.ts", "utf8").replace(/^import .*;\n/gm, "");
+  const rpc = vi.fn(async (name: string) => ({ data: name === "_entitlement_core" ? { full_access: premium } : [], error: null }));
+  let source = readFileSync("supabase/functions/chat-assistant/index.ts", "utf8").replace(/^import .*;\n/gm, "");
+  // Reconstruct only the measured pre-change placement; all other handler/gate logic stays actual.
+  if (before) source = source.replace('try { dbResults = await searchDatabase(userText, admin); }', 'try { dbResults = beforeDbResults; }')
+    .replace('let reservation: Reservation;', 'const beforeDbResults = await searchDatabase(userText, admin);\n    let reservation: Reservation;');
   const js = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.None } }).outputText;
   vm.runInNewContext(js, {
     serve: (h: typeof handler) => { handler = h; }, FORM_CATALOG: guides.ASSISTANT_CATALOG,
     ...guides, fetch: fetchMock, Request, Response, ReadableStream, TextEncoder, console: { log() {}, error() {} },
     Deno: { env: { get: () => "isolated" } },
-    createClient: () => ({ auth: { getClaims: async () => ({ data: { claims: { sub: "isolated" } } }) }, rpc: async (name: string) => ({ data: name === "_entitlement_core" ? { full_access: premium } : [], error: null }) }),
+    createClient: () => ({ auth: { getClaims: async () => ({ data: { claims: { sub: "isolated" } } }) }, rpc }),
     reserveUsage: reserve, commitUsage: commit, releaseUsage: release, meterStream,
     assistantGate: () => callAI ? { callAI: true } : { callAI: false, body: { errorCode: "QUOTA_EXHAUSTED" }, status: 429 },
   });
-  return { handler, commit, release, reserve, fetchMock };
+  return { handler, commit, release, reserve, fetchMock, rpc };
 }
 const request = (text: string, language = "bs", page = "/formulari/wohngeld", preceding: guides.GuideMessage[] = []) => new Request("http://localhost/test", { method: "POST", headers: { Authorization: "Bearer isolated" }, body: JSON.stringify({ messages: [...preceding, { role: "user", content: text }], language, currentPage: page }) });
 
@@ -62,6 +66,56 @@ describe("assistant guide projection and routing", () => {
     expect(GUIDE_SNAPSHOT.sources.anmeldung.label).toContain("Brandenburg");
     expect(GUIDE_SNAPSHOT.sources.wohngeld.url).toBe("https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99107023037000");
     expect(guides.buildSourceGuideReply("wohngeld", "bs")).not.toContain("stmb.bayern.de");
+  });
+});
+
+describe("isolated transport reliability and call-count profiling", () => {
+  it("measures search calls: 1→0 for sourced and gated requests, 1→1 for allowed unknown questions", async () => {
+    const counts: number[] = [];
+    for (const [text, allowed] of [[question, true], ["Šta je nepoznata usluga?", false], ["Šta je nepoznata usluga?", true]] as const) {
+      for (const before of [true, false]) {
+        const e = endpoint(true, { ok: allowed, mode: "full" }, allowed, before);
+        await (await e.handler(request(text))).text();
+        counts.push(e.rpc.mock.calls.filter(([name]) => name === "search_community_listings").length);
+        expect(e.reserve).toHaveBeenCalledTimes(1);
+      }
+    }
+    expect(counts).toEqual([1, 0, 1, 0, 1, 1]);
+  });
+  it("keeps full model prompt bytes and conversation unchanged after lookup relocation", async () => {
+    const payloads = [];
+    for (const before of [true, false]) {
+      const e = endpoint(true, { ok: true, mode: "full" }, true, before);
+      await (await e.handler(request("Šta je nepoznata usluga?", "de", "/viza"))).text();
+      payloads.push(JSON.parse(String(e.fetchMock.mock.calls[0]?.[1]?.body)));
+    }
+    expect(payloads[1]).toEqual(payloads[0]);
+    expect(payloads[1].model).toBe("google/gemini-2.5-flash");
+    expect(payloads[1].max_tokens).toBe(1024);
+  });
+  it("network rejection after reservation releases exactly once, without retry or commit", async () => {
+    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline"));
+    const r = await e.handler(request("Šta je nepoznata usluga?"));
+    expect(r.status).toBe(500); expect(e.reserve).toHaveBeenCalledTimes(1);
+    expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
+    expect(e.fetchMock).toHaveBeenCalledTimes(1);
+  });
+  it("slow upstream headers wait without a duplicate call, preserving successful settlement", async () => {
+    const e = endpoint(); let resolve: ((response: Response) => void) | undefined;
+    const headers = new Promise<Response>(r => { resolve = r; });
+    e.fetchMock.mockImplementationOnce(() => headers);
+    const pending = e.handler(request("Šta je nepoznata usluga?"));
+    await vi.waitFor(() => expect(e.fetchMock).toHaveBeenCalledTimes(1));
+    expect(e.commit).not.toHaveBeenCalled(); expect(e.release).not.toHaveBeenCalled();
+    resolve?.(new Response(guides.guideReplyStream("slow result")));
+    expect(await (await pending).text()).toContain("slow result");
+    expect(e.commit).toHaveBeenCalledTimes(1); expect(e.release).not.toHaveBeenCalled();
+  });
+  it("pre-content upstream stream failure releases once; accounting for partial errors stays legacy", async () => {
+    const e = endpoint();
+    e.fetchMock.mockResolvedValueOnce(new Response(new ReadableStream({ start(c) { c.error(new Error("interrupted")); } })));
+    await expect((await e.handler(request("Šta je nepoznata usluga?"))).text()).rejects.toThrow("interrupted");
+    expect(e.reserve).toHaveBeenCalledTimes(1); expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
   });
 });
 
