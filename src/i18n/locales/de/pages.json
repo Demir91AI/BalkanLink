@@ -11390,7 +11390,7 @@
             "id": "b1",
             "title": "Prüfe, ob BAföG für dich infrage kommt",
             "sections": {
-              "meaning": "BAföG hängt unter anderem von Ausbildungsart, Alter, Aufenthalt sowie Einkommen und Vermögen ab. Das Amt prüft auch das Einkommen der Eltern, soweit es anzurechnen ist.",
+              "meaning": "BAföG hängt unter anderem von Ausbildungsart, Alter, Aufenthalt sowie Einkommen und Vermögen ab. Das Amt prüft auch das Einkommen der Eltern, soweit es anzurechnen ist. Altersvoraussetzungen, Ausnahmen und elternunabhängige Förderung müssen im Einzelfall mit dem Amt geklärt werden.",
               "action": "Lies die Informationen auf BAföG.de. Ohne deutsche Staatsangehörigkeit frage das Amt, ob dein Aufenthaltsstatus die Voraussetzungen nach § 8 BAföG erfüllen kann.",
               "where": "BAföG.de, BAföG-Rechner, Studierendenwerk.",
               "example": "Fiktives Beispiel: Maja Kovač (22) beginnt ein Bachelorstudium in Köln und hat eine Aufenthaltserlaubnis. Sie fragt das Studierendenwerk nach § 8.",

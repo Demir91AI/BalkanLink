@@ -11390,7 +11390,7 @@
             "id": "b1",
             "title": "Provjeri dolazi li BAföG u obzir za tebe",
             "sections": {
-              "meaning": "BAföG zavisi, između ostalog, od vrste školovanja, starosti, boravka, prihoda i imovine. Amt provjerava i prihode roditelja kada se oni uzimaju u obzir.",
+              "meaning": "BAföG zavisi, između ostalog, od vrste školovanja, starosti, boravka, prihoda i imovine. Amt provjerava i prihode roditelja kada se oni uzimaju u obzir. Dobni uvjet, iznimke i slučajevi pomoći bez prihoda roditelja provjeravaju se pojedinačno kod Amt-a.",
               "action": "Pročitaj BAföG.de i probaj BAföG-Rechner. Ako nemaš njemačko državljanstvo, pitaj Amt može li tvoj boravišni status dati pravo (BAföG § 8).",
               "where": "BAföG.de, BAföG-Rechner, Studierendenwerk.",
               "example": "Izmišljeni primjer: Maja Kovač (22) upisuje Bachelor u Kölnu i ima Aufenthaltserlaubnis – pita Studierendenwerk ulazi li njezin status u § 8.",
@@ -11451,7 +11451,7 @@
             "title": "Lista dokaza (kopije, ne originali)",
             "sections": {
               "meaning": "Simbol na lijevoj strani Formblatt 01 znači: priloži dokaz u kopiji.",
-              "action": "Prema slučaju: Immatrikulationsbescheinigung ili Formblatt 02, dokaz identiteta i boravka, stanja računa na dan zahtjeva, dokaz osiguranja, ugovor/platne liste, svjedočanstva za Zeile 80 i Formblatt 04 za djecu mlađu od 14. Prati oznake dokaza i zahtjeve Amt-a.",
+              "action": "Prema slučaju: Immatrikulationsbescheinigung ili Formblatt 02, dokaz identiteta i boravka, stanja računa na dan zahtjeva, dokaz osiguranja, ugovor/platne liste, svjedodžbe za Zeile 80 i Formblatt 04 za djecu mlađu od 14. Prati oznake dokaza i zahtjeve Amt-a.",
               "where": "Banka (online banking PDF), škola, poslodavac, Ausländerbehörde.",
               "example": "Izmišljeni primjer: Maja prilaže PDF stanja sva tri računa na datum podnošenja.",
               "mistake": "Zaboraviti mali štedni račun ili kriptovalute (Zeile 74 – 'digitales Vermögen').",
@@ -11897,7 +11897,7 @@
           {
             "id": "s-z4",
             "german": "Vollzeitausbildung",
-            "meaning": "puno radno vrijeme nastave",
+            "meaning": "puno nastavno opterećenje",
             "reference": "Formblatt 01, Seite 1, Zeile 4",
             "instruction": "Obrazac: u školi najmanje 20 sati nastave tjedno. Označi ja/nein.",
             "where": "Raspored, škola.",
@@ -12186,7 +12186,7 @@
             "id": "verpflichtung",
             "german": "Teilnahmeverpflichtung",
             "meaning": "obveza sudjelovanja",
-            "instruction": "Obavezu može izreći nadležni ured. Prati konkretno pismo i pitaj o izuzecima i preprekama, npr. školovanju, njezi ili nespojivosti s poslom. Ovo nije odluka o tvom slučaju.",
+            "instruction": "Obvezu može izreći nadležni ured. Prati konkretno pismo i pitaj o izuzecima i preprekama, npr. školovanju, njezi ili nespojivosti s poslom. Ovo nije odluka o tvom slučaju.",
             "where": "Pismo Ausländerbehörde/Jobcenter-a.",
             "example": "Izmišljeni primjer: Damir vidi tečaj u Kooperationsplan-u i pita Jobcenter koje je pismo za njega obvezujuće.",
             "mistake": "Ignorisati obvezu."
@@ -12254,7 +12254,7 @@
             "id": "dtz",
             "german": "Deutsch-Test für Zuwanderer (DTZ) / Test 'Leben in Deutschland'",
             "meaning": "završni test jezika / test orijentacije",
-            "instruction": "Na kraju tečaja. Čuvaj potvrde za kasnije potrebe; one same ne garantuju boravišnu dozvolu.",
+            "instruction": "Na kraju tečaja. Čuvaj potvrde za kasnije potrebe; one same ne jamče boravišnu dozvolu.",
             "where": "Kursträger.",
             "example": "Izmišljeni primjer: Maja dobije B1 u DTZ.",
             "mistake": "Izgubiti certifikat."

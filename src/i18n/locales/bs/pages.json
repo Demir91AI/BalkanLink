@@ -11390,7 +11390,7 @@
             "id": "b1",
             "title": "Provjeri da li BAföG ima smisla za tebe",
             "sections": {
-              "meaning": "BAföG zavisi, između ostalog, od vrste školovanja, starosti, boravka, prihoda i imovine. Amt provjerava i prihode roditelja kada se oni uzimaju u obzir.",
+              "meaning": "BAföG zavisi, između ostalog, od vrste školovanja, starosti, boravka, prihoda i imovine. Amt provjerava i prihode roditelja kada se oni uzimaju u obzir. Dobni uslov, izuzeci i slučajevi pomoći bez prihoda roditelja provjeravaju se pojedinačno kod Amt-a.",
               "action": "Pročitaj BAföG.de i probaj BAföG-Rechner. Ako nemaš njemačko državljanstvo, pitaj Amt da li tvoj boravišni status može dati pravo (BAföG § 8).",
               "where": "BAföG.de, BAföG-Rechner, Studierendenwerk.",
               "example": "Izmišljeni primjer: Maja Kovač (22) upisuje Bachelor u Kölnu i ima Aufenthaltserlaubnis – pita Studierendenwerk da li njen status ulazi u § 8.",
