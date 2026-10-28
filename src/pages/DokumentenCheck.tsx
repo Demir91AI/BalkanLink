@@ -98,7 +98,7 @@ export default function DokumentenCheck() {
     <CollapsibleTrigger asChild><Button variant="ghost" className="h-auto min-h-12 w-full justify-between gap-3 whitespace-normal text-left"><span>{tx(key)}</span><ChevronDown className="h-4 w-4 shrink-0" /></Button></CollapsibleTrigger>
     <CollapsibleContent className="px-4 py-4 whitespace-pre-wrap break-words leading-relaxed">{children}</CollapsibleContent>
   </Collapsible>;
-  return <>
+  return <div className="guide-dark-surface bg-background text-foreground">
     <SEO title={tx('seo.title')} description={tx('seo.description')} path="/dokumenten-check" />
     <section className="border-b border-border py-8"><div className="container max-w-3xl px-4">
       <PageNavBar onBack={() => navigateBackOrHome(navigate)} showShare />
@@ -146,5 +146,5 @@ export default function DokumentenCheck() {
       </div>}
       <p className="border-t border-border pt-5 text-sm leading-relaxed">{tx('disclaimer.body')}</p>
     </main></AuthGate>
-  </>;
+  </div>;
 }
