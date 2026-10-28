@@ -426,6 +426,407 @@
         "Lebenslauf auf Deutsch oder Englisch",
         "Reisepass"
       ]
+    },
+    "elektroniker_betriebstechnik": {
+      "name": "Elektronikerin / Elektroniker für Betriebstechnik",
+      "description": "Nicht reglementierter IHK-Ausbildungsberuf. Arbeiten ist auch ohne Anerkennung möglich; die Anerkennung bei der IHK FOSA ist freiwillig, für Visum und Arbeitgeber aber oft wichtig.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "IHK FOSA: 100–600 € je nach Aufwand + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Industrieller Elektroberuf (IHK), zu unterscheiden vom handwerklichen Elektroniker für Energie- und Gebäudetechnik (HWK). Für selbstständige Gebäudeinstallationen gelten Handwerks- und Netzbetreiberregeln.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Elektronikerin / Elektroniker für Betriebstechnik“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung (BQFG) stellen — für die meisten IHK-Berufe bei der IHK FOSA; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "industriemechaniker": {
+      "name": "Industriemechanikerin / Industriemechaniker",
+      "description": "Nicht reglementierter IHK-Ausbildungsberuf. Arbeiten ist auch ohne Anerkennung möglich; die Anerkennung bei der IHK FOSA ist freiwillig, für Visum und Arbeitgeber aber oft wichtig.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "IHK FOSA: 100–600 € je nach Aufwand + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Häufiger Referenzberuf für Maschinenschlosser und Instandhaltung; den genauen Referenzberuf bestimmt die zuständige Stelle nach den Ausbildungsinhalten.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Industriemechanikerin / Industriemechaniker“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung (BQFG) stellen — für die meisten IHK-Berufe bei der IHK FOSA; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "zerspanungsmechaniker": {
+      "name": "Zerspanungsmechanikerin / Zerspanungsmechaniker",
+      "description": "Nicht reglementierter IHK-Ausbildungsberuf. Arbeiten ist auch ohne Anerkennung möglich; die Anerkennung bei der IHK FOSA ist freiwillig, für Visum und Arbeitgeber aber oft wichtig.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "IHK FOSA: 100–600 € je nach Aufwand + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "„CNC-Bediener“ ist eine Tätigkeit, kein eigener deutscher Ausbildungsberuf. Formaler Referenzberuf ist z. B. Zerspanungsmechaniker oder Maschinen- und Anlagenführer — nur mit abgeschlossener Ausbildung; reine CNC-Erfahrung begründet keine Gleichwertigkeit.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Zerspanungsmechanikerin / Zerspanungsmechaniker“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung (BQFG) stellen — für die meisten IHK-Berufe bei der IHK FOSA; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "maschinen_anlagenfuehrer": {
+      "name": "Maschinen- und Anlagenführerin / Maschinen- und Anlagenführer",
+      "description": "Nicht reglementierter IHK-Ausbildungsberuf. Arbeiten ist auch ohne Anerkennung möglich; die Anerkennung bei der IHK FOSA ist freiwillig, für Visum und Arbeitgeber aber oft wichtig.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "IHK FOSA: 100–600 € je nach Aufwand + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Zweijähriger Ausbildungsberuf; kann Referenz für kürzere Ausbildungen in der Produktion sein. Nicht mit ungelernter Maschinenarbeit verwechseln.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Maschinen- und Anlagenführerin / Maschinen- und Anlagenführer“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung (BQFG) stellen — für die meisten IHK-Berufe bei der IHK FOSA; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "metallbauer": {
+      "name": "Metallbauerin / Metallbauer",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Handwerk Metallbauer (Anlage A Nr. 13). Möglicher Referenzberuf für Schlosser und Schweißer mit abgeschlossener Ausbildung; in Industriebetrieben ggf. IHK-Referenz (z. B. Konstruktionsmechaniker).",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Metallbauerin / Metallbauer“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "konstruktionsmechaniker": {
+      "name": "Konstruktionsmechanikerin / Konstruktionsmechaniker",
+      "description": "Nicht reglementierter IHK-Ausbildungsberuf. Arbeiten ist auch ohne Anerkennung möglich; die Anerkennung bei der IHK FOSA ist freiwillig, für Visum und Arbeitgeber aber oft wichtig.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "IHK FOSA: 100–600 € je nach Aufwand + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Häufiger formaler Referenzberuf für Schweißer und Stahlbauschlosser mit abgeschlossener Ausbildung. Schweißzertifikate (EN ISO 9606) sind ein eigener Nachweis und ersetzen keine Anerkennung.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Konstruktionsmechanikerin / Konstruktionsmechaniker“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung (BQFG) stellen — für die meisten IHK-Berufe bei der IHK FOSA; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "mechatroniker": {
+      "name": "Mechatronikerin / Mechatroniker",
+      "description": "Nicht reglementierter IHK-Ausbildungsberuf. Arbeiten ist auch ohne Anerkennung möglich; die Anerkennung bei der IHK FOSA ist freiwillig, für Visum und Arbeitgeber aber oft wichtig.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "IHK FOSA: 100–600 € je nach Aufwand + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Der industrielle Mechatroniker (IHK) ist nicht der Kfz-Mechatroniker (Handwerk, HWK) — Referenz nach Ausbildungsinhalten wählen.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Mechatronikerin / Mechatroniker“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung (BQFG) stellen — für die meisten IHK-Berufe bei der IHK FOSA; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "tischler": {
+      "name": "Tischlerin / Tischler (Schreinerin / Schreiner)",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "„Schreiner“ ist die süddeutsche Bezeichnung desselben Berufs — kein eigener Referenzberuf. Handwerk Anlage A Nr. 27.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Tischlerin / Tischler (Schreinerin / Schreiner)“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "zimmerer": {
+      "name": "Zimmerin / Zimmerer",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Handwerk Anlage A Nr. 3. In der Bauindustrie kann auch die IHK zuständig sein — der Anerkennungs-Finder nennt die genaue Stelle.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Zimmerin / Zimmerer“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "fliesenleger": {
+      "name": "Fliesen-, Platten- und Mosaikleger/in",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Seit 2020 wieder Handwerk der Anlage A (Nr. 42): der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Fliesen-, Platten- und Mosaikleger/in“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "maler_lackierer": {
+      "name": "Malerin und Lackiererin / Maler und Lackierer",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Handwerk Anlage A Nr. 10. Industrielle Lackierer (Verfahrensmechaniker für Beschichtungstechnik, IHK) sind ein anderer Referenzberuf.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Malerin und Lackiererin / Maler und Lackierer“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "strassenbauer": {
+      "name": "Straßenbauerin / Straßenbauer",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Handwerk Anlage A Nr. 5. In großen Bauunternehmen kann auch die IHK zuständig sein — im Anerkennungs-Finder prüfen.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Straßenbauerin / Straßenbauer“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "beton_stahlbetonbauer": {
+      "name": "Beton- und Stahlbetonbauerin / Beton- und Stahlbetonbauer",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Eigener Ausbildungsberuf, nicht Maurer. Handwerklich gehört er zum Handwerk „Maurer und Betonbauer“ (Anlage A Nr. 1); in der Industrie kann die IHK zuständig sein.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Beton- und Stahlbetonbauerin / Beton- und Stahlbetonbauer“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "gebaeudereiniger": {
+      "name": "Gebäudereinigerin / Gebäudereiniger",
+      "description": "Zulassungsfreies Handwerk (Anlage B1 HwO), nicht reglementiert. Die Anerkennung bei der HWK ist freiwillig und dient als Qualifikationsnachweis.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Für Reinigungstätigkeiten ist keine formale Qualifikation nötig; eine Anerkennung ist nur mit abgeschlossener Ausbildung in diesem Bereich sinnvoll.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Gebäudereinigerin / Gebäudereiniger“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Dieses Handwerk ist zulassungsfrei (Anlage B1 HwO): ein Betrieb ist auch ohne Meister möglich; die Anerkennung ist freiwillig.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "baecker": {
+      "name": "Bäckerin / Bäcker",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Handwerk Anlage A Nr. 30. Für Lebensmittelarbeit gelten zusätzlich Hygienevorgaben (z. B. Belehrung nach Infektionsschutzgesetz) — nicht Teil der Anerkennung.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Bäckerin / Bäcker“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "friseur": {
+      "name": "Friseurin / Friseur",
+      "description": "Handwerk der Anlage A HwO. Als Arbeitnehmer in der Regel ohne Anerkennung möglich; der selbstständige Betrieb erfordert die Eintragung in die Handwerksrolle. Zuständig ist die HWK des Arbeitsorts.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "Gebühr legt die zuständige HWK fest (nicht einheitlich) + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Handwerk Anlage A Nr. 38: ein eigener Salon erfordert die Eintragung in die Handwerksrolle.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Friseurin / Friseur“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung bei der für den Arbeitsort zuständigen Handwerkskammer (HWK) stellen; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Für den selbstständigen Betrieb dieses Handwerks (Anlage A HwO) ist die Eintragung in die Handwerksrolle nötig — z. B. Meister, als meistergleichwertig anerkannte Qualifikation, Ausnahmebewilligung oder Ausübungsberechtigung. Eine anerkannte Gesellenebene reicht dafür nicht; eigenes Verfahren bei der HWK.",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
+    },
+    "fachkraft_lagerlogistik": {
+      "name": "Fachkraft für Lagerlogistik",
+      "description": "Nicht reglementierter IHK-Ausbildungsberuf. Arbeiten ist auch ohne Anerkennung möglich; die Anerkennung bei der IHK FOSA ist freiwillig, für Visum und Arbeitgeber aber oft wichtig.",
+      "durationRange": "Gesetzliche Frist 3 Monate ab vollständigen Unterlagen (einmal verlängerbar); Beschaffung und Übersetzungen zusätzlich",
+      "costRange": "IHK FOSA: 100–600 € je nach Aufwand + Übersetzungen; Förderung möglich (z. B. Anerkennungszuschuss)",
+      "notes": "Für Gabelstapler sind in Deutschland meist eine betriebliche Schulung und eine schriftliche Beauftragung durch den Arbeitgeber nötig — getrennt von der Anerkennung.",
+      "steps": [
+        "Im Anerkennungs-Finder den Referenzberuf „Fachkraft für Lagerlogistik“ und die zuständige Stelle für den gewünschten Arbeitsort prüfen.",
+        "Für eine Beschäftigung als Arbeitnehmer ist die Anerkennung in der Regel nicht gesetzlich vorgeschrieben (nicht reglementierter Beruf), Arbeitgeber oder Visumverfahren können sie aber verlangen.",
+        "Mit abgeschlossener, im Herkunftsstaat staatlich anerkannter Berufsausbildung den Antrag auf Gleichwertigkeitsfeststellung (BQFG) stellen — für die meisten IHK-Berufe bei der IHK FOSA; auch aus dem Ausland möglich.",
+        "Bescheid: volle oder teilweise Gleichwertigkeit. Bei teilweiser Gleichwertigkeit können Unterschiede durch eine Anpassungsqualifizierung ausgeglichen werden. Gesetzliche Frist: 3 Monate ab vollständigen Unterlagen, einmal verlängerbar (§6 BQFG).",
+        "Reine Berufserfahrung ohne abgeschlossene Ausbildung führt nicht zur formalen Gleichwertigkeit. Bei der Kammer nach Qualifikationsanalyse (bei fehlenden Unterlagen) oder Validierungsverfahren (seit 2025, für langjährige Erfahrung ohne Abschluss) fragen — eigene Verfahren ohne garantiertes Ergebnis.",
+        "Für ein Visum als Fachkraft mit Berufsausbildung (§18a AufenthG) ist meist eine anerkannte Qualifikation nötig. Andere Wege (Westbalkanregelung, Erfahrung nach §19c Abs. 2 mit ZAB-Nachweis, Anerkennungspartnerschaft) haben eigene Voraussetzungen — Make it in Germany prüfen."
+      ],
+      "documents": [
+        "Antragsformular der zuständigen Stelle",
+        "Abschlusszeugnis der Berufsausbildung",
+        "Fächer- und Stundenübersicht / Ausbildungsinhalte (falls vorhanden)",
+        "Nachweise über Berufserfahrung mit Tätigkeitsbeschreibung (Arbeitszeugnisse)",
+        "Tabellarischer Lebenslauf und Identitätsnachweis",
+        "Übersetzung ins Deutsche; Art der Übersetzung, Beglaubigung oder Apostille bestimmt die zuständige Stelle"
+      ]
     }
   },
   "anabin": {
