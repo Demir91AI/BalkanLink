@@ -1,7 +1,7 @@
 ## Viza content accuracy (28.10.2026; no release)
-- [ ] Audit official sources and all country/locale content; retain data keys and array order.
-- [ ] Correct verified figures and unsupported absolutes in content only, with source citations.
-- [ ] Locale/rule regressions, full tests, automatic build status and exact audit/results documentation.
+- [x] Audit official sources and all country/locale content; retain data keys and array order.
+- [x] Correct verified figures and unsupported absolutes in content only, with source citations.
+- [x] 21 locale/rule regressions, 1345 full tests, automatic build OK and exact audit/results documentation; public route checked, authenticated routes not claimed.
 
 ## Final Formulari batch (28.10.2026; no release)
 - [x] Audit all 46 catalog entries and ten live BA sources; baseline 1254 tests passed.

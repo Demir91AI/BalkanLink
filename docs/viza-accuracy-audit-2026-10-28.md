@@ -1239,3 +1239,404 @@ The following list records previous and replacement strings. Matching overlay pa
 - `.7.routes.4.sources.2.url`
   - Before: https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung
   - After: https://www.make-it-in-germany.com/de/visum-anerkennung/visaarten/berufsausbildung
+
+## Exact static route changes
+
+```diff
+--- /tmp/viza-audit/baseline/visaNavigatorData.ts	2026-10-28 15:43:43.136052456 +0000
++++ src/data/visaNavigatorData.ts	2026-10-28 15:49:15.236041816 +0000
+@@ -162,12 +162,12 @@
+     id: 'work',
+     titleKey: 'route_work',
+     subtitleKey: 'route_work_sub',
+-    legalBasis: '§ 18 AufenthG',
++    legalBasis: '§ 18a/§ 18b AufenthG (Fachkräfte); § 19c Abs. 1 AufenthG + § 26 Abs. 2 BeschV (Westbalkan)',
+     documents: [
+-      'Reisepass (gültig min. 6 Monate)',
++      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
+       'Biometrisches Lichtbild',
+       'Arbeitsvertrag oder verbindliches Stellenangebot',
+-      'Anerkannte Berufsqualifikation (Zeugnisse, Diplome)',
++      'Qualifikationsnachweise je nach Aufenthaltsweg; Westbalkan grundsätzlich ohne Anerkennung, reglementierte Berufe ausgenommen',
+       'Krankenversicherungsnachweis',
+       'Nachweis über gesicherten Lebensunterhalt',
+       'Ausgefülltes Antragsformular'
+@@ -188,10 +188,10 @@
+     subtitleKey: 'route_bluecard_sub',
+     legalBasis: '§ 18g AufenthG',
+     documents: [
+-      'Reisepass (gültig min. 6 Monate)',
++      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
+       'Biometrisches Lichtbild',
+       'Anerkannter Hochschulabschluss',
+-      'Arbeitsvertrag mit Mindestgehalt (2025: 45.300 € / Mangelberufe: 41.041,80 €)',
++      'Arbeitsvertrag mit Mindestgehalt (2026: 50.700 € / Mangelberufe, Berufseinsteiger und besondere IT-Fälle mit BA-Zustimmung: 45.934,20 €)',
+       'Krankenversicherungsnachweis',
+       'Ausgefülltes Antragsformular'
+     ],
+@@ -211,12 +211,12 @@
+     subtitleKey: 'route_family_sub',
+     legalBasis: '§§ 27–36 AufenthG',
+     documents: [
+-      'Reisepass (gültig min. 6 Monate)',
++      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
+       'Biometrisches Lichtbild',
+-      'Heiratsurkunde oder Geburtsurkunde (beglaubigt + übersetzt)',
++      'Heirats-/Geburtsurkunde: Form, Übersetzung und gegebenenfalls Apostille/Legalisation laut zuständiger Botschaft',
+       'Nachweis des Aufenthaltstitels des in DE lebenden Familienmitglieds',
+-      'Nachweis ausreichender Deutschkenntnisse (A1)',
+-      'Nachweis über gesicherten Lebensunterhalt und ausreichenden Wohnraum',
++      'A1-Nachweis für Ehepartner, soweit erforderlich; gesetzliche Ausnahmen prüfen',
++      'Lebensunterhalt/Wohnraum soweit für die konkrete Familiennachzugsroute erforderlich',
+       'Krankenversicherungsnachweis'
+     ],
+     warnings: [],
+@@ -234,11 +234,11 @@
+     subtitleKey: 'route_study_sub',
+     legalBasis: '§ 16b AufenthG',
+     documents: [
+-      'Reisepass (gültig min. 6 Monate)',
++      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
+       'Biometrisches Lichtbild',
+       'Zulassungsbescheid einer deutschen Hochschule',
+       'Nachweis über Sprachkenntnisse (Deutsch B2/C1 oder Englisch)',
+-      'Nachweis über gesicherten Lebensunterhalt (Sperrkonto ~11.208 €/Jahr)',
++      'Nachweis über gesicherten Lebensunterhalt (2026 z. B. Sperrkonto 11.904 €/Jahr / 992 €/Monat; auch Stipendium oder Verpflichtungserklärung möglich)',
+       'Krankenversicherungsnachweis',
+       'Schulzeugnisse und Abitur (anerkannt oder Äquivalenz)'
+     ],
+@@ -284,8 +284,8 @@
+       'Aktuelles biometrisches Lichtbild',
+       'Nachweis über 5 Jahre rechtmäßigen Aufenthalt in Deutschland',
+       'Nachweis über gesicherten Lebensunterhalt (ohne Sozialleistungen)',
+-      'Ausreichende Rentenanwartschaften',
+-      'Deutschkenntnisse min. B1',
++      'Angemessene Altersvorsorge nach Aufenthaltsweg; §9 in der Regel 60 Beitragsmonate, §9a separat prüfen',
++      'Deutschkenntnisse in der Regel B1 beim allgemeinen §9-Weg; Ausnahmen/Sonderwege prüfen',
+       'Grundkenntnisse der Rechts- und Gesellschaftsordnung',
+       'Meldebescheinigung',
+       'Nachweis über Krankenversicherung'
+
+```
+
+## Exact Westbalkan panel changes (four languages)
+
+### bs
+- `headerLaw`
+  - Before: § 26 Abs. 2 BeschV
+  - After: §19c(1) + §26(2) BeschV
+- `headerDesc`
+  - Before: Poseban zakon koji ti omogućava rad u Njemačkoj bez priznatih kvalifikacija i bez provjere prioriteta — vrijedi za BiH, Srbiju, Crnu Goru, Sjevernu Makedoniju, Albaniju i Kosovo.
+  - After: Westbalkan-Regelung za šest zemalja: BA saglasnost i ponuda posla uz vizne uvjete. Priznavanje kvalifikacije se u pravilu ne traži, osim za regulisana zanimanja.
+- `stat1Sub`
+  - Before: viza za sve WB zemlje zajedno
+  - After: BA saglasnosti za svih šest zemalja
+- `stat3Sub`
+  - Before: Vorrangprüfung ukinuta
+  - After: BA ipak provjerava uvjete zaposlenja
+- `stat4Value`
+  - Before: NISU
+  - After: U pravilu ne
+- `stat4Sub`
+  - Before: bez nostrifikacije
+  - After: izuzetak: regulisana zanimanja
+- `vorab1`
+  - Before: Sa Vorabzustimmung dobijaš Kundennummer → prioritetno zakazivanje termina u ambasadi
+  - After: Poslodavac podnosi zahtjev BA za Vorabzustimmung prije viznog zahtjeva; dobijenu saglasnost koristiš prema uputama ambasade.
+- `vorab2`
+  - Before: Brža obrada zahtjeva — ambasada ima zaseban red za prijave s Vorabzustimmung
+  - After: Vorabzustimmung može ubrzati vizni postupak; termin i trajanje zavise od ambasade i kategorije.
+- `vorab3`
+  - Before: Manji rizik odbijanja — BA je već odobrila zaposlenje
+  - After: BA saglasnost nije viza: ambasada i dalje provjerava ostale uvjete i odlučuje o zahtjevu.
+- `vorab4`
+  - Before: Bez Vorabzustimmung: moraš čekati losverfahren (izvlačenje termina) — mnogo sporije!
+  - After: Bez Vorabzustimmung provjeri aktuelni postupak kod nadležne ambasade; ne postoji jedinstveno izvlačenje termina za sve zemlje.
+- `embassyBadge`
+  - Before: TAGESAKTUELL
+  - After: Aktuelne upute
+- `embassyTip`
+  - Before: 💡 Kako provjeriti termine: Otvori ambasadinu stranicu svako jutro rano (između 7–9h). Termini se objavljuju tagesaktuell — isti dan i nestaju brzo. Postavi podsjetnik na telefonu svako jutro.
+  - After: Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.
+- `kosovoWarning`
+  - Before: KOSOVO: Vize se apliciraju ISKLJUČIVO kroz VisaMetric — nikako direktno u ambasadu! Naknada: 30 € + 30 € dostava pasoša DHL-om.
+  - After: Kosovo: kanal prijave, uslugu i dostavu provjeri na stranici Ambasade Priština za svoju kategoriju; nisu sve vize isključivo preko VisaMetric.
+- `step2`
+  - Before: Poslodavac traži Vorabzustimmung na arbeitsagentur.de/westbalkanregelung — dobijaš Kundennummer
+  - After: Poslodavac traži Vorabzustimmung na službenoj BA stranici Westbalkanregelung; sačuvaj izdanu saglasnost za vizni postupak.
+- `step3`
+  - Before: Sa Kundennummer zakažeš termin u ambasadi (prioritetni red, brže nego bez Vorabzustimmung)
+  - After: Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.
+- `step4`
+  - Before: Predaješ EzB (popunjava POSLODAVAC, ne ti!), Vorabzustimmung, pasoš, 2 digitalne biometrijske fotografije
+  - After: Predaj ugovor, EzB koju potpisuje poslodavac, Vorabzustimmung i pasoš; fotografije, kopije i ostale dokaze prema aktuelnoj listi ambasade.
+- `step5`
+  - Before: Platiš 75 € vizne naknade i čekaš 4–8 sedmica na D-vizu
+  - After: Vizna taksa u pravilu 75 € za odrasle; način plaćanja, izuzetke, dodatne usluge i vrijeme obrade provjeri kod ambasade.
+- `step7`
+  - Before: PRIJE isteka D-vize — apliciraš za Aufenthaltserlaubnis §18 u lokalnoj Ausländerbehörde (100–110 €)
+  - After: Prije isteka D-vize zatraži Aufenthaltserlaubnis §19c Abs.1 AufenthG kod Ausländerbehörde; važenje, takse i dokazi zavise od postupka.
+- `procedureWarning`
+  - Before: ⚠️ Najčešća greška: Početi raditi s D-vizom bez Aufenthaltserlaubnisa — krivično djelo! Uvijek aplicirati za Aufenthaltserlaubnis PRIJE isteka D-vize.
+  - After: Rad je dozvoljen samo u obimu koji piše na važećoj D-vizi/boravišnoj dozvoli i dodatnom listu. D-viza može već dozvoljavati rad; ne čekaj istek za zahtjev Ausländerbehörde.
+- `sectorsCondition`
+  - Before: Jedini uslov: imaš posao s njemackim poslodavcem koji ti daje ugovor. Kvalifikacije, diploma, prethodno iskustvo — nije obavezno.
+  - After: Nije dovoljan samo ugovor: BA provjerava uporedive radne uvjete i druge uslove. Važi pravilo AsylbLG za zadnja 24 mjeseca; kod prvog odobrenja za osobe preko 45 godina 2026: 55.770 € bruto/god. ili odgovarajuće starosno osiguranje. Za regulisana zanimanja potrebna je dozvola/priznanje.
+- `pathStep1Sub`
+  - Before: D-viza, 6 mj.
+  - After: važenje prema vizi
+- `pathStep2Sub`
+  - Before: §18, 1–2 god.
+  - After: §19c(1)
+- `pathStep3Sub`
+  - Before: svake 2 god.
+  - After: prije isteka dozvole
+- `pathStep4Sub`
+  - Before: nakon 5 god. + B1
+  - After: uvjeti i izuzeci §9
+- `pathReq5`
+  - Before: Apliciraj za Niederlassungserlaubnis §9 i Daueraufenthalt-EU §9a ISTOVREMENO!
+  - After: Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.
+- `link3`
+  - Before: BAMF — Arbeit §18 AufenthG
+  - After: BAMF — zaposlenje i boravak
+
+### hr
+- `headerLaw`
+  - Before: § 26 Abs. 2 BeschV
+  - After: §19c(1) + §26(2) BeschV
+- `headerDesc`
+  - Before: Poseban zakon koji ti omogućava rad u Njemačkoj bez priznatih kvalifikacija i bez provjere prioriteta — vrijedi za BiH, Srbiju, Crnu Goru, Sjevernu Makedoniju, Albaniju i Kosovo.
+  - After: Westbalkan-Regelung za šest zemalja: BA suglasnost i ponuda posla uz vizne uvjete. Priznavanje kvalifikacije se u pravilu ne traži, osim za regulisana zanimanja.
+- `stat1Sub`
+  - Before: viza za sve WB zemlje zajedno
+  - After: BA suglasnosti za svih šest zemalja
+- `stat3Sub`
+  - Before: Vorrangprüfung ukinuta
+  - After: BA ipak provjerava uvjete zaposlenja
+- `stat4Value`
+  - Before: NISU
+  - After: U pravilu ne
+- `stat4Sub`
+  - Before: bez nostrifikacije
+  - After: izuzetak: regulisana zanimanja
+- `vorab1`
+  - Before: Sa Vorabzustimmung dobivaš Kundennummer → prioritetno zakazivanje termina u ambasadi
+  - After: Poslodavac podnosi zahtjev BA za Vorabzustimmung prije viznog zahtjeva; dobijenu suglasnost koristiš prema uputama ambasade.
+- `vorab2`
+  - Before: Brža obrada zahtjeva — ambasada ima poseban red za prijave s Vorabzustimmung
+  - After: Vorabzustimmung može ubrzati vizni postupak; termin i trajanje zavise od ambasade i kategorije.
+- `vorab3`
+  - Before: Manji rizik odbijanja — BA je već odobrila zaposlenje
+  - After: BA suglasnost nije viza: ambasada i dalje provjerava ostale uvjete i odlučuje o zahtjevu.
+- `vorab4`
+  - Before: Bez Vorabzustimmung: moraš čekati losverfahren (izvlačenje termina) — puno sporije!
+  - After: Bez Vorabzustimmung provjeri aktuelni postupak kod nadležne ambasade; ne postoji jedinstveno izvlačenje termina za sve zemlje.
+- `embassyBadge`
+  - Before: TAGESAKTUELL
+  - After: Aktuelne upute
+- `embassyTip`
+  - Before: 💡 Kako provjeriti termine: Otvori ambasadinu stranicu svako jutro rano (između 7–9h). Termini se objavljuju tagesaktuell — isti dan i nestaju brzo. Postavi podsjetnik na telefonu svako jutro.
+  - After: Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.
+- `kosovoWarning`
+  - Before: KOSOVO: Vize se podnose ISKLJUČIVO putem VisaMetric — nikako direktno u ambasadu! Naknada: 30 € + 30 € dostava putovnice DHL-om.
+  - After: Kosovo: kanal prijave, uslugu i dostavu provjeri na stranici Ambasade Priština za svoju kategoriju; nisu sve vize isključivo preko VisaMetric.
+- `step2`
+  - Before: Poslodavac traži Vorabzustimmung na arbeitsagentur.de/westbalkanregelung — dobivaš Kundennummer
+  - After: Poslodavac traži Vorabzustimmung na službenoj BA stranici Westbalkanregelung; sačuvaj izdanu suglasnost za vizni postupak.
+- `step3`
+  - Before: Sa Kundennummer zakažeš termin u ambasadi (prioritetni red, brže nego bez Vorabzustimmung)
+  - After: Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.
+- `step4`
+  - Before: Predaješ EzB (popunjava POSLODAVAC, ne ti!), Vorabzustimmung, putovnicu, 2 digitalne biometrijske fotografije
+  - After: Predaj ugovor, EzB koju potpisuje poslodavac, Vorabzustimmung i pasoš; fotografije, kopije i ostale dokaze prema aktuelnoj listi ambasade.
+- `step5`
+  - Before: Platiš 75 € vizne pristojbe i čekaš 4–8 tjedana na D-vizu
+  - After: Vizna taksa u pravilu 75 € za odrasle; način plaćanja, izuzetke, dodatne usluge i vrijeme obrade provjeri kod ambasade.
+- `step7`
+  - Before: PRIJE isteka D-vize — apliciraš za Aufenthaltserlaubnis §18 u lokalnom Ausländerbehörde (100–110 €)
+  - After: Prije isteka D-vize zatraži Aufenthaltserlaubnis §19c Abs.1 AufenthG kod Ausländerbehörde; važenje, takse i dokazi zavise od postupka.
+- `procedureWarning`
+  - Before: ⚠️ Najčešća greška: Početi raditi s D-vizom bez Aufenthaltserlaubnisa — kazneno djelo! Uvijek aplicirati za Aufenthaltserlaubnis PRIJE isteka D-vize.
+  - After: Rad je dozvoljen samo u obimu koji piše na važećoj D-vizi/boravišnoj dozvoli i dodatnom listu. D-viza može već dozvoljavati rad; ne čekaj istek za zahtjev Ausländerbehörde.
+- `sectorsCondition`
+  - Before: Jedini uvjet: imaš posao s njemačkim poslodavcem koji ti daje ugovor. Kvalifikacije, diploma, prethodno iskustvo — nije obavezno.
+  - After: Nije dovoljan samo ugovor: BA provjerava uporedive radne uvjete i druge uslove. Važi pravilo AsylbLG za zadnja 24 mjeseca; kod prvog odobrenja za osobe preko 45 godina 2026: 55.770 € bruto/god. ili odgovarajuće starosno osiguranje. Za regulisana zanimanja potrebna je dozvola/priznanje.
+- `pathStep1Sub`
+  - Before: D-viza, 6 mj.
+  - After: važenje prema vizi
+- `pathStep2Sub`
+  - Before: §18, 1–2 god.
+  - After: §19c(1)
+- `pathStep3Sub`
+  - Before: svake 2 god.
+  - After: prije isteka dozvole
+- `pathStep4Sub`
+  - Before: nakon 5 god. + B1
+  - After: uvjeti i izuzeci §9
+- `pathReq5`
+  - Before: Apliciraj za Niederlassungserlaubnis §9 i Daueraufenthalt-EU §9a ISTOVREMENO!
+  - After: Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.
+- `link3`
+  - Before: BAMF — Arbeit §18 AufenthG
+  - After: BAMF — zaposlenje i boravak
+
+### sr
+- `headerLaw`
+  - Before: § 26 Abs. 2 BeschV
+  - After: §19c(1) + §26(2) BeschV
+- `headerDesc`
+  - Before: Poseban zakon koji ti omogućava rad u Nemačkoj bez priznatih kvalifikacija i bez provere prioriteta — važi za BiH, Srbiju, Crnu Goru, Severnu Makedoniju, Albaniju i Kosovo.
+  - After: Westbalkan-Regelung za šest zemalja: BA saglasnost i ponuda posla uz vizne uslove. Priznavanje kvalifikacije se u pravilu ne traži, osim za regulisana zanimanja.
+- `stat1Sub`
+  - Before: viza za sve WB zemlje zajedno
+  - After: BA saglasnosti za svih šest zemalja
+- `stat3Sub`
+  - Before: Vorrangprüfung ukinuta
+  - After: BA ipak provjerava uslove zaposlenja
+- `stat4Value`
+  - Before: NISU
+  - After: U pravilu ne
+- `stat4Sub`
+  - Before: bez nostrifikacije
+  - After: izuzetak: regulisana zanimanja
+- `vorab1`
+  - Before: Sa Vorabzustimmung dobijaš Kundennummer → prioritetno zakazivanje termina u ambasadi
+  - After: Poslodavac podnosi zahtev BA za Vorabzustimmung pre viznog zahteva; dobijenu saglasnost koristiš prema uputama ambasade.
+- `vorab2`
+  - Before: Brža obrada zahteva — ambasada ima poseban red za prijave s Vorabzustimmung
+  - After: Vorabzustimmung može ubrzati vizni postupak; termin i trajanje zavise od ambasade i kategorije.
+- `vorab3`
+  - Before: Manji rizik odbijanja — BA je već odobrila zaposlenje
+  - After: BA saglasnost nije viza: ambasada i dalje provjerava ostale uslove i odlučuje o zahtevu.
+- `vorab4`
+  - Before: Bez Vorabzustimmung: moraš čekati losverfahren (izvlačenje termina) — mnogo sporije!
+  - After: Bez Vorabzustimmung proveri aktuelni postupak kod nadležne ambasade; ne postoji jedinstveno izvlačenje termina za sve zemlje.
+- `embassyBadge`
+  - Before: TAGESAKTUELL
+  - After: Aktuelne upute
+- `embassyTip`
+  - Before: 💡 Kako proveriti termine: Otvori ambasadinu stranicu svako jutro rano (između 7–9h). Termini se objavljuju tagesaktuell — isti dan i nestaju brzo. Postavi podsetnik na telefonu svako jutro.
+  - After: Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo proveri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.
+- `kosovoWarning`
+  - Before: KOSOVO: Vize se podnose ISKLJUČIVO putem VisaMetric — nikako direktno u ambasadu! Naknada: 30 € + 30 € dostava pasoša DHL-om.
+  - After: Kosovo: kanal prijave, uslugu i dostavu proveri na stranici Ambasade Priština za svoju kategoriju; nisu sve vize isključivo preko VisaMetric.
+- `step2`
+  - Before: Poslodavac traži Vorabzustimmung na arbeitsagentur.de/westbalkanregelung — dobijaš Kundennummer
+  - After: Poslodavac traži Vorabzustimmung na službenoj BA stranici Westbalkanregelung; sačuvaj izdanu saglasnost za vizni postupak.
+- `step3`
+  - Before: Sa Kundennummer zakažeš termin u ambasadi (prioritetni red, brže nego bez Vorabzustimmung)
+  - After: Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo proveri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.
+- `step4`
+  - Before: Predaješ EzB (popunjava POSLODAVAC, ne ti!), Vorabzustimmung, pasoš, 2 digitalne biometrijske fotografije
+  - After: Predaj ugovor, EzB koju potpisuje poslodavac, Vorabzustimmung i pasoš; fotografije, kopije i ostale dokaze prema aktuelnoj listi ambasade.
+- `step5`
+  - Before: Platiš 75 € vizne naknade i čekaš 4–8 nedelja na D-vizu
+  - After: Vizna taksa u pravilu 75 € za odrasle; način plaćanja, izuzetke, dodatne usluge i vrijeme obrade proveri kod ambasade.
+- `step7`
+  - Before: PRE isteka D-vize — apliciraš za Aufenthaltserlaubnis §18 u lokalnoj Ausländerbehörde (100–110 €)
+  - After: Pre isteka D-vize zatraži Aufenthaltserlaubnis §19c Abs.1 AufenthG kod Ausländerbehörde; važenje, takse i dokazi zavise od postupka.
+- `procedureWarning`
+  - Before: ⚠️ Najčešća greška: Početi raditi s D-vizom bez Aufenthaltserlaubnisa — krivično delo! Uvek aplicirati za Aufenthaltserlaubnis PRE isteka D-vize.
+  - After: Rad je dozvoljen samo u obimu koji piše na važećoj D-vizi/boravišnoj dozvoli i dodatnom listu. D-viza može već dozvoljavati rad; ne čekaj istek za zahtev Ausländerbehörde.
+- `sectorsCondition`
+  - Before: Jedini uslov: imaš posao s nemačkim poslodavcem koji ti daje ugovor. Kvalifikacije, diploma, prethodno iskustvo — nije obavezno.
+  - After: Nije dovoljan samo ugovor: BA provjerava uporedive radne uslove i druge uslove. Važi pravilo AsylbLG za zadnja 24 meseca; kod prvog odobrenja za osobe preko 45 godina 2026: 55.770 € bruto/god. ili odgovarajuće starosno osiguranje. Za regulisana zanimanja potrebna je dozvola/priznanje.
+- `pathStep1Sub`
+  - Before: D-viza, 6 mes.
+  - After: važenje prema vizi
+- `pathStep2Sub`
+  - Before: §18, 1–2 god.
+  - After: §19c(1)
+- `pathStep3Sub`
+  - Before: svake 2 god.
+  - After: pre isteka dozvole
+- `pathStep4Sub`
+  - Before: nakon 5 god. + B1
+  - After: uvjeti i izuzeci §9
+- `pathReq5`
+  - Before: Apliciraj za Niederlassungserlaubnis §9 i Daueraufenthalt-EU §9a ISTOVREMENO!
+  - After: Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uslove i posljedice. S Ausländerbehörde proveri koji zahtev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.
+- `link3`
+  - Before: BAMF — Arbeit §18 AufenthG
+  - After: BAMF — zaposlenje i boravak
+
+### de
+- `headerLaw`
+  - Before: § 26 Abs. 2 BeschV
+  - After: §19c(1) + §26(2) BeschV
+- `headerDesc`
+  - Before: Ein Sondergesetz, das dir ermöglicht, in Deutschland zu arbeiten – ohne anerkannte Qualifikationen und ohne Vorrangprüfung. Gilt für BiH, Serbien, Montenegro, Nordmazedonien, Albanien und Kosovo.
+  - After: Westbalkan-Regelung für sechs Staaten: BA-Zustimmung und Jobangebot sowie Visumvoraussetzungen. Qualifikationsanerkennung grundsätzlich nicht erforderlich, reglementierte Berufe ausgenommen.
+- `stat1Sub`
+  - Before: Visa für alle WB-Länder zusammen
+  - After: BA-Zustimmungen für alle sechs Staaten
+- `stat3Sub`
+  - Before: keine Arbeitsmarktprüfung
+  - After: BA prüft dennoch Beschäftigungsbedingungen
+- `stat4Value`
+  - Before: NICHT
+  - After: In der Regel nicht
+- `stat4Sub`
+  - Before: keine Anerkennung nötig
+  - After: Ausnahme: reglementierte Berufe
+- `vorab1`
+  - Before: Mit Vorabzustimmung erhältst du eine Kundennummer → bevorzugte Terminvergabe bei der Botschaft
+  - After: Arbeitgeber beantragt BA-Vorabzustimmung vor dem Visumantrag; erteilte Zustimmung gemäß Botschaftshinweisen verwenden.
+- `vorab2`
+  - Before: Schnellere Bearbeitung — die Botschaft hat eine separate Warteschlange für Anträge mit Vorabzustimmung
+  - After: Vorabzustimmung kann das Visumverfahren beschleunigen; Termin und Dauer hängen von Botschaft und Kategorie ab.
+- `vorab3`
+  - Before: Geringeres Ablehnungsrisiko — die BA hat die Beschäftigung bereits genehmigt
+  - After: BA-Zustimmung ist kein Visum: Botschaft prüft weitere Voraussetzungen und entscheidet über den Antrag.
+- `vorab4`
+  - Before: Ohne Vorabzustimmung: Losverfahren für Termine — deutlich langsamer!
+  - After: Ohne Vorabzustimmung aktuelles Verfahren bei zuständiger Botschaft prüfen; kein einheitliches Losverfahren für alle Staaten.
+- `embassyBadge`
+  - Before: TAGESAKTUELL
+  - After: Aktuelle Hinweise
+- `embassyTip`
+  - Before: 💡 Termine prüfen: Öffne die Botschaftsseite jeden Morgen früh (zwischen 7–9 Uhr). Termine werden tagesaktuell veröffentlicht und sind schnell vergeben. Tipp: Erinnerung auf dem Handy einrichten.
+  - After: Termin und Einreichung — offizielle Seite der zuständigen Botschaft für die Visumkategorie öffnen; dort Auslandsportal, VisaMetric oder Botschaftstermin prüfen. Verfügbarkeit und Bearbeitungsdauer sind nicht garantiert.
+- `kosovoWarning`
+  - Before: KOSOVO: Visa werden AUSSCHLIESSLICH über VisaMetric beantragt — nicht direkt bei der Botschaft! Gebühr: 30 € + 30 € Passlieferung per DHL.
+  - After: Kosovo: Antragskanal, Service und Rücksendung auf der kategorienbezogenen Seite der Botschaft Pristina prüfen; nicht alle Visa ausschließlich über VisaMetric.
+- `step2`
+  - Before: Arbeitgeber beantragt Vorabzustimmung auf arbeitsagentur.de/westbalkanregelung — du erhältst eine Kundennummer
+  - After: Arbeitgeber beantragt Vorabzustimmung auf offizieller BA-Westbalkan-Seite; erteilte Zustimmung für Visumverfahren bereithalten.
+- `step3`
+  - Before: Mit Kundennummer Termin bei der Botschaft buchen (bevorzugter Zugang, schneller als ohne Vorabzustimmung)
+  - After: Termin und Einreichung — offizielle Seite der zuständigen Botschaft für die Visumkategorie öffnen; dort Auslandsportal, VisaMetric oder Botschaftstermin prüfen. Verfügbarkeit und Bearbeitungsdauer sind nicht garantiert.
+- `step4`
+  - Before: EzB einreichen (wird vom ARBEITGEBER ausgefüllt, nicht von dir!), Vorabzustimmung, Reisepass, 2 digitale biometrische Fotos
+  - After: Vertrag, vom Arbeitgeber unterschriebene EzB, Vorabzustimmung und Reisepass einreichen; Fotos, Kopien und weitere Nachweise laut aktueller Botschaftscheckliste.
+- `step5`
+  - Before: 75 € Visumgebühr bezahlen und 4–8 Wochen auf das D-Visum warten
+  - After: Visumgebühr grundsätzlich 75 € für Erwachsene; Zahlung, Ausnahmen, Zusatzleistungen und Bearbeitungsdauer bei Botschaft prüfen.
+- `step7`
+  - Before: VOR Ablauf des D-Visums — Aufenthaltserlaubnis §18 bei der lokalen Ausländerbehörde beantragen (100–110 €)
+  - After: Vor Ablauf des D-Visums Aufenthaltserlaubnis §19c Abs.1 AufenthG bei Ausländerbehörde beantragen; Gültigkeit, Gebühren und Nachweise hängen vom Verfahren ab.
+- `procedureWarning`
+  - Before: ⚠️ Häufigster Fehler: Mit D-Visum arbeiten ohne Aufenthaltserlaubnis — das ist strafbar! Immer Aufenthaltserlaubnis VOR Ablauf des D-Visums beantragen.
+  - After: Arbeiten nur im Umfang der gültigen D-Visum-/Aufenthaltstitel-Auflagen und des Zusatzblatts. Ein D-Visum kann die Beschäftigung bereits erlauben; Folgeantrag vor Ablauf bei der Ausländerbehörde stellen.
+- `sectorsCondition`
+  - Before: Einzige Voraussetzung: Du hast einen Job bei einem deutschen Arbeitgeber, der dir einen Vertrag gibt. Qualifikationen, Diplom, Berufserfahrung — nicht erforderlich.
+  - After: Vertrag allein reicht nicht: BA prüft vergleichbare Arbeitsbedingungen und weitere Voraussetzungen. AsylbLG-Regel für letzte 24 Monate; bei erstmaliger Zustimmung für über 45-Jährige 2026: 55.770 € brutto/Jahr oder angemessene Altersversorgung. Reglementierte Berufe erfordern Erlaubnis/Anerkennung.
+- `pathStep1Sub`
+  - Before: D-Visum, 6 Mon.
+  - After: Gültigkeit laut Visum
+- `pathStep2Sub`
+  - Before: §18, 1–2 Jahre
+  - After: §19c(1)
+- `pathStep3Sub`
+  - Before: alle 2 Jahre
+  - After: vor Ablauf des Titels
+- `pathStep4Sub`
+  - Before: nach 5 Jahren + B1
+  - After: Voraussetzungen/Ausnahmen §9
+- `pathReq5`
+  - Before: Niederlassungserlaubnis §9 und Daueraufenthalt-EU §9a GLEICHZEITIG beantragen!
+  - After: Niederlassungserlaubnis und Daueraufenthalt-EU haben unterschiedliche Voraussetzungen und Wirkungen. Mit der Ausländerbehörde passenden Antrag und jeweilige Gebühren klären; gemeinsame Beantragung ist nicht verpflichtend.
+- `link3`
+  - Before: BAMF — Arbeit §18 AufenthG
+  - After: BAMF — Beschäftigung und Aufenthalt
