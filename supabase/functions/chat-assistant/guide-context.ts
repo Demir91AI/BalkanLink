@@ -69,8 +69,9 @@ export function resolveConversationGuide(messages: GuideMessage[], currentPage =
   const explicit = resolveSourceGuide(last.content, currentPage);
   if (explicit) return explicit;
   if (!followUp.test(last.content.trim())) return null;
-  const previousUser = messages.slice(0, -1).findLast(m => m.role === "user");
-  const previousAssistant = messages.slice(0, -1).findLast(m => m.role === "assistant");
+  const preceding = messages.slice(0, -1).reverse();
+  const previousUser = preceding.find(m => m.role === "user");
+  const previousAssistant = preceding.find(m => m.role === "assistant");
   if (!previousUser || typeof previousUser.content !== "string") return null;
   const prior = resolveSourceGuide(previousUser.content);
   if (prior) return prior;

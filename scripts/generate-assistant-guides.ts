@@ -11,7 +11,7 @@ export function assistantGuideProjection() {
     return [lang, { ui: common.assistantGuides, guides: {
       kindergeld: { title: pages.guideFirst.kindergeld.title, special: pages.guideFirst.kindergeld.special, steps: pages.guideFirst.kindergeld.workflow.steps.map((s: any) => ({ id: s.id, title: s.title, concise: s.sections.action, action: [s.sections.meaning, s.sections.action, s.sections.where].filter(Boolean).join(" ") })) },
       anmeldung: { title: pages.arrivalCompanions.guides.anmeldung.title, variation: pages.arrivalCompanions.guides.anmeldung.variation, steps: pages.arrivalCompanions.guides.anmeldung.steps.map((s: any) => ({ id: s.id, title: s.title, action: s.sections.action })) },
-      wohngeld: { title: pages.wohngeldCompanion.guides.general.title, variation: pages.wohngeldCompanion.guides.general.variation, steps: pages.wohngeldCompanion.guides.general.steps.map((s: any) => ({ id: s.id, title: s.title, action: s.sections.action })) },
+      wohngeld: { title: pages.wohngeldCompanion.guides.general.title, variation: pages.wohngeldCompanion.guides.general.variation, steps: pages.wohngeldCompanion.guides.general.steps.map((s: any) => ({ id: s.id, title: s.title, action: s.sections.action, concise: s.id === "evidence" ? [s.sections.meaning, s.sections.action].filter(Boolean).join(" ") : s.sections.action })) },
     } }];
   }));
   return { catalog: getAllFormEntries().map(({slug,label,desc}) => ({slug,label,desc})), sources: {
