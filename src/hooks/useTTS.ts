@@ -2,6 +2,16 @@ import { useCallback, useRef, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { TTS_CONFIG, type TtsSpeed } from "@/config/ttsConfig";
 import { getCachedAudioUrl, getDirectAudioUrl, type TTSSentence } from "@/services/ttsProvider";
+import { claimPlayback, releasePlayback, looksPersonal } from "@/lib/audio/audio-engine";
+
+export interface PlayOptions {
+  /** Allowlisted voice for this line (dialogue speakers). */
+  voiceId?: string;
+  /** Called when this line finished playing naturally. */
+  onEnded?: () => void;
+  /** false = never use the robotic browser voice for this line. */
+  allowFallback?: boolean;
+}
 
 /* ── helpers ── */
 
@@ -103,6 +113,10 @@ export function useTTS() {
   const [rate, setRateState] = useState<number>(getPersistedSpeed);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const requestSeqRef = useRef(0);
+  const optsRef = useRef<PlayOptions>({});
+  const stopRef = useRef<() => void>(() => {});
+  const [usingFallback, setUsingFallback] = useState(false);
+  const [audioError, setAudioError] = useState(false);
 
   const setRate = useCallback((r: number) => {
     setRateState(r);
@@ -135,6 +149,7 @@ export function useTTS() {
   /* ── Browser fallback (emergency only) — declared first to avoid TDZ in provider ── */
   const playViaBrowserFallback = useCallback((requestId: number, id: string, text: string): boolean => {
     if (!TTS_CONFIG.fallbackEnabled) return false;
+    if (optsRef.current.allowFallback === false) return false;
 
     const synth = getSynth();
     if (!synth) return false;
@@ -159,8 +174,8 @@ export function useTTS() {
       if (!started && isCurrent()) { setActiveId(null); setPlayState("idle"); }
     }, 2000);
 
-    u.onstart = () => { if (!isCurrent()) return; started = true; clearTimeout(timeout); setActiveId(id); setPlayState("playing"); };
-    u.onend = () => { clearTimeout(timeout); setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); } }, 100); };
+    u.onstart = () => { if (!isCurrent()) return; started = true; clearTimeout(timeout); setUsingFallback(true); setActiveId(id); setPlayState("playing"); };
+    u.onend = () => { clearTimeout(timeout); setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); optsRef.current.onEnded?.(); } }, 100); };
     u.onerror = (e) => {
       clearTimeout(timeout);
       if (e.error === "interrupted" || e.error === "canceled") return;
@@ -178,7 +193,7 @@ export function useTTS() {
    * browsers reject for our edge function, causing silent playback failures.
    */
   const playViaProvider = useCallback((requestId: number, id: string, text: string): boolean => {
-    const sentence: TTSSentence = { id, text: preprocessGerman(text) };
+    const sentence: TTSSentence = { id, text: preprocessGerman(text), voiceId: optsRef.current.voiceId };
     const cachedUrl = getCachedAudioUrl(sentence);
     const directUrlPromise: Promise<string | null> = cachedUrl
       ? Promise.resolve(cachedUrl)
@@ -191,10 +206,10 @@ export function useTTS() {
 
     const isCurrent = () => requestSeqRef.current === requestId && audioRef.current === audio;
 
-    audio.onplay = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
+    audio.onplay = () => { if (isCurrent()) { setUsingFallback(false); setActiveId(id); setPlayState("playing"); } };
     audio.onplaying = () => { if (isCurrent()) { setActiveId(id); setPlayState("playing"); } };
     audio.onended = () => {
-      setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); } }, 100);
+      setTimeout(() => { if (isCurrent()) { setActiveId(null); setPlayState("idle"); optsRef.current.onEnded?.(); } }, 100);
     };
     audio.onerror = () => {
       if (!isCurrent()) return;
@@ -204,7 +219,7 @@ export function useTTS() {
       if (!ok && isCurrent()) {
         setActiveId(null);
         setPlayState("idle");
-        toast.error("Audio konnte nicht abgespielt werden.");
+        setAudioError(true); toast.error("Audio konnte nicht abgespielt werden.");
       }
     };
 
@@ -216,7 +231,7 @@ export function useTTS() {
           if (!ok && isCurrent()) {
             setActiveId(null);
             setPlayState("idle");
-            toast.error("Audio konnte nicht abgespielt werden.");
+            setAudioError(true); toast.error("Audio konnte nicht abgespielt werden.");
           }
           return;
         }
@@ -232,7 +247,7 @@ export function useTTS() {
               if (!ok && isCurrent()) {
                 setActiveId(null);
                 setPlayState("idle");
-                toast.error("Audio konnte nicht abgespielt werden.");
+                setAudioError(true); toast.error("Audio konnte nicht abgespielt werden.");
               }
             });
           }
@@ -258,7 +273,11 @@ export function useTTS() {
   }, [rate, playViaBrowserFallback]);
 
   /* ── Play: ElevenLabs first, browser fallback ── */
-  const playNew = useCallback((id: string, text: string) => {
+  const playNew = useCallback((id: string, text: string, opts: PlayOptions = {}) => {
+    if (looksPersonal(text)) { setAudioError(true); return; }
+    optsRef.current = opts;
+    claimPlayback(stopRef.current);
+    setAudioError(false);
     const requestId = requestSeqRef.current + 1;
     requestSeqRef.current = requestId;
 
@@ -277,11 +296,11 @@ export function useTTS() {
 
     setActiveId(null);
     setPlayState("idle");
-    toast.error("Audio konnte nicht abgespielt werden.");
+    setAudioError(true); toast.error("Audio konnte nicht abgespielt werden.");
   }, [playViaProvider, playViaBrowserFallback]);
 
   const toggle = useCallback(
-    (id: string, text: string) => {
+    (id: string, text: string, opts?: PlayOptions) => {
       if (activeId === id && playState === "loading") {
         requestSeqRef.current += 1;
         resetAudioElement(audioRef.current);
@@ -312,7 +331,7 @@ export function useTTS() {
         setPlayState("playing");
         return;
       }
-      playNew(id, text);
+      playNew(id, text, opts);
     },
     [activeId, playState, playNew]
   );
@@ -325,6 +344,10 @@ export function useTTS() {
     setActiveId(null);
     setPlayState("idle");
   }, []);
+  stopRef.current = stop;
 
-  return { toggle, stop, activeId, playState, rate, setRate, SPEED_OPTIONS: TTS_CONFIG.SPEED_OPTIONS };
+  // Stop on unmount / navigation away from the lesson.
+  useEffect(() => () => { const s = stopRef.current; releasePlayback(s); s(); }, []);
+
+  return { toggle, stop, activeId, playState, rate, setRate, usingFallback, audioError, SPEED_OPTIONS: TTS_CONFIG.SPEED_OPTIONS };
 }

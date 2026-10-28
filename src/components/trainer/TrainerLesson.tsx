@@ -21,6 +21,7 @@ import { useGeneratedExercises } from "@/hooks/useGeneratedExercises";
 import LockedContentOverlay from "./LockedContentOverlay";
 import StageCard from "./StageCard";
 import SprachassistentSection from "./SprachassistentSection";
+import { AudioStatusNotice } from "./audio/AudioPlayerParts";
 import SectionHeader from "@/components/navigation/SectionHeader";
 
 // ─── KONSTANTE ───────────────────────────────────
@@ -73,7 +74,7 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
   const loadingRef = useRef(false);
 
   const { completeLesson } = useTrainerProgress();
-  const { toggle, activeId, playState, rate, setRate, SPEED_OPTIONS } = useTTS();
+  const { toggle, activeId, playState, rate, setRate, SPEED_OPTIONS, usingFallback, audioError } = useTTS();
   const { isPremium } = useSubscription();
   const { generate, error: aiError } = useGeneratedExercises();
 
@@ -286,6 +287,7 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
               setRate={setRate}
               rateOptions={SPEED_OPTIONS}
             />
+            <div className="mt-3"><AudioStatusNotice usingFallback={usingFallback} audioError={audioError} /></div>
           </div>
 
           {/* Common Mistakes */}
