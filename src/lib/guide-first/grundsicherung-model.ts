@@ -1,5 +1,5 @@
 /** Phase 3A Grundsicherungsgeld companions: exact field mapping only for BA HA/WBA/KDU 10/2026. */
-export const GRUNDSICHERUNG_SLUGS = ["hauptantrag", "weiterbewilligung", "anlage-kdu"] as const;
+export const GRUNDSICHERUNG_SLUGS = ["hauptantrag", "weiterbewilligung", "anlage-kdu", "anlage-ek", "anlage-vm", "anlage-ki", "anlage-wep"] as const;
 export type GrundsicherungSlug = typeof GRUNDSICHERUNG_SLUGS[number];
 export function isGrundsicherungSlug(slug: string): slug is GrundsicherungSlug {
   return GRUNDSICHERUNG_SLUGS.some((item) => item === slug);
@@ -11,6 +11,10 @@ export const VERIFIED_PDFS: Record<GrundsicherungSlug, { url: string; edition: s
   hauptantrag: { url: "https://www.arbeitsagentur.de/datei/antrag-sgb2_ba042689.pdf", edition: "10/2026", pages: 8, sha256Prefix: "ca83914379b236b2" },
   weiterbewilligung: { url: "https://www.arbeitsagentur.de/datei/weiterbewilligung-sgb2_ba042699.pdf", edition: "10/2026", pages: 6, sha256Prefix: "cd1b875257256fb6" },
   "anlage-kdu": { url: "https://www.arbeitsagentur.de/datei/anlagekdu_ba032980.pdf", edition: "10/2026", pages: 3, sha256Prefix: "c451fabb6f3110d6" },
+  "anlage-ek": { url: "https://www.arbeitsagentur.de/datei/anlageek_ba032960.pdf", edition: "10/2026", pages: 4, sha256Prefix: "78218d99991efbfa" },
+  "anlage-vm": { url: "https://www.arbeitsagentur.de/datei/anlagevm_ba033055.pdf", edition: "10/2026", pages: 6, sha256Prefix: "dd0f8cebc3049d45" },
+  "anlage-ki": { url: "https://www.arbeitsagentur.de/datei/anlageki_ba033000.pdf", edition: "10/2026", pages: 5, sha256Prefix: "6c7f97165fca5f84" },
+  "anlage-wep": { url: "https://www.arbeitsagentur.de/datei/anlagewep_ba033100.pdf", edition: "10/2026", pages: 7, sha256Prefix: "de9e9b6249d88278" },
 };
 
 /* ── Memory-only navigator. Answers never leave component state. ── */
