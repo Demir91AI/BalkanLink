@@ -268,9 +268,25 @@ export const GUIDE_SNAPSHOT = {
       "verifiedOn": "28.10.2026"
     }
   },
+  "specialLinks": {
+    "adult": "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ab-18-jahren",
+    "cross": "https://www.arbeitsagentur.de/familie-und-kinder/infos-rund-um-kindergeld/kindergeld-ausland"
+  },
+  "visaSource": {
+    "kind": "official",
+    "url": "https://www.auswaertiges-amt.de/de/service/visa-und-aufenthalt/auslandsportal",
+    "label": "Auslandsportal (Auswärtiges Amt)"
+  },
   "locales": {
     "bs": {
       "ui": {
+        "conversation": {
+          "kindergeldQuestion": "Da usmjerim na pravi postupak: radi li se o novorođenčetu koje živi u Njemačkoj, punoljetnom djetetu ili djetetu/radu u drugoj državi? Ne šalji lične podatke.",
+          "local": "Tačan lokalni postupak provjeri u vodiču i na službenoj stranici nadležnog ureda; ovdje ne trebam tvoju adresu.",
+          "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtjev. Ako ne znaš, koristi opći vodič; ne šalji iznose prihoda ni adresu.",
+          "next": "Šta želiš dalje: priprema, službeni portal ili predaja? Za cijeli pregled napiši „svi koraci“.",
+          "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja mijenja postupak: svrha, državljanstvo ili je li korisnik već u Njemačkoj. Ne traži broj pasoša, adresu, platu ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/ambasadu, korisnikovu provjeru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj cijelog viznog odgovora nije ovdje ponovo provjeren; nema provjere uživo."
+        },
         "open": "Otvori SmartGuide",
         "sources": "Službeni izvori",
         "checked": "Zabilježena provjera vodiča: {{date}}. Ovo nije provjera uživo; prije predaje provjeri službeni izvor.",
@@ -281,40 +297,61 @@ export const GUIDE_SNAPSHOT = {
       "guides": {
         "kindergeld": {
           "title": "Kindergeld za novorođenče — korak po korak",
+          "special": {
+            "depends": "Posebni uslovi i potrebni dokumenti zavise od tvoje situacije. BalkanLink ne procjenjuje da li imaš pravo — odlučuje Familienkasse.",
+            "back": "← Nazad na vodič za novorođenče",
+            "adult": {
+              "title": "Kindergeld za dijete starije od 18 godina",
+              "body": "Za punoljetno dijete Kindergeld je moguć samo pod posebnim uslovima (npr. školovanje ili obuka). Službene informacije i potrebne dokaze pogledaj na stranici Familienkasse.",
+              "cta": "BA — Kindergeld ab 18 Jahren"
+            },
+            "cross": {
+              "title": "Dijete u inostranstvu ili rad u drugoj državi",
+              "body": "Za prekogranične slučajeve važe posebna pravila. Prije prijave pročitaj službene informacije Familienkasse za Kindergeld i inostranstvo.",
+              "cta": "BA — Kindergeld und Ausland"
+            }
+          },
           "steps": [
             {
               "id": "situation",
               "title": "Provjeri odgovara li ti ovaj postupak",
+              "concise": "Ako dijete živi u inostranstvu, postoji rad u drugoj državi ili dijete ima 18 godina, odaberi odgovarajući posebni slučaj iznad vodiča.",
               "action": "Zahtjev za Kindergeld nije prijava rođenja. Familienkasse zasebno provjerava pravo i odlučuje o zahtjevu. Ako dijete živi u inostranstvu, postoji rad u drugoj državi ili dijete ima 18 godina, odaberi odgovarajući posebni slučaj iznad vodiča. Podatke o boravištu i državljanstvu provjeri u važećim ličnim dokumentima i prijavi boravišta."
             },
             {
               "id": "documents",
               "title": "Šta ti treba — a šta nije automatski obavezno",
+              "concise": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa.",
               "action": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa."
             },
             {
               "id": "prepare",
               "title": "Pronađi podatke prije prijave",
+              "concise": "Uporedi imena roditelja i djeteta s dokumentima. Pronađi IBAN i ime vlasnika računa. Ako imaš raniji Kindergeld-Nr., uzmi ga s Bescheida; za prvu prijavu ga ne izmišljaj.",
               "action": "Uporedi imena roditelja i djeteta s dokumentima. Pronađi IBAN i ime vlasnika računa. Ako imaš raniji Kindergeld-Nr., uzmi ga s Bescheida; za prvu prijavu ga ne izmišljaj. Steuer-ID ima 11 cifara i nije Steuernummer. Djetetovu Steuer-ID traži u pismu BZSt; ako još nije dostupna, prati upute Familienkasse. IBAN prepiši iz detalja računa u banci."
             },
             {
               "id": "portal",
               "title": "Otvori službeni postupak",
+              "concise": "Na eServices odaberi zahtjev za Kindergeld pri rođenju. Provjeri traženi BA račun, Familienkassen-Profil i BundID. S BundID možeš predati online bez štampanja i potpisa rukom.",
               "action": "Na eServices odaberi zahtjev za Kindergeld pri rođenju. Provjeri traženi BA račun, Familienkassen-Profil i BundID. S BundID možeš predati online bez štampanja i potpisa rukom. Službeno dugme vodi na BA eServices. Za papir koristi isključivo KG1 i Anlage Kind sa BA stranice obrazaca, navedene u izvorima."
             },
             {
               "id": "fields",
               "title": "Roditelj, dijete, račun i posebne okolnosti",
+              "concise": "Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče.",
               "action": "Online pitanja zavise od tvojih odgovora i ne prate nužno brojeve papirnog obrasca. Papirne reference vrijede samo za navedeni KG1 i Anlage Kind. Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče."
             },
             {
               "id": "submit",
               "title": "Provjeri i predaj zahtjev",
+              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže.",
               "action": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže."
             },
             {
               "id": "after",
               "title": "Nakon predaje: potvrda, odgovor i promjene",
+              "concise": "Sačuvaj potvrdu i primjerak zahtjeva kod sebe. Prati poštu ili Familienkassen-Profil. Na zahtjev za dopunu odgovori prema njegovom stvarnom roku; promjene prijavi službenim putem.",
               "action": "Familienkasse provjerava potpunost i pravo, može tražiti dopunu i šalje Bescheid. Sačuvaj potvrdu i primjerak zahtjeva kod sebe. Prati poštu ili Familienkassen-Profil. Na zahtjev za dopunu odgovori prema njegovom stvarnom roku; promjene prijavi službenim putem. Poruke, odluke i pregled predatih zahtjeva nalaze se u službenom profilu ako koristiš tu uslugu; inače prati poštu."
             }
           ]
@@ -362,32 +399,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Da li se Wohngeld uopšte tiče mene?",
-              "action": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
+              "action": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured.",
+              "concise": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
             },
             {
               "id": "office",
               "title": "Nadležni ured (Wohngeldbehörde)",
-              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev."
+              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev.",
+              "concise": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev."
             },
             {
               "id": "evidence",
               "title": "Dokazi (Nachweise)",
-              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos."
+              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos.",
+              "concise": "Tačnu listu dokaza određuje tvoja pokrajina/ured. Tipično se traže: ugovor o najmu ili dokumenti o vlasništvu i kreditima, dokaz o kiriji/troškovima, dokazi o svim prihodima i imovini svih članova, kod stranaca izvan EU boravišni dokument. Zatraži listu od svog ureda. Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos."
             },
             {
               "id": "fill",
               "title": "Popuni zahtjev",
-              "action": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak."
+              "action": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak.",
+              "concise": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak."
             },
             {
               "id": "submit",
               "title": "Predaja",
-              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
+              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje.",
+              "concise": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
             },
             {
               "id": "after",
               "title": "Nakon predaje i ponovni zahtjev",
-              "action": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije."
+              "action": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije.",
+              "concise": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije."
             }
           ]
         }
@@ -395,6 +438,13 @@ export const GUIDE_SNAPSHOT = {
     },
     "hr": {
       "ui": {
+        "conversation": {
+          "kindergeldQuestion": "Da usmjerim na pravi postupak: radi li se o novorođenčetu koje živi u Njemačkoj, punoljetnom djetetu ili djetetu/radu u drugoj državi? Ne šalji osobne podatke.",
+          "local": "Točan lokalni postupak provjeri u vodiču i na službenoj stranici nadležnog ureda; ovdje ne trebam tvoju adresu.",
+          "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtjev. Ako ne znaš, koristi opći vodič; ne šalji iznose prihoda ni adresu.",
+          "next": "Što želiš dalje: priprema, službeni portal ili predaja? Za cijeli pregled napiši „svi koraci“.",
+          "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja mijenja postupak: svrha, državljanstvo ili je li korisnik već u Njemačkoj. Ne traži broj putovnice, adresu, plaću ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/veleposlanstvo, korisnikovu provjeru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj cijelog viznog odgovora nije ovdje ponovno provjeren; nema provjere uživo."
+        },
         "open": "Otvori SmartGuide",
         "sources": "Službeni izvori",
         "checked": "Zabilježena provjera vodiča: {{date}}. Ovo nije provjera uživo; prije predaje provjeri službeni izvor.",
@@ -405,40 +455,61 @@ export const GUIDE_SNAPSHOT = {
       "guides": {
         "kindergeld": {
           "title": "Kindergeld za novorođenče — korak po korak",
+          "special": {
+            "depends": "Posebni uvjeti i potrebni dokumenti ovise o tvojoj situaciji. BalkanLink ne procjenjuje imaš li pravo — odlučuje Familienkasse.",
+            "back": "← Natrag na vodič za novorođenče",
+            "adult": {
+              "title": "Kindergeld za dijete starije od 18 godina",
+              "body": "Za punoljetno dijete Kindergeld je moguć samo pod posebnim uvjetima (npr. školovanje ili osposobljavanje). Službene informacije i potrebne dokaze pogledaj na stranici Familienkasse.",
+              "cta": "BA — Kindergeld ab 18 Jahren"
+            },
+            "cross": {
+              "title": "Dijete u inozemstvu ili rad u drugoj državi",
+              "body": "Za prekogranične slučajeve vrijede posebna pravila. Prije prijave pročitaj službene informacije Familienkasse za Kindergeld i inozemstvo.",
+              "cta": "BA — Kindergeld und Ausland"
+            }
+          },
           "steps": [
             {
               "id": "situation",
               "title": "Provjeri odgovara li ti ovaj postupak",
+              "concise": "Ako dijete živi u inostranstvu, postoji rad u drugoj državi ili dijete ima 18 godina, odaberi odgovarajući posebni slučaj iznad vodiča.",
               "action": "Zahtjev za Kindergeld nije prijava rođenja. Familienkasse zasebno provjerava pravo i odlučuje o zahtjevu. Ako dijete živi u inostranstvu, postoji rad u drugoj državi ili dijete ima 18 godina, odaberi odgovarajući posebni slučaj iznad vodiča. Podatke o boravištu i državljanstvu provjeri u važećim ličnim dokumentima i prijavi boravišta."
             },
             {
               "id": "documents",
               "title": "Šta ti treba — a šta nije automatski obavezno",
+              "concise": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa.",
               "action": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa."
             },
             {
               "id": "prepare",
               "title": "Pronađi podatke prije prijave",
+              "concise": "Uporedi imena roditelja i djeteta s dokumentima. Pronađi IBAN i ime vlasnika računa. Ako imaš raniji Kindergeld-Nr., uzmi ga s Bescheida; za prvu prijavu ga ne izmišljaj.",
               "action": "Uporedi imena roditelja i djeteta s dokumentima. Pronađi IBAN i ime vlasnika računa. Ako imaš raniji Kindergeld-Nr., uzmi ga s Bescheida; za prvu prijavu ga ne izmišljaj. Steuer-ID ima 11 cifara i nije Steuernummer. Djetetovu Steuer-ID traži u pismu BZSt; ako još nije dostupna, prati upute Familienkasse. IBAN prepiši iz detalja računa u banci."
             },
             {
               "id": "portal",
               "title": "Otvori službeni postupak",
+              "concise": "Na eServices odaberi zahtjev za Kindergeld pri rođenju. Provjeri traženi BA račun, Familienkassen-Profil i BundID. S BundID možeš predati online bez štampanja i potpisa rukom.",
               "action": "Na eServices odaberi zahtjev za Kindergeld pri rođenju. Provjeri traženi BA račun, Familienkassen-Profil i BundID. S BundID možeš predati online bez štampanja i potpisa rukom. Službeno dugme vodi na BA eServices. Za papir koristi isključivo KG1 i Anlage Kind sa BA stranice obrazaca, navedene u izvorima."
             },
             {
               "id": "fields",
               "title": "Roditelj, dijete, račun i posebne okolnosti",
+              "concise": "Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče.",
               "action": "Online pitanja zavise od tvojih odgovora i ne prate nužno brojeve papirnog obrasca. Papirne reference vrijede samo za navedeni KG1 i Anlage Kind. Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče."
             },
             {
               "id": "submit",
               "title": "Provjeri i predaj zahtjev",
+              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže.",
               "action": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže."
             },
             {
               "id": "after",
               "title": "Nakon predaje: potvrda, odgovor i promjene",
+              "concise": "Sačuvaj potvrdu i primjerak zahtjeva kod sebe. Prati poštu ili Familienkassen-Profil. Na zahtjev za dopunu odgovori prema njegovom stvarnom roku; promjene prijavi službenim putem.",
               "action": "Familienkasse provjerava potpunost i pravo, može tražiti dopunu i šalje Bescheid. Sačuvaj potvrdu i primjerak zahtjeva kod sebe. Prati poštu ili Familienkassen-Profil. Na zahtjev za dopunu odgovori prema njegovom stvarnom roku; promjene prijavi službenim putem. Poruke, odluke i pregled predatih zahtjeva nalaze se u službenom profilu ako koristiš tu uslugu; inače prati poštu."
             }
           ]
@@ -486,32 +557,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Tiče li se Wohngeld uopće mene?",
-              "action": "Prvo provjerite prima li tko u kućanstvu Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitajte stavku o isključenju i pitajte ured."
+              "action": "Prvo provjerite prima li tko u kućanstvu Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitajte stavku o isključenju i pitajte ured.",
+              "concise": "Prvo provjerite prima li tko u kućanstvu Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitajte stavku o isključenju i pitajte ured."
             },
             {
               "id": "office",
               "title": "Nadležni ured (Wohngeldbehörde)",
-              "action": "Na službenom portalu upišite poštanski broj stana; tamo vidite i postoji li online-zahtjev."
+              "action": "Na službenom portalu upišite poštanski broj stana; tamo vidite i postoji li online-zahtjev.",
+              "concise": "Na službenom portalu upišite poštanski broj stana; tamo vidite i postoji li online-zahtjev."
             },
             {
               "id": "evidence",
               "title": "Dokazi (Nachweise)",
-              "action": "Kopirajte dokaze; originale ne šaljite osim ako ured to traži. Na izvadcima smijete zacrniti samo primatelja/svrhu kod posebno osjetljivih podataka, nikada iznos."
+              "action": "Kopirajte dokaze; originale ne šaljite osim ako ured to traži. Na izvadcima smijete zacrniti samo primatelja/svrhu kod posebno osjetljivih podataka, nikada iznos.",
+              "concise": "Točan popis dokaza određuje Vaša savezna pokrajina/ured. Tipično se traže: Mietvertrag ili dokumenti o vlasništvu i kreditima, dokaz o stanarini/troškovima, dokazi o svim prihodima i imovini svih članova, kod stranaca izvan EU boravišni dokument. Zatražite popis od svog ureda. Kopirajte dokaze; originale ne šaljite osim ako ured to traži. Na izvadcima smijete zacrniti samo primatelja/svrhu kod posebno osjetljivih podataka, nikada iznos."
             },
             {
               "id": "fill",
               "title": "Popunite zahtjev",
-              "action": "Koristite rječnik pojmova iznad: za svaki pojam piše što znači, što upisati i gdje naći podatak."
+              "action": "Koristite rječnik pojmova iznad: za svaki pojam piše što znači, što upisati i gdje naći podatak.",
+              "concise": "Koristite rječnik pojmova iznad: za svaki pojam piše što znači, što upisati i gdje naći podatak."
             },
             {
               "id": "submit",
               "title": "Predaja",
-              "action": "Potpišite, priložite dokaze, zadržite kopiju i datum predaje."
+              "action": "Potpišite, priložite dokaze, zadržite kopiju i datum predaje.",
+              "concise": "Potpišite, priložite dokaze, zadržite kopiju i datum predaje."
             },
             {
               "id": "after",
               "title": "Nakon predaje i ponovni zahtjev",
-              "action": "Odgovorite brzo na pitanja ureda. Promjene prijavite. Novi zahtjev predajte na vrijeme prije isteka – pitajte ured koliko ranije."
+              "action": "Odgovorite brzo na pitanja ureda. Promjene prijavite. Novi zahtjev predajte na vrijeme prije isteka – pitajte ured koliko ranije.",
+              "concise": "Odgovorite brzo na pitanja ureda. Promjene prijavite. Novi zahtjev predajte na vrijeme prije isteka – pitajte ured koliko ranije."
             }
           ]
         }
@@ -519,6 +596,13 @@ export const GUIDE_SNAPSHOT = {
     },
     "sr": {
       "ui": {
+        "conversation": {
+          "kindergeldQuestion": "Da usmerim na pravi postupak: radi li se o novorođenčetu koje živi u Nemačkoj, punoletnom detetu ili detetu/radu u drugoj državi? Ne šalji lične podatke.",
+          "local": "Tačan lokalni postupak proveri u vodiču i na službenoj stranici nadležnog organa; ovde ne trebam tvoju adresu.",
+          "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtev. Ako ne znaš, koristi opšti vodič; ne šalji iznose prihoda ni adresu.",
+          "next": "Šta želiš dalje: priprema, službeni portal ili predaja? Za ceo pregled napiši „svi koraci“.",
+          "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja menja postupak: svrha, državljanstvo ili je li korisnik već u Nemačkoj. Ne traži broj pasoša, adresu, platu ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/ambasadu, korisnikovu proveru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj celog viznog odgovora nije ovde ponovo proveren; nema provere uživo."
+        },
         "open": "Otvori SmartGuide",
         "sources": "Službeni izvori",
         "checked": "Zabeležena provera vodiča: {{date}}. Ovo nije provera uživo; pre predaje proveri službeni izvor.",
@@ -529,40 +613,61 @@ export const GUIDE_SNAPSHOT = {
       "guides": {
         "kindergeld": {
           "title": "Kindergeld za novorođenče — korak po korak",
+          "special": {
+            "depends": "Posebni uslovi i potrebni dokumenti zavise od tvoje situacije. BalkanLink ne procenjuje da li imaš pravo — odlučuje Familienkasse.",
+            "back": "← Nazad na vodič za novorođenče",
+            "adult": {
+              "title": "Kindergeld za dete starije od 18 godina",
+              "body": "Za punoletno dete Kindergeld je moguć samo pod posebnim uslovima (npr. školovanje ili obuka). Zvanične informacije i potrebne dokaze pogledaj na stranici Familienkasse.",
+              "cta": "BA — Kindergeld ab 18 Jahren"
+            },
+            "cross": {
+              "title": "Dete u inostranstvu ili rad u drugoj državi",
+              "body": "Za prekogranične slučajeve važe posebna pravila. Pre prijave pročitaj zvanične informacije Familienkasse za Kindergeld i inostranstvo.",
+              "cta": "BA — Kindergeld und Ausland"
+            }
+          },
           "steps": [
             {
               "id": "situation",
               "title": "Provjeri odgovara li ti ovaj postupak",
+              "concise": "Ako dijete živi u inostranstvu, postoji rad u drugoj državi ili dijete ima 18 godina, odaberi odgovarajući posebni slučaj iznad vodiča.",
               "action": "Zahtjev za Kindergeld nije prijava rođenja. Familienkasse zasebno provjerava pravo i odlučuje o zahtjevu. Ako dijete živi u inostranstvu, postoji rad u drugoj državi ili dijete ima 18 godina, odaberi odgovarajući posebni slučaj iznad vodiča. Podatke o boravištu i državljanstvu provjeri u važećim ličnim dokumentima i prijavi boravišta."
             },
             {
               "id": "documents",
               "title": "Šta ti treba — a šta nije automatski obavezno",
+              "concise": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa.",
               "action": "Za dijete mlađe od 18 godina obično su dovoljne Steuer-ID roditelja i djeteta. Za novorođenče rođeno u Njemačkoj rodni list nije automatski obavezan prilog. Pripremi svoje identifikacijske podatke, podatke djeteta i podatke za isplatu. Za boravišni status ili poseban slučaj prati upute službenog zahtjeva. Steuer-ID: pismo BZSt ili elektronska Lohnsteuerbescheinigung roditelja; lični dokumenti; bankovna aplikacija ili izvod računa."
             },
             {
               "id": "prepare",
               "title": "Pronađi podatke prije prijave",
+              "concise": "Uporedi imena roditelja i djeteta s dokumentima. Pronađi IBAN i ime vlasnika računa. Ako imaš raniji Kindergeld-Nr., uzmi ga s Bescheida; za prvu prijavu ga ne izmišljaj.",
               "action": "Uporedi imena roditelja i djeteta s dokumentima. Pronađi IBAN i ime vlasnika računa. Ako imaš raniji Kindergeld-Nr., uzmi ga s Bescheida; za prvu prijavu ga ne izmišljaj. Steuer-ID ima 11 cifara i nije Steuernummer. Djetetovu Steuer-ID traži u pismu BZSt; ako još nije dostupna, prati upute Familienkasse. IBAN prepiši iz detalja računa u banci."
             },
             {
               "id": "portal",
               "title": "Otvori službeni postupak",
+              "concise": "Na eServices odaberi zahtjev za Kindergeld pri rođenju. Provjeri traženi BA račun, Familienkassen-Profil i BundID. S BundID možeš predati online bez štampanja i potpisa rukom.",
               "action": "Na eServices odaberi zahtjev za Kindergeld pri rođenju. Provjeri traženi BA račun, Familienkassen-Profil i BundID. S BundID možeš predati online bez štampanja i potpisa rukom. Službeno dugme vodi na BA eServices. Za papir koristi isključivo KG1 i Anlage Kind sa BA stranice obrazaca, navedene u izvorima."
             },
             {
               "id": "fields",
               "title": "Roditelj, dijete, račun i posebne okolnosti",
+              "concise": "Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče.",
               "action": "Online pitanja zavise od tvojih odgovora i ne prate nužno brojeve papirnog obrasca. Papirne reference vrijede samo za navedeni KG1 i Anlage Kind. Odaberi online objašnjenja ili papirne odjeljke ispod. Na papiru koristi jednu Anlage Kind za svako dijete; odjeljak za dijete od 18 godina preskoči za novorođenče."
             },
             {
               "id": "submit",
               "title": "Provjeri i predaj zahtjev",
+              "concise": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže.",
               "action": "Provjeri podatke roditelja i djeteta, porezne brojeve, račun i sve odgovore o drugim državama ili ranijim isplatama. Online završi službeno slanje i sačuvaj potvrdu. Na papiru provjeri potpise u KG1 i Anlage Kind te nadležnu Familienkasse prema službenim uputama. Ne šalji originalne dokumente osim ako se izričito traže."
             },
             {
               "id": "after",
               "title": "Nakon predaje: potvrda, odgovor i promjene",
+              "concise": "Sačuvaj potvrdu i primjerak zahtjeva kod sebe. Prati poštu ili Familienkassen-Profil. Na zahtjev za dopunu odgovori prema njegovom stvarnom roku; promjene prijavi službenim putem.",
               "action": "Familienkasse provjerava potpunost i pravo, može tražiti dopunu i šalje Bescheid. Sačuvaj potvrdu i primjerak zahtjeva kod sebe. Prati poštu ili Familienkassen-Profil. Na zahtjev za dopunu odgovori prema njegovom stvarnom roku; promjene prijavi službenim putem. Poruke, odluke i pregled predatih zahtjeva nalaze se u službenom profilu ako koristiš tu uslugu; inače prati poštu."
             }
           ]
@@ -610,32 +715,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Da li se Wohngeld uopšte tiče mene?",
-              "action": "Prvo proveri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
+              "action": "Prvo proveri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured.",
+              "concise": "Prvo proveri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured."
             },
             {
               "id": "office",
               "title": "Nadležni ured (Wohngeldbehörde)",
-              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtev."
+              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtev.",
+              "concise": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtev."
             },
             {
               "id": "evidence",
               "title": "Dokazi (Nachweise)",
-              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smeš zacrniti samo primaoca/svrhu kod posebno osetljivih podataka, nikad iznos."
+              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smeš zacrniti samo primaoca/svrhu kod posebno osetljivih podataka, nikad iznos.",
+              "concise": "Tačnu listu dokaza određuje tvoja pokrajina/ured. Tipično se traže: ugovor o najmu (Mietvertrag) ili dokumenti o vlasništvu i kreditima, dokaz o kiriji/troškovima, dokazi o svim prihodima i imovini svih članova, kod stranaca izvan EU boravišni dokument. Zatraži listu od svog ureda. Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smeš zacrniti samo primaoca/svrhu kod posebno osetljivih podataka, nikad iznos."
             },
             {
               "id": "fill",
               "title": "Popuni zahtev",
-              "action": "Koristi rečnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gde naći podatak."
+              "action": "Koristi rečnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gde naći podatak.",
+              "concise": "Koristi rečnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gde naći podatak."
             },
             {
               "id": "submit",
               "title": "Predaja",
-              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
+              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje.",
+              "concise": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje."
             },
             {
               "id": "after",
               "title": "Nakon predaje i ponovni zahtev",
-              "action": "Odgovori brzo na pitanja ureda. Promene prijavi. Novi zahtev predaj na vreme pre isteka – pitaj ured koliko ranije."
+              "action": "Odgovori brzo na pitanja ureda. Promene prijavi. Novi zahtev predaj na vreme pre isteka – pitaj ured koliko ranije.",
+              "concise": "Odgovori brzo na pitanja ureda. Promene prijavi. Novi zahtev predaj na vreme pre isteka – pitaj ured koliko ranije."
             }
           ]
         }
@@ -643,6 +754,13 @@ export const GUIDE_SNAPSHOT = {
     },
     "de": {
       "ui": {
+        "conversation": {
+          "kindergeldQuestion": "Damit der richtige Ablauf passt: Geht es um ein Neugeborenes in Deutschland, ein volljähriges Kind oder ein Kind/eine Beschäftigung in einem anderen Staat? Keine persönlichen Daten senden.",
+          "local": "Das genaue örtliche Verfahren im Leitfaden und auf der offiziellen Behördenseite prüfen; deine Adresse wird hier nicht benötigt.",
+          "wohngeld": "Für das passende Formular im Leitfaden Bundesland der Wohnung, Miete oder selbst genutztes Eigentum und Erst- oder Folgeantrag auswählen. Bei Unsicherheit den allgemeinen Leitfaden nutzen; keine Einkommensbeträge oder Adresse senden.",
+          "next": "Was möchtest du als Nächstes: Vorbereitung, offizielles Portal oder Einreichung? Für die Gesamtübersicht „alle Schritte“ schreiben.",
+          "visa": "Den bestehenden Viza Navigator /viza nutzen. Nur fehlende, verfahrensrelevante Orientierung erfragen: Zweck, Staatsangehörigkeit oder bereits in Deutschland. Keine Passnummer, Adresse, Gehalt oder Dokumente verlangen. Kein Visum auswählen oder Anspruch versprechen. Vorbereitung anhand der konkreten Kategorie, offizielles Portal/Botschaft sowie eigene Prüfung, Unterschrift und Einreichung erläutern. Das Auslandsportal unterstützt nicht jeden Fall; örtliche Aufenthaltstitel gehören zur zuständigen Ausländerbehörde. Der gesamte Visa-Antwortinhalt wurde hier nicht erneut geprüft; keine Live-Prüfung."
+        },
         "open": "SmartGuide öffnen",
         "sources": "Offizielle Quellen",
         "checked": "Dokumentierte Prüfung des Leitfadens: {{date}}. Keine Live-Prüfung; vor dem Einreichen die offizielle Quelle prüfen.",
@@ -653,40 +771,61 @@ export const GUIDE_SNAPSHOT = {
       "guides": {
         "kindergeld": {
           "title": "Kindergeld für ein neugeborenes Kind — Schritt für Schritt",
+          "special": {
+            "depends": "Besondere Voraussetzungen und Nachweise hängen von deiner Situation ab. BalkanLink prüft keinen Anspruch — darüber entscheidet die Familienkasse.",
+            "back": "← Zurück zum Leitfaden für Neugeborene",
+            "adult": {
+              "title": "Kindergeld für Kinder über 18",
+              "body": "Für volljährige Kinder gibt es Kindergeld nur unter besonderen Voraussetzungen (z. B. Schule oder Ausbildung). Offizielle Informationen und Nachweise findest du bei der Familienkasse.",
+              "cta": "BA — Kindergeld ab 18 Jahren"
+            },
+            "cross": {
+              "title": "Kind im Ausland oder Arbeit in einem anderen Staat",
+              "body": "Für grenzüberschreitende Fälle gelten besondere Regeln. Lies vor dem Antrag die offiziellen Informationen der Familienkasse zu Kindergeld und Ausland.",
+              "cta": "BA — Kindergeld und Ausland"
+            }
+          },
           "steps": [
             {
               "id": "situation",
               "title": "Passt dieser Ablauf zu deiner Situation?",
+              "concise": "Lebt das Kind im Ausland, besteht eine Beschäftigung in einem anderen Staat oder ist das Kind mindestens 18 Jahre alt, wähle den passenden Sonderfall oberhalb des Leitfadens.",
               "action": "Der Kindergeldantrag ist nicht die Geburtsanmeldung. Die Familienkasse prüft den Anspruch gesondert und entscheidet über den Antrag. Lebt das Kind im Ausland, besteht eine Beschäftigung in einem anderen Staat oder ist das Kind mindestens 18 Jahre alt, wähle den passenden Sonderfall oberhalb des Leitfadens. Wohnort und Staatsangehörigkeit prüfst du anhand gültiger Ausweisdokumente und der Anmeldung."
             },
             {
               "id": "documents",
               "title": "Was du brauchst — und was nicht pauschal nötig ist",
+              "concise": "Für ein Kind unter 18 reichen normalerweise die Steuer-ID des Elternteils und des Kindes. Bei einem in Deutschland geborenen Neugeborenen ist die Geburtsurkunde nicht pauschal eine Pflichtanlage. Bereite deine Identitätsdaten, die Daten des Kindes und die Zahlungsdaten vor. Für Aufenthaltsstatus oder Sonderfälle beachte die Hinweise des amtlichen Antrags. Steuer-ID: BZSt-Schreiben oder elektronische Lohnsteuerbescheinigung des Elternteils; Ausweisdokumente; Bank-App oder Kontoauszug.",
               "action": "Für ein Kind unter 18 reichen normalerweise die Steuer-ID des Elternteils und des Kindes. Bei einem in Deutschland geborenen Neugeborenen ist die Geburtsurkunde nicht pauschal eine Pflichtanlage. Bereite deine Identitätsdaten, die Daten des Kindes und die Zahlungsdaten vor. Für Aufenthaltsstatus oder Sonderfälle beachte die Hinweise des amtlichen Antrags. Steuer-ID: BZSt-Schreiben oder elektronische Lohnsteuerbescheinigung des Elternteils; Ausweisdokumente; Bank-App oder Kontoauszug."
             },
             {
               "id": "prepare",
               "title": "Daten vor dem Start finden",
+              "concise": "Vergleiche die Namen mit den Dokumenten. Finde IBAN und Kontoinhaber. Eine vorhandene Kindergeld-Nr. steht auf einem früheren Bescheid; beim ersten Antrag keine erfinden.",
               "action": "Vergleiche die Namen mit den Dokumenten. Finde IBAN und Kontoinhaber. Eine vorhandene Kindergeld-Nr. steht auf einem früheren Bescheid; beim ersten Antrag keine erfinden. Die Steuer-ID hat 11 Ziffern und ist nicht die Steuernummer. Suche die Steuer-ID des Kindes im BZSt-Schreiben; fehlt sie noch, beachte die Hinweise der Familienkasse. Übernimm die IBAN aus den Kontodetails deiner Bank."
             },
             {
               "id": "portal",
               "title": "Den amtlichen Antrag öffnen",
+              "concise": "Wähle in den eServices den Kindergeldantrag bei Geburt. Prüfe die Anforderungen an BA-Konto, Familienkassen-Profil und BundID. Mit BundID kannst du online ohne Ausdruck und handschriftliche Unterschrift einreichen.",
               "action": "Wähle in den eServices den Kindergeldantrag bei Geburt. Prüfe die Anforderungen an BA-Konto, Familienkassen-Profil und BundID. Mit BundID kannst du online ohne Ausdruck und handschriftliche Unterschrift einreichen. Die Schaltfläche führt zu den BA-eServices. Für Papier nutze nur KG1 und Anlage Kind von der BA-Formularseite in den Quellen."
             },
             {
               "id": "fields",
               "title": "Elternteil, Kind, Konto und besondere Umstände",
+              "concise": "Wähle unten Online-Erklärungen oder Papierabschnitte. Auf Papier brauchst du eine Anlage Kind je Kind; den Abschnitt für Kinder ab 18 überspringst du bei Neugeborenen.",
               "action": "Online-Fragen hängen von deinen Antworten ab und folgen nicht zwingend den Nummern des Papierformulars. Papierverweise gelten nur für die bezeichneten KG1- und Anlage-Kind-Abschnitte. Wähle unten Online-Erklärungen oder Papierabschnitte. Auf Papier brauchst du eine Anlage Kind je Kind; den Abschnitt für Kinder ab 18 überspringst du bei Neugeborenen."
             },
             {
               "id": "submit",
               "title": "Prüfen und einreichen",
+              "concise": "Prüfe Eltern- und Kinderdaten, Steuer-IDs, Konto und Antworten zu anderen Staaten oder früheren Leistungen. Schließe online die amtliche Übermittlung ab und sichere die Bestätigung. Auf Papier prüfst du die Unterschriften in KG1 und Anlage Kind sowie die zuständige Familienkasse anhand der amtlichen Hinweise. Sende keine Originale, sofern diese nicht ausdrücklich verlangt werden.",
               "action": "Prüfe Eltern- und Kinderdaten, Steuer-IDs, Konto und Antworten zu anderen Staaten oder früheren Leistungen. Schließe online die amtliche Übermittlung ab und sichere die Bestätigung. Auf Papier prüfst du die Unterschriften in KG1 und Anlage Kind sowie die zuständige Familienkasse anhand der amtlichen Hinweise. Sende keine Originale, sofern diese nicht ausdrücklich verlangt werden."
             },
             {
               "id": "after",
               "title": "Danach: Bestätigung, Antwort und Änderungen",
+              "concise": "Bewahre Bestätigung und Antragskopie bei dir auf. Prüfe Post oder Familienkassen-Profil. Antworte auf Nachforderungen innerhalb der tatsächlich genannten Frist; melde Änderungen über den amtlichen Weg.",
               "action": "Die Familienkasse prüft Vollständigkeit und Anspruch, kann Unterlagen nachfordern und sendet einen Bescheid. Bewahre Bestätigung und Antragskopie bei dir auf. Prüfe Post oder Familienkassen-Profil. Antworte auf Nachforderungen innerhalb der tatsächlich genannten Frist; melde Änderungen über den amtlichen Weg. Nachrichten, Bescheide und eingereichte Anträge findest du im amtlichen Profil, wenn du den Dienst nutzt; andernfalls prüfe deine Post."
             }
           ]
@@ -734,32 +873,38 @@ export const GUIDE_SNAPSHOT = {
             {
               "id": "check",
               "title": "Betrifft mich Wohngeld überhaupt?",
-              "action": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inkl. Unterkunftskosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde."
+              "action": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inkl. Unterkunftskosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde.",
+              "concise": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inkl. Unterkunftskosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde."
             },
             {
               "id": "office",
               "title": "Zuständige Behörde (Wohngeldbehörde)",
-              "action": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist."
+              "action": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist.",
+              "concise": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist."
             },
             {
               "id": "evidence",
               "title": "Nachweise (Nachweise)",
-              "action": "Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag."
+              "action": "Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag.",
+              "concise": "Die genaue Liste der Nachweise bestimmt Ihr Bundesland/Ihre Behörde. Typischerweise werden verlangt: Mietvertrag oder Dokumente über Eigentum und Kredite, Nachweis über Miete/Kosten, Nachweise über alle Einkommen und Vermögen aller Mitglieder, bei Nicht-EU-Bürgern das Ausweisdokument. Fordern Sie die Liste bei Ihrer Behörde an. Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag."
             },
             {
               "id": "fill",
               "title": "Antrag ausfüllen",
-              "action": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind."
+              "action": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind.",
+              "concise": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind."
             },
             {
               "id": "submit",
               "title": "Abgabe",
-              "action": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum."
+              "action": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum.",
+              "concise": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum."
             },
             {
               "id": "after",
               "title": "Nach der Abgabe und Folgeantrag",
-              "action": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus."
+              "action": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus.",
+              "concise": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus."
             }
           ]
         }

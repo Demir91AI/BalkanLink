@@ -1,5 +1,12 @@
 {
   "assistantGuides": {
+    "conversation": {
+      "kindergeldQuestion": "Damit der richtige Ablauf passt: Geht es um ein Neugeborenes in Deutschland, ein volljähriges Kind oder ein Kind/eine Beschäftigung in einem anderen Staat? Keine persönlichen Daten senden.",
+      "local": "Das genaue örtliche Verfahren im Leitfaden und auf der offiziellen Behördenseite prüfen; deine Adresse wird hier nicht benötigt.",
+      "wohngeld": "Für das passende Formular im Leitfaden Bundesland der Wohnung, Miete oder selbst genutztes Eigentum und Erst- oder Folgeantrag auswählen. Bei Unsicherheit den allgemeinen Leitfaden nutzen; keine Einkommensbeträge oder Adresse senden.",
+      "next": "Was möchtest du als Nächstes: Vorbereitung, offizielles Portal oder Einreichung? Für die Gesamtübersicht „alle Schritte“ schreiben.",
+      "visa": "Den bestehenden Viza Navigator /viza nutzen. Nur fehlende, verfahrensrelevante Orientierung erfragen: Zweck, Staatsangehörigkeit oder bereits in Deutschland. Keine Passnummer, Adresse, Gehalt oder Dokumente verlangen. Kein Visum auswählen oder Anspruch versprechen. Vorbereitung anhand der konkreten Kategorie, offizielles Portal/Botschaft sowie eigene Prüfung, Unterschrift und Einreichung erläutern. Das Auslandsportal unterstützt nicht jeden Fall; örtliche Aufenthaltstitel gehören zur zuständigen Ausländerbehörde. Der gesamte Visa-Antwortinhalt wurde hier nicht erneut geprüft; keine Live-Prüfung."
+    },
     "open": "SmartGuide öffnen",
     "sources": "Offizielle Quellen",
     "checked": "Dokumentierte Prüfung des Leitfadens: {{date}}. Keine Live-Prüfung; vor dem Einreichen die offizielle Quelle prüfen.",

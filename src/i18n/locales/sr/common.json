@@ -1,5 +1,12 @@
 {
   "assistantGuides": {
+    "conversation": {
+      "kindergeldQuestion": "Da usmerim na pravi postupak: radi li se o novorođenčetu koje živi u Nemačkoj, punoletnom detetu ili detetu/radu u drugoj državi? Ne šalji lične podatke.",
+      "local": "Tačan lokalni postupak proveri u vodiču i na službenoj stranici nadležnog organa; ovde ne trebam tvoju adresu.",
+      "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtev. Ako ne znaš, koristi opšti vodič; ne šalji iznose prihoda ni adresu.",
+      "next": "Šta želiš dalje: priprema, službeni portal ili predaja? Za ceo pregled napiši „svi koraci“.",
+      "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja menja postupak: svrha, državljanstvo ili je li korisnik već u Nemačkoj. Ne traži broj pasoša, adresu, platu ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/ambasadu, korisnikovu proveru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj celog viznog odgovora nije ovde ponovo proveren; nema provere uživo."
+    },
     "open": "Otvori SmartGuide",
     "sources": "Službeni izvori",
     "checked": "Zabeležena provera vodiča: {{date}}. Ovo nije provera uživo; pre predaje proveri službeni izvor.",
