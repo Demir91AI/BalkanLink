@@ -46,7 +46,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
       id: 'eu_info',
       title: 'EU sloboda kretanja — FreizügG/EU',
       legalBasis: 'FreizügG/EU + § 4a FreizügG/EU',
-      subtitle: 'Kao hrvatski državljanin imaš pravo na slobodno kretanje u cijeloj EU. Bez vize, bez posebnih dozvola.',
+      subtitle: "EU građani: ulazak i rad bez vize/radne dozvole. Za boravak duži od 3 mjeseca važe uvjeti slobode kretanja, npr. zaposlenje ili sredstva i zdravstveno osiguranje; stalno pravo nakon 5 zakonitih godina.",
       steps: [
         'Ulazak u Njemačku — bez vize, bez posebnih dozvola. Samo važeća lična karta ili pasoš.',
         'Anmeldung (prijava boravišta) — u roku od 14 dana od useljenja u lokalnom Einwohnermeldeamt. Potrebno: Wohnungsgeberbestätigung od stanodavca.',
@@ -93,7 +93,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
       id: 'eu_info',
       title: 'EU sloboda kretanja — FreizügG/EU',
       legalBasis: 'FreizügG/EU + § 4a FreizügG/EU',
-      subtitle: 'Kao slovenski državljanin imaš pravo na slobodno kretanje u cijeloj EU. Bez vize, bez posebnih dozvola.',
+      subtitle: "EU građani: ulazak i rad bez vize/radne dozvole. Za boravak duži od 3 mjeseca važe uvjeti slobode kretanja, npr. zaposlenje ili sredstva i zdravstveno osiguranje; stalno pravo nakon 5 zakonitih godina.",
       steps: [
         'Ulazak u Njemačku — bez vize, samo važeća lična karta ili pasoš.',
         'Anmeldung — u roku od 14 dana od useljenja u lokalnom Einwohnermeldeamt. Potrebno: Wohnungsgeberbestätigung od stanodavca.',
@@ -130,7 +130,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
     flag: 'https://flagcdn.com/h24/ba.png',
     isEU: false,
     embassyName: 'Njemacka ambasada Sarajevo',
-    embassyUrl: 'https://sarajevo.diplo.de',
+    embassyUrl: 'https://sarajewo.diplo.de',
     embassyNote: "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
     schengenFree: true,
     schengenNote: "S biometrijskim pasošem: bezvizni kratki boravak do 90 dana u bilo kojih 180 dana u Schengenu, ne za zaposlenje; za rad/duži boravak provjeri odgovarajuću nacionalnu vizu.",
@@ -144,9 +144,9 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         steps: [
           'Pronađi posao — Traži njemackog poslodavca koji ti daje obavezujuću ponudu posla ili ugovor o radu. Bez ponude posla nema Westbalkan vize.',
           'Poslodavac pribavlja Vorabzustimmung — Tvoj njemacki poslodavac podnosi zahtjev za Vorabzustimmung (prethodnu saglasnost) Bundesagentur für Arbeit na: arbeitsagentur.de/westbalkanregelung. S Vorabzustimmung dobijaš Kundennummer za zakazivanje termina.',
-          "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
+          "Sarajevo, Westbalkan — prema službenim uputama predaja ide preko VisaMetric uz BA Vorabzustimmung; termin otvori isključivo preko veze s ambasadine stranice. Nema garantovanog dnevnog termina.",
           "Pripremi dokumentaciju — pasoš prema listi ambasade, EzB koju popunjava i potpisuje poslodavac, ugovor/ponudu i Vorabzustimmung; fotografije i kopije po pravilima tvoje ambasade.",
-          'Apliciraj za vizu — Lično se javi u ambasadu Sarajevo. Uzimaju se otisci prstiju i fotografija. Naknada: 75 €.',
+          "Predaja zahtjeva — slijedi VisaMetric/ambasadinu uputu za biometriju, originale i plaćanje. BA saglasnost ne zamjenjuje viznu odluku.",
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           'Anmeldung — U roku 14 dana od useljenja prijavi boravište u Einwohnermeldeamt. Dobijaš Meldebescheinigung.',
           "Pripremi dokumente — važeći pasoš prema listi ambasade, ugovor, EzB od poslodavca i saglasnost ako se traži; fotografije i kopije prema aktuelnoj listi."
@@ -175,10 +175,10 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Prekasno apliciranje za produženje — uvijek 6–8 sedmica PRIJE isteka'
         ],
         sources: [
-          { label: 'Ambasada Sarajevo — Westbalkan termini', url: 'https://sarajevo.diplo.de' },
+          { label: 'Ambasada Sarajevo — Westbalkan termini', url: 'https://sarajewo.diplo.de' },
           { label: 'Bundesagentur für Arbeit — Westbalkanregelung', url: 'https://www.arbeitsagentur.de/unternehmen/fachkraefte-ausland/westbalkanregelung' },
           { label: 'Make it in Germany — Westbalkan', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt' },
-          { label: 'BAMF — Arbeit §18', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/arbeit-node.html' },
+          { label: 'BAMF — zaposlenje i boravak', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/arbeit-node.html' },
           { label: 'Auswärtiges Amt — Westbalkan', url: 'https://sarajewo.diplo.de/ba-de/service/westbalkanregelung-2550504' }
         ],
         musterformulare: [
@@ -195,7 +195,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           "Provjeri kvalifikaciju — za visokoškolsku diplomu anabin ili ZAB; postoje posebni putevi za određene IT stručnjake bez diplome uz dokaz iskustva. Provjeri konkretne uvjete §18g.",
           "Osiguraj ugovor o radu s platom — min. 50.700 €/god. (standard) ili 45.934,20 €/god. (MINT, IT, medicina, njega = Mangelberufe 2026).",
           "EU Plava karta — BA saglasnost se u pravilu ne traži na standardnom pragu; na nižem pragu i posebnim putevima može biti potrebna. Prati kategoriju ambasade; važenje do 4 godine ili ugovor + 3 mjeseca.",
-          'Apliciraj za vizu — Lično u ambasadu. Kompletna dokumentacija uključujući AUFENTHG-034.',
+          "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.",
           'Ulazak u Njemačku s D-vizom.',
           'Anmeldung — 14 dana od useljenja.',
           "EU Plava karta — BA saglasnost se u pravilu ne traži na standardnom pragu; na nižem pragu i posebnim putevima može biti potrebna. Prati kategoriju ambasade; važenje do 4 godine ili ugovor + 3 mjeseca.",
@@ -204,7 +204,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         documents: [
           "Sarajevo: pasoš još najmanje 18 mjeseci važeći + kopija ID stranice, prema sadašnjoj listi; ponovo provjeri prije termina.",
           "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.",
-          'AUFENTHG-034 (Antrag Blaue Karte EU) — popunjen',
+          "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.",
           'Diploma — original + ovjereni prijevod na njemacki',
           'Dokaz o priznavanju diplome (anabin.kmk.org ispis ili ZAB potvrda)',
           "Ugovor o radu s navedenom godišnjom platom (min. 50.700 € ili 45.934,20 € za Mangelberufe)",
@@ -222,10 +222,10 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Diploma nije provjerna na anabin.kmk.org PRIJE aplikacije — najčešći problem!',
           'Plata u ugovoru ispod minimuma — zahtjev automatski odbijen',
           "Promjena poslodavca — u prvih 12 mjeseci obavijesti Ausländerbehörde; provjeri ograničenja i uslove svoje EU Plave karte.",
-          'Brkanje s Westbalkan-Regelung — ta vrijedi za §18, NE za Blue Card §18g'
+          "Ne miješaj Westbalkan §19c(1) + §26(2) BeschV i EU Plavu kartu §18g; svaka ruta ima svoje uvjete."
         ],
         sources: [
-          { label: 'Ambasada Sarajevo', url: 'https://sarajevo.diplo.de' },
+          { label: 'Ambasada Sarajevo', url: 'https://sarajewo.diplo.de' },
           { label: 'BAMF — Blaue Karte EU', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Arbeit/BlaueKarte/blaue-karte-node.html' },
           { label: 'Make it in Germany — Blue Card', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/arten/blaue-karte-eu' },
           { label: 'anabin — provjera diploma', url: 'https://anabin.kmk.org' }
@@ -276,7 +276,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani."
         ],
         sources: [
-          { label: 'Ambasada Sarajevo', url: 'https://sarajevo.diplo.de' },
+          { label: 'Ambasada Sarajevo', url: 'https://sarajewo.diplo.de' },
           { label: 'BAMF — Familiennachzug', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' },
           { label: 'Goethe-Institut Sarajevo', url: 'https://www.goethe.de/ins/ba/bs/index.html' },
           { label: 'Make it in Germany — Familiennachzug', url: 'https://www.make-it-in-germany.com/de/visum-aufenthalt/familiennachzug' }
@@ -329,7 +329,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           { label: 'BAMF — Studium §16b', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Studium/studium-node.html' },
           { label: 'DAAD — Stipendije', url: 'https://www.daad.de/de/studieren-und-forschen-in-deutschland/stipendien/daad-stipendien/' },
           { label: 'Fintiba Sperrkonto', url: 'https://www.fintiba.com' },
-          { label: 'Ambasada Sarajevo', url: 'https://sarajevo.diplo.de' }
+          { label: 'Ambasada Sarajevo', url: 'https://sarajewo.diplo.de' }
         ],
         musterformulare: [
           { title: 'Musterformular: Antrag auf Aufenthaltserlaubnis (Studij)', subtitle: 'Popunjen primjer za studentsku vizu §16b za BiH', formKey: 'VisaStudyForm', downloadUrl: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Studium/studium-node.html' }
@@ -345,14 +345,14 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Zatraži Rentenversicherungsverlauf — Besplatno na drv.de ili osobno u DRV uredu. Prikazuje sve njemacke penzijske doprinose.',
           "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.",
           'Pripremi kompletnu dokumentaciju — Sve boravišne dozvole posljednjih 5 god., platne liste, ugovor najma, Rentenversicherungsverlauf.',
-          'Zakaži termin u Ausländerbehörde — Čekanje 2–6 mj.! Zakaži idealnog 6 mj. PRIJE isteka sadašnje dozvole.',
+          "Ausländerbehörde — provjeri termin i listu dokaza rano, a nastavak važećeg boravka zatraži prije isteka postojeće dozvole; čekanje zavisi od ureda.",
           "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
           "Nakon odobrenja — dozvola je neograničena, ali može prestati u zakonskim slučajevima. Daueraufenthalt-EU olakšava preseljenje u određene EU države uz njihove uvjete, ne daje automatsko pravo rada svugdje."
         ],
         documents: [
           "Sarajevo: pasoš još najmanje 18 mjeseci važeći + kopija ID stranice, prema sadašnjoj listi; ponovo provjeri prije termina.",
           "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.",
-          'Antrag Niederlassungserlaubnis (AUFENTHG-009)',
+          "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.",
           "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
           "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.",
           'B1 certifikat (Integrationskurs ili Goethe/telc B1)',
@@ -361,7 +361,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Meldebescheinigung (ne starija od 3 mj.)',
           'Ugovor o najmu/Wohnraumbestätigung',
           'Potvrda Finanzamt — nema poreznih dugova',
-          'Zdravstveno osiguranje (za Daueraufenthalt-EU: NEOGRANIČENO!)'
+          "Zdravstveno osiguranje — dokaz odgovarajućeg pokrića prema uvjetima rute i listi Ausländerbehörde; ne pretpostavljaj obaveznu posebnu neograničenu policu."
         ],
         costs: [
           'Niederlassungserlaubnis: 113 €',
@@ -445,7 +445,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Jobsuche nakon Ausbildung: 18 mjeseci (§20 AufenthG)'
         ],
         errors: [
-          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           'Nepotpuni ili neprevedeni dokumenti',
@@ -458,7 +458,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Sarajevo — termini', url: 'https://sarajewo.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-anerkennung/visaarten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Bundesagentur für Arbeit — Ausbildung', url: 'https://www.arbeitsagentur.de/bildung/ausbildung' },
           { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
@@ -528,10 +528,10 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           "Provjeri kvalifikaciju — za visokoškolsku diplomu anabin ili ZAB; postoje posebni putevi za određene IT stručnjake bez diplome uz dokaz iskustva. Provjeri konkretne uvjete §18g.",
           "Ugovor o radu — min. 50.700 €/god. standard ili 45.934,20 € za Mangelberufe.",
           "EU Plava karta — BA saglasnost se u pravilu ne traži na standardnom pragu; na nižem pragu i posebnim putevima može biti potrebna. Prati kategoriju ambasade; važenje do 4 godine ili ugovor + 3 mjeseca.",
-          'Apliciraj za vizu s AUFENTHG-034.',
+          "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.",
           'Ulaz u Nemačku, Anmeldung, Ausländerbehörde — EU Plava karta §18g.'
         ],
-        documents: ['Pasoš', "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.", 'AUFENTHG-034', 'Diploma + overen prevod', "Ugovor o radu (min. 50.700 €)", 'Zdravstveno osiguranje'],
+        documents: ['Pasoš', "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.", "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Diploma + overen prevod', "Ugovor o radu (min. 50.700 €)", 'Zdravstveno osiguranje'],
         costs: ['D-Viza: 75 €', 'EU Plava karta: 100–110 €', "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka."],
         errors: ['Diploma nije proverena na anabin pre aplikacije!', 'Plata ispod minimuma — zahtev odbijen'],
         sources: [
@@ -676,7 +676,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Jobsuche nakon Ausbildung: 18 meseci (§20 AufenthG)'
         ],
         errors: [
-          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           'Nepotpuni ili neprevedeni dokumenti — zahtev se ODBIJA uz naplatu takse!',
@@ -689,7 +689,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Beograd — termini', url: 'https://belgrad.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-anerkennung/visaarten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Bundesagentur für Arbeit — Ausbildung', url: 'https://www.arbeitsagentur.de/bildung/ausbildung' },
           { label: 'Gesetze im Internet — §16a AufenthG', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
@@ -764,7 +764,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         legalBasis: '§ 9 + § 9a AufenthG',
         subtitle: "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
         steps: ['5 god. zakonit boravak', 'B1 njemacki', "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        documents: ['Pasoš', 'AUFENTHG-009 + AUFENTHG-014', 'Rentenversicherungsverlauf', 'B1 certifikat'],
+        documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Rentenversicherungsverlauf', 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
@@ -829,7 +829,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Jobsuche: 18 mjeseci (§20 AufenthG)'
         ],
         errors: [
-          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           'Nepotpuni ili neprevedeni dokumenti',
           'Pogrešan tip vize (§16b umjesto §16a)',
@@ -840,7 +840,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Podgorica', url: 'https://podgorica.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-anerkennung/visaarten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
@@ -867,7 +867,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         id: 'work',
         title: "Radna viza — Westbalkan §19c(1) AufenthG",
         legalBasis: "§ 19c Abs. 1 AufenthG + § 26 Abs. 2 BeschV",
-        subtitle: 'Boravišna dozvola za zaposlenje. Makedonija je dio Westbalkan-Regelung. Ambasada u Skoplju koristi §19c AufenthG.',
+        subtitle: "Westbalkan zapošljavanje je §19c Abs.1 AufenthG + §26 Abs.2 BeschV; nije samo drugi naziv za stručne radnike po §18a/§18b.",
         westbalkanNote: "Westbalkan-Regelung: do 50.000 saglasnosti BA godišnje za svih šest zemalja zajedno, raspoređeno po mjesecu i državljanstvu — ne 50.000 viza. U pravilu bez priznavanja kvalifikacije, ali regulisana zanimanja traže odgovarajuće priznanje/dozvolu. BA provjerava zaposlenje i uvjete; potrebni su ponuda posla, saglasnost i ostali vizni uvjeti (uključujući pravilo o AsylbLG davanjima u posljednja 24 mjeseca). Kod prvog BA odobrenja za osobe starije od 45 godina: 2026 bruto 55.770 €/god. ili odgovarajuće starosno osiguranje; provjeri puni popis BA uvjeta.",
         steps: [
           'Pronađi posao kod njemačkog poslodavca.',
@@ -913,7 +913,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         legalBasis: '§ 9 + § 9a AufenthG',
         subtitle: "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
         steps: ['5 god. zakonit boravak', 'B1 njemački', "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        documents: ['Pasoš', 'AUFENTHG-009 + AUFENTHG-014', 'Rentenversicherungsverlauf', 'B1 certifikat'],
+        documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Rentenversicherungsverlauf', 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
@@ -978,7 +978,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Jobsuche: 18 mjeseci (§20 AufenthG)'
         ],
         errors: [
-          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           'Nepotpuni ili neprevedeni dokumenti',
           'Pogrešan tip vize (§16b umjesto §16a)',
@@ -989,7 +989,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Skoplje', url: 'https://skopje.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-anerkennung/visaarten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
@@ -1065,7 +1065,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         legalBasis: '§ 9 + § 9a AufenthG',
         subtitle: "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
         steps: ['5 godina zakonitog boravka', 'Njemački B1', "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        documents: ['Pasoš', 'AUFENTHG-009 + AUFENTHG-014', 'Rentenversicherungsverlauf', 'B1 certifikat'],
+        documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Rentenversicherungsverlauf', 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
@@ -1130,7 +1130,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Jobsuche: 18 mjeseci (§20 AufenthG)'
         ],
         errors: [
-          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           'Nepotpuni ili neprevedeni dokumenti',
           'Pogrešan tip vize (§16b umjesto §16a)',
@@ -1141,7 +1141,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         sources: [
           { label: 'Ambasada Tirana', url: 'https://tirana.diplo.de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-anerkennung/visaarten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
@@ -1167,7 +1167,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         id: 'work',
         title: "Radna viza — Westbalkan §19c(1) AufenthG",
         legalBasis: "§ 19c Abs. 1 AufenthG + § 26 Abs. 2 BeschV",
-        subtitle: 'Boravišna dozvola za zaposlenje. Kosovo je u Westbalkan-Regelung. Vize ISKLJUČIVO kroz VisaMetric!',
+        subtitle: "Nacionalna viza za ovu svrhu — provjeri aktuelni kanal prijave na stranici Ambasade Priština; VisaMetric nije jedinstveni kanal za sve kategorije.",
         westbalkanNote: "Westbalkan-Regelung: do 50.000 saglasnosti BA godišnje za svih šest zemalja zajedno, raspoređeno po mjesecu i državljanstvu — ne 50.000 viza. U pravilu bez priznavanja kvalifikacije, ali regulisana zanimanja traže odgovarajuće priznanje/dozvolu. BA provjerava zaposlenje i uvjete; potrebni su ponuda posla, saglasnost i ostali vizni uvjeti (uključujući pravilo o AsylbLG davanjima u posljednja 24 mjeseca). Kod prvog BA odobrenja za osobe starije od 45 godina: 2026 bruto 55.770 €/god. ili odgovarajuće starosno osiguranje; provjeri puni popis BA uvjeta.",
         kosovoNote: "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
         steps: [
@@ -1188,7 +1188,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Ugovor o radu',
           'Zdravstveno osiguranje',
           'Dokaz o stanovanju',
-          'NAPOMENA: TELC certifikati s ispitnih mjesta u Srbiji se NE prihvaćaju!'
+          "Jezični certifikati — provjeri priznate ustanove, ispitna mjesta i starost za konkretnu kategoriju kod ambasade; ne pretpostavljaj opće odbijanje svih telc certifikata iz određene zemlje."
         ],
         costs: [
           'D-Viza: 75 €',
@@ -1198,7 +1198,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         errors: [
           'Apliciranje direktno u ambasadu Priština — NE! Samo VisaMetric!',
-          'TELC certifikat s ispitnog mjesta u Srbiji — NE prihvaća se u Prištini!',
+          "Jezični certifikati — provjeri priznate ustanove, ispitna mjesta i starost za konkretnu kategoriju kod ambasade; ne pretpostavljaj opće odbijanje svih telc certifikata iz određene zemlje.",
           'EzB nepotpuna ili bez potpisa poslodavca',
           "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.",
           "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani."
@@ -1218,7 +1218,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         id: 'bluecard',
         title: 'EU Plava karta §18g AufenthG',
         legalBasis: '§ 18g AufenthG',
-        subtitle: 'Za visokokvalificirane. Online apliciranje DOSTUPNO za Kosovo!',
+        subtitle: "Nacionalna viza za ovu svrhu — provjeri aktuelni kanal prijave na stranici Ambasade Priština; VisaMetric nije jedinstveni kanal za sve kategorije.",
         kosovoNote: "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
         steps: [
           'Provjeri diplomu na anabin.kmk.org.',
@@ -1227,7 +1227,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Uplodi dokumentaciju online ILI predaj u VisaMetric.',
           'Ulazak s D-vizom. Anmeldung. Ausländerbehörde §18g.'
         ],
-        documents: ['Biometrijski pasoš', "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.", 'AUFENTHG-034', 'Diploma + ovjereni prijevod', "Ugovor o radu (min. 50.700 €)", 'Zdravstveno osiguranje'],
+        documents: ['Biometrijski pasoš', "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.", "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Diploma + ovjereni prijevod', "Ugovor o radu (min. 50.700 €)", 'Zdravstveno osiguranje'],
         costs: ['D-Viza: 75 €', "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.", 'EU Plava karta: 100–110 €'],
         errors: ['Diploma nije provjerna na anabin!', 'Plata ispod minimuma'],
         sources: [
@@ -1242,7 +1242,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         id: 'family',
         title: 'Spajanje porodice §§27-36 AufenthG',
         legalBasis: '§ 30 + § 32 AufenthG',
-        subtitle: 'Supružnici i djeca mogu doći k osobi koja živi u Njemačkoj. Sve vize isključivo VisaMetric!',
+        subtitle: "Nacionalna viza za ovu svrhu — provjeri aktuelni kanal prijave na stranici Ambasade Priština; VisaMetric nije jedinstveni kanal za sve kategorije.",
         kosovoNote: "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
         steps: [
           "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade.",
@@ -1253,7 +1253,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         documents: ['Biometrijski pasoš', "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.", 'Potvrda o braku + ovjereni prijevod', "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade.", 'Platne liste (3 mj.) osobe u Njemačkoj', 'Ugovor o najmu'],
         costs: ['D-Viza: 75 €', "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.", 'Goethe A1: 100–200 €'],
-        errors: ["Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.", 'TELC iz Srbije NE prihvaća se!', "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade."],
+        errors: ["Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.", "Jezični certifikati — provjeri priznate ustanove, ispitna mjesta i starost za konkretnu kategoriju kod ambasade; ne pretpostavljaj opće odbijanje svih telc certifikata iz određene zemlje.", "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade."],
         sources: [
           { label: 'Ambasada Priština', url: 'https://pristina.diplo.de' },
           { label: 'VisaMetric Kosovo', url: 'https://www.visametric.com/Kosovo/Germany/de' }
@@ -1269,7 +1269,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         subtitle: "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
         kosovoNote: "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
         steps: ['5 god. zakonit boravak', 'B1 njemacki', "Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        documents: ['Pasoš', 'AUFENTHG-009 + AUFENTHG-014', "Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", 'B1 certifikat'],
+        documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", "Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         errors: ["Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
         sources: [
@@ -1340,7 +1340,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Jobsuche: 18 mjeseci (§20 AufenthG)'
         ],
         errors: [
-          'Nema Ausbildungsvertrag → automatsko odbijanje',
+          "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           'Nepotpuni ili neprevedeni dokumenti',
           'Pogrešan tip vize (§16b umjesto §16a)',
@@ -1352,7 +1352,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         sources: [
           { label: 'Ambasada Priština', url: 'https://pristina.diplo.de' },
           { label: 'VisaMetric Kosovo', url: 'https://www.visametric.com/Kosovo/Germany/de' },
-          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum/arten/berufsausbildung' },
+          { label: 'Make it in Germany — Berufsausbildung', url: 'https://www.make-it-in-germany.com/de/visum-anerkennung/visaarten/berufsausbildung' },
           { label: 'BAMF — §16a AufenthG', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Bildung/Berufsausbildung/berufsausbildung-node.html' },
           { label: 'Gesetze im Internet — §16a', url: 'https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html' }
         ],
