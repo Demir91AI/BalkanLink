@@ -39,7 +39,7 @@ describe("Dual citizenship audit, 28 October 2026", () => {
     expect(page).not.toMatch(/Zadržavaš automatski|Wird automatisch behalten/);
     expect((page.match(/30\.10\.2025/g) || []).length).toBe(4);
     expect((page.match(/§ 9 StAG/g) || []).length).toBe(4);
-    const guide = read("src/components/guides/EinbuergerungGuideContent.tsx");
+    const guide = read("src/data/einbuergerung-guide-i18n.ts");
     expect(guide).not.toMatch(/ili 3 godine uz|3 sa posebnim|turbo-postupak|već nakon 3 godine/);
     for (const l of ["bs", "hr", "sr", "de"]) expect(read(`src/i18n/locales/${l}/checklists.json`)).not.toMatch(/ubrzani postupak \(3 god\.\)|beschleunigtes Verfahren \(3 Jahre\)/);
   });
