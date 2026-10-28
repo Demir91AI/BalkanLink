@@ -16,7 +16,11 @@ import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
 import PilotLessonView from "@/components/trainer/pilot/PilotLessonView";
-import { A1_PILOT_LESSONS, getPilotLesson, pilotLocale } from "@/lib/trainer/pilot/a1-pilot-lessons";
+import { getPilotLesson, pilotLocale } from "@/lib/trainer/pilot/a1-pilot-lessons";
+import { STANDARDIZED_LESSONS, getStandardizedFor } from "@/lib/trainer/core/authored-lessons";
+import ReviewSession from "@/components/trainer/core/ReviewSession";
+import { useLearningState } from "@/hooks/useLearningState";
+import { clearState, dueKeys, emptyState } from "@/lib/trainer/core/learning-state";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 const LESSONS_PER_PAGE = 9;
 
@@ -39,6 +43,10 @@ export default function DeutschTrainer() {
 
   const { progress, resetProgress } = useTrainerProgress();
   const { isPremium } = useSubscription();
+  const { state: learning, update: updateLearning } = useLearningState();
+  const dueCount = dueKeys(learning).length;
+  const coreOpen = params.get("core") === "1";
+  const reviewOpen = params.get("review") === "1";
 
   // Resolve lesson from URL param across all levels (so refresh works)
   useEffect(() => {
@@ -111,20 +119,33 @@ export default function DeutschTrainer() {
     setCurrentPage(0);
   };
 
-  const openLesson = (lesson: Lesson) => {
+  const openLesson = (lesson: Lesson, core = false) => {
     setSearchParams((prev) => {
       const n = new URLSearchParams(prev);
       n.set("lesson", lesson.id);
       n.delete("stage");
+      if (core) n.set("core", "1"); else n.delete("core");
       return n;
     });
   };
+
+  const setCoreInUrl = (open: boolean) => setSearchParams((prev) => {
+    const n = new URLSearchParams(prev);
+    if (open) n.set("core", "1"); else n.delete("core");
+    return n;
+  });
+  const setReview = (open: boolean) => setSearchParams((prev) => {
+    const n = new URLSearchParams(prev);
+    if (open) n.set("review", "1"); else n.delete("review");
+    return n;
+  });
 
   const closeLesson = () => {
     setSearchParams((prev) => {
       const n = new URLSearchParams(prev);
       n.delete("lesson");
       n.delete("stage");
+      n.delete("core");
       return n;
     });
   };
@@ -138,13 +159,21 @@ export default function DeutschTrainer() {
     });
   };
 
-  const handleLessonClick = (lesson: Lesson, isLocked: boolean) => {
+  const handleLessonClick = (lesson: Lesson, isLocked: boolean, core = false) => {
     if (isLocked && !isPremium) {
       setShowPaywall(true);
     } else {
-      openLesson(lesson);
+      openLesson(lesson, core);
     }
   };
+  /** Same rule as the lesson grid: first FREE_LESSONS_PER_LEVEL per level are free. */
+  const isLessonLocked = (lesson: Lesson) => levelLessons.indexOf(lesson) >= FREE_LESSONS_PER_LEVEL && !isPremium;
+
+  // Continue learning: last lesson with a saved resume point in this level, else first not completed.
+  const resumeLesson = learning.lastLessonId && learning.resume[learning.lastLessonId]
+    ? levelLessons.find((l) => l.id === learning.lastLessonId) : undefined;
+  const continueLesson = resumeLesson ?? levelLessons.find((l) => !progress.completedLessons.includes(l.id) && !isLessonLocked(l));
+  const levelStandardized = STANDARDIZED_LESSONS.filter((s) => s.level === selectedLevel);
 
   const pilotLesson = getPilotLesson(params.get("pilot"));
   const setPilot = (id: string | null) => setSearchParams((prev) => {
@@ -152,6 +181,14 @@ export default function DeutschTrainer() {
     if (id) n.set("pilot", id); else n.delete("pilot");
     return n;
   });
+  if (reviewOpen) {
+    return (
+      <AuthGate>
+        <ReviewSession onBack={() => setReview(false)} />
+      </AuthGate>
+    );
+  }
+
   if (pilotLesson) {
     return (
       <AuthGate>
@@ -168,6 +205,8 @@ export default function DeutschTrainer() {
           onBack={closeLesson}
           stage={stageFromUrl}
           onStageChange={setStageInUrl}
+          core={coreOpen}
+          onCoreChange={setCoreInUrl}
         />
       </AuthGate>
     );
@@ -334,22 +373,41 @@ export default function DeutschTrainer() {
             </div>
           </div>
 
-          {/* ── A1 PILOT LESSONS ── */}
-          {selectedLevel === "A1" && (
-            <section className="mb-10 max-w-3xl" aria-labelledby="a1-pilot-title">
-              <h2 id="a1-pilot-title" className="text-lg font-bold text-white">{t("deutschTrainer.pilot.sectionTitle")}</h2>
-              <p className="mb-4 mt-1 text-sm text-white/65">{t("deutschTrainer.pilot.sectionIntro")}</p>
+          {/* ── CONTINUE + REVIEW ── */}
+          {dataReady && (
+            <div className="mb-8 flex max-w-3xl flex-col gap-3 sm:flex-row">
+              {continueLesson && (
+                <Button className="min-h-12 flex-1 justify-start text-left" onClick={() => handleLessonClick(continueLesson, isLessonLocked(continueLesson), true)}>
+                  <span className="truncate">{t("deutschTrainer.core.continueCta")}: {continueLesson.titleDe}</span>
+                </Button>
+              )}
+              <Button variant="ghost" className="min-h-12 border border-white/25 bg-white/[0.06] text-white hover:bg-white/10 hover:text-white disabled:opacity-60" disabled={dueCount === 0} onClick={() => setReview(true)}>
+                {t("deutschTrainer.core.reviewCta", { n: dueCount })}
+              </Button>
+            </div>
+          )}
+
+          {/* ── STANDARDIZED LESSONS (incl. former A1 pilots) ── */}
+          {levelStandardized.length > 0 && (
+            <section className="mb-10 max-w-3xl" aria-labelledby="std-title">
+              <h2 id="std-title" className="text-lg font-bold text-white">{t("deutschTrainer.core.standardizedSection", { level: selectedLevel })}</h2>
+              <p className="mb-4 mt-1 text-sm text-white/70">{t("deutschTrainer.core.standardizedIntro")}</p>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {A1_PILOT_LESSONS.map((pl) => {
-                  const done = progress.completedLessons.includes(pl.id);
+                {levelStandardized.map((pl) => {
+                  const legacy = levelLessons.find((l) => l.id === pl.legacyId);
+                  const done = progress.completedLessons.includes(pl.id) || (!!pl.legacyId && progress.completedLessons.includes(pl.legacyId));
                   const loc = pilotLocale(i18n.language);
+                  // A1 pilots keep their existing open access via ?pilot=; others follow the lesson's own lock.
+                  const isPilot = pl.id.includes("-pilot-");
+                  const locked = !isPilot && !!legacy && isLessonLocked(legacy);
                   return (
-                    <button key={pl.id} onClick={() => setPilot(pl.id)}
-                      className="rounded-2xl border border-gold/25 bg-white/[0.03] p-4 text-left transition-colors hover:border-gold/50">
-                      <p className="text-xs font-bold text-gold">A1 · {t("deutschTrainer.pilot.minutes", { n: pl.minutes })}{done && ` · ${t("deutschTrainer.pilot.done")}`}</p>
-                      <p className="mt-1 font-bold text-white">{pl.icon} {pl.titleDe}</p>
-                      {loc !== "de" && <p className="text-xs text-white/60">{pl.title[loc]}</p>}
-                      <span className="mt-3 inline-block text-xs font-bold text-white/85">{done ? t("deutschTrainer.pilot.repeat") : t("deutschTrainer.pilot.start")} →</span>
+                    <button key={pl.id}
+                      onClick={() => (isPilot ? setPilot(pl.id) : legacy && handleLessonClick(legacy, locked, true))}
+                      className="min-h-11 rounded-2xl border border-gold/25 bg-white/[0.03] p-4 text-left transition-colors hover:border-gold/50">
+                      <p className="text-xs font-bold text-gold">{pl.level} · {t("deutschTrainer.pilot.minutes", { n: pl.minutes })}{done && ` · ${t("deutschTrainer.pilot.done")}`}</p>
+                      <p className="mt-1 font-bold text-white" lang="de">{pl.icon} {pl.titleDe}</p>
+                      {loc !== "de" && <p className="text-xs text-white/70">{pl.title[loc]}</p>}
+                      <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-white/85">{locked && <Lock className="h-3 w-3" aria-hidden />}{done ? t("deutschTrainer.pilot.repeat") : t("deutschTrainer.pilot.start")} →</span>
                     </button>
                   );
                 })}
@@ -393,11 +451,14 @@ export default function DeutschTrainer() {
                         <h3 className={`text-sm font-bold leading-tight ${isLocked ? "text-white/30" : "text-white/90"}`}>
                           {lesson.titleDe}
                         </h3>
-                        {completed && <CheckCircle2 className="h-4 w-4 shrink-0 text-[hsl(var(--success))]" />}
+                        {completed && <CheckCircle2 className="h-4 w-4 shrink-0 text-[hsl(var(--success))]" aria-label={t("deutschTrainer.pilot.done")} />}
                         {isLocked && <Lock className="h-3.5 w-3.5 shrink-0 text-white/20" />}
                       </div>
                       <p className={`mt-1 text-xs leading-relaxed ${isLocked ? "text-white/15" : "text-white/40"}`}>
                         {lesson.title}{!isPremium && ` · ${t("deutschTrainer.lesson.freeSuffix")}`}
+                      </p>
+                      <p className={`mt-2 text-[11px] font-semibold ${isLocked ? "text-white/25" : getStandardizedFor(lesson.id) ? "text-emerald-300" : "text-white/55"}`}>
+                        {getStandardizedFor(lesson.id) ? t("deutschTrainer.core.badgeStandardized") : t("deutschTrainer.core.badgeLegacy")}
                       </p>
                     </div>
                   </motion.button>
@@ -533,7 +594,7 @@ export default function DeutschTrainer() {
               {t("deutschTrainer.resetDialog.cancel")}
             </AlertDialogCancel>
             <AlertDialogAction
-              onClick={() => { resetProgress(); setShowResetConfirm(false); }}
+              onClick={() => { resetProgress(); updateLearning(() => emptyState()); clearState(); setShowResetConfirm(false); }}
               className="bg-red-600 text-white hover:bg-red-500"
             >
               {t("deutschTrainer.resetDialog.confirm")}
