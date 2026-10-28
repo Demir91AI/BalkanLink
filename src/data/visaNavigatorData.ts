@@ -162,12 +162,12 @@ export const VISA_ROUTES: VisaRoute[] = [
     id: 'work',
     titleKey: 'route_work',
     subtitleKey: 'route_work_sub',
-    legalBasis: '§ 18 AufenthG',
+    legalBasis: '§ 18a/§ 18b AufenthG (Fachkräfte); § 19c Abs. 1 AufenthG + § 26 Abs. 2 BeschV (Westbalkan)',
     documents: [
-      'Reisepass (gültig min. 6 Monate)',
+      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
       'Biometrisches Lichtbild',
       'Arbeitsvertrag oder verbindliches Stellenangebot',
-      'Anerkannte Berufsqualifikation (Zeugnisse, Diplome)',
+      'Qualifikationsnachweise je nach Aufenthaltsweg; Westbalkan grundsätzlich ohne Anerkennung, reglementierte Berufe ausgenommen',
       'Krankenversicherungsnachweis',
       'Nachweis über gesicherten Lebensunterhalt',
       'Ausgefülltes Antragsformular'
@@ -188,10 +188,10 @@ export const VISA_ROUTES: VisaRoute[] = [
     subtitleKey: 'route_bluecard_sub',
     legalBasis: '§ 18g AufenthG',
     documents: [
-      'Reisepass (gültig min. 6 Monate)',
+      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
       'Biometrisches Lichtbild',
       'Anerkannter Hochschulabschluss',
-      'Arbeitsvertrag mit Mindestgehalt (2025: 45.300 € / Mangelberufe: 41.041,80 €)',
+      'Arbeitsvertrag mit Mindestgehalt (2026: 50.700 € / Mangelberufe, Berufseinsteiger und besondere IT-Fälle mit BA-Zustimmung: 45.934,20 €)',
       'Krankenversicherungsnachweis',
       'Ausgefülltes Antragsformular'
     ],
@@ -211,12 +211,12 @@ export const VISA_ROUTES: VisaRoute[] = [
     subtitleKey: 'route_family_sub',
     legalBasis: '§§ 27–36 AufenthG',
     documents: [
-      'Reisepass (gültig min. 6 Monate)',
+      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
       'Biometrisches Lichtbild',
-      'Heiratsurkunde oder Geburtsurkunde (beglaubigt + übersetzt)',
+      'Heirats-/Geburtsurkunde: Form, Übersetzung und gegebenenfalls Apostille/Legalisation laut zuständiger Botschaft',
       'Nachweis des Aufenthaltstitels des in DE lebenden Familienmitglieds',
-      'Nachweis ausreichender Deutschkenntnisse (A1)',
-      'Nachweis über gesicherten Lebensunterhalt und ausreichenden Wohnraum',
+      'A1-Nachweis für Ehepartner, soweit erforderlich; gesetzliche Ausnahmen prüfen',
+      'Lebensunterhalt/Wohnraum soweit für die konkrete Familiennachzugsroute erforderlich',
       'Krankenversicherungsnachweis'
     ],
     warnings: [],
@@ -234,11 +234,11 @@ export const VISA_ROUTES: VisaRoute[] = [
     subtitleKey: 'route_study_sub',
     legalBasis: '§ 16b AufenthG',
     documents: [
-      'Reisepass (gültig min. 6 Monate)',
+      'Reisepass (Restgültigkeit nach aktueller Botschaftscheckliste)',
       'Biometrisches Lichtbild',
       'Zulassungsbescheid einer deutschen Hochschule',
       'Nachweis über Sprachkenntnisse (Deutsch B2/C1 oder Englisch)',
-      'Nachweis über gesicherten Lebensunterhalt (Sperrkonto ~11.208 €/Jahr)',
+      'Nachweis über gesicherten Lebensunterhalt (2026 z. B. Sperrkonto 11.904 €/Jahr / 992 €/Monat; auch Stipendium oder Verpflichtungserklärung möglich)',
       'Krankenversicherungsnachweis',
       'Schulzeugnisse und Abitur (anerkannt oder Äquivalenz)'
     ],
@@ -284,8 +284,8 @@ export const VISA_ROUTES: VisaRoute[] = [
       'Aktuelles biometrisches Lichtbild',
       'Nachweis über 5 Jahre rechtmäßigen Aufenthalt in Deutschland',
       'Nachweis über gesicherten Lebensunterhalt (ohne Sozialleistungen)',
-      'Ausreichende Rentenanwartschaften',
-      'Deutschkenntnisse min. B1',
+      'Angemessene Altersvorsorge nach Aufenthaltsweg; §9 in der Regel 60 Beitragsmonate, §9a separat prüfen',
+      'Deutschkenntnisse in der Regel B1 beim allgemeinen §9-Weg; Ausnahmen/Sonderwege prüfen',
       'Grundkenntnisse der Rechts- und Gesellschaftsordnung',
       'Meldebescheinigung',
       'Nachweis über Krankenversicherung'
