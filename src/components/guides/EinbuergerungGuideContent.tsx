@@ -31,11 +31,11 @@ const STEPS: StepData[] = [
       "Brojati godine od dolaska kao turista — broji se LEGALAN boravak sa registrovanom adresom (Anmeldung). Boravak po vizi za posjetu se NE računa.",
     example: "Niederlassungserlaubnis seit 12.04.2021 | Einreisedatum: 03.09.2019",
     note:
-      "Standardno se traži minimum 5 godina legalnog boravka (po novom zakonu — ranije 8). Uz „besondere Integrationsleistungen“ (B2 njemački + posao + volontiranje) — već nakon 3 godine.",
+      "Standardno se traži minimum 5 godina legalnog boravka (§ 10 StAG; ranije 8). Ubrzana naturalizacija nakon 3 godine („besondere Integrationsleistungen“) ukinuta je 30.10.2025. Kraći rok važi npr. za supružnike njemačkih državljana: u pravilu 3 godine boravka i 2 godine braka (§ 9 StAG).",
   },
   {
     deField: "Aufenthaltsdauer — Mindestens 5 Jahre",
-    bhsField: "Trajanje boravka — minimum 5 godina (ili 3 sa posebnim integracijama)",
+    bhsField: "Trajanje boravka — minimum 5 godina (izuzeci npr. za supružnike Nijemaca, § 9 StAG)",
     whatToWrite:
       "Tačan ukupan broj godina i mjeseci legalnog neprekidnog boravka u Njemačkoj. Ako je bio prekid duži od 6 mjeseci, navesti razloge.",
     whereToFind:
@@ -193,13 +193,13 @@ export default function EinbuergerungGuideContent() {
         title="Njemačko državljanstvo (Einbürgerung)"
         source="Bundesministerium des Innern und für Heimat (BMI) + nadležna Einbürgerungsbehörde u Bundeslandu"
         formName="Antrag auf Einbürgerung in den deutschen Staatsverband"
-        whoCanApply="Stranci sa minimum 5 godina legalnog boravka u Njemačkoj (ili 3 godine uz posebne integracijske dostignuća). Od 27.06.2024. (StARModG) zadržavanje BiH državljanstva više nije problem."
-        processingTime="6–24 mjeseca, ovisno o Bundeslandu (Bayern 6–9, Berlin/NRW 12–18)"
+        whoCanApply="Stranci sa minimum 5 godina legalnog boravka u Njemačkoj (supružnici njemačkih državljana u pravilu 3 godine boravka + 2 godine braka, § 9 StAG). Od 27.06.2024. Njemačka ne traži odricanje od dosadašnjeg državljanstva — da li ga zadržavaš, odlučuje pravo tvoje zemlje porijekla."
+        processingTime="Zavisi od nadležne Einbürgerungsbehörde — često više mjeseci; tačan rok javlja ustanova"
         requirements={[
-          "Minimum 5 godina legalnog neprekidnog boravka (3 sa posebnim integracijama)",
+          "Minimum 5 godina legalnog neprekidnog boravka (ubrzani put nakon 3 godine ukinut 30.10.2025.)",
           "Trajna boravišna dozvola (Niederlassungserlaubnis) ili stabilan Aufenthaltstitel",
           "Sigurnost vlastitih prihoda — bez Bürgergeld/Sozialhilfe",
-          "Znanje njemačkog jezika — minimum B1 (za turbo-postupak B2). 🎓 Izuzetak: završen Ausbildung u DE, njemačka škola ili studij — nije potreban Sprachzertifikat",
+          "Znanje njemačkog jezika — minimum B1. 🎓 Izuzetak: završen Ausbildung u DE, njemačka škola ili studij — nije potreban Sprachzertifikat",
           "Položen Einbürgerungstest (33 pitanja, prag 17). 🎓 Izuzetak: njemački Schulabschluss (Hauptschulabschluss+) ILI Berufsschulzeugnis uz završen Ausbildung (priznato u Bayernu, varira po Bundesland-u) ILI studij prava/političkih nauka",
           "Čista kaznena evidencija (bez osuda preko 90 dana zatvora)",
           "Bekenntnis zur freiheitlichen demokratischen Grundordnung (potvrda lojalnosti njemačkom Ustavu)",
