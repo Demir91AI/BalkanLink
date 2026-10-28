@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,8 @@ import { Card } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { safeCsv } from "@/lib/admin-center/model";
+import { safeCsv, emptySource, settleSource } from "@/lib/admin-center/model";
+import SourceStatus from './SourceStatus';
 import { Download, RefreshCw, CheckCircle2, XCircle, ShieldAlert, Trash2, Save } from "lucide-react";
 
 type SyncLogRow = {
@@ -45,33 +46,43 @@ export default function StripeSyncLogSection() {
   const [retentionInput, setRetentionInput] = useState("90");
   const [savingSettings, setSavingSettings] = useState(false);
   const [purging, setPurging] = useState(false);
+  const [sourceState,setSourceState] = useState(emptySource);
+  const [settingsError,setSettingsError] = useState(false);
+  const loadPending = useRef(false);
 
 
   const loadSettings = useCallback(async () => {
-    const { data } = await (supabase as any)
+    const { data, error } = await (supabase as any)
       .from("stripe_sync_log_settings")
       .select("retention_days, auto_purge_enabled, last_purged_at, last_purged_count")
       .eq("id", 1)
       .maybeSingle();
-    if (data) {
+    setSettingsError(!!error || !data);
+    if (!error && data) {
       setSettings(data as RetentionSettings);
       setRetentionInput(String((data as RetentionSettings).retention_days));
     }
   }, []);
 
   const load = useCallback(async () => {
+    if (loadPending.current) return;
+    loadPending.current=true;
     setLoading(true);
+    setSourceState(prev=>({...prev,loading:true}));
+    try {
     const { data, error } = await (supabase as any)
       .from("stripe_sync_log")
       .select("*")
       .order("created_at", { ascending: false })
       .limit(500);
+    setSourceState(prev=>settleSource(prev,{status:'fulfilled',value:{data,error}},new Date().toISOString()));
     if (error) {
       toast.error(t("adminSync.auditError"));
     } else {
       setRows((data ?? []) as SyncLogRow[]);
     }
-    setLoading(false);
+    } catch { setSourceState(prev=>({...prev,error:true,loading:false})); }
+    finally { loadPending.current=false;setLoading(false); }
   }, []);
 
   useEffect(() => {
@@ -94,12 +105,12 @@ export default function StripeSyncLogSection() {
   const saveSettings = async (patch: Partial<RetentionSettings>) => {
     if (!window.confirm(t("adminSync.confirmSettings"))) return;
     setSavingSettings(true);
-    const { error } = await (supabase as any)
+    const { data, error } = await (supabase as any)
       .from("stripe_sync_log_settings")
       .update({ ...patch, updated_at: new Date().toISOString() })
-      .eq("id", 1);
+      .eq("id", 1).select('id');
     setSavingSettings(false);
-    if (error) {
+    if (error || !Array.isArray(data) || data.length!==1) {
       toast.error(t("adminSync.notAllowed"));
       return;
     }
@@ -121,7 +132,7 @@ export default function StripeSyncLogSection() {
     setPurging(true);
     const { data, error } = await (supabase as any).rpc("purge_stripe_sync_log", { _force: true });
     setPurging(false);
-    if (error) {
+    if (error || typeof data!=='number') {
       toast.error(t("adminSync.purgeError"));
       return;
     }
@@ -233,6 +244,8 @@ export default function StripeSyncLogSection() {
         </div>
       </div>
 
+      <SourceStatus state={sourceState} source="stripe_sync_log (≤500)" clock={Date.now()} retry={()=>void load()} />
+      {settingsError && <p role="alert" className="text-destructive">{t('adminCenter.error')} · stripe_sync_log_settings</p>}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
           { label: t("adminSync.total"), value: stats.total },
@@ -242,7 +255,7 @@ export default function StripeSyncLogSection() {
         ].map((s) => (
           <Card key={s.label} className="p-4">
             <p className="text-xs text-muted-foreground">{s.label}</p>
-            <p className="text-2xl font-semibold text-foreground">{s.value}</p>
+            <p className="text-2xl font-semibold text-foreground">{sourceState.data==null?'—':s.value}</p>
           </Card>
         ))}
       </div>
