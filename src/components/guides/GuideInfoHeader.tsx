@@ -9,11 +9,15 @@ interface Props {
   requirements?: string[];
   commonMistakes?: string[];
   infoNote?: React.ReactNode;
+  /** Optional localized section labels; defaults keep the original Bosnian text. */
+  labels?: { who: string; time: string; prepare: string; mistakes: string };
 }
+
+const DEFAULT_LABELS = { who: "Ko može podnijeti zahtjev", time: "Vrijeme obrade:", prepare: "Šta treba pripremiti", mistakes: "Najčešće greške" };
 
 const GOLD = "#D4AF37";
 
-export default function GuideInfoHeader({ title, source, formName, whoCanApply, processingTime, requirements, commonMistakes, infoNote }: Props) {
+export default function GuideInfoHeader({ title, source, formName, whoCanApply, processingTime, requirements, commonMistakes, infoNote, labels = DEFAULT_LABELS }: Props) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
 
@@ -38,12 +42,12 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
           <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(212,175,55,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
             <PenLine size={14} color={GOLD} />
           </div>
-          <span style={{ fontSize: 13, fontWeight: 700, color: GOLD }}>Ko može podnijeti zahtjev</span>
+          <span style={{ fontSize: 13, fontWeight: 700, color: GOLD }}>{labels.who}</span>
         </div>
         <p style={{ fontSize: 13, color: "hsl(var(--foreground))", lineHeight: 1.65, margin: 0 }}>{whoCanApply}</p>
         <div style={{ marginTop: 12, paddingTop: 11, borderTop: "1px solid hsl(var(--border))", display: "flex", alignItems: "center", gap: 6 }}>
           <Clock size={13} color={GOLD} />
-          <span style={{ fontSize: 12, color: GOLD, fontWeight: 600 }}>Vrijeme obrade:</span>
+          <span style={{ fontSize: 12, color: GOLD, fontWeight: 600 }}>{labels.time}</span>
           <span style={{ fontSize: 12, color: "hsl(var(--muted-foreground))" }}>{processingTime}</span>
         </div>
       </div>
@@ -57,7 +61,7 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
             <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(99,102,241,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
               <ClipboardList size={14} color="#818CF8" />
             </div>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "hsl(var(--foreground))" }}>Šta treba pripremiti</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "hsl(var(--foreground))" }}>{labels.prepare}</span>
           </div>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
             {requirements.map((r, i) => (
@@ -77,7 +81,7 @@ export default function GuideInfoHeader({ title, source, formName, whoCanApply, 
             <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(239,68,68,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
               <AlertTriangle size={14} color="#F87171" />
             </div>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#F87171" }}>Najčešće greške</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#F87171" }}>{labels.mistakes}</span>
           </div>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
             {commonMistakes.map((m, i) => (
