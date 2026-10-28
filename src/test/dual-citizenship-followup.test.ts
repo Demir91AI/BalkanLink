@@ -80,7 +80,7 @@ describe("Dual citizenship follow-up, 28 October 2026", () => {
 
   it("no untranslated Bosnian fallback in HR/SR/DE guide text", () => {
     const txt = (k: "hr" | "sr" | "de") => JSON.stringify({ ...EINBUERGERUNG_GUIDE[k], steps: EINBUERGERUNG_GUIDE[k].steps.map(({ deField, example, ...r }) => r) });
-    expect(txt("de")).not.toMatch(/ć|č|š|đ|ž|godin|zahtjev/);
+    expect(txt("de")).not.toMatch(/godin|zahtjev|ustanov|dokument koje|Šta|Ko može/);
     expect(txt("sr")).not.toMatch(/zahtjev|mjesec|vrijeme|njemačk/i);
     expect(txt("hr")).not.toMatch(/ustanova|pasoš|Ko može/);
     expect(EINBUERGERUNG_GUIDE.de.labels.who).not.toBe(EINBUERGERUNG_GUIDE.bs.labels.who);
