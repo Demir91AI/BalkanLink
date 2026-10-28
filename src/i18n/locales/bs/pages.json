@@ -10216,5 +10216,604 @@
         ]
       }
     }
+  },
+  "wohngeldCompanion": {
+    "ui": {
+      "title": "Wohngeld: koji vodič je za mene?",
+      "intro": "Tri kratka pitanja. Odgovori ostaju samo na ovoj stranici i brišu se kad je napustiš – ništa se ne sprema ni ne šalje.",
+      "qState": "1. U kojoj pokrajini (Bundesland) je stan?",
+      "qHousing": "2. Da li stan iznajmljuješ ili si vlasnik?",
+      "qKind": "3. Prvi zahtjev ili novi zahtjev nakon isteka?",
+      "opt": {
+        "bayern": "Bayern (Bavarska)",
+        "other": "Druga pokrajina",
+        "unsure": "Nisam siguran/sigurna",
+        "rent": "Iznajmljujem (stanar/podstanar/dom)",
+        "own": "Vlasnik sam i živim u tome",
+        "first": "Prvi zahtjev",
+        "renewal": "Novi zahtjev nakon isteka (Weiterleistung)"
+      },
+      "prompt": "Odgovori na pitanja da vidiš odgovarajući vodič. Dok ne odgovoriš, prikazuje se opšti vodič.",
+      "resultBayernMiete": "Bavarska + najam → Mietzuschuss. Originalni bavarski obrazac i dokumenti su ispod.",
+      "resultBayernLasten": "Bavarska + vlasništvo → Lastenzuschuss. Originalni bavarski obrazac i dokumenti su ispod.",
+      "resultBayernUnsure": "Bavarska, ali nije jasno najam ili vlasništvo: Mietzuschuss je za stanare/podstanare/domove, Lastenzuschuss za vlasnike koji sami žive u stanu/kući. Dok ne odabereš, prikazuje se opšti vodič bez bavarskog obrasca.",
+      "resultOther": "Druga pokrajina: prikazuje se opšti vodič. Bavarski obrazac i njegovi brojevi polja tu ne važe – na Bundesportalu odaberi svoje mjesto i zatraži lokalni obrazac.",
+      "resultUnsureState": "Ne znaš pokrajinu? Pokrajina je ona u kojoj je stan (vidi adresu u Mietvertrag ili Anmeldebestätigung). Do tada se prikazuje opšti vodič.",
+      "kindFirst": "Prvi zahtjev: Wohngeld se u pravilu daje od prvog dana mjeseca predaje – ne odgađaj.",
+      "kindRenewal": "Novi zahtjev: službeni bavarski izvori ne navode poseban 'Folgeantrag' obrazac – nakon odobrenog perioda (obično 12 mjeseci) podnosi se novi zahtjev na istom obrascu. Pitaj ured da li postoji uprošteni postupak.",
+      "kindUnsure": "Ako ti je Wohngeld već odobren rješenjem (Bescheid), to je novi zahtjev nakon isteka; inače prvi zahtjev.",
+      "links": "Službeni izvori za tvoj odabir",
+      "reset": "Poništi odgovore",
+      "l": {
+        "bpPage": "BayernPortal: Wohngeld (Stand 02.10.2026)",
+        "bpOnline": "BayernPortal: Wohngeld online",
+        "mzForm": "Originalni obrazac: Antrag Mietzuschuss (PDF)",
+        "mzErl": "Erläuterungen Mietzuschuss (PDF)",
+        "mzHin": "Lista dokaza Mietzuschuss (PDF)",
+        "lzForm": "Originalni obrazac: Antrag Lastenzuschuss (PDF)",
+        "lzErl": "Erläuterungen Lastenzuschuss (PDF)",
+        "lzHin": "Lista dokaza Lastenzuschuss (PDF)",
+        "verdienst": "Verdienstbescheinigung za poslodavca (PDF)",
+        "bund": "Bundesportal: Wohngeld – odaberi mjesto i ured"
+      },
+      "noIndex": "Bez brojeva polja: originalni obrasci su zaštićeni ili se razlikuju po mjestu, pa vodič objašnjava pojmove tematski."
+    },
+    "guides": {
+      "bayernMiete": {
+        "title": "Wohngeld u Bavarskoj – Mietzuschuss (za podstanare)",
+        "introduction": "Za stanare, podstanare i stanare domova. Ovaj vodič objašnjava službeni bavarski obrazac 'Antrag auf Wohngeld – Mietzuschuss', Erläuterungen (Stand: Januar 2023) i listu dokaza (StMB 07/2026).",
+        "variation": "Samo za stan u Bavarskoj. Original otvaraš u novoj kartici; podatke upisuješ samo u službeni obrazac ili online-zahtjev ureda, ne ovdje.",
+        "vocabularyNote": "Pojmovi su objašnjeni tematski, bez brojeva polja ili stranica. Uporedi ih s originalnim obrascem otvorenim u drugoj kartici.",
+        "modes": {
+          "paper": "Papir: preuzmi originalni PDF Mietzuschuss, popuni, potpiši i predaj Wohngeldbehörde s dokazima.",
+          "online": "Online: preko BayernPortala odaberi mjesto stana; ako ured nudi online-postupak, prikazat će se. Redoslijed online-ekrana nije isti kao papirni obrazac."
+        },
+        "steps": [
+          {
+            "id": "check",
+            "title": "Da li se Wohngeld uopšte tiče mene?",
+            "sections": {
+              "meaning": "Wohngeld je državni doprinos za troškove stanovanja domaćinstava s niskim prihodima. Je li pravo stvarno postoji, odlučuje samo Wohngeldbehörde rješenjem (Bescheid).",
+              "action": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured.",
+              "where": "Službeni portal i Erläuterungen.",
+              "example": "Izmišljeni primjer: Maja radi, Damir ima Minijob; nemaju drugih davanja – zahtjev za Wohngeld ima smisla podnijeti.",
+              "mistake": "Čekati 'savršen' trenutak: Wohngeld se u pravilu daje tek od prvog dana mjeseca u kojem je zahtjev podnesen.",
+              "next": "Pronađi nadležni ured."
+            }
+          },
+          {
+            "id": "office",
+            "title": "Nadležni ured (Wohngeldbehörde)",
+            "sections": {
+              "meaning": "Zahtjev se podnosi uredu (Landratsamt ili kreisfreie Stadt / opština) na čijem je području stan.",
+              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev.",
+              "where": "Službeni portal (link gore).",
+              "example": "Izmišljeni primjer: stan u Nürnbergu → Stadt Nürnberg, Wohngeldstelle.",
+              "mistake": "Poslati zahtjev uredu mjesta rada umjesto mjesta stana.",
+              "next": "Skupi dokaze."
+            }
+          },
+          {
+            "id": "evidence",
+            "title": "Dokazi (Nachweise)",
+            "sections": {
+              "meaning": "Za Mietzuschuss službeni bavarski Hinweisblatt (StMB 07/2026) navodi npr.: potpisan zahtjev; Mietvertrag; aktuelno obavještenje o kiriji ili Mietbescheinigung; dokaz plaćanja kirije; dokaze o svim prihodima svih članova; dokaze o imovini; kod stranaca izvan EU boravišni dokument; za djecu od 16 godina potvrdu škole. Ured može tražiti još dokaza.",
+              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos.",
+              "where": "Službeni Hinweisblatt / lista dokaza.",
+              "example": "Izmišljeni primjer: Maja stavlja ugovor o najmu, posljednji dopis o kiriji, tri platne liste i izvod uplate kirije u jednu fasciklu.",
+              "mistake": "Poslati zahtjev bez dokaza – ured će pisati i obrada traje duže.",
+              "next": "Popuni obrazac."
+            }
+          },
+          {
+            "id": "fill",
+            "title": "Popuni zahtjev",
+            "sections": {
+              "meaning": "Bavarski obrazac ima numerisane tačke ('Randnummern') koje objašnjava službeni dokument Erläuterungen. Originalni PDF je zaštićen (šifrovan, kopiranje zabranjeno), pa BalkanLink ne prepisuje brojeve polja i stranice – pojmovi ispod objašnjeni su tematski, a broj tačke čitaš u svom originalu i u Erläuterungen.",
+              "action": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak.",
+              "where": "Originalni obrazac ili online-zahtjev ureda.",
+              "example": "Izmišljeni primjer: Maja drži originalni PDF u drugoj kartici i ide pojam po pojam.",
+              "mistake": "Ostaviti pitanja prazna – zahtjev bez potpunih odgovora može biti odbijen.",
+              "next": "Predaj zahtjev."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Predaja",
+            "sections": {
+              "meaning": "Predaješ sam: online (ako ga ured nudi), poštom ili lično. BalkanLink ništa ne šalje umjesto tebe.",
+              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje.",
+              "where": "Wohngeldbehörde.",
+              "example": "Izmišljeni primjer: Maja predaje 3. u mjesecu – važan je mjesec predaje.",
+              "mistake": "Poslati nepotpisan obrazac.",
+              "next": "Šta dalje?"
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nakon predaje i ponovni zahtjev",
+            "sections": {
+              "meaning": "Ured odlučuje pismenim rješenjem (Bescheid). Wohngeld se u pravilu odobrava za 12 mjeseci; zatim treba novi zahtjev. Isplata je mjesečno unaprijed.",
+              "action": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije.",
+              "where": "Bescheid; Wohngeldbehörde.",
+              "example": "Izmišljeni primjer: odobrenje do kraja juna → Maja u maju predaje novi zahtjev.",
+              "mistake": "Zaboraviti novi zahtjev – isplata prestaje.",
+              "next": "Gotovo."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "berechtigt",
+            "german": "Wohngeldberechtigte Person",
+            "meaning": "osoba koja podnosi zahtjev",
+            "instruction": "Zahtjev podnosi osoba koja stanuje u stanu/kući i (kod najma) potpisala je ugovor o najmu, odnosno (kod vlasništva) vlasnik je koji sam koristi stambeni prostor. Dozvoljeno je ovlastiti drugu osobu (Vollmacht).",
+            "where": "Ugovor o najmu (Mietvertrag) ili Grundbuchauszug/kupoprodajni ugovor; lični dokument.",
+            "example": "Izmišljeni primjer: Maja Kovač potpisala je ugovor o najmu i živi u stanu – ona je podnositeljica, a ne njen brat koji joj ponekad pomaže.",
+            "mistake": "Da zahtjev potpiše osoba koja ne živi u stanu ili da se ovlaštena osoba ne dokaže punomoći."
+          },
+          {
+            "id": "haushalt",
+            "german": "Haushaltsmitglieder",
+            "meaning": "članovi domaćinstva",
+            "instruction": "Navedi sve osobe koje zajedno s tobom žive i privređuju u istom stanu, npr. supružnik/partner, djeca, ponekad i druga rodbina. Cimeri (Mitbewohner) i podstanari (Untermieter) obično NISU članovi domaćinstva, ali se navode posebno. Kod djece čiju brigu razdvojeni roditelji dijele približno jednako, dijete može biti član domaćinstva kod oba roditelja.",
+            "where": "Anmeldebestätigung, izvodi iz matične knjige rođenih/vjenčanih; dogovor ili rješenje o brizi za dijete.",
+            "example": "Izmišljeni primjer: Maja, njen suprug Damir i dvoje djece = četiri člana domaćinstva; podstanar Ivo u jednoj sobi navodi se odvojeno.",
+            "mistake": "Izostaviti nekog člana ili upisati cimera kao člana domaćinstva. Broj članova utiče na procjenu, zato odgovori po stvarnom stanju."
+          },
+          {
+            "id": "miete",
+            "german": "Miete (Grundmiete, Nebenkosten, Heizkosten)",
+            "meaning": "kirija i sporedni troškovi",
+            "instruction": "Upiši kiriju prema ugovoru ili posljednjem obavještenju o promjeni kirije i navedi sporedne troškove (Nebenkosten) kako obrazac traži. Ako za sporedne troškove nema posebnih iznosa, prema objašnjenjima dovoljno je označiti ih – tada se uzimaju paušali. Wohngeld subvencionira samo 'čiste' troškove stanovanja: usluge poput Servicepauschale ne spadaju. Kirija se uzima u obzir samo do zakonskog maksimuma (zavisi od broja članova i Mietenstufe opštine). Kako se tretiraju Heizkosten u tvom slučaju, pitaj Wohngeldbehörde – ne računaj iznos unaprijed.",
+            "where": "Mietvertrag, aktuelles Mietänderungsschreiben ili Mietbescheinigung (potvrda stanodavca), dokaz plaćanja (izvod).",
+            "example": "Izmišljeni primjer: ugovor navodi Grundmiete i Betriebskosten-Vorauszahlung; Maja prepisuje oba iznosa iz posljednjeg dopisa stanodavca.",
+            "mistake": "Upisati samo osnovnu kiriju bez sporednih troškova, ili upisati iznos iz starog ugovora iako je kirija povećana."
+          },
+          {
+            "id": "einkommen",
+            "german": "Einkommen (Brutto / Gesamteinkommen)",
+            "meaning": "prihodi (bruto / ukupni prihod)",
+            "instruction": "Navedi SVE prihode svih članova domaćinstva onako kako ih obrazac traži: plate (i Minijob), penzije (i iz inostranstva), socijalna davanja (npr. Arbeitslosengeld, Krankengeld, Elterngeld, Unterhaltsvorschuss, Kinderzuschlag, BAföG), alimentacije, prihode od kamata, samostalne djelatnosti. 'Gesamteinkommen' je iznos koji Wohngeldbehörde sama izračunava iz tvojih bruto podataka uz zakonske odbitke – ti ga ne računaš, nego daješ potpune podatke i dokaze. Navedi i očekivane promjene prihoda (novi posao, kraj ugovora).",
+            "where": "Lohnabrechnung, Verdienstbescheinigung (obrazac koji popunjava poslodavac), Rentenbescheid, Leistungsbescheide, izvodi za alimentaciju, poreska rješenja kod samostalnih.",
+            "example": "Izmišljeni primjer: Damir radi puno radno vrijeme, Maja ima Minijob – oboje se navode; za Damira poslodavac popunjava Verdienstbescheinigung.",
+            "mistake": "Navesti neto umjesto traženog iznosa, izostaviti Minijob ili prihod iz inostranstva, ili samostalno 'izračunati' pravo na Wohngeld."
+          },
+          {
+            "id": "einmalig",
+            "german": "Einmaliges Einkommen / Einkommensänderungen",
+            "meaning": "jednokratni prihodi / promjene prihoda",
+            "instruction": "Navedi jednokratne isplate (npr. božićnica, regres) i promjene koje očekuješ u narednih 12 mjeseci (npr. kraj ugovora, novi posao, izlazak člana s prihodom). Ako već imaš dokaz, priloži ga.",
+            "where": "Platne liste, ugovor o radu, otkaz, obavijest poslodavca.",
+            "example": "Izmišljeni primjer: ugovor o radu ističe za četiri mjeseca – to se navodi kao očekivana promjena.",
+            "mistake": "Prešutjeti poznatu promjenu; to kasnije može dovesti do povrata novca."
+          },
+          {
+            "id": "vermoegen",
+            "german": "Vermögen",
+            "meaning": "imovina",
+            "instruction": "Odgovori na pitanje o imovini svih članova domaćinstva, uključujući imovinu u inostranstvu (štednja, nekretnine, kripto, osiguranja). Prema službenim objašnjenjima znatna imovina može isključiti pravo, a zahtjev bez odgovora na ovo pitanje može biti odbijen. Granice ne pogađaj – pitaj Wohngeldbehörde.",
+            "where": "Kontoauszüge, Depotauszug, Grundbuchauszug (i za nekretnine u BiH/Srbiji/Hrvatskoj), ugovori o štednji/osiguranju.",
+            "example": "Izmišljeni primjer: kuća u domovini koju je Damir naslijedio navodi se, uz dokaz o vlasništvu.",
+            "mistake": "Preskočiti pitanje ili zaboraviti imovinu u domovini."
+          },
+          {
+            "id": "ausschluss",
+            "german": "Ausschluss vom Wohngeld (Transferleistungen)",
+            "meaning": "isključenje zbog drugih davanja koja već pokrivaju stanovanje",
+            "instruction": "Ako ti ili član domaćinstva primate davanje u čijem su izračunu već uzeti troškovi stanovanja (npr. Grundsicherungsgeld/Bürgergeld, Sozialhilfe, Grundsicherung im Alter), za tu osobu Wohngeld u pravilu ne dolazi u obzir. Postoje izuzeci: npr. ako je takvo davanje samo zajam, ako je zahtjev za njega odbijen (tada je retroaktivni Wohngeld moguć u roku navedenom u službenim objašnjenjima), ili ako drugi članovi domaćinstva nisu uključeni u to davanje. Ne zaključuj sam – iskreno navedi sva davanja i pitaj Wohngeldbehörde.",
+            "where": "Rješenja Jobcentera/Sozialamta; rješenje o odbijanju ako ga imaš.",
+            "example": "Izmišljeni primjer: Majina majka u istom stanu prima Grundsicherung im Alter, ostali ne – Wohngeldbehörde provjerava ostale članove odvojeno.",
+            "mistake": "Misliti da svako socijalno davanje automatski isključuje cijelo domaćinstvo, ili sakriti da je zahtjev za drugo davanje podnesen."
+          },
+          {
+            "id": "zuschuesse",
+            "german": "Zuschüsse zur Miete / Belastung",
+            "meaning": "drugi doprinosi za stanovanje",
+            "instruction": "Navedi novac iz javnih fondova ili od privatnih osoba koji je direktno namijenjen pokrivanju kirije/opterećenja (npr. roditelji plaćaju dio kirije).",
+            "where": "Izvodi, pismena izjava osobe koja plaća.",
+            "example": "Izmišljeni primjer: Majini roditelji svaki mjesec direktno uplaćuju dio kirije stanodavcu – to se navodi.",
+            "mistake": "Prešutjeti redovnu pomoć porodice za kiriju."
+          },
+          {
+            "id": "auslaender",
+            "german": "Ausländische Personen",
+            "meaning": "strani državljani",
+            "instruction": "Za osobe iz zemalja izvan EU obrazac traži podatke o boravku. Prema objašnjenjima neki boravišni naslovi (npr. za traženje posla/školovanja) u pravilu ne daju pravo. Ako je neko potpisao Verpflichtungserklärung (garantno pismo) za člana domaćinstva, prije primanja Wohngelda informiši se u Ausländerbehörde o mogućim posljedicama.",
+            "where": "Aufenthaltstitel, Fiktionsbescheinigung, Duldung ili Aufenthaltsgestattung (s dodatnim listom).",
+            "example": "Izmišljeni primjer: Damir ima Aufenthaltstitel iz BiH – prilaže kopiju obje strane kartice.",
+            "mistake": "Ne spomenuti Verpflichtungserklärung; Wohngeld se tada može tražiti nazad od garanta."
+          },
+          {
+            "id": "auszahlung",
+            "german": "Auszahlung / Bankverbindung",
+            "meaning": "isplata / bankovni račun",
+            "instruction": "Upiši IBAN i BIC. Prema objašnjenjima isplata je moguća i drugom članu domaćinstva, stanodavcu ili ovlaštenoj osobi s punomoći za naplatu – drugim osobama nije dozvoljena.",
+            "where": "Bankovna kartica ili izvod (IBAN/BIC).",
+            "example": "Izmišljeni primjer: DE00 0000 0000 0000 0000 00 (izmišljeni IBAN – upiši svoj).",
+            "mistake": "Upisati račun prijatelja koji nije član domaćinstva."
+          },
+          {
+            "id": "unterschrift",
+            "german": "Erklärung und Unterschrift",
+            "meaning": "izjava i potpis",
+            "instruction": "Pažljivo pročitaj izjavu na kraju obrasca i potpiši. Promjene (prihod, članovi, kirija) moraš prijaviti Wohngeldbehörde i nakon podnošenja.",
+            "where": "Kraj obrasca; službena Erläuterungen.",
+            "example": "Izmišljeni primjer: Maja potpisuje kao podnositeljica; Damir potpisuje tamo gdje obrazac traži potpise drugih članova.",
+            "mistake": "Zaboraviti potpis – nepotpisan zahtjev usporava ili blokira obradu."
+          }
+        ]
+      },
+      "bayernLasten": {
+        "title": "Wohngeld u Bavarskoj – Lastenzuschuss (za vlasnike)",
+        "introduction": "Za vlasnike kuće ili stana koji u njemu sami žive. Ovaj vodič objašnjava službeni bavarski obrazac 'Antrag auf Wohngeld – Lastenzuschuss', Erläuterungen (Stand: Januar 2023) i listu dokaza (StMB 07/2026).",
+        "variation": "Samo za vlastiti stan/kuću u Bavarskoj. Original otvaraš u novoj kartici; podatke upisuješ samo u službeni obrazac ili online-zahtjev ureda.",
+        "vocabularyNote": "Pojmovi su objašnjeni tematski, bez brojeva polja ili stranica. Uporedi ih s originalnim obrascem otvorenim u drugoj kartici.",
+        "modes": {
+          "paper": "Papir: preuzmi originalni PDF Lastenzuschuss, popuni, potpiši i predaj s dokazima.",
+          "online": "Online: BayernPortal 'Antrag auf Wohngeld' omogućava Miet- i Lastenzuschuss, ako ga tvoj ured nudi. Online 'Antrag auf Mietzuschuss' ne važi za vlasnike."
+        },
+        "steps": [
+          {
+            "id": "check",
+            "title": "Da li se Wohngeld uopšte tiče mene?",
+            "sections": {
+              "meaning": "Wohngeld je državni doprinos za troškove stanovanja domaćinstava s niskim prihodima. Je li pravo stvarno postoji, odlučuje samo Wohngeldbehörde rješenjem (Bescheid).",
+              "action": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured.",
+              "where": "Službeni portal i Erläuterungen.",
+              "example": "Izmišljeni primjer: Maja radi, Damir ima Minijob; nemaju drugih davanja – zahtjev za Wohngeld ima smisla podnijeti.",
+              "mistake": "Čekati 'savršen' trenutak: Wohngeld se u pravilu daje tek od prvog dana mjeseca u kojem je zahtjev podnesen.",
+              "next": "Pronađi nadležni ured."
+            }
+          },
+          {
+            "id": "office",
+            "title": "Nadležni ured (Wohngeldbehörde)",
+            "sections": {
+              "meaning": "Zahtjev se podnosi uredu (Landratsamt ili kreisfreie Stadt / opština) na čijem je području stan.",
+              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev.",
+              "where": "Službeni portal (link gore).",
+              "example": "Izmišljeni primjer: stan u Nürnbergu → Stadt Nürnberg, Wohngeldstelle.",
+              "mistake": "Poslati zahtjev uredu mjesta rada umjesto mjesta stana.",
+              "next": "Skupi dokaze."
+            }
+          },
+          {
+            "id": "evidence",
+            "title": "Dokazi (Nachweise)",
+            "sections": {
+              "meaning": "Za Lastenzuschuss službeni bavarski Hinweisblatt (StMB 07/2026) navodi npr.: potpisan zahtjev; Grundbuchauszug; Kauf-/Übergabevertrag; Wohnflächenberechnung; ugovore o kreditu i Fremdmittelbescheinigung; Grundsteuerbescheid s dokazom plaćanja; dokaze o sporednim troškovima / Hausgeld; dokaze o prihodima i imovini svih članova. Ured može tražiti još dokaza.",
+              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos.",
+              "where": "Službeni Hinweisblatt / lista dokaza.",
+              "example": "Izmišljeni primjer: Maja stavlja ugovor o najmu, posljednji dopis o kiriji, tri platne liste i izvod uplate kirije u jednu fasciklu.",
+              "mistake": "Poslati zahtjev bez dokaza – ured će pisati i obrada traje duže.",
+              "next": "Popuni obrazac."
+            }
+          },
+          {
+            "id": "fill",
+            "title": "Popuni zahtjev",
+            "sections": {
+              "meaning": "Bavarski obrazac ima numerisane tačke ('Randnummern') koje objašnjava službeni dokument Erläuterungen. Originalni PDF je zaštićen (šifrovan, kopiranje zabranjeno), pa BalkanLink ne prepisuje brojeve polja i stranice – pojmovi ispod objašnjeni su tematski, a broj tačke čitaš u svom originalu i u Erläuterungen.",
+              "action": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak.",
+              "where": "Originalni obrazac ili online-zahtjev ureda.",
+              "example": "Izmišljeni primjer: Maja drži originalni PDF u drugoj kartici i ide pojam po pojam.",
+              "mistake": "Ostaviti pitanja prazna – zahtjev bez potpunih odgovora može biti odbijen.",
+              "next": "Predaj zahtjev."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Predaja",
+            "sections": {
+              "meaning": "Predaješ sam: online (ako ga ured nudi), poštom ili lično. BalkanLink ništa ne šalje umjesto tebe.",
+              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje.",
+              "where": "Wohngeldbehörde.",
+              "example": "Izmišljeni primjer: Maja predaje 3. u mjesecu – važan je mjesec predaje.",
+              "mistake": "Poslati nepotpisan obrazac.",
+              "next": "Šta dalje?"
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nakon predaje i ponovni zahtjev",
+            "sections": {
+              "meaning": "Ured odlučuje pismenim rješenjem (Bescheid). Wohngeld se u pravilu odobrava za 12 mjeseci; zatim treba novi zahtjev. Isplata je mjesečno unaprijed.",
+              "action": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije.",
+              "where": "Bescheid; Wohngeldbehörde.",
+              "example": "Izmišljeni primjer: odobrenje do kraja juna → Maja u maju predaje novi zahtjev.",
+              "mistake": "Zaboraviti novi zahtjev – isplata prestaje.",
+              "next": "Gotovo."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "berechtigt",
+            "german": "Wohngeldberechtigte Person",
+            "meaning": "osoba koja podnosi zahtjev",
+            "instruction": "Zahtjev podnosi osoba koja stanuje u stanu/kući i (kod najma) potpisala je ugovor o najmu, odnosno (kod vlasništva) vlasnik je koji sam koristi stambeni prostor. Dozvoljeno je ovlastiti drugu osobu (Vollmacht).",
+            "where": "Ugovor o najmu (Mietvertrag) ili Grundbuchauszug/kupoprodajni ugovor; lični dokument.",
+            "example": "Izmišljeni primjer: Maja Kovač potpisala je ugovor o najmu i živi u stanu – ona je podnositeljica, a ne njen brat koji joj ponekad pomaže.",
+            "mistake": "Da zahtjev potpiše osoba koja ne živi u stanu ili da se ovlaštena osoba ne dokaže punomoći."
+          },
+          {
+            "id": "haushalt",
+            "german": "Haushaltsmitglieder",
+            "meaning": "članovi domaćinstva",
+            "instruction": "Navedi sve osobe koje zajedno s tobom žive i privređuju u istom stanu, npr. supružnik/partner, djeca, ponekad i druga rodbina. Cimeri (Mitbewohner) i podstanari (Untermieter) obično NISU članovi domaćinstva, ali se navode posebno. Kod djece čiju brigu razdvojeni roditelji dijele približno jednako, dijete može biti član domaćinstva kod oba roditelja.",
+            "where": "Anmeldebestätigung, izvodi iz matične knjige rođenih/vjenčanih; dogovor ili rješenje o brizi za dijete.",
+            "example": "Izmišljeni primjer: Maja, njen suprug Damir i dvoje djece = četiri člana domaćinstva; podstanar Ivo u jednoj sobi navodi se odvojeno.",
+            "mistake": "Izostaviti nekog člana ili upisati cimera kao člana domaćinstva. Broj članova utiče na procjenu, zato odgovori po stvarnom stanju."
+          },
+          {
+            "id": "belastung",
+            "german": "Belastung (Kapitaldienst, Bewirtschaftungskosten)",
+            "meaning": "troškovi vlasništva",
+            "instruction": "Kod Lastenzuschussa umjesto kirije navodiš opterećenje za vlastiti stan/kuću: otplate kredita (kamata i otplata – Kapitaldienst) za kupovinu/renoviranje, Grundsteuer, troškove održavanja i druge troškove gospodarenja te kod etažnog vlasništva Hausgeld. Uzima se u obzir samo do zakonskog maksimuma; ne računaj sam.",
+            "where": "Grundbuchauszug, Kauf-/Übergabevertrag, Wohnflächenberechnung, ugovori o kreditu, Fremdmittelbescheinigung banke, Grundsteuerbescheid uz dokaz plaćanja, Gebührenbescheide, Hausgeldabrechnung/Wirtschaftsplan.",
+            "example": "Izmišljeni primjer: Damir je vlasnik stana s kreditom; prilaže ugovor o kreditu, potvrdu banke o namjeni kredita i Grundsteuerbescheid.",
+            "mistake": "Navesti kredit koji nije za stan ili zaboraviti potvrdu banke o namjeni kredita."
+          },
+          {
+            "id": "einkommen",
+            "german": "Einkommen (Brutto / Gesamteinkommen)",
+            "meaning": "prihodi (bruto / ukupni prihod)",
+            "instruction": "Navedi SVE prihode svih članova domaćinstva onako kako ih obrazac traži: plate (i Minijob), penzije (i iz inostranstva), socijalna davanja (npr. Arbeitslosengeld, Krankengeld, Elterngeld, Unterhaltsvorschuss, Kinderzuschlag, BAföG), alimentacije, prihode od kamata, samostalne djelatnosti. 'Gesamteinkommen' je iznos koji Wohngeldbehörde sama izračunava iz tvojih bruto podataka uz zakonske odbitke – ti ga ne računaš, nego daješ potpune podatke i dokaze. Navedi i očekivane promjene prihoda (novi posao, kraj ugovora).",
+            "where": "Lohnabrechnung, Verdienstbescheinigung (obrazac koji popunjava poslodavac), Rentenbescheid, Leistungsbescheide, izvodi za alimentaciju, poreska rješenja kod samostalnih.",
+            "example": "Izmišljeni primjer: Damir radi puno radno vrijeme, Maja ima Minijob – oboje se navode; za Damira poslodavac popunjava Verdienstbescheinigung.",
+            "mistake": "Navesti neto umjesto traženog iznosa, izostaviti Minijob ili prihod iz inostranstva, ili samostalno 'izračunati' pravo na Wohngeld."
+          },
+          {
+            "id": "einmalig",
+            "german": "Einmaliges Einkommen / Einkommensänderungen",
+            "meaning": "jednokratni prihodi / promjene prihoda",
+            "instruction": "Navedi jednokratne isplate (npr. božićnica, regres) i promjene koje očekuješ u narednih 12 mjeseci (npr. kraj ugovora, novi posao, izlazak člana s prihodom). Ako već imaš dokaz, priloži ga.",
+            "where": "Platne liste, ugovor o radu, otkaz, obavijest poslodavca.",
+            "example": "Izmišljeni primjer: ugovor o radu ističe za četiri mjeseca – to se navodi kao očekivana promjena.",
+            "mistake": "Prešutjeti poznatu promjenu; to kasnije može dovesti do povrata novca."
+          },
+          {
+            "id": "vermoegen",
+            "german": "Vermögen",
+            "meaning": "imovina",
+            "instruction": "Odgovori na pitanje o imovini svih članova domaćinstva, uključujući imovinu u inostranstvu (štednja, nekretnine, kripto, osiguranja). Prema službenim objašnjenjima znatna imovina može isključiti pravo, a zahtjev bez odgovora na ovo pitanje može biti odbijen. Granice ne pogađaj – pitaj Wohngeldbehörde.",
+            "where": "Kontoauszüge, Depotauszug, Grundbuchauszug (i za nekretnine u BiH/Srbiji/Hrvatskoj), ugovori o štednji/osiguranju.",
+            "example": "Izmišljeni primjer: kuća u domovini koju je Damir naslijedio navodi se, uz dokaz o vlasništvu.",
+            "mistake": "Preskočiti pitanje ili zaboraviti imovinu u domovini."
+          },
+          {
+            "id": "ausschluss",
+            "german": "Ausschluss vom Wohngeld (Transferleistungen)",
+            "meaning": "isključenje zbog drugih davanja koja već pokrivaju stanovanje",
+            "instruction": "Ako ti ili član domaćinstva primate davanje u čijem su izračunu već uzeti troškovi stanovanja (npr. Grundsicherungsgeld/Bürgergeld, Sozialhilfe, Grundsicherung im Alter), za tu osobu Wohngeld u pravilu ne dolazi u obzir. Postoje izuzeci: npr. ako je takvo davanje samo zajam, ako je zahtjev za njega odbijen (tada je retroaktivni Wohngeld moguć u roku navedenom u službenim objašnjenjima), ili ako drugi članovi domaćinstva nisu uključeni u to davanje. Ne zaključuj sam – iskreno navedi sva davanja i pitaj Wohngeldbehörde.",
+            "where": "Rješenja Jobcentera/Sozialamta; rješenje o odbijanju ako ga imaš.",
+            "example": "Izmišljeni primjer: Majina majka u istom stanu prima Grundsicherung im Alter, ostali ne – Wohngeldbehörde provjerava ostale članove odvojeno.",
+            "mistake": "Misliti da svako socijalno davanje automatski isključuje cijelo domaćinstvo, ili sakriti da je zahtjev za drugo davanje podnesen."
+          },
+          {
+            "id": "zuschuesse",
+            "german": "Zuschüsse zur Miete / Belastung",
+            "meaning": "drugi doprinosi za stanovanje",
+            "instruction": "Navedi novac iz javnih fondova ili od privatnih osoba koji je direktno namijenjen pokrivanju kirije/opterećenja (npr. roditelji plaćaju dio kirije).",
+            "where": "Izvodi, pismena izjava osobe koja plaća.",
+            "example": "Izmišljeni primjer: Majini roditelji svaki mjesec direktno uplaćuju dio kirije stanodavcu – to se navodi.",
+            "mistake": "Prešutjeti redovnu pomoć porodice za kiriju."
+          },
+          {
+            "id": "auslaender",
+            "german": "Ausländische Personen",
+            "meaning": "strani državljani",
+            "instruction": "Za osobe iz zemalja izvan EU obrazac traži podatke o boravku. Prema objašnjenjima neki boravišni naslovi (npr. za traženje posla/školovanja) u pravilu ne daju pravo. Ako je neko potpisao Verpflichtungserklärung (garantno pismo) za člana domaćinstva, prije primanja Wohngelda informiši se u Ausländerbehörde o mogućim posljedicama.",
+            "where": "Aufenthaltstitel, Fiktionsbescheinigung, Duldung ili Aufenthaltsgestattung (s dodatnim listom).",
+            "example": "Izmišljeni primjer: Damir ima Aufenthaltstitel iz BiH – prilaže kopiju obje strane kartice.",
+            "mistake": "Ne spomenuti Verpflichtungserklärung; Wohngeld se tada može tražiti nazad od garanta."
+          },
+          {
+            "id": "auszahlung",
+            "german": "Auszahlung / Bankverbindung",
+            "meaning": "isplata / bankovni račun",
+            "instruction": "Upiši IBAN i BIC. Prema objašnjenjima isplata je moguća i drugom članu domaćinstva, stanodavcu ili ovlaštenoj osobi s punomoći za naplatu – drugim osobama nije dozvoljena.",
+            "where": "Bankovna kartica ili izvod (IBAN/BIC).",
+            "example": "Izmišljeni primjer: DE00 0000 0000 0000 0000 00 (izmišljeni IBAN – upiši svoj).",
+            "mistake": "Upisati račun prijatelja koji nije član domaćinstva."
+          },
+          {
+            "id": "unterschrift",
+            "german": "Erklärung und Unterschrift",
+            "meaning": "izjava i potpis",
+            "instruction": "Pažljivo pročitaj izjavu na kraju obrasca i potpiši. Promjene (prihod, članovi, kirija) moraš prijaviti Wohngeldbehörde i nakon podnošenja.",
+            "where": "Kraj obrasca; službena Erläuterungen.",
+            "example": "Izmišljeni primjer: Maja potpisuje kao podnositeljica; Damir potpisuje tamo gdje obrazac traži potpise drugih članova.",
+            "mistake": "Zaboraviti potpis – nepotpisan zahtjev usporava ili blokira obradu."
+          }
+        ]
+      },
+      "general": {
+        "title": "Wohngeld – opšti vodič (sve pokrajine)",
+        "introduction": "Opšti, korak-po-korak vodič za Wohngeld izvan Bavarske ili kada još nisi siguran. Pojmovi su isti po saveznom zakonu, ali obrasci i raspored polja razlikuju se po pokrajini i uredu.",
+        "variation": "Bavarski brojevi polja ovdje NE važe. Na Bundesportalu odaberi svoje mjesto i nadležni ured, pa zatraži njihov aktuelni obrazac ili online-zahtjev.",
+        "vocabularyNote": "Pojmovi su objašnjeni tematski, bez brojeva polja ili stranica. Uporedi ih s originalnim obrascem otvorenim u drugoj kartici.",
+        "modes": {
+          "paper": "Papir: obrazac dobijaš od svog ureda ili pokrajinskog portala; popuni, potpiši i predaj s dokazima.",
+          "online": "Online: mnoge pokrajine/opštine nude online-zahtjev; dostupnost i redoslijed ekrana zavise od mjesta."
+        },
+        "steps": [
+          {
+            "id": "check",
+            "title": "Da li se Wohngeld uopšte tiče mene?",
+            "sections": {
+              "meaning": "Wohngeld je državni doprinos za troškove stanovanja domaćinstava s niskim prihodima. Je li pravo stvarno postoji, odlučuje samo Wohngeldbehörde rješenjem (Bescheid).",
+              "action": "Prvo provjeri da li neko u domaćinstvu prima Grundsicherungsgeld/Bürgergeld ili Sozialhilfe s troškovima stanovanja – tada pročitaj stavku o isključenju i pitaj ured.",
+              "where": "Službeni portal i Erläuterungen.",
+              "example": "Izmišljeni primjer: Maja radi, Damir ima Minijob; nemaju drugih davanja – zahtjev za Wohngeld ima smisla podnijeti.",
+              "mistake": "Čekati 'savršen' trenutak: Wohngeld se u pravilu daje tek od prvog dana mjeseca u kojem je zahtjev podnesen.",
+              "next": "Pronađi nadležni ured."
+            }
+          },
+          {
+            "id": "office",
+            "title": "Nadležni ured (Wohngeldbehörde)",
+            "sections": {
+              "meaning": "Zahtjev se podnosi uredu (Landratsamt ili kreisfreie Stadt / opština) na čijem je području stan.",
+              "action": "Na službenom portalu upiši poštanski broj stana; tamo vidiš i da li postoji online-zahtjev.",
+              "where": "Službeni portal (link gore).",
+              "example": "Izmišljeni primjer: stan u Nürnbergu → Stadt Nürnberg, Wohngeldstelle.",
+              "mistake": "Poslati zahtjev uredu mjesta rada umjesto mjesta stana.",
+              "next": "Skupi dokaze."
+            }
+          },
+          {
+            "id": "evidence",
+            "title": "Dokazi (Nachweise)",
+            "sections": {
+              "meaning": "Tačnu listu dokaza određuje tvoja pokrajina/ured. Tipično se traže: ugovor o najmu ili dokumenti o vlasništvu i kreditima, dokaz o kiriji/troškovima, dokazi o svim prihodima i imovini svih članova, kod stranaca izvan EU boravišni dokument. Zatraži listu od svog ureda.",
+              "action": "Kopiraj dokaze; originale ne šalji osim ako ured traži. Na izvodima smiješ zacrniti samo primaoca/svrhu kod posebno osjetljivih podataka, nikad iznos.",
+              "where": "Službeni Hinweisblatt / lista dokaza.",
+              "example": "Izmišljeni primjer: Maja stavlja ugovor o najmu, posljednji dopis o kiriji, tri platne liste i izvod uplate kirije u jednu fasciklu.",
+              "mistake": "Poslati zahtjev bez dokaza – ured će pisati i obrada traje duže.",
+              "next": "Popuni obrazac."
+            }
+          },
+          {
+            "id": "fill",
+            "title": "Popuni zahtjev",
+            "sections": {
+              "meaning": "Svaka pokrajina/ured može imati drugačiji obrazac i raspored polja. Zato ovdje NEMA brojeva polja ni stranica – pojmovi su objašnjeni tematski.",
+              "action": "Koristi rječnik pojmova iznad: za svaki pojam piše šta znači, šta upisati i gdje naći podatak.",
+              "where": "Originalni obrazac ili online-zahtjev ureda.",
+              "example": "Izmišljeni primjer: Maja drži originalni PDF u drugoj kartici i ide pojam po pojam.",
+              "mistake": "Ostaviti pitanja prazna – zahtjev bez potpunih odgovora može biti odbijen.",
+              "next": "Predaj zahtjev."
+            }
+          },
+          {
+            "id": "submit",
+            "title": "Predaja",
+            "sections": {
+              "meaning": "Predaješ sam: online (ako ga ured nudi), poštom ili lično. BalkanLink ništa ne šalje umjesto tebe.",
+              "action": "Potpiši, priloži dokaze, zadrži kopiju i datum predaje.",
+              "where": "Wohngeldbehörde.",
+              "example": "Izmišljeni primjer: Maja predaje 3. u mjesecu – važan je mjesec predaje.",
+              "mistake": "Poslati nepotpisan obrazac.",
+              "next": "Šta dalje?"
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nakon predaje i ponovni zahtjev",
+            "sections": {
+              "meaning": "Ured odlučuje pismenim rješenjem (Bescheid). Wohngeld se u pravilu odobrava za 12 mjeseci; zatim treba novi zahtjev. Isplata je mjesečno unaprijed.",
+              "action": "Odgovori brzo na pitanja ureda. Promjene prijavi. Novi zahtjev predaj na vrijeme prije isteka – pitaj ured koliko ranije.",
+              "where": "Bescheid; Wohngeldbehörde.",
+              "example": "Izmišljeni primjer: odobrenje do kraja juna → Maja u maju predaje novi zahtjev.",
+              "mistake": "Zaboraviti novi zahtjev – isplata prestaje.",
+              "next": "Gotovo."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "berechtigt",
+            "german": "Wohngeldberechtigte Person",
+            "meaning": "osoba koja podnosi zahtjev",
+            "instruction": "Zahtjev podnosi osoba koja stanuje u stanu/kući i (kod najma) potpisala je ugovor o najmu, odnosno (kod vlasništva) vlasnik je koji sam koristi stambeni prostor. Dozvoljeno je ovlastiti drugu osobu (Vollmacht).",
+            "where": "Ugovor o najmu (Mietvertrag) ili Grundbuchauszug/kupoprodajni ugovor; lični dokument.",
+            "example": "Izmišljeni primjer: Maja Kovač potpisala je ugovor o najmu i živi u stanu – ona je podnositeljica, a ne njen brat koji joj ponekad pomaže.",
+            "mistake": "Da zahtjev potpiše osoba koja ne živi u stanu ili da se ovlaštena osoba ne dokaže punomoći."
+          },
+          {
+            "id": "haushalt",
+            "german": "Haushaltsmitglieder",
+            "meaning": "članovi domaćinstva",
+            "instruction": "Navedi sve osobe koje zajedno s tobom žive i privređuju u istom stanu, npr. supružnik/partner, djeca, ponekad i druga rodbina. Cimeri (Mitbewohner) i podstanari (Untermieter) obično NISU članovi domaćinstva, ali se navode posebno. Kod djece čiju brigu razdvojeni roditelji dijele približno jednako, dijete može biti član domaćinstva kod oba roditelja.",
+            "where": "Anmeldebestätigung, izvodi iz matične knjige rođenih/vjenčanih; dogovor ili rješenje o brizi za dijete.",
+            "example": "Izmišljeni primjer: Maja, njen suprug Damir i dvoje djece = četiri člana domaćinstva; podstanar Ivo u jednoj sobi navodi se odvojeno.",
+            "mistake": "Izostaviti nekog člana ili upisati cimera kao člana domaćinstva. Broj članova utiče na procjenu, zato odgovori po stvarnom stanju."
+          },
+          {
+            "id": "wohnkosten",
+            "german": "Miete / Belastung (Wohnkosten)",
+            "meaning": "troškovi stanovanja (kirija ili troškovi vlasništva)",
+            "instruction": "Kao podstanar navodiš kiriju i sporedne troškove prema ugovoru; kao vlasnik umjesto toga kreditne otplate i troškove vlasništva (Lastenzuschuss). Uzimaju se u obzir samo do zakonskog maksimuma; kako se tretiraju Heizkosten i paušali, pitaj svoj ured – ne računaj sam.",
+            "where": "Mietvertrag, potvrda stanodavca, dokaz plaćanja; kod vlasnika ugovori o kreditu, Grundsteuerbescheid.",
+            "example": "Izmišljeni primjer: ugovor navodi Grundmiete i Betriebskosten-Vorauszahlung; Maja prepisuje oba iznosa iz posljednjeg dopisa stanodavca.",
+            "mistake": "Upisati samo osnovnu kiriju bez sporednih troškova, ili upisati iznos iz starog ugovora iako je kirija povećana."
+          },
+          {
+            "id": "einkommen",
+            "german": "Einkommen (Brutto / Gesamteinkommen)",
+            "meaning": "prihodi (bruto / ukupni prihod)",
+            "instruction": "Navedi SVE prihode svih članova domaćinstva onako kako ih obrazac traži: plate (i Minijob), penzije (i iz inostranstva), socijalna davanja (npr. Arbeitslosengeld, Krankengeld, Elterngeld, Unterhaltsvorschuss, Kinderzuschlag, BAföG), alimentacije, prihode od kamata, samostalne djelatnosti. 'Gesamteinkommen' je iznos koji Wohngeldbehörde sama izračunava iz tvojih bruto podataka uz zakonske odbitke – ti ga ne računaš, nego daješ potpune podatke i dokaze. Navedi i očekivane promjene prihoda (novi posao, kraj ugovora).",
+            "where": "Lohnabrechnung, Verdienstbescheinigung (obrazac koji popunjava poslodavac), Rentenbescheid, Leistungsbescheide, izvodi za alimentaciju, poreska rješenja kod samostalnih.",
+            "example": "Izmišljeni primjer: Damir radi puno radno vrijeme, Maja ima Minijob – oboje se navode; za Damira poslodavac popunjava Verdienstbescheinigung.",
+            "mistake": "Navesti neto umjesto traženog iznosa, izostaviti Minijob ili prihod iz inostranstva, ili samostalno 'izračunati' pravo na Wohngeld."
+          },
+          {
+            "id": "einmalig",
+            "german": "Einmaliges Einkommen / Einkommensänderungen",
+            "meaning": "jednokratni prihodi / promjene prihoda",
+            "instruction": "Navedi jednokratne isplate (npr. božićnica, regres) i promjene koje očekuješ u narednih 12 mjeseci (npr. kraj ugovora, novi posao, izlazak člana s prihodom). Ako već imaš dokaz, priloži ga.",
+            "where": "Platne liste, ugovor o radu, otkaz, obavijest poslodavca.",
+            "example": "Izmišljeni primjer: ugovor o radu ističe za četiri mjeseca – to se navodi kao očekivana promjena.",
+            "mistake": "Prešutjeti poznatu promjenu; to kasnije može dovesti do povrata novca."
+          },
+          {
+            "id": "vermoegen",
+            "german": "Vermögen",
+            "meaning": "imovina",
+            "instruction": "Odgovori na pitanje o imovini svih članova domaćinstva, uključujući imovinu u inostranstvu (štednja, nekretnine, kripto, osiguranja). Prema službenim objašnjenjima znatna imovina može isključiti pravo, a zahtjev bez odgovora na ovo pitanje može biti odbijen. Granice ne pogađaj – pitaj Wohngeldbehörde.",
+            "where": "Kontoauszüge, Depotauszug, Grundbuchauszug (i za nekretnine u BiH/Srbiji/Hrvatskoj), ugovori o štednji/osiguranju.",
+            "example": "Izmišljeni primjer: kuća u domovini koju je Damir naslijedio navodi se, uz dokaz o vlasništvu.",
+            "mistake": "Preskočiti pitanje ili zaboraviti imovinu u domovini."
+          },
+          {
+            "id": "ausschluss",
+            "german": "Ausschluss vom Wohngeld (Transferleistungen)",
+            "meaning": "isključenje zbog drugih davanja koja već pokrivaju stanovanje",
+            "instruction": "Ako ti ili član domaćinstva primate davanje u čijem su izračunu već uzeti troškovi stanovanja (npr. Grundsicherungsgeld/Bürgergeld, Sozialhilfe, Grundsicherung im Alter), za tu osobu Wohngeld u pravilu ne dolazi u obzir. Postoje izuzeci: npr. ako je takvo davanje samo zajam, ako je zahtjev za njega odbijen (tada je retroaktivni Wohngeld moguć u roku navedenom u službenim objašnjenjima), ili ako drugi članovi domaćinstva nisu uključeni u to davanje. Ne zaključuj sam – iskreno navedi sva davanja i pitaj Wohngeldbehörde.",
+            "where": "Rješenja Jobcentera/Sozialamta; rješenje o odbijanju ako ga imaš.",
+            "example": "Izmišljeni primjer: Majina majka u istom stanu prima Grundsicherung im Alter, ostali ne – Wohngeldbehörde provjerava ostale članove odvojeno.",
+            "mistake": "Misliti da svako socijalno davanje automatski isključuje cijelo domaćinstvo, ili sakriti da je zahtjev za drugo davanje podnesen."
+          },
+          {
+            "id": "zuschuesse",
+            "german": "Zuschüsse zur Miete / Belastung",
+            "meaning": "drugi doprinosi za stanovanje",
+            "instruction": "Navedi novac iz javnih fondova ili od privatnih osoba koji je direktno namijenjen pokrivanju kirije/opterećenja (npr. roditelji plaćaju dio kirije).",
+            "where": "Izvodi, pismena izjava osobe koja plaća.",
+            "example": "Izmišljeni primjer: Majini roditelji svaki mjesec direktno uplaćuju dio kirije stanodavcu – to se navodi.",
+            "mistake": "Prešutjeti redovnu pomoć porodice za kiriju."
+          },
+          {
+            "id": "auslaender",
+            "german": "Ausländische Personen",
+            "meaning": "strani državljani",
+            "instruction": "Za osobe iz zemalja izvan EU obrazac traži podatke o boravku. Prema objašnjenjima neki boravišni naslovi (npr. za traženje posla/školovanja) u pravilu ne daju pravo. Ako je neko potpisao Verpflichtungserklärung (garantno pismo) za člana domaćinstva, prije primanja Wohngelda informiši se u Ausländerbehörde o mogućim posljedicama.",
+            "where": "Aufenthaltstitel, Fiktionsbescheinigung, Duldung ili Aufenthaltsgestattung (s dodatnim listom).",
+            "example": "Izmišljeni primjer: Damir ima Aufenthaltstitel iz BiH – prilaže kopiju obje strane kartice.",
+            "mistake": "Ne spomenuti Verpflichtungserklärung; Wohngeld se tada može tražiti nazad od garanta."
+          },
+          {
+            "id": "auszahlung",
+            "german": "Auszahlung / Bankverbindung",
+            "meaning": "isplata / bankovni račun",
+            "instruction": "Upiši IBAN i BIC. Prema objašnjenjima isplata je moguća i drugom članu domaćinstva, stanodavcu ili ovlaštenoj osobi s punomoći za naplatu – drugim osobama nije dozvoljena.",
+            "where": "Bankovna kartica ili izvod (IBAN/BIC).",
+            "example": "Izmišljeni primjer: DE00 0000 0000 0000 0000 00 (izmišljeni IBAN – upiši svoj).",
+            "mistake": "Upisati račun prijatelja koji nije član domaćinstva."
+          },
+          {
+            "id": "unterschrift",
+            "german": "Erklärung und Unterschrift",
+            "meaning": "izjava i potpis",
+            "instruction": "Pažljivo pročitaj izjavu na kraju obrasca i potpiši. Promjene (prihod, članovi, kirija) moraš prijaviti Wohngeldbehörde i nakon podnošenja.",
+            "where": "Kraj obrasca; službena Erläuterungen.",
+            "example": "Izmišljeni primjer: Maja potpisuje kao podnositeljica; Damir potpisuje tamo gdje obrazac traži potpise drugih članova.",
+            "mistake": "Zaboraviti potpis – nepotpisan zahtjev usporava ili blokira obradu."
+          }
+        ]
+      }
+    }
   }
 }

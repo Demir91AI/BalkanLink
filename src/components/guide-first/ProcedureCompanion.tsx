@@ -9,11 +9,19 @@ import { isFamilySlug, type FamilySlug } from "@/lib/guide-first/family-model";
 import { isGrundsicherungSlug, type GrundsicherungSlug } from "@/lib/guide-first/grundsicherung-model";
 
 /** Portable procedure + vocabulary companion. No answers, field mapping or storage. */
-export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug | FamilySlug | GrundsicherungSlug }) {
+interface CompanionOverrides {
+  /** Pre-resolved localized content (e.g. Wohngeld variants); default reads by slug. */
+  content?: ArrivalProcedure;
+  /** Links that exactly match the user's selection; replaces the slug source links. */
+  links?: { url: string; label: string }[];
+  verifiedOn?: string;
+  variant?: string;
+}
+export default function ProcedureCompanion({ slug, content, links, verifiedOn, variant }: { slug: ArrivalSlug | FamilySlug | GrundsicherungSlug | "wohngeld" } & CompanionOverrides) {
   const { t } = useTranslation("pages");
   const family = isFamilySlug(slug);
   const grundsicherung = isGrundsicherungSlug(slug);
-  const data = t(`${grundsicherung ? "grundsicherungCompanions" : family ? "familyCompanions" : "arrivalCompanions"}.guides.${slug}`, { returnObjects: true }) as ArrivalProcedure;
+  const data = content ?? t(`${grundsicherung ? "grundsicherungCompanions" : family ? "familyCompanions" : "arrivalCompanions"}.guides.${slug}`, { returnObjects: true }) as ArrivalProcedure;
   const fui = (key: string) => t(`${grundsicherung ? "grundsicherungCompanions" : "familyCompanions"}.ui.${key}`);
   const [gateChoice, setGateChoice] = useState<string | null>(null);
   const ui = (key: string, values?: Record<string, string | number>) => t(`arrivalCompanions.ui.${key}`, values);
@@ -21,15 +29,16 @@ export default function ProcedureCompanion({ slug }: { slug: ArrivalSlug | Famil
   const [mode, setMode] = useState<"paper" | "online">("paper");
   const termHeading = useRef<HTMLHeadingElement>(null);
   const navId = useId();
-  const source = getGuideSource(slug);
+  const baseSource = getGuideSource(slug);
+  const source = verifiedOn ? { ...baseSource, verifiedOn } : baseSource;
   const term = data.terms[termIndex];
   const jumpTerm = (index: number) => {
     setTermIndex(index);
     requestAnimationFrame(() => termHeading.current?.focus({ preventScroll: true }));
   };
   if (!term) return null;
-  const sourceLinks = [source.url ? { url: source.url, label: source.label ?? ui("official") } : null, ...(source.extraLinks ?? [])].filter((link) => link !== null);
-  return <section data-testid="arrival-companion" data-slug={slug} data-family={family || undefined} className="smartguide-standard min-w-0 space-y-6 text-foreground">
+  const sourceLinks = links ?? [source.url ? { url: source.url, label: source.label ?? ui("official") } : null, ...(source.extraLinks ?? [])].filter((link) => link !== null);
+  return <section data-testid="arrival-companion" data-slug={slug} data-variant={variant} data-family={family || undefined} className="smartguide-standard min-w-0 space-y-6 text-foreground">
     <header className="space-y-3">
       <h2 className="break-words text-xl font-bold">{data.title}</h2>
       <p className="text-sm leading-6">{data.introduction}</p>
