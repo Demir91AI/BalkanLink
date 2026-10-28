@@ -8748,7 +8748,7 @@
               },
               {
                 "german": "Bruder/Schwester/Geschwisterkind",
-                "meaning": "Bruder/Schwester/Geschwisterkind (Kind aus derselben Familie) - wählen Sie dies, wenn das Kind Ihr Bruder oder Ihre Schwester ist."
+                "meaning": "Bruder/Schwester oder Kind deiner Geschwister (Neffe/Nichte): auswählen, wenn dieses Verhältnis zwischen antragstellender Person und Kind besteht."
               },
               {
                 "german": "Sonstiges",
@@ -10194,7 +10194,7 @@
             "german": "72–73 · Datum Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person)"
           },
           {
-            "instruction": "Tragen Sie in Feld 74 das aktuelle Datum ein (TT.MM.JJJJ). In Feld 75 unterschreibt ausschließlich die gesetzlich bestellte Betreuungsperson oder ein Bevollmächtigter, falls ein solcher für die Person aus der Anlage WEP existiert. Hat die Person keinen Betreuer, bleiben die Felder leer. Die Unterschrift garantiert keine automatische Genehmigung des Antrags.",
+            "instruction": "74 ist das Datum, 75 die Unterschrift Betreuerin/Betreuer/Vormund, soweit zutreffend. Prüfe anhand deiner amtlichen Vertretungsunterlagen und Jobcenter-Hinweise, wer unterschreibt; keine fremde Unterschrift im falschen Feld.",
             "where": "Prüfen Sie Ihre eigenen für die Frage relevanten Unterlagen: Personen-/Kindsdokumente: Identität, Personenstandsurkunden, BZSt/DRV-Schreiben, entsprechender Bescheid oder Schul-/Versicherungsbescheinigung. Wenn die Information nicht bekannt ist, fragen Sie beim Jobcenter nach; erfinden Sie nichts.",
             "example": "30.11.2024 Maja Kovač (als gesetzliche Betreuerin)",
             "meaning": "Datum und Unterschrift der Betreuungsperson oder des Vertreters",

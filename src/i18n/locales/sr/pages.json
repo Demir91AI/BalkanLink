@@ -8758,7 +8758,7 @@
               },
               {
                 "german": "Bruder/Schwester/Geschwisterkind",
-                "meaning": "Brat/sestra/srodnik (dete iz iste porodice) - birate ako je dete Vaš brat ili sestra."
+                "meaning": "Brat/sestra ili dete tvog brata/sestre (bratanac/bratanica, sestrić/sestričina): odaberi kada taj odnos stvarno postoji između podnosioca i deteta."
               },
               {
                 "meaning": "Ostalo - birate ako je srodstvo drugačije (npr. unuk, štićenik).",
@@ -10201,7 +10201,7 @@
           {
             "reference": "WEP · Seite 7 · H · 74–75",
             "example": "30.11.2024. Maja Kovač (kao zakonski staratelj)",
-            "instruction": "U polje 74 upišite trenutni datum (DD.MM.GGGG). U polje 75 se potpisuje isključivo zakonski dodeljen staratelj ili punomoćnik, ako isti postoji za osobu iz dodatka WEP. Ako osoba nema staratelja, polja ostaju prazna. Potpis ne garantuje automatsko odobravanje zahteva.",
+            "instruction": "74 je datum, 75 potpis Betreuerin/Betreuer/Vormund kada se odnosi. Proveri ko potpisuje prema svom službenom dokumentu o zastupanju i uputstvima Jobcentera; ne stavljaj potpis druge osobe u pogrešno polje.",
             "german": "74–75 · Datum Unterschrift Betreuerin/Betreuer/Vormund",
             "where": "Proveri sopstvene dokumente relevantne za pitanje: dokumente osobe/deteta: identitet, matične isprave, BZSt/DRV dopis, odgovarajući Bescheid ili potvrdu škole/osiguranja. Ako podatak nije poznat, pitaj Jobcenter; ne izmišljaj.",
             "id": "wep-74-75",

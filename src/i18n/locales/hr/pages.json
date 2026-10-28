@@ -8750,7 +8750,7 @@
                 "meaning": "Dijete moje partnerice/mog partnera - birate ako je dijete Vašeg partnera/ice, a Vi niste roditelj."
               },
               {
-                "meaning": "Brat/sestra/srodnik (dijete iz iste obitelji) - birate ako je dijete Vaš brat ili sestra.",
+                "meaning": "Brat/sestra ili dijete tvog brata/sestre (nećak/nećakinja): odaberi kada taj odnos stvarno postoji između podnositelja i djeteta.",
                 "german": "Bruder/Schwester/Geschwisterkind"
               },
               {
@@ -10194,7 +10194,7 @@
             "instruction": "1. Upišite datum potpisivanja u formatu DD.MM.GGGG. 2. Podnositelj zahtjeva se mora vlastoručno potpisati. 3. Ako je podnositelj maloljetan, potpisuje zakonski zastupnik ili skrbnik. 4. Nedostatak potpisa ne znači automatsko odbijanje, ali usporava obradu."
           },
           {
-            "instruction": "U polje 74 upišite trenutni datum (DD.MM.GGGG). U polje 75 se potpisuje isključivo zakonski dodijeljen skrbnik ili punomoćnik, ako isti postoji za osobu iz dodatka WEP. Ako osoba nema skrbnika, polja ostaju prazna. Potpis ne jamči automatsko odobravanje zahtjeva.",
+            "instruction": "74 je datum, 75 potpis Betreuerin/Betreuer/Vormund kada se odnosi. Provjeri tko potpisuje prema svojem službenom dokumentu o zastupanju i uputama Jobcentera; ne stavljaj potpis druge osobe u pogrešno polje.",
             "id": "wep-74-75",
             "mistake": "Provjerite tko potpisuje baš ovo polje. Nedostajući potpis može zahtijevati dopunu; nemojte pretpostavljati automatsko odbijanje ili odobrenje.",
             "example": "30.11.2024. Maja Kovač (kao zakonski skrbnik)",
