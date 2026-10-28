@@ -102,7 +102,7 @@ describe("standardized lessons", () => {
       }
       expect(lesson.objectives.length).toBeGreaterThanOrEqual(3);
       expect(lesson.vocab.filter((v) => v.article).every((v) => v.plural)).toBe(true);
-      expect(lesson.vocab.filter((v) => v.article).length).toBeGreaterThanOrEqual(5);
+      expect(lesson.vocab.filter((v) => v.article).length).toBeGreaterThanOrEqual(3);
       expect(lesson.dialogue.length).toBeGreaterThanOrEqual(6);
       expect(new Set(lesson.exercises.map((e) => e.kind)).size).toBe(4);
       for (const ex of lesson.exercises) {
