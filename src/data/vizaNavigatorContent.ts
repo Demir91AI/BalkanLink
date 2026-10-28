@@ -190,10 +190,10 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         id: 'bluecard',
         title: 'EU Plava karta §18g AufenthG',
         legalBasis: '§ 18g AufenthG + EU direktiva 2021/1883',
-        subtitle: 'Najbrži put do stalnog boravka za visokokvalificirane s diplomom i ponudom posla min. 45.300 €/god.',
+        subtitle: "EU Plava karta (2026): u pravilu 50.700 € bruto/god.; niži prag 45.934,20 € za određena deficitarna zanimanja, nove diplomante i posebne IT slučajeve uz BA saglasnost.",
         steps: [
           "Provjeri kvalifikaciju — za visokoškolsku diplomu anabin ili ZAB; postoje posebni putevi za određene IT stručnjake bez diplome uz dokaz iskustva. Provjeri konkretne uvjete §18g.",
-          "Osiguraj ugovor o radu s platom — min. 50.700 €/god. (standard) ili 45.934,20 €/god. (MINT, IT, medicina, njega = Mangelberufe 2026).",
+          "Ugovor za kvalifikaciji odgovarajući posao najmanje 6 mjeseci: 2026 bruto 50.700 €/god. standardno; 45.934,20 € za zakonske niže-prag slučajeve uz BA saglasnost. Novi diplomanti: diploma u zadnje 3 godine.",
           "EU Plava karta — BA saglasnost se u pravilu ne traži na standardnom pragu; na nižem pragu i posebnim putevima može biti potrebna. Prati kategoriju ambasade; važenje do 4 godine ili ugovor + 3 mjeseca.",
           "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.",
           'Ulazak u Njemačku s D-vizom.',
@@ -220,7 +220,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         ],
         errors: [
           'Diploma nije provjerna na anabin.kmk.org PRIJE aplikacije — najčešći problem!',
-          'Plata u ugovoru ispod minimuma — zahtjev automatski odbijen',
+          "Plata ispod primjenjivog praga ili nepodobna kvalifikacija — provjeri standardni i posebni put; odobrenje se ne podrazumijeva.",
           "Promjena poslodavca — u prvih 12 mjeseci obavijesti Ausländerbehörde; provjeri ograničenja i uslove svoje EU Plave karte.",
           "Ne miješaj Westbalkan §19c(1) + §26(2) BeschV i EU Plavu kartu §18g; svaka ruta ima svoje uvjete."
         ],
@@ -523,10 +523,10 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         id: 'bluecard',
         title: 'EU Plava karta §18g AufenthG',
         legalBasis: '§ 18g AufenthG',
-        subtitle: 'Za visokokvalifikovane sa priznatom diplomom i ugovorom min. 45.300 €/god.',
+        subtitle: "EU Plava karta (2026): u pravilu 50.700 € bruto/god.; niži prag 45.934,20 € za određena deficitarna zanimanja, nove diplomante i posebne IT slučajeve uz BA saglasnost.",
         steps: [
           "Provjeri kvalifikaciju — za visokoškolsku diplomu anabin ili ZAB; postoje posebni putevi za određene IT stručnjake bez diplome uz dokaz iskustva. Provjeri konkretne uvjete §18g.",
-          "Ugovor o radu — min. 50.700 €/god. standard ili 45.934,20 € za Mangelberufe.",
+          "Ugovor za kvalifikaciji odgovarajući posao najmanje 6 mjeseci: 2026 bruto 50.700 €/god. standardno; 45.934,20 € za zakonske niže-prag slučajeve uz BA saglasnost. Novi diplomanti: diploma u zadnje 3 godine.",
           "EU Plava karta — BA saglasnost se u pravilu ne traži na standardnom pragu; na nižem pragu i posebnim putevima može biti potrebna. Prati kategoriju ambasade; važenje do 4 godine ili ugovor + 3 mjeseca.",
           "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.",
           'Ulaz u Nemačku, Anmeldung, Ausländerbehörde — EU Plava karta §18g.'
@@ -1218,11 +1218,11 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         id: 'bluecard',
         title: 'EU Plava karta §18g AufenthG',
         legalBasis: '§ 18g AufenthG',
-        subtitle: "Nacionalna viza za ovu svrhu — provjeri aktuelni kanal prijave na stranici Ambasade Priština; VisaMetric nije jedinstveni kanal za sve kategorije.",
+        subtitle: "EU Plava karta (2026): u pravilu 50.700 € bruto/god.; niži prag 45.934,20 € za određena deficitarna zanimanja, nove diplomante i posebne IT slučajeve uz BA saglasnost.",
         kosovoNote: "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
         steps: [
           'Provjeri diplomu na anabin.kmk.org.',
-          "Ugovor o radu min. 50.700 €/god.",
+          "Ugovor za kvalifikaciji odgovarajući posao najmanje 6 mjeseci: 2026 bruto 50.700 €/god. standardno; 45.934,20 € za zakonske niže-prag slučajeve uz BA saglasnost. Novi diplomanti: diploma u zadnje 3 godine.",
           "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
           'Uplodi dokumentaciju online ILI predaj u VisaMetric.',
           'Ulazak s D-vizom. Anmeldung. Ausländerbehörde §18g.'
