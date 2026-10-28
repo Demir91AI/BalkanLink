@@ -32,4 +32,5 @@ Targeted upgrade of the playback engine; no course rewrite. The 240 old lessons 
 
 ## Tests
 - `src/lib/audio/audio-engine.test.ts` (6), `src/hooks/useTTS.test.tsx` (5: voice passed, no overlap, stop on unmount, privacy guard, onEnded), `src/components/trainer/audio/AudioPlayerParts.test.tsx` (5: dialogue order + voices + no fallback, stop, speed 0.75, fallback notice, 4 languages). Pilot tests adjusted.
+- Full Vitest: 54 files, 1,409/1,409 pass; preview build OK.
 - Browser (isolated fake session): pilot lesson at 390 px/1280 px, no horizontal scrolling, speed switch and dialogue player visible.
