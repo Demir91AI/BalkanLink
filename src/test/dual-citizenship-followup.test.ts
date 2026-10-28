@@ -28,7 +28,7 @@ describe("Dual citizenship follow-up, 28 October 2026", () => {
       expect(b).toMatch(/zamijenio|zamenio|ersetzt/);
       expect(b).toContain("04/L-215");
       expect(b).toMatch(/(član\w*|Art\.) 4/);
-      expect(b).toMatch(/(član|članku|Art\.) 18/);
+      expect(b).toMatch(/(član\w*|Art\.) 18/);
     }
   });
 
