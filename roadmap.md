@@ -1,7 +1,7 @@
 ## Education batch resumed (28.10.2026; no release)
 - [x] Reuse saved inventory and BS draft; direct four-locale translation without gateway, downloads or packages.
 - [x] Wire only bafoeg, schueler-bafoeg, integrationskurs into the existing companion; retain Anerkennung Navigator.
-- [ ] Focused/full tests, 24 browser fixtures, preview build log and actual results documentation.
+- [x] 16 focused tests, 1200 full tests (41 files), 24 test-access browser fixtures and preview build OK; actual results and source/member-QA limitations in docs/education-guide-results.md.
 
 ## Grundsicherung Phase 3B (28.10.2026; no release)
 - [x] Audit four routes and verify all live-index PDF editions/pages/hashes before mapping.
