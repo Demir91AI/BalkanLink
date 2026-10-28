@@ -78,6 +78,7 @@ describe('staged security/release contract',() => {
     const source=readFileSync('supabase/functions/check-pdf-versions/index.ts','utf8');
     expect(source).not.toContain('send-transactional-email');expect(source).toContain("client.rpc('observe_pdf_version'");
     expect(source).not.toContain('.update(');
+    expect(readFileSync('supabase/functions/stripe-sync-audit/index.ts','utf8')).not.toContain('send-transactional-email');
   });
   it('four-locale admin key parity',() => {
     const objects=['bs','hr','sr','de'].map(lang => JSON.parse(readFileSync(`src/i18n/locales/${lang}/common.json`,'utf8')).adminCenter);
