@@ -19,8 +19,6 @@ import { openCustomerPortal as keepStripeImport } from "@/lib/stripe";
 void keepStripeImport; // pinned import (phase1 baseline)
 import { SEO } from "@/components/SEO";
 
-import LetterReplyTask from "@/components/letter-reply/LetterReplyTask";
-import { deadlineReviewKey } from "@/lib/letter-reply/model";
 
 type InputMode = "upload";
 
@@ -170,7 +168,7 @@ function extractSummaryFromSections(sections: AnalysisSection[], t: (k: string, 
     else financial = extractFirstLine(financeSection.content);
   }
 
-  const deadline = t(deadlineReviewKey());
+  const deadline = t("documentCheck.results.deadlineUnconfirmed");
 
   return { docType, action, financial, deadline };
 }
@@ -259,7 +257,6 @@ export default function DokumentenCheck() {
   const localizedNavigate = useLocalizedNavigate();
   const { t } = useTranslation("pages");
   const { t: tPlus } = useTranslation("plus");
-  const { t: tReply } = useTranslation("reply");
   const [files, setFiles] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const submittingRef = useRef(false);
@@ -379,7 +376,7 @@ export default function DokumentenCheck() {
   const handleBack = useCallback(() => { navigateBackOrHome(navigate); }, [navigate]);
 
   const sections = useMemo(() => analysis ? parseAnalysisSections(analysis, t("documentCheck.results.fallbackTitle")) : [], [analysis, t]);
-  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => String(key === "deadlineWarning" ? tReply(key) : t(key, opts))) : null, [sections, t, tReply]);
+  const summary = useMemo(() => sections.length > 0 ? extractSummaryFromSections(sections, (key, opts) => String(t(key, opts))) : null, [sections, t]);
 
   return (
     <>
@@ -700,8 +697,6 @@ export default function DokumentenCheck() {
                   </div>
                 </motion.div>
               )}
-
-              <LetterReplyTask canAccess={hasAccess} />
 
               {sections.map((section, idx) => {
                 const locked = false; // full analysis for everyone who may run a check

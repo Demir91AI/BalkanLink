@@ -12,14 +12,6 @@ import FlowBanner from "@/components/home/FlowBanner";
 import CollapsibleSection from "@/components/home/CollapsibleSection";
 import CommunityHighlights from "@/components/home/CommunityHighlights";
 import ShareButton from "@/components/share/ShareButton";
-import LetterReplyTask from "@/components/letter-reply/LetterReplyTask";
-import { isLetterReplyVisible } from "@/lib/letter-reply/visibility";
-import { useSubscription } from "@/hooks/useSubscription";
-
-function HomeLetterReplyEntry() {
-  const { isPremium } = useSubscription();
-  return <LetterReplyTask canAccess={isPremium} />;
-}
 
 
 
@@ -34,13 +26,6 @@ export default function Index() {
       {/* ─── HERO ─── */}
       <HeroSection />
 
-      {isLetterReplyVisible(import.meta.env.DEV, window.location.hostname) && (
-        <section className="dark px-4 py-4 sm:py-6">
-          <div className="container mx-auto max-w-[1100px]">
-            <HomeLetterReplyEntry />
-          </div>
-        </section>
-      )}
 
       {/* ─── SHARE STRIP (ispod Asistenta u Heru) ─── */}
       <section className="px-4 py-3" style={{ background: "linear-gradient(90deg, hsl(220 50% 7%), hsl(220 55% 9%), hsl(220 50% 7%))", borderTop: "1px solid hsla(43,52%,54%,0.18)", borderBottom: "1px solid hsla(43,52%,54%,0.18)" }}>

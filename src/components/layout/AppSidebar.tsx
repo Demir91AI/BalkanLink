@@ -7,7 +7,7 @@ import {
   Briefcase, BriefcaseBusiness, Building2, Calculator, Files, X, LogIn, LogOut,
   Sparkles, Scale, Home, Smartphone, Share2, Receipt, Gauge, GraduationCap,
   Coins, Search, Clock, ArrowRight, ChevronDown, User, Mail, MessageSquare,
-  ScrollText, BadgeCheck, LayoutGrid, Boxes, UserCircle2, Star, FilePenLine,
+  ScrollText, BadgeCheck, LayoutGrid, Boxes, UserCircle2, Star,
 } from "lucide-react";
 import { POREZI_HUB_PATH } from "@/lib/porezi-modules";
 import { langFromPath } from "@/lib/i18n-paths";
@@ -19,7 +19,6 @@ import { useRecentPages } from "@/hooks/useRecentPages";
 import { toast } from "sonner";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { isLetterReplyVisible } from "@/lib/letter-reply/visibility";
 
 function getInitials(name: string) {
   const parts = name.split(/\s+/).filter(Boolean);
@@ -98,9 +97,6 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
     { title: t("sidebar.items.anerkennungNavigator"), url: "/anerkennung-navigator", icon: GraduationCap, premium: true, isNew: false, isFree: false },
     { title: t("sidebar.items.dvojnoDrzavljanstvo"), url: "/dvojno-drzavljanstvo", icon: ScrollText, premium: true, isFree: false, isNew: false },
     { title: t("sidebar.items.dokumentenCheck"), url: "/dokumenten-check", icon: ScanLine, premium: true, isNew: false },
-    ...(isLetterReplyVisible(import.meta.env.DEV, window.location.hostname)
-      ? [{ title: t("sidebar.items.letterReply"), url: "/vorlagen?task=reply", icon: FilePenLine, isNew: true }]
-      : []),
     { title: t("sidebar.items.deutschTrainer"), url: "/deutsch-trainer", icon: BookOpen, premium: true, isNew: false },
     { title: t("sidebar.items.porezi"), url: poreziSidebarUrl, icon: Coins, premium: true, matchPaths: ["/porezi", "/steuern"] },
     { title: t("sidebar.items.bonitetSimulator"), url: "/schufa-simulator", icon: Gauge, premium: true, isNew: false, isFree: false },
@@ -471,7 +467,7 @@ export function AppSidebar({ onPWAInstall }: { onPWAInstall?: () => void } = {})
                     style={{ animationDelay: `${Math.min(idx * 30, 200)}ms`, animationFillMode: "both" }}
                   >
                     <item.icon className={`h-[18px] w-[18px] shrink-0 ${active ? "text-[hsl(var(--gold))]" : "text-[#6B6B6B]"}`} />
-                    <span className={`${item.url === "/vorlagen?task=reply" ? "min-w-0 flex-1 whitespace-normal break-words leading-snug" : "whitespace-nowrap overflow-visible"} text-[14px] font-semibold ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
+                    <span className={`whitespace-nowrap overflow-visible text-[14px] font-semibold ${active ? "text-[hsl(var(--gold))]" : "text-[#2D2D2D]"}`}>
                       {item.title}
                     </span>
                     {item.isNew && (
