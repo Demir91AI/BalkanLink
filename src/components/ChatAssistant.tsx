@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
+import { useTranslation } from "react-i18next";
+import { readCompleteHistory, clearConfirmedHistory } from "@/lib/phase1-reliability/history";
+import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { formCatalog, type FormEntry } from "@/lib/form-catalog";
@@ -270,6 +273,7 @@ function storeAssistantPanelState(state: AssistantPanelState) {
 
 // ── Main Component ──
 export default function ChatAssistant() {
+  const { t } = useTranslation('common');
   const { isPremium } = useAuth();
   const { recordQuery } = useChatLimit();
   const location = useLocation();
@@ -307,6 +311,8 @@ export default function ChatAssistant() {
   const syncedSigsRef = useRef<Set<string>>(new Set());
   // Track ids of messages we received via realtime to avoid re-inserting them
   const remoteIdsRef = useRef<Set<string>>(new Set());
+  const clearPending = useRef(false);
+  const [clearing, setClearing] = useState(false);
 
   function msgSignature(m: Msg, idx: number): string {
     // Stable per-position signature (role + first 80 chars + index)
@@ -339,17 +345,19 @@ export default function ChatAssistant() {
   // Fetch full history from Supabase for cross-device restore
   async function fetchRemoteHistory(userId: string): Promise<Msg[]> {
     try {
-      const { data, error } = await supabase
-        .from("chat_messages")
-        .select("id, role, content, metadata, created_at")
-        .eq("user_id", userId)
-        .order("created_at", { ascending: true })
-        .limit(500);
-      if (error) {
-        console.warn("[BL-Chat] Remote history fetch failed:", error.message);
-        return [];
-      }
-      if (!data) return [];
+      const data = await readCompleteHistory(async (cursor, size) => {
+        let query = supabase.from("chat_messages")
+          .select("id, role, content, metadata, created_at")
+          .eq("user_id", userId)
+          .order("created_at", { ascending: true })
+          .order("id", { ascending: true })
+          .limit(size);
+        if (cursor) query = query.or(`created_at.gt.${cursor.created_at},and(created_at.eq.${cursor.created_at},id.gt.${cursor.id})`);
+        const { data: page, error } = await query;
+        if (error) throw error;
+        if (!page) throw new Error('HISTORY_RESPONSE_MISSING');
+        return page;
+      });
       return data.map((row: any) => {
         remoteIdsRef.current.add(row.id);
         const meta = row.metadata || {};
@@ -366,8 +374,7 @@ export default function ChatAssistant() {
         } as Msg;
       });
     } catch (e) {
-      console.warn("[BL-Chat] fetchRemoteHistory error:", e);
-      return [];
+      throw e;
     }
   }
 
@@ -427,6 +434,7 @@ export default function ChatAssistant() {
 
     let cancelled = false;
     (async () => {
+      try {
       const remote = await fetchRemoteHistory(user.id);
       if (cancelled) return;
 
@@ -444,6 +452,10 @@ export default function ChatAssistant() {
       }
       restoredRef.current = true;
       prevUserIdRef.current = user.id;
+      } catch {
+        // Do not turn a partial/failed read into an empty cloud history and resync it.
+        if (!cancelled) toast.error(t('reliability.historyFailed'));
+      }
     })();
 
     return () => { cancelled = true; };
@@ -539,25 +551,30 @@ export default function ChatAssistant() {
   }, [user?.id]);
 
   // Manual clear (Trash button) — explicit user action, also wipes cloud history
-  const clearChat = useCallback(() => {
-    if (messages.length === 0) return;
-    const ok = window.confirm("Obrisati cijeli razgovor sa svih uređaja? Ova radnja se ne može poništiti.");
+  const clearChat = useCallback(async () => {
+    if (messages.length === 0 || clearPending.current || loading) return;
+    const ok = window.confirm(t('reliability.clearConfirm'));
     if (!ok) return;
-    setMessages([]);
-    syncedSigsRef.current.clear();
-    remoteIdsRef.current.clear();
-    localStorage.removeItem(chatStorageKey);
-    localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
-    if (user?.id) {
-      supabase.from("chat_messages").delete().eq("user_id", user.id).then(({ error }) => {
-        if (error) console.warn("[BL-Chat] Cloud clear failed:", error.message);
+    clearPending.current = true; setClearing(true);
+    try {
+      await clearConfirmedHistory(
+        async () => user?.id
+          ? await supabase.from("chat_messages").delete().eq("user_id", user.id)
+          : { error: null },
+        () => {
+          setMessages([]);
+          syncedSigsRef.current.clear();
+          remoteIdsRef.current.clear();
+          localStorage.removeItem(chatStorageKey);
+          localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
+        },
+      );
+      toast.success(t('reliability.clearSuccess'), {
+        description: t(user?.id ? 'reliability.clearCloudSuccess' : 'reliability.clearLocalSuccess'), duration: 3000,
       });
-    }
-    toast.success("Razgovor obrisan", {
-      description: "Historija je uklonjena sa svih tvojih uređaja.",
-      duration: 3000,
-    });
-  }, [messages.length, chatStorageKey, user?.id]);
+    } catch { toast.error(t('reliability.clearFailed')); }
+    finally { clearPending.current = false; setClearing(false); }
+  }, [messages.length, chatStorageKey, user?.id, loading, t]);
 
   // On real sign-out: clear local cache AND wipe cloud history.
   // During an active session (minimize/close/navigation) history persists.
@@ -582,7 +599,7 @@ export default function ChatAssistant() {
           if (error) console.warn("[BL-Chat] Cloud clear on sign-out failed:", error.message);
         });
       }
-      console.debug("[BL-Chat] Sign-out — local cache and cloud history cleared");
+      console.debug("[BL-Chat] Sign-out — local cache cleared; cloud deletion requested");
     };
     window.addEventListener("bl:user-signed-out", handleSignOut);
     return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
@@ -741,6 +758,7 @@ export default function ChatAssistant() {
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (clearPending.current) return;
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -891,7 +909,7 @@ export default function ChatAssistant() {
   };
 
   const sendMessageWithText = useCallback(async (text: string) => {
-    if (!text.trim() || loading) return;
+    if (!text.trim() || loading || clearPending.current) return;
 
     // Lokalni odgovor na pitanja o broju preostalih pitanja — bez poziva AI-a
     if (isQuotaQuestion(text)) {
@@ -1115,14 +1133,15 @@ export default function ChatAssistant() {
                     </button>
                   ))}
                   {messages.length > 0 && activeTab === "chat" && (
-                    <button
+                    <Button variant="ghost" size="icon"
                       onClick={clearChat}
-                      className="shrink-0 flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-1.5 text-white/50 hover:text-red-300 hover:border-red-400/40 hover:bg-red-500/10 transition-all"
-                      title="Obriši razgovor"
-                      aria-label="Obriši razgovor"
+                      disabled={clearing || loading}
+                      className="h-auto w-auto shrink-0 p-1.5"
+                      title={t('reliability.clearAction')}
+                      aria-label={t('reliability.clearAction')}
                     >
                       <Trash2 className="h-3.5 w-3.5" />
-                    </button>
+                    </Button>
                   )}
                 </div>
               </div>

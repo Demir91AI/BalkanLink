@@ -7,13 +7,14 @@ export async function runAnalysis(deps: {
   const r = await deps.reserve();
   const denied = reservationFailure(r);
   if (denied) throw Object.assign(new CheckError(denied.errorCode, denied.status), denied);
-  let completed = false;
+  let commitAttempted = false;
   try {
     const analysis = parseAnalysis(await deps.generate(), deps.language, deps.pageCounts);
     if (!analysis.readable) throw new CheckError('UNREADABLE', 422);
-    await deps.commit(r); completed = true;
+    commitAttempted = true;
+    await deps.commit(r);
     return { analysis, status: { fullAccess: true, used: r.used ?? null, limit: r.limit ?? null } };
-  } finally { if (!completed) await deps.release(r); }
+  } finally { if (!commitAttempted) await deps.release(r); }
 }
 export async function consumeCompletion(response: Response): Promise<string> {
   if (!response.body) throw new CheckError('PARSING_FAILED', 502);

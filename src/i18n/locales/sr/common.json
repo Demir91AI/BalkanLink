@@ -1,4 +1,15 @@
 {
+  "reliability": {
+      "clearConfirm": "Obrisati ceo razgovor sa svih uređaja? Ova radnja se ne može poništiti.",
+      "clearAction": "Obriši razgovor",
+      "clearSuccess": "Razgovor obrisan",
+      "clearCloudSuccess": "Cloud je potvrdio brisanje istorije.",
+      "clearLocalSuccess": "Razgovor je obrisan na ovom uređaju.",
+      "clearFailed": "Brisanje u Cloudu nije potvrđeno. Razgovor je sačuvan; pokušaj ponovo.",
+      "historyFailed": "Cloud istorija nije u potpunosti učitana. Lokalni razgovor je sačuvan.",
+      "adminPartial": "Neki admin podaci nisu osveženi. Vreme prikazuje poslednje potpuno uspešno osvežavanje.",
+      "profileFailed": "Nalog je kreiran, ali čuvanje imena u profilu nije potvrđeno. Ne ponavljaj registraciju; potvrdi email i prijavi se."
+  },
   "notFound": {
     "title": "Stranica nije pronađena",
     "description": "Tražena stranica ne postoji ili je premeštena. Vrati se na početnu ili pitaj BalkanLink Asistenta.",

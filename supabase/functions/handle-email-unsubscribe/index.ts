@@ -1,4 +1,5 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { completeUnsubscribe, tokenValidation } from './recovery.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -76,55 +77,39 @@ Deno.serve(async (req) => {
     .eq('token', token)
     .maybeSingle()
 
-  if (lookupError || !tokenRecord) {
+  if (lookupError) return jsonResponse({ error: 'Failed to process unsubscribe' }, 500)
+  if (!tokenRecord) {
     return jsonResponse({ error: 'Invalid or expired token' }, 404)
-  }
-
-  if (tokenRecord.used_at) {
-    return jsonResponse({ valid: false, reason: 'already_unsubscribed' })
   }
 
   // GET: Validate token (the app's unsubscribe page calls this on load)
   if (req.method === 'GET') {
-    return jsonResponse({ valid: true })
+    if (!tokenRecord.used_at) return jsonResponse({ valid: true })
+    const { data: suppressed, error } = await supabase.from('suppressed_emails')
+      .select('email').eq('email', tokenRecord.email.toLowerCase()).maybeSingle()
+    if (error) return jsonResponse({ error: 'Failed to process unsubscribe' }, 500)
+    // Old partial failures must offer a recoverable POST, not claim an unverified opt-out.
+    return jsonResponse(tokenValidation(true, !!suppressed))
   }
 
-  // POST: Process the unsubscribe
-  // Atomic check-and-update to avoid TOCTOU race
-  const { data: updated, error: updateError } = await supabase
-    .from('email_unsubscribe_tokens')
-    .update({ used_at: new Date().toISOString() })
-    .eq('token', token)
-    .is('used_at', null)
-    .select()
-    .maybeSingle()
-
-  if (updateError) {
-    console.error('Failed to mark token as used', { error: updateError, token })
+  try {
+    return jsonResponse(await completeUnsubscribe({
+      suppress: async () => {
+        const { error } = await supabase.from('suppressed_emails').upsert(
+          { email: tokenRecord.email.toLowerCase(), reason: 'unsubscribe' }, { onConflict: 'email' },
+        )
+        if (error) throw error
+      },
+      markUsed: async () => {
+        if (tokenRecord.used_at) return
+        const { error } = await supabase.from('email_unsubscribe_tokens')
+          .update({ used_at: new Date().toISOString() }).eq('token', token).is('used_at', null)
+        if (error) throw error
+        // A concurrent POST can have marked it already; suppression was confirmed first.
+      },
+    }))
+  } catch {
+    console.error('Unsubscribe persistence failed')
     return jsonResponse({ error: 'Failed to process unsubscribe' }, 500)
   }
-
-  if (!updated) {
-    return jsonResponse({ success: false, reason: 'already_unsubscribed' })
-  }
-
-  // Add email to suppressed list (upsert to handle duplicates)
-  const { error: suppressError } = await supabase
-    .from('suppressed_emails')
-    .upsert(
-      { email: tokenRecord.email.toLowerCase(), reason: 'unsubscribe' },
-      { onConflict: 'email' },
-    )
-
-  if (suppressError) {
-    console.error('Failed to suppress email', {
-      error: suppressError,
-      email: tokenRecord.email,
-    })
-    return jsonResponse({ error: 'Failed to process unsubscribe' }, 500)
-  }
-
-  console.log('Email unsubscribed', { email: tokenRecord.email })
-
-  return jsonResponse({ success: true })
 })

@@ -1,3 +1,9 @@
+## BalkanLink 3.0 Phase 01 reliability (28.10.2026; staged, no release)
+- [x] Read callers/migrations; implement settlement confirmation, full-history keysets, confirmed deletion, recoverable unsubscribe, enqueue semantics, admin refresh and checked session-aware profile upsert.
+- [x] 117 focused / 1441 full tests passed; isolated four-locale chat, unsubscribe and deferred-signup flows passed; automatic build OK. Details: docs/phase01-reliability-2026-10-28.md.
+- [ ] Legacy recordQuery consolidation: blocked by existing chat_usage reports and no migration/deployment authorization; current hook remains tested and unchanged.
+- [ ] Hosted settlement/unsubscribe verification and activation: blocked by deployment hold; no real accounts/data/configuration touched.
+
 ## DokumentenCheck professional upgrade (28.10.2026; no release)
 - [x] Read current page, backend, four locales, central entitlement and tests.
 - [x] Implement validated structured results, safe upload validation and localized concise UI; retain server quota rules.

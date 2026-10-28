@@ -26,16 +26,23 @@ export async function reserveUsage(admin: any, userId: string, feature: UsageFea
   return data as Reservation;
 }
 
-export async function commitUsage(admin: any, r: Reservation | null) {
-  if (!r?.reservation_id) return;
-  const { error } = await admin.rpc("commit_usage", { reservation_id: r.reservation_id });
-  if (error) console.error("[usage] commit failed", error.code);
+export class UsageSettlementError extends Error {
+  constructor(public operation: 'commit_usage' | 'release_usage', public code: string) {
+    super(`${operation} failed: ${code}`);
+    this.name = 'UsageSettlementError';
+  }
 }
 
-export async function releaseUsage(admin: any, r: Reservation | null) {
+export async function commitUsage(admin: any, r: Reservation | null): Promise<void> {
   if (!r?.reservation_id) return;
-  const { error } = await admin.rpc("release_usage", { reservation_id: r.reservation_id });
-  if (error) console.error("[usage] release failed", error.code);
+  const { data, error } = await admin.rpc("commit_usage", { reservation_id: r.reservation_id });
+  if (error || data !== true) throw new UsageSettlementError('commit_usage', error?.code ?? 'NOT_CONFIRMED');
+}
+
+export async function releaseUsage(admin: any, r: Reservation | null): Promise<void> {
+  if (!r?.reservation_id) return;
+  const { data, error } = await admin.rpc("release_usage", { reservation_id: r.reservation_id });
+  if (error || data !== true) throw new UsageSettlementError('release_usage', error?.code ?? 'NOT_CONFIRMED');
 }
 
 /**
@@ -63,13 +70,15 @@ export function meterStream(body: ReadableStream<Uint8Array>, onCommit: () => Pr
         delivered += value.byteLength;
         controller.enqueue(value);
       } catch (e) {
-        await settle(false);
+        // A failed commit is uncertain; never attempt a compensating release after it.
+        try { await settle(false); }
+        catch (settlementError) { controller.error(settlementError); return; }
         controller.error(e);
       }
     },
     async cancel(reason) {
-      await settle(delivered > 0);
-      await reader.cancel(reason);
+      try { await settle(delivered > 0); }
+      finally { await reader.cancel(reason); }
     },
   });
 }

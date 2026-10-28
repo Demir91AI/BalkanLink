@@ -47,6 +47,10 @@ describe('server usage settlement and access', () => {
     const d=deps(fixture());d.reserve=vi.fn(async()=>({ok:false,reason})); await expect(runAnalysis(d)).rejects.toThrow();expect(d.generate).not.toHaveBeenCalled();expect(d.commit).not.toHaveBeenCalled();
   });
   it('commits a validated readable result exactly once', async()=> {const d=deps(fixture());await runAnalysis(d);expect(d.commit).toHaveBeenCalledTimes(1);expect(d.release).not.toHaveBeenCalled();});
+  it('propagates uncertain commit failure without releasing potentially committed usage', async () => {
+    const d = deps(fixture()); d.commit = vi.fn(async () => { throw new Error('commit failed'); });
+    await expect(runAnalysis(d)).rejects.toThrow('commit failed'); expect(d.release).not.toHaveBeenCalled();
+  });
   for(const value of [{...fixture(),readable:false},'invalid JSON'])it(`releases unreadable/malformed result ${typeof value}`,async()=>{const d=deps(value);await expect(runAnalysis(d)).rejects.toThrow();expect(d.release).toHaveBeenCalledTimes(1);expect(d.commit).not.toHaveBeenCalled();});
   it('releases a failed provider request without retry',async()=>{const d=deps(fixture());d.generate=vi.fn(async()=>{throw new CheckError('PROVIDER_DENIED',403);});await expect(runAnalysis(d)).rejects.toThrow('PROVIDER_DENIED');expect(d.generate).toHaveBeenCalledTimes(1);expect(d.release).toHaveBeenCalledTimes(1);});
   it('returns server reset timing for quota and separate rate/access codes',()=>{expect(reservationFailure({ok:false,reason:'quota_exhausted',resets_at:'2026-11-01'})).toMatchObject({errorCode:'QUOTA_EXHAUSTED',resets_at:'2026-11-01'});expect(reservationFailure({ok:false,reason:'daily_cap'})?.errorCode).toBe('RATE_LIMITED');});

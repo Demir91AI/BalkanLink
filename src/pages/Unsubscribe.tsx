@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { unsubscribeState } from '@/lib/phase1-reliability/unsubscribe-response';
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -79,10 +80,11 @@ export default function Unsubscribe() {
     })
       .then(async (r) => {
         const data = await r.json().catch(() => ({}));
-        if (r.ok && data.valid) {
+        const next = unsubscribeState(r.ok, data, 'GET');
+        if (next === 'valid') {
           setEmail(data.email ?? null);
           setStatus("valid");
-        } else if (data?.alreadyUnsubscribed || data?.already_unsubscribed) {
+        } else if (next === 'already') {
           setStatus("already");
         } else {
           setStatus("invalid");
@@ -99,8 +101,8 @@ export default function Unsubscribe() {
         headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
         body: JSON.stringify({ token }),
       });
-      if (r.ok) setStatus("success");
-      else setStatus("error");
+      const data = await r.json().catch(() => ({}));
+      setStatus(unsubscribeState(r.ok, data, 'POST'));
     } catch {
       setStatus("error");
     }

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { refreshComplete } from '@/lib/phase1-reliability/admin-refresh';
 import { useTranslation } from "react-i18next";
 import { MEMBERSHIP } from "@/lib/membership";
 import StripeSubscriptionsSection from "@/components/admin/StripeSubscriptionsSection";
@@ -353,6 +354,7 @@ const TABS = [
 type TabKey = typeof TABS[number];
 
 export default function AdminDashboard() {
+  const { t } = useTranslation('common');
   const { displayName } = useAuth();
   const [stats, setStats] = useState<Stats | null>(null);
   const [extra, setExtra] = useState<any>(null);
@@ -361,26 +363,40 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
+  const [partialRefresh, setPartialRefresh] = useState(false);
+  const refreshPending = useRef(false);
+  const lastCompleteRefresh = useRef<Date | null>(null);
   const [period, setPeriod] = useState<"today" | "7d" | "30d" | "90d">("30d");
   const [hideInternal, setHideInternal] = useState(true);
   const [tab, setTab] = useState<TabKey>("Pregled");
   const [paymentFilter, setPaymentFilter] = useState<"all" | "ok" | "fail" | "refund">("all");
 
   const loadAll = async (silent = false) => {
+    if (refreshPending.current) return;
+    refreshPending.current = true;
     if (!silent) setLoading(true); else setRefreshing(true);
     try {
-      const [statsRes, paymentsRes, extraRes, usersRes] = await Promise.all([
+      const batch = await Promise.allSettled([
         supabase.rpc("get_admin_stats" as any),
         supabase.rpc("get_admin_payments" as any, { _limit: 50 }),
         supabase.rpc("get_admin_dashboard_extra" as any),
         supabase.rpc("get_admin_users_list" as any, { _limit: 200 }),
       ]);
-      if (statsRes.data) setStats(statsRes.data as any);
-      if (paymentsRes.data) setPayments(paymentsRes.data as any);
-      if (extraRes.data) setExtra(extraRes.data);
-      if (usersRes.data) setUsersList(usersRes.data as any[]);
-      setLastRefresh(new Date());
+      const responses = batch.map(result => result.status === 'fulfilled' ? result.value : { data: null, error: result.reason });
+      const [statsRes, paymentsRes, extraRes, usersRes] = responses;
+      if (statsRes && !statsRes.error && statsRes.data) setStats(statsRes.data as any);
+      if (paymentsRes && !paymentsRes.error && paymentsRes.data) setPayments(paymentsRes.data as any);
+      if (extraRes && !extraRes.error && extraRes.data) setExtra(extraRes.data);
+      if (usersRes && !usersRes.error && usersRes.data) setUsersList(usersRes.data as any[]);
+      const complete = refreshComplete(responses);
+      setPartialRefresh(!complete);
+      if (complete) {
+        const now = new Date(); lastCompleteRefresh.current = now; setLastRefresh(now);
+      }
+    } catch {
+      setPartialRefresh(true);
     } finally {
+      refreshPending.current = false;
       setLoading(false);
       setRefreshing(false);
     }
@@ -393,7 +409,7 @@ export default function AdminDashboard() {
     }, 30000);
     const onVisible = () => {
       if (document.visibilityState === "visible") {
-        const stale = !lastRefresh || Date.now() - lastRefresh.getTime() > 15000;
+        const stale = !lastCompleteRefresh.current || Date.now() - lastCompleteRefresh.current.getTime() > 15000;
         if (stale) loadAll(true);
       }
     };
@@ -494,6 +510,7 @@ export default function AdminDashboard() {
                   {lastRefresh && (
                     <span> · refresh {lastRefresh.toLocaleTimeString("bs-BA", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}</span>
                   )}
+                  {partialRefresh && <p role="alert" className="mt-2 max-w-md text-sm text-destructive">{t('reliability.adminPartial')}</p>}
                 </div>
               </div>
             </div>

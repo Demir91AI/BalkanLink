@@ -1,4 +1,15 @@
 {
+  "reliability": {
+      "clearConfirm": "Den gesamten Gesprächsverlauf auf allen Geräten löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "clearAction": "Gespräch löschen",
+      "clearSuccess": "Gespräch gelöscht",
+      "clearCloudSuccess": "Die Cloud hat das Löschen des Verlaufs bestätigt.",
+      "clearLocalSuccess": "Das Gespräch wurde auf diesem Gerät gelöscht.",
+      "clearFailed": "Das Löschen in der Cloud wurde nicht bestätigt. Das Gespräch bleibt erhalten; versuche es erneut.",
+      "historyFailed": "Der Cloud-Verlauf wurde nicht vollständig geladen. Das lokale Gespräch bleibt erhalten.",
+      "adminPartial": "Einige Admin-Daten wurden nicht aktualisiert. Die Uhrzeit zeigt die letzte vollständig erfolgreiche Aktualisierung.",
+      "profileFailed": "Das Konto wurde erstellt, aber das Speichern des Namens im Profil wurde nicht bestätigt. Registriere dich nicht erneut; bestätige die E-Mail und melde dich an."
+  },
   "notFound": {
     "title": "Seite nicht gefunden",
     "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Gehe zurück zur Startseite oder frage den BalkanLink Asistent.",
