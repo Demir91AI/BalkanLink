@@ -40,6 +40,8 @@ export interface AuthorityContact {
   authorityType: string;
   url: string;
   notes?: string;
+  /** i18n key under `authorityNotes.*` in the anerkennung namespace; overrides `notes` when translated */
+  noteKey?: string;
 }
 
 /**
@@ -351,12 +353,35 @@ const IHK_FOSA: AuthorityContact = {
   authorityType: "IHK FOSA",
   url: "https://www.ihk-fosa.de/",
   notes: "Za većinu IHK zanimanja postupak vodi IHK FOSA; lokalna IHK savjetuje. Anerkennungs-Finder potvrđuje nadležnost za tvoje mjesto.",
+  noteKey: "ihkFosa",
 };
 const HWK_NOTE = "Nadležna je Handwerkskammer prema mjestu rada (u većim pokrajinama ima više komora). Tačnu komoru pokazuje Anerkennungs-Finder.";
 const everyLand = (c: AuthorityContact) => Object.fromEntries(BUNDESLAENDER.map((b) => [b.code, c]));
-const hwkByLand = () => Object.fromEntries(Object.entries(AUTHORITIES.maurer).map(([k, v]) => [k, { ...v, notes: HWK_NOTE }]));
-for (const id of ["elektroniker_betriebstechnik", "industriemechaniker", "zerspanungsmechaniker", "maschinen_anlagenfuehrer", "konstruktionsmechaniker", "mechatroniker", "fachkraft_lagerlogistik", "koch", "it_fachkraft", "berufskraftfahrer"]) AUTHORITIES[id] = everyLand(IHK_FOSA);
+const hwkByLand = () => Object.fromEntries(Object.entries(AUTHORITIES.maurer).map(([k, v]) => [k, { ...v, notes: HWK_NOTE, noteKey: "hwk" }]));
+for (const id of ["elektroniker_betriebstechnik", "industriemechaniker", "zerspanungsmechaniker", "maschinen_anlagenfuehrer", "konstruktionsmechaniker", "mechatroniker", "fachkraft_lagerlogistik", "koch", "it_fachkraft"]) AUTHORITIES[id] = everyLand(IHK_FOSA);
 for (const id of ["metallbauer", "tischler", "zimmerer", "fliesenleger", "maler_lackierer", "strassenbauer", "beton_stahlbetonbauer", "gebaeudereiniger", "baecker", "friseur", "dachdecker", "anlagenmechaniker_shk"]) AUTHORITIES[id] = hwkByLand();
+
+/**
+ * 2026-10-28 final cleanup — sources in docs/anerkennung-final-qa-2026-10-28.md
+ * Bayern: Bayerisches Landesamt für Pflege handles Pflege (since 2023) and
+ * Physiotherapie (since 1.7.2025).
+ */
+const LFP_BY: AuthorityContact = { name: "Bayerisches Landesamt für Pflege (LfP)", authorityType: "Landesbehörde", url: "https://www.lfp.bayern.de/" };
+AUTHORITIES.pflegefachperson.BY = LFP_BY;
+AUTHORITIES.physiotherapeut.BY = LFP_BY;
+AUTHORITIES.altenpfleger = { ...AUTHORITIES.pflegefachperson };
+
+const FINDER_URL = "https://www.anerkennung-in-deutschland.de/de/interest/finder/profession";
+AUTHORITIES.berufskraftfahrer = everyLand({ ...IHK_FOSA, noteKey: "bkf", notes: undefined });
+AUTHORITIES.buchhalter = everyLand({ name: "Anerkennungs-Finder (BIBB) — prema referentnom zanimanju", authorityType: "IHK FOSA / Steuerberaterkammer / ZAB", url: FINDER_URL, noteKey: "buchhalter" });
+AUTHORITIES.sozialpaedagoge = everyLand({ name: "Anerkennungs-Finder (BIBB) — nadležna ustanova pokrajine", authorityType: "Landesbehörde", url: FINDER_URL, noteKey: "sozial" });
+const AEKWL: AuthorityContact = { name: "Ärztekammer Westfalen-Lippe", authorityType: "Ärztekammer", url: "https://www.aekwl.de/fuer-mfa/nach-der-ausbildung/auslaendische-abschluesse/", noteKey: "mfa" };
+AUTHORITIES.medizinische_fachangestellte = {
+  ...everyLand(AEKWL),
+  BY: { name: "Bayerische Landesärztekammer", authorityType: "Ärztekammer", url: "https://www.blaek.de/", noteKey: "mfa" },
+  BB: { name: "Landesärztekammer Brandenburg", authorityType: "Ärztekammer", url: "https://www.laekb.de/", noteKey: "mfa" },
+  ST: { name: "Ärztekammer Sachsen-Anhalt", authorityType: "Ärztekammer", url: "https://www.aeksa.de/", noteKey: "mfa" },
+};
 
 /** Default: ZAB Zeugnisbewertung (uvijek dostupno za fakultetske diplome) */
 export const ZAB_FALLBACK: AuthorityContact = {
@@ -364,7 +389,15 @@ export const ZAB_FALLBACK: AuthorityContact = {
   authorityType: "Bundesweit",
   url: "https://zab.kmk.org/de/zeugnisbewertung",
   notes: "Za nicht-reglementierte fakultetske diplome — Zeugnisbewertung važi u cijeloj Njemačkoj.",
+  noteKey: "zab",
 };
+/** Academic, non-regulated: ZAB is the correct body (explicit, not a fallback). */
+AUTHORITIES.ekonomist_bachelor = everyLand(ZAB_FALLBACK);
+
+/** Regulated Land professions: remind users the Land decides and may change competence. */
+for (const id of ["pflegefachperson", "altenpfleger", "arzt", "zahnarzt", "apotheker", "physiotherapeut", "lehrer", "erzieher"]) {
+  AUTHORITIES[id] = Object.fromEntries(Object.entries(AUTHORITIES[id]).map(([k, v]) => [k, { ...v, noteKey: v.noteKey ?? "regulatedLand" }]));
+}
 
 export function getAuthority(professionId: string, blCode: string): AuthorityContact | null {
   return AUTHORITIES[professionId]?.[blCode] || null;

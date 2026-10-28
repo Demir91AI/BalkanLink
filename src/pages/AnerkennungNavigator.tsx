@@ -814,9 +814,11 @@ export default function AnerkennungNavigator() {
                 <p className="text-sm font-bold text-white mb-2">
                   {authority.name}
                 </p>
-                {authority.notes && (
+                {(authority.noteKey || authority.notes) && (
                   <p className="text-xs text-white/75 mb-3">
-                    {authority.notes}
+                    {authority.noteKey
+                      ? t(`authorityNotes.${authority.noteKey}`, { defaultValue: authority.notes ?? "" })
+                      : authority.notes}
                   </p>
                 )}
                 <a
