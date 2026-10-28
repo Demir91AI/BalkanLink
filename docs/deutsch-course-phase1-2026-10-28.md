@@ -30,7 +30,7 @@ Baseline: `docs/deutsch-course-audit-2026-10-28.md`. Not published.
 - `src/components/trainer/pilot/PilotLessonView.test.tsx` (1): full run in Croatian with a deliberate mistake → review → "Lekcija završena", 7/8, `completeLesson("a1-pilot-01")` called.
 - `src/test/phase1` (no-downgrade) still passes.
 - Browser (isolated, fake session with blocked backend, **no real sign-in**): overview and lesson at 390 px and 1280 px, no horizontal scrolling (scrollWidth = viewport), no page errors. Signed-out visitors see the existing sign-up gate.
-- Full Vitest and build: see the final report for this turn.
+- Full Vitest: 51 files, 1,388/1,388 pass; preview build OK.
 
 ## Known limitations
 - Only 2 of the planned 2–3 lessons (quality first).
