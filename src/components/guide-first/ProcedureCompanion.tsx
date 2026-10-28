@@ -8,6 +8,7 @@ import type { ArrivalProcedure, ArrivalSlug } from "@/lib/guide-first/arrival-mo
 import { isFamilySlug, type FamilySlug } from "@/lib/guide-first/family-model";
 import type { CareerSlug } from "@/lib/guide-first/career-model";
 import type { EducationSlug } from "@/lib/guide-first/education-model";
+import type { DocumentsSlug } from "@/lib/guide-first/documents-model";
 import { isGrundsicherungSlug, type GrundsicherungSlug } from "@/lib/guide-first/grundsicherung-model";
 
 /** Portable procedure + vocabulary companion. No answers, field mapping or storage. */
@@ -19,7 +20,7 @@ interface CompanionOverrides {
   verifiedOn?: string;
   variant?: string;
 }
-export default function ProcedureCompanion({ slug, content, links, verifiedOn, variant }: { slug: ArrivalSlug | FamilySlug | GrundsicherungSlug | "wohngeld" | CareerSlug | EducationSlug } & CompanionOverrides) {
+export default function ProcedureCompanion({ slug, content, links, verifiedOn, variant }: { slug: ArrivalSlug | FamilySlug | GrundsicherungSlug | "wohngeld" | CareerSlug | EducationSlug | DocumentsSlug } & CompanionOverrides) {
   const { t } = useTranslation("pages");
   const family = isFamilySlug(slug);
   const grundsicherung = isGrundsicherungSlug(slug);

@@ -68,6 +68,8 @@ import CareerCompanion from "@/components/guide-first/CareerCompanion";
 import { isCareerSlug } from "@/lib/guide-first/career-model";
 import EducationCompanion from "@/components/guide-first/EducationCompanion";
 import { isEducationSlug } from "@/lib/guide-first/education-model";
+import DocumentsCompanion from "@/components/guide-first/DocumentsCompanion";
+import { isDocumentsSlug } from "@/lib/guide-first/documents-model";
 import { isArrivalSlug } from "@/lib/guide-first/arrival-model";
 import { isFamilySlug } from "@/lib/guide-first/family-model";
 import { isGrundsicherungSlug } from "@/lib/guide-first/grundsicherung-model";
@@ -146,6 +148,7 @@ function GuideBody({ slug }: { slug: string }) {
 
   if (isCareerSlug(slug)) return <><CareerCompanion slug={slug} />{MusterButton}</>;
   if (isEducationSlug(slug)) return <><EducationCompanion slug={slug} />{MusterButton}</>;
+  if (isDocumentsSlug(slug)) return <><DocumentsCompanion slug={slug} />{MusterButton}</>;
   if (slug === "kindergeld") return <><KindergeldGuideContent />{MusterButton}</>;
   if (slug === "anmeldung") return <><AnmeldungGuideContent />{MusterButton}</>;
   if (slug === "steuer-id") return <><SteuerIdGuideContent />{MusterButton}</>;

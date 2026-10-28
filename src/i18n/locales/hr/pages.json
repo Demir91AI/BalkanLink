@@ -12262,5 +12262,432 @@
         ]
       }
     }
+  },
+  "documentsCompanions": {
+    "ui": {
+      "links": {
+        "bmas": "BMAS: SGB XII i Sozialamt",
+        "berlin": "Berlin: primjer lokalnog postupka, nije za sve gradove",
+        "faq": "BfJ: vrste i pitanja o Führungszeugnis",
+        "portal": "BfJ: službeni zahtjev",
+        "digital": "BfJ: digitalna dostava privatne potvrde",
+        "bund": "Bundesportal: odaberi nadležni grad",
+        "bayern": "Bayern: Standesamt, samo za Bayern",
+        "nrw": "NRW: Amtsgericht, samo za NRW"
+      }
+    },
+    "guides": {
+      "grundsicherung": {
+        "title": "Grundsicherung im Alter und bei Erwerbsminderung: Sozialamt, SGB XII",
+        "introduction": "Ovo je pomoć za životne troškove prema SGB XII preko Sozialamt-a. Nije Grundsicherungsgeld/Bürgergeld SGB II kod Jobcentera ni Erwerbsminderungsrente. Sozialamt procjenjuje potrebe i prihode/imovinu; pravo nije zajamčeno.",
+        "variation": "Nadležan je lokalni nositelj socijalne pomoći, obično Sozialamt grada ili okruga. Obrasci i traženi dokazi razlikuju se. Berlin je samo primjer; koristi ured nadležan za svoj boravak.",
+        "vocabularyNote": "Pojmovi su pomoć za razumijevanje, ne mapa polja. Ne unosimo tvoje podatke i ne odlučujemo o tvojem slučaju.",
+        "modes": {
+          "paper": "Papir/ured: traži lokalni SGB-XII zahtjev, ne BA HA/WBA obrasce. Dogovori predaju i sačuvaj dokaz primitka.",
+          "online": "Online: mogućnost ovisi o gradu/okrugu. Koristi samo njihov službeni portal; ovo nije prikaz njegovih zaslona."
+        },
+        "steps": [
+          {
+            "id": "s1",
+            "title": "1. Razjasni SGB XII, ne Jobcenter",
+            "sections": {
+              "meaning": "mirovina zbog smanjene sposobnosti / socijalna pomoć",
+              "action": "O mirovini odlučuje Rentenversicherung prema svojim pravilima; SGB XII procjenjuje Sozialamt. Mogu postojati zajedno, ali mirovina ne znači automatsko pravo na dopunu.",
+              "where": "Rentenbescheid i pismo Sozialamt-a.",
+              "example": "Izmišljeni primjer: Maja prilaže mirovinsko rješenje i posebno traži provjeru SGB XII.",
+              "mistake": "Koristiti Jobcenter zahtjev ili misliti da odbijena mirovina uvijek znači odbijenu socijalnu pomoć.",
+              "next": "Pronađi lokalni Sozialamt."
+            }
+          },
+          {
+            "id": "s2",
+            "title": "2. Nadležni ured i lokalni zahtjev",
+            "sections": {
+              "meaning": "Sozialamt grada/okruga procjenjuje tvoj slučaj.",
+              "action": "Na službenoj stranici svojeg grada traži Grundsicherung im Alter und bei Erwerbsminderung SGB XII. Pitaj koji je ured nadležan za boravak i kako podnijeti zahtjev; ne čekaj sve dokaze kako bi pitao o početku prava.",
+              "where": "Službena stranica grada/okruga, Sozialamt; Berlin samo kao primjer.",
+              "example": "Izmišljeni primjer: Maja traži obrazac svojeg okruga, ne koristi berlinsku prijavu iz drugog grada.",
+              "mistake": "Poslati BA Hauptantrag Sozialamt-u ili pretpostaviti univerzalni obrazac.",
+              "next": "Provjeri osnovu: dob ili trajna Erwerbsminderung."
+            }
+          },
+          {
+            "id": "s3",
+            "title": "3. Dobna granica i medicinska procjena",
+            "sections": {
+              "meaning": "trajno potpuno smanjena radna sposobnost",
+              "action": "Za ovaj put osoba mora imati najmanje 18 godina i medicinski utvrđenu trajnu punu Erwerbsminderung. Obično znači manje od tri sata rada dnevno pod uobičajenim uvjetima tržišta rada. Nije isto što i bolovanje ili stupanj invaliditeta; pitaj Sozialamt kako se utvrđuje.",
+              "where": "Rješenje Deutsche Rentenversicherung ili traženi medicinski dokaz. Ne šalji cijeli zdravstveni karton bez zahtjeva.",
+              "example": "Izmišljeni primjer: Damir ima privremeno bolovanje; ne označava sam trajnu Erwerbsminderung.",
+              "mistake": "Izjednačiti Schwerbehindertenausweis s automatskim pravom.",
+              "next": "Za dobni put provjeri i pojam Regelaltersgrenze iznad."
+            }
+          },
+          {
+            "id": "s4",
+            "title": "4. Pripremi dokaze prihoda i imovine",
+            "sections": {
+              "meaning": "prihodi",
+              "action": "Navedi stvarne prihode iz Njemačke i inozemstva: mirovine, posao i druge uplate prema lokalnom pitanju. Amt računa odbitke i iznimke; nemoj sam izostaviti prihod.",
+              "where": "Mirovinska rješenja, platne liste, traženi izvodi računa.",
+              "example": "Izmišljeni primjer: Damir navodi i mirovinu iz BiH.",
+              "mistake": "Sam odbiti najamninu od prihoda ili prešutjeti stranu mirovinu.",
+              "next": "Dodaj tražene dokaze imovine iz pojma Vermögen."
+            }
+          },
+          {
+            "id": "s5",
+            "title": "5. Stanovanje, kućanstvo i osiguranje",
+            "sections": {
+              "meaning": "stanovanje i grijanje / zajedničko kućanstvo",
+              "action": "Navedi tko stvarno živi s tobom, odnos i stvarne troškove. Partnerovi podaci mogu biti potrebni; zajednički stan ne znači da je svaka osoba partner. Priznate troškove procjenjuje Amt.",
+              "where": "Ugovor o najmu, Nebenkosten, grijanje, dokaz kućanstva prema zahtjevu.",
+              "example": "Izmišljeni primjer: Damir dijeli stan sa sustanarom i objašnjava svoj dio najamnine.",
+              "mistake": "Navesti ukupnu najamninu kao svoj trošak ili automatski partnera za svakog sustanara.",
+              "next": "Pitaj za Mehrbedarf i traženi dokaz osiguranja, bez automatskog dodatka."
+            }
+          },
+          {
+            "id": "s6",
+            "title": "6. Predaj, prati Bescheid i promjene",
+            "sections": {
+              "meaning": "Bescheid je pisana odluka, ne potvrda ovog vodiča.",
+              "action": "Predaj prema lokalnim uputama, sačuvaj kopiju i dokaz primitka. Odgovori na traženu dopunu u roku iz pisma. Provjeri razdoblje odobrenja i pravnu pouku; promjene prihoda, stanovanja ili kućanstva prijavi nadležnom uredu.",
+              "where": "Lokalni popis dokaza i pisma Sozialamt-a.",
+              "example": "Izmišljeni primjer: Damir dobiva novo mirovinsko rješenje i javlja promjenu.",
+              "mistake": "Ignorirati dopunu ili misliti da pregled vodiča znači predaju zahtjeva.",
+              "next": "Pregled je završen; ništa nije poslano."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "age",
+            "german": "Regelaltersgrenze",
+            "meaning": "redovna dobna granica za mirovinu",
+            "instruction": "Granica ovisi o godini rođenja, nije ista za sve. Provjeri je u mirovinskom rješenju; dob sama ne jamči pomoć.",
+            "where": "Rentenbescheid, Deutsche Rentenversicherung.",
+            "example": "Izmišljeni primjer: Maja provjerava granicu u svojem Rentenbescheid-u, ne prema dobi prijateljice.",
+            "mistake": "Pretpostaviti da svaka prijevremena mirovina ispunjava dobni uvjet."
+          },
+          {
+            "id": "capacity",
+            "german": "dauerhaft voll erwerbsgemindert",
+            "meaning": "trajno potpuno smanjena radna sposobnost",
+            "instruction": "Za ovaj put osoba mora imati najmanje 18 godina i medicinski utvrđenu trajnu punu Erwerbsminderung. Obično znači manje od tri sata rada dnevno pod uobičajenim uvjetima tržišta rada. Nije isto što i bolovanje ili stupanj invaliditeta; pitaj Sozialamt kako se utvrđuje.",
+            "where": "Rješenje Deutsche Rentenversicherung ili traženi medicinski dokaz. Ne šalji cijeli zdravstveni karton bez zahtjeva.",
+            "example": "Izmišljeni primjer: Damir ima privremeno bolovanje; ne označava sam trajnu Erwerbsminderung.",
+            "mistake": "Izjednačiti Schwerbehindertenausweis s automatskim pravom."
+          },
+          {
+            "id": "pension",
+            "german": "Erwerbsminderungsrente / Grundsicherung",
+            "meaning": "mirovina zbog smanjene sposobnosti / socijalna pomoć",
+            "instruction": "O mirovini odlučuje Rentenversicherung prema svojim pravilima; SGB XII procjenjuje Sozialamt. Mogu postojati zajedno, ali mirovina ne znači automatsko pravo na dopunu.",
+            "where": "Rentenbescheid i pismo Sozialamt-a.",
+            "example": "Izmišljeni primjer: Maja prilaže mirovinsko rješenje i posebno traži provjeru SGB XII.",
+            "mistake": "Koristiti Jobcenter zahtjev ili misliti da odbijena mirovina uvijek znači odbijenu socijalnu pomoć."
+          },
+          {
+            "id": "income",
+            "german": "Einkommen",
+            "meaning": "prihodi",
+            "instruction": "Navedi stvarne prihode iz Njemačke i inozemstva: mirovine, posao i druge uplate prema lokalnom pitanju. Amt računa odbitke i iznimke; nemoj sam izostaviti prihod.",
+            "where": "Mirovinska rješenja, platne liste, traženi izvodi računa.",
+            "example": "Izmišljeni primjer: Damir navodi i mirovinu iz BiH.",
+            "mistake": "Sam odbiti najamninu od prihoda ili prešutjeti stranu mirovinu."
+          },
+          {
+            "id": "assets",
+            "german": "Vermögen",
+            "meaning": "imovina i ušteđevina",
+            "instruction": "Prema zahtjevu navedi račune, štednju, nekretnine i drugu imovinu, i u inozemstvu. Postoji zaštićena imovina, ali Amt procjenjuje iznimke; ne prenositi novac kako bi izgledalo da ga nemaš.",
+            "where": "Bankovni izvodi, štednja, vlasnički dokazi prema zahtjevu.",
+            "example": "Izmišljeni primjer: Maja navodi i mali štedni račun.",
+            "mistake": "Pretpostaviti da sva imovina mora biti potrošena ili da je sve zaštićeno."
+          },
+          {
+            "id": "housing",
+            "german": "Unterkunft und Heizung / Haushaltsgemeinschaft",
+            "meaning": "stanovanje i grijanje / zajedničko kućanstvo",
+            "instruction": "Navedi tko stvarno živi s tobom, odnos i stvarne troškove. Partnerovi podaci mogu biti potrebni; zajednički stan ne znači da je svaka osoba partner. Priznate troškove procjenjuje Amt.",
+            "where": "Ugovor o najmu, Nebenkosten, grijanje, dokaz kućanstva prema zahtjevu.",
+            "example": "Izmišljeni primjer: Damir dijeli stan sa sustanarom i objašnjava svoj dio najamnine.",
+            "mistake": "Navesti ukupnu najamninu kao svoj trošak ili automatski partnera za svakog sustanara."
+          },
+          {
+            "id": "extra",
+            "german": "Mehrbedarf / Kranken- und Pflegeversicherung",
+            "meaning": "dodatne potrebe / zdravstveno i osiguranje za njegu",
+            "instruction": "Mehrbedarf je moguć samo uz konkretan zakonski razlog, npr. određeni invaliditet ili medicinski potrebna posebna prehrana. Možda se posebno traži. Priloži samo traženi dokaz i dokaz osiguranja; nema automatskog dodatka.",
+            "where": "Sozialamt popis dokaza, osiguranje, tražena potvrda.",
+            "example": "Izmišljeni primjer: Maja pita treba li za posebnu prehranu poseban dokaz.",
+            "mistake": "Označiti sve dodatke ili slati kompletnu medicinsku dokumentaciju bez potrebe."
+          }
+        ]
+      },
+      "fuehrungszeugnis": {
+        "title": "Führungszeugnis: odgovarajuća vrsta i službeni zahtjev",
+        "introduction": "Führungszeugnis je potvrda iz registra, ne obećanje da nemaš upise. Prvo razjasni što traži poslodavac ili ustanova. Online podnošenje i digitalna dostava nisu isto.",
+        "variation": "BfJ izdaje potvrdu; Meldebehörde prima osobni zahtjev. Online portal prihvaća više vrsta, uključujući za Behörden i erweitert. Digitalna potvrda opisana je za privatne svrhe; ne obećavamo digitalnu dostavu drugih vrsta.",
+        "vocabularyNote": "Pojmovi su pomoć za razumijevanje, ne mapa polja. Ne unosimo tvoje podatke i ne odlučujemo o tvojem slučaju.",
+        "modes": {
+          "paper": "Ured/papir: kod Meldebehörde s važećim identifikacijskim dokumentom. Za proširenu potvrdu ponesi pisanu potvrdu ustanove; za Behörden adresu i svrhu.",
+          "online": "Online: koristi samo BfJ portal i provjeri aktualne eID zahtjeve. Digitalna privatna dostava koristi BundID. Ne opisujemo prijavljene zaslone ni njihov redoslijed."
+        },
+        "steps": [
+          {
+            "id": "f1",
+            "title": "1. Razjasni vrstu koju traže",
+            "sections": {
+              "meaning": "privatna / proširena / potvrda za tijelo",
+              "action": "Ne biraj prema tome što zvuči bolje. Traži točan naziv od ustanove; proširena i Behörden su različite osobine i mogu se kombinirati.",
+              "where": "Pisana uputa poslodavca ili tijela.",
+              "example": "Izmišljeni primjer: vrtić daje Maji potvrdu za erweitertes Führungszeugnis.",
+              "mistake": "Uzeti privatnu potvrdu za tijelo koje traži izravnu dostavu.",
+              "next": "Provjeri sva državljanstva za europsku potvrdu."
+            }
+          },
+          {
+            "id": "f2",
+            "title": "2. Pripremi dokaz svrhe i primatelja",
+            "sections": {
+              "meaning": "pisana potvrda / svrha korištenja",
+              "action": "Za erweitert ustanova potvrđuje da su zakonski uvjeti ispunjeni. Za Behörden zapiši puni naziv, adresu i svrhu iz njihova pisma; ne izmišljaj primatelja.",
+              "where": "Poslodavac, vrtić ili tijelo koje traži potvrdu.",
+              "example": "Izmišljeni primjer: Maja traži od vrtića pisanu potvrdu prije prijave.",
+              "mistake": "Sam napisati potvrdu ustanove ili tražiti erweitert bez razloga.",
+              "next": "Izaberi online ili Meldebehörde."
+            }
+          },
+          {
+            "id": "f3",
+            "title": "3. Online identifikacija ili termin u uredu",
+            "sections": {
+              "meaning": "elektronička identifikacija / korisnički račun",
+              "action": "eID je funkcija identifikacije na podržanom dokumentu, s PIN-om i odgovarajućim uređajem/aplikacijom. BundID je račun; sam po sebi ne zamjenjuje traženi dokaz identiteta. Ako eID ne radi, koristi Meldebehörde.",
+              "where": "Službene tehničke upute BfJ portala; PIN nije za ovu stranicu.",
+              "example": "Izmišljeni primjer: Damir nema aktivnu eID i zakazuje termin u uredu.",
+              "mistake": "Unijeti PIN na neslužbenoj stranici ili misliti da obična putovnica ima eID.",
+              "next": "Pripremi identitet, adresu, sva državljanstva i dokaz svrhe."
+            }
+          },
+          {
+            "id": "f4",
+            "title": "4. Podnesi službeni zahtjev",
+            "sections": {
+              "meaning": "BfJ portal ili Meldebehörde su službeni putovi; BalkanLink ne predaje zahtjev.",
+              "action": "Na službenom zahtjevu provjeri ime, rođeno prezime, datum/mjesto rođenja, adresu, državljanstva, vrstu i svrhu. Provjeri aktualnu naknadu i moguće oslobađanje na BfJ prije plaćanja; sačuvaj potvrdu zahtjeva. Za osobni put ponesi identifikacijski dokument i tražene dokaze.",
+              "where": "BfJ FAQ/portal, Meldebehörde.",
+              "example": "Izmišljeni primjer: Maja provjerava da je adresa tijela ista kao u njegovu pismu.",
+              "mistake": "Platiti privatnom posredniku misleći da je BfJ ili obećati fiksno vrijeme obrade.",
+              "next": "Provjeri način dostave i sačuvaj potvrdu."
+            }
+          },
+          {
+            "id": "f5",
+            "title": "5. Dostava i provjera rezultata",
+            "sections": {
+              "meaning": "digitalna potvrda / dostava",
+              "action": "Online zahtjev može završiti papirnom dostavom. BfJ digitalnu opciju opisuje za privatne svrhe uz BundID. Za Behörde potvrda ide tijelu; prije naručivanja provjeri što primatelj prihvaća.",
+              "where": "BfJ upute za digitalnu potvrdu i pismo primatelja.",
+              "example": "Izmišljeni primjer: Maja pita prihvaća li poslodavac digitalnu privatnu potvrdu.",
+              "mistake": "Tvrditi da je online samo za privatne svrhe ili da je svaka potvrda digitalna.",
+              "next": "Ako podaci ili dostava nisu jasni, pitaj BfJ/Meldebehörde s brojem zahtjeva; ne šalji potvrdu ovdje."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "type",
+            "german": "privates / erweitertes / Behördenführungszeugnis",
+            "meaning": "privatna / proširena / potvrda za tijelo",
+            "instruction": "Ne biraj prema tome što zvuči bolje. Traži točan naziv od ustanove; proširena i Behörden su različite osobine i mogu se kombinirati.",
+            "where": "Pisana uputa poslodavca ili tijela.",
+            "example": "Izmišljeni primjer: vrtić daje Maji potvrdu za erweitertes Führungszeugnis.",
+            "mistake": "Uzeti privatnu potvrdu za tijelo koje traži izravnu dostavu.",
+            "options": [
+              {
+                "german": "privat (Belegart N)",
+                "meaning": "za privatnu svrhu; šalje se tebi, npr. prema zahtjevu poslodavca"
+              },
+              {
+                "german": "erweitert",
+                "meaning": "samo uz zakonski predviđenu svrhu i pisanu potvrdu, npr. rad s djecom"
+              },
+              {
+                "german": "zur Vorlage bei einer Behörde (Belegart O)",
+                "meaning": "za službeno tijelo; navedi točnu adresu i svrhu, BfJ šalje tijelu"
+              }
+            ]
+          },
+          {
+            "id": "europe",
+            "german": "Europäisches Führungszeugnis",
+            "meaning": "europska potvrda iz registra",
+            "instruction": "Vezano je za državljanstvo druge EU države ili UK prema BfJ pravilima, nije izbor za svakog stranca. Navedi sva državljanstva; dodatno njemačko državljanstvo ne uklanja tu provjeru.",
+            "where": "Putovnice i dokumenti državljanstva.",
+            "example": "Izmišljeni primjer: Damir ima hrvatsko i njemačko državljanstvo i navodi oba.",
+            "mistake": "Prešutjeti drugo državljanstvo ili misliti da potvrda jamči isti rok dostave."
+          },
+          {
+            "id": "proof",
+            "german": "schriftliche Aufforderung / Verwendungszweck",
+            "meaning": "pisana potvrda / svrha korištenja",
+            "instruction": "Za erweitert ustanova potvrđuje da su zakonski uvjeti ispunjeni. Za Behörden zapiši puni naziv, adresu i svrhu iz njihova pisma; ne izmišljaj primatelja.",
+            "where": "Poslodavac, vrtić ili tijelo koje traži potvrdu.",
+            "example": "Izmišljeni primjer: Maja traži od vrtića pisanu potvrdu prije prijave.",
+            "mistake": "Sam napisati potvrdu ustanove ili tražiti erweitert bez razloga."
+          },
+          {
+            "id": "identity",
+            "german": "Online-Ausweisfunktion (eID) / BundID",
+            "meaning": "elektronička identifikacija / korisnički račun",
+            "instruction": "eID je funkcija identifikacije na podržanom dokumentu, s PIN-om i odgovarajućim uređajem/aplikacijom. BundID je račun; sam po sebi ne zamjenjuje traženi dokaz identiteta. Ako eID ne radi, koristi Meldebehörde.",
+            "where": "Službene tehničke upute BfJ portala; PIN nije za ovu stranicu.",
+            "example": "Izmišljeni primjer: Damir nema aktivnu eID i zakazuje termin u uredu.",
+            "mistake": "Unijeti PIN na neslužbenoj stranici ili misliti da obična putovnica ima eID."
+          },
+          {
+            "id": "delivery",
+            "german": "digitales Führungszeugnis / Zustellung",
+            "meaning": "digitalna potvrda / dostava",
+            "instruction": "Online zahtjev može završiti papirnom dostavom. BfJ digitalnu opciju opisuje za privatne svrhe uz BundID. Za Behörde potvrda ide tijelu; prije naručivanja provjeri što primatelj prihvaća.",
+            "where": "BfJ upute za digitalnu potvrdu i pismo primatelja.",
+            "example": "Izmišljeni primjer: Maja pita prihvaća li poslodavac digitalnu privatnu potvrdu.",
+            "mistake": "Tvrditi da je online samo za privatne svrhe ili da je svaka potvrda digitalna."
+          }
+        ]
+      },
+      "kirchenaustritt": {
+        "title": "Kirchenaustritt: neutralan vodič prema Bundeslandu",
+        "introduction": "Kirchenaustritt je osobna i vjerski osjetljiva odluka. Ovaj vodič objašnjava postupak ako ga želiš provjeriti; ne pretpostavlja članstvo i ne preporučuje ni istupanje ni ostanak. Porezni učinak ovisi o slučaju i propisima.",
+        "variation": "U Bayernu je nadležan Standesamt; u NRW Amtsgericht. Druge države imaju svoje postupke. Odaberi mjesto na Bundesportalu; regionalne poveznice su samo za navedene države. Ne dajemo pravni savjet.",
+        "vocabularyNote": "Pojmovi su pomoć za razumijevanje, ne mapa polja. Ne unosimo tvoje podatke i ne odlučujemo o tvojem slučaju.",
+        "modes": {
+          "paper": "Ured/papir: osobna izjava ili propisno ovjerena pisana izjava gdje je dopuštena. Običan e-mail/pismo nije zamjena; provjeri oblik, dokumente i trošak kod nadležnog ureda.",
+          "online": "Online: rezervacija termina nije sama izjava o istupanju. Ne nudimo digitalno istupanje niti prikupljamo vjerske podatke."
+        },
+        "steps": [
+          {
+            "id": "k1",
+            "title": "1. Provjeri nadležnost, bez pretpostavke članstva",
+            "sections": {
+              "meaning": "matični ured / lokalni sud",
+              "action": "Provjeri nadležnost prema Bundeslandu i prebivalištu. Bayern: Standesamt; NRW: nadležni Amtsgericht. Ne primjenjuj NRW ili Bayern na sve gradove.",
+              "where": "Bundesportal i službena stranica mjesta.",
+              "example": "Izmišljeni primjer: Maja u Münchenu provjerava Standesamt, Damir u Kölnu Amtsgericht.",
+              "mistake": "Poslati izjavu crkvi i pretpostaviti da je završen državni postupak.",
+              "next": "Samo ako želiš nastaviti, provjeri termin i oblik izjave."
+            }
+          },
+          {
+            "id": "k2",
+            "title": "2. Dokumenti i točan naziv zajednice",
+            "sections": {
+              "meaning": "sadašnje i rođeno prezime / vjerska zajednica",
+              "action": "U službenom postupku navodiš točne podatke prema dokumentima i zajednicu na koju se izjava odnosi. Ako članstvo nije jasno, prvo ga razjasni s nadležnom ustanovom; ne pogađaj i ne unosi ništa ovdje.",
+              "where": "Važeći identifikacijski dokument; prema lokalnom zahtjevu dodatne potvrde.",
+              "example": "Izmišljeni primjer: Maja nakon promjene prezimena pita koji dodatni dokaz treba.",
+              "mistake": "Pretpostaviti članstvo iz zemlje podrijetla ili zahtijevati krsni list svima.",
+              "next": "Ponesi važeći identifikacijski dokument i samo lokalno tražene dodatke."
+            }
+          },
+          {
+            "id": "k3",
+            "title": "3. Termin ili dopušteni pisani put",
+            "sections": {
+              "meaning": "izjava o istupanju / javno ovjerena izjava",
+              "action": "Pred uredom se izjava daje osobno. Za pisani put Bayern traži javnobilježnički ovjeren potpis, NRW javnu ovjeru. Javni bilježnik potvrđuje potpis; izjava ipak mora stići nadležnom uredu. Provjeri lokalne upute prije slanja.",
+              "where": "BayernPortal/NRW Justiz i lokalni ured, po potrebi javni bilježnik.",
+              "example": "Izmišljeni primjer: Damir pita sud kako predati ovjerenu pisanu izjavu.",
+              "mistake": "Poslati sken potpisa e-mailom kao da je javna ovjera.",
+              "next": "Rezervacija termina nije istupanje. Provjeri naknadu prije termina."
+            }
+          },
+          {
+            "id": "k4",
+            "title": "4. Potvrda i lokalni datum važenja",
+            "sections": {
+              "meaning": "naknada / potvrda o istupanju",
+              "action": "Naknade ovise o državi i postupku; javnobilježnički put može imati dodatni trošak. Provjeri prije termina. Sačuvaj potvrdu trajno za eventualna pitanja; ovdje je ne učitavaš.",
+              "where": "Službena stranica ureda i izdana potvrda.",
+              "example": "Izmišljeni primjer: Maja čuva potvrdu među svojim dokumentima, ne na BalkanLinku.",
+              "mistake": "Izgubiti potvrdu ili svima navesti istu naknadu.",
+              "next": "Provjeri datum na potvrdi s nadležnim uredom; ne računaj automatski isti datum u drugim državama."
+            }
+          },
+          {
+            "id": "k5",
+            "title": "5. Mogući porezni učinak i kasnija pitanja",
+            "sections": {
+              "meaning": "važenje / crkveni porez / porezni podaci za plaću",
+              "action": "Datum istupanja i porezni učinak nisu isto. Ovisno o državi i slučaju porezna obveza može prestati prema njezinim pravilima. Pitaj ured/Finanzamt za datum i provjeri kasniju platnu listu; nema univerzalnog obećanja uštede.",
+              "where": "Austrittsbescheinigung, Finanzamt i platna lista.",
+              "example": "Izmišljeni primjer: Damir vidi Kirchensteuer na kasnijoj platnoj listi i pita Finanzamt uz potvrdu.",
+              "mistake": "Jamčiti da porez prestaje odmah ili svugdje istog mjeseca.",
+              "next": "Odluka ostaje tvoja; pregled vodiča ništa ne mijenja niti šalje."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "id": "authority",
+            "german": "Standesamt / Amtsgericht",
+            "meaning": "matični ured / lokalni sud",
+            "instruction": "Provjeri nadležnost prema Bundeslandu i prebivalištu. Bayern: Standesamt; NRW: nadležni Amtsgericht. Ne primjenjuj NRW ili Bayern na sve gradove.",
+            "where": "Bundesportal i službena stranica mjesta.",
+            "example": "Izmišljeni primjer: Maja u Münchenu provjerava Standesamt, Damir u Kölnu Amtsgericht.",
+            "mistake": "Poslati izjavu crkvi i pretpostaviti da je završen državni postupak."
+          },
+          {
+            "id": "declaration",
+            "german": "Austrittserklärung / öffentlich beglaubigte Erklärung",
+            "meaning": "izjava o istupanju / javno ovjerena izjava",
+            "instruction": "Pred uredom se izjava daje osobno. Za pisani put Bayern traži javnobilježnički ovjeren potpis, NRW javnu ovjeru. Javni bilježnik potvrđuje potpis; izjava ipak mora stići nadležnom uredu. Provjeri lokalne upute prije slanja.",
+            "where": "BayernPortal/NRW Justiz i lokalni ured, po potrebi javni bilježnik.",
+            "example": "Izmišljeni primjer: Damir pita sud kako predati ovjerenu pisanu izjavu.",
+            "mistake": "Poslati sken potpisa e-mailom kao da je javna ovjera.",
+            "options": [
+              {
+                "german": "persönlich zur Niederschrift",
+                "meaning": "osobno pred uredom; potpisuješ zapisnik prema lokalnom postupku"
+              },
+              {
+                "german": "schriftlich, öffentlich/notariell beglaubigt",
+                "meaning": "pisano samo u dopuštenom, ovjerenom obliku; provjeri kome šalješ"
+              }
+            ]
+          },
+          {
+            "id": "names",
+            "german": "Name, Geburtsname / Religionsgemeinschaft",
+            "meaning": "sadašnje i rođeno prezime / vjerska zajednica",
+            "instruction": "U službenom postupku navodiš točne podatke prema dokumentima i zajednicu na koju se izjava odnosi. Ako članstvo nije jasno, prvo ga razjasni s nadležnom ustanovom; ne pogađaj i ne unosi ništa ovdje.",
+            "where": "Važeći identifikacijski dokument; prema lokalnom zahtjevu dodatne potvrde.",
+            "example": "Izmišljeni primjer: Maja nakon promjene prezimena pita koji dodatni dokaz treba.",
+            "mistake": "Pretpostaviti članstvo iz zemlje podrijetla ili zahtijevati krsni list svima."
+          },
+          {
+            "id": "effective",
+            "german": "Wirksamkeit / Kirchensteuer / ELStAM",
+            "meaning": "važenje / crkveni porez / porezni podaci za plaću",
+            "instruction": "Datum istupanja i porezni učinak nisu isto. Ovisno o državi i slučaju porezna obveza može prestati prema njezinim pravilima. Pitaj ured/Finanzamt za datum i provjeri kasniju platnu listu; nema univerzalnog obećanja uštede.",
+            "where": "Austrittsbescheinigung, Finanzamt i platna lista.",
+            "example": "Izmišljeni primjer: Damir vidi Kirchensteuer na kasnijoj platnoj listi i pita Finanzamt uz potvrdu.",
+            "mistake": "Jamčiti da porez prestaje odmah ili svugdje istog mjeseca."
+          },
+          {
+            "id": "receipt",
+            "german": "Gebühr / Austrittsbescheinigung",
+            "meaning": "naknada / potvrda o istupanju",
+            "instruction": "Naknade ovise o državi i postupku; javnobilježnički put može imati dodatni trošak. Provjeri prije termina. Sačuvaj potvrdu trajno za eventualna pitanja; ovdje je ne učitavaš.",
+            "where": "Službena stranica ureda i izdana potvrda.",
+            "example": "Izmišljeni primjer: Maja čuva potvrdu među svojim dokumentima, ne na BalkanLinku.",
+            "mistake": "Izgubiti potvrdu ili svima navesti istu naknadu."
+          }
+        ]
+      }
+    }
   }
 }
