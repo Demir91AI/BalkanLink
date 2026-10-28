@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { safeCsv } from "@/lib/admin-center/model";
 import { Download, RefreshCw, CheckCircle2, XCircle, ShieldAlert, Trash2, Save } from "lucide-react";
 
 type SyncLogRow = {
@@ -161,7 +162,7 @@ export default function StripeSyncLogSection() {
       "neslaganja",
       "greska",
     ];
-    const esc = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const esc = (v: unknown) => safeCsv([[v]]).slice(1);
     const csv = [
       head.join(","),
       ...visible.map((r) =>
