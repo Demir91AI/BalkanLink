@@ -1,4 +1,12 @@
 {
+  "assistantGuides": {
+    "open": "SmartGuide öffnen",
+    "sources": "Offizielle Quellen",
+    "checked": "Dokumentierte Prüfung des Leitfadens: {{date}}. Keine Live-Prüfung; vor dem Einreichen die offizielle Quelle prüfen.",
+    "unknown": "Für dieses Thema habe ich keinen geprüften Leitfaden. Verfahren, Frist und zuständige Stelle kann ich nicht bestätigen; bitte die offizielle Quelle prüfen.",
+    "limits": "Dies ist eine Übersicht des bestehenden Leitfadens, keine Anspruchsentscheidung oder Einreichungsbestätigung. Besondere Umstände, die aktuelle Reihenfolge der Online-Felder und die Bearbeitungsdauer sind unbekannt. BalkanLink stellt keinen Antrag und berechnet keine rechtlichen Fristen.",
+    "redirect": "Für konkrete Schritte und Erläuterungen den bestehenden SmartGuide nutzen; den Antrag bei der zuständigen Behörde einreichen, nicht bei BalkanLink."
+  },
   "reliability": {
     "clearConfirm": "Den gesamten Gesprächsverlauf auf allen Geräten löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
     "clearAction": "Gespräch löschen",

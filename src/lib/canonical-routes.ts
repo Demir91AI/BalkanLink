@@ -12,6 +12,10 @@
  * NO duplicate or legacy routes should be used anywhere.
  */
 
+import { getAllFormEntries } from "./form-catalog";
+
+const catalogGuideSlugs = new Set(getAllFormEntries().map(f => f.slug));
+
 export interface CanonicalSection {
   id: string;
   route: string;
@@ -94,8 +98,11 @@ export const VALID_PRODUCTION_ROUTES = new Set([
 ]);
 
 export function isValidProductionRoute(path: string): boolean {
+  const normalized = path.split(/[?#]/)[0].replace(/^\/(de|hr|sr)(?=\/)/, "");
+  if (normalized.startsWith("/formulari/")) {
+    return catalogGuideSlugs.has(normalized.slice("/formulari/".length));
+  }
   if (VALID_PRODUCTION_ROUTES.has(path)) return true;
-  if (path.startsWith("/formulari/")) return true;
   if (path.startsWith("/qa/")) return true;
   if (path.startsWith("/musterformular/")) return true;
   if (path.startsWith("/vorlagen/")) return true;

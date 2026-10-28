@@ -11,7 +11,7 @@ import { readCompleteHistory, clearConfirmedHistory } from "@/lib/phase1-reliabi
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { formCatalog, type FormEntry } from "@/lib/form-catalog";
+import { ASSISTANT_GUIDE_SLUGS, detectAssistantGuide, assistantGuideRoute, autoLinkAssistantText } from "@/lib/assistant-links";
 import { isValidProductionRoute } from "@/lib/canonical-routes";
 import { BLIcon } from "@/components/BrandLogo";
 import ChatOnboarding from "@/components/chat/ChatOnboarding";
@@ -41,19 +41,6 @@ type Msg = {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-assistant`;
 
-const VALID_GUIDE_SLUGS = new Set([
-  "kindergeld", "kinderzuschlag", "elterngeld", "bildung-teilhabe", "unterhaltsvorschuss",
-  "elternzeit", "mutterschutz", "mutterschaftsleistungen", "unterhalt", "wohngeld",
-  "buergergeld", "heizkostenzuschuss", "arbeitslosengeld", "kurzarbeitergeld", "krankengeld",
-  "pflegegrad", "reha", "bafoeg", "lernfoerderung", "kita-zuschuss",
-  "mutterschaftsgeld", "familienversicherung", "steuerklassenwechsel", "kirchenaustritt",
-  "gez-anmeldung", "bildungsgutschein", "integrationskurs", "fuehrungszeugnis",
-  "aufenthaltstitel-verlaengerung", "anmeldung", "wbs", "krippengeld-bayern", "sozialhilfe",
-  "eu-blue-card", "radna-viza", "spajanje-porodice", "studentska-viza", "stalni-boravak",
-]);
-
-const VALID_ROUTES = new Set<string>(); // kept for backward compat but unused
-
 function isValidRoute(path: string): boolean {
   return isValidProductionRoute(path);
 }
@@ -63,33 +50,13 @@ function extractFormMarkers(text: string): { cleanText: string; formSlugs: strin
   const slugs: string[] = [];
   let match;
   while ((match = regex.exec(text)) !== null) {
-    if (!slugs.includes(match[1])) slugs.push(match[1]);
+    if (ASSISTANT_GUIDE_SLUGS.has(match[1]) && !slugs.includes(match[1])) slugs.push(match[1]);
   }
   const cleanText = text.replace(regex, "").replace(/\n{3,}/g, "\n\n").trim();
   return { cleanText, formSlugs: slugs };
 }
 
-const TOPIC_GUIDE_MAP: Record<string, string> = {
-  kindergeld: "kindergeld", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
-  mutterschutz: "mutterschaftsgeld", bürgergeld: "buergergeld", burgergeld: "buergergeld",
-  wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg",
-  anmeldung: "anmeldung", aufenthaltstitel: "aufenthaltstitel-verlaengerung",
-  führungszeugnis: "fuehrungszeugnis", krankengeld: "krankengeld",
-  sozialhilfe: "sozialhilfe", unterhalt: "unterhaltsvorschuss", wbs: "wbs",
-  arbeitslosengeld: "arbeitslosengeld", kurzarbeitergeld: "kurzarbeitergeld",
-  bildungsgutschein: "bildungsgutschein", integrationskurs: "integrationskurs",
-  kirchenaustritt: "kirchenaustritt", heizkostenzuschuss: "heizkostenzuschuss",
-  rundfunkbeitrag: "gez-anmeldung", gez: "gez-anmeldung",
-  steuerklasse: "steuerklassenwechsel", krankenkasse: "familienversicherung",
-};
-
-function detectGuideSlugFromText(text: string): string | null {
-  const lower = text.toLowerCase();
-  for (const [kw, slug] of Object.entries(TOPIC_GUIDE_MAP)) {
-    if (lower.includes(kw)) return slug;
-  }
-  return null;
-}
+const detectGuideSlugFromText = detectAssistantGuide;
 
 // Quick starters
 const STARTER_QUESTIONS = [
@@ -129,11 +96,12 @@ const KEYWORD_LINKS: [RegExp, string][] = [
   [/\b(Steuer-ID|steuer-id|poreski broj)\b/gi, "/formulari/steuer-id"],
   [/\b(Elterngeld|elterngeld|roditeljska naknada)\b/gi, "/formulari/elterngeld"],
   [/\b(Krankenkasse|krankenkasse|zdravstveno osiguranje)\b/gi, "/formulari/krankenkasse"],
-  [/\b(Bürgergeld|bürgergeld|socijalna pomoć)\b/gi, "/formulari/burgergeld"],
+  [/\b(Bürgergeld|bürgergeld)\b/gi, "/formulari/hauptantrag"],
   [/\b(Wohngeld|wohngeld|pomoć za kiriju)\b/gi, "/formulari/wohngeld"],
-  [/\b(BAföG|bafög|stipendija)\b/gi, "/formulari/bafog"],
-  [/\b(Führungszeugnis|führungszeugnis|potvrda o nekažnjavanju)\b/gi, "/formulari/fuhrungszeugnis"],
+  [/\b(BAföG|bafög|stipendija)\b/gi, "/formulari/bafoeg"],
+  [/\b(Führungszeugnis|führungszeugnis|potvrda o nekažnjavanju)\b/gi, "/formulari/fuehrungszeugnis"],
   [/\b(Steuerklassenwechsel|steuerklassenwechsel|Steuerklasse|steuerklasse|porezna klasa)\b/gi, "/formulari/steuerklassenwechsel"],
+  [/\b(Sozialhilfe|socijalna pomoć)\b/gi, "/formulari/grundsicherung"],
   // VIZA NAVIGATOR (državljanstvo, Staatsangehörigkeit, vize, ulazak)
   [/\b(Staatsangehörigkeit|staatsangehorigkeit|državljanstvo|drzavljanstvo|dvojno državljanstvo|dvojno drzavljanstvo|državljanin|drzavljanin|naturalizacija|Einbürgerung|einburgerung)\b/gi, "/viza"],
   [/\b(viza za Njemačku|viza za njemacku|koja viza|vizni režim|vizni rezim|Visum|visum|nacionalna viza)\b/gi, "/viza"],
@@ -171,21 +139,7 @@ const KEYWORD_LINKS: [RegExp, string][] = [
 ];
 
 function autoLinkKeywords(text: string): string {
-  let result = text;
-  const linked = new Set<string>();
-  for (const [regex, url] of KEYWORD_LINKS) {
-    result = result.replace(regex, (match) => {
-      // Only link each keyword once per message to avoid clutter
-      if (linked.has(url)) return match;
-      // Don't link if already inside a markdown link
-      const idx = result.indexOf(match);
-      const before = result.slice(Math.max(0, idx - 2), idx);
-      if (before.includes("[") || before.includes("(")) return match;
-      linked.add(url);
-      return `[${match}](${url})`;
-    });
-  }
-  return result;
+  return autoLinkAssistantText(text, KEYWORD_LINKS);
 }
 
 // ── Markdown renderer ──
@@ -219,16 +173,17 @@ const ChatMarkdown = React.memo(function ChatMarkdown({ content }: { content: st
 
 // ── Action buttons ──
 function ResponseActions({ msg }: { msg: Msg }) {
+  const { t } = useTranslation("common");
   const actions: { label: string; to: string; icon: typeof BookOpen; primary?: boolean }[] = [];
-  if (msg.redirectUrl && msg.redirectLabel) {
+  if (msg.redirectUrl && msg.redirectLabel && isValidRoute(msg.redirectUrl)) {
     actions.push({ label: msg.redirectLabel, to: msg.redirectUrl, icon: ExternalLink, primary: true });
   }
-  if (msg.guideSlug && VALID_GUIDE_SLUGS.has(msg.guideSlug)) {
-    actions.push({ label: "Otvori Smart Guide", to: `/formulari/${msg.guideSlug}`, icon: BookOpen, primary: true });
+  if (msg.guideSlug && ASSISTANT_GUIDE_SLUGS.has(msg.guideSlug)) {
+    actions.push({ label: t("assistantGuides.open"), to: assistantGuideRoute(msg.guideSlug), icon: BookOpen, primary: true });
   }
-  if (msg.formSlugs?.length) {
+  if (msg.formSlugs?.length && ASSISTANT_GUIDE_SLUGS.has(msg.formSlugs[0])) {
     const fp = `/formulari/${msg.formSlugs[0]}`;
-    if (!actions.some(a => a.to === fp)) actions.push({ label: "Otvori formular", to: fp, icon: ExternalLink });
+    if (!actions.some(a => a.to === fp)) actions.push({ label: t("assistantGuides.open"), to: fp, icon: ExternalLink });
   }
   if (msg.siteTopics) {
     for (const t of msg.siteTopics) {
@@ -859,7 +814,8 @@ export default function ChatAssistant() {
     let headerSiteTopics: SiteTopicAction[] = [];
     if (headerSiteTopicsRaw) { try { headerSiteTopics = JSON.parse(headerSiteTopicsRaw); } catch {} }
 
-    const reader = resp.body!.getReader();
+    if (!resp.body) return;
+    const reader = resp.body.getReader();
     const decoder = new TextDecoder();
     let textBuffer = "";
 

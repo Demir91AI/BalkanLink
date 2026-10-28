@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { reserveUsage, commitUsage, releaseUsage, meterStream, assistantGate, type Reservation } from "../_shared/usage.ts";
+import { ASSISTANT_CATALOG as FORM_CATALOG, detectAssistantGuide, assistantGuideRoute, resolveSourceGuide, buildSourceGuideReply, guideRedirectReply, guideReplyStream } from "./guide-context.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const corsHeaders = {
@@ -14,34 +15,6 @@ const LANG_NAMES: Record<string, string> = {
 };
 
 // ── FORM CATALOG ──
-
-const FORM_CATALOG: { slug: string; label: string; desc: string }[] = [
-  { slug: "anmeldung", label: "Anmeldung", desc: "Prijava adrese stanovanja." },
-  { slug: "steuerklassenwechsel", label: "Steuer-ID", desc: "Poreski ID." },
-  { slug: "familienversicherung", label: "Krankenkasse", desc: "Zdravstveno osiguranje." },
-  { slug: "kindergeld", label: "Kindergeld", desc: "Pomoć za djecu." },
-  { slug: "elterngeld", label: "Elterngeld", desc: "Naknada za roditelje." },
-  { slug: "mutterschaftsgeld", label: "Mutterschaftsgeld", desc: "Naknada za porod." },
-  { slug: "kinderzuschlag", label: "Kinderzuschlag", desc: "Dodatak za djecu." },
-  { slug: "kita-zuschuss", label: "Kita-Zuschuss", desc: "Troškovi vrtića." },
-  { slug: "krippengeld-bayern", label: "Krippengeld", desc: "Jaslice (Bavaria)." },
-  { slug: "unterhaltsvorschuss", label: "Unterhaltsvorschuss", desc: "Alimentacija." },
-  { slug: "buergergeld", label: "Bürgergeld", desc: "Osnovna pomoć." },
-  { slug: "wohngeld", label: "Wohngeld", desc: "Pomoć za stan." },
-  { slug: "sozialhilfe", label: "Sozialhilfe", desc: "Socijalna pomoć." },
-  { slug: "bildung-teilhabe", label: "Bildung und Teilhabe", desc: "Školski troškovi." },
-  { slug: "arbeitslosengeld", label: "Arbeitslosengeld I", desc: "Naknada nezaposlenima." },
-  { slug: "kurzarbeitergeld", label: "Kurzarbeitergeld", desc: "Skraćeni rad." },
-  { slug: "krankengeld", label: "Krankengeld", desc: "Naknada pri bolesti." },
-  { slug: "bildungsgutschein", label: "Bildungsgutschein", desc: "Vaučer za edukaciju." },
-  { slug: "bafoeg", label: "BAföG", desc: "Pomoć za studij." },
-  { slug: "integrationskurs", label: "Integrationskurs", desc: "Kurs njemačkog." },
-  { slug: "lernfoerderung", label: "Lernförderung", desc: "Dopunska nastava." },
-  { slug: "wbs", label: "WBS", desc: "Socijalni stanovi." },
-  { slug: "heizkostenzuschuss", label: "Heizkostenzuschuss", desc: "Grijanje." },
-  { slug: "fuehrungszeugnis", label: "Führungszeugnis", desc: "Nekažnjavanje." },
-  { slug: "kirchenaustritt", label: "Kirchenaustritt", desc: "Odjava iz crkve." },
-];
 
 function buildFormCatalogContext(): string {
   return FORM_CATALOG.map(f => `- ${f.label} (slug: ${f.slug}): ${f.desc}`).join("\n");
@@ -100,7 +73,7 @@ const SITE_TOPIC_MAP: Record<string, SiteTopic> = {
   "prvi koraci": { url: "/dolazak/prvi-koraci", label: "Prvi koraci", category: "arrival" },
   "prijava adrese": { url: "/dolazak/prijava-prebivalista", label: "Anmeldung", category: "arrival" },
   "prijava prebivalista": { url: "/dolazak/prijava-prebivalista", label: "Anmeldung", category: "arrival" },
-  "anmeldung": { url: "/dolazak/prijava-prebivalista", label: "Anmeldung", category: "arrival" },
+  "anmeldung": { url: "/formulari/anmeldung", label: "Anmeldung", category: "arrival" },
   "zdravstveno": { url: "/dolazak/zdravstveno-osiguranje", label: "Zdravstveno", category: "arrival" },
   "krankenkasse": { url: "/dolazak/zdravstveno-osiguranje", label: "Krankenkasse", category: "arrival" },
   "bankovni": { url: "/dolazak/bankovni-racun", label: "Bankovni račun", category: "arrival" },
@@ -455,42 +428,11 @@ function formatDbResults(results: any[]): string {
 
 // ── GUIDE SLUG MAPPING ──
 
-const TOPIC_GUIDE_MAP: Record<string, string> = {
-  kindergeld: "kindergeld", kinderzuschlag: "kinderzuschlag", elterngeld: "elterngeld",
-  mutterschutz: "mutterschaftsgeld", mutterschaftsgeld: "mutterschaftsgeld",
-  unterhalt: "unterhaltsvorschuss", bürgergeld: "buergergeld", burgergeld: "buergergeld",
-  wohngeld: "wohngeld", bafög: "bafoeg", bafoeg: "bafoeg", sozialhilfe: "sozialhilfe",
-  krankengeld: "krankengeld", führungszeugnis: "fuehrungszeugnis",
-  anmeldung: "anmeldung", wbs: "wbs", arbeitslosengeld: "arbeitslosengeld",
-  kurzarbeitergeld: "kurzarbeitergeld", bildungsgutschein: "bildungsgutschein",
-  integrationskurs: "integrationskurs", kirchenaustritt: "kirchenaustritt",
-  heizkostenzuschuss: "heizkostenzuschuss",
-  steuerklasse: "steuerklassenwechsel", krankenkasse: "familienversicherung",
-};
+const detectGuideSlug = detectAssistantGuide;
 
-function detectGuideSlug(text: string): string | null {
-  const lower = text.toLowerCase();
-  for (const [keyword, slug] of Object.entries(TOPIC_GUIDE_MAP)) {
-    if (lower.includes(keyword)) return slug;
-  }
-  return null;
-}
-
-function detectFormFromCatalog(text: string): typeof FORM_CATALOG[0] | null {
-  const lower = text.toLowerCase();
-  for (const form of FORM_CATALOG) {
-    if (lower.includes(form.slug) || lower.includes(form.label.toLowerCase())) return form;
-  }
-  const aliases: Record<string, string> = {
-    "dječji dodatak": "kindergeld", "djecji dodatak": "kindergeld",
-    "prijava adrese": "anmeldung", "roditeljski novac": "elterngeld",
-    "socijalna pomoć": "sozialhilfe", "pomoć za stan": "wohngeld",
-    "alimentacija": "unterhaltsvorschuss",
-  };
-  for (const [alias, slug] of Object.entries(aliases)) {
-    if (lower.includes(alias)) return FORM_CATALOG.find(f => f.slug === slug) || null;
-  }
-  return null;
+function detectFormFromCatalog(text: string): typeof FORM_CATALOG[number] | null {
+  const slug = detectGuideSlug(text);
+  return FORM_CATALOG.find(form => form.slug === slug) ?? null;
 }
 
 // ══════════════════════════════════════════════════
@@ -631,7 +573,7 @@ HR, SI: Članice EU — slobodno kretanje, ne treba viza za rad.
 
 SOCIJALNE NAKNADE (aktualni iznosi 2025):
 - Bürgergeld: 563€/mj. za samce (od Jan 2025)
-- Kindergeld: 255€/mj. po djetetu
+- Kindergeld: koristi postojeći provjereni SmartGuide; iznos i pravo nisu potvrđeni ovim promptom.
 - Kinderzuschlag: max. 292€/mj. po djetetu
 - Wohngeld: ovisi o prihodu, broju članova, stanarini
 - BAföG: max. 992€/mj. (od WS 2024/25)
@@ -681,11 +623,8 @@ POREZ:
   Steuernummer se može mijenjati)
 
 ANMELDUNG (Prijava boravišta):
-- Obavezno u roku 14 dana od useljenja
-- Potrebno: Wohnungsgeberbestätigung (potvrda stanodavca)
-- Na Bürgeramt/Einwohnermeldeamt
-- Dobija se: Anmeldebestätigung — potrebna za sve ostalo
-  (banka, BAMF, Finanzamt itd.)
+- Koristi postojeći /formulari/anmeldung i lokalnu Meldebehörde. Regionalni primjer nije nacionalni obrazac.
+- Detalje uzimaj iz provjerenog vodiča; ovaj prompt nije aktuelna provjera lokalnih uslova.
 
 ŠKOLA I OBRAZOVANJE:
 - Školska obaveza za svu djecu odmah po dolasku
@@ -754,10 +693,10 @@ Anmeldung → [Anmeldung vodič](/formulari/anmeldung)
 Steuer-ID → [Steuer-ID vodič](/formulari/steuer-id)
 Elterngeld → [Elterngeld vodič](/formulari/elterngeld)
 Krankenkasse → [Krankenkasse vodič](/formulari/krankenkasse)
-Bürgergeld → [Bürgergeld vodič](/formulari/burgergeld)
+Bürgergeld → [Bürgergeld vodič](/formulari/hauptantrag)
 Wohngeld → [Wohngeld vodič](/formulari/wohngeld)
-BAföG → [BAföG vodič](/formulari/bafog)
-Führungszeugnis → [Führungszeugnis vodič](/formulari/fuhrungszeugnis)
+BAföG → [BAföG vodič](/formulari/bafoeg)
+Führungszeugnis → [Führungszeugnis vodič](/formulari/fuehrungszeugnis)
 Steuerklassenwechsel → [Steuerklasse vodič](/formulari/steuerklassenwechsel)
 Viza / Aufenthaltstitel → [Visa Navigator](/viza)
 BalkanLink Deutsch → [BalkanLink Deutsch](/deutsch-trainer)
@@ -856,17 +795,12 @@ FORMULARI — tačni podaci
 ═══════════════════════════════════════
 
 KINDERGELD:
-- Ko može: roditelji s prebivalištem u Njemačkoj, djeca do 18 (do 25 uz školovanje)
-- Iznos: 255€ po djetetu/mj
-- Gdje: Familienkasse
-- Potrebno: Steuer-ID roditelja + djeteta, rodni list, Meldebescheinigung, IBAN
-- Rok: retroaktivno samo 6 mj unazad
+- /formulari/kindergeld je postojeći vodič za novorođenče. Koristi provjerene korake, datume i BA izvore iz adaptera.
+- O pravu odlučuje Familienkasse. Ne dodaj iznose, rokove ili univerzalne obavezne priloge iz memorije.
+- Punoljetni i prekogranični slučajevi nisu uobičajena prijava novorođenčeta; uputi na posebne službene upute u vodiču.
 
 ANMELDUNG:
-- Rok: 14 dana od useljenja, kazna do 1.000€
-- Gdje: Bürgeramt / Einwohnermeldeamt
-- Potrebno: pasoš + Wohnungsgeberbestätigung od stanodavca
-- Rezultat: Meldebescheinigung — najvažniji dokument
+- /formulari/anmeldung: koristi lokalno kvalifikovane korake i datume iz adaptera; ne izmišljaj jedinstvena polja ili obradu.
 
 STEUER-ID:
 - 11-cifreni broj, doživotno isti
@@ -1013,7 +947,7 @@ Ti NISI besplatni ekspert koji zamjenjuje plaćene BalkanLink alate.
 Ti daješ osnovu i kontekst, ali za duboku pomoć upućuješ na alat.
 
 PREMIUM ALATI (zabranjeno davati punu vrijednost besplatno):
-1. Smart Guide / Formulari — korak-po-korak popunjavanje formulara
+1. Smart Guide / Formulari — korak-po-korak postupak i objašnjenja
 2. Dokumentencheck — analiza i tumačenje dokumenata
 3. Visa Navigator — personalizirani vizni vodič
 4. BalkanLink Deutsch — strukturirano učenje njemačkog
@@ -1151,9 +1085,9 @@ const PREMIUM_DEPTH_MSG: Record<string, { text: string; redirect: string; label:
 };
 
 const SMART_GUIDE_MSG: Record<string, { text: string; label: string }> = {
-  bs: { text: "Za detaljno popunjavanje formulara koristi Smart Guide — interaktivni vodič korak po korak.", label: "Otvori Smart Guide" },
-  de: { text: "Für das detaillierte Ausfüllen nutzen Sie unseren Smart Guide.", label: "Smart Guide öffnen" },
-  en: { text: "For detailed form filling, use our Smart Guide — step-by-step.", label: "Open Smart Guide" },
+  bs: { text: "Za postupak i objašnjenja koristi postojeći SmartGuide. Zahtjev predaješ službenom uredu, ne BalkanLinku.", label: "Otvori Smart Guide" },
+  de: { text: "Für das Verfahren und Erläuterungen nutzen Sie den bestehenden SmartGuide; den Antrag bei der Behörde einreichen.", label: "Smart Guide öffnen" },
+  en: { text: "For the procedure and explanations, use the existing SmartGuide; submit to the authority yourself.", label: "Open Smart Guide" },
 };
 
 const JOB_SEARCH_MSG: Record<string, { text: string; label: string }> = {
@@ -1264,7 +1198,7 @@ function buildContextualPremiumRedirect(userText: string, lang: string): { text:
       ? "Für eine Schritt-für-Schritt-Anleitung nutze den Smart Guide."
       : l === "en"
       ? "For step-by-step guidance, use the Smart Guide."
-      : `Mogu ti objasniti osnovu, ali za tačno popunjavanje i konkretne korake koristi [Smart Guide](${guidePath}) — tamo ideš korak po korak bez lutanja.`,
+      : `Mogu ti objasniti osnovu, ali za objašnjenja i konkretne korake koristi [Smart Guide](${guidePath}) — tamo ideš korak po korak bez lutanja.`,
     redirectUrl: guidePath,
     redirectLabel: l === "de" ? "Smart Guide öffnen" : l === "en" ? "Open Smart Guide" : "Otvori Smart Guide",
   };
@@ -1280,20 +1214,6 @@ type PageSource = { topic: string; sources: string[] };
 
 const PAGE_OFFICIAL_SOURCES: { match: RegExp; data: PageSource }[] = [
   // ── Formulari (Smart Guides) ──
-  { match: /\/formulari\/anmeldung/i, data: { topic: "Anmeldung (prijava prebivališta)",
-    sources: [
-      "service.berlin.de/dienstleistung/120335/ — Berlin Anmeldung",
-      "muenchen.de/rathaus/wohnen/anmeldung — München Anmeldung",
-      "Bundesmeldegesetz §17 (rok 14 dana, kazna do 1.000€)",
-      "Wohnungsgeberbestätigung — obavezna potvrda stanodavca (§19 BMG)",
-    ]}},
-  { match: /\/formulari\/kindergeld/i, data: { topic: "Kindergeld",
-    sources: [
-      "arbeitsagentur.de/familie-und-kinder/kindergeld",
-      "familienkasse.de — online zahtjev (KG1 + KG1-Anlage Kind)",
-      "Stand 2026: 255€/mjesečno po djetetu",
-      "Retroaktivno max 6 mjeseci unazad (§70 EStG)",
-    ]}},
   { match: /\/formulari\/elterngeld/i, data: { topic: "Elterngeld",
     sources: [
       "familienportal.de/elterngeld",
@@ -1307,12 +1227,6 @@ const PAGE_OFFICIAL_SOURCES: { match: RegExp; data: PageSource }[] = [
       "Stand 2026: 563€/mj. samac + Miete + Heizung",
       "SGB II — Sozialgesetzbuch II",
       "Zahtjev se predaje u nadležni Jobcenter (po Anmeldung adresi)",
-    ]}},
-  { match: /\/formulari\/wohngeld/i, data: { topic: "Wohngeld",
-    sources: [
-      "bmwsb.bund.de/wohngeld — savezni info portal",
-      "Wohngeldgesetz (WoGG)",
-      "Zahtjev se predaje u Wohngeldstelle nadležne općine",
     ]}},
   { match: /\/formulari\/bafoeg/i, data: { topic: "BAföG",
     sources: [
@@ -1537,7 +1451,7 @@ serve(async (req) => {
     // Fair-use metering happens right before the AI call (only real AI replies are counted).
 
     const { messages, language, currentPage } = await req.json();
-    const pageContext = buildEnrichedPageContext(currentPage || "");
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
@@ -1545,7 +1459,11 @@ serve(async (req) => {
     const userText = typeof lastUserMsg?.content === "string" ? lastUserMsg.content : 
       Array.isArray(lastUserMsg?.content) ? lastUserMsg.content.find((c: any) => c.type === "text")?.text || "" : "";
 
-    // Default to BS — system prompt forces BS replies regardless. EN only if explicitly "en".
+    const sourceGuide = resolveSourceGuide(userText, currentPage || "");
+    // A recognized question wins over an unrelated page. URLs alone are not verified facts.
+    const pageContext = sourceGuide ? "" : buildEnrichedPageContext(currentPage || "");
+
+    // Keep the existing general-chat language policy; sourced steps support all four locales.
     const lang = language === "de" ? "de" : language === "en" ? "en" : "bs";
 
     // ── SAFETY CHECK (highest priority) ──
@@ -1597,10 +1515,10 @@ serve(async (req) => {
     // Smart Guide redirect
     if (intent === "SMART_GUIDE_REDIRECT" && !isPremium) {
       const sg = SMART_GUIDE_MSG[lang] || SMART_GUIDE_MSG["bs"];
-      const slug = guideSlug || detectedForm?.slug || "kindergeld";
-      const link = `/formulari/${slug}`;
+      const slug = guideSlug || detectedForm?.slug || null;
+      const link = assistantGuideRoute(slug);
       return new Response(
-        JSON.stringify({ smart_guide_redirect: true, content: `${sg.text}\n\n👉 [${sg.label}](${link})`, guideSlug: slug, detectedForm }),
+        JSON.stringify({ smart_guide_redirect: true, content: sourceGuide ? buildSourceGuideReply(sourceGuide, language, true) : slug ? `${sg.text}\n\n👉 [${sg.label}](${link})` : guideRedirectReply(language), guideSlug: slug, detectedForm }),
         { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -1612,7 +1530,7 @@ serve(async (req) => {
       return new Response(
         JSON.stringify({
           premium_required: true,
-          content: redirect.text,
+          content: sourceGuide ? buildSourceGuideReply(sourceGuide, language, true) : redirect.text,
           redirect_url: redirect.redirectUrl,
           redirect_label: redirect.redirectLabel,
           guideSlug,
@@ -1640,7 +1558,16 @@ serve(async (req) => {
         { status: gate.status, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
     if (reservation.mode === "basic") isPremium = false;
-    const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext);
+    if (sourceGuide) {
+      // Existing access/gate/reservation/settlement stay authoritative; no model invents guide steps.
+      const content = buildSourceGuideReply(sourceGuide, language);
+      const stream = meterStream(guideReplyStream(content), () => commitUsage(admin, reservation), () => releaseUsage(admin, reservation));
+      return new Response(stream, { headers: { ...corsHeaders, "Content-Type": "text/event-stream",
+        "Access-Control-Expose-Headers": "X-Guide-Slug, X-Usage-Mode",
+        "X-Guide-Slug": sourceGuide, "X-Usage-Mode": reservation.mode ?? "full" } });
+    }
+    const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext) + `
+INTERNAL GUIDE ACCURACY: Use only catalog slugs from the supplied catalog. Never invent a /formulari/ slug or default an unknown topic to Kindergeld. No source-backed guide was resolved for this question. Do not claim you checked a guide/source live. For unknown procedures say what is unknown; unrelated page context is not proof. Do not promise PDF filling, submission or eligibility.`;
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
