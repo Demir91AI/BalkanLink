@@ -22,6 +22,11 @@ import LockedContentOverlay from "./LockedContentOverlay";
 import StageCard from "./StageCard";
 import SprachassistentSection from "./SprachassistentSection";
 import SectionHeader from "@/components/navigation/SectionHeader";
+import CoreLessonView from "./core/CoreLessonView";
+import PilotLessonView from "./pilot/PilotLessonView";
+import { buildCorePlan } from "@/lib/trainer/core/core-plan";
+import { getStandardizedFor } from "@/lib/trainer/core/authored-lessons";
+import { useLearningState } from "@/hooks/useLearningState";
 
 // ─── KONSTANTE ───────────────────────────────────
 const EXERCISES_PER_STAGE = 500;
@@ -46,12 +51,15 @@ interface Props {
   stage?: number | null;
   /** Called when stage changes — parent should sync URL */
   onStageChange?: (stage: number | null) => void;
+  /** Core 10–15 min lesson open (URL `core=1`) */
+  core?: boolean;
+  onCoreChange?: (open: boolean) => void;
 }
 
 // In-progress mid-lesson resume logic intentionally removed.
 // Only completed lessons persist (via useTrainerProgress).
 
-export default function TrainerLesson({ lesson, onBack, stage: controlledStage, onStageChange }: Props) {
+export default function TrainerLesson({ lesson, onBack, stage: controlledStage, onStageChange, core = false, onCoreChange }: Props) {
   const { t } = useTranslation("pages");
   const navigate = useNavigate();
   const STAGE_LABELS = STAGE_LABEL_KEYS.map(k => t(`deutschTrainer.stages.${k}`)) as readonly string[];
@@ -78,6 +86,12 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
   const { generate, error: aiError } = useGeneratedExercises();
 
   const maxExercises = isPremium ? EXERCISES_PER_STAGE : FREE_EXERCISES_PER_STAGE;
+  const plan = useMemo(() => buildCorePlan(lesson), [lesson]);
+  const standardized = useMemo(() => getStandardizedFor(lesson.id), [lesson.id]);
+  const { state: learning } = useLearningState();
+  const [coreOpenLocal, setCoreOpenLocal] = useState(false);
+  const coreOpen = onCoreChange ? core : coreOpenLocal;
+  const setCoreOpen = (v: boolean) => (onCoreChange ? onCoreChange(v) : setCoreOpenLocal(v));
 
   // ─── Učitaj exercises za odabrani stage ──────────
   useEffect(() => {
@@ -238,6 +252,13 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
     return crumbs;
   };
 
+  // ── CORE LESSON (10–15 min) ──
+  if (selectedStage === null && coreOpen) {
+    return standardized
+      ? <PilotLessonView key={standardized.id} lesson={standardized} onBack={() => setCoreOpen(false)} />
+      : <CoreLessonView key={lesson.id} lesson={lesson} plan={plan} onBack={() => setCoreOpen(false)} onExtra={() => setCoreOpen(false)} />;
+  }
+
   // ── STAGE PICKER ──
   if (selectedStage === null) {
     return (
@@ -255,7 +276,25 @@ export default function TrainerLesson({ lesson, onBack, stage: controlledStage, 
             icon={<span className="text-2xl">{lesson.icon}</span>}
           />
 
-          {/* Stage cards */}
+          {/* Core lesson */}
+          <section aria-labelledby="core-card-title" className="mb-8 max-w-2xl rounded-2xl border border-gold/30 bg-white/[0.04] p-5">
+            <p className="text-xs font-bold text-gold">{lesson.level} · {t("deutschTrainer.core.minutes")}</p>
+            <h2 id="core-card-title" className="mt-1 text-lg font-bold text-white">{t("deutschTrainer.core.coreTitle")}</h2>
+            <p className="mt-1 text-sm text-white/75">{t("deutschTrainer.core.coreIntro")}</p>
+            <p className={`mt-3 rounded-lg border p-2.5 text-xs leading-relaxed ${standardized ? "border-emerald-300/30 bg-emerald-400/[0.06] text-emerald-100" : "border-amber-300/25 bg-amber-400/[0.06] text-amber-100"}`}>
+              {standardized ? t("deutschTrainer.core.statusStandardized") : t("deutschTrainer.core.statusLegacy")}
+            </p>
+            <Button className="mt-4 min-h-11 w-full sm:w-auto" onClick={() => setCoreOpen(true)}>
+              {!standardized && learning.resume[lesson.id]
+                ? t("deutschTrainer.core.continue", { i: learning.resume[lesson.id].step + 1, n: plan.practice.length + plan.checkpoint.length })
+                : t("deutschTrainer.core.start")}
+            </Button>
+          </section>
+
+          <h2 className="mb-1 text-base font-bold text-white">{t("deutschTrainer.core.extraTitle")}</h2>
+          <p className="mb-4 max-w-2xl text-sm text-white/65">{t("deutschTrainer.core.extraIntro")}</p>
+
+          {/* Stage cards (optional extra practice — unchanged permissions) */}
           <div className="mb-8 flex flex-col gap-3 max-w-2xl">
             {STAGE_LABELS.map((label, idx) => (
               <StageCard

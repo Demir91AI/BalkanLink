@@ -48,7 +48,7 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
     if (!isReview) { if (ok) setFirstTry((n) => n + 1); else setMissed((m) => [...m, ex.id]); }
   };
   const next = () => {
-    if (idx + 1 >= queue.length) { completeLesson(lesson.id); setPhase("done"); return; }
+    if (idx + 1 >= queue.length) { completeLesson(lesson.id); if (lesson.legacyId) completeLesson(lesson.legacyId); setPhase("done"); return; }
     setIdx(idx + 1); reset();
   };
   const restart = () => { setMissed([]); setIdx(0); setFirstTry(0); reset(); setPhase("learn"); };
@@ -64,7 +64,7 @@ export default function PilotLessonView({ lesson, onBack }: { lesson: PilotLesso
           <ArrowLeft className="h-4 w-4" /> {p("back")}
         </button>
         <header>
-          <p className="text-xs font-bold text-gold">A1 · {p("minutes", { n: lesson.minutes })}</p>
+          <p className="text-xs font-bold text-gold">{lesson.level} · {p("minutes", { n: lesson.minutes })}</p>
           <h1 className="mt-1 text-2xl font-black text-white sm:text-3xl">{lesson.icon} {lesson.titleDe}</h1>
           {loc !== "de" && <p className="text-white/70">{lesson.title[loc]}</p>}
           <p className="mt-3 text-sm leading-relaxed text-white/75">{lesson.scenario[loc]}</p>
