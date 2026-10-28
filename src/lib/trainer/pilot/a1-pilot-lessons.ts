@@ -15,7 +15,9 @@ export type PilotExercise =
   | { id: string; kind: "order"; words: string[]; answer: string; hint: L; explain: L };
 
 export interface PilotLesson {
-  id: string; level: "A1"; icon: string; minutes: number;
+  id: string; level: "A1" | "A2" | "B1" | "B2" | "C1" | "C2"; icon: string; minutes: number;
+  /** Legacy course lesson this authored core content standardizes (keeps IDs/progress). */
+  legacyId?: string;
   titleDe: string; title: L; scenario: L; objectives: L[];
   vocab: PilotVocab[]; dialogue: PilotLine[];
   grammar: { title: L; body: L; examples: { de: string; tr: L }[] };
@@ -23,6 +25,7 @@ export interface PilotLesson {
 }
 
 const introduce: PilotLesson = {
+  legacyId: "a1-03",
   id: "a1-pilot-01", level: "A1", icon: "👋", minutes: 12,
   titleDe: "Sich vorstellen",
   title: l("Predstaviti se", "Predstaviti se", "Predstaviti se", "Sich vorstellen"),
@@ -115,6 +118,7 @@ const introduce: PilotLesson = {
 };
 
 const flat: PilotLesson = {
+  legacyId: "a1-04",
   id: "a1-pilot-02", level: "A1", icon: "🏠", minutes: 14,
   titleDe: "Eine Wohnung besichtigen",
   title: l("Razgledanje stana", "Razgledavanje stana", "Razgledanje stana", "Eine Wohnung besichtigen"),
