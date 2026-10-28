@@ -5709,7 +5709,7 @@
   "grundsicherungCompanions": {
     "ui": {
       "heading": "Grundsicherungsgeld (ranije Bürgergeld)",
-      "reference": "Mjesto u službenom obrascu",
+      "reference": "Mesto u službenom obrascu",
       "navigator": {
         "title": "Koji obrazac prvo pogledati?",
         "intro": "Kratka orijentacija, bez imena, iznosa ili dokumenata. Odgovori ostaju samo na ovoj stranici i nestaju kada je napustiš. Jobcenter određuje konačne priloge; ovo nije procena prava.",
@@ -5842,7 +5842,7 @@
             "german": "Dieser Abschnitt wird durch Mitarbeitende des Jobcenters ausgefüllt: Tag der Antragstellung, Kundennummer, BG-Nummer, Dienststelle, Team",
             "meaning": "Službeni deo za zaposlene",
             "instruction": "Ovaj deo ostavite prazan. Ispunjava ga isključivo osoblje Jobcentra prilikom prijema zahteva. Oni će tu upisati datum podnošenja, vaš broj klijenta (Kundennummer) i broj zajednice (BG-Nummer) ako ih već imate, te podatke o nadležnoj ispostavi i timu.",
-            "where": "Gornji deo prve stranice glavnog zahteva (Hauptantrag).",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Službenik upisuje '01.05.2024' kao datum prijema.",
             "mistake": "Upisivanje vlastitih podataka u ova polja umesto ostavljanja prostora službeniku."
           },
@@ -5852,7 +5852,7 @@
             "german": "1 Vorname · 2 Nachname · 3 Geburtsdatum (TT.MM.JJJJ) · 4 Geburtsname/früherer Name · 5 Geburtsort · 6 Geburtsland · 7 Staatsangehörigkeit",
             "meaning": "Osnovni lični podaci podnosioca",
             "instruction": "U polje 1 unesite ime, u polje 2 prezime. U polje 3 unesite datum rođenja u formatu dan.mesec.godina. U polje 4 unesite devojačko prezime ili prethodna imena ako ste ih menjali. U polja 5, 6 i 7 unesite grad rođenja, državu rođenja i vaše trenutno državljanstvo.",
-            "where": "Odeljak A, prva strana zahteva.",
+            "where": "Prepiši podatke iz lične karte/pasoša; za adresu proveri aktuelnu prijavu ili poštansku adresu. Ne izmišljaj podatak koji ne znaš.",
             "example": "1: Marko, 2: Petrović, 3: 15.06.1985, 4: -, 5: Sarajevo, 6: BiH, 7: Serbisch.",
             "mistake": "Unos trenutnog prezimena u polje za Geburtsname (rođeno prezime) iako nije bilo promene."
           },
@@ -5880,7 +5880,7 @@
             ],
             "meaning": "Pol podnosioca",
             "instruction": "Označite krstićem (X) samo jednu od ponuđenih opcija koja odgovara vašem pravnom statusu u dokumentima.",
-            "where": "Odeljak A, polje 8.",
+            "where": "Prepiši podatke iz lične karte/pasoša; za adresu proveri aktuelnu prijavu ili poštansku adresu. Ne izmišljaj podatak koji ne znaš.",
             "example": "Označeno 'Männlich' za muškarca.",
             "mistake": "Označavanje više opcija istovremeno."
           },
@@ -5890,7 +5890,7 @@
             "german": "9 Straße · 10 Hausnummer · 11 Postleitzahl · 12 Wohnort · 13 Postfachanschrift · 14 Telefon (freiwillige Angabe für Rückfragen)",
             "meaning": "Adresa i kontakt podaci",
             "instruction": "Unesite ulicu (9) i broj (10), poštanski broj (11) i grad (12). Polje 13 popunite samo ako koristite poštanski pregradak. Polje 14 (telefon) je dobrovoljno, ali olakšava brzu komunikaciju.",
-            "where": "Odeljak A, sredina prve stranice.",
+            "where": "Prepiši podatke iz lične karte/pasoša; za adresu proveri aktuelnu prijavu ili poštansku adresu. Ne izmišljaj podatak koji ne znaš.",
             "example": "9: Musterstraße, 10: 12a, 11: 10115, 12: Berlin.",
             "mistake": "Izostavljanje broja stana ili ulaza ako je on deo zvanične adrese."
           },
@@ -5910,7 +5910,7 @@
             ],
             "meaning": "Status stanovanja",
             "instruction": "U polju 15 izjasnite se da li ste bez stalnog prebivališta (beskućnik). Ako ste označili 'Ja', u polje 16 upišite ime osobe ili ustanove kod koje trenutno boravite.",
-            "where": "Odeljak A, dno prve stranice.",
+            "where": "Koristi stvarnu sadašnju situaciju; datume i odnose proveri u matičnim dokumentima, rešenju o razvodu ili drugim postojećim dokazima koji se odnose na tebe.",
             "example": "15: Ja, 16: Obdachlosenhilfe Berlin, Beispielland-Str. 5.",
             "mistake": "Označavanje 'Ja' iako imate regularan najamni ugovor za stan."
           },
@@ -5920,7 +5920,7 @@
             "german": "17 Kontoinhaberin/Kontoinhaber · 18 IBAN (22-stellig) · 19 Wenn Sie keine Bankverbindung angeben können, teilen Sie dem Jobcenter mit, weshalb Sie kein Basiskonto eröffnen können.",
             "meaning": "Podaci o bankovnom računu",
             "instruction": "U 17 upiši ime vlasnika računa. U 18 prepiši ceo IBAN, uključujući slova. Obrazac prikazuje 22-stellig; ako se format tvog računa razlikuje, zatraži pojašnjenje Jobcentera, ne menjaj broj. Ako nemaš račun, u 19 objasni zašto ne možeš otvoriti Basiskonto.",
-            "where": "Odeljak A, vrh druge stranice.",
+            "where": "Ceo IBAN i ime vlasnika pronađi u bankovnoj aplikaciji, izvodu ili potvrdi banke. Ako nemaš račun, objasni svoju situaciju Jobcenteru.",
             "example": "17: Marko Petrović, 18: DE12 3456 7890 1234 5678 90.",
             "mistake": "Pogrešno prepisan IBAN broj, što onemogućava isplatu sredstava."
           },
@@ -5944,7 +5944,7 @@
             ],
             "meaning": "Broj penzijskog ili socijalnog osiguranja",
             "instruction": "U polje 20 označite status vašeg broja socijalnog osiguranja. Ako ga imate, upišite svih 12 znakova. Ako nemate, označite 'nicht vorhanden'.",
-            "where": "Glavni zahtev (Hauptantrag), strana 2, odeljak A, tačka 20.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Fiktivni broj: 12 150780 M 005. Nalazi se na kartici socijalnog osiguranja ili pismu od Deutsche Rentenversicherung.",
             "mistake": "Unošenje poreskog broja (Steuer-ID) umesto broja socijalnog osiguranja."
           },
@@ -5954,7 +5954,7 @@
             "german": "21 (steuerliche) Identifikationsnummer",
             "meaning": "Poreski identifikacioni broj (Steuer-ID)",
             "instruction": "U polje 21 upišite svoj 11-cifreni poreski broj. Ovaj broj je trajan i ne menja se pri selidbi.",
-            "where": "Glavni zahtev (Hauptantrag), strana 2, odeljak A, tačka 21.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Broj 03 147 852 963 koji stoji na dopisu Saveznog centralnog ureda za poreze (BZSt).",
             "mistake": "Mešanje ovog broja sa običnim brojem poreske prijave (Steuernummer) koji dodeljuje lokalni Finanzamt."
           },
@@ -5974,7 +5974,7 @@
             ],
             "meaning": "Zakonski staratelj ili punomoćnik",
             "instruction": "U polju 22 označite da li imate osobu koja je sudski određena da brine o vašim poslovima. Ako označite 'Ja', obavezno priložite dokaz o zastupanju.",
-            "where": "Glavni zahtev (Hauptantrag), strana 2, odeljak A, tačka 22.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Osoba ima sudsko rešenje (Betreuerausweis) jer zbog bolesti ne može sama ispunjavati formulare.",
             "mistake": "Označavanje 'Ja' samo zato što vam prijatelj pomaže u prevodu, a da on nema zvaničnu punomoć."
           },
@@ -5994,7 +5994,7 @@
             ],
             "meaning": "Važeća boravišna dozvola",
             "instruction": "U polju 23 potvrdite da li imate dozvolu za boravak. Ako je odgovor 'Ja', kopirajte vaš pasoš i boravišnu dozvolu i priložite ih uz zahtev.",
-            "where": "Glavni zahtev (Hauptantrag), strana 2, odeljak B, tačka 23.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Boravišna dozvola izdata u svrhu zaposlenja ili spajanja porodice (Aufenthaltserlaubnis).",
             "mistake": "Zaboravljanje prilaganja kopije boravišne dozvole, što odlaže obradu zahteva."
           },
@@ -6014,7 +6014,7 @@
             ],
             "meaning": "Naknade prema zakonu o azilu i AZR broj",
             "instruction": "U polju 24 označite trenutni status primanja pomoći. Ako označite 'Ja', u polje 25 upišite datum do kojeg važi rešenje, a u polje 26 vaš broj iz centralnog registra stranaca (AZR-Nummer).",
-            "where": "Glavni zahtev (Hauptantrag), strana 2, odeljak B, tačke 24, 25 i 26.",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Osoba prelazi sa socijalne pomoći za azilante na Bürgergeld nakon dobijanja zaštite.",
             "mistake": "Ostavljanje polja 25 praznim ako ste označili 'Ja'."
           },
@@ -6034,7 +6034,7 @@
             ],
             "meaning": "Garantno pismo i matični broj iz matične zemlje",
             "instruction": "U polju 27 označite da li postoji neko ko finansijski garantuje za vas. U polje 28 upišite JMBG ili sličan identifikacioni broj iz vaše države porekla.",
-            "where": "Glavni zahtev (Hauptantrag), strana 2, odeljak B, tačke 27 i 28.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "JMBG se upisuje u polje 28 kako bi se izbegla zamena identiteta.",
             "mistake": "Prećutkivanje postojanja garantnog pisma, što se smatra kršenjem obaveze saradnje."
           },
@@ -6054,7 +6054,7 @@
             ],
             "meaning": "Početak prava na naknadu",
             "instruction": "U polju 29 označite želite li novac odmah ili kasnije. Ako želite kasnije, u polje 30 upišite tačan datum. Ako ste se doselili iz inostranstva, u polje 31 obavezno upišite datum ulaska u Nemačku.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 3, deo C.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Ako ste stigli u Nemačku 15.05.2024., u polje 31 upišite taj datum.",
             "mistake": "Ostavljanje polja 31 praznim ako ste tek doselili, što može usporiti proveru vašeg prava."
           },
@@ -6094,7 +6094,7 @@
             ],
             "meaning": "Trenutno bračno stanje",
             "instruction": "Označite jedan od ponuđenih statusa u polju 32. Ako ste razdvojeni, razvedeni ili je partnerstvo prekinuto, u polje 33 upišite datum kada se to desilo.",
-            "where": "Glavni zahtev, stranica 3, deo D.",
+            "where": "Koristi stvarnu sadašnju situaciju; datume i odnose proveri u matičnim dokumentima, rešenju o razvodu ili drugim postojećim dokazima koji se odnose na tebe.",
             "example": "Ako ste se razveli 10.02.2023., označite 'Geschieden' i u polje 33 upišite 10.02.2023.",
             "mistake": "Označavanje statusa 'Dauernd getrennt lebend' bez navođenja datuma razdvajanja u polju 33."
           },
@@ -6114,7 +6114,7 @@
             ],
             "meaning": "Radna sposobnost",
             "instruction": "34 pita da li si zdravstveno načelno sposoban/sposobna redovno raditi najmanje tri sata dnevno. To nije pitanje imaš li posao. Ako nisi siguran/sigurna, pitaj Jobcenter i lekara; ne procenjuj pravo samo iz ovog odgovora.",
-            "where": "Glavni zahtev, stranica 3, polje 34.",
+            "where": "Proveri svoju situaciju i postojeću potvrdu osiguranja, lekarsku potvrdu ili Bescheid koji se odnosi na pitanje. Ako je medicinski uslov nejasan, pitaj lekara i Jobcenter; ne postavljaj dijagnozu sam/sama.",
             "example": "Iako ste nezaposleni, ako ste fizički zdravi, trebate označiti 'Ja'.",
             "mistake": "Označavanje 'Nein' samo zato što trenutno nemate posao, a zapravo ste zdravi i možete raditi."
           },
@@ -6134,7 +6134,7 @@
             ],
             "meaning": "Samohrani roditelj",
             "instruction": "Označite 'Ja' samo ako u domaćinstvu nema drugog roditelja ili partnera koji učestvuje u brizi o detetu.",
-            "where": "Glavni zahtev, stranica 3, polje 35.",
+            "where": "Koristi stvarnu sadašnju situaciju; datume i odnose proveri u matičnim dokumentima, rešenju o razvodu ili drugim postojećim dokazima koji se odnose na tebe.",
             "example": "Ako živite sami sa sinom od 5 godina, označite 'Ja'.",
             "mistake": "Označavanje 'Ja' ukoliko živite u vanbračnoj zajednici s partnerom koji nije roditelj deteta."
           },
@@ -6154,7 +6154,7 @@
             ],
             "meaning": "Podaci o trudnoći",
             "instruction": "Ako ste trudni, označite 'Ja' u polju 36 i u polje 37 upišite očekivani termin porođaja. Ako niste u braku, popunite i prilog UH2.",
-            "where": "Glavni zahtev, stranica 3, polje 36 i 37.",
+            "where": "Proveri svoju situaciju i postojeću potvrdu osiguranja, lekarsku potvrdu ili Bescheid koji se odnosi na pitanje. Ako je medicinski uslov nejasan, pitaj lekara i Jobcenter; ne postavljaj dijagnozu sam/sama.",
             "example": "U polje 37 upišite datum iz trudničke knjižice (Mutterpass).",
             "mistake": "Navođenje trudnoće bez dostavljanja dokaza (Mutterpass ili potvrda lekara) Jobcenteru."
           },
@@ -6174,7 +6174,7 @@
             ],
             "meaning": "Mlađi od 25 godina",
             "instruction": "Ako ste mlađi od 25 godina, a jedan ili oba roditelja ne žive u vašem stanu, označite 'Ja' i popunite prilog UH3.",
-            "where": "Glavni zahtev, stranica 3, polje 38.",
+            "where": "Koristi stvarnu sadašnju situaciju; datume i odnose proveri u matičnim dokumentima, rešenju o razvodu ili drugim postojećim dokazima koji se odnose na tebe.",
             "example": "Imate 22 godine i živite sami, dok otac živi u drugom gradu – označite 'Ja'.",
             "mistake": "Označavanje 'Nein' iako imate manje od 25 godina i roditelji su razvedeni, čime se izbegava prilog UH3 koji je neophodan."
           },
@@ -6193,7 +6193,7 @@
               }
             ],
             "instruction": "U polju 39 označite svoj status. Ako ste učenik ili student, u polju 40 navedite da li imate troškove za radne sveske ili knjige. U polju 41 navedite da li živite odvojeno od roditelja radi školovanja.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 3, deo D.",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Ana studira medicinu u Beogradu, a živi u domu. Označava 'Ja' pod 39, 'Ja' pod 40 jer kupuje knjige i 'Ja' pod 41.",
             "mistake": "Zaboravljanje prilaganja potvrde o upisu (Immatrikulationsbescheinigung) ili školske potvrde."
           },
@@ -6248,7 +6248,7 @@
               }
             ],
             "instruction": "U polju 42 navedite 'Ja' ako imate bilo kakav aktivan zahtev kod druge institucije. U polju 43 stavite kvačicu pored svake naknade koja se odnosi na vas i priložite rešenja (Bescheid).",
-            "where": "Glavni zahtev (Hauptantrag), stranica 4, deo D.",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Marko je predao zahtev za penziju, ali još čeka odgovor. Označava 'Ja' u polju 42 i 'Rente' u polju 43.",
             "mistake": "Neprijavljivanje dečijeg dodatka (Kindergeld) jer se smatra da se to podrazumeva."
           },
@@ -6267,7 +6267,7 @@
               }
             ],
             "instruction": "Ako bolujete od bolesti kao što su celijakija, bubrežna insuficijencija ili slično što zahteva skuplju hranu, označite 'Ja'. Potrebna je potvrda lekara na posebnom obrascu.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 4, deo D, polje 44.",
+            "where": "Proveri svoju situaciju i postojeću potvrdu osiguranja, lekarsku potvrdu ili Bescheid koji se odnosi na pitanje. Ako je medicinski uslov nejasan, pitaj lekara i Jobcenter; ne postavljaj dijagnozu sam/sama.",
             "example": "Osoba sa celijakijom mora kupovati skuplje namirnice bez glutena. Označava 'Ja' i nosi obrazac MEB svom lekaru.",
             "mistake": "Označavanje 'Ja' bez posedovanja medicinske dokumentacije ili bez popunjavanja priloga MEB."
           },
@@ -6290,7 +6290,7 @@
               }
             ],
             "instruction": "U polju 45 navedite da li imate invaliditet. Ako imate, u polju 46 odgovorite da li primate usluge za profesionalnu rehabilitaciju ili pomoć pri zapošljavanju.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 4, deo D.",
+            "where": "Proveri svoju situaciju i postojeću potvrdu osiguranja, lekarsku potvrdu ili Bescheid koji se odnosi na pitanje. Ako je medicinski uslov nejasan, pitaj lekara i Jobcenter; ne postavljaj dijagnozu sam/sama.",
             "example": "Nikola ima stepen invaliditeta 50% i ide na prekvalifikaciju koju plaća osiguranje. Označava 'Ja' pod 45 i 'Ja' pod 46 uz prilaganje rešenja.",
             "mistake": "Označavanje 'Nein' iako imate rešenje o invaliditetu, jer to može uticati na dodatne naknade (Mehrbedarf)."
           },
@@ -6309,7 +6309,7 @@
               }
             ],
             "instruction": "Ako imate posebne troškove koji se ponavljaju (npr. troškovi prevoza do deteta u drugom gradu), označite 'Ja' i popunite Anlage BB.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 4, deo D, polje 47.",
+            "where": "Proveri svoju situaciju i postojeću potvrdu osiguranja, lekarsku potvrdu ili Bescheid koji se odnosi na pitanje. Ako je medicinski uslov nejasan, pitaj lekara i Jobcenter; ne postavljaj dijagnozu sam/sama.",
             "example": "Otac putuje svakog drugog vikenda 200 km da poseti ćerku. Označava 'Ja' jer su mu ti troškovi prevoza neizbežni.",
             "mistake": "Zaključiti da svaka posebna potreba automatski daje pravo. Pročitaj BA uputstvo i opiši dokazivu potrebu Jobcenteru."
           },
@@ -6328,7 +6328,7 @@
               }
             ],
             "instruction": "Polje 48 označite sa 'Ja' samo ako boravak traje duže od 24 sata. U polju 49 navedite npr. 'Krankenhaus'. U polju 50 unesite datume iz lekarske uputnice ili potvrde o prijemu.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 4, deo D.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Milica ide na operaciju kolena i biće u bolnici od 01.05. do 15.05. Označava 'Ja', piše 'Krankenhaus' i navodi te datume.",
             "mistake": "Neprijavljivanje planiranog boravka u bolnici, što može dovesti do preplate naknade."
           },
@@ -6348,7 +6348,7 @@
             ],
             "meaning": "Prethodno primanje socijalnih naknada",
             "instruction": "Navedite da li ste u protekle 3 godine primali naknadu za građane (Bürgergeld) ili socijalnu pomoć. Ako jeste, u polje 52 upišite vrstu, u 53 datume, a od 54 do 58 podatke o Jobcenter-u ili socijalnoj službi.",
-            "where": "Glavni zahtev (HA), stranica 5, odeljak E, polja 51–58.",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Korisnik je primao Bürgergeld u drugom gradu od 01.01.2023. do 31.03.2023. Upisuje te datume i adresu bivšeg Jobcentera.",
             "mistake": "Navođenje samo godine bez tačnih datuma ili izostavljanje adrese prethodne službe."
           },
@@ -6368,7 +6368,7 @@
             ],
             "meaning": "Prethodno zaposlenje i potraživanja plate",
             "instruction": "U polju 59 označite radni odnos. Ako je odgovor 'Ja', u polje 60 unesite datume početka i kraja rada. U polju 61 odgovorite duguje li vam poslodavac novac; ako duguje, unesite njegove podatke u polja 62-66.",
-            "where": "Glavni zahtev (HA), stranica 5, odeljak E, polja 59–66.",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Radnik je radio u pekari do pre 2 meseca, ali mu zadnja plata nije isplaćena. Označava 'Ja' i unosi adresu pekare.",
             "mistake": "Zaboravljanje navođenja neisplaćenih plata, što može uticati na obračun sredstava."
           },
@@ -6388,7 +6388,7 @@
             ],
             "meaning": "Samostalna delatnost",
             "instruction": "Označite 'Ja' ako ste imali registrovan obrt (Gewerbe) ili radili kao slobodni umetnik/stručnjak (Freiberufler). U suprotnom označite 'Nein'.",
-            "where": "Glavni zahtev (HA), stranica 5, odeljak E, polje 67.",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Osoba je imala malu firmu za čišćenje koja je zatvorena prošle godine. Označava 'Ja'.",
             "mistake": "Neoznačavanje polja iako je obrt još uvek formalno registrovan, čak i ako ne donosi prihod."
           },
@@ -6408,7 +6408,7 @@
             ],
             "meaning": "Naknade koje zamenjuju platu",
             "instruction": "Označite ako ste primali novac od osiguranja ili države umesto plate. U polje 69 upišite npr. 'Krankengeld' (bolovanje), a u 70 unesite datume.",
-            "where": "Glavni zahtev (HA), stranica 5, odeljak E, polja 68–70.",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Podnositelj je primao naknadu za nezaposlene (ALG I) do prošlog meseca. Upiše 'Arbeitslosengeld' i trajanje.",
             "mistake": "Mešanje naknade za nezaposlene (ALG I) sa socijalnom pomoći (Bürgergeld)."
           },
@@ -6428,7 +6428,7 @@
             ],
             "meaning": "Službe, nega i način izdržavanja",
             "instruction": "U poljima 71 i 72 označite vojsku ili negu srodnika. Ako ništa od navedenog u zadnjih 5 godina ne važi za vas, u polju 73 objasnite kako ste preživeli (npr. ušteđevina, pomoć roditelja, nasledstvo).",
-            "where": "Glavni zahtev (HA), stranica 6, odeljak E, polja 71–73.",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Osoba nije radila 5 godina jer je živela od ušteđevine i pomoći brata. U polje 73 piše: 'Lebensunterhalt durch Ersparnisse und Unterstützung vom Bruder'.",
             "mistake": "Ostavljanje polja 73 praznim ako niste imali nikakve prihode ili poslove u zadnjih 5 godina."
           },
@@ -6452,7 +6452,7 @@
             ],
             "meaning": "Potraživanja prema trećim licima i nezgode",
             "instruction": "U polju 74 navedite ako očekujete novac od nasledstva ili odštete. U polju 75 navedite ako ste imali udes ili lekarsku grešku zbog koje ne možete raditi. Ako je odgovor na 75 'Ja', priložite prilog UF.",
-            "where": "Glavni zahtev (HA), stranica 6, odeljak E, polja 74–75.",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Podnositelj čeka isplatu odštete nakon saobraćajne nesreće. Označava drugu opciju 'Ja' i popunjava Anlage UF.",
             "mistake": "Neprijavljivanje nasledstva koje je u toku, što se može smatrati prikrivanjem imovine."
           },
@@ -6476,7 +6476,7 @@
             ],
             "meaning": "Podaci o zdravstvenom i penzionom osiguranju",
             "instruction": "U polju 76 označite da li ste u zakonskom osiguranju. U polju 77 upišite tačan naziv vašeg osiguranja (npr. AOK, TK) i priložite potvrdu. Ako ste privatno osigurani, označite 'Ja' u polju 78.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 6, dio F",
+            "where": "Proveri svoju situaciju i postojeću potvrdu osiguranja, lekarsku potvrdu ili Bescheid koji se odnosi na pitanje. Ako je medicinski uslov nejasan, pitaj lekara i Jobcenter; ne postavljaj dijagnozu sam/sama.",
             "example": "Korisnik je osiguran kod AOK-a preko supruge, označava 'Ja' pod 76 i upisuje 'AOK' pod 77.",
             "mistake": "Navođenje naziva osiguranja bez prilaganja pisanog dokaza (članske karte ili potvrde)."
           },
@@ -6520,7 +6520,7 @@
             ],
             "meaning": "Stambena situacija i sustanari",
             "instruction": "Ako živite sami, označite 'Ja' u polju 79. Ako ne, označite 'Nein' i u polju 80 krstićem označite sve kategorije osoba koje žive s vama, te popunite navedene dodatne obrasce.",
-            "where": "Glavni zahtev (Hauptantrag), stranice 6 i 7, deo G",
+            "where": "Koristi stvarnu sadašnju situaciju; datume i odnose proveri u matičnim dokumentima, rešenju o razvodu ili drugim postojećim dokazima koji se odnose na tebe.",
             "example": "Osoba živi sa nevenčanim partnerom i detetom od 5 godina. Označava 'Nein' pod 79, a pod 80 prvu i treću opciju.",
             "mistake": "Nepopolnjavanje odgovarajućih dodatnih obrazaca (npr. KI za decu) za osobe navedene pod brojem 80."
           },
@@ -6540,7 +6540,7 @@
             ],
             "meaning": "Troškovi stanovanja i grejanja",
             "instruction": "U polju 81 navedite da li plaćate stan i grejanje. Ako plaćate, obavezno uzmite i popunite 'Anlage KDU'.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 7, deo G",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "Korisnik plaća 400 EUR stanarine mesečno. Označava 'Ja' i prilaže 'Anlage KDU'.",
             "mistake": "Označiti „Nein“ samo zato što Jobcenter već zna adresu; pitanje je da li postoje potrebe za stanovanjem i grejanjem."
           },
@@ -6568,7 +6568,7 @@
             ],
             "meaning": "Obavezni dodaci i prilozi",
             "instruction": "Prikupite sve navedene obrasce i dokaze. Obratite pažnju da izvodi iz banke moraju biti kompletni za zadnjih 90 dana.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 7, deo H",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Porodica sa jednim zaposlenim članom predaje jedan 'Anlage VM', tri meseca izvoda i jedan 'Anlage EK'.",
             "mistake": "Zaboravljanje izvoda iz banke za štedne račune ili PayPal, jer Jobcenter traži sve račune."
           },
@@ -6578,7 +6578,7 @@
             "german": "I. Mitwirkungspflichten, Vertretung der Bedarfsgemeinschaft, Telefonnummer, Bildung und Teilhabe, Datenschutzhinweise",
             "meaning": "Obaveze saradnje i pravne napomene",
             "instruction": "Pažljivo pročitajte ovaj deo. On vas informiše da morate prijaviti svaku promenu (npr. novi posao ili preseljenje) odmah. Takođe, ovde potvrđujete da zastupate celo domaćinstvo.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 7, deo I",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Korisnik počinje raditi mini-job sledeći mesec i seća se da to mora odmah javiti jer je to deo obaveze saradnje.",
             "mistake": "Ignorisanje obaveze javljanja promena, što može dovesti do kazni ili povrata novca."
           },
@@ -6588,7 +6588,7 @@
             "german": "82 Datum · 83 Unterschrift antragstellende Person (bei Minderjährigen: erziehungs-/sorgeberechtigte Person) · 84 Datum · 85 Unterschrift Betreuerin/Betreuer/Vormund",
             "meaning": "Datum i potpis",
             "instruction": "U polje 82 upišite datum potpisivanja. U polje 83 se potpišite lično. Polja 84 i 85 popunjavaju samo zakonski staratelji ako podnosilac ima dodeljenog staraoca.",
-            "where": "Glavni zahtev (Hauptantrag), stranica 8, deo I",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Osoba upisuje '15.02.2024' u polje 82 i potpisuje se u polje 83.",
             "mistake": "Proveri datum i potpis na službenom obrascu; nepotpisani primerak može zahtevati dopunu. Potvrdi samo tačne podatke."
           }
@@ -6666,7 +6666,7 @@
             "german": "Ende des laufenden Bewilligungszeitraums (MM.JJJJ); Jobcenter-Feld: Tag der Antragstellung, Dienststelle, Team",
             "meaning": "Period važenja pomoći",
             "instruction": "U gornjem desnom uglu upišite mesec i godinu kada ističe Vaše trenutno rešenje o pomoći. Polja označena za Jobcenter ostavite prazna, njih popunjava službenik na dan podnošenja.",
-            "where": "Gornji desni ugao prve stranice WBA obrasca.",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Ako Vaša pomoć ističe 31.10.2024, upišite 10.2024.",
             "mistake": "Upisivanje datuma rođenja umesto datuma završetka perioda odobrenja."
           },
@@ -6676,7 +6676,7 @@
             "german": "1 Vorname · 2 Nachname · 3 Geburtsdatum (TT.MM.JJJJ) · 4 Nummer der Bedarfsgemeinschaft",
             "meaning": "Lični podaci podnosioca",
             "instruction": "U polje 1 unesite ime, u polje 2 prezime. U polje 3 unesite datum rođenja u formatu dan-mesec-godina. U polje 4 unesite broj Vaše zajednice (BG-Nummer) koji se nalazi na svakom dopisu iz Jobcentra.",
-            "where": "Sekcija A na prvoj stranici.",
+            "where": "Prepiši podatke iz lične karte/pasoša; za adresu proveri aktuelnu prijavu ili poštansku adresu. Ne izmišljaj podatak koji ne znaš.",
             "example": "Ivan, Horvat, 15.05.1985, 12345//0067890.",
             "mistake": "Zaboravljanje broja zajednice (Bedarfsgemeinschaftsnummer), što usporava obradu."
           },
@@ -6686,7 +6686,7 @@
             "german": "5 Straße · 6 Hausnummer · 7 Postleitzahl · 8 Wohnort",
             "meaning": "Adresa stanovanja",
             "instruction": "Unesite trenutnu adresu na kojoj boravite: u polje 5 naziv ulice, u polje 6 broj zgrade/kuće, u polje 7 poštanski broj i u polje 8 naziv mesta ili grada.",
-            "where": "Sekcija B na prvoj stranici.",
+            "where": "Prepiši podatke iz lične karte/pasoša; za adresu proveri aktuelnu prijavu ili poštansku adresu. Ne izmišljaj podatak koji ne znaš.",
             "example": "Hauptstraße, 10, 10115, Berlin.",
             "mistake": "Navođenje stare adrese ako ste se nedavno preselili, a niste prijavili promenu."
           },
@@ -6706,7 +6706,7 @@
             ],
             "meaning": "Situacija stanovanja i sustanari",
             "instruction": "Odgovorite na pitanje 9. Ako označite 'Nein', u tabeli 10 navedite sve osobe koje žive s Vama, uključujući decu koja su kod Vas samo povremeno (model naizmeničnog starateljstva).",
-            "where": "Dno prve stranice i početak druge stranice.",
+            "where": "Koristi stvarnu sadašnju situaciju; datume i odnose proveri u matičnim dokumentima, rešenju o razvodu ili drugim postojećim dokazima koji se odnose na tebe.",
             "example": "Ako živite s kćerkom: Maja, Horvat, 01.01.2010, Tochter.",
             "mistake": "Izostavljanje osoba koje su tu samo povremeno ili neprijavljivanje novih ukućana."
           },
@@ -6726,7 +6726,7 @@
             ],
             "meaning": "Troškovi smeštaja i grejanja",
             "instruction": "Označite 'Ja' ako plaćate stanarinu, režije ili grejanje. U suprotnom označite 'Nein' i preskočite na deo D.",
-            "where": "Sekcija C na drugoj stranici.",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "Označite 'Ja' ako sami plaćate mesečnu kiriju stanodavcu.",
             "mistake": "Označavanje 'Nein' iako imate troškove, što rezultira neisplaćivanjem naknade za stan."
           },
@@ -6766,7 +6766,7 @@
             ],
             "meaning": "Detalji o zakupu i troškovima",
             "instruction": "U polju 12 potvrdite da ste pod kirijom. U polju 13 razdvojite troškove prema Vašem ugovoru ili poslednjem obračunu. Obavezno priložite kopiju ugovora ili novog obračuna režija (Nebenkostenabrechnung).",
-            "where": "Sekcija C, polja 12 i 13 na drugoj stranici.",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "Grundmiete: 400,00; Nebenkosten: 80,00; Heizkosten: 70,00.",
             "mistake": "Upisivanje ukupnog iznosa u svako polje umesto razdvajanja troškova."
           },
@@ -6776,7 +6776,7 @@
             "german": "14 Wohnen Sie im Eigentum? · 15 Bedarfe für das Eigentum, mit Fälligkeit",
             "meaning": "Troškovi vlastite nekretnine",
             "instruction": "U polju 14 označite da li živite u stanu ili kući čiji ste vlasnik. Ako je odgovor 'Ja', u polju 15 navedite troškove: 'Schuldzinsen' (samo kamate na kredit, bez otplate glavnice), 'Nebenkosten' (sporedni troškovi poput poreza na imovinu ili vode) i 'Heizkosten' (troškovi grejanja). Navedite tačne datume dospeća plaćanja.",
-            "where": "Glavni formular WBA, stranica 2, deo C",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "Vlasnik ste stana i plaćate mesečno 150 EUR kamata za kredit i 80 EUR za režije.",
             "mistake": "Upisivanje ukupne rate kredita umesto samo dela koji se odnosi na kamatu.",
             "options": [
@@ -6808,7 +6808,7 @@
             "german": "16 Einkommen aus Erwerbstätigkeit (haupt-/nebenberuflich, Ausbildung, Minijob, Ferienjob)? Tabelle: Name der Person, Arbeitgeber, monatliche Höhe",
             "meaning": "Prihodi od radnog odnosa",
             "instruction": "16 pita za prihod od zaposlenja svake osobe Bedarfsgemeinschaft, ne automatski svih sustanara. Navedi osobu, poslodavca i mesečni iznos prema BA uputstvu; priloži obračune plate. Ne pretpostavljaj samo bruto ili samo neto ako nije pojašnjeno.",
-            "where": "Glavni formular WBA, stranica 3, deo D",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Maja radi Minijob: navodi svoje ime, poslodavca i iznos prema obračunu, te prilaže obračun. Primer ne određuje zakonsku granicu Minijoba.",
             "mistake": "Neprijavljivanje sezonskog rada ili rada tokom raspusta za decu.",
             "options": [
@@ -6828,7 +6828,7 @@
             "german": "17 Haben sich die Werbungskosten/Absetzungen geändert? Tabelle: Name, Art, monatliche Höhe, Tag der Änderung",
             "meaning": "Promene u troškovima vezanim za posao",
             "instruction": "Ukoliko su se promenili vaši troškovi puta do posla ili drugi odbici, označite 'Ja'. U tabelu unesite ime osobe, vrstu troška (npr. 'Fahrtkosten'), mesečni iznos i tačan datum kada je promena nastupila.",
-            "where": "Glavni formular WBA, stranica 3, deo D",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Preselili ste se i sada do posla putujete 20 km umesto dosadašnjih 5 km.",
             "mistake": "Navođenje starih troškova koji su već od ranije poznati Jobcenter-u.",
             "options": [
@@ -6848,7 +6848,7 @@
             "german": "18 Selbständige oder freiberufliche Tätigkeit, auch Land- und Forstwirtschaft?",
             "meaning": "Samostalna delatnost ili slobodna profesija",
             "instruction": "Označite 'Ja' ako ste vi ili neko iz domaćinstva samostalni preduzetnik, freelancer ili se bavite poljoprivredom. Ako je odgovor potvrdan, uz ovaj zahtev obavezno morate popuniti i predati dodatni obrazac 'Anlage EKS'.",
-            "where": "Glavni formular WBA, stranica 3, deo D",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Radite kao samostalni grafički dizajner ili imate mali obrt.",
             "mistake": "Označavanje 'Nein' jer je zarada trenutno nula, iako je obrt i dalje registrovan.",
             "options": [
@@ -6868,7 +6868,7 @@
             "german": "19 (Steuerfreie) Aufwandsentschädigungen oder Aufwandspauschalen aus gemeinnütziger/ehrenamtlicher Tätigkeit? Tabelle: Name, Art der Tätigkeit, Zahlungseingang",
             "meaning": "Naknade za volonterski ili dobrotvorni rad",
             "instruction": "Navedite ako primate neoporezive naknade za troškove (npr. kao trener u klubu ili volonter). U tabelu upišite ko prima novac, o kakvoj se aktivnosti radi i datum kada je novac legao na račun.",
-            "where": "Glavni formular WBA, stranica 3, deo D",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Primate 200 EUR mesečno kao volonter u udruženju za pomoć starijima.",
             "mistake": "Zaboravljanje navođenja ovih naknada jer mislite da su neoporezive, pa samim tim i nevažne za Jobcenter.",
             "options": [
@@ -6888,7 +6888,7 @@
             "german": "20 Einkommen von Sozialleistungsträgern (z. B. Wohngeld, Unterhaltsleistungen, Krankengeld, Familienkasse, Renten, Sachbezüge)? Grundsicherungsgeld nicht eintragen. Tabelle: Name, Art, auszahlende Stelle, monatliche Höhe",
             "meaning": "Prihodi od socijalnih davanja i drugih institucija",
             "instruction": "Prijavite sve ostale prihode kao što su dečiji dodatak (Kindergeld), alimentacija, bolovanje (Krankengeld), penzije ili stambena naknada (Wohngeld). U tabelu upišite ime, vrstu primanja, ko isplaćuje (npr. Familienkasse) i iznos. Ne upisujte novac koji već primate od Jobcentra (Bürgergeld).",
-            "where": "Glavni formular WBA, stranica 4, deo D",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Maja prima Kindergeld: prepisuje stvarni iznos iz svog Bescheida u tabelu 20. Ovo nije primer zakonske visine naknade.",
             "mistake": "Upisivanje Bürgergeld-a koji već primate, što nije potrebno.",
             "options": [
@@ -6908,7 +6908,7 @@
             "german": "21 Andere (nicht aufgeführte) Einnahmen, z. B. digitale Plattformen, Vermietung oder Verpachtung? · 22 Art der Einnahme",
             "meaning": "Ostali nepomenuti prihodi",
             "instruction": "U polju 21 označite 'Ja' ako imate prihode koji nisu ranije navedeni (poput prodaje preko interneta ili izdavanja sobe). U polju 22 detaljno opišite o kakvom se prihodu radi. Ako nemate takvih prihoda, označite 'Nein'.",
-            "where": "WBA obrazac, strana 4, odeljak D, polja 21 i 22.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Korisnik iznajmljuje garažu komšiji za 50 EUR mesečno.",
             "mistake": "Zaboravljanje navođenja prihoda od povremene prodaje na platformama kao što je eBay ili slično.",
             "options": [
@@ -6928,7 +6928,7 @@
             "german": "23 Bereits absehbare Änderungen",
             "meaning": "Predvidive promene u budućnosti",
             "instruction": "U polju 23 označite sve opcije koje očekujete da će se desiti u narednom periodu. Ako planirate selidbu, promenu bračnog stanja ili početak studiranja, označite odgovarajući kvadratić i priložite dokaze ako ih već imate.",
-            "where": "WBA obrazac, strana 4, odeljak E, polje 23.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Korisnik zna da će se venčati za dva meseca ili da dete kreće na fakultet.",
             "mistake": "Neoznačavanje planirane selidbe, što može dovesti do problema sa priznavanjem troškova novog stana.",
             "options": [
@@ -6964,7 +6964,7 @@
             "german": "24 Anspruch gegenüber Dritten (z. B. Schadensersatz, Erbschaft)? · 25 Unfall/Gesundheitsschaden durch Dritte?",
             "meaning": "Potraživanja prema trećim licima",
             "instruction": "U polju 24 navedite ako očekujete novac od nasledstva ili odštete. U polju 25 navedite ako ste imali nesreću koju je uzrokovao neko drugi (npr. saobraćajni udes). Ako je odgovor 'Ja', obavezno priložite dokaz ili popunite prilog UF.",
-            "where": "WBA obrazac, strana 4, odeljak E, polja 24 i 25.",
+            "where": "Proveri obračune plate, ugovore, potvrde o školovanju/radu, rešenja i izvode uplata koji se odnose na konkretno pitanje. Razlikuj sadašnje prihode i istoriju u traženom periodu.",
             "example": "Korisnik je imao saobraćajni udes i očekuje odštetu od osiguranja drugog vozača.",
             "mistake": "Prećutkivanje nasledstva koje je u postupku, što se smatra kršenjem obaveze saradnje.",
             "options": [
@@ -6988,7 +6988,7 @@
             "german": "26 Weitere, dem Jobcenter bisher nicht mitgeteilte Änderungen im letzten Bewilligungszeitraum (z. B. Vermögen, Schwangerschaft, Bankverbindung, Familienstand, Sterbefall, anerkannte Schwerbehinderung). Tabelle: Name, Art, Tag der Änderung",
             "meaning": "Neprijavljene promene iz prošlog perioda",
             "instruction": "Ako se nešto promenilo u proteklih 6-12 meseci, a niste to javili, upišite to ovde. Popunite tabelu: Ime osobe, vrsta promene (npr. nova banka) i tačan datum promene. Priložite dokaze (npr. trudničku knjižicu ili ugovor).",
-            "where": "WBA obrazac, strana 5, odeljak E, polje 26.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Korisnica je zatrudnela pre dva meseca, ali još nije dostavila potvrdu lekara.",
             "mistake": "Neupisivanje nove banke ovde, zbog čega novac može otići na stari, zatvoreni račun.",
             "options": [
@@ -7008,7 +7008,7 @@
             "german": "F. Erforderliche Anlagen: Anlage VM, Kontoauszüge, Anlagen aus A bis E",
             "meaning": "Obavezni prilozi uz zahtev",
             "instruction": "Proverite listu dokumentacije. Obavezno priložite: 1. Anlage VM (o imovini), 2. Izvode iz banke (Kontoauszüge) za zadnja tri meseca za sve članove porodice, 3. Sve ostale priloge koje ste označili u prethodnim delovima (A-E).",
-            "where": "WBA obrazac, strana 5, odeljak F.",
+            "where": "Proveri aktuelni ili raniji Bescheid i izvode računa: naziv ustanove, vrstu naknade i traženi period. Za listu priloga prati odeljak H HA / F WBA i BA uputstva.",
             "example": "Korisnik prilaže izvod iz banke od januara do marta i popunjen VM obrazac.",
             "mistake": "Slanje izvoda iz banke sa zacrnjenim (skrivenim) bitnim transakcijama ili dostavljanje izvoda samo za jednog člana porodice.",
             "options": [
@@ -7032,7 +7032,7 @@
             "german": "G. Hinweise · 27 Datum · 28 Unterschrift antragstellende Person (bei Minderjährigen: erziehungs-/sorgeberechtigte Person) · 29 Datum · 30 Unterschrift Betreuerin/Betreuer/Vormund",
             "meaning": "Datum i potpis",
             "instruction": "U polju 27 upišite datum potpisivanja. U polju 28 se potpisuje osoba koja podnosi zahtev. Polja 29 i 30 popunjava samo zakonski staratelj ako korisnik ima dodeljenog asistenta (Betreuer). Potpisom potvrđujete tačnost podataka.",
-            "where": "WBA obrazac, strana 6, kraj odeljka G.",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Korisnik upisuje '01.05.2024.' i potpisuje se svojeručno plavom ili crnom olovkom.",
             "mistake": "Proveri datum i potpis na službenom obrascu; nepotpisani primerak može zahtevati dopunu. Potvrdi samo tačne podatke."
           }
@@ -7110,7 +7110,7 @@
             "german": "1 Vorname · 2 Nachname · 3 Geburtsdatum (TT.MM.JJJJ) · 4 Nummer der Bedarfsgemeinschaft (falls vorhanden)",
             "meaning": "Lični podaci podnosioca zahteva",
             "instruction": "U polje 1 unesite ime, u polje 2 prezime. Polje 3 zahteva datum rođenja u formatu dan-mesec-godina. U polje 4 upišite broj vaše zajednice (BG-Nummer) ako ga već imate dodeljenog od Jobcentra.",
-            "where": "Stranica 1, sekcija A",
+            "where": "Prepiši podatke iz lične karte/pasoša; za adresu proveri aktuelnu prijavu ili poštansku adresu. Ne izmišljaj podatak koji ne znaš.",
             "example": "Marko, Marković, 15.05.1985, 123J45678",
             "mistake": "Upisivanje broja osiguranja umesto broja zajednice (Bedarfsgemeinschaftsnummer)."
           },
@@ -7120,7 +7120,7 @@
             "german": "5 Straße · 6 Hausnummer · 7 Postleitzahl · 8 Ort · 9 Wie viele Personen wohnen in der Unterkunft? (sich selbst mitzählen)",
             "meaning": "Adresa stanovanja i broj stanara",
             "instruction": "U polja 5-8 unesite ulicu, broj zgrade, poštanski broj i grad. U polje 9 unesite ukupan broj ljudi koji žive s vama, uključujući i vas same.",
-            "where": "Stranica 1, sekcija B",
+            "where": "Prepiši podatke iz lične karte/pasoša; za adresu proveri aktuelnu prijavu ili poštansku adresu. Ne izmišljaj podatak koji ne znaš.",
             "example": "Hauptstraße, 10, 10115, Berlin, 3",
             "mistake": "Zaboravljanje da ubrojite sebe u ukupan broj stanara."
           },
@@ -7130,7 +7130,7 @@
             "german": "10 Baujahr der Unterkunft (falls bekannt) · 11 Anzahl der Räume · 12 Anzahl der Küchen · 13 Anzahl der Bäder",
             "meaning": "Podaci o objektu i rasporedu",
             "instruction": "U polje 10 unesite godinu izgradnje ako je znate. U polja 11, 12 i 13 unesite broj soba (bez kuhinje i kupatila), broj kuhinja i broj kupatila.",
-            "where": "Stranica 1, sekcija B",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "1975, 3, 1, 1",
             "mistake": "Ubrajanje kuhinje ili kupatila u broj soba (polje 11)."
           },
@@ -7140,7 +7140,7 @@
             "german": "14 Gesamtfläche (m²) · 15 Selbst bewohnter Anteil · 16 Vermieteter/Verpachteter Anteil · 17 Leer stehender Anteil · 18 Gewerberäume/Gewerbliche Nutzung",
             "meaning": "Kvadratura i korišćenje prostora",
             "instruction": "U polje 14 unesite ukupnu kvadraturu. U polje 15 deo koji vi koristite. Ako iznajmljujete deo stana, unesite to u polje 16. Polje 17 je za prazan prostor, a 18 za poslovni prostor.",
-            "where": "Stranica 1 i 2, sekcija B",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "80, 80, 0, 0, 0",
             "mistake": "Zbir polja 15-18 se ne podudara sa ukupnom površinom iz polja 14."
           },
@@ -7160,7 +7160,7 @@
             ],
             "meaning": "Vrsta stanovanja",
             "instruction": "Označite jednu od dve ponuđene opcije zavisno od toga da li iznajmljujete prostor ili posedujete sopstvenu nekretninu.",
-            "where": "Stranica 2, polje 19",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "Označen kvadratić pored 'Wohnen zur Miete'.",
             "mistake": "Označavanje pogrešne opcije koja ne odgovara vašem ugovoru."
           },
@@ -7192,7 +7192,7 @@
             ],
             "meaning": "Troškovi stanovanja kod najma",
             "instruction": "Unesite iznose iz vašeg ugovora o najmu ili potvrde stanodavca. Ako imate razdvojene troškove, popunite prve tri stavke. Ako plaćate jedan fiksni iznos za sve, popunite samo 'Pauschalmiete'.",
-            "where": "Stranica 2, sekcija C",
+            "where": "Podatke traži u ugovoru o najmu, aktuelnom obračunu režija/grejanja, tlocrtu ili dokumentima vlasništva/kredita. Ako podatak nije naveden, pitaj stanodavca/upravitelja ili Jobcenter; ne procenjuj nasumično.",
             "example": "400,00 (Grundmiete), 80,00 (Nebenkosten), 70,00 (Heizkosten)",
             "mistake": "Duplo unošenje istih troškova i u pojedinačna polja i u polje za paušalnu kiriju."
           },
@@ -7422,7 +7422,7 @@
             "german": "G. Datenschutzhinweise · 37 Datum · 38 Unterschrift antragstellende Person (bei Minderjährigen: erziehungs-/sorgeberechtigte Person) · 39 Datum · 40 Unterschrift Betreuerin/Betreuer/Vormund",
             "meaning": "Datum i potpis podnosioca zahteva ili zakonskog zastupnika",
             "instruction": "U polje 37 upišite trenutni datum potpisivanja. U polje 38 potpišite se svojeručno. Ako je podnosilac maloletan, potpisuje roditelj ili staratelj. Polja 39 i 40 popunjavaju se samo ako imate službeno postavljenog zakonskog zastupnika (Betreuer) ili staratelja (Vormund). Potpisom potvrđujete tačnost podataka i upoznatost sa zaštitom podataka.",
-            "where": "Dodatak KDU, stranica 3, deo G",
+            "where": "Proveri odgovarajuće službene dokumente i stvarnu situaciju; pročitaj BA Ausfüllhinweise za ovaj broj polja. Ako podatak nije dostupan ili uslov nije jasan, pitaj Jobcenter pre upisivanja.",
             "example": "Podnosilac upisuje '15.03.2024' u polje 37 i potpisuje se u polje 38. Polja 39 i 40 ostavlja prazna jer nema zakonskog zastupnika.",
             "mistake": "Proveri datum i potpis na službenom obrascu; nepotpisani primerak može zahtevati dopunu. Potvrdi samo tačne podatke."
           }

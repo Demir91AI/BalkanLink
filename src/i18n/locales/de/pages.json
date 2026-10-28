@@ -5704,7 +5704,7 @@
   "grundsicherungCompanions": {
     "ui": {
       "heading": "Grundsicherungsgeld (ehemals Bürgergeld)",
-      "reference": "Mjesto u službenom obrascu",
+      "reference": "Stelle im offiziellen Formular",
       "navigator": {
         "title": "Welches Formular zuerst ansehen?",
         "intro": "Kurze Orientierung, ohne Namen, Beträge oder Dokumente. Antworten bleiben nur auf dieser Seite und verschwinden beim Verlassen. Das Jobcenter bestimmt die endgültigen Anlagen; dies ist keine Bescheidprüfung.",
@@ -5837,7 +5837,7 @@
             "german": "Dieser Abschnitt wird durch Mitarbeitende des Jobcenters ausgefüllt: Tag der Antragstellung, Kundennummer, BG-Nummer, Dienststelle, Team",
             "meaning": "Offizieller Teil für Mitarbeiter",
             "instruction": "Lassen Sie diesen Bereich leer. Er wird ausschließlich vom Personal des Jobcenters bei Eingang des Antrags ausgefüllt. Diese tragen dort das Antragsdatum, Ihre Kundennummer und die Nummer der Bedarfsgemeinschaft (BG-Nummer) ein, sofern bereits vorhanden, sowie Daten zur zuständigen Dienststelle und zum Team.",
-            "where": "Oberer Bereich der ersten Seite des Hauptantrags.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Der Mitarbeiter trägt '01.05.2024' als Eingangsdatum ein.",
             "mistake": "Eintragen eigener Daten in diese Felder, anstatt den Platz dem Mitarbeiter zu überlassen."
           },
@@ -5847,7 +5847,7 @@
             "german": "1 Vorname · 2 Nachname · 3 Geburtsdatum (TT.MM.JJJJ) · 4 Geburtsname/früherer Name · 5 Geburtsort · 6 Geburtsland · 7 Staatsangehörigkeit",
             "meaning": "Grundlegende persönliche Daten des Antragstellers",
             "instruction": "Tragen Sie in Feld 1 den Vornamen und in Feld 2 den Nachnamen ein. In Feld 3 geben Sie das Geburtsdatum im Format TT.MM.JJJJ an. In Feld 4 tragen Sie den Geburtsnamen oder frühere Namen ein, falls Sie diese geändert haben. In die Felder 5, 6 und 7 tragen Sie Geburtsort, Geburtsland und Ihre aktuelle Staatsangehörigkeit ein.",
-            "where": "Abschnitt A, erste Seite des Antrags.",
+            "where": "Übertrage Angaben aus Personalausweis/Reisepass; prüfe die aktuelle Melde- oder Postanschrift. Unbekannte Angaben nicht erfinden.",
             "example": "1: Marko, 2: Petrović, 3: 15.06.1985, 4: -, 5: Sarajevo, 6: BiH, 7: Bosnisch-herzegowinisch.",
             "mistake": "Eintragen des aktuellen Nachnamens in das Feld für den Geburtsnamen, obwohl keine Änderung vorlag."
           },
@@ -5875,7 +5875,7 @@
             ],
             "meaning": "Geschlecht des Antragstellers",
             "instruction": "Markieren Sie mit einem Kreuz (X) nur eine der angebotenen Optionen, die Ihrem rechtlichen Status in den Dokumenten entspricht.",
-            "where": "Abschnitt A, Feld 8.",
+            "where": "Übertrage Angaben aus Personalausweis/Reisepass; prüfe die aktuelle Melde- oder Postanschrift. Unbekannte Angaben nicht erfinden.",
             "example": "Markiert 'Männlich' für einen Mann.",
             "mistake": "Markieren mehrerer Optionen gleichzeitig."
           },
@@ -5885,7 +5885,7 @@
             "german": "9 Straße · 10 Hausnummer · 11 Postleitzahl · 12 Wohnort · 13 Postfachanschrift · 14 Telefon (freiwillige Angabe für Rückfragen)",
             "meaning": "Adresse und Kontaktdaten",
             "instruction": "Geben Sie die Straße (9) und die Hausnummer (10), die Postleitzahl (11) und den Wohnort (12) ein. Feld 13 füllen Sie nur aus, wenn Sie ein Postfach nutzen. Feld 14 (Telefon) ist freiwillig, erleichtert aber die schnelle Kommunikation.",
-            "where": "Abschnitt A, Mitte der ersten Seite.",
+            "where": "Übertrage Angaben aus Personalausweis/Reisepass; prüfe die aktuelle Melde- oder Postanschrift. Unbekannte Angaben nicht erfinden.",
             "example": "9: Musterstraße, 10: 12a, 11: 10115, 12: Berlin.",
             "mistake": "Weglassen der Wohnungsnummer oder des Eingangs, falls diese Teil der offiziellen Adresse sind."
           },
@@ -5905,7 +5905,7 @@
             ],
             "meaning": "Wohnstatus",
             "instruction": "Geben Sie in Feld 15 an, ob Sie ohne festen Wohnsitz (obdachlos) sind. Wenn Sie 'Ja' markiert haben, tragen Sie in Feld 16 den Namen der Person oder Einrichtung ein, bei der Sie sich derzeit aufhalten.",
-            "where": "Abschnitt A, unten auf der ersten Seite.",
+            "where": "Nutze deine tatsächliche aktuelle Situation. Prüfe Daten und Beziehungen in Personenstandsdokumenten, Scheidungsbeschluss oder vorhandenen passenden Nachweisen.",
             "example": "15: Ja, 16: Obdachlosenhilfe Berlin, Beispielland-Str. 5.",
             "mistake": "Markieren von 'Ja', obwohl Sie einen regulären Mietvertrag für eine Wohnung haben."
           },
@@ -5915,7 +5915,7 @@
             "german": "17 Kontoinhaberin/Kontoinhaber · 18 IBAN (22-stellig) · 19 Wenn Sie keine Bankverbindung angeben können, teilen Sie dem Jobcenter mit, weshalb Sie kein Basiskonto eröffnen können.",
             "meaning": "Bankverbindung",
             "instruction": "Trage in 17 den Namen der kontoinhabenden Person ein. Übertrage in 18 die vollständige IBAN einschließlich Buchstaben. Das Formular zeigt 22-stellig; bei abweichendem Kontofomat frage das Jobcenter, ändere die Nummer nicht. Ohne Konto erläutere in 19, weshalb du kein Basiskonto eröffnen kannst.",
-            "where": "Abschnitt A, oben auf der zweiten Seite.",
+            "where": "Die vollständige IBAN und den Kontoinhabernamen findest du in der Banking-App, dem Kontoauszug oder einer Bankbestätigung. Ohne Konto erläutere dem Jobcenter deine Situation.",
             "example": "17: Marko Petrović, 18: DE12 3456 7890 1234 5678 90.",
             "mistake": "Falsch abgeschriebene IBAN-Nummer, was die Auszahlung der Mittel verhindert."
           },
@@ -5939,7 +5939,7 @@
             ],
             "meaning": "Rentenversicherungs- oder Sozialversicherungsnummer",
             "instruction": "Markieren Sie in Feld 20 den Status Ihrer Sozialversicherungsnummer. Wenn Sie eine haben, tragen Sie alle 12 Zeichen ein. Wenn nicht, markieren Sie 'nicht vorhanden'.",
-            "where": "Hauptantrag (HA), Seite 2, Abschnitt A, Punkt 20.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Fiktive Nummer: 12 150780 M 005. Zu finden auf dem Sozialversicherungsausweis oder einem Brief der Deutschen Rentenversicherung.",
             "mistake": "Eintragen der Steuer-Identifikationsnummer (Steuer-ID) anstelle der Sozialversicherungsnummer."
           },
@@ -5949,7 +5949,7 @@
             "german": "21 (steuerliche) Identifikationsnummer",
             "meaning": "Steuerliche Identifikationsnummer (Steuer-ID)",
             "instruction": "Tragen Sie in Feld 21 Ihre 11-stellige Steuer-ID ein. Diese Nummer ist dauerhaft und ändert sich auch bei einem Umzug nicht.",
-            "where": "Hauptantrag (HA), Seite 2, Abschnitt A, Punkt 21.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Nummer 03 147 852 963, die auf dem Schreiben des Bundeszentralamts für Steuern (BZSt) steht.",
             "mistake": "Verwechslung dieser Nummer mit der einfachen Steuernummer, die vom lokalen Finanzamt vergeben wird."
           },
@@ -5969,7 +5969,7 @@
             ],
             "meaning": "Gesetzlicher Betreuer oder Bevollmächtigter",
             "instruction": "Geben Sie in Feld 22 an, ob Sie eine Person haben, die gerichtlich bestellt wurde, um sich um Ihre Angelegenheiten zu kümmern. Wenn Sie 'Ja' markieren, fügen Sie unbedingt den Nachweis der Vertretung bei.",
-            "where": "Hauptantrag (HA), Seite 2, Abschnitt A, Punkt 22.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Eine Person hat einen Gerichtsbeschluss (Betreuerausweis), da sie krankheitsbedingt Formulare nicht selbst ausfüllen kann.",
             "mistake": "Markieren von 'Ja' nur weil ein Freund beim Übersetzen hilft, ohne dass dieser eine offizielle Vollmacht hat."
           },
@@ -5989,7 +5989,7 @@
             ],
             "meaning": "Gültiger Aufenthaltstitel",
             "instruction": "Bestätigen Sie in Feld 23, ob Sie eine Aufenthaltserlaubnis haben. Wenn die Antwort 'Ja' lautet, kopieren Sie Ihren Pass und den Aufenthaltstitel und fügen Sie diese dem Antrag bei.",
-            "where": "Hauptantrag (HA), Seite 2, Abschnitt B, Punkt 23.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Aufenthaltserlaubnis zum Zweck der Erwerbstätigkeit oder Familienzusammenführung.",
             "mistake": "Vergessen der Kopie des Aufenthaltstitels, was die Bearbeitung des Antrags verzögert."
           },
@@ -6009,7 +6009,7 @@
             ],
             "meaning": "Leistungen nach AsylbLG und AZR-Nummer",
             "instruction": "Geben Sie in Feld 24 den aktuellen Status des Leistungsbezugs an. Wenn Sie 'Ja' markieren, tragen Sie in Feld 25 das Datum ein, bis zu dem der Bescheid gilt, und in Feld 26 Ihre Nummer aus dem Ausländerzentralregister (AZR-Nummer).",
-            "where": "Hauptantrag (HA), Seite 2, Abschnitt B, Punkte 24, 25 und 26.",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Eine Person wechselt nach Erhalt des Schutzes von Asyl-Sozialleistungen zu Bürgergeld.",
             "mistake": "Leerlassen von Feld 25, obwohl 'Ja' markiert wurde."
           },
@@ -6029,7 +6029,7 @@
             ],
             "meaning": "Verpflichtungserklärung und ID-Nummer des Herkunftslandes",
             "instruction": "Geben Sie in Feld 27 an, ob es jemanden gibt, der finanziell für Sie bürgt. Tragen Sie in Feld 28 die nationale Identifikationsnummer oder ähnliche ID aus Ihrem Herkunftsland (z. B. Bosnien und Herzegowina) ein.",
-            "where": "Hauptantrag (HA), Seite 2, Abschnitt B, Punkte 27 und 28.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Die JMBG aus Bosnien und Herzegowina wird in Feld 28 eingetragen, um Identitätsverwechslungen zu vermeiden.",
             "mistake": "Verschweigen der Existenz einer Verpflichtungserklärung, was als Verletzung der Mitwirkungspflicht gilt."
           },
@@ -6049,7 +6049,7 @@
             ],
             "meaning": "Beginn des Leistungsanspruchs",
             "instruction": "Geben Sie in Feld 29 an, ob Sie das Geld sofort oder später möchten. Wenn Sie es später möchten, tragen Sie das genaue Datum in Feld 30 ein. Wenn Sie aus dem Ausland zugezogen sind, tragen Sie in Feld 31 unbedingt das Datum der Einreise nach Deutschland ein.",
-            "where": "Hauptantrag (HA), Seite 3, Teil C.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Wenn Sie am 15.05.2024 in Deutschland angekommen sind, tragen Sie dieses Datum in Feld 31 ein.",
             "mistake": "Leerlassen von Feld 31 beim Zuzug, was die Prüfung Ihres Anspruchs verzögern kann."
           },
@@ -6089,7 +6089,7 @@
             ],
             "meaning": "Aktueller Familienstand",
             "instruction": "Markieren Sie einen der angebotenen Status in Feld 32. Wenn Sie getrennt, geschieden sind oder die Partnerschaft aufgehoben wurde, tragen Sie in Feld 33 das Datum ein, an dem dies geschah.",
-            "where": "Hauptantrag, Seite 3, Teil D.",
+            "where": "Nutze deine tatsächliche aktuelle Situation. Prüfe Daten und Beziehungen in Personenstandsdokumenten, Scheidungsbeschluss oder vorhandenen passenden Nachweisen.",
             "example": "Wenn Sie am 10.02.2023 geschieden wurden, markieren Sie 'Geschieden' und tragen in Feld 33 den 10.02.2023 ein.",
             "mistake": "Markieren des Status 'Dauernd getrennt lebend' ohne Angabe des Trennungsdatums in Feld 33."
           },
@@ -6109,7 +6109,7 @@
             ],
             "meaning": "Erwerbsfähigkeit",
             "instruction": "34 fragt, ob du grundsätzlich gesundheitlich regelmäßig mindestens drei Stunden täglich arbeiten kannst, nicht ob du einen Arbeitsplatz hast. Bei Unsicherheit frage Jobcenter und Arzt/Ärztin; leite daraus allein keinen Leistungsanspruch ab.",
-            "where": "Hauptantrag, Seite 3, Feld 34.",
+            "where": "Prüfe deine tatsächliche Situation und vorhandene Versicherungs-/ärztliche Nachweise oder den passenden Bescheid. Bei unklaren medizinischen Voraussetzungen frage Arzt/Ärztin und Jobcenter; keine eigene Diagnose stellen.",
             "example": "Auch wenn Sie arbeitslos sind, sollten Sie 'Ja' markieren, wenn Sie körperlich gesund sind.",
             "mistake": "Markieren von 'Nein' nur weil Sie derzeit keinen Job haben, obwohl Sie eigentlich gesund sind und arbeiten könnten."
           },
@@ -6129,7 +6129,7 @@
             ],
             "meaning": "Alleinerziehend",
             "instruction": "Markieren Sie 'Ja' nur dann, wenn kein anderer Elternteil oder Partner im Haushalt lebt, der sich an der Kinderbetreuung beteiligt.",
-            "where": "Hauptantrag, Seite 3, Feld 35.",
+            "where": "Nutze deine tatsächliche aktuelle Situation. Prüfe Daten und Beziehungen in Personenstandsdokumenten, Scheidungsbeschluss oder vorhandenen passenden Nachweisen.",
             "example": "Wenn Sie allein mit einem 5-jährigen Sohn leben, markieren Sie 'Ja'.",
             "mistake": "Markieren von 'Ja', wenn Sie in einer nichtehelichen Lebensgemeinschaft mit einem Partner leben, der nicht der Elternteil des Kindes ist."
           },
@@ -6149,7 +6149,7 @@
             ],
             "meaning": "Angaben zur Schwangerschaft",
             "instruction": "Wenn Sie schwanger sind, markieren Sie 'Ja' in Feld 36 und tragen in Feld 37 den voraussichtlichen Entbindungstermin ein. Wenn Sie nicht verheiratet sind, füllen Sie auch die Anlage UH2 aus.",
-            "where": "Hauptantrag, Seite 3, Feld 36 und 37.",
+            "where": "Prüfe deine tatsächliche Situation und vorhandene Versicherungs-/ärztliche Nachweise oder den passenden Bescheid. Bei unklaren medizinischen Voraussetzungen frage Arzt/Ärztin und Jobcenter; keine eigene Diagnose stellen.",
             "example": "Tragen Sie in Feld 37 das Datum aus dem Mutterpass ein.",
             "mistake": "Angabe der Schwangerschaft, ohne dem Jobcenter einen Nachweis (Mutterpass oder ärztliche Bescheinigung) vorzulegen."
           },
@@ -6169,7 +6169,7 @@
             ],
             "meaning": "Unter 25-Jährige",
             "instruction": "Wenn Sie jünger als 25 Jahre sind und ein oder beide Elternteile nicht in Ihrer Wohnung leben, markieren Sie 'Ja' und füllen Sie die Anlage UH3 aus.",
-            "where": "Hauptantrag, Seite 3, Feld 38.",
+            "where": "Nutze deine tatsächliche aktuelle Situation. Prüfe Daten und Beziehungen in Personenstandsdokumenten, Scheidungsbeschluss oder vorhandenen passenden Nachweisen.",
             "example": "Sie sind 22 Jahre alt und leben allein, während der Vater in einer anderen Stadt wohnt – markieren Sie 'Ja'.",
             "mistake": "Markieren von 'Nein', obwohl Sie unter 25 sind und die Eltern geschieden sind, wodurch die notwendige Anlage UH3 umgangen wird."
           },
@@ -6188,7 +6188,7 @@
               }
             ],
             "instruction": "Geben Sie in Feld 39 Ihren Status an. Wenn Sie Schüler oder Student sind, geben Sie in Feld 40 an, ob Kosten für Arbeitshefte oder Bücher anfallen. Geben Sie in Feld 41 an, ob Sie wegen der Ausbildung getrennt von den Eltern leben.",
-            "where": "Hauptantrag (HA), Seite 3, Teil D.",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Amra studiert Medizin in Sarajevo und lebt im Wohnheim. Sie markiert 'Ja' unter 39, 'Ja' unter 40, da sie Bücher kauft, und 'Ja' unter 41.",
             "mistake": "Vergessen der Immatrikulationsbescheinigung oder Schulbescheinigung."
           },
@@ -6243,7 +6243,7 @@
               }
             ],
             "instruction": "Geben Sie in Feld 42 'Ja' an, wenn Sie einen laufenden Antrag bei einer anderen Institution haben. Setzen Sie in Feld 43 ein Häkchen bei jeder Leistung, die auf Sie zutrifft, und fügen Sie die Bescheide bei.",
-            "where": "Hauptantrag (HA), Seite 4, Teil D.",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Marko hat einen Rentenantrag gestellt, wartet aber noch auf Antwort. Er markiert 'Ja' in Feld 42 und 'Rente' in Feld 43.",
             "mistake": "Nichtangabe von Kindergeld, weil man davon ausgeht, dass dies selbstverständlich sei."
           },
@@ -6262,7 +6262,7 @@
               }
             ],
             "instruction": "Wenn Sie an Erkrankungen wie Zöliakie, Niereninsuffizienz oder ähnlichem leiden, die teurere Lebensmittel erfordern, markieren Sie 'Ja'. Eine ärztliche Bescheinigung auf einem speziellen Formular ist erforderlich.",
-            "where": "Hauptantrag (HA), Seite 4, Teil D, Feld 44.",
+            "where": "Prüfe deine tatsächliche Situation und vorhandene Versicherungs-/ärztliche Nachweise oder den passenden Bescheid. Bei unklaren medizinischen Voraussetzungen frage Arzt/Ärztin und Jobcenter; keine eigene Diagnose stellen.",
             "example": "Eine Person mit Zöliakie muss teurere glutenfreie Lebensmittel kaufen. Sie markiert 'Ja' und bringt die Anlage MEB zu ihrem Arzt.",
             "mistake": "Markieren von 'Ja' ohne medizinische Dokumentation oder ohne das Ausfüllen der Anlage MEB."
           },
@@ -6285,7 +6285,7 @@
               }
             ],
             "instruction": "Geben Sie in Feld 45 an, ob eine Behinderung vorliegt. Wenn ja, antworten Sie in Feld 46, ob Sie Leistungen zur beruflichen Rehabilitation oder Eingliederungshilfen erhalten.",
-            "where": "Hauptantrag (HA), Seite 4, Teil D.",
+            "where": "Prüfe deine tatsächliche Situation und vorhandene Versicherungs-/ärztliche Nachweise oder den passenden Bescheid. Bei unklaren medizinischen Voraussetzungen frage Arzt/Ärztin und Jobcenter; keine eigene Diagnose stellen.",
             "example": "Haris hat einen Grad der Behinderung von 50 % und macht eine Umschulung, die von der Versicherung bezahlt wird. Er markiert 'Ja' unter 45 und 'Ja' unter 46 unter Beilage des Bescheids.",
             "mistake": "Markieren von 'Nein', obwohl ein Behindertenausweis vorliegt, da dies Auswirkungen auf Mehrbedarfe haben kann."
           },
@@ -6304,7 +6304,7 @@
               }
             ],
             "instruction": "Wenn Sie wiederkehrende besondere Kosten haben (z. B. Fahrtkosten zum Kind in einer anderen Stadt), markieren Sie 'Ja' und füllen Sie die Anlage BB aus.",
-            "where": "Hauptantrag (HA), Seite 4, Teil D, Feld 47.",
+            "where": "Prüfe deine tatsächliche Situation und vorhandene Versicherungs-/ärztliche Nachweise oder den passenden Bescheid. Bei unklaren medizinischen Voraussetzungen frage Arzt/Ärztin und Jobcenter; keine eigene Diagnose stellen.",
             "example": "Ein Vater reist jedes zweite Wochenende 200 km, um seine Tochter zu besuchen. Er markiert 'Ja', da diese Fahrtkosten für ihn unabweisbar sind.",
             "mistake": "Annehmen, dass jeder besondere Wunsch automatisch einen Anspruch begründet. Lesen Sie die BA-Hinweise und beschreiben Sie dem Jobcenter den belegbaren Bedarf."
           },
@@ -6323,7 +6323,7 @@
               }
             ],
             "instruction": "Markieren Sie Feld 48 nur dann mit 'Ja', wenn der Aufenthalt länger als 24 Stunden dauert. Geben Sie in Feld 49 z. B. 'Krankenhaus' an. Tragen Sie in Feld 50 die Daten aus der ärztlichen Einweisung oder Aufnahmebestätigung ein.",
-            "where": "Hauptantrag (HA), Seite 4, Teil D.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Emina hat eine Knie-OP und wird vom 01.05. bis 15.05. im Krankenhaus sein. Sie markiert 'Ja', schreibt 'Krankenhaus' und gibt diese Daten an.",
             "mistake": "Nichtangabe eines geplanten Krankenhausaufenthalts, was zu Überzahlungen führen kann."
           },
@@ -6343,7 +6343,7 @@
             ],
             "meaning": "Vorheriger Bezug von Sozialleistungen",
             "instruction": "Geben Sie an, ob Sie in den letzten 3 Jahren Bürgergeld oder Sozialhilfe bezogen haben. Falls ja, tragen Sie in Feld 52 die Art, in 53 die Daten und von 54 bis 58 die Daten des Jobcenters oder Sozialamtes ein.",
-            "where": "Hauptantrag (HA), Seite 5, Abschnitt E, Felder 51–58.",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Ein Nutzer hat vom 01.01.2023 bis 31.03.2023 Bürgergeld in einer anderen Stadt bezogen. Er trägt diese Daten und die Adresse des ehemaligen Jobcenters ein.",
             "mistake": "Angabe nur der Jahreszahl ohne genaue Daten oder Weglassen der Adresse der vorherigen Dienststelle."
           },
@@ -6363,7 +6363,7 @@
             ],
             "meaning": "Vorherige Beschäftigung und Lohnansprüche",
             "instruction": "Markieren Sie in Feld 59 das Arbeitsverhältnis. Wenn die Antwort 'Ja' lautet, geben Sie in Feld 60 das Start- und Enddatum der Arbeit ein. Antworten Sie in Feld 61, ob der Arbeitgeber Ihnen Geld schuldet; falls ja, tragen Sie dessen Daten in die Felder 62-66 ein.",
-            "where": "Hauptantrag (HA), Seite 5, Abschnitt E, Felder 59–66.",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Ein Arbeiter war bis vor 2 Monaten in einer Bäckerei tätig, aber der letzte Lohn wurde nicht gezahlt. Er markiert 'Ja' und gibt die Adresse der Bäckerei an.",
             "mistake": "Vergessen der Angabe ausstehender Löhne, was sich auf die Berechnung der Mittel auswirken kann."
           },
@@ -6383,7 +6383,7 @@
             ],
             "meaning": "Selbstständige Tätigkeit",
             "instruction": "Markieren Sie 'Ja', wenn Sie ein Gewerbe angemeldet hatten oder als Freiberufler tätig waren. Andernfalls markieren Sie 'Nein'.",
-            "where": "Hauptantrag (HA), Seite 5, Abschnitt E, Feld 67.",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Eine Person hatte eine kleine Reinigungsfirma, die letztes Jahr geschlossen wurde. Sie markiert 'Ja'.",
             "mistake": "Nichtmarkieren des Feldes, obwohl das Gewerbe formal noch angemeldet ist, auch wenn es kein Einkommen erzielt."
           },
@@ -6403,7 +6403,7 @@
             ],
             "meaning": "Entgeltersatzleistungen",
             "instruction": "Markieren Sie dies, wenn Sie Geld von der Versicherung oder dem Staat anstelle von Lohn erhalten haben. Tragen Sie in Feld 69 z. B. 'Krankengeld' ein und in 70 die Daten.",
-            "where": "Hauptantrag (HA), Seite 5, Abschnitt E, Felder 68–70.",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Der Antragsteller hat bis zum letzten Monat Arbeitslosengeld (ALG I) bezogen. Er trägt 'Arbeitslosengeld' und die Dauer ein.",
             "mistake": "Verwechslung von Arbeitslosengeld (ALG I) mit der Grundsicherung (Bürgergeld)."
           },
@@ -6423,7 +6423,7 @@
             ],
             "meaning": "Dienste, Pflege und Art des Lebensunterhalts",
             "instruction": "Markieren Sie in den Feldern 71 und 72 Wehrdienst oder die Pflege von Angehörigen. Wenn nichts davon in den letzten 5 Jahren auf Sie zutraf, erklären Sie in Feld 73, wovon Sie gelebt haben (z. B. Ersparnisse, Unterstützung durch Eltern, Erbe).",
-            "where": "Hauptantrag (HA), Seite 6, Abschnitt E, Felder 71–73.",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Eine Person hat 5 Jahre lang nicht gearbeitet, da sie von Ersparnissen und der Hilfe ihres Bruders lebte. In Feld 73 schreibt sie: 'Lebensunterhalt durch Ersparnisse und Unterstützung vom Bruder'.",
             "mistake": "Leerlassen von Feld 73, wenn Sie in den letzten 5 Jahren keinerlei Einkommen oder Jobs hatten."
           },
@@ -6447,7 +6447,7 @@
             ],
             "meaning": "Ansprüche gegenüber Dritten und Unfälle",
             "instruction": "Geben Sie in Feld 74 an, wenn Sie Geld aus einer Erbschaft oder Schadensersatz erwarten. Geben Sie in Feld 75 an, wenn Sie einen Unfall oder einen Behandlungsfehler hatten, aufgrund dessen Sie nicht arbeiten können. Wenn die Antwort auf 75 'Ja' lautet, fügen Sie die Anlage UF bei.",
-            "where": "Hauptantrag (HA), Seite 6, Abschnitt E, Felder 74–75.",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Der Antragsteller wartet auf eine Schadensersatzzahlung nach einem Verkehrsunfall. Er markiert die zweite Option 'Ja' und füllt die Anlage UF aus.",
             "mistake": "Nichtangabe eines laufenden Erbes, was als Verschweigen von Vermögen gewertet werden kann."
           },
@@ -6471,7 +6471,7 @@
             ],
             "meaning": "Angaben zur Kranken- und Rentenversicherung",
             "instruction": "Markieren Sie in Feld 76, ob Sie in einer gesetzlichen Versicherung sind. Tragen Sie in Feld 77 den genauen Namen Ihrer Versicherung (z. B. AOK, TK) ein und fügen Sie eine Bescheinigung bei. Wenn Sie privat versichert sind, markieren Sie 'Ja' in Feld 78.",
-            "where": "Hauptantrag (HA), Seite 6, Teil F",
+            "where": "Prüfe deine tatsächliche Situation und vorhandene Versicherungs-/ärztliche Nachweise oder den passenden Bescheid. Bei unklaren medizinischen Voraussetzungen frage Arzt/Ärztin und Jobcenter; keine eigene Diagnose stellen.",
             "example": "Der Nutzer ist über seine Ehefrau bei der AOK versichert, markiert 'Ja' unter 76 und trägt 'AOK' unter 77 ein.",
             "mistake": "Angabe des Namens der Versicherung ohne Beilage eines schriftlichen Nachweises (Versichertenkarte oder Bescheinigung)."
           },
@@ -6515,7 +6515,7 @@
             ],
             "meaning": "Wohnsituation und Mitbewohner",
             "instruction": "Wenn Sie allein leben, markieren Sie 'Ja' in Feld 79. Wenn nicht, markieren Sie 'Nein' und kennzeichnen Sie in Feld 80 mit einem Kreuz alle Kategorien von Personen, die bei Ihnen wohnen, und füllen Sie die genannten zusätzlichen Anlagen aus.",
-            "where": "Hauptantrag (HA), Seiten 6 und 7, Teil G",
+            "where": "Nutze deine tatsächliche aktuelle Situation. Prüfe Daten und Beziehungen in Personenstandsdokumenten, Scheidungsbeschluss oder vorhandenen passenden Nachweisen.",
             "example": "Eine Person lebt mit einem nichtehelichen Partner und einem 5-jährigen Kind zusammen. Sie markiert 'Nein' unter 79 und unter 80 die erste und dritte Option.",
             "mistake": "Nichtausfüllen der entsprechenden Zusatzformulare (z. B. KI für Kinder) für die unter Nummer 80 genannten Personen."
           },
@@ -6535,7 +6535,7 @@
             ],
             "meaning": "Kosten der Unterkunft und Heizung",
             "instruction": "Geben Sie in Feld 81 an, ob Sie Miete und Heizung zahlen. Wenn ja, nehmen Sie unbedingt die 'Anlage KDU' und füllen Sie diese aus.",
-            "where": "Hauptantrag (HA), Seite 7, Teil G",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "Ein Nutzer zahlt monatlich 400 EUR Miete. Er markiert 'Ja' und fügt die 'Anlage KDU' bei.",
             "mistake": "Markieren von „Nein“, nur weil das Jobcenter die Adresse bereits kennt; die Frage ist, ob Bedarfe für Wohnen und Heizung bestehen."
           },
@@ -6563,7 +6563,7 @@
             ],
             "meaning": "Erforderliche Anlagen und Nachweise",
             "instruction": "Sammeln Sie alle genannten Anlagen und Nachweise. Achten Sie darauf, dass die Kontoauszüge für die letzten 90 Tage vollständig sein müssen.",
-            "where": "Hauptantrag (HA), Seite 7, Teil H",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Eine Familie mit einem arbeitenden Mitglied reicht eine 'Anlage VM', drei Monate Kontoauszüge und eine 'Anlage EK' ein.",
             "mistake": "Vergessen von Kontoauszügen für Sparkonten oder PayPal, da das Jobcenter alle Konten verlangt."
           },
@@ -6573,7 +6573,7 @@
             "german": "I. Mitwirkungspflichten, Vertretung der Bedarfsgemeinschaft, Telefonnummer, Bildung und Teilhabe, Datenschutzhinweise",
             "meaning": "Mitwirkungspflichten und rechtliche Hinweise",
             "instruction": "Lesen Sie diesen Teil aufmerksam durch. Er informiert Sie darüber, dass Sie jede Änderung (z. B. neuer Job oder Umzug) sofort melden müssen. Zudem bestätigen Sie hier, dass Sie die gesamte Bedarfsgemeinschaft vertreten.",
-            "where": "Hauptantrag (HA), Seite 7, Teil I",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Ein Nutzer beginnt nächsten Monat einen Mini-Job und erinnert sich, dass er dies sofort melden muss, da dies Teil der Mitwirkungspflicht ist.",
             "mistake": "Ignorieren der Pflicht, Änderungen zu melden, was zu Sanktionen oder Rückforderungen führen kann."
           },
@@ -6583,7 +6583,7 @@
             "german": "82 Datum · 83 Unterschrift antragstellende Person (bei Minderjährigen: erziehungs-/sorgeberechtigte Person) · 84 Datum · 85 Unterschrift Betreuerin/Betreuer/Vormund",
             "meaning": "Datum und Unterschrift",
             "instruction": "Tragen Sie in Feld 82 das Datum der Unterzeichnung ein. Unterschreiben Sie in Feld 83 persönlich. Die Felder 84 und 85 werden nur von gesetzlichen Betreuern ausgefüllt, falls der Antragsteller einen bestellten Betreuer hat.",
-            "where": "Hauptantrag (HA), Seite 8, Teil I",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Eine Person trägt '15.02.2024' in Feld 82 ein und unterschreibt in Feld 83.",
             "mistake": "Prüfe Datum und Unterschrift im offiziellen Formular; eine fehlende Unterschrift kann eine Nachforderung erfordern. Bestätige nur richtige Angaben."
           }
@@ -6661,7 +6661,7 @@
             "german": "Ende des laufenden Bewilligungszeitraums (MM.JJJJ); Jobcenter-Feld: Tag der Antragstellung, Dienststelle, Team",
             "meaning": "Gültigkeitszeitraum der Unterstützung",
             "instruction": "Tragen Sie oben rechts den Monat und das Jahr ein, in dem Ihr aktueller Bescheid über die Hilfe ausläuft. Lassen Sie die für das Jobcenter markierten Felder leer, diese füllt der Sachbearbeiter am Tag der Antragstellung aus.",
-            "where": "Obere rechte Ecke der ersten Seite des WBA-Formulars.",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Wenn Ihre Hilfe am 31.10.2024 ausläuft, tragen Sie 10.2024 ein.",
             "mistake": "Eintragen des Geburtsdatums anstelle des Enddatums des Bewilligungszeitraums."
           },
@@ -6671,7 +6671,7 @@
             "german": "1 Vorname · 2 Nachname · 3 Geburtsdatum (TT.MM.JJJJ) · 4 Nummer der Bedarfsgemeinschaft",
             "meaning": "Persönliche Daten des Antragstellers",
             "instruction": "Geben Sie in Feld 1 den Vornamen und in Feld 2 den Nachnamen ein. Geben Sie in Feld 3 das Geburtsdatum im Format Tag-Monat-Jahr ein. In Feld 4 geben Sie die Nummer Ihrer Bedarfsgemeinschaft (BG-Nummer) ein, die auf jedem Schreiben des Jobcenters steht.",
-            "where": "Abschnitt A auf der ersten Seite.",
+            "where": "Übertrage Angaben aus Personalausweis/Reisepass; prüfe die aktuelle Melde- oder Postanschrift. Unbekannte Angaben nicht erfinden.",
             "example": "Ivan, Horvat, 15.05.1985, 12345//0067890.",
             "mistake": "Vergessen der Bedarfsgemeinschaftsnummer, was die Bearbeitung verzögert."
           },
@@ -6681,7 +6681,7 @@
             "german": "5 Straße · 6 Hausnummer · 7 Postleitzahl · 8 Wohnort",
             "meaning": "Wohnanschrift",
             "instruction": "Geben Sie die aktuelle Adresse ein, an der Sie wohnen: in Feld 5 den Straßennamen, in Feld 6 die Hausnummer, in Feld 7 die Postleitzahl und in Feld 8 den Namen des Ortes oder der Stadt.",
-            "where": "Abschnitt B auf der ersten Seite.",
+            "where": "Übertrage Angaben aus Personalausweis/Reisepass; prüfe die aktuelle Melde- oder Postanschrift. Unbekannte Angaben nicht erfinden.",
             "example": "Hauptstraße, 10, 10115, Berlin.",
             "mistake": "Angabe einer alten Adresse, wenn Sie kürzlich umgezogen sind und die Änderung nicht gemeldet haben."
           },
@@ -6701,7 +6701,7 @@
             ],
             "meaning": "Wohnsituation und Mitbewohner",
             "instruction": "Beantworten Sie Frage 9. Wenn Sie 'Nein' ankreuzen, geben Sie in Tabelle 10 alle Personen an, die mit Ihnen zusammenwohnen, einschließlich Kindern, die nur zeitweise bei Ihnen sind (Wechselmodell).",
-            "where": "Unten auf der ersten Seite und Anfang der zweiten Seite.",
+            "where": "Nutze deine tatsächliche aktuelle Situation. Prüfe Daten und Beziehungen in Personenstandsdokumenten, Scheidungsbeschluss oder vorhandenen passenden Nachweisen.",
             "example": "Wenn Sie mit Ihrer Tochter zusammenwohnen: Maja, Horvat, 01.01.2010, Tochter.",
             "mistake": "Auslassen von Personen, die nur zeitweise anwesend sind, oder Nichtmelden neuer Mitbewohner."
           },
@@ -6721,7 +6721,7 @@
             ],
             "meaning": "Bedarfe für Unterkunft und Heizung",
             "instruction": "Markieren Sie 'Ja', wenn Sie Miete, Nebenkosten oder Heizung zahlen. Andernfalls markieren Sie 'Nein' und springen Sie zu Teil D.",
-            "where": "Abschnitt C auf der zweiten Seite.",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "Markieren Sie 'Ja', wenn Sie selbst die monatliche Miete an den Vermieter zahlen.",
             "mistake": "Markieren von 'Nein', obwohl Kosten anfallen, was zur Nichtzahlung des Wohngeldes führt."
           },
@@ -6761,7 +6761,7 @@
             ],
             "meaning": "Details zum Mietverhältnis und den Kosten",
             "instruction": "Bestätigen Sie in Feld 12, dass Sie zur Miete wohnen. Trennen Sie in Feld 13 die Kosten gemäß Ihrem Vertrag oder der letzten Abrechnung auf. Fügen Sie unbedingt eine Kopie des Mietvertrags oder der neuen Nebenkostenabrechnung bei.",
-            "where": "Abschnitt C, Felder 12 und 13 auf der zweiten Seite.",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "Grundmiete: 400,00; Nebenkosten: 80,00; Heizkosten: 70,00.",
             "mistake": "Eintragen des Gesamtbetrags in jedes Feld anstatt der Aufteilung der Kosten."
           },
@@ -6771,7 +6771,7 @@
             "german": "14 Wohnen Sie im Eigentum? · 15 Bedarfe für das Eigentum, mit Fälligkeit",
             "meaning": "Kosten der eigenen Immobilie",
             "instruction": "Markieren Sie in Feld 14, ob Sie in einer Wohnung oder einem Haus wohnen, dessen Eigentümer Sie sind. Wenn die Antwort 'Ja' lautet, geben Sie in Feld 15 die Kosten an: 'Schuldzinsen' (nur die Zinsen für den Kredit, ohne Tilgung), 'Nebenkosten' (Nebenkosten wie Grundsteuer oder Wasser) und 'Heizkosten' (Heizkosten). Geben Sie die genauen Fälligkeitstermine der Zahlungen an.",
-            "where": "Hauptformular WBA, Seite 2, Teil C",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "Sie sind Eigentümer einer Wohnung und zahlen monatlich 150 EUR Zinsen für den Kredit und 80 EUR für Nebenkosten.",
             "mistake": "Eintragen der gesamten Kreditrate anstelle nur des Zinsanteils.",
             "options": [
@@ -6803,7 +6803,7 @@
             "german": "16 Einkommen aus Erwerbstätigkeit (haupt-/nebenberuflich, Ausbildung, Minijob, Ferienjob)? Tabelle: Name der Person, Arbeitgeber, monatliche Höhe",
             "meaning": "Einkommen aus Erwerbstätigkeit",
             "instruction": "16 fragt nach Erwerbseinkommen jeder Person der Bedarfsgemeinschaft, nicht automatisch aller Mitbewohnenden. Nenne Person, Arbeitgeber und monatlichen Betrag gemäß BA-Ausfüllhinweisen; füge Verdienstabrechnungen bei. Nicht ungeprüft nur Brutto oder nur Netto annehmen.",
-            "where": "Hauptformular WBA, Seite 3, Teil D",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Maja hat einen Minijob: Sie gibt ihren Namen, den Arbeitgeber und den Betrag laut Abrechnung an und fügt die Abrechnung bei. Das Beispiel legt keine gesetzliche Grenze für den Minijob fest.",
             "mistake": "Nichtangabe von Saisonarbeit oder Ferienjobs der Kinder.",
             "options": [
@@ -6823,7 +6823,7 @@
             "german": "17 Haben sich die Werbungskosten/Absetzungen geändert? Tabelle: Name, Art, monatliche Höhe, Tag der Änderung",
             "meaning": "Änderungen bei den berufsbedingten Kosten",
             "instruction": "Falls sich Ihre Fahrtkosten zur Arbeit oder andere Absetzungen geändert haben, markieren Sie 'Ja'. Tragen Sie in die Tabelle den Namen der Person, die Art der Kosten (z. B. 'Fahrtkosten'), den monatlichen Betrag und das genaue Datum ein, an dem die Änderung eingetreten ist.",
-            "where": "Hauptformular WBA, Seite 3, Teil D",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Sie sind umgezogen und fahren nun 20 km zur Arbeit statt bisher 5 km.",
             "mistake": "Angabe alter Kosten, die dem Jobcenter bereits bekannt sind.",
             "options": [
@@ -6843,7 +6843,7 @@
             "german": "18 Selbständige oder freiberufliche Tätigkeit, auch Land- und Forstwirtschaft?",
             "meaning": "Selbstständige Tätigkeit oder freier Beruf",
             "instruction": "Markieren Sie 'Ja', wenn Sie oder jemand aus dem Haushalt selbstständiger Unternehmer, Freiberufler oder in der Landwirtschaft tätig sind. Falls die Antwort bejahend ausfällt, müssen Sie mit diesem Antrag obligatorisch das Zusatzformular 'Anlage EKS' ausfüllen und einreichen.",
-            "where": "Hauptformular WBA, Seite 3, Teil D",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Sie arbeiten als selbstständiger Grafikdesigner oder haben ein kleines Gewerbe.",
             "mistake": "Markieren von 'Nein', weil der Verdienst derzeit bei Null liegt, obwohl das Gewerbe noch angemeldet ist.",
             "options": [
@@ -6863,7 +6863,7 @@
             "german": "19 (Steuerfreie) Aufwandsentschädigungen oder Aufwandspauschalen aus gemeinnütziger/ehrenamtlicher Tätigkeit? Tabelle: Name, Art der Tätigkeit, Zahlungseingang",
             "meaning": "Aufwandsentschädigungen für ehrenamtliche oder gemeinnützige Tätigkeit",
             "instruction": "Geben Sie an, ob Sie steuerfreie Aufwandsentschädigungen erhalten (z. B. als Trainer im Verein oder Ehrenamtlicher). Tragen Sie in die Tabelle ein, wer das Geld erhält, um welche Tätigkeit es sich handelt und das Datum des Zahlungseingangs auf dem Konto.",
-            "where": "Hauptformular WBA, Seite 3, Teil D",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Sie erhalten monatlich 200 EUR als Freiwilliger in einem Verein zur Altenhilfe.",
             "mistake": "Vergessen der Angabe dieser Entschädigungen, weil Sie denken, sie seien steuerfrei und damit für das Jobcenter irrelevant.",
             "options": [
@@ -6883,7 +6883,7 @@
             "german": "20 Einkommen von Sozialleistungsträgern (z. B. Wohngeld, Unterhaltsleistungen, Krankengeld, Familienkasse, Renten, Sachbezüge)? Grundsicherungsgeld nicht eintragen. Tabelle: Name, Art, auszahlende Stelle, monatliche Höhe",
             "meaning": "Einkommen von Sozialleistungsträgern und anderen Institutionen",
             "instruction": "Melden Sie alle anderen Einkünfte wie Kindergeld, Unterhalt, Krankengeld, Renten oder Wohngeld. Tragen Sie in die Tabelle den Namen, die Art der Leistung, die auszahlende Stelle (z. B. Familienkasse) und den Betrag ein. Tragen Sie nicht das Geld ein, das Sie bereits vom Jobcenter erhalten (Bürgergeld).",
-            "where": "Hauptformular WBA, Seite 4, Teil D",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Maja erhält Kindergeld: Sie überträgt den tatsächlichen Betrag aus ihrem Bescheid in die Tabelle 20. Dies ist kein Beispiel für die gesetzliche Höhe der Leistung.",
             "mistake": "Eintragen des Bürgergeldes, das Sie bereits erhalten, was nicht erforderlich ist.",
             "options": [
@@ -6903,7 +6903,7 @@
             "german": "21 Andere (nicht aufgeführte) Einnahmen, z. B. digitale Plattformen, Vermietung oder Verpachtung? · 22 Art der Einnahme",
             "meaning": "Sonstige nicht aufgeführte Einnahmen",
             "instruction": "Markieren Sie in Feld 21 'Ja', wenn Sie Einkünfte haben, die zuvor nicht genannt wurden (wie Online-Verkäufe oder Zimmervermietung). Beschreiben Sie in Feld 22 detailliert, um welche Art von Einnahme es sich handelt. Wenn Sie keine solchen Einnahmen haben, markieren Sie 'Nein'.",
-            "where": "WBA-Formular, Seite 4, Abschnitt D, Felder 21 und 22.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Ein Nutzer vermietet seine Garage für 50 EUR monatlich an einen Nachbarn.",
             "mistake": "Vergessen der Angabe von Einnahmen aus gelegentlichen Verkäufen auf Plattformen wie eBay oder ähnlichem.",
             "options": [
@@ -6923,7 +6923,7 @@
             "german": "23 Bereits absehbare Änderungen",
             "meaning": "Absehbare Änderungen in der Zukunft",
             "instruction": "Markieren Sie in Feld 23 alle Optionen, deren Eintritt Sie für den kommenden Zeitraum erwarten. Wenn Sie einen Umzug planen, sich der Familienstand ändert oder ein Studium beginnt, kreuzen Sie das entsprechende Kästchen an und fügen Sie Nachweise bei, sofern Sie diese bereits haben.",
-            "where": "WBA-Formular, Seite 4, Abschnitt E, Feld 23.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Der Nutzer weiß, dass er in zwei Monaten heiraten wird oder dass das Kind das Studium aufnimmt.",
             "mistake": "Nicht-Markieren eines geplanten Umzugs, was zu Problemen bei der Anerkennung der Kosten der neuen Wohnung führen kann.",
             "options": [
@@ -6959,7 +6959,7 @@
             "german": "24 Anspruch gegenüber Dritten (z. B. Schadensersatz, Erbschaft)? · 25 Unfall/Gesundheitsschaden durch Dritte?",
             "meaning": "Ansprüche gegenüber Dritten",
             "instruction": "Geben Sie in Feld 24 an, ob Sie Geld aus einer Erbschaft oder Schadensersatz erwarten. Geben Sie in Feld 25 an, ob Sie einen Unfall hatten, der durch eine andere Person verursacht wurde (z. B. Verkehrsunfall). Wenn die Antwort 'Ja' lautet, fügen Sie unbedingt einen Nachweis bei oder füllen Sie die Anlage UF aus.",
-            "where": "WBA-Formular, Seite 4, Abschnitt E, Felder 24 und 25.",
+            "where": "Prüfe Verdienstabrechnungen, Verträge, Schul-/Arbeitsnachweise, Bescheide und Zahlungseingänge zum jeweiligen Thema. Unterscheide aktuelle Einnahmen von der Vorgeschichte im gefragten Zeitraum.",
             "example": "Der Nutzer hatte einen Verkehrsunfall und erwartet Schadensersatz von der Versicherung des anderen Fahrers.",
             "mistake": "Verschweigen einer Erbschaft, die im Verfahren ist, was als Verletzung der Mitwirkungspflicht gilt.",
             "options": [
@@ -6983,7 +6983,7 @@
             "german": "26 Weitere, dem Jobcenter bisher nicht mitgeteilte Änderungen im letzten Bewilligungszeitraum (z. B. Vermögen, Schwangerschaft, Bankverbindung, Familienstand, Sterbefall, anerkannte Schwerbehinderung). Tabelle: Name, Art, Tag der Änderung",
             "meaning": "Nicht gemeldete Änderungen aus dem vergangenen Zeitraum",
             "instruction": "Wenn sich in den letzten 6-12 Monaten etwas geändert hat und Sie dies nicht mitgeteilt haben, tragen Sie es hier ein. Füllen Sie die Tabelle aus: Name der Person, Art der Änderung (z. B. neue Bankverbindung) und das genaue Datum der Änderung. Fügen Sie Nachweise bei (z. B. Mutterpass oder Vertrag).",
-            "where": "WBA-Formular, Seite 5, Abschnitt E, Feld 26.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Die Nutzerin ist vor zwei Monaten schwanger geworden, hat aber noch keine ärztliche Bestätigung vorgelegt.",
             "mistake": "Die Nichtangabe der neuen Bankverbindung hier kann dazu führen, dass Geld auf ein altes, geschlossenes Konto geht.",
             "options": [
@@ -7003,7 +7003,7 @@
             "german": "F. Erforderliche Anlagen: Anlage VM, Kontoauszüge, Anlagen aus A bis E",
             "meaning": "Erforderliche Anlagen zum Antrag",
             "instruction": "Überprüfen Sie die Liste der Dokumentation. Fügen Sie obligatorisch bei: 1. Anlage VM (über Vermögen), 2. Kontoauszüge für die letzten drei Monate für alle Familienmitglieder, 3. Alle weiteren Anlagen, die Sie in den vorherigen Teilen (A-E) markiert haben.",
-            "where": "WBA-Formular, Seite 5, Abschnitt F.",
+            "where": "Prüfe aktuelle/frühere Bescheide und Kontoauszüge: Träger, Leistungsart und gefragter Zeitraum. Für Anlagen folge HA H / WBA F und den BA-Ausfüllhinweisen.",
             "example": "Der Nutzer fügt Kontoauszüge von Januar bis März und eine ausgefüllte Anlage VM bei.",
             "mistake": "Senden von Kontoauszügen mit geschwärzten (verborgenen) wichtigen Transaktionen oder das Einreichen von Auszügen nur für ein Familienmitglied.",
             "options": [
@@ -7027,7 +7027,7 @@
             "german": "G. Hinweise · 27 Datum · 28 Unterschrift antragstellende Person (bei Minderjährigen: erziehungs-/sorgeberechtigte Person) · 29 Datum · 30 Unterschrift Betreuerin/Betreuer/Vormund",
             "meaning": "Datum und Unterschrift",
             "instruction": "Tragen Sie in Feld 27 das Datum der Unterzeichnung ein. In Feld 28 unterschreibt die Person, die den Antrag stellt. Die Felder 29 und 30 werden nur vom gesetzlichen Vertreter ausgefüllt, wenn der Nutzer einen bestellten Betreuer hat. Mit der Unterschrift bestätigen Sie die Richtigkeit der Angaben.",
-            "where": "WBA-Formular, Seite 6, Ende von Abschnitt G.",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Der Nutzer trägt '01.05.2024' ein und unterschreibt eigenhändig mit blauem oder schwarzem Stift.",
             "mistake": "Prüfe Datum und Unterschrift im offiziellen Formular; eine fehlende Unterschrift kann eine Nachforderung erfordern. Bestätige nur richtige Angaben."
           }
@@ -7105,7 +7105,7 @@
             "german": "1 Vorname · 2 Nachname · 3 Geburtsdatum (TT.MM.JJJJ) · 4 Nummer der Bedarfsgemeinschaft (falls vorhanden)",
             "meaning": "Persönliche Daten des Antragstellers",
             "instruction": "In Feld 1 geben Sie den Vornamen ein, in Feld 2 den Nachnamen. Feld 3 erfordert das Geburtsdatum im Format Tag-Monat-Jahr. In Feld 4 tragen Sie Ihre Bedarfsgemeinschaftsnummer (BG-Nummer) ein, falls Ihnen diese bereits vom Jobcenter zugewiesen wurde.",
-            "where": "Seite 1, Abschnitt A",
+            "where": "Übertrage Angaben aus Personalausweis/Reisepass; prüfe die aktuelle Melde- oder Postanschrift. Unbekannte Angaben nicht erfinden.",
             "example": "Marko, Marković, 15.05.1985, 123J45678",
             "mistake": "Eintragung der Versicherungsnummer anstelle der Bedarfsgemeinschaftsnummer."
           },
@@ -7115,7 +7115,7 @@
             "german": "5 Straße · 6 Hausnummer · 7 Postleitzahl · 8 Ort · 9 Wie viele Personen wohnen in der Unterkunft? (sich selbst mitzählen)",
             "meaning": "Wohnadresse und Anzahl der Bewohner",
             "instruction": "In die Felder 5-8 geben Sie Straße, Hausnummer, Postleitzahl und Ort ein. In Feld 9 geben Sie die Gesamtzahl der Personen ein, die mit Ihnen zusammenwohnen, einschließlich Ihrer Person.",
-            "where": "Seite 1, Abschnitt B",
+            "where": "Übertrage Angaben aus Personalausweis/Reisepass; prüfe die aktuelle Melde- oder Postanschrift. Unbekannte Angaben nicht erfinden.",
             "example": "Hauptstraße, 10, 10115, Berlin, 3",
             "mistake": "Vergessen, sich selbst in die Gesamtzahl der Bewohner mit einzurechnen."
           },
@@ -7125,7 +7125,7 @@
             "german": "10 Baujahr der Unterkunft (falls bekannt) · 11 Anzahl der Räume · 12 Anzahl der Küchen · 13 Anzahl der Bäder",
             "meaning": "Angaben zum Objekt und zur Aufteilung",
             "instruction": "In Feld 10 geben Sie das Baujahr an, falls bekannt. In die Felder 11, 12 und 13 geben Sie die Anzahl der Räume (ohne Küche und Bad), Anzahl der Küchen und Anzahl der Bäder ein.",
-            "where": "Seite 1, Abschnitt B",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "1975, 3, 1, 1",
             "mistake": "Einrechnen von Küche oder Bad in die Zimmeranzahl (Feld 11)."
           },
@@ -7135,7 +7135,7 @@
             "german": "14 Gesamtfläche (m²) · 15 Selbst bewohnter Anteil · 16 Vermieteter/Verpachteter Anteil · 17 Leer stehender Anteil · 18 Gewerberäume/Gewerbliche Nutzung",
             "meaning": "Fläche und Raumnutzung",
             "instruction": "In Feld 14 geben Sie die Gesamtfläche ein. In Feld 15 den von Ihnen selbst genutzten Anteil. Wenn Sie einen Teil der Wohnung vermieten, geben Sie dies in Feld 16 an. Feld 17 ist für leer stehende Flächen und 18 für Gewerberäume.",
-            "where": "Seite 1 und 2, Abschnitt B",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "80, 80, 0, 0, 0",
             "mistake": "Die Summe der Felder 15-18 stimmt nicht mit der Gesamtfläche aus Feld 14 überein."
           },
@@ -7155,7 +7155,7 @@
             ],
             "meaning": "Art des Wohnverhältnisses",
             "instruction": "Markieren Sie eine der zwei angebotenen Optionen, je nachdem, ob Sie Räumlichkeiten mieten oder eine eigene Immobilie besitzen.",
-            "where": "Seite 2, Feld 19",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "Markiertes Kästchen neben 'Wohnen zur Miete'.",
             "mistake": "Markieren der falschen Option, die nicht Ihrem Vertrag entspricht."
           },
@@ -7187,7 +7187,7 @@
             ],
             "meaning": "Wohnkosten bei Miete",
             "instruction": "Geben Sie die Beträge aus Ihrem Mietvertrag oder der Vermieterbescheinigung ein. Wenn Sie getrennte Kosten haben, füllen Sie die ersten drei Punkte aus. Wenn Sie einen festen Gesamtbetrag für alles zahlen, füllen Sie nur 'Pauschalmiete' aus.",
-            "where": "Seite 2, Abschnitt C",
+            "where": "Nutze Mietvertrag, aktuelle Betriebs-/Heizkostenabrechnung, Grundriss oder Eigentums-/Kreditunterlagen. Bei fehlenden Angaben frage Vermieter, Verwaltung oder Jobcenter; nicht frei schätzen.",
             "example": "400,00 (Grundmiete), 80,00 (Nebenkosten), 70,00 (Heizkosten)",
             "mistake": "Doppelte Eintragung derselben Kosten sowohl in die Einzelfelder als auch in das Feld für die Pauschalmiete."
           },
@@ -7417,7 +7417,7 @@
             "german": "G. Datenschutzhinweise · 37 Datum · 38 Unterschrift antragstellende Person (bei Minderjährigen: erziehungs-/sorgeberechtigte Person) · 39 Datum · 40 Unterschrift Betreuerin/Betreuer/Vormund",
             "meaning": "Datum und Unterschrift des Antragstellers oder des gesetzlichen Vertreters",
             "instruction": "Geben Sie in Feld 37 das aktuelle Datum der Unterzeichnung ein. Unterschreiben Sie in Feld 38 eigenhändig. Wenn der Antragsteller minderjährig ist, unterschreibt ein Elternteil oder Vormund. Die Felder 39 und 40 werden nur ausgefüllt, wenn Sie einen offiziell bestellten gesetzlichen Betreuer oder Vormund haben. Mit der Unterschrift bestätigen Sie die Richtigkeit der Angaben und die Kenntnisnahme der Datenschutzhinweise.",
-            "where": "Anlage KDU, Seite 3, Teil G",
+            "where": "Prüfe deine passenden amtlichen Unterlagen und tatsächlichen Verhältnisse; lies die BA-Ausfüllhinweise zu dieser Feldnummer. Bei fehlenden Angaben oder unklarer Voraussetzung frage das Jobcenter vor dem Eintragen.",
             "example": "Der Antragsteller trägt '15.03.2024' in Feld 37 ein und unterschreibt in Feld 38. Die Felder 39 und 40 lässt er leer, da er keinen gesetzlichen Vertreter hat.",
             "mistake": "Prüfe Datum und Unterschrift im offiziellen Formular; eine fehlende Unterschrift kann eine Nachforderung erfordern. Bestätige nur richtige Angaben."
           }
