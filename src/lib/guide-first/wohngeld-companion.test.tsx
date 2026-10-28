@@ -78,7 +78,7 @@ describe.each(Object.keys(locales) as (keyof typeof locales)[])("Wohngeld UI (%s
     const select = container.querySelector('select[data-nav="arrival-terms"]') as HTMLSelectElement;
     const terms = locales[lng].wohngeldCompanion.guides.general.terms;
     fireEvent.change(select, { target: { value: String(terms.length - 1) } });
-    expect(screen.getByRole("heading", { level: 4 }).textContent).toContain(terms[terms.length - 1].german);
+    expect(container.querySelector("h4[tabindex]")!.textContent).toContain(terms[terms.length - 1].german);
     const steps = locales[lng].wohngeldCompanion.guides.general.steps;
     const companion = within(container.querySelector('[data-testid="arrival-companion"]') as HTMLElement);
     fireEvent.click(companion.getByRole("button", { name: locales[lng].arrivalCompanions.ui.advance }));
