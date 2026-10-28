@@ -835,16 +835,6 @@
       "listen": "Anhören",
       "startExercises": "Zu den Übungen",
       "translationNote": "Erklärungen sind eine Hilfe; maßgeblich ist der deutsche Text."
-    },
-    "audio": {
-      "speed": "Wiedergabegeschwindigkeit",
-      "normal": "Normal",
-      "slow": "Langsamer",
-      "playAll": "Ganzen Dialog abspielen",
-      "stopAll": "Stopp",
-      "fallback": "Die professionelle Stimme ist gerade nicht verfügbar — es wird die einfache Stimme deines Geräts genutzt (geringere Qualität).",
-      "error": "Audio ist gerade nicht verfügbar. Bitte später erneut versuchen.",
-      "voiceNote": "Die Stimmen erzeugt ein externer Sprachsynthese-Dienst (ElevenLabs) nur aus dem Lektionstext; deine Daten werden nicht übermittelt."
     }
   },
   "classifieds": {

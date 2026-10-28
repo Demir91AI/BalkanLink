@@ -6,15 +6,12 @@
 
 import { TTS_CONFIG } from "@/config/ttsConfig";
 import { supabase } from "@/integrations/supabase/client";
-import { resolveVoice } from "@/lib/audio/audio-engine";
 
 export interface TTSSentence {
   id: string;
   text: string;
   audioUrl?: string | null;
   audioStatus?: "ready" | "pending" | "failed";
-  /** Optional allowlisted voice; defaults to the configured voice. */
-  voiceId?: string;
 }
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
@@ -36,7 +33,7 @@ const sessionCache = new Map<string, string>();
 const pendingRequests = new Map<string, Promise<string | null>>();
 
 function sentenceCacheKey(sentence: TTSSentence): string {
-  return `${sentence.id}|${resolveVoice(sentence.voiceId)}|${sentence.text.trim()}`;
+  return `${sentence.id}|${TTS_CONFIG.voiceId}|${sentence.text.trim()}`;
 }
 
 export function getCachedAudioUrl(sentence: TTSSentence): string | null {
@@ -99,7 +96,7 @@ export async function getDirectAudioUrl(sentence: TTSSentence): Promise<string |
 
   const params = new URLSearchParams({
     text,
-    voiceId: resolveVoice(sentence.voiceId),
+    voiceId: TTS_CONFIG.voiceId,
     stability: String(TTS_CONFIG.stability),
     similarityBoost: String(TTS_CONFIG.similarityBoost),
     format: "audio",
@@ -135,7 +132,7 @@ async function fetchFromEdge(sentence: TTSSentence): Promise<string | null> {
         },
         body: JSON.stringify({
           text,
-          voiceId: resolveVoice(sentence.voiceId),
+          voiceId: TTS_CONFIG.voiceId,
           stability: TTS_CONFIG.stability,
           similarityBoost: TTS_CONFIG.similarityBoost,
         }),
