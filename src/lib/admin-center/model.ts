@@ -41,3 +41,7 @@ export function record(value: unknown): Record<string, unknown> | null {
 export function records(value: unknown): Record<string, unknown>[] {
   return Array.isArray(value) ? value.filter(v => record(v) != null) : [];
 }
+export function sourceHeading(key: string): string {
+  const map: Record<string,string> = { deviceSplit:'devices',browserSplit:'browsers',sourceSplit:'referrers',viewsByHour:'hours',dailyAuthVsAnon:'dailyTraffic',topPaths30d:'topPages',topCountries30d:'countries',topCities30d:'cities',languageSplit:'languages' };
+  return map[key] ?? key;
+}

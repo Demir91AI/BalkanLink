@@ -13,7 +13,7 @@ import StripeSubscriptionsSection from '@/components/admin/StripeSubscriptionsSe
 import StripeSyncLogSection from '@/components/admin/StripeSyncLogSection';
 import AdminNotificationsSection from '@/components/admin/AdminNotificationsSection';
 import SourceStatus from '@/components/admin/SourceStatus';
-import { downloadCsv, periodMetric, profilePlan, record, records, type Period, type ProfileRow, type SourceKey } from '@/lib/admin-center/model';
+import { downloadCsv, periodMetric, profilePlan, record, records, sourceHeading, type Period, type ProfileRow, type SourceKey } from '@/lib/admin-center/model';
 
 const tabs = ['overview','revenue','users','traffic','features','stripe','sync','notifications','trainer','assistant','geo','costs','goals'] as const;
 type Tab = typeof tabs[number];
@@ -68,7 +68,7 @@ export default function AdminDashboard() {
   return <div className="admin-control-surface guide-dark-surface min-h-screen bg-background text-foreground">
     <Helmet><title>{a('title')} · BalkanLink</title><meta name="robots" content="noindex,nofollow" /></Helmet>
     <div className="mx-auto max-w-[1440px] px-4 md:px-8">
-      <PageNavBar />
+      <PageNavBar showShare={false} />
       <header className="py-6 border-b border-border flex flex-wrap items-start justify-between gap-5">
         <div><div className="flex items-center gap-2 text-primary text-sm mb-2"><ShieldCheck className="h-4 w-4" />BalkanLink</div><h1 className="text-2xl md:text-3xl font-semibold">{a('title')}</h1><p className="text-sm mt-2 text-muted-foreground">{new Date(clock).toLocaleDateString(i18n.language)} · {a('snapshot')}</p></div>
         <div className="flex flex-wrap gap-2 items-center"><label className="sr-only" htmlFor="admin-period">{a('period')}</label><select id="admin-period" className="bg-card border border-border rounded-md px-3 h-10 text-sm" value={period} onChange={e => setPeriod(Number(e.target.value) as Period)}>{[7,30,90].map(days => <option key={days} value={days}>{t('adminCenter.days',{ count:days })}</option>)}</select><Button variant="outline" disabled={refreshing} onClick={() => void refresh()}><RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />{a('refresh')}</Button></div>
