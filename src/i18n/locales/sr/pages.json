@@ -11400,7 +11400,7 @@
               "where": "BAföG.de, BAföG-Rechner, Studierendenwerk.",
               "example": "Izmišljeni primer: Maja Kovač (22) upisuje Bachelor u Kölnu i ima Aufenthaltserlaubnis – pita Studierendenwerk da li njen status ulazi u § 8.",
               "mistake": "Ne podneti zahtev jer 'roditelji zarađuju previše' – odluku donosi samo Amt.",
-              "next": "Odredi koje obrasce su ti potrebni."
+              "next": "Odredi koji obrasci su ti potrebni."
             }
           },
           {
@@ -11490,11 +11490,11 @@
           {
             "id": "z4",
             "german": "Vollzeitausbildung",
-            "meaning": "školovanje s punim radnim vremenom",
+            "meaning": "školovanje s punim nastavnim opterećenjem",
             "reference": "Formblatt 01, Seite 1, Zeile 4",
             "instruction": "Označi ja ili nein. Obrazac navodi: na fakultetu obično 30 ECTS po semestru; u školi najmanje 20 sati nastave nedeljno.",
             "where": "Studijski plan, potvrda škole.",
-            "example": "Izmišljeni primer: redovni Bachelor sa 30 ECTS → ja.",
+            "example": "Izmišljeni primer: redovan Bachelor sa 30 ECTS → ja.",
             "mistake": "Označiti ja za Teilzeitstudium.",
             "options": [
               {
@@ -11612,7 +11612,7 @@
             "german": "Anschrift am ständigen Wohnsitz / während der Ausbildung",
             "meaning": "stalna adresa / adresa tokom školovanja",
             "reference": "Formblatt 01, Seite 1, Zeile 13–18",
-            "instruction": "Zeile 15: živiš li kod roditelja tokom studija (ja/nein). Zeile 16 (samo ako nein): je li stan u vlasništvu roditelja. Zeile 17–18 samo ako se adresa razlikuje. Za inostranstvo kod 'Land' koristi međunarodnu oznaku (npr. BIH, HR, SRB).",
+            "instruction": "Zeile 15: živiš li kod roditelja tokom studija (ja/nein). Zeile 16 (samo ako nein): da li stan u vlasništvu roditelja. Zeile 17–18 samo ako se adresa razlikuje. Za inostranstvo kod 'Land' koristi međunarodnu oznaku (npr. BIH, HR, SRB).",
             "where": "Meldebescheinigung, ugovor o najmu.",
             "example": "Izmišljeni primer: Maja živi u studentskom domu → Zeile 15 nein, Zeile 16 nein.",
             "mistake": "Navesti adresu roditelja iako stvarno živiš drugde – stanovanje je važno za proveru.",
@@ -11924,7 +11924,7 @@
             "german": "mit meinen Eltern in häuslicher Gemeinschaft / Wohnraum im Eigentum der Eltern",
             "meaning": "živim s roditeljima / stan je u vlasništvu roditelja",
             "reference": "Formblatt 01, Seite 1, Zeile 15–16",
-            "instruction": "Zeile 15: ja ako živiš kod roditelja tokom školovanja. Zeile 16 samo ako nein: je li tvoj stan u (su)vlasništvu roditelja.",
+            "instruction": "Zeile 15: ja ako živiš kod roditelja tokom školovanja. Zeile 16 samo ako nein: da li tvoj stan u (su)vlasništvu roditelja.",
             "where": "Ugovor o najmu, Meldebescheinigung.",
             "example": "Izmišljeni primer: Damir živi u internatu → Zeile 15 nein, Zeile 16 nein.",
             "mistake": "Prijaviti odvojeno stanovanje koje ne postoji.",
@@ -12049,7 +12049,7 @@
             {
               "id": "berechtigt",
               "label": "Dobio/la sam Berechtigungsschein",
-              "result": "S važećim Berechtigungsschein se prijavljuješ direktno kod Kursträger-a; dodatni zahtev 630.007 u pravilu nije potreban. Traži preko BAMF-NAvI. Proveri je li oslobađanje već potvrđeno ili treba poseban 630.027."
+              "result": "S važećim Berechtigungsschein se prijavljuješ direktno kod Kursträger-a; dodatni zahtev 630.007 u pravilu nije potreban. Traži preko BAMF-NAvI. Proveri da li oslobađanje već potvrđeno ili treba poseban 630.027."
             },
             {
               "id": "verpflichtet",
@@ -12069,7 +12069,7 @@
           ]
         },
         "modes": {
-          "paper": "Papir: pri poslednjoj proveri izvora PDF 630.007 nije bio dostupan. Ako dobiješ obrazac od ureda ili Kursträger-a, proveri je li izdanje aktuelno pre korištenja.",
+          "paper": "Papir: pri poslednjoj proveri izvora PDF 630.007 nije bio dostupan. Ako dobiješ obrazac od ureda ili Kursträger-a, proveri da li izdanje aktuelno pre korišćenja.",
           "online": "Online: Bundesportal (Verwaltung digital) – zahtev za dozvolu; i za oslobađanje (630.027) i putne troškove (630.032) postoje posebni online-zahtevi. Ekrane ne opisujemo."
         },
         "steps": [
@@ -12077,8 +12077,8 @@
             "id": "i1",
             "title": "Utvrdi svoj put (pravo, obaveza ili dobrovoljno)",
             "sections": {
-              "meaning": "Od puta zavisi ko izdaje dokument i su ti potrebni li uopšte zahtev 630.007.",
-              "action": "Pogledaj svoj Aufenthaltstitel i pisma Ausländerbehörde/Jobcenter-a. Ako dobiješ Berechtigungsschein, zahtev BAMF-u ne su ti potrebni.",
+              "meaning": "Od puta zavisi ko izdaje dokument i da li ti je uopšte potreban zahtev 630.007.",
+              "action": "Pogledaj svoj Aufenthaltstitel i pisma Ausländerbehörde/Jobcenter-a. Ako dobiješ Berechtigungsschein, zahtev BAMF-u ti nije potreban.",
               "where": "Boravišna dozvola, dodatni list, pismo Jobcenter-a.",
               "example": "Izmišljeni primer: Maja dolazi na spajanje porodice 2026 i dobije Berechtigungsschein uz dozvolu.",
               "mistake": "Slati 630.007 iako već imaš Berechtigungsschein.",

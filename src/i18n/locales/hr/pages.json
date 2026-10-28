@@ -11341,11 +11341,11 @@
         "fbAll": "BAföG.de: svi Formblätter",
         "schoolOffices": "BAföG.de: nadležni ured za učenike po Bundeslandu",
         "ikForm": "BAMF: Antrag auf Zulassung (630.007) – stranica obrasca",
-        "ikPortal": "Bundesportal: online-zahtjev za Integrationskurs",
+        "ikPortal": "Bundesportal: online-zahtjev za Integrationstečaj",
         "ikCost": "BAMF: Teilnahme und Kosten",
         "ikBefreiung": "BAMF: Antrag auf Kostenbefreiung (630.027)",
         "ikFahrt": "BAMF: Antrag auf Fahrtkostenzuschuss (630.032)",
-        "navi": "BAMF-NAvI: kursevi i savjetovališta u blizini"
+        "navi": "BAMF-NAvI: tečajevi i savjetovališta u blizini"
       },
       "privacy": "Ovdje ništa ne upisuješ i ništa se ne sprema. Izbori na ovoj stranici postoje samo dok je stranica otvorena. Obrazac ispunjavaš, potpisuješ i predaješ sam/a."
     },
@@ -11388,12 +11388,12 @@
         "steps": [
           {
             "id": "b1",
-            "title": "Provjeri je li BAföG ima smisla za tebe",
+            "title": "Provjeri dolazi li BAföG u obzir za tebe",
             "sections": {
               "meaning": "BAföG zavisi, između ostalog, od vrste školovanja, starosti, boravka, prihoda i imovine. Amt provjerava i prihode roditelja kada se oni uzimaju u obzir.",
-              "action": "Pročitaj BAföG.de i probaj BAföG-Rechner. Ako nemaš njemačko državljanstvo, pitaj Amt je li tvoj boravišni status može dati pravo (BAföG § 8).",
+              "action": "Pročitaj BAföG.de i probaj BAföG-Rechner. Ako nemaš njemačko državljanstvo, pitaj Amt može li tvoj boravišni status dati pravo (BAföG § 8).",
               "where": "BAföG.de, BAföG-Rechner, Studierendenwerk.",
-              "example": "Izmišljeni primjer: Maja Kovač (22) upisuje Bachelor u Kölnu i ima Aufenthaltserlaubnis – pita Studierendenwerk je li njen status ulazi u § 8.",
+              "example": "Izmišljeni primjer: Maja Kovač (22) upisuje Bachelor u Kölnu i ima Aufenthaltserlaubnis – pita Studierendenwerk ulazi li njezin status u § 8.",
               "mistake": "Ne podnijeti zahtjev jer 'roditelji zarađuju previše' – odluku donosi samo Amt.",
               "next": "Odredi koje obrasce trebaš."
             }
@@ -11415,10 +11415,10 @@
             "title": "Popuni Formblatt 01",
             "sections": {
               "meaning": "Formblatt 01 je tvoj zahtjev: školovanje, osobni podaci, adresa, banka, osiguranje, roditelji, prihodi, imovina, životni put, izjava.",
-              "action": "Prođi objašnjenja za Zeile 1–85. Kod ja/nein pitanja provjeri uvjet i označi odgovor koji odgovara stvarnoj situaciji.",
+              "action": "Prođi objašnjezinja za Zeile 1–85. Kod ja/nein pitanja provjeri uvjet i označi odgovor koji odgovara stvarnoj situaciji.",
               "where": "Putovnica/osobna iskaznica, Meldebescheinigung, Immatrikulation, bankovni podaci, kartica osiguranja.",
               "example": "Izmišljeni primjer: Maja upisuje 'Universität zu Köln, Köln' u Zeile 1.",
-              "mistake": "Ostaviti potrebna polja prazna bez objašnjenja – Amt može tražiti dopunu i obrada traje duže.",
+              "mistake": "Ostaviti potrebna polja prazna bez objašnjezinja – Amt može tražiti dopunu i obrada traje duže.",
               "next": "Formblatt 02 i 03."
             }
           },
@@ -11430,7 +11430,7 @@
               "action": "Pošalji roditeljima prazan Formblatt 03 i ovaj vodič. Prihodi se gledaju iz 'vorletztes Kalenderjahr' – pretprošle godine prije početka perioda odobrenja.",
               "where": "Fakultet (Studierendensekretariat), roditelji: Einkommensteuerbescheid, Lohnsteuerbescheinigung.",
               "example": "Izmišljeni primjer: za period od 10/2026 roditelji Damira Novaka navode prihode iz 2024.",
-              "mistake": "Koristiti zajednički Formblatt 03 kada uvjeti za to nisu ispunjeni; Zeile 1 objašnjava dopuštene slučajeve.",
+              "mistake": "Koristiti zajednički Formblatt 03 kada uvjeti za to nisu ispunjezini; Zeile 1 objašnjava dopuštene slučajeve.",
               "next": "Roditelji u inozemstvu."
             }
           },
@@ -11485,7 +11485,7 @@
           {
             "id": "z4",
             "german": "Vollzeitausbildung",
-            "meaning": "školovanje s punim radnim vremenom",
+            "meaning": "školovanje s punim nastavnim opterećenjem",
             "reference": "Formblatt 01, Seite 1, Zeile 4",
             "instruction": "Označi ja ili nein. Obrazac navodi: na fakultetu obično 30 ECTS po semestru; u školi najmanje 20 sati nastave tjedno.",
             "where": "Studijski plan, potvrda škole.",
@@ -11544,7 +11544,7 @@
             "options": [
               {
                 "german": "1 = ledig",
-                "meaning": "neoženjen/neudata"
+                "meaning": "neoženjezin/neudata"
               },
               {
                 "german": "2 = verheiratet/in eingetragener Lebenspartnerschaft",
@@ -11605,9 +11605,9 @@
           {
             "id": "z13",
             "german": "Anschrift am ständigen Wohnsitz / während der Ausbildung",
-            "meaning": "stalna adresa / adresa tokom školovanja",
+            "meaning": "stalna adresa / adresa tijekom školovanja",
             "reference": "Formblatt 01, Seite 1, Zeile 13–18",
-            "instruction": "Zeile 15: živiš li kod roditelja tokom studija (ja/nein). Zeile 16 (samo ako nein): je li stan u vlasništvu roditelja. Zeile 17–18 samo ako se adresa razlikuje. Za inozemstvo kod 'Land' koristi međunarodnu oznaku (npr. BIH, HR, SRB).",
+            "instruction": "Zeile 15: živiš li kod roditelja tijekom studija (ja/nein). Zeile 16 (samo ako nein): je li stan u vlasništvu roditelja. Zeile 17–18 samo ako se adresa razlikuje. Za inozemstvo kod 'Land' koristi međunarodnu oznaku (npr. BIH, HR, SRB).",
             "where": "Meldebescheinigung, ugovor o najmu.",
             "example": "Izmišljeni primjer: Maja živi u studentskom domu → Zeile 15 nein, Zeile 16 nein.",
             "mistake": "Navesti adresu roditelja iako stvarno živiš drugdje – stanovanje je važno za provjeru.",
@@ -11749,7 +11749,7 @@
             "german": "Angaben zu meinem Vermögen",
             "meaning": "podaci o imovini",
             "reference": "Formblatt 01, Seite 4, Zeile 63–79",
-            "instruction": "Zeile 63 (ispod 30 god.) / 64 (od 30 god.): obrazac pita je li imovina iz Zeile 65–75 ukupno ne prelazi tamo navedenu granicu. Ako ja → preskoči do Seite 5. Ako ne → za svaku stavku upiši vrijednost na dan zahtjeva ili označi nein: gotovina, računi, Bausparen, vrijednosni papiri, vozila, životno osiguranje (Rückkaufswert), Riester, nekretnine, poslovna imovina, potraživanja i digitalna imovina, ostalo; Zeile 78–79 dugovi i obveze.",
+            "instruction": "Zeile 63 (ispod 30 god.) / 64 (od 30 god.): obrazac pita prelazi li imovina iz Zeile 65–75 ukupno tamo navedenu granicu (odgovori prema izvornom pitanju). Ako ja → preskoči do Seite 5. Ako ne → za svaku stavku upiši vrijednost na dan zahtjeva ili označi nein: gotovina, računi, Bausparen, vrijednosni papiri, vozila, životno osiguranje (Rückkaufswert), Riester, nekretnine, poslovna imovina, potraživanja i digitalna imovina, ostalo; Zeile 78–79 dugovi i obveze.",
             "where": "Izvodi banke na dan zahtjeva, i računi u domovini.",
             "example": "Izmišljeni primjer: Maja ima račun u Njemačkoj i štednju u BiH – oba ulaze u Zeile 66.",
             "mistake": "Zaboraviti račun u inozemstvu ili prenijeti novac na roditelje prije zahtjeva (izjava Zeile 85 to izričito spominje)."
@@ -11780,7 +11780,7 @@
             "meaning": "izjava o prihodima roditelja (pretprošla kalendarska godina)",
             "reference": "Formblatt 03, Seite 1–4, Zeile 1–63",
             "instruction": "Roditelj: Z.1 ko izjavljuje (supružnik, jedan roditelj ili zajednička izjava); Z.2–3 podaci o tebi; Z.4–11 o sebi (zaposlenje, vlastito školovanje); Z.16–33 druga djeca i izdržavane osobe; Z.34–62 prihodi i porez pretprošle godine (Einkommensteuerbescheid ja/nein, renta, Minijob, prihodi iz inostranstva Z.51); Z.63 datum i potpis.",
-            "where": "Einkommensteuerbescheid, elektronska Lohnsteuerbescheinigung, strani porezni dokaz.",
+            "where": "Einkommensteuerbescheid, elektronička Lohnsteuerbescheinigung, strani porezni dokaz.",
             "example": "Izmišljeni primjer: za BAföG od 10/2026 majka prilaže Steuerbescheid za 2024.",
             "mistake": "Dati prihode prošle umjesto pretprošle godine."
           }
@@ -11803,7 +11803,7 @@
             {
               "id": "vocational",
               "label": "Berufsfachschule / Fachschule / Fachoberschule",
-              "result": "Zavisi je li škola traži završenu stručnu osposobljavanje i koliko traje program. Za neke vrste vrijedi isti uvjet odvojenog stanovanja. Pitaj Amt i školu."
+              "result": "Ovisi o tome traži li škola završeno strukovno osposobljavanje i koliko traje program. Za neke vrste vrijedi isti uvjet odvojenog stanovanja. Pitaj Amt i školu."
             },
             {
               "id": "evening",
@@ -11812,8 +11812,8 @@
             },
             {
               "id": "dual",
-              "label": "Dualna osposobljavanje (Ausbildung u firmi)",
-              "result": "Za dualnu osposobljavanje u firmi u pravilu nije nadležan BAföG; provjeri Berufsausbildungsbeihilfe (BAB) kod Agentur für Arbeit."
+              "label": "Dualno osposobljavanje (Ausbildung u firmi)",
+              "result": "Za dualno osposobljavanje u firmi u pravilu nije nadležan BAföG; provjeri Berufsausbildungsbeihilfe (BAB) kod Agentur für Arbeit."
             }
           ]
         },
@@ -11864,8 +11864,8 @@
             "sections": {
               "meaning": "Škola izdaje Formblatt 02. Roditelji prema slučaju prijavljuju prihode pretprošle godine na Formblatt 03.",
               "action": "Daj školi Formblatt 02 odmah na početku godine.",
-              "where": "Sekretarijat škole; porezni dokazi roditelja.",
-              "example": "Izmišljeni primjer: sekretarijat potvrđuje '11. Klasse, Vollzeit'.",
+              "where": "Tajništvo škole; porezni dokazi roditelja.",
+              "example": "Izmišljeni primjer: tajništvo potvrđuje '11. Klasse, Vollzeit'.",
               "mistake": "Čekati kraj školske godine.",
               "next": "Dokazi."
             }
@@ -11919,7 +11919,7 @@
             "german": "mit meinen Eltern in häuslicher Gemeinschaft / Wohnraum im Eigentum der Eltern",
             "meaning": "živim s roditeljima / stan je u vlasništvu roditelja",
             "reference": "Formblatt 01, Seite 1, Zeile 15–16",
-            "instruction": "Zeile 15: ja ako živiš kod roditelja tokom školovanja. Zeile 16 samo ako nein: je li tvoj stan u (su)vlasništvu roditelja.",
+            "instruction": "Zeile 15: ja ako živiš kod roditelja tijekom školovanja. Zeile 16 samo ako nein: je li tvoj stan u (su)vlasništvu roditelja.",
             "where": "Ugovor o najmu, Meldebescheinigung.",
             "example": "Izmišljeni primjer: Damir živi u internatu → Zeile 15 nein, Zeile 16 nein.",
             "mistake": "Prijaviti odvojeno stanovanje koje ne postoji.",
@@ -11946,7 +11946,7 @@
             "options": [
               {
                 "german": "1 = ledig",
-                "meaning": "neoženjen/neudata"
+                "meaning": "neoženjezin/neudata"
               },
               {
                 "german": "2 = verheiratet/in eingetragener Lebenspartnerschaft",
@@ -12026,15 +12026,15 @@
             "meaning": "potvrda škole",
             "reference": "Formblatt 02 (Stand 2025, 2 stranice) – popunjava škola",
             "instruction": "Ti ga ne popunjavaš; predaj ga školi i priloži njihovu potvrdu.",
-            "where": "Sekretarijat.",
+            "where": "Tajništvo.",
             "example": "Izmišljeni primjer: škola pečatira i vraća.",
             "mistake": "Sam/a popuniti dio škole."
           }
         ]
       },
       "integrationskurs": {
-        "title": "Integrationskurs: dozvola, prijava, troškovi, putni troškovi",
-        "introduction": "Integrationskurs je kurs njemačkog jezika i orijentacije (zakon, kultura, društvo). Postoje tri različita puta: (1) Berechtigung – pravo uz boravišnu dozvolu (Ausländerbehörde izdaje Berechtigungsschein), (2) Verpflichtung – obveza (Ausländerbehörde ili Jobcenter), (3) Zulassung auf Antrag – dobrovoljni zahtjev BAMF-u (obrazac 630.007, § 44 Abs. 4 AufenthG). Oslobađanje od troškova i dodatak za putne troškove su POSEBNI zahtjevi.",
+        "title": "Integrationstečaj: dozvola, prijava, troškovi, putni troškovi",
+        "introduction": "Integrationstečaj je tečaj njemačkog jezika i orijentacije (zakon, kultura, društvo). Postoje tri različita puta: (1) Berechtigung – pravo uz boravišnu dozvolu (Ausländerbehörde izdaje Berechtigungsschein), (2) Verpflichtung – obveza (Ausländerbehörde ili Jobcenter), (3) Zulassung auf Antrag – dobrovoljni zahtjev BAMF-u (obrazac 630.007, § 44 Abs. 4 AufenthG). Oslobađanje od troškova i dodatak za putne troškove su POSEBNI zahtjevi.",
         "variation": "Provjereno 28.10.2026 na BAMF.de: stranica obrasca 630.007 nudi online-zahtjev preko Bundesportala i spominje 'Offline-Version', ali pri toj provjeri nije nudio dostupan PDF za preuzimanje. Zato BalkanLink NE navodi stranice ni pozicije polja. BAMF ima i obavijest o ponovnoj dozvoli (Wiederzulassung) za određene grupe – pročitaj je na stranici obrasca.",
         "vocabularyNote": "Pojmovi su vokabular sa službenih BAMF stranica, ne mapa polja. Iznose i limite ne navodimo – provjeri ih na BAMF.de.",
         "gate": {
@@ -12044,16 +12044,16 @@
             {
               "id": "berechtigt",
               "label": "Dobio/la sam Berechtigungsschein",
-              "result": "S važećim Berechtigungsschein se prijavljuješ direktno kod Kursträger-a; dodatni zahtjev 630.007 u pravilu nije potreban. Traži preko BAMF-NAvI. Provjeri je li oslobađanje već potvrđeno ili treba poseban 630.027."
+              "result": "S važećim Berechtigungsschein se prijavljuješ direktno kod Tečajträger-a; dodatni zahtjev 630.007 u pravilu nije potreban. Traži preko BAMF-NAvI. Provjeri je li oslobađanje već potvrđeno ili treba poseban 630.027."
             },
             {
               "id": "verpflichtet",
               "label": "Obavezan/obvezna sam (Ausländerbehörde ili Jobcenter)",
-              "result": "Prati pismo nadležnog ureda i prijavi se kod Kursträger-a na vrijeme. Nesudjelovanje može imati posljedice; svoj slučaj i troškove razjasni s nadležnim uredom."
+              "result": "Prati pismo nadležnog ureda i prijavi se kod Tečajträger-a na vrijeme. Nesudjelovanje može imati posljedice; svoj slučaj i troškove razjasni s nadležnim uredom."
             },
             {
               "id": "freiwillig",
-              "label": "Nemam ni pravo ni obvezu, ali želim kurs",
+              "label": "Nemam ni pravo ni obvezu, ali želim tečaj",
               "result": "Ovo je dobrovoljni Antrag auf Zulassung (630.007) BAMF-u, online preko Bundesportala. Dozvola zavisi od slobodnih mjesta i uvjeta – nije zajamčena. Pročitaj BAMF obavijest o Wiederzulassung."
             },
             {
@@ -12064,7 +12064,7 @@
           ]
         },
         "modes": {
-          "paper": "Papir: pri posljednjoj provjeri izvora PDF 630.007 nije bio dostupan. Ako dobiješ obrazac od ureda ili Kursträger-a, provjeri je li izdanje aktualno prije korištenja.",
+          "paper": "Papir: pri posljednjoj provjeri izvora PDF 630.007 nije bio dostupan. Ako dobiješ obrazac od ureda ili Tečajträger-a, provjeri je li izdanje aktualno prije korištenja.",
           "online": "Online: Bundesportal (Verwaltung digital) – zahtjev za dozvolu; i za oslobađanje (630.027) i putne troškove (630.032) postoje posebni online-zahtjevi. Ekrane ne opisujemo."
         },
         "steps": [
@@ -12089,17 +12089,17 @@
               "where": "BAMF stranica obrasca 630.007, Bundesportal.",
               "example": "Izmišljeni primjer: Damir, u Njemačkoj 3 godine, nema obvezu – traži dozvolu online.",
               "mistake": "Očekivati sigurnu dozvolu – BAMF odlučuje.",
-              "next": "Kursträger."
+              "next": "Tečajträger."
             }
           },
           {
             "id": "i3",
-            "title": "Nađi Kursträger i prijavi se",
+            "title": "Nađi Tečajträger i prijavi se",
             "sections": {
-              "meaning": "Kurs održava ovlašteni Kursträger, ne BAMF direktno.",
-              "action": "BAMF-NAvI → Integrationskurse u blizini. Odnesi Berechtigungsschein ili BAMF-ovu dozvolu; napravi Einstufungstest (test razine).",
+              "meaning": "Tečaj održava ovlašteni Tečajträger, ne BAMF direktno.",
+              "action": "BAMF-NAvI → Integrationstečaje u blizini. Odnesi Berechtigungsschein ili BAMF-ovu dozvolu; napravi Einstufungstest (test razine).",
               "where": "BAMF-NAvI, Migrationsberatung.",
-              "example": "Izmišljeni primjer: Maja bira večernji kurs u svom gradu.",
+              "example": "Izmišljeni primjer: Maja bira večernji tečaj u svom gradu.",
               "mistake": "Čekati da te neko pozove – sam/a se prijavi.",
               "next": "Troškovi."
             }
@@ -12120,21 +12120,21 @@
             "id": "i5",
             "title": "Fahrtkostenzuschuss (630.032) – poseban zahtjev",
             "sections": {
-              "meaning": "Dodatak za potrebne putne troškove do kursa (§ 4a Abs. 1 IntV).",
-              "action": "Podnesi poseban zahtjev online ili offline; pitaj Kursträger za uvjete i dokaze (karte).",
-              "where": "BAMF stranica 630.032, Kursträger.",
-              "example": "Izmišljeni primjer: Maja putuje autobusom 25 km – čuva mjesečne karte i pita Kursträger.",
+              "meaning": "Dodatak za potrebne putne troškove do tečaja (§ 4a Abs. 1 IntV).",
+              "action": "Podnesi poseban zahtjev online ili offline; pitaj Tečajträger za uvjete i dokaze (karte).",
+              "where": "BAMF stranica 630.032, Tečajträger.",
+              "example": "Izmišljeni primjer: Maja putuje autobusom 25 km – čuva mjesečne karte i pita Tečajträger.",
               "mistake": "Baciti karte.",
-              "next": "Tokom kursa."
+              "next": "Tijekom tečaja."
             }
           },
           {
             "id": "i6",
-            "title": "Tokom i nakon kursa",
+            "title": "Tijekom i nakon tečaja",
             "sections": {
-              "meaning": "Kurs završava testovima: Deutsch-Test für Zuwanderer (DTZ) i 'Leben in Deutschland'.",
-              "action": "Redovno dolazi; obveza dolaska vrijedi posebno ako si 'verpflichtet'. Čuvaj potvrde (Zertifikat Integrationskurs).",
-              "where": "Kursträger.",
+              "meaning": "Tečaj završava testovima: Deutsch-Test für Zuwanderer (DTZ) i 'Leben in Deutschland'.",
+              "action": "Redovno dolazi; obveza dolaska vrijedi posebno ako si 'verpflichtet'. Čuvaj potvrde (Zertifikat Integrationstečaj).",
+              "where": "Tečajträger.",
               "example": "Izmišljeni primjer: Damir čuva Zertifikat za kasniji zahtjev za Niederlassungserlaubnis.",
               "mistake": "Izgubiti certifikat.",
               "next": "Gotovo."
@@ -12145,8 +12145,8 @@
           {
             "id": "berechtigungsschein",
             "german": "Berechtigungsschein / Teilnahmeberechtigung",
-            "meaning": "potvrda o pravu na kurs",
-            "instruction": "Izdaje Ausländerbehörde uz boravišnu dozvolu kad imaš zakonsko pravo. S njom ideš direktno Kursträger-u.",
+            "meaning": "potvrda o pravu na tečaj",
+            "instruction": "Izdaje Ausländerbehörde uz boravišnu dozvolu kad imaš zakonsko pravo. S njom ideš direktno Tečajträger-u.",
             "where": "Uz Aufenthaltstitel.",
             "example": "Izmišljeni primjer: Maja dobija list 'Bestätigung über die Berechtigung'.",
             "mistake": "Ne iskoristiti je – pravo može isteći (pitaj ured)."
@@ -12188,7 +12188,7 @@
             "meaning": "obveza sudjelovanja",
             "instruction": "Obavezu može izreći nadležni ured. Prati konkretno pismo i pitaj o izuzecima i preprekama, npr. školovanju, njezi ili nespojivosti s poslom. Ovo nije odluka o tvom slučaju.",
             "where": "Pismo Ausländerbehörde/Jobcenter-a.",
-            "example": "Izmišljeni primjer: Damir vidi kurs u Kooperationsplan-u i pita Jobcenter koje je pismo za njega obvezujuće.",
+            "example": "Izmišljeni primjer: Damir vidi tečaj u Kooperationsplan-u i pita Jobcenter koje je pismo za njega obvezujuće.",
             "mistake": "Ignorisati obvezu."
           },
           {
@@ -12226,11 +12226,11 @@
           {
             "id": "kurstraeger",
             "german": "Kursträger / Einstufungstest",
-            "meaning": "izvođač kursa / test razine",
-            "instruction": "Kursträger te raspoređuje u modul prema testu. Biraš ga sam/a.",
+            "meaning": "izvođač tečaja / test razine",
+            "instruction": "Tečajträger te raspoređuje u modul prema testu. Biraš ga sam/a.",
             "where": "BAMF-NAvI.",
             "example": "Izmišljeni primjer: Maja počinje od modula 3 nakon testa.",
-            "mistake": "Prijaviti se kod nelicenciranog kursa."
+            "mistake": "Prijaviti se kod nelicenciranog tečaja."
           },
           {
             "id": "kostenbeitrag",
@@ -12246,7 +12246,7 @@
             "german": "Fahrtkostenzuschuss (630.032)",
             "meaning": "dodatak za putne troškove",
             "instruction": "Odvojen zahtjev, online ili offline. Čuvaj karte.",
-            "where": "Kursträger, BAMF.",
+            "where": "Tečajträger, BAMF.",
             "example": "Izmišljeni primjer: Damir čuva mjesečne karte.",
             "mistake": "Misliti da je uključen u oslobađanje."
           },
@@ -12254,8 +12254,8 @@
             "id": "dtz",
             "german": "Deutsch-Test für Zuwanderer (DTZ) / Test 'Leben in Deutschland'",
             "meaning": "završni test jezika / test orijentacije",
-            "instruction": "Na kraju kursa. Čuvaj potvrde za kasnije potrebe; one same ne garantuju boravišnu dozvolu.",
-            "where": "Kursträger.",
+            "instruction": "Na kraju tečaja. Čuvaj potvrde za kasnije potrebe; one same ne garantuju boravišnu dozvolu.",
+            "where": "Tečajträger.",
             "example": "Izmišljeni primjer: Maja dobije B1 u DTZ.",
             "mistake": "Izgubiti certifikat."
           }

@@ -11485,7 +11485,7 @@
           {
             "id": "z4",
             "german": "Vollzeitausbildung",
-            "meaning": "školovanje s punim radnim vremenom",
+            "meaning": "školovanje s punim nastavnim opterećenjem",
             "reference": "Formblatt 01, Seite 1, Zeile 4",
             "instruction": "Označi ja ili nein. Obrazac navodi: na fakultetu obično 30 ECTS po semestru; u školi najmanje 20 sati nastave sedmično.",
             "where": "Studijski plan, potvrda škole.",
@@ -11671,7 +11671,7 @@
           {
             "id": "z27",
             "german": "Krankenversicherung / Pflegeversicherung / Steueridentifikationsnummer",
-            "meaning": "zdravstveno / njegovno osiguranje / porezni ID",
+            "meaning": "zdravstveno / osiguranje za njegu / porezni ID",
             "reference": "Formblatt 01, Seite 2, Zeile 27–31",
             "instruction": "Označi odgovarajuću vrstu osiguranja. Zeile 30 pita plaćaš li vlastite doprinose za Pflegeversicherung. Za Steuer-ID u Zeile 31 prati uslov u originalu kod vlastitih doprinosa.",
             "where": "Kartica i pismo osiguranja, pismo BZSt sa Steuer-ID.",
@@ -11703,7 +11703,7 @@
           {
             "id": "z32",
             "german": "Meine leiblichen Eltern oder Adoptiveltern",
-            "meaning": "moji biološki ili usvojitelji roditelji",
+            "meaning": "moji biološki roditelji ili usvojitelji",
             "reference": "Formblatt 01, Seite 2, Zeile 32–43",
             "instruction": "Za svakog roditelja: ime, spol (1–4), datum rođenja, eventualno datum smrti, državljanstvo, adresa. Nepoznata trenutna adresa: upiši zadnju poznatu i u polju Ort dodaj 'zuletzt'. Zeile 42–43: jesu li roditelji u braku.",
             "where": "Izvod iz matične knjige, roditelji.",
@@ -11897,7 +11897,7 @@
           {
             "id": "s-z4",
             "german": "Vollzeitausbildung",
-            "meaning": "puno radno vrijeme nastave",
+            "meaning": "puno nastavno opterećenje",
             "reference": "Formblatt 01, Seite 1, Zeile 4",
             "instruction": "Obrazac: u školi najmanje 20 sati nastave sedmično. Označi ja/nein.",
             "where": "Raspored, škola.",
