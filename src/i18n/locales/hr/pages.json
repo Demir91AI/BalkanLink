@@ -835,6 +835,16 @@
       "listen": "Poslušaj",
       "startExercises": "Na vježbe",
       "translationNote": "Prijevodi služe kao pomoć; njemački tekst je mjerodavan."
+    },
+    "audio": {
+      "speed": "Brzina reprodukcije",
+      "normal": "Normalno",
+      "slow": "Sporije",
+      "playAll": "Pusti cijeli dijalog",
+      "stopAll": "Zaustavi",
+      "fallback": "Profesionalni glas trenutačno nije dostupan — koristi se osnovni glas tvojeg uređaja (slabija kvaliteta).",
+      "error": "Zvuk trenutačno nije dostupan. Pokušaj ponovno kasnije.",
+      "voiceNote": "Glasove generira vanjska usluga za sintezu govora (ElevenLabs) samo iz teksta lekcije; tvoji se podaci ne šalju."
     }
   },
   "classifieds": {
