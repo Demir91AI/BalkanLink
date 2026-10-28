@@ -39,7 +39,7 @@ function Series({ rows, value, label }: { rows: Record<string, unknown>[]; value
 
 export default function AdminDashboard() {
   const { t, i18n } = useTranslation('common');
-  const a = (key: string) => t(`adminCenter.${key}`);
+  const a = (key: string) => i18n.exists(`adminCenter.${key}`, { ns:'common' }) ? t(`adminCenter.${key}`) : key;
   const { isAdmin, profileLoading } = useAuth();
   const [tab,setTab] = useState<Tab>('overview');
   const [period,setPeriod] = useState<Period>(30);
@@ -83,6 +83,8 @@ export default function AdminDashboard() {
           {header('plan')}<p className="text-sm text-muted-foreground">{a('directoryDefinition')}{users.length>=1000 && ` ${a('limited')}`}</p>
           <div className="grid grid-cols-2 lg:grid-cols-6 gap-3">{Object.entries(plans).map(([key,value]) => <Metric key={key} label={a(key)} value={sources.users.data ? value : null} definition={a('snapshot')} />)}</div>
           <section className="border-t border-border pt-5">{header('traffic')}<p className="text-sm text-muted-foreground mb-4">{a('fixed')} get_admin_stats · 14d</p><Series rows={chartRows} value="views" label={a('views')} /><DataTable rows={chartRows} columns={[col('day','date'),col('views')]} /></section>
+          <div className="grid sm:grid-cols-2 gap-3"><Metric label={a('docs')} value={periodMetric(stats,'docs',period)} definition={period===90?a('unsupported'):a('legacyDefinition')} /><Metric label={a('activeUsers')} value={active?.uniqueUsers30d} definition={a('activityDefinition')} /></div>
+          <SourceStatus state={sources.extra} source={labels.extra} clock={clock} retry={() => void refresh('extra')} />
           <p className="text-sm text-muted-foreground border-l-2 border-primary pl-4">{a('conversionUnknown')}</p>
           <section>{header('actions')}<div className="flex flex-wrap gap-2">{links.map(link => <Button key={link.key} variant="outline" asChild><Link to={`${prefix}${link.path}`}>{a(link.key)}</Link></Button>)}</div></section>
         </>}
