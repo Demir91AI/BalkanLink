@@ -49,7 +49,7 @@ describe("Phase 5: every catalog guide uses the shared guide-first frame", () =>
   });
   it("unverified guides say they need current official verification", () => {
     const unverified = entries.filter((e) => !GUIDE_SOURCES[e.slug]?.verifiedOn);
-    expect(unverified.length).toBe(33);
+    expect(unverified.length).toBe(29);
     expect(bs.guideFirst.frame.unverified).toMatch(/provjer/i);
   });
   it("Kindergeld lists official forms page; Elterngeld points to ElterngeldDigital", () => {
