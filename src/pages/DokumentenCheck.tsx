@@ -11,6 +11,7 @@ import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
 import { navigateBackOrHome } from "@/lib/navigation";
 import { usePremiumAccess } from "@/hooks/usePremiumAccess";
+import { useEntitlement } from "@/hooks/useEntitlement";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
@@ -25,8 +26,8 @@ type InputMode = "upload";
 const MAX_FILE_SIZE = 25 * 1024 * 1024;
 const MAX_FILES = 10;
 const MAX_TOTAL_SIZE = 25 * 1024 * 1024;
-const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
-const ALLOWED_EXTENSIONS = [".pdf", ".jpg", ".jpeg", ".png"];
+const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png", "image/webp"];
+const ALLOWED_EXTENSIONS = [".pdf", ".jpg", ".jpeg", ".png", ".webp"];
 
 function getFileExtension(name: string): string {
   return name.slice(name.lastIndexOf(".")).toLowerCase();
@@ -267,7 +268,10 @@ export default function DokumentenCheck() {
   const cameraInputRef = useRef<HTMLInputElement>(null);
   const [showPaywall, setShowPaywall] = useState(false);
   const [showExample, setShowExample] = useState(false);
-  const { isPremium: hasAccess } = usePremiumAccess();
+  const { isPremium: legacyAccess } = usePremiumAccess();
+  const { entitlement } = useEntitlement();
+  // Never narrower than the legacy rule; the server still makes the final decision.
+  const hasAccess = legacyAccess || entitlement.full_access || entitlement.unused_doc_credits > 0;
   const { user } = useAuth();
 
   const totalSize = useMemo(() => files.reduce((s, f) => s + f.size, 0), [files]);
@@ -339,17 +343,27 @@ export default function DokumentenCheck() {
 
       const { data, error: fnError } = await supabase.functions.invoke("document-check", { body: payload });
 
-      if (fnError) throw new Error(t("documentCheck.errors.serverError"));
-      if (data?.success === false) {
-        if (data.errorCode === "ACCESS_REQUIRED") {
-          setShowPaywall(true);
-          throw new Error(tPlus("docDesc"));
-        }
-        throw new Error(data.message || t("documentCheck.errors.processingFailed"));
+      let body: any = data;
+      let status = 200;
+      if (fnError) {
+        const ctx = (fnError as any).context;
+        status = typeof ctx?.status === "number" ? ctx.status : 500;
+        try { body = ctx && typeof ctx.json === "function" ? await ctx.json() : null; } catch { body = null; }
       }
-      if (!data?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
+      if (fnError || body?.success === false) {
+        const code = body?.errorCode;
+        if (code === "ACCESS_REQUIRED" || status === 403) {
+          setShowPaywall(true);
+          throw new Error(t("documentCheck.errors.accessRequired"));
+        }
+        if (code === "QUOTA_EXHAUSTED") throw new Error(t("documentCheck.errors.quotaExhausted"));
+        if (status === 413) throw new Error(t("documentCheck.errors.totalTooLarge"));
+        if (status === 429 || status === 402) throw new Error(t("documentCheck.errors.busy"));
+        throw new Error(t("documentCheck.errors.processingFailed"));
+      }
+      if (!body?.analysis) throw new Error(t("documentCheck.errors.processingFailed"));
 
-      setAnalysis(data.analysis);
+      setAnalysis(body.analysis);
     } catch (err: any) {
       const message = err.message || t("documentCheck.errors.fallback");
       if (message.includes("Edge Function") || message.includes("FunctionsHttpError") || message.includes("fetch")) {
@@ -380,7 +394,7 @@ export default function DokumentenCheck() {
 
   return (
     <>
-      <SEO title="Dokumenten-Check — AI Analiza Njemačkih Pisama" description="Pošalji njemačko pismo, Bescheid ili ugovor i dobij analizu na bosanskom — šta znači, rokovi, šta uraditi sljedeće." path="/dokumenten-check" />
+      <SEO title={t("documentCheck.seo.title")} description={t("documentCheck.seo.description")} path="/dokumenten-check" />
       {/* ── HEADER ── */}
       <section className="border-b bg-primary py-10 sm:py-14">
         <div className="container max-w-4xl px-4">
@@ -420,7 +434,7 @@ export default function DokumentenCheck() {
         <div className="container max-w-4xl px-4 space-y-8">
 
           {/* ── Included in the BalkanLink membership (Fair Use) ── */}
-          <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+          {!showPaywall && <div className="rounded-2xl border border-[hsl(var(--gold))]/30 bg-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
               <p className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--gold))] mb-1">{tPlus("docTitle")}</p>
               <p className="text-sm text-card-foreground/80">{hasAccess ? tPlus("docIncludedOwned") : tPlus("docDesc")}</p>
@@ -434,7 +448,7 @@ export default function DokumentenCheck() {
                 {tPlus("unlockCta")}
               </button>
             )}
-          </div>
+          </div>}
 
           {/* ── Privacy notice ── */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
@@ -461,8 +475,8 @@ export default function DokumentenCheck() {
                 ].map((s) => (
                   <div key={s.n} className="rounded-xl border border-border/60 bg-muted/30 p-3 text-center">
                     <div className="mx-auto mb-1.5 grid h-7 w-7 place-items-center rounded-full bg-[hsl(var(--gold))]/15 text-xs font-black text-[hsl(var(--gold))]">{s.n}</div>
-                    <p className="text-[11px] sm:text-xs font-bold text-card-foreground leading-tight">{s.title}</p>
-                    <p className="text-[10px] sm:text-[11px] text-card-foreground/75 mt-1 leading-snug">{s.desc}</p>
+                    <p className="text-xs sm:text-sm font-bold text-card-foreground leading-tight">{s.title}</p>
+                    <p className="text-[11px] sm:text-xs text-card-foreground/80 mt-1 leading-snug">{s.desc}</p>
                   </div>
                 ))}
               </div>
@@ -484,7 +498,7 @@ export default function DokumentenCheck() {
                   <input
                     type="file"
                     multiple
-                    accept="application/pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,.pdf,.jpg,.jpeg,.png,.webp,.heic,.heif"
+                    accept="application/pdf,image/jpeg,image/png,image/webp,.pdf,.jpg,.jpeg,.png,.webp"
                     ref={fileInputRef}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     onChange={(e) => addFiles(e.target.files)}
@@ -699,7 +713,6 @@ export default function DokumentenCheck() {
               )}
 
               {sections.map((section, idx) => {
-                const locked = false; // full analysis for everyone who may run a check
                 return (
                   <motion.div
                     key={section.id}
@@ -711,20 +724,8 @@ export default function DokumentenCheck() {
                     <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10 bg-black/20">
                       <span className={section.iconColorClass}>{section.icon}</span>
                       <h3 className={`text-base font-bold tracking-tight ${section.iconColorClass}`}>{section.title}</h3>
-                      {locked && <Lock className="ml-auto h-4 w-4 text-[hsl(var(--gold))]" />}
                     </div>
-                    <div className={`px-6 py-5 sm:py-6 ${locked ? "relative" : ""}`}>
-                      {locked && (
-                        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm rounded-b-2xl">
-                          <Lock className="h-7 w-7 text-[hsl(var(--gold))] mb-3" />
-                          <p className="text-sm font-bold text-white mb-3">{t("documentCheck.results.lockedTitle")}</p>
-                          <button onClick={() => localizedNavigate("/paketi")}
-                            className="rounded-full px-5 py-2.5 text-xs font-bold transition-all hover:opacity-90"
-                            style={{ background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)))", color: "hsl(var(--gold-foreground))" }}>
-                            {t("documentCheck.results.lockedCta")}
-                          </button>
-                        </div>
-                      )}
+                    <div className="px-6 py-5 sm:py-6">
                       <div className={`max-w-none text-[15px] leading-relaxed text-white
                         [&_p]:text-white [&_p]:leading-relaxed [&_p]:my-3
                         [&_li]:text-white [&_li]:leading-relaxed [&_li]:my-1.5
@@ -737,8 +738,7 @@ export default function DokumentenCheck() {
                         [&_h3]:text-white [&_h3]:font-semibold [&_h3]:text-sm [&_h3]:mt-3 [&_h3]:mb-1.5
                         [&_a]:text-[hsl(var(--gold))] [&_a]:underline
                         [&_code]:text-[hsl(var(--gold))] [&_code]:bg-white/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded
-                        [&_blockquote]:border-l-2 [&_blockquote]:border-white/30 [&_blockquote]:pl-3 [&_blockquote]:text-white/90
-                        ${locked ? "blur-sm select-none pointer-events-none min-h-[100px]" : ""}`}
+                        [&_blockquote]:border-l-2 [&_blockquote]:border-white/30 [&_blockquote]:pl-3 [&_blockquote]:text-white/90`}
                       >
                         <ReactMarkdown>{section.content}</ReactMarkdown>
                       </div>

@@ -467,7 +467,7 @@
     },
     "privacy": {
       "title": "Deine Daten sind sicher",
-      "body": "Bitte schwärze vor dem Hochladen Name, Adresse und Aktenzeichen (z. B. mit schwarzem Stift). Wir speichern keine Dokumente — wir lesen sie kurz, erklären sie und löschen sie sofort."
+      "body": "Schwärze vor dem Senden Name, Adresse und Aktenzeichen (z. B. mit Stift oder im Editor). Das Dokument wird einmalig an einen externen Dienst zur Textanalyse übermittelt und von uns nicht gespeichert — nach dem Ergebnis wird es bei uns nicht aufbewahrt."
     },
     "upload": {
       "label": "Dokument hochladen",
@@ -505,7 +505,10 @@
       "fallback": "Serverfehler bei der Dokumentenanalyse.",
       "tooManyFiles": "Maximal {{max}} Dateien.",
       "totalTooLarge": "Gesamtgröße überschreitet 25 MB.",
-      "paymentRequired": "Für die Analyse ist 1 Guthaben erforderlich (in der Mitgliedschaft enthalten (Fair Use))."
+      "paymentRequired": "Für die Analyse ist 1 Guthaben erforderlich (in der Mitgliedschaft enthalten (Fair Use)).",
+      "accessRequired": "Für die Dokumentenprüfung ist ein aktiver BalkanLink-Zugang nötig.",
+      "quotaExhausted": "Du hast alle Dokumentenprüfungen für diesen Zeitraum genutzt. Neue Prüfungen sind nach Beginn des nächsten Zeitraums verfügbar.",
+      "busy": "Die Prüfung ist gerade ausgelastet. Bitte versuche es in einigen Minuten erneut."
     },
     "paywall": {
       "title": "Dokumenten-Check",
@@ -558,6 +561,10 @@
     "disclaimer": {
       "title": "Hinweis zum Datenschutz:",
       "body": "Hochgeladene Dateien und eingegebene Texte werden ausschließlich für eine einmalige Analyse genutzt und nach dem Ergebnis sofort gelöscht. Es gibt keine dauerhafte Speicherung, kein Tracking und keine Weitergabe an Dritte. BalkanLink ist keine Behörde und bietet keine Rechtsberatung."
+    },
+    "seo": {
+      "title": "Dokumentenprüfung — deutsche Briefe verständlich erklärt",
+      "description": "Fotografiere oder lade einen deutschen Brief, Bescheid oder Vertrag hoch und erhalte eine klare Erklärung: was er bedeutet, was verlangt wird und was du als Nächstes tun kannst."
     }
   },
   "visa": {
