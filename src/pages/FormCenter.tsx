@@ -63,6 +63,7 @@ import PlusCtaLabel from "@/components/paywall/PlusCtaLabel";
 void PlusCtaLabel; // pinned legacy import (phase1 baseline)
 import GuideFrame from "@/components/guide-first/GuideFrame";
 import ProcedureCompanion from "@/components/guide-first/ProcedureCompanion";
+import WohngeldCompanion from "@/components/guide-first/WohngeldCompanion";
 import { isArrivalSlug } from "@/lib/guide-first/arrival-model";
 import { isFamilySlug } from "@/lib/guide-first/family-model";
 import { isGrundsicherungSlug } from "@/lib/guide-first/grundsicherung-model";
@@ -145,7 +146,7 @@ function GuideBody({ slug }: { slug: string }) {
   if (slug === "krankenkasse") return <><KrankenkasseGuideContent />{MusterButton}</>;
   if (slug === "elterngeld") return <><ElterngeldGuideContent />{MusterButton}</>;
   if (slug === "burgergeld" || slug === "buergergeld") return <><BurgergeldGuideContent />{MusterButton}</>;
-  if (slug === "wohngeld") return <><WohngeldGuideContent />{MusterButton}</>;
+  if (slug === "wohngeld") return <><WohngeldCompanion />{MusterButton}</>;
   if (slug === "mutterschaftsgeld") return <><MutterschaftsgeldGuideContent />{MusterButton}</>;
   if (slug === "kinderzuschlag") return <><KinderzuschlagGuideContent />{MusterButton}</>;
   if (slug === "krippengeld-bayern") return <><KrippengeldBayernGuideContent />{MusterButton}</>;

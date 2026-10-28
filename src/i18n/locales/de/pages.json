@@ -10216,5 +10216,604 @@
         ]
       }
     }
+  },
+  "wohngeldCompanion": {
+    "ui": {
+      "resultBayernLasten": "Bayern + Eigentum → Lastenzuschuss. Das bayerische Original-Formular und Dokumente sind unten zu finden.",
+      "reset": "Antworten zurücksetzen",
+      "prompt": "Beantworten Sie die Fragen, um den passenden Leitfaden zu sehen. Bis dahin wird der allgemeine Leitfaden angezeigt.",
+      "l": {
+        "bpPage": "BayernPortal: Wohngeld (Stand 02.10.2026)",
+        "verdienst": "Verdienstbescheinigung für Arbeitgeber (PDF)",
+        "bpOnline": "BayernPortal: Wohngeld online",
+        "bund": "Bundesportal: Wohngeld – Ort und Wohngeldbehörde wählen",
+        "mzHin": "Checkliste Mietzuschuss (PDF)",
+        "mzErl": "Erläuterungen Mietzuschuss (PDF)",
+        "lzErl": "Erläuterungen Lastenzuschuss (PDF)",
+        "lzHin": "Checkliste Lastenzuschuss (PDF)",
+        "mzForm": "Original-Formular: Antrag Mietzuschuss (PDF)",
+        "lzForm": "Original-Formular: Antrag Lastenzuschuss (PDF)"
+      },
+      "resultOther": "Anderes Bundesland: Der allgemeine Leitfaden wird angezeigt. Das bayerische Formular und dessen Feldnummern gelten hier nicht – wählen Sie Ihren Ort im Bundesportal aus und fordern Sie das lokale Formular an.",
+      "links": "Offizielle Quellen für Ihre Auswahl",
+      "opt": {
+        "bayern": "Bayern",
+        "renewal": "Weiterleistungsantrag (nach Ablauf)",
+        "first": "Erstantrag",
+        "unsure": "Nicht sicher",
+        "own": "Eigentümer und selbstbewohnt",
+        "rent": "Zur Miete (Mieter/Untermieter/Heim)",
+        "other": "Anderes Bundesland"
+      },
+      "resultBayernMiete": "Bayern + Miete → Mietzuschuss. Das bayerische Original-Formular und Dokumente sind unten zu finden.",
+      "noIndex": "Ohne Feldnummern: Die Original-Formulare sind geschützt oder unterscheiden sich je nach Ort, daher erklärt der Leitfaden die Begriffe thematisch.",
+      "kindFirst": "Erstantrag: Wohngeld wird in der Regel ab dem ersten Tag des Monats der Antragstellung gewährt – zögern Sie nicht.",
+      "resultBayernUnsure": "Bayern, aber Miete oder Eigentum unklar: Mietzuschuss gilt für Mieter/Untermieter/Heime, Lastenzuschuss für Eigentümer im Eigenheim. Bis zur Auswahl wird der allgemeine Leitfaden ohne bayerisches Formular angezeigt.",
+      "kindUnsure": "Wenn Ihnen Wohngeld bereits per Bescheid bewilligt wurde, handelt es sich um einen Weiterleistungsantrag; ansonsten um einen Erstantrag.",
+      "qState": "1. In welchem Bundesland liegt die Wohnung?",
+      "title": "Wohngeld: Welcher Leitfaden ist für mich?",
+      "intro": "Drei kurze Fragen. Die Antworten bleiben nur auf dieser Seite und werden gelöscht, wenn Sie diese verlassen – es wird nichts gespeichert oder gesendet.",
+      "qHousing": "2. Mieten Sie die Wohnung oder sind Sie Eigentümer?",
+      "resultUnsureState": "Bundesland unbekannt? Maßgeblich ist das Bundesland, in dem die Wohnung liegt (siehe Adresse im Mietvertrag oder der Anmeldebestätigung). Bis dahin wird der allgemeine Leitfaden angezeigt.",
+      "kindRenewal": "Weiterleistungsantrag: Offizielle bayerische Quellen nennen kein separates 'Folgeantrag'-Formular – nach Ablauf des Bewilligungszeitraums (meist 12 Monate) wird ein neuer Antrag auf demselben Formular gestellt. Fragen Sie die Wohngeldbehörde, ob ein vereinfachtes Verfahren existiert.",
+      "qKind": "3. Erstantrag oder Weiterleistungsantrag nach Ablauf?"
+    },
+    "guides": {
+      "bayernMiete": {
+        "vocabularyNote": "Die Begriffe sind thematisch erklärt, ohne Feld- oder Seitenzahlen. Vergleichen Sie diese mit dem in einem anderen Tab geöffneten Originalformular.",
+        "title": "Wohngeld in Bayern – Mietzuschuss (für Mieter)",
+        "modes": {
+          "paper": "Papier: Das Original-PDF Mietzuschuss herunterladen, ausfüllen, unterschreiben und bei der Wohngeldbehörde zusammen mit den Nachweisen einreichen.",
+          "online": "Online: Über das BayernPortal den Ort der Wohnung wählen; bietet die Behörde ein Online-Verfahren an, wird dies angezeigt. Die Reihenfolge der Online-Bildschirme entspricht nicht dem Papierformular."
+        },
+        "introduction": "Für Mieter, Untermieter und Bewohner von Heimen. Dieser Leitfaden erklärt das offizielle bayerische Formular „Antrag auf Wohngeld – Mietzuschuss“, die Erläuterungen (Stand: Januar 2023) und die Liste der Nachweise (StMB 07/2026).",
+        "steps": [
+          {
+            "sections": {
+              "meaning": "Wohngeld ist ein staatlicher Zuschuss zu den Wohnkosten für Haushalte mit geringem Einkommen. Ob ein Anspruch tatsächlich besteht, entscheidet allein die Wohngeldbehörde per Bescheid.",
+              "example": "Fiktives Beispiel: Maja arbeitet, Damir hat einen Minijob; sie erhalten keine anderen Leistungen – es ist sinnvoll, einen Antrag auf Wohngeld zu stellen.",
+              "action": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inklusive der Kosten der Unterkunft bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde.",
+              "next": "Zuständige Behörde finden.",
+              "where": "Offizielles Portal und Erläuterungen.",
+              "mistake": "Auf den „perfekten“ Moment warten: Wohngeld wird in der Regel erst ab dem ersten Tag des Monats gewährt, in dem der Antrag gestellt wurde."
+            },
+            "id": "check",
+            "title": "Betrifft mich Wohngeld überhaupt?"
+          },
+          {
+            "sections": {
+              "action": "Geben Sie im offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag verfügbar ist.",
+              "next": "Nachweise sammeln.",
+              "mistake": "Den Antrag an die Behörde des Arbeitsortes anstatt des Wohnortes senden.",
+              "where": "Offizielles Portal (Link oben).",
+              "example": "Fiktives Beispiel: Wohnung in Nürnberg → Stadt Nürnberg, Wohngeldstelle.",
+              "meaning": "Der Antrag wird bei der Behörde (Landratsamt oder kreisfreie Stadt / Gemeinde) gestellt, in deren Bereich die Wohnung liegt."
+            },
+            "id": "office",
+            "title": "Zuständige Behörde (Wohngeldbehörde)"
+          },
+          {
+            "sections": {
+              "meaning": "Für den Mietzuschuss nennt das offizielle bayerische Hinweisblatt (StMB 07/2026) z.B.: unterschriebener Antrag; Mietvertrag; aktuelles Mietschreiben oder Mietbescheinigung; Nachweis über die Mietzahlung; Nachweise über alle Einkommen aller Haushaltsmitglieder; Nachweise über Vermögen; bei Nicht-EU-Ausländern das Ausweisdokument mit Aufenthaltstitel; für Kinder ab 16 Jahren eine Schulbescheinigung. Die Behörde kann weitere Nachweise anfordern.",
+              "example": "Fiktives Beispiel: Maja legt den Mietvertrag, das letzte Mietänderungsschreiben, drei Lohnabrechnungen und einen Nachweis über die Mietzahlung in einen Ordner.",
+              "action": "Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen nur Empfänger/Verwendungszweck bei besonders sensiblen Daten geschwärzt werden, niemals der Betrag.",
+              "next": "Formular ausfüllen.",
+              "mistake": "Den Antrag ohne Nachweise senden – die Behörde wird nachfordern und die Bearbeitung dauert länger.",
+              "where": "Offizielles Hinweisblatt / Liste der Nachweise."
+            },
+            "title": "Nachweise",
+            "id": "evidence"
+          },
+          {
+            "title": "Antrag ausfüllen",
+            "sections": {
+              "example": "Fiktives Beispiel: Maja hält das Original-PDF in einem zweiten Tab offen und geht Begriff für Begriff vor.",
+              "meaning": "Das bayerische Formular hat nummerierte Punkte („Randnummern“), die im offiziellen Dokument Erläuterungen erklärt werden. Das Original-PDF ist geschützt (verschlüsselt, Kopieren verboten), daher schreibt BalkanLink keine Feldnummern und Seiten ab – die untenstehenden Begriffe sind thematisch erklärt, die Punktnummer lesen Sie in Ihrem Original und in den Erläuterungen.",
+              "next": "Antrag einreichen.",
+              "where": "Originalformular oder Online-Antrag der Behörde.",
+              "action": "Nutzen Sie das obige Begriffsverzeichnis: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind.",
+              "mistake": "Fragen leer lassen – ein Antrag ohne vollständige Antworten kann abgelehnt werden."
+            },
+            "id": "fill"
+          },
+          {
+            "id": "submit",
+            "title": "Abgabe",
+            "sections": {
+              "example": "Fiktives Beispiel: Maja gibt den Antrag am 3. des Monats ab – entscheidend ist der Monat der Abgabe.",
+              "meaning": "Sie reichen den Antrag selbst ein: online (falls von der Behörde angeboten), per Post oder persönlich. BalkanLink versendet nichts in Ihrem Namen.",
+              "action": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum.",
+              "next": "Wie geht es weiter?",
+              "mistake": "Ein nicht unterschriebenes Formular senden.",
+              "where": "Wohngeldbehörde."
+            }
+          },
+          {
+            "id": "after",
+            "title": "Nach der Abgabe und Folgeantrag",
+            "sections": {
+              "meaning": "Die Behörde entscheidet durch schriftlichen Bescheid. Wohngeld wird in der Regel für 12 Monate bewilligt; danach ist ein neuer Antrag erforderlich. Die Auszahlung erfolgt monatlich im Voraus.",
+              "example": "Fiktives Beispiel: Bewilligung bis Ende Juni → Maja stellt im Mai einen neuen Antrag.",
+              "action": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus.",
+              "next": "Fertig.",
+              "mistake": "Den Folgeantrag vergessen – die Auszahlung stoppt.",
+              "where": "Bescheid; Wohngeldbehörde."
+            }
+          }
+        ],
+        "variation": "Nur für Wohnungen in Bayern. Das Original in einem neuen Tab öffnen; Daten nur in das offizielle Formular oder den Online-Antrag der Behörde eintragen, nicht hier.",
+        "terms": [
+          {
+            "example": "Fiktives Beispiel: Maja Kovač hat den Mietvertrag unterschrieben und wohnt in der Wohnung – sie ist die Antragstellerin, nicht ihr Bruder, der ihr manchmal hilft.",
+            "mistake": "Dass eine Person den Antrag unterschreibt, die nicht in der Wohnung wohnt, oder dass die bevollmächtigte Person sich nicht durch eine Vollmacht ausweist.",
+            "id": "berechtigt",
+            "instruction": "Den Antrag stellt die Person, die in der Wohnung/im Haus wohnt und (bei Miete) den Mietvertrag unterschrieben hat bzw. (bei Eigentum) der Eigentümer ist, der den Wohnraum selbst nutzt. Es ist zulässig, eine andere Person zu bevollmächtigen (Vollmacht).",
+            "german": "Wohngeldberechtigte Person",
+            "where": "Mietvertrag oder Grundbuchauszug/Kaufvertrag; Ausweisdokument.",
+            "meaning": "Antragstellende Person"
+          },
+          {
+            "instruction": "Gib alle Personen an, die zusammen mit dir in derselben Wohnung leben und wirtschaften, z. B. Ehepartner/Partner, Kinder, manchmal auch andere Verwandte. Mitbewohner und Untermieter sind normalerweise KEINE Haushaltsmitglieder, werden aber separat aufgeführt. Bei Kindern, deren Betreuung sich getrennte Eltern etwa zu gleichen Teilen teilen, kann das Kind bei beiden Elternteilen Haushaltsmitglied sein.",
+            "german": "Haushaltsmitglieder",
+            "mistake": "Ein Mitglied auszulassen oder einen Mitbewohner als Haushaltsmitglied einzutragen. Die Anzahl der Mitglieder beeinflusst die Prüfung, daher antworte entsprechend dem tatsächlichen Stand.",
+            "example": "Fiktives Beispiel: Maja, ihr Ehemann Damir und zwei Kinder = vier Haushaltsmitglieder; der Untermieter Ivo in einem Zimmer wird separat angegeben.",
+            "id": "haushalt",
+            "where": "Anmeldebestätigung, Geburts-/Heiratsurkunden; Vereinbarung oder Bescheid über die Kinderbetreuung.",
+            "meaning": "Haushaltsmitglieder"
+          },
+          {
+            "german": "Miete (Grundmiete, Nebenkosten, Heizkosten)",
+            "meaning": "Miete und Nebenkosten",
+            "id": "miete",
+            "instruction": "Trage die Miete laut Vertrag oder der letzten Mietänderungsmitteilung ein und gib die Nebenkosten so an, wie es das Formular verlangt. Wenn es für die Nebenkosten keine separaten Beträge gibt, reicht es laut Erläuterungen aus, diese zu markieren – dann werden Pauschalen herangezogen. Wohngeld bezuschusst nur 'reine' Wohnkosten: Dienstleistungen wie eine Servicepauschale gehören nicht dazu. Die Miete wird nur bis zu einem gesetzlichen Höchstbetrag berücksichtigt (abhängig von der Anzahl der Mitglieder und der Mietenstufe der Gemeinde). Wie die Heizkosten in deinem Fall behandelt werden, frage die Wohngeldbehörde – berechne den Betrag nicht im Voraus.",
+            "where": "Mietvertrag, aktuelles Mietänderungsschreiben oder Mietbescheinigung (Vermieterbescheinigung), Zahlungsnachweis (Kontoauszug).",
+            "example": "Fiktives Beispiel: Der Vertrag führt Grundmiete und Betriebskosten-Vorauszahlung auf; Maja übernimmt beide Beträge aus dem letzten Schreiben des Vermieters.",
+            "mistake": "Nur die Kaltmiete ohne Nebenkosten einzutragen oder den Betrag aus einem alten Vertrag anzugeben, obwohl die Miete erhöht wurde."
+          },
+          {
+            "meaning": "Einkommen (Brutto / Gesamteinkommen)",
+            "id": "einkommen",
+            "instruction": "Gib ALLE Einkünfte aller Haushaltsmitglieder so an, wie sie im Formular abgefragt werden: Löhne (auch Minijob), Renten (auch aus dem Ausland), Sozialleistungen (z. B. Arbeitslosengeld, Krankengeld, Elterngeld, Unterhaltsvorschuss, Kinderzuschlag, BAföG), Unterhaltszahlungen, Zinseinkünfte, selbstständige Tätigkeiten. Das 'Gesamteinkommen' ist der Betrag, den die Wohngeldbehörde selbst aus deinen Bruttoangaben abzüglich gesetzlicher Abzüge berechnet – du berechnest ihn nicht, sondern lieferst vollständige Daten und Nachweise. Gib auch erwartete Einkommensänderungen an (neuer Job, Vertragsende).",
+            "german": "Einkommen (Brutto / Gesamteinkommen)",
+            "where": "Lohnabrechnung, Verdienstbescheinigung (vom Arbeitgeber auszufüllen), Rentenbescheid, Leistungsbescheide, Unterhaltsnachweise, Steuerbescheide bei Selbstständigen.",
+            "mistake": "Netto statt des geforderten Betrags anzugeben, den Minijob oder Einkünfte aus dem Ausland auszulassen oder den Wohngeldanspruch eigenständig zu 'berechnen'.",
+            "example": "Fiktives Beispiel: Damir arbeitet Vollzeit, Maja hat einen Minijob – beide werden angegeben; für Damir füllt der Arbeitgeber die Verdienstbescheinigung aus."
+          },
+          {
+            "mistake": "Verschweigen einer bekannten Änderung; dies kann später zu Rückforderungen führen.",
+            "where": "Gehaltsabrechnungen, Arbeitsvertrag, Kündigung, Mitteilung des Arbeitgebers.",
+            "instruction": "Geben Sie einmalige Zahlungen (z. B. Weihnachtsgeld, Urlaubsgeld) und Änderungen an, die Sie in den nächsten 12 Monaten erwarten (z. B. Vertragsende, neuer Job, Auszug eines Mitglieds mit Einkommen). Wenn Sie bereits einen Nachweis haben, fügen Sie diesen bei.",
+            "german": "Einmaliges Einkommen / Einkommensänderungen",
+            "id": "einmalig",
+            "meaning": "einmaliges Einkommen / Einkommensänderungen",
+            "example": "Fiktives Beispiel: Der Arbeitsvertrag läuft in vier Monaten aus – dies wird als erwartete Änderung angegeben."
+          },
+          {
+            "instruction": "Beantworten Sie die Frage zum Vermögen aller Haushaltsmitglieder, einschließlich Vermögen im Ausland (Ersparnisse, Immobilien, Krypto, Versicherungen). Nach offiziellen Erläuterungen kann erhebliches Vermögen den Anspruch ausschließen, und ein Antrag ohne Beantwortung dieser Frage kann abgelehnt werden. Raten Sie nicht bei den Grenzen – fragen Sie die Wohngeldbehörde.",
+            "german": "Vermögen",
+            "where": "Kontoauszüge, Depotauszug, Grundbuchauszug (auch für Immobilien in BiH/Serbien/Kroatien), Bauspar-/Versicherungsverträge.",
+            "mistake": "Die Frage überspringen oder Vermögen in der Heimat vergessen.",
+            "id": "vermoegen",
+            "meaning": "Vermögen",
+            "example": "Fiktives Beispiel: Ein Haus in der Heimat, das Damir geerbt hat, wird unter Beifügung des Eigentumsnachweises angegeben."
+          },
+          {
+            "meaning": "Ausschluss wegen anderer Leistungen, die das Wohnen bereits abdecken",
+            "example": "Fiktives Beispiel: Majas Mutter erhält im selben Haushalt Grundsicherung im Alter, die anderen nicht – die Wohngeldbehörde prüft die anderen Mitglieder separat.",
+            "instruction": "Wenn Sie oder ein Haushaltsmitglied eine Leistung beziehen, bei deren Berechnung die Wohnkosten bereits berücksichtigt wurden (z. B. Bürgergeld, Sozialhilfe, Grundsicherung im Alter), kommt Wohngeld für diese Person in der Regel nicht in Betracht. Es gibt Ausnahmen: z. B. wenn die Leistung nur als Darlehen gewährt wird, wenn der Antrag dafür abgelehnt wurde (dann ist rückwirkendes Wohngeld innerhalb der in den offiziellen Erläuterungen genannten Frist möglich) oder wenn andere Haushaltsmitglieder nicht in diese Leistung einbezogen sind. Ziehen Sie keine eigenen Schlüsse – geben Sie alle Leistungen ehrlich an und fragen Sie die Wohngeldbehörde.",
+            "where": "Bescheide des Jobcenters/Sozialamts; Ablehnungsbescheid, falls vorhanden.",
+            "german": "Ausschluss vom Wohngeld (Transferleistungen)",
+            "id": "ausschluss",
+            "mistake": "Denken, dass jede Sozialleistung automatisch den gesamten Haushalt ausschließt, oder verheimlichen, dass ein Antrag auf eine andere Leistung gestellt wurde."
+          },
+          {
+            "meaning": "andere Zuschüsse zum Wohnen",
+            "example": "Fiktives Beispiel: Majas Eltern überweisen jeden Monat einen Teil der Miete direkt an den Vermieter – dies wird angegeben.",
+            "german": "Zuschüsse zur Miete / Belastung",
+            "where": "Kontoauszüge, schriftliche Erklärung der zahlenden Person.",
+            "id": "zuschuesse",
+            "mistake": "Regelmäßige Hilfe der Familie für die Miete verschweigen.",
+            "instruction": "Geben Sie Gelder aus öffentlichen Mitteln oder von Privatpersonen an, die direkt zur Deckung der Miete/Belastung bestimmt sind (z. B. Eltern zahlen einen Teil der Miete)."
+          },
+          {
+            "id": "auslaender",
+            "where": "Aufenthaltstitel, Fiktionsbescheinigung, Duldung oder Aufenthaltsgestattung (mit Zusatzblatt).",
+            "meaning": "ausländische Staatsangehörige",
+            "mistake": "Die Verpflichtungserklärung nicht erwähnen; Wohngeld kann dann vom Bürgen zurückgefordert werden.",
+            "example": "Fiktives Beispiel: Damir hat einen Aufenthaltstitel aus BiH – er fügt eine Kopie beider Seiten der Karte bei.",
+            "german": "Ausländische Personen",
+            "instruction": "Für Personen aus Nicht-EU-Ländern fragt das Formular nach Aufenthaltsdaten. Laut Erläuterungen geben einige Aufenthaltstitel (z. B. zur Arbeits-/Studienplatzsuche) in der Regel keinen Anspruch. Wenn jemand eine Verpflichtungserklärung für ein Haushaltsmitglied unterschrieben hat, informiere dich vor dem Erhalt von Wohngeld bei der Ausländerbehörde über mögliche Folgen."
+          },
+          {
+            "instruction": "Trage IBAN und BIC ein. Laut Erläuterungen ist die Auszahlung auch an ein anderes Haushaltsmitglied, den Vermieter oder eine bevollmächtigte Person mit Inkassovollmacht möglich – an andere Personen ist sie nicht zulässig.",
+            "meaning": "Auszahlung / Bankverbindung",
+            "id": "auszahlung",
+            "mistake": "Das Konto eines Freundes angeben, der kein Haushaltsmitglied ist.",
+            "example": "Fiktives Beispiel: DE00 0000 0000 0000 0000 00 (fiktive IBAN – trage deine eigene ein).",
+            "german": "Auszahlung / Bankverbindung",
+            "where": "Bankkarte oder Kontoauszug (IBAN/BIC)."
+          },
+          {
+            "german": "Erklärung und Unterschrift",
+            "id": "unterschrift",
+            "meaning": "Erklärung und Unterschrift",
+            "where": "Ende des Formulars; offizielle Erläuterungen.",
+            "example": "Fiktives Beispiel: Maja unterschreibt als Antragstellerin; Damir unterschreibt dort, wo das Formular Unterschriften anderer Mitglieder verlangt.",
+            "mistake": "Die Unterschrift vergessen – ein ununterschriebener Antrag verzögert oder blockiert die Bearbeitung.",
+            "instruction": "Lies die Erklärung am Ende des Formulars sorgfältig durch und unterschreibe sie. Änderungen (Einkommen, Mitglieder, Miete) musst du der Wohngeldbehörde auch nach der Antragstellung melden."
+          }
+        ]
+      },
+      "bayernLasten": {
+        "vocabularyNote": "Die Begriffe sind thematisch erklärt, ohne Feld- oder Seitenzahlen. Vergleichen Sie diese mit dem in einem anderen Tab geöffneten Originalformular.",
+        "introduction": "Für Eigentümer eines Hauses oder einer Wohnung, die selbst darin wohnen. Dieser Leitfaden erläutert das offizielle bayerische Formular „Antrag auf Wohngeld – Lastenzuschuss“, die Erläuterungen (Stand: Januar 2023) und die Liste der Nachweise (StMB 07/2026).",
+        "steps": [
+          {
+            "sections": {
+              "action": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inklusive Wohnkosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie bei der Wohngeldbehörde nach.",
+              "mistake": "Auf den „perfekten“ Moment warten: Wohngeld wird in der Regel erst ab dem ersten Tag des Monats gewährt, in dem der Antrag gestellt wurde.",
+              "meaning": "Wohngeld ist ein staatlicher Zuschuss zu den Wohnkosten für Haushalte mit geringem Einkommen. Ob ein tatsächlicher Anspruch besteht, entscheidet allein die Wohngeldbehörde per Bescheid.",
+              "next": "Zuständige Stelle finden.",
+              "example": "Fiktives Beispiel: Maja arbeitet, Damir hat einen Minijob; sie beziehen keine anderen Leistungen – es ist sinnvoll, einen Antrag auf Wohngeld zu stellen.",
+              "where": "Offizielles Portal und Erläuterungen."
+            },
+            "id": "check",
+            "title": "Betrifft mich Wohngeld überhaupt?"
+          },
+          {
+            "sections": {
+              "next": "Nachweise sammeln.",
+              "where": "Offizielles Portal (Link oben).",
+              "example": "Fiktives Beispiel: Wohnung in Nürnberg → Stadt Nürnberg, Wohngeldstelle.",
+              "action": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist.",
+              "meaning": "Der Antrag wird bei der Behörde (Landratsamt oder kreisfreie Stadt / Gemeinde) gestellt, in deren Bereich die Wohnung liegt.",
+              "mistake": "Den Antrag an die Behörde des Arbeitsortes statt des Wohnortes senden."
+            },
+            "title": "Zuständige Stelle (Wohngeldbehörde)",
+            "id": "office"
+          },
+          {
+            "sections": {
+              "meaning": "Für den Lastenzuschuss nennt das offizielle bayerische Hinweisblatt (StMB 07/2026) z. B.: unterschriebener Antrag; Grundbuchauszug; Kauf-/Übergabevertrag; Wohnflächenberechnung; Kreditverträge und Fremdmittelbescheinigung; Grundsteuerbescheid mit Zahlungsnachweis; Nachweise über Nebenkosten / Hausgeld; Einkommens- und Vermögensnachweise aller Mitglieder. Die Wohngeldbehörde kann weitere Nachweise verlangen.",
+              "mistake": "Antrag ohne Nachweise senden – die Wohngeldbehörde wird nachfragen und die Bearbeitung dauert länger.",
+              "next": "Formular ausfüllen.",
+              "action": "Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Wohngeldbehörde fordert dies an. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag.",
+              "where": "Offizielles Hinweisblatt / Liste der Nachweise.",
+              "example": "Fiktives Beispiel: Maja legt den Mietvertrag, das letzte Mietanschreiben, drei Gehaltsabrechnungen und den Nachweis der Mietzahlung in einen Ordner."
+            },
+            "id": "evidence",
+            "title": "Nachweise"
+          },
+          {
+            "title": "Antrag ausfüllen",
+            "sections": {
+              "action": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Information zu finden ist.",
+              "example": "Fiktives Beispiel: Maja hält das Original-PDF in einem zweiten Tab offen und geht Begriff für Begriff durch.",
+              "next": "Antrag einreichen.",
+              "meaning": "Das bayerische Formular hat nummerierte Punkte („Randnummern“), die im offiziellen Dokument Erläuterungen erklärt werden. Das Original-PDF ist geschützt (verschlüsselt, Kopieren verboten), daher übernimmt BalkanLink keine Feldnummern oder Seiten – die untenstehenden Begriffe sind thematisch erklärt; die Punktnummer lesen Sie in Ihrem Original und in den Erläuterungen.",
+              "mistake": "Fragen leer lassen – ein Antrag ohne vollständige Antworten kann abgelehnt werden.",
+              "where": "Originalformular oder Online-Antrag der Wohngeldbehörde."
+            },
+            "id": "fill"
+          },
+          {
+            "title": "Abgabe",
+            "sections": {
+              "mistake": "Ein nicht unterschriebenes Formular einsenden.",
+              "meaning": "Die Einreichung erfolgt durch Sie selbst: online (falls angeboten), per Post oder persönlich. BalkanLink versendet nichts in Ihrem Namen.",
+              "where": "Wohngeldbehörde.",
+              "action": "Unterschreiben Sie, fügen Sie Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum.",
+              "next": "Wie geht es weiter?",
+              "example": "Fiktives Beispiel: Maja gibt den Antrag am 3. des Monats ab – entscheidend ist der Monat der Abgabe."
+            },
+            "id": "submit"
+          },
+          {
+            "sections": {
+              "next": "Fertig.",
+              "where": "Bescheid; Wohngeldbehörde.",
+              "meaning": "Die Wohngeldbehörde entscheidet durch schriftlichen Bescheid. Wohngeld wird in der Regel für 12 Monate bewilligt; danach ist ein neuer Antrag erforderlich. Die Auszahlung erfolgt monatlich im Voraus.",
+              "mistake": "Den Folgeantrag vergessen – die Auszahlung stoppt.",
+              "action": "Antworten Sie schnell auf Rückfragen der Wohngeldbehörde. Melden Sie Änderungen. Stellen Sie den Folgeantrag rechtzeitig vor Ablauf – fragen Sie die Wohngeldbehörde, wie lange im Voraus.",
+              "example": "Fiktives Beispiel: Bewilligung bis Ende Juni → Maja reicht im Mai einen neuen Antrag ein."
+            },
+            "title": "Nach der Abgabe und Folgeantrag",
+            "id": "after"
+          }
+        ],
+        "modes": {
+          "online": "Online: Das BayernPortal „Antrag auf Wohngeld“ ermöglicht Miet- und Lastenzuschuss, sofern Ihre Wohngeldbehörde dies anbietet. Ein Online-„Antrag auf Mietzuschuss“ gilt nicht für Eigentümer.",
+          "paper": "Papier: Laden Sie das Original-PDF Lastenzuschuss herunter, füllen Sie es aus, unterschreiben Sie es und reichen Sie es mit den Nachweisen ein."
+        },
+        "variation": "Nur für die eigene Wohnung / das eigene Haus in Bayern. Öffnen Sie das Original in einem neuen Tab; Daten tragen Sie nur in das offizielle Formular oder den Online-Antrag der Wohngeldbehörde ein.",
+        "title": "Wohngeld in Bayern – Lastenzuschuss (für Eigentümer)",
+        "terms": [
+          {
+            "id": "berechtigt",
+            "meaning": "Antragstellende Person",
+            "mistake": "Dass eine Person den Antrag unterschreibt, die nicht in der Wohnung lebt, oder dass die bevollmächtigte Person keine Vollmacht nachweist.",
+            "german": "Wohngeldberechtigte Person",
+            "example": "Fiktives Beispiel: Maja Kovač hat den Mietvertrag unterschrieben und wohnt in der Wohnung – sie ist die Antragstellerin, nicht ihr Bruder, der ihr manchmal hilft.",
+            "instruction": "Der Antrag wird von der Person gestellt, die in der Wohnung/im Haus wohnt und (bei Miete) den Mietvertrag unterschrieben hat bzw. (bei Eigentum) der Eigentümer ist, der den Wohnraum selbst nutzt. Es ist zulässig, eine andere Person zu bevollmächtigen (Vollmacht).",
+            "where": "Mietvertrag oder Grundbuchauszug/Kaufvertrag; Ausweisdokument."
+          },
+          {
+            "german": "Haushaltsmitglieder",
+            "example": "Fiktives Beispiel: Maja, ihr Ehemann Damir und zwei Kinder = vier Haushaltsmitglieder; der Untermieter Ivo in einem Zimmer wird separat angegeben.",
+            "instruction": "Gib alle Personen an, die gemeinsam mit dir in derselben Wohnung leben und wirtschaften, z. B. Ehegatte/Partner, Kinder, manchmal auch andere Verwandte. Mitbewohner und Untermieter sind in der Regel KEINE Haushaltsmitglieder, werden aber separat aufgeführt. Bei Kindern, deren Betreuung sich getrennte Eltern annähernd gleich teilen, kann das Kind bei beiden Elternteilen Haushaltsmitglied sein.",
+            "meaning": "Haushaltsmitglieder",
+            "mistake": "Ein Mitglied weglassen oder einen Mitbewohner als Haushaltsmitglied eintragen. Die Anzahl der Mitglieder beeinflusst die Prüfung, antworte daher nach dem tatsächlichen Stand.",
+            "id": "haushalt",
+            "where": "Anmeldebestätigung, Geburtsurkunden/Heiratsurkunde; Vereinbarung oder Bescheid über die Kinderbetreuung."
+          },
+          {
+            "meaning": "Eigentumskosten",
+            "mistake": "Einen Kredit angeben, der nicht für die Wohnung bestimmt ist, oder die Bestätigung der Bank über den Verwendungszweck des Kredits vergessen.",
+            "id": "belastung",
+            "where": "Grundbuchauszug, Kauf-/Übergabevertrag, Wohnflächenberechnung, Kreditverträge, Fremdmittelbescheinigung der Bank, Grundsteuerbescheid mit Zahlungsnachweis, Gebührenbescheide, Hausgeldabrechnung/Wirtschaftsplan.",
+            "example": "Fiktives Beispiel: Damir ist Eigentümer einer Wohnung mit Kredit; er fügt den Kreditvertrag, die Bankbestätigung über den Verwendungszweck des Kredits und den Grundsteuerbescheid bei.",
+            "german": "Belastung (Kapitaldienst, Bewirtschaftungskosten)",
+            "instruction": "Beim Lastenzuschuss gibst du anstelle der Miete die Belastung für die eigene Wohnung/das eigene Haus an: Kreditraten (Zinsen und Tilgung – Kapitaldienst) für Kauf/Renovierung, Grundsteuer, Instandhaltungskosten und sonstige Bewirtschaftungskosten sowie bei Eigentumswohnungen das Hausgeld. Dies wird nur bis zu einem gesetzlichen Höchstbetrag berücksichtigt; rechne nicht selbst."
+          },
+          {
+            "german": "Einkommen (Brutto / Gesamteinkommen)",
+            "id": "einkommen",
+            "instruction": "Gib ALLE Einkünfte aller Haushaltsmitglieder so an, wie es das Formular verlangt: Gehälter (auch Minijob), Renten (auch aus dem Ausland), Sozialleistungen (z. B. Arbeitslosengeld, Krankengeld, Elterngeld, Unterhaltsvorschuss, Kinderzuschlag, BAföG), Alimente, Zinseinkünfte, selbstständige Tätigkeit. Das „Gesamteinkommen“ ist der Betrag, den die Wohngeldbehörde selbst aus deinen Bruttodaten unter Abzug gesetzlicher Beträge berechnet – du berechnest ihn nicht, sondern lieferst vollständige Daten und Belege. Gib auch erwartete Einkommensänderungen an (neuer Job, Vertragsende).",
+            "where": "Lohnabrechnung, Verdienstbescheinigung (Vordruck vom Arbeitgeber), Rentenbescheid, Leistungsbescheide, Belege über Unterhalt, Steuerbescheide bei Selbstständigen.",
+            "example": "Fiktives Beispiel: Damir arbeitet Vollzeit, Maja hat einen Minijob – beide werden angegeben; für Damir füllt der Arbeitgeber eine Verdienstbescheinigung aus.",
+            "meaning": "Einkommen (Brutto / Gesamteinkommen)",
+            "mistake": "Netto statt des geforderten Betrags angeben, den Minijob oder Einkünfte aus dem Ausland weglassen oder den Anspruch auf Wohngeld selbst „berechnen“."
+          },
+          {
+            "id": "einmalig",
+            "mistake": "Verschweigen einer bekannten Änderung; dies kann später zu Rückforderungen führen.",
+            "example": "Fiktives Beispiel: Der Arbeitsvertrag läuft in vier Monaten aus – dies wird als erwartete Änderung angegeben.",
+            "meaning": "einmalige Einkünfte / Einkommensänderungen",
+            "where": "Lohnabrechnungen, Arbeitsvertrag, Kündigung, Mitteilung des Arbeitgebers.",
+            "instruction": "Geben Sie einmalige Zahlungen (z. B. Weihnachtsgeld, Urlaubsgeld) und Änderungen an, die Sie in den nächsten 12 Monaten erwarten (z. B. Vertragsende, neuer Job, Auszug eines Mitglieds mit Einkommen). Wenn Sie bereits einen Nachweis haben, fügen Sie diesen bei.",
+            "german": "Einmaliges Einkommen / Einkommensänderungen"
+          },
+          {
+            "instruction": "Beantworten Sie die Frage zum Vermögen aller Haushaltsmitglieder, einschließlich Vermögen im Ausland (Ersparnisse, Immobilien, Krypto, Versicherungen). Nach offiziellen Erläuterungen kann erhebliches Vermögen den Anspruch ausschließen, und ein Antrag ohne Beantwortung dieser Frage kann abgelehnt werden. Raten Sie nicht bei den Grenzen – fragen Sie die Wohngeldbehörde.",
+            "meaning": "Vermögen",
+            "where": "Kontoauszüge, Depotauszug, Grundbuchauszug (auch für Immobilien in BiH/Serbien/Kroatien), Bauspar-/Versicherungsverträge.",
+            "example": "Fiktives Beispiel: Ein Haus in der Heimat, das Damir geerbt hat, wird unter Beifügung des Eigentumsnachweises angegeben.",
+            "id": "vermoegen",
+            "german": "Vermögen",
+            "mistake": "Die Frage überspringen oder Vermögen in der Heimat vergessen."
+          },
+          {
+            "example": "Fiktives Beispiel: Majas Mutter bezieht im selben Haushalt Grundsicherung im Alter, die anderen nicht – die Wohngeldbehörde prüft die anderen Mitglieder separat.",
+            "meaning": "Ausschluss wegen anderer Leistungen, die bereits das Wohnen abdecken",
+            "instruction": "Wenn Sie oder ein Haushaltsmitglied eine Leistung beziehen, bei deren Berechnung die Wohnkosten bereits berücksichtigt wurden (z. B. Bürgergeld, Sozialhilfe, Grundsicherung im Alter), kommt Wohngeld für diese Person in der Regel nicht in Betracht. Es gibt Ausnahmen: z. B. wenn die Leistung nur ein Darlehen ist, wenn der Antrag abgelehnt wurde (dann ist rückwirkendes Wohngeld innerhalb der in den Erläuterungen genannten Frist möglich) oder wenn andere Haushaltsmitglieder nicht in diese Leistung einbezogen sind. Ziehen Sie keine voreiligen Schlüsse – geben Sie alle Leistungen ehrlich an und fragen Sie die Wohngeldbehörde.",
+            "mistake": "Glauben, dass jede Sozialleistung automatisch den gesamten Haushalt ausschließt, oder verheimlichen, dass ein Antrag auf eine andere Leistung gestellt wurde.",
+            "id": "ausschluss",
+            "german": "Ausschluss vom Wohngeld (Transferleistungen)",
+            "where": "Bescheide vom Jobcenter/Sozialamt; Ablehnungsbescheid, falls vorhanden."
+          },
+          {
+            "mistake": "Regelmäßige Hilfe der Familie für die Miete verschweigen.",
+            "where": "Auszüge, schriftliche Erklärung der zahlenden Person.",
+            "example": "Fiktives Beispiel: Majas Eltern überweisen jeden Monat einen Teil der Miete direkt an den Vermieter – dies wird angegeben.",
+            "instruction": "Geben Sie Gelder aus öffentlichen Mitteln oder von Privatpersonen an, die direkt zur Deckung der Miete/Belastung bestimmt sind (z. B. Eltern zahlen einen Teil der Miete).",
+            "id": "zuschuesse",
+            "german": "Zuschüsse zur Miete / Belastung",
+            "meaning": "andere Zuschüsse zum Wohnen"
+          },
+          {
+            "german": "Ausländische Personen",
+            "where": "Aufenthaltstitel, Fiktionsbescheinigung, Duldung oder Aufenthaltsgestattung (mit Zusatzblatt).",
+            "id": "auslaender",
+            "example": "Fiktives Beispiel: Damir hat einen Aufenthaltstitel aus BiH – er fügt eine Kopie beider Seiten der Karte bei.",
+            "mistake": "Die Verpflichtungserklärung nicht erwähnen; das Wohngeld kann dann vom Garanten zurückgefordert werden.",
+            "instruction": "Für Personen aus Ländern außerhalb der EU fragt das Formular nach Aufenthaltsdaten. Laut Erläuterungen geben einige Aufenthaltstitel (z. B. zur Suche nach Arbeit/Ausbildung) in der Regel keinen Anspruch. Wenn jemand eine Verpflichtungserklärung für ein Haushaltsmitglied unterschrieben hat, informiere dich vor dem Erhalt von Wohngeld bei der Ausländerbehörde über mögliche Folgen.",
+            "meaning": "ausländische Staatsangehörige"
+          },
+          {
+            "where": "Bankkarte oder Kontoauszug (IBAN/BIC).",
+            "meaning": "Auszahlung / Bankverbindung",
+            "id": "auszahlung",
+            "instruction": "Trage IBAN und BIC ein. Laut Erläuterungen ist die Auszahlung auch an ein anderes Haushaltsmitglied, den Vermieter oder eine bevollmächtigte Person mit Inkassovollmacht möglich – an andere Personen ist sie nicht zulässig.",
+            "german": "Auszahlung / Bankverbindung",
+            "example": "Fiktives Beispiel: DE00 0000 0000 0000 0000 00 (fiktive IBAN – trage deine eigene ein).",
+            "mistake": "Das Konto eines Freundes angeben, der kein Haushaltsmitglied ist."
+          },
+          {
+            "where": "Ende des Formulars; offizielle Erläuterungen.",
+            "mistake": "Die Unterschrift vergessen – ein ununterschriebener Antrag verzögert oder blockiert die Bearbeitung.",
+            "example": "Fiktives Beispiel: Maja unterschreibt als Antragstellerin; Damir unterschreibt dort, wo das Formular Unterschriften anderer Mitglieder verlangt.",
+            "instruction": "Lies die Erklärung am Ende des Formulars sorgfältig durch und unterschreibe sie. Änderungen (Einkommen, Mitglieder, Miete) musst du der Wohngeldbehörde auch nach der Einreichung melden.",
+            "german": "Erklärung und Unterschrift",
+            "meaning": "Erklärung und Unterschrift",
+            "id": "unterschrift"
+          }
+        ]
+      },
+      "general": {
+        "steps": [
+          {
+            "title": "Betrifft mich Wohngeld überhaupt?",
+            "sections": {
+              "mistake": "Auf den „perfekten“ Moment warten: Wohngeld wird in der Regel erst ab dem ersten Tag des Monats gewährt, in dem der Antrag gestellt wurde.",
+              "example": "Fiktives Beispiel: Maja arbeitet, Damir hat einen Minijob; sie beziehen keine anderen Leistungen – es ist sinnvoll, einen Antrag auf Wohngeld zu stellen.",
+              "next": "Zuständige Behörde finden.",
+              "where": "Offizielles Portal und Erläuterungen.",
+              "action": "Prüfen Sie zuerst, ob jemand im Haushalt Grundsicherungsgeld/Bürgergeld oder Sozialhilfe inkl. Unterkunftskosten bezieht – lesen Sie in diesem Fall den Punkt zum Ausschluss und fragen Sie die Behörde.",
+              "meaning": "Wohngeld ist ein staatlicher Zuschuss zu den Wohnkosten für Haushalte mit geringem Einkommen. Ob der Anspruch tatsächlich besteht, entscheidet allein die Wohngeldbehörde per Bescheid."
+            },
+            "id": "check"
+          },
+          {
+            "title": "Zuständige Behörde (Wohngeldbehörde)",
+            "id": "office",
+            "sections": {
+              "example": "Fiktives Beispiel: Wohnung in Nürnberg → Stadt Nürnberg, Wohngeldstelle.",
+              "mistake": "Den Antrag an die Behörde des Arbeitsortes statt des Wohnortes senden.",
+              "action": "Geben Sie auf dem offiziellen Portal die Postleitzahl der Wohnung ein; dort sehen Sie auch, ob ein Online-Antrag möglich ist.",
+              "next": "Nachweise sammeln.",
+              "where": "Offizielles Portal (Link oben).",
+              "meaning": "Der Antrag wird bei der Behörde (Landratsamt oder kreisfreie Stadt / Gemeinde) gestellt, in deren Bereich sich die Wohnung befindet."
+            }
+          },
+          {
+            "sections": {
+              "where": "Offizielles Hinweisblatt / Nachweisliste.",
+              "meaning": "Die genaue Liste der Nachweise bestimmt Ihr Bundesland/Ihre Behörde. Typischerweise werden verlangt: Mietvertrag oder Dokumente über Eigentum und Kredite, Nachweis über Miete/Kosten, Nachweise über alle Einkommen und Vermögen aller Mitglieder, bei Nicht-EU-Bürgern das Ausweisdokument. Fordern Sie die Liste bei Ihrer Behörde an.",
+              "action": "Kopieren Sie die Nachweise; senden Sie keine Originale, außer die Behörde verlangt dies. Auf Kontoauszügen dürfen Sie bei besonders sensiblen Daten nur Empfänger/Verwendungszweck schwärzen, niemals den Betrag.",
+              "next": "Formular ausfüllen.",
+              "example": "Fiktives Beispiel: Maja legt den Mietvertrag, das letzte Mietänderungsschreiben, drei Gehaltsabrechnungen und einen Nachweis über die Mietzahlung in einen Ordner.",
+              "mistake": "Antrag ohne Nachweise senden – die Behörde wird nachfordern und die Bearbeitung dauert länger."
+            },
+            "title": "Nachweise (Nachweise)",
+            "id": "evidence"
+          },
+          {
+            "title": "Antrag ausfüllen",
+            "sections": {
+              "meaning": "Jedes Bundesland/jede Behörde kann ein anderes Formular und eine andere Anordnung der Felder haben. Daher gibt es hier KEINE Feldnummern oder Seitenzahlen – die Begriffe werden thematisch erklärt.",
+              "where": "Originalformular oder Online-Antrag der Behörde.",
+              "next": "Antrag einreichen.",
+              "example": "Fiktives Beispiel: Maja hat das Original-PDF in einem zweiten Tab geöffnet und geht Begriff für Begriff vor.",
+              "mistake": "Fragen leer lassen – ein Antrag ohne vollständige Antworten kann abgelehnt werden.",
+              "action": "Nutzen Sie das obenstehende Glossar: Für jeden Begriff ist erklärt, was er bedeutet, was einzutragen ist und wo die Daten zu finden sind."
+            },
+            "id": "fill"
+          },
+          {
+            "title": "Abgabe",
+            "sections": {
+              "meaning": "Sie reichen den Antrag selbst ein: online (falls von der Behörde angeboten), per Post oder persönlich. BalkanLink versendet nichts in Ihrem Namen.",
+              "next": "Wie geht es weiter?",
+              "mistake": "Ein nicht unterschriebenes Formular senden.",
+              "example": "Fiktives Beispiel: Maja gibt den Antrag am 3. des Monats ab – entscheidend ist der Monat der Abgabe.",
+              "action": "Unterschreiben Sie, fügen Sie die Nachweise bei, behalten Sie eine Kopie und notieren Sie das Abgabedatum.",
+              "where": "Wohngeldbehörde."
+            },
+            "id": "submit"
+          },
+          {
+            "title": "Nach der Abgabe und Folgeantrag",
+            "sections": {
+              "meaning": "Die Behörde entscheidet durch schriftlichen Bescheid. Wohngeld wird in der Regel für 12 Monate bewilligt; danach ist ein neuer Antrag erforderlich. Die Auszahlung erfolgt monatlich im Voraus.",
+              "next": "Fertig.",
+              "example": "Fiktives Beispiel: Bewilligung bis Ende Juni → Maja stellt im Mai einen neuen Antrag.",
+              "mistake": "Den Folgeantrag vergessen – die Zahlung stoppt.",
+              "action": "Antworten Sie schnell auf Rückfragen der Behörde. Melden Sie Änderungen. Stellen Sie den neuen Antrag rechtzeitig vor Ablauf – fragen Sie die Behörde, wie lange im Voraus.",
+              "where": "Bescheid; Wohngeldbehörde."
+            },
+            "id": "after"
+          }
+        ],
+        "title": "Wohngeld – allgemeiner Leitfaden (alle Bundesländer)",
+        "introduction": "Ein allgemeiner Schritt-für-Schritt-Leitfaden für Wohngeld außerhalb Bayerns oder wenn Sie sich noch unsicher sind. Die Begriffe sind nach Bundesrecht identisch, aber die Formulare und die Anordnung der Felder variieren je nach Bundesland und Behörde.",
+        "vocabularyNote": "Die Begriffe werden thematisch erklärt, ohne Feld- oder Seitennummern. Vergleichen Sie diese mit dem in einem anderen Tab geöffneten Originalformular.",
+        "variation": "Bayerische Feldnummern gelten hier NICHT. Wählen Sie im Bundesportal Ihren Wohnort und die zuständige Behörde aus und fordern Sie deren aktuelles Formular oder den Online-Antrag an.",
+        "modes": {
+          "online": "Online: Viele Bundesländer/Kommunen bieten einen Online-Antrag an; die Verfügbarkeit und Abfolge der Bildschirme hängen vom Ort ab.",
+          "paper": "Papier: Das Formular erhalten Sie bei Ihrer Behörde oder über das Landesportal; ausfüllen, unterschreiben und mit Nachweisen einreichen."
+        },
+        "terms": [
+          {
+            "id": "berechtigt",
+            "meaning": "Antragstellende Person",
+            "mistake": "Dass eine Person den Antrag unterschreibt, die nicht in der Wohnung lebt, oder dass die bevollmächtigte Person keine Vollmacht nachweist.",
+            "example": "Fiktives Beispiel: Maja Kovač hat den Mietvertrag unterschrieben und wohnt in der Wohnung – sie ist die Antragstellerin, nicht ihr Bruder, der ihr manchmal hilft.",
+            "german": "Wohngeldberechtigte Person",
+            "instruction": "Der Antrag wird von der Person gestellt, die in der Wohnung/im Haus wohnt und (bei Miete) den Mietvertrag unterschrieben hat, beziehungsweise (bei Eigentum) der Eigentümer ist, der den Wohnraum selbst nutzt. Es ist zulässig, eine andere Person zu bevollmächtigen (Vollmacht).",
+            "where": "Mietvertrag oder Grundbuchauszug/Kaufvertrag; Ausweisdokument."
+          },
+          {
+            "meaning": "Mitglieder des Haushalts",
+            "id": "haushalt",
+            "mistake": "Ein Mitglied weglassen oder einen Mitbewohner als Haushaltsmitglied eintragen. Die Anzahl der Mitglieder beeinflusst die Prüfung, antworte daher nach dem tatsächlichen Stand.",
+            "example": "Fiktives Beispiel: Maja, ihr Ehepartner Damir und zwei Kinder = vier Haushaltsmitglieder; der Untermieter Ivo in einem Zimmer wird separat angegeben.",
+            "german": "Haushaltsmitglieder",
+            "instruction": "Gib alle Personen an, die zusammen mit dir in derselben Wohnung leben und wirtschaften, z. B. Ehegatte/Partner, Kinder, manchmal auch andere Verwandte. Mitbewohner und Untermieter sind in der Regel KEINE Haushaltsmitglieder, werden aber separat aufgeführt. Bei Kindern, deren Betreuung sich getrennte Eltern annähernd gleich teilen, kann das Kind bei beiden Elternteilen Haushaltsmitglied sein.",
+            "where": "Anmeldebestätigung, Geburtsurkunden/Heiratsurkunden; Vereinbarung oder Bescheid über die Kinderbetreuung."
+          },
+          {
+            "german": "Miete / Belastung (Wohnkosten)",
+            "meaning": "Wohnkosten (Miete oder Belastung bei Eigentum)",
+            "example": "Fiktives Beispiel: Der Vertrag führt Grundmiete und Betriebskosten-Vorauszahlung auf; Maja übernimmt beide Beträge aus dem letzten Schreiben des Vermieters.",
+            "mistake": "Nur die Grundmiete ohne Nebenkosten eintragen oder den Betrag aus einem alten Vertrag eintragen, obwohl die Miete erhöht wurde.",
+            "id": "wohnkosten",
+            "where": "Mietvertrag, Vermieterbescheinigung, Zahlungsnachweis; bei Eigentümern Darlehensverträge, Grundsteuerbescheid.",
+            "instruction": "Als Mieter gibst du die Miete und Nebenkosten laut Vertrag an; als Eigentümer stattdessen die Kreditraten und Bewirtschaftungskosten (Lastenzuschuss). Sie werden nur bis zum gesetzlichen Höchstbetrag berücksichtigt; wie Heizkosten und Pauschalen behandelt werden, frage deine Behörde – rechne nicht selbst."
+          },
+          {
+            "mistake": "Netto statt des geforderten Betrags angeben, den Minijob oder Einkünfte aus dem Ausland weglassen oder selbstständig den Anspruch auf Wohngeld 'ausrechnen'.",
+            "example": "Fiktives Beispiel: Damir arbeitet in Vollzeit, Maja hat einen Minijob – beide werden angegeben; für Damir füllt der Arbeitgeber eine Verdienstbescheinigung aus.",
+            "id": "einkommen",
+            "instruction": "Gib ALLE Einkünfte aller Haushaltsmitglieder so an, wie es das Formular verlangt: Löhne (auch Minijob), Renten (auch aus dem Ausland), Sozialleistungen (z. B. Arbeitslosengeld, Krankengeld, Elterngeld, Unterhaltsvorschuss, Kinderzuschlag, BAföG), Unterhaltszahlungen, Zinseinkünfte, selbstständige Tätigkeit. Das 'Gesamteinkommen' ist der Betrag, den die Wohngeldbehörde selbst aus deinen Bruttoangaben unter Abzug gesetzlicher Beträge berechnet – du berechnest ihn nicht, sondern lieferst vollständige Daten und Nachweise. Gib auch erwartete Einkommensänderungen an (neuer Job, Vertragsende).",
+            "where": "Lohnabrechnung, Verdienstbescheinigung (Vom Arbeitgeber auszufüllendes Formular), Rentenbescheid, Leistungsbescheide, Nachweise über Unterhalt, Steuerbescheide bei Selbstständigen.",
+            "german": "Einkommen (Brutto / Gesamteinkommen)",
+            "meaning": "Einkünfte (Brutto / Gesamteinkommen)"
+          },
+          {
+            "mistake": "Verschweigen einer bekannten Änderung; dies kann später zu Rückforderungen führen.",
+            "meaning": "einmaliges Einkommen / Einkommensänderungen",
+            "instruction": "Geben Sie einmalige Zahlungen (z. B. Weihnachtsgeld, Urlaubsgeld) und Änderungen an, die Sie in den nächsten 12 Monaten erwarten (z. B. Vertragsende, neuer Job, Auszug eines Mitglieds mit Einkommen). Wenn Sie bereits einen Nachweis haben, fügen Sie diesen bei.",
+            "german": "Einmaliges Einkommen / Einkommensänderungen",
+            "example": "Fiktives Beispiel: Der Arbeitsvertrag läuft in vier Monaten aus – dies wird als erwartete Änderung angegeben.",
+            "where": "Lohnabrechnungen, Arbeitsvertrag, Kündigung, Mitteilung des Arbeitgebers.",
+            "id": "einmalig"
+          },
+          {
+            "example": "Fiktives Beispiel: Ein Haus in der Heimat, das Damir geerbt hat, wird unter Beifügung des Eigentumsnachweises angegeben.",
+            "german": "Vermögen",
+            "where": "Kontoauszüge, Depotauszug, Grundbuchauszug (auch für Immobilien in BiH/Serbien/Kroatien), Spar-/Versicherungsverträge.",
+            "instruction": "Beantworten Sie die Frage zum Vermögen aller Haushaltsmitglieder, einschließlich Vermögen im Ausland (Ersparnisse, Immobilien, Krypto, Versicherungen). Nach offiziellen Erläuterungen kann erhebliches Vermögen den Anspruch ausschließen, und ein Antrag ohne Beantwortung dieser Frage kann abgelehnt werden. Raten Sie nicht bei den Grenzen – fragen Sie die Wohngeldbehörde.",
+            "id": "vermoegen",
+            "meaning": "Vermögen",
+            "mistake": "Die Frage überspringen oder Vermögen in der Heimat vergessen."
+          },
+          {
+            "example": "Fiktives Beispiel: Majas Mutter erhält im selben Haushalt Grundsicherung im Alter, die anderen nicht – die Wohngeldbehörde prüft die anderen Mitglieder separat.",
+            "german": "Ausschluss vom Wohngeld (Transferleistungen)",
+            "meaning": "Ausschluss wegen anderer Leistungen, die bereits das Wohnen abdecken",
+            "mistake": "Denken, dass jede Sozialleistung automatisch den gesamten Haushalt ausschließt, oder verheimlichen, dass ein Antrag auf eine andere Leistung gestellt wurde.",
+            "instruction": "Wenn Sie oder ein Haushaltsmitglied eine Leistung beziehen, bei deren Berechnung die Wohnkosten bereits berücksichtigt wurden (z. B. Bürgergeld, Sozialhilfe, Grundsicherung im Alter), kommt Wohngeld für diese Person in der Regel nicht in Betracht. Es gibt Ausnahmen: z. B. wenn eine solche Leistung nur ein Darlehen ist, wenn der Antrag dafür abgelehnt wurde (dann ist rückwirkendes Wohngeld innerhalb der in den offiziellen Erläuterungen genannten Frist möglich) oder wenn andere Haushaltsmitglieder nicht in diese Leistung einbezogen sind. Ziehen Sie keine eigenen Schlüsse – geben Sie alle Leistungen ehrlich an und fragen Sie die Wohngeldbehörde.",
+            "id": "ausschluss",
+            "where": "Bescheide vom Jobcenter/Sozialamt; Ablehnungsbescheid, falls vorhanden."
+          },
+          {
+            "where": "Kontoauszüge, schriftliche Erklärung der zahlenden Person.",
+            "example": "Fiktives Beispiel: Majas Eltern überweisen jeden Monat einen Teil der Miete direkt an den Vermieter – dies wird angegeben.",
+            "instruction": "Geben Sie Gelder aus öffentlichen Mitteln oder von Privatpersonen an, die direkt zur Deckung der Miete/Belastung bestimmt sind (z. B. Eltern zahlen einen Teil der Miete).",
+            "german": "Zuschüsse zur Miete / Belastung",
+            "mistake": "Regelmäßige Hilfe der Familie für die Miete verschweigen.",
+            "meaning": "andere Zuschüsse zum Wohnen Scatter",
+            "id": "zuschuesse"
+          },
+          {
+            "instruction": "Für Personen aus Nicht-EU-Ländern fragt das Formular nach Aufenthaltsdaten. Laut Erläuterungen geben einige Aufenthaltstitel (z. B. zur Arbeitsplatz-/Ausbildungssuche) in der Regel keinen Anspruch. Wenn jemand eine Verpflichtungserklärung für ein Haushaltsmitglied unterschrieben hat, informiere dich vor dem Erhalt von Wohngeld bei der Ausländerbehörde über mögliche Folgen.",
+            "example": "Fiktives Beispiel: Damir hat einen Aufenthaltstitel aus BiH – er fügt eine Kopie beider Seiten der Karte bei.",
+            "where": "Aufenthaltstitel, Fiktionsbescheinigung, Duldung oder Aufenthaltsgestattung (mit Zusatzblatt).",
+            "german": "Ausländische Personen",
+            "mistake": "Die Verpflichtungserklärung nicht erwähnen; das Wohngeld kann dann vom Bürgen zurückgefordert werden.",
+            "meaning": "ausländische Staatsangehörige",
+            "id": "auslaender"
+          },
+          {
+            "id": "auszahlung",
+            "instruction": "Trage IBAN und BIC ein. Laut Erläuterungen ist die Auszahlung auch an ein anderes Haushaltsmitglied, den Vermieter oder eine empfangsberechtigte Person mit Inkassovollmacht möglich – an andere Personen ist sie nicht zulässig.",
+            "example": "Fiktives Beispiel: DE00 0000 0000 0000 0000 00 (fiktive IBAN – trage deine eigene ein).",
+            "where": "Bankkarte oder Kontoauszug (IBAN/BIC).",
+            "german": "Auszahlung / Bankverbindung",
+            "mistake": "Das Konto eines Freundes angeben, der kein Haushaltsmitglied ist.",
+            "meaning": "Auszahlung / Bankverbindung"
+          },
+          {
+            "example": "Fiktives Beispiel: Maja unterschreibt als Antragstellerin; Damir unterschreibt dort, wo das Formular Unterschriften anderer Mitglieder verlangt.",
+            "mistake": "Die Unterschrift vergessen – ein ununterschriebener Antrag verzögert oder blockiert die Bearbeitung.",
+            "meaning": "Erklärung und Unterschrift",
+            "instruction": "Lies die Erklärung am Ende des Formulars sorgfältig durch und unterschreibe sie. Änderungen (Einkommen, Mitglieder, Miete) musst du der Wohngeldbehörde auch nach der Antragstellung melden.",
+            "where": "Ende des Formulars; offizielle Erläuterungen.",
+            "id": "unterschrift",
+            "german": "Erklärung und Unterschrift"
+          }
+        ]
+      }
+    }
   }
 }
