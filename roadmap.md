@@ -1,6 +1,7 @@
 ## Asistent performance/reliability (28.10.2026; isolated code-only)
-- [ ] Profile unnecessary calls, prompt duplication, duplicate sends and stream failures; apply only bounded changes preserving model, context and metering policy.
-- [ ] Run focused/full regressions and record before/after measurements and activation limits; stop without deploy.
+- [x] Profile calls/prompts/stream failures; skip unused search, cache identical catalog bytes, reuse search client, lock overlapping sends, validate SSE completion and release on pre-response network failure. No accounting-policy/model changes.
+- [x] 158 focused tests passed; final 1551/55-file full suite passed with two workers after two default-parallel legacy UI timeouts; automatic build OK. Operation counts and limits in docs/assistant-performance-reliability-2026-10-28.md. Stopped without deploy.
+- [ ] Hosted activation/E2E: blocked by explicit deploy/release hold. New timeouts, cross-device dedupe and shared partial-error accounting changes excluded, not pending implementation.
 
 ## Asistent conversational guidance (28.10.2026; source-only)
 - [x] Minimal necessary questions, concise sourced preparation/submission steps and bounded follow-ups; preserve model/usage/gates/UI.
