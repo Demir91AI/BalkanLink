@@ -1,5 +1,6 @@
-/** Phase 3A Grundsicherungsgeld companions: exact field mapping only for BA HA/WBA/KDU 10/2026. */
-export const GRUNDSICHERUNG_SLUGS = ["hauptantrag", "weiterbewilligung", "anlage-kdu", "anlage-ek", "anlage-vm", "anlage-ki", "anlage-wep", "anlage-eks", "anlage-sv", "anlage-bb", "anlage-ve"] as const;
+/** Source-pinned SGB II companions; employer SGB III paper references are not authenticated BEA mappings. */
+export const FINAL_SPECIALIST_SLUGS = ["anlage-hg", "anlage-meb", "anlage-uf", "anlage-se", "anlage-uh1", "anlage-uh2", "anlage-uh3", "nichterreichbarkeit", "arbeitsbescheinigung", "antragsruecknahme"] as const;
+export const GRUNDSICHERUNG_SLUGS = ["hauptantrag", "weiterbewilligung", "anlage-kdu", "anlage-ek", "anlage-vm", "anlage-ki", "anlage-wep", "anlage-eks", "anlage-sv", "anlage-bb", "anlage-ve", ...FINAL_SPECIALIST_SLUGS] as const;
 export type GrundsicherungSlug = typeof GRUNDSICHERUNG_SLUGS[number];
 export function isGrundsicherungSlug(slug: string): slug is GrundsicherungSlug {
   return GRUNDSICHERUNG_SLUGS.some((item) => item === slug);
@@ -19,6 +20,16 @@ export const VERIFIED_PDFS: Record<GrundsicherungSlug, { url: string; edition: s
   "anlage-sv": { url: "https://www.arbeitsagentur.de/datei/anlagesv_ba033005.pdf", edition: "10/2026", pages: 2, sha256Prefix: "c24b142bf6086501" },
   "anlage-bb": { url: "https://www.arbeitsagentur.de/datei/anlagebb_ba032985.pdf", edition: "10/2026", pages: 2, sha256Prefix: "7f113da78445bc9e" },
   "anlage-ve": { url: "https://www.arbeitsagentur.de/datei/anlageve_ba033130.pdf", edition: "10/2026", pages: 2, sha256Prefix: "acd507c0efa4e563" },
+  "anlage-hg": { url: "https://www.arbeitsagentur.de/datei/anlagehg_ba032950.pdf", edition: "10/2026", pages: 2, sha256Prefix: "40f602a40f07d86d" },
+  "anlage-meb": { url: "https://www.arbeitsagentur.de/datei/anlagemeb_ba032955.pdf", edition: "10/2026", pages: 4, sha256Prefix: "99f63a4bc79ed286" },
+  "anlage-uf": { url: "https://www.arbeitsagentur.de/datei/anlageuf_ba032970.pdf", edition: "10/2026", pages: 7, sha256Prefix: "0a68d2af8621cc51" },
+  "anlage-se": { url: "https://www.arbeitsagentur.de/datei/anlagese_ba032975.pdf", edition: "10/2026", pages: 3, sha256Prefix: "621c1240f1776efe" },
+  "anlage-uh1": { url: "https://www.arbeitsagentur.de/datei/anlageuh1_ba032990.pdf", edition: "10/2026", pages: 3, sha256Prefix: "3bc7d4141d154fc4" },
+  "anlage-uh2": { url: "https://www.arbeitsagentur.de/datei/anlageuh2_ba032995.pdf", edition: "10/2026", pages: 3, sha256Prefix: "94c26600242f8f52" },
+  "anlage-uh3": { url: "https://www.arbeitsagentur.de/datei/anlageuh3_ba033050.pdf", edition: "10/2026", pages: 4, sha256Prefix: "73b0d29ad99cf64d" },
+  nichterreichbarkeit: { url: "https://www.arbeitsagentur.de/datei/anfrage-ortsabwesenheit_ba147389.pdf", edition: "05/2026", pages: 3, sha256Prefix: "d923daa62b74de65" },
+  arbeitsbescheinigung: { url: "https://www.arbeitsagentur.de/datei/arbeitsbescheinigung_ba013140.pdf", edition: "08/2023", pages: 9, sha256Prefix: "df7833909444b0e7" },
+  antragsruecknahme: { url: "https://www.arbeitsagentur.de/datei/erklaerung-der-antragsruecknahme_ba053139.pdf", edition: "07/2026", pages: 1, sha256Prefix: "dac24aea00365bad" },
 };
 
 /* ── Memory-only navigator. Answers never leave component state. ── */
