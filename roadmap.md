@@ -1,3 +1,8 @@
+## Viza content accuracy (28.10.2026; no release)
+- [ ] Audit official sources and all country/locale content; retain data keys and array order.
+- [ ] Correct verified figures and unsupported absolutes in content only, with source citations.
+- [ ] Locale/rule regressions, full tests, automatic build status and exact audit/results documentation.
+
 ## Final Formulari batch (28.10.2026; no release)
 - [x] Audit all 46 catalog entries and ten live BA sources; baseline 1254 tests passed.
 - [x] Add all ten complete four-locale companions without other guide/account/gate changes.
