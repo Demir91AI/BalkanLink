@@ -2807,7 +2807,7 @@
       "options": [
         "Art der Zahlung",
         "Fälligkeit am (TT.MM.JJJJ)",
-        "Bruttobetrag in Euro",
+        "Bruttobetrag in Euro (sofern bereits abgerechnet)",
         "Nettobetrag in Euro (sofern bereits abgerechnet)"
       ]
     },

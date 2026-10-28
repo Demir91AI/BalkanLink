@@ -15827,8 +15827,8 @@
                 "meaning": "Datum dospeća prema dokazu."
               },
               {
-                "german": "Bruttobetrag in Euro",
-                "meaning": "Bruto iznos."
+                "german": "Bruttobetrag in Euro (sofern bereits abgerechnet)",
+                "meaning": "Bruto samo ako je već obračunato."
               },
               {
                 "german": "Nettobetrag in Euro (sofern bereits abgerechnet)",

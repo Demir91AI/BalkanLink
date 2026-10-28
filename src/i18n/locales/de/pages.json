@@ -15822,8 +15822,8 @@
                 "meaning": "Fälligkeitsdatum laut Nachweis."
               },
               {
-                "german": "Bruttobetrag in Euro",
-                "meaning": "Bruttobetrag."
+                "german": "Bruttobetrag in Euro (sofern bereits abgerechnet)",
+                "meaning": "Bruttobetrag soweit bereits abgerechnet."
               },
               {
                 "german": "Nettobetrag in Euro (sofern bereits abgerechnet)",
