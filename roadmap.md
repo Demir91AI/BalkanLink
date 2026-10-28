@@ -1,6 +1,7 @@
 ## Asistent conversational guidance (28.10.2026; source-only)
-- [ ] Minimal necessary questions, concise sourced preparation/submission steps and bounded follow-ups; preserve model/usage/gates/UI.
-- [ ] Five-topic four-locale tests, regressions, isolated browser verification and report; no activation.
+- [x] Minimal necessary questions, concise sourced preparation/submission steps and bounded follow-ups; preserve model/usage/gates/UI.
+- [x] 138 final focused /1529 final full tests passed; 40 isolated browser topic/follow-up fixtures +8 navigation checks, automatic build OK. Report: docs/assistant-conversation-quality-2026-10-28.md.
+- [ ] Hosted response activation/real-account E2E: blocked by explicit deployment hold; no Edge deploy or production changes. Visa/unknown real-model prose and live source freshness remain unverified.
 
 ## Asistent → SmartGuide first step (28.10.2026; source-only)
 - [x] Align assistant catalogs/routes and source-backed Kindergeld, Anmeldung, Wohngeld context without changing access/metering.
