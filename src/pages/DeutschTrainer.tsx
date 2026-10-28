@@ -381,7 +381,7 @@ export default function DeutschTrainer() {
                   <span className="truncate">{t("deutschTrainer.core.continueCta")}: {continueLesson.titleDe}</span>
                 </Button>
               )}
-              <Button variant="outline" className="min-h-12 border-white/20 text-white" disabled={dueCount === 0} onClick={() => setReview(true)}>
+              <Button variant="ghost" className="min-h-12 border border-white/25 bg-white/[0.06] text-white hover:bg-white/10 hover:text-white disabled:opacity-60" disabled={dueCount === 0} onClick={() => setReview(true)}>
                 {t("deutschTrainer.core.reviewCta", { n: dueCount })}
               </Button>
             </div>

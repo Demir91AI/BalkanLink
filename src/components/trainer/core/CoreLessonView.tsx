@@ -133,7 +133,7 @@ export default function CoreLessonView({ lesson, plan, onBack, onExtra }: {
               {canResume ? (
                 <>
                   <Button className="min-h-11" onClick={() => start(saved!.step, saved!.correct)}>{c("continue", { i: saved!.step + 1, n: main.length })}</Button>
-                  <Button className="min-h-11" variant="outline" onClick={() => { update((s) => clearResume(s, lesson.id)); start(0); }}>{c("restart")}</Button>
+                  <Button className="min-h-11 border border-white/25 bg-white/[0.06] text-white hover:bg-white/10 hover:text-white" variant="ghost" onClick={() => { update((s) => clearResume(s, lesson.id)); start(0); }}>{c("restart")}</Button>
                 </>
               ) : (
                 <Button className="min-h-11" onClick={() => start(0)} disabled={main.length === 0}>{c("startPractice")}</Button>
@@ -165,7 +165,7 @@ export default function CoreLessonView({ lesson, plan, onBack, onExtra }: {
             <p className="mt-2 text-sm text-white/75">{missed.length > 0 ? c("reviewScheduled", { n: missed.length }) : c("noneScheduled")}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               <Button className="min-h-11" onClick={onExtra}>{c("toExtra")}</Button>
-              <Button className="min-h-11" variant="outline" onClick={() => start(0)}><RotateCcw className="mr-1 h-4 w-4" />{c("restart")}</Button>
+              <Button className="min-h-11 border border-white/25 bg-white/[0.06] text-white hover:bg-white/10 hover:text-white" variant="ghost" onClick={() => start(0)}><RotateCcw className="mr-1 h-4 w-4" />{c("restart")}</Button>
               <Button className="min-h-11" variant="ghost" onClick={onBack}>{c("backToLesson")}</Button>
             </div>
           </section>
