@@ -15,12 +15,14 @@ import { LEVELS, LEVEL_COLORS, getLessonsForLevel, loadLessonsForLevel, FREE_LES
 import { useTrainerProgress } from "@/hooks/useTrainerProgress";
 import { useSubscription } from "@/hooks/useSubscription";
 import TrainerLesson from "@/components/trainer/TrainerLesson";
+import PilotLessonView from "@/components/trainer/pilot/PilotLessonView";
+import { A1_PILOT_LESSONS, getPilotLesson, pilotLocale } from "@/lib/trainer/pilot/a1-pilot-lessons";
 import Breadcrumbs from "@/components/navigation/Breadcrumbs";
 const LESSONS_PER_PAGE = 9;
 
 
 export default function DeutschTrainer() {
-  const { t } = useTranslation("pages");
+  const { t, i18n } = useTranslation("pages");
   const navigate = useNavigate();
   const [params, setSearchParams] = useSearchParams();
   const demo = params.get("demo") === "1";
@@ -143,6 +145,20 @@ export default function DeutschTrainer() {
       openLesson(lesson);
     }
   };
+
+  const pilotLesson = getPilotLesson(params.get("pilot"));
+  const setPilot = (id: string | null) => setSearchParams((prev) => {
+    const n = new URLSearchParams(prev);
+    if (id) n.set("pilot", id); else n.delete("pilot");
+    return n;
+  });
+  if (pilotLesson) {
+    return (
+      <AuthGate>
+        <PilotLessonView key={pilotLesson.id} lesson={pilotLesson} onBack={() => setPilot(null)} />
+      </AuthGate>
+    );
+  }
 
   if (activeLesson) {
     return (
@@ -317,6 +333,29 @@ export default function DeutschTrainer() {
               </button>
             </div>
           </div>
+
+          {/* ── A1 PILOT LESSONS ── */}
+          {selectedLevel === "A1" && (
+            <section className="mb-10 max-w-3xl" aria-labelledby="a1-pilot-title">
+              <h2 id="a1-pilot-title" className="text-lg font-bold text-white">{t("deutschTrainer.pilot.sectionTitle")}</h2>
+              <p className="mb-4 mt-1 text-sm text-white/65">{t("deutschTrainer.pilot.sectionIntro")}</p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {A1_PILOT_LESSONS.map((pl) => {
+                  const done = progress.completedLessons.includes(pl.id);
+                  const loc = pilotLocale(i18n.language);
+                  return (
+                    <button key={pl.id} onClick={() => setPilot(pl.id)}
+                      className="rounded-2xl border border-gold/25 bg-white/[0.03] p-4 text-left transition-colors hover:border-gold/50">
+                      <p className="text-xs font-bold text-gold">A1 · {t("deutschTrainer.pilot.minutes", { n: pl.minutes })}{done && ` · ${t("deutschTrainer.pilot.done")}`}</p>
+                      <p className="mt-1 font-bold text-white">{pl.icon} {pl.titleDe}</p>
+                      {loc !== "de" && <p className="text-xs text-white/60">{pl.title[loc]}</p>}
+                      <span className="mt-3 inline-block text-xs font-bold text-white/85">{done ? t("deutschTrainer.pilot.repeat") : t("deutschTrainer.pilot.start")} →</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          )}
 
           {/* ── LESSON GRID ── */}
           <div className="mb-6">
