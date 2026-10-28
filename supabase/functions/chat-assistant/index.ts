@@ -1569,7 +1569,7 @@ serve(async (req) => {
     const systemPrompt = buildSystemPrompt(isPremium, language || "bs", dbResults, pageContext) + `
 INTERNAL GUIDE ACCURACY: Use only catalog slugs from the supplied catalog. Never invent a /formulari/ slug or default an unknown topic to Kindergeld. No source-backed guide was resolved for this question. Do not claim you checked a guide/source live. For unknown procedures say what is unknown; unrelated page context is not proof. Do not promise PDF filling, submission or eligibility.`;
     const conversationInstructions = `Respond with 2–4 understandable numbered actions where supported: what to prepare, where to go, what the user must personally check/sign/submit. Reuse the existing conversation, do not repeat answered questions. Ask at most one necessary, non-sensitive clarification only if it changes the next action. Unknown facts remain unknown, not a made-up procedure. Do not generate generic follow-up questions just to prolong the conversation.`;
-    const navigationContext = /viza|visa|visum|aufenthalt|boravišn|boravisn|blue.?card|blaue karte/i.test(userText) ? visaNavigationContext(language) : "";
+    const navigationContext = /viz[aeu]|visa|visum|aufenthalt|boravišn|boravisn|blue.?card|blaue karte/i.test(userText) ? visaNavigationContext(language) : "";
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",
