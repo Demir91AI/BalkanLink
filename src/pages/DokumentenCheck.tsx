@@ -91,7 +91,7 @@ export default function DokumentenCheck() {
       <p>{item.text}</p>
       {item.quote && <blockquote className="border-l-2 border-border pl-3 break-words"><span className="font-semibold">{tx('professional.quoted')}: </span>“{item.quote}”</blockquote>}
       <p className="text-sm text-muted-foreground">{tx(item.confirmed ? 'professional.visible' : 'professional.unconfirmed')}
-        {source && <> · {t('documentCheck.professional.attachment', { number: source.fileIndex })}{source.page !== null && <> · {t('documentCheck.professional.page', { number: source.page })}</>}</p>
+        {source && <> · {t('documentCheck.professional.attachment', { number: source.fileIndex })}{source.page !== null && <> · {t('documentCheck.professional.page', { number: source.page })}</>}</>}</p>
     </li>;
   })}</ul> : <p className="text-muted-foreground">{tx(emptyKey)}</p>;
   const detail = (key: string, children: React.ReactNode) => <Collapsible className="border-b border-border py-2">
