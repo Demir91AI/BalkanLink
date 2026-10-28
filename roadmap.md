@@ -68,3 +68,6 @@
 - [x] Replace inferred deadline headline with an original-letter review warning; preserve existing analysis and gates.
 - [x] Validate templates, PDF output, privacy, full regression suite (749 passed), isolated mobile/desktop flow; harness build OK; no publish/deploy.
 - [ ] Authenticated host end-to-end + completed DocumentenCheck CTA: blocked on owner app session; managed login has no matching owner account. See `docs/task-to-output-phase1-2026-10-27.md`.
+
+## Wohngeld batch
+- [x] Decision guide + Bayern MZ/LZ + general companion, 4 locales, tests, docs (exact Bavarian field mapping blocked: encrypted originals)
