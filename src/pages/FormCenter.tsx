@@ -24,6 +24,7 @@ import SteuerIdGuideContent from "@/components/guides/SteuerIdGuideContent";
 import KrankenkasseGuideContent from "@/components/guides/KrankenkasseGuideContent";
 import ElterngeldGuideContent from "@/components/guides/ElterngeldGuideContent";
 import BurgergeldGuideContent from "@/components/guides/BurgergeldGuideContent";
+import WohngeldGuideContent from "@/components/guides/WohngeldGuideContent";
 import MutterschaftsgeldGuideContent from "@/components/guides/MutterschaftsgeldGuideContent";
 import KinderzuschlagGuideContent from "@/components/guides/KinderzuschlagGuideContent";
 import KrippengeldBayernGuideContent from "@/components/guides/KrippengeldBayernGuideContent";
