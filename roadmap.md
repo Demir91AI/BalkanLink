@@ -1,7 +1,7 @@
 ## Grundsicherung Phase 3C (28.10.2026; no release)
-- [ ] Live-index audit EKS/SV/BB/VE editions, restrictions, hashes and printed choices.
-- [ ] Complete four-locale specialist companions only; retain all previous forms and navigator.
-- [ ] Focused/full tests, 32 test-access browser fixtures, automatic build and exact results/limits.
+- [x] Live-index audit EKS/SV/BB/VE 10/2026 editions, 15 pages, restrictions, hashes and printed choices.
+- [x] Four complete locale companions: 62 groups/111 fields/120 choice-table definitions; all previous forms and navigator unchanged.
+- [x] 18 focused/1254 full tests, 32 test-access browser fixtures, automatic build OK; exact files, source/member limits and remaining annexes in docs/grundsicherung-phase3c-results.md.
 
 ## Dokumenti i potvrde batch (28.10.2026; no release)
 - [x] Verify SGB XII Sozialamt, BfJ certificates and regional church-exit procedures; preserve three existing routes and free Führungszeugnis access.
