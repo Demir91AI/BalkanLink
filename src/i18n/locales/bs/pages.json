@@ -10815,5 +10815,520 @@
         ]
       }
     }
+  },
+  "careerCompanions": {
+    "ui": {
+      "links": {
+        "baSteps": "BA: Vaši koraci kod nezaposlenosti",
+        "baAs": "BA: Arbeitsuchend melden",
+        "baAl": "BA: Arbeitslos melden (online/lično)",
+        "baAnspruch": "BA: Arbeitslosengeld – pravo, iznos, trajanje",
+        "gkvList": "GKV-Spitzenverband: lista kasa i Zusatzbeitrag",
+        "bmg": "BMG: izbor i promjena kase",
+        "gesund": "gesund.bund.de: promjena kase",
+        "bundSt": "Bundesportal: promjena porezne klase u braku",
+        "elster": "ELSTER: svi obrasci (Mein ELSTER)",
+        "fms": "Formular-Management-System (papirni obrasci)",
+        "bwInfo": "Finanzamt BW: posljedice izbora klase"
+      },
+      "privacy": "Ništa ne upisuješ ovdje i ništa se ne sprema ni šalje."
+    },
+    "guides": {
+      "arbeitslosengeld": {
+        "title": "Arbeitslosengeld I: tri odvojena koraka",
+        "introduction": "Arbeitslosengeld I je naknada iz osiguranja za nezaposlene koju isplaćuje Agentur für Arbeit (BA). Postoje TRI različita koraka: 1) Arbeitsuchendmeldung (prijava da tražiš posao), 2) Arbeitslosmeldung (prijava nezaposlenosti), 3) Antrag auf Arbeitslosengeld (zahtjev za novac). Jedan korak ne zamjenjuje drugi.",
+        "variation": "Pravo i iznos utvrđuje samo Agentur für Arbeit rješenjem. Ovdje nema obećanja o pravu, iznosu ili trajanju.",
+        "vocabularyNote": "Pojmovi su objašnjeni tematski. Online-obrasci zahtijevaju prijavu i njihov izgled se može razlikovati – BalkanLink ne navodi brojeve polja ni redoslijed ekrana.",
+        "gate": {
+          "title": "Kako se završava tvoj posao?",
+          "question": "Odaberi situaciju (odgovor ostaje samo na ovoj stranici).",
+          "options": [
+            {
+              "id": "employer",
+              "label": "Poslodavac mi je dao otkaz / ugovor ističe",
+              "result": "Prijavi se kao arbeitsuchend najkasnije 3 mjeseca prije kraja posla; ako saznaš kasnije, u roku od 3 dana. Zatim posebno Arbeitslosmeldung najkasnije prvog dana bez posla."
+            },
+            {
+              "id": "self",
+              "label": "Sam/sama dajem otkaz ili potpisujem Aufhebungsvertrag",
+              "result": "Prema BA može nastupiti Sperrzeit (do 12 sedmica bez isplate), npr. kod vlastitog otkaza ili Aufhebungsvertraga. To nije automatski u svakom slučaju – BA provjerava postoji li važan razlog (wichtiger Grund). Razgovaraj s BA PRIJE potpisa i navedi razloge iskreno."
+            },
+            {
+              "id": "sick",
+              "label": "Bolestan/bolesna sam i nakon kraja posla",
+              "result": "Prema BA tada si nezaposlen tek od dana ozdravljenja. Prijavi nezaposlenost najkasnije tog dana; ako je ured tada zatvoren, najkasnije zadnjeg dana bolovanja. Pri zdravstvenoj spriječenosti može te zastupati druga osoba."
+            },
+            {
+              "id": "unsure",
+              "label": "Nisam siguran/sigurna",
+              "result": "Prijavi se odmah kao arbeitsuchend – rokovi teku i bez konačne odluke. BA će s tobom razjasniti situaciju."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Lično: zakaži termin u Agentur für Arbeit; ponesi Personalausweis s aktuelnom adresom ili pasoš + Meldebescheinigung.",
+          "online": "Online: arbeitsuchend se možeš prijaviti online ili telefonom (0800 4 5555 00). Za online Arbeitslosmeldung trebaš online-identifikaciju (Personalausweis s eID, elektronski Aufenthaltstitel ili EU eID) preko BundID. Ekrani se mogu razlikovati od opisa."
+        },
+        "terms": [
+          {
+            "id": "arbeitsuchend",
+            "german": "Arbeitsuchendmeldung",
+            "meaning": "prijava da tražiš posao",
+            "instruction": "Prijavi se čim znaš da posao završava, najkasnije 3 mjeseca prije kraja; ako saznaš kasnije, u roku od 3 dana.",
+            "where": "Otkaz, ugovor o radu (datum kraja), eServices BA.",
+            "example": "Izmišljeni primjer: Damir 10. marta dobije otkaz za 30. april → prijavljuje se kao arbeitsuchend do 13. marta.",
+            "mistake": "Čekati zadnji radni dan – kasna prijava može imati financijske posljedice."
+          },
+          {
+            "id": "arbeitslos",
+            "german": "Arbeitslosmeldung",
+            "meaning": "prijava nezaposlenosti",
+            "instruction": "Poseban korak: najranije 3 mjeseca prije, najkasnije prvog dana nezaposlenosti. Arbeitsuchendmeldung je NE zamjenjuje. Ako je prekid duži od 6 sedmica (npr. novi posao), prijavi se ponovo.",
+            "where": "Datum kraja posla; online-ID ili termin u agenciji.",
+            "example": "Izmišljeni primjer: posao završava 30. aprila → Arbeitslosmeldung najkasnije 1. maja.",
+            "mistake": "Misliti da je prijava kao arbeitsuchend dovoljna – novac se plaća najranije od dana Arbeitslosmeldung."
+          },
+          {
+            "id": "antrag",
+            "german": "Antrag auf Arbeitslosengeld",
+            "meaning": "zahtjev za novčanu naknadu",
+            "instruction": "Nakon prijave podnesi i sam zahtjev (online u eServices ili prema uputi agencije). Odgovori na pitanja o zaposlenjima, bolovanjima, djeci i bankovnom računu.",
+            "where": "eServices BA, platne liste, ugovori o radu.",
+            "example": "Izmišljeni primjer: Maja nakon Arbeitslosmeldung otvara zahtjev u svom BA profilu i prilaže dokumente.",
+            "mistake": "Ne poslati zahtjev ili dokumente – obrada staje."
+          },
+          {
+            "id": "arbeitsbescheinigung",
+            "german": "Arbeitsbescheinigung",
+            "meaning": "potvrda poslodavca o zaposlenju",
+            "instruction": "Ovu potvrdu ispunjava POSLODAVAC, ne ti; često je šalje elektronski direktno BA. Ti samo provjeri s poslodavcem da je poslana i obavijesti BA ako kasni.",
+            "where": "Poslodavac / odjel plata.",
+            "example": "Izmišljeni primjer: Damir pita HR odjel da li je Arbeitsbescheinigung poslana BA.",
+            "mistake": "Pokušati sam ispuniti potvrdu poslodavca."
+          },
+          {
+            "id": "anwartschaft",
+            "german": "Anwartschaftszeit",
+            "meaning": "period osiguranja",
+            "instruction": "Prema BA pravilo je: najmanje 12 mjeseci osiguranja u zadnjih 30 mjeseci prije prijave; za kratke ugovore postoje posebna pravila. Ne računaj sam – navedi sva zaposlenja, a BA provjerava.",
+            "where": "Ugovori o radu, platne liste, Sozialversicherungsausweis.",
+            "example": "Izmišljeni primjer: Maja navodi i posao u drugoj firmi od prije dvije godine.",
+            "mistake": "Izostaviti kraće ili inostrane zaposlenje – navedi sve i pitaj BA."
+          },
+          {
+            "id": "kinder",
+            "german": "Kinder (im Sinne des Einkommensteuergesetzes)",
+            "meaning": "djeca",
+            "instruction": "BA pita za djecu jer prema BA procenat naknade može biti viši ako ti ili partner imate dijete. Iznos određuje BA.",
+            "where": "Izvod iz matične knjige rođenih, Steuer-ID djeteta.",
+            "example": "Izmišljeni primjer: Damir navodi kćerku Lanu (izmišljeno ime).",
+            "mistake": "Ne navesti dijete partnera iako se pita."
+          },
+          {
+            "id": "sperrzeit",
+            "german": "Sperrzeit",
+            "meaning": "period blokade isplate",
+            "instruction": "Sperrzeit može nastupiti npr. kod vlastitog otkaza, otkaza zbog ponašanja ili Aufhebungsvertraga – do 12 sedmica. Nije automatska: navedi važan razlog i dokaze; odluku donosi BA.",
+            "where": "Otkaz, Aufhebungsvertrag, dokazi o razlogu (npr. ljekarsko mišljenje).",
+            "example": "Izmišljeni primjer: Maja daje otkaz zbog preseljenja partneru – navodi razlog i pita BA prije otkaza.",
+            "mistake": "Potpisati Aufhebungsvertrag bez informisanja."
+          },
+          {
+            "id": "verfuegbarkeit",
+            "german": "Verfügbarkeit",
+            "meaning": "dostupnost za posao",
+            "instruction": "Arbeitslos si ako radiš manje od 15 sati sedmično, dostupan si za posredovanje i sam tražiš posao. Odsutnost (npr. putovanje) prijavi unaprijed.",
+            "where": "Pravila iz razgovora s BA i Merkblatt für Arbeitslose.",
+            "example": "Izmišljeni primjer: Damir prije putovanja u BiH traži odobrenje od BA.",
+            "mistake": "Otputovati bez dogovora s BA."
+          }
+        ],
+        "steps": [
+          {
+            "id": "s1",
+            "title": "1. Arbeitsuchendmeldung",
+            "sections": {
+              "meaning": "Prijava da tražiš posao dok još radiš.",
+              "action": "Prijavi se online, telefonom ili lično: 3 mjeseca prije kraja posla ili u roku od 3 dana nakon što saznaš.",
+              "where": "arbeitsagentur.de – arbeitsuchend melden.",
+              "example": "Izmišljeni primjer: otkaz 10.03. → prijava do 13.03.",
+              "mistake": "Čekati kraj posla.",
+              "next": "Arbeitslosmeldung."
+            }
+          },
+          {
+            "id": "s2",
+            "title": "2. Arbeitslosmeldung",
+            "sections": {
+              "meaning": "Posebna prijava nezaposlenosti.",
+              "action": "Online s eID ili lično najkasnije prvi dan bez posla.",
+              "where": "arbeitsagentur.de – arbeitslos melden.",
+              "example": "Izmišljeni primjer: kraj 30.04. → prijava do 01.05.",
+              "mistake": "Misliti da je korak 1 dovoljan.",
+              "next": "Zahtjev."
+            }
+          },
+          {
+            "id": "s3",
+            "title": "3. Antrag auf Arbeitslosengeld",
+            "sections": {
+              "meaning": "Zahtjev za novac.",
+              "action": "Popuni zahtjev u eServices ili prema uputi agencije; poslodavac šalje Arbeitsbescheinigung.",
+              "where": "BA profil / agencija.",
+              "example": "Izmišljeni primjer: Maja popunjava zahtjev uz platne liste.",
+              "mistake": "Prazna polja o zaposlenjima.",
+              "next": "Dokumenti."
+            }
+          },
+          {
+            "id": "s4",
+            "title": "Lista dokumenata",
+            "sections": {
+              "meaning": "Tipično: lični dokument (ili pasoš + Meldebescheinigung), otkaz/ugovor, platne liste, IBAN, podaci o djeci, potvrde o bolovanju. BA može tražiti više.",
+              "action": "Pripremi kopije prije razgovora.",
+              "where": "Pozivnica/poruka BA.",
+              "example": "Izmišljeni primjer: fascikla s otkazom, ugovorom i IBAN-om.",
+              "mistake": "Doći bez otkaza.",
+              "next": "Razgovor."
+            }
+          },
+          {
+            "id": "s5",
+            "title": "Nakon predaje",
+            "sections": {
+              "meaning": "BA zakazuje razgovor (Beratungsgespräch) i odlučuje rješenjem (Bescheid).",
+              "action": "Dođi na termine, čitaj BA poštansko sanduče, javi promjene (posao, bolest, putovanje).",
+              "where": "BA profil – Postfach.",
+              "example": "Izmišljeni primjer: Damir javlja novi posao dan prije početka.",
+              "mistake": "Propustiti termin bez javljanja.",
+              "next": "Gotovo."
+            }
+          }
+        ]
+      },
+      "krankenkasse": {
+        "title": "Krankenkasse: izbor, prijava, promjena, porodično osiguranje",
+        "introduction": "U Njemačkoj je zdravstveno osiguranje obavezno. Postoje gesetzliche Krankenversicherung (GKV, javne kase) i private Krankenversicherung (PKV). Ne postoji jedan državni obrazac – svaka kasa ima svoj Mitgliedsantrag.",
+        "variation": "Polja i redoslijed se razlikuju po kasi. Da li moraš biti u GKV ili smiješ u PKV, zavisi od tvoje situacije (npr. zaposlenje, prihod, samostalnost) – provjeri to s kasom ili savjetovalištem.",
+        "vocabularyNote": "Pojmovi su objašnjeni tematski. Online-obrasci zahtijevaju prijavu i njihov izgled se može razlikovati – BalkanLink ne navodi brojeve polja ni redoslijed ekrana.",
+        "gate": {
+          "title": "Šta ti treba?",
+          "question": "Odaberi situaciju (samo na ovoj stranici).",
+          "options": [
+            {
+              "id": "new",
+              "label": "Prvi put se osiguravam u Njemačkoj",
+              "result": "Izaberi GKV kasu (lista GKV-Spitzenverband) i podnesi Mitgliedsantrag kod nje; poslodavcu javi koju kasu si izabrao."
+            },
+            {
+              "id": "switch",
+              "label": "Mijenjam javnu kasu",
+              "result": "Prema gesund.bund.de obično moraš biti 12 mjeseci kod stare kase; rok otkaza je 2 mjeseca. Dovoljan je Mitgliedsantrag kod nove kase – kase same razmjenjuju otkaz elektronski."
+            },
+            {
+              "id": "family",
+              "label": "Porodično osiguranje (Familienversicherung)",
+              "result": "Supružnik i djeca bez vlastitog ili s niskim prihodom mogu biti besplatno suosigurani preko člana GKV. Uslove i granice provjerava kasa – zatraži njen obrazac Familienversicherung."
+            },
+            {
+              "id": "private",
+              "label": "Privatno osiguranje (PKV)",
+              "result": "Prelazak između PKV i GKV moguć je samo pod određenim uslovima. Ugovor sklapaš s privatnim osiguravačem; uslove pitaj osiguravača i nezavisno savjetovalište."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papir: neke kase šalju ili nude PDF Mitgliedsantrag – popuni samo obrazac te kase.",
+          "online": "Online: većina kasa nudi online-prijavu na svojoj stranici; izgled je različit."
+        },
+        "terms": [
+          {
+            "id": "gkvpkv",
+            "german": "GKV / PKV",
+            "meaning": "javno / privatno osiguranje",
+            "instruction": "Za većinu zaposlenih vrijedi GKV. PKV je moguć samo za određene grupe; ne prelazi bez savjeta.",
+            "where": "Ugovor o radu, savjet kase.",
+            "example": "Izmišljeni primjer: Maja je zaposlena s običnom platom → bira GKV kasu.",
+            "mistake": "Potpisati PKV jer je jeftiniji na početku, bez provjere uslova."
+          },
+          {
+            "id": "pflicht",
+            "german": "Versicherungspflicht / freiwillige Versicherung",
+            "meaning": "obavezno / dobrovoljno osiguranje",
+            "instruction": "Kod obaveznog osiguranja poslodavac prijavljuje i plaća dio doprinosa. Dobrovoljno osiguranje tiče se npr. samostalnih ili osoba iznad granice prihoda – kasa provjerava.",
+            "where": "Ugovor o radu; kasa.",
+            "example": "Izmišljeni primjer: Damir je samostalan → pita kasu o dobrovoljnom osiguranju.",
+            "mistake": "Pretpostaviti status bez provjere."
+          },
+          {
+            "id": "kassenwahl",
+            "german": "Krankenkassenwahl",
+            "meaning": "izbor kase",
+            "instruction": "Možeš birati AOK mjesta rada/stanovanja, svaku Ersatzkasse, otvorene BKK/IKK i dr. (BMG). Kasa te mora primiti bez obzira na zdravlje.",
+            "where": "Lista kasa GKV-Spitzenverband.",
+            "example": "Izmišljeni primjer: Maja upoređuje usluge i Zusatzbeitrag tri kase.",
+            "mistake": "Birati samo po reklami."
+          },
+          {
+            "id": "zusatzbeitrag",
+            "german": "Zusatzbeitrag",
+            "meaning": "dodatni doprinos",
+            "instruction": "Svaka kasa ima svoj dodatni procenat doprinosa. Aktuelne vrijednosti vidiš u listi GKV-Spitzenverbanda – ovdje nema iznosa.",
+            "where": "Lista GKV-Spitzenverband / kasa.",
+            "example": "Izmišljeni primjer: Maja vidi da kasa A ima niži Zusatzbeitrag od kase B.",
+            "mistake": "Gledati staru tabelu s interneta."
+          },
+          {
+            "id": "mitgliedsantrag",
+            "german": "Mitgliedsantrag",
+            "meaning": "zahtjev za članstvo",
+            "instruction": "Popuni zahtjev nove kase: lični podaci, poslodavac, početak, prethodno osiguranje. Polja zavise od kase.",
+            "where": "Lični dokument, Steuer-ID, Sozialversicherungsnummer (ako je imaš), podaci poslodavca.",
+            "example": "Izmišljeni primjer: Maja upisuje početak rada 01.02. i prethodno osiguranje u BiH.",
+            "mistake": "Prijaviti se kod dvije kase istovremeno."
+          },
+          {
+            "id": "mitgliedsbescheinigung",
+            "german": "Mitgliedsbescheinigung",
+            "meaning": "potvrda o članstvu",
+            "instruction": "Kasa potvrđuje članstvo; poslodavac/BA danas se obično obavještavaju elektronski, ali neki ipak traže potvrdu – daj je ako je traže.",
+            "where": "Online portal/aplikacija kase.",
+            "example": "Izmišljeni primjer: Damir šalje potvrdu novom poslodavcu.",
+            "mistake": "Ne obavijestiti poslodavca o izboru kase."
+          },
+          {
+            "id": "familienversicherung",
+            "german": "Familienversicherung",
+            "meaning": "porodično osiguranje",
+            "instruction": "Supružnik/djeca mogu biti besplatno suosigurani ako ispunjavaju uslove (npr. nizak prihod). Kasa traži poseban obrazac i dokaze.",
+            "where": "Izvodi iz matičnih knjiga, dokazi o prihodu člana porodice.",
+            "example": "Izmišljeni primjer: Maja prijavljuje novorođenu kćerku u svoju kasu.",
+            "mistake": "Misliti da se dijete automatski osigurava bez prijave."
+          },
+          {
+            "id": "kuendigung",
+            "german": "Kündigung / elektronischer Meldeaustausch",
+            "meaning": "otkaz / elektronska razmjena",
+            "instruction": "Kod promjene GKV kase ne šalješ sam otkaz: nova kasa obavještava staru. Rok otkaza je 2 mjeseca; posebna prava (npr. povećanje Zusatzbeitraga) mogu vrijediti.",
+            "where": "gesund.bund.de; pismo stare kase.",
+            "example": "Izmišljeni primjer: Maja se prijavi kod nove kase u martu; članstvo počinje nakon roka.",
+            "mistake": "Prekinuti plaćanje prije početka nove kase."
+          }
+        ],
+        "steps": [
+          {
+            "id": "k1",
+            "title": "Odredi GKV ili PKV",
+            "sections": {
+              "meaning": "Status zavisi od posla i prihoda.",
+              "action": "Pitaj poslodavca/kasu ako nisi siguran.",
+              "where": "Ugovor o radu.",
+              "example": "Izmišljeni primjer: zaposlena Maja → GKV.",
+              "mistake": "Odlučiti bez provjere.",
+              "next": "Izbor kase."
+            }
+          },
+          {
+            "id": "k2",
+            "title": "Izaberi kasu",
+            "sections": {
+              "meaning": "Uporedi usluge i Zusatzbeitrag.",
+              "action": "Koristi listu GKV-Spitzenverbanda.",
+              "where": "GKV-Spitzenverband.",
+              "example": "Izmišljeni primjer: tri kase u užem izboru.",
+              "mistake": "Stara tabela.",
+              "next": "Prijava."
+            }
+          },
+          {
+            "id": "k3",
+            "title": "Podnesi Mitgliedsantrag",
+            "sections": {
+              "meaning": "Prijava kod izabrane kase.",
+              "action": "Online ili papir kase.",
+              "where": "Stranica kase.",
+              "example": "Izmišljeni primjer: online prijava 15 minuta.",
+              "mistake": "Prijava kod dvije kase.",
+              "next": "Porodica."
+            }
+          },
+          {
+            "id": "k4",
+            "title": "Porodica i dokazi",
+            "sections": {
+              "meaning": "Familienversicherung se prijavljuje posebno.",
+              "action": "Priloži dokaze koje kasa traži.",
+              "where": "Kasa.",
+              "example": "Izmišljeni primjer: dijete prijavljeno s izvodom rođenja.",
+              "mistake": "Zaboraviti dijete.",
+              "next": "Nakon prijave."
+            }
+          },
+          {
+            "id": "k5",
+            "title": "Nakon prijave",
+            "sections": {
+              "meaning": "Dobijaš potvrdu i kasnije elektronsku karticu (eGK) – fotografiju traži kasa.",
+              "action": "Javi poslodavcu kasu, čuvaj potvrdu.",
+              "where": "Pošta/aplikacija kase.",
+              "example": "Izmišljeni primjer: Maja šalje fotografiju za karticu.",
+              "mistake": "Ne reagovati na pismo kase.",
+              "next": "Gotovo."
+            }
+          }
+        ]
+      },
+      "steuerklassenwechsel": {
+        "title": "Steuerklassenwechsel: promjena porezne klase",
+        "introduction": "Porezna klasa (Steuerklasse) određuje koliko poreza poslodavac mjesečno odbija od plate. Kod vjenčanja oba supružnika automatski dobijaju klasu IV ako su oba neograničeno porezno obavezna u Njemačkoj i ne žive trajno odvojeno (Bundesportal).",
+        "variation": "Izbor klase ne mijenja konačni godišnji porez, već mjesečni odbitak; razlika se može pokazati u poreznoj prijavi. Klasa može uticati i na naknade kao Arbeitslosengeld, Elterngeld ili Krankengeld – pitaj nadležni ured prije promjene. Nema obećanja uštede.",
+        "vocabularyNote": "Pojmovi su objašnjeni tematski. Papirni obrazac 'Antrag auf Steuerklassenwechsel bei Ehegatten/Lebenspartnern' nalazi se u Formular-Management-System (FMS); BalkanLink ga nije pregledao polje po polje, pa ne navodi brojeve polja.",
+        "gate": {
+          "title": "Tvoja situacija",
+          "question": "Odaberi (samo na ovoj stranici).",
+          "options": [
+            {
+              "id": "married",
+              "label": "Upravo smo se vjenčali",
+              "result": "Klasa IV/IV dolazi automatski (kod vjenčanja u Njemačkoj bez dokumenata; kod vjenčanja u inostranstvu treba važeća strana vjenčana). Ako želite III/V ili IV s faktorom, podnesite zajednički zahtjev Finanzamtu."
+            },
+            {
+              "id": "change",
+              "label": "Već smo u braku i želimo promjenu",
+              "result": "Kombinaciju možete mijenjati, prema Finanzamt BW do 30. novembra tekuće godine. Zahtjev podnosite oboje – online u Mein ELSTER ili papirom u Wohnsitzfinanzamt."
+            },
+            {
+              "id": "separated",
+              "label": "Živimo trajno odvojeno",
+              "result": "Trajno odvajanje mora se prijaviti Finanzamtu; klasa se mijenja (npr. u I) od godine nakon odvajanja. Koristi odgovarajući obrazac Finanzamta."
+            }
+          ]
+        },
+        "modes": {
+          "paper": "Papir: preuzmi zahtjev iz FMS (Steuerformulare → Lohnsteuer (Arbeitnehmer)), oboje potpisuju, pošalji Wohnsitzfinanzamt.",
+          "online": "Online: Mein ELSTER (treba ELSTER račun s aktivacijom). Ekrani se mogu razlikovati od papira."
+        },
+        "terms": [
+          {
+            "id": "klassen",
+            "german": "Steuerklasse III / IV / V",
+            "meaning": "kombinacije poreznih klasa",
+            "instruction": "Bračni parovi biraju između IV/IV, III/V i IV/IV s faktorom.",
+            "where": "Bundesportal / Finanzamt.",
+            "example": "Izmišljeni primjer: Maja i Damir rade oboje i ostaju na IV/IV.",
+            "mistake": "Misliti da III/V uvijek štedi porez.",
+            "options": [
+              {
+                "german": "IV/IV",
+                "meaning": "oba supružnika ista klasa – često kada su plate slične"
+              },
+              {
+                "german": "III/V",
+                "meaning": "jedan III (manji odbitak), drugi V (veći odbitak) – mjesečni odbitak se pomjera"
+              },
+              {
+                "german": "IV/IV mit Faktor",
+                "meaning": "Faktorverfahren: odbitak se tačnije raspoređuje prema odnosu plata"
+              }
+            ]
+          },
+          {
+            "id": "faktor",
+            "german": "Faktorverfahren",
+            "meaning": "postupak s faktorom",
+            "instruction": "Finanzamt računa faktor iz očekivanih plata oba supružnika. Unosiš očekivane godišnje plate – iznose ne pogađaj, uzmi iz platnih lista.",
+            "where": "Platne liste oba supružnika.",
+            "example": "Izmišljeni primjer: Damir uzima bruto iz zadnje platne liste i očekivane promjene.",
+            "mistake": "Upisati neto umjesto bruto."
+          },
+          {
+            "id": "pflichtveranlagung",
+            "german": "Pflichtveranlagung",
+            "meaning": "obavezna porezna prijava",
+            "instruction": "Kod III/V i faktora u pravilu morate podnijeti poreznu prijavu za tu godinu. Moguća je doplata poreza.",
+            "where": "Finanzamt / ELSTER.",
+            "example": "Izmišljeni primjer: Maja i Damir s III/V planiraju poreznu prijavu sljedeće godine.",
+            "mistake": "Ne podnijeti prijavu i iznenaditi se doplatom."
+          },
+          {
+            "id": "haftung",
+            "german": "Zusammenveranlagung / Einzelveranlagung",
+            "meaning": "zajednička / pojedinačna procjena",
+            "instruction": "Bračni par može birati zajedničku ili pojedinačnu poreznu procjenu; kod zajedničke oba supružnika generalno odgovaraju za porez. Posljedice pitaj Finanzamt ili poreznog savjetnika.",
+            "where": "Finanzamt.",
+            "example": "Izmišljeni primjer: Maja pita Finanzamt prije odluke.",
+            "mistake": "Odlučiti bez informisanja."
+          },
+          {
+            "id": "idnr",
+            "german": "Steuer-Identifikationsnummer",
+            "meaning": "porezni broj osobe",
+            "instruction": "Za zahtjev trebaju Steuer-ID oba supružnika.",
+            "where": "Pismo BZSt, platna lista (Lohnsteuerbescheinigung).",
+            "example": "Izmišljeni primjer: 12 345 678 901 (izmišljeno).",
+            "mistake": "Zamijeniti Steuer-ID sa Steuernummer."
+          },
+          {
+            "id": "unterschrift",
+            "german": "Unterschrift beider Ehegatten",
+            "meaning": "potpis oba supružnika",
+            "instruction": "Promjenu kombinacije traže oboje; potpis oba ili zajednički ELSTER zahtjev.",
+            "where": "Kraj obrasca / ELSTER.",
+            "example": "Izmišljeni primjer: Maja i Damir potpisuju isti dan.",
+            "mistake": "Poslati zahtjev s jednim potpisom."
+          }
+        ],
+        "steps": [
+          {
+            "id": "t1",
+            "title": "Provjeri situaciju",
+            "sections": {
+              "meaning": "Vjenčanje, promjena ili odvajanje.",
+              "action": "Odaberi situaciju gore.",
+              "where": "Bundesportal.",
+              "example": "Izmišljeni primjer: vjenčanje u julu.",
+              "mistake": "Brkati vjenčanje u inostranstvu s domaćim.",
+              "next": "Kombinacija."
+            }
+          },
+          {
+            "id": "t2",
+            "title": "Izaberi kombinaciju",
+            "sections": {
+              "meaning": "IV/IV, III/V ili faktor – neobavezujuće objašnjenje gore.",
+              "action": "Ako očekuješ naknade (ALG, Elterngeld), prvo pitaj taj ured.",
+              "where": "Finanzamt BW info.",
+              "example": "Izmišljeni primjer: Maja očekuje Elterngeld → pita Elterngeldstelle.",
+              "mistake": "Birati samo po mjesečnoj plati.",
+              "next": "Zahtjev."
+            }
+          },
+          {
+            "id": "t3",
+            "title": "Podnesi zahtjev",
+            "sections": {
+              "meaning": "ELSTER online ili FMS papir.",
+              "action": "Oboje potpisuju; papir šalješ Wohnsitzfinanzamt.",
+              "where": "ELSTER / FMS.",
+              "example": "Izmišljeni primjer: zahtjev preko Mein ELSTER.",
+              "mistake": "Zahtjev poslodavcu umjesto Finanzamtu.",
+              "next": "Nakon."
+            }
+          },
+          {
+            "id": "t4",
+            "title": "Nakon predaje",
+            "sections": {
+              "meaning": "Finanzamt mijenja ELStAM podatke; poslodavac ih preuzima elektronski.",
+              "action": "Provjeri sljedeću platnu listu.",
+              "where": "Platna lista.",
+              "example": "Izmišljeni primjer: nova klasa vidljiva za 1–2 mjeseca.",
+              "mistake": "Ne provjeriti platnu listu.",
+              "next": "Gotovo."
+            }
+          }
+        ]
+      }
+    }
   }
 }
