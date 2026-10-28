@@ -1,0 +1,2107 @@
+[
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": true,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": []
+      }
+    ]
+  },
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": true,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": []
+      }
+    ]
+  },
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": false,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "schengenFree": true,
+    "schengenNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "westbalkanNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "ausbildungHighlight": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryNotes": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryBadge": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": false,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "schengenFree": true,
+    "schengenNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "westbalkanNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "ausbildungHighlight": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryNotes": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryBadge": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": false,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "schengenFree": true,
+    "schengenNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "westbalkanNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "ausbildungHighlight": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryNotes": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryBadge": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": false,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "schengenFree": true,
+    "schengenNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "westbalkanNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "ausbildungHighlight": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryNotes": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryBadge": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": false,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "schengenFree": true,
+    "schengenNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "westbalkanNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "ausbildungHighlight": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryNotes": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryBadge": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "<string>",
+    "name": "<string>",
+    "flag": "<string>",
+    "isEU": false,
+    "embassyName": "<string>",
+    "embassyUrl": "<string>",
+    "embassyNote": "<string>",
+    "kosovoNote": "<string>",
+    "routes": [
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "westbalkanNote": "<string>",
+        "kosovoNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "kosovoNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "kosovoNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "kosovoNote": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      },
+      {
+        "id": "<string>",
+        "title": "<string>",
+        "legalBasis": "<string>",
+        "subtitle": "<string>",
+        "ausbildungHighlight": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "kosovoNote": "<string>",
+        "countryNotes": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "countryBadge": "<string>",
+        "steps": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "documents": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "costs": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "errors": [
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>",
+          "<string>"
+        ],
+        "sources": [
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          },
+          {
+            "label": "<string>",
+            "url": "<string>"
+          }
+        ],
+        "musterformulare": [
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          },
+          {
+            "title": "<string>",
+            "subtitle": "<string>",
+            "formKey": "<string>",
+            "downloadUrl": "<string>"
+          }
+        ]
+      }
+    ]
+  }
+]
