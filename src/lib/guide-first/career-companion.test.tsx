@@ -44,7 +44,7 @@ describe("career companions data", () => {
     expect(opts).toEqual(["IV/IV", "III/V", "IV/IV mit Faktor"]);
   });
   it("only official https links", () => {
-    for (const links of Object.values(CAREER_LINKS)) for (const l of links) expect(l.url).toMatch(/^https:\/\/(www\.)?(arbeitsagentur\.de|gkv-spitzenverband\.de|bundesgesundheitsministerium\.de|gesund\.bund\.de|verwaltung\.bund\.de|elster\.de|formulare-bfinv\.de|finanzamt-bw\.fv-bwl\.de)\//);
+    for (const links of Object.values(CAREER_LINKS)) for (const l of links) expect(l.url).toMatch(/^https:\/\/(www\.)?(arbeitsagentur\.de|gkv-spitzenverband\.de|bundesgesundheitsministerium\.de|gesund\.bund\.de|verwaltung\.bund\.de|elster\.de|formulare-bfinv\.de|finanzamt-bw\.fv-bwl\.de)(\/|$)/);
   });
 });
 
