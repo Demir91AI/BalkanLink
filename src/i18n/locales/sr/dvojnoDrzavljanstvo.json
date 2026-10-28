@@ -7,12 +7,12 @@
     "title": "Dvojno državljanstvo",
     "subtitle": "Da li možeš da zadržiš svoj pasoš kad uzmeš nemački? Pregled po zemljama.",
     "infoBannerTitle": "Novi nemački zakon — Stand 27.06.2024",
-    "infoBannerBody": "Stupanjem na snagu Zakona o modernizaciji prava o državljanstvu (StARModG), Nemačka generalno prihvata višestruko državljanstvo. Više se ne mora odreći prethodnog državljanstva pri nemačkoj naturalizaciji — ali pravila zemlje porekla i dalje važe."
+    "infoBannerBody": "Stupanjem na snagu Zakona o modernizaciji prava o državljanstvu (StARModG) 27.06.2024. Nemačka generalno prihvata višestruko državljanstvo i više ne traži odricanje od dosadašnjeg državljanstva. Da li dosadašnje državljanstvo zadržavaš, odlučuje isključivo pravo tvoje zemlje porekla."
   },
   "status": {
     "ok": "Dvojno državljanstvo dozvoljeno",
     "okEu": "Dvojno državljanstvo dozvoljeno (EU)",
-    "warning": "Posebna pravila — potreban bilateralni sporazum"
+    "warning": "Posebna pravila — proveri pravo zemlje porekla"
   },
   "disclaimer": {
     "title": "Pravna napomena",
@@ -24,15 +24,15 @@
       "sections": {
         "germanLaw": {
           "title": "Nemački zakon (od 27.06.2024.)",
-          "body": "Od stupanja na snagu Zakona o modernizaciji prava o državljanstvu (StARModG) 27. juna 2024., Nemačka generalno prihvata višestruko državljanstvo. Ko se naturalizuje u Nemačkoj, više ne mora da se odrekne bosanskog državljanstva. Isto važi i obrnuto — Nemac koji uzme strano državljanstvo više ne gubi automatski nemačko."
+          "body": "Od stupanja na snagu Zakona o modernizaciji prava o državljanstvu (StARModG) 27. juna 2024. Nemačka generalno prihvata višestruko državljanstvo. Pri naturalizaciji u Nemačkoj više se ne traži odricanje od državljanstva BiH — šta to znači za državljanstvo BiH, uređuje pravo BiH. Nemac koji na zahtev stekne strano državljanstvo više zbog toga ne gubi nemačko."
         },
         "bihLaw": {
-          "title": "BiH zakon — bilateralni sporazum",
-          "body": "Ustav BiH, Član I/7.d propisuje da državljani BiH mogu imati državljanstvo druge države isključivo ako postoji bilateralni sporazum između BiH i te države. BiH ima takve sporazume sa Hrvatskom, Srbijom i Švedskom — ali NE i sa Nemačkom. Nemačka generalno ne zaključuje bilateralne sporazume o dvojnom državljanstvu."
+          "title": "Pravo BiH — zadržavanje državljanstva",
+          "body": "BiH i Nemačka nemaju međunarodni ugovor o dvojnom državljanstvu (Ministarstvo civilnih poslova BiH). Prema odluci Ustavnog suda BiH, sticanjem državljanstva druge države NE dolazi po sili zakona do gubitka državljanstva BiH. Ko ima državljanstvo BiH i stekne nemačko bez odricanja, time ne gubi automatski državljanstvo BiH."
         },
         "practical": {
-          "title": "Praktična situacija — šta to znači za tebe",
-          "body": "BiH ustav ne propisuje da se MORA odreći stranog državljanstva ako nema bilateralnog sporazuma — samo kaže da dvojno državljanstvo nije formalno priznato. U praksi: BiH ti ne oduzima automatski pasoš kad uzmeš nemački. Mnogi dijasporci faktički imaju oba pasoša. Međutim, formalno dvojno državljanstvo BiH–Nemačka nije regulisano, te BiH ne može zvanično evidentirati taj status. Za rešenje je potrebna izmena zakona u BiH ili potpisivanje bilateralnog sporazuma. Preporučujemo konsultaciju sa advokatom ili BiH konzulatom."
+          "title": "Zadržavanje ili ponovno sticanje — velika razlika",
+          "body": "Zadržavanje: ako se NISI odrekao državljanstva BiH, ono ne prestaje samim sticanjem nemačkog. Ponovno sticanje: ako si se ranije ODREKAO državljanstva BiH (npr. zbog starih nemačkih pravila) i danas imaš nemačko, Ministarstvo civilnih poslova BiH navodi da je ponovno sticanje državljanstva BiH moguće uz obavezan uslov odricanja od nemačkog državljanstva. Pre bilo kakvog odricanja ili zahteva proveri svoj slučaj u diplomatsko-konzularnom predstavništvu BiH ili Ministarstvu civilnih poslova BiH."
         },
         "note": {
           "title": "Važna napomena",
@@ -49,7 +49,7 @@
         },
         "ownLaw": {
           "title": "Srpski zakon",
-          "body": "Srbija dozvoljava dvojno državljanstvo. Srpski Zakon o državljanstvu ne zahteva odricanje od srpskog državljanstva pri sticanju stranog. Stoga Srbin koji uzme nemački pasoš zadržava srpski — bez formalnih prepreka s obe strane. Srbija takođe ima bilateralni sporazum o dvojnom državljanstvu sa Bosnom i Hercegovinom."
+          "body": "Zakon o državljanstvu Republike Srbije (MUP Srbije) poznaje državljane koji imaju i strano državljanstvo; srpsko državljanstvo prestaje tek otpustom, odricanjem ili po međunarodnom ugovoru, a ne samim sticanjem stranog. Srbija i BiH imaju sporazum o dvojnom državljanstvu. Za svoj slučaj proveri u konzulatu Srbije."
         }
       }
     },
@@ -62,7 +62,7 @@
         },
         "ownLaw": {
           "title": "Kosovski zakon",
-          "body": "Kosovo dozvoljava dvojno državljanstvo. Kosovski Zakon o državljanstvu prihvata da državljani Kosova imaju i drugo strano državljanstvo. U određenim slučajevima kosovsko državljanstvo se stiče automatski — npr. pri upisu u matičnu knjigu rođenih ili ako su oba roditelja kosovski državljani."
+          "body": "Kosovski zakon o državljanstvu dozvoljava da državljani Kosova imaju i drugo državljanstvo. Zakonski detalji i dokazi mogu da se menjaju — za svoj slučaj proveri u konzulatu Kosova."
         }
       }
     },
@@ -75,7 +75,7 @@
         },
         "ownLaw": {
           "title": "Hrvatski zakon",
-          "body": "Hrvatska dozvoljava dvojno državljanstvo. Pored toga, Hrvatska ima bilateralni sporazum sa Bosnom i Hercegovinom iz 2011. koji eksplicitno reguliše dvojno državljanstvo između te dve države."
+          "body": "Prema MUP-u Hrvatske hrvatski državljanin može da ima i drugo državljanstvo; sticanjem stranog državljanstva hrvatsko ne prestaje samo po sebi. Hrvatska i BiH imaju ugovor o dvojnom državljanstvu iz 2011. Za sticanje hrvatskog državljanstva prirođenjem po pravilu se traži otpust iz stranog — to je drugo pitanje."
         }
       }
     },
@@ -83,8 +83,8 @@
       "name": "Crna Gora",
       "sections": {
         "bothLaws": {
-          "title": "Crnogorski i nemački zakon",
-          "body": "I Crna Gora i Nemačka (od 27.06.2024.) dozvoljavaju dvojno državljanstvo. Crnogorac koji se naturalizuje u Nemačkoj zadržava crnogorski pasoš bez formalnih prepreka sa obe strane."
+          "title": "Crnogorski zakon — oprez",
+          "body": "Nemačka od 27.06.2024. ne traži odricanje, ali crnogorski zakon je restriktivan: prema Vladi Crne Gore (član 24. Zakona o crnogorskom državljanstvu) punoletni državljani koji imaju državljanstvo druge države gube crnogorsko državljanstvo, osim ako je drugo državljanstvo stečeno pre 3. juna 2006. ili to uređuje međunarodni ugovor. Zakon je izmenjen u avgustu 2026. — pre naturalizacije proveri trenutno stanje u konzulatu Crne Gore."
         }
       }
     },
@@ -93,7 +93,7 @@
       "sections": {
         "bothLaws": {
           "title": "Albanski i nemački zakon",
-          "body": "I Albanija i Nemačka (od 27.06.2024.) dozvoljavaju dvojno državljanstvo. Albanac koji se naturalizuje u Nemačkoj zadržava albanski pasoš bez formalnih prepreka sa obe strane."
+          "body": "Nemačka od 27.06.2024. ne traži odricanje, a albansko pravo dozvoljava dvojno državljanstvo — sticanjem drugog državljanstva albansko ne prestaje samo po sebi. Za svoj slučaj proveri u konzulatu Albanije."
         }
       }
     },
@@ -102,7 +102,7 @@
       "sections": {
         "bothLaws": {
           "title": "Makedonski i nemački zakon",
-          "body": "I Severna Makedonija i Nemačka (od 27.06.2024.) dozvoljavaju dvojno državljanstvo. Makedonac koji se naturalizuje u Nemačkoj zadržava makedonski pasoš bez formalnih prepreka sa obe strane."
+          "body": "Nemačka od 27.06.2024. ne traži odricanje, a Zakon o državljanstvu Severne Makedonije ne propisuje gubitak samim sticanjem drugog državljanstva; državljanstvo prestaje npr. otpustom. Za svoj slučaj proveri u konzulatu Severne Makedonije."
         }
       }
     }
