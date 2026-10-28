@@ -165,7 +165,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'D-Viza (Ambasada Sarajevo): 75 €',
           'Aufenthaltserlaubnis (Ausländerbehörde, Njemačka): 100–110 €',
           "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
-          "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka."
+          "Ausländerbehörde — rok obrade nije zakonski fiksiran i razlikuje se po gradu; termin zakaži rano, a ako dozvola ističe prije odluke, pitaj za Fiktionsbescheinigung."
         ],
         errors: [
           "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
@@ -198,7 +198,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.",
           'Ulazak u Njemačku s D-vizom.',
           'Anmeldung — 14 dana od useljenja.',
-          "EU Plava karta — BA saglasnost se u pravilu ne traži na standardnom pragu; na nižem pragu i posebnim putevima može biti potrebna. Prati kategoriju ambasade; važenje do 4 godine ili ugovor + 3 mjeseca.",
+          "Ausländerbehörde — nakon ulaska zatraži EU Plavu kartu §18g prije isteka D-vize; karta vrijedi do 4 godine, a kod kraćeg ugovora trajanje ugovora + 3 mjeseca.",
           "Niederlassungserlaubnis za EU Plavu kartu: uz ostale uvjete nakon 27 mjeseci zaposlenja i doprinosa s A1, ili 21 mjesec s B1; ne automatski i ne bez jezičnog dokaza."
         ],
         documents: [
@@ -253,7 +253,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.",
           'Antrag auf Aufenthaltserlaubnis',
           "Isprave i prijevod — provjeri traženi original, kopije, ovjereni prijevod i treba li Apostille/legalizacija baš za tu ispravu; međunarodni izvodi mogu imati izuzetke.",
-          "Isprave i prijevod — provjeri traženi original, kopije, ovjereni prijevod i treba li Apostille/legalizacija baš za tu ispravu; međunarodni izvodi mogu imati izuzetke.",
+          "Izvodi iz matične knjige rođenih za djecu (ako i ona dolaze) — original/kopija i prijevod prema listi ambasade; da li treba Apostille/legalizacija zavisi od isprave i ambasade.",
           "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade.",
           'Kopija Aufenthaltstitel osobe u Njemačkoj',
           'Gehaltsabrechnungen posljednja 3 mj. osobe u Njemačkoj',
@@ -343,7 +343,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         steps: [
           "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.",
           'Zatraži Rentenversicherungsverlauf — Besplatno na drv.de ili osobno u DRV uredu. Prikazuje sve njemacke penzijske doprinose.',
-          "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.",
+          "Njemački B1 — dokaz npr. certifikatom (Zertifikat Deutsch, DTZ) ili kroz Integrationskurs; posebni putevi (npr. Plava karta, stručnjaci) imaju drugačije jezičke uvjete.",
           'Pripremi kompletnu dokumentaciju — Sve boravišne dozvole posljednjih 5 god., platne liste, ugovor najma, Rentenversicherungsverlauf.',
           "Ausländerbehörde — provjeri termin i listu dokaza rano, a nastavak važećeg boravka zatraži prije isteka postojeće dozvole; čekanje zavisi od ureda.",
           "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.",
@@ -372,8 +372,8 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: [
           "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.",
           'Korišćenje socijalnih davanja (ALG II) — može voditi odbijanju',
-          "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.",
-          "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.",
+          "Nedostaje dokaz znanja njemačkog na traženom nivou — za opći put §9 u pravilu B1; bez dokaza zahtjev može biti odbijen.",
+          "Boravak van Njemačke duži od 6 mjeseci može dovesti do prestanka boravišne dozvole (§51 AufenthG), osim ako Ausländerbehörde nije odobrila duži rok — prije dužeg odsustva pitaj nadležni ured.",
           "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."
         ],
         sources: [
@@ -438,7 +438,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'D-Viza taksa (Ambasada Sarajevo): 150 KM (ne 75€!)',
           'Aufenthaltstitel taksa (Ausländerbehörde): 100–110 €',
           "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
-          "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
+          "Ausländerbehörde — rok obrade nije zakonski fiksiran i razlikuje se po gradu; termin zakaži rano, a ako dozvola ističe prije odluke, pitaj za Fiktionsbescheinigung.",
           "Finansiranje Ausbildung (2026): školska najmanje 959 € neto/mjesec; betriebliche najmanje 1.048 € bruto ili 822 € neto plate/mjesec. Manjak se može pokriti Sperrkonto/Verpflichtungserklärung. Neke liste ambasada imaju drugačije/starije iznose — provjeri prije uplate.",
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu.",
@@ -447,7 +447,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: [
           "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
-          "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
+          "Jezički certifikat — prije polaganja provjeri na stranici ambasade koje certifikate i ispitne centre prihvata za tvoju kategoriju; ne oslanjaj se na glasine.",
           'Nepotpuni ili neprevedeni dokumenti',
           'Pogrešan tip vize (§16b Studium umjesto §16a Ausbildung)',
           'Kasno apliciranje — ambasada Sarajevo ima duge čekaonice',
@@ -559,7 +559,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Pasoš', "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.",
           'Antrag auf Aufenthaltserlaubnis',
           "Isprave i prijevod — provjeri traženi original, kopije, ovjereni prijevod i treba li Apostille/legalizacija baš za tu ispravu; međunarodni izvodi mogu imati izuzetke.",
-          "Isprave i prijevod — provjeri traženi original, kopije, ovjereni prijevod i treba li Apostille/legalizacija baš za tu ispravu; međunarodni izvodi mogu imati izuzetke.",
+          "Izvodi iz matične knjige rođenih za decu (ako i ona dolaze) — original/kopija i prevod prema listi ambasade; da li treba Apostille/legalizacija zavisi od isprave i ambasade.",
           "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade.",
           'Platni listići (3 mes.) osobe u Nemačkoj',
           "Stanovanje i prihodi — da li se traže i koji dokazi trebaju zavisi od porodične rute i statusa osobe u Njemačkoj; nema jedinstvenog minimuma 12 m² za svaki slučaj."
@@ -605,7 +605,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         steps: ['5 god. zakonit boravak', 'B1 nemački — Integracioni kurs ili B1 ispit', "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'Termin Ausländerbehörde (2–6 mes. čekanja!)', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         documents: ['Pasoš + kopije svih stranica', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'B1 certifikat', 'Platni listići 3 mes.', 'Sve dosadašnje dozvole 5 god.'],
         costs: ['NE: 113 €', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
+        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Nedostaje dokaz znanja nemačkog na traženom nivou — za opšti put §9 u pravilu B1; bez dokaza zahtev može biti odbijen.", "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         sources: [
           { label: 'BAMF — Niederlassungserlaubnis', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' },
           { label: 'Deutsche Rentenversicherung', url: 'https://www.drv.de' }
@@ -669,7 +669,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'D-Viza taksa: 75€ (u RSD, gotovina)',
           'Aufenthaltstitel taksa: 100–110 €',
           "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
-          "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
+          "Ausländerbehörde — rok obrade nije zakonski fiksiran i razlikuje se po gradu; termin zakaži rano, a ako dozvola ističe pre odluke, pitaj za Fiktionsbescheinigung.",
           "Finansiranje Ausbildung (2026): školska najmanje 959 € neto/mjesec; betriebliche najmanje 1.048 € bruto ili 822 € neto plate/mjesec. Manjak se može pokriti Sperrkonto/Verpflichtungserklärung. Neke liste ambasada imaju drugačije/starije iznose — provjeri prije uplate.",
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu.",
@@ -678,7 +678,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         errors: [
           "Bez potrebnog ugovora/ponude ili ispunjenog praga zahtjev može biti odbijen; provjeri konkretne uvjete rute i kompletne dokaze prije predaje.",
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
-          "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
+          "Jezički sertifikat — pre polaganja proveri na stranici ambasade koje sertifikate i ispitne centre prihvata za tvoju kategoriju; ne oslanjaj se na glasine.",
           'Nepotpuni ili neprevedeni dokumenti — zahtev se ODBIJA uz naplatu takse!',
           'Pogrešan tip vize (§16b Studium umjesto §16a Ausbildung)',
           'Kasno apliciranje — ambasada Beograd ima duge čekaonice',
@@ -766,7 +766,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         steps: ['5 god. zakonit boravak', 'B1 njemacki', "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Rentenversicherungsverlauf', 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
+        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Nedostaje dokaz znanja njemačkog na traženom nivou — za opći put §9 u pravilu B1; bez dokaza zahtjev može biti odbijen."],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
         musterformulare: [
           { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
@@ -802,7 +802,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Podnesi zahtjev za D-vizu — Lično u ambasadi. Taksa: 75 €.',
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           'Dolazak u Njemačku — Anmeldung u roku 14 dana.',
-          "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu."
+          "Ausländerbehörde — za elektronsku boravišnu dozvolu (eAT) plaća se taksa prema važećoj AufenthV; tačan iznos i trajanje dozvole potvrdi kod svog ureda."
         ],
         documents: [
           "Važeći pasoš — trajanje važenja i potrebne kopije provjeri u aktuelnoj listi nadležne ambasade za svoju kategoriju vize.",
@@ -822,7 +822,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'D-Viza taksa: 75 €',
           'Aufenthaltstitel: 100–110 €',
           "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
-          "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
+          "Ausländerbehörde — rok obrade nije zakonski fiksiran i razlikuje se po gradu; termin zakaži rano, a ako dozvola ističe prije odluke, pitaj za Fiktionsbescheinigung.",
           "Finansiranje Ausbildung (2026): školska najmanje 959 € neto/mjesec; betriebliche najmanje 1.048 € bruto ili 822 € neto plate/mjesec. Manjak se može pokriti Sperrkonto/Verpflichtungserklärung. Neke liste ambasada imaju drugačije/starije iznose — provjeri prije uplate.",
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu.",
@@ -915,7 +915,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         steps: ['5 god. zakonit boravak', 'B1 njemački', "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Rentenversicherungsverlauf', 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
+        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Nedostaje dokaz znanja njemačkog na traženom nivou — za opći put §9 u pravilu B1; bez dokaza zahtjev može biti odbijen."],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
         musterformulare: [
           { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 primjer MK', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
@@ -971,7 +971,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'D-Viza taksa: 75 €',
           'Aufenthaltstitel: 100–110 €',
           "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
-          "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
+          "Ausländerbehörde — rok obrade nije zakonski fiksiran i razlikuje se po gradu; termin zakaži rano, a ako dozvola ističe prije odluke, pitaj za Fiktionsbescheinigung.",
           "Finansiranje Ausbildung (2026): školska najmanje 959 € neto/mjesec; betriebliche najmanje 1.048 € bruto ili 822 € neto plate/mjesec. Manjak se može pokriti Sperrkonto/Verpflichtungserklärung. Neke liste ambasada imaju drugačije/starije iznose — provjeri prije uplate.",
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu.",
@@ -1067,7 +1067,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         steps: ['5 godina zakonitog boravka', 'Njemački B1', "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", 'Rentenversicherungsverlauf', 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
+        errors: ["Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Nedostaje dokaz znanja njemačkog na traženom nivou — za opći put §9 u pravilu B1; bez dokaza zahtjev može biti odbijen."],
         sources: [{ label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }],
         musterformulare: [
           { title: 'Musterformular 1: Niederlassungserlaubnis', subtitle: 'AUFENTHG-009 Albanija', formKey: 'VisaPermanentForm1', downloadUrl: 'https://www.bamf.de' },
@@ -1103,7 +1103,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Podnesi zahtjev za D-vizu — Lično. Taksa: 75 €.',
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           'Dolazak u Njemačku — Anmeldung u roku 14 dana.',
-          "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu."
+          "Ausländerbehörde — za elektronsku boravišnu dozvolu (eAT) plaća se taksa prema važećoj AufenthV; tačan iznos i trajanje dozvole potvrdi kod svog ureda."
         ],
         documents: [
           "Važeći pasoš — trajanje važenja i potrebne kopije provjeri u aktuelnoj listi nadležne ambasade za svoju kategoriju vize.",
@@ -1123,7 +1123,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'D-Viza: 75 €',
           'Aufenthaltstitel: 100–110 €',
           "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
-          "Obrada i čekanje — zavise od ambasade, Ausländerbehörde, kategorije i kompletnosti; službenu trenutnu procjenu provjeri, bez garantovanog roka.",
+          "Ausländerbehörde — rok obrade nije zakonski fiksiran i razlikuje se po gradu; termin zakaži rano, a ako dozvola ističe prije odluke, pitaj za Fiktionsbescheinigung.",
           "Finansiranje Ausbildung (2026): školska najmanje 959 € neto/mjesec; betriebliche najmanje 1.048 € bruto ili 822 € neto plate/mjesec. Manjak se može pokriti Sperrkonto/Verpflichtungserklärung. Neke liste ambasada imaju drugačije/starije iznose — provjeri prije uplate.",
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu.",
@@ -1174,8 +1174,8 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           'Pronađi posao — Njemacki poslodavac s obavezujućom ponudom posla ili ugovorom o radu.',
           'Vorabzustimmung — Poslodavac pribavlja od Bundesagentur für Arbeit. S Vorabzustimmung + Kundennummer apliciraš brže.',
           "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
-          "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
-          "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
+          "Naknada pružaocu usluge (VisaMetric) plaća se odvojeno od takse za vizu (75 €); aktuelni iznos i opcionalnu dostavu pasoša provjeri na stranici VisaMetric/ambasade.",
+          "Predaja — lično u centru koji navodi ambasada u Prištini, s originalima i biometrijom; centar samo prosljeđuje zahtjev, odluku donosi ambasada.",
           'Ulazak u Njemačku s D-vizom.',
           'Anmeldung — 14 dana.',
           "Ausländerbehörde — Aufenthaltserlaubnis §19c(1) PRE isteka vize."
@@ -1248,7 +1248,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade.",
           "Isprave i prijevod — provjeri traženi original, kopije, ovjereni prijevod i treba li Apostille/legalizacija baš za tu ispravu; međunarodni izvodi mogu imati izuzetke.",
           "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
-          "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
+          "Naknada pružaocu usluge (VisaMetric) plaća se odvojeno od takse za vizu (75 €); aktuelni iznos i opcionalnu dostavu pasoša provjeri na stranici VisaMetric/ambasade.",
           'Predaj u VisaMetric centru Priština. Ulazak. Anmeldung. Ausländerbehörde §30/§32.'
         ],
         documents: ['Biometrijski pasoš', "Biometrijska fotografija — broj, format i način predaje prema aktuelnoj listi ambasade; za eAT u Njemačkoj važe posebna pravila digitalne fotografije.", 'Potvrda o braku + ovjereni prijevod', "A1 za supružnike — često se traži prije ulaska, ali postoje zakonski izuzeci, uključujući određene stručne radnike i EU Plavu kartu; provjeri svoj slučaj i prihvaćene certifikate kod ambasade.", 'Platne liste (3 mj.) osobe u Njemačkoj', 'Ugovor o najmu'],
@@ -1271,7 +1271,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
         steps: ['5 god. zakonit boravak', 'B1 njemacki', "Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", 'Termin Ausländerbehörde', "Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
         documents: ['Pasoš', "Zahtjev — koristi službeni formular/portal za vizu ili nadležnu Ausländerbehörde; AUFENTHG oznake nisu jedinstveni obrasci za cijelu Njemačku.", "Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", 'B1 certifikat'],
         costs: ["Niederlassungserlaubnis i Daueraufenthalt-EU imaju različite uvjete i posljedice. S Ausländerbehörde provjeri koji zahtjev odgovara tvojoj situaciji i zasebne takse; zajednička predaja nije obavezna."],
-        errors: ["Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde."],
+        errors: ["Penzijski dokazi iz Kosova — ne pretpostavljaj prihvatanje ili odbijanje; Ausländerbehörde provjerava odgovarajuće osiguranje i priznate dokaze za tvoju rutu.", "Opći put §9: u pravilu 5 godina, 60 mjeseci doprinosa, B1 i drugi uvjeti; postoje posebni putevi i izuzeci. Za §9a se uvjeti provjeravaju zasebno kod Ausländerbehörde.", "Nedostaje dokaz znanja njemačkog na traženom nivou — za opći put §9 u pravilu B1; bez dokaza zahtjev može biti odbijen."],
         sources: [
           { label: 'Ambasada Priština', url: 'https://pristina.diplo.de/xk-de/service/visa-einreise/fachkraft-mit-berufsausbildung-2310256' },
           { label: 'BAMF', url: 'https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/DauerhafterAufenthalt/dauerhafter-aufenthalt-node.html' }
@@ -1309,7 +1309,7 @@ export const COUNTRY_CONTENT: CountryContent[] = [
           "Njemački za Ausbildung — u pravilu B1 ako ustanova nije već provjerila jezik ili nije predviđen pripremni kurs; zanimanje može tražiti više. Ambasada navodi priznate certifikate, starost i ispitna mjesta.",
           "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
           'Zakaži termin — Auslandsportal ili VisaMetric (pristina.diplo.de). Rokovi: 4–12 sedmica.',
-          "Termin i predaja — otvori službenu stranicu nadležne ambasade za svoju kategoriju; tamo provjeri Auslandsportal, VisaMetric ili termin u ambasadi. Dostupnost i rokovi nisu garantovani.",
+          "Podnesi zahtjev za D-vizu lično prema uputama ambasade; taksa za nacionalnu vizu je 75 €, a eventualne naknade za dostavu provjeri na službenoj stranici.",
           "D-viza — datum važenja, broj ulazaka i dozvoljeno zaposlenje provjeri na izdanoj vizi; rok nije jednak za sve kategorije.",
           'Dolazak u Njemačku — Anmeldung u roku 14 dana.',
           "Aufenthaltserlaubnis §16a — podnesi zahtjev prije isteka D-vize; trajanje i produženje zavise od Ausbildung programa i odluke Ausländerbehörde, ne uvijek jednu godinu."
