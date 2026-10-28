@@ -4,6 +4,7 @@
 // promijeni, šalje email obavještenje admin-u.
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { rejectUnlessServiceRole } from './auth.ts';
+import { emailEnqueueAccepted } from '../_shared/email-enqueue.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -84,9 +85,10 @@ Deno.serve(async (req) => {
   }
 
   // Send email via Lovable Emails (send-transactional-email) if any change detected
+  let notificationQueued = false;
   if (changes.length > 0) {
     try {
-      const { error: invokeErr } = await supabase.functions.invoke('send-transactional-email', {
+      const response = await supabase.functions.invoke('send-transactional-email', {
         body: {
           templateName: 'admin-pdf-version-changed',
           recipientEmail: ADMIN_EMAIL,
@@ -94,10 +96,13 @@ Deno.serve(async (req) => {
           templateData: { changes },
         },
       });
-      if (invokeErr) {
-        console.error('send-transactional-email invoke error:', invokeErr);
+      if (!emailEnqueueAccepted(response)) {
+        console.error('PDF notification enqueue not confirmed');
       } else {
+        notificationQueued = true;
         for (const c of changes) {
+          // Legacy column remains an enqueue marker, NOT provider delivery confirmation.
+          // Keep it for compatibility; delivery is recorded separately by the email worker.
           await supabase.from('external_pdf_versions')
             .update({ notified_at: new Date().toISOString() })
             .eq('form_key', c.form_key);
@@ -108,7 +113,8 @@ Deno.serve(async (req) => {
     }
   }
 
-  return new Response(JSON.stringify({ checked: rows?.length ?? 0, changes: changes.length, details: changes }), {
+  return new Response(JSON.stringify({ checked: rows?.length ?? 0, changes: changes.length, details: changes,
+    notification_queued: notificationQueued, notification_delivered: null }), {
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
   });
 });

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { trialDaysLeft } from "@/hooks/useFeatureAccess";
-import { meterStream } from "../../supabase/functions/_shared/usage.ts";
+import { meterStream, commitUsage, releaseUsage } from "../../supabase/functions/_shared/usage.ts";
 
 const read = (p: string) => readFileSync(p, "utf8");
 
@@ -21,6 +21,17 @@ async function drain(s: ReadableStream<Uint8Array>) {
 }
 
 describe("assistant streaming metering", () => {
+  it('propagates failed commit to the reader without a compensating release', async () => {
+    const commit = vi.fn(async () => { throw new Error('commit failed'); });
+    const release = vi.fn(async () => {});
+    const reader = meterStream(streamOf(['a']), commit, release).getReader();
+    await reader.read(); await expect(reader.read()).rejects.toThrow('commit failed');
+    expect(commit).toHaveBeenCalledTimes(1); expect(release).not.toHaveBeenCalled();
+  });
+  it('propagates failed release on an empty stream', async () => {
+    const reader = meterStream(streamOf([]), async () => {}, async () => { throw new Error('release failed'); }).getReader();
+    await expect(reader.read()).rejects.toThrow('release failed');
+  });
   it("commits once when the stream completes", async () => {
     const commit = vi.fn(async () => {}), release = vi.fn(async () => {});
     await drain(meterStream(streamOf(["a", "b"]), commit, release));
@@ -46,6 +57,22 @@ describe("assistant streaming metering", () => {
     expect(commit).toHaveBeenCalledTimes(1);
     expect(release).not.toHaveBeenCalled();
   });
+});
+
+describe('settlement RPC confirmations', () => {
+  for (const [operation, settle] of [['commit_usage', commitUsage], ['release_usage', releaseUsage]] as const) {
+    it(`${operation} confirms true and keeps null reservations a no-op`, async () => {
+      const admin = { rpc: vi.fn(async () => ({ data: true, error: null })) };
+      await settle(admin, null); expect(admin.rpc).not.toHaveBeenCalled();
+      await settle(admin, { ok: true, reservation_id: 'r' }); expect(admin.rpc).toHaveBeenCalledWith(operation, { reservation_id: 'r' });
+    });
+    for (const value of [false, null, undefined, 'true']) it(`${operation} rejects unconfirmed ${String(value)}`, async () => {
+      await expect(settle({ rpc: async () => ({ data: value, error: null }) }, { ok: true, reservation_id: 'r' })).rejects.toThrow('NOT_CONFIRMED');
+    });
+    it(`${operation} propagates RPC error even with data:true`, async () => {
+      await expect(settle({ rpc: async () => ({ data: true, error: { code: 'DB_ERROR' } }) }, { ok: true, reservation_id: 'r' })).rejects.toThrow('DB_ERROR');
+    });
+  }
 });
 
 describe("trial countdown", () => {
