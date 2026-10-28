@@ -5870,15 +5870,15 @@
             "id": "eks-26",
             "german": "Werden oder wurden in Verbindung mit der selbständigen/freiberuflichen Tätigkeit Produkte kostenfrei und auf Dauer überlassen, zum Beispiel zur Produktplatzierung?",
             "reference": "EKS · Seite 3 · F · 26",
-            "meaning": "Besplatno trajno ustupljeni proizvadci",
-            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi listu svih proizvadaka, vrstu i vrijednost u EUR te dokaz o ustupanju.",
-            "where": "Pripremi listu svih proizvadaka, vrstu i vrijednost u EUR te dokaz o ustupanju.",
+            "meaning": "Besplatno trajno ustupljeni proizvodi",
+            "instruction": "Odgovori za samostalnu osobu B prema stvarnim ili za privremeni period planiranim okolnostima. Pripremi listu svih proizvoda, vrstu i vrijednost u EUR te dokaz o ustupanju.",
+            "where": "Pripremi listu svih proizvoda, vrstu i vrijednost u EUR te dokaz o ustupanju.",
             "example": "Izmišljeno: fotooprema trajno ustupljena za poslovnu objavu ima dokumentiranu vrijednost 180 EUR.",
             "mistake": "Ne označavaj odgovor naslijepo. Dokazi idu samo Jobcenteru; ovdje nema unosa.",
             "options": [
               {
                 "german": "Ja (bitte fügen Sie eine Auflistung und Nachweise über die Art und den Wert in Euro aller Produkte bei)",
-                "meaning": "Da — proizvadci su trajno besplatno ustupljeni u vezi s poslovanjem, npr. product placement"
+                "meaning": "Da — proizvodi su trajno besplatno ustupljeni u vezi s poslovanjem, npr. product placement"
               },
               {
                 "german": "Nein",
@@ -6062,7 +6062,7 @@
             "reference": "EKS · Seite 4 · G · 43",
             "meaning": "Tabela A: poslovni primici",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvatci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: usluga fakturisana u novembru, 400 EUR neto naplaćeno u decembru → decembarski A1; naplaćena Umsatzsteuer zasebno A5.1.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6080,7 +6080,7 @@
               },
               {
                 "german": "A3 sonstige betriebliche Einnahmen (zum Beispiel auch kostenfrei auf Dauer überlassene Produkte)",
-                "meaning": "Ostali poslovni primici, npr. provizija/kamata i vrijednost trajno ustupljenih proizvadaka u mjesecu primitka."
+                "meaning": "Ostali poslovni primici, npr. provizija/kamata i vrijednost trajno ustupljenih proizvoda u mjesecu primitka."
               },
               {
                 "german": "A4 Zuwendungen von Dritten",
@@ -6120,7 +6120,7 @@
             "reference": "EKS · Seite 5 · G · 45",
             "meaning": "Tabela B: poslovni izdaci, dio 1",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvatci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: materijal plaćen u novembru 60 EUR neto → B1; Vorsteuer, ako primjenjivo, zasebno B17.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6192,7 +6192,7 @@
             "reference": "EKS · Seite 6 · G · 48",
             "meaning": "Tabela B: poslovni izdaci, dio 2",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvatci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: Fahrtenbuch privatnog vozila dokumentira 100 km poslovnih vožnji → štampani B6.5 red 10 EUR; put do poslovnice nije uključen.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6264,7 +6264,7 @@
             "reference": "EKS · Seite 7 · G · 49",
             "meaning": "Tabela B: poslovni izdaci, dio 3",
             "instruction": "Prođi svaki štampani red ispod. Stupci su pojedinačni mjeseci istog perioda C. Privremeno: razumna dokaziva procjena; konačno: stvarni priliv/isplata uz dokaz. Za mjesec bez prometa može 0. Neto izdatke i Vorsteuer razdvoji ako postoji Umsatzsteuerpflicht.",
-            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
+            "where": "Računi, bankovni izvatci, poslovna evidencija/BWA i porezni dokumenti, BA EKS upute str. 4–6. Datum fakture nije dokaz datuma uplate.",
             "example": "Izmišljeno: 20 EUR poslovnog telefona u novembru → B11; ukupna dobit nije odluka o pravima.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6350,7 +6350,7 @@
             "reference": "EKS · Seite 8 · G · 51",
             "meaning": "Tabela C: osobna izdvajanja",
             "instruction": "Prođi svaki štampani red ispod. Upiši vrstu, iznos EUR i ritam plaćanja odgovarajuće osobne stavke. Ne upisuj isti trošak ponovo u B. Priznavanje provjerava Jobcenter.",
-            "where": "Računi, bankovni izvadci, poslovna evidencija/BWA i porezni dokumenti, police/doprinosi i ritam plaćanja; EKS upute str. 2.",
+            "where": "Računi, bankovni izvatci, poslovna evidencija/BWA i porezni dokumenti, police/doprinosi i ritam plaćanja; EKS upute str. 2.",
             "example": "Izmišljeno: Kfz-Haftpflicht 120 EUR kvartalno → 120 EUR i „quartalsweise“, ne 120 EUR mjesečno.",
             "mistake": "Ne pretpostavljaj da svaka porezno priznata stavka automatski prolazi EKS. Nema automatskog odbitka, duplih izdataka ili izmišljenih paušala; za miješani trošak/zajam provjeri upute.",
             "options": [
@@ -6534,7 +6534,7 @@
             "title": "Pripremi poslovne podatke",
             "sections": {
               "meaning": "D/F opisuju poslovnicu, radnike, porezni status, subvencije i zajmove.",
-              "action": "Prikupi prijavu djelatnosti, ugovore, police, izvadake i dokumente zajma. Ne šalji nepotrebne podatke trećih osoba; prati pravila zaštite iz BA uputa.",
+              "action": "Prikupi prijavu djelatnosti, ugovore, police, izvatke i dokumente zajma. Ne šalji nepotrebne podatke trećih osoba; prati pravila zaštite iz BA uputa.",
               "mistake": "Ne izaberi Umsatzsteuer status samo iz visine prihoda."
             }
           },

@@ -6841,8 +6841,8 @@
             "meaning": "Je li iznos poznat?",
             "instruction": "Odgovori odvojeno na ovo pitanje. Ako je iznos poznat, 12 traži EUR i ponudu/sličan dokaz; ako nije, jasno označi neizvesnost umesto izmišljenog iznosa.",
             "where": "Ponuda/račun i datum dospeća; proveri s Jobcenterom ako iznos još nije poznat.",
-            "example": "Izmišljeno: ponuda 85 EUR potvrđuje poznat iznos; predujam se zasebno traži u 13/14.",
-            "mistake": "Ne smatraj Ja odlukom o pravu. Poznat trošak i potreba predujma su dva različita pitanja.",
+            "example": "Izmišljeno: ponuda 85 EUR potvrđuje poznat iznos; avans se zasebno traži u 13/14.",
+            "mistake": "Ne smatraj Ja odlukom o pravu. Poznat trošak i potreba avansa su dva različita pitanja.",
             "options": [
               {
                 "german": "Ja",
@@ -6861,22 +6861,22 @@
             "meaning": "Visina posebne potrebe u EUR",
             "instruction": "Navedi dokazani iznos troška i priloži ponudu ili sličan dokaz.",
             "where": "Ponuda/račun, plan plaćanja i raspoloživi dokazi.",
-            "example": "Izmišljeno: trošak 85 EUR u 12; ako se traži predujam 40 EUR, to stoji u 14.",
-            "mistake": "Ne zameni ukupan trošak, već plaćen iznos i traženi predujam."
+            "example": "Izmišljeno: trošak 85 EUR u 12; ako se traži avans 40 EUR, to stoji u 14.",
+            "mistake": "Ne zameni ukupan trošak, već plaćen iznos i traženi avans."
           },
           {
             "id": "bb-13",
             "german": "Benötigen Sie einen Vorschuss für den unabweisbaren besonderen Bedarf?",
             "reference": "BB · Seite 2 · C · 13",
-            "meaning": "Treba li predujam?",
-            "instruction": "Odgovori odvojeno na ovo pitanje. Ja je zahtev za predujam; 14 navodi iznos koji tražiš. To nije odobrenje predujma.",
+            "meaning": "Treba li avans?",
+            "instruction": "Odgovori odvojeno na ovo pitanje. Ja je zahtev za avans; 14 navodi iznos koji tražiš. To nije odobrenje avansa.",
             "where": "Ponuda/račun i datum dospeća; proveri s Jobcenterom ako iznos još nije poznat.",
-            "example": "Izmišljeno: ponuda 85 EUR potvrđuje poznat iznos; predujam se zasebno traži u 13/14.",
-            "mistake": "Ne smatraj Ja odlukom o pravu. Poznat trošak i potreba predujma su dva različita pitanja.",
+            "example": "Izmišljeno: ponuda 85 EUR potvrđuje poznat iznos; avans se zasebno traži u 13/14.",
+            "mistake": "Ne smatraj Ja odlukom o pravu. Poznat trošak i potreba avansa su dva različita pitanja.",
             "options": [
               {
                 "german": "Ja",
-                "meaning": "Da — tražiš predujam pre konačnog plaćanja/odluke"
+                "meaning": "Da — tražiš avans pre konačnog plaćanja/odluke"
               },
               {
                 "german": "Nein",
@@ -6888,11 +6888,11 @@
             "id": "bb-14",
             "german": "Wie hoch soll der Vorschuss sein? Bitte geben Sie die Höhe des Vorschusses in Euro an.",
             "reference": "BB · Seite 2 · C · 14",
-            "meaning": "Traženi predujam u EUR",
-            "instruction": "Navedi iznos predujma koji zaista tražiš, uz vezu sa ukupnim troškom i dospećem; nije automatski isti kao 12.",
+            "meaning": "Traženi avans u EUR",
+            "instruction": "Navedi iznos avansa koji zaista tražiš, uz vezu sa ukupnim troškom i dospećem; nije automatski isti kao 12.",
             "where": "Ponuda/račun, plan plaćanja i raspoloživi dokazi.",
-            "example": "Izmišljeno: trošak 85 EUR u 12; ako se traži predujam 40 EUR, to stoji u 14.",
-            "mistake": "Ne zameni ukupan trošak, već plaćen iznos i traženi predujam."
+            "example": "Izmišljeno: trošak 85 EUR u 12; ako se traži avans 40 EUR, to stoji u 14.",
+            "mistake": "Ne zameni ukupan trošak, već plaćen iznos i traženi avans."
           },
           {
             "id": "bb-15-16-17-18",
@@ -6926,10 +6926,10 @@
           },
           {
             "id": "cost",
-            "title": "Trošak i traženi predujam",
+            "title": "Trošak i traženi avans",
             "sections": {
-              "meaning": "11/12 poznati iznos i dokaz; 13/14 odvojeni zahtev za predujam.",
-              "action": "Priloži dostupne ponude/račune. Odvoji ukupnu potrebu i traženi predujam; nepoznat iznos jasno razjasni s Jobcenterom.",
+              "meaning": "11/12 poznati iznos i dokaz; 13/14 odvojeni zahtev za avans.",
+              "action": "Priloži dostupne ponude/račune. Odvoji ukupnu potrebu i traženi avans; nepoznat iznos jasno razjasni s Jobcenterom.",
               "mistake": "Poznata cena ne znači da je odobreno."
             }
           },
@@ -6978,7 +6978,7 @@
             "id": "ve-8",
             "german": "Ist die Person Ihre Partnerin/Ihr Partner?",
             "reference": "VE · Seite 1 · B · 8",
-            "meaning": "Partnerica/partner",
+            "meaning": "Partnerka/partner",
             "instruction": "Zajednička adresa ili podela najamnine sama ne znači partnerski odnos. Odgovori stvarno, bez pretpostavki o polu. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
             "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlašćenja prema pitanju. Dokaze predaj samo službenom organu.",
             "example": "Izmišljeno: Maja i Damir dele stan; Maja proverava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
@@ -6986,7 +6986,7 @@
             "options": [
               {
                 "german": "Ja",
-                "meaning": "Da — osoba je stvarno tvoja partnerica/partner"
+                "meaning": "Da — osoba je stvarno tvoja partnerka/partner"
               },
               {
                 "german": "Nein",
@@ -7058,15 +7058,15 @@
             "id": "ve-12",
             "german": "Dürfen Sie über das Einkommen oder das Vermögen der Person verfügen?",
             "reference": "VE · Seite 2 · B · 12",
-            "meaning": "Ovlašćenje raspolaganja tuđim prihodom/imovinom",
-            "instruction": "Proveri ovlašćenje/punomoć i stvarne dogovore. Znati iznos prihoda nije isto što i smeti njime raspolagati. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
+            "meaning": "Ovlašćenje rapolaganja tuđim prihodom/imovinom",
+            "instruction": "Proveri ovlašćenje/punomoć i stvarne dogovore. Znati iznos prihoda nije isto što i smeti njime rapolagati. Svako Ja/Nein odgovara samo ovom pitanju; BalkanLink ne odlučuje da li zajednica pravno postoji.",
             "where": "Stvarne okolnosti, ugovor/početak domaćinstva, dokumenti roditeljstva/brige ili ovlašćenja prema pitanju. Dokaze predaj samo službenom organu.",
             "example": "Izmišljeno: Maja i Damir dele stan; Maja proverava svako pitanje zasebno i ne zaključuje partnerstvo samo iz adrese.",
             "mistake": "Ne označavaj strateški radi željenog ishoda niti stigmatizuj sustanare. Za nejasan pojam traži objašnjenje Jobcentera.",
             "options": [
               {
                 "german": "Ja",
-                "meaning": "Da — imaš ovlašćenje raspolagati prihodom ili imovinom druge osobe"
+                "meaning": "Da — imaš ovlašćenje rapolagati prihodom ili imovinom druge osobe"
               },
               {
                 "german": "Nein",
@@ -7102,15 +7102,15 @@
             "sections": {
               "meaning": "VE uvod navodi zajedničko domaćinstvo s osobom koja nije u srodstvu, radi provere Verantwortungs- und Einstehensgemeinschaft.",
               "action": "Potvrdi svrhu sa Jobcenterom, odvoji podnosioca A i osobu B. Deljeni stan ne proglašava automatski partnerstvo.",
-              "mistake": "Ne pretpostavljaj odnos iz adrese ili spola."
+              "mistake": "Ne pretpostavljaj odnos iz adrese ili pola."
             }
           },
           {
             "id": "facts",
             "title": "Pet zasebnih pitanja",
             "sections": {
-              "meaning": "8–12 pitaju partnerstvo, više od godinu, zajedničko dete, zajedničku brigu i raspolaganje prihodom/imovinom.",
-              "action": "Odgovori na svako prema činjenicama i odgovarajućim dokazima. Raspoloživost bankovnog podatka nije ovlašćenje raspolaganja.",
+              "meaning": "8–12 pitaju partnerstvo, više od godinu, zajedničko dete, zajedničku brigu i rapolaganje prihodom/imovinom.",
+              "action": "Odgovori na svako prema činjenicama i odgovarajućim dokazima. Raspoloživost bankovnog podatka nije ovlašćenje rapolaganja.",
               "mistake": "Nije svako Ja/Nein isto i nema automatske procene prava."
             }
           },
