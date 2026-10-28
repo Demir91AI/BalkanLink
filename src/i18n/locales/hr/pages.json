@@ -11341,7 +11341,7 @@
         "fbAll": "BAföG.de: svi Formblätter",
         "schoolOffices": "BAföG.de: nadležni ured za učenike po Bundeslandu",
         "ikForm": "BAMF: Antrag auf Zulassung (630.007) – stranica obrasca",
-        "ikPortal": "Bundesportal: online-zahtjev za Integrationstečaj",
+        "ikPortal": "Bundesportal: online-zahtjev za Integrationskurs",
         "ikCost": "BAMF: Teilnahme und Kosten",
         "ikBefreiung": "BAMF: Antrag auf Kostenbefreiung (630.027)",
         "ikFahrt": "BAMF: Antrag auf Fahrtkostenzuschuss (630.032)",
@@ -12033,8 +12033,8 @@
         ]
       },
       "integrationskurs": {
-        "title": "Integrationstečaj: dozvola, prijava, troškovi, putni troškovi",
-        "introduction": "Integrationstečaj je tečaj njemačkog jezika i orijentacije (zakon, kultura, društvo). Postoje tri različita puta: (1) Berechtigung – pravo uz boravišnu dozvolu (Ausländerbehörde izdaje Berechtigungsschein), (2) Verpflichtung – obveza (Ausländerbehörde ili Jobcenter), (3) Zulassung auf Antrag – dobrovoljni zahtjev BAMF-u (obrazac 630.007, § 44 Abs. 4 AufenthG). Oslobađanje od troškova i dodatak za putne troškove su POSEBNI zahtjevi.",
+        "title": "Integrationskurs: dozvola, prijava, troškovi, putni troškovi",
+        "introduction": "Integrationskurs je tečaj njemačkog jezika i orijentacije (zakon, kultura, društvo). Postoje tri različita puta: (1) Berechtigung – pravo uz boravišnu dozvolu (Ausländerbehörde izdaje Berechtigungsschein), (2) Verpflichtung – obveza (Ausländerbehörde ili Jobcenter), (3) Zulassung auf Antrag – dobrovoljni zahtjev BAMF-u (obrazac 630.007, § 44 Abs. 4 AufenthG). Oslobađanje od troškova i dodatak za putne troškove su POSEBNI zahtjevi.",
         "variation": "Provjereno 28.10.2026 na BAMF.de: stranica obrasca 630.007 nudi online-zahtjev preko Bundesportala i spominje 'Offline-Version', ali pri toj provjeri nije nudio dostupan PDF za preuzimanje. Zato BalkanLink NE navodi stranice ni pozicije polja. BAMF ima i obavijest o ponovnoj dozvoli (Wiederzulassung) za određene grupe – pročitaj je na stranici obrasca.",
         "vocabularyNote": "Pojmovi su vokabular sa službenih BAMF stranica, ne mapa polja. Iznose i limite ne navodimo – provjeri ih na BAMF.de.",
         "gate": {
@@ -12044,12 +12044,12 @@
             {
               "id": "berechtigt",
               "label": "Dobio/la sam Berechtigungsschein",
-              "result": "S važećim Berechtigungsschein se prijavljuješ direktno kod Tečajträger-a; dodatni zahtjev 630.007 u pravilu nije potreban. Traži preko BAMF-NAvI. Provjeri je li oslobađanje već potvrđeno ili treba poseban 630.027."
+              "result": "S važećim Berechtigungsschein se prijavljuješ direktno kod Kursträger-a; dodatni zahtjev 630.007 u pravilu nije potreban. Traži preko BAMF-NAvI. Provjeri je li oslobađanje već potvrđeno ili treba poseban 630.027."
             },
             {
               "id": "verpflichtet",
               "label": "Obavezan/obvezna sam (Ausländerbehörde ili Jobcenter)",
-              "result": "Prati pismo nadležnog ureda i prijavi se kod Tečajträger-a na vrijeme. Nesudjelovanje može imati posljedice; svoj slučaj i troškove razjasni s nadležnim uredom."
+              "result": "Prati pismo nadležnog ureda i prijavi se kod Kursträger-a na vrijeme. Nesudjelovanje može imati posljedice; svoj slučaj i troškove razjasni s nadležnim uredom."
             },
             {
               "id": "freiwillig",
@@ -12064,7 +12064,7 @@
           ]
         },
         "modes": {
-          "paper": "Papir: pri posljednjoj provjeri izvora PDF 630.007 nije bio dostupan. Ako dobiješ obrazac od ureda ili Tečajträger-a, provjeri je li izdanje aktualno prije korištenja.",
+          "paper": "Papir: pri posljednjoj provjeri izvora PDF 630.007 nije bio dostupan. Ako dobiješ obrazac od ureda ili Kursträger-a, provjeri je li izdanje aktualno prije korištenja.",
           "online": "Online: Bundesportal (Verwaltung digital) – zahtjev za dozvolu; i za oslobađanje (630.027) i putne troškove (630.032) postoje posebni online-zahtjevi. Ekrane ne opisujemo."
         },
         "steps": [
@@ -12089,15 +12089,15 @@
               "where": "BAMF stranica obrasca 630.007, Bundesportal.",
               "example": "Izmišljeni primjer: Damir, u Njemačkoj 3 godine, nema obvezu – traži dozvolu online.",
               "mistake": "Očekivati sigurnu dozvolu – BAMF odlučuje.",
-              "next": "Tečajträger."
+              "next": "Kursträger."
             }
           },
           {
             "id": "i3",
-            "title": "Nađi Tečajträger i prijavi se",
+            "title": "Nađi Kursträger i prijavi se",
             "sections": {
-              "meaning": "Tečaj održava ovlašteni Tečajträger, ne BAMF direktno.",
-              "action": "BAMF-NAvI → Integrationstečaje u blizini. Odnesi Berechtigungsschein ili BAMF-ovu dozvolu; napravi Einstufungstest (test razine).",
+              "meaning": "Tečaj održava ovlašteni Kursträger, ne BAMF direktno.",
+              "action": "BAMF-NAvI → Integrationskurse u blizini. Odnesi Berechtigungsschein ili BAMF-ovu dozvolu; napravi Einstufungstest (test razine).",
               "where": "BAMF-NAvI, Migrationsberatung.",
               "example": "Izmišljeni primjer: Maja bira večernji tečaj u svom gradu.",
               "mistake": "Čekati da te neko pozove – sam/a se prijavi.",
@@ -12121,9 +12121,9 @@
             "title": "Fahrtkostenzuschuss (630.032) – poseban zahtjev",
             "sections": {
               "meaning": "Dodatak za potrebne putne troškove do tečaja (§ 4a Abs. 1 IntV).",
-              "action": "Podnesi poseban zahtjev online ili offline; pitaj Tečajträger za uvjete i dokaze (karte).",
-              "where": "BAMF stranica 630.032, Tečajträger.",
-              "example": "Izmišljeni primjer: Maja putuje autobusom 25 km – čuva mjesečne karte i pita Tečajträger.",
+              "action": "Podnesi poseban zahtjev online ili offline; pitaj Kursträger za uvjete i dokaze (karte).",
+              "where": "BAMF stranica 630.032, Kursträger.",
+              "example": "Izmišljeni primjer: Maja putuje autobusom 25 km – čuva mjesečne karte i pita Kursträger.",
               "mistake": "Baciti karte.",
               "next": "Tijekom tečaja."
             }
@@ -12133,8 +12133,8 @@
             "title": "Tijekom i nakon tečaja",
             "sections": {
               "meaning": "Tečaj završava testovima: Deutsch-Test für Zuwanderer (DTZ) i 'Leben in Deutschland'.",
-              "action": "Redovno dolazi; obveza dolaska vrijedi posebno ako si 'verpflichtet'. Čuvaj potvrde (Zertifikat Integrationstečaj).",
-              "where": "Tečajträger.",
+              "action": "Redovno dolazi; obveza dolaska vrijedi posebno ako si 'verpflichtet'. Čuvaj potvrde (Zertifikat Integrationskurs).",
+              "where": "Kursträger.",
               "example": "Izmišljeni primjer: Damir čuva Zertifikat za kasniji zahtjev za Niederlassungserlaubnis.",
               "mistake": "Izgubiti certifikat.",
               "next": "Gotovo."
@@ -12146,7 +12146,7 @@
             "id": "berechtigungsschein",
             "german": "Berechtigungsschein / Teilnahmeberechtigung",
             "meaning": "potvrda o pravu na tečaj",
-            "instruction": "Izdaje Ausländerbehörde uz boravišnu dozvolu kad imaš zakonsko pravo. S njom ideš direktno Tečajträger-u.",
+            "instruction": "Izdaje Ausländerbehörde uz boravišnu dozvolu kad imaš zakonsko pravo. S njom ideš direktno Kursträger-u.",
             "where": "Uz Aufenthaltstitel.",
             "example": "Izmišljeni primjer: Maja dobija list 'Bestätigung über die Berechtigung'.",
             "mistake": "Ne iskoristiti je – pravo može isteći (pitaj ured)."
@@ -12227,7 +12227,7 @@
             "id": "kurstraeger",
             "german": "Kursträger / Einstufungstest",
             "meaning": "izvođač tečaja / test razine",
-            "instruction": "Tečajträger te raspoređuje u modul prema testu. Biraš ga sam/a.",
+            "instruction": "Kursträger te raspoređuje u modul prema testu. Biraš ga sam/a.",
             "where": "BAMF-NAvI.",
             "example": "Izmišljeni primjer: Maja počinje od modula 3 nakon testa.",
             "mistake": "Prijaviti se kod nelicenciranog tečaja."
@@ -12246,7 +12246,7 @@
             "german": "Fahrtkostenzuschuss (630.032)",
             "meaning": "dodatak za putne troškove",
             "instruction": "Odvojen zahtjev, online ili offline. Čuvaj karte.",
-            "where": "Tečajträger, BAMF.",
+            "where": "Kursträger, BAMF.",
             "example": "Izmišljeni primjer: Damir čuva mjesečne karte.",
             "mistake": "Misliti da je uključen u oslobađanje."
           },
@@ -12255,7 +12255,7 @@
             "german": "Deutsch-Test für Zuwanderer (DTZ) / Test 'Leben in Deutschland'",
             "meaning": "završni test jezika / test orijentacije",
             "instruction": "Na kraju tečaja. Čuvaj potvrde za kasnije potrebe; one same ne garantuju boravišnu dozvolu.",
-            "where": "Tečajträger.",
+            "where": "Kursträger.",
             "example": "Izmišljeni primjer: Maja dobije B1 u DTZ.",
             "mistake": "Izgubiti certifikat."
           }
