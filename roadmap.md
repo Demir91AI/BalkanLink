@@ -1,3 +1,7 @@
+## Asistent performance/reliability (28.10.2026; isolated code-only)
+- [ ] Profile unnecessary calls, prompt duplication, duplicate sends and stream failures; apply only bounded changes preserving model, context and metering policy.
+- [ ] Run focused/full regressions and record before/after measurements and activation limits; stop without deploy.
+
 ## Asistent conversational guidance (28.10.2026; source-only)
 - [x] Minimal necessary questions, concise sourced preparation/submission steps and bounded follow-ups; preserve model/usage/gates/UI.
 - [x] 138 final focused /1529 final full tests passed; 40 isolated browser topic/follow-up fixtures +8 navigation checks, automatic build OK. Report: docs/assistant-conversation-quality-2026-10-28.md.
