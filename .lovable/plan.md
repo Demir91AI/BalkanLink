@@ -1,66 +1,70 @@
-# BalkanLink 2.0 — 7-day trial + €19.99/year, guide-first forms
+# Provjera dokumenata (Dokumenten-Check): audit i plan
 
-Nothing is changed in this step. This plan covers the inventory, the risks and a phased build. Every phase stays in Preview only. Nothing goes live, no live billing is switched on and no legal text changes without Demir's sign-off.
+Ovo je samo audit. Kod nije mijenjan. Dio A navodi samo ono što je potvrđeno čitanjem koda (`src/pages/DokumentenCheck.tsx`, `supabase/functions/document-check/index.ts`, `src/hooks/usePremiumAccess.ts`, locale fajlovi). Dio B su prijedlozi.
 
-## 1. Inventory (checked read-only today)
+## A. Potvrđeni nalazi iz koda
 
-**Payments and access, in the app**
-- `src/lib/stripe.ts`: sells only `plus` (€19.90 one-time, live price). It also lists two legacy subscription product IDs: Premium monthly and Premium yearly.
-- `src/lib/dev-mode.ts` / `config.ts`: `DEV_MODE = IS_ADMIN_PREVIEW = false`. This means gating is active. That contradicts the project notes, which say gating is "temporarily disabled".
-- 47 files decide access on their own (`isPremium` / `hasFullAccess` / checkout). They include `useSubscription`, `usePremiumAccess`, `AuthContext`, `PremiumModal`, `Pricing`, `PaymentSuccess`, `Profil`, `MojiPodaci`, `UserMenu`, `Header`, `AppSidebar`, `FlowBanner`, `Index`, `FormCenter`, `FormSmartGuide`, `SmartGuideWizardShared`, `ChatAssistant`, `DokumentenCheck`, `NebenkostenScan`, `Vorlagen`, `Porezi`/`PoreziWizard`/`PoreziModuleTemplate`, `AnerkennungNavigator`/`Fakulteti`, the Visa gate/renderer, `DeutschTrainer` plus the trainer components, `SchufaSimulator`, `QADetail`, `ChecklistPage`, `BoravisnaDozvola`/`DolazakPageTemplate`, `NtProModal`, `PageSaveStar`, Muster components and admin Stripe screens.
+### Tok korisnika (šta danas radi)
+1. Stranica `/dokumenten-check` je iza prijave (AuthGate). Neprijavljeni vide samo zaglavlje.
+2. Redoslijed: kartica članstva, napomena o privatnosti, upload (3 koraka + savjet za više stranica), kvačica za potvrdu, dugme "Provjeri", primjer analize (sklopljen), rezultati, pravna napomena.
+3. Upload: do 10 datoteka, ukupno 25 MB, kamera (`capture=environment`). Slike se u pregledniku smanjuju na 1600 px i JPEG; PDF ide neizmijenjen.
+4. Jedan poziv serveru → provjera prijave → rezervacija kvote → jedan model (`google/gemini-2.5-flash`, max 8000 tokena) → markdown sa 11 fiksnih bosanskih naslova → stranica ga dijeli u obojene kartice.
+5. Kvota se rezerviše prije analize, a vraća ako analiza ne uspije. Prema komentaru u kodu: probni period ukupno 2, godišnje članstvo 5 mjesečno, legacy bez ograničenja. Stvarne vrijednosti u bazi u ovom auditu nisu provjerene.
 
-**Backend functions (25)**
-- Payments: `create-checkout`, `verify-payment`, `stripe-webhook` (fulfils one-time payments only and ignores subscription checkouts), `check-subscription`, `customer-portal`, `stripe-sync-audit`, `redeem-trial`.
-- Expensive AI: `chat-assistant`, `document-check`, `nebenkosten-scan`, `generate-trainer-exercises`, `generate-tts`.
-- Others: account deletion/export, emails, page views, place import, PDF version checks.
+### Greške i nedosljednosti
+- **Jezik:** server ne prima jezik korisnika, a upute modelu traže bosanske naslove i "Sažetak na našem jeziku" uz 🇧🇦. Korisnici HR/SR/DE dobijaju analizu na bosanskom. Raspoznavanje sekcija vezano je za bosanske naslove bez kvačica.
+- **Formati:** polje za upload nudi WEBP/HEIC/HEIF, ali provjera dozvoljava samo PDF/JPG/PNG. iPhone HEIC fotografija biva odbijena tek nakon odabira.
+- **Ograničenje veličine:** limit je 25 MB, ali se šalje base64 (+33%) u JSON-u. Veliki PDF ili 10 slika mogu probiti limit zahtjeva prema serveru ili modelu, a to se korisniku prikaže samo kao opšta greška.
+- **Kvota:** kad je kvota potrošena (`QUOTA_EXHAUSTED`, 429), stranica ne pokazuje posebnu poruku ni kada se kvota obnavlja. Prikazuje se tekst servera ili "server error". `ACCESS_REQUIRED` otvara paywall, ali uz tekst o "5 analiza mjesečno" koji ne objašnjava probni period.
+- **Pristup:** stranica koristi stari `usePremiumAccess` (DEV_MODE/isAdmin/isPremium), a ne centralni `useEntitlement`. Korisnik u probnom periodu ili s novim članstvom na klijentu može dobiti paywall iako bi ga server pustio, ili obrnuto.
+- **Mrtav kod:** `locked = false` sa cijelim blur/lock overlayem, `isPremium` po sekcijama, varijabla `isPremium = false` na serveru "radi logova", te polje `text` koje stranica nikad ne šalje.
+- **Sažetak:** "tip dokumenta", "hitnost" i "iznos" izvlače se regexom i emojijima iz slobodnog teksta, pa su krhki. Rok je uvijek fiksno "Rok nije potvrđen" (namjerno, nema izmišljenih rokova).
+- **Greške modela:** kodovi 429/402 vraćaju njemačke/bosanske poruke direktno sa servera, neprevedene za HR/SR/DE.
+- **Natpisi:** SEO naslov glasi "AI Analiza Njemačkih Pisama" i hardkodiran je samo na bosanskom. To krši pravilo "bez AI/KI" i pravilo 4 jezika. Uputa modelu naziva ovo "Premium-Feature, plaćeni feature".
+- **Zbunjujuće:** dvije gold kartice članstva (gornja + paywall) sa istim CTA, marquee od 18 primjera, grid sa 3 koraka sa tekstom od 10–11 px na mobitelu, primjer analize ispod dugmeta, 11 sekcija s dugim tekstom ("minimum 3–5 rečenica po sekciji").
 
-**Database pieces that touch money or access**
-- Tables: `profiles` (tier, expiry), `mreza_payments`, `payments` (legacy), `doc_check_credits`, `doc_check_usage`, `doc_check_premium_usage`, `chat_usage`, `trial_codes`, `trial_redemptions`, `user_form_access`, `stripe_sync_log`.
-- Functions: `fulfill_stripe_checkout` (accepts only 1990 = plus, or 199 = doc_check), `has_full_access`, `is_legacy_doccheck_user`, `grant_premium_access`, `protect_lifetime_tier` (trigger), `redeem_trial_code`, the `deactivate_expired_*` cron functions, `consume/reserve/release_doc_check_*`, `get_doc_check_status`, and the admin stats functions (these assume €9.99 and €99.90).
+### Sigurnost i GDPR
+- Pozitivno: prijava je obavezna, server provjerava token (`getClaims`), kvota je atomska na serveru, dokument se ne sprema (nema upisa u bazu ni storage), u log ide samo `userId` i broj datoteka, bez sadržaja.
+- Rizik: tekst na stranici kaže "mi ne čuvamo… odmah izbrišemo", ali ne spominje da se dokument šalje vanjskom pružaocu modela (Lovable AI gateway → Google). To je u suprotnosti s pravilom "bez skrivenog prenosa podataka" i traži reviziju teksta o privatnosti (pravni tekst, potrebno odobrenje).
+- Kvačica traži "ne šaljem osjetljive podatke", ali korisnik realno šalje pismo s imenom i adresom. Nema alata za zacrnjivanje, nema provjere.
+- Server ne provjerava MIME tipove ni veličinu po datoteci. Broj datoteka reže na 10, ali tiho, bez poruke.
 
-**Account snapshot (this backend):** `profiles` has 3 rows: 2 `lifetime` and 1 `free`.
+### Veza s asistentom
+- Chat asistent samo prepoznaje riječ "Dokumenten-Check" i pretvara je u link. Nema predaje rezultata asistentu (to je dobro za privatnost). Nema ni dugmeta "pitaj asistenta o ovom", niti "sljedeći korak" prema vodičima/FormCenteru.
 
-**PDF filling found in code:** `pdf-form-engine`, `pdf-fill-kindergeld`, `pdf-fill-kinderzuschlag`, `elterngeld-bayern-fields`, `visa-datenblatt-pdf`, `visa-bewerbungs-mappe-pdf`, `kindergeld-assistant/datenblatt`, Muster `DownloadFilledPdfButton`/`MusterFormBase`, plus the `formularpilot` manifests and forms. Document drafting that stays: `letter-reply/pdf`, Vorlagen, Dokumenten-Check, Nebenkosten-Scan.
+### Troškovi
+- Jedan poziv multimodalnog modela po provjeri, do 8000 tokena izlaza, do 10 slika ulaza. Trošak raste s brojem stranica, a nema keša ni ograničenja broja stranica PDF-a.
 
-## 2. Contradictions to resolve first
+### Šta nije provjereno
+- Stvarni rad na mobitelu/iPhone HEIC, prijavljeni tok sa stvarnim nalogom, kvalitet analize na pravim pismima, vrijednosti kvota u bazi, ponašanje velikih PDF-ova na gatewayu.
 
-1. **The account data doesn't match the history.** Earlier notes said two €9.99/month subscribers exist (kontakt@, huber.tarik@). This database shows 2 lifetime and 0 active subscriptions. Before any build, someone must check Stripe read-only and confirm with you which of these is true.
-2. **Gating is unclear.** `DEV_MODE` is off, but the project rules say the paywall is disabled. Your decision is needed.
-3. **Old price rules are built into the database.** `fulfill_stripe_checkout` rejects any amount other than 1990/199. The webhook ignores subscriptions. The admin stats use €9.99. All three must change, or new yearly purchases will fail without any visible error.
-4. **The per-document charge still exists.** Doc-check credits at €1.99/€2.99 conflict with "no per-document charges". Existing unused credits must still be honoured.
-5. **Two trial systems.** The old launch and influencer trials overlap with the new 7-day trial.
-6. **Saved project rules are now outdated.** Memory and AGENTS rules say "€19.90 lifetime, no recurring". They must be replaced, otherwise future work will undo this change.
-7. **Legal pages** (AGB, Widerruf, cancellation button under §312k BGB, price display) must be reviewed by a lawyer and by you before anything goes live.
+## B. Prijedlozi (prioritizirano)
 
-## 3. Target model
+### P0: ispravnost i povjerenje (malo, sigurno)
+1. Slati jezik korisnika serveru i generisati analizu na BS/HR/SR/DE. Sekcije raspoznavati po stabilnim ID markerima, ne po bosanskim naslovima.
+2. Uskladiti formate: ili prihvatiti HEIC/WEBP (pretvoriti u JPEG u pregledniku), ili ih ukloniti iz `accept`.
+3. Prebaciti provjeru pristupa na `useEntitlement`. Posebne prevedene poruke za: nema pristupa, potrošena kvota (+ datum obnove), prevelika datoteka, model zauzet.
+4. SEO naslov/opis prevesti u 4 jezika i ukloniti "AI".
+5. Napomena o privatnosti: iskreno navesti da se dokument jednokratno šalje pružaocu analize i ne čuva se. Tekst prije objave pregleda Demir/pravnik.
 
-- One server-side function, `get_entitlement(uid)`, returns `{ source: legacy_lifetime | legacy_sub | yearly | trial | free | admin, active_until, quotas }`. Legacy wins if present. Nothing gets downgraded.
-- **Trial:** 7 days, starts once at email confirmation, one per account (and per email hash). No card, no automatic charge, all categories open, lower AI quotas.
-- **Yearly plan:** €19.99/year, starts only when the user chooses it in Stripe Checkout. Cancelling is clear and done in the customer portal. Renewals come through the webhook.
-- **Fair-use quotas:** enforced only on the server for the expensive AI functions and shown to the user. The amounts are open for you to decide, e.g. trial 5 assistant questions/day + 1 document check/day; yearly 30/day + 5/day.
-- All 47 screens read one hook, `useEntitlement`. All scattered checks are removed. The checkout pages stay, with no labels on the catalogue.
+### P1: jednostavniji tok za BalkanLink publiku
+6. Tok u 3 jasna ekrana: **Slikaj/učitaj → Provjeri → Rezultat**. Jedna kartica članstva (samo kad treba), marquee i grid sa 3 koraka zamijeniti jednom rečenicom, primjer prebaciti iznad uploada.
+7. Rezultat skratiti na 5 blokova: *Šta je ovo · Šta traže od tebe · Rok (onako kako piše u pismu + "provjeri original") · Novac · Šta sada uraditi*. Detalji i rizici u sklopivim sekcijama.
+8. Struktuiran izlaz modela (JSON shema s poljima tip, pošiljalac, rok-kako-piše, iznos, radnje). Bez regex/emoji parsiranja, a rok se nikad ne računa niti izmišlja.
+9. Kraj rezultata: "Sljedeći korak" linkovi na postojeće vodiče (Kindergeld, Grundsicherung…) po prepoznatom tipu, plus dugme "Pitaj asistenta" koje otvara chat bez automatskog prenosa dokumenta.
 
-## 4. Phases
+### P2: robusnost i trošak
+10. Server: validacija MIME/veličine po datoteci, limit stranica PDF-a, jasna poruka umjesto tihog rezanja.
+11. Manji `max_tokens` i kraći prompt za 5-blokni format; razmotriti jeftiniji model za jednu sliku.
+12. Ukloniti mrtav kod (lock overlay, `isPremium` po sekcijama, neiskorišteni `text`).
+13. Opcionalno "Print/Kopiraj rezultat" (samo lokalno, bez spremanja).
 
-- **Phase 0, check only:** reconcile Stripe with the accounts (read-only). Inventory tests that pin every legacy entitlement. You confirm: who is legacy, the quota numbers, and whether gating stays on or off.
-- **Phase 1, first slice:** add the `get_entitlement` function in the database and the `useEntitlement` hook in the app. These are read-only and nothing uses them yet. Grandfathering tests cover lifetime, the legacy subscription, doc-check credits and influencer trials. No price or checkout changes.
-- **Phase 2:** trial start on confirmation, the quota table, and quota checks in the 5 AI functions.
-- **Phase 3:** the €19.99/year product in Stripe **test mode only**, webhook handling for subscriptions, an amount allowlist, the portal, and the admin stats.
-- **Phase 4:** switch the 47 screens to `useEntitlement`, guided by each screen's behaviour before the change.
-- **Phase 5, guide-first forms:** take the remaining PDF fill buttons out of what users see (the code stays in the repo). Each form gets a SmartGuide with a six-part explanation per field (what / where / format / common mistake / when blank / example), plus a timeline, checklist, authority and official link. Official PDFs are only outgoing links whose source has been checked. KG1 and other XFA forms stay blocked. Drafting, Vorlagen and Dokumenten-Check stay.
-- **Phase 6:** legal copy drafts for lawyer review, a release checklist, and your approval before switching to live Stripe.
+### Van opsega bez posebnog odobrenja
+- Promjene cijena, kvota, pravnih stranica, baze/RLS, objave i deploya serverske funkcije.
 
-## 5. Test matrix
-
-| Area | Cases |
-|---|---|
-| Entitlement | lifetime, legacy sub active/expired, yearly active/cancelled/past_due, trial day 0/6/8, free, admin |
-| Trial | no card, one per user, re-signup abuse, expiry cron |
-| Quota | each AI function, trial vs yearly limits, reset at Berlin midnight, server rejects bypass |
-| Stripe (test) | checkout, renewal, cancel, refund, wrong amount rejected, duplicate webhook |
-| Regression | phase1 baseline (200 routes, 31 redirects), 4 locales, 46 guides, no PDF inputs |
-| UI | contrast, 390px, cancellation reachable in 2 clicks |
-
-## 6. Recommended first build slice
-
-Do Phase 0 and Phase 1 only: reconcile with Stripe read-only, add the entitlement function and hook that nothing uses yet, and add the grandfathering tests. This changes nothing users see, protects the paying users first, and makes every later step reversible.
+## Tehnički detalji
+- Klijent: `src/pages/DokumentenCheck.tsx` (763 linije, `parseAnalysisSections`, `extractSummaryFromSections`, `fileToCompressedBase64`).
+- Server: `supabase/functions/document-check/index.ts` (332 linije; `reserveUsage(..., "document_analysis")`, gateway poziv, `commitUsage`/`releaseUsage` u `finally`).
+- Tekstovi: `documentCheck.*` (126 ključeva, paritet BS/HR/SR/DE) + `plus.doc*`.
+- Testovi za implementaciju: jezik izlaza po localeu, prihvaćeni formati, mapiranje grešaka kvote, odluka o pristupu iz entitlementa, nema izmišljenog roka.
+- Serverske promjene (P0.1, P2.10–11) zahtijevaju deploy funkcije na zajednički backend, pa traže tvoje izričito odobrenje.
