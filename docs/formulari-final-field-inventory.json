@@ -1,0 +1,2840 @@
+{
+  "anlage-hg": [
+    {
+      "id": "hg-1-2-3-4",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "HG · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": []
+    },
+    {
+      "id": "hg-5-6-7-8-9",
+      "german": "Vorname der verwandten/verschwägerten Person · Nachname der verwandten/verschwägerten Person · Vorname der Person in der Bedarfsgemeinschaft · Nachname der Person in der Bedarfsgemeinschaft · Verwandtschaftsverhältnis/Schwägerschaft",
+      "reference": "HG · Seite 1 · B · 5–9",
+      "numbers": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "options": []
+    },
+    {
+      "id": "hg-10",
+      "german": "Erhalten Sie oder eine Person Ihrer Bedarfsgemeinschaft finanzielle Unterstützung (beispielsweise Haushaltsgeld) von der verwandten/verschwägerten Person?",
+      "reference": "HG · Seite 1 · B · 10",
+      "numbers": [
+        10
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt C)"
+      ]
+    },
+    {
+      "id": "hg-11-12-13-14",
+      "german": "Vorname der Person, die finanzielle Unterstützung erhält · Nachname der Person, die finanzielle Unterstützung erhält · Höhe der Unterstützung in Euro · Zahlungsrhythmus (zum Beispiel monatlich, vierteljährlich)",
+      "reference": "HG · Seite 1 · B · 11–14",
+      "numbers": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "options": []
+    },
+    {
+      "id": "hg-15",
+      "german": "Ist die verwandte/verschwägerte Person Eigentümerin/Eigentümer oder Mieterin/Mieter der gemeinsamen Unterkunft?",
+      "reference": "HG · Seite 2 · C · 15",
+      "numbers": [
+        15
+      ],
+      "options": [
+        "Ja (weiter mit 18)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "hg-16",
+      "german": "Wohnt die verwandte/verschwägerte Person kostenlos in der gemeinsamen Unterkunft?",
+      "reference": "HG · Seite 2 · C · 16",
+      "numbers": [
+        16
+      ],
+      "options": [
+        "Ja (weiter mit Abschnitt D)",
+        "Nein, die verwandte/verschwägerte Person beteiligt sich an den Unterkunftskosten."
+      ]
+    },
+    {
+      "id": "hg-17",
+      "german": "Monatliche Höhe der Zahlung in Euro",
+      "reference": "HG · Seite 2 · C · 17",
+      "numbers": [
+        17
+      ],
+      "options": []
+    },
+    {
+      "id": "hg-18",
+      "german": "Wohnen Sie und Ihre Bedarfsgemeinschaft kostenlos in der gemeinsamen Unterkunft?",
+      "reference": "HG · Seite 2 · C · 18",
+      "numbers": [
+        18
+      ],
+      "options": [
+        "Ja (weiter mit Abschnitt D)",
+        "Nein, es werden Unterkunftskosten an die verwandte/verschwägerte Person gezahlt."
+      ]
+    },
+    {
+      "id": "hg-19-20",
+      "german": "Monatliche Höhe der Unterkunftskosten in Euro · Monatliche Gesamtkosten für die gemeinsame Unterkunft in Euro",
+      "reference": "HG · Seite 2 · C · 19–20",
+      "numbers": [
+        19,
+        20
+      ],
+      "options": []
+    },
+    {
+      "id": "hg-21-22-23-24",
+      "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "HG · Seite 2 · D · 21–24",
+      "numbers": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "options": []
+    }
+  ],
+  "anlage-meb": [
+    {
+      "id": "meb-1-2-3-4",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "MEB · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-5-6-7",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "MEB · Seite 1 · B · 5–7",
+      "numbers": [
+        5,
+        6,
+        7
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-8",
+      "german": "Wird für die unter Abschnitt B angegebene Person erstmalig oder erneut ein Mehrbedarf für eine kostenaufwändige Ernährung beantragt?",
+      "reference": "MEB · Seite 1 · C · 8",
+      "numbers": [
+        8
+      ],
+      "options": [
+        "Erstmalig",
+        "Erneut"
+      ]
+    },
+    {
+      "id": "meb-9-10-11-12",
+      "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "MEB · Seite 1 · D · 9–12",
+      "numbers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-med-consent",
+      "german": "Entbindung von der Schweigepflicht hinsichtlich der in der Anlage MEB bescheinigten Erkrankung",
+      "reference": "MEB · Ärztliche Bescheinigung · Seite 1 von 3 (PDF 2) · Einwilligung",
+      "numbers": [],
+      "options": []
+    },
+    {
+      "id": "meb-med-1-2-3",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "MEB-Med · Seite 1 von 3 (PDF 2) · Patient · 1–3",
+      "numbers": [
+        1,
+        2,
+        3
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-med-4-5-6-7-8-9-10",
+      "german": "Anrede/Titel · Vorname · Nachname · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "MEB-Med · Seite 1 von 3 (PDF 2) · Arzt · 4–10",
+      "numbers": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-med-11-12",
+      "german": "Datum · Unterschrift der Patientin/des Patienten",
+      "reference": "MEB-Med · Seite 1 von 3 (PDF 2) · Patient · 11–12",
+      "numbers": [
+        11,
+        12
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-med-13",
+      "german": "Bitte kreuzen Sie das zutreffende Krankheitsbild an.",
+      "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 13",
+      "numbers": [
+        13
+      ],
+      "options": [
+        "Zöliakie",
+        "Mukoviszidose",
+        "Terminale Niereninsuffizienz mit Dialysetherapie",
+        "Schluckstörung, bei welcher aus ärztlicher Sicht der Einsatz sogenannter Andickungspulver empfohlen wird",
+        "Sonstige Erkrankung",
+        "Krankheitsassoziierte Mangelernährung"
+      ]
+    },
+    {
+      "id": "meb-med-14",
+      "german": "Sind bei erwachsenen Personen die Kriterien für die Diagnose einer Mangelernährung (mindestens jeweils ein Kriterium phänotypischer und ätiologischer Natur) erfüllt?",
+      "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 14",
+      "numbers": [
+        14
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "meb-med-15",
+      "german": "Liegt bei minderjährigen Personen ein erhöhter Ernährungsbedarf anhand des individuellen Entwicklungsstands (zum Beispiel Perzentilkurven Kromeyer-Hauschild 2001) vor?",
+      "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 15",
+      "numbers": [
+        15
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "meb-med-16-17",
+      "german": "Die Krankenkost ist erforderlich und wird von mir für folgenden Zeitraum ärztlich verordnet. · vom (TT.MM.JJJJ) · bis (TT.MM.JJJJ) · Sollte der verordnete Zeitraum mehr als 12 Monate betragen, so geben Sie bitte eine Begründung an.",
+      "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 16–17",
+      "numbers": [
+        16,
+        17
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-med-18",
+      "german": "Ist eine Nachuntersuchung erforderlich?",
+      "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 18",
+      "numbers": [
+        18
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "meb-med-19",
+      "german": "Bitte geben Sie die Gründe an, falls eine Nachuntersuchung aus Ihrer Sicht nicht erforderlich ist.",
+      "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 19",
+      "numbers": [
+        19
+      ],
+      "options": []
+    },
+    {
+      "id": "meb-med-20-21",
+      "german": "Datum · Stempel und Unterschrift der Ärztin/des Arztes",
+      "reference": "MEB-Med · Seite 2 von 3 (PDF 3) · Arzt · 20–21",
+      "numbers": [
+        20,
+        21
+      ],
+      "options": []
+    }
+  ],
+  "anlage-se": [
+    {
+      "id": "se-1-2-3-4",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "SE · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": []
+    },
+    {
+      "id": "se-5-6-7",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "SE · Seite 1 · B · 5–7",
+      "numbers": [
+        5,
+        6,
+        7
+      ],
+      "options": []
+    },
+    {
+      "id": "se-scope",
+      "german": "Schweigepflichtentbindungserklärung für Ärztinnen/Ärzte, Krankenhäuser und Kliniken",
+      "reference": "SE · Seite 1–2 · Abschnitt C",
+      "numbers": [],
+      "options": []
+    },
+    {
+      "id": "se-8-9-10-11-12",
+      "german": "Name der ersten Ärztin/des ersten Arztes oder des ersten Krankenhauses oder der ersten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "SE · Seite 2 · C · 8–12",
+      "numbers": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "options": []
+    },
+    {
+      "id": "se-13-14-15-16-17",
+      "german": "Name der zweiten Ärztin/des zweiten Arztes oder des zweiten Krankenhauses oder der zweiten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "SE · Seite 2 · C · 13–17",
+      "numbers": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "options": []
+    },
+    {
+      "id": "se-18-19-20-21-22",
+      "german": "Name der dritten Ärztin/des dritten Arztes oder des dritten Krankenhauses oder der dritten Klinik · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "SE · Seite 2 · C · 18–22",
+      "numbers": [
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "options": []
+    },
+    {
+      "id": "se-23-24-25-26-27",
+      "german": "Name der gegnerischen Versicherung · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "SE · Seite 2 · D · 23–27",
+      "numbers": [
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "options": []
+    },
+    {
+      "id": "se-e",
+      "german": "Einverständniserklärung zur Übersendung ärztlicher Gutachten an die gegnerische Versicherung",
+      "reference": "SE · Seite 3 · Abschnitt E",
+      "numbers": [],
+      "options": []
+    },
+    {
+      "id": "se-28",
+      "german": "Bitte kreuzen Sie an, für welche Erklärung die geschädigte Person ihr Einverständnis gibt und lassen Sie die geschädigte Person unterschreiben.",
+      "reference": "SE · Seite 3 · F · 28",
+      "numbers": [
+        28
+      ],
+      "options": [
+        "Schweigepflichtentbindungserklärung für Ärztinnen/Ärzte, Krankenhäuser und Kliniken (Abschnitt C)",
+        "Einverständniserklärung zur Einsichtnahme der Gutachten bei der gegnerischen Versicherung (Abschnitt D)",
+        "Einverständniserklärung zur Übersendung ärztlicher Gutachten an die gegnerische Versicherung (Abschnitt E)"
+      ]
+    },
+    {
+      "id": "se-29-30",
+      "german": "Datum · Unterschrift geschädigte Person/gesetzliche Betreuung/Vormund",
+      "reference": "SE · Seite 3 · F · 29–30",
+      "numbers": [
+        29,
+        30
+      ],
+      "options": []
+    },
+    {
+      "id": "se-31-32-33-34",
+      "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "SE · Seite 3 · F · 31–34",
+      "numbers": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "options": []
+    }
+  ],
+  "anlage-uh1": [
+    {
+      "id": "uh1-1-2-3-4",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "UH1 · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-5-6-7",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "UH1 · Seite 1 · B · 5–7",
+      "numbers": [
+        5,
+        6,
+        7
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-8",
+      "german": "Bitte kreuzen Sie diejenigen Angaben an, die auf die unter Abschnitt B angegebene Person zutreffen.",
+      "reference": "UH1 · Seite 1 · C · 8",
+      "numbers": [
+        8
+      ],
+      "options": [
+        "Verheiratet oder verpartnert (nach dem Lebenspartnerschaftsgesetz), aber dauernd getrennt lebend",
+        "verheiratet/verpartnert (nach dem Lebenspartnerschaftsgesetz) seit (TT.MM.JJJJ)",
+        "dauernd getrennt lebend seit (TT.MM.JJJJ)",
+        "Scheidungs- oder Aufhebungsantrag gestellt am (TT.MM.JJJJ)",
+        "Scheidung oder Aufhebung der Lebenspartnerschaft am (TT.MM.JJJJ)"
+      ]
+    },
+    {
+      "id": "uh1-9-10-11-12",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Geburtsname (sofern abweichend)",
+      "reference": "UH1 · Seite 2 · D · 9–12",
+      "numbers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-13",
+      "german": "Die Person aus der (früheren) Ehe oder (früheren) eingetragenen Lebenspartnerschaft ist verstorben.",
+      "reference": "UH1 · Seite 2 · D · 13",
+      "numbers": [
+        13
+      ],
+      "options": [
+        "Die Person aus der (früheren) Ehe oder (früheren) eingetragenen Lebenspartnerschaft ist verstorben."
+      ]
+    },
+    {
+      "id": "uh1-14-15-16-17-18-19",
+      "german": "Straße · Hausnummer · Postleitzahl · Wohnort · Land · Gegebenenfalls wohnhaft bei (Name und Anschrift Person/Einrichtung)",
+      "reference": "UH1 · Seite 2 · D · 14–19",
+      "numbers": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-20",
+      "german": "Wird Unterhalt gezahlt oder durch Sachleistungen bereitgestellt, zum Beispiel durch kostenloses Wohnen?",
+      "reference": "UH1 · Seite 2 · E · 20",
+      "numbers": [
+        20
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Kontoauszüge, Quittungen oder Bestätigung für kostenloses Wohnen)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh1-21",
+      "german": "Bitte geben Sie die tatsächliche monatliche Höhe der Unterhaltszahlung in Euro an.",
+      "reference": "UH1 · Seite 2 · E · 21",
+      "numbers": [
+        21
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-22",
+      "german": "Besteht eine schriftliche Vereinbarung über den Unterhalt, ein Unterhaltstitel oder ein Unterhaltsbeschluss?",
+      "reference": "UH1 · Seite 2 · E · 22",
+      "numbers": [
+        22
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh1-23",
+      "german": "Bitte geben Sie die vereinbarte monatliche Höhe der Unterhaltszahlung in Euro an.",
+      "reference": "UH1 · Seite 2 · E · 23",
+      "numbers": [
+        23
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-24",
+      "german": "Besteht aktuell eine Vertretung in einem laufenden Unterhaltsverfahren?",
+      "reference": "UH1 · Seite 2 · F · 24",
+      "numbers": [
+        24
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt G)"
+      ]
+    },
+    {
+      "id": "uh1-25",
+      "german": "Bitte geben Sie an, durch wen Sie vertreten werden.",
+      "reference": "UH1 · Seite 2 · F · 25",
+      "numbers": [
+        25
+      ],
+      "options": [
+        "Rechtsanwältin/Rechtsanwalt",
+        "Betreuerin/Betreuer",
+        "Sonstige Stelle"
+      ]
+    },
+    {
+      "id": "uh1-26-27-28-29-30",
+      "german": "Name der Vertretung · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UH1 · Seite 3 · F · 26–30",
+      "numbers": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-31",
+      "german": "Hier können Sie weitere Angaben machen oder sonstige Informationen mitteilen.",
+      "reference": "UH1 · Seite 3 · G · 31",
+      "numbers": [
+        31
+      ],
+      "options": []
+    },
+    {
+      "id": "uh1-32-33-34-35",
+      "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "UH1 · Seite 3 · H · 32–35",
+      "numbers": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "options": []
+    }
+  ],
+  "anlage-uh2": [
+    {
+      "id": "uh2-1-2-3-4",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "UH2 · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-5-6-7",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "UH2 · Seite 1 · B · 5–7",
+      "numbers": [
+        5,
+        6,
+        7
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-8",
+      "german": "Bitte geben Sie den voraussichtlichen Entbindungstermin an (TT.MM.JJJJ).",
+      "reference": "UH2 · Seite 1 · C · 8",
+      "numbers": [
+        8
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-9",
+      "german": "Bitte kreuzen Sie die zutreffende Aussage an und fügen Sie geeignete Nachweise bei, falls vorhanden.",
+      "reference": "UH2 · Seite 1 · D · 9",
+      "numbers": [
+        9
+      ],
+      "options": [
+        "Der Kindsvater ist unbekannt (weiter mit Abschnitt G).",
+        "Der Kindsvater ist bekannt (weiter mit 10).",
+        "Der Kindsvater ist verstorben (weiter mit 10; bitte machen Sie im Abschnitt H zusätzlich Angaben zur Erbin/zum Erben mit Kontaktdaten)."
+      ]
+    },
+    {
+      "id": "uh2-10-11-12-13",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Geburtsname (sofern abweichend)",
+      "reference": "UH2 · Seite 2 · D · 10–13",
+      "numbers": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-14-15-16-17-18-19",
+      "german": "Straße · Hausnummer · Postleitzahl · Wohnort · Land · Gegebenenfalls wohnhaft bei (Name und Anschrift Person/Einrichtung)",
+      "reference": "UH2 · Seite 2 · D · 14–19",
+      "numbers": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-20",
+      "german": "Wurde die Vaterschaft für das ungeborene Kind bereits anerkannt?",
+      "reference": "UH2 · Seite 2 · E · 20",
+      "numbers": [
+        20
+      ],
+      "options": [
+        "Ja (bitte fügen Sie einen Nachweis bei, zum Beispiel die Vaterschaftsanerkennung mit Zustimmung der Mutter)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh2-21",
+      "german": "Bitte geben Sie das Datum der Vaterschaftsanerkennung an (TT.MM.JJJJ).",
+      "reference": "UH2 · Seite 2 · E · 21",
+      "numbers": [
+        21
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-22",
+      "german": "Wird bereits jetzt durch den Kindsvater Unterhalt für die schwangere Person gezahlt und/oder werden Sachleistungen bereitgestellt, zum Beispiel Säuglingserstausstattung, Schwangerschaftsbekleidung?",
+      "reference": "UH2 · Seite 2 · F · 22",
+      "numbers": [
+        22
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh2-23",
+      "german": "Bitte geben Sie die Art des Unterhalts an und fügen Sie Nachweise bei, zum Beispiel Kontoauszüge/Quittungen.",
+      "reference": "UH2 · Seite 2 · F · 23",
+      "numbers": [
+        23
+      ],
+      "options": [
+        "Barunterhalt, monatliche Höhe in Euro",
+        "Säuglingserstausstattung",
+        "Schwangerschaftsbekleidung"
+      ]
+    },
+    {
+      "id": "uh2-24",
+      "german": "Besteht aktuell eine Vertretung in einem laufenden Unterhaltsverfahren?",
+      "reference": "UH2 · Seite 2 · G · 24",
+      "numbers": [
+        24
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt H)"
+      ]
+    },
+    {
+      "id": "uh2-25",
+      "german": "Bitte geben Sie an, durch wen Sie vertreten werden.",
+      "reference": "UH2 · Seite 2 · G · 25",
+      "numbers": [
+        25
+      ],
+      "options": [
+        "Rechtsanwältin/Rechtsanwalt",
+        "Betreuerin/Betreuer",
+        "Jugendamt (Beistandschaft)",
+        "Sonstige Stelle"
+      ]
+    },
+    {
+      "id": "uh2-26-27-28-29-30",
+      "german": "Name der Vertretung · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UH2 · Seite 3 · G · 26–30",
+      "numbers": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-31",
+      "german": "Hier können Sie weitere Angaben machen oder sonstige Informationen mitteilen.",
+      "reference": "UH2 · Seite 3 · H · 31",
+      "numbers": [
+        31
+      ],
+      "options": []
+    },
+    {
+      "id": "uh2-32-33-34-35",
+      "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "UH2 · Seite 3 · I · 32–35",
+      "numbers": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "options": []
+    }
+  ],
+  "anlage-uh3": [
+    {
+      "id": "uh3-1-2-3-4",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "UH3 · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-5-6-7",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "UH3 · Seite 1 · B · 5–7",
+      "numbers": [
+        5,
+        6,
+        7
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-8",
+      "german": "Bitte kreuzen Sie die für den eine Elternteil zutreffende Aussage an und fügen Sie geeignete Nachweise bei, falls vorhanden.",
+      "reference": "UH3 · Seite 1 · C · 8",
+      "numbers": [
+        8
+      ],
+      "options": [
+        "Der eine Elternteil ist unbekannt (weiter mit 19).",
+        "Der eine Elternteil ist bekannt (weiter mit 9).",
+        "Der eine Elternteil ist verstorben (weiter mit 9; bitte machen Sie im Abschnitt J zusätzlich Angaben zur Erbin/zum Erben mit Kontaktdaten)."
+      ]
+    },
+    {
+      "id": "uh3-9-10-11-12",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Geburtsname (sofern abweichend)",
+      "reference": "UH3 · Seite 1 · C · 9–12",
+      "numbers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-13-14-15-16-17-18",
+      "german": "Straße · Hausnummer · Postleitzahl · Wohnort · Land · Gegebenenfalls wohnhaft bei (Name und Anschrift Person/Einrichtung)",
+      "reference": "UH3 · Seite 2 · C · 13–18",
+      "numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-19",
+      "german": "Bitte kreuzen Sie die für den andere Elternteil zutreffende Aussage an und fügen Sie geeignete Nachweise bei, falls vorhanden.",
+      "reference": "UH3 · Seite 2 · C · 19",
+      "numbers": [
+        19
+      ],
+      "options": [
+        "Der andere Elternteil ist unbekannt (weiter mit Abschnitt D).",
+        "Der andere Elternteil ist bekannt (weiter mit 20).",
+        "Der andere Elternteil ist verstorben (weiter mit 20; bitte machen Sie im Abschnitt J zusätzlich Angaben zur Erbin/zum Erben mit Kontaktdaten)."
+      ]
+    },
+    {
+      "id": "uh3-20-21-22-23",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Geburtsname (sofern abweichend)",
+      "reference": "UH3 · Seite 2 · C · 20–23",
+      "numbers": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-24-25-26-27-28-29",
+      "german": "Straße · Hausnummer · Postleitzahl · Wohnort · Land · Gegebenenfalls wohnhaft bei (Name und Anschrift Person/Einrichtung)",
+      "reference": "UH3 · Seite 2 · C · 24–29",
+      "numbers": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-30",
+      "german": "Waren die Eltern zum Zeitpunkt der Geburt verheiratet?",
+      "reference": "UH3 · Seite 2 · D · 30",
+      "numbers": [
+        30
+      ],
+      "options": [
+        "Ja (weiter mit Abschnitt E)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-31",
+      "german": "Wurde die Vaterschaft anerkannt oder gerichtlich festgestellt?",
+      "reference": "UH3 · Seite 2 · D · 31",
+      "numbers": [
+        31
+      ],
+      "options": [
+        "Ja (bitte fügen Sie aktuelle Nachweise bei, zum Beispiel Vaterschaftsanerkennung mit Zustimmung der Mutter und Beschluss des Familiengerichts)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-32",
+      "german": "Bitte geben Sie das Datum der Anerkennung oder gerichtlichen Feststellung an (TT.MM.JJJJ).",
+      "reference": "UH3 · Seite 2 · D · 32",
+      "numbers": [
+        32
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-33",
+      "german": "Läuft ein Vaterschaftsfeststellungsverfahren?",
+      "reference": "UH3 · Seite 2 · D · 33",
+      "numbers": [
+        33
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-34-35",
+      "german": "Zuständiges Gericht · Zuständiges Jugendamt",
+      "reference": "UH3 · Seite 2 · D · 34–35",
+      "numbers": [
+        34,
+        35
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-36",
+      "german": "Lebt die unterhaltsberechtigte Person regelmäßig abwechselnd in den Haushalten beider Elternteile?",
+      "reference": "UH3 · Seite 3 · E · 36",
+      "numbers": [
+        36
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel schriftliche Vereinbarung beider Elternteile)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-37",
+      "german": "Wird regelmäßiger Unterhalt gezahlt oder durch Sachleistungen oder sonstige Zahlungen bereitgestellt, zum Beispiel durch Taschengeld?",
+      "reference": "UH3 · Seite 3 · F · 37",
+      "numbers": [
+        37
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Kontoauszüge, Quittungen oder Bestätigungen über Taschengeldzahlungen)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-38",
+      "german": "Bitte geben Sie die tatsächliche monatliche Höhe der Unterhaltszahlung in Euro an.",
+      "reference": "UH3 · Seite 3 · F · 38",
+      "numbers": [
+        38
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-39",
+      "german": "Besteht eine schriftliche Vereinbarung über den Unterhalt, ein Unterhaltstitel oder ein Unterhaltsbeschluss?",
+      "reference": "UH3 · Seite 3 · F · 39",
+      "numbers": [
+        39
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-40",
+      "german": "Bitte geben Sie die vereinbarte monatliche Höhe der Unterhaltszahlung in Euro an.",
+      "reference": "UH3 · Seite 3 · F · 40",
+      "numbers": [
+        40
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-41",
+      "german": "Wird der Unterhaltsvorschuss des Jugendamts für Kinder bis zur Vollendung des 18. Lebensjahres laufend gezahlt?",
+      "reference": "UH3 · Seite 3 · G · 41",
+      "numbers": [
+        41
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Bescheid des Jugendamts – weiter mit Abschnitt H)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-42",
+      "german": "Wurde der Unterhaltsvorschuss beantragt?",
+      "reference": "UH3 · Seite 3 · G · 42",
+      "numbers": [
+        42
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Antrag auf Unterhaltsvorschuss)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-43",
+      "german": "Wurde der Unterhaltsvorschuss eingestellt oder abgelehnt?",
+      "reference": "UH3 · Seite 3 · G · 43",
+      "numbers": [
+        43
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel einen Ablehnungsbescheid)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-44",
+      "german": "Besteht aktuell eine Vertretung in einem laufenden Unterhaltsverfahren?",
+      "reference": "UH3 · Seite 3 · H · 44",
+      "numbers": [
+        44
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt I)"
+      ]
+    },
+    {
+      "id": "uh3-45",
+      "german": "Bitte geben Sie an, durch wen Sie vertreten werden.",
+      "reference": "UH3 · Seite 3 · H · 45",
+      "numbers": [
+        45
+      ],
+      "options": [
+        "Rechtsanwältin/Rechtsanwalt",
+        "Betreuerin/Betreuer",
+        "Jugendamt (Beistandschaft)",
+        "Sonstige Stelle"
+      ]
+    },
+    {
+      "id": "uh3-46-47-48-49-50",
+      "german": "Name der Vertretung · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UH3 · Seite 4 · H · 46–50",
+      "numbers": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-51",
+      "german": "Befindet sich die unterhaltsberechtigte Person in einer Schul- oder Berufsausbildung?",
+      "reference": "UH3 · Seite 4 · I · 51",
+      "numbers": [
+        51
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-52-53-54",
+      "german": "Name der Schule · Ausbildungsberuf oder Studienfach · Voraussichtliches Ende der Schule, der Ausbildung oder des Studiums",
+      "reference": "UH3 · Seite 4 · I · 52–54",
+      "numbers": [
+        52,
+        53,
+        54
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-55",
+      "german": "Wird die unterhaltsberechtigte Person voraussichtlich eine berufliche Ausbildung/ein Studium beginnen?",
+      "reference": "UH3 · Seite 4 · I · 55",
+      "numbers": [
+        55
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uh3-56",
+      "german": "Voraussichtlicher Beginn",
+      "reference": "UH3 · Seite 4 · I · 56",
+      "numbers": [
+        56
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-57",
+      "german": "Hier können Sie weitere Angaben machen oder sonstige Informationen mitteilen.",
+      "reference": "UH3 · Seite 4 · J · 57",
+      "numbers": [
+        57
+      ],
+      "options": []
+    },
+    {
+      "id": "uh3-58-59-60-61",
+      "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "UH3 · Seite 4 · K · 58–61",
+      "numbers": [
+        58,
+        59,
+        60,
+        61
+      ],
+      "options": []
+    }
+  ],
+  "anlage-uf": [
+    {
+      "id": "uf-1-2-3-4",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Nummer der Bedarfsgemeinschaft (falls vorhanden)",
+      "reference": "UF · Seite 1 · A · 1–4",
+      "numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-5-6-7",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "UF · Seite 1 · B · 5–7",
+      "numbers": [
+        5,
+        6,
+        7
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-8-9-10-11",
+      "german": "Name der Krankenversicherung · Krankenversichertennummer · Rentenversicherungsträger · Rentenversicherungsnummer",
+      "reference": "UF · Seite 1 · B · 8–11",
+      "numbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-12-13-14",
+      "german": "Tag des Unfalls/des Schadensereignisses · Datum (TT.MM.JJJJ) · Ort des Unfalls/des Schadensereignisses · Schadensnummer des Unfalls/des Schadensereignisses",
+      "reference": "UF · Seite 1 · C · 12–14",
+      "numbers": [
+        12,
+        13,
+        14
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-15-16",
+      "german": "Vorname der Schädigerin/des Schädigers · Nachname der Schädigerin/des Schädigers",
+      "reference": "UF · Seite 2 · D · 15–16",
+      "numbers": [
+        15,
+        16
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-17",
+      "german": "Lebte die Schädigerin/der Schädiger zum Zeitpunkt des Unfalls/Schadensereignisses mit der geschädigten Person in einer häuslichen Gemeinschaft?",
+      "reference": "UF · Seite 2 · D · 17",
+      "numbers": [
+        17
+      ],
+      "options": [
+        "Ja (weiter mit Abschnitt J)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uf-18-19-20-21",
+      "german": "Straße · Hausnummer · Postleitzahl · Wohnort",
+      "reference": "UF · Seite 2 · D · 18–21",
+      "numbers": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-22-23-24-25-26",
+      "german": "Name des Haftpflichtversicherers · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UF · Seite 2 · D · 22–26",
+      "numbers": [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-27",
+      "german": "Gibt es schon ein Verfahren auf Schadensersatz der geschädigten Person?",
+      "reference": "UF · Seite 2 · E · 27",
+      "numbers": [
+        27
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt F)"
+      ]
+    },
+    {
+      "id": "uf-28",
+      "german": "Name der Anspruchsgegnerin/des Anspruchsgegners",
+      "reference": "UF · Seite 2 · E · 28",
+      "numbers": [
+        28
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-29",
+      "german": "Wird oder wurde die geschädigte Person im Verfahren (anwaltlich) vertreten?",
+      "reference": "UF · Seite 2 · E · 29",
+      "numbers": [
+        29
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 35)"
+      ]
+    },
+    {
+      "id": "uf-30-31-32-33-34",
+      "german": "Name der Vertreterin/des Vertreters · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UF · Seite 2 · E · 30–34",
+      "numbers": [
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-35",
+      "german": "Bitte geben Sie den aktuellen Stand des Verfahrens an und fügen Sie Nachweise bei, zum Beispiel Urteil, Schreiben der Versicherung.",
+      "reference": "UF · Seite 2 · E · 35",
+      "numbers": [
+        35
+      ],
+      "options": [
+        "Die Verhandlungen sind noch nicht abgeschlossen.",
+        "Der Anspruch wurde von der Versicherung der Schädigerin/des Schädigers anerkannt.",
+        "Der Anspruch wurde von der Versicherung der Schädigerin/des Schädigers abgelehnt.",
+        "Es wurde ein Vergleich geschlossen.",
+        "Über die Klage wurde noch nicht entschieden.",
+        "Die Klage wurde durch Urteil beendet (weiter mit Abschnitt L)."
+      ]
+    },
+    {
+      "id": "uf-36",
+      "german": "Bitte schildern Sie die Verletzungen der geschädigten Person. Geben Sie keine Diagnosen an.",
+      "reference": "UF · Seite 3 · F · 36",
+      "numbers": [
+        36
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-37",
+      "german": "Wurde die geschädigte Person wegen des Unfalls/Schadensereignisses untersucht/behandelt oder wurde ein Gutachten erstellt?",
+      "reference": "UF · Seite 3 · F · 37",
+      "numbers": [
+        37
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel ärztliches Gutachten, und füllen Sie auch die Anlage SE aus)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uf-38",
+      "german": "Wurde der Unfall/Schaden von der Polizei aufgenommen?",
+      "reference": "UF · Seite 3 · G · 38",
+      "numbers": [
+        38
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise bei, zum Beispiel Unfallbericht mit Tagebuchnummer/Aktenzeichen der Polizei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uf-39",
+      "german": "Wurde gegen die Verursacherin/den Verursacher wegen des Unfalls/Schadensereignisses ein Ermittlungs- oder Strafverfahren eingeleitet?",
+      "reference": "UF · Seite 3 · G · 39",
+      "numbers": [
+        39
+      ],
+      "options": [
+        "Ja (bitte fügen Sie Nachweise der zuständigen Staatsanwaltschaft oder des zuständigen Gerichts mit Aktenzeichen bei)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uf-40",
+      "german": "Bitte geben Sie die Art des Unfalls oder des Schadensereignisses an.",
+      "reference": "UF · Seite 3 · H · 40",
+      "numbers": [
+        40
+      ],
+      "options": [
+        "Arbeitsunfall (weiter mit Abschnitt I)",
+        "Verkehrsunfall (weiter mit Abschnitt J)",
+        "Sonstiges Schadensereignis (weiter mit Abschnitt K)"
+      ]
+    },
+    {
+      "id": "uf-41-42-43-44-45-46",
+      "german": "Name der Arbeitgeberin/des Arbeitgebers · Straße · Hausnummer · Postleitzahl · Ort · Unfallversicherung der Arbeitgeberin/des Arbeitgebers (zum Beispiel Berufsgenossenschaft)",
+      "reference": "UF · Seite 3 · I · 41–46",
+      "numbers": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-47",
+      "german": "Wie war die geschädigte Person an dem Unfall beteiligt beziehungsweise mit welchem Verkehrsmittel erfolgte der Verkehrsunfall?",
+      "reference": "UF · Seite 4 · J · 47",
+      "numbers": [
+        47
+      ],
+      "options": [
+        "Bus",
+        "Motorrad",
+        "Fahrrad",
+        "Straßenbahn",
+        "Als Fußgängerin/Fußgänger",
+        "PKW/LKW",
+        "Zug",
+        "Sonstiges"
+      ]
+    },
+    {
+      "id": "uf-48",
+      "german": "Falls der Unfall mit einem privaten Fahrzeug erfolgte: War die geschädigte Person Fahrerin/Fahrer des Fahrzeugs?",
+      "reference": "UF · Seite 4 · J · 48",
+      "numbers": [
+        48
+      ],
+      "options": [
+        "Ja (weiter mit 67)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uf-49-50-51-52-53-54",
+      "german": "Vorname der Fahrerin/des Fahrers · Nachname der Fahrerin/des Fahrers · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UF · Seite 4 · J · 49–54",
+      "numbers": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-55-56-57-58-59-60",
+      "german": "Vorname der Fahrzeughalterin/des Fahrzeughalters · Nachname der Fahrzeughalterin/des Fahrzeughalters · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UF · Seite 4 · J · 55–60",
+      "numbers": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-61-62-63-64-65-66",
+      "german": "Name der Fahrzeugversicherung · Straße · Hausnummer · Postleitzahl · Ort · Amtliches Kennzeichen",
+      "reference": "UF · Seite 4 · J · 61–66",
+      "numbers": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-67",
+      "german": "War an dem Unfall noch eine andere Verkehrsteilnehmerin/ein anderer Verkehrsteilnehmer beteiligt?",
+      "reference": "UF · Seite 4 · J · 67",
+      "numbers": [
+        67
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt L)"
+      ]
+    },
+    {
+      "id": "uf-68",
+      "german": "Mit welchem Fahrzeug war die andere Person beteiligt?",
+      "reference": "UF · Seite 4 · J · 68",
+      "numbers": [
+        68
+      ],
+      "options": [
+        "Fahrrad",
+        "Motorrad",
+        "PKW/LKW",
+        "Sonstiges"
+      ]
+    },
+    {
+      "id": "uf-69-70-71-72-73-74",
+      "german": "Vorname der weiteren Verkehrsteilnehmerin/des weiteren Verkehrsteilnehmers · Nachname der weiteren Verkehrsteilnehmerin/des weiteren Verkehrsteilnehmers · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UF · Seite 4 · J · 69–74",
+      "numbers": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-75-76-77-78-79-80",
+      "german": "Vorname der Halterin/des Halters des weiteren Fahrzeugs · Nachname der Halterin/des Halters des weiteren Fahrzeugs · Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UF · Seite 5 · J · 75–80",
+      "numbers": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-81-82-83-84-85-86",
+      "german": "Name der Fahrzeugversicherung · Straße · Hausnummer · Postleitzahl · Ort · Amtliches Kennzeichen des weiteren Fahrzeugs",
+      "reference": "UF · Seite 5 · J · 81–86",
+      "numbers": [
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-k",
+      "german": "Sonstiges Schadensereignis",
+      "reference": "UF · Seite 5–6 · Abschnitt K",
+      "numbers": [],
+      "options": [
+        "Sportunfall",
+        "Ärztlicher Behandlungsfehler",
+        "Körperverletzung (zum Beispiel Schlägerei, Überfall)",
+        "Verstoß gegen eine Verkehrssicherungspflicht (zum Beispiel Räum- oder Streupflicht)",
+        "Verletzung durch ein fehlerhaftes Produkt/fehlerhaftes Material",
+        "Verletzung durch Tiere"
+      ]
+    },
+    {
+      "id": "uf-87",
+      "german": "Wie wurde der Sportunfall verursacht?",
+      "reference": "UF · Seite 5 · K · 87",
+      "numbers": [
+        87
+      ],
+      "options": [
+        "Unabsichtlich",
+        "Fahrlässig",
+        "Vorsätzlich"
+      ]
+    },
+    {
+      "id": "uf-88-89-90-91-92-93",
+      "german": "Name der Ärztin/des Arztes/des Krankenhauses · Straße · Hausnummer · Postleitzahl · Ort · Haftpflichtversicherung der Ärztin/des Arztes/des Krankenhauses",
+      "reference": "UF · Seite 5 · K · 88–93",
+      "numbers": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-94",
+      "german": "Ist ein Verfahren vor der Schlichtungsstelle für Arzthaftpflichtschäden anhängig?",
+      "reference": "UF · Seite 5 · K · 94",
+      "numbers": [
+        94
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uf-95-96-97-98",
+      "german": "Straße · Hausnummer · Postleitzahl · Ort",
+      "reference": "UF · Seite 5 · K · 95–98",
+      "numbers": [
+        95,
+        96,
+        97,
+        98
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-99",
+      "german": "Bitte schildern Sie ausführlich, wie und bei welcher Gelegenheit die geschädigte Person verletzt wurde.",
+      "reference": "UF · Seite 5 · K · 99",
+      "numbers": [
+        99
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-100-101-102-103-104-105",
+      "german": "Name der/des Verkehrssicherungspflichtigen · Straße · Hausnummer · Postleitzahl · Wohnort · Versicherung der/des Verkehrssicherungspflichtigen",
+      "reference": "UF · Seite 6 · K · 100–105",
+      "numbers": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-106-107-108-109-110-111",
+      "german": "Name des Herstellers · Straße · Hausnummer · Postleitzahl · Ort · Versicherung des Herstellers",
+      "reference": "UF · Seite 6 · K · 106–111",
+      "numbers": [
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-112",
+      "german": "Wie kam es zu der Verletzung durch ein Tier?",
+      "reference": "UF · Seite 6 · K · 112",
+      "numbers": [
+        112
+      ],
+      "options": [
+        "Bissverletzung",
+        "Wildunfall",
+        "Sonstige"
+      ]
+    },
+    {
+      "id": "uf-113",
+      "german": "Die geschädigte Person hat den Unfall bei folgender Person/Stelle gemeldet.",
+      "reference": "UF · Seite 6 · K · 113",
+      "numbers": [
+        113
+      ],
+      "options": [
+        "Tierhalter/in",
+        "Förster/in",
+        "Ordnungsamt",
+        "Sonstige"
+      ]
+    },
+    {
+      "id": "uf-114",
+      "german": "Erfolgte der Unfall durch ein Haustier?",
+      "reference": "UF · Seite 6 · K · 114",
+      "numbers": [
+        114
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "uf-115",
+      "german": "Art des Haustiers",
+      "reference": "UF · Seite 6 · K · 115",
+      "numbers": [
+        115
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-116-117-118-119-120-121",
+      "german": "Name der Tierhalterin/des Tierhalters · Straße · Hausnummer · Postleitzahl · Ort · Haftpflichtversicherung der Tierhalterin/des Tierhalters",
+      "reference": "UF · Seite 6 · K · 116–121",
+      "numbers": [
+        116,
+        117,
+        118,
+        119,
+        120,
+        121
+      ],
+      "options": []
+    },
+    {
+      "id": "uf-122-123-124-125",
+      "german": "Datum · Unterschrift antragstellende Person (bei Minderjährigen: Unterschrift erziehungs- oder sorgeberechtigte Person) · Datum · Unterschrift Betreuerin/Betreuer/Vormund",
+      "reference": "UF · Seite 7 · L · 122–125",
+      "numbers": [
+        122,
+        123,
+        124,
+        125
+      ],
+      "options": []
+    }
+  ],
+  "nichterreichbarkeit": [
+    {
+      "id": "ane-1-2-3-4-5",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Kundennummer (falls bekannt) · Nummer der Bedarfsgemeinschaft (falls bekannt)",
+      "reference": "ANE · Seite 1 · A · 1–5",
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "options": []
+    },
+    {
+      "id": "ane-6",
+      "german": "Bitte geben Sie den Zeitraum der geplanten Nichterreichbarkeit an. · von (TT.MM.JJJJ) · bis (TT.MM.JJJJ)",
+      "reference": "ANE · Seite 1 · B · 6",
+      "numbers": [
+        6
+      ],
+      "options": []
+    },
+    {
+      "id": "ane-7",
+      "german": "Bitte geben Sie den Grund für die geplante Nichterreichbarkeit an:",
+      "reference": "ANE · Seite 1 · B · 7",
+      "numbers": [
+        7
+      ],
+      "options": [
+        "Ich nehme an einer ärztlich verordneten Maßnahme der medizinischen Vorsorge oder Rehabilitation teil.",
+        "Ich nehme an einer Veranstaltung teil, die kirchlichen oder gewerkschaftlichen Zwecken dient oder im öffentlichen Interesse liegt.",
+        "Ich verlasse vorübergehend den näheren Bereich, um mich um die Eingliederung in eine Ausbildungs- oder Arbeitsstelle zu kümmern.",
+        "Ich übe ein Ehrenamt außerhalb des näheren Bereichs aus.",
+        "Ich möchte in den Urlaub fahren (weiter mit 9).",
+        "Es gibt einen anderen Grund für meine Nichterreichbarkeit (zum Beispiel Pflege einer/eines nahen Angehörigen)."
+      ]
+    },
+    {
+      "id": "ane-8",
+      "german": "Bitte wählen Sie eine Alternative aus und geben Sie – soweit erforderlich – eine Kontaktmöglichkeit an:",
+      "reference": "ANE · Seite 2 · B · 8",
+      "numbers": [
+        8
+      ],
+      "options": [
+        "Ich habe der Online-Zusammenarbeit zugestimmt und bin auf diesem Wege zu erreichen.",
+        "Ich bin auf folgendem Wege zu erreichen:"
+      ]
+    },
+    {
+      "id": "ane-9",
+      "german": "Haben Sie während Ihrer Nichterreichbarkeit keinen Anspruch auf Leistungen? Oder bekommen Sie nur für einen kürzeren Zeitraum Leistungen?",
+      "reference": "ANE · Seite 2 · B · 9",
+      "numbers": [
+        9
+      ],
+      "options": [
+        "Ich werde mich nicht außerhalb des näheren Bereichs aufhalten.",
+        "Ich werde mich nur für den Zeitraum außerhalb des näheren Bereichs aufhalten, für den ich Leistungen erhalte.",
+        "Ich werde mich dennoch für den beantragten Zeitraum außerhalb des näheren Bereichs aufhalten."
+      ]
+    },
+    {
+      "id": "ane-notices",
+      "german": "Allgemeines · Aufenthalt innerhalb des näheren Bereichs · Aufenthalt außerhalb des näheren Bereichs",
+      "reference": "ANE · Seite 2–3 · C/D/E",
+      "numbers": [],
+      "options": []
+    }
+  ],
+  "antragsruecknahme": [
+    {
+      "id": "antragsrücknahme-1-2-3",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ)",
+      "reference": "Antragsrücknahme · Seite 1 · A · 1–3",
+      "numbers": [
+        1,
+        2,
+        3
+      ],
+      "options": []
+    },
+    {
+      "id": "antragsrücknahme-4-5-6-7-8-9",
+      "german": "Straße · Hausnummer · Postleitzahl · Wohnort · Kundennummer (soweit bekannt) · Nummer der Bedarfsgemeinschaft (soweit bekannt)",
+      "reference": "Antragsrücknahme · Seite 1 · A · 4–9",
+      "numbers": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "options": []
+    },
+    {
+      "id": "antragsrücknahme-10",
+      "german": "Antragsdatum (TT.MM.JJJJ)",
+      "reference": "Antragsrücknahme · Seite 1 · B · 10",
+      "numbers": [
+        10
+      ],
+      "options": []
+    },
+    {
+      "id": "withdrawal-consequences",
+      "german": "Erklärung der Rücknahme meines Antrages auf Grundsicherungsgeld",
+      "reference": "Antragsrücknahme · Seite 1 · B · Erklärung/Hinweise",
+      "numbers": [],
+      "options": []
+    }
+  ],
+  "arbeitsbescheinigung": [
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-1-2",
+      "german": "Kundennummer · Betriebsnummer Arbeitgeber (siehe Hinweise zum Vordruck „Arbeitsbescheinigung“)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 1 · Kopf · 1–2",
+      "numbers": [
+        1,
+        2
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-3-4-5-6-7-8-9-10-11-12-13",
+      "german": "Name · Straße · Hausnummer · Postleitzahl · Ort · Ansprechpartnerin/Ansprechpartner Entgelt · Telefonnummer · E-Mail · Ansprechpartnerin/Ansprechpartner Personal (wenn abweichend von Ansprechpartnerin/Ansprechpartner Entgelt) · Telefonnummer · E-Mail",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 1 · A · 3–13",
+      "numbers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-14-15-16-17-18-19-20",
+      "german": "Vorname · Nachname · Straße · Hausnummer · Postleitzahl · Wohnort · Rentenversicherungsnummer– wenn nicht bekannt, bitte Geburtsdatum (TT.MM.JJJJ) eingtragen",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 1 · B · 14–20",
+      "numbers": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-21-22-23-24",
+      "german": "Jahr (JJJJ) · Steuerklasse · gegebenenfalls Faktor · Zahl der Kinderfreibeträge",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · B · Lohnsteuerabzugsmerkmale · 21–24",
+      "numbers": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-25",
+      "german": "Erfolgten während des Jahres Änderungen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · B · 25",
+      "numbers": [
+        25
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt C.)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-26-27-28-29",
+      "german": "mit Wirkung ab Datum · Steuerklasse · gegebenenfalls Faktor · Zahl der Kinderfreibeträge",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · B · 26–29",
+      "numbers": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-30-31-32-33",
+      "german": "Zeitraum der Beschäftigung der Arbeitnehmerin/des Arbeitnehmers · vom (TT.MM.JJJJ) · bis (TT.MM.JJJJ) · zuletzt beschäftigt als · letzter Beschäftigungsort · Wann hat das Arbeitsverhältnis geendet?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · C · 30–33",
+      "numbers": [
+        30,
+        31,
+        32,
+        33
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-34",
+      "german": "Hat die Arbeitnehmerin/der Arbeitnehmer für eine Zeit kein Arbeitsentgelt erhalten?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · C · 34",
+      "numbers": [
+        34
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 41)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-35-36-37-38-39-40",
+      "german": "Die Zahlung war unterbrochen vom (TT.MM.JJJJ) bis (TT.MM.JJJJ) · Gründe für die Unterbrechung der Zahlung von Arbeitsentgelt",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 2 · C · 35–40",
+      "numbers": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "options": [
+        "Krankheit ohne Lohnfortzahlung",
+        "Krankheit des Kindes",
+        "Mutterschaft",
+        "Pflegezeit nach § 2 oder § 3 Absatz 1 Satz 1 Gesetz über die Pflegezeit (PflegeZG)",
+        "Pflegeunterstützungsgeld",
+        "Elternzeit",
+        "Erwerbsminderungs-Rente auf Zeit",
+        "Zivildienst",
+        "Wehrdienst",
+        "Wehrübung",
+        "freiwilliger Wehrdienst nach dem 30.06.2011",
+        "unbezahlter Urlaub",
+        "sonstige unbezahlte Fehlzeit",
+        "Aussteuerung",
+        "Freistellung seitens des Arbeitgebers oder wegen Insolvenz",
+        "Entschädigung nach § 56 Absatz 1 Satz 1 Infektionsschutzgesetz (IfSG) (Quarantäne)",
+        "Entschädigung wegen Kinderbetreuung nach § 56 Absatz 1a IfSG"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-41",
+      "german": "Wurde die/der Beschäftigte als arbeitslosenversicherungsfreie/r Arbeitnehmerin/Arbeitnehmer geführt?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · D · 41",
+      "numbers": [
+        41
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 42)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-42",
+      "german": "War die Arbeitnehmerin/der Arbeitnehmer zuletzt in der gesetzlichen Rentenversicherung versichert?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · D · 42",
+      "numbers": [
+        42
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt E.)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-43",
+      "german": "Gehörte die Arbeitnehmerin/der Arbeitnehmer wegen ihrer/seiner Beschäftigung der Knappschaftlichen Rentenversicherung an (knappschaftlicher Beitragssatz)?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · D · 43",
+      "numbers": [
+        43
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-44",
+      "german": "Wann und zu welchem Datum wurde das Arbeitsverhältnis gekündigt/beendet? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 44",
+      "numbers": [
+        44
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-45",
+      "german": "Durch wen oder was wurde das Arbeitsverhältnis gekündigt/beendet?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 45",
+      "numbers": [
+        45
+      ],
+      "options": [
+        "durch den Arbeitgeber",
+        "durch einen Aufhebungsvertrag",
+        "durch die Arbeitnehmerin/den Arbeitnehmer",
+        "durch einen Tarifvertrag oder kraft Gesetzes"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-46",
+      "german": "Erfolgte die Kündigung durch den Arbeitgeber in schriftlicher Form?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 46",
+      "numbers": [
+        46
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-47",
+      "german": "Wie wurde die Kündigung zugestellt?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 47",
+      "numbers": [
+        47
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-48",
+      "german": "Handelt es sich um eine betriebsbedingte Kündigung gemäß § 1a Kündigungsschutzgesetz (KSchG) mit Abfindungsangebot?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 48",
+      "numbers": [
+        48
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-49",
+      "german": "Hat die Arbeitnehmerin/der Arbeitnehmer Kündigungsschutzklage innerhalb der Frist gemäß § 4 KSchG erhoben?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 49",
+      "numbers": [
+        49
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-50",
+      "german": "War vertragswidriges Verhalten der Arbeitnehmerin/des Arbeitnehmers Anlass zur Kündigung?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 50",
+      "numbers": [
+        50
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 53)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-51",
+      "german": "War die Arbeitnehmerin/der Arbeitnehmer wegen desselben Verhaltens bereits abgemahnt worden?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 51",
+      "numbers": [
+        51
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-52",
+      "german": "Wann wurde die Abmahnung ausgesprochen? · am (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 52",
+      "numbers": [
+        52
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-53",
+      "german": "Wurden vor oder nach der Kündigung zusätzliche Vereinbarungen getroffen (zum Beispiel Abwicklungsvertrag)?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 53",
+      "numbers": [
+        53
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-54",
+      "german": "Wurde eine Sozialauswahl vorgenommen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 3 · E · 54",
+      "numbers": [
+        54
+      ],
+      "options": [
+        "Ja (weiter mit 56)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-55",
+      "german": "Entfiel eine Sozialauswahl, da die Kündigung personenbedingt war?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 55",
+      "numbers": [
+        55
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-56",
+      "german": "Wurde die Sozialauswahl von der Agentur für Arbeit geprüft (Sammelentscheidung)?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 56",
+      "numbers": [
+        56
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 58)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-57",
+      "german": "Von welcher Agentur für Arbeit wurde die Sozialauswahl geprüft?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 57",
+      "numbers": [
+        57
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-58",
+      "german": "Hätte der Arbeitgeber das Arbeitsverhältnis gekündigt?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 58",
+      "numbers": [
+        58
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 61)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-59",
+      "german": "Wenn ja, wann und zu welchem Datum? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 59",
+      "numbers": [
+        59
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-60",
+      "german": "Bitte geben Sie den Grund der Kündigung an:",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 60",
+      "numbers": [
+        60
+      ],
+      "options": [
+        "betriebsbedingt",
+        "wegen vertragswidrigen Verhaltens"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-61",
+      "german": "War das Arbeitsverhältnis befristet?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 61",
+      "numbers": [
+        61
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 68)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-62-63",
+      "german": "Bis wann war das Arbeitsverhältnis bei Abschluss des Arbeitsvertrages befristet? · Wann wurde der befristete Arbeitsvertrag abgeschlossen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 62–63",
+      "numbers": [
+        62,
+        63
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-64",
+      "german": "Wurde der befristete Arbeitsvertrag verlängert?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 64",
+      "numbers": [
+        64
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 66)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-65",
+      "german": "Wann und bis zu welchem Datum wurde der befristete Arbeitsvertrag verlängert? · am (TT.MM.JJJJ) · zum (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 65",
+      "numbers": [
+        65
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-66",
+      "german": "Erfolgte die Befristung schriftlich?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 66",
+      "numbers": [
+        66
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-67",
+      "german": "War die befristete Beschäftigung für mindestens 2 Monate vorgesehen und wurde eine Möglichkeit der Weiterbeschäftigung durch den Arbeitgeber bei Abschluss des Vertrages in Aussicht gestellt?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 67",
+      "numbers": [
+        67
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-68",
+      "german": "Handelt es sich um eine unwiderrufliche Freistellung durch den Arbeitgeber mit tatsächlicher Weiterzahlung des Arbeitsentgelts?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 68",
+      "numbers": [
+        68
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-69",
+      "german": "Erfolgte die Freistellung einvernehmlich?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 69",
+      "numbers": [
+        69
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt F.)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-70",
+      "german": "Zu welchem Datum erfolgte die einvernehmliche Freistellung? · ab (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 4 · E · 70",
+      "numbers": [
+        70
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-71",
+      "german": "Wie hoch war die vereinbarte durchschnittliche regelmäßige Arbeitszeit in Stunden pro Woche?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 71",
+      "numbers": [
+        71
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-72",
+      "german": "Hat sich die vereinbarte durchschnittliche regelmäßige Arbeitszeit in den letzten 42 Monaten des Beschäftigungsverhältnisses geändert?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 72",
+      "numbers": [
+        72
+      ],
+      "options": [
+        "Ja (siehe Hinweise zum Vordruck „Arbeitsbescheinigung“)",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-73-74-75",
+      "german": "Bitte geben Sie den Grund für die Änderung der regelmäßigen Wochenarbeitszeit an. · Bitte geben Sie den Beginn der Arbeitszeitänderung an. · ab (TT.MM.JJJJ) · Bitte geben Sie die geänderte wöchentliche Arbeitszeit in Stunden pro Woche an.",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 73–75",
+      "numbers": [
+        73,
+        74,
+        75
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-76",
+      "german": "Hat sich die Arbeitszeit innerhalb der letzten 42 Monate erneut geändert?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 76",
+      "numbers": [
+        76
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 78)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-77-78-79",
+      "german": "Bitte geben Sie den Grund für die erneute Änderung der regelmäßigen Wochenarbeitszeit an. · Bitte geben Sie den Beginn der Arbeitszeitänderung an: · ab (TT.MM.JJJJ) · Bitte geben Sie die geänderte wöchentliche Arbeitszeit in Stunden pro Woche an.",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 77–79",
+      "numbers": [
+        77,
+        78,
+        79
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-80",
+      "german": "Wie hoch war die durchschnittliche Arbeitszeit einer/eines vergleichbaren Vollzeitbeschäftigten in Stunden?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 5 · F · 80",
+      "numbers": [
+        80
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-81",
+      "german": "Angaben zum beitragspflichtigen Bruttoarbeitsentgelt",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 6 · G · 81",
+      "numbers": [
+        81
+      ],
+      "options": [
+        "Abrechnungszeiträume von (TT.MM.JJJJ)",
+        "Abrechnungszeiträume bis (TT.MM.JJJJ)",
+        "West = alte Bundesländer und ehemaliger Westteil Berlins",
+        "Ost = neue Bundesländer und ehemaliger Ostteil Berlins",
+        "Beitragspflichtiges Bruttoarbeitsentgelt in Euro (ohne Einmalzahlungen)",
+        "Fiktives Bruttoarbeitsentgelt in Euro"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-82",
+      "german": "Wurden beitragspflichtige Einmalzahlungen (bis zur anteiligen Beitragsbemessungsgrenze gemäß § 23a Absatz 3 bis 5 SGB IV) zusätzlich zum „Beitragspflichtigen Bruttoarbeitsentgelt“ (siehe Ziffer 81 Spalte 4) geleistet?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 82",
+      "numbers": [
+        82
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 84)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-83",
+      "german": "Angaben zu Einmalzahlungen",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 83",
+      "numbers": [
+        83
+      ],
+      "options": [
+        "Einmalig gezahltes beitragspflichtiges Bruttoarbeitsentgelt in Euro",
+        "Abrechnungszeitraum von (TT.MM.JJJJ)",
+        "Abrechnungszeitraum bis (TT.MM.JJJJ)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-84-85-86",
+      "german": "Anzahl der zu beanspruchenden Urlaubstage je Kalenderjahr · Anzahl der bescheinigten tatsächlichen Urlaubstage · Betrag des bescheinigten Bruttoarbeitsentgelt enthaltenes Urlaubsentgelts in Euro",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · Heimarbeit · 84–86",
+      "numbers": [
+        84,
+        85,
+        86
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-87",
+      "german": "Wie wurde das Urlaubsentgelt gezahlt?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · Heimarbeit · 87",
+      "numbers": [
+        87
+      ],
+      "options": [
+        "bei Urlaubsantritt",
+        "als laufender Entgeltzuschlag"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-88",
+      "german": "Wurde das Arbeitsentgelt wegen einer Vereinbarung gemäß § 3 Absatz 1 Satz 1 des PflegeZG oder aufgrund von Zeiten nach dem Familienpflegegesetz vermindert?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 88",
+      "numbers": [
+        88
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt I.)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-89",
+      "german": "Wenn ja, in welchem Zeitraum? · von (TT.MM.JJJJ) · bis (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 7 · H · 89",
+      "numbers": [
+        89
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-90",
+      "german": "Wurden Leistungen im Zusammenhang mit der Beendigung des Arbeits-/Beschäftigungs- beziehungsweise Heimarbeitsverhältnisses gezahlt oder besteht hierauf noch ein Anspruch?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 90",
+      "numbers": [
+        90
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 102)",
+        "ist ungewiss"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-91",
+      "german": "Wurde das Arbeitsentgelt über das Ende des Beschäftigungsverhältnisses hinaus gezahlt beziehungsweise ist noch zu zahlen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 91",
+      "numbers": [
+        91
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 93)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-92",
+      "german": "Bitte geben Sie das Datum an, bis zu dem noch Arbeitsentgelt zu zahlen ist: · bis (TT.MM.JJJJ)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 92",
+      "numbers": [
+        92
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-93",
+      "german": "Wurde eine Urlaubsabgeltung wegen der Beendigung des Beschäftigungs-/Arbeits-/Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu zahlen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 93",
+      "numbers": [
+        93
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 95)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-94",
+      "german": "Wäre der noch zustehende Urlaub im Anschluss an das Arbeits-/Beschäftigungsverhältnis genommen worden, hätte er nach den gesetzlichen/(tarif-)vertraglichen Bestimmungen gedauert bis einschließlich dem folgenden Datum:",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 94",
+      "numbers": [
+        94
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-95",
+      "german": "Wurde eine Abfindung, Entschädigung oder ähnliche Leistung wegen der Beendigung des Beschäftigungs-/Arbeits- beziehungsweise Heimarbeitsverhältnisses gezahlt beziehungsweise ist noch zu bezahlen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 95",
+      "numbers": [
+        95
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 97)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-96-97",
+      "german": "Höhe der Leistung Brutto in Euro · Dauer der Betriebs-/Unternehmenszugehörigkeit in Jahren (auf volle Jahre nach unten abgerundet)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 96–97",
+      "numbers": [
+        96,
+        97
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-98",
+      "german": "Wäre die Abfindung auch gezahlt worden, wenn die Kündigung durch den Arbeitgeber erfolgt wäre?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 98",
+      "numbers": [
+        98
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-99",
+      "german": "Beträgt die Abfindung bis zu 0,5 Monatsentgelte für jedes Jahr des Arbeitsverhältnisses (§ 1a Absatz 2 KSchG)?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 99",
+      "numbers": [
+        99
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-100",
+      "german": "Wird/Wurde eine Vorruhestandsleistung oder eine vergleichbare Leistung bei Beendigung des Arbeitsverhältnisses gezahlt?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 100",
+      "numbers": [
+        100
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt J.)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-101",
+      "german": "Ab wann und in welcher Höhe wurde eine Vorruhestandsleistung oder eine vergleichbare Leistung gezahlt? · ab (TT.MM.JJJJ) · Höhe in Euro",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 8 · I · 101",
+      "numbers": [
+        101
+      ],
+      "options": []
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-102-103-104-105",
+      "german": "Kalendertage · Werktage · Wochen · Monate",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 102–105",
+      "numbers": [
+        102,
+        103,
+        104,
+        105
+      ],
+      "options": [
+        "Kalendertage",
+        "Werktage",
+        "Wochen",
+        "Monate"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-106",
+      "german": "Zu welchem Zeitpunkt endet die maßgebende (gesetzliche, tarifvertragliche oder vertragliche) Kündigungsfrist des Arbeitgebers?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 106",
+      "numbers": [
+        106
+      ],
+      "options": [
+        "zum Ende der Woche",
+        "zum 15. des Monats",
+        "zum Monatsende",
+        "zum Ende des Vierteljahres",
+        "zum Ende des Halbjahres",
+        "zum Jahresschluss",
+        "ohne festes Ende"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-107",
+      "german": "War die ordentliche Kündigung des Arbeitsverhältnisses (zeitlich begrenzt, unbegrenzt) durch den Arbeitgeber/Auftraggeber/Zwischenmeister gesetzlich oder (tarif-)vertraglich ausgeschlossen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 107",
+      "numbers": [
+        107
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-108",
+      "german": "War die ordentliche Kündigung zeitlich unbegrenzt ausgeschlossen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 108",
+      "numbers": [
+        108
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit 110)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-109",
+      "german": "Wurde die fristgebundene Kündigung aus wichtigem Grund ausgesprochen, obwohl die ordentliche Kündigung zeitlich unbegrenzt ausgeschlossen war?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 109",
+      "numbers": [
+        109
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-110",
+      "german": "War die ordentliche Kündigung (tarif-)vertraglich nur bei einer Abfindung, Entschädigung oder ähnlichen Leistung zulässig?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 110",
+      "numbers": [
+        110
+      ],
+      "options": [
+        "Ja",
+        "Nein (weiter mit Abschnitt K.)"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-111",
+      "german": "Liegen gleichzeitig die Voraussetzungen für eine fristgebundene Kündigung aus wichtigem Grund vor oder wären diese ohne besondere (tarif-)vertragliche Kündigungsregelung gegeben gewesen?",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · J · 111",
+      "numbers": [
+        111
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "arbeitsbescheinigung sgb iii 08/2023-112-113-114-115-116-117-118-119",
+      "german": "Firmenname · Straße · Hausnummer · Postleitzahl · Ort · Ort · Datum · Firmenstempel, Unterschrift des Arbeitgebers (für Heimarbeiterinnen/Heimarbeiter auch des Zwischenmeisters oder seiner/seines Beauftragten)",
+      "reference": "Arbeitsbescheinigung SGB III 08/2023 · Seite 9 · K · 112–119",
+      "numbers": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "options": []
+    },
+    {
+      "id": "income-head",
+      "german": "Kundennummer · BG-Nummer · Dienststelle · Team",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 1 · Kopf",
+      "numbers": [],
+      "options": []
+    },
+    {
+      "id": "income-notes",
+      "german": "Angaben zum Arbeitsentgelt",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 3 · D · Hinweise",
+      "numbers": [],
+      "options": [
+        "Bruttoarbeitsentgelt",
+        "Nettoarbeitsentgelt",
+        "Gesondert zu bescheinigen"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-1-2-3-4-5-6-7-8-9",
+      "german": "Name der Arbeitgeberin/des Arbeitgebers · Straße · Hausnummer · Postleitzahl · Ort · Ansprechpartnerin/Ansprechpartner · Telefon · Geschäftszeichen · Betriebsnummer der Arbeitgeberin/des Arbeitgebers",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 1 · A · 1–9",
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "options": []
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-10-11-12-13-14-15-16-17-18-19-20",
+      "german": "Vorname · Nachname · Geburtsdatum (TT.MM.JJJJ) · Straße · Hausnummer · Postleitzahl · Wohnort · Anschriftenzusatz · Maßgebliche Lohnsteuerklasse · Kinderfreibetrag · Zuständige Krankenkasse",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 2 · B · 10–20",
+      "numbers": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "options": []
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-21-22-23-24",
+      "german": "Beginn des Beschäftigungsverhältnisses (TT.MM.JJJJ) · gegebenenfalls Ende des Beschäftigungsverhältnisses (TT.MM.JJJJ) · Grund der Kündigung · Wöchentliche Arbeitszeit in Stunden",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 2 · C · 21–24",
+      "numbers": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "options": []
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-25-26",
+      "german": "Besteht eine Tarifzugehörigkeit? · Bitte geben Sie den Tarifvertrag an.",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 2 · C · 25–26",
+      "numbers": [
+        25,
+        26
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-27-28",
+      "german": "Branchenbezeichnung · Bezeichnung der ausgeübten Tätigkeit der Arbeitnehmerin/des Arbeitnehmers",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 2 · C · 27–28",
+      "numbers": [
+        27,
+        28
+      ],
+      "options": []
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-29",
+      "german": "Zu wann war oder ist die Auszahlung des Arbeitsentgelts fällig?",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 2 · C · 29",
+      "numbers": [
+        29
+      ],
+      "options": [
+        "Im laufenden Monat",
+        "Im Folgemonat"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-30",
+      "german": "War oder ist das Arbeitsentgelt monatlich gleich hoch?",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 2 · C · 30",
+      "numbers": [
+        30
+      ],
+      "options": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-31",
+      "german": "Tabelle zum Bruttoarbeitsentgelt nach dem SGB II",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 4 · D · 31",
+      "numbers": [
+        31
+      ],
+      "options": [
+        "Abrechnungsmonat",
+        "Bruttoarbeitsentgelt in Euro (ohne Einmalzahlungen und Nachzahlungen)",
+        "darunter vermögenswirksame Leistungen in Euro (nur Arbeitgeberanteil)",
+        "Höhe des Brutto-Stundenlohnes in Euro (einschließlich aller gesetzlicher Abzüge)"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-32",
+      "german": "Tabelle zum Nettoarbeitsentgelt",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 4 · D · 32",
+      "numbers": [
+        32
+      ],
+      "options": [
+        "Abrechnungsmonat",
+        "falls zutreffend: Sozialversicherungspflichtiges Entgelt in Euro",
+        "Abzüge in Euro",
+        "bei freiwillig oder privat Versicherten: Beitragszuschuss der Arbeitgeberin/des Arbeitgebers zur Sozialversicherung in Euro",
+        "Nettoarbeitsentgelt in Euro (ohne Beitragszuschuss bei freiwilliger oder privater Versicherung)"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-33",
+      "german": "Tabelle zu Vorschusszahlungen",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 5 · D · 33",
+      "numbers": [
+        33
+      ],
+      "options": [
+        "Auszahlung des Vorschusses am (TT.MM.JJJJ)",
+        "Höhe des Vorschusses in Euro"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-34",
+      "german": "Tabelle zu weiteren laufenden Leistungen",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 5 · D · 34",
+      "numbers": [
+        34
+      ],
+      "options": [
+        "Art der laufenden Leistung",
+        "Fälligkeit am (TT.MM.JJJJ)",
+        "Höhe in Euro"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-35",
+      "german": "Tabelle zu Einmalzahlungen und Nachzahlungen",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 6 · D · 35",
+      "numbers": [
+        35
+      ],
+      "options": [
+        "Art der Zahlung",
+        "Fälligkeit am (TT.MM.JJJJ)",
+        "Bruttobetrag in Euro (sofern bereits abgerechnet)",
+        "Nettobetrag in Euro (sofern bereits abgerechnet)"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-36",
+      "german": "Tabelle zur freien Verpflegung und zur kostenfreien Unterkunft",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 6 · D · 36",
+      "numbers": [
+        36
+      ],
+      "options": [
+        "Abrechnungsmonat",
+        "Frühstück Anzahl",
+        "Mittagessen Anzahl",
+        "Abendessen Anzahl",
+        "Unterkunft Anzahl"
+      ]
+    },
+    {
+      "id": "einkommensbescheinigung sgb ii 10/2026-37-38",
+      "german": "Datum · Unterschrift Arbeitgeberin/Arbeitgeber oder beauftragte Person",
+      "reference": "Einkommensbescheinigung SGB II 10/2026 · Seite 6 · E · 37–38",
+      "numbers": [
+        37,
+        38
+      ],
+      "options": []
+    }
+  ]
+}

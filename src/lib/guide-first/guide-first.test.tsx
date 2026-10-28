@@ -55,7 +55,7 @@ describe("guide-first sources", () => {
   it("every catalog service has a source entry; only primary-source-reviewed workflows are marked verified", () => {
     for (const e of getAllFormEntries()) expect(GUIDE_SOURCES[e.slug], e.slug).toBeDefined();
     const verified = Object.entries(GUIDE_SOURCES).filter(([, s]) => s.verifiedOn).map(([k]) => k);
-    expect(verified).toEqual(["anmeldung", "steuer-id", "fuehrerschein", "fahrzeugzulassung", "kindergeld", "elterngeld", "mutterschaftsgeld", "kinderzuschlag", "krippengeld-bayern", "hauptantrag", "weiterbewilligung", "anlage-kdu", "anlage-ek", "anlage-vm", "anlage-ki", "anlage-wep", "anlage-eks", "anlage-sv", "anlage-bb", "anlage-ve", "bafoeg", "schueler-bafoeg", "integrationskurs", "grundsicherung", "fuehrungszeugnis", "kirchenaustritt"]);
+    expect(verified).toEqual(["anmeldung", "steuer-id", "fuehrerschein", "fahrzeugzulassung", "kindergeld", "elterngeld", "mutterschaftsgeld", "kinderzuschlag", "krippengeld-bayern", "hauptantrag", "weiterbewilligung", "anlage-kdu", "anlage-ek", "anlage-vm", "anlage-ki", "anlage-wep", "anlage-eks", "anlage-sv", "anlage-bb", "anlage-ve", "anlage-hg", "anlage-meb", "anlage-uf", "anlage-se", "anlage-uh1", "anlage-uh2", "anlage-uh3", "nichterreichbarkeit", "antragsruecknahme", "arbeitsbescheinigung", "bafoeg", "schueler-bafoeg", "integrationskurs", "grundsicherung", "fuehrungszeugnis", "kirchenaustritt"]);
   });
   it("never labels known third-party sites as official", () => {
     const urls = Object.values(GUIDE_SOURCES).map((s) => s.url ?? "");

@@ -17,7 +17,8 @@ export interface GuideSource {
   extraLinks?: { url: string; label: string }[];
 }
 
-const JC: GuideSource = { kind: "official", url: "https://jobcenter.digital", label: "jobcenter.digital (BA / Jobcenter)" };
+const BA_INDEX = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/downloads-arbeitslos-arbeit-finden";
+const FINAL_BA_LINKS = [{ url: BA_INDEX, label: "BA · SGB II · Formulare / Hinweise" }, { url: "https://jobcenter.digital", label: "jobcenter.digital" }];
 
 export const GUIDE_SOURCES: Record<string, GuideSource> = {
   anmeldung: { kind: "local", url: "https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99115005104000/herausgeber/BB-108321434/region/120000000000", label: "Bundesportal — Brandenburg · Anmeldung", verifiedOn: "27.10.2026", extraLinks: [
@@ -90,10 +91,16 @@ export const GUIDE_SOURCES: Record<string, GuideSource> = {
   "anlage-sv": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlagesv_ba033005.pdf", label: "BA · SV · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [{ url: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/downloads-arbeitslos-arbeit-finden", label: "BA · SGB II · Formulare / Merkblätter" }, { url: "https://jobcenter.digital", label: "jobcenter.digital" }] },
   "anlage-bb": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlagebb_ba032985.pdf", label: "BA · BB · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [{ url: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/downloads-arbeitslos-arbeit-finden", label: "BA · SGB II · Formulare / Hinweise" }, { url: "https://jobcenter.digital", label: "jobcenter.digital" }] },
   "anlage-ve": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlageve_ba033130.pdf", label: "BA · VE · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [{ url: "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/downloads-arbeitslos-arbeit-finden", label: "BA · SGB II · Formulare / Hinweise" }, { url: "https://jobcenter.digital", label: "jobcenter.digital" }] },
-  "anlage-hg": JC,
-  "anlage-meb": JC, "anlage-uf": JC, "anlage-se": JC, "anlage-uh1": JC, "anlage-uh2": JC,
-  "anlage-uh3": JC, nichterreichbarkeit: JC, antragsruecknahme: JC,
-  arbeitsbescheinigung: { kind: "official", url: "https://www.arbeitsagentur.de", label: "Bundesagentur für Arbeit" },
+  "anlage-hg": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlagehg_ba032950.pdf", label: "BA · HG · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: FINAL_BA_LINKS },
+  "anlage-meb": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlagemeb_ba032955.pdf", label: "BA · MEB / Ärztliche Bescheinigung · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: FINAL_BA_LINKS },
+  "anlage-uf": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlageuf_ba032970.pdf", label: "BA · UF · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [...FINAL_BA_LINKS, { url: "https://www.arbeitsagentur.de/datei/anlagese_ba032975.pdf", label: "BA · SE · 10/2026 (PDF)" }] },
+  "anlage-se": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlagese_ba032975.pdf", label: "BA · SE / UF · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: FINAL_BA_LINKS },
+  "anlage-uh1": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlageuh1_ba032990.pdf", label: "BA · UH1 · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: FINAL_BA_LINKS },
+  "anlage-uh2": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlageuh2_ba032995.pdf", label: "BA · UH2 · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: FINAL_BA_LINKS },
+  "anlage-uh3": { kind: "official", url: "https://www.arbeitsagentur.de/datei/anlageuh3_ba033050.pdf", label: "BA · UH3 · 10/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: FINAL_BA_LINKS },
+  nichterreichbarkeit: { kind: "official", url: "https://www.arbeitsagentur.de/datei/anfrage-ortsabwesenheit_ba147389.pdf", label: "BA · ANE · 05/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: [{ url: "https://www.arbeitsagentur.de/grundsicherung/pflichten-verstehen-und-beachten/abwesenheit-erreichbarkeit", label: "BA · Erreichbarkeit" }, ...FINAL_BA_LINKS] },
+  antragsruecknahme: { kind: "official", url: "https://www.arbeitsagentur.de/datei/erklaerung-der-antragsruecknahme_ba053139.pdf", label: "BA · Antragsrücknahme · 07/2026 (PDF)", verifiedOn: "28.10.2026", extraLinks: FINAL_BA_LINKS },
+  arbeitsbescheinigung: { kind: "official", url: "https://www.arbeitsagentur.de/datei/arbeitsbescheinigung_ba013140.pdf", label: "BA · Arbeitsbescheinigung §312 SGB III · 08/2023 (PDF)", verifiedOn: "28.10.2026", extraLinks: [{ url: "https://www.arbeitsagentur.de/unternehmen/personalfragen/bea", label: "BA · BEA · Arbeitgeber" }, { url: "https://www.arbeitsagentur.de/datei/einkommensbescheinigung_ba032965.pdf", label: "BA · Einkommensbescheinigung SGB II · 10/2026 (PDF)" }, { url: BA_INDEX, label: "BA · Formulare / Hinweise" }] },
   wohngeld: { kind: "local" },
   arbeitslosengeld: { kind: "official", url: "https://www.arbeitsagentur.de", label: "Bundesagentur für Arbeit" },
   krankenkasse: { kind: "local" },

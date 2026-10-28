@@ -1,3 +1,8 @@
+## Final Formulari batch (28.10.2026; no release)
+- [x] Audit all 46 catalog entries and ten live BA sources; baseline 1254 tests passed.
+- [x] Add all ten complete four-locale companions without other guide/account/gate changes.
+- [x] Focused/full tests, 80 new-guide browser fixtures and global catalog/category QA; results/limits.
+
 ## Grundsicherung Phase 3C (28.10.2026; no release)
 - [x] Live-index audit EKS/SV/BB/VE 10/2026 editions, 15 pages, restrictions, hashes and printed choices.
 - [x] Four complete locale companions: 62 groups/111 fields/120 choice-table definitions; all previous forms and navigator unchanged.
