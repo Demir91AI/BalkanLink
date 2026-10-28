@@ -1,0 +1,90 @@
+{
+  "anfrage-ortsabwesenheit_ba147389": {
+    "url": "https://www.arbeitsagentur.de/datei/anfrage-ortsabwesenheit_ba147389.pdf",
+    "edition": "05/2026",
+    "pages": 3,
+    "sha256": "d923daa62b74de65ff01187fa0f5c5cecbf384b14f46e09ab982a88a41f06863",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "anlagehg_ba032950": {
+    "url": "https://www.arbeitsagentur.de/datei/anlagehg_ba032950.pdf",
+    "edition": "10/2026",
+    "pages": 2,
+    "sha256": "40f602a40f07d86d9e46a3c2e73af633d6f22e876063183efe210035d7e3fbf8",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "anlagemeb_ba032955": {
+    "url": "https://www.arbeitsagentur.de/datei/anlagemeb_ba032955.pdf",
+    "edition": "10/2026",
+    "pages": 4,
+    "sha256": "99f63a4bc79ed28634455eb012ab831c6dcb5ebf957afd585ca3d730378c3937",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "anlagese_ba032975": {
+    "url": "https://www.arbeitsagentur.de/datei/anlagese_ba032975.pdf",
+    "edition": "10/2026",
+    "pages": 3,
+    "sha256": "621c1240f1776efe43bdfa8edc3152c1c4973232733ee5a2964857480224f6db",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "anlageuf_ba032970": {
+    "url": "https://www.arbeitsagentur.de/datei/anlageuf_ba032970.pdf",
+    "edition": "10/2026",
+    "pages": 7,
+    "sha256": "0a68d2af8621cc514ef24472821e394edf21bc1e1c9befe9fd9c9d2794cd261c",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "anlageuh1_ba032990": {
+    "url": "https://www.arbeitsagentur.de/datei/anlageuh1_ba032990.pdf",
+    "edition": "10/2026",
+    "pages": 3,
+    "sha256": "3bc7d4141d154fc4d3b1b3966bb2e88387c68e9198be08d89007fe16c398feb0",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "anlageuh2_ba032995": {
+    "url": "https://www.arbeitsagentur.de/datei/anlageuh2_ba032995.pdf",
+    "edition": "10/2026",
+    "pages": 3,
+    "sha256": "94c26600242f8f52820a7b920a6aaac2e0344f909f8c1d3a19cb12550c026b87",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "anlageuh3_ba033050": {
+    "url": "https://www.arbeitsagentur.de/datei/anlageuh3_ba033050.pdf",
+    "edition": "10/2026",
+    "pages": 4,
+    "sha256": "73b0d29ad99cf64da52ed917e8aead4c4827e903d202dc43736310985a1c5bab",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "arbeitsbescheinigung_ba013140": {
+    "url": "https://www.arbeitsagentur.de/datei/arbeitsbescheinigung_ba013140.pdf",
+    "edition": "08/2023",
+    "pages": 9,
+    "sha256": "df7833909444b0e741d9f6f78cc429927bbe8e31bb0f63b7c462af23a15e8798",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "einkommensbescheinigung_ba032965": {
+    "url": "https://www.arbeitsagentur.de/datei/einkommensbescheinigung_ba032965.pdf",
+    "edition": "10/2026",
+    "pages": 6,
+    "sha256": "ef8fcd427a526e1cb530618cb44c109058a8af430a11ea714037b9260113463f",
+    "encrypted": false,
+    "form": "AcroForm"
+  },
+  "erklaerung-der-antragsruecknahme_ba053139": {
+    "url": "https://www.arbeitsagentur.de/datei/erklaerung-der-antragsruecknahme_ba053139.pdf",
+    "edition": "07/2026",
+    "pages": 1,
+    "sha256": "dac24aea00365bad6a3031884655360ae470c6ab9fb1fcdc3e7ca32520182fcd",
+    "encrypted": false,
+    "form": "AcroForm"
+  }
+}
