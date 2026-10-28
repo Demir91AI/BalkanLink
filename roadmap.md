@@ -1,3 +1,8 @@
+## Dokumenti i potvrde batch (28.10.2026; no release)
+- [ ] Verify SGB XII Sozialamt, BfJ certificates and regional church-exit procedures; preserve three existing routes and free Führungszeugnis access.
+- [ ] Three complete four-locale companions using existing navigation, no inputs/storage/PDF handling and no other guide changes.
+- [ ] Focused/full tests, 24 browser fixtures, automatic build and exact inventory/results documentation.
+
 ## Education batch resumed (28.10.2026; no release)
 - [x] Reuse saved inventory and BS draft; direct four-locale translation without gateway, downloads or packages.
 - [x] Wire only bafoeg, schueler-bafoeg, integrationskurs into the existing companion; retain Anerkennung Navigator.
