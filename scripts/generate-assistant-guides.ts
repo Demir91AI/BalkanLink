@@ -9,7 +9,7 @@ export function assistantGuideProjection() {
     const pages = JSON.parse(readFileSync(`src/i18n/locales/${lang}/pages.json`, "utf8"));
     const common = JSON.parse(readFileSync(`src/i18n/locales/${lang}/common.json`, "utf8"));
     return [lang, { ui: common.assistantGuides, guides: {
-      kindergeld: { title: pages.guideFirst.kindergeld.title, special: pages.guideFirst.kindergeld.special, steps: pages.guideFirst.kindergeld.workflow.steps.map((s: any) => ({ id: s.id, title: s.title, concise: s.sections.action, action: [s.sections.meaning, s.sections.action, s.sections.where].filter(Boolean).join(" ") })) },
+      kindergeld: { title: pages.guideFirst.kindergeld.title, special: pages.guideFirst.kindergeld.special, steps: pages.guideFirst.kindergeld.workflow.steps.map((s: any) => ({ id: s.id, title: s.title, concise: [s.id === "documents" ? s.sections.meaning : "", s.sections.action, s.id === "documents" || s.id === "submit" ? s.sections.where : ""].filter(Boolean).join(" "), action: [s.sections.meaning, s.sections.action, s.sections.where].filter(Boolean).join(" ") })) },
       anmeldung: { title: pages.arrivalCompanions.guides.anmeldung.title, variation: pages.arrivalCompanions.guides.anmeldung.variation, steps: pages.arrivalCompanions.guides.anmeldung.steps.map((s: any) => ({ id: s.id, title: s.title, action: s.sections.action })) },
       wohngeld: { title: pages.wohngeldCompanion.guides.general.title, variation: pages.wohngeldCompanion.guides.general.variation, steps: pages.wohngeldCompanion.guides.general.steps.map((s: any) => ({ id: s.id, title: s.title, action: s.sections.action, concise: s.id === "evidence" ? [s.sections.meaning, s.sections.action].filter(Boolean).join(" ") : s.sections.action })) },
     } }];
