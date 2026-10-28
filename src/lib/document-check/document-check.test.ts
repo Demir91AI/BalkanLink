@@ -5,8 +5,9 @@ import { ANALYSIS_SCHEMA, CheckError, LIMITS, analysisPrompt, parseAnalysis, val
 import { consumeCompletion, runAnalysis } from '../../../supabase/functions/document-check/pipeline';
 import { mayRequestAnalysis, guideFor } from './model';
 import { FREE_ENTITLEMENT, QUOTAS } from '../entitlement';
+import type { Reservation } from '../../../supabase/functions/_shared/usage';
 const fixture = (language: Language = 'bs') => ({ language, readable: true, documentType: 'Mahnung', sender: 'Example company', summary: 'Payment requested.', requestedActions: [], deadlines: [{ text: '15.11.2026', quote: 'bis 15.11.2026', sourceId: 's1', confirmed: true }], amounts: [], risks: [], nextSteps: ['Check original.'], detailedExplanation: 'Explanation.', uncertainty: [], sourceRefs: [{ id: 's1', fileIndex: 1, page: 1, quote: 'Zahlen Sie bis 15.11.2026.' }] });
-const deps = (value: unknown) => ({ reserve: vi.fn(async () => ({ ok: true, reservation_id: 'r' })), commit: vi.fn(async () => {}), release: vi.fn(async () => {}), generate: vi.fn(async () => value), language: 'bs' as Language, pageCounts: [1] });
+const deps = (value: unknown) => ({ reserve: vi.fn(async (): Promise<Reservation> => ({ ok: true, reservation_id: 'r' })), commit: vi.fn(async () => {}), release: vi.fn(async () => {}), generate: vi.fn(async () => value), language: 'bs' as Language, pageCounts: [1] });
 describe('structured document boundary', () => {
   for (const language of ['bs','hr','sr','de'] as const) it(`requires ${language} result and valid structured IDs`, () => {
     expect(parseAnalysis(JSON.stringify(fixture(language)),language,[1]).language).toBe(language);
@@ -42,7 +43,7 @@ describe('upload limits and content checks', () => {
   it('pins explicit transport and multipage bounds', async () => { expect(LIMITS.payloadBytes).toBe(36*1024*1024);expect(LIMITS.pdfPages).toBe(30);const pdf=await PDFDocument.create();pdf.addPage();pdf.addPage();const bytes=await pdf.save();expect((await PDFDocument.load(bytes)).getPageCount()).toBe(2); });
 });
 describe('server usage settlement and access', () => {
-  for (const reason of ['quota_exhausted','access_required','daily_cap']) it(`stops ${reason} before a provider call`, async () => {
+  for (const reason of ['quota_exhausted','access_required','daily_cap'] as const) it(`stops ${reason} before a provider call`, async () => {
     const d=deps(fixture());d.reserve=vi.fn(async()=>({ok:false,reason})); await expect(runAnalysis(d)).rejects.toThrow();expect(d.generate).not.toHaveBeenCalled();expect(d.commit).not.toHaveBeenCalled();
   });
   it('commits a validated readable result exactly once', async()=> {const d=deps(fixture());await runAnalysis(d);expect(d.commit).toHaveBeenCalledTimes(1);expect(d.release).not.toHaveBeenCalled();});
