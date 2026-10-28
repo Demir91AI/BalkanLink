@@ -18,6 +18,7 @@ describe("Dual citizenship follow-up, 28 October 2026", () => {
       expect(b).toMatch(/Srbij|Serbien/);
       expect(b).toMatch(/Hrvatsk|Kroatien/);
       expect(b).toMatch(/nemaju međunarodni ugovor|keinen völkerrechtlichen Vertrag/);
+      expect(b).toMatch(/ugovor nije potreban|kein Vertrag nötig/);
     }
   });
 
