@@ -64,6 +64,8 @@ void PlusCtaLabel; // pinned legacy import (phase1 baseline)
 import GuideFrame from "@/components/guide-first/GuideFrame";
 import ProcedureCompanion from "@/components/guide-first/ProcedureCompanion";
 import WohngeldCompanion from "@/components/guide-first/WohngeldCompanion";
+import CareerCompanion from "@/components/guide-first/CareerCompanion";
+import { isCareerSlug } from "@/lib/guide-first/career-model";
 import { isArrivalSlug } from "@/lib/guide-first/arrival-model";
 import { isFamilySlug } from "@/lib/guide-first/family-model";
 import { isGrundsicherungSlug } from "@/lib/guide-first/grundsicherung-model";
@@ -140,6 +142,7 @@ function GuideBody({ slug }: { slug: string }) {
   const MusterButton = slug === "kindergeld" ? null : <OfficialNextStep slug={slug} />;
   const legacyNote = slug === "hauptantrag" ? <LegacyBuergergeldNote /> : null;
 
+  if (isCareerSlug(slug)) return <><CareerCompanion slug={slug} />{MusterButton}</>;
   if (slug === "kindergeld") return <><KindergeldGuideContent />{MusterButton}</>;
   if (slug === "anmeldung") return <><AnmeldungGuideContent />{MusterButton}</>;
   if (slug === "steuer-id") return <><SteuerIdGuideContent />{MusterButton}</>;

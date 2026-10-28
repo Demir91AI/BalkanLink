@@ -10815,5 +10815,520 @@
         ]
       }
     }
+  },
+  "careerCompanions": {
+    "ui": {
+      "privacy": "Sie geben hier nichts ein und es wird nichts gespeichert oder gesendet.",
+      "links": {
+        "elster": "ELSTER: Alle Formulare (Mein ELSTER)",
+        "baSteps": "BA: Ihre Schritte bei Arbeitslosigkeit",
+        "bmg": "BMG: Wahl und Wechsel der Krankenkasse",
+        "fms": "Formular-Management-System (Papierformulare)",
+        "gesund": "gesund.bund.de: Krankenkassenwechsel",
+        "baAnspruch": "BA: Arbeitslosengeld – Anspruch, Höhe, Dauer",
+        "bundSt": "Bundesportal: Steuerklassenwechsel bei Ehegatten",
+        "baAl": "BA: Arbeitslos melden (online/persönlich)",
+        "gkvList": "GKV-Spitzenverband: Liste der Krankenkassen und Zusatzbeitrag",
+        "baAs": "BA: Arbeitsuchend melden",
+        "bwInfo": "Finanzamt BW: Folgen der Steuerklassenwahl"
+      }
+    },
+    "guides": {
+      "arbeitslosengeld": {
+        "steps": [
+          {
+            "id": "s1",
+            "title": "1. Arbeitsuchendmeldung",
+            "sections": {
+              "next": "Arbeitslosmeldung.",
+              "where": "arbeitsagentur.de – arbeitsuchend melden.",
+              "example": "Fiktives Beispiel: Kündigung am 10.03. → Meldung bis 13.03.",
+              "action": "Melden Sie sich online, telefonisch oder persönlich: 3 Monate vor Ende der Beschäftigung oder innerhalb von 3 Tagen, nachdem Sie davon erfahren haben.",
+              "mistake": "Auf das Ende der Beschäftigung warten.",
+              "meaning": "Meldung, dass Sie Arbeit suchen, während Sie noch arbeiten."
+            }
+          },
+          {
+            "id": "s2",
+            "sections": {
+              "meaning": "Separate Meldung der Arbeitslosigkeit.",
+              "mistake": "Denken, dass Schritt 1 ausreicht.",
+              "next": "Antrag.",
+              "where": "arbeitsagentur.de – arbeitslos melden.",
+              "action": "Online mit eID oder persönlich spätestens am ersten Tag ohne Beschäftigung.",
+              "example": "Fiktives Beispiel: Ende am 30.04. → Meldung bis 01.05."
+            },
+            "title": "2. Arbeitslosmeldung"
+          },
+          {
+            "title": "3. Antrag auf Arbeitslosengeld",
+            "id": "s3",
+            "sections": {
+              "example": "Fiktives Beispiel: Maja Kovač füllt den Antrag zusammen mit den Gehaltsabrechnungen aus.",
+              "action": "Füllen Sie den Antrag in den eServices oder nach Anweisung der Agentur aus; der Arbeitgeber sendet die Arbeitsbescheinigung.",
+              "where": "BA Profil / Agentur.",
+              "next": "Dokumente.",
+              "mistake": "Leere Felder zu Beschäftigungsverhältnissen.",
+              "meaning": "Der Antrag auf Geldleistungen."
+            }
+          },
+          {
+            "id": "s4",
+            "sections": {
+              "next": "Gespräch.",
+              "meaning": "Typischerweise: Ausweisdokument (oder Reisepass + Meldebescheinigung), Kündigung/Vertrag, Gehaltsabrechnungen, IBAN, Daten zu Kindern, Bescheinigungen über Krankschreibungen. Die BA kann mehr verlangen.",
+              "mistake": "Ohne Kündigung erscheinen.",
+              "where": "Einladung/Nachricht der BA.",
+              "action": "Bereiten Sie Kopien vor dem Gespräch vor.",
+              "example": "Fiktives Beispiel: Mappe mit Kündigung, Vertrag und IBAN."
+            },
+            "title": "Dokumentenliste"
+          },
+          {
+            "title": "Nach der Einreichung",
+            "sections": {
+              "meaning": "Die BA vereinbart ein Beratungsgespräch und entscheidet per Bescheid.",
+              "mistake": "Termin ohne Rückmeldung versäumen.",
+              "action": "Erscheinen Sie zu den Terminen, lesen Sie das BA-Postfach, melden Sie Änderungen (Job, Krankheit, Reise).",
+              "where": "BA Profil – Postfach.",
+              "example": "Fiktives Beispiel: Damir meldet einen neuen Job einen Tag vor Beginn.",
+              "next": "Fertig."
+            },
+            "id": "s5"
+          }
+        ],
+        "introduction": "Das Arbeitslosengeld I ist eine Leistung der Arbeitslosenversicherung, die von der Agentur für Arbeit (BA) gezahlt wird. Es gibt DREI verschiedene Schritte: 1) Arbeitsuchendmeldung, 2) Arbeitslosmeldung, 3) Antrag auf Arbeitslosengeld. Ein Schritt ersetzt nicht den anderen.",
+        "gate": {
+          "question": "Wählen Sie eine Situation (die Antwort bleibt nur auf dieser Seite).",
+          "options": [
+            {
+              "result": "Melden Sie sich spätestens 3 Monate vor dem Ende der Beschäftigung arbeitsuchend; falls Sie es erst später erfahren, innerhalb von 3 Tagen. Danach zusätzlich die Arbeitslosmeldung spätestens am ersten Tag ohne Beschäftigung.",
+              "label": "Mein Arbeitgeber hat mich gekündigt / der Vertrag läuft aus",
+              "id": "employer"
+            },
+            {
+              "result": "Seitens der BA kann eine Sperrzeit (bis zu 12 Wochen ohne Zahlung) eintreten, z. B. bei Eigenkündigung oder Aufhebungsvertrag. Dies geschieht nicht automatisch in jedem Fall – die BA prüft, ob ein wichtiger Grund vorliegt. Sprechen Sie VOR der Unterschrift mit der BA und geben Sie die Gründe ehrlich an.",
+              "id": "self",
+              "label": "Ich kündige selbst oder unterschreibe einen Aufhebungsvertrag"
+            },
+            {
+              "result": "Laut BA gelten Sie dann erst ab dem Tag der Genesung als arbeitslos. Melden Sie die Arbeitslosigkeit spätestens an diesem Tag; falls das Amt dann geschlossen ist, spätestens am letzten Tag der Krankschreibung. Bei gesundheitlicher Verhinderung kann Sie eine andere Person vertreten.",
+              "id": "sick",
+              "label": "Ich bin auch nach dem Ende der Beschäftigung krankgeschrieben"
+            },
+            {
+              "label": "Ich bin mir nicht sicher",
+              "id": "unsure",
+              "result": "Melden Sie sich sofort arbeitsuchend – Fristen laufen auch ohne endgültige Entscheidung. Die BA wird die Situation mit Ihnen klären."
+            }
+          ],
+          "title": "Wie endet Ihre Beschäftigung?"
+        },
+        "vocabularyNote": "Die Begriffe werden thematisch erklärt. Online-Formulare erfordern eine Anmeldung und ihr Aussehen kann variieren – BalkanLink gibt keine Feldnummern oder Bildschirmreihenfolgen an.",
+        "modes": {
+          "online": "Online: Sie können sich online oder telefonisch (0800 4 5555 00) arbeitsuchend melden. Für die online Arbeitslosmeldung benötigen Sie eine Online-Identifikation (Personalausweis mit eID, elektronischer Aufenthaltstitel oder EU eID) über BundID. Die Bildschirme können von der Beschreibung abweichen.",
+          "paper": "Persönlich: Vereinbaren Sie einen Termin bei der Agentur für Arbeit; bringen Sie Ihren Personalausweis mit aktueller Adresse oder den Reisepass + Meldebescheinigung mit."
+        },
+        "variation": "Anspruch und Höhe werden ausschließlich von der Agentur für Arbeit per Bescheid festgestellt. Hier gibt es keine Zusage über Anspruch, Höhe oder Dauer.",
+        "title": "Arbeitslosengeld I: drei separate Schritte",
+        "terms": [
+          {
+            "example": "Fiktives Beispiel: Damir erhält am 10. März die Kündigung zum 30. April → er meldet sich bis zum 13. März arbeitsuchend.",
+            "id": "arbeitsuchend",
+            "where": "Kündigung, Arbeitsvertrag (Enddatum), eServices BA.",
+            "meaning": "Meldung, dass man eine Arbeit sucht",
+            "instruction": "Melden Sie sich an, sobald Sie wissen, dass die Arbeit endet, spätestens 3 Monate vor dem Ende; wenn Sie es später erfahren, innerhalb von 3 Tagen.",
+            "mistake": "Warten bis zum letzten Arbeitstag – eine späte Meldung kann finanzielle Folgen haben.",
+            "german": "Arbeitsuchendmeldung"
+          },
+          {
+            "where": "Datum des Arbeitsendes; Online-Ausweis oder Termin bei der Agentur.",
+            "german": "Arbeitslosmeldung",
+            "instruction": "Besonderer Schritt: frühestens 3 Monate vorher, spätestens am ersten Tag der Arbeitslosigkeit. Die Arbeitsuchendmeldung ersetzt diese NICHT. Wenn die Unterbrechung länger als 6 Wochen ist (z. B. neuer Job), erneut melden.",
+            "mistake": "Glauben, dass die Meldung als arbeitsuchend ausreicht – Geld wird frühestens ab dem Tag der Arbeitslosmeldung gezahlt.",
+            "meaning": "Meldung der Arbeitslosigkeit",
+            "id": "arbeitslos",
+            "example": "Fiktives Beispiel: Die Arbeit endet am 30. April → Arbeitslosmeldung spätestens am 1. Mai."
+          },
+          {
+            "meaning": "Antrag auf Geldleistung",
+            "instruction": "Stellen Sie nach der Meldung auch den eigentlichen Antrag (online in den eServices oder nach Anweisung der Agentur). Beantworten Sie Fragen zu Beschäftigungen, Krankheitszeiten, Kindern und Bankverbindung.",
+            "id": "antrag",
+            "where": "eServices BA, Lohnabrechnungen, Arbeitsverträge.",
+            "example": "Fiktives Beispiel: Maja öffnet nach der Arbeitslosmeldung den Antrag in ihrem BA-Profil und fügt Dokumente bei.",
+            "mistake": "Den Antrag oder Dokumente nicht absenden – die Bearbeitung stoppt.",
+            "german": "Antrag auf Arbeitslosengeld"
+          },
+          {
+            "meaning": "Bescheinigung des Arbeitgebers über die Beschäftigung",
+            "where": "Arbeitgeber / Lohnabteilung.",
+            "example": "Fiktives Beispiel: Damir fragt die Personalabteilung, ob die Arbeitsbescheinigung an die BA gesendet wurde.",
+            "german": "Arbeitsbescheinigung",
+            "instruction": "Diese Bescheinigung füllt der ARBEITGEBER aus, nicht Sie; oft wird sie elektronisch direkt an die BA gesendet. Prüfen Sie nur mit dem Arbeitgeber, ob sie gesendet wurde, und informieren Sie die BA bei Verzögerung.",
+            "id": "arbeitsbescheinigung",
+            "mistake": "Versuchen, die Bescheinigung des Arbeitgebers selbst auszufüllen."
+          },
+          {
+            "instruction": "Laut BA gilt die Regel: mindestens 12 Monate Versicherung in den letzten 30 Monaten vor der Antragstellung; für Kurzverträge gibt es Sonderregeln. Rechnen Sie nicht selbst – geben Sie alle Beschäftigungen an, die BA prüft dies.",
+            "where": "Arbeitsverträge, Gehaltsabrechnungen, Sozialversicherungsausweis.",
+            "mistake": "Kürzere oder ausländische Beschäftigungen weglassen – geben Sie alles an und fragen Sie die BA.",
+            "german": "Anwartschaftszeit",
+            "meaning": "Versicherungszeitraum",
+            "example": "Fiktives Beispiel: Maja gibt auch die Stelle in einer anderen Firma von vor zwei Jahren an.",
+            "id": "anwartschaft"
+          },
+          {
+            "mistake": "Das Kind des Partners nicht angeben, obwohl danach gefragt wird.",
+            "id": "kinder",
+            "where": "Geburtsurkunde, Steuer-ID des Kindes.",
+            "example": "Fiktives Beispiel: Damir gibt seine Tochter Lana (fiktiver Name) an.",
+            "meaning": "Kinder",
+            "instruction": "Die BA fragt nach Kindern, da laut BA der Prozentsatz der Leistung höher sein kann, wenn Sie oder Ihr Partner ein Kind haben. Den Betrag legt die BA fest.",
+            "german": "Kinder (im Sinne des Einkommensteuergesetzes)"
+          },
+          {
+            "meaning": "Sperrfrist der Auszahlung",
+            "example": "Fiktives Beispiel: Maja kündigt wegen des Umzugs zum Partner – sie gibt den Grund an und fragt die BA vor der Kündigung.",
+            "id": "sperrzeit",
+            "where": "Kündigung, Aufhebungsvertrag, Nachweise über den Grund (z. B. ärztliches Attest).",
+            "german": "Sperrzeit",
+            "instruction": "Eine Sperrzeit kann z. B. bei Eigenkündigung, verhaltensbedingter Kündigung oder einem Aufhebungsvertrag eintreten – bis zu 12 Wochen. Sie erfolgt nicht automatisch: Geben Sie einen wichtigen Grund und Beweise an; die Entscheidung trifft die BA.",
+            "mistake": "Einen Aufhebungsvertrag unterschreiben, ohne sich vorher zu informieren."
+          },
+          {
+            "mistake": "Verreisen ohne Absprache mit der BA.",
+            "id": "verfuegbarkeit",
+            "where": "Regeln aus dem Gespräch mit der BA und Merkblatt für Arbeitslose.",
+            "instruction": "Sie sind arbeitslos, wenn Sie weniger als 15 Stunden pro Woche arbeiten, für die Vermittlung zur Verfügung stehen und selbst Arbeit suchen. Abwesenheiten (z. B. Reisen) müssen vorab gemeldet werden.",
+            "meaning": "Verfügbarkeit für den Arbeitsmarkt",
+            "example": "Fiktives Beispiel: Damir bittet vor einer Reise nach Bosnien und Herzegowina um die Zustimmung der BA.",
+            "german": "Verfügbarkeit"
+          }
+        ]
+      },
+      "krankenkasse": {
+        "vocabularyNote": "Die Begriffe werden thematisch erklärt. Online-Formulare erfordern eine Anmeldung und ihr Aussehen kann variieren – BalkanLink gibt keine Feldnummern oder Bildschirmabfolgen an.",
+        "modes": {
+          "paper": "Papier: Einige Kassen versenden oder bieten einen PDF-Mitgliedsantrag an – fülle nur das Formular dieser Kasse aus.",
+          "online": "Online: Die meisten Kassen bieten eine Online-Anmeldung auf ihrer Webseite an; das Layout variiert."
+        },
+        "introduction": "In Deutschland ist die Krankenversicherung obligatorisch. Es gibt die gesetzliche Krankenversicherung (GKV) und die private Krankenversicherung (PKV). Es gibt kein einheitliches staatliches Formular – jede Kasse hat ihren eigenen Mitgliedsantrag.",
+        "variation": "Die Felder und die Reihenfolge unterscheiden sich je nach Kasse. Ob du in die GKV musst oder in die PKV darfst, hängt von deiner Situation ab (z. B. Anstellung, Einkommen, Selbstständigkeit) – prüfe dies mit der Kasse oder einer Beratungsstelle.",
+        "gate": {
+          "options": [
+            {
+              "label": "Ich versichere mich zum ersten Mal in Deutschland",
+              "result": "Wähle eine GKV (Liste des GKV-Spitzenverbandes) und stelle dort einen Mitgliedsantrag; teile deinem Arbeitgeber mit, welche Kasse du gewählt hast.",
+              "id": "new"
+            },
+            {
+              "id": "switch",
+              "label": "Ich wechsle die gesetzliche Krankenkasse",
+              "result": "Laut gesund.bund.de musst du in der Regel 12 Monate bei der alten Kasse sein; die Kündigungsfrist beträgt 2 Monate. Ein Mitgliedsantrag bei der neuen Kasse reicht aus – die Kassen tauschen die Kündigung elektronisch untereinander aus."
+            },
+            {
+              "id": "family",
+              "result": "Ehepartner und Kinder ohne eigenes oder mit geringem Einkommen können kostenlos über ein GKV-Mitglied mitversichert werden. Voraussetzungen und Grenzen prüft die Kasse – fordere deren Formular für die Familienversicherung an.",
+              "label": "Familienversicherung"
+            },
+            {
+              "result": "Ein Wechsel zwischen PKV und GKV ist nur unter bestimmten Bedingungen möglich. Den Vertrag schließt du mit einem privaten Versicherer ab; frage nach den Bedingungen beim Versicherer und einer unabhängigen Beratungsstelle.",
+              "id": "private",
+              "label": "Private Krankenversicherung (PKV)"
+            }
+          ],
+          "question": "Wähle deine Situation (nur auf dieser Seite).",
+          "title": "Was brauchst du?"
+        },
+        "title": "Krankenkasse: Auswahl, Anmeldung, Wechsel, Familienversicherung",
+        "steps": [
+          {
+            "title": "GKV oder PKV bestimmen",
+            "sections": {
+              "where": "Arbeitsvertrag.",
+              "example": "Fiktives Beispiel: Die angestellte Maja → GKV.",
+              "mistake": "Entscheiden ohne Prüfung.",
+              "action": "Frage den Arbeitgeber/die Kasse, wenn du unsicher bist.",
+              "meaning": "Der Status hängt von der Arbeit und dem Einkommen ab.",
+              "next": "Wahl der Kasse."
+            },
+            "id": "k1"
+          },
+          {
+            "title": "Kasse wählen",
+            "sections": {
+              "meaning": "Vergleiche Leistungen und Zusatzbeitrag.",
+              "next": "Anmeldung.",
+              "action": "Nutze die Liste des GKV-Spitzenverbandes.",
+              "where": "GKV-Spitzenverband.",
+              "example": "Fiktives Beispiel: Drei Kassen in der engeren Auswahl.",
+              "mistake": "Veraltete Tabelle."
+            },
+            "id": "k2"
+          },
+          {
+            "title": "Mitgliedsantrag einreichen",
+            "sections": {
+              "meaning": "Anmeldung bei der gewählten Kasse.",
+              "action": "Online oder Papierformular der Kasse.",
+              "where": "Webseite der Kasse.",
+              "mistake": "Anmeldung bei zwei Kassen gleichzeitig.",
+              "example": "Fiktives Beispiel: Online-Anmeldung in 15 Minuten.",
+              "next": "Familie."
+            },
+            "id": "k3"
+          },
+          {
+            "id": "k4",
+            "title": "Familie und Nachweise",
+            "sections": {
+              "where": "Krankenkasse.",
+              "meaning": "Die Familienversicherung wird separat beantragt.",
+              "action": "Reiche die von der Kasse geforderten Nachweise ein.",
+              "next": "Nach der Anmeldung.",
+              "example": "Fiktives Beispiel: Kind mit Geburtsurkunde angemeldet.",
+              "mistake": "Das Kind vergessen."
+            }
+          },
+          {
+            "title": "Nach der Anmeldung",
+            "id": "k5",
+            "sections": {
+              "action": "Informiere den Arbeitgeber über die Kasse, bewahre die Bestätigung auf.",
+              "next": "Fertig.",
+              "meaning": "Du erhältst eine Bestätigung und später die elektronische Gesundheitskarte (eGK) – das Foto fordert die Kasse an.",
+              "mistake": "Nicht auf Briefe der Kasse reagieren.",
+              "example": "Fiktives Beispiel: Maja sendet das Foto für die Karte ein.",
+              "where": "Post/App der Kasse."
+            }
+          }
+        ],
+        "terms": [
+          {
+            "where": "Arbeitsvertrag, Beratung durch die Kasse.",
+            "german": "GKV / PKV",
+            "instruction": "Für die meisten Angestellten gilt die GKV. Die PKV ist nur für bestimmte Gruppen möglich; wechseln Sie nicht ohne Beratung.",
+            "example": "Fiktives Beispiel: Maja ist mit einem normalen Gehalt angestellt → sie wählt eine GKV-Kasse.",
+            "id": "gkvpkv",
+            "mistake": "Die PKV unterschreiben, weil sie anfangs günstiger ist, ohne die Bedingungen zu prüfen.",
+            "meaning": "Gesetzliche / private Versicherung"
+          },
+          {
+            "example": "Fiktives Beispiel: Damir ist selbstständig → er fragt bei der Kasse nach der freiwilligen Versicherung.",
+            "id": "pflicht",
+            "instruction": "Bei der Versicherungspflicht meldet der Arbeitgeber an und zahlt einen Teil der Beiträge. Die freiwillige Versicherung betrifft z. B. Selbstständige oder Personen über der Einkommensgrenze – die Kasse prüft dies.",
+            "german": "Versicherungspflicht / freiwillige Versicherung",
+            "where": "Arbeitsvertrag; Kasse.",
+            "meaning": "Pflichtversicherung / freiwillige Versicherung",
+            "mistake": "Den Status ohne Prüfung voraussetzen."
+          },
+          {
+            "mistake": "Nur nach Werbung wählen.",
+            "meaning": "Kassenwahl",
+            "where": "Liste der Kassen des GKV-Spitzenverbandes.",
+            "german": "Krankenkassenwahl",
+            "instruction": "Sie können die AOK Ihres Arbeits-/Wohnortes, jede Ersatzkasse, geöffnete BKK/IKK u. a. (BMG) wählen. Die Kasse muss Sie unabhängig von Ihrem Gesundheitszustand aufnehmen.",
+            "example": "Fiktives Beispiel: Maja vergleicht die Leistungen und den Zusatzbeitrag von drei Kassen.",
+            "id": "kassenwahl"
+          },
+          {
+            "meaning": "Zusatzbeitrag",
+            "mistake": "Eine alte Tabelle aus dem Internet ansehen.",
+            "instruction": "Jede Kasse hat ihren eigenen zusätzlichen Beitragssatz. Aktuelle Werte finden Sie in der Liste des GKV-Spitzenverbandes – hier sind keine Beträge aufgeführt.",
+            "id": "zusatzbeitrag",
+            "example": "Fiktives Beispiel: Maja sieht, dass Kasse A einen niedrigeren Zusatzbeitrag hat als Kasse B.",
+            "german": "Zusatzbeitrag",
+            "where": "Liste des GKV-Spitzenverbandes / Kasse."
+          },
+          {
+            "id": "mitgliedsantrag",
+            "german": "Mitgliedsantrag",
+            "meaning": "Mitgliedsantrag",
+            "example": "Fiktives Beispiel: Maja trägt den Arbeitsbeginn am 01.02. und die Vorversicherung in BiH ein.",
+            "where": "Personalausweis, Steuer-ID, Sozialversicherungsnummer (falls vorhanden), Arbeitgeberdaten.",
+            "instruction": "Füllen Sie den Antrag der neuen Kasse aus: persönliche Daten, Arbeitgeber, Beginn, Vorversicherung. Die Felder hängen von der Kasse ab.",
+            "mistake": "Sich bei zwei Kassen gleichzeitig anmelden."
+          },
+          {
+            "example": "Fiktives Beispiel: Damir sendet die Bescheinigung an den neuen Arbeitgeber.",
+            "meaning": "Mitgliedsbescheinigung",
+            "german": "Mitgliedsbescheinigung",
+            "id": "mitgliedsbescheinigung",
+            "where": "Online-Portal/App der Kasse.",
+            "instruction": "Die Kasse bestätigt die Mitgliedschaft; Arbeitgeber/BA werden heute meist elektronisch informiert, aber manche verlangen dennoch eine Bescheinigung – geben Sie diese ab, falls gefordert.",
+            "mistake": "Den Arbeitgeber nicht über die Kassenwahl informieren."
+          },
+          {
+            "meaning": "Familienversicherung",
+            "example": "Fiktives Beispiel: Maja meldet ihre neugeborene Tochter bei ihrer Kasse an.",
+            "instruction": "Ehepartner/Kinder können kostenlos mitversichert werden, wenn sie die Voraussetzungen erfüllen (z. B. geringes Einkommen). Die Kasse verlangt ein spezielles Formular und Nachweise.",
+            "where": "Personenstandsurkunden, Einkommensnachweise des Familienmitglieds.",
+            "german": "Familienversicherung",
+            "id": "familienversicherung",
+            "mistake": "Glauben, dass das Kind automatisch ohne Anmeldung versichert ist."
+          },
+          {
+            "instruction": "Bei einem Wechsel der GKV senden Sie die Kündigung nicht selbst: Die neue Kasse informiert die alte. Die Kündigungsfrist beträgt 2 Monate; Sonderrechte (z. B. bei Erhöhung des Zusatzbeitrags) können gelten.",
+            "mistake": "Die Zahlungen vor Beginn der neuen Kasse einstellen.",
+            "id": "kuendigung",
+            "german": "Kündigung / elektronischer Meldeaustausch",
+            "meaning": "Kündigung / elektronischer Meldeaustausch",
+            "example": "Fiktives Beispiel: Maja meldet sich im März bei der neuen Kasse an; die Mitgliedschaft beginnt nach Ablauf der Frist.",
+            "where": "gesund.bund.de; Schreiben der alten Kasse."
+          }
+        ]
+      },
+      "steuerklassenwechsel": {
+        "steps": [
+          {
+            "title": "Situation prüfen",
+            "sections": {
+              "where": "Bundesportal.",
+              "mistake": "Heirat im Ausland mit einer Inlandshochzeit verwechseln.",
+              "meaning": "Heirat, Wechsel oder Trennung.",
+              "next": "Kombination.",
+              "action": "Wählen Sie oben Ihre Situation aus.",
+              "example": "Fiktives Beispiel: Hochzeit im Juli."
+            },
+            "id": "t1"
+          },
+          {
+            "sections": {
+              "where": "Finanzamt BW Info.",
+              "next": "Antrag.",
+              "action": "Wenn Sie Leistungen erwarten (ALG, Elterngeld), fragen Sie zuerst bei dieser Stelle nach.",
+              "meaning": "IV/IV, III/V oder Faktor – unverbindliche Erklärung oben.",
+              "mistake": "Nur nach dem monatlichen Gehalt entscheiden.",
+              "example": "Fiktives Beispiel: Maja erwartet Elterngeld → fragt bei der Elterngeldstelle nach."
+            },
+            "title": "Kombination wählen",
+            "id": "t2"
+          },
+          {
+            "id": "t3",
+            "sections": {
+              "next": "Danach.",
+              "action": "Beide unterschreiben; Papier an das Wohnsitzfinanzamt senden.",
+              "where": "ELSTER / FMS.",
+              "meaning": "ELSTER online oder FMS-Papier.",
+              "mistake": "Antrag beim Arbeitgeber statt beim Finanzamt stellen.",
+              "example": "Fiktives Beispiel: Antrag über Mein ELSTER."
+            },
+            "title": "Antrag stellen"
+          },
+          {
+            "title": "Nach der Abgabe",
+            "id": "t4",
+            "sections": {
+              "next": "Fertig.",
+              "action": "Prüfen Sie die nächste Lohnabrechnung.",
+              "where": "Lohnabrechnung.",
+              "mistake": "Die Lohnabrechnung nicht kontrollieren.",
+              "meaning": "Das Finanzamt ändert die ELStAM-Daten; der Arbeitgeber ruft diese elektronisch ab.",
+              "example": "Fiktives Beispiel: Neue Klasse nach 1–2 Monaten sichtbar."
+            }
+          }
+        ],
+        "introduction": "Die Steuerklasse bestimmt, wie viel Steuern der Arbeitgeber monatlich vom Lohn abzieht. Bei einer Heirat erhalten beide Ehegatten automatisch die Klasse IV, wenn beide in Deutschland unbeschränkt steuerpflichtig sind und nicht dauernd getrennt leben (Bundesportal).",
+        "gate": {
+          "title": "Ihre Situation",
+          "question": "Wählen Sie aus (nur auf dieser Seite).",
+          "options": [
+            {
+              "result": "Die Klasse IV/IV erfolgt automatisch (bei Heirat in Deutschland ohne Dokumente; bei Heirat im Ausland ist eine gültige ausländische Heiratsurkunde erforderlich). Wenn Sie III/V oder IV mit Faktor wünschen, stellen Sie einen gemeinsamen Antrag beim Finanzamt.",
+              "label": "Wir haben gerade geheiratet",
+              "id": "married"
+            },
+            {
+              "label": "Wir sind bereits verheiratet und möchten wechseln",
+              "result": "Die Kombination kann gewechselt werden, laut Finanzamt BW bis zum 30. November des laufenden Jahres. Den Antrag stellen beide – online in Mein ELSTER oder auf Papier beim Wohnsitzfinanzamt.",
+              "id": "change"
+            },
+            {
+              "result": "Das dauernde Getrenntleben muss dem Finanzamt gemeldet werden; die Klasse ändert sich (z. B. in I) ab dem Jahr nach der Trennung. Verwenden Sie das entsprechende Formular des Finanzamts.",
+              "label": "Wir leben dauernd getrennt",
+              "id": "separated"
+            }
+          ]
+        },
+        "vocabularyNote": "Begriffe werden thematisch erklärt. Das Papierformular 'Antrag auf Steuerklassenwechsel bei Ehegatten/Lebenspartnern' befindet sich im Formular-Management-System (FMS); BalkanLink hat es nicht Feld für Feld geprüft und gibt daher keine Feldnummern an.",
+        "variation": "Die Wahl der Klasse ändert nicht die endgültige Jahressteuer, sondern den monatlichen Abzug; die Differenz kann sich in der Steuererklärung zeigen. Die Klasse kann auch Leistungen wie Arbeitslosengeld, Elterngeld oder Krankengeld beeinflussen – fragen Sie vor dem Wechsel die zuständige Behörde. Keine Ersparniszusage.",
+        "title": "Steuerklassenwechsel: promjena porezne klase",
+        "modes": {
+          "online": "Online: Mein ELSTER (ELSTER-Konto mit Aktivierung erforderlich). Die Bildschirme können vom Papierformular abweichen.",
+          "paper": "Papier: Antrag aus dem FMS (Steuerformulare → Lohnsteuer (Arbeitnehmer)) herunterladen, beide unterschreiben, an das Wohnsitzfinanzamt senden."
+        },
+        "terms": [
+          {
+            "where": "Bundesportal / Finanzamt.",
+            "mistake": "Zu denken, dass III/V immer Steuern spart.",
+            "german": "Steuerklasse III / IV / V",
+            "instruction": "Ehepaare wählen zwischen IV/IV, III/V und IV/IV mit Faktor.",
+            "options": [
+              {
+                "german": "IV/IV",
+                "meaning": "beide Ehepartner gleiche Klasse – oft wenn die Gehälter ähnlich sind"
+              },
+              {
+                "meaning": "einer III (geringerer Abzug), der andere V (höherer Abzug) – der monatliche Abzug verschiebt sich",
+                "german": "III/V"
+              },
+              {
+                "german": "IV/IV mit Faktor",
+                "meaning": "Faktorverfahren: Abzug wird genauer nach dem Verhältnis der Gehälter verteilt"
+              }
+            ],
+            "id": "klassen",
+            "example": "Fiktives Beispiel: Maja und Damir arbeiten beide und bleiben bei IV/IV.",
+            "meaning": "Kombinationen der Steuerklassen"
+          },
+          {
+            "id": "faktor",
+            "instruction": "Das Finanzamt berechnet den Faktor aus den erwarteten Gehältern beider Ehepartner. Geben Sie die erwarteten Jahresgehälter an – schätzen Sie die Beträge nicht, entnehmen Sie sie den Lohnabrechnungen.",
+            "where": "Lohnabrechnungen beider Ehepartner.",
+            "example": "Fiktives Beispiel: Damir nimmt das Brutto aus der letzten Lohnabrechnung und erwartete Änderungen.",
+            "meaning": "Verfahren mit Faktor",
+            "german": "Faktorverfahren",
+            "mistake": "Netto statt Brutto eintragen."
+          },
+          {
+            "example": "Fiktives Beispiel: Maja und Damir mit III/V planen die Steuererklärung für das nächste Jahr.",
+            "meaning": "obligatorische Steuererklärung",
+            "id": "pflichtveranlagung",
+            "german": "Pflichtveranlagung",
+            "where": "Finanzamt / ELSTER.",
+            "mistake": "Die Erklärung nicht abgeben und von einer Nachzahlung überrascht werden.",
+            "instruction": "Bei III/V und Faktor müssen Sie in der Regel eine Steuererklärung für dieses Jahr abgeben. Eine Steuernachzahlung ist möglich."
+          },
+          {
+            "where": "Finanzamt.",
+            "german": "Zusammenveranlagung / Einzelveranlagung",
+            "example": "Fiktives Beispiel: Maja fragt das Finanzamt vor der Entscheidung.",
+            "meaning": "gemeinsame / getrennte Veranlagung",
+            "instruction": "Ehepaare können zwischen Zusammenveranlagung oder Einzelveranlagung wählen; bei der Zusammenveranlagung haften beide Ehepartner im Allgemeinen für die Steuer. Fragen Sie das Finanzamt oder einen Steuerberater nach den Konsequenzen.",
+            "id": "haftung",
+            "mistake": "Sich ohne Information entscheiden."
+          },
+          {
+            "example": "Fiktives Beispiel: 12 345 678 901 (erfunden).",
+            "where": "Brief des BZSt, Lohnsteuerbescheinigung.",
+            "mistake": "Verwechslung der Steuer-ID mit der Steuernummer.",
+            "meaning": "Steuernummer der Person",
+            "id": "idnr",
+            "german": "Steuer-Identifikationsnummer",
+            "instruction": "Für den Antrag wird die Steuer-ID beider Ehegatten benötigt."
+          },
+          {
+            "meaning": "Unterschrift beider Ehegatten",
+            "mistake": "Antrag mit nur einer Unterschrift absenden.",
+            "where": "Ende des Formulars / ELSTER.",
+            "example": "Fiktives Beispiel: Maja und Damir unterschreiben am selben Tag.",
+            "instruction": "Die Änderung der Kombination wird von beiden beantragt; Unterschrift von beiden oder gemeinsamer ELSTER-Antrag.",
+            "id": "unterschrift",
+            "german": "Unterschrift beider Ehegatten"
+          }
+        ]
+      }
+    }
   }
 }
