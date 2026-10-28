@@ -308,9 +308,9 @@
       "description": "Nicht reglementiert! Du kannst als Koch ohne formale Anerkennung arbeiten. Die Anerkennung ist freiwillig, aber sinnvoll für besseres Gehalt und unbefristeten Vertrag.",
       "durationRange": "3–4 Monate (IHK-Verfahren)",
       "costRange": "100–600 € (je nach IHK)",
-      "notes": "Ohne Anerkennung kannst du sofort arbeiten. Mit Anerkennung erhältst du den Status 'Fachkraft', was zu höherem Tarif (oft +300–500 €/Monat) führt.",
+      "notes": "Ohne Anerkennung kannst du als Koch arbeiten. Die Anerkennung (meist bei der IHK FOSA) ist freiwillig, hilft aber bei Arbeitgebern und beim Visum als Fachkraft; eine bestimmte Gehaltswirkung ist nicht garantiert.",
       "steps": [
-        "OPTIONAL: Antrag auf Anerkennung bei der Industrie- und Handelskammer (IHK)",
+        "OPTIONAL: Antrag auf Anerkennung — für die meisten IHK-Berufe bei der IHK FOSA (Anerkennungs-Finder bestätigt)",
         "Gleichwertigkeitsprüfung mit der deutschen Ausbildung",
         "Bescheid: 'gleichwertig' / 'wesentliche Unterschiede'",
         "Bei Unterschieden — wahlweise Anpassungsqualifizierung"
@@ -333,7 +333,7 @@
         "Antrag bei der Handwerkskammer (HWK) deiner Region",
         "Gleichwertigkeitsprüfung mit der deutschen Ausbildung Elektroniker",
         "Wenn du eine eigene Firma gründen willst — meist Meister-Anerkennung erforderlich",
-        "Bei Unterschieden — Anpassungslehrgang oder Kenntnisprüfung"
+        "Bei Unterschieden — Anpassungsqualifizierung (Kurs oder Praxisphase) zum Ausgleich"
       ],
       "documents": [
         "Gesellenbrief / Hochschulabschluss Elektrotechnik",
@@ -350,11 +350,11 @@
       "costRange": "100–600 € (HWK-Gebühren) + zusätzlich für Meisterverfahren",
       "notes": "Erfahrung auf deutschen Baustellen (Arbeitgeberbescheinigungen) zählt viel — oft wichtiger als die formale Anerkennung.",
       "steps": [
-        "Prüfe deine Bildungseinrichtung in der Anabin-Datenbank",
+        "Im Anerkennungs-Finder Referenzberuf (Maurer oder Beton- und Stahlbetonbauer) und zuständige Kammer prüfen",
         "Als Angestellter: Zeugnis + Übersetzung reichen (ohne Anerkennung)",
         "Für die selbstständige Tätigkeit: Antrag bei der Handwerkskammer (HWK)",
         "Gleichwertigkeitsprüfung mit der deutschen Maurer-Ausbildung",
-        "Bei Unterschieden: Anpassungslehrgang oder Eignungsprüfung",
+        "Bei Unterschieden: Anpassungsqualifizierung",
         "Eintrag in die Handwerksrolle nach Meister-Anerkennung"
       ],
       "documents": [
@@ -373,10 +373,10 @@
       "costRange": "100–600 €",
       "notes": "Großer Fachkräftemangel in Deutschland — oft stellen Werkstätten direkt ein und unterstützen bei der Anerkennung.",
       "steps": [
-        "Prüfe deine Schule in der Anabin-Datenbank",
+        "Im Anerkennungs-Finder Referenzberuf und zuständige HWK prüfen",
         "Antrag bei der Handwerkskammer (HWK) deiner Region",
         "Gleichwertigkeitsprüfung",
-        "Bei Unterschieden: Anpassungslehrgang oder Eignungsprüfung",
+        "Bei Unterschieden: Anpassungsqualifizierung",
         "Für selbstständige Tätigkeit: Meister-Anerkennung"
       ],
       "documents": [
@@ -389,15 +389,15 @@
     },
     "schweisser": {
       "name": "Schweißer:in",
-      "description": "Nicht reglementiert! Du kannst sofort arbeiten. Was wirklich zählt, sind DIN/EN-ISO-Schweißzertifikate (z. B. EN ISO 9606-1) — diese stellen die SLV (Schweißtechnische Lehr- und Versuchsanstalten) aus und werden EU-weit anerkannt.",
+      "description": "Nicht reglementiert. „Schweißer“ ist in Deutschland eine Tätigkeit, kein eigener Ausbildungsberuf. Eine formale Anerkennung ist nur mit abgeschlossener Ausbildung über einen Referenzberuf möglich (z. B. Konstruktionsmechaniker bei der IHK FOSA oder Metallbauer bei der HWK). Schweißzertifikate nach EN ISO 9606 sind ein eigener Nachweis.",
       "durationRange": "1–3 Monate (falls Nachprüfung in einer SLV erforderlich)",
       "costRange": "200–800 € (je Zertifikatstyp) / 100–400 € (Anerkennung des Zeugnisses)",
-      "notes": "Top-Beruf für schnelle Beschäftigung. Das Nachprüfungsverfahren in einer SLV dauert wenige Tage, das Zertifikat ist 6 Monate–3 Jahre gültig (je nach Typ).",
+      "notes": "Reine Schweißerfahrung ohne abgeschlossene Ausbildung begründet keine formale Gleichwertigkeit. Zertifikate nach EN ISO 9606 werden regelmäßig bestätigt und verlängert — Fristen bei der ausstellenden Stelle prüfen.",
       "steps": [
         "Bringe alle vorhandenen Schweißerzertifikate mit (DIN/EN, ISO 9606)",
-        "Wenn aus BA/HR/RS/ME/MK/XK nach EN-Normen — meist direkt anerkannt",
+        "Ausländische Zertifikate (EN ISO 9606): Arbeitgeber bzw. Prüfstelle prüft die Gültigkeit; bei Bedarf neue Prüfung bei einer zugelassenen Stelle (z. B. SLV)",
         "Wenn nicht nach EN — praktische Prüfung in einem deutschen SLV-Zentrum",
-        "OPTIONAL: Anerkennung des Gesellenbriefs bei IHK / HWK für Fachkraft-Status"
+        "OPTIONAL, nur mit abgeschlossener Ausbildung: Anerkennung über einen Referenzberuf (Konstruktionsmechaniker / Metallbauer)"
       ],
       "documents": [
         "Alle Schweißerzertifikate (Original + Übersetzung)",

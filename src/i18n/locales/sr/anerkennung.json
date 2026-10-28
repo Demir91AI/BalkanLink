@@ -308,9 +308,9 @@
       "description": "Nicht-reglementiert! Možeš raditi kao kuhar bez formalnog priznavanja. Priznavanje je dobrovoljno, ali korisno za bolju platu i trajni ugovor.",
       "durationRange": "3–4 mjeseca (IHK postupak)",
       "costRange": "100–600 € (zavisi od IHK)",
-      "notes": "Bez priznavanja možeš odmah početi raditi. S priznavanjem dobiješ status 'Fachkraft' što povlači viši Tarif (često +300-500 €/mj).",
+      "notes": "Bez priznavanja možeš da radiš kao kuvar. Priznavanje (u većini slučajeva kod IHK FOSA) je dobrovoljno, ali pomaže kod poslodavca i vize kao Fachkraft; konkretan uticaj na platu nije garantovan.",
       "steps": [
-        "OPCIONO: predaj zahtjev za Anerkennung kod Industrie- und Handelskammer (IHK)",
+        "OPCIONO: podnesi zahtev za Anerkennung — za većinu IHK zanimanja kod IHK FOSA (Anerkennungs-Finder potvrđuje)",
         "Gleichwertigkeitsprüfung sa nemačkim Ausbildung-om",
         "Bescheid: 'gleichwertig' / 'wesentliche Unterschiede'",
         "Ako se utvrdi razlika — možeš birati Anpassungsqualifizierung"
@@ -333,7 +333,7 @@
         "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
         "Gleichwertigkeitsprüfung sa nemačkim Ausbildung-om Elektroniker",
         "Ako želiš otvoriti vlastitu firmu — često se traži Meister-Anerkennung",
-        "Ako se utvrdi razlika — Anpassungslehrgang ili Kenntnisprüfung"
+        "Ako se utvrde razlike — Anpassungsqualifizierung (kurs ili praksa) za njihovo zatvaranje"
       ],
       "documents": [
         "Svjedočanstvo zanata / fakulteta elektrotehnike",
@@ -350,11 +350,11 @@
       "costRange": "100–600 € (HWK takse) + dodatno za Meister-postupak",
       "notes": "Iskustvo na gradilištima u Nemačkoj (potvrde poslodavca) puno znači — često važnije od formalnog priznavanja.",
       "steps": [
-        "Provjeri ustanovu / školu u Anabin bazi",
+        "Proveri u Anerkennungs-Finderu referentno zanimanje (Maurer ili Beton- und Stahlbetonbauer) i nadležnu komoru",
         "Kao zaposlenik: dovoljno svedočanstvo + prevod (bez priznavanja)",
         "Za samostalan rad: zahtjev kod Handwerkskammer (HWK)",
         "Gleichwertigkeitsprüfung sa nemačkim Maurer Ausbildung-om",
-        "Ako se utvrdi razlika: Anpassungslehrgang ili Eignungsprüfung",
+        "Ako se utvrde razlike: Anpassungsqualifizierung",
         "Eintrag in die Handwerksrolle nakon Meister-priznavanja"
       ],
       "documents": [
@@ -373,10 +373,10 @@
       "costRange": "100–600 €",
       "notes": "Veliki nedostatak radne snage u Nemačkoj — često radionice direktno zapošljavaju i pomažu oko Anerkennung-a.",
       "steps": [
-        "Provjeri školu u Anabin bazi",
+        "Proveri u Anerkennungs-Finderu referentno zanimanje i nadležnu HWK",
         "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
         "Gleichwertigkeitsprüfung",
-        "Ako razlika: Anpassungslehrgang ili Eignungsprüfung",
+        "Ako se utvrde razlike: Anpassungsqualifizierung",
         "Za samostalan rad: Meister-Anerkennung"
       ],
       "documents": [
@@ -389,15 +389,15 @@
     },
     "schweisser": {
       "name": "Zavarivač",
-      "description": "Nicht-reglementiert! Možeš odmah početi raditi. Ono što stvarno vredi su DIN/EN ISO certifikati zavarivanja (npr. EN ISO 9606-1) — njih izdaju SLV (Schweißtechnische Lehr- und Versuchsanstalten) i priznaju se širom EU.",
+      "description": "Nereglementovano. „Zavarivač“ je u Nemačkoj delatnost, ne samostalni Ausbildungsberuf. Formalno priznavanje ide samo uz završeno stručno obrazovanje i preko referentnog zanimanja (npr. Konstruktionsmechaniker kod IHK FOSA ili Metallbauer kod HWK). Sertifikati EN ISO 9606 su poseban dokaz.",
       "durationRange": "1–3 mjeseca (ako trebaš preispit u SLV)",
       "costRange": "200–800 € (po vrsti certifikata) / 100–400 € (priznavanje svedočanstva)",
-      "notes": "Top zanimanje za brzo zapošljavanje. Procedura preispitivanja u SLV traje par dana, certifikat važi 6 meseci–3 god (zavisno od vrste).",
+      "notes": "Samo iskustvo zavarivanja bez završenog obrazovanja ne daje formalnu jednakovrednost. Sertifikati po EN ISO 9606 se redovno potvrđuju i obnavljaju — rokove proveri kod tela koje ih izdaje.",
       "steps": [
         "Donesi sve postojeće zavarivačke certifikate (DIN/EN, ISO 9606)",
-        "Ako su iz BiH/HR/SR/CG/MK/XK po EN normama — često se priznaju direktno",
+        "Strani sertifikati (EN ISO 9606): poslodavac ili nadzorno telo proverava važenje; po potrebi novi ispit kod ovlašćenog tela (npr. SLV)",
         "Ako nisu po EN — položi praktični ispit u SLV centru u Nemačkoj",
-        "OPCIONO: priznaj svedočanstvo zanata kod IHK / HWK za Fachkraft status"
+        "OPCIONO, samo uz završeno stručno obrazovanje: priznavanje preko referentnog zanimanja (Konstruktionsmechaniker / Metallbauer)"
       ],
       "documents": [
         "Svi zavarivački certifikati (originalni + prevod)",

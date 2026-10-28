@@ -425,7 +425,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
     description:
       "Nicht-reglementiert! Možeš raditi kao kuhar bez formalnog priznavanja. Priznavanje je dobrovoljno, ali korisno za bolju platu i trajni ugovor.",
     steps: [
-      "OPCIONO: predaj zahtjev za Anerkennung kod Industrie- und Handelskammer (IHK)",
+      "OPCIONO: predaj zahtjev za Anerkennung — za većinu IHK zanimanja kod IHK FOSA (Anerkennungs-Finder potvrđuje)",
       "Gleichwertigkeitsprüfung sa njemačkim Ausbildung-om",
       "Bescheid: 'gleichwertig' / 'wesentliche Unterschiede'",
       "Ako se utvrdi razlika — možeš birati Anpassungsqualifizierung",
@@ -448,7 +448,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
       { label: "BQ-Portal (IHK)", url: "https://www.bq-portal.de/" },
     ],
     notes:
-      "Bez priznavanja možeš odmah početi raditi. S priznavanjem dobiješ status 'Fachkraft' što povlači viši Tarif (često +300-500 €/mj).",
+      "Bez priznavanja možeš raditi kao kuhar. Priznavanje (za većinu slučajeva kod IHK FOSA) je dobrovoljno, ali pomaže kod poslodavca i vize kao Fachkraft; konkretan uticaj na platu nije garantovan.",
   },
   {
     id: "elektroniker",
@@ -464,7 +464,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
       "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
       "Gleichwertigkeitsprüfung sa njemačkim Ausbildung-om Elektroniker",
       "Ako želiš otvoriti vlastitu firmu — često se traži Meister-Anerkennung",
-      "Ako se utvrdi razlika — Anpassungslehrgang ili Kenntnisprüfung",
+      "Ako se utvrde razlike — Anpassungsqualifizierung (kurs ili praksa) za njihovo zatvaranje",
     ],
     documents: [
       "Svjedočanstvo zanata / fakulteta elektrotehnike",
@@ -497,11 +497,11 @@ export const PROFESSIONS: ProfessionInfo[] = [
     description:
       "Zanat sa zaštićenim zvanjem za samostalan rad. Kao zaposlenik (Angestellter) ne treba formalno priznavanje. Za otvaranje firme — Meister-Anerkennung kod HWK.",
     steps: [
-      "Provjeri ustanovu / školu u Anabin bazi",
+      "Provjeri u Anerkennungs-Finderu referentno zanimanje (Maurer ili Beton- und Stahlbetonbauer) i nadležnu komoru",
       "Kao zaposlenik: dovoljno svjedočanstvo + prevod (bez priznavanja)",
       "Za samostalan rad: zahtjev kod Handwerkskammer (HWK)",
       "Gleichwertigkeitsprüfung sa njemačkim Maurer Ausbildung-om",
-      "Ako se utvrdi razlika: Anpassungslehrgang ili Eignungsprüfung",
+      "Ako se utvrde razlike: Anpassungsqualifizierung",
       "Eintrag in die Handwerksrolle nakon Meister-priznavanja",
     ],
     documents: [
@@ -536,10 +536,10 @@ export const PROFESSIONS: ProfessionInfo[] = [
     description:
       "Reglementovano za samostalan rad. Kao zaposlenik u radionici nije obavezno priznavanje, ali olakšava bolju platu i status Fachkraft.",
     steps: [
-      "Provjeri školu u Anabin bazi",
+      "Provjeri u Anerkennungs-Finderu referentno zanimanje i nadležnu HWK",
       "Predaj zahtjev kod Handwerkskammer (HWK) tvog regiona",
       "Gleichwertigkeitsprüfung",
-      "Ako razlika: Anpassungslehrgang ili Eignungsprüfung",
+      "Ako se utvrde razlike: Anpassungsqualifizierung",
       "Za samostalan rad: Meister-Anerkennung",
     ],
     documents: [
@@ -570,12 +570,12 @@ export const PROFESSIONS: ProfessionInfo[] = [
     jurisdiction: "Bund",
     topTen: false,
     description:
-      "Nicht-reglementiert! Možeš odmah početi raditi. Ono što stvarno vrijedi su DIN/EN ISO certifikati zavarivanja (npr. EN ISO 9606-1) — njih izdaju SLV (Schweißtechnische Lehr- und Versuchsanstalten) i priznaju se širom EU.",
+      "Nereglementovano. „Zavarivač“ je u Njemačkoj djelatnost, ne samostalni Ausbildungsberuf. Formalno priznavanje ide samo uz završeno strukovno obrazovanje i preko referentnog zanimanja (npr. Konstruktionsmechaniker kod IHK FOSA ili Metallbauer kod HWK). Certifikati EN ISO 9606 su zaseban dokaz.",
     steps: [
       "Donesi sve postojeće zavarivačke certifikate (DIN/EN, ISO 9606)",
-      "Ako su iz BiH/HR/SR/CG/MK/XK po EN normama — često se priznaju direktno",
+      "Strani certifikati (EN ISO 9606): poslodavac ili nadzorno tijelo provjerava važenje; po potrebi novi ispit kod ovlaštenog tijela (npr. SLV)",
       "Ako nisu po EN — položi praktični ispit u SLV centru u Njemačkoj",
-      "OPCIONO: priznaj svjedočanstvo zanata kod IHK / HWK za Fachkraft status",
+      "OPCIONO, samo uz završeno strukovno obrazovanje: priznavanje preko referentnog zanimanja (Konstruktionsmechaniker / Metallbauer)",
     ],
     documents: [
       "Svi zavarivački certifikati (originalni + prevod)",
@@ -598,7 +598,7 @@ export const PROFESSIONS: ProfessionInfo[] = [
       },
     ],
     notes:
-      "Top zanimanje za brzo zapošljavanje. Procedura preispitivanja u SLV traje par dana, certifikat važi 6 mjeseci–3 god (zavisno od vrste).",
+      "Samo iskustvo zavarivanja bez završenog obrazovanja ne daje formalnu jednakovrijednost. Certifikati po EN ISO 9606 se redovno potvrđuju i obnavljaju — rokove provjeri kod tijela koje ih izdaje.",
   },
   {
     id: "it_fachkraft",
