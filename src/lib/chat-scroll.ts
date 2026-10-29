@@ -36,3 +36,15 @@ export function followAfterScroll(opts: { wasFollowing: boolean; userInitiated: 
 export function mayPinOnResize(opts: { following: boolean; touching: boolean }): boolean {
   return opts.following && !opts.touching;
 }
+
+/**
+ * Where to scroll while an answer streams and the reader is following.
+ * Follows the newest text, but never past the start of the answer being written: a large chunk
+ * (or a prepared answer that arrives in one piece) keeps its first line in view instead of
+ * jumping to its end. `capped` means the answer start was reached → stop following.
+ */
+export function streamFollowTop(opts: { scrollHeight: number; clientHeight: number; answerTop: number; margin?: number }): { top: number; capped: boolean } {
+  const bottom = Math.max(0, opts.scrollHeight - opts.clientHeight);
+  const limit = Math.max(0, opts.answerTop - (opts.margin ?? 12));
+  return limit < bottom ? { top: limit, capped: true } : { top: bottom, capped: false };
+}
