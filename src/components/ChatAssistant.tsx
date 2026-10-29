@@ -162,18 +162,18 @@ const ChatMarkdown = React.memo(function ChatMarkdown({ content }: { content: st
           }
           return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</a>;
         },
-        p: ({ children }) => <p className="mb-2 last:mb-0 break-words">{children}</p>,
-        blockquote: ({ children }) => <blockquote className="my-2 border-l-2 border-[hsl(45,93%,49%)]/50 pl-3 text-white/75">{children}</blockquote>,
+        p: ({ children }) => <p className="mb-2.5 last:mb-0 break-words leading-relaxed">{children}</p>,
+        blockquote: ({ children }) => <blockquote className="my-2.5 border-l-2 border-[hsl(45,93%,49%)]/40 pl-3 text-[12px] text-white/60">{children}</blockquote>,
         code: ({ children }) => <code className="rounded bg-white/10 px-1 py-0.5 text-[12px]">{children}</code>,
-        hr: () => <hr className="my-2 border-white/10" />,
-        ol: ({ children }) => <ol className="mb-2 list-decimal space-y-0.5 pl-5">{children}</ol>,
-        ul: ({ children }) => <ul className="mb-2 list-disc space-y-0.5 pl-5">{children}</ul>,
-        li: ({ children }) => <li className="text-[13px] leading-snug">{children}</li>,
+        hr: () => <hr className="my-3 border-white/[0.06]" />,
+        ol: ({ children }) => <ol className="my-2.5 list-decimal space-y-1.5 pl-5 marker:text-[hsl(45,93%,55%)]/80">{children}</ol>,
+        ul: ({ children }) => <ul className="my-2.5 list-disc space-y-1.5 pl-5 marker:text-[hsl(45,93%,55%)]/70">{children}</ul>,
+        li: ({ children }) => <li className="text-[13px] leading-relaxed pl-0.5">{children}</li>,
         strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
-        h1: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
-        h2: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
-        h3: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
-        h4: ({ children }) => <h4 className="text-[13px] font-bold mt-2 mb-1 text-white">{children}</h4>,
+        h1: ({ children }) => <h4 className="text-[13px] font-semibold mt-3 mb-1.5 first:mt-0 text-white">{children}</h4>,
+        h2: ({ children }) => <h4 className="text-[13px] font-semibold mt-3 mb-1.5 first:mt-0 text-white">{children}</h4>,
+        h3: ({ children }) => <h4 className="text-[13px] font-semibold mt-3 mb-1.5 first:mt-0 text-white">{children}</h4>,
+        h4: ({ children }) => <h4 className="text-[13px] font-semibold mt-3 mb-1.5 first:mt-0 text-white">{children}</h4>,
       }}
     >
       {linkedContent}
@@ -564,7 +564,17 @@ export default function ChatAssistant() {
       setShowLatest(false);
       pinToBottom();
     } else if (action === "bottom") {
-      pinToBottom();
+      const c = scrollRef.current;
+      const answer = loading && last?.role === "assistant"
+        ? c.querySelector<HTMLElement>(`[data-msg-idx="${messages.length - 1}"]`) : null;
+      if (answer) {
+        const answerTop = c.scrollTop + answer.getBoundingClientRect().top - c.getBoundingClientRect().top;
+        const { top, capped } = streamFollowTop({ scrollHeight: c.scrollHeight, clientHeight: c.clientHeight, answerTop });
+        c.scrollTop = top;
+        if (capped) { followingRef.current = false; setShowLatest(true); }
+      } else {
+        pinToBottom();
+      }
     } else if (!followingRef.current) {
       setShowLatest(true);
     }
@@ -1238,6 +1248,9 @@ export default function ChatAssistant() {
                             {msg.role === "assistant" ? (
                               <>
                                 <ChatMarkdown content={msg.content} />
+                                {loading && i === messages.length - 1 && (
+                                  <span className="ml-0.5 inline-block h-3 w-1.5 translate-y-0.5 rounded-sm bg-[hsl(45,93%,55%)]/70 motion-safe:animate-pulse" aria-hidden="true" />
+                                )}
                                 {(msg as any)._retry && lastFailedMsgRef.current && (
                                   <button
                                     onClick={() => {
@@ -1298,12 +1311,16 @@ export default function ChatAssistant() {
                     ))}
 
                     {loading && messages[messages.length - 1]?.role === "user" && (
-                      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                        <div role="status" aria-live="polite" className="inline-flex items-center gap-2 rounded-xl rounded-bl-none px-3 py-2 text-[12px] text-white/70" style={{ background: "#1F2937" }}>
-                          <span className="h-1.5 w-1.5 rounded-full bg-[hsl(45,93%,55%)] motion-safe:animate-pulse" aria-hidden="true" />
-                          {tc("chatScroll.preparing")}
+                      <div className="flex justify-start">
+                        <div className="max-w-[88%]">
+                          <div role="status" aria-live="polite" className="inline-flex items-center gap-1.5 rounded-xl rounded-bl-none px-4 py-3" style={{ background: "#1F2937" }}>
+                            {[0, 1, 2].map(d => (
+                              <span key={d} className="h-1.5 w-1.5 rounded-full bg-[hsl(45,93%,55%)]/80 motion-safe:animate-pulse" style={{ animationDelay: `${d * 180}ms` }} aria-hidden="true" />
+                            ))}
+                            <span className="sr-only">{tc("chatScroll.preparing")}</span>
+                          </div>
                         </div>
-                      </motion.div>
+                      </div>
                     )}
                   </div>
                   {/* Overlay (outside the scroll content) so showing/hiding it never changes the list height. */}
