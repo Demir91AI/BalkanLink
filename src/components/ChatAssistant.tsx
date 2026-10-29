@@ -3,12 +3,12 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { SEO } from "@/components/SEO";
 import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User, Trash2, Minus } from "lucide-react";
 import { toast } from "sonner";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { useTranslation } from "react-i18next";
-import { chatScrollAction, followAfterScroll, mayPinOnResize, streamFollowTop, USER_GESTURE_WINDOW_MS } from "@/lib/chat-scroll";
+import { answerStartTop, ANSWER_REVEAL_MS, chatScrollAction, followAfterScroll, glideScrollTop, mayPinOnResize, streamFollowTop, USER_GESTURE_WINDOW_MS } from "@/lib/chat-scroll";
 import { nextStepCards } from "@/lib/assistant-next-steps";
 import { clearConfirmedHistory } from "@/lib/phase1-reliability/history";
 import { GUEST_CHAT_KEY, chatKeyFor, loadUserChat, purgeAllChats, saveUserChat } from "@/lib/chat-persistence";
@@ -548,6 +548,9 @@ export default function ChatAssistant() {
   // detaches or re-attaches; content growth, streaming chunks, the typing line, keyboard resize,
   // focus and remounts never move a reader who scrolled up. Sending a message re-attaches.
   const prevLenRef = useRef(messages.length);
+  const glideCancelRef = useRef<(() => void) | null>(null);
+  const prefersReducedMotion = !!useReducedMotion();
+  useEffect(() => () => glideCancelRef.current?.(), []);
   const pinToBottom = useCallback(() => {
     const c = scrollRef.current;
     if (c) c.scrollTop = c.scrollHeight;
@@ -559,6 +562,25 @@ export default function ChatAssistant() {
     const last = messages[messages.length - 1];
     const justSent = grew && last?.role === "user";
     const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading, touching: touchingRef.current });
+    if (grew && last?.role === "assistant" && action === "bottom") {
+      // A new answer appeared (first chunk, or a whole prepared answer): glide once to its first
+      // line, then stop following so later chunks never move the view.
+      const c = scrollRef.current;
+      const idx = messages.length - 1;
+      followingRef.current = false;
+      glideCancelRef.current?.();
+      requestAnimationFrame(() => {
+        const answer = c.querySelector<HTMLElement>(`[data-msg-idx="${idx}"]`);
+        if (!answer || touchingRef.current) return;
+        const answerTop = c.scrollTop + answer.getBoundingClientRect().top - c.getBoundingClientRect().top;
+        const to = answerStartTop({ scrollHeight: c.scrollHeight, clientHeight: c.clientHeight, answerTop });
+        glideCancelRef.current = glideScrollTop(c, to, {
+          reduced: prefersReducedMotion,
+          onDone: () => { glideCancelRef.current = null; setShowLatest(c.scrollHeight - c.scrollTop - c.clientHeight > 24); },
+        });
+      });
+      return;
+    }
     if (action === "user-top") {
       followingRef.current = true;
       setShowLatest(false);
