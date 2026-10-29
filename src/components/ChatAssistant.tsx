@@ -1,3 +1,4 @@
+import { stripLangPrefix } from "@/lib/i18n-paths";
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { SEO } from "@/components/SEO";
 import { X, Send, Copy, ShieldCheck, ExternalLink, BookOpen, ThumbsUp, ThumbsDown, Camera, Save, MessageCircle, Clock, User, Trash2, Minus } from "lucide-react";
@@ -988,7 +989,7 @@ export default function ChatAssistant() {
           Ostale stranice: kad je minimiziran (kao ranije). Homepage: na mobilnom
           uvijek dok panel nije otvoren; na desktopu samo nakon otvaranja u sesiji. */}
       <AnimatePresence>
-        {!open && (location.pathname === "/" || panelState === "minimized") && (
+        {!open && (stripLangPrefix(location.pathname) === "/" || panelState === "minimized") && (
           <motion.button
             type="button"
             aria-label={t("assistantFab.open")}
@@ -996,7 +997,7 @@ export default function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className={`fixed right-4 z-50 group cursor-pointer rounded-full bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] md:bottom-6 md:right-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d1526] ${location.pathname === "/" && !(panelState === "minimized" && openedThisSessionRef.current) ? "md:hidden" : ""}`}
+            className={`fixed right-4 z-50 group cursor-pointer rounded-full bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] md:bottom-6 md:right-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d1526] ${stripLangPrefix(location.pathname) === "/" && !(panelState === "minimized" && openedThisSessionRef.current) ? "md:hidden" : ""}`}
             onClick={openAssistant}
           >
             <span aria-hidden className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg bg-[hsl(220,30%,12%)] border border-white/10 px-2.5 py-1 text-[10px] font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
