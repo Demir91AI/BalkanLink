@@ -105,7 +105,7 @@ export function buildConversationGuideReply(slug: SourceTopic, language: string,
   let start = messages.length - 1;
   while (start > 0) {
     const m = messages[start - 1];
-    if (m.role === "user" && typeof m.content === "string" && !followUp.test(m.content.trim()) && resolveSourceGuide(m.content) !== slug) break;
+    if (m.role === "user" && typeof m.content === "string" && !isShortFollowUp(m.content) && resolveSourceGuide(m.content) !== slug) break;
     start--;
   }
   const userContext = messages.slice(start).filter(m => m.role === "user" && typeof m.content === "string").map(m => String(m.content).toLowerCase()).join("\n");
@@ -143,7 +143,7 @@ export function buildConversationGuideReply(slug: SourceTopic, language: string,
   }
   let ids: string[];
   if (/svi koraci|sve korake|alle schritte/.test(text)) ids = guide.steps.map(s => s.id);
-  else if (/dokumenti|priprem|unterlagen|vorbereitung/.test(text)) ids = slug === "kindergeld" ? ["documents", "prepare"] : slug === "anmeldung" ? ["housing", "prepare"] : ["evidence"];
+  else if (/dokument|priprem|unterlagen|vorbereitung/.test(text)) ids = slug === "kindergeld" ? ["documents", "prepare"] : slug === "anmeldung" ? ["housing", "prepare"] : ["evidence"];
   else if (/portal|online|papir/.test(text)) ids = slug === "kindergeld" ? ["portal"] : slug === "anmeldung" ? ["move", "submit"] : ["office", "fill"];
   else if (/predaj|slanje|potpis|einreichung|unterschrift|gdje|gde|\bwo\b/.test(text)) ids = slug === "kindergeld" ? ["submit", "after"] : slug === "anmeldung" ? ["submit", "after"] : ["submit", "after"];
   else ids = slug === "kindergeld" ? ["documents", "portal", "submit"] : slug === "anmeldung" ? ["move", "housing", "submit"] : ["office", "evidence", "submit"];
