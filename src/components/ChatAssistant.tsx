@@ -657,6 +657,18 @@ export default function ChatAssistant() {
     return () => cancelAnimationFrame(raf);
   }, [open]);
 
+  // Mobile keyboard: when the visible area shrinks, keep the newest text visible only if following.
+  useEffect(() => {
+    const vv = typeof window !== "undefined" ? window.visualViewport : null;
+    if (!open || !vv) return;
+    const onResize = () => {
+      const c = scrollRef.current;
+      if (c && followingRef.current) c.scrollTop = c.scrollHeight;
+    };
+    vv.addEventListener("resize", onResize);
+    return () => vv.removeEventListener("resize", onResize);
+  }, [open]);
+
   const handleChatScroll = useCallback(() => {
     const c = scrollRef.current;
     if (!c) return;
