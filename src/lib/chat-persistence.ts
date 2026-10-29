@@ -40,12 +40,12 @@ export function saveUserChat<M>(storage: StorageLike, userId: string, signInAt: 
   } catch { /* quota/private mode */ }
 }
 
-/** Remove every chat cache key (all users + guest). */
-export function purgeAllChats(storage: StorageLike): void {
+/** Remove every chat cache key (all users, and the guest chat unless `keepGuest`). */
+export function purgeAllChats(storage: StorageLike, opts: { keepGuest?: boolean } = {}): void {
   const keys: string[] = [];
   for (let i = 0; i < storage.length; i++) {
     const k = storage.key(i);
-    if (k && k.startsWith(USER_PREFIX)) keys.push(k);
+    if (k && k.startsWith(USER_PREFIX) && !(opts.keepGuest && k === GUEST_CHAT_KEY)) keys.push(k);
   }
   keys.forEach((k) => { try { storage.removeItem(k); } catch { /* ignore */ } });
 }

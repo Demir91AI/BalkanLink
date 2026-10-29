@@ -47,3 +47,15 @@ describe("chat persistence per user and sign-in", () => {
     expect(loadUserChat(s, "A", "t1")).toEqual([]);
   });
 });
+
+describe("signed-out app start", () => {
+  it("removes account chats but may keep the guest chat", () => {
+    const s = (globalThis as any).localStorage as Storage;
+    s.clear();
+    saveUserChat(s, "A", "t1", [{ role: "user", content: "x" }]);
+    s.setItem(GUEST_CHAT_KEY, "[]");
+    purgeAllChats(s, { keepGuest: true });
+    expect(s.getItem(chatKeyFor("A"))).toBeNull();
+    expect(s.getItem(GUEST_CHAT_KEY)).toBe("[]");
+  });
+});
