@@ -634,7 +634,7 @@ export default function ChatAssistant() {
     return () => { vv?.removeEventListener("resize", onResize); window.removeEventListener("resize", onResize); };
   }, [open, pinToBottom]);
 
-  const markGesture = useCallback(() => { lastGestureAtRef.current = Date.now(); }, []);
+  const markGesture = useCallback(() => { lastGestureAtRef.current = Date.now(); glideCancelRef.current?.(); glideCancelRef.current = null; }, []);
   const detach = useCallback(() => {
     markGesture();
     if (followingRef.current) { followingRef.current = false; }
@@ -1264,7 +1264,7 @@ export default function ChatAssistant() {
                     )}
 
                     {messages.map((msg, i) => (
-                      <motion.div key={i} data-msg-idx={i} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.1 }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                      <motion.div key={i} data-msg-idx={i} data-msg-role={msg.role} initial={prefersReducedMotion ? false : (msg.role === "assistant" ? { opacity: 0, y: 6 } : { opacity: 0, y: 4 })} animate={{ opacity: 1, y: 0 }} transition={{ duration: msg.role === "assistant" ? ANSWER_REVEAL_MS / 1000 : 0.1, ease: "easeOut" }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                         <div className="max-w-[88%] space-y-1">
                           <div className={`px-4 py-3 text-[13px] leading-relaxed ${msg.role === "user" ? "rounded-xl rounded-br-none bg-[hsl(45,93%,49%)] text-black" : "rounded-xl rounded-bl-none text-white/90"}`} style={msg.role === "assistant" ? { background: "#1F2937" } : undefined}>
                             {msg.role === "assistant" ? (
