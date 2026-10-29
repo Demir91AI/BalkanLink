@@ -105,12 +105,12 @@ describe("isolated transport reliability and call-count profiling", () => {
     expect(payloads[1].model).toBe("google/gemini-2.5-flash");
     expect(payloads[1].max_tokens).toBe(1024);
   });
-  it("network rejection after reservation releases exactly once, without retry or commit", async () => {
-    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline"));
+  it("network rejection tries one fallback model, then releases exactly once without commit", async () => {
+    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline")).mockRejectedValueOnce(new Error("offline"));
     const r = await e.handler(request("Šta je nepoznata usluga?"));
     expect(r.status).toBe(500); expect(e.reserve).toHaveBeenCalledTimes(1);
     expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
-    expect(e.fetchMock).toHaveBeenCalledTimes(1);
+    expect(e.fetchMock).toHaveBeenCalledTimes(2);
   });
   it("slow upstream headers wait without a duplicate call, preserving successful settlement", async () => {
     const e = endpoint(); let resolve: ((response: Response) => void) | undefined;
@@ -135,7 +135,7 @@ describe("isolated transport reliability and call-count profiling", () => {
     expect(e.reserve).toHaveBeenCalledTimes(1); expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled(); expect(e.fetchMock).toHaveBeenCalledTimes(1);
   });
   it("failed release after network rejection is not retried or compensated", async () => {
-    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline")); e.release.mockRejectedValueOnce(new Error("unconfirmed"));
+    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline")).mockRejectedValueOnce(new Error("offline")); e.release.mockRejectedValueOnce(new Error("unconfirmed"));
     expect((await e.handler(request("Šta je nepoznata usluga?"))).status).toBe(500);
     expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
   });
@@ -182,7 +182,8 @@ describe("bounded conversational guidance", () => {
   for (const lang of ["bs","hr","sr","de"] as const) {
     it(`${lang}: asks only missing Kindergeld case, not personal details; known newborn does not repeat it`, () => {
       const q = guides.buildConversationGuideReply("kindergeld", lang, [message("Kindergeld")]);
-      expect(q).toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldQuestion);
+      expect(q).not.toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldQuestion);
+      expect(q).toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldGeneral.title);
       const reply = guides.buildConversationGuideReply("kindergeld", lang, [message(question)]);
       expect(reply).not.toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldQuestion);
       expect(reply.match(/\n\n\d\. \*\*/g)).toHaveLength(3);
@@ -233,7 +234,7 @@ describe("bounded conversational guidance", () => {
   }
   it("one short case answer inherits the question; arbitrary answers and topic switches do not", () => {
     expect(guides.resolveConversationGuide([message("Kindergeld"),message("novorođenče u Njemačkoj")])).toBe("kindergeld");
-    expect(guides.resolveConversationGuide([message(question),message("koliko imam prava na novac?")])).toBeNull();
+    expect(guides.resolveConversationGuide([message(question),message("koliko imam prava na novac?")])).toBe("kindergeld");
     expect(guides.resolveConversationGuide([message(question),message("Wohngeld")])).toBe("wohngeld");
     expect(guides.resolveConversationGuide([message("Kindergeld i Wohngeld"),message("Dokumenti")])).toBeNull();
   });

@@ -62,11 +62,12 @@ export type GuideMessage = { role: string; content: unknown };
 export type SourceTopic = keyof typeof GUIDE_SNAPSHOT.sources;
 const followUp = /^(?:priprema|dokumenti|koji dokumenti(?: mi trebaju)?|šta pripremiti|sta pripremiti|što pripremiti|portal|online|papir|predaja|slanje|potpis|svi koraci|sve korake|nastavi|dalje|novorođenče(?: u (?:njemačkoj|nemačkoj))?|novorođenče|beba|punoljetno dijete|punoletno dete|dijete u inostranstvu|dete u inostranstvu|unterlagen|vorbereitung|welche unterlagen|einreichung|unterschrift|alle schritte|weiter|neugeborenes(?: in deutschland)?|volljähriges kind|kind im ausland)[?.!\s]*$/i;
 
-const shortCue = /^(?:a\s+|i\s+|und\s+)?(?:da|ne|ja|nein|jeste|nije|ok|okay|može|moze|kako|wie|koliko|wie ?viel|gdje|gde|wo|rok|frist|bis wann|do kada|uslov|uvjet|uslovi|uvjeti|voraussetzung|dokument|unterlagen|portal|predaj|podnosi|podnes|beantrag|novorođen|novorođenče|beba|punoljet|punolet|inostranstv|ausland|iznos|betrag|koji|koje|šta|sta|što|was|welche)/i;
+const yesNo = /^(?:da|ne|ja|nein|jeste|nije|ok|okay|može|moze)\b/i;
+const shortCue = /(?:uslov|uvjet|voraussetz|dokument|unterlagen|koliko|iznos|wie ?viel|betrag|gdje|\bgde\b|\bwo\b|\brok\b|rokov|frist|bis wann|do kada|predaj|podnosi|podnes|beantrag|portal|novorođen|beba|punoljet|punolet|inostranstv|ausland)/i;
 /** Short context-dependent follow-ups ("Da", "a koliko?", "gdje to predajem?", "Koji su opći uslovi?"). */
 export function isShortFollowUp(text: string): boolean {
   const t = text.trim();
-  return t.length > 0 && t.length <= 70 && !detectAssistantGuide(t) && (followUp.test(t) || shortCue.test(t));
+  return t.length > 0 && t.length <= 70 && !detectAssistantGuide(t) && (followUp.test(t) || yesNo.test(t) || shortCue.test(t));
 }
 function topicOfAssistant(content: unknown): SourceTopic | null {
   if (typeof content !== "string") return null;
