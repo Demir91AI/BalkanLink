@@ -1042,9 +1042,10 @@ export default function ChatAssistant() {
       <AnimatePresence>
         {open && (
           <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} onClick={handleMinimize} className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm" />
+            <motion.div data-pull-refresh="off" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} onClick={handleMinimize} className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm" />
 
             <motion.div
+              data-pull-refresh="off"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -1158,6 +1159,7 @@ export default function ChatAssistant() {
                   )}
 
                   {/* Chat messages area */}
+                  <div className="relative flex-1 min-h-0 flex flex-col">
                   <div ref={scrollRef} onScroll={handleChatScroll} {...gestureHandlers} className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-3">
                     {showOnboarding && (
                       <ChatOnboarding onComplete={handleOnboardingComplete} />
@@ -1302,13 +1304,15 @@ export default function ChatAssistant() {
                         </div>
                       </motion.div>
                     )}
-                    {showLatest && (
-                      <div className="sticky bottom-0 flex justify-center pointer-events-none">
-                        <button type="button" onClick={jumpToLatest} className="pointer-events-auto inline-flex items-center gap-1 rounded-full border border-[hsl(45,93%,49%)]/40 bg-[#111827] px-3 py-1.5 text-[11px] font-semibold text-[hsl(45,93%,60%)] shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(45,93%,49%)]">
-                          ↓ {tc("chatScroll.latest")}
-                        </button>
-                      </div>
-                    )}
+                  </div>
+                  {/* Overlay (outside the scroll content) so showing/hiding it never changes the list height. */}
+                  {showLatest && (
+                    <div className="absolute inset-x-0 bottom-3 flex justify-center pointer-events-none">
+                      <button type="button" onClick={jumpToLatest} className="pointer-events-auto inline-flex items-center gap-1 rounded-full border border-[hsl(45,93%,49%)]/40 bg-[#111827] px-3 py-1.5 text-[11px] font-semibold text-[hsl(45,93%,60%)] shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(45,93%,49%)]">
+                        ↓ {tc("chatScroll.latest")}
+                      </button>
+                    </div>
+                  )}
                   </div>
 
                   {/* Disclaimer */}
