@@ -630,7 +630,7 @@ export default function ChatAssistant() {
     if (!c) return;
     const near = isNearBottom(c);
     followingRef.current = near;
-    if (near) setShowLatest(false);
+    setShowLatest(!near);
   }, []);
 
   const jumpToLatest = useCallback(() => {
