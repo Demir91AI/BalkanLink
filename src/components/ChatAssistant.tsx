@@ -544,80 +544,99 @@ export default function ChatAssistant() {
     if (saved === "de") setChatLang("de");
   }, []);
 
-  // Scroll rules: show the user's own new question once; follow streaming output only while
-  // the user stays near the bottom; never pull a user who scrolled up back down.
+  // Scroll rules (see chat-scroll.ts): only the user's own scrolling (touch/wheel/keys/scrollbar)
+  // detaches or re-attaches; content growth, streaming chunks, the typing line, keyboard resize,
+  // focus and remounts never move a reader who scrolled up. Sending a message re-attaches.
   const prevLenRef = useRef(messages.length);
+  const pinToBottom = useCallback(() => {
+    const c = scrollRef.current;
+    if (c) c.scrollTop = c.scrollHeight;
+  }, []);
   useEffect(() => {
     if (!scrollRef.current) return;
-    const container = scrollRef.current;
-
     const grew = messages.length > prevLenRef.current;
     prevLenRef.current = messages.length;
     const last = messages[messages.length - 1];
     const justSent = grew && last?.role === "user";
-
-    // Onboarding/benefit views: stay at the bottom only while the user is following.
-    if (showOnboarding || showBenefitCalc) {
-      if (justSent || followingRef.current) {
-        followingRef.current = true;
-        container.scrollTop = container.scrollHeight;
-      } else setShowLatest(true);
-      return;
-    }
-    const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading });
-
+    const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading, touching: touchingRef.current });
     if (action === "user-top") {
-      // Own message: follow the conversation from here (instant, no competing smooth animation).
       followingRef.current = true;
       setShowLatest(false);
-      container.scrollTop = container.scrollHeight;
-      return;
-    }
-    if (action === "bottom") {
-      container.scrollTop = container.scrollHeight;
+      pinToBottom();
+    } else if (action === "bottom") {
+      pinToBottom();
     } else if (!followingRef.current) {
       setShowLatest(true);
     }
-  }, [messages, loading, showOnboarding, showBenefitCalc]);
+  }, [messages, loading, showOnboarding, showBenefitCalc, pinToBottom]);
 
-  // On (re)open, start at the newest message once.
+  // On (re)open or remount: restore this owner's reading spot if they had scrolled up, else newest.
   useEffect(() => {
     if (!open) return;
     const raf = requestAnimationFrame(() => {
       const c = scrollRef.current;
       if (!c) return;
-      c.scrollTop = c.scrollHeight;
-      followingRef.current = true;
-      setShowLatest(false);
+      const saved = savedScroll;
+      if (saved && saved.owner === chatOwnerRef.current && !saved.following) {
+        c.scrollTop = saved.top;
+        followingRef.current = false;
+        setShowLatest(true);
+      } else {
+        c.scrollTop = c.scrollHeight;
+        followingRef.current = true;
+        setShowLatest(false);
+      }
     });
     return () => cancelAnimationFrame(raf);
   }, [open]);
 
-  // Mobile keyboard: when the visible area shrinks, keep the newest text visible only if following.
+  // Mobile keyboard / viewport resize: keep newest visible only while following.
   useEffect(() => {
     const vv = typeof window !== "undefined" ? window.visualViewport : null;
-    if (!open || !vv) return;
+    if (!open) return;
     const onResize = () => {
-      const c = scrollRef.current;
-      if (c && followingRef.current) c.scrollTop = c.scrollHeight;
+      if (mayPinOnResize({ following: followingRef.current, touching: touchingRef.current })) pinToBottom();
     };
-    vv.addEventListener("resize", onResize);
-    return () => vv.removeEventListener("resize", onResize);
-  }, [open]);
+    vv?.addEventListener("resize", onResize);
+    window.addEventListener("resize", onResize);
+    return () => { vv?.removeEventListener("resize", onResize); window.removeEventListener("resize", onResize); };
+  }, [open, pinToBottom]);
+
+  const markGesture = useCallback(() => { lastGestureAtRef.current = Date.now(); }, []);
+  const detach = useCallback(() => {
+    markGesture();
+    if (followingRef.current) { followingRef.current = false; }
+  }, [markGesture]);
+  const gestureHandlers = {
+    onWheel: (e: React.WheelEvent) => { if (e.deltaY < 0) detach(); else markGesture(); },
+    onTouchStart: () => { touchingRef.current = true; markGesture(); },
+    onTouchMove: () => { touchingRef.current = true; markGesture(); },
+    onTouchEnd: () => { touchingRef.current = false; markGesture(); },
+    onTouchCancel: () => { touchingRef.current = false; markGesture(); },
+    onPointerDown: (e: React.PointerEvent) => { if (e.target === e.currentTarget) markGesture(); },
+    onKeyDown: (e: React.KeyboardEvent) => {
+      if (["PageUp", "ArrowUp", "Home"].includes(e.key)) detach();
+      else if (["PageDown", "ArrowDown", "End", " "].includes(e.key)) markGesture();
+    },
+  };
 
   const handleChatScroll = useCallback(() => {
     const c = scrollRef.current;
     if (!c) return;
-    const near = isNearBottom(c);
-    followingRef.current = near;
-    setShowLatest(!near);
+    const userInitiated = touchingRef.current || Date.now() - lastGestureAtRef.current < USER_GESTURE_WINDOW_MS;
+    const following = followAfterScroll({ wasFollowing: followingRef.current, userInitiated, metrics: c });
+    followingRef.current = following;
+    setShowLatest(!following);
+    savedScroll = { owner: chatOwnerRef.current, top: c.scrollTop, following };
   }, []);
 
   const jumpToLatest = useCallback(() => {
     const c = scrollRef.current;
     if (!c) return;
     followingRef.current = true;
+    lastGestureAtRef.current = 0;
     setShowLatest(false);
+    savedScroll = null;
     c.scrollTo({ top: c.scrollHeight, behavior: "smooth" });
   }, []);
 
@@ -1139,7 +1158,7 @@ export default function ChatAssistant() {
                   )}
 
                   {/* Chat messages area */}
-                  <div ref={scrollRef} onScroll={handleChatScroll} className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-3">
+                  <div ref={scrollRef} onScroll={handleChatScroll} {...gestureHandlers} className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-3">
                     {showOnboarding && (
                       <ChatOnboarding onComplete={handleOnboardingComplete} />
                     )}
