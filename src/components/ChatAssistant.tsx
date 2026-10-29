@@ -612,15 +612,19 @@ export default function ChatAssistant() {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
 
-    if (showOnboarding || showBenefitCalc) {
-      container.scrollTop = container.scrollHeight;
-      return;
-    }
-
     const grew = messages.length > prevLenRef.current;
     prevLenRef.current = messages.length;
     const last = messages[messages.length - 1];
     const justSent = grew && last?.role === "user";
+
+    // Onboarding/benefit views: stay at the bottom only while the user is following.
+    if (showOnboarding || showBenefitCalc) {
+      if (justSent || followingRef.current) {
+        followingRef.current = true;
+        container.scrollTop = container.scrollHeight;
+      } else setShowLatest(true);
+      return;
+    }
     const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading });
 
     if (action === "user-top") {
