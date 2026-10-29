@@ -13,6 +13,7 @@ import { Check, X, Crown, Eye, EyeOff } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import { SEO } from "@/components/SEO";
 import { persistSignupProfile } from '@/lib/phase1-reliability/signup-profile';
+import { authErrorKey } from '@/lib/auth-error';
 
 const TRIAL_STORAGE_KEY = "pending_trial_code";
 
@@ -67,7 +68,7 @@ export default function Register() {
     }
     const normalizedEmail = email.trim().toLowerCase();
     setLoading(true);
-    const { data: signUpData, error } = await supabase.auth.signUp({
+    const result = await supabase.auth.signUp({
       email: normalizedEmail,
       password,
       options: {
@@ -77,12 +78,18 @@ export default function Register() {
           ...(trialCode ? { pending_trial_code: trialCode } : {}),
         },
       },
+    }).catch((error: unknown) => {
+      setLoading(false);
+      toast({ title: t('auth.register.errorTitleShort'), description: t(authErrorKey(error)), variant: 'destructive' });
+      return null;
     });
+    if (!result) return;
+    const { data: signUpData, error } = result;
 
     // Supabase ne vraća grešku za duplikate (security) — detektujemo preko praznog identities array
     const isDuplicate = !!signUpData.user && Array.isArray((signUpData.user as any).identities) && (signUpData.user as any).identities.length === 0;
 
-    if (isDuplicate || error?.message?.toLowerCase().includes("already")) {
+    if (isDuplicate || (error && authErrorKey(error) === 'auth.register.emailAlreadyExists')) {
       setLoading(false);
       toast({
         title: t("auth.register.errorTitleShort"),
@@ -164,7 +171,7 @@ export default function Register() {
     setLoading(false);
 
     if (error) {
-      toast({ title: t("auth.register.errorTitleShort"), description: error.message, variant: "destructive" });
+      toast({ title: t("auth.register.errorTitleShort"), description: t(authErrorKey(error)), variant: "destructive" });
     } else {
       toast({ title: t("auth.register.successRegistered"), description: t("auth.register.successCheckEmail") });
       navigate("/login");
