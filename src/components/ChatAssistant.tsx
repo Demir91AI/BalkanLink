@@ -506,7 +506,7 @@ export default function ChatAssistant() {
           setMessages([]);
           syncedSigsRef.current.clear();
           remoteIdsRef.current.clear();
-          localStorage.removeItem(chatStorageKey);
+          if (chatOwnerRef.current) localStorage.removeItem(chatKeyFor(chatOwnerRef.current));
           localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
         },
       );
@@ -515,7 +515,7 @@ export default function ChatAssistant() {
       });
     } catch { toast.error(t('reliability.clearFailed')); }
     finally { clearPending.current = false; setClearing(false); }
-  }, [messages.length, chatStorageKey, user?.id, loading, t]);
+  }, [messages.length, user?.id, loading, t]);
 
   // On real sign-out (also fired in other open tabs): wipe every local chat cache and the
   // in-memory chat. Cloud rows are NOT deleted automatically (the session is already gone at
