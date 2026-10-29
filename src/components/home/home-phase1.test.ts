@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { HOME_CATEGORIES, HOME_SMARTGUIDES } from "./HeroSection";
-import { FORM_GROUPS } from "@/lib/form-catalog";
+import { formCatalog } from "@/lib/form-catalog";
 
 const read = (p: string) => readFileSync(p, "utf8");
 const app = read("src/App.tsx");
@@ -15,7 +15,7 @@ describe("homepage phase 1", () => {
   it("shows 2 SmartGuide links whose slugs exist in the form catalog", () => {
     expect(HOME_SMARTGUIDES).toHaveLength(2);
     expect(routeExists("/formulari/:slug")).toBe(true);
-    const slugs = new Set(FORM_GROUPS.flatMap((g: { items: { slug: string }[] }) => g.items.map((i) => i.slug)));
+    const slugs = new Set(formCatalog.flatMap((g) => [...g.items, ...(g.subGroups ?? []).flatMap((s) => s.items)].map((i) => i.slug)));
     for (const g of HOME_SMARTGUIDES) expect(slugs.has(g.slug)).toBe(true);
   });
   it("removes the fixed bottom nav from every layout and the simulated ticker", () => {
