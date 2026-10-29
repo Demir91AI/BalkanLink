@@ -332,6 +332,72 @@ export default function ChatAssistant() {
     restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
     return restored;
   });
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<PanelTab>("chat");
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showBenefitCalc, setShowBenefitCalc] = useState(false);
+  const [chatLang, setChatLang] = useState<"bs" | "de">("bs");
+  const [hasUnread, setHasUnread] = useState(false);
+  const [disclaimerSeen, setDisclaimerSeen] = useState(() =>
+    localStorage.getItem("bl_ai_disclaimer_seen") === "true"
+  );
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const followingRef = useRef(true);
+  const touchingRef = useRef(false);
+  const lastGestureAtRef = useRef(0);
+  const [showLatest, setShowLatest] = useState(false);
+  const { t: tc } = useTranslation("common");
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const lastFailedMsgRef = useRef<string | null>(null);
+  const requestLockRef = useRef(createAssistantRequestLock());
+
+  // Account switch / sign-in / sign-out: swap the chat to the new owner's own sign-in cache.
+  // Runs before the persist effect, which only reacts to `messages`, so old messages are never
+  // written under the new owner's key.
+  useEffect(() => {
+    const nextOwner = user?.id ?? null;
+    if (chatOwnerRef.current === nextOwner && prevUserIdRef.current !== undefined) return;
+    const changed = chatOwnerRef.current !== nextOwner;
+    chatOwnerRef.current = nextOwner;
+    prevUserIdRef.current = nextOwner;
+    if (!changed) return;
+    if (nextOwner) { try { localStorage.removeItem(GUEST_CHAT_KEY); } catch {} }
+    syncedSigsRef.current.clear();
+    remoteIdsRef.current.clear();
+    const next = loadOwnedMessages(nextOwner);
+    next.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+    restoredRef.current = !!nextOwner;
+    followingRef.current = true;
+    savedScroll = null;
+    setMessages(next);
+  }, [user?.id]);
+
+  // Persist messages (device-local) for the current owner only.
+  useEffect(() => {
+    const owner = chatOwnerRef.current;
+    if (owner) saveUserChat(localStorage, owner, signInAt, messages);
+    else {
+      try {
+        if (messages.length > 0) localStorage.setItem(GUEST_CHAT_KEY, JSON.stringify(messages));
+        else localStorage.removeItem(GUEST_CHAT_KEY);
+      } catch {}
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages]);
+
+  // Another tab signed out / cleared this chat → drop it here too.
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      const owner = chatOwnerRef.current;
+      if (!owner || e.key === null) { if (e.key === null) setMessages([]); return; }
+      if (e.key === chatKeyFor(owner) && e.newValue === null) setMessages([]);
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
   // Push new messages to Supabase as they appear (best-effort, non-blocking)
   useEffect(() => {
