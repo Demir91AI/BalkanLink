@@ -684,6 +684,18 @@
     "open": "Otvori BalkanLink Asistenta"
   },
   "chatScroll": {
-    "latest": "Najnovije"
+    "latest": "Najnovije",
+    "preparing": "Pripremam odgovor…"
+  },
+  "assistantNext": {
+    "title": "Sljedeći koraci",
+    "openGuide": "Otvori SmartGuide: {{topic}}",
+    "openVisa": "Otvori Viza Navigator",
+    "askDocs": "Koji su dokumenti potrebni?",
+    "askDocsQ": "Koje dokumente općenito trebam pripremiti za {{topic}}?",
+    "askConditions": "Opći uvjeti",
+    "askConditionsQ": "Koji su opći uvjeti za {{topic}}? Ne procjenjuj moj slučaj, samo objasni što trebam provjeriti.",
+    "askVisaDocs": "Dokumenti za vizu",
+    "askVisaDocsQ": "Koje dokumente općenito trebam pripremiti za vizu i gdje to službeno provjeravam?"
   }
 }
