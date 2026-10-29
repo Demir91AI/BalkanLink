@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { reserveUsage, commitUsage, releaseUsage, meterStream, assistantGate, type Reservation } from "../_shared/usage.ts";
 import { ASSISTANT_CATALOG as FORM_CATALOG, detectAssistantGuide, assistantGuideRoute, resolveConversationGuide, buildSourceGuideReply, buildConversationGuideReply, visaNavigationContext, guideRedirectReply, guideReplyStream } from "./guide-context.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
