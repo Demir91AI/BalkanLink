@@ -1261,8 +1261,9 @@ export default function ChatAssistant() {
                             ) : msg.content}
                           </div>
 
-                          {/* Feedback + Actions for assistant messages */}
-                          {msg.role === "assistant" && !loading && (
+                          {/* Feedback + Actions for assistant messages. Only the answer that is still arriving hides them;
+                              earlier answers keep theirs so content above a reader never shrinks/grows during streaming. */}
+                          {msg.role === "assistant" && !(loading && i === messages.length - 1) && (
                             <>
                               <div className="flex items-center gap-2 px-1">
                                 <ResponseActions msg={msg} />
@@ -1284,7 +1285,7 @@ export default function ChatAssistant() {
                               {msg.suggestions && msg.suggestions.length > 0 && !(i === messages.length - 1 && nextStepCards({ guideSlug: msg.guideSlug ?? null, userText: messages[i - 1]?.content ?? "", isValidRoute }).length > 0) && (
                                 <div className="flex flex-wrap gap-1.5 mt-1.5">
                                   {msg.suggestions.slice(0, 3).map((s, si) => (
-                                    <button key={si} onClick={() => sendMessageWithText(s)} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] text-white/60 hover:text-white/80 hover:border-[hsl(45,93%,49%)]/30 transition-all">
+                                    <button key={si} disabled={loading} onClick={() => sendMessageWithText(s)} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] text-white/60 hover:text-white/80 hover:border-[hsl(45,93%,49%)]/30 transition-all disabled:opacity-50">
                                       {s}
                                     </button>
                                   ))}
