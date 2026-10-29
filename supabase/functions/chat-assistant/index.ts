@@ -369,9 +369,13 @@ function classifyIntent(message: string): Intent {
   for (const pat of HOUSING_PATTERNS) { if (pat.test(lower)) return "HOUSING_SEARCH"; }
   for (const kw of HOUSING_KEYWORDS) { if (lower.includes(kw)) return "HOUSING_SEARCH"; }
 
+  // "Don't assess my case" is an explicitly general question, not a personal-case depth request.
+  const declinesAssessment = /ne\s+procj?enjuj|ne\s+procjenjujte|nicht\s+(bewerten|prüfen|beurteilen)/i.test(lower);
   // Premium depth (strict — before smart guide)
-  for (const pat of PREMIUM_DEPTH_PATTERNS) { if (pat.test(lower)) return "PREMIUM_DEPTH"; }
-  for (const kw of PREMIUM_DEPTH_KEYWORDS) { if (lower.includes(kw)) return "PREMIUM_DEPTH"; }
+  if (!declinesAssessment) {
+    for (const pat of PREMIUM_DEPTH_PATTERNS) { if (pat.test(lower)) return "PREMIUM_DEPTH"; }
+    for (const kw of PREMIUM_DEPTH_KEYWORDS) { if (lower.includes(kw)) return "PREMIUM_DEPTH"; }
+  }
 
   // Smart guide (general "how to fill" without personal case depth)
   for (const pat of SMART_GUIDE_PATTERNS) { if (pat.test(lower)) return "SMART_GUIDE_REDIRECT"; }
