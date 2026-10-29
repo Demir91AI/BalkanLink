@@ -105,12 +105,12 @@ describe("isolated transport reliability and call-count profiling", () => {
     expect(payloads[1].model).toBe("google/gemini-2.5-flash");
     expect(payloads[1].max_tokens).toBe(1024);
   });
-  it("network rejection after reservation releases exactly once, without retry or commit", async () => {
-    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline"));
+  it("network rejection tries one fallback model, then releases exactly once without commit", async () => {
+    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline")).mockRejectedValueOnce(new Error("offline"));
     const r = await e.handler(request("Šta je nepoznata usluga?"));
     expect(r.status).toBe(500); expect(e.reserve).toHaveBeenCalledTimes(1);
     expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
-    expect(e.fetchMock).toHaveBeenCalledTimes(1);
+    expect(e.fetchMock).toHaveBeenCalledTimes(2);
   });
   it("slow upstream headers wait without a duplicate call, preserving successful settlement", async () => {
     const e = endpoint(); let resolve: ((response: Response) => void) | undefined;
@@ -135,7 +135,7 @@ describe("isolated transport reliability and call-count profiling", () => {
     expect(e.reserve).toHaveBeenCalledTimes(1); expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled(); expect(e.fetchMock).toHaveBeenCalledTimes(1);
   });
   it("failed release after network rejection is not retried or compensated", async () => {
-    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline")); e.release.mockRejectedValueOnce(new Error("unconfirmed"));
+    const e = endpoint(); e.fetchMock.mockRejectedValueOnce(new Error("offline")).mockRejectedValueOnce(new Error("offline")); e.release.mockRejectedValueOnce(new Error("unconfirmed"));
     expect((await e.handler(request("Šta je nepoznata usluga?"))).status).toBe(500);
     expect(e.release).toHaveBeenCalledTimes(1); expect(e.commit).not.toHaveBeenCalled();
   });
@@ -182,7 +182,8 @@ describe("bounded conversational guidance", () => {
   for (const lang of ["bs","hr","sr","de"] as const) {
     it(`${lang}: asks only missing Kindergeld case, not personal details; known newborn does not repeat it`, () => {
       const q = guides.buildConversationGuideReply("kindergeld", lang, [message("Kindergeld")]);
-      expect(q).toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldQuestion);
+      expect(q).not.toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldQuestion);
+      expect(q).toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldGeneral.title);
       const reply = guides.buildConversationGuideReply("kindergeld", lang, [message(question)]);
       expect(reply).not.toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.kindergeldQuestion);
       expect(reply.match(/\n\n\d\. \*\*/g)).toHaveLength(3);
@@ -233,7 +234,7 @@ describe("bounded conversational guidance", () => {
   }
   it("one short case answer inherits the question; arbitrary answers and topic switches do not", () => {
     expect(guides.resolveConversationGuide([message("Kindergeld"),message("novorođenče u Njemačkoj")])).toBe("kindergeld");
-    expect(guides.resolveConversationGuide([message(question),message("koliko imam prava na novac?")])).toBeNull();
+    expect(guides.resolveConversationGuide([message(question),message("koliko imam prava na novac?")])).toBe("kindergeld");
     expect(guides.resolveConversationGuide([message(question),message("Wohngeld")])).toBe("wohngeld");
     expect(guides.resolveConversationGuide([message("Kindergeld i Wohngeld"),message("Dokumenti")])).toBeNull();
   });
@@ -263,5 +264,122 @@ describe("general Kindergeld conditions answer directly", () => {
   });
   it("visa context asks for a summary first and at most one question", () => {
     expect(guides.visaNavigationContext("bs")).toMatch(/PRVO daj kratak sažetak/);
+  });
+});
+
+describe("assistant audit regression matrix (31 scenarios, multi-turn, entitlement)", () => {
+  const u = (content: string) => ({ role: "user", content });
+  const ui = GUIDE_SNAPSHOT.locales.bs.ui;
+  const kgQ = "Dobio sam dijete u Njemačkoj, kako podnijeti zahtjev za Kindergeld?";
+  // [question, preceding user turns, expected guide slug or "model"]
+  const matrix: [string, string[], string][] = [
+    ["Kindergeld", [], "kindergeld"],
+    ["Koji su opći uslovi za Kindergeld? Ne procjenjuj moj slučaj", [], "kindergeld"],
+    ["Koje dokumente općenito trebam pripremiti za Kindergeld?", [], "kindergeld"],
+    ["Koji dokumenti trebaju za Kindergeld?", [], "kindergeld"],
+    ["Kako podnijeti zahtjev za Kindergeld?", [], "kindergeld"],
+    [kgQ, [], "kindergeld"],
+    ["Wie beantrage ich Kindergeld?", [], "kindergeld"],
+    ["dečji dodatak", [], "kindergeld"],
+    ["Kindergeld za dijete u Bosni", [], "kindergeld"],
+    ["Kindergeld za punoljetno dijete", [], "kindergeld"],
+    ["Da", ["Kindergeld"], "kindergeld"],
+    ["Ne", ["Kindergeld"], "kindergeld"],
+    ["a koliko iznosi?", ["Kindergeld"], "kindergeld"],
+    ["gdje to predajem?", [kgQ], "kindergeld"],
+    ["koliki je rok?", [kgQ], "kindergeld"],
+    ["da, novorođenče je", ["Kindergeld"], "kindergeld"],
+    ["Koji su opći uslovi?", ["Kindergeld"], "kindergeld"],
+    ["Wohngeld uslovi", [], "wohngeld"],
+    ["Šta je Wohngeld?", [], "wohngeld"],
+    ["Dokumenti", ["Wohngeld"], "wohngeld"],
+    ["Kako se radi Anmeldung?", [], "anmeldung"],
+    ["Dokumenti", ["Anmeldung"], "anmeldung"],
+    ["Kako podnijeti zahtjev za Elterngeld?", [], "model"],
+    ["Bürgergeld uslovi", [], "model"],
+    ["viza bosna", [], "model"],
+    ["Kako naučiti njemački?", [], "model"],
+    ["Dobio sam pismo od Jobcentra, šta znači?", [], "model"],
+    ["Kindersitzerhöhung", [], "model"],
+    ["Šta je nepoznata usluga?", [kgQ], "model"],
+    ["Kindergeld i Kinderzuschlag razlika", [], "model"],
+    ["Elterngeld", ["Kindergeld"], "model"],
+  ];
+  it("has exactly 31 scenarios", () => expect(matrix).toHaveLength(31));
+  for (const [q, prev, expected] of matrix) it(`free-trial (fair-use ok): "${q}" after [${prev.join(" | ")}] → ${expected}`, async () => {
+    const e = endpoint(false, { ok: true, mode: "full" });
+    const r = await e.handler(request(q, "bs", "", prev.map(u)));
+    const body = await r.text();
+    if (expected === "model") {
+      expect(r.headers.get("X-Guide-Slug") ?? "").not.toMatch(/^(kindergeld|anmeldung|wohngeld)$/);
+    } else {
+      expect(r.headers.get("X-Guide-Slug")).toBe(expected);
+      expect(e.fetchMock).not.toHaveBeenCalled();
+      expect(e.commit).toHaveBeenCalledTimes(1);
+      expect(body).not.toContain(ui.redirect); // never cut to the one-line SmartGuide redirect
+      expect(body).not.toContain(ui.conversation.kindergeldQuestion); // no intake question first
+      expect(body).toContain(`/formulari/${expected}`);
+      expect(body.indexOf(ui.sources)).toBeGreaterThan(body.indexOf("1.") > -1 ? 0 : -1);
+      expect(body).not.toMatch(/\d+\s?(€|EUR)/); // no invented amounts
+    }
+  });
+  it("amount and deadline follow-ups state the guide does not cover them, with sources", () => {
+    const a = guides.buildConversationGuideReply("kindergeld", "bs", [u("Kindergeld"), u("a koliko iznosi?")]);
+    expect(a).toContain(ui.conversation.amount); expect(a).toContain(GUIDE_SNAPSHOT.sources.kindergeld.url);
+    const d = guides.buildConversationGuideReply("kindergeld", "de", [u("Kindergeld"), u("bis wann?")]);
+    expect(d).toContain(GUIDE_SNAPSHOT.locales.de.ui.conversation.deadline);
+  });
+  it("BiH child routes to the cross-border case, adult to the 18+ case", () => {
+    expect(guides.buildConversationGuideReply("kindergeld", "bs", [u("Kindergeld za dijete u Bosni")])).toContain(GUIDE_SNAPSHOT.specialLinks.cross);
+    expect(guides.buildConversationGuideReply("kindergeld", "bs", [u("Kindergeld za punoljetno dijete")])).toContain(GUIDE_SNAPSHOT.specialLinks.adult);
+  });
+  for (const lang of ["bs", "hr", "sr", "de"] as const) it(`${lang}: Wohngeld conditions get the direct list`, () => {
+    expect(guides.buildConversationGuideReply("wohngeld", lang, [u("Wohngeld uslovi")])).toContain(GUIDE_SNAPSHOT.locales[lang].ui.conversation.wohngeldGeneral.title);
+  });
+  it("multi-turn: 5 Kindergeld turns for a non-full-access user never hit the message-count gate", async () => {
+    const turns = ["Kindergeld", "Koji dokumenti trebaju za Kindergeld?", "Kako podnijeti zahtjev za Kindergeld?", "gdje to predajem?", "Da"];
+    const history: guides.GuideMessage[] = [];
+    for (const t of turns) {
+      const e = endpoint(false, { ok: true, mode: "full" });
+      const r = await e.handler(request(t, "bs", "", history)); const body = await r.text();
+      expect(r.headers.get("X-Guide-Slug")).toBe("kindergeld");
+      expect(body).not.toContain(ui.redirect);
+      history.push(u(t), { role: "assistant", content: body });
+    }
+  });
+  it("topic change mid-chat goes to the new topic, not the old one", async () => {
+    const e = endpoint(true); const r = await e.handler(request("Wohngeld", "bs", "", [u("Kindergeld"), { role: "assistant", content: "x](/formulari/kindergeld)" }]));
+    await r.text(); expect(r.headers.get("X-Guide-Slug")).toBe("wohngeld");
+  });
+  it("entitlement — paid (full access) gets the guide steps", async () => {
+    const e = endpoint(true); const r = await e.handler(request(kgQ)); expect(r.headers.get("X-Guide-Slug")).toBe("kindergeld"); await r.text();
+    expect(e.reserve).toHaveBeenCalledTimes(1);
+  });
+  it("entitlement — free without membership is still stopped by the server usage gate, no content, no model", async () => {
+    const e = endpoint(false, { ok: false, mode: "full" } as any, false); const r = await e.handler(request(kgQ));
+    expect(r.status).toBe(429); expect(e.fetchMock).not.toHaveBeenCalled(); expect(e.commit).not.toHaveBeenCalled();
+  });
+  it("entitlement — explicit personal-case depth request for free user keeps the existing premium gate", async () => {
+    const e = endpoint(false); const r = await e.handler(request("Popuni za mene Elterngeld formular")); const j = await r.json();
+    expect(j.premium_required).toBe(true); expect(e.reserve).not.toHaveBeenCalled();
+  });
+  it("model history is bounded to the last 12 turns and long messages are capped", async () => {
+    const prev = Array.from({ length: 30 }, (_, i) => u(`Pitanje ${i} ` + "x".repeat(i === 29 ? 9000 : 10)));
+    const e = endpoint(true); await (await e.handler(request("Kindersitzerhöhung", "bs", "", prev))).text();
+    const body = JSON.parse(String(e.fetchMock.mock.calls[0]?.[1]?.body));
+    expect(body.messages).toHaveLength(13);
+    expect(Math.max(...body.messages.slice(1).map((m: any) => m.content.length))).toBeLessThanOrEqual(4000);
+    expect(body.model).toBe("google/gemini-2.5-flash");
+  });
+  it("server error falls back once to the backup model and commits once", async () => {
+    const e = endpoint(true); e.fetchMock.mockResolvedValueOnce(new Response("boom", { status: 503 }));
+    const r = await e.handler(request("Kindersitzerhöhung")); await r.text();
+    expect(e.fetchMock).toHaveBeenCalledTimes(2);
+    expect(JSON.parse(String(e.fetchMock.mock.calls[1]?.[1]?.body)).model).toBe("google/gemini-3.1-flash-lite");
+    expect(e.commit).toHaveBeenCalledTimes(1); expect(e.release).not.toHaveBeenCalled();
+  });
+  it("rate limit (429) is never retried", async () => {
+    const e = endpoint(true); e.fetchMock.mockResolvedValueOnce(new Response("", { status: 429 }));
+    expect((await e.handler(request("Kindersitzerhöhung"))).status).toBe(429); expect(e.fetchMock).toHaveBeenCalledTimes(1);
   });
 });

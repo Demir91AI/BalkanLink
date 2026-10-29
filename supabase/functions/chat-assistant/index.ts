@@ -369,9 +369,13 @@ function classifyIntent(message: string): Intent {
   for (const pat of HOUSING_PATTERNS) { if (pat.test(lower)) return "HOUSING_SEARCH"; }
   for (const kw of HOUSING_KEYWORDS) { if (lower.includes(kw)) return "HOUSING_SEARCH"; }
 
+  // "Don't assess my case" is an explicitly general question, not a personal-case depth request.
+  const declinesAssessment = /ne\s+procj?enjuj|ne\s+procjenjujte|nicht\s+(bewerten|prüfen|beurteilen)/i.test(lower);
   // Premium depth (strict — before smart guide)
-  for (const pat of PREMIUM_DEPTH_PATTERNS) { if (pat.test(lower)) return "PREMIUM_DEPTH"; }
-  for (const kw of PREMIUM_DEPTH_KEYWORDS) { if (lower.includes(kw)) return "PREMIUM_DEPTH"; }
+  if (!declinesAssessment) {
+    for (const pat of PREMIUM_DEPTH_PATTERNS) { if (pat.test(lower)) return "PREMIUM_DEPTH"; }
+    for (const kw of PREMIUM_DEPTH_KEYWORDS) { if (lower.includes(kw)) return "PREMIUM_DEPTH"; }
+  }
 
   // Smart guide (general "how to fill" without personal case depth)
   for (const pat of SMART_GUIDE_PATTERNS) { if (pat.test(lower)) return "SMART_GUIDE_REDIRECT"; }
@@ -387,10 +391,12 @@ function detectConversationPremiumEscalation(messages: any[]): boolean {
     "anmeldung", "steuer", "viza", "visa", "aufenthalt", "formular",
     "antrag", "dokument", "pismo", "application", "form",
   ];
+  // Only personal-case depth requests count; general topic mentions (documents, conditions, how-to) never escalate.
   let premiumMsgCount = 0;
   for (const m of messages) {
     if (m.role !== "user") continue;
     const content = typeof m.content === "string" ? m.content.toLowerCase() : "";
+    if (classifyIntent(content) !== "PREMIUM_DEPTH") continue;
     for (const kw of PREMIUM_TOPIC_KEYWORDS) {
       if (content.includes(kw)) { premiumMsgCount++; break; }
     }
@@ -1403,6 +1409,10 @@ ${src.sources.map(s => `   • ${s}`).join("\n")}
 // ══════════════════════════════════════════════════
 
 const FREE_DAILY_LIMIT = 5;
+const PRIMARY_MODEL = "google/gemini-2.5-flash";
+const FALLBACK_MODEL = "google/gemini-3.1-flash-lite";
+const MODEL_HISTORY_LIMIT = 12;
+const MODEL_MESSAGE_CHARS = 4000;
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -1489,7 +1499,7 @@ serve(async (req) => {
     console.log("[INTENT]", intent, "| guide:", guideSlug, "| premium:", isPremium, "| text:", userText.slice(0, 60));
 
     // ── Conversation-level premium leak detection ──
-    const conversationEscalation = !isPremium && detectConversationPremiumEscalation(messages);
+    const conversationEscalation = !isPremium && !sourceGuide && detectConversationPremiumEscalation(messages);
 
     // Job search redirect
     if (intent === "JOB_SEARCH") {
@@ -1510,7 +1520,8 @@ serve(async (req) => {
     }
 
     // Smart Guide redirect
-    if (intent === "SMART_GUIDE_REDIRECT" && !isPremium) {
+    // A verified guide answer is informational and still passes the usage gate below.
+    if (intent === "SMART_GUIDE_REDIRECT" && !isPremium && !sourceGuide) {
       const sg = SMART_GUIDE_MSG[lang] || SMART_GUIDE_MSG["bs"];
       const slug = guideSlug || detectedForm?.slug || null;
       const link = assistantGuideRoute(slug);
@@ -1571,28 +1582,27 @@ INTERNAL GUIDE ACCURACY: Use only catalog slugs from the supplied catalog. Never
     const conversationInstructions = `Respond with 2–4 understandable numbered actions where supported: what to prepare, where to go, what the user must personally check/sign/submit. Reuse the existing conversation, do not repeat answered questions. Ask at most one necessary, non-sensitive clarification only if it changes the next action. Unknown facts remain unknown, not a made-up procedure. Do not generate generic follow-up questions just to prolong the conversation.`;
     const navigationContext = /viz[aeu]|visa|visum|aufenthalt|boravišn|boravisn|blue.?card|blaue karte/i.test(userText) ? visaNavigationContext(language) : "";
 
+    // Bounded history: the last 12 turns, each capped, keep context without unbounded token cost.
+    const modelMessages = (Array.isArray(messages) ? messages : []).slice(-MODEL_HISTORY_LIMIT).map((m: any) =>
+      typeof m?.content === "string" && m.content.length > MODEL_MESSAGE_CHARS ? { ...m, content: m.content.slice(-MODEL_MESSAGE_CHARS) } : m);
+    const callModel = (model: string) => fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model,
+        messages: [{ role: "system", content: `${systemPrompt}\n${conversationInstructions}\n${navigationContext}` }, ...modelMessages],
+        stream: true,
+        max_tokens: 1024,
+      }),
+    });
     let response: Response;
     try {
-    response = await fetch(
-      "https://ai.gateway.lovable.dev/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "google/gemini-2.5-flash",
-          messages: [{ role: "system", content: `${systemPrompt}\n${conversationInstructions}\n${navigationContext}` }, ...messages],
-          stream: true,
-          max_tokens: 1024,
-        }),
-      }
-    );
-    } catch (e) {
-      // No stream was delivered: release once, including network rejection; never retry the model.
-      await releaseUsage(admin, reservation);
-      throw e;
+      response = await callModel(PRIMARY_MODEL);
+      // One fallback only before any stream byte is delivered (server error / network); 429/402 are never retried.
+      if (!response.ok && response.status >= 500) { await response.text().catch(() => ""); response = await callModel(FALLBACK_MODEL); }
+    } catch (_e) {
+      try { response = await callModel(FALLBACK_MODEL); }
+      catch (e) { await releaseUsage(admin, reservation); throw e; }
     }
 
     if (!response.ok || !response.body) {

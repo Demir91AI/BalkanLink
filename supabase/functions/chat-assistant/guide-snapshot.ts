@@ -297,6 +297,19 @@ export const GUIDE_SNAPSHOT = {
               "**Steuer-ID** — porezni identifikacijski broj za tebe i za dijete.",
               "**Jedan primalac** — za isto dijete Kindergeld prima samo jedna osoba; zahtjev ide Familienkasse."
             ]
+          },
+          "caseHint": "Ako se radi o punoljetnom djetetu ili djetetu koje živi u drugoj državi, napiši to — tada važe posebna pravila.",
+          "amount": "Iznos nije dio provjerenog vodiča u ovom razgovoru, zato ga ne navodim napamet. Aktuelni iznos provjeri na službenoj stranici ispod.",
+          "deadline": "Rokovi zavise od slučaja i nisu dio provjerenog vodiča u ovom razgovoru; BalkanLink ne računa pravne rokove. Provjeri ih na službenoj stranici ili kod nadležnog ureda.",
+          "wohngeldGeneral": {
+            "title": "Wohngeld — opći uslovi koje trebaš provjeriti",
+            "items": [
+              "**Stan u Njemačkoj** — plaćaš najam ili snosiš troškove vlastitog stana u kojem živiš.",
+              "**Prihod domaćinstva** — granica zavisi od broja članova domaćinstva, visine najma i Mietstufe općine.",
+              "**Bez drugih davanja za stanovanje** — ko prima Bürgergeld ili Grundsicherung sa troškovima stana, u pravilu ne dobija Wohngeld.",
+              "**Nadležnost** — zahtjev ide lokalnoj Wohngeldstelle (općina/grad), često uz pokrajinski obrazac.",
+              "**Okvirna provjera** — službeni Wohngeld-Rechner daje samo orijentaciju; odluku donosi ured."
+            ]
           }
         },
         "open": "Otvori SmartGuide",
@@ -466,6 +479,19 @@ export const GUIDE_SNAPSHOT = {
               "**Gdje dijete živi** — u Njemačkoj, EU/EGP-u ili Švicarskoj; za druge države vrijede posebna pravila.",
               "**Steuer-ID** — porezni identifikacijski broj za tebe i za dijete.",
               "**Jedan primatelj** — za isto dijete Kindergeld prima samo jedna osoba; zahtjev ide Familienkasse."
+            ]
+          },
+          "caseHint": "Ako se radi o punoljetnom djetetu ili djetetu koje živi u drugoj državi, napiši to — tada vrijede posebna pravila.",
+          "amount": "Iznos nije dio provjerenog vodiča u ovom razgovoru, zato ga ne navodim napamet. Aktualni iznos provjeri na službenoj stranici ispod.",
+          "deadline": "Rokovi ovise o slučaju i nisu dio provjerenog vodiča u ovom razgovoru; BalkanLink ne računa pravne rokove. Provjeri ih na službenoj stranici ili kod nadležnog ureda.",
+          "wohngeldGeneral": {
+            "title": "Wohngeld — opći uvjeti koje trebaš provjeriti",
+            "items": [
+              "**Stan u Njemačkoj** — plaćaš najam ili snosiš troškove vlastitog stana u kojem živiš.",
+              "**Prihod kućanstva** — granica ovisi o broju članova kućanstva, visini najma i Mietstufe općine.",
+              "**Bez drugih davanja za stanovanje** — tko prima Bürgergeld ili Grundsicherung s troškovima stana, u pravilu ne dobiva Wohngeld.",
+              "**Nadležnost** — zahtjev ide lokalnoj Wohngeldstelle (općina/grad), često uz pokrajinski obrazac.",
+              "**Okvirna provjera** — službeni Wohngeld-Rechner daje samo orijentaciju; odluku donosi ured."
             ]
           }
         },
@@ -637,6 +663,19 @@ export const GUIDE_SNAPSHOT = {
               "**Steuer-ID** — poreski identifikacioni broj za tebe i za dete.",
               "**Jedan primalac** — za isto dete Kindergeld prima samo jedna osoba; zahtev ide Familienkasse."
             ]
+          },
+          "caseHint": "Ako se radi o punoletnom detetu ili detetu koje živi u drugoj državi, napiši to — tada važe posebna pravila.",
+          "amount": "Iznos nije deo proverenog vodiča u ovom razgovoru, zato ga ne navodim napamet. Aktuelni iznos proveri na službenoj stranici ispod.",
+          "deadline": "Rokovi zavise od slučaja i nisu deo proverenog vodiča u ovom razgovoru; BalkanLink ne računa pravne rokove. Proveri ih na službenoj stranici ili kod nadležne kancelarije.",
+          "wohngeldGeneral": {
+            "title": "Wohngeld — opšti uslovi koje treba da proveriš",
+            "items": [
+              "**Stan u Nemačkoj** — plaćaš kiriju ili snosiš troškove sopstvenog stana u kojem živiš.",
+              "**Prihod domaćinstva** — granica zavisi od broja članova domaćinstva, visine kirije i Mietstufe opštine.",
+              "**Bez drugih davanja za stanovanje** — ko prima Bürgergeld ili Grundsicherung sa troškovima stana, po pravilu ne dobija Wohngeld.",
+              "**Nadležnost** — zahtev ide lokalnoj Wohngeldstelle (opština/grad), često uz pokrajinski obrazac.",
+              "**Okvirna provera** — službeni Wohngeld-Rechner daje samo orijentaciju; odluku donosi kancelarija."
+            ]
           }
         },
         "open": "Otvori SmartGuide",
@@ -806,6 +845,19 @@ export const GUIDE_SNAPSHOT = {
               "**Wohnort des Kindes** — Deutschland, EU/EWR oder Schweiz; für andere Staaten gelten besondere Regeln.",
               "**Steuer-ID** — steuerliche Identifikationsnummer für dich und das Kind.",
               "**Ein Berechtigter** — für dasselbe Kind erhält nur eine Person Kindergeld; der Antrag geht an die Familienkasse."
+            ]
+          },
+          "caseHint": "Wenn es um ein volljähriges Kind oder ein Kind in einem anderen Staat geht, schreib das — dann gelten besondere Regeln.",
+          "amount": "Der Betrag ist nicht Teil des geprüften Leitfadens in diesem Gespräch, daher nenne ich ihn nicht aus dem Gedächtnis. Prüfe den aktuellen Betrag auf der offiziellen Seite unten.",
+          "deadline": "Fristen hängen vom Einzelfall ab und sind nicht Teil des geprüften Leitfadens in diesem Gespräch; BalkanLink berechnet keine Rechtsfristen. Prüfe sie auf der offiziellen Seite oder bei der zuständigen Stelle.",
+          "wohngeldGeneral": {
+            "title": "Wohngeld — allgemeine Voraussetzungen zum Prüfen",
+            "items": [
+              "**Wohnung in Deutschland** — du zahlst Miete oder trägst die Kosten für selbst bewohntes Eigentum.",
+              "**Haushaltseinkommen** — die Grenze hängt von Haushaltsgröße, Miethöhe und Mietstufe der Gemeinde ab.",
+              "**Keine anderen Wohnkostenleistungen** — wer Bürgergeld oder Grundsicherung mit Unterkunftskosten bezieht, erhält in der Regel kein Wohngeld.",
+              "**Zuständigkeit** — der Antrag geht an die örtliche Wohngeldstelle, oft mit Landesformular.",
+              "**Grobe Orientierung** — der offizielle Wohngeld-Rechner gibt nur eine Orientierung; die Behörde entscheidet."
             ]
           }
         },

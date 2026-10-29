@@ -150,7 +150,7 @@ describe("assistant hard stop (monetization v2)", () => {
   });
   it("chat returns the gate response before calling the AI gateway", () => {
     const chat = read("supabase/functions/chat-assistant/index.ts");
-    expect(chat.indexOf("assistantGate(reservation, lang)")).toBeLessThan(chat.indexOf("ai.gateway.lovable.dev/v1/chat/completions\",\n      {"));
+    expect(chat.indexOf("assistantGate(reservation, lang)")).toBeLessThan(chat.indexOf("await callModel(PRIMARY_MODEL)"));
     expect(chat.indexOf("assistantGate(reservation, lang)")).toBeGreaterThan(0);
   });
 });

@@ -17,6 +17,19 @@
           "**Steuer-ID** — steuerliche Identifikationsnummer für dich und das Kind.",
           "**Ein Berechtigter** — für dasselbe Kind erhält nur eine Person Kindergeld; der Antrag geht an die Familienkasse."
         ]
+      },
+      "caseHint": "Wenn es um ein volljähriges Kind oder ein Kind in einem anderen Staat geht, schreib das — dann gelten besondere Regeln.",
+      "amount": "Der Betrag ist nicht Teil des geprüften Leitfadens in diesem Gespräch, daher nenne ich ihn nicht aus dem Gedächtnis. Prüfe den aktuellen Betrag auf der offiziellen Seite unten.",
+      "deadline": "Fristen hängen vom Einzelfall ab und sind nicht Teil des geprüften Leitfadens in diesem Gespräch; BalkanLink berechnet keine Rechtsfristen. Prüfe sie auf der offiziellen Seite oder bei der zuständigen Stelle.",
+      "wohngeldGeneral": {
+        "title": "Wohngeld — allgemeine Voraussetzungen zum Prüfen",
+        "items": [
+          "**Wohnung in Deutschland** — du zahlst Miete oder trägst die Kosten für selbst bewohntes Eigentum.",
+          "**Haushaltseinkommen** — die Grenze hängt von Haushaltsgröße, Miethöhe und Mietstufe der Gemeinde ab.",
+          "**Keine anderen Wohnkostenleistungen** — wer Bürgergeld oder Grundsicherung mit Unterkunftskosten bezieht, erhält in der Regel kein Wohngeld.",
+          "**Zuständigkeit** — der Antrag geht an die örtliche Wohngeldstelle, oft mit Landesformular.",
+          "**Grobe Orientierung** — der offizielle Wohngeld-Rechner gibt nur eine Orientierung; die Behörde entscheidet."
+        ]
       }
     },
     "open": "SmartGuide öffnen",
