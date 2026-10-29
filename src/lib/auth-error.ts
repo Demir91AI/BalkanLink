@@ -16,7 +16,7 @@ export function authErrorKey(error: unknown): string {
     email_provider_disabled: 'auth.errors.signinUnavailable',
     user_banned: 'auth.errors.signinUnavailable',
   };
-  if (Object.hasOwn(codes, code)) return codes[code];
+  if (Object.prototype.hasOwnProperty.call(codes, code)) return codes[code];
   if (value.status === 429) return 'auth.errors.rateLimit';
   if (value.name === 'AuthRetryableFetchError' || value.status === 0) return 'auth.errors.network';
   if (typeof value.status === 'number' && value.status >= 500) return 'auth.errors.unavailable';

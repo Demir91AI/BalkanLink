@@ -18,8 +18,15 @@ vi.mock('@/components/SEO', () => ({ SEO: () => null }));
 vi.mock('@/components/BrandLogo', () => ({ default: () => null }));
 vi.mock('@/components/navigation/PageNav', () => ({ default: () => null }));
 
-beforeEach(() => vi.clearAllMocks());
-afterEach(cleanup);
+beforeEach(() => {
+  vi.clearAllMocks();
+  vi.stubGlobal('ResizeObserver', class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  });
+});
+afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 async function mount(language: string, page: 'register' | 'login') {
   const i18n = createInstance();
   await i18n.init({ lng: language, fallbackLng: 'bs', resources: { bs: { common: bs }, hr: { common: hr }, sr: { common: sr }, de: { common: de } }, defaultNS: 'common', interpolation: { escapeValue: false } });
