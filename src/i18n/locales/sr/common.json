@@ -17,6 +17,19 @@
           "**Steuer-ID** — poreski identifikacioni broj za tebe i za dete.",
           "**Jedan primalac** — za isto dete Kindergeld prima samo jedna osoba; zahtev ide Familienkasse."
         ]
+      },
+      "caseHint": "Ako se radi o punoletnom detetu ili detetu koje živi u drugoj državi, napiši to — tada važe posebna pravila.",
+      "amount": "Iznos nije deo proverenog vodiča u ovom razgovoru, zato ga ne navodim napamet. Aktuelni iznos proveri na službenoj stranici ispod.",
+      "deadline": "Rokovi zavise od slučaja i nisu deo proverenog vodiča u ovom razgovoru; BalkanLink ne računa pravne rokove. Proveri ih na službenoj stranici ili kod nadležne kancelarije.",
+      "wohngeldGeneral": {
+        "title": "Wohngeld — opšti uslovi koje treba da proveriš",
+        "items": [
+          "**Stan u Nemačkoj** — plaćaš kiriju ili snosiš troškove sopstvenog stana u kojem živiš.",
+          "**Prihod domaćinstva** — granica zavisi od broja članova domaćinstva, visine kirije i Mietstufe opštine.",
+          "**Bez drugih davanja za stanovanje** — ko prima Bürgergeld ili Grundsicherung sa troškovima stana, po pravilu ne dobija Wohngeld.",
+          "**Nadležnost** — zahtev ide lokalnoj Wohngeldstelle (opština/grad), često uz pokrajinski obrazac.",
+          "**Okvirna provera** — službeni Wohngeld-Rechner daje samo orijentaciju; odluku donosi kancelarija."
+        ]
       }
     },
     "open": "Otvori SmartGuide",
