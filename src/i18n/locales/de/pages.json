@@ -374,6 +374,56 @@
       "partnerView": "Ansehen",
       "partnerContact": "Kontakt",
       "partnerRecommended": "Empfohlen"
+    },
+    "v2": {
+      "eyebrow": "BalkanLink · Wegweiser für das Leben in Deutschland",
+      "title": "Was möchtest du heute erledigen?",
+      "subtitle": "Stell deine Frage in deiner Sprache oder wähle einen Bereich. Wir führen dich Schritt für Schritt zum offiziellen Verfahren.",
+      "askLabel": "Deine Frage an den Asistent",
+      "askPlaceholder": "z. B. Wie beantrage ich Kindergeld?",
+      "askSubmit": "Fragen",
+      "askHint": "Öffnet den BalkanLink Asistent. Gib keine persönlichen Daten wie Passnummern ein.",
+      "categoriesHeading": "Bereich wählen",
+      "allServices": "Alle Angebote",
+      "guidesHeading": "Beliebte SmartGuides",
+      "guideCta": "Guide öffnen",
+      "membershipHeading": "Mitgliedschaft",
+      "cat": {
+        "forms": {
+          "title": "Formulare & Guides",
+          "desc": "Kindergeld, Wohngeld, Anmeldung…"
+        },
+        "visa": {
+          "title": "Visum & Aufenthalt",
+          "desc": "Wege zum Aufenthaltstitel"
+        },
+        "recognition": {
+          "title": "Anerkennung",
+          "desc": "Abschlüsse und Berufe anerkennen"
+        },
+        "docs": {
+          "title": "Dokumenten-Check",
+          "desc": "Briefe und Dokumente verstehen"
+        },
+        "german": {
+          "title": "Deutsch A1–C2",
+          "desc": "BalkanLink Deutsch Kurs"
+        },
+        "life": {
+          "title": "Leben in Deutschland",
+          "desc": "Ankunft, Wohnung, Arbeit"
+        }
+      },
+      "guides": {
+        "kindergeld": {
+          "title": "Kindergeld für Neugeborene",
+          "desc": "Schritte, Unterlagen und offizielles Portal"
+        },
+        "anmeldung": {
+          "title": "Wohnsitz-Anmeldung",
+          "desc": "Adresse beim Bürgeramt melden"
+        }
+      }
     }
   },
   "dolazakStart": {

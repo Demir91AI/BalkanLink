@@ -679,5 +679,8 @@
     "action": "Aktion",
     "confirmPurge": "Bestehende Bereinigung des Audit-Protokolls bestätigen? Gelöschte Einträge können nicht wiederhergestellt werden.",
     "confirmSettings": "Änderung der bestehenden Aufbewahrungsrichtlinie bestätigen?"
+  },
+  "assistantFab": {
+    "open": "BalkanLink Asistent öffnen"
   }
 }
