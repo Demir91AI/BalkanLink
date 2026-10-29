@@ -1406,7 +1406,7 @@ ${src.sources.map(s => `   • ${s}`).join("\n")}
 
 const FREE_DAILY_LIMIT = 5;
 const PRIMARY_MODEL = "google/gemini-2.5-flash";
-const FALLBACK_MODEL = "google/gemini-2.5-flash-lite";
+const FALLBACK_MODEL = "google/gemini-3.1-flash-lite";
 const MODEL_HISTORY_LIMIT = 12;
 const MODEL_MESSAGE_CHARS = 4000;
 
