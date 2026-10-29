@@ -423,7 +423,8 @@
           "title": "Anmeldung stana",
           "desc": "Prijava adrese u Bürgeramtu"
         }
-      }
+      },
+      "slideLabel": "Prikaži grad {{city}}"
     }
   },
   "dolazakStart": {

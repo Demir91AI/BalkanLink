@@ -423,7 +423,8 @@
           "title": "Wohnsitz-Anmeldung",
           "desc": "Adresse beim Bürgeramt melden"
         }
-      }
+      },
+      "slideLabel": "Stadt {{city}} anzeigen"
     }
   },
   "dolazakStart": {
