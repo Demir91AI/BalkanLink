@@ -8,7 +8,7 @@ import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { useTranslation } from "react-i18next";
-import { chatScrollAction, followAfterScroll, mayPinOnResize, USER_GESTURE_WINDOW_MS } from "@/lib/chat-scroll";
+import { chatScrollAction, followAfterScroll, mayPinOnResize, streamFollowTop, USER_GESTURE_WINDOW_MS } from "@/lib/chat-scroll";
 import { nextStepCards } from "@/lib/assistant-next-steps";
 import { clearConfirmedHistory } from "@/lib/phase1-reliability/history";
 import { GUEST_CHAT_KEY, chatKeyFor, loadUserChat, purgeAllChats, saveUserChat } from "@/lib/chat-persistence";
