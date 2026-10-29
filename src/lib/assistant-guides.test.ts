@@ -243,6 +243,7 @@ describe("bounded conversational guidance", () => {
   });
 });
 describe("general Kindergeld conditions answer directly", () => {
+  const message = (content: string) => ({ role: "user", content });
   const q = "Koji su opći uslovi za Kindergeld? Ne procjenjuj moj slučaj, samo objasni šta trebam provjeriti";
   for (const lang of ["bs", "hr", "sr", "de"] as const) {
     it(`${lang}: direct list, no intake question, one short caveat, sources last`, () => {
