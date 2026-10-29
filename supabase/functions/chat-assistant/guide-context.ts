@@ -84,6 +84,10 @@ export function resolveConversationGuide(messages: GuideMessage[], currentPage =
   return null;
 }
 
+/** Informational "general conditions" questions get a direct overview, never intake questions. */
+export function isGeneralInfoQuestion(text: string): boolean {
+  return /(?:uslov|uvjet|preduslov|preduvjet|ko (?:ima|može|moze) pravo|tko (?:ima|može) pravo|ko dobija|ko dobiva|voraussetzung|bedingung|anspruchsvoraussetz|wer (?:bekommt|erhält|hat anspruch)|ne procjenjuj|ne procenjuj|ne procjenjuj|nicht (?:bewerten|prüfen))/i.test(text);
+}
 export function buildConversationGuideReply(slug: SourceTopic, language: string, messages: GuideMessage[], overview = false): string {
   if (overview) return buildSourceGuideReply(slug, language, true);
   const locale = GUIDE_SNAPSHOT.locales[guideLocale(language)];
@@ -99,8 +103,13 @@ export function buildConversationGuideReply(slug: SourceTopic, language: string,
   const userContext = messages.slice(start).filter(m => m.role === "user" && typeof m.content === "string").map(m => String(m.content).toLowerCase()).join("\n");
   const source = GUIDE_SNAPSHOT.sources[slug];
   const footer = buildSourceGuideReply(slug, language, true).split(`**${locale.ui.sources}**`)[1];
-  const closing = `${locale.ui.limits}\n\n${locale.ui.checked.replace("{{date}}", source.verifiedOn)}\n\n**${locale.ui.sources}**${footer}`;
+  // One short relevant caveat plus the recorded source date; sources and SmartGuide last.
+  const closing = `_${locale.ui.conversation.limitsShort} ${locale.ui.checked.replace("{{date}}", source.verifiedOn)}_\n\n**${locale.ui.sources}**${footer}`;
   if (slug === "kindergeld") {
+    if (isGeneralInfoQuestion(text)) {
+      const general = locale.ui.conversation.kindergeldGeneral;
+      return [`**${general.title}**`, general.items.map((item, i) => `${i + 1}. ${item}`).join("\n"), closing].join("\n\n");
+    }
     const special = /(?:punoljet|punolet|volljähr|(?:ima|hat)\s+(?:18|19|2\d)\s*(?:godin|jahr))/i.test(userContext) ? "adult" :
       /(?:inostranstv|inozemstv|ausland|drugoj državi|drugoj zemlji|anderen staat|anderen land)/i.test(userContext) ? "cross" : null;
     if (special) {

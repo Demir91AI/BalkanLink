@@ -5,7 +5,19 @@
       "local": "Tačan lokalni postupak proveri u vodiču i na službenoj stranici nadležnog organa; ovde ne trebam tvoju adresu.",
       "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtev. Ako ne znaš, koristi opšti vodič; ne šalji iznose prihoda ni adresu.",
       "next": "Šta želiš dalje: priprema, službeni portal ili predaja? Za ceo pregled napiši „svi koraci“.",
-      "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja menja postupak: svrha, državljanstvo ili je li korisnik već u Nemačkoj. Ne traži broj pasoša, adresu, platu ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/ambasadu, korisnikovu proveru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj celog viznog odgovora nije ovde ponovo proveren; nema provere uživo."
+      "visa": "Koristi postojeći Viza Navigator /viza. Ako korisnik samo navede državu (npr. Bosna), PRVO daj kratak sažetak od 3–5 tačaka: glavni putevi (rad uključujući Westbalkanregelung, Blue Card, studije/obuka, spajanje porodice), da se nacionalna viza traži kod nemačke ambasade/Auslandsportala, i da priznavanje kvalifikacija može biti potrebno. Tek NA KRAJU postavi najviše jedno pitanje (svrha boravka). Ne traži broj pasoša, adresu, platu ili dokumente. Ne biraj vizu niti obećavaj pravo. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Ne izmišljaj rokove, kvote ni iznose.",
+      "limitsShort": "Ovo je opšti pregled, ne procena tvog prava; odluku donosi nadležna kancelarija.",
+      "kindergeldGeneral": {
+        "title": "Kindergeld — opšti uslovi koje treba da proveriš",
+        "items": [
+          "**Boravak ili porez u Nemačkoj** — prebivalište ili uobičajeni boravak u Nemačkoj, ili neograničena poreska obaveza u Nemačkoj.",
+          "**Boravišni status** — za državljane van EU/EEP/Švajcarske po pravilu je potreban boravišni dokument koji daje pravo na Kindergeld; proveri svoju vrstu dozvole.",
+          "**Starost deteta** — do 18 godina; od 18 do 25 samo pod posebnim uslovima (npr. školovanje ili stručna obuka).",
+          "**Gde dete živi** — u Nemačkoj, EU/EEP ili Švajcarskoj; za druge države važe posebna pravila.",
+          "**Steuer-ID** — poreski identifikacioni broj za tebe i za dete.",
+          "**Jedan primalac** — za isto dete Kindergeld prima samo jedna osoba; zahtev ide Familienkasse."
+        ]
+      }
     },
     "open": "Otvori SmartGuide",
     "sources": "Službeni izvori",

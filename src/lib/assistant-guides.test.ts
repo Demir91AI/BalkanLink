@@ -242,3 +242,26 @@ describe("bounded conversational guidance", () => {
     expect(r.status).toBe(429);expect(e.commit).not.toHaveBeenCalled();expect(e.fetchMock).not.toHaveBeenCalled();
   });
 });
+describe("general Kindergeld conditions answer directly", () => {
+  const message = (content: string) => ({ role: "user", content });
+  const q = "Koji su opći uslovi za Kindergeld? Ne procjenjuj moj slučaj, samo objasni šta trebam provjeriti";
+  for (const lang of ["bs", "hr", "sr", "de"] as const) {
+    it(`${lang}: direct list, no intake question, one short caveat, sources last`, () => {
+      const ui = GUIDE_SNAPSHOT.locales[lang].ui;
+      const r = guides.buildConversationGuideReply("kindergeld", lang, [message("Kindergeld"), message(q)]);
+      expect(r).toContain(ui.conversation.kindergeldGeneral.title);
+      expect(r).toContain("Steuer-ID");
+      expect(r).not.toContain(ui.conversation.kindergeldQuestion);
+      expect(r).not.toContain(ui.limits);
+      expect(r).toContain(GUIDE_SNAPSHOT.sources.kindergeld.verifiedOn);
+      expect(r.trim().endsWith("(/formulari/kindergeld)")).toBe(true);
+      expect(r.indexOf(ui.conversation.limitsShort)).toBeGreaterThan(r.indexOf("Steuer-ID"));
+    });
+  }
+  it("a newborn question still gets newborn steps", () => {
+    expect(guides.isGeneralInfoQuestion("Dobio sam dijete, kako podnijeti zahtjev?")).toBe(false);
+  });
+  it("visa context asks for a summary first and at most one question", () => {
+    expect(guides.visaNavigationContext("bs")).toMatch(/PRVO daj kratak sažetak/);
+  });
+});
