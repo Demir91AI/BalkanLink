@@ -48,3 +48,50 @@ export function streamFollowTop(opts: { scrollHeight: number; clientHeight: numb
   const limit = Math.max(0, opts.answerTop - (opts.margin ?? 12));
   return limit < bottom ? { top: limit, capped: true } : { top: bottom, capped: false };
 }
+
+/** Duration (ms) of the single glide to the start of a new answer; reveal of the bubble itself. */
+export const ANSWER_GLIDE_MS = 520;
+export const ANSWER_REVEAL_MS = 240;
+/** Space kept above the new answer so its first line is not tucked under the chat header. */
+export const ANSWER_TOP_OFFSET = 12;
+
+/** Where the glide should end: the answer's first line, clamped to the scrollable range. */
+export function answerStartTop(opts: { scrollHeight: number; clientHeight: number; answerTop: number; offset?: number }): number {
+  const max = Math.max(0, opts.scrollHeight - opts.clientHeight);
+  return Math.min(max, Math.max(0, opts.answerTop - (opts.offset ?? ANSWER_TOP_OFFSET)));
+}
+
+/** Gentle ease-in-out so the view does not appear to be thrown. */
+export function easeInOutCubic(t: number): number {
+  const x = Math.min(1, Math.max(0, t));
+  return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+}
+
+type Raf = (cb: (now: number) => void) => number;
+/**
+ * One self-driven scroll animation (not CSS smooth scroll, so re-renders cannot restart it).
+ * Returns a cancel function; reduced motion jumps directly.
+ */
+export function glideScrollTop(
+  el: { scrollTop: number },
+  to: number,
+  opts: { duration?: number; reduced?: boolean; raf?: Raf; caf?: (id: number) => void; now?: () => number; onDone?: () => void } = {},
+): () => void {
+  const raf: Raf = opts.raf ?? ((cb) => requestAnimationFrame(cb));
+  const caf = opts.caf ?? ((id) => cancelAnimationFrame(id));
+  const now = opts.now ?? (() => performance.now());
+  const from = el.scrollTop;
+  const duration = opts.duration ?? ANSWER_GLIDE_MS;
+  if (opts.reduced || duration <= 0 || Math.abs(to - from) < 2) { el.scrollTop = to; opts.onDone?.(); return () => {}; }
+  const start = now();
+  let id = 0;
+  let cancelled = false;
+  const step = () => {
+    if (cancelled) return;
+    const t = (now() - start) / duration;
+    el.scrollTop = from + (to - from) * easeInOutCubic(t);
+    if (t < 1) id = raf(step); else opts.onDone?.();
+  };
+  id = raf(step);
+  return () => { cancelled = true; caf(id); };
+}
