@@ -358,6 +358,9 @@ export default function ChatAssistant() {
     localStorage.getItem("bl_ai_disclaimer_seen") === "true"
   );
   const scrollRef = useRef<HTMLDivElement>(null);
+  const followingRef = useRef(true);
+  const [showLatest, setShowLatest] = useState(false);
+  const { t: tc } = useTranslation("common");
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const lastFailedMsgRef = useRef<string | null>(null);
@@ -569,51 +572,73 @@ export default function ChatAssistant() {
     if (saved === "de") setChatLang("de");
   }, []);
 
-  // Smart scroll: kada user pošalje novo pitanje (zadnji msg = user) ILI stigne novi assistant odgovor,
-  // skrolaj zadnju USER poruku na vrh vidljivog područja, da korisnik vidi pitanje + početak odgovora
-  // umjesto da bude bačen na dno (gdje je input/loading/kraj odgovora).
+  // Scroll rules: show the user's own new question once; follow streaming output only while
+  // the user stays near the bottom; never pull a user who scrolled up back down.
+  const prevLenRef = useRef(messages.length);
   useEffect(() => {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
 
-    // Tokom onboarding/benefit calc — klasično dno
     if (showOnboarding || showBenefitCalc) {
       container.scrollTop = container.scrollHeight;
       return;
     }
 
-    if (messages.length === 0) return;
+    const grew = messages.length > prevLenRef.current;
+    prevLenRef.current = messages.length;
     const last = messages[messages.length - 1];
+    const justSent = grew && last?.role === "user";
+    const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading });
 
-    // Ako je zadnji msg user (tek poslao) ILI je assistant koji upravo stigao (nije loading streaming),
-    // skrolaj zadnju USER poruku na vrh vidljivog područja.
-    if (last.role === "user" || (last.role === "assistant" && !loading)) {
-      let lastUserIdx = -1;
-      for (let i = messages.length - 1; i >= 0; i--) {
-        if (messages[i].role === "user") { lastUserIdx = i; break; }
-      }
-      if (lastUserIdx >= 0) {
-        // Sačekaj da DOM/animacije stignu da renderuju, pa onda izračunaj poziciju
-        const raf = requestAnimationFrame(() => {
-          if (!scrollRef.current) return;
-          const c = scrollRef.current;
-          const userEl = c.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
-          if (!userEl) return;
-          // getBoundingClientRect je pouzdaniji od offsetTop (koji ovisi o offsetParent)
-          const containerRect = c.getBoundingClientRect();
-          const userRect = userEl.getBoundingClientRect();
-          const target = c.scrollTop + (userRect.top - containerRect.top) - 12;
-          c.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
-        });
-        return () => cancelAnimationFrame(raf);
-      }
+    if (action === "user-top") {
+      const lastUserIdx = messages.length - 1;
+      followingRef.current = true;
+      setShowLatest(false);
+      const raf = requestAnimationFrame(() => {
+        const c = scrollRef.current;
+        if (!c) return;
+        const userEl = c.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
+        if (!userEl) return;
+        const target = c.scrollTop + (userEl.getBoundingClientRect().top - c.getBoundingClientRect().top) - 12;
+        c.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+      });
+      return () => cancelAnimationFrame(raf);
     }
-
-    // Streaming assistant odgovor → drži dno
-    if (loading) {
+    if (action === "bottom") {
       container.scrollTop = container.scrollHeight;
+    } else if (!followingRef.current) {
+      setShowLatest(true);
     }
   }, [messages, loading, showOnboarding, showBenefitCalc]);
+
+  // On (re)open, start at the newest message once.
+  useEffect(() => {
+    if (!open) return;
+    const raf = requestAnimationFrame(() => {
+      const c = scrollRef.current;
+      if (!c) return;
+      c.scrollTop = c.scrollHeight;
+      followingRef.current = true;
+      setShowLatest(false);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [open]);
+
+  const handleChatScroll = useCallback(() => {
+    const c = scrollRef.current;
+    if (!c) return;
+    const near = isNearBottom(c);
+    followingRef.current = near;
+    if (near) setShowLatest(false);
+  }, []);
+
+  const jumpToLatest = useCallback(() => {
+    const c = scrollRef.current;
+    if (!c) return;
+    followingRef.current = true;
+    setShowLatest(false);
+    c.scrollTo({ top: c.scrollHeight, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     if (open) {
