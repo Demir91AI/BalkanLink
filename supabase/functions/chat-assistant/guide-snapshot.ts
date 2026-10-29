@@ -285,7 +285,19 @@ export const GUIDE_SNAPSHOT = {
           "local": "Tačan lokalni postupak provjeri u vodiču i na službenoj stranici nadležnog ureda; ovdje ne trebam tvoju adresu.",
           "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtjev. Ako ne znaš, koristi opći vodič; ne šalji iznose prihoda ni adresu.",
           "next": "Šta želiš dalje: priprema, službeni portal ili predaja? Za cijeli pregled napiši „svi koraci“.",
-          "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja mijenja postupak: svrha, državljanstvo ili je li korisnik već u Njemačkoj. Ne traži broj pasoša, adresu, platu ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/ambasadu, korisnikovu provjeru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj cijelog viznog odgovora nije ovdje ponovo provjeren; nema provjere uživo."
+          "visa": "Koristi postojeći Viza Navigator /viza. Ako korisnik samo navede državu (npr. Bosna), PRVO daj kratak sažetak od 3–5 tačaka: glavni putevi (rad uključujući Westbalkanregelung, Blue Card, studij/obuka, spajanje porodice), da se nacionalna viza traži kod njemačke ambasade/Auslandsportala, i da priznavanje kvalifikacija može biti potrebno. Tek NA KRAJU postavi najviše jedno pitanje (svrha boravka). Ne traži broj pasoša, adresu, platu ili dokumente. Ne odabiri vizu niti obećavaj pravo. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Ne izmišljaj rokove, kvote ni iznose.",
+          "limitsShort": "Ovo je opći pregled, ne procjena tvog prava; odluku donosi nadležni ured.",
+          "kindergeldGeneral": {
+            "title": "Kindergeld — opći uslovi koje trebaš provjeriti",
+            "items": [
+              "**Boravak ili porez u Njemačkoj** — prebivalište ili uobičajeni boravak u Njemačkoj, ili neograničena porezna obaveza u Njemačkoj.",
+              "**Boravišni status** — za državljane izvan EU/EEA/Švicarske u pravilu je potreban boravišni dokument koji daje pravo na Kindergeld; provjeri svoju vrstu dozvole.",
+              "**Starost djeteta** — do 18 godina; od 18 do 25 samo pod posebnim uslovima (npr. školovanje ili stručna obuka).",
+              "**Gdje dijete živi** — u Njemačkoj, EU/EEA ili Švicarskoj; za druge države važe posebna pravila.",
+              "**Steuer-ID** — porezni identifikacijski broj za tebe i za dijete.",
+              "**Jedan primalac** — za isto dijete Kindergeld prima samo jedna osoba; zahtjev ide Familienkasse."
+            ]
+          }
         },
         "open": "Otvori SmartGuide",
         "sources": "Službeni izvori",
@@ -443,7 +455,19 @@ export const GUIDE_SNAPSHOT = {
           "local": "Točan lokalni postupak provjeri u vodiču i na službenoj stranici nadležnog ureda; ovdje ne trebam tvoju adresu.",
           "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtjev. Ako ne znaš, koristi opći vodič; ne šalji iznose prihoda ni adresu.",
           "next": "Što želiš dalje: priprema, službeni portal ili predaja? Za cijeli pregled napiši „svi koraci“.",
-          "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja mijenja postupak: svrha, državljanstvo ili je li korisnik već u Njemačkoj. Ne traži broj putovnice, adresu, plaću ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/veleposlanstvo, korisnikovu provjeru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj cijelog viznog odgovora nije ovdje ponovno provjeren; nema provjere uživo."
+          "visa": "Koristi postojeći Viza Navigator /viza. Ako korisnik samo navede državu (npr. Bosna), NAJPRIJE daj kratak sažetak od 3–5 točaka: glavni putevi (rad uključujući Westbalkanregelung, Blue Card, studij/osposobljavanje, spajanje obitelji), da se nacionalna viza traži kod njemačkog veleposlanstva/Auslandsportala, i da priznavanje kvalifikacija može biti potrebno. Tek NA KRAJU postavi najviše jedno pitanje (svrha boravka). Ne traži broj putovnice, adresu, plaću ili dokumente. Ne odabiri vizu niti obećavaj pravo. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Ne izmišljaj rokove, kvote ni iznose.",
+          "limitsShort": "Ovo je opći pregled, ne procjena tvog prava; odluku donosi nadležni ured.",
+          "kindergeldGeneral": {
+            "title": "Kindergeld — opći uvjeti koje trebaš provjeriti",
+            "items": [
+              "**Boravak ili porez u Njemačkoj** — prebivalište ili uobičajeni boravak u Njemačkoj, ili neograničena porezna obveza u Njemačkoj.",
+              "**Boravišni status** — za državljane izvan EU/EGP-a/Švicarske u pravilu je potreban boravišni dokument koji daje pravo na Kindergeld; provjeri svoju vrstu dozvole.",
+              "**Dob djeteta** — do 18 godina; od 18 do 25 samo pod posebnim uvjetima (npr. školovanje ili stručno osposobljavanje).",
+              "**Gdje dijete živi** — u Njemačkoj, EU/EGP-u ili Švicarskoj; za druge države vrijede posebna pravila.",
+              "**Steuer-ID** — porezni identifikacijski broj za tebe i za dijete.",
+              "**Jedan primatelj** — za isto dijete Kindergeld prima samo jedna osoba; zahtjev ide Familienkasse."
+            ]
+          }
         },
         "open": "Otvori SmartGuide",
         "sources": "Službeni izvori",
@@ -601,7 +625,19 @@ export const GUIDE_SNAPSHOT = {
           "local": "Tačan lokalni postupak proveri u vodiču i na službenoj stranici nadležnog organa; ovde ne trebam tvoju adresu.",
           "wohngeld": "Za odgovarajući obrazac u vodiču odaberi pokrajinu stana, najam ili vlastiti stan, te prvi ili novi zahtev. Ako ne znaš, koristi opšti vodič; ne šalji iznose prihoda ni adresu.",
           "next": "Šta želiš dalje: priprema, službeni portal ili predaja? Za ceo pregled napiši „svi koraci“.",
-          "visa": "Koristi postojeći Viza Navigator /viza. Pitaj samo nedostajuću orijentaciju koja menja postupak: svrha, državljanstvo ili je li korisnik već u Nemačkoj. Ne traži broj pasoša, adresu, platu ili dokumente. Ne odabiri vizu niti obećavaj pravo. Navedi pripremu po stvarnoj kategoriji, službeni portal/ambasadu, korisnikovu proveru, potpis i predaju. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Sadržaj celog viznog odgovora nije ovde ponovo proveren; nema provere uživo."
+          "visa": "Koristi postojeći Viza Navigator /viza. Ako korisnik samo navede državu (npr. Bosna), PRVO daj kratak sažetak od 3–5 tačaka: glavni putevi (rad uključujući Westbalkanregelung, Blue Card, studije/obuka, spajanje porodice), da se nacionalna viza traži kod nemačke ambasade/Auslandsportala, i da priznavanje kvalifikacija može biti potrebno. Tek NA KRAJU postavi najviše jedno pitanje (svrha boravka). Ne traži broj pasoša, adresu, platu ili dokumente. Ne biraj vizu niti obećavaj pravo. Auslandsportal nije dostupan za svaki slučaj; lokalni Aufenthaltstitel ide nadležnoj Ausländerbehörde. Ne izmišljaj rokove, kvote ni iznose.",
+          "limitsShort": "Ovo je opšti pregled, ne procena tvog prava; odluku donosi nadležna kancelarija.",
+          "kindergeldGeneral": {
+            "title": "Kindergeld — opšti uslovi koje treba da proveriš",
+            "items": [
+              "**Boravak ili porez u Nemačkoj** — prebivalište ili uobičajeni boravak u Nemačkoj, ili neograničena poreska obaveza u Nemačkoj.",
+              "**Boravišni status** — za državljane van EU/EEP/Švajcarske po pravilu je potreban boravišni dokument koji daje pravo na Kindergeld; proveri svoju vrstu dozvole.",
+              "**Starost deteta** — do 18 godina; od 18 do 25 samo pod posebnim uslovima (npr. školovanje ili stručna obuka).",
+              "**Gde dete živi** — u Nemačkoj, EU/EEP ili Švajcarskoj; za druge države važe posebna pravila.",
+              "**Steuer-ID** — poreski identifikacioni broj za tebe i za dete.",
+              "**Jedan primalac** — za isto dete Kindergeld prima samo jedna osoba; zahtev ide Familienkasse."
+            ]
+          }
         },
         "open": "Otvori SmartGuide",
         "sources": "Službeni izvori",
@@ -759,7 +795,19 @@ export const GUIDE_SNAPSHOT = {
           "local": "Das genaue örtliche Verfahren im Leitfaden und auf der offiziellen Behördenseite prüfen; deine Adresse wird hier nicht benötigt.",
           "wohngeld": "Für das passende Formular im Leitfaden Bundesland der Wohnung, Miete oder selbst genutztes Eigentum und Erst- oder Folgeantrag auswählen. Bei Unsicherheit den allgemeinen Leitfaden nutzen; keine Einkommensbeträge oder Adresse senden.",
           "next": "Was möchtest du als Nächstes: Vorbereitung, offizielles Portal oder Einreichung? Für die Gesamtübersicht „alle Schritte“ schreiben.",
-          "visa": "Den bestehenden Viza Navigator /viza nutzen. Nur fehlende, verfahrensrelevante Orientierung erfragen: Zweck, Staatsangehörigkeit oder bereits in Deutschland. Keine Passnummer, Adresse, Gehalt oder Dokumente verlangen. Kein Visum auswählen oder Anspruch versprechen. Vorbereitung anhand der konkreten Kategorie, offizielles Portal/Botschaft sowie eigene Prüfung, Unterschrift und Einreichung erläutern. Das Auslandsportal unterstützt nicht jeden Fall; örtliche Aufenthaltstitel gehören zur zuständigen Ausländerbehörde. Der gesamte Visa-Antwortinhalt wurde hier nicht erneut geprüft; keine Live-Prüfung."
+          "visa": "Den bestehenden Viza Navigator /viza nutzen. Nennt der Nutzer nur ein Land (z. B. Bosnien), ZUERST eine kurze Übersicht mit 3–5 Punkten geben: Hauptwege (Arbeit inkl. Westbalkanregelung, Blaue Karte, Studium/Ausbildung, Familiennachzug), nationales Visum über die deutsche Botschaft/das Auslandsportal, ggf. Anerkennung der Qualifikation. Erst AM ENDE höchstens eine Frage (Aufenthaltszweck). Keine Passnummer, Adresse, Gehalt oder Dokumente verlangen. Kein Visum auswählen oder Anspruch versprechen. Das Auslandsportal ist nicht für jeden Fall verfügbar; lokale Aufenthaltstitel gehen an die zuständige Ausländerbehörde. Keine Fristen, Quoten oder Beträge erfinden.",
+          "limitsShort": "Dies ist eine allgemeine Übersicht, keine Prüfung deines Anspruchs; die zuständige Stelle entscheidet.",
+          "kindergeldGeneral": {
+            "title": "Kindergeld — allgemeine Voraussetzungen zum Prüfen",
+            "items": [
+              "**Wohnsitz oder Steuerpflicht in Deutschland** — Wohnsitz oder gewöhnlicher Aufenthalt in Deutschland oder unbeschränkte Steuerpflicht in Deutschland.",
+              "**Aufenthaltsstatus** — für Staatsangehörige außerhalb EU/EWR/Schweiz ist in der Regel ein Aufenthaltstitel nötig, der zum Kindergeld berechtigt; prüfe deine Titelart.",
+              "**Alter des Kindes** — bis 18 Jahre; von 18 bis 25 nur unter besonderen Voraussetzungen (z. B. Schule oder Ausbildung).",
+              "**Wohnort des Kindes** — Deutschland, EU/EWR oder Schweiz; für andere Staaten gelten besondere Regeln.",
+              "**Steuer-ID** — steuerliche Identifikationsnummer für dich und das Kind.",
+              "**Ein Berechtigter** — für dasselbe Kind erhält nur eine Person Kindergeld; der Antrag geht an die Familienkasse."
+            ]
+          }
         },
         "open": "SmartGuide öffnen",
         "sources": "Offizielle Quellen",
