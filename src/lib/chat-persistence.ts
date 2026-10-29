@@ -4,7 +4,7 @@
  * - A new sign-in (even the same account) has a different `last_sign_in_at` → cache is ignored.
  * - Logout purges every chat cache key.
  */
-export const GUEST_CHAT_KEY = "bl-chat-active";
+export const GUEST_CHAT_KEY = "bl-chat-current";
 const USER_PREFIX = "bl-chat-";
 
 type StorageLike = Pick<Storage, "getItem" | "setItem" | "removeItem" | "key" | "length">;

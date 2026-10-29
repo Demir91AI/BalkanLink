@@ -293,8 +293,12 @@ export default function ChatAssistant() {
   const minimizeAssistant = useCallback(() => setPersistentPanelState("minimized"), [setPersistentPanelState]);
   const closeAssistant = useCallback(() => setPersistentPanelState("closed"), [setPersistentPanelState]);
 
-  // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
-  const chatStorageKey = user ? `bl-chat-${user.id}` : ACTIVE_CHAT_STORAGE_KEY;
+  // ── Chat persistence: device-local, scoped to one user AND one sign-in (see chat-persistence.ts).
+  // Survives close/minimize, navigation, refresh and app restart while the same sign-in lasts;
+  // a new sign-in (even of the same account) starts empty. Cloud rows are kept (no auto-delete)
+  // but are NOT restored into the chat.
+  const signInAt = (user as any)?.last_sign_in_at ?? null;
+  const chatOwnerRef = useRef<string | null>(user?.id ?? null);
   const prevUserIdRef = useRef<string | null | undefined>(undefined);
   const restoredRef = useRef(false);
   // Track which messages have been synced to DB (by stable signature) to avoid duplicates
@@ -309,151 +313,25 @@ export default function ChatAssistant() {
     return `${idx}|${m.role}|${(m.content || "").slice(0, 80)}`;
   }
 
-  function loadMessagesByKey(storageKey: string): Msg[] {
+  function loadGuestMessages(): Msg[] {
     try {
-      const raw = localStorage.getItem(storageKey);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed as Msg[];
-      }
-    } catch (e) {
-      console.warn("[BL-Chat] Failed to parse stored chat, clearing:", e);
-      localStorage.removeItem(storageKey);
-    }
-    return [];
+      const raw = localStorage.getItem(GUEST_CHAT_KEY);
+      const parsed = raw ? JSON.parse(raw) : null;
+      return Array.isArray(parsed) ? (parsed as Msg[]) : [];
+    } catch { try { localStorage.removeItem(GUEST_CHAT_KEY); } catch {} return []; }
   }
 
-  function loadMessagesForUser(userId: string): Msg[] {
-    return loadMessagesByKey(`bl-chat-${userId}`);
-  }
-
-  function loadActiveMessages(userId?: string): Msg[] {
-    const userMessages = userId ? loadMessagesForUser(userId) : [];
-    return userMessages.length > 0 ? userMessages : loadMessagesByKey(ACTIVE_CHAT_STORAGE_KEY);
-  }
-
-  // Fetch full history from Supabase for cross-device restore
-  async function fetchRemoteHistory(userId: string): Promise<Msg[]> {
-    try {
-      const data = await readCompleteHistory(async (cursor, size) => {
-        let query = supabase.from("chat_messages")
-          .select("id, role, content, metadata, created_at")
-          .eq("user_id", userId)
-          .order("created_at", { ascending: true })
-          .order("id", { ascending: true })
-          .limit(size);
-        if (cursor) query = query.or(`created_at.gt.${cursor.created_at},and(created_at.eq.${cursor.created_at},id.gt.${cursor.id})`);
-        const { data: page, error } = await query;
-        if (error) throw error;
-        if (!page) throw new Error('HISTORY_RESPONSE_MISSING');
-        return page;
-      });
-      return data.map((row: any) => {
-        remoteIdsRef.current.add(row.id);
-        const meta = row.metadata || {};
-        return {
-          role: row.role,
-          content: row.content,
-          guideSlug: meta.guideSlug ?? null,
-          formSlugs: meta.formSlugs ?? undefined,
-          siteTopics: meta.siteTopics ?? undefined,
-          redirectUrl: meta.redirectUrl ?? undefined,
-          redirectLabel: meta.redirectLabel ?? undefined,
-          suggestions: meta.suggestions ?? undefined,
-          feedbackGiven: meta.feedbackGiven ?? null,
-        } as Msg;
-      });
-    } catch (e) {
-      throw e;
-    }
+  function loadOwnedMessages(userId: string | null | undefined): Msg[] {
+    if (!userId) return loadGuestMessages();
+    return loadUserChat<Msg>(localStorage, userId, signInAt);
   }
 
   const [messages, setMessages] = useState<Msg[]>(() => {
-    const restored = loadActiveMessages(user?.id);
-    if (restored.length > 0) {
-      restoredRef.current = true;
-      // Mark all locally-restored as already synced (best-effort) to avoid spam re-inserts.
-      // The remote fetch on mount will reconcile.
-      restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-      return restored;
-    }
-    return [];
+    const restored = loadOwnedMessages(user?.id);
+    if (user?.id) restoredRef.current = true;
+    restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+    return restored;
   });
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<PanelTab>("chat");
-  const [showOnboarding, setShowOnboarding] = useState(false);
-  const [showBenefitCalc, setShowBenefitCalc] = useState(false);
-  const [chatLang, setChatLang] = useState<"bs" | "de">("bs");
-  const [hasUnread, setHasUnread] = useState(false);
-  const [disclaimerSeen, setDisclaimerSeen] = useState(() =>
-    localStorage.getItem("bl_ai_disclaimer_seen") === "true"
-  );
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const followingRef = useRef(true);
-  const [showLatest, setShowLatest] = useState(false);
-  const { t: tc } = useTranslation("common");
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const lastFailedMsgRef = useRef<string | null>(null);
-  const requestLockRef = useRef(createAssistantRequestLock());
-
-  // Persist messages to localStorage (fast cache)
-  useEffect(() => {
-    if (messages.length > 0) {
-      localStorage.setItem(chatStorageKey, JSON.stringify(messages));
-      localStorage.setItem(ACTIVE_CHAT_STORAGE_KEY, JSON.stringify(messages));
-    }
-  }, [messages, chatStorageKey]);
-
-  // Restore from local cache immediately on auth hydration, then cloud if available.
-  useEffect(() => {
-    if (user?.id) {
-      const local = loadActiveMessages(user.id);
-      if (local.length > 0) {
-        setMessages(prev => (prev.length > 0 ? prev : local));
-        local.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-      }
-    } else {
-      const local = loadActiveMessages();
-      if (local.length > 0) setMessages(prev => (prev.length > 0 ? prev : local));
-    }
-  }, [user?.id]);
-
-  // Restore from cloud on login/hydration. Cloud is source of truth across devices.
-  useEffect(() => {
-    if (!user?.id) return;
-    if (prevUserIdRef.current === user.id) return;
-
-    let cancelled = false;
-    (async () => {
-      try {
-      const remote = await fetchRemoteHistory(user.id);
-      if (cancelled) return;
-
-      if (remote.length > 0) {
-        // Cloud wins on cross-device login — replace local with remote
-        setMessages(remote);
-        remote.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-        console.debug("[BL-Chat] Restored", remote.length, "messages from cloud");
-      } else {
-        // No cloud history — keep local (will be synced upward by sync effect)
-        const local = loadActiveMessages(user.id);
-        if (local.length > 0 && messages.length === 0) {
-          setMessages(local);
-        }
-      }
-      restoredRef.current = true;
-      prevUserIdRef.current = user.id;
-      } catch {
-        // Do not turn a partial/failed read into an empty cloud history and resync it.
-        if (!cancelled) toast.error(t('reliability.historyFailed'));
-      }
-    })();
-
-    return () => { cancelled = true; };
-  }, [user?.id]);
 
   // Push new messages to Supabase as they appear (best-effort, non-blocking)
   useEffect(() => {
