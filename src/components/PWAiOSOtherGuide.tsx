@@ -14,7 +14,7 @@ export default function PWAiOSOtherGuide({ show, onDismiss }: Props) {
   };
 
   return (
-    <div className="fixed bottom-20 left-0 right-0 z-[60] flex justify-center px-4 pointer-events-none md:bottom-4">
+    <div className="fixed bottom-4 left-0 right-0 z-[60] flex justify-center px-4 pointer-events-none">
       <div className="pointer-events-auto w-full max-w-2xl">
         <AnimatePresence>
           <motion.div

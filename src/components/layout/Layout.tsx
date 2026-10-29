@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { AppSidebar } from "./AppSidebar";
 import { DEV_MODE } from "@/lib/dev-mode";
-import MobileBottomNav from "./MobileBottomNav";
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
@@ -73,13 +72,12 @@ export default function Layout() {
           </div>
         )}
         <Header />
-        <main className="flex-1 pb-16 md:pb-0" style={{ backgroundColor: "#020617" }}>
+        <main className="flex-1" style={{ backgroundColor: "#020617" }}>
           <ErrorBoundary>
             <LegacyMusterGuard><Outlet /></LegacyMusterGuard>
           </ErrorBoundary>
         </main>
         <Footer onOpenCookieSettings={cookie.openPreferences} />
-        <MobileBottomNav />
         <CookieConsentBanner
           showBanner={cookie.showBanner}
           acceptAll={cookie.acceptAll}

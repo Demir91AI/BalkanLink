@@ -70,7 +70,7 @@ export default function AppUpdatePrompt() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-24 left-1/2 z-[80] -translate-x-1/2 px-4 md:bottom-6">
+    <div className="fixed bottom-6 left-1/2 z-[80] -translate-x-1/2 px-4">
       <div className="flex items-center gap-3 rounded-full border border-border/50 bg-card/95 px-4 py-2.5 shadow-2xl backdrop-blur-xl">
         <RefreshCw className="h-4 w-4 text-[hsl(var(--gold))]" />
         <span className="text-xs font-semibold text-foreground">Nova verzija dostupna</span>

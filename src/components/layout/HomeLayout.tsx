@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { AppSidebar } from "./AppSidebar";
-import MobileBottomNav from "./MobileBottomNav";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
@@ -27,11 +26,10 @@ export default function HomeLayout() {
       <PullToRefreshIndicator />
       <AppSidebar onPWAInstall={pwa.canShowMenuEntry ? pwa.triggerManual : undefined} />
       <Header />
-      <main className="flex-1 pb-16 md:pb-0" style={{ background: "hsl(215 55% 4%)" }}>
+      <main className="flex-1" style={{ background: "hsl(215 55% 4%)" }}>
         <Outlet />
       </main>
       <Footer onOpenCookieSettings={cookie.openPreferences} />
-      <MobileBottomNav />
       <Suspense fallback={null}>
         <ChatAssistant />
       </Suspense>
