@@ -1,5 +1,7 @@
 # AGENTS.md
 
+- Registration and sign-in classify service failures through the shared UI-only auth-error mapper and translate keys; unknown failures use a safe fallback — prevents raw service text without changing authentication policy.
+
 - FormularPilot code lives in `src/lib/formularpilot/` and stays unwired from live pages until owner release approval — keeps production behaviour unchanged during 2.0.
 - Every official-form fill pipeline is fail-closed: validate → preflight (hash + native fields) → edition gate → fill → read-back; never guess field names — prevents wrong or outdated forms reaching users.
 - PDF field appearances use the locally bundled, hash-pinned Unicode font in `src/assets/fonts/` via `@pdf-lib/fontkit`; never load fonts remotely — BHS letters must print and no third-party font requests.

@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { LogIn, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import PageNav from "@/components/navigation/PageNav";
 import { SEO } from "@/components/SEO";
+import { authErrorKey } from '@/lib/auth-error';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -32,11 +33,16 @@ export default function Login() {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const result = await supabase.auth.signInWithPassword({ email, password }).catch((error: unknown) => {
+      toast({ title: t('auth.errors.loginTitle'), description: t(authErrorKey(error)), variant: 'destructive' });
+      return null;
+    });
     setLoading(false);
+    if (!result) return;
+    const { error } = result;
 
     if (error) {
-      toast({ title: t("auth.login.wrongCredentials"), description: error.message, variant: "destructive" });
+      toast({ title: t("auth.errors.loginTitle"), description: t(authErrorKey(error)), variant: "destructive" });
     } else {
       navigate(redirectTo, { replace: true });
     }

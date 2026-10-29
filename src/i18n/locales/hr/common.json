@@ -182,6 +182,19 @@
     "label": "Jezik"
   },
   "auth": {
+    "errors": {
+      "weakPassword": "Ova lozinka je preslaba ili se često koristi. Radi sigurnosti svojeg računa, odaberite drugu, sigurniju lozinku.",
+      "loginTitle": "Pogreška pri prijavi.",
+      "emailNotConfirmed": "Prije prijave potvrdite svoju e-mail adresu putem poveznice koju ste dobili e-mailom.",
+      "invalidEmail": "Provjerite je li e-mail adresa ispravno unesena.",
+      "emailUnavailable": "Ova e-mail adresa trenutačno se ne može koristiti za registraciju.",
+      "rateLimit": "Previše pokušaja u kratkom vremenu. Pričekajte i pokušajte ponovno.",
+      "signupUnavailable": "Registracija trenutačno nije dostupna. Pokušajte ponovno kasnije.",
+      "signinUnavailable": "Prijava trenutačno nije dostupna za ovaj račun.",
+      "network": "Nije moguće povezati se. Provjerite internetsku vezu i pokušajte ponovno.",
+      "unavailable": "Usluga trenutačno nije dostupna. Pokušajte ponovno kasnije.",
+      "generic": "Zahtjev nije uspio. Pokušajte ponovno kasnije."
+    },
     "login": {
       "title": "Prijava",
       "emailPlaceholder": "E-mail adresa",

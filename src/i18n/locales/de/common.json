@@ -182,6 +182,19 @@
     "label": "Sprache"
   },
   "auth": {
+    "errors": {
+      "weakPassword": "Dieses Passwort ist zu schwach oder wird häufig verwendet. Wählen Sie zum Schutz Ihres Kontos ein anderes, sichereres Passwort.",
+      "loginTitle": "Fehler bei der Anmeldung.",
+      "emailNotConfirmed": "Bestätigen Sie vor der Anmeldung Ihre E-Mail-Adresse über den Link in der Bestätigungs-E-Mail.",
+      "invalidEmail": "Prüfen Sie, ob die E-Mail-Adresse korrekt eingegeben wurde.",
+      "emailUnavailable": "Diese E-Mail-Adresse kann derzeit nicht zur Registrierung verwendet werden.",
+      "rateLimit": "Zu viele Versuche in kurzer Zeit. Warten Sie und versuchen Sie es erneut.",
+      "signupUnavailable": "Die Registrierung ist derzeit nicht verfügbar. Versuchen Sie es später erneut.",
+      "signinUnavailable": "Die Anmeldung ist für dieses Konto derzeit nicht verfügbar.",
+      "network": "Keine Verbindung möglich. Prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+      "unavailable": "Der Dienst ist derzeit nicht verfügbar. Versuchen Sie es später erneut.",
+      "generic": "Die Anfrage ist fehlgeschlagen. Versuchen Sie es später erneut."
+    },
     "login": {
       "title": "Anmelden",
       "emailPlaceholder": "E-Mail-Adresse",

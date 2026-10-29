@@ -1,3 +1,7 @@
+## Authentication error localization (29.10.2026; code-only)
+- [x] Map registration/login service failures to existing i18n, preserve auth checks and UI.
+- [x] 76 focused tests, 1588 full regression tests and four isolated locale browser checks passed; build OK. All 11 new keys exist in all four locales; global checker retains 420 unrelated legacy missing keys. No Cloud settings or production changes.
+
 ## Asistent performance/reliability (28.10.2026; isolated code-only)
 - [x] Profile calls/prompts/stream failures; skip unused search, cache identical catalog bytes, reuse search client, lock overlapping sends, validate SSE completion and release on pre-response network failure. No accounting-policy/model changes.
 - [x] 158 focused tests passed; final 1551/55-file full suite passed with two workers after two default-parallel legacy UI timeouts; automatic build OK. Operation counts and limits in docs/assistant-performance-reliability-2026-10-28.md. Stopped without deploy.
