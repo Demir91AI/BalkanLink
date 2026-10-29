@@ -684,6 +684,18 @@
     "open": "BalkanLink Asistent öffnen"
   },
   "chatScroll": {
-    "latest": "Neueste"
+    "latest": "Neueste",
+    "preparing": "Antwort wird vorbereitet…"
+  },
+  "assistantNext": {
+    "title": "Nächste Schritte",
+    "openGuide": "SmartGuide öffnen: {{topic}}",
+    "openVisa": "Visa-Navigator öffnen",
+    "askDocs": "Welche Unterlagen?",
+    "askDocsQ": "Welche Unterlagen muss ich für {{topic}} allgemein vorbereiten?",
+    "askConditions": "Allgemeine Voraussetzungen",
+    "askConditionsQ": "Was sind die allgemeinen Voraussetzungen für {{topic}}? Bitte nicht meinen Fall bewerten, nur erklären, was ich prüfen muss.",
+    "askVisaDocs": "Unterlagen fürs Visum",
+    "askVisaDocsQ": "Welche Unterlagen muss ich für ein Visum allgemein vorbereiten und wo prüfe ich das offiziell?"
   }
 }

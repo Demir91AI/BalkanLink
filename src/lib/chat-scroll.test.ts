@@ -11,8 +11,9 @@ describe("chat scroll rules", () => {
   it("own sent message → always shown, even if scrolled up", () => {
     expect(chatScrollAction({ justSent: true, following: false, streaming: false })).toBe("user-top");
   });
-  it("finished answer / other updates → no jump", () => {
-    expect(chatScrollAction({ justSent: false, following: true, streaming: false })).toBe("none");
+  it("finished answer while following → stays at bottom; scrolled up → no jump", () => {
+    expect(chatScrollAction({ justSent: false, following: true, streaming: false })).toBe("bottom");
+    expect(chatScrollAction({ justSent: false, following: false, streaming: false })).toBe("none");
   });
   it("near-bottom threshold", () => {
     expect(isNearBottom({ scrollTop: 900, scrollHeight: 1500, clientHeight: 550 })).toBe(true);
