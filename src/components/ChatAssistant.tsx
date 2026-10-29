@@ -9,6 +9,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { useTranslation } from "react-i18next";
 import { chatScrollAction, isNearBottom } from "@/lib/chat-scroll";
+import { nextStepCards } from "@/lib/assistant-next-steps";
 import { readCompleteHistory, clearConfirmedHistory } from "@/lib/phase1-reliability/history";
 import { consumeAssistantStream, createAssistantRequestLock } from "@/lib/assistant-stream";
 import { Button } from "@/components/ui/button";
@@ -158,7 +159,10 @@ const ChatMarkdown = React.memo(function ChatMarkdown({ content }: { content: st
           }
           return <a href={href} target="_blank" rel="noopener noreferrer" className="font-medium text-[hsl(45,93%,49%)] underline underline-offset-2 hover:text-[hsl(45,93%,60%)]">{children}</a>;
         },
-        p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+        p: ({ children }) => <p className="mb-2 last:mb-0 break-words">{children}</p>,
+        blockquote: ({ children }) => <blockquote className="my-2 border-l-2 border-[hsl(45,93%,49%)]/50 pl-3 text-white/75">{children}</blockquote>,
+        code: ({ children }) => <code className="rounded bg-white/10 px-1 py-0.5 text-[12px]">{children}</code>,
+        hr: () => <hr className="my-2 border-white/10" />,
         ol: ({ children }) => <ol className="mb-2 list-decimal space-y-0.5 pl-5">{children}</ol>,
         ul: ({ children }) => <ul className="mb-2 list-disc space-y-0.5 pl-5">{children}</ul>,
         li: ({ children }) => <li className="text-[13px] leading-snug">{children}</li>,
@@ -175,8 +179,7 @@ const ChatMarkdown = React.memo(function ChatMarkdown({ content }: { content: st
 });
 
 // ── Action buttons ──
-function ResponseActions({ msg }: { msg: Msg }) {
-  const { t } = useTranslation("common");
+function responseActionList(msg: Msg, t: (k: string) => string) {
   const actions: { label: string; to: string; icon: typeof BookOpen; primary?: boolean }[] = [];
   if (msg.redirectUrl && msg.redirectLabel && isValidRoute(msg.redirectUrl)) {
     actions.push({ label: msg.redirectLabel, to: msg.redirectUrl, icon: ExternalLink, primary: true });
@@ -194,15 +197,44 @@ function ResponseActions({ msg }: { msg: Msg }) {
       actions.push({ label: t.label, to: t.url, icon: ExternalLink });
     }
   }
+  return actions.slice(0, 3);
+}
+
+function ResponseActions({ msg }: { msg: Msg }) {
+  const { t } = useTranslation("common");
+  const actions = responseActionList(msg, t);
   if (!actions.length) return null;
   return (
     <div className="flex flex-wrap gap-1.5 mt-2">
-      {actions.slice(0, 3).map((a, i) => (
+      {actions.map((a, i) => (
         <Link key={i} to={a.to} className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-[11px] font-medium transition-all ${a.primary ? "bg-[hsl(45,93%,49%)] text-black hover:bg-[hsl(45,93%,55%)]" : "border border-white/20 bg-white/5 text-white/80 hover:bg-white/10"}`}>
           <a.icon className="h-3 w-3" />{a.label}
         </Link>
       ))}
     </div>
+  );
+}
+
+// ── Deterministic next-step cards (verified catalog only, no model call) ──
+function NextStepCards({ msg, userText, onAsk }: { msg: Msg; userText: string; onAsk: (q: string) => void }) {
+  const { t } = useTranslation("common");
+  const exclude = responseActionList(msg, t).map(a => a.to);
+  const cards = nextStepCards({ guideSlug: msg.guideSlug ?? null, userText, isValidRoute, excludeRoutes: exclude });
+  if (!cards.length) return null;
+  const cls = "inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-white/15 bg-white/[0.04] px-3 py-2 text-left text-[12px] font-medium text-white/85 transition-colors hover:border-[hsl(45,93%,49%)]/40 hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(45,93%,49%)]";
+  return (
+    <nav aria-label={t("assistantNext.title")} className="mt-2">
+      <p className="mb-1 px-1 text-[10px] font-semibold uppercase tracking-wide text-white/45">{t("assistantNext.title")}</p>
+      <div className="flex flex-wrap gap-1.5">
+        {cards.map(c => c.kind === "route" ? (
+          <Link key={c.to} to={c.to} className={cls}><BookOpen className="h-3.5 w-3.5 text-[hsl(45,93%,55%)]" aria-hidden="true" />{t(c.labelKey, c.labelVars)}</Link>
+        ) : (
+          <button key={c.questionKey} type="button" onClick={() => onAsk(t(c.questionKey, c.vars))} className={cls}>
+            <MessageCircle className="h-3.5 w-3.5 text-[hsl(45,93%,55%)]" aria-hidden="true" />{t(c.labelKey, c.vars)}
+          </button>
+        ))}
+      </div>
+    </nav>
   );
 }
 
@@ -1277,7 +1309,10 @@ export default function ChatAssistant() {
                               </div>
 
                               {/* Follow-up suggestions */}
-                              {msg.suggestions && msg.suggestions.length > 0 && (
+                              {i === messages.length - 1 && !(msg as any)._retry && (
+                                <NextStepCards msg={msg} userText={messages[i - 1]?.role === "user" ? messages[i - 1].content : ""} onAsk={sendMessageWithText} />
+                              )}
+                              {msg.suggestions && msg.suggestions.length > 0 && !(i === messages.length - 1 && nextStepCards({ guideSlug: msg.guideSlug ?? null, userText: messages[i - 1]?.content ?? "", isValidRoute }).length > 0) && (
                                 <div className="flex flex-wrap gap-1.5 mt-1.5">
                                   {msg.suggestions.slice(0, 3).map((s, si) => (
                                     <button key={si} onClick={() => sendMessageWithText(s)} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] text-white/60 hover:text-white/80 hover:border-[hsl(45,93%,49%)]/30 transition-all">
@@ -1294,18 +1329,9 @@ export default function ChatAssistant() {
 
                     {loading && messages[messages.length - 1]?.role === "user" && (
                       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                        <div className="bl-shimmer-host w-[85%] space-y-2.5 rounded-xl rounded-bl-none px-4 py-4 overflow-hidden" style={{ background: "#1F2937" }}>
-                          <div className="flex items-center gap-2">
-                            <div className="bl-shimmer h-4 w-4 rounded-full" />
-                            <div className="bl-shimmer h-3 w-24 rounded-md" />
-                          </div>
-                          <div className="bl-shimmer h-3 w-full rounded-md" />
-                          <div className="bl-shimmer h-3 w-[90%] rounded-md" style={{ animationDelay: "150ms" }} />
-                          <div className="bl-shimmer h-3 w-[70%] rounded-md" style={{ animationDelay: "300ms" }} />
-                          <div className="flex gap-2 pt-1">
-                            <div className="bl-shimmer h-3 w-16 rounded-md" style={{ animationDelay: "400ms" }} />
-                            <div className="bl-shimmer h-3 w-20 rounded-md" style={{ animationDelay: "500ms" }} />
-                          </div>
+                        <div role="status" aria-live="polite" className="inline-flex items-center gap-2 rounded-xl rounded-bl-none px-3 py-2 text-[12px] text-white/70" style={{ background: "#1F2937" }}>
+                          <span className="h-1.5 w-1.5 rounded-full bg-[hsl(45,93%,55%)] motion-safe:animate-pulse" aria-hidden="true" />
+                          {tc("chatScroll.preparing")}
                         </div>
                       </motion.div>
                     )}
