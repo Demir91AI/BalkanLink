@@ -1,3 +1,4 @@
+import { purgeAllChats } from "@/lib/chat-persistence";
 import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
@@ -185,6 +186,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setProfileLoading(false);
 
           // Fire explicit sign-out event (only on real SIGNED_OUT, not initial hydration)
+          // Signed out (this or another tab), or app opened without a session: no account's chat
+          // may remain on this device. Runs here so it works even when the chat isn't mounted.
+          if (event === "SIGNED_OUT") {
+            try { purgeAllChats(localStorage); } catch { /* ignore */ }
+          } else if (event === "INITIAL_SESSION") {
+            try { purgeAllChats(localStorage, { keepGuest: true }); } catch { /* ignore */ }
+          }
           if (event === "SIGNED_OUT") {
             const previousUserId = (typeof window !== "undefined" ? localStorage.getItem("bl_last_user_id") : null) || undefined;
             try { window.dispatchEvent(new CustomEvent("bl:user-signed-out", { detail: { userId: previousUserId } })); } catch {}

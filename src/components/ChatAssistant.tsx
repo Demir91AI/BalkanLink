@@ -8,9 +8,10 @@ import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { useTranslation } from "react-i18next";
-import { chatScrollAction, isNearBottom } from "@/lib/chat-scroll";
+import { chatScrollAction, followAfterScroll, mayPinOnResize, USER_GESTURE_WINDOW_MS } from "@/lib/chat-scroll";
 import { nextStepCards } from "@/lib/assistant-next-steps";
-import { readCompleteHistory, clearConfirmedHistory } from "@/lib/phase1-reliability/history";
+import { clearConfirmedHistory } from "@/lib/phase1-reliability/history";
+import { GUEST_CHAT_KEY, chatKeyFor, loadUserChat, purgeAllChats, saveUserChat } from "@/lib/chat-persistence";
 import { consumeAssistantStream, createAssistantRequestLock } from "@/lib/assistant-stream";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
@@ -71,7 +72,9 @@ const STARTER_QUESTIONS = [
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
-const ACTIVE_CHAT_STORAGE_KEY = "bl-chat-current";
+const ACTIVE_CHAT_STORAGE_KEY = GUEST_CHAT_KEY;
+// Last scroll position of the chat list (memory only) so a remount/route change keeps the reading spot.
+let savedScroll: { owner: string | null; top: number; following: boolean } | null = null;
 
 // ── Detekcija pitanja o broju preostalih dnevnih pitanja (lokalno, bez AI) ──
 const QUOTA_QUERY_RE = /\b(kol[iı]ko|kolko|koliko\s+jo[sš]?|jo[sš]?\s+kol[iı]ko|preostal|ostal[oa]?|ostalo)\b.*\b(pitanj|upit|kvot|limit)\b|\b(pitanj|upit|kvot|limit)\b.*\b(kol[iı]ko|kolko|preostal|ostal[oa]?)\b/i;
@@ -293,8 +296,12 @@ export default function ChatAssistant() {
   const minimizeAssistant = useCallback(() => setPersistentPanelState("minimized"), [setPersistentPanelState]);
   const closeAssistant = useCallback(() => setPersistentPanelState("closed"), [setPersistentPanelState]);
 
-  // ── Cross-device chat persistence (localStorage cache + Supabase sync) ──
-  const chatStorageKey = user ? `bl-chat-${user.id}` : ACTIVE_CHAT_STORAGE_KEY;
+  // ── Chat persistence: device-local, scoped to one user AND one sign-in (see chat-persistence.ts).
+  // Survives close/minimize, navigation, refresh and app restart while the same sign-in lasts;
+  // a new sign-in (even of the same account) starts empty. Cloud rows are kept (no auto-delete)
+  // but are NOT restored into the chat.
+  const signInAt = (user as any)?.last_sign_in_at ?? null;
+  const chatOwnerRef = useRef<string | null>(user?.id ?? null);
   const prevUserIdRef = useRef<string | null | undefined>(undefined);
   const restoredRef = useRef(false);
   // Track which messages have been synced to DB (by stable signature) to avoid duplicates
@@ -309,75 +316,24 @@ export default function ChatAssistant() {
     return `${idx}|${m.role}|${(m.content || "").slice(0, 80)}`;
   }
 
-  function loadMessagesByKey(storageKey: string): Msg[] {
+  function loadGuestMessages(): Msg[] {
     try {
-      const raw = localStorage.getItem(storageKey);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed as Msg[];
-      }
-    } catch (e) {
-      console.warn("[BL-Chat] Failed to parse stored chat, clearing:", e);
-      localStorage.removeItem(storageKey);
-    }
-    return [];
+      const raw = localStorage.getItem(GUEST_CHAT_KEY);
+      const parsed = raw ? JSON.parse(raw) : null;
+      return Array.isArray(parsed) ? (parsed as Msg[]) : [];
+    } catch { try { localStorage.removeItem(GUEST_CHAT_KEY); } catch {} return []; }
   }
 
-  function loadMessagesForUser(userId: string): Msg[] {
-    return loadMessagesByKey(`bl-chat-${userId}`);
-  }
-
-  function loadActiveMessages(userId?: string): Msg[] {
-    const userMessages = userId ? loadMessagesForUser(userId) : [];
-    return userMessages.length > 0 ? userMessages : loadMessagesByKey(ACTIVE_CHAT_STORAGE_KEY);
-  }
-
-  // Fetch full history from Supabase for cross-device restore
-  async function fetchRemoteHistory(userId: string): Promise<Msg[]> {
-    try {
-      const data = await readCompleteHistory(async (cursor, size) => {
-        let query = supabase.from("chat_messages")
-          .select("id, role, content, metadata, created_at")
-          .eq("user_id", userId)
-          .order("created_at", { ascending: true })
-          .order("id", { ascending: true })
-          .limit(size);
-        if (cursor) query = query.or(`created_at.gt.${cursor.created_at},and(created_at.eq.${cursor.created_at},id.gt.${cursor.id})`);
-        const { data: page, error } = await query;
-        if (error) throw error;
-        if (!page) throw new Error('HISTORY_RESPONSE_MISSING');
-        return page;
-      });
-      return data.map((row: any) => {
-        remoteIdsRef.current.add(row.id);
-        const meta = row.metadata || {};
-        return {
-          role: row.role,
-          content: row.content,
-          guideSlug: meta.guideSlug ?? null,
-          formSlugs: meta.formSlugs ?? undefined,
-          siteTopics: meta.siteTopics ?? undefined,
-          redirectUrl: meta.redirectUrl ?? undefined,
-          redirectLabel: meta.redirectLabel ?? undefined,
-          suggestions: meta.suggestions ?? undefined,
-          feedbackGiven: meta.feedbackGiven ?? null,
-        } as Msg;
-      });
-    } catch (e) {
-      throw e;
-    }
+  function loadOwnedMessages(userId: string | null | undefined): Msg[] {
+    if (!userId) return loadGuestMessages();
+    return loadUserChat<Msg>(localStorage, userId, signInAt);
   }
 
   const [messages, setMessages] = useState<Msg[]>(() => {
-    const restored = loadActiveMessages(user?.id);
-    if (restored.length > 0) {
-      restoredRef.current = true;
-      // Mark all locally-restored as already synced (best-effort) to avoid spam re-inserts.
-      // The remote fetch on mount will reconcile.
-      restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-      return restored;
-    }
-    return [];
+    const restored = loadOwnedMessages(user?.id);
+    if (user?.id) restoredRef.current = true;
+    restored.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+    return restored;
   });
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -392,6 +348,8 @@ export default function ChatAssistant() {
   );
   const scrollRef = useRef<HTMLDivElement>(null);
   const followingRef = useRef(true);
+  const touchingRef = useRef(false);
+  const lastGestureAtRef = useRef(0);
   const [showLatest, setShowLatest] = useState(false);
   const { t: tc } = useTranslation("common");
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -399,61 +357,50 @@ export default function ChatAssistant() {
   const lastFailedMsgRef = useRef<string | null>(null);
   const requestLockRef = useRef(createAssistantRequestLock());
 
-  // Persist messages to localStorage (fast cache)
+  // Account switch / sign-in / sign-out: swap the chat to the new owner's own sign-in cache.
+  // Runs before the persist effect, which only reacts to `messages`, so old messages are never
+  // written under the new owner's key.
   useEffect(() => {
-    if (messages.length > 0) {
-      localStorage.setItem(chatStorageKey, JSON.stringify(messages));
-      localStorage.setItem(ACTIVE_CHAT_STORAGE_KEY, JSON.stringify(messages));
-    }
-  }, [messages, chatStorageKey]);
-
-  // Restore from local cache immediately on auth hydration, then cloud if available.
-  useEffect(() => {
-    if (user?.id) {
-      const local = loadActiveMessages(user.id);
-      if (local.length > 0) {
-        setMessages(prev => (prev.length > 0 ? prev : local));
-        local.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-      }
-    } else {
-      const local = loadActiveMessages();
-      if (local.length > 0) setMessages(prev => (prev.length > 0 ? prev : local));
-    }
+    const nextOwner = user?.id ?? null;
+    if (chatOwnerRef.current === nextOwner && prevUserIdRef.current !== undefined) return;
+    const changed = chatOwnerRef.current !== nextOwner;
+    chatOwnerRef.current = nextOwner;
+    prevUserIdRef.current = nextOwner;
+    if (!changed) return;
+    if (nextOwner) { try { localStorage.removeItem(GUEST_CHAT_KEY); } catch {} }
+    syncedSigsRef.current.clear();
+    remoteIdsRef.current.clear();
+    const next = loadOwnedMessages(nextOwner);
+    next.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
+    restoredRef.current = !!nextOwner;
+    followingRef.current = true;
+    savedScroll = null;
+    setMessages(next);
   }, [user?.id]);
 
-  // Restore from cloud on login/hydration. Cloud is source of truth across devices.
+  // Persist messages (device-local) for the current owner only.
   useEffect(() => {
-    if (!user?.id) return;
-    if (prevUserIdRef.current === user.id) return;
-
-    let cancelled = false;
-    (async () => {
+    const owner = chatOwnerRef.current;
+    if (owner) saveUserChat(localStorage, owner, signInAt, messages);
+    else {
       try {
-      const remote = await fetchRemoteHistory(user.id);
-      if (cancelled) return;
+        if (messages.length > 0) localStorage.setItem(GUEST_CHAT_KEY, JSON.stringify(messages));
+        else localStorage.removeItem(GUEST_CHAT_KEY);
+      } catch {}
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages]);
 
-      if (remote.length > 0) {
-        // Cloud wins on cross-device login — replace local with remote
-        setMessages(remote);
-        remote.forEach((m, i) => syncedSigsRef.current.add(msgSignature(m, i)));
-        console.debug("[BL-Chat] Restored", remote.length, "messages from cloud");
-      } else {
-        // No cloud history — keep local (will be synced upward by sync effect)
-        const local = loadActiveMessages(user.id);
-        if (local.length > 0 && messages.length === 0) {
-          setMessages(local);
-        }
-      }
-      restoredRef.current = true;
-      prevUserIdRef.current = user.id;
-      } catch {
-        // Do not turn a partial/failed read into an empty cloud history and resync it.
-        if (!cancelled) toast.error(t('reliability.historyFailed'));
-      }
-    })();
-
-    return () => { cancelled = true; };
-  }, [user?.id]);
+  // Another tab signed out / cleared this chat → drop it here too.
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      const owner = chatOwnerRef.current;
+      if (!owner || e.key === null) { if (e.key === null) setMessages([]); return; }
+      if (e.key === chatKeyFor(owner) && e.newValue === null) setMessages([]);
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
   // Push new messages to Supabase as they appear (best-effort, non-blocking)
   useEffect(() => {
@@ -559,7 +506,7 @@ export default function ChatAssistant() {
           setMessages([]);
           syncedSigsRef.current.clear();
           remoteIdsRef.current.clear();
-          localStorage.removeItem(chatStorageKey);
+          if (chatOwnerRef.current) localStorage.removeItem(chatKeyFor(chatOwnerRef.current));
           localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
         },
       );
@@ -568,36 +515,28 @@ export default function ChatAssistant() {
       });
     } catch { toast.error(t('reliability.clearFailed')); }
     finally { clearPending.current = false; setClearing(false); }
-  }, [messages.length, chatStorageKey, user?.id, loading, t]);
+  }, [messages.length, user?.id, loading, t]);
 
-  // On real sign-out: clear local cache AND wipe cloud history.
-  // During an active session (minimize/close/navigation) history persists.
+  // On real sign-out (also fired in other open tabs): wipe every local chat cache and the
+  // in-memory chat. Cloud rows are NOT deleted automatically (the session is already gone at
+  // this point, so RLS would reject it anyway); only the explicit Trash action deletes them.
   useEffect(() => {
-    const handleSignOut = (e: Event) => {
-      const detail = (e as CustomEvent)?.detail as { userId?: string } | undefined;
-      const signedOutUserId = detail?.userId ?? prevUserIdRef.current ?? user?.id ?? null;
+    const handleSignOut = () => {
       setMessages([]);
       syncedSigsRef.current.clear();
       remoteIdsRef.current.clear();
-      const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
-      keys.forEach(k => localStorage.removeItem(k));
-      localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
+      purgeAllChats(localStorage);
       restoredRef.current = false;
-      prevUserIdRef.current = null;
+      savedScroll = null;
+      followingRef.current = true;
       // Reset panel: na sljedećem ulasku na home FAB se NE smije pojaviti
       openedThisSessionRef.current = false;
       try { localStorage.removeItem(ASSISTANT_PANEL_STATE_KEY); } catch {}
       setPanelState("closed");
-      if (signedOutUserId) {
-        supabase.from("chat_messages").delete().eq("user_id", signedOutUserId).then(({ error }) => {
-          if (error) console.warn("[BL-Chat] Cloud clear on sign-out failed:", error.message);
-        });
-      }
-      console.debug("[BL-Chat] Sign-out — local cache cleared; cloud deletion requested");
     };
     window.addEventListener("bl:user-signed-out", handleSignOut);
     return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
-  }, [user?.id]);
+  }, []);
 
   // Load chat lang preference
   useEffect(() => {
@@ -605,80 +544,99 @@ export default function ChatAssistant() {
     if (saved === "de") setChatLang("de");
   }, []);
 
-  // Scroll rules: show the user's own new question once; follow streaming output only while
-  // the user stays near the bottom; never pull a user who scrolled up back down.
+  // Scroll rules (see chat-scroll.ts): only the user's own scrolling (touch/wheel/keys/scrollbar)
+  // detaches or re-attaches; content growth, streaming chunks, the typing line, keyboard resize,
+  // focus and remounts never move a reader who scrolled up. Sending a message re-attaches.
   const prevLenRef = useRef(messages.length);
+  const pinToBottom = useCallback(() => {
+    const c = scrollRef.current;
+    if (c) c.scrollTop = c.scrollHeight;
+  }, []);
   useEffect(() => {
     if (!scrollRef.current) return;
-    const container = scrollRef.current;
-
     const grew = messages.length > prevLenRef.current;
     prevLenRef.current = messages.length;
     const last = messages[messages.length - 1];
     const justSent = grew && last?.role === "user";
-
-    // Onboarding/benefit views: stay at the bottom only while the user is following.
-    if (showOnboarding || showBenefitCalc) {
-      if (justSent || followingRef.current) {
-        followingRef.current = true;
-        container.scrollTop = container.scrollHeight;
-      } else setShowLatest(true);
-      return;
-    }
-    const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading });
-
+    const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading, touching: touchingRef.current });
     if (action === "user-top") {
-      // Own message: follow the conversation from here (instant, no competing smooth animation).
       followingRef.current = true;
       setShowLatest(false);
-      container.scrollTop = container.scrollHeight;
-      return;
-    }
-    if (action === "bottom") {
-      container.scrollTop = container.scrollHeight;
+      pinToBottom();
+    } else if (action === "bottom") {
+      pinToBottom();
     } else if (!followingRef.current) {
       setShowLatest(true);
     }
-  }, [messages, loading, showOnboarding, showBenefitCalc]);
+  }, [messages, loading, showOnboarding, showBenefitCalc, pinToBottom]);
 
-  // On (re)open, start at the newest message once.
+  // On (re)open or remount: restore this owner's reading spot if they had scrolled up, else newest.
   useEffect(() => {
     if (!open) return;
     const raf = requestAnimationFrame(() => {
       const c = scrollRef.current;
       if (!c) return;
-      c.scrollTop = c.scrollHeight;
-      followingRef.current = true;
-      setShowLatest(false);
+      const saved = savedScroll;
+      if (saved && saved.owner === chatOwnerRef.current && !saved.following) {
+        c.scrollTop = saved.top;
+        followingRef.current = false;
+        setShowLatest(true);
+      } else {
+        c.scrollTop = c.scrollHeight;
+        followingRef.current = true;
+        setShowLatest(false);
+      }
     });
     return () => cancelAnimationFrame(raf);
   }, [open]);
 
-  // Mobile keyboard: when the visible area shrinks, keep the newest text visible only if following.
+  // Mobile keyboard / viewport resize: keep newest visible only while following.
   useEffect(() => {
     const vv = typeof window !== "undefined" ? window.visualViewport : null;
-    if (!open || !vv) return;
+    if (!open) return;
     const onResize = () => {
-      const c = scrollRef.current;
-      if (c && followingRef.current) c.scrollTop = c.scrollHeight;
+      if (mayPinOnResize({ following: followingRef.current, touching: touchingRef.current })) pinToBottom();
     };
-    vv.addEventListener("resize", onResize);
-    return () => vv.removeEventListener("resize", onResize);
-  }, [open]);
+    vv?.addEventListener("resize", onResize);
+    window.addEventListener("resize", onResize);
+    return () => { vv?.removeEventListener("resize", onResize); window.removeEventListener("resize", onResize); };
+  }, [open, pinToBottom]);
+
+  const markGesture = useCallback(() => { lastGestureAtRef.current = Date.now(); }, []);
+  const detach = useCallback(() => {
+    markGesture();
+    if (followingRef.current) { followingRef.current = false; }
+  }, [markGesture]);
+  const gestureHandlers = {
+    onWheel: (e: React.WheelEvent) => { if (e.deltaY < 0) detach(); else markGesture(); },
+    onTouchStart: () => { touchingRef.current = true; markGesture(); },
+    onTouchMove: () => { touchingRef.current = true; markGesture(); },
+    onTouchEnd: () => { touchingRef.current = false; markGesture(); },
+    onTouchCancel: () => { touchingRef.current = false; markGesture(); },
+    onPointerDown: (e: React.PointerEvent) => { if (e.target === e.currentTarget) markGesture(); },
+    onKeyDown: (e: React.KeyboardEvent) => {
+      if (["PageUp", "ArrowUp", "Home"].includes(e.key)) detach();
+      else if (["PageDown", "ArrowDown", "End", " "].includes(e.key)) markGesture();
+    },
+  };
 
   const handleChatScroll = useCallback(() => {
     const c = scrollRef.current;
     if (!c) return;
-    const near = isNearBottom(c);
-    followingRef.current = near;
-    setShowLatest(!near);
+    const userInitiated = touchingRef.current || Date.now() - lastGestureAtRef.current < USER_GESTURE_WINDOW_MS;
+    const following = followAfterScroll({ wasFollowing: followingRef.current, userInitiated, metrics: c });
+    followingRef.current = following;
+    setShowLatest(!following);
+    savedScroll = { owner: chatOwnerRef.current, top: c.scrollTop, following };
   }, []);
 
   const jumpToLatest = useCallback(() => {
     const c = scrollRef.current;
     if (!c) return;
     followingRef.current = true;
+    lastGestureAtRef.current = 0;
     setShowLatest(false);
+    savedScroll = null;
     c.scrollTo({ top: c.scrollHeight, behavior: "smooth" });
   }, []);
 
@@ -1200,7 +1158,7 @@ export default function ChatAssistant() {
                   )}
 
                   {/* Chat messages area */}
-                  <div ref={scrollRef} onScroll={handleChatScroll} className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-3">
+                  <div ref={scrollRef} onScroll={handleChatScroll} {...gestureHandlers} className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-3">
                     {showOnboarding && (
                       <ChatOnboarding onComplete={handleOnboardingComplete} />
                     )}
