@@ -682,5 +682,8 @@
   },
   "assistantFab": {
     "open": "Otvori BalkanLink Asistenta"
+  },
+  "chatScroll": {
+    "latest": "Najnovije"
   }
 }

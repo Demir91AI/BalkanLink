@@ -682,5 +682,8 @@
   },
   "assistantFab": {
     "open": "BalkanLink Asistent öffnen"
+  },
+  "chatScroll": {
+    "latest": "Neueste"
   }
 }

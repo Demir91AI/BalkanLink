@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { useTranslation } from "react-i18next";
+import { chatScrollAction, isNearBottom } from "@/lib/chat-scroll";
 import { readCompleteHistory, clearConfirmedHistory } from "@/lib/phase1-reliability/history";
 import { consumeAssistantStream, createAssistantRequestLock } from "@/lib/assistant-stream";
 import { Button } from "@/components/ui/button";
@@ -1158,7 +1159,7 @@ export default function ChatAssistant() {
                   )}
 
                   {/* Chat messages area */}
-                  <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+                  <div ref={scrollRef} onScroll={handleChatScroll} className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-3">
                     {showOnboarding && (
                       <ChatOnboarding onComplete={handleOnboardingComplete} />
                     )}
