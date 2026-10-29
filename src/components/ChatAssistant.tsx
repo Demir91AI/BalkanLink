@@ -8,9 +8,10 @@ import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { useChatLimit } from "@/hooks/usePremiumAccess";
 import { useTranslation } from "react-i18next";
-import { chatScrollAction, isNearBottom } from "@/lib/chat-scroll";
+import { chatScrollAction, followAfterScroll, mayPinOnResize, USER_GESTURE_WINDOW_MS } from "@/lib/chat-scroll";
 import { nextStepCards } from "@/lib/assistant-next-steps";
-import { readCompleteHistory, clearConfirmedHistory } from "@/lib/phase1-reliability/history";
+import { clearConfirmedHistory } from "@/lib/phase1-reliability/history";
+import { GUEST_CHAT_KEY, chatKeyFor, loadUserChat, purgeAllChats, saveUserChat } from "@/lib/chat-persistence";
 import { consumeAssistantStream, createAssistantRequestLock } from "@/lib/assistant-stream";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
@@ -71,7 +72,9 @@ const STARTER_QUESTIONS = [
 ];
 
 const DEFAULT_WELCOME = "Zdravo! 👋 Ja sam BalkanLink Asistent. Pomažem Balkancima u Njemačkoj da se snađu — od formulara do svakodnevnog života. Šta te muči?";
-const ACTIVE_CHAT_STORAGE_KEY = "bl-chat-current";
+const ACTIVE_CHAT_STORAGE_KEY = GUEST_CHAT_KEY;
+// Last scroll position of the chat list (memory only) so a remount/route change keeps the reading spot.
+let savedScroll: { owner: string | null; top: number; following: boolean } | null = null;
 
 // ── Detekcija pitanja o broju preostalih dnevnih pitanja (lokalno, bez AI) ──
 const QUOTA_QUERY_RE = /\b(kol[iı]ko|kolko|koliko\s+jo[sš]?|jo[sš]?\s+kol[iı]ko|preostal|ostal[oa]?|ostalo)\b.*\b(pitanj|upit|kvot|limit)\b|\b(pitanj|upit|kvot|limit)\b.*\b(kol[iı]ko|kolko|preostal|ostal[oa]?)\b/i;
@@ -514,34 +517,26 @@ export default function ChatAssistant() {
     finally { clearPending.current = false; setClearing(false); }
   }, [messages.length, chatStorageKey, user?.id, loading, t]);
 
-  // On real sign-out: clear local cache AND wipe cloud history.
-  // During an active session (minimize/close/navigation) history persists.
+  // On real sign-out (also fired in other open tabs): wipe every local chat cache and the
+  // in-memory chat. Cloud rows are NOT deleted automatically (the session is already gone at
+  // this point, so RLS would reject it anyway); only the explicit Trash action deletes them.
   useEffect(() => {
-    const handleSignOut = (e: Event) => {
-      const detail = (e as CustomEvent)?.detail as { userId?: string } | undefined;
-      const signedOutUserId = detail?.userId ?? prevUserIdRef.current ?? user?.id ?? null;
+    const handleSignOut = () => {
       setMessages([]);
       syncedSigsRef.current.clear();
       remoteIdsRef.current.clear();
-      const keys = Object.keys(localStorage).filter(k => k.startsWith("bl-chat-"));
-      keys.forEach(k => localStorage.removeItem(k));
-      localStorage.removeItem(ACTIVE_CHAT_STORAGE_KEY);
+      purgeAllChats(localStorage);
       restoredRef.current = false;
-      prevUserIdRef.current = null;
+      savedScroll = null;
+      followingRef.current = true;
       // Reset panel: na sljedećem ulasku na home FAB se NE smije pojaviti
       openedThisSessionRef.current = false;
       try { localStorage.removeItem(ASSISTANT_PANEL_STATE_KEY); } catch {}
       setPanelState("closed");
-      if (signedOutUserId) {
-        supabase.from("chat_messages").delete().eq("user_id", signedOutUserId).then(({ error }) => {
-          if (error) console.warn("[BL-Chat] Cloud clear on sign-out failed:", error.message);
-        });
-      }
-      console.debug("[BL-Chat] Sign-out — local cache cleared; cloud deletion requested");
     };
     window.addEventListener("bl:user-signed-out", handleSignOut);
     return () => window.removeEventListener("bl:user-signed-out", handleSignOut);
-  }, [user?.id]);
+  }, []);
 
   // Load chat lang preference
   useEffect(() => {
