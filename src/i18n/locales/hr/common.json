@@ -679,5 +679,8 @@
     "action": "Akcija",
     "confirmPurge": "Potvrditi postojeće čišćenje audit loga? Obrisani zapisi ne mogu se vratiti.",
     "confirmSettings": "Potvrditi izmjenu postojeće politike zadržavanja?"
+  },
+  "assistantFab": {
+    "open": "Otvori BalkanLink Asistenta"
   }
 }

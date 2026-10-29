@@ -374,6 +374,56 @@
       "partnerView": "Pogledaj",
       "partnerContact": "Kontakt",
       "partnerRecommended": "Preporučeno"
+    },
+    "v2": {
+      "eyebrow": "BalkanLink · vodič za život u Nemačkoj",
+      "title": "Šta želiš da rešiš danas?",
+      "subtitle": "Postavi pitanje na svom jeziku ili izaberi oblast. Vodimo te korak po korak do zvaničnog postupka.",
+      "askLabel": "Tvoje pitanje za Asistenta",
+      "askPlaceholder": "npr. Kako da podnesem zahtev za Kindergeld?",
+      "askSubmit": "Pitaj",
+      "askHint": "Otvara BalkanLink Asistenta. Ne unosi lične podatke poput broja pasoša.",
+      "categoriesHeading": "Izaberi oblast",
+      "allServices": "Sve usluge",
+      "guidesHeading": "Popularni SmartGuide vodiči",
+      "guideCta": "Otvori vodič",
+      "membershipHeading": "Članstvo",
+      "cat": {
+        "forms": {
+          "title": "Formulari i vodiči",
+          "desc": "Kindergeld, Wohngeld, Anmeldung…"
+        },
+        "visa": {
+          "title": "Vize i boravak",
+          "desc": "Putevi do dozvole boravka"
+        },
+        "recognition": {
+          "title": "Anerkennung",
+          "desc": "Priznavanje diploma i zanimanja"
+        },
+        "docs": {
+          "title": "Provera dokumenata",
+          "desc": "Razumi pismo ili dokument"
+        },
+        "german": {
+          "title": "Nemački A1–C2",
+          "desc": "BalkanLink Deutsch kurs"
+        },
+        "life": {
+          "title": "Život u Nemačkoj",
+          "desc": "Dolazak, stan, posao"
+        }
+      },
+      "guides": {
+        "kindergeld": {
+          "title": "Kindergeld za novorođenče",
+          "desc": "Koraci, dokumenti i zvanični portal"
+        },
+        "anmeldung": {
+          "title": "Anmeldung stana",
+          "desc": "Prijava adrese u Bürgeramtu"
+        }
+      }
     }
   },
   "dolazakStart": {

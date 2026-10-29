@@ -57,10 +57,18 @@ describe("hub imports", () => {
   // replaces the old hook; removed markdown/payment/toast/animation imports are not features.
   // Baseline itself stays byte-identical; all routes, user data and other hub imports stay pinned.
   const documentCleanup = ["@/hooks/usePremiumAccess", "@/lib/stripe", "framer-motion", "react-markdown", "sonner"];
+  // Owner-approved homepage Phase 1 (2026-10-29): these sections leave the homepage only;
+  // their component files remain in the app (asserted below).
+  const homeCleanup = ["@/components/home/CollapsibleSection", "@/components/home/FeatureCards", "@/components/home/FlowBanner",
+    "@/components/home/ProcessSection", "@/components/home/TrustSection", "@/components/home/WhatIsWhat", "@/components/share/ShareButton", "framer-motion"];
+  it("homepage-removed sections still exist in the app", () => {
+    for (const m of homeCleanup.filter(i => i.startsWith("@/"))) expect(fileText(`src/${m.slice(2)}.tsx`).length).toBeGreaterThan(0);
+  });
   for (const [file, imps] of Object.entries(baseline.hubImports)) {
     it(`${file} keeps its feature imports`, () => {
       const pinned = file === "src/pages/DokumentenCheck.tsx"
-        ? (imps as string[]).filter(i => !documentCleanup.includes(i)) : imps as string[];
+        ? (imps as string[]).filter(i => !documentCleanup.includes(i))
+        : file === "src/pages/Index.tsx" ? (imps as string[]).filter(i => !homeCleanup.includes(i)) : imps as string[];
       expect(missing(pinned, importsOf(file))).toEqual([]);
       if (file === "src/pages/DokumentenCheck.tsx") {
         expect(importsOf(file)).toContain("@/hooks/useEntitlement");
