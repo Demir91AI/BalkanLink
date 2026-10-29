@@ -628,18 +628,11 @@ export default function ChatAssistant() {
     const action = chatScrollAction({ justSent, following: followingRef.current, streaming: loading });
 
     if (action === "user-top") {
-      const lastUserIdx = messages.length - 1;
+      // Own message: follow the conversation from here (instant, no competing smooth animation).
       followingRef.current = true;
       setShowLatest(false);
-      const raf = requestAnimationFrame(() => {
-        const c = scrollRef.current;
-        if (!c) return;
-        const userEl = c.querySelector<HTMLElement>(`[data-msg-idx="${lastUserIdx}"]`);
-        if (!userEl) return;
-        const target = c.scrollTop + (userEl.getBoundingClientRect().top - c.getBoundingClientRect().top) - 12;
-        c.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
-      });
-      return () => cancelAnimationFrame(raf);
+      container.scrollTop = container.scrollHeight;
+      return;
     }
     if (action === "bottom") {
       container.scrollTop = container.scrollHeight;
