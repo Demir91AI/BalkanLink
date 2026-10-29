@@ -1309,6 +1309,13 @@ export default function ChatAssistant() {
                         </div>
                       </motion.div>
                     )}
+                    {showLatest && (
+                      <div className="sticky bottom-0 flex justify-center pointer-events-none">
+                        <button type="button" onClick={jumpToLatest} className="pointer-events-auto inline-flex items-center gap-1 rounded-full border border-[hsl(45,93%,49%)]/40 bg-[#111827] px-3 py-1.5 text-[11px] font-semibold text-[hsl(45,93%,60%)] shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(45,93%,49%)]">
+                          ↓ {tc("chatScroll.latest")}
+                        </button>
+                      </div>
+                    )}
                   </div>
 
                   {/* Disclaimer */}
