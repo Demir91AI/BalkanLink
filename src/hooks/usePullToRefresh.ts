@@ -1,12 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { touchMayPullToRefresh } from "@/lib/pull-to-refresh-guard";
 
 const TRIGGER_DISTANCE = 96;
 const MAX_VISUAL_DISTANCE = 92;
-
-function isEditableTarget(target: EventTarget | null) {
-  if (!(target instanceof HTMLElement)) return false;
-  return !!target.closest("input, textarea, select, [contenteditable='true']");
-}
 
 export function usePullToRefresh() {
   const [distance, setDistance] = useState(0);
@@ -19,7 +15,8 @@ export function usePullToRefresh() {
     let active = false;
 
     const onTouchStart = (event: TouchEvent) => {
-      if (refreshingRef.current || isEditableTarget(event.target) || window.scrollY > 0) {
+      // Never refresh from inside the assistant chat, dialogs, inner scroll areas or a scroll-locked page.
+      if (!touchMayPullToRefresh(event.target, refreshingRef.current)) {
         startY = null;
         active = false;
         return;
