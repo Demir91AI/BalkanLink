@@ -31,3 +31,17 @@ describe("homepage phase 1", () => {
     for (const l of ["hr", "sr", "de"]) expect(keys(JSON.parse(read(`src/i18n/locales/${l}/pages.json`)).home.v2).sort()).toEqual(bs);
   });
 });
+
+describe("homepage city hero", () => {
+  it("restores the 10 original city photos, all existing files", async () => {
+    const { HERO_SLIDES } = await import("./HeroSection");
+    const { existsSync } = await import("node:fs");
+    expect(HERO_SLIDES).toHaveLength(10);
+    for (const s of HERO_SLIDES) expect([s.image, existsSync(`public${s.image}`)]).toEqual([s.image, true]);
+  });
+  it("brings back no invented counters, plans button or promo in the hero", () => {
+    const hero = read("src/components/home/HeroSection.tsx");
+    expect(hero).not.toMatch(/korisnika aktivno|DateSeededTicker|\/paketi|ctaSecondary/);
+    expect(hero).toMatch(/prefers-reduced-motion/);
+  });
+});
