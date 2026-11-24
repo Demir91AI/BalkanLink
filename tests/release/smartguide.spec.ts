@@ -16,7 +16,7 @@ for (const lang of ['bs', 'hr', 'sr', 'de']) {
         });
         const prefix = lang === 'bs' ? '' : `/${lang}`;
         await page.goto(`http://localhost:8080${prefix}/formulari/${slug}`);
-        const guide = page.getByTestId('smartguide-template');
+        const guide = page.locator('[data-testid=smartguide-template]:not([data-testid=arrival-companion] *)');
         await expect(guide).toBeVisible();
         expect(await guide.evaluate(e => !!e.closest('details'))).toBe(false);
         await guide.getByRole('button', { name: locale.smartGuideStandard.next, exact: true }).click();
@@ -50,7 +50,7 @@ test('Kindergeld pilot: reviewed-and-advance, paper field navigation and honest 
     await route.fulfill({response,body:(await response.text()).replace('export const DEV_MODE = IS_ADMIN_PREVIEW','export const DEV_MODE = true')});
   });
   await page.goto('http://localhost:8080/formulari/kindergeld');
-  const guide=page.getByTestId('smartguide-template');
+  const guide=page.locator('[data-testid=smartguide-template]:not([data-testid=arrival-companion] *)');
   await expect(guide).toBeVisible();
   await guide.getByRole('button',{name:pilot.advance,exact:true}).click();
   await expect(guide.getByTestId('guide-reviewed-count')).toHaveText('Pregledano 1 od 7 koraka');
