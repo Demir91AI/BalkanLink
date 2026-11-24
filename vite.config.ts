@@ -2,6 +2,8 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { execFileSync } from "child_process";
+import { buildVersionPayload, resolveCommitSha } from "./build/build-provenance";
 
 // Emits /version.json at build time so the running app can detect new deploys
 // without waiting for the service-worker lifecycle.
@@ -13,7 +15,15 @@ function versionJsonPlugin(): Plugin {
       this.emitFile({
         type: "asset",
         fileName: "version.json",
-        source: JSON.stringify({ version, builtAt: new Date().toISOString() }),
+        source: JSON.stringify(
+          buildVersionPayload(
+            version,
+            new Date().toISOString(),
+            resolveCommitSha(process.env, () =>
+              execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }),
+            ),
+          ),
+        ),
       });
     },
   };
