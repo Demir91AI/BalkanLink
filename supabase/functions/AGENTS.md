@@ -1,0 +1,1 @@
+- Service-only Edge Functions authorize via `_shared/service-role-guard.ts` (exact project key or auth-server-verified service key, fail closed); never trust decoded JWT role claims — forged payloads must not grant privileged access.
