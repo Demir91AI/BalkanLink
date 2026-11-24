@@ -119,6 +119,12 @@ Deno.serve(async (req) => {
 
   // 1. Look up template from registry (early — needed to resolve recipient)
   const template = TEMPLATES[templateName]
+  // Owner kill switch: re-engagement marketing templates are blocked unless explicitly enabled. Fail closed.
+  if (templateName.startsWith('reengagement-') && Deno.env.get('REENGAGEMENT_EMAILS_ENABLED') !== 'true') {
+    return new Response(JSON.stringify({ error: 'Template disabled' }), {
+      status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
+  }
 
   if (!template) {
     console.error('Template not found in registry', { templateName })

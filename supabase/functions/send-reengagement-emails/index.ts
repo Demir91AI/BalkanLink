@@ -19,6 +19,13 @@ Deno.serve(async (req) => {
     })
   }
 
+  // Owner kill switch (2026-11-24): marketing re-engagement disabled unless explicitly enabled. Fail closed.
+  if (Deno.env.get('REENGAGEMENT_EMAILS_ENABLED') !== 'true') {
+    return new Response(JSON.stringify({ ok: true, disabled: true, sent: 0 }), {
+      status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
+  }
+
   const supabaseUrl = Deno.env.get('SUPABASE_URL')!
   const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
   const supabase = createClient(supabaseUrl, serviceKey)

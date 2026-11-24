@@ -26,3 +26,13 @@ describe("00.07 security fixes", () => {
     expect(read("src/hooks/usePremiumAccess.ts")).toContain('_user_id: user.id');
   });
 });
+
+describe("re-engagement kill switch", () => {
+  it("dispatcher and sender both fail closed unless REENGAGEMENT_EMAILS_ENABLED is 'true'", () => {
+    const d = read("supabase/functions/send-reengagement-emails/index.ts");
+    const t = read("supabase/functions/send-transactional-email/index.ts");
+    expect(d).toContain("Deno.env.get('REENGAGEMENT_EMAILS_ENABLED') !== 'true'");
+    expect(d.indexOf("REENGAGEMENT_EMAILS_ENABLED")).toBeLessThan(d.indexOf("createClient(supabaseUrl"));
+    expect(t).toMatch(/templateName\.startsWith\('reengagement-'\) && Deno\.env\.get\('REENGAGEMENT_EMAILS_ENABLED'\) !== 'true'/);
+  });
+});
