@@ -37,3 +37,19 @@ REVOKE EXECUTE ON FUNCTION public.get_daily_chat_count(uuid) FROM PUBLIC, anon;
 -- GRANT EXECUTE ON FUNCTION public.redeem_trial_code(uuid, text) TO authenticated;
 -- CREATE OR REPLACE FUNCTION public.get_daily_chat_count(_user_id uuid) RETURNS integer LANGUAGE sql STABLE SECURITY DEFINER SET search_path TO 'public'
 --   AS $f$ SELECT COUNT(*)::integer FROM public.chat_usage WHERE user_id = _user_id AND query_date = CURRENT_DATE $f$;
+
+-- POST-CHECK ASSERTIONS (same transaction; any failure rolls back everything):
+DO $$ BEGIN
+  IF EXISTS (SELECT 1 FROM pg_policies WHERE schemaname='storage' AND tablename='objects' AND policyname='Service role can upload TTS audio')
+    THEN RAISE EXCEPTION 'TTS insert policy still present'; END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE schemaname='storage' AND tablename='objects' AND policyname='tts-audio: read individual files only')
+    THEN RAISE EXCEPTION 'TTS public read policy missing'; END IF;
+  IF has_function_privilege('authenticated','public.redeem_trial_code(uuid,text)','EXECUTE')
+     OR has_function_privilege('anon','public.redeem_trial_code(uuid,text)','EXECUTE')
+     OR NOT has_function_privilege('service_role','public.redeem_trial_code(uuid,text)','EXECUTE')
+    THEN RAISE EXCEPTION 'redeem_trial_code privileges wrong'; END IF;
+  IF has_function_privilege('anon','public.get_daily_chat_count(uuid)','EXECUTE')
+     OR NOT has_function_privilege('authenticated','public.get_daily_chat_count(uuid)','EXECUTE')
+     OR NOT has_function_privilege('service_role','public.get_daily_chat_count(uuid)','EXECUTE')
+    THEN RAISE EXCEPTION 'get_daily_chat_count privileges wrong'; END IF;
+END $$;
