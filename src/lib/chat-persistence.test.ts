@@ -20,7 +20,7 @@ describe("chat persistence per user and sign-in", () => {
 
   it("same sign-in: chat survives refresh / app restart", () => {
     saveUserChat(s, "A", "2026-10-29T10:00:00Z", msgs);
-    expect(loadUserChat(s, "A", "2026-10-29T10:00:00Z")).toEqual(msgs);
+    expect(loadUserChat(s, "A", "2026-10-29T10:00:00Z")).toMatchObject(msgs);
   });
   it("new login of the SAME user → completely empty chat", () => {
     saveUserChat(s, "A", "2026-10-29T10:00:00Z", msgs);

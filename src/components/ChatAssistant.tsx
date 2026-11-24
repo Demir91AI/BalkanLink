@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { answerStartTop, ANSWER_REVEAL_MS, chatScrollAction, followAfterScroll, glideScrollTop, mayPinOnResize, streamFollowTop, USER_GESTURE_WINDOW_MS } from "@/lib/chat-scroll";
 import { nextStepCards } from "@/lib/assistant-next-steps";
 import { clearConfirmedHistory } from "@/lib/phase1-reliability/history";
-import { GUEST_CHAT_KEY, chatKeyFor, loadUserChat, purgeAllChats, saveUserChat } from "@/lib/chat-persistence";
+import { GUEST_CHAT_KEY, chatKeyFor, loadUserChat, purgeAllChats, saveUserChat, applyLocalRetention } from "@/lib/chat-persistence";
 import { consumeAssistantStream, createAssistantRequestLock } from "@/lib/assistant-stream";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
@@ -320,7 +320,7 @@ export default function ChatAssistant() {
     try {
       const raw = localStorage.getItem(GUEST_CHAT_KEY);
       const parsed = raw ? JSON.parse(raw) : null;
-      return Array.isArray(parsed) ? (parsed as Msg[]) : [];
+      return Array.isArray(parsed) ? applyLocalRetention(parsed as Msg[]) : [];
     } catch { try { localStorage.removeItem(GUEST_CHAT_KEY); } catch {} return []; }
   }
 
@@ -384,7 +384,7 @@ export default function ChatAssistant() {
     if (owner) saveUserChat(localStorage, owner, signInAt, messages);
     else {
       try {
-        if (messages.length > 0) localStorage.setItem(GUEST_CHAT_KEY, JSON.stringify(messages));
+        if (messages.length > 0) localStorage.setItem(GUEST_CHAT_KEY, JSON.stringify(applyLocalRetention(messages)));
         else localStorage.removeItem(GUEST_CHAT_KEY);
       } catch {}
     }
