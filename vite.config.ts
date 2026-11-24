@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { execFileSync } from "child_process";
-import { buildVersionPayload, resolveCommitSha } from "./build/build-provenance";
+import { buildVersionPayload, resolveCommitSha } from "./scripts/build-provenance";
 
 // Emits /version.json at build time so the running app can detect new deploys
 // without waiting for the service-worker lifecycle.
@@ -19,9 +19,12 @@ function versionJsonPlugin(): Plugin {
           buildVersionPayload(
             version,
             new Date().toISOString(),
-            resolveCommitSha(process.env, () =>
-              execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }),
-            ),
+            resolveCommitSha(process.env, () => {
+              const opts = { encoding: "utf8" as const, stdio: ["ignore", "pipe", "ignore"] as ["ignore", "pipe", "ignore"] };
+              const head = execFileSync("git", ["rev-parse", "HEAD"], opts);
+              const dirty = execFileSync("git", ["status", "--porcelain", "--untracked-files=no"], opts).trim() !== "";
+              return { head, dirty };
+            }),
           ),
         ),
       });
