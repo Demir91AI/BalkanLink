@@ -18,6 +18,7 @@ export default defineConfig({
   use: {
     baseURL: "http://127.0.0.1:4173",
     trace: "off",
+    serviceWorkers: "block",
     // Lock device pixel ratio so screenshots are byte-stable across machines
     // (still allows multi-DPR coverage via the `projects` array below).
     viewport: { width: 1280, height: 800 },

@@ -1,35 +1,35 @@
 import { test as base, expect } from '@playwright/test';
+import { backendHosts, classifyRequest, syntheticBackendResponse } from './network-policy';
 
-// Release browser checks must never reach the shared real backend (preview and
-// balkanlink.de use the same one). Every backend request is answered locally
-// with a synthetic, empty response; no request is ever forwarded.
-export type BackendMock = { status: number; body: unknown };
+export { classifyRequest, syntheticBackendResponse } from './network-policy';
+export const isBackendUrl = (url: string) => classifyRequest(url) === 'backend-mock';
 
-export function isBackendUrl(url: string): boolean {
-  try { return /\.supabase\.co$/i.test(new URL(url).hostname); } catch { return false; }
-}
-
-export function syntheticBackendResponse(method: string, url: string): BackendMock {
-  const path = new URL(url).pathname;
-  if (path.startsWith('/auth/v1/')) return { status: 401, body: { error: 'synthetic_no_session' } };
-  if (path.startsWith('/rest/v1/')) return method === 'GET' ? { status: 200, body: [] } : { status: 403, body: { error: 'synthetic_write_blocked' } };
-  if (path.startsWith('/functions/v1/')) return { status: 503, body: { error: 'synthetic_function_blocked' } };
-  if (path.startsWith('/storage/v1/')) return { status: 404, body: { error: 'synthetic_storage_blocked' } };
-  return { status: 403, body: { error: 'synthetic_blocked' } };
-}
-
-export const test = base.extend<{ backendRequests: string[] }>({
-  backendRequests: [async ({ context }, use) => {
-    const seen: string[] = [];
-    await context.route(u => isBackendUrl(u.toString()), async route => {
+// Auto fixture for every browser test: service workers blocked, real network
+// limited to localhost, backend answered locally, websockets to non-local hosts
+// closed, direct APIRequestContext disabled. Unexpected hosts fail the test.
+export const test = base.extend<{ networkGuard: { backend: string[]; unexpected: string[] } }>({
+  serviceWorkers: 'block',
+  request: async ({}, use) => {
+    await use(new Proxy({}, { get: () => { throw new Error('Direct APIRequestContext is disabled in isolated tests'); } }) as never);
+  },
+  networkGuard: [async ({ context }, use) => {
+    const extra = backendHosts(process.env);
+    const log = { backend: [] as string[], unexpected: [] as string[] };
+    await context.route('**/*', async route => {
       const req = route.request();
-      seen.push(`${req.method()} ${new URL(req.url()).pathname}`);
-      const mock = syntheticBackendResponse(req.method(), req.url());
-      await route.fulfill({ status: mock.status, contentType: 'application/json', body: JSON.stringify(mock.body) });
+      const d = classifyRequest(req.url(), extra);
+      if (d === 'local') return route.fallback();
+      if (d === 'backend-mock') {
+        log.backend.push(`${req.method()} ${new URL(req.url()).pathname}`);
+        const m = syntheticBackendResponse(req.method(), req.url());
+        return route.fulfill({ status: m.status, contentType: 'application/json', body: JSON.stringify(m.body) });
+      }
+      if (d === 'abort-unexpected') log.unexpected.push(`${req.method()} ${req.url()}`);
+      return route.abort('blockedbyclient');
     });
-    // Websocket (realtime) connections are refused outright.
-    await context.routeWebSocket(u => isBackendUrl(u.toString().replace(/^ws/, 'http')), ws => ws.close());
-    await use(seen);
+    await context.routeWebSocket(u => classifyRequest(u.toString(), extra) !== 'local', ws => ws.close());
+    await use(log);
+    expect(log.unexpected, 'unexpected external requests (blocked)').toEqual([]);
   }, { auto: true }],
 });
 export { expect };

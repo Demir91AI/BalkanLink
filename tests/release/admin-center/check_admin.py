@@ -1,6 +1,7 @@
 import asyncio,json,time,base64
 from pathlib import Path
 from playwright.async_api import async_playwright
+import sys; sys.path.insert(0,str(Path(__file__).resolve().parents[1])); import network_guard
 OUT=Path('/tmp/browser/admin-center'); OUT.mkdir(parents=True,exist_ok=True)
 HOST='cvobntstjmlpozrbleyu.supabase.co'; KEY='sb-cvobntstjmlpozrbleyu-auth-token'
 uid='00000000-0000-4000-8000-0000000000dd'; exp=int(time.time())+7200
@@ -14,6 +15,7 @@ async def main():
   for lang in ['bs','hr','sr','de']:
    for width in [390,1280]:
     ctx=await browser.new_context(viewport={'width':width,'height':1800},service_workers='block'); state={'fail':False,'markFail':True,'admin':True,'empty':False,'requests':0,'cap':False,'reviewed':False};errors=[]
+    unexpected=[];await network_guard.install(ctx,unexpected)
     async def backend(route):
      u=route.request.url; method=route.request.method
      if '/auth/v1/user' in u:return await route.fulfill(json=user)
@@ -79,9 +81,10 @@ async def main():
      await page.screenshot(path=str(OUT/'review-staged.png'))
     assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
     assert not errors,errors
+    assert not unexpected,unexpected
     results.append({'lang':lang,'width':width,'partial_error':'retained','mutation':'confirmed','empty':'passed','page_errors':errors})
     await ctx.close()
   # Signed-out route: unchanged AdminGuard refuses access.
-  ctx=await browser.new_context(viewport={'width':1280,'height':1800},service_workers='block');await ctx.route(f'**://{HOST}/**',lambda r:r.fulfill(json=[]));page=await ctx.new_page();await page.goto('http://localhost:8080/admin');await page.wait_for_url('**/login?redirect=*');results.append({'signed_out':'login redirect'})
+  ctx=await browser.new_context(viewport={'width':1280,'height':1800},service_workers='block');so_unexpected=[];await network_guard.install(ctx,so_unexpected);await ctx.route(f'**://{HOST}/**',lambda r:r.fulfill(json=[]));page=await ctx.new_page();await page.goto('http://localhost:8080/admin');await page.wait_for_url('**/login?redirect=*');assert not so_unexpected,so_unexpected;results.append({'signed_out':'login redirect'})
   await browser.close();print(json.dumps(results))
 asyncio.run(main())

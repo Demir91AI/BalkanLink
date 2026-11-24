@@ -13,7 +13,7 @@
  * To accept legitimate visual changes, run:
  *   bunx playwright test --update-snapshots
  */
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../release/backend-guard";
 
 const WIDTHS = [14, 16, 18, 20, 24, 32, 36, 48, 64, 96, 200] as const;
 const THEMES = ["light", "dark"] as const;
