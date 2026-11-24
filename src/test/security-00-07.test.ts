@@ -36,3 +36,18 @@ describe("re-engagement kill switch", () => {
     expect(t).toMatch(/templateName\.startsWith\('reengagement-'\) && Deno\.env\.get\('REENGAGEMENT_EMAILS_ENABLED'\) !== 'true'/);
   });
 });
+
+describe("burst limit handling", () => {
+  it("assistant returns RATE_LIMITED 429 (not daily cap) for rate_limited", async () => {
+    const s = read("supabase/functions/_shared/usage.ts");
+    expect(s).toMatch(/r\.reason === "rate_limited"[\s\S]*?errorCode: "RATE_LIMITED", retry_after_seconds: 60/);
+  });
+  it("document check maps rate_limited to RATE_LIMITED", async () => {
+    const { reservationFailure } = await import("../../supabase/functions/document-check/contract.ts");
+    expect(reservationFailure({ ok: false, reason: "rate_limited" })).toMatchObject({ errorCode: "RATE_LIMITED", status: 429 });
+    expect(reservationFailure({ ok: false, reason: "quota_exhausted" })?.errorCode).toBe("QUOTA_EXHAUSTED");
+  });
+  it("tts and nebenkosten answer rate_limited with Retry-After 60", () => {
+    for (const f of ["generate-tts", "nebenkosten-scan"]) expect(read(`supabase/functions/${f}/index.ts`)).toMatch(/reason === "rate_limited"[\s\S]*?"Retry-After": "60"/);
+  });
+});

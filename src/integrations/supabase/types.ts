@@ -430,6 +430,39 @@ export type Database = {
         }
         Relationships: []
       }
+      cq_anon_view_throttle: {
+        Row: {
+          last_counted_at: string
+          question_id: string
+        }
+        Insert: {
+          last_counted_at: string
+          question_id: string
+        }
+        Update: {
+          last_counted_at?: string
+          question_id?: string
+        }
+        Relationships: []
+      }
+      cq_view_dedupe: {
+        Row: {
+          question_id: string
+          user_id: string
+          view_date: string
+        }
+        Insert: {
+          question_id: string
+          user_id: string
+          view_date?: string
+        }
+        Update: {
+          question_id?: string
+          user_id?: string
+          view_date?: string
+        }
+        Relationships: []
+      }
       doc_check_credits: {
         Row: {
           amount_cents: number
@@ -745,6 +778,7 @@ export type Database = {
         Row: {
           annual_checkout_enabled: boolean
           annual_live_mode_allowed: boolean
+          burst_limits_enforced: boolean
           id: number
           monetization_v2_enabled: boolean
           protective_caps_enforced: boolean
@@ -755,6 +789,7 @@ export type Database = {
         Insert: {
           annual_checkout_enabled?: boolean
           annual_live_mode_allowed?: boolean
+          burst_limits_enforced?: boolean
           id?: number
           monetization_v2_enabled?: boolean
           protective_caps_enforced?: boolean
@@ -765,6 +800,7 @@ export type Database = {
         Update: {
           annual_checkout_enabled?: boolean
           annual_live_mode_allowed?: boolean
+          burst_limits_enforced?: boolean
           id?: number
           monetization_v2_enabled?: boolean
           protective_caps_enforced?: boolean
@@ -1749,6 +1785,11 @@ export type Database = {
       }
     }
     Functions: {
+      _burst_exceeded: {
+        Args: { p_feature: string; uid: string }
+        Returns: boolean
+      }
+      _burst_limit: { Args: { p_feature: string }; Returns: number }
       _entitlement_core: { Args: { uid: string }; Returns: Json }
       _usage_count: {
         Args: { p_feature: string; p_period: string; uid: string }

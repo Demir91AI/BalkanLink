@@ -83,7 +83,7 @@ export function detectMime(b: Uint8Array): string | null {
 }
 export function reservationFailure(r: { ok: boolean; reason?: string; resets_at?: string | null; used?: number; limit?: number | null }) {
   if (r.ok) return null;
-  const errorCode = r.reason === 'quota_exhausted' ? 'QUOTA_EXHAUSTED' : r.reason === 'daily_cap' ? 'RATE_LIMITED' : 'ACCESS_REQUIRED';
+  const errorCode = r.reason === 'quota_exhausted' ? 'QUOTA_EXHAUSTED' : (r.reason === 'daily_cap' || r.reason === 'rate_limited') ? 'RATE_LIMITED' : 'ACCESS_REQUIRED';
   return { errorCode, status: errorCode === 'ACCESS_REQUIRED' ? 403 : 429, resets_at: r.resets_at ?? null, used: r.used ?? null, limit: r.limit ?? null };
 }
 export function analysisPrompt(language: Language) {

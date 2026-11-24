@@ -148,6 +148,10 @@ serve(async (req) => {
     } catch (e) {
       console.error("[TTS] usage reserve error", e instanceof Error ? e.message : "unknown");
     }
+    if (ttsReservation && !ttsReservation.ok && ttsReservation.reason === "rate_limited") {
+      return new Response(JSON.stringify({ error: "Too many requests, retry in a minute", errorCode: "RATE_LIMITED", retry_after_seconds: 60 }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json", "Retry-After": "60" } });
+    }
     if (ttsReservation && !ttsReservation.ok) {
       return new Response(
         JSON.stringify({ error: "Daily audio limit reached", errorCode: "DAILY_CAP" }),

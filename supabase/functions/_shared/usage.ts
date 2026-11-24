@@ -13,7 +13,7 @@ export interface Reservation {
   reservation_id?: string;
   source?: string;
   mode?: "full" | "basic" | "legacy_credit";
-  reason?: "quota_exhausted" | "access_required" | "daily_cap" | "subscribe_required";
+  reason?: "quota_exhausted" | "access_required" | "daily_cap" | "subscribe_required" | "rate_limited";
   resets_at?: string | null;
   used?: number;
   limit?: number | null;
@@ -109,6 +109,10 @@ export function assistantGate(r: Reservation, lang: string):
   if (r.reason === "subscribe_required") {
     return { callAI: false, status: 200, body: { premium_required: true, errorCode: "SUBSCRIBE_REQUIRED",
       content: SUBSCRIBE_MSG[l], redirect_url: "/paketi" } };
+  }
+  if (r.reason === "rate_limited") {
+    return { callAI: false, status: 429, body: { error: l === "de" ? "Zu viele Anfragen in kurzer Zeit. Bitte warte eine Minute." : "Previše zahtjeva u kratkom roku. Sačekaj minutu i pokušaj ponovo.",
+      errorCode: "RATE_LIMITED", retry_after_seconds: 60 } };
   }
   return { callAI: false, status: 429, body: { error: "Dnevni limit Asistenta je dostignut. Pokušaj sutra.", errorCode: "DAILY_CAP" } };
 }

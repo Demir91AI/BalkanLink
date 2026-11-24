@@ -244,6 +244,10 @@ Deno.serve(async (req) => {
       } catch (e) {
         console.error("nebenkosten usage reserve error", e instanceof Error ? e.message : "unknown");
       }
+      if (nkReservation && !nkReservation.ok && nkReservation.reason === "rate_limited") {
+        return new Response(JSON.stringify({ success: false, errorCode: "RATE_LIMITED", message: "Previše zahtjeva u kratkom roku. Sačekaj minutu i pokušaj ponovo." }),
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json", "Retry-After": "60" } });
+      }
       if (nkReservation && !nkReservation.ok) {
         return new Response(
           JSON.stringify({ success: false, errorCode: "DAILY_CAP", message: "Dnevni limit analiza je dostignut. Pokušaj sutra." }),

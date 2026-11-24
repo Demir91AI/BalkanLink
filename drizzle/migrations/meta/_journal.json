@@ -43,6 +43,13 @@
       "when": 1795556795096,
       "tag": "0005_security_00_07_permissions",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1795557529964,
+      "tag": "0006_security_00_07_burst_and_view_dedupe",
+      "breakpoints": true
     }
   ]
 }
