@@ -1,4 +1,4 @@
--- STAGED ONLY (00.07). NOT APPLIED: database backup availability could not be verified.
+-- APPLIED 2026-11-24 as drizzle/migrations/0005_security_00_07_permissions.sql (that file is authoritative). Do not re-run.
 -- Apply only after owner confirms a recent backup in More -> Database -> Manage -> Backups.
 -- Verified live metadata 2026-11-24 (read-only):
 --   storage.objects policy "Service role can upload TTS audio" INSERT roles={public}

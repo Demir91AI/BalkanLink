@@ -16,7 +16,7 @@ describe("00.07 security fixes", () => {
     expect(s).not.toMatch(/geojs|ipapi|ipinfo|fetch\(/);
   });
   it("staged SQL removes public TTS insert and restricts the two RPCs", () => {
-    const s = read("docs/staged/security-00-07.sql");
+    const s = read("docs/staged/security-00-07.APPLIED-see-drizzle-0005.sql");
     expect(s).toContain('DROP POLICY IF EXISTS "Service role can upload TTS audio"');
     expect(s).toMatch(/REVOKE EXECUTE ON FUNCTION public\.redeem_trial_code\(uuid, text\) FROM PUBLIC, anon, authenticated/);
     expect(s).toContain("_user_id = auth.uid()");

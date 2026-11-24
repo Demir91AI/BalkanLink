@@ -36,6 +36,13 @@
       "when": 1793125868505,
       "tag": "0004_annual_subscription_staging",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1795556795096,
+      "tag": "0005_security_00_07_permissions",
+      "breakpoints": true
     }
   ]
 }
