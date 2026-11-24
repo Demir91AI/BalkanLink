@@ -20,20 +20,10 @@ function getIP(req: Request): string | null {
   );
 }
 
-async function geoLookup(ip: string): Promise<{ country: string | null; city: string | null }> {
-  try {
-    const r = await fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`, {
-      signal: AbortSignal.timeout(2500),
-    });
-    if (!r.ok) return { country: null, city: null };
-    const d = await r.json();
-    return {
-      country: d.country || d.country_code || null,
-      city: d.city || null,
-    };
-  } catch {
-    return { country: null, city: null };
-  }
+// No external IP geolocation (privacy). Country only from the edge proxy header, if present; city is not collected.
+function edgeCountry(req: Request): string | null {
+  const c = (req.headers.get("cf-ipcountry") || "").trim().toUpperCase();
+  return /^[A-Z]{2}$/.test(c) && c !== "XX" && c !== "T1" ? c : null;
 }
 
 Deno.serve(async (req) => {
@@ -66,7 +56,7 @@ Deno.serve(async (req) => {
     if (analytics) {
       const ip = getIP(req);
       ipHash = ip ? await sha256(ip + (Deno.env.get("SUPABASE_URL") || "")) : null;
-      geo = ip ? await geoLookup(ip) : { country: null, city: null };
+      geo = { country: edgeCountry(req), city: null };
     }
 
     const admin = createClient(

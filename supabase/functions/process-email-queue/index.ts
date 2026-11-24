@@ -1,4 +1,5 @@
 import { sendLovableEmail } from 'npm:@lovable.dev/email-js'
+import { bearerToken, isServiceRoleToken } from '../_shared/service-role-guard.ts'
 import { createClient } from 'npm:@supabase/supabase-js@2'
 
 const MAX_RETRIES = 5
@@ -103,9 +104,8 @@ Deno.serve(async (req) => {
   // Defense in depth: verify_jwt=true already requires a valid JWT at the
   // gateway layer. This adds an explicit role check so only service-role
   // callers can trigger queue processing.
-  const token = authHeader.slice('Bearer '.length).trim()
-  const claims = parseJwtClaims(token)
-  if (claims?.role !== 'service_role') {
+  // Cryptographically verified (signature checked by auth server or exact key match).
+  if (!(await isServiceRoleToken(bearerToken(req)))) {
     return new Response(
       JSON.stringify({ error: 'Forbidden' }),
       { status: 403, headers: { 'Content-Type': 'application/json' } }

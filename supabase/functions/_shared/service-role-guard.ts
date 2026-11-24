@@ -19,13 +19,26 @@ export function bearerToken(req: Request): string {
   return h.startsWith("Bearer ") ? h.slice(7).trim() : "";
 }
 
+function constantTimeEqual(a: string, b: string): boolean {
+  if (!a || !b || a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+// Accepts: exact match with this project's service key (any format), or a
+// service_role JWT / sb_secret_ key that the auth server confirms. Fails closed.
 export async function isServiceRoleToken(
   token: string,
   supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "",
   fetchImpl: typeof fetch = fetch,
+  serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
 ): Promise<boolean> {
-  if (!token || !supabaseUrl) return false;
-  if (decodeClaims(token)?.role !== "service_role") return false;
+  if (!token) return false;
+  if (constantTimeEqual(token, serviceKey)) return true;
+  if (!supabaseUrl) return false;
+  const isSecretKey = token.startsWith("sb_secret_");
+  if (!isSecretKey && decodeClaims(token)?.role !== "service_role") return false;
   try {
     const res = await fetchImpl(`${supabaseUrl}/auth/v1/admin/users?page=1&per_page=1`, {
       headers: { apikey: token, Authorization: `Bearer ${token}` },

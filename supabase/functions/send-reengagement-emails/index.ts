@@ -2,28 +2,18 @@
 // Triggered by pg_cron daily. Idempotent via reengagement_*_sent_at columns.
 
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { bearerToken, isServiceRoleToken } from '../_shared/service-role-guard.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-function parseJwtClaims(token: string): Record<string, unknown> | null {
-  const parts = token.split('.')
-  if (parts.length < 2) return null
-  try {
-    const payload = parts[1].replaceAll('-', '+').replaceAll('_', '/').padEnd(Math.ceil(parts[1].length / 4) * 4, '=')
-    return JSON.parse(atob(payload)) as Record<string, unknown>
-  } catch { return null }
-}
-
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: corsHeaders })
 
   // Require service-role JWT — cron-only endpoint.
-  const authHeader = req.headers.get('Authorization') || ''
-  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : ''
-  if (!token || parseJwtClaims(token)?.role !== 'service_role') {
+  if (!(await isServiceRoleToken(bearerToken(req)))) {
     return new Response(JSON.stringify({ error: 'Forbidden' }), {
       status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })

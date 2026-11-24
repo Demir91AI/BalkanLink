@@ -28,3 +28,23 @@ Deno.test("fails closed on network error", async () => {
   const f = (() => Promise.reject(new Error("down"))) as typeof fetch;
   assertEquals(await isServiceRoleToken(forged, "https://x", f), false);
 });
+
+Deno.test("accepts exact project service key without network (any key format)", async () => {
+  const f = (() => Promise.reject(new Error("must not call"))) as typeof fetch;
+  assertEquals(await isServiceRoleToken("sb_secret_abc123", "https://x", f, "sb_secret_abc123"), true);
+});
+
+Deno.test("verifies sb_secret_ keys with auth server and rejects refused ones", async () => {
+  const ok = (() => Promise.resolve(new Response("{}", { status: 200 }))) as typeof fetch;
+  const no = (() => Promise.resolve(new Response("{}", { status: 401 }))) as typeof fetch;
+  assertEquals(await isServiceRoleToken("sb_secret_other", "https://x", ok, "sb_secret_mine"), true);
+  assertEquals(await isServiceRoleToken("sb_secret_other", "https://x", no, "sb_secret_mine"), false);
+});
+
+Deno.test("user/anon JWTs never reach network and are rejected", async () => {
+  let called = false;
+  const f = (() => { called = true; return Promise.resolve(new Response("", { status: 200 })); }) as typeof fetch;
+  const user = `${b64({ alg: "HS256" })}.${b64({ role: "authenticated", sub: "u" })}.sig`;
+  assertEquals(await isServiceRoleToken(user, "https://x", f, "key"), false);
+  assertEquals(called, false);
+});

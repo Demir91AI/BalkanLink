@@ -1,4 +1,5 @@
 import * as React from 'npm:react@18.3.1'
+import { isServiceRoleToken } from '../_shared/service-role-guard.ts'
 import { renderAsync } from 'npm:@react-email/components@0.0.22'
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { TEMPLATES } from '../_shared/transactional-email-templates/registry.ts'
@@ -62,8 +63,9 @@ Deno.serve(async (req) => {
   const authHeader = req.headers.get('Authorization') || ''
   const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : ''
   const claims = token ? parseJwtClaims(token) : null
-  const isService = claims?.role === 'service_role'
-  const isAuthedUser = !!claims && typeof claims.sub === 'string' && claims.role !== 'anon'
+  // Unrestricted service access only for a verified service key; forged role claims fall back to the restricted paths.
+  const isService = await isServiceRoleToken(token)
+  const isAuthedUser = !isService && !!claims && typeof claims.sub === 'string' && claims.role !== 'anon' && claims.role !== 'service_role'
   const isAnonymousRequest = !isService && !isAuthedUser
 
   const supabaseUrl = Deno.env.get('SUPABASE_URL')
