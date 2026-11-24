@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './backend-guard';
 import { readFileSync } from 'node:fs';
 
 // Isolated VISUAL fixture only, NOT proof of authenticated/entitlement access.
