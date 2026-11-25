@@ -41,7 +41,7 @@ export const EG_PRODUCTION_ENABLED = false;
 export const EG_MAPPING_COMPLETE = false;
 export const EG_STAGES = [
   { id: 1, sections: ["1 Angaben zum Kind"], pages: [1], status: "mapped" },
-  { id: 2, sections: ["2 Angaben zu den Eltern", "3 Beziehung zum Kind", "4 Adoptivkinder", "5 Geschwisterkinder"], pages: [2, 3, 4, 5, 6, 7, 8], status: "inventoried" },
+  { id: 2, sections: ["2 Angaben zu den Eltern", "3 Beziehung zum Kind", "4 Weitere Kinder", "Anlage Staatsangehörigkeit (HH/SH/RP)"], pages: [2, 3, 4, 5, 6, 7, 8], status: "mapped" },
   { id: 3, sections: ["6 Bemessungszeitraum", "7 Einkommen vor der Geburt", "8 Einkommensersatzleistungen", "9 Mutterschaftsleistungen"], pages: [9, 10, 11, 12, 13, 14, 15, 16], status: "inventoried" },
   { id: 4, sections: ["10–11 Bezugsmonate (Planer, 164 Felder)", "12 Einkommen während des Bezugs"], pages: [17, 18, 19, 20, 21], status: "inventoried" },
   { id: 5, sections: ["13 Bankverbindung, Kontakt, Unterschriften"], pages: [21, 22, 23], status: "inventoried" },
@@ -118,6 +118,11 @@ export async function prepareElterngeldShared(_bytes: Uint8Array, child: EgChild
   if (errors.length) return { ok: false, code: "INVALID_INPUT", errors };
   if (!EG_MAPPING_COMPLETE) return { ok: false, code: "MAPPING_INCOMPLETE" };
   return { ok: false, code: "PRODUCTION_DISABLED" };
+}
+
+/** TEST-ONLY: stage 1 + 2 fills through the strict engine. */
+export function fillStage2ForTesting(bytes: Uint8Array, child: EgChildAnswers, h: import("./elterngeld-shared-2025-parents").HouseholdAnswers, opts: StrictFillOptions) {
+  return import("./elterngeld-shared-2025-parents").then((m) => fillStrictAcroForm(EG_SPEC, bytes, [...childFills(child), ...m.householdFills(h)], opts));
 }
 
 /** TEST-ONLY: exercises the stage-1 mapping through the strict engine (preflight, hash, read-back). */
