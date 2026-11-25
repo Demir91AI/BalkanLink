@@ -1,0 +1,1 @@
+- Anlage KDU pilot fills only a user-selected original whose full SHA-256 matches `KDU_EDITIONS`; the official PDF is never bundled, proxied or fetched cross-origin, and `KDU_PRODUCTION_ENABLED` stays false until rights are cleared — BA terms reserve copying/distribution.
