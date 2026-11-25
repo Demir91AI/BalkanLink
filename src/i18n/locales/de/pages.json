@@ -18520,5 +18520,160 @@
         ]
       }
     }
+  },
+  "kduPilot": {
+    "title": "Original-Anlage KDU ausfüllen (Entwicklungsversion)",
+    "devNotice": "Nur zum Testen. Nicht veröffentlicht und kein offizieller Dienst des Jobcenters.",
+    "privacy": "Ihr PDF und Ihre Antworten bleiben nur in diesem Browserfenster. Nichts wird gesendet, gespeichert oder protokolliert.",
+    "step1": "Offizielles PDF bei arbeitsagentur.de herunterladen",
+    "step2": "Heruntergeladenes PDF auswählen:",
+    "step3": "Fragen beantworten, prüfen und herunterladen.",
+    "hints": "Offizielle Ausfüllhinweise",
+    "optional": "optional",
+    "eurLabel": "Monatlicher Betrag in Euro für: {{item}}",
+    "signature": "Datum und Unterschrift füllen wir nicht aus. Unterschreiben Sie selbst, legen Sie Nachweise bei und reichen Sie die Anlage beim Jobcenter ein.",
+    "check": "Prüfen",
+    "download": "Ausgefülltes PDF herunterladen",
+    "clear": "Alles löschen",
+    "reviewOk": "Prüfung erfolgreich. Kontrollieren Sie Ihre Angaben und laden Sie dann das PDF herunter.",
+    "done": "PDF heruntergeladen. Bitte vor dem Unterschreiben prüfen.",
+    "f": {
+      "vorname": "Vorname",
+      "nachname": "Nachname",
+      "geburtsdatum": "Geburtsdatum",
+      "bgNr": "Nummer der Bedarfsgemeinschaft",
+      "strasse": "Straße der Unterkunft",
+      "hausnr": "Hausnummer",
+      "plz": "Postleitzahl",
+      "ort": "Ort",
+      "personen": "Personen in der Unterkunft (Sie eingeschlossen)",
+      "baujahr": "Baujahr",
+      "raeume": "Anzahl der Räume",
+      "kuechen": "Anzahl der Küchen",
+      "baeder": "Anzahl der Bäder",
+      "flaecheGesamt": "Gesamtfläche in m²",
+      "flaecheSelbst": "Selbst bewohnter Anteil in m²",
+      "flaecheVermietet": "Vermieteter/verpachteter Anteil in m²",
+      "flaecheLeer": "Leer stehender Anteil in m²",
+      "flaecheGewerbe": "Gewerbliche Nutzung in m²",
+      "wohneinheiten": "Anzahl der Wohneinheiten",
+      "other": "Sonstiges angeben",
+      "vermieter": {
+        "name": "Name der Vermieterin/des Vermieters",
+        "strasse": "Straße",
+        "hausnr": "Hausnummer",
+        "plz": "Postleitzahl",
+        "ort": "Ort",
+        "iban": "IBAN"
+      }
+    },
+    "q": {
+      "wohnen": "Wie wohnen Sie?",
+      "bedarf": "Welche Bedarfe entstehen? Ankreuzen und monatlichen Betrag eintragen.",
+      "mehrereWohneinheiten": "Verfügt das Eigenheim über mehrere Wohneinheiten?",
+      "eigentum": "Welche Bedarfe entstehen für das Eigenheim?",
+      "energie": "Mit welchem Brennstoff heizen Sie?",
+      "brennstoffSelbst": "Beschaffen Sie die Brennstoffe selbst?",
+      "heizart": "Art der Heizung",
+      "kochen": "Mit welcher Energiequelle kochen Sie?",
+      "wasser": "Wie erzeugen Sie Ihr Warmwasser?",
+      "warmwasser": "Brennstoff für dezentrales Warmwasser",
+      "mieteDirekt": "Soll die Miete direkt an die Vermieterin/den Vermieter überwiesen werden?"
+    },
+    "err": {
+      "required": "Pflichtangabe.",
+      "plz": "5 Ziffern eingeben.",
+      "date": "Gültiges Datum eingeben.",
+      "int": "Ganze Zahl eingeben.",
+      "year": "Jahr mit 4 Ziffern eingeben.",
+      "area": "Beispiel: 72,5",
+      "eur": "Beispiel: 850 oder 180,50",
+      "iban": "IBAN ungültig (deutsche IBAN, 22 Zeichen).",
+      "pauschal_exclusive": "Pauschalmiete nicht mit Einzelkosten kombinieren.",
+      "not_applicable": "Passt nicht zu Ihren übrigen Angaben.",
+      "invalid_chars": "Unzulässige Zeichen.",
+      "invalid": "Ungültige Angabe."
+    },
+    "block": {
+      "NO_PDF": "Bitte zuerst das offizielle PDF auswählen.",
+      "VALIDATION_FAILED": "Bitte markierte Felder korrigieren.",
+      "PREFLIGHT_FAILED": "Keine geprüfte Ausgabe der Anlage KDU 10/2026 (oder Datei verschlüsselt, beschädigt oder verändert). Bitte PDF erneut über den offiziellen Link laden.",
+      "UNEXPECTED_FIELDS": "PDF enthält unbekannte Felder. Ausfüllen gestoppt.",
+      "EDITION_NOT_CURRENT": "Ausgabe nicht geprüft. Ausfüllen gestoppt.",
+      "UNMAPPED_FIELD": "Interner Zuordnungsfehler. Ausfüllen gestoppt.",
+      "RADIO_OPTION_MISMATCH": "Auswahlfelder im PDF stimmen nicht. Ausfüllen gestoppt.",
+      "FONT_UNAVAILABLE": "Schrift nicht verfügbar. Ausfüllen gestoppt.",
+      "UNSUPPORTED_GLYPHS": "Einige Zeichen können nicht gedruckt werden.",
+      "TEXT_OVERFLOW": "Ein Text ist zu lang für das Feld. Bitte kürzen.",
+      "READBACK_MISMATCH": "Kontrolle des ausgefüllten PDFs fehlgeschlagen. Nichts heruntergeladen."
+    },
+    "o": {
+      "wohnen": {
+        "miete": "Wohnen zur Miete",
+        "eigentum": "Wohnen im Eigentum"
+      },
+      "bedarf": {
+        "Grundmiete": "Grundmiete",
+        "Nebenkosten": "Nebenkosten",
+        "Heizkosten": "Heizkosten",
+        "Sonstiges": "Sonstige Wohnkosten",
+        "Pauschalmiete": "Pauschalmiete (Inklusivmiete)"
+      },
+      "eigentum": {
+        "Schuldzinsen": "Schuldzinsen",
+        "Heizkosten": "Heizkosten",
+        "Wartung": "Wartung/Instandhaltung",
+        "Grundsteuern": "Grundsteuern",
+        "Versicherung": "Versicherung",
+        "Wasser": "Wasser",
+        "Abwasser": "Abwasser",
+        "Muell": "Müllabfuhr",
+        "Schornstein": "Schornsteinfeger",
+        "Strassenreinigung": "Straßenreinigung",
+        "Sonstiges": "Sonstiges"
+      },
+      "energie": {
+        "Strom": "Strom",
+        "Gas": "Gas",
+        "Oel": "Heizöl",
+        "Fernwaerme": "Fernwärme",
+        "Holz": "Holz",
+        "Sonstiges": "Sonstiges"
+      },
+      "heizart": {
+        "Zentralheizung": "Zentralheizung",
+        "Einzelofen": "Einzelofen",
+        "Nachtspeicherofen": "Nachtspeicherofen"
+      },
+      "kochen": {
+        "Strom": "Strom",
+        "Gas": "Gas",
+        "Sonstiges": "Sonstiges"
+      },
+      "warmwasser": {
+        "Strom": "Strom",
+        "Gas": "Gas",
+        "Heizoel": "Heizöl",
+        "Holz": "Holz",
+        "Kohle": "Kohle",
+        "Sonstiges": "Sonstiges"
+      },
+      "mehrereWohneinheiten": {
+        "ja": "Ja",
+        "nein": "Nein"
+      },
+      "brennstoffSelbst": {
+        "ja": "Ja",
+        "nein": "Nein"
+      },
+      "mieteDirekt": {
+        "ja": "Ja",
+        "nein": "Nein"
+      },
+      "wasser": {
+        "zentral": "Zentral (über die zentrale Heizungsanlage)",
+        "dezentral": "Dezentral (z. B. Boiler, Durchlauferhitzer)"
+      }
+    }
   }
 }

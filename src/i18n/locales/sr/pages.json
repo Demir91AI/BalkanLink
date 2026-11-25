@@ -18525,5 +18525,160 @@
         ]
       }
     }
+  },
+  "kduPilot": {
+    "title": "Popunjavanje originalne Anlage KDU (razvojna verzija)",
+    "devNotice": "Samo za testiranje. Ovo nije objavljeno i nije službena usluga Jobcentra.",
+    "privacy": "Vaš PDF i odgovori ostaju samo u ovom prozoru preglednika. Ništa se ne šalje, ne sprema i ne beleži.",
+    "step1": "Preuzmite službeni PDF s arbeitsagentur.de",
+    "step2": "Odaberite preuzeti PDF:",
+    "step3": "Odgovorite na pitanja, proverite i preuzmite.",
+    "hints": "Službene upute za popunjavanje",
+    "optional": "neobavezno",
+    "eurLabel": "Mesečni iznos u eurima za: {{item}}",
+    "signature": "Datum i potpis ne popunjavamo. Potpišite formular sami, priložite dokaze i predajte ga Jobcentru.",
+    "check": "Proveri",
+    "download": "Preuzmi popunjeni PDF",
+    "clear": "Obriši sve",
+    "reviewOk": "Provera je uspjela. Pregledajte odgovore pa preuzmite PDF.",
+    "done": "PDF je preuzet. Pregledajte ga pre potpisivanja.",
+    "f": {
+      "vorname": "Ime (Vorname)",
+      "nachname": "Prezime (Nachname)",
+      "geburtsdatum": "Datum rođenja (Geburtsdatum)",
+      "bgNr": "Broj zajednice (BG-Nummer)",
+      "strasse": "Ulica stana (Straße)",
+      "hausnr": "Kućni broj (Hausnummer)",
+      "plz": "Poštanski broj (PLZ)",
+      "ort": "Mesto (Ort)",
+      "personen": "Koliko osoba živi u stanu, uključujući vas",
+      "baujahr": "Godina izgradnje (Baujahr)",
+      "raeume": "Broj soba",
+      "kuechen": "Broj kuhinja",
+      "baeder": "Broj kupatila",
+      "flaecheGesamt": "Ukupna površina u m²",
+      "flaecheSelbst": "Površina koju sami koristite u m²",
+      "flaecheVermietet": "Izdana površina u m²",
+      "flaecheLeer": "Prazna površina u m²",
+      "flaecheGewerbe": "Poslovni prostor u m²",
+      "wohneinheiten": "Broj stambenih jedinica",
+      "other": "Navedite ostalo",
+      "vermieter": {
+        "name": "Ime stanodavca (Vermieter)",
+        "strasse": "Ulica stanodavca",
+        "hausnr": "Kućni broj stanodavca",
+        "plz": "Poštanski broj stanodavca",
+        "ort": "Mesto stanodavca",
+        "iban": "IBAN stanodavca"
+      }
+    },
+    "q": {
+      "wohnen": "Kako stanujete?",
+      "bedarf": "Koji troškovi postoje? Označite i upišite mjesečni iznos.",
+      "mehrereWohneinheiten": "Ima li kuća više stambenih jedinica?",
+      "eigentum": "Koji troškovi postoje za vlastitu nekretninu?",
+      "energie": "Čime grijete stan?",
+      "brennstoffSelbst": "Nabavljate li gorivo sami?",
+      "heizart": "Vrsta grijanja",
+      "kochen": "Na čemu kuhate?",
+      "wasser": "Kako dobijate toplu vodu?",
+      "warmwasser": "Čime grijete toplu vodu?",
+      "mieteDirekt": "Da li Jobcenter treba kiriju plaćati direktno stanodavcu?"
+    },
+    "err": {
+      "required": "Obavezno polje.",
+      "plz": "Unesite 5 cifara.",
+      "date": "Unesite ispravan datum.",
+      "int": "Unesite ceo broj.",
+      "year": "Unesite godinu s 4 cifre.",
+      "area": "Primjer: 72,5",
+      "eur": "Primjer: 850 ili 180,50",
+      "iban": "IBAN nije ispravan (njemački IBAN, 22 znaka).",
+      "pauschal_exclusive": "Pauschalmiete se ne kombinuje s pojedinačnim troškovima.",
+      "not_applicable": "Ovo ne odgovara vašim ostalim odgovorima.",
+      "invalid_chars": "Nedozvoljeni znakovi.",
+      "invalid": "Neispravan odgovor."
+    },
+    "block": {
+      "NO_PDF": "Prvo odaberite službeni PDF.",
+      "VALIDATION_FAILED": "Ispravite označena polja.",
+      "PREFLIGHT_FAILED": "Ovo nije provereno izdanje Anlage KDU 10/2026 (ili je fajl šifrovan, oštećen ili izmijenjen). Preuzmite PDF ponovo sa službenog linka.",
+      "UNEXPECTED_FIELDS": "PDF sadrži nepoznata polja. Popunjavanje je zaustavljeno.",
+      "EDITION_NOT_CURRENT": "Izdanje nije provereno. Popunjavanje je zaustavljeno.",
+      "UNMAPPED_FIELD": "Interna greška mapiranja. Popunjavanje je zaustavljeno.",
+      "RADIO_OPTION_MISMATCH": "Izbori u PDF-u se ne poklapaju. Popunjavanje je zaustavljeno.",
+      "FONT_UNAVAILABLE": "Font nije dostupan. Popunjavanje je zaustavljeno.",
+      "UNSUPPORTED_GLYPHS": "Neki znakovi se ne mogu ispisati.",
+      "TEXT_OVERFLOW": "Neki tekst je predug za polje. Skratite ga.",
+      "READBACK_MISMATCH": "Provera popunjenog PDF-a nije uspjela. Ništa nije preuzeto."
+    },
+    "o": {
+      "wohnen": {
+        "miete": "Podstanar (Miete)",
+        "eigentum": "Sopstveni stan/kuća (Eigentum)"
+      },
+      "bedarf": {
+        "Grundmiete": "Grundmiete",
+        "Nebenkosten": "Nebenkosten",
+        "Heizkosten": "Heizkosten",
+        "Sonstiges": "Sonstige Wohnkosten",
+        "Pauschalmiete": "Pauschalmiete (Inklusivmiete)"
+      },
+      "eigentum": {
+        "Schuldzinsen": "Schuldzinsen",
+        "Heizkosten": "Heizkosten",
+        "Wartung": "Wartung/Instandhaltung",
+        "Grundsteuern": "Grundsteuern",
+        "Versicherung": "Versicherung",
+        "Wasser": "Wasser",
+        "Abwasser": "Abwasser",
+        "Muell": "Müllabfuhr",
+        "Schornstein": "Schornsteinfeger",
+        "Strassenreinigung": "Straßenreinigung",
+        "Sonstiges": "Sonstiges"
+      },
+      "energie": {
+        "Strom": "Strom",
+        "Gas": "Gas",
+        "Oel": "Heizöl",
+        "Fernwaerme": "Fernwärme",
+        "Holz": "Holz",
+        "Sonstiges": "Sonstiges"
+      },
+      "heizart": {
+        "Zentralheizung": "Zentralheizung",
+        "Einzelofen": "Einzelofen",
+        "Nachtspeicherofen": "Nachtspeicherofen"
+      },
+      "kochen": {
+        "Strom": "Strom",
+        "Gas": "Gas",
+        "Sonstiges": "Sonstiges"
+      },
+      "warmwasser": {
+        "Strom": "Strom",
+        "Gas": "Gas",
+        "Heizoel": "Heizöl",
+        "Holz": "Holz",
+        "Kohle": "Kohle",
+        "Sonstiges": "Sonstiges"
+      },
+      "mehrereWohneinheiten": {
+        "ja": "Da",
+        "nein": "Ne"
+      },
+      "brennstoffSelbst": {
+        "ja": "Da",
+        "nein": "Ne"
+      },
+      "mieteDirekt": {
+        "ja": "Da",
+        "nein": "Ne"
+      },
+      "wasser": {
+        "zentral": "Centralno (preko centralnog grijanja)",
+        "dezentral": "Decentralno (npr. bojler, protočni grijač)"
+      }
+    }
   }
 }

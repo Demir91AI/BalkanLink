@@ -137,3 +137,8 @@
 
 ## Rad i karijera batch
 - [x] arbeitslosengeld, krankenkasse, steuerklassenwechsel companions (topical, no field mapping)
+
+## FormularPilot 01.02 Anlage KDU slice (25.11.2026; dev only)
+- [x] Verify original 10/2026 (full hash, 77 fields, no encryption/XFA, no CORS); strict fill + read-back; four-language panel; tests with authentic local copy.
+- [ ] Wire panel into anlage-kdu guide: blocked by pinned no-downgrade guard; needs owner approval.
+- [ ] Production activation: blocked by unresolved BA usage rights (owner/legal review).
