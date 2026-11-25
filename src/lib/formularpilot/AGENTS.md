@@ -1,1 +1,2 @@
 - Anlage KDU pilot fills only a user-selected original whose full SHA-256 matches `KDU_EDITIONS`; the official PDF is never bundled, proxied or fetched cross-origin, and `KDU_PRODUCTION_ENABLED` stays false until rights are cleared — BA terms reserve copying/distribution.
+- Strict official-form filling goes through `engine/strict-acroform.ts` (`fillStrictAcroForm` + shared validators/pilot gate); form modules supply only schema, editions, neverFill, radio options and validated answer mapping — one tested fail-closed pipeline, no per-form copies.

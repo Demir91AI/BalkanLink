@@ -8,22 +8,14 @@
  * encryption, no XFA) -> edition gate -> glyph/width check -> fill exact native names
  * -> read-back of EVERY field. Never flattened, signatures and signature dates untouched.
  */
-import { PDFDocument, PDFCheckBox, PDFRadioGroup, PDFTextField } from "pdf-lib";
-import { embedUnicodeFont } from "../unicode-font";
-import { preflightPdfTemplate, type PdfTemplateManifest, type PreflightIssue } from "@/lib/pdf-preflight";
+import type { PdfTemplateManifest, PreflightIssue } from "@/lib/pdf-preflight";
+import { fillStrictAcroForm, blank, RX, ibanValidDE, isoDateValid, isoToDe, isPilotEnabled, type StrictEdition, type StrictFormSpec } from "../engine/strict-acroform";
 
 export const KDU_OFFICIAL_URL = "https://www.arbeitsagentur.de/datei/anlagekdu_ba032980.pdf";
 export const KDU_INDEX_URL = "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/downloads-arbeitslos-arbeit-finden";
 export const KDU_HINTS_URL = "https://www.arbeitsagentur.de/grundsicherung/ausfuellhinweise";
 
-export interface KduEdition {
-  version: string;
-  sha256: string;
-  /** Source/hash/fields verified. Rights are tracked separately and block production. */
-  status: "current_verified" | "superseded";
-  evidence: string;
-  checkedAt: string;
-}
+export type KduEdition = StrictEdition;
 
 export const KDU_EDITIONS: KduEdition[] = [{
   version: "Anlage KDU BA 10/2026",
@@ -45,8 +37,7 @@ export const KDU_RIGHTS = {
 /** Production activation requires owner + legal review; dev also needs an explicit env flag. */
 export const KDU_PRODUCTION_ENABLED = false;
 export function isKduPilotEnabled(env: { DEV?: boolean; VITE_FORMULARPILOT_KDU?: string } = import.meta.env): boolean {
-  if (KDU_PRODUCTION_ENABLED) return true;
-  return env.DEV === true && env.VITE_FORMULARPILOT_KDU === "true";
+  return isPilotEnabled(KDU_PRODUCTION_ENABLED, env.VITE_FORMULARPILOT_KDU, env.DEV);
 }
 
 /* ---------------- native field schema (read from the original PDF) ---------------- */
@@ -122,27 +113,9 @@ export interface KduAnswers {
 
 export interface KduValidationError { field: string; code: string }
 
-const blank = (v?: string) => !v || !v.trim();
-const INT = /^\d{1,4}$/;
-const AREA = /^\d{1,5}(,\d{1,2})?$/;
-const EUR = /^\d{1,6}(,\d{1,2})?$/;
-const PLZ = /^\d{5}$/;
-const CTRL = /[\u0000-\u001f\u007f]/;
-
-export function ibanValid(raw: string): boolean {
-  const s = raw.replace(/\s+/g, "").toUpperCase();
-  if (!/^DE\d{20}$/.test(s)) return false;
-  const r = (s.slice(4) + s.slice(0, 4)).replace(/[A-Z]/g, (c) => String(c.charCodeAt(0) - 55));
-  let m = 0; for (const d of r) m = (m * 10 + Number(d)) % 97;
-  return m === 1;
-}
-
-function isoDateValid(v: string, today: string): boolean {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
-  const d = new Date(v + "T00:00:00Z");
-  return !isNaN(+d) && d.toISOString().slice(0, 10) === v && v <= today && v >= "1900-01-01";
-}
-export const toDe = (iso: string) => `${iso.slice(8, 10)}.${iso.slice(5, 7)}.${iso.slice(0, 4)}`;
+const { INT, AREA, EUR, PLZ, CTRL } = RX;
+export const ibanValid = ibanValidDE;
+export const toDe = isoToDe;
 
 export function validateKduAnswers(a: KduAnswers, today: string): KduValidationError[] {
   const e: KduValidationError[] = [];
@@ -267,67 +240,14 @@ export interface KduPrepareOptions {
   allowFixtureForTesting?: boolean;
 }
 
-const FONT_SIZE = 9;
-const PADDING = 4;
+const KDU_SPEC: StrictFormSpec<KduFieldName> = {
+  fields: KDU_FIELDS, manifest: KDU_MANIFEST, editions: KDU_EDITIONS, neverFill: KDU_NEVER_FILL,
+  radioOptions: { rbtnWohneinheit: KDU_RADIO_OPTIONS, rbtnMieteDirekt: KDU_RADIO_OPTIONS, rbtnBrenstoff: KDU_RADIO_OPTIONS },
+  fontSize: 9, padding: 4,
+};
 
 export async function prepareAnlageKdu(templateBytes: Uint8Array, answers: KduAnswers, opts: KduPrepareOptions): Promise<KduPrepareResult> {
   const validation = validateKduAnswers(answers, opts.today);
   if (validation.length) return { ok: false, code: "VALIDATION_FAILED", validation };
-
-  const manifest = opts.allowFixtureForTesting ? { ...KDU_MANIFEST, sha256: undefined } : KDU_MANIFEST;
-  const pf = await preflightPdfTemplate(templateBytes, manifest);
-  if (!pf.allowed) return { ok: false, code: "PREFLIGHT_FAILED", preflight: pf.issues };
-  if (pf.unexpectedFields.length) return { ok: false, code: "UNEXPECTED_FIELDS", fields: pf.unexpectedFields };
-  const edition = KDU_EDITIONS.find((e) => e.sha256 === pf.sha256);
-  if (!opts.allowFixtureForTesting && edition?.status !== "current_verified") return { ok: false, code: "EDITION_NOT_CURRENT" };
-
-  const fills = buildKduFills(answers);
-  const bad = fills.filter((x) => !(x.name in KDU_FIELDS) || KDU_NEVER_FILL.includes(x.name)).map((x) => x.name);
-  if (bad.length) return { ok: false, code: "UNMAPPED_FIELD", fields: bad };
-
-  const doc = await PDFDocument.load(templateBytes.slice(), { updateMetadata: false });
-  const form = doc.getForm();
-  for (const name of ["rbtnWohneinheit", "rbtnMieteDirekt", "rbtnBrenstoff"]) {
-    const opts2 = form.getRadioGroup(name).getOptions().slice().sort().join("|");
-    if (opts2 !== [...KDU_RADIO_OPTIONS].sort().join("|")) return { ok: false, code: "RADIO_OPTION_MISMATCH", fields: [name] };
-  }
-  let uf;
-  try { uf = await embedUnicodeFont(doc, opts.fontBytes); } catch { return { ok: false, code: "FONT_UNAVAILABLE" }; }
-
-  const unsupported: string[] = [], overflow: string[] = [];
-  for (const x of fills) {
-    if (x.type !== "text") continue;
-    if (uf.missingGlyphs(x.value).length) { unsupported.push(x.name); continue; }
-    const widgets = form.getTextField(x.name).acroField.getWidgets();
-    if (widgets.length !== 1) { overflow.push(x.name); continue; }
-    if (uf.font.widthOfTextAtSize(x.value, FONT_SIZE) > widgets[0].getRectangle().width - PADDING) overflow.push(x.name);
-  }
-  if (unsupported.length) return { ok: false, code: "UNSUPPORTED_GLYPHS", fields: unsupported.sort() };
-  if (overflow.length) return { ok: false, code: "TEXT_OVERFLOW", fields: overflow.sort() };
-
-  for (const x of fills) {
-    if (x.type === "text") { const tf = form.getTextField(x.name); tf.setText(x.value); tf.setFontSize(FONT_SIZE); }
-    else if (x.type === "check") form.getCheckBox(x.name).check();
-    else form.getRadioGroup(x.name).select(x.value);
-  }
-  form.updateFieldAppearances(uf.font);
-  const bytes = await doc.save({ updateFieldAppearances: false });
-
-  // Read-back: mapped fields equal intended values; all other fields empty/unset.
-  const back = (await PDFDocument.load(bytes, { updateMetadata: false })).getForm();
-  const expected = new Map<string, string | boolean>(fills.map((x) => [x.name, x.type === "check" ? true : x.value]));
-  const mismatch: string[] = [];
-  for (const name of Object.keys(KDU_FIELDS)) {
-    const fld = back.getField(name);
-    const want = expected.get(name);
-    let got: string | boolean | undefined;
-    if (fld instanceof PDFTextField) got = fld.getText() ?? "";
-    else if (fld instanceof PDFCheckBox) got = fld.isChecked();
-    else if (fld instanceof PDFRadioGroup) got = fld.getSelected() ?? "";
-    const ok = want === undefined ? got === "" || got === false : got === want;
-    if (!ok) mismatch.push(name);
-  }
-  if (back.getFields().length !== Object.keys(KDU_FIELDS).length) mismatch.push("__field_count__");
-  if (mismatch.length) return { ok: false, code: "READBACK_MISMATCH", fields: mismatch.sort() };
-  return { ok: true, bytes, edition: edition?.version ?? "fixture", filledFields: fills.length };
+  return fillStrictAcroForm(KDU_SPEC, templateBytes, buildKduFills(answers), opts);
 }
