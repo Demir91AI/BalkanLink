@@ -1,12 +1,12 @@
 /**
  * FormularPilot — shared "Antrag auf Elterngeld für Geburten ab dem 01.04.2025" (BMFSFJ, ModDate 2025-08-21).
- * STAGE 1 OF A STAGED SLICE. DEVELOPMENT ONLY, OFF by default, production hard-disabled, NOT wired into any page.
+ * STAGED SLICE. DEVELOPMENT ONLY, OFF by default, production hard-disabled, NOT wired into any page.
  *
  * Jurisdiction is never inferred from bytes: the user must choose the Land explicitly, and only Länder whose
  * official publisher page served this exact full SHA-256 on the revalidation date are accepted.
  * Thüringen is excluded: on 2026-11-25 its official URL returned a CAPTCHA page instead of the PDF (unverified).
  *
- * The form has 23 pages / 531 native fields. Stage 1 maps only section 1 (Angaben zum Kind, page 1).
+ * The form has 23 pages / 531 native fields. Internal checkpoints map sections sequentially.
  * Because the mapping is incomplete, the public entry point ALWAYS refuses to produce a PDF
  * (MAPPING_INCOMPLETE) — an incomplete official application is never offered as finished.
  * Cases requiring separate official attachments (Anlage "Staatsangehörigkeit", "Wohnsitz im Ausland",
@@ -42,8 +42,8 @@ export const EG_MAPPING_COMPLETE = false;
 export const EG_STAGES = [
   { id: 1, sections: ["1 Angaben zum Kind"], pages: [1], status: "mapped" },
   { id: 2, sections: ["2 Angaben zu den Eltern", "3 Beziehung zum Kind", "4 Weitere Kinder", "Anlage Staatsangehörigkeit (HH/SH/RP)"], pages: [2, 3, 4, 5, 6, 7, 8], status: "mapped" },
-  { id: 3, sections: ["6 Bemessungszeitraum", "7 Einkommen vor der Geburt", "8 Einkommensersatzleistungen", "9 Mutterschaftsleistungen"], pages: [9, 10, 11, 12, 13, 14, 15, 16], status: "inventoried" },
-  { id: 4, sections: ["10–11 Bezugsmonate (Planer, 164 Felder)", "12 Einkommen während des Bezugs"], pages: [17, 18, 19, 20, 21], status: "inventoried" },
+  { id: 3, sections: ["5 Mindestbetrag", "6 Bemessungszeitraum", "7 Einkommen vor der Geburt", "8 Einkommensersatzleistungen", "9 Mutterschaftsleistungen"], pages: [9, 10, 11, 12, 13, 14, 15, 16], status: "mapped_supported_cases" },
+  { id: 4, sections: ["10–11 Bezugsmonate (Planer, 164 Felder)", "12 Einkommen während des Bezugs"], pages: [17, 18, 19, 20, 21], status: "mapped_supported_cases" },
   { id: 5, sections: ["13 Bankverbindung, Kontakt, Unterschriften"], pages: [21, 22, 23], status: "inventoried" },
 ] as const;
 
@@ -105,7 +105,7 @@ export function childFills(a: EgChildAnswers): StrictFill<EgFieldName>[] {
     { name: "1b Geburtsdatum Jahr", type: "text", value: isoToDe(a.geburtsdatum) },
   ];
   if (a.anzahl > 1) f.push({ name: "1a Anzahl der Kinder", type: "text", value: String(a.anzahl) });
-  if (a.fruehgeboren) f.push({ name: "1b Früh geboren", type: "check" }, { name: "1b Errechneter Geburtstermin Jahr", type: "text", value: isoToDe(a.errechneterTermin!) });
+  if (a.fruehgeboren && a.errechneterTermin) f.push({ name: "1b Früh geboren", type: "check" }, { name: "1b Errechneter Geburtstermin Jahr", type: "text", value: isoToDe(a.errechneterTermin) });
   if (a.behinderung) f.push({ name: "1b Behinderung", type: "check" });
   return f;
 }
@@ -123,6 +123,39 @@ export async function prepareElterngeldShared(_bytes: Uint8Array, child: EgChild
 /** TEST-ONLY: stage 1 + 2 fills through the strict engine. */
 export function fillStage2ForTesting(bytes: Uint8Array, child: EgChildAnswers, h: import("./elterngeld-shared-2025-parents").HouseholdAnswers, opts: StrictFillOptions) {
   return import("./elterngeld-shared-2025-parents").then((m) => fillStrictAcroForm(EG_SPEC, bytes, [...childFills(child), ...m.householdFills(h)], opts));
+}
+
+/** Internal validated mapping collection; no file, network or storage operations. */
+async function stage3Mapping(child: EgChildAnswers, h: import("./elterngeld-shared-2025-parents").HouseholdAnswers,
+  income: import("./elterngeld-shared-2025-income").IncomeStageAnswers, ctx: EgContext) {
+  const jurisdiction = checkJurisdiction(ctx, child.geburtsdatum);
+  if (jurisdiction) return { ok: false as const, code: jurisdiction };
+  const parents = await import("./elterngeld-shared-2025-parents");
+  const stage = await import("./elterngeld-shared-2025-income");
+  const household = parents.validateHousehold(h, ctx.today);
+  const errors = [...validateChild(child, ctx.today), ...household.errors, ...stage.validateIncomeStage(income, h, child.geburtsdatum)];
+  if (errors.length || household.blocks.length) return { ok: false as const, code: "INVALID_INPUT" as const, errors, blocks: household.blocks };
+  return { ok: true as const, fills: [...childFills(child), ...parents.householdFills(h), ...stage.incomeStageFills(income, h)] };
+}
+
+/** TEST-ONLY: validates jurisdiction + checkpoints 1–3 before any PDF mutation. No public output. */
+export async function fillStage3ForTesting(bytes: Uint8Array, child: EgChildAnswers, h: import("./elterngeld-shared-2025-parents").HouseholdAnswers,
+  income: import("./elterngeld-shared-2025-income").IncomeStageAnswers, ctx: EgContext, opts: StrictFillOptions) {
+  const mapping = await stage3Mapping(child, h, income, ctx);
+  if (mapping.ok === false) return mapping;
+  return fillStrictAcroForm(EG_SPEC, bytes, mapping.fills, opts);
+}
+
+/** TEST-ONLY: checkpoint 4 refuses unresolved plans and unsupported required attachments. */
+export async function fillStage4ForTesting(bytes: Uint8Array, child: EgChildAnswers, h: import("./elterngeld-shared-2025-parents").HouseholdAnswers,
+  income: import("./elterngeld-shared-2025-income").IncomeStageAnswers, plan: import("./elterngeld-shared-2025-plan").PlanStageAnswers,
+  ctx: EgContext, opts: StrictFillOptions) {
+  const mapping = await stage3Mapping(child, h, income, ctx);
+  if (mapping.ok === false) return mapping;
+  const stage = await import("./elterngeld-shared-2025-plan");
+  const validation = stage.validatePlanStage(plan, income, h, child);
+  if (validation.errors.length || validation.blocks.length) return { ok: false as const, code: "INVALID_INPUT" as const, ...validation };
+  return fillStrictAcroForm(EG_SPEC, bytes, [...mapping.fills, ...stage.planStageFills(plan, income, h)], opts);
 }
 
 /** TEST-ONLY: exercises the stage-1 mapping through the strict engine (preflight, hash, read-back). */

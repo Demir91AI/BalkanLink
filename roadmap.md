@@ -142,3 +142,14 @@
 - [x] Verify original 10/2026 (full hash, 77 fields, no encryption/XFA, no CORS); strict fill + read-back; four-language panel; tests with authentic local copy.
 - [ ] Wire panel into anlage-kdu guide: blocked by pinned no-downgrade guard; needs owner approval.
 - [ ] Production activation: blocked by unresolved BA usage rights (owner/legal review).
+
+## Porodica i djeca completion (25.11.2026; owner-approved technical checkpoints only)
+- [x] Elterngeld checkpoint 3: sections 5–9 mapped (131 native fields), authentic read-back and regressions; changed-period under35 cycle explicitly blocked, not resolved by inference.
+- [ ] Elterngeld checkpoint 4: ordinary prospective month plans/sections 10–12 implemented and tested; maternity allocation, special-child plans, prior/separate applications and required income/foreign annexes remain blocked pending official semantic verification.
+- [ ] Elterngeld checkpoint 5: remaining fields/attachments, four-language memory-only dev UI, authentic end-to-end mobile/desktop.
+- [ ] Elterngeld: verify jurisdiction/editions and compatible coverage or explicit official fallback for all 16 Länder.
+- [ ] Kindergeld and Kinderzuschlag: recheck permitted protected-form options; preserve protections and verify existing official-route fallback.
+- [ ] Mutterschaftsgeld: BAS complete mapping/tests and verified compatible alternatives or insurer routing.
+- [ ] Krippengeld Bayern: current edition/birth applicability, safe original or official fallback.
+- [ ] Wirtschaftliche Jugendhilfe: verified local authority routing; no invented nationwide PDF.
+- [ ] Final six-service regressions, four locales/mobile/desktop and coverage report; legal clearance and publication remain separately blocked.
