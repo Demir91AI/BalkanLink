@@ -1,0 +1,4036 @@
+{
+ "checkedOn": "2026-11-25",
+ "records": [
+  {
+   "file": "aenderung-kinderzuschlag-kiz45_ba031575.pdf",
+   "bytes": 1390511,
+   "sha256": "008aea009d68eb8c4c3b82b939a1a03a04f0846bb25974552cba27937a48fa3d",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 41,
+   "types": {
+    "None": 11,
+    "/Tx": 11,
+    "/Btn": 19
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/aenderung-kinderzuschlag-kiz45_ba031575.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "aenderungsmitteilung-zum-kinderzuschlag-kiz-4-arabisch_ba047478.pdf",
+   "bytes": 1456278,
+   "sha256": "9150a516b8d3eb72bb8621a3f7aa3acc0e19e8f9991e24f8f08408090254da42",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 64,
+   "types": {
+    "None": 34,
+    "/Tx": 11,
+    "/Btn": 19
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/aenderungsmitteilung-zum-kinderzuschlag-kiz-4-arabisch_ba047478.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "aenderungsmitteilung-zum-kinderzuschlag-kiz-45-englisch_ba047468.pdf",
+   "bytes": 1406299,
+   "sha256": "6717e9545779c5ae76525f5a7f3c62d7312acedef3337f97d8d4a2e565d83a67",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 64,
+   "types": {
+    "None": 34,
+    "/Tx": 11,
+    "/Btn": 19
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/aenderungsmitteilung-zum-kinderzuschlag-kiz-45-englisch_ba047468.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "aenderungsmitteilung-zum-kinderzuschlag-kiz-45-tuerkisch_ba047473.pdf",
+   "bytes": 1392565,
+   "sha256": "b5cf2d61108561cd2ae2686ec10f30c8cab924b90c7888e27815b77dea581917",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 64,
+   "types": {
+    "None": 34,
+    "/Tx": 11,
+    "/Btn": 19
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/aenderungsmitteilung-zum-kinderzuschlag-kiz-45-tuerkisch_ba047473.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-antragsteller-und-partner-zum-antrag-auf-kinderzuschlag-kiz-1-ana-arabisch_ba047433.pdf",
+   "bytes": 1354475,
+   "sha256": "7a7e6efd90c2d0658e3aa602a75dbe28c3bac7b02d0cd6707051106e1f2bf4f5",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 151,
+   "types": {
+    "None": 68,
+    "/Tx": 10,
+    "/Btn": 73
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-antragsteller-und-partner-zum-antrag-auf-kinderzuschlag-kiz-1-ana-arabisch_ba047433.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-antragsteller-und-partner-zum-antrag-auf-kinderzuschlag-kiz-1-ana-englisch_ba047443.pdf",
+   "bytes": 1286490,
+   "sha256": "326e95c41ba8def0f3353cc50ffc2a8191ff2c46d1a842852266ac3796711cba",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 152,
+   "types": {
+    "None": 69,
+    "/Tx": 10,
+    "/Btn": 73
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-antragsteller-und-partner-zum-antrag-auf-kinderzuschlag-kiz-1-ana-englisch_ba047443.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-antragsteller-und-partner-zum-antrag-auf-kinderzuschlag-kiz-1-ana-tuerkisch_ba047438.pdf",
+   "bytes": 1332356,
+   "sha256": "3fdfd2ecde3064db47f7405f30a0ee9230a8caa53150fbae5c85110ac2db7fc3",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 150,
+   "types": {
+    "None": 67,
+    "/Tx": 10,
+    "/Btn": 73
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-antragsteller-und-partner-zum-antrag-auf-kinderzuschlag-kiz-1-ana-tuerkisch_ba047438.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-eu-zum-hauptantrag-kindergeld-kg1-aneu-_ba031900.pdf",
+   "bytes": 1141056,
+   "sha256": "217e886dc173b2215cdd3f29df1ae8bb9a648a8009007aa407fa35efd9a8c512",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 120,
+   "types": {
+    "None": 63,
+    "/Tx": 26,
+    "/Btn": 31
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-eu-zum-hauptantrag-kindergeld-kg1-aneu-_ba031900.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-kind-zum-antrag-auf-kindergeld-russisch_ba036765.pdf",
+   "bytes": 1535060,
+   "sha256": "2876c163dabf78ea5f1a2686f0740a1d4b4342e32f1b98c5522ca288260a0f2a",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 197,
+   "types": {
+    "None": 66,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-kind-zum-antrag-auf-kindergeld-russisch_ba036765.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-kind-zum-antrag-auf-kindergeld-ukrainisch_ba036255.pdf",
+   "bytes": 1538507,
+   "sha256": "73d64240881e2d417ef965f855a8806a2ab0e08b2dda60c524ff60f760adab48",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 196,
+   "types": {
+    "None": 65,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-kind-zum-antrag-auf-kindergeld-ukrainisch_ba036255.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-kind-zum-antrag-auf-kinderzuschlag-kiz-1-ank-arabisch_ba047463.pdf",
+   "bytes": 1297461,
+   "sha256": "60ce8f4449b7765bc83561ecc1ccda89281f08baf7abcb4e3ff517103194b315",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 94,
+   "types": {
+    "None": 46,
+    "/Tx": 11,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-kind-zum-antrag-auf-kinderzuschlag-kiz-1-ank-arabisch_ba047463.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-kind-zum-antrag-auf-kinderzuschlag-kiz-1-ank-englisch_ba047453.pdf",
+   "bytes": 1234162,
+   "sha256": "e24ee7352ce566545168eef2f23c05882724e310b78ff7ec6d02760341d81c59",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 96,
+   "types": {
+    "None": 48,
+    "/Tx": 11,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-kind-zum-antrag-auf-kinderzuschlag-kiz-1-ank-englisch_ba047453.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-kind-zum-antrag-auf-kinderzuschlag-kiz-1-ank-tuerkisch_ba047458.pdf",
+   "bytes": 1280913,
+   "sha256": "f2ae9f4b5e49110f25d60b6a689a3a53476b8e348cd14b6a1ea99854b7f2fd7a",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 96,
+   "types": {
+    "None": 48,
+    "/Tx": 11,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-kind-zum-antrag-auf-kinderzuschlag-kiz-1-ank-tuerkisch_ba047458.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-zu-unterhalt-und-unterhaltsvorschuss-kiz-5c-arabisch_ba047513.pdf",
+   "bytes": 1486379,
+   "sha256": "328173ada19947ed6ddc28cd0e51e8dd29a3e917626f295d9079453ca97eb696",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 75,
+   "types": {
+    "None": 38,
+    "/Tx": 17,
+    "/Btn": 20
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-zu-unterhalt-und-unterhaltsvorschuss-kiz-5c-arabisch_ba047513.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-zu-unterhalt-und-unterhaltsvorschuss-kiz-5c-englisch_ba047503.pdf",
+   "bytes": 1422003,
+   "sha256": "284d6ce119103f359b9e8d2eadc4f00a7a1d6f81123562a7a4ba99690c17a7e4",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 75,
+   "types": {
+    "None": 38,
+    "/Tx": 17,
+    "/Btn": 20
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-zu-unterhalt-und-unterhaltsvorschuss-kiz-5c-englisch_ba047503.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "anlage-zu-unterhalt-und-unterhaltsvorschuss-kiz-5c-tuerkisch_ba047508.pdf",
+   "bytes": 1437425,
+   "sha256": "e785140cd62b747a9f11ec68e382a17c2ea9166ea21c70edd15d686afe84f9a6",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 75,
+   "types": {
+    "None": 38,
+    "/Tx": 17,
+    "/Btn": 20
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/anlage-zu-unterhalt-und-unterhaltsvorschuss-kiz-5c-tuerkisch_ba047508.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-auf-kindergeld-polnisch_ba042279.pdf",
+   "bytes": 1411440,
+   "sha256": "febe1f0049dae19325a5bb9bd6ab1f304e106855e7e55cc8236eb0a717b49e89",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 133,
+   "types": {
+    "None": 38,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-auf-kindergeld-polnisch_ba042279.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-auf-kindergeld-russisch_ba036760.pdf",
+   "bytes": 1448895,
+   "sha256": "031fb9fc3b0683dbcb1edbb08cc17ec38977750cc702c812f7731972b4b24fdf",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 133,
+   "types": {
+    "None": 38,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-auf-kindergeld-russisch_ba036760.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-auf-kindergeld-ukrainisch_ba037090.pdf",
+   "bytes": 1478238,
+   "sha256": "a60b460ab09cedd9c1ca53809bf6673e2e0a35bb65fc5042d9e0fab24c0c0914",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 135,
+   "types": {
+    "None": 40,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-auf-kindergeld-ukrainisch_ba037090.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-auf-kinderzuschlag-kiz-1-arabisch_ba047428.pdf",
+   "bytes": 1434919,
+   "sha256": "2fc9f529323c40e749899ac95e5397f29484aa77da79e421a541ffc3e02e93f2",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 127,
+   "types": {
+    "None": 53,
+    "/Tx": 66,
+    "/Btn": 8
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-auf-kinderzuschlag-kiz-1-arabisch_ba047428.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-auf-kinderzuschlag-kiz-1-englisch_ba047423.pdf",
+   "bytes": 1372772,
+   "sha256": "823966bf8df36bad290869993bf4e52a73bfcd65debd9f48f29263ffb6be0328",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 126,
+   "types": {
+    "None": 52,
+    "/Tx": 66,
+    "/Btn": 8
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-auf-kinderzuschlag-kiz-1-englisch_ba047423.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-auf-kinderzuschlag-kiz-1-tuerkisch_ba047418.pdf",
+   "bytes": 1369908,
+   "sha256": "2ad3ce925624f854aa7468eab5454683732af2e617aa753754ad1c29957b1a6c",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 126,
+   "types": {
+    "None": 52,
+    "/Tx": 66,
+    "/Btn": 8
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-auf-kinderzuschlag-kiz-1-tuerkisch_ba047418.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-kindergeld-fuer-vollwaisen-kg1a-englisch_ba042334.pdf",
+   "bytes": 1428346,
+   "sha256": "1432ba3606bcae5a5e510c9d69e740149de536a537cf9ad1428f29f417ee0708",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 168,
+   "types": {
+    "None": 58,
+    "/Tx": 77,
+    "/Btn": 33
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-kindergeld-fuer-vollwaisen-kg1a-englisch_ba042334.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-kindergeld-fuer-vollwaisen-kg1a-russisch_ba041700.pdf",
+   "bytes": 1487780,
+   "sha256": "cdef0b719b7b750d786e12db5ea67c3acfc32e7d29ccd395ecf67148dc9c694e",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 168,
+   "types": {
+    "None": 58,
+    "/Tx": 77,
+    "/Btn": 33
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-kindergeld-fuer-vollwaisen-kg1a-russisch_ba041700.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antrag-kindergeld-fuer-vollwaisen-kg1a-ukrainisch_ba041705.pdf",
+   "bytes": 1521609,
+   "sha256": "bd3ace7707a2cdf92f5d348704ef3af2ee97cfb8bfed89b9b2a136bc5a2c08d1",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 169,
+   "types": {
+    "None": 59,
+    "/Tx": 77,
+    "/Btn": 33
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antrag-kindergeld-fuer-vollwaisen-kg1a-ukrainisch_ba041705.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "antraganteiligeskindergeld_ba031880.pdf",
+   "bytes": 1351940,
+   "sha256": "e4ecb32560236d5627ef6cc4052a8cdf61139aa7e61981b9cd6ea944d65e267d",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 17,
+    "/Tx": 23,
+    "/Btn": 25
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/antraganteiligeskindergeld_ba031880.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-fuer-seeleute-kg54z_ba052531.pdf",
+   "bytes": 1098454,
+   "sha256": "2d182706127cd001466c85c2f774df7a99a12fabbf32ea948ed47ce7f727712c",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 80,
+   "types": {
+    "None": 37,
+    "/Tx": 27,
+    "/Btn": 16
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-fuer-seeleute-kg54z_ba052531.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-bg_ba052541.pdf",
+   "bytes": 1140175,
+   "sha256": "4209ba073563c64a01adbff247e3fc1621ca544804c38328b7c06e33f92803b4",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 64,
+   "types": {
+    "None": 32,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-bg_ba052541.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-cz_ba052646.pdf",
+   "bytes": 1134009,
+   "sha256": "704e7cd9f0e6e8cb2f33ddc063b4b6f00e1e74fb9276a85be9baa7e9e950a878",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-cz_ba052646.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-el_ba052561.pdf",
+   "bytes": 1154660,
+   "sha256": "d24cc573cc83a77533d09bc5042f7484a630b714720f8677b49844314941d2d8",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-el_ba052561.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-en_ba052551.pdf",
+   "bytes": 1115164,
+   "sha256": "75fa1d68065193150854710c78ba1a681f2b6078dfec71fb622803291948db1f",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-en_ba052551.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-es_ba052606.pdf",
+   "bytes": 1115772,
+   "sha256": "63e84bcf3fa98c43ca1cfe618d38c7e19b6413c7d35a7d250536b37c8e4c1a3c",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-es_ba052606.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-fr_ba052556.pdf",
+   "bytes": 1114967,
+   "sha256": "5ec2bf33aec8c588d390797b1d84d6e16b60b60d1ee3596af2b377f43eaf584f",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-fr_ba052556.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-hr_ba052566.pdf",
+   "bytes": 1131921,
+   "sha256": "12101e3207e5087af110cd52ff9ec75e41345a69bd2bfb6a2a0a1fb04b53e70d",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-hr_ba052566.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-hu_ba052571.pdf",
+   "bytes": 1134212,
+   "sha256": "b44738ce289cd6fda0885ffdb9861e1864bbe674519f258f71bcf816d857d36f",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-hu_ba052571.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-it_ba052576.pdf",
+   "bytes": 1115288,
+   "sha256": "8995dad5fab10ca42c5f0e2bbb59ccd7ad0ab6f188fcb94e5c17b008317e3ef9",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-it_ba052576.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-nl_ba052581.pdf",
+   "bytes": 1114567,
+   "sha256": "5b2ebea27daea6096dc58e8ee33bd24784c8a295045e0eda0b19fea00e670374",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-nl_ba052581.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-pl_ba052586.pdf",
+   "bytes": 1133442,
+   "sha256": "a025c35878795be99c1dab458be565289aec4cf8b3bc79cb42ee7d49f0b04d68",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-pl_ba052586.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-pt_ba052591.pdf",
+   "bytes": 1116490,
+   "sha256": "aedf2e40695bb9e9031414e3946d7847f791c3e8ee1164584d1e323a02647b5a",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-pt_ba052591.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-ro_ba052596.pdf",
+   "bytes": 1133184,
+   "sha256": "97361bc23f4e523f9a20574b9fb338bbee22a802d694275545770ee8e349ceff",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-ro_ba052596.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54-slo_ba052641.pdf",
+   "bytes": 1131759,
+   "sha256": "516feb8db09c76e55908035da5f25a05ed6265522af1a703a7d9cf74efad3233",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 65,
+   "types": {
+    "None": 33,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54-slo_ba052641.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitgeberbescheinigung-kg-54_ba052516.pdf",
+   "bytes": 1092293,
+   "sha256": "1ea194d3bf149fd65fb47f21bce8b81378af839fb99cd1acad5d077eaa828fe9",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 64,
+   "types": {
+    "None": 32,
+    "/Tx": 18,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitgeberbescheinigung-kg-54_ba052516.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-de_ba052611.pdf",
+   "bytes": 1090813,
+   "sha256": "8a695319fdd2f8f48ff8e5567b21e5c581bc7eaf9cd1f13f5058f57c2cc0c07e",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 61,
+   "types": {
+    "None": 31,
+    "/Tx": 16,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-de_ba052611.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-en_ba052616.pdf",
+   "bytes": 1112284,
+   "sha256": "9779bff42866060c89b1b36c244b082042fdfd026a33b04cac2ec166512fc037",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 61,
+   "types": {
+    "None": 31,
+    "/Tx": 16,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-en_ba052616.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-fr_ba052621.pdf",
+   "bytes": 1113021,
+   "sha256": "1f6184819799067e9b80dacccb051ee5b94bebc0a2cc3380be56142fcf257eee",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 61,
+   "types": {
+    "None": 31,
+    "/Tx": 16,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-fr_ba052621.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-tk_ba052651.pdf",
+   "bytes": 1088587,
+   "sha256": "3408692fa5198e4dc88c12d2d7edee9aae24f12f1089df73b93d6dc65ca41295",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 61,
+   "types": {
+    "None": 31,
+    "/Tx": 16,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/arbeitsbescheinigung-zur-vorlage-bei-der-familienkasse-kg-54-a-tk_ba052651.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "ausfuellhinweise-zum-antrag-auf-kinderzuschlag-kiz-1-h-arabisch_ba047413.pdf",
+   "bytes": 234684,
+   "sha256": "b6f65d28c519a6b589dbf11c805059a64cf2b952a147fe54092bab612bdbdec8",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": false,
+   "fields": 0,
+   "types": {},
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/ausfuellhinweise-zum-antrag-auf-kinderzuschlag-kiz-1-h-arabisch_ba047413.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "ausfuellhinweise-zum-antrag-auf-kinderzuschlag-kiz-1-h-englisch_ba047403.pdf",
+   "bytes": 126375,
+   "sha256": "ce7eb4d01379a5ec01df9a2cfa26272da4dadaf53130b107d4c629ff8f7c8bf8",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": false,
+   "fields": 0,
+   "types": {},
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/ausfuellhinweise-zum-antrag-auf-kinderzuschlag-kiz-1-h-englisch_ba047403.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "ausfuellhinweise-zum-antrag-auf-kinderzuschlag-kiz-1-h-tuerkisch_ba047408.pdf",
+   "bytes": 124764,
+   "sha256": "f7131d18ec4a5d66e3362755e3dc0610826003bad7a11b14cdf4cddbc7fdfe28",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": false,
+   "fields": 0,
+   "types": {},
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/ausfuellhinweise-zum-antrag-auf-kinderzuschlag-kiz-1-h-tuerkisch_ba047408.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "bescheinigung-kiz-7_ba034565.pdf",
+   "bytes": 1393567,
+   "sha256": "d14369ac183ad547dbaed24526b56a2abba34b8488d5af278d9c54387d51a998",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 47,
+   "types": {
+    "None": 15,
+    "/Tx": 17,
+    "/Btn": 15
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/bescheinigung-kiz-7_ba034565.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "bescheinigung-ueber-die-ausbildung-bei-der-bundeswehr-kg-15_ba053982.pdf",
+   "bytes": 1360993,
+   "sha256": "7e5d9ebc884e1e2a3250f67d31e2a365c2ee908120e4c360e5b9a2666f79464e",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 110,
+   "types": {
+    "None": 25,
+    "/Tx": 63,
+    "/Btn": 22
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/bescheinigung-ueber-die-ausbildung-bei-der-bundeswehr-kg-15_ba053982.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "bescheinigungbetreuung_ba032760.pdf",
+   "bytes": 1313448,
+   "sha256": "b31f661f0ce5699b34d19c77773469c47ddcd0de2d6431823df213f3b84618a0",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 42,
+   "types": {
+    "None": 11,
+    "/Tx": 19,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/bescheinigungbetreuung_ba032760.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "bestaetigung-ueber-die-weiterleitung-von-kindergeld-kg-14_ba053977.pdf",
+   "bytes": 1292218,
+   "sha256": "6ebc0226677365af408754208a9fbdc86abee20dfcaf747ac64b9f148ed93554",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 47,
+   "types": {
+    "None": 21,
+    "/Tx": 21,
+    "/Btn": 5
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/bestaetigung-ueber-die-weiterleitung-von-kindergeld-kg-14_ba053977.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "dok_ba031520.pdf",
+   "bytes": 1414502,
+   "sha256": "12c78bceb1e2772599a692b733acb42e756e567ba33b7967c5fe06f204981dde",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 100,
+   "types": {
+    "None": 31,
+    "/Tx": 41,
+    "/Btn": 28
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/dok_ba031520.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "dok_ba031910.pdf",
+   "bytes": 1124178,
+   "sha256": "4ce52adbd9bd99b24597feadcb88bfcabfa72e1afb7571327010a9565a163e1d",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 52,
+   "types": {
+    "None": 18,
+    "/Tx": 17,
+    "/Btn": 17
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/dok_ba031910.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "dok_ba032770.pdf",
+   "bytes": 1299501,
+   "sha256": "0f80aa11dee060b47ee60c90e30acb6159d809862d5d4b7509b1070c060ff6fe",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 28,
+   "types": {
+    "None": 9,
+    "/Tx": 14,
+    "/Btn": 5
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/dok_ba032770.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "dok_ba032775.pdf",
+   "bytes": 1286781,
+   "sha256": "18d2fdcb976218fd1e61c0250d76c8645b03a230dcf0344470b801fb5a50c261",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 29,
+   "types": {
+    "None": 9,
+    "/Tx": 14,
+    "/Btn": 6
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/dok_ba032775.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "einwilligung-in-den-versand-unverschluesselter-e-mails-durch-die-familienkasse_ba035700.pdf",
+   "bytes": 1123780,
+   "sha256": "68ee9a77b59064ae2ce250d414b4041e5d1a47567b7bf94d02ffab1e85156f1e",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 44,
+   "types": {
+    "None": 17,
+    "/Tx": 14,
+    "/Btn": 13
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/einwilligung-in-den-versand-unverschluesselter-e-mails-durch-die-familienkasse_ba035700.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kg4e_ba033870.pdf",
+   "bytes": 1341452,
+   "sha256": "305527e05908fbebd56804d6aa9c794b7c60e1e5ae771fe33557d84ef527f734",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 73,
+   "types": {
+    "None": 17,
+    "/Tx": 24,
+    "/Btn": 32
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kg4e_ba033870.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kg4f_ba033880.pdf",
+   "bytes": 1215881,
+   "sha256": "54c5cb1ec1e8acaaf3c97a6261a6b5c40c32ae37e78e59c69e76861b16b24ac2",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 182,
+   "types": {
+    "None": 41,
+    "/Tx": 74,
+    "/Btn": 67
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kg4f_ba033880.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kg4g_ba033875.pdf",
+   "bytes": 1185156,
+   "sha256": "50e6af89f4d13f97b709a9540acb42c0634553194dbbb27593b1edde26d8b6fa",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 146,
+   "types": {
+    "None": 40,
+    "/Tx": 57,
+    "/Btn": 49
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kg4g_ba033875.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kg5d_ba033865.pdf",
+   "bytes": 1177103,
+   "sha256": "20ddcb29b280b1249f38c6c26ab38cf9e5f2c672bf75804e32723615309f50b4",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 106,
+   "types": {
+    "None": 35,
+    "/Tx": 52,
+    "/Btn": 19
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kg5d_ba033865.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kg7e_ba033120.pdf",
+   "bytes": 1123637,
+   "sha256": "aab49e9c085c922a4f99c816bda808ec1bf0b8714cd5f82b8e831d35af12dc87",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 41,
+   "types": {
+    "None": 14,
+    "/Tx": 16,
+    "/Btn": 11
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kg7e_ba033120.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kiz5a_ba034555.pdf",
+   "bytes": 1508520,
+   "sha256": "05be351df8922161b168b26ccdd0ca2d40401cb26c457a0cd88e1f76a905b48b",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 352,
+   "types": {
+    "None": 50,
+    "/Tx": 291,
+    "/Btn": 11
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kiz5a_ba034555.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kiz5c_ba036530.pdf",
+   "bytes": 1399314,
+   "sha256": "198dfaceb4affd06afe70492b379c84f02b0073d9ca3bbecd1dec246de576aa7",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 61,
+   "types": {
+    "None": 24,
+    "/Tx": 17,
+    "/Btn": 20
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kiz5c_ba036530.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-kiz6_ba034560.pdf",
+   "bytes": 1392046,
+   "sha256": "bbfdca226793cb27d7e97c2b2fd91ac290fcd2c4fe7013468a7dc674c5c40a86",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 71,
+   "types": {
+    "None": 32,
+    "/Tx": 21,
+    "/Btn": 18
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-kiz6_ba034560.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-pflegekind-kg12a_ba056445.pdf",
+   "bytes": 1326145,
+   "sha256": "7af64c55531c6e3ee03a8074190d68c58efd237da1921196d9e49a57476ea87f",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 75,
+   "types": {
+    "None": 33,
+    "/Tx": 21,
+    "/Btn": 21
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-pflegekind-kg12a_ba056445.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "erklaerung-praktikum-kg10_ba035540.pdf",
+   "bytes": 1153572,
+   "sha256": "e6e5065279c406feba916c19b1dc3470aacef0b1c003351c52a50792405fc50c",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 30,
+    "/Tx": 22,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/erklaerung-praktikum-kg10_ba035540.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-bg-antrag-kindegeld_ba033770.pdf",
+   "bytes": 1414597,
+   "sha256": "8f6498625875977c622c096e83d594a143fa7718f163477d808995e4318fb9ce",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 137,
+   "types": {
+    "None": 42,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-bg-antrag-kindegeld_ba033770.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-cz-antrag-kindegeld_ba033740.pdf",
+   "bytes": 1411926,
+   "sha256": "d5877eab2b3b02763c2531f6cf744903a16d20f8505e5bbf3cc104d47297ef06",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 134,
+   "types": {
+    "None": 39,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-cz-antrag-kindegeld_ba033740.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-e-antrag-kindegeld_ba033745.pdf",
+   "bytes": 1425938,
+   "sha256": "01d1649607530c4f611a701d75102721c875b967ddca7bfedcf533e570a21526",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 133,
+   "types": {
+    "None": 38,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-e-antrag-kindegeld_ba033745.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-e-antrag-kindegeld_ba034920.pdf",
+   "bytes": 1397340,
+   "sha256": "56674ad38cc361ab99d6d5eb0c2c3d12f731c41acd7e99af62ad8d13bc83d7fe",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 131,
+   "types": {
+    "None": 36,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-e-antrag-kindegeld_ba034920.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-f-antrag-kindegeld_ba033755.pdf",
+   "bytes": 1420711,
+   "sha256": "b4772799980ef2bbc10b3cf775fc1d139a930e3a017f02656f48fbce7d4125d0",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 132,
+   "types": {
+    "None": 37,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-f-antrag-kindegeld_ba033755.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-g-antrag-kindegeld_ba033775.pdf",
+   "bytes": 1446237,
+   "sha256": "aeed5f95f896e47983606e7a75e8c3856bb628462863955dea77ec84783b8121",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 131,
+   "types": {
+    "None": 36,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-g-antrag-kindegeld_ba033775.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-hr-antrag-kindegeld_ba033725.pdf",
+   "bytes": 1412334,
+   "sha256": "a2f91ef0e7010aadb929d45e960bc731c93e10109aafda48c606bb8f679c38bb",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 132,
+   "types": {
+    "None": 37,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-hr-antrag-kindegeld_ba033725.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-hu-antrag-kindegeld_ba033735.pdf",
+   "bytes": 1400224,
+   "sha256": "53c06ef510b602ef1576451ec60e7980e6adc10b0d3a92080e30daa59be092f6",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 132,
+   "types": {
+    "None": 37,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-hu-antrag-kindegeld_ba033735.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-i-antrag-kindegeld_ba033700.pdf",
+   "bytes": 1418460,
+   "sha256": "739538965edc6bf6d88ac002233c9efea4add60bb3d98af42647c21f6d1eac1d",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 136,
+   "types": {
+    "None": 41,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-i-antrag-kindegeld_ba033700.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-nl-antrag-kindegeld_ba033710.pdf",
+   "bytes": 1433494,
+   "sha256": "2b53b1f4dd2bdddc8f739aa31456f67dea9ef660c846c21f38620406c5ce593b",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 131,
+   "types": {
+    "None": 36,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-nl-antrag-kindegeld_ba033710.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-pt-antrag-kindegeld_ba033720.pdf",
+   "bytes": 1402754,
+   "sha256": "07bfd4813027b6cda7f98cba9608b9d293921af5e891dea2d820470bfa91b89a",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 131,
+   "types": {
+    "None": 36,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-pt-antrag-kindegeld_ba033720.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-ro-antrag-kindegeld_ba033715.pdf",
+   "bytes": 1395751,
+   "sha256": "e193edbb189c228dae2966b9278dcdffc60f403a8dbffaf84777d8c7b2236ad5",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 133,
+   "types": {
+    "None": 38,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-ro-antrag-kindegeld_ba033715.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-slo-antrag-kindegeld_ba033750.pdf",
+   "bytes": 1411626,
+   "sha256": "a1741de11f72b138ed48c3e2f03cba0fae72a454589d3c5d4d5ace490e3947c2",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 134,
+   "types": {
+    "None": 39,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-slo-antrag-kindegeld_ba033750.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kb1-t-antrag-kindegeld_ba033730.pdf",
+   "bytes": 1396559,
+   "sha256": "becb508c48ed3da5f799dc03c19e6c52d43bee6e08477980fc7b29599a89109a",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 133,
+   "types": {
+    "None": 38,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kb1-t-antrag-kindegeld_ba033730.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-12b-fragebogen-fuer-pflegekinder_ba058277.pdf",
+   "bytes": 1317134,
+   "sha256": "9474ed20cc1416cf9f8ef8e3d104b02a2210d47985c0653caa4b774c530bfebd",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 55,
+   "types": {
+    "None": 25,
+    "/Tx": 16,
+    "/Btn": 14
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-12b-fragebogen-fuer-pflegekinder_ba058277.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-21-ank-anlage-kind-zum-fragebogen_ba058282.pdf",
+   "bytes": 1422354,
+   "sha256": "f3bd4dfc915f0a47302bdf8f82ca986f0de02db65956afb4515859a0151995fe",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 228,
+   "types": {
+    "None": 101,
+    "/Tx": 76,
+    "/Btn": 51
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-21-ank-anlage-kind-zum-fragebogen_ba058282.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-21-fragebogen-fuer-rein-innerdeutsche-faelle_ba058272.pdf",
+   "bytes": 1355545,
+   "sha256": "4d162d677d7ebffb24f2231820669a583aa1e71e73be8cf2034a883616051268",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 101,
+   "types": {
+    "None": 34,
+    "/Tx": 55,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-21-fragebogen-fuer-rein-innerdeutsche-faelle_ba058272.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-53-englisch_ba058601.pdf",
+   "bytes": 1367385,
+   "sha256": "27e2f98208396412adb37107c3f4f959116d026b1e1ea3f552d04ded637d9f4a",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 126,
+   "types": {
+    "None": 56,
+    "/Tx": 60,
+    "/Btn": 10
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-53-englisch_ba058601.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-53-ju_ba058960.pdf",
+   "bytes": 1192919,
+   "sha256": "a12ea64bc64be5f8f99b5dbbd634c6d467180e82267008ca5ddf92fe52222329",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 244,
+   "types": {
+    "None": 119,
+    "/Tx": 93,
+    "/Btn": 32
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-53-ju_ba058960.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-53-mar_ba058591.pdf",
+   "bytes": 1377797,
+   "sha256": "3b9ebb1c1de920525d78668fadac00dead02f4d6666c6c8d9f46b48319a0e294",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 214,
+   "types": {
+    "None": 98,
+    "/Tx": 93,
+    "/Btn": 23
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-53-mar_ba058591.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-53-tuerkisch_ba058576.pdf",
+   "bytes": 1387336,
+   "sha256": "c9f65d14d10e70bb9683fdbb75d6c324edbc9fa2cd8180bce4dc5fafd7858137",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 147,
+   "types": {
+    "None": 74,
+    "/Tx": 65,
+    "/Btn": 8
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-53-tuerkisch_ba058576.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-53-tun_ba058596.pdf",
+   "bytes": 1371304,
+   "sha256": "d6215fb6913aaa93a4b3977f4cfbda235d38d61977d6bf5828ba10b10799faba",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 194,
+   "types": {
+    "None": 89,
+    "/Tx": 82,
+    "/Btn": 23
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-53-tun_ba058596.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-bulgarisch_ba058321.pdf",
+   "bytes": 1176353,
+   "sha256": "a3e37f5132274c0ec999ffd5529496fb0b7db2ab634916d1d666126e7fc415ee",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-bulgarisch_ba058321.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-englisch_ba058316.pdf",
+   "bytes": 1125758,
+   "sha256": "1ec3f923a3c6deef74b631725ad6965f6c17844a09e06b1d0085eea86e9c27d7",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-englisch_ba058316.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-franzoesisch_ba058331.pdf",
+   "bytes": 1129901,
+   "sha256": "6c9b2b758eda543f1c4872150d1db93cc759b408d26dbce9ca0460ed457ceea9",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-franzoesisch_ba058331.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-griechisch_ba058341.pdf",
+   "bytes": 1195374,
+   "sha256": "0f129a624a9e8544b95832674dfbe836bc06d62088b19557073dda3c0ff406c5",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 69,
+   "types": {
+    "None": 34,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-griechisch_ba058341.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-italienisch_ba058356.pdf",
+   "bytes": 1126192,
+   "sha256": "96d235ab3eb2bd9843bbb243d89d5454b6dd106b0550f899925767f5d58fa720",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-italienisch_ba058356.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-kroatisch_ba058371.pdf",
+   "bytes": 1181979,
+   "sha256": "5d1dae22b6610c7425fc0c413845d074667bc8ceec1a3b0db40ba51df75ccf5a",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-kroatisch_ba058371.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-niederlaendisch_ba058381.pdf",
+   "bytes": 1143376,
+   "sha256": "1e98f9b9775a1ac6254dc6a1ef5401461f2e8458d08d79a206d3e917db5e109b",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-niederlaendisch_ba058381.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-polnisch_ba058391.pdf",
+   "bytes": 1167445,
+   "sha256": "651ce678fda586a0e2ddb2b180033da264bf513ecfc77e26c0d439af643be333",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-polnisch_ba058391.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-portugiesisch_ba058411.pdf",
+   "bytes": 1110779,
+   "sha256": "02517ceb75e7a0916de39317f5213ce347bca7de83809d536f88a92d7ae459db",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-portugiesisch_ba058411.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-rumaenisch_ba058421.pdf",
+   "bytes": 1171724,
+   "sha256": "ad3f6511ce31deb36b95569e56547ac399836de21e97ba4bd834816aa1475eed",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 67,
+   "types": {
+    "None": 32,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-rumaenisch_ba058421.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-slowenisch_ba058431.pdf",
+   "bytes": 1178656,
+   "sha256": "5ebd519aee813bd45d5cd31feaca1422be2435bc9a9e8f12c79336642233e112",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-slowenisch_ba058431.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-spanisch_ba058436.pdf",
+   "bytes": 1128664,
+   "sha256": "7cf0d5b6fce474a84f6402b0ada4ac660fc157c033d05b81dbe11684135e40d0",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-spanisch_ba058436.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-tschechisch_ba058451.pdf",
+   "bytes": 1182529,
+   "sha256": "f49acd26ef6785fa5a848a9791b76416338eb239cd27e4dbf694f779efad77c1",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-tschechisch_ba058451.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-tuerkisch_ba058571.pdf",
+   "bytes": 1165952,
+   "sha256": "4a5bb72baf668802b23c382c82504c744907143e01f5a79068b3f6ea9b1c1274",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 68,
+   "types": {
+    "None": 33,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-tuerkisch_ba058571.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-55r-ungarisch_ba058466.pdf",
+   "bytes": 1165568,
+   "sha256": "be9a5bca40650fc9a6ff3f89328e7e7d9e9bf8ab30b8ff695dcfd511525d3eac",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 66,
+   "types": {
+    "None": 31,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-55r-ungarisch_ba058466.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-5r-erklaerung-zu-einer-erwerbstaetigkeit-bei-abgeschlossener-erstausbildung-eines-volljaehrigen-kindes_ba058287.pdf",
+   "bytes": 1100396,
+   "sha256": "47a8a371ef7a4638ae976b9e9a813c469faf627551a873722ef0404fd147b518",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 57,
+   "types": {
+    "None": 22,
+    "/Tx": 26,
+    "/Btn": 9
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-5r-erklaerung-zu-einer-erwerbstaetigkeit-bei-abgeschlossener-erstausbildung-eines-volljaehrigen-kindes_ba058287.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-bulgarisch_ba058326.pdf",
+   "bytes": 1364578,
+   "sha256": "eac27ffeb0f58147be3c8ac09f6332be632af271b2998496de89cfca30ee28c8",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 494,
+   "types": {
+    "None": 259,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-bulgarisch_ba058326.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-englisch_ba058311.pdf",
+   "bytes": 1335484,
+   "sha256": "8d5780ede0b560f61b5d1c9ac266eefc2e21ff61406048209331cb4226fc5877",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 495,
+   "types": {
+    "None": 260,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-englisch_ba058311.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-fragebogen-zur-pruefung-des-anspruch-auf-kindergeld_ba058292.pdf",
+   "bytes": 1287630,
+   "sha256": "031259d51d069b3008d39eaf20ef4593983875d5251adb41489e963a496d566b",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 432,
+   "types": {
+    "None": 197,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-fragebogen-zur-pruefung-des-anspruch-auf-kindergeld_ba058292.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-franzoesisch_ba058336.pdf",
+   "bytes": 1341651,
+   "sha256": "195c25a4646d0f732b26d6599e27b3140aea3d8e53b686e87d17b2caccdb2ed3",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 497,
+   "types": {
+    "None": 262,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-franzoesisch_ba058336.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-griechisch_ba058346.pdf",
+   "bytes": 1387269,
+   "sha256": "e820335b24f7931fe70a0b37de3d4ce01f4a922c7868857225dc4405416890a6",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 494,
+   "types": {
+    "None": 259,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-griechisch_ba058346.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-italienisch_ba058361.pdf",
+   "bytes": 1354212,
+   "sha256": "6d0aaab2b994ecb13ac999336ade3be79d29088fc36f5d4c34327768c51b6877",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 497,
+   "types": {
+    "None": 262,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-italienisch_ba058361.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-ju_ba058566.pdf",
+   "bytes": 1440469,
+   "sha256": "7bcafba14c8891062acd38c08a2b5ec4ef971d2cc9880fd35a5dd3e211305e89",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 323,
+   "types": {
+    "None": 134,
+    "/Tx": 125,
+    "/Btn": 64
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-ju_ba058566.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-kroatisch_ba058366.pdf",
+   "bytes": 1366604,
+   "sha256": "1c9fc77974fe7d3fc5b66e2d07e13071687b76e49c0d8b82cd8163ac5b4f0430",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 495,
+   "types": {
+    "None": 260,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-kroatisch_ba058366.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-mt_ba058586.pdf",
+   "bytes": 1499008,
+   "sha256": "869fd9c3c3c075782cad35bfa7f7b76b42a2dc0e9b2f4e760914d4ff81068a56",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 387,
+   "types": {
+    "None": 195,
+    "/Tx": 128,
+    "/Btn": 64
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-mt_ba058586.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-niederlaendisch_ba058376.pdf",
+   "bytes": 1332960,
+   "sha256": "3c779105ed7e41e7c8cff3c91ada74eaa9ae42125d94e380ce7fe0b432ae17c6",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 497,
+   "types": {
+    "None": 262,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-niederlaendisch_ba058376.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-polnisch_ba058386.pdf",
+   "bytes": 1369379,
+   "sha256": "2e85d589648f774991ec2452716d51b103eb12dcd1b4be431ad00750fe6cd95d",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 496,
+   "types": {
+    "None": 261,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-polnisch_ba058386.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-portugiesisch_ba058406.pdf",
+   "bytes": 1342993,
+   "sha256": "30a5ea1daaa2fd375d71283ae6fe80657f3c43ff49c59813de3008aec16d2efb",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 496,
+   "types": {
+    "None": 261,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-portugiesisch_ba058406.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-rumaenisch_ba058416.pdf",
+   "bytes": 1369172,
+   "sha256": "cf76e78fdf38afdd8d1ca7f1ad9930e10879a9e74fcdb32fe147f490999e27d2",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 498,
+   "types": {
+    "None": 263,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-rumaenisch_ba058416.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-slowenisch_ba058426.pdf",
+   "bytes": 1357722,
+   "sha256": "5206bdbba1679b2bdef748dac3b6b2d462b09520265cea69827aa4b54738e1ea",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 494,
+   "types": {
+    "None": 259,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-slowenisch_ba058426.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-spanisch_ba058441.pdf",
+   "bytes": 1342602,
+   "sha256": "c6eaadb754e1a88890c480dbb77bd3f8c7898d17f24572e9ef572564ef033269",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 494,
+   "types": {
+    "None": 259,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-spanisch_ba058441.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-tschechisch_ba058456.pdf",
+   "bytes": 1365384,
+   "sha256": "b0a949cf4e1ca03c33a351a384fc2da09616c85dc353e17ca288a34e3aea0581",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 494,
+   "types": {
+    "None": 259,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-tschechisch_ba058456.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-tuerkisch_ba058581.pdf",
+   "bytes": 1516358,
+   "sha256": "ef513041ba0af059cc7403a2bd29296479ba609b18b181cefde89c03a9f2fdf3",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 368,
+   "types": {
+    "None": 182,
+    "/Tx": 122,
+    "/Btn": 64
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-tuerkisch_ba058581.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71-ungarisch_ba058461.pdf",
+   "bytes": 1368433,
+   "sha256": "2d0baa6d3af77accb0ba5fa8c5018ab184d7cc9e95eb77b1b826772c2ffd5015",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 496,
+   "types": {
+    "None": 261,
+    "/Tx": 143,
+    "/Btn": 92
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71-ungarisch_ba058461.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71eu-fragebogen-fuer-eu-buerger-mit-wohnsitz-in-deutschland-zur-pruefung-des-anspruchs-auf-kindergeld_ba058297.pdf",
+   "bytes": 1222547,
+   "sha256": "2491baeb6b5a131fee7c6485f7d35c02780212c193cf4313d4b5515bec511358",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 249,
+   "types": {
+    "None": 130,
+    "/Tx": 57,
+    "/Btn": 62
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71eu-fragebogen-fuer-eu-buerger-mit-wohnsitz-in-deutschland-zur-pruefung-des-anspruchs-auf-kindergeld_ba058297.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-bulgarisch_ba058481.pdf",
+   "bytes": 1307362,
+   "sha256": "5f2dd5208145fb37c379ae5aa9a63fd8f0d91340df595edc1d5d6e565637ba9d",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-bulgarisch_ba058481.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-deutsch_ba058476.pdf",
+   "bytes": 1465386,
+   "sha256": "f378fcd07c32ff6b0799049c0de4af4a83d464e26239b47d57265d3da73adc03",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 473,
+   "types": {
+    "None": 216,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-deutsch_ba058476.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-englisch_ba058491.pdf",
+   "bytes": 1501817,
+   "sha256": "eb4621713b48a19d3f36150784362d65ed6bf5c8013a6dc96d2f36e3a62c6247",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 565,
+   "types": {
+    "None": 308,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-englisch_ba058491.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-franzoesisch_ba058496.pdf",
+   "bytes": 1543813,
+   "sha256": "333f3ea61426b28c1fcce55ec232e28e6d7e70628b21e5d9088d117829359483",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-franzoesisch_ba058496.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-griechisch_ba058521.pdf",
+   "bytes": 1317870,
+   "sha256": "414ae56b4b09b28910ccb1943098cdc2d44a31dfc33083f84b3d41039b4b13e9",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-griechisch_ba058521.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-italienisch_ba058506.pdf",
+   "bytes": 1538945,
+   "sha256": "26aab2da119a666fd65414be8a16453df5c75689c99b5bbbe668898824c88b08",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-italienisch_ba058506.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-kroatisch_ba058516.pdf",
+   "bytes": 1326609,
+   "sha256": "ce29fc2dcd8ce1cd50bbaaeecbc768a0ef1792a56a14e07d75389391bfa9ba9c",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-kroatisch_ba058516.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-niederlaendisch_ba058501.pdf",
+   "bytes": 1308646,
+   "sha256": "abb4f2a2b963ef31fc49f5804604f690355fcb1a445f5413072039a73e330a90",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-niederlaendisch_ba058501.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-polnisch_ba058526.pdf",
+   "bytes": 1546502,
+   "sha256": "2e1a5c24528fa83b54f67892cdea763e7b8e6809b0a6edc9ba85e5185afa5607",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-polnisch_ba058526.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-portugiesisch_ba058531.pdf",
+   "bytes": 1296826,
+   "sha256": "a5abf657b507ba04b0cb577b91b8f67b50f0e08b2d901d77816a44c8f06d3d5c",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-portugiesisch_ba058531.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-rumaenisch_ba058536.pdf",
+   "bytes": 1297640,
+   "sha256": "a8a6c3c8b2e55b3665e71564301ffee65bb488ce5b52ada68750ae90b093075a",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-rumaenisch_ba058536.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-slowenisch_ba058541.pdf",
+   "bytes": 1321971,
+   "sha256": "8c9bc5f3ef76e1e0a698aaff29733c98fc7a12947410320d279dc5af227d4647",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 566,
+   "types": {
+    "None": 309,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-slowenisch_ba058541.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-spanisch_ba058546.pdf",
+   "bytes": 1298908,
+   "sha256": "52396cdfab345c59820b5f82d8b68de69bfa899d9e0cd18fb01d4443ae4b3af7",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 564,
+   "types": {
+    "None": 307,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-spanisch_ba058546.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-tschechisch_ba058486.pdf",
+   "bytes": 1574459,
+   "sha256": "fed887e19c7abee70b983a6cff3498aca25c89e54836d837173711ec8426df8b",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 565,
+   "types": {
+    "None": 308,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-tschechisch_ba058486.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-71r-ungarisch_ba058511.pdf",
+   "bytes": 1310274,
+   "sha256": "854ee9654f0e323112b547dfad8000b6482823a3fc57eaf18a741404d42ad016",
+   "encrypted": true,
+   "pages": 7,
+   "xfa": true,
+   "fields": 565,
+   "types": {
+    "None": 308,
+    "/Tx": 171,
+    "/Btn": 86
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-71r-ungarisch_ba058511.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg-93-englisch_ba058606.pdf",
+   "bytes": 1486903,
+   "sha256": "4d8f6d2f6d9fcf1e9f65dec2ef0a328fd2fba59e5d322e136de710a0ab1b6351",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 400,
+   "types": {
+    "None": 200,
+    "/Tx": 129,
+    "/Btn": 71
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg-93-englisch_ba058606.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-anlagekind_ba033765.pdf",
+   "bytes": 1423074,
+   "sha256": "baf78a8dbaa84490964772b5f37a6a9b2ff3e5c4683b9ef3d678b3d638926f6f",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 227,
+   "types": {
+    "None": 100,
+    "/Tx": 76,
+    "/Btn": 51
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-anlagekind_ba033765.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-antrag-kindergeld_ba036550.pdf",
+   "bytes": 1508259,
+   "sha256": "53651bbe336039b6ca3852f1fa7288b4841349afd1978a4b91469fea15eaac43",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 132,
+   "types": {
+    "None": 37,
+    "/Tx": 83,
+    "/Btn": 12
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-antrag-kindergeld_ba036550.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-bg-anlagekind_ba033830.pdf",
+   "bytes": 1511536,
+   "sha256": "9d3f1c453bced693056513f53fedb205b06297eeabb7ec34298afc03b1347b56",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 191,
+   "types": {
+    "None": 60,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-bg-anlagekind_ba033830.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-cz-anlagekind_ba033800.pdf",
+   "bytes": 1516233,
+   "sha256": "7e6dcd1d3e2060455bd9858ea9baf116dc8caa10b4bdaf67d750c7d16e9bd702",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 191,
+   "types": {
+    "None": 60,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-cz-anlagekind_ba033800.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-e-anlagekind_ba034910.pdf",
+   "bytes": 1461237,
+   "sha256": "8064b67dd309f825e0bcb19ae0e95d53ee7be6720c0a33803ad17c94c0deb2a2",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 195,
+   "types": {
+    "None": 64,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-e-anlagekind_ba034910.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-f-anlagekind_ba033825.pdf",
+   "bytes": 1483606,
+   "sha256": "caa39696c7f38b480953c4d0e1395c5644854c49b9fd71b6d5dba111013cc762",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 192,
+   "types": {
+    "None": 61,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-f-anlagekind_ba033825.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-g-anlagekind_ba033835.pdf",
+   "bytes": 1550233,
+   "sha256": "2f4de36869ae068415b581800e8e5259efbd1dbb90e67fb217cacbc198caf659",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 193,
+   "types": {
+    "None": 62,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-g-anlagekind_ba033835.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-hr-anlagekind_ba033820.pdf",
+   "bytes": 1511674,
+   "sha256": "978d90a749e3405a4e562bb28a7b9f243313be8cf7b9011bd3e696b8cbe9e4d9",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 194,
+   "types": {
+    "None": 63,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-hr-anlagekind_ba033820.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-hu-anlagekind_ba033780.pdf",
+   "bytes": 1496500,
+   "sha256": "af001097c4c354bbfb858844d833e8513d9be082888100e741ed9409fccf3b79",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 193,
+   "types": {
+    "None": 62,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-hu-anlagekind_ba033780.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-i-anlagekind_ba033850.pdf",
+   "bytes": 1480897,
+   "sha256": "8472220c2675e419da8cf57d186be4e3e43d4e88c6122b7a1c4e6f9249ebb8d3",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 192,
+   "types": {
+    "None": 61,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-i-anlagekind_ba033850.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-nl-anlagekind_ba033810.pdf",
+   "bytes": 1464697,
+   "sha256": "f215f25a1594d3a599442f2aafe0c86cb56250e3e389109df4f36e7252749ab2",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 193,
+   "types": {
+    "None": 62,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-nl-anlagekind_ba033810.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-pl-anlagekind_ba033815.pdf",
+   "bytes": 1500805,
+   "sha256": "9745a000ca83beb63728ab4db9d9ba0110408abdd4cbc4258e0ccdd3c04fb8f4",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 193,
+   "types": {
+    "None": 62,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-pl-anlagekind_ba033815.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-pt-anlagekind_ba033805.pdf",
+   "bytes": 1466695,
+   "sha256": "839ada9ea955245d2a46a3b83789cae302c3e9e50fe6f38d0d120e644a35a1a8",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 192,
+   "types": {
+    "None": 61,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-pt-anlagekind_ba033805.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-ro-anlagekind_ba033840.pdf",
+   "bytes": 1512861,
+   "sha256": "e06851eba4fed90f1453f66045bf0b1c0019ef6b518a6018aeccd7bbd104891b",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 192,
+   "types": {
+    "None": 61,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-ro-anlagekind_ba033840.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-s-anlagekind_ba033785.pdf",
+   "bytes": 1484124,
+   "sha256": "222926f9defb4a17f725c16c0465dab6020afedc2a0b94b33d61bbee90f051a9",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 193,
+   "types": {
+    "None": 62,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-s-anlagekind_ba033785.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-slo-anlagekind_ba033795.pdf",
+   "bytes": 1510104,
+   "sha256": "0dd6f564f21b723818199ad94647edf998544bab4a9d6ba769d027e82213e7d7",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 193,
+   "types": {
+    "None": 62,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-slo-anlagekind_ba033795.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1-t-anlagekind_ba033790.pdf",
+   "bytes": 1500833,
+   "sha256": "eb75ec71e5cd49a54c7b85f734df574612983da4725ed4d307335592eb100227",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 191,
+   "types": {
+    "None": 60,
+    "/Tx": 79,
+    "/Btn": 52
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1-t-anlagekind_ba033790.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg1a-bkgg_ba035515.pdf",
+   "bytes": 1380566,
+   "sha256": "fa19c6e143e266d8076986e4f3b4e81628635e19e34c66ef186e819df170d717",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 184,
+   "types": {
+    "None": 75,
+    "/Tx": 77,
+    "/Btn": 32
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg1a-bkgg_ba035515.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg3b_ba031895.pdf",
+   "bytes": 1342949,
+   "sha256": "c3c08499134aa4352379cbc7fe4ed0ef1e5ed90162032eaea51ceadadb787157",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 61,
+   "types": {
+    "None": 16,
+    "/Tx": 35,
+    "/Btn": 10
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg3b_ba031895.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg45_ba032780.pdf",
+   "bytes": 1390722,
+   "sha256": "ddbcc0d7b71fe74f319adad8ac3ae6cd88016fd07b40df5ef26e9ad004746d01",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 102,
+   "types": {
+    "None": 18,
+    "/Tx": 47,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg45_ba032780.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg46-antrag-pfaendungsschutzkonto_ba043911.pdf",
+   "bytes": 1319984,
+   "sha256": "46df5887cc72445f58a05591ce3a609ad3a896fd3b8947056e83a76163567f74",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 29,
+   "types": {
+    "None": 7,
+    "/Tx": 11,
+    "/Btn": 11
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg46-antrag-pfaendungsschutzkonto_ba043911.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-anlageausland_ba032400.pdf",
+   "bytes": 1392642,
+   "sha256": "2de97e32489a288c048140568bd165c616b88460f22adf3792f248ed361c7b96",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 243,
+   "types": {
+    "None": 90,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-anlageausland_ba032400.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-bg-anlageausland_ba032500.pdf",
+   "bytes": 1385477,
+   "sha256": "33541812b7a441bbad1e79d2c6112dd8e2913f076db6fc433b12415d895f418e",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 345,
+   "types": {
+    "None": 192,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-bg-anlageausland_ba032500.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-cz-anlageausland_ba032545.pdf",
+   "bytes": 1348591,
+   "sha256": "4513d8a157e45a41b0a18f3edf0ea9181afc21224450b0961412eb1ffd5596d5",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 356,
+   "types": {
+    "None": 203,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-cz-anlageausland_ba032545.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-e-anlageausland_ba034930.pdf",
+   "bytes": 1365889,
+   "sha256": "a84a2e12676125c372da5aa721b2aecee332fdf8b4620287ceae16775389570e",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 238,
+   "types": {
+    "None": 85,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-e-anlageausland_ba034930.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-f-anlageausland_ba032440.pdf",
+   "bytes": 1372331,
+   "sha256": "887d9f002b7dc93624630fef782c82cfa4c2594ba67e28c7cc029a0d4f1f6624",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 251,
+   "types": {
+    "None": 98,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-f-anlageausland_ba032440.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-g-anlageausland_ba032505.pdf",
+   "bytes": 1380553,
+   "sha256": "3870dbf24810119ef0fa44ce11f25c5c1ca4f4b8dfa2341ae7ab92daa3056b67",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 254,
+   "types": {
+    "None": 101,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-g-anlageausland_ba032505.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-hr-anlageausland_ba032525.pdf",
+   "bytes": 1346390,
+   "sha256": "6611c436bc2eb37789f042254a3a6aa3a63a73530437384fc27ac0f15ef34a05",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 323,
+   "types": {
+    "None": 170,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-hr-anlageausland_ba032525.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-i-anlageausland_ba032420.pdf",
+   "bytes": 1368437,
+   "sha256": "d72296b458a48f88eb72f6a4821cca875636279207c9b205747b9d847a0d11b5",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 251,
+   "types": {
+    "None": 98,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-i-anlageausland_ba032420.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-ju-anlageausland_ba032465.pdf",
+   "bytes": 1319949,
+   "sha256": "7a9e29b7621be48264d470aca81270b6f23ed409372f52071c20f4238a00d962",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 188,
+   "types": {
+    "None": 67,
+    "/Tx": 84,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-ju-anlageausland_ba032465.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-m-t-anlageausland_ba032470.pdf",
+   "bytes": 1296145,
+   "sha256": "01cb45ed3367ed1b38bf791ecd8bde652e691d21967892ba1de1a2d04e5d4566",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 181,
+   "types": {
+    "None": 61,
+    "/Tx": 83,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-m-t-anlageausland_ba032470.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-nl-anlageausland_ba032430.pdf",
+   "bytes": 1381107,
+   "sha256": "ebc884f301c55c72f3c9bf1d74f1968eb84447b775f1cd752d6087a2d678c410",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 248,
+   "types": {
+    "None": 95,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-nl-anlageausland_ba032430.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-pl-anlageausland_ba032510.pdf",
+   "bytes": 1350527,
+   "sha256": "e2526c7c545c343e713a9020c8c23dde1c9c81afbbcfc131d22657c658cca600",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 252,
+   "types": {
+    "None": 99,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-pl-anlageausland_ba032510.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-pt-anlageausland_ba032450.pdf",
+   "bytes": 1375645,
+   "sha256": "f9b24e8f48821f6e90050a93fcf3c6bd94ac7e139b185bde08c48843f68d1f1b",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 254,
+   "types": {
+    "None": 101,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-pt-anlageausland_ba032450.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-ro-anlageausland_ba032515.pdf",
+   "bytes": 1350724,
+   "sha256": "ee6d6a546ae5ad01f126a6dcd169febe0036aab3a5376e2d442be2c37c2f62c8",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 253,
+   "types": {
+    "None": 100,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-ro-anlageausland_ba032515.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-s-anlageausland_ba032460.pdf",
+   "bytes": 1374781,
+   "sha256": "bfae806b8df914b146f1b7c554ce2767513c6e833f738ddc1869a444b2008b41",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 252,
+   "types": {
+    "None": 99,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-s-anlageausland_ba032460.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-slo-anlageausland_ba032530.pdf",
+   "bytes": 1753838,
+   "sha256": "d1f23abfd142f61d2420ecf61470d3b4a4e8081689560d528ef0677084256469",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 247,
+   "types": {
+    "None": 94,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-slo-anlageausland_ba032530.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-t-anlageausland_ba032535.pdf",
+   "bytes": 1257236,
+   "sha256": "d603090bbceaa216eb229dbab7a41704e196c2c4b3db00aa1ee2fd47d2df0751",
+   "encrypted": true,
+   "pages": 4,
+   "xfa": true,
+   "fields": 181,
+   "types": {
+    "None": 60,
+    "/Tx": 84,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-t-anlageausland_ba032535.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51-u-anlageausland_ba032540.pdf",
+   "bytes": 1351423,
+   "sha256": "3aeab24d59090eab75c9bf4fa480ce06652e5de2d8fabd097232ea1733e8ebff",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 355,
+   "types": {
+    "None": 202,
+    "/Tx": 98,
+    "/Btn": 55
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51-u-anlageausland_ba032540.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-anlageausland_ba035160.pdf",
+   "bytes": 1462036,
+   "sha256": "df18faaf289d10319b7a9f0af12a9ac5bec4665939cc69bfa99b814e78351bb0",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": true,
+   "fields": 438,
+   "types": {
+    "None": 249,
+    "/Tx": 120,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-anlageausland_ba035160.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-bg-anlageausland_ba035170.pdf",
+   "bytes": 1522882,
+   "sha256": "a605f0f743e3de232e7ea17d0a43923196e89d03cb157607bf3c44a0f162e2ca",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 427,
+   "types": {
+    "None": 235,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-bg-anlageausland_ba035170.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-cz-anlageausland_ba035150.pdf",
+   "bytes": 1532844,
+   "sha256": "a24742ea8f4ca6e578bcd3cd52d29c3aa437655b416f1fed15ca4e4d81967c07",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 430,
+   "types": {
+    "None": 238,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-cz-anlageausland_ba035150.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-e-anlageausland_ba035165.pdf",
+   "bytes": 1484968,
+   "sha256": "3b4ba85f6ec16855ca0a338f31dcba0b89f26512321541f9da07ff379353f8d6",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 418,
+   "types": {
+    "None": 226,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-e-anlageausland_ba035165.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-f-anlageausland_ba035190.pdf",
+   "bytes": 1508247,
+   "sha256": "6152ae68fd58177168874c8d3c87ccac08baf6089d8051f8ba0ff332974858d9",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 419,
+   "types": {
+    "None": 227,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-f-anlageausland_ba035190.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-g-anlageausland_ba035185.pdf",
+   "bytes": 1527657,
+   "sha256": "7cd09155a51c16570e85103ace61e0ffaa01a0150895d099091eaed46851e54c",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 417,
+   "types": {
+    "None": 225,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-g-anlageausland_ba035185.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-hr-anlageausland-_ba035180.pdf",
+   "bytes": 1316230,
+   "sha256": "a135fa34566ca2325151e1cf492cfb756248add534fba7e16e435acf7b497ea9",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 441,
+   "types": {
+    "None": 249,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-hr-anlageausland-_ba035180.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-hu-anlageausland_ba035155.pdf",
+   "bytes": 1515446,
+   "sha256": "0be529ec54b4d9a1ee22d40b92e3f60d25f0cf93bb76c210d884959d862c08cf",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 417,
+   "types": {
+    "None": 225,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-hu-anlageausland_ba035155.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-i-anlageausland_ba035195.pdf",
+   "bytes": 1505312,
+   "sha256": "046b635bba4761672f569818e3dedd92a2fb9d5fbd689abcd93194621c7b706d",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 435,
+   "types": {
+    "None": 243,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-i-anlageausland_ba035195.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-nl-anlageausland_ba035145.pdf",
+   "bytes": 1516957,
+   "sha256": "7bb3fb0edc52405babac6bc5bdfa0cfb964952d26c77c71218d7b89e8b8a8a7d",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 413,
+   "types": {
+    "None": 221,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-nl-anlageausland_ba035145.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-pl-anlageausland_ba035125.pdf",
+   "bytes": 1520442,
+   "sha256": "034994a8a72c6715fce1714ab0403bd2554d7b98ab29c98f1aa0ee2f6402a92c",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 444,
+   "types": {
+    "None": 252,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-pl-anlageausland_ba035125.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-pt-anlageausland_ba035140.pdf",
+   "bytes": 1492104,
+   "sha256": "f804592943e0cce3f5ea54e0e117927684927e3c864a8a765015b3a1179dd989",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 415,
+   "types": {
+    "None": 223,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-pt-anlageausland_ba035140.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-ro-anlageausland_ba035130.pdf",
+   "bytes": 1514337,
+   "sha256": "73f35109ba23ea18de0a4e0330ae5312519e78405f3f652c565de8c3ce2ec5b7",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 444,
+   "types": {
+    "None": 252,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-ro-anlageausland_ba035130.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-s-anlageausland_ba035135.pdf",
+   "bytes": 1508733,
+   "sha256": "65b702f1e5fdc6506c502d96df459902fd4029d81c5a704f3469fb18b8aa7349",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 415,
+   "types": {
+    "None": 223,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-s-anlageausland_ba035135.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg51r-slo-0115_ba035175.pdf",
+   "bytes": 1524925,
+   "sha256": "c432d679c8336de7d379f6f7817673ac5497a3b118d28b05ffdc3673b6c8439a",
+   "encrypted": true,
+   "pages": 6,
+   "xfa": true,
+   "fields": 425,
+   "types": {
+    "None": 233,
+    "/Tx": 123,
+    "/Btn": 69
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg51r-slo-0115_ba035175.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg5a_ba031890.pdf",
+   "bytes": 1308900,
+   "sha256": "a11a7c24c9a279b2efb52489d13273acd15264f24dac881e874cc5e36518fcc3",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 22,
+   "types": {
+    "None": 3,
+    "/Tx": 12,
+    "/Btn": 7
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg5a_ba031890.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kg9a_ba036150.pdf",
+   "bytes": 1372607,
+   "sha256": "a69ca5717472af3019b46e0bab6d8bf42e1fd0f3d6c785c41b3a35a60b6a4fa0",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 60,
+   "types": {
+    "None": 25,
+    "/Tx": 20,
+    "/Btn": 15
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kg9a_ba036150.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kiz1-ana_ba034980.pdf",
+   "bytes": 1255653,
+   "sha256": "29663777adefc7217bd45d1a2687e18076ce0c74623782f3dfc67ac433d7bc22",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 121,
+   "types": {
+    "None": 36,
+    "/Tx": 10,
+    "/Btn": 75
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kiz1-ana_ba034980.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kiz1-ank_ba035005.pdf",
+   "bytes": 1207102,
+   "sha256": "67fd93798ce51b3297db0708927f20ae1888c33d6da88a007209abce8267b5c2",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 78,
+   "types": {
+    "None": 30,
+    "/Tx": 11,
+    "/Btn": 37
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kiz1-ank_ba035005.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kiz1-antrag_ba036540.pdf",
+   "bytes": 1401730,
+   "sha256": "79b4523234c0f1d62f1d81a1ece268d234c26fdadcbee1f1105e242c03756582",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 111,
+   "types": {
+    "None": 37,
+    "/Tx": 66,
+    "/Btn": 8
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kiz1-antrag_ba036540.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kiz1-hinweise_ba036545.pdf",
+   "bytes": 128302,
+   "sha256": "612880838943449a0af54becb66bf198f4b65bf3506e32fdc03109ef700c9f37",
+   "encrypted": true,
+   "pages": 5,
+   "xfa": false,
+   "fields": 0,
+   "types": {},
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kiz1-hinweise_ba036545.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kiz1-k_ba034985.pdf",
+   "bytes": 1358238,
+   "sha256": "6719bd6042a862ee28e2cc921aa521b3688d99ce03a2511ade8cb8f6a36cccb3",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 37,
+   "types": {
+    "None": 15,
+    "/Tx": 9,
+    "/Btn": 13
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kiz1-k_ba034985.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kurzantrag-auf-kinderzuschlag-bei-unveraenderten-erhaeltnissen-kiz-1-k-arabisch_ba047383.pdf",
+   "bytes": 1455906,
+   "sha256": "8391b190bb8f62b25ad0d469c1a19dbacefd500ba47865f9dc402202ee45cc9c",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 47,
+   "types": {
+    "None": 25,
+    "/Tx": 9,
+    "/Btn": 13
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kurzantrag-auf-kinderzuschlag-bei-unveraenderten-erhaeltnissen-kiz-1-k-arabisch_ba047383.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kurzantrag-auf-kinderzuschlag-bei-unveraenderten-erhaeltnissen-kiz-1-k-englisch_ba047393.pdf",
+   "bytes": 1396152,
+   "sha256": "c9ab0a8d6fc8c8f4ff64838c3b9b69e2700c7ccbb9a782ed60de74ebadec3ae0",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 47,
+   "types": {
+    "None": 25,
+    "/Tx": 9,
+    "/Btn": 13
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kurzantrag-auf-kinderzuschlag-bei-unveraenderten-erhaeltnissen-kiz-1-k-englisch_ba047393.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "kurzantrag-auf-kinderzuschlag-bei-unveraenderten-erhaeltnissen-kiz-1-k-tuerkisch_ba047388.pdf",
+   "bytes": 1451227,
+   "sha256": "4c25fec02533fa18da8f3b64514ae53e47b57474c5487e4d60c4f5ef189a7740",
+   "encrypted": true,
+   "pages": 3,
+   "xfa": true,
+   "fields": 47,
+   "types": {
+    "None": 25,
+    "/Tx": 9,
+    "/Btn": 13
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/kurzantrag-auf-kinderzuschlag-bei-unveraenderten-erhaeltnissen-kiz-1-k-tuerkisch_ba047388.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "nachweis-kg4k_ba032765.pdf",
+   "bytes": 1317297,
+   "sha256": "e333e6074cb4fe273111aac0a12ad156e22762b477b65ec468b1914a3cd08993",
+   "encrypted": true,
+   "pages": 1,
+   "xfa": true,
+   "fields": 24,
+   "types": {
+    "None": 8,
+    "/Tx": 8,
+    "/Btn": 8
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/nachweis-kg4k_ba032765.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "verdienstbescheinigung-des-arbeitgebers-kiz-5-arabisch_ba047493.pdf",
+   "bytes": 1219089,
+   "sha256": "d55062120b22406d0f37fd8f076cce0fd3171bcd092b2f452359060225d2148f",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 120,
+   "types": {
+    "None": 47,
+    "/Tx": 66,
+    "/Btn": 7
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/verdienstbescheinigung-des-arbeitgebers-kiz-5-arabisch_ba047493.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "verdienstbescheinigung-des-arbeitgebers-kiz-5-englisch_ba047483.pdf",
+   "bytes": 1169431,
+   "sha256": "cb1d3c2f2a10213bdb8cab4061c57f30aab5684e4a0afabb1b8dbe8828115f38",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 120,
+   "types": {
+    "None": 47,
+    "/Tx": 66,
+    "/Btn": 7
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/verdienstbescheinigung-des-arbeitgebers-kiz-5-englisch_ba047483.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "verdienstbescheinigung-des-arbeitgebers-kiz-5-tuerksich_ba047488.pdf",
+   "bytes": 1192701,
+   "sha256": "88e1c78aa5352b53257afcbf06d53a1013e02c56711cd9867325bcfdc422afbd",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 120,
+   "types": {
+    "None": 47,
+    "/Tx": 66,
+    "/Btn": 7
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/verdienstbescheinigung-des-arbeitgebers-kiz-5-tuerksich_ba047488.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "verdienstbescheinigung-kiz5_ba031770.pdf",
+   "bytes": 1164582,
+   "sha256": "663f03ad55c72ecdd418f10fe01c929b498248752558c5a584a0b5cadfc5554f",
+   "encrypted": true,
+   "pages": 2,
+   "xfa": true,
+   "fields": 114,
+   "types": {
+    "None": 41,
+    "/Tx": 66,
+    "/Btn": 7
+   },
+   "jurisdiction": "federal (Familienkasse BA)",
+   "url": "https://www.arbeitsagentur.de/datei/verdienstbescheinigung-kiz5_ba031770.pdf",
+   "rights": "unknown (BA reserves copying/distribution)",
+   "status": "blocked"
+  },
+  {
+   "file": "BAS-MuG.pdf",
+   "bytes": 427111,
+   "sha256": "6f7d1e47fcd04bdfdfa95663d869100fea739c38a95b7095463990c033d9ecf3",
+   "encrypted": false,
+   "pages": 9,
+   "xfa": false,
+   "fields": 129,
+   "types": {
+    "/Tx": 79,
+    "/Btn": 50
+   },
+   "jurisdiction": "federal (BAS)",
+   "url": "https://www.bundesamtsozialesicherung.de/fileadmin/redaktion/Mutterschaftsgeld/2026_Antragsformular.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "BB.pdf",
+   "bytes": 3345804,
+   "sha256": "e3735fd8516188073377c7b931dfc096e26c76ffdf385db5c68cb0c11ab0feff",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 531,
+   "types": {
+    "/Tx": 144,
+    "/Btn": 387
+   },
+   "jurisdiction": "state Elterngeldstelle: BB",
+   "url": "https://www.brandenburg.de/media_fast/4/1_Einheitlicher_Elterngeldantrag_2025.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "BE.pdf",
+   "bytes": 2558169,
+   "sha256": "644ae296642fe58db9c646f06c2cdf05037256cea81126d814f0e902e844ccd7",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 533,
+   "types": {
+    "/Tx": 146,
+    "/Btn": 387
+   },
+   "jurisdiction": "state Elterngeldstelle: BE",
+   "url": "https://berlin.de/jugendamt-pankow/_assets/fachdienst-2/dokumente/250313-elterngeldantrag-hauptantrag.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "BW.pdf",
+   "bytes": 1823239,
+   "sha256": "e19f9f22bdb7992b07b1439d96cdd073c7742297ba0a6693a701b8f610625737",
+   "encrypted": false,
+   "pages": 27,
+   "xfa": false,
+   "fields": 0,
+   "types": {},
+   "jurisdiction": "state Elterngeldstelle: BW",
+   "url": "https://www.l-bank.de/produkte/familienfoerderung/elterngeld.html",
+   "rights": "unknown",
+   "status": "blocked (no native fields)"
+  },
+  {
+   "file": "BY-04-2025.pdf",
+   "bytes": 1501541,
+   "sha256": "38d97717d77b1a38706a16fdc9c36c5bd265ae5c89623ae64ab88165ee6e4c54",
+   "encrypted": false,
+   "pages": 32,
+   "xfa": false,
+   "fields": 737,
+   "types": {
+    "/Tx": 226,
+    "/Btn": 511
+   },
+   "jurisdiction": "state Elterngeldstelle: BY-04-2025",
+   "url": "https://www.zbfs.bayern.de/imperia/md/content/zbfs_intranet/produktgruppe_i/formulare/beeg-antrag/042025_elterngeldantrag_gesamt.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "BY-05-2025.pdf",
+   "bytes": 1653521,
+   "sha256": "3ca0389ca824e664c74c9fb0c32a255683db5f8b273469a03424e3b9ed5d1584",
+   "encrypted": false,
+   "pages": 32,
+   "xfa": false,
+   "fields": 1024,
+   "types": {
+    "/Tx": 340,
+    "/Btn": 684
+   },
+   "jurisdiction": "state Elterngeldstelle: BY-05-2025",
+   "url": "https://www.zbfs.bayern.de/imperia/md/content/zbfs_intranet/produktgruppe_i/formulare/beeg-antrag/052025_elterngeldantrag_gesamt.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "HE.pdf",
+   "bytes": 796882,
+   "sha256": "52941f7db63bf2c7c08faff18689a33a593797e0f67ec1d8acaa81b6a99da987",
+   "encrypted": false,
+   "pages": 24,
+   "xfa": false,
+   "fields": 0,
+   "types": {},
+   "jurisdiction": "state Elterngeldstelle: HE",
+   "url": "https://rp-giessen.hessen.de/sites/rp-giessen.hessen.de/files/2025-12/elterngeldantrag_fuer_geburten_ab_01.04.2025.pdf",
+   "rights": "unknown",
+   "status": "blocked (no native fields)"
+  },
+  {
+   "file": "HH.pdf",
+   "bytes": 3345804,
+   "sha256": "e3735fd8516188073377c7b931dfc096e26c76ffdf385db5c68cb0c11ab0feff",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 531,
+   "types": {
+    "/Tx": 144,
+    "/Btn": 387
+   },
+   "jurisdiction": "state Elterngeldstelle: HH",
+   "url": "https://fhh1.hamburg.de/Dibis/form/pdf/Antrag_auf_Elterngeld_fuer_Geburten_ab_dem_01.04.2025_Stand_08_25.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "MV.pdf",
+   "bytes": 1531006,
+   "sha256": "1604d24062a3bbda698d016c84e92bc38218601c9846ad9efb5cc244059c60c7",
+   "encrypted": true,
+   "pages": 10,
+   "xfa": false,
+   "fields": 640,
+   "types": {
+    "/Btn": 275,
+    "/Tx": 365
+   },
+   "jurisdiction": "state Elterngeldstelle: MV",
+   "url": "https://www.lagus.mv-regierung.de/serviceassistent/download?id=1682724",
+   "rights": "unknown",
+   "status": "blocked"
+  },
+  {
+   "file": "NI.pdf",
+   "bytes": 2716238,
+   "sha256": "0eff2fa2d55b878f84f2e904d16e120e4340625c8dd529cc1d96c4e7162691e1",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 531,
+   "types": {
+    "/Tx": 144,
+    "/Btn": 387
+   },
+   "jurisdiction": "state Elterngeldstelle: NI",
+   "url": "https://www.ms.niedersachsen.de/download/205792/Antrag_auf_Elterngeld_gueltig_fuer_Geburten_ab_dem_01.04.2025.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "NW.pdf",
+   "bytes": 693105,
+   "sha256": "091f1ebd303bd7a4df03f3faf24c134f93ebace6214acfd70b76893ceea83368",
+   "encrypted": false,
+   "pages": 12,
+   "xfa": false,
+   "fields": 834,
+   "types": {
+    "/Btn": 279,
+    "/Tx": 555
+   },
+   "jurisdiction": "state Elterngeldstelle: NW",
+   "url": "https://www.familienportal.nrw/sites/default/files/2026-09/Antrag%20auf%20Elterngeld%20%28f%C3%BCr%20Geburten%20ab%20Mai%202025%29.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "RP.pdf",
+   "bytes": 3345804,
+   "sha256": "e3735fd8516188073377c7b931dfc096e26c76ffdf385db5c68cb0c11ab0feff",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 531,
+   "types": {
+    "/Tx": 144,
+    "/Btn": 387
+   },
+   "jurisdiction": "state Elterngeldstelle: RP",
+   "url": "https://mffki.rlp.de/fileadmin/07/Dokumente/Themen/Familie/Gute_Zukunft_fuer_alle_Kinder_und_Eltern/Elterngeld/2025_08_1_Einheitlicher_Elterngeldantrag.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "SH.pdf",
+   "bytes": 3345804,
+   "sha256": "e3735fd8516188073377c7b931dfc096e26c76ffdf385db5c68cb0c11ab0feff",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 531,
+   "types": {
+    "/Tx": 144,
+    "/Btn": 387
+   },
+   "jurisdiction": "state Elterngeldstelle: SH",
+   "url": "https://www.schleswig-holstein.de/DE/landesregierung/ministerien-behoerden/LASG/Aufgaben/KinderUndEltern/Download/1_EinheitlicherElterngeldantrag.pdf?__blob=publicationFile&v=3",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "ST.pdf",
+   "bytes": 2653581,
+   "sha256": "814949cb0310687a2a9868bba7d5ec47f2b9e1be8be4681474adf608f9bd9091",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 530,
+   "types": {
+    "/Tx": 144,
+    "/Btn": 386
+   },
+   "jurisdiction": "state Elterngeldstelle: ST",
+   "url": "https://lvwa.sachsen-anhalt.de/fileadmin/Bibliothek/Politik_und_Verwaltung/LVWA/LVwA/Dokumente/5_famgesjugvers/502/Dateien_502.a/Elterngeld/Antrag_Elterngeld_0825.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": "TH.pdf",
+   "bytes": 3345804,
+   "sha256": "e3735fd8516188073377c7b931dfc096e26c76ffdf385db5c68cb0c11ab0feff",
+   "encrypted": false,
+   "pages": 23,
+   "xfa": false,
+   "fields": 531,
+   "types": {
+    "/Tx": 144,
+    "/Btn": 387
+   },
+   "jurisdiction": "state Elterngeldstelle: TH",
+   "url": "https://landesverwaltungsamt.thueringen.de/fileadmin/TLVwA/Versorgung_und_Integration/Elterngeld/Antrag_auf_Elterngeld__092025__fuer_Geburten_ab_01.04.2025.pdf",
+   "rights": "unknown",
+   "status": "byte-verified (rights unknown, mapping not done)"
+  },
+  {
+   "file": null,
+   "jurisdiction": "state HB",
+   "url": "https://www.buergerservice.bremen.de/sixcms/media.php/5/Elterngeld%20Antrag%20HB.pdf",
+   "status": "unverified (HTTP 403 to automated download)"
+  },
+  {
+   "file": null,
+   "jurisdiction": "state SL",
+   "url": "https://www.saarland.de/SharedDocs/Downloads/DE/landesamt-fuer-soziales/BEEG/elterngeldantrag_bundeseinheitlich_ab01042025",
+   "status": "unverified (HTTP 403 to automated download)"
+  },
+  {
+   "file": null,
+   "jurisdiction": "state SN (county Elterngeldstellen)",
+   "url": "https://www.landratsamt-pirna.de/elterngeld.html",
+   "status": "unverified (county-dependent, no state PDF found)"
+  }
+ ]
+}
