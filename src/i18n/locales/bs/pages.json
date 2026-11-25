@@ -18675,5 +18675,38 @@
         "dezentral": "Decentralno (npr. bojler, protočni grijač)"
       }
     }
+  },
+  "svPilot": {
+    "title": "Popunjavanje originalne Anlage SV (razvojna verzija)",
+    "source": "Izvor",
+    "scope": "Popunjava se za svaku osobu u zajednici potreba koja nije obavezno ili porodično osigurana u zakonskom zdravstvenom i njegovateljskom osiguranju. Za svaku osobu jedan formular.",
+    "secA": "A. Lični podaci podnosioca zahtjeva",
+    "secB": "B. Osoba za koju se popunjava ova Anlage",
+    "sameAsA": "Ista osoba kao pod A",
+    "secC": "C. Zdravstveno i njegovateljsko osiguranje",
+    "secD": "D. Doprinos za zdravstveno i njegovateljsko osiguranje",
+    "f": {
+      "vorname": "1 Ime (Vorname)",
+      "nachname": "2 Prezime (Nachname)",
+      "geburtsdatum": "3 Datum rođenja",
+      "bgNr": "4 Broj zajednice potreba (BG-Nummer)",
+      "bVorname": "5 Ime (Vorname)",
+      "bNachname": "6 Prezime (Nachname)",
+      "bGeburtsdatum": "7 Datum rođenja"
+    },
+    "q": {
+      "pkv": "8 Je li osoba sada ili posljednji put bila privatno zdravstveno osigurana?",
+      "selbstaendig": "9 Je li osoba sada ili posljednji put bila samostalno djelatna kao glavno zanimanje?",
+      "beihilfe": "10 Je li osoba sada ili posljednji put bila zaštićena po propisima za državne službenike ili imala pravo na Beihilfe (npr. Beamte, vojnici)?",
+      "versFrei": "11 (osoba ima 55+) Je li u zadnjih pet godina prije zahtjeva bila bez zakonskog osiguranja i najmanje dvije i po godine oslobođena osiguranja ili neosigurana zbog samostalne djelatnosti?",
+      "zuschuss": "12 Želite li zatražiti doprinos (Zuschuss) za zdravstveno i njegovateljsko osiguranje?"
+    },
+    "o": {
+      "ja": "Da (Ja)",
+      "nein": "Ne (Nein)"
+    },
+    "zuschussProof": "Priložite aktuelno rješenje o mjesečnim doprinosima, a kod privatnog osiguranja i dokaz o doprinosu u Basistarif.",
+    "allNo": "Sve odgovore ste dali sa „Ne“: prema formularu tada u pravilu postoji obavezno zakonsko osiguranje. Izaberite zakonsku Krankenkasse i u roku od dvije sedmice priložite potvrdu o članstvu. Dio D ostaje prazan.",
+    "preflight": "Ovo nije provjereno izdanje Anlage SV 10/2026 (ili je fajl šifrovan, oštećen ili izmijenjen). Preuzmite PDF ponovo sa službenog linka."
   }
 }

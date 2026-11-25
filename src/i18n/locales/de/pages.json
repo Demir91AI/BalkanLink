@@ -18675,5 +18675,38 @@
         "dezentral": "Dezentral (z. B. Boiler, Durchlauferhitzer)"
       }
     }
+  },
+  "svPilot": {
+    "title": "Original-Anlage SV ausfüllen (Entwicklungsversion)",
+    "source": "Quelle",
+    "scope": "Für jede Person der Bedarfsgemeinschaft, die nicht gesetzlich pflicht- oder familienversichert ist. Eine Anlage pro Person.",
+    "secA": "A. Persönliche Daten der antragstellenden Person",
+    "secB": "B. Person, für die diese Anlage ausgefüllt wird",
+    "sameAsA": "Gleiche Person wie unter A",
+    "secC": "C. Kranken- und Pflegeversicherung",
+    "secD": "D. Zuschuss zur Kranken- und Pflegeversicherung",
+    "f": {
+      "vorname": "1 Vorname",
+      "nachname": "2 Nachname",
+      "geburtsdatum": "3 Geburtsdatum",
+      "bgNr": "4 Nummer der Bedarfsgemeinschaft",
+      "bVorname": "5 Vorname",
+      "bNachname": "6 Nachname",
+      "bGeburtsdatum": "7 Geburtsdatum"
+    },
+    "q": {
+      "pkv": "8 Ist die Person derzeit oder war sie zuletzt privat krankenversichert?",
+      "selbstaendig": "9 Ist die Person derzeit oder war sie zuletzt hauptberuflich selbständig tätig?",
+      "beihilfe": "10 Ist oder war die Person zuletzt nach beamtenrechtlichen Vorschriften abgesichert bzw. beihilfeberechtigt (z. B. Beamte, Soldaten)?",
+      "versFrei": "11 (ab 55 Jahren) War die Person in den letzten fünf Jahren vor Antragstellung nicht gesetzlich versichert und mindestens zweieinhalb Jahre versicherungsfrei, befreit oder wegen hauptberuflicher Selbständigkeit nicht versicherungspflichtig?",
+      "zuschuss": "12 Möchten Sie einen Zuschuss zu den Beiträgen zur Kranken- und Pflegeversicherung beantragen?"
+    },
+    "o": {
+      "ja": "Ja",
+      "nein": "Nein"
+    },
+    "zuschussProof": "Fügen Sie den aktuellen Beitragsbescheid bei, bei privater Versicherung zusätzlich einen Nachweis über den Beitrag im Basistarif.",
+    "allNo": "Alle Fragen mit „Nein“ beantwortet: Laut Formular besteht dann grundsätzlich Versicherungspflicht in der gesetzlichen Kranken- und Pflegeversicherung. Wählen Sie eine gesetzliche Krankenkasse und legen Sie innerhalb von zwei Wochen eine Mitgliedsbescheinigung vor. Abschnitt D bleibt leer.",
+    "preflight": "Keine geprüfte Ausgabe der Anlage SV 10/2026 (oder Datei verschlüsselt, beschädigt oder verändert). Bitte PDF erneut über den offiziellen Link laden."
   }
 }

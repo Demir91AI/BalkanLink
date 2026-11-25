@@ -22,6 +22,8 @@ import FormSmartGuide from "@/components/FormSmartGuide";
 // Owner-approved dev-only FormularPilot KdU pilot: compiled out of production builds (DEV is false there).
 const KDU_PILOT_DEV = import.meta.env.DEV && import.meta.env.VITE_FORMULARPILOT_KDU === "true";
 const KduPilotPanel = KDU_PILOT_DEV ? lazy(() => import("@/components/formularpilot/KduPilotPanel")) : null;
+const SV_PILOT_DEV = import.meta.env.DEV && import.meta.env.VITE_FORMULARPILOT_SV === "true";
+const SvPilotPanel = SV_PILOT_DEV ? lazy(() => import("@/components/formularpilot/SvPilotPanel")) : null;
 import KindergeldGuideContent from "@/components/KindergeldGuideContent";
 import AnmeldungGuideContent from "@/components/AnmeldungGuideContent";
 import SteuerIdGuideContent from "@/components/guides/SteuerIdGuideContent";
@@ -140,7 +142,7 @@ export function GuideContent({ slug, title }: { slug: string; title?: string }) 
 }
 
 function GuideBody({ slug }: { slug: string }) {
-  if (isGrundsicherungSlug(slug)) return <>{slug === "hauptantrag" && <GrundsicherungNavigator />}<ProcedureCompanion key={slug} slug={slug} />{slug === "anlage-kdu" && KduPilotPanel && <Suspense fallback={null}><KduPilotPanel /></Suspense>}<OfficialNextStep slug={slug} /></>;
+  if (isGrundsicherungSlug(slug)) return <>{slug === "hauptantrag" && <GrundsicherungNavigator />}<ProcedureCompanion key={slug} slug={slug} />{slug === "anlage-kdu" && KduPilotPanel && <Suspense fallback={null}><KduPilotPanel /></Suspense>}{slug === "anlage-sv" && SvPilotPanel && <Suspense fallback={null}><SvPilotPanel /></Suspense>}<OfficialNextStep slug={slug} /></>;
   if (isArrivalSlug(slug)) return <><ProcedureCompanion key={slug} slug={slug} />{slug === "steuer-id" && <SteuerIdGuideContent />}<OfficialNextStep slug={slug} /></>;
   if (isFamilySlug(slug)) return <><ProcedureCompanion key={slug} slug={slug} />{slug === "elterngeld" && <ElterngeldGuideContent />}{slug === "mutterschaftsgeld" && <MutterschaftsgeldGuideContent />}{slug === "kinderzuschlag" && <KinderzuschlagGuideContent />}{slug === "wirtschaftliche-jugendhilfe" && <WirtschaftlicheJugendhilfeGuideContent />}<OfficialNextStep slug={slug} /></>;
   const guide = getGuideBySlug(slug);

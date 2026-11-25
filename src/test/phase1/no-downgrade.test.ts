@@ -122,8 +122,12 @@ describe("label rule for NEW 2.0 UI", () => {
     for (const f of hubs) {
       const refs = [...fileText(f).matchAll(/["'][^"']*formularpilot[^"']*["']/g)].map((m) => m[0]);
       if (f === "src/pages/FormCenter.tsx") {
-        expect(refs).toEqual(['"@/components/formularpilot/KduPilotPanel"']);
         const src = fileText(f);
+        expect(src).toContain('const SV_PILOT_DEV = import.meta.env.DEV && import.meta.env.VITE_FORMULARPILOT_SV === "true";');
+        expect(src).toContain('SV_PILOT_DEV ? lazy(() => import("@/components/formularpilot/SvPilotPanel")) : null');
+        expect(src.match(/<SvPilotPanel \/>/g)?.length).toBe(1);
+        expect(src).toContain('{slug === "anlage-sv" && SvPilotPanel && <Suspense fallback={null}><SvPilotPanel /></Suspense>}');
+        expect(refs).toEqual(['"@/components/formularpilot/KduPilotPanel"', '"@/components/formularpilot/SvPilotPanel"']);
         expect(src).toContain('const KDU_PILOT_DEV = import.meta.env.DEV && import.meta.env.VITE_FORMULARPILOT_KDU === "true";');
         expect(src).toContain('KDU_PILOT_DEV ? lazy(() => import("@/components/formularpilot/KduPilotPanel")) : null');
         expect(src.match(/<KduPilotPanel \/>/g)?.length).toBe(1);
@@ -133,5 +137,6 @@ describe("label rule for NEW 2.0 UI", () => {
   });
   it("KdU pilot production switch stays hard-disabled", () => {
     expect(fileText("src/lib/formularpilot/forms/anlage-kdu.ts")).toContain("export const KDU_PRODUCTION_ENABLED = false;");
+    expect(fileText("src/lib/formularpilot/forms/anlage-sv.ts")).toContain("export const SV_PRODUCTION_ENABLED = false;");
   });
 });
