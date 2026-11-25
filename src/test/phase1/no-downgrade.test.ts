@@ -118,5 +118,20 @@ describe("label rule for NEW 2.0 UI", () => {
   it("FormularPilot stays unwired from live pages", () => {
     const hubs = Object.keys(baseline.hubImports);
     for (const f of hubs) expect(importsOf(f).some((i) => i.includes("formularpilot"))).toBe(false);
+    // Owner-approved sole exception: dev-only lazy KdU panel in FormCenter, behind DEV + explicit flag.
+    for (const f of hubs) {
+      const refs = [...fileText(f).matchAll(/["'][^"']*formularpilot[^"']*["']/g)].map((m) => m[0]);
+      if (f === "src/pages/FormCenter.tsx") {
+        expect(refs).toEqual(['"@/components/formularpilot/KduPilotPanel"']);
+        const src = fileText(f);
+        expect(src).toContain('const KDU_PILOT_DEV = import.meta.env.DEV && import.meta.env.VITE_FORMULARPILOT_KDU === "true";');
+        expect(src).toContain('KDU_PILOT_DEV ? lazy(() => import("@/components/formularpilot/KduPilotPanel")) : null');
+        expect(src.match(/<KduPilotPanel \/>/g)?.length).toBe(1);
+        expect(src).toContain('{slug === "anlage-kdu" && KduPilotPanel && <Suspense fallback={null}><KduPilotPanel /></Suspense>}');
+      } else expect(refs).toEqual([]);
+    }
+  });
+  it("KdU pilot production switch stays hard-disabled", () => {
+    expect(fileText("src/lib/formularpilot/forms/anlage-kdu.ts")).toContain("export const KDU_PRODUCTION_ENABLED = false;");
   });
 });
