@@ -44,7 +44,7 @@ export const EG_STAGES = [
   { id: 2, sections: ["2 Angaben zu den Eltern", "3 Beziehung zum Kind", "4 Weitere Kinder", "Anlage Staatsangehörigkeit (HH/SH/RP)"], pages: [2, 3, 4, 5, 6, 7, 8], status: "mapped" },
   { id: 3, sections: ["5 Mindestbetrag", "6 Bemessungszeitraum", "7 Einkommen vor der Geburt", "8 Einkommensersatzleistungen", "9 Mutterschaftsleistungen"], pages: [9, 10, 11, 12, 13, 14, 15, 16], status: "mapped_supported_cases" },
   { id: 4, sections: ["10–11 Bezugsmonate (Planer, 164 Felder)", "12 Einkommen während des Bezugs"], pages: [17, 18, 19, 20, 21], status: "mapped_supported_cases" },
-  { id: 5, sections: ["13 Bankverbindung, Kontakt, Unterschriften"], pages: [21, 22, 23], status: "inventoried" },
+  { id: 5, sections: ["13 Bankverbindung, Kontakt, Vertretung; Unterschriften leer"], pages: [21, 22, 23], status: "mapped_supported_cases" },
 ] as const;
 
 export function isElterngeldPilotEnabled(env: { DEV?: boolean; VITE_FORMULARPILOT_ELTERNGELD?: string } = import.meta.env): boolean {
@@ -156,6 +156,20 @@ export async function fillStage4ForTesting(bytes: Uint8Array, child: EgChildAnsw
   const validation = stage.validatePlanStage(plan, income, h, child);
   if (validation.errors.length || validation.blocks.length) return { ok: false as const, code: "INVALID_INPUT" as const, ...validation };
   return fillStrictAcroForm(EG_SPEC, bytes, [...mapping.fills, ...stage.planStageFills(plan, income, h)], opts);
+}
+
+/** TEST-ONLY: exercises the stage-1 mapping through the strict engine (preflight, hash, read-back). */
+export async function fillStage5ForTesting(bytes: Uint8Array, child: EgChildAnswers, h: import("./elterngeld-shared-2025-parents").HouseholdAnswers,
+  income: import("./elterngeld-shared-2025-income").IncomeStageAnswers, plan: import("./elterngeld-shared-2025-plan").PlanStageAnswers,
+  final: import("./elterngeld-shared-2025-final").FinalStageAnswers, ctx: EgContext, opts: StrictFillOptions) {
+  const mapping = await stage3Mapping(child, h, income, ctx);
+  if (mapping.ok === false) return mapping;
+  const planner = await import("./elterngeld-shared-2025-plan");
+  const closing = await import("./elterngeld-shared-2025-final");
+  const pv = planner.validatePlanStage(plan, income, h, child), fv = closing.validateFinalStage(final, h);
+  const errors = [...pv.errors, ...fv.errors], blocks = [...pv.blocks, ...fv.blocks];
+  if (errors.length || blocks.length) return { ok: false as const, code: "INVALID_INPUT" as const, errors, blocks };
+  return fillStrictAcroForm(EG_SPEC, bytes, [...mapping.fills, ...planner.planStageFills(plan, income, h), ...closing.finalStageFills(final, h)], opts);
 }
 
 /** TEST-ONLY: exercises the stage-1 mapping through the strict engine (preflight, hash, read-back). */

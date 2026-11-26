@@ -15,10 +15,27 @@ const maja: ParentAnswers = { vorname: "Maja", nachname: "Kovač", geburtsdatum:
   kv: "pflicht", versichertennummer: "A123456789", kkName: "AOK", kkOrt: "Hamburg", imHaushalt: true, beziehung: "leiblich" };
 const damir: ParentAnswers = { ...maja, vorname: "Damir", nachname: "Novak", geburtsdatum: "1990-01-02", geschlecht: "männlich", gleicheAdresse: true, adresse: undefined, steuerId: "98765432109", staatsangehoerigkeit: "deutsch", seitGeburt: true, inDeSeit: undefined, gleicheKk: true, kv: "freiwillig", kkName: undefined, kkOrt: undefined };
 const couple: HouseholdAnswers = { alleinerziehend: { entlastung: false, unmoeglich: false, kindeswohl: false }, as: maja, other: damir, kindAdresse: "wie_as", einkommen: "bis175_fest", antragstellende: "beide",
-  weitereKinder: [{ vorname: "Ena", nachname: "Kovač", geburtsdatum: "2024-02-02", behinderung20: false, leiblichAS: true, leiblich2E: true }] };
-const single: HouseholdAnswers = { ...couple, alleinerziehend: { entlastung: true, unmoeglich: false, kindeswohl: false }, other: undefined, antragstellende: "nur_ich", as: { ...maja, familienstand: "ledig", mitAnderemElternteil: undefined, kv: "privat", versichertennummer: undefined, kkName: undefined, kkOrt: undefined }, weitereKinder: [] };
+  weitereKinderImHaushalt: 1, weitereKinder: [{ vorname: "Ena", nachname: "Kovač", geburtsdatum: "2024-02-02", behinderung20: false, leiblichAS: true, leiblich2E: true }] };
+const single: HouseholdAnswers = { ...couple, alleinerziehend: { entlastung: true, unmoeglich: false, kindeswohl: false }, other: undefined, antragstellende: "nur_ich", as: { ...maja, familienstand: "ledig", mitAnderemElternteil: undefined, kv: "privat", versichertennummer: undefined, kkName: undefined, kkOrt: undefined }, weitereKinderImHaushalt: 0, weitereKinder: [] };
 
 describe("Elterngeld stage 2 — rules", () => {
+  it("4.a counts all children up to18; 4.b qualifying list is separate", () => {
+    const h = { ...couple, weitereKinderImHaushalt: 5 };
+    expect(validateHousehold(h, today)).toEqual({ errors: [], blocks: [] });
+    expect(householdFills(h)).toContainEqual({ name: "4a weitere Kinder Anzahl", type: "text", value: "5" });
+    expect(householdFills(h).filter((f) => /^4b Vorname/.test(f.name))).toHaveLength(1);
+    expect(householdFills({ ...single, weitereKinderImHaushalt: 2 })).toContainEqual({ name: "4a Anzahl 2", type: "check" });
+    expect(householdFills({ ...single, weitereKinderImHaushalt: 2 }).some((f) => f.name.startsWith("4b "))).toBe(false);
+  });
+  it("missing/negative household count and list larger than total are rejected", () => {
+    expect(validateHousehold({ ...single, weitereKinderImHaushalt: undefined } as never, today).errors).toContainEqual({ field: "weitereKinderImHaushalt", code: "nonnegative_integer" });
+    expect(validateHousehold({ ...single, weitereKinderImHaushalt: -1 }, today).errors).toContainEqual({ field: "weitereKinderImHaushalt", code: "nonnegative_integer" });
+    expect(validateHousehold({ ...couple, weitereKinderImHaushalt: 0 }, today).errors).toContainEqual({ field: "weitereKinder", code: "exceeds_household_count" });
+  });
+  it("unknown household/parent choices are rejected before native mapping", () => {
+    const h = { ...single, kindAdresse: "invented", einkommen: "invented", antragstellende: "invented", as: { ...single.as, kv: "invented", beziehung: "invented", staatsangehoerigkeit: "invented", familienstand: "invented" } } as never;
+    expect(validateHousehold(h, today).errors.map((e) => e.field)).toEqual(expect.arrayContaining(["kindAdresse", "einkommen", "antragstellende", "as.kv", "as.beziehung", "as.staatsangehoerigkeit", "as.familienstand"]));
+  });
   it("valid couple and single-parent cases have no errors", () => {
     expect(validateHousehold(couple, today)).toEqual({ errors: [], blocks: [] });
     expect(validateHousehold(single, today)).toEqual({ errors: [], blocks: [] });

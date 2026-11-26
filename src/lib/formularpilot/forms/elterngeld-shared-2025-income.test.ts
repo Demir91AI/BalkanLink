@@ -13,7 +13,7 @@ const parent = { vorname: "Maja", nachname: "Kovač", geburtsdatum: "1992-03-14"
   familienstand: "ledig" as const, wohnsitzDE: true, seitGeburt: true, adresse: { strasse: "Musterstraße", nr: "12", plz: "20095", ort: "Hamburg" },
   steuerId: "12345678901", staatsangehoerigkeit: "deutsch" as const, nato: false, diplomat: false, kv: "privat" as const, imHaushalt: true, beziehung: "leiblich" as const };
 const single: HouseholdAnswers = { alleinerziehend: { entlastung: true, unmoeglich: false, kindeswohl: false }, as: parent,
-  kindAdresse: "wie_as", einkommen: "bis175_fest", antragstellende: "nur_ich", weitereKinder: [] };
+  kindAdresse: "wie_as", einkommen: "bis175_fest", antragstellende: "nur_ich", weitereKinderImHaushalt: 0, weitereKinder: [] };
 const couple: HouseholdAnswers = { ...single, alleinerziehend: { entlastung: false, unmoeglich: false, kindeswohl: false }, antragstellende: "beide",
   other: { ...parent, vorname: "Damir", nachname: "Novak", geschlecht: "männlich", gleicheAdresse: true } };
 const minimum: ParentIncome = { minimum: true, confirmsMax32Hours: true };

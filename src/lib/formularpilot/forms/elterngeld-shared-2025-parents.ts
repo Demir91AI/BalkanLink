@@ -9,8 +9,8 @@
  *  - 2.g "Eine andere, keine oder ungeklärt" requires Anlage "Staatsangehörigkeit" → separate module; blocked
  *    for a Land without a verified attachment original.
  *  - 2.i KK name/seat and Versichertennummer only for gesetzlich pflicht-/freiwillig versichert.
- *  - 4.b at most three children; the user lists only children meeting the printed Geschwisterbonus points
- *    (we never decide that for them); more than three → user must pick the youngest (printed rule) → blocked.
+ *  - 4.a counts all other children up to18; 4.b separately lists at most three children meeting printed
+ *    Geschwisterbonus points (never decided here); additional qualifying entries must use youngest-first.
  * Unresolved (documented, never guessed): dual citizenship incl. German; Aufnahmedatum for non-adoptive
  * relations in 3.b; whether a separate Anlage copy is needed per parent.
  */
@@ -41,7 +41,11 @@ export interface HouseholdAnswers {
   kindAdresse: "wie_as" | "wie_2e" | "andere"; kindAdresseAndere?: Omit<Address, "strasse2" | "zusatz">;
   einkommen: "bis175_fest" | "ueber175_fest" | "ueber175_vorauss" | "unter175_vorauss";
   antragstellende: "beide" | "ich_spaeter" | "ich_bereits" | "nur_ich";
-  aufnahmedatum?: string; weitereKinder: Sibling[];
+  aufnahmedatum?: string;
+  /** Printed 4.a counts ALL other children up to18 in the household, not just the 4.b list. */
+  weitereKinderImHaushalt: number;
+  /** Printed 4.b: user-selected qualifying children only, at most3; no eligibility inference. */
+  weitereKinder: Sibling[];
 }
 export interface HhError { field: string; code: string }
 export type HhBlock = "WOHNSITZ_AUSLAND_UNSUPPORTED" | "TOO_MANY_SIBLINGS";
@@ -60,7 +64,7 @@ const kvNeedsDetails = (k?: Kv) => k === "pflicht" || k === "freiwillig";
 function vAddress(p: string, a: Partial<Address> | undefined, e: HhError[]) {
   if (!a) { e.push({ field: `${p}.adresse`, code: "required" }); return; }
   if (blank(a.strasse)) e.push({ field: `${p}.strasse`, code: "required" });
-  if (blank(a.nr) || a.nr!.length > 6) e.push({ field: `${p}.nr`, code: "required" });
+  if (blank(a.nr) || (a.nr?.length ?? 0) > 6) e.push({ field: `${p}.nr`, code: "required" });
   if (!/^\d{5}$/.test(a.plz ?? "")) e.push({ field: `${p}.plz`, code: "plz" });
   if (blank(a.ort)) e.push({ field: `${p}.ort`, code: "required" });
 }
@@ -71,7 +75,7 @@ function vParent(p: "as" | "2e", x: ParentAnswers | undefined, part2: boolean, t
   if (blank(x.nachname)) e.push({ field: `${p}.nachname`, code: "required" });
   if (!isoDateValid(x.geburtsdatum, today)) e.push({ field: `${p}.geburtsdatum`, code: "date" });
   if (!["weiblich", "männlich", "divers", "ohne Angaben"].includes(x.geschlecht)) e.push({ field: `${p}.geschlecht`, code: "required" });
-  if (!x.familienstand) e.push({ field: `${p}.familienstand`, code: "required" });
+  if (!["verheiratet", "verpartnert", "geschieden", "verwitwet", "ledig"].includes(x.familienstand)) e.push({ field: `${p}.familienstand`, code: "required" });
   if (p === "as" && (x.familienstand === "verheiratet" || x.familienstand === "verpartnert") && x.mitAnderemElternteil === undefined) e.push({ field: "as.mitAnderemElternteil", code: "required" });
   if (!x.wohnsitzDE) blocks.add("WOHNSITZ_AUSLAND_UNSUPPORTED");
   else {
@@ -81,16 +85,16 @@ function vParent(p: "as" | "2e", x: ParentAnswers | undefined, part2: boolean, t
   }
   if (!steuerIdOk(x.steuerId)) e.push({ field: `${p}.steuerId`, code: "steuer_id" });
   if (!part2) return;
-  if (!x.staatsangehoerigkeit) e.push({ field: `${p}.staatsangehoerigkeit`, code: "required" });
+  if (!["deutsch", "andere"].includes(x.staatsangehoerigkeit ?? "")) e.push({ field: `${p}.staatsangehoerigkeit`, code: "required" });
   if (x.nato === undefined) e.push({ field: `${p}.nato`, code: "required" });
   if (x.diplomat === undefined) e.push({ field: `${p}.diplomat`, code: "required" });
-  if (!x.kv) e.push({ field: `${p}.kv`, code: "required" });
+  if (!["pflicht", "freiwillig", "familie", "privat", "heilfuersorge", "keine"].includes(x.kv ?? "")) e.push({ field: `${p}.kv`, code: "required" });
   if (kvNeedsDetails(x.kv)) {
     if (blank(x.versichertennummer)) e.push({ field: `${p}.versichertennummer`, code: "required" });
     if (!(p === "2e" && x.gleicheKk) && (blank(x.kkName) || blank(x.kkOrt))) e.push({ field: `${p}.kk`, code: "required" });
   }
   if (x.imHaushalt === undefined) e.push({ field: `${p}.imHaushalt`, code: "required" });
-  if (!x.beziehung) e.push({ field: `${p}.beziehung`, code: "required" });
+  if (!["leiblich", "adoptiv", "stiefkind", "verwandt"].includes(x.beziehung ?? "")) e.push({ field: `${p}.beziehung`, code: "required" });
   if (x.beziehung === "verwandt" && blank(x.verwandtAls)) e.push({ field: `${p}.verwandtAls`, code: "required" });
 }
 
@@ -100,13 +104,16 @@ export function validateHousehold(h: HouseholdAnswers, today: string): { errors:
   if (otherPart1Required(h) || otherPart2Required(h)) vParent("2e", h.other, otherPart2Required(h), today, e, blocks);
   if (h.kindAdresse === "andere") vAddress("kind", h.kindAdresseAndere, e);
   if (h.kindAdresse === "wie_2e" && !h.other) e.push({ field: "kindAdresse", code: "no_other_parent" });
-  if (!h.einkommen) e.push({ field: "einkommen", code: "required" });
-  if (!h.antragstellende) e.push({ field: "antragstellende", code: "required" });
+  if (!["wie_as", "wie_2e", "andere"].includes(h.kindAdresse)) e.push({ field: "kindAdresse", code: "required" });
+  if (!["bis175_fest", "ueber175_fest", "ueber175_vorauss", "unter175_vorauss"].includes(h.einkommen)) e.push({ field: "einkommen", code: "required" });
+  if (!["beide", "ich_spaeter", "ich_bereits", "nur_ich"].includes(h.antragstellende)) e.push({ field: "antragstellende", code: "required" });
   if (h.antragstellende === "beide" && singleParent(h)) e.push({ field: "antragstellende", code: "conflicts_2a" });
   const adoptive = h.as.beziehung === "adoptiv" || (otherPart2Required(h) && h.other?.beziehung === "adoptiv");
   if (adoptive && !isoDateValid(h.aufnahmedatum ?? "", today)) e.push({ field: "aufnahmedatum", code: "date" });
   if (!adoptive && h.aufnahmedatum) e.push({ field: "aufnahmedatum", code: "only_if_adoption" });
   if (h.weitereKinder.length > 3) blocks.add("TOO_MANY_SIBLINGS");
+  if (!Number.isInteger(h.weitereKinderImHaushalt) || h.weitereKinderImHaushalt < 0) e.push({ field: "weitereKinderImHaushalt", code: "nonnegative_integer" });
+  if (h.weitereKinder.length > h.weitereKinderImHaushalt) e.push({ field: "weitereKinder", code: "exceeds_household_count" });
   h.weitereKinder.slice(0, 3).forEach((s, i) => {
     if (blank(s.vorname) || blank(s.nachname)) e.push({ field: `kind${i + 1}.name`, code: "required" });
     if (!isoDateValid(s.geburtsdatum, today)) e.push({ field: `kind${i + 1}.geburtsdatum`, code: "date" });
@@ -115,7 +122,7 @@ export function validateHousehold(h: HouseholdAnswers, today: string): { errors:
   return { errors: e, blocks: [...blocks] };
 }
 
-const T = (name: EgFieldName, value?: string): F[] => (blank(value) ? [] : [{ name, type: "text", value: value!.trim() }]);
+const T = (name: EgFieldName, value?: string): F[] => (typeof value !== "string" || blank(value) ? [] : [{ name, type: "text", value: value.trim() }]);
 const C = (name: EgFieldName, on: boolean | undefined): F[] => (on ? [{ name, type: "check" }] : []);
 /** Native prefix: 1–22 are "2b Familienstand n", 23–29 (page 4) are "2e Familienstand n". */
 const FS = (n: number) => `${n >= 23 ? "2e" : "2b"} Familienstand ${n}` as EgFieldName;
@@ -133,7 +140,7 @@ function parentFills(p: "AS" | "2E", x: ParentAnswers, part2: boolean): F[] {
   const w = p === "AS" ? [15, 16, 17] : [19, 20, 21];
   if (x.wohnsitzDE) {
     f.push({ name: FS(w[0]), type: "check" }, { name: FS(x.seitGeburt ? w[1] : w[2]), type: "check" });
-    if (!x.seitGeburt) f.push(...T(`2c ${p} in D seit Jahr` as EgFieldName, isoToDe(x.inDeSeit!)));
+    if (!x.seitGeburt && x.inDeSeit) f.push(...T(`2c ${p} in D seit Jahr` as EgFieldName, isoToDe(x.inDeSeit)));
     if (p === "2E" && x.gleicheAdresse) f.push({ name: "2c Adr E2 wie AS", type: "check" });
     else if (x.adresse) {
       const a = x.adresse;
@@ -147,16 +154,16 @@ function parentFills(p: "AS" | "2E", x: ParentAnswers, part2: boolean): F[] {
   f.push({ name: `2g Staatsangehörigkeit ${x.staatsangehoerigkeit === "deutsch" ? 1 + 2 * o : 2 + 2 * o}` as EgFieldName, type: "check" });
   // 2.h widget order: AS NATO 1/2, AS Mission 3/4, 2E NATO 5/6, 2E Mission 7/8 (ja/nein).
   f.push({ name: `2h Nato ${(x.nato ? 1 : 2) + 4 * o}` as EgFieldName, type: "check" }, { name: `2h Nato ${(x.diplomat ? 3 : 4) + 4 * o}` as EgFieldName, type: "check" });
-  const kv = { pflicht: 1, freiwillig: 2, familie: 3, privat: 4, heilfuersorge: 5, keine: 6 }[x.kv!];
-  f.push({ name: `2i Krankenversicherung ${kv + 6 * o}` as EgFieldName, type: "check" });
+  const kv = x.kv ? { pflicht: 1, freiwillig: 2, familie: 3, privat: 4, heilfuersorge: 5, keine: 6 }[x.kv] : undefined;
+  if (kv !== undefined) f.push({ name: `2i Krankenversicherung ${kv + 6 * o}` as EgFieldName, type: "check" });
   if (kvNeedsDetails(x.kv)) {
     f.push(...T(`2i Versichertennummer ${p}` as EgFieldName, x.versichertennummer));
     if (p === "2E" && x.gleicheKk) f.push({ name: "2i gleiche KK wie AS", type: "check" });
     else f.push(...T(`2i Name KK ${p}` as EgFieldName, x.kkName), ...T(`2i Ort KK ${p}` as EgFieldName, x.kkOrt));
   }
   f.push({ name: `3a Betreuung ${(x.imHaushalt ? 1 : 2) + 2 * o}` as EgFieldName, type: "check" });
-  const bz = { leiblich: 1 + 2 * o, adoptiv: 2 + 2 * o, stiefkind: 5 + 2 * o, verwandt: 6 + 2 * o }[x.beziehung!];
-  f.push({ name: `3b Eltern ${bz}` as EgFieldName, type: "check" });
+  const bz = x.beziehung ? { leiblich: 1 + 2 * o, adoptiv: 2 + 2 * o, stiefkind: 5 + 2 * o, verwandt: 6 + 2 * o }[x.beziehung] : undefined;
+  if (bz !== undefined) f.push({ name: `3b Eltern ${bz}` as EgFieldName, type: "check" });
   if (x.beziehung === "verwandt") f.push(...T(`3b andere Beziehung ${p}` as EgFieldName, x.verwandtAls));
   return f;
 }
@@ -173,8 +180,8 @@ export function householdFills(h: HouseholdAnswers): F[] {
   f.push({ name: FS({ bis175_fest: 26, ueber175_fest: 27, ueber175_vorauss: 28, unter175_vorauss: 29 }[h.einkommen]), type: "check" });
   f.push({ name: `2f Antragstellende ${{ beide: 1, ich_spaeter: 2, ich_bereits: 3, nur_ich: 4 }[h.antragstellende]}` as EgFieldName, type: "check" });
   if (h.aufnahmedatum) f.push(...T("3c Aufnahmedatum Jahr", isoToDe(h.aufnahmedatum)));
-  if (h.weitereKinder.length === 0) f.push({ name: "4a Anzahl 1", type: "check" });
-  else f.push({ name: "4a Anzahl 2", type: "check" }, ...T("4a weitere Kinder Anzahl", String(h.weitereKinder.length)));
+  if (h.weitereKinderImHaushalt === 0) f.push({ name: "4a Anzahl 1", type: "check" });
+  else f.push({ name: "4a Anzahl 2", type: "check" }, ...T("4a weitere Kinder Anzahl", String(h.weitereKinderImHaushalt)));
   h.weitereKinder.slice(0, 3).forEach((s, i) => {
     const n = i + 1;
     f.push(...T(`4b Vorname${n}` as EgFieldName, s.vorname), ...T(`4b Nachname${n}` as EgFieldName, s.nachname), ...T(`4b Geburtsdatum${n} Jahr` as EgFieldName, isoToDe(s.geburtsdatum)),

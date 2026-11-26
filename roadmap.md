@@ -144,6 +144,8 @@
 - [ ] Production activation: blocked by unresolved BA usage rights (owner/legal review).
 
 ## Porodica i djeca completion (25.11.2026; owner-approved technical checkpoints only)
+- Owner order 26.11.2026: finish and verify Elterngeld completely before starting Kindergeld; no approval pauses between technical checkpoints. No partial PDF output; production/legal/release holds remain.
+- [x] 26.11 checkpoint: section13 internal mapping, confirmed maternity dates/identity, multiples/child-disability concurrency, separate household child total, income HH/SH/RP and residence HH/RP annex internal mapping/readback;16-state directory fallback model. 255 FormularPilot tests passed/5 skipped; full suite1931/11 before final2 planner tests. See docs/family-elterngeld-checkpoint-2026-11-26.md.
 - [x] Elterngeld checkpoint 3: sections 5–9 mapped (131 native fields), authentic read-back and regressions; changed-period under35 cycle explicitly blocked, not resolved by inference.
 - [ ] Elterngeld checkpoint 4: ordinary prospective month plans/sections 10–12 implemented and tested; maternity allocation, special-child plans, prior/separate applications and required income/foreign annexes remain blocked pending official semantic verification.
 - [ ] Elterngeld checkpoint 5: remaining fields/attachments, four-language memory-only dev UI, authentic end-to-end mobile/desktop.

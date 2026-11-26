@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { PDFDocument } from "pdf-lib";
-import { validatePlanStage, planStageFills, type ParentPlan, type PlanStageAnswers, type MonthMode } from "./elterngeld-shared-2025-plan";
+import { validatePlanStage, planStageFills, maternityBasisMonths, type ParentPlan, type PlanStageAnswers, type MonthMode } from "./elterngeld-shared-2025-plan";
 import { fillStage4ForTesting, EG_NEVER_FILL, type EgChildAnswers } from "./elterngeld-shared-2025";
 import type { HouseholdAnswers } from "./elterngeld-shared-2025-parents";
 import type { IncomeStageAnswers } from "./elterngeld-shared-2025-income";
@@ -11,7 +11,7 @@ const parent = { vorname: "Maja", nachname: "Kovač", geburtsdatum: "1992-03-14"
   wohnsitzDE: true, seitGeburt: true, adresse: { strasse: "Musterstraße", nr: "12", plz: "20095", ort: "Hamburg" }, steuerId: "12345678901",
   staatsangehoerigkeit: "deutsch" as const, nato: false, diplomat: false, kv: "privat" as const, imHaushalt: true, beziehung: "leiblich" as const };
 const single: HouseholdAnswers = { alleinerziehend: { entlastung: true, unmoeglich: false, kindeswohl: false }, as: parent,
-  kindAdresse: "wie_as", einkommen: "bis175_fest", antragstellende: "nur_ich", weitereKinder: [] };
+  kindAdresse: "wie_as", einkommen: "bis175_fest", antragstellende: "nur_ich", weitereKinderImHaushalt: 0, weitereKinder: [] };
 const couple: HouseholdAnswers = { ...single, alleinerziehend: { entlastung: false, unmoeglich: false, kindeswohl: false }, antragstellende: "beide",
   other: { ...parent, vorname: "Damir", nachname: "Novak", geschlecht: "männlich", gleicheAdresse: true } };
 const income: IncomeStageAnswers = { as: { minimum: true, confirmsMax32Hours: true }, biologicalMother: { kind: "none" } };
@@ -62,6 +62,17 @@ describe("Elterngeld checkpoint 4 — ordinary supported plan rules", () => {
     expect(validatePlanStage(p, bothIncome, couple, child).errors.map((e) => e.code)).toContain("ordinary_concurrent_basis_one_first12");
     expect(validatePlanStage({ as: plan(months("basis", 12, 13)), other: plan(months("basis", 13, 14)) }, bothIncome, couple, child).errors.map((e) => e.code)).toContain("ordinary_concurrent_basis_one_first12");
   });
+  it("§4(6) multiples or child disability permit concurrent Basis in months13–14, without increasing budget", () => {
+    const p = { as: plan(months("basis", 13, 14)), other: plan(months("basis", 13, 14)) };
+    for (const c of [{ ...child, anzahl: 2 }, { ...child, behinderung: true }]) {
+      expect(validatePlanStage(p, bothIncome, couple, c)).toEqual({ errors: [], blocks: [] });
+      expect(validatePlanStage({ as: plan(months("basis", 1, 12)), other: plan(months("basis", 1, 12)) }, bothIncome, couple, c).errors).toContainEqual({ field: "months", code: "ordinary_basis_plus_budget" });
+    }
+  });
+  it("disabled older sibling does not prove Geschwisterbonus; that exceptional case stays blocked", () => {
+    const h = { ...couple, weitereKinderImHaushalt: 1, weitereKinder: [{ vorname: "Ena", nachname: "Kovač", geburtsdatum: "2024-02-02", behinderung20: true, leiblichAS: true, leiblich2E: true }] };
+    expect(validatePlanStage({ as: plan(months("basis", 1, 2)), other: plan(months("basis", 1, 2)) }, bothIncome, h, child).blocks).toContain("SPECIAL_CHILD_PLAN_UNVERIFIED");
+  });
   it("no gap after month15 until last selected month", () => {
     const m = months("plus", 1, 16); m[14] = "none";
     expect(check(plan(m)).errors).toContainEqual({ field: "months.15", code: "no_gap_from15" });
@@ -79,9 +90,9 @@ describe("Elterngeld checkpoint 4 — ordinary supported plan rules", () => {
   it("max32 weekly hours requires explicit confirmation", () => {
     expect(check({ ...plan(), max32HoursConfirmed: false }).errors).toContainEqual({ field: "as.max32HoursConfirmed", code: "required" });
   });
-  it("special children and maternity allocations stay blocked, not calculated", () => {
+  it("special children and unconfirmed maternity identity stay blocked, not guessed", () => {
     expect(validatePlanStage(ordinary, income, single, { ...child, fruehgeboren: true }).blocks).toContain("SPECIAL_CHILD_PLAN_UNVERIFIED");
-    expect(validatePlanStage(ordinary, { ...income, biologicalMother: { kind: "benefits", periods: { employer: { from: child.geburtsdatum, to: "2026-11-09" } }, gkvDataConsent: false } }, single, child).blocks).toContain("MATERNITY_MONTH_ALLOCATION_UNVERIFIED");
+    expect(validatePlanStage(ordinary, { ...income, biologicalMother: { kind: "benefits", periods: { employer: { from: child.geburtsdatum, to: "2026-11-09" } }, gkvDataConsent: false } }, single, child).errors).toContainEqual({ field: "biologicalMotherApplicant", code: "explicit_mother_required" });
     expect(check(plan(), { ...single, antragstellende: "ich_bereits" }).blocks).toContain("PRIOR_OR_SEPARATE_PLAN_UNVERIFIED");
   });
   it("Elternzeit supports at most two ordered date ranges, never calendar-month guesses", () => {
@@ -113,6 +124,44 @@ describe("Elterngeld checkpoint 4 — ordinary supported plan rules", () => {
     expect(f).toContainEqual({ name: "12c Arbeitszeit AS", type: "text", value: "38,5" });
     expect(f.some((x) => x.name === "12d bez Urlaub 1")).toBe(false);
     expect(errorCodes({ ...plan(), paidLeave: { kind: "yes", days: 0, period: { from: "2026-10-02", to: "2026-10-01" }, preBirthHours: "0" } })).toEqual(expect.arrayContaining(["positive_integer", "date_range", "hours"]));
+  });
+});
+
+describe("source-checked maternity life-month allocation — §4(4), §3(1) BEEG", () => {
+  const withPeriod = (from: string, to: string): IncomeStageAnswers => ({ ...income,
+    biologicalMother: { kind: "benefits", periods: { employer: { from, to } }, gkvDataConsent: false } });
+  it("one entitlement day counts as Basis; last day belongs to previous life month", () => {
+    expect(maternityBasisMonths("2026-09-10", withPeriod("2026-09-10", "2026-11-09"))).toEqual([1, 2]);
+    expect(maternityBasisMonths("2026-09-10", withPeriod("2026-09-10", "2026-11-10"))).toEqual([1, 2, 3]);
+    expect(maternityBasisMonths("2026-09-10", withPeriod("2026-10-10", "2026-10-10"))).toEqual([2]);
+  });
+  it("prebirth-only periods use no postbirth month, overlapping types count once", () => {
+    expect(maternityBasisMonths("2026-09-10", withPeriod("2026-08-01", "2026-09-09"))).toEqual([]);
+    expect(maternityBasisMonths("2026-09-10", { ...income, biologicalMother: { kind: "benefits", periods: { gkv: { from: "2026-09-10", to: "2026-11-09" }, employer: { from: "2026-10-10", to: "2026-11-10" } }, gkvDataConsent: false } })).toEqual([1, 2, 3]);
+  });
+  it("requires selected Basis, never auto-writes Plus/none or changes the plan", () => {
+    const p: PlanStageAnswers = { as: plan(months("plus", 1, 4)), biologicalMotherApplicant: "as" };
+    const before = JSON.stringify(p);
+    const v = validatePlanStage(p, withPeriod("2026-09-10", "2026-11-09"), single, child);
+    expect(v.errors).toContainEqual({ field: "as.months.1", code: "maternity_requires_basis" });
+    expect(v.errors).toContainEqual({ field: "as.months.2", code: "maternity_requires_basis" });
+    expect(JSON.stringify(p)).toBe(before);
+    expect(validatePlanStage({ ...ordinary, biologicalMotherApplicant: "as" }, withPeriod("2026-09-10", "2026-11-09"), single, child)).toEqual({ errors: [], blocks: [] });
+  });
+  it("uses explicit other-parent column rather than gender; mother must be applying", () => {
+    const inc = { ...withPeriod("2026-09-10", "2026-11-09"), other: income.as };
+    const p: PlanStageAnswers = { as: plan(months("basis", 3, 4)), other: plan(months("basis", 1, 2)), biologicalMotherApplicant: "other" };
+    expect(validatePlanStage(p, inc, couple, child)).toEqual({ errors: [], blocks: [] });
+    expect(validatePlanStage({ as: plan(), biologicalMotherApplicant: "other" }, inc, single, child).errors).toContainEqual({ field: "biologicalMotherApplicant", code: "applying_biological_parent_required" });
+  });
+  it("non-applying mother and month-end birthdays remain explicit unresolved blocks", () => {
+    expect(validatePlanStage({ ...ordinary, biologicalMotherApplicant: "not_applying" }, withPeriod("2026-09-10", "2026-11-09"), single, child).blocks).toContain("MATERNITY_MONTH_ALLOCATION_UNVERIFIED");
+    expect(maternityBasisMonths("2026-01-31", withPeriod("2026-01-31", "2026-03-01"))).toBe(null);
+    expect(validatePlanStage({ ...ordinary, biologicalMotherApplicant: "as" }, withPeriod("2026-09-30", "2026-11-09"), single, { ...child, geburtsdatum: "2026-09-30" }).blocks).toContain("MONTH_END_ALLOCATION_UNVERIFIED");
+  });
+  it("foreign maternity stays blocked pending annex and equivalence verification", () => {
+    const inc: IncomeStageAnswers = { ...income, biologicalMother: { kind: "benefits", periods: { foreign: { from: "2026-09-10", to: "2026-11-09" } }, gkvDataConsent: false } };
+    expect(validatePlanStage({ ...ordinary, biologicalMotherApplicant: "as" }, inc, single, child).blocks).toContain("FOREIGN_BENEFITS_UNVERIFIED");
   });
 });
 
