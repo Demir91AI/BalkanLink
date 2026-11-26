@@ -40,21 +40,31 @@ export type PlanBlock = "SPECIAL_CHILD_PLAN_UNVERIFIED" | "MATERNITY_MONTH_ALLOC
   | "INCOME_ANNEX_REQUIRED" | "FOREIGN_BENEFITS_UNVERIFIED" | "ADOPTION_PLAN_UNVERIFIED" | "MONTH_END_ALLOCATION_UNVERIFIED";
 
 /** §4(4) BEEG + §3(1)1–3: even partial life-month benefit periods count as Basis.
- * Scope deliberately excludes day29–31 until authoritative month-end examples are checked.
+ * Lebensmonat boundaries follow §187(2)/§188(2),(3) BGB (via §26(1) SGB X; text checked 2026-11-26 at
+ * gesetze-im-internet.de/bgb/__188.html): month n ends the day before the birth day-number in the
+ * following month, or at that month's end when the day does not exist (birthdays 29–31).
  * No payment amounts or benefit eligibility are calculated and no month is auto-selected.
  */
+/** Inclusive ISO bounds of Lebensmonat n (1-based) per §187(2)/§188(2),(3) BGB. */
+export function lifeMonthBounds(birth: string, n: number): { first: string; last: string } {
+  const y = Number(birth.slice(0, 4)), m = Number(birth.slice(5, 7)) - 1, d = Number(birth.slice(8, 10));
+  const end = (k: number) => { // end of month k (0 = day before birth)
+    if (k === 0) return Date.UTC(y, m, d) - 86400000;
+    if (d === 1) return Date.UTC(y, m + k, 0);
+    const dim = new Date(Date.UTC(y, m + k + 1, 0)).getUTCDate();
+    return Date.UTC(y, m + k, Math.min(d - 1, dim));
+  };
+  const iso = (t: number) => new Date(t).toISOString().slice(0, 10);
+  return { first: iso(end(n - 1) + 86400000), last: iso(end(n)) };
+}
 export function maternityBasisMonths(birth: string, income: IncomeStageAnswers): number[] | null {
   if (!isoDateValid(birth, "9999-12-31")) return null;
   if (income.biologicalMother.kind === "none") return [];
-  if (Number(birth.slice(8)) > 28) return null;
   const periods = Object.values(income.biologicalMother.periods);
   if (periods.some((r) => !r || !isoDateValid(r.from, "9999-12-31") || !isoDateValid(r.to, "9999-12-31") || r.from > r.to)) return null;
-  const start = new Date(`${birth}T00:00:00Z`);
   const result: number[] = [];
   for (let i = 0; i < 32; i++) {
-    const from = new Date(start), next = new Date(start);
-    from.setUTCMonth(start.getUTCMonth() + i); next.setUTCMonth(start.getUTCMonth() + i + 1);
-    const first = from.toISOString().slice(0, 10), last = new Date(+next - 86400000).toISOString().slice(0, 10);
+    const { first, last } = lifeMonthBounds(birth, i + 1);
     if (periods.some((r) => r && r.from <= last && r.to >= first)) result.push(i + 1);
   }
   return result;

@@ -154,10 +154,10 @@ describe("source-checked maternity life-month allocation — §4(4), §3(1) BEEG
     expect(validatePlanStage(p, inc, couple, child)).toEqual({ errors: [], blocks: [] });
     expect(validatePlanStage({ as: plan(), biologicalMotherApplicant: "other" }, inc, single, child).errors).toContainEqual({ field: "biologicalMotherApplicant", code: "applying_biological_parent_required" });
   });
-  it("non-applying mother and month-end birthdays remain explicit unresolved blocks", () => {
+  it("non-applying mother blocks; month-end birthdays follow §188(3) BGB", () => {
     expect(validatePlanStage({ ...ordinary, biologicalMotherApplicant: "not_applying" }, withPeriod("2026-09-10", "2026-11-09"), single, child).blocks).toContain("MATERNITY_MONTH_ALLOCATION_UNVERIFIED");
-    expect(maternityBasisMonths("2026-01-31", withPeriod("2026-01-31", "2026-03-01"))).toBe(null);
-    expect(validatePlanStage({ ...ordinary, biologicalMotherApplicant: "as" }, withPeriod("2026-09-30", "2026-11-09"), single, { ...child, geburtsdatum: "2026-09-30" }).blocks).toContain("MONTH_END_ALLOCATION_UNVERIFIED");
+    expect(maternityBasisMonths("2026-01-31", withPeriod("2026-01-31", "2026-03-01"))).toEqual([1, 2]);
+    expect(validatePlanStage({ ...ordinary, biologicalMotherApplicant: "as" }, withPeriod("2026-09-30", "2026-11-09"), single, { ...child, geburtsdatum: "2026-09-30" }).blocks).not.toContain("MONTH_END_ALLOCATION_UNVERIFIED");
   });
   it("foreign maternity stays blocked pending annex and equivalence verification", () => {
     const inc: IncomeStageAnswers = { ...income, biologicalMother: { kind: "benefits", periods: { foreign: { from: "2026-09-10", to: "2026-11-09" } }, gkvDataConsent: false } };

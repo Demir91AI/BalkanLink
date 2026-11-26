@@ -18708,5 +18708,163 @@
     "zuschussProof": "Priložite aktuelno rješenje o mjesečnim doprinosima, a kod privatnog osiguranja i dokaz o doprinosu u Basistarif.",
     "allNo": "Sve odgovore ste dali sa „Ne“: prema formularu tada u pravilu postoji obavezno zakonsko osiguranje. Izaberite zakonsku Krankenkasse i u roku od dvije sedmice priložite potvrdu o članstvu. Dio D ostaje prazan.",
     "preflight": "Ovo nije provjereno izdanje Anlage SV 10/2026 (ili je fajl šifrovan, oštećen ili izmijenjen). Preuzmite PDF ponovo sa službenog linka."
+  },
+  "egPilot": {
+    "title": "Elterngeld – popunjavanje službenog obrasca (razvojni pilot)",
+    "scope": "Ovaj tok trenutno pokriva: jedan roditelj koji sam podnosi zahtjev kao samohrani roditelj, bez prihoda prije rođenja (minimalni iznos), Basis/Plus mjesece i njemački račun. Za sve ostale slučajeve dobijate službeni put pokrajine – to nije PDF.",
+    "choose": "Odaberite…",
+    "getMain": "Preuzmite službeni zahtjev sa stranice pokrajine",
+    "getSta": "Preuzmite službeni prilog Staatsangehörigkeit",
+    "file": {
+      "main": "Odaberite preuzeti glavni zahtjev (PDF)",
+      "sta": "Prilog Staatsangehörigkeit (PDF)",
+      "income": "Prilog Einkünfte neben dem Elterngeld (PDF)",
+      "residence": "Prilog Wohnsitz im Ausland (PDF)"
+    },
+    "sec": {
+      "child": "Dijete",
+      "parent": "Vi (podnosilac zahtjeva)",
+      "income": "Prihodi",
+      "plan": "Plan mjeseci",
+      "bank": "Račun i kontakt",
+      "annexes": "Potrebni prilozi"
+    },
+    "f": {
+      "land": "Savezna pokrajina u kojoj živite",
+      "vorname": "Ime",
+      "nachname": "Prezime",
+      "geburtsdatum": "Datum rođenja",
+      "anzahl": "Broj rođene djece (blizanci = 2)",
+      "premature": "Rođeno najmanje 6 sedmica prije termina",
+      "due": "Izračunati termin poroda",
+      "disability": "Dijete ima utvrđeni invaliditet",
+      "singleReason": "Zašto ste samohrani roditelj (odjeljak 2.a)",
+      "geschlecht": "Spol",
+      "familienstand": "Porodični status",
+      "strasse": "Ulica",
+      "nr": "Kućni broj",
+      "plz": "Poštanski broj",
+      "ort": "Mjesto",
+      "steuerId": "Steuer-ID (11 cifara)",
+      "seitGeburt": "U Njemačkoj živim od rođenja",
+      "inDeSeit": "U Njemačkoj od",
+      "nat": "Državljanstvo (odjeljak 2.g)",
+      "staKind": "Vrsta državljanstva (prilog)",
+      "staat": "Država (njemački naziv)",
+      "kv": "Zdravstveno osiguranje",
+      "vnr": "Broj osiguranika",
+      "kk": "Naziv Krankenkasse",
+      "kkOrt": "Sjedište Krankenkasse",
+      "einkommen": "Oporezivi prihod (odjeljak 2.k)",
+      "minimum": "Tražite samo minimalni iznos (bez prihoda prije rođenja)?",
+      "maternity": "Majka je primala Mutterschaftsleistungen za ovo dijete",
+      "mFrom": "Od",
+      "mTo": "Do",
+      "gkv": "Mutterschaftsgeld od Krankenkasse",
+      "employer": "Zuschuss poslodavca",
+      "consent": "Dobrovoljno: slažem se da Krankenkasse elektronski pošalje podatke",
+      "hours": "Potvrđujem: u odabranim mjesecima radim najviše 32 sata sedmično",
+      "bank": "Banka",
+      "iban": "IBAN",
+      "phone": "Telefon (neobavezno)",
+      "email": "E-mail (neobavezno)"
+    },
+    "o": {
+      "singleReason": {
+        "entlastung": "Imam pravo na olakšicu za samohrane roditelje",
+        "unmoeglich": "Drugi roditelj ne može brinuti o djetetu",
+        "kindeswohl": "Briga drugog roditelja ugrožava dobrobit djeteta"
+      },
+      "geschlecht": {
+        "weiblich": "ženski",
+        "männlich": "muški",
+        "divers": "divers",
+        "ohne Angaben": "bez navoda"
+      },
+      "familienstand": {
+        "ledig": "neoženjen/neudata",
+        "geschieden": "razveden/a",
+        "verwitwet": "udovac/udovica"
+      },
+      "nat": {
+        "deutsch": "njemačko",
+        "andere": "drugo, bez ili nerazjašnjeno"
+      },
+      "staKind": {
+        "eu": "EU/EEA/Švicarska",
+        "andere": "druga država (npr. BiH, Srbija)",
+        "staatenlos": "bez državljanstva"
+      },
+      "kv": {
+        "pflicht": "zakonsko obavezno",
+        "freiwillig": "zakonsko dobrovoljno",
+        "familie": "porodično osiguranje",
+        "privat": "privatno",
+        "heilfuersorge": "Heilfürsorge",
+        "keine": "nema osiguranja"
+      },
+      "einkommen": {
+        "bis175_fest": "do 175.000 € (utvrđeno)",
+        "ueber175_fest": "preko 175.000 € (utvrđeno)",
+        "ueber175_vorauss": "vjerovatno preko 175.000 €",
+        "unter175_vorauss": "vjerovatno do 175.000 €"
+      },
+      "minimum": {
+        "yes": "Da",
+        "no": "Ne, imao/la sam prihod"
+      },
+      "month": {
+        "none": "—",
+        "basis": "Basis",
+        "plus": "Plus"
+      }
+    },
+    "month": "{{n}}. mjesec života",
+    "planHint": "Odaberite za svaki mjesec života. Mjeseci sa Mutterschaftsleistungen moraju biti Basis.",
+    "downloadAll": "Preuzmi popunjene PDF-ove",
+    "ready": "Provjereno: {{n}} službeni dokument(a) spreman/na. Pregledajte, potpišite rukom i pošaljite Elterngeldstelle.",
+    "missing": "Nedostaje originalni PDF",
+    "refused": "{{doc}}: odabrani fajl nije provjereno službeno izdanje ili se ne može sigurno popuniti.",
+    "routeTitle": "Službeni put za vašu pokrajinu",
+    "routeNotPdf": "Za ovaj slučaj BalkanLink ne popunjava PDF. Koristite službeni obrazac ili online zahtjev pokrajine.",
+    "routeLink": "Otvori službenu stranicu",
+    "officeLookup": "Pronađi nadležnu Elterngeldstelle",
+    "err": {
+      "generic": "provjerite unos",
+      "required": "obavezno",
+      "date": "neispravan datum",
+      "steuer_id": "Steuer-ID mora imati 11 cifara",
+      "de_iban_checksum": "IBAN nije ispravan",
+      "maternity_requires_basis": "ovaj mjesec mora biti Basis",
+      "identity_mismatch": "podaci se ne poklapaju s glavnim zahtjevom"
+    },
+    "reason": {
+      "generic": "Ovaj slučaj još nije provjeren za automatsko popunjavanje.",
+      "LAND_UNVERIFIED": "Službeni PDF ove pokrajine nije provjeren.",
+      "BIRTH_BEFORE_EDITION": "Za djecu rođenu prije 01.04.2025. važi drugo izdanje.",
+      "ANNEX_STA_UNVERIFIED_FOR_LAND": "Prilog Staatsangehörigkeit za ovu pokrajinu nije provjeren.",
+      "MATERNITY_MONTH_ALLOCATION_UNVERIFIED": "Raspored Mutterschaftsleistungen za ovaj slučaj nije provjeren.",
+      "SPECIAL_CHILD_PLAN_UNVERIFIED": "Posebna pravila (prerano rođenje i sl.) još nisu provjerena."
+    },
+    "land": {
+      "BW": "Baden-Württemberg",
+      "BY": "Bayern",
+      "BE": "Berlin",
+      "BB": "Brandenburg",
+      "HB": "Bremen",
+      "HH": "Hamburg",
+      "HE": "Hessen",
+      "MV": "Mecklenburg-Vorpommern",
+      "NI": "Niedersachsen",
+      "NW": "Nordrhein-Westfalen",
+      "RP": "Rheinland-Pfalz",
+      "SL": "Saarland",
+      "SN": "Sachsen",
+      "ST": "Sachsen-Anhalt",
+      "SH": "Schleswig-Holstein",
+      "TH": "Thüringen"
+    },
+    "devNotice": "Samo za testiranje. Nije objavljeno i nije usluga Elterngeldstelle.",
+    "signature": "Datum i potpis ne popunjavamo. Potpišite sami, priložite tražene dokaze i pošaljite nadležnoj Elterngeldstelle."
   }
 }

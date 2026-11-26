@@ -138,6 +138,8 @@ function parentFills(p: "AS" | "2E", x: ParentAnswers, part2: boolean): F[] {
   if (p === "AS" && x.familienstand === "verpartnert") f.push({ name: FS(x.mitAnderemElternteil ? 5 : 6), type: "check" });
   // 2.c: AS ja 15 / seit Geburt 16 / seit 17 / Ausland 18; 2E 19/20/21/22.
   const w = p === "AS" ? [15, 16, 17] : [19, 20, 21];
+  // Printed "Nein, ich lebe im Ausland" (FS 18 / 22); details go into the separate verified annex.
+  if (!x.wohnsitzDE) f.push({ name: FS(p === "AS" ? 18 : 22), type: "check" });
   if (x.wohnsitzDE) {
     f.push({ name: FS(w[0]), type: "check" }, { name: FS(x.seitGeburt ? w[1] : w[2]), type: "check" });
     if (!x.seitGeburt && x.inDeSeit) f.push(...T(`2c ${p} in D seit Jahr` as EgFieldName, isoToDe(x.inDeSeit)));

@@ -18708,5 +18708,163 @@
     "zuschussProof": "Fügen Sie den aktuellen Beitragsbescheid bei, bei privater Versicherung zusätzlich einen Nachweis über den Beitrag im Basistarif.",
     "allNo": "Alle Fragen mit „Nein“ beantwortet: Laut Formular besteht dann grundsätzlich Versicherungspflicht in der gesetzlichen Kranken- und Pflegeversicherung. Wählen Sie eine gesetzliche Krankenkasse und legen Sie innerhalb von zwei Wochen eine Mitgliedsbescheinigung vor. Abschnitt D bleibt leer.",
     "preflight": "Keine geprüfte Ausgabe der Anlage SV 10/2026 (oder Datei verschlüsselt, beschädigt oder verändert). Bitte PDF erneut über den offiziellen Link laden."
+  },
+  "egPilot": {
+    "title": "Elterngeld – amtliches Formular ausfüllen (Entwicklungs-Pilot)",
+    "scope": "Dieser Ablauf deckt derzeit ab: ein alleinerziehender Elternteil beantragt allein, ohne Einkommen vor der Geburt (Mindestbetrag), Basis-/Plus-Monate und deutsches Konto. Für alle anderen Fälle erhalten Sie den offiziellen Weg Ihres Landes – das ist kein PDF.",
+    "choose": "Bitte wählen…",
+    "getMain": "Offiziellen Antrag beim Land herunterladen",
+    "getSta": "Offizielle Anlage Staatsangehörigkeit herunterladen",
+    "file": {
+      "main": "Heruntergeladenen Hauptantrag wählen (PDF)",
+      "sta": "Anlage Staatsangehörigkeit (PDF)",
+      "income": "Anlage Einkünfte neben dem Elterngeld (PDF)",
+      "residence": "Anlage Wohnsitz im Ausland (PDF)"
+    },
+    "sec": {
+      "child": "Kind",
+      "parent": "Sie (antragstellende Person)",
+      "income": "Einkommen",
+      "plan": "Monatsplan",
+      "bank": "Konto und Kontakt",
+      "annexes": "Erforderliche Anlagen"
+    },
+    "f": {
+      "land": "Bundesland, in dem Sie wohnen",
+      "vorname": "Vorname",
+      "nachname": "Nachname",
+      "geburtsdatum": "Geburtsdatum",
+      "anzahl": "Anzahl geborener Kinder (Zwillinge = 2)",
+      "premature": "Mindestens 6 Wochen vor dem errechneten Termin geboren",
+      "due": "Errechneter Geburtstermin",
+      "disability": "Behinderung des Kindes festgestellt",
+      "singleReason": "Grund Alleinerziehend (Abschnitt 2.a)",
+      "geschlecht": "Geschlecht",
+      "familienstand": "Familienstand",
+      "strasse": "Straße",
+      "nr": "Hausnummer",
+      "plz": "PLZ",
+      "ort": "Ort",
+      "steuerId": "Steuer-ID (11 Ziffern)",
+      "seitGeburt": "Ich wohne seit Geburt in Deutschland",
+      "inDeSeit": "In Deutschland seit",
+      "nat": "Staatsangehörigkeit (Abschnitt 2.g)",
+      "staKind": "Art der Staatsangehörigkeit (Anlage)",
+      "staat": "Staat",
+      "kv": "Krankenversicherung",
+      "vnr": "Versichertennummer",
+      "kk": "Name der Krankenkasse",
+      "kkOrt": "Sitz der Krankenkasse",
+      "einkommen": "Zu versteuerndes Einkommen (Abschnitt 2.k)",
+      "minimum": "Nur Mindestbetrag (kein Einkommen vor der Geburt)?",
+      "maternity": "Mutterschaftsleistungen für dieses Kind erhalten",
+      "mFrom": "Von",
+      "mTo": "Bis",
+      "gkv": "Mutterschaftsgeld der Krankenkasse",
+      "employer": "Arbeitgeberzuschuss",
+      "consent": "Freiwillig: elektronischer Datenabruf bei der Krankenkasse",
+      "hours": "Ich bestätige: in den gewählten Monaten höchstens 32 Wochenstunden",
+      "bank": "Bank",
+      "iban": "IBAN",
+      "phone": "Telefon (freiwillig)",
+      "email": "E-Mail (freiwillig)"
+    },
+    "o": {
+      "singleReason": {
+        "entlastung": "Entlastungsbetrag für Alleinerziehende",
+        "unmoeglich": "Betreuung durch anderen Elternteil unmöglich",
+        "kindeswohl": "Betreuung durch anderen Elternteil gefährdet Kindeswohl"
+      },
+      "geschlecht": {
+        "weiblich": "weiblich",
+        "männlich": "männlich",
+        "divers": "divers",
+        "ohne Angaben": "ohne Angaben"
+      },
+      "familienstand": {
+        "ledig": "ledig",
+        "geschieden": "geschieden",
+        "verwitwet": "verwitwet"
+      },
+      "nat": {
+        "deutsch": "deutsch",
+        "andere": "andere, keine oder ungeklärt"
+      },
+      "staKind": {
+        "eu": "EU/EWR/Schweiz",
+        "andere": "anderer Staat",
+        "staatenlos": "staatenlos"
+      },
+      "kv": {
+        "pflicht": "gesetzlich pflichtversichert",
+        "freiwillig": "gesetzlich freiwillig",
+        "familie": "Familienversicherung",
+        "privat": "privat",
+        "heilfuersorge": "Heilfürsorge",
+        "keine": "keine"
+      },
+      "einkommen": {
+        "bis175_fest": "bis 175.000 € (feststehend)",
+        "ueber175_fest": "über 175.000 € (feststehend)",
+        "ueber175_vorauss": "voraussichtlich über 175.000 €",
+        "unter175_vorauss": "voraussichtlich bis 175.000 €"
+      },
+      "minimum": {
+        "yes": "Ja",
+        "no": "Nein, ich hatte Einkommen"
+      },
+      "month": {
+        "none": "—",
+        "basis": "Basis",
+        "plus": "Plus"
+      }
+    },
+    "month": "{{n}}. Lebensmonat",
+    "planHint": "Für jeden Lebensmonat wählen. Monate mit Mutterschaftsleistungen müssen Basis sein.",
+    "downloadAll": "Ausgefüllte PDFs herunterladen",
+    "ready": "Geprüft: {{n}} amtliche(s) Dokument(e) bereit. Prüfen, handschriftlich unterschreiben und an die Elterngeldstelle senden.",
+    "missing": "Original-PDF fehlt",
+    "refused": "{{doc}}: Die gewählte Datei ist keine geprüfte amtliche Fassung oder kann nicht sicher ausgefüllt werden.",
+    "routeTitle": "Offizieller Weg für Ihr Land",
+    "routeNotPdf": "Für diesen Fall füllt BalkanLink kein PDF aus. Nutzen Sie das offizielle Formular oder den Online-Antrag Ihres Landes.",
+    "routeLink": "Offizielle Seite öffnen",
+    "officeLookup": "Zuständige Elterngeldstelle finden",
+    "err": {
+      "generic": "Eingabe prüfen",
+      "required": "erforderlich",
+      "date": "ungültiges Datum",
+      "steuer_id": "Steuer-ID muss 11 Ziffern haben",
+      "de_iban_checksum": "IBAN ungültig",
+      "maternity_requires_basis": "dieser Monat muss Basis sein",
+      "identity_mismatch": "Angaben weichen vom Hauptantrag ab"
+    },
+    "reason": {
+      "generic": "Dieser Fall ist für das automatische Ausfüllen noch nicht geprüft.",
+      "LAND_UNVERIFIED": "Das amtliche PDF dieses Landes ist nicht geprüft.",
+      "BIRTH_BEFORE_EDITION": "Für Geburten vor dem 01.04.2025 gilt eine andere Fassung.",
+      "ANNEX_STA_UNVERIFIED_FOR_LAND": "Anlage Staatsangehörigkeit für dieses Land nicht geprüft.",
+      "MATERNITY_MONTH_ALLOCATION_UNVERIFIED": "Zuordnung der Mutterschaftsleistungen für diesen Fall nicht geprüft.",
+      "SPECIAL_CHILD_PLAN_UNVERIFIED": "Sonderregeln (z. B. Frühgeburt) noch nicht geprüft."
+    },
+    "land": {
+      "BW": "Baden-Württemberg",
+      "BY": "Bayern",
+      "BE": "Berlin",
+      "BB": "Brandenburg",
+      "HB": "Bremen",
+      "HH": "Hamburg",
+      "HE": "Hessen",
+      "MV": "Mecklenburg-Vorpommern",
+      "NI": "Niedersachsen",
+      "NW": "Nordrhein-Westfalen",
+      "RP": "Rheinland-Pfalz",
+      "SL": "Saarland",
+      "SN": "Sachsen",
+      "ST": "Sachsen-Anhalt",
+      "SH": "Schleswig-Holstein",
+      "TH": "Thüringen"
+    },
+    "devNotice": "Nur zum Testen. Nicht veröffentlicht und kein Angebot der Elterngeldstelle.",
+    "signature": "Datum und Unterschrift füllen wir nicht aus. Selbst unterschreiben, Nachweise beifügen und an die zuständige Elterngeldstelle senden."
   }
 }

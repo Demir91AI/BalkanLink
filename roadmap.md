@@ -148,7 +148,9 @@
 - [x] 26.11 checkpoint: section13 internal mapping, confirmed maternity dates/identity, multiples/child-disability concurrency, separate household child total, income HH/SH/RP and residence HH/RP annex internal mapping/readback;16-state directory fallback model. 255 FormularPilot tests passed/5 skipped; full suite1931/11 before final2 planner tests. See docs/family-elterngeld-checkpoint-2026-11-26.md.
 - [x] Elterngeld checkpoint 3: sections 5–9 mapped (131 native fields), authentic read-back and regressions; changed-period under35 cycle explicitly blocked, not resolved by inference.
 - [ ] Elterngeld checkpoint 4: ordinary prospective month plans/sections 10–12 implemented and tested; maternity allocation, special-child plans, prior/separate applications and required income/foreign annexes remain blocked pending official semantic verification.
-- [ ] Elterngeld checkpoint 5: remaining fields/attachments, four-language memory-only dev UI, authentic end-to-end mobile/desktop.
+- [x] Elterngeld HH vertical slice (26.11.2026): integrated package (main + STA/income/residence annexes, identity cross-check), Lebensmonat month-end rule per §187(2)/§188 BGB, dev-only four-language UI, authentic HH originals read-back, browser E2E BS/HR/SR/DE × 390/1280.
+- [ ] Elterngeld UI breadth: couples/both applicants, pre-birth income sections 5–8, siblings, residence/income annex screens (engine supports annexes; UI currently routes these to the official Land route).
+- [ ] Elterngeld SH/RP/BB: same original verified; run the UI E2E per Land (SH residence and BB STA/income/residence annexes unverified → official route).
 - [ ] Elterngeld: verify jurisdiction/editions and compatible coverage or explicit official fallback for all 16 Länder.
 - [ ] Kindergeld and Kinderzuschlag: recheck permitted protected-form options; preserve protections and verify existing official-route fallback.
 - [ ] Mutterschaftsgeld: BAS complete mapping/tests and verified compatible alternatives or insurer routing.
